@@ -28,6 +28,26 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-6a09274e",
+        "prompt": "文化繁荣兴盛相对于中华民族伟大复兴、社会主义现代化强国、人民美好生活需要以及世界文化激荡，分别怎样定位？恢复完整判断并保留各自范围。",
+        "checking_criteria": [
+          "四个对象与精神支撑/应有之义/内在要求/前提基础逐对对应，不能仅列角色词；",
+          "第四项不能将范围换成综合国力竞争。"
+        ],
+        "memory_cue": "先列四个关系对象，分清民族复兴、强国建设、人民需要、世界文化激荡，再恢复各自角色；不先给角色词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C10-K01-N01-I01",
+          "POL27-CF-XI-C10-K01-N01-I02",
+          "POL27-CF-XI-C10-K01-N01-I03",
+          "POL27-CF-XI-C10-K01-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c10.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C10-K01-N01-I01 (PDF144/书143); POL27-CF-XI-C10-K01-N01-I02 (PDF144/书143); POL27-CF-XI-C10-K01-N01-I03 (PDF144/书143); POL27-CF-XI-C10-K01-N01-I04 (PDF144/书143); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C10-S01中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C10-S01",
         "name": "文化繁荣兴盛的四个高频定位",
         "items": [
@@ -60,6 +80,27 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-ab62499f",
+        "prompt": "党的文化领导权、社会主义核心价值观、中华文明特性与优秀传统文化，在本章中分别解决什么问题？为什么不能互相替答？",
+        "checking_criteria": [
+          "分清领导主体与方向、共同价值、历史文明根基三个关系，不能只复述名称；",
+          "这个三层解释仍在原五节点内，不删掉文化总定位和当代转化节点。"
+        ],
+        "memory_cue": "逐个想“谁保证方向、共同价值是什么位置、历史根脉在哪里”；只在首答后给。",
+        "inspected_refs": [
+          "POL27-CF-XI-C10-S02",
+          "POL27-CF-XI-C10-S03",
+          "POL27-CF-XI-C10-K10",
+          "POL27-CF-XI-C10-K04-N01",
+          "POL27-CF-XI-C10-K10-N02"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c10.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C10-S02 (PDF145/书144); POL27-CF-XI-C10-S03 (PDF145–146/书144–145); POL27-CF-XI-C10-K10 (PDF146–147/书145–146); POL27-CF-XI-C10-K04-N01 (PDF145/书144); POL27-CF-XI-C10-K10-N02 (PDF146–147/书145–146); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C10-S01、C10-S02、C10-S03、C10-S04中本组已授模型与对象关系；随后可在C10-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "方向—价值—文明根基不能串层",
         "items": [
           "党的文化领导权：回答文化建设由谁保证方向",
@@ -69,6 +110,25 @@
         "source_refs": ["POL27-CF-XI-C10-S02", "POL27-CF-XI-C10-S03", "POL27-CF-XI-C10-K10"]
       },
       {
+        "id": "polmem-397c5b35",
+        "natural_unit_id": "POL27-CF-XI-C10-S04",
+        "prompt": "为什么传统文化传承不能直接理解为原样复古？说明传统文化与优秀传统文化的处理要求，以及优秀传统文化同当代生活的关系。",
+        "checking_criteria": [
+          "能够说明继承不等于全部照搬，优秀传统文化需要当代转化发展，不把“批判”解释成全盘否定。"
+        ],
+        "memory_cue": "分别看“保留历史根脉”和“面向当代发展”两个问题，不添加二者自动互相保证的因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C10-K10-N02-I01",
+          "POL27-CF-XI-C10-K10-N02",
+          "POL27-CF-XI-C10-K10-N02-TBL01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c10.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C10-K10-N02-I01 (PDF146/书145); POL27-CF-XI-C10-K10-N02 (PDF146–147/书145–146); POL27-CF-XI-C10-K10-N02-TBL01 (PDF147/书146); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C10-S04中本组已授模型与对象关系；随后可在C10-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "传统文化传承 ≠ 原样复古",
         "items": ["传统文化需要批判继承", "优秀传统文化通过创造性转化、创新性发展与当代中国和现代社会相协调"],
         "source_refs": ["POL27-CF-XI-C10-K10-N02-I01"]

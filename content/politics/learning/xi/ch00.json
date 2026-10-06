@@ -56,6 +56,26 @@
     ],
     "active_precision": [
       {
+        "id": "polmem-6c305773",
+        "prompt": "‘两个结合’的两项结合对象是什么？再说出它对于开辟发展中国特色社会主义、推进马克思主义中国化时代化，以及取得成功的三项固定身份。",
+        "checking_criteria": [
+          "两项结合都以马克思主义基本原理为共同主语，不能只说‘实际和文化相结合’。",
+          "必由之路对应开辟和发展中国特色社会主义；根本途径对应马克思主义中国化时代化；最大法宝对应取得成功。",
+          "对象、范围词、角色对应不可交换。"
+        ],
+        "memory_cue": "先恢复共同主语，再放入‘实际／文化’两个对象；身份按道路、理论推进、成功三个问题找回。",
+        "inspected_refs": [
+          "POL27-CF-XI-C00-K02",
+          "POL27-CF-XI-C00-K02-N01-I03",
+          "POL27-CF-XI-C00-K02-N02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c00.json#POL27-CF-XI-C00-K02,POL27-CF-XI-C00-K02-N01-I03,POL27-CF-XI-C00-K02-N02；CF下册PDF105–106 / 书104–105；blob 194d92a086b273736a5bd6ec3c4375b174cdfabd；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C00-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "natural_unit_id": "POL27-CF-XI-C00",
         "name": "两个结合的身份",
         "items": [
@@ -68,6 +88,31 @@
         "source_refs": ["POL27-CF-XI-C00-K02", "POL27-CF-XI-C00-K02-N01-I03", "POL27-CF-XI-C00-K02-N02"]
       },
       {
+        "id": "polmem-c7c223fb",
+        "prompt": "习近平新时代中国特色社会主义思想的‘六个必须坚持’分别是什么？说出每一项及其对应角色，六项都要回答。",
+        "checking_criteria": [
+          "六项完整，无多项少项；顺序不强制。",
+          "人民至上—根本价值立场；自信自立—内在精神特质；守正创新—鲜明理论品格；问题导向—重要实践要求；系统观念—基本思想和工作方法；胸怀天下—中国共产党人的境界格局必须逐项对应。",
+          "可省句式性‘是’，不可用模糊‘方法/精神’抹掉角色区别。"
+        ],
+        "memory_cue": "按‘站在哪里、凭什么精神、怎样继承发展、对着什么问题、怎样看整体、胸怀多大范围’恢复六对。此问法是辅助，不能替代答案。",
+        "inspected_refs": [
+          "POL27-CF-XI-C00-K03-N04-I01",
+          "POL27-CF-XI-C00-K03-N04-I02",
+          "POL27-CF-XI-C00-K03-N04-I03",
+          "POL27-CF-XI-C00-K03-N04-I04",
+          "POL27-CF-XI-C00-K03-N04-I05",
+          "POL27-CF-XI-C00-K03-N04-I06"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c00.json#POL27-CF-XI-C00-K03-N04-I01,POL27-CF-XI-C00-K03-N04-I02,POL27-CF-XI-C00-K03-N04-I03,POL27-CF-XI-C00-K03-N04-I04,POL27-CF-XI-C00-K03-N04-I05,POL27-CF-XI-C00-K03-N04-I06；CF下册PDF107–107 / 书106–106；blob 194d92a086b273736a5bd6ec3c4375b174cdfabd；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C00-S03 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch00.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:f1dbaed6fa44358862d3afe7801b47d8de73b10b61ac4f9b0d567eff733e86af"
+        },
         "natural_unit_id": "POL27-CF-XI-C00",
         "name": "六个必须坚持及角色",
         "items": [
@@ -91,6 +136,26 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-72c5174c",
+        "natural_unit_id": "POL27-CF-XI-C00",
+        "prompt": "导论中，两个结合，十个明确/十四个坚持/十三个方面成就，六个必须坚持，历史地位，分别回答哪一层问题？",
+        "checking_criteria": [
+          "四层各有对应对象；创新路径、体系展开、世界观方法论、思想地位不能互换。",
+          "允许同义概念解释；这是既有模型的重建，不要求逐字背讲解。"
+        ],
+        "memory_cue": "按‘怎样形成—怎样展开—怎样认识处理问题—如何总体定位’回到原模型。",
+        "inspected_refs": [
+          "POL27-CF-XI-C00-K02",
+          "POL27-CF-XI-C00-K03",
+          "POL27-CF-XI-C00-K04"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c00.json#POL27-CF-XI-C00-K02,POL27-CF-XI-C00-K03,POL27-CF-XI-C00-K04；CF下册PDF105–107 / 书104–106；blob 194d92a086b273736a5bd6ec3c4375b174cdfabd；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C00-S01/C00-S02/C00-S03 已理解相关对象与模型关系后，于 C00-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "路径—体系—方法—地位不能串帽子",
         "items": [
           "两个结合回答理论创新怎样发生",

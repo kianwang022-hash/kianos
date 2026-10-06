@@ -27,6 +27,28 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-cfea30ec",
+        "prompt": "全面依法治国对于国家治理、中国特色社会主义法治道路对于全面依法治国、党的领导对于中国特色社会主义与社会主义法治，分别如何定位？请恢复完整判断。",
+        "checking_criteria": [
+          "第一句是国家治理中的深刻革命；",
+          "第二句必须保留中国特色社会主义法治道路这一完整对象和唯一正确道路的定位；",
+          "第三句同一主语对应最本质特征、最根本保证两个不同评价范围。",
+          "不能把理论指导、制度基础换作政治保证。"
+        ],
+        "memory_cue": "先依次确定“国家治理、道路选择、党的领导”三个问题对象，再补具体角色；不先给角色词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C09-K01",
+          "POL27-CF-XI-C09-K02",
+          "POL27-CF-XI-C09-K02-N01-I01",
+          "POL27-CF-XI-C09-S01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c09.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C09-K01 (PDF141–142/书140–141); POL27-CF-XI-C09-K02 (PDF142/书141); POL27-CF-XI-C09-K02-N01-I01 (PDF142/书141); POL27-CF-XI-C09-S01 (PDF141–142/书140–141); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C09-S01中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C09-S01",
         "name": "全面依法治国与法治道路的身份",
         "items": [
@@ -73,6 +95,29 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-c7a53dd6",
+        "prompt": "法治道路、法治体系、法治中国在原章模型中各自回答什么问题？说明为什么制度组成问题不能拿道路原则或实践布局直接替答。",
+        "checking_criteria": [
+          "要区别方向原则、制度系统、整体实践三个问题；",
+          "不能只复述三个名称，也不能把本三层解释替代原四节点总图。"
+        ],
+        "memory_cue": "先想“往哪走、制度怎样配合、怎样全面落实”，再还原原图；不编新因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C09-K02",
+          "POL27-CF-XI-C09-S02",
+          "POL27-CF-XI-C09-K08",
+          "POL27-CF-XI-C09-K02-N01",
+          "POL27-CF-XI-C09-K02-N02",
+          "POL27-CF-XI-C09-K08-N01",
+          "POL27-CF-XI-C09-K08-N02"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c09.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C09-K02 (PDF142/书141); POL27-CF-XI-C09-S02 (PDF142–143/书141–142); POL27-CF-XI-C09-K08 (PDF143/书142); POL27-CF-XI-C09-K02-N01 (PDF142/书141); POL27-CF-XI-C09-K02-N02 (PDF142/书141); POL27-CF-XI-C09-K08-N01 (PDF143/书142); POL27-CF-XI-C09-K08-N02 (PDF143/书142); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C09-S01、C09-S02、C09-S03中本组已授模型与对象关系；随后可在C09-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "道路—体系—法治中国不能串层",
         "items": [
           "法治道路：回答根本方向、核心要义和基本原则",
@@ -82,6 +127,25 @@
         "source_refs": ["POL27-CF-XI-C09-K02", "POL27-CF-XI-C09-S02", "POL27-CF-XI-C09-K08"]
       },
       {
+        "id": "polmem-963ec6c1",
+        "natural_unit_id": "POL27-CF-XI-C09-S03",
+        "prompt": "法治中国的两组工作布局为什么不能合成一组混用？说明每组成员属于什么类型，以及各组怎样组织。",
+        "checking_criteria": [
+          "活动方式与建设对象分别说明，不能把依法行政等同法治政府；",
+          "依法治国、依法执政、依法行政应识别为治理活动；法治国家、法治政府、法治社会应识别为建设对象，不能跨组重配成员。"
+        ],
+        "memory_cue": "看“依法”后接活动，还是“法治”后接对象；这只是阅读提示。",
+        "inspected_refs": [
+          "POL27-CF-XI-C09-K08-N01",
+          "POL27-CF-XI-C09-K08-N02"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c09.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C09-K08-N01 (PDF143/书142); POL27-CF-XI-C09-K08-N02 (PDF143/书142); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C09-S03中本组已授模型与对象关系；随后可在C09-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "共同推进 ≠ 一体建设",
         "items": [
           "依法治国/依法执政/依法行政回答治理方式如何协同推进",

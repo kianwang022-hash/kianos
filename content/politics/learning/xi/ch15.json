@@ -27,6 +27,29 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-4ca372a9",
+        "prompt": "按本章教材，一国两制最早针对什么问题提出、首先运用于哪里，这些问题的历史性质分别是什么？一国两制在中国特色社会主义和和平统一制度构想中又怎样定位？",
+        "checking_criteria": [
+          "提出对象和首先运用对象分别回答，不因时间词相近而交换；",
+          "教材的问题性质按各对象对应。",
+          "制度身份不替代历史地点，第4项完整保留伟大构想与制度创新成果两个判断。",
+          "本文核的是教材表述，不能把答题当现实进程预测。",
+          "最早针对台湾、首先用于香港澳门；台湾对应国内战争遗留并属中国内政，港澳对应殖民主义遗留；同时恢复一国两制对于中国特色社会主义的伟大创举定位。"
+        ],
+        "memory_cue": "先把“提出、运用、历史性质、制度评价”四类问题分开，再分别恢复内容，不先给被考角色。",
+        "inspected_refs": [
+          "POL27-CF-XI-C15-K01",
+          "POL27-CF-XI-C15-K01-N01-I01",
+          "POL27-CF-XI-C15-K01-N01-I02",
+          "POL27-CF-XI-C15-K01-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c15.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C15-K01 (PDF157–158/书156–157); POL27-CF-XI-C15-K01-N01-I01 (PDF157/书156); POL27-CF-XI-C15-K01-N01-I02 (PDF157/书156); POL27-CF-XI-C15-K01-N02-I01 (PDF157/书156); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C15-S01中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C15-S01",
         "name": "一国两制的提出、实践与身份",
         "items": [
@@ -39,6 +62,31 @@
         "source_refs": ["POL27-CF-XI-C15-K01", "POL27-CF-XI-C15-K01-N01-I01", "POL27-CF-XI-C15-K01-N01-I02", "POL27-CF-XI-C15-K01-N02-I01"]
       },
       {
+        "id": "polmem-fd1dbcb9",
+        "prompt": "按本章的一国两制表述，实施这一方针要同时维护什么、保持什么，这组要求处于什么位置？中央全面管治权与特别行政区高度自治权是什么关系？",
+        "checking_criteria": [
+          "宗旨两个方面都完整，不只写国家利益而漏港澳长期繁荣稳定；",
+          "主权/安全/发展利益齐全。",
+          "权力关系必须为本质统一、源流/本末，不改成两种互不相关的主权；",
+          "“源/本”指中央全面管治权，不能倒置。",
+          "不要据抽象关系推出未讲的具体权力清单。",
+          "维护国家主权、安全、发展利益及保持港澳长期繁荣稳定，共同对应一国两制的根本宗旨；不能只恢复事项名单而漏掉定位。"
+        ],
+        "memory_cue": "先区分国家利益与港澳长期治理两方面，再恢复两种权力的关系；首答后才给提示。",
+        "inspected_refs": [
+          "POL27-CF-XI-C15-K02-N01-I01",
+          "POL27-CF-XI-C15-K02-N03-I01",
+          "POL27-CF-XI-C15-K02-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c15.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C15-K02-N01-I01 (PDF158/书157); POL27-CF-XI-C15-K02-N03-I01 (PDF158/书157); POL27-CF-XI-C15-K02-N03 (PDF158/书157); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C15-S01、C15-S02中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch15.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:34308a796fdb216da6019992cc60b1845c744d815fbe6853bc9166f9f4536410"
+        },
         "natural_unit_id": "POL27-CF-XI-C15-S01",
         "name": "一国两制根本宗旨与管治边界",
         "items": [
@@ -70,6 +118,26 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-17abb305",
+        "natural_unit_id": "POL27-CF-XI-C15-S01",
+        "prompt": "按本章教材，台湾问题与港澳问题在历史性质、一国两制提出和首先实践关系上有哪些区别？为什么“最早提出”不能替代“首先实践”的答案？",
+        "checking_criteria": [
+          "问题性质分别对应，最早针对与首先运用分开；",
+          "可用自己的话说明问法不同，但不得交换地区或性质。",
+          "台湾问题对应国内战争遗留，港澳问题对应殖民主义遗留；最早针对台湾提出与首先在港澳实践分别说明，允许语义等值解释。"
+        ],
+        "memory_cue": "分别问历史性质、提出对象、实践对象，不先给地点。",
+        "inspected_refs": [
+          "POL27-CF-XI-C15-K01-N01-I01",
+          "POL27-CF-XI-C15-K01-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c15.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C15-K01-N01-I01 (PDF157/书156); POL27-CF-XI-C15-K01-N01-I02 (PDF157/书156); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C15-S01中本组已授模型与对象关系；随后可在C15-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "台湾问题 ≠ 港澳问题",
         "items": [
           "台湾问题源于国内战争遗留，属于中国内政",
@@ -79,6 +147,26 @@
         "source_refs": ["POL27-CF-XI-C15-K01-N01-I01", "POL27-CF-XI-C15-K01-N01-I02"]
       },
       {
+        "id": "polmem-e58c7090",
+        "natural_unit_id": "POL27-CF-XI-C15-S03",
+        "prompt": "按本章固定版本教材，“和平统一、一国两制”如何定位，应怎样争取和平统一前景；关于放弃使用武力以及国家主权和领土完整，分别保留了什么表述？说明这些层次为何不能相互删去或改成现实行动预测。",
+        "checking_criteria": [
+          "完整方针不漏一国两制；",
+          "争取前景与政策边界分别表达，不能把前者直接说成后者已被取消，也不能据后者判断某行动已确定。",
+          "须分别恢复最佳方式、最大诚意尽最大努力、决不承诺放弃使用武力、国家核心利益及不可逾越红线的原材料内容；不将这些表述转成现实行动预测。"
+        ],
+        "memory_cue": "分别回答方式定位、争取方向、政策边界、核心利益四个问题；只作原组整理，不添加威胁、因果或具体行动条件。",
+        "inspected_refs": [
+          "POL27-CF-XI-C15-K07",
+          "POL27-CF-XI-C15-K06-TBL01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c15.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C15-K07 (PDF160/书159); POL27-CF-XI-C15-K06-TBL01 (PDF160/书159); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C15-S03中本组已授模型与对象关系；随后可在C15-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "和平统一最佳方式 ≠ 放弃反分裂底线",
         "items": [
           "‘和平统一、一国两制’是实现两岸统一的最佳方式",

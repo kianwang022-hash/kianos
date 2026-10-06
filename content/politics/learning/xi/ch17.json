@@ -54,6 +54,30 @@
     ],
     "active_precision": [
       {
+        "id": "polmem-de1d15b3",
+        "prompt": "关于党的政治建设与党内政治生活，本章分别怎样规定两者的任务？请将任务层级和具体内容连同对象一起写出。",
+        "checking_criteria": [
+          "党的政治建设对应首要任务：保证全党服从中央，维护党中央权威和集中统一领导；",
+          "两个具体部分均完整。",
+          "党内政治生活对应首要任务：加强思想教育和理论武装；",
+          "两个内容不能漏。",
+          "首要任务角色与两个不同主语、各自内容正确配对；",
+          "只列两个答案而不写对象不能通过。"
+        ],
+        "memory_cue": "答后先辨政治建设与党内政治生活两个主语，再检查各自内容",
+        "inspected_refs": [
+          "POL27-CF-XI-C17-K03-N02",
+          "POL27-CF-XI-C17-K03-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c17.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C17-K03-N02 (PDF163/书162); POL27-CF-XI-C17-K03-N03 (PDF163/书162); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C17-S02中本组已授模型与对象关系；随后可在C17-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch17.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:343f223fde372adc060b76e3d7fcc2fb60be1ac90e55cc601cadd0f32ad8ebd6"
+        },
         "natural_unit_id": "POL27-CF-XI-C17-S02",
         "name": "两个‘首要任务’不可串",
         "items": ["党的政治建设的首要任务：保证全党服从中央，维护党中央权威和集中统一领导", "党内政治生活的首要任务：加强思想教育和理论武装"],
@@ -61,20 +85,89 @@
         "source_refs": ["POL27-CF-XI-C17-K03-N02", "POL27-CF-XI-C17-K03-N03"]
       },
       {
+        "id": "polmem-281a681c",
+        "prompt": "党的自我革命与跳出历史周期率是什么关系？勇于自我革命对于中国共产党区别于其他政党、党的优势和党的品格，分别如何定位？请保留每句主体与作用范围。",
+        "checking_criteria": [
+          "第二个答案必须连同党的自我革命、跳出历史周期率恢复；",
+          "仅说序号不合格。",
+          "显著标志必须连同勇于自我革命、中国共产党、区别于其他政党恢复。",
+          "最大优势、最鲜明品格均要保留主体勇于自我革命与我们党；",
+          "二者可合句但不能漏项。",
+          "原四个身份碎词全都列出仍不够，必须写出完整命题；",
+          "不从第二个答案推出第一个已被取消。"
+        ],
+        "memory_cue": "答后按一个历史问题与一个党的特点的不同判断检查完整句；不先亮出四个身份碎词让学生照配。",
+        "inspected_refs": [
+          "POL27-CF-XI-C17-K10",
+          "POL27-CF-XI-C17-K10-N01",
+          "POL27-CF-XI-C17-K10-N01-I02",
+          "POL27-CF-XI-C17-K10-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c17.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C17-K10 (PDF164/书163); POL27-CF-XI-C17-K10-N01 (PDF164/书163); POL27-CF-XI-C17-K10-N01-I02 (PDF164/书163); POL27-CF-XI-C17-K10-N01-I01 (PDF164/书163); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C17-S04中本组已授模型与对象关系；随后可在C17-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch17.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:e281420e57a9a5b0da46c059d74b98d2e47bce0b1a811da54d6b8edf4b694731"
+        },
         "natural_unit_id": "POL27-CF-XI-C17-S04",
         "name": "自我革命身份组",
-        "items": ["第二个答案", "区别于其他政党的显著标志", "最大的优势", "最鲜明的品格"],
-        "learning_rule": "先把四个身份绑定到‘勇于自我革命’，不扩写成整章口号清单。",
+        "items": ["党的自我革命是跳出历史周期率的第二个答案", "勇于自我革命是中国共产党区别于其他政党的显著标志", "勇于自我革命是我们党最大的优势", "勇于自我革命是我们党最鲜明的品格"],
+        "learning_rule": "将跳出历史周期率的命题绑定到‘党的自我革命’，将区别于其他政党、党的优势和品格的命题绑定到‘勇于自我革命’，分别保留主体和作用范围；不扩写成整章口号清单。",
         "source_refs": ["POL27-CF-XI-C17-K10", "POL27-CF-XI-C17-K10-N01", "POL27-CF-XI-C17-K10-N01-I02"]
       }
     ],
     "active_boundaries": [
       {
+        "id": "polmem-919eb4b4",
+        "prompt": "整科已讨论党的领导，为什么末章还要讨论全面从严治党和自我革命？请分别说明两部分回答的问题，并解释它们怎样联系。",
+        "checking_criteria": [
+          "党的领导回答谁来领导、事业的根本政治保证，不能只答党的名字。",
+          "全面从严治党和自我革命回答领导力量如何长期保持先进性、纯洁性和执政能力，三方面具体说明。",
+          "承认两者相联系但问题不同，不用领导地位替代自身建设，也不把自身建设说成取消领导。"
+        ],
+        "memory_cue": "答后对照原总科的党的领导与最后一层，分别检查事业保证和领导力量自身能力；仍是同一总科模型。",
+        "inspected_refs": [
+          "POL27-CF-XI-C17-K01",
+          "POL27-CF-XI-C17-K10",
+          "content/politics/learning/xi/subject-map.json#/master_architecture",
+          "content/politics/learning/xi/ch17.json#/chapter_orientation"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c17.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C17-K01 (PDF163/书162); POL27-CF-XI-C17-K10 (PDF164/书163); content/politics/learning/xi/subject-map.json#/master_architecture; content/politics/learning/xi/ch17.json#/chapter_orientation; 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先理解原总科已讲的“党的领导”定位，并学习C17-S01、C17-S04中自身建设与自我革命的已授关系；随后可在整科联系检查或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "党的领导 ≠ 全面从严治党/自我革命",
         "items": ["党的领导回答谁来领导、事业的根本政治保证", "全面从严治党和自我革命回答领导力量怎样长期保持先进性、纯洁性和执政能力"],
         "source_refs": ["POL27-CF-XI-C17-K01", "POL27-CF-XI-C17-K10"]
       },
       {
+        "id": "polmem-64f03d43",
+        "prompt": "全面从严治党与新时代党的自我革命，在本章中是什么关系？为什么既不能把两者讲成毫无关联，也不能用一个词替代对方的全部表述？",
+        "checking_criteria": [
+          "完整恢复全面从严治党是新时代党的自我革命的伟大实践。",
+          "说明二者有明确关系，不能当作无关并列政策；",
+          "同时保留各自对象和命题身份，不将所有表述随意互换。",
+          "只说二者有关不够，须恢复伟大实践这一具体关系；",
+          "不要求添加未经讲授的治理机制。"
+        ],
+        "memory_cue": "答后先恢复两者之间的具体关系，再用各自在原模型中的位置解释区别；不推演为简单先后因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C17-K01-N01-I02",
+          "POL27-CF-XI-C17-K10"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c17.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C17-K01-N01-I02 (PDF163/书162); POL27-CF-XI-C17-K10 (PDF164/书163); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C17-S01、C17-S04中本组已授模型与对象关系；随后可在C17-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "全面从严治党与自我革命的关系",
         "items": ["全面从严治党是新时代党的自我革命的伟大实践", "不能把两者当成完全无关的并列政策，也不能抹掉各自的命题身份"],
         "source_refs": ["POL27-CF-XI-C17-K01-N01-I02", "POL27-CF-XI-C17-K10"]

@@ -27,6 +27,30 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-fe76f7eb",
+        "prompt": "民生对人民幸福有什么意义？增进民生福祉分别与立党为公、执政为民，与发展，与社会主义生产，以及与全面建设社会主义现代化国家是什么关系？按这五个对象范围分别作答。",
+        "checking_criteria": [
+          "民生对应人民幸福之基，不能换成国家强盛之基、安全之要。",
+          "立党为公、执政为民对应本质要求；",
+          "发展和社会主义生产分别对应根本目的，不能只省略成‘目的’而不知所问范围。",
+          "现代化国家一项应恢复应有之义；",
+          "只答五个对象名不能通过实际内容检查。"
+        ],
+        "memory_cue": "按题目五个对象范围逐一回到原价值落点，不把所有句子合成一句‘很重要’。",
+        "inspected_refs": [
+          "POL27-CF-XI-C11-K01",
+          "POL27-CF-XI-C11-K01-N01",
+          "POL27-CF-XI-C11-K01-N01-I01",
+          "POL27-CF-XI-C11-K01-N02",
+          "POL27-CF-XI-C11-K01-N02-TBL01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c11.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C11-K01 (PDF148/书147); POL27-CF-XI-C11-K01-N01 (PDF148/书147); POL27-CF-XI-C11-K01-N01-I01 (PDF148/书147); POL27-CF-XI-C11-K01-N02 (PDF148/书147); POL27-CF-XI-C11-K01-N02-TBL01 (PDF148/书147); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C11-S01中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C11-S01",
         "name": "民生总定位",
         "items": [
@@ -40,6 +64,31 @@
         "source_refs": ["POL27-CF-XI-C11-K01", "POL27-CF-XI-C11-K01-N01", "POL27-CF-XI-C11-K01-N01-I01", "POL27-CF-XI-C11-K01-N02", "POL27-CF-XI-C11-K01-N02-TBL01"]
       },
       {
+        "id": "polmem-9c35d03f",
+        "prompt": "就业在民生中是什么位置？收入分配对改善民生和成果共享是什么关系？健全完善社会保障体系在新时代社会建设中是什么位置，社会保障对民生、公平与福祉有什么制度意义，并发挥哪三个作用？",
+        "checking_criteria": [
+          "就业保留最基本与最大两个定位，不能换成民生之源。",
+          "收入分配保留民生之源，以及改善民生/发展成果由人民共享最重要、最直接的方式。",
+          "健全完善体系与新时代社会建设的重要着力点对应；",
+          "保障改善民生、维护公平、增进福祉与基本制度保障对应。",
+          "三作用必须完整为民生保障安全网、收入分配调节器、经济运行减震器，不能只答网/调节器/减震器或互换限定。"
+        ],
+        "memory_cue": "先分就业、分配、社保三个对象，再分别恢复社保的体系位置、制度地位、三种作用。",
+        "inspected_refs": [
+          "POL27-CF-XI-C11-K05-N01-I01",
+          "POL27-CF-XI-C11-K04-N01-I01",
+          "POL27-CF-XI-C11-K06-N01",
+          "POL27-CF-XI-C11-K06-N03-I01",
+          "POL27-CF-XI-C11-K06-N03-I03",
+          "POL27-CF-XI-C11-K04-N01-TIP01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c11.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C11-K05-N01-I01 (PDF149/书148); POL27-CF-XI-C11-K04-N01-I01 (PDF149/书148); POL27-CF-XI-C11-K06-N01 (PDF149/书148); POL27-CF-XI-C11-K06-N03-I01 (PDF150/书149); POL27-CF-XI-C11-K06-N03-I03 (PDF150/书149); POL27-CF-XI-C11-K04-N01-TIP01 (PDF149/书148); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C11-S02中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C11-S02",
         "name": "就业—收入—社保的高频身份",
         "items": [
@@ -70,6 +119,28 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-85bc8ff7",
+        "natural_unit_id": "POL27-CF-XI-C11-S01",
+        "prompt": "改善民生与发展是什么关系？说明发展提供什么条件、为什么不能脱离发展条件，以及发展应怎样联系人民生活。",
+        "checking_criteria": [
+          "发展是改善民生物质基础；",
+          "不能把二者割裂。",
+          "民生目标并不因经济增长自动完全实现，还需回应人民期待并落实生活改善。",
+          "允许语义等值重建，不从‘相互支撑’推出任一条件下自动因果。"
+        ],
+        "memory_cue": "回到原第三节点，分别问条件从哪里来、发展为什么服务于人的生活。",
+        "inspected_refs": [
+          "POL27-CF-XI-C11-K03-N01",
+          "POL27-CF-XI-C11-K03-N01-I01",
+          "POL27-CF-XI-C11-K03-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c11.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C11-K03-N01 (PDF148/书147); POL27-CF-XI-C11-K03-N01-I01 (PDF148/书147); POL27-CF-XI-C11-K03-N01-I03 (PDF148/书147); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C11-S03中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "民生改善必须与发展相统一",
         "items": [
           "发展是改善民生的物质基础",
@@ -79,6 +150,28 @@
         "source_refs": ["POL27-CF-XI-C11-K03-N01", "POL27-CF-XI-C11-K03-N01-I01"]
       },
       {
+        "id": "polmem-1c7ddec0",
+        "natural_unit_id": "POL27-CF-XI-C11-S03",
+        "prompt": "在本章教材对照中，社会治理与社会管理对参与关系的侧重怎样不同？政府在社会治理中处于什么位置？为什么不能把治理理解为政府单向包办或政府退出？",
+        "checking_criteria": [
+          "治理强调政府主导并调动社会各方面共同参与，主导与参与须同时保留。",
+          "教材此处将社会管理侧重表述为单方面；",
+          "不能用它取代多元协同，也不能扩大为所有学科中全部管理概念的通用定义。",
+          "允许意义等值说明；",
+          "不是逐字背一条普遍管理学定理。"
+        ],
+        "memory_cue": "按本章对照先说政府位置，再说其他主体如何参与；两个极端都不能从‘治理’推出。",
+        "inspected_refs": [
+          "POL27-CF-XI-C11-K08-N01",
+          "POL27-CF-XI-C11-K08-N02-TIP01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c11.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C11-K08-N01 (PDF150/书149); POL27-CF-XI-C11-K08-N02-TIP01 (PDF150/书149); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C11-S04中本组已授模型与对象关系；随后可在C11-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "社会治理 ≠ 单向社会管理",
         "items": [
           "社会治理强调政府主导并调动社会各方面共同参与",
@@ -87,6 +180,31 @@
         "source_refs": ["POL27-CF-XI-C11-K08-N01", "POL27-CF-XI-C11-K08-N02-TIP01"]
       },
       {
+        "id": "polmem-a0dda7ca",
+        "natural_unit_id": "POL27-CF-XI-C11-S02",
+        "prompt": "社会保障在民生、公平和共享发展成果中具有怎样的制度地位？能否直接把它归为第三次分配制度的组成部分？请说明这两个判断。",
+        "checking_criteria": [
+          "恢复基本制度保障和重要制度安排的定位，不能只答‘重要’。",
+          "明确不能直接归入第三次分配制度；",
+          "但不得由此否定其收入分配调节器作用。",
+          "只凭排除第三次分配，不能擅自推断所有社保项目的详细法定归属或具体待遇。"
+        ],
+        "memory_cue": "制度地位和错误分类是两个问题，分别答后再检查是否把调节作用一起误删。",
+        "inspected_refs": [
+          "POL27-CF-XI-C11-K06-N03-I01",
+          "POL27-CF-XI-C11-K06-N03-TIP01",
+          "POL27-CF-XI-C11-K06-N03-I02",
+          "POL27-CF-XI-C11-K06-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c11.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C11-K06-N03-I01 (PDF150/书149); POL27-CF-XI-C11-K06-N03-TIP01 (PDF150/书149); POL27-CF-XI-C11-K06-N03-I02 (PDF150/书149); POL27-CF-XI-C11-K06-N03-I03 (PDF150/书149); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C11-S02中本组已授模型与对象关系；随后可在C11-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch11.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:3b624b00053ef208c20ed8dde6dd56f2db163f5a1ae379ddf4dc52bc4066c020"
+        },
         "name": "社会保障不是第三次分配制度组成",
         "items": ["社会保障属于基本制度保障和重要制度安排", "不能把社会保障直接归入第三次分配制度"],
         "source_refs": ["POL27-CF-XI-C11-K06-N03-I01", "POL27-CF-XI-C11-K06-N03-TIP01"]

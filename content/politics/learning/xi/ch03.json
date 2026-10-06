@@ -51,6 +51,27 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-6cf77ab1",
+        "prompt": "围绕党的领导，分别补全中国特色社会主义的最本质特征、其制度的最大优势、最高政治领导力量，以及实现中华民族伟大复兴的根本保证。保留各句主语。",
+        "checking_criteria": [
+          "前三个对象区分：中国共产党领导；中国共产党领导；中国共产党。第四为中国共产党领导。",
+          "制度最大优势不能简写成所有制度的最大优势。",
+          "民族复兴根本保证不能替作‘根本目的’。"
+        ],
+        "memory_cue": "特征与优势说‘领导’，政治领导力量说‘党’，民族复兴问‘保证’。",
+        "inspected_refs": [
+          "POL27-CF-XI-C03-K01-N01",
+          "POL27-CF-XI-C03-K01-N01-TBL01",
+          "POL27-CF-XI-C03-K02",
+          "POL27-CF-XI-C03-K04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c03.json#POL27-CF-XI-C03-K01-N01,POL27-CF-XI-C03-K01-N01-TBL01,POL27-CF-XI-C03-K02,POL27-CF-XI-C03-K04；CF下册PDF115–116 / 书114–115；blob dbe8cbeb43bdabd7aa8adc8714585456451b6b95；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C03-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "natural_unit_id": "POL27-CF-XI-C03-S01",
         "name": "党的领导四组高频身份",
         "items": [
@@ -87,6 +108,28 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-977951c3",
+        "natural_unit_id": "POL27-CF-XI-C03-S01",
+        "prompt": "‘最本质特征、最大优势、最高政治领导力量、根本保证’四个表述，各自是在评价或定位哪个对象、哪类关系？",
+        "checking_criteria": [
+          "分别是中国特色社会主义特征、制度优势评价、政治领导结构、民族复兴政治保证。",
+          "概念解释允许改写，但对象和评价维度不交换。"
+        ],
+        "memory_cue": "先读题中对象，再答角色；先不抢答所有题都是‘领导’。",
+        "inspected_refs": [
+          "POL27-CF-XI-C03-K01",
+          "POL27-CF-XI-C03-K02",
+          "POL27-CF-XI-C03-K04",
+          "POL27-CF-XI-C03-K01-N01",
+          "POL27-CF-XI-C03-K01-N01-TBL01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c03.json#POL27-CF-XI-C03-K01,POL27-CF-XI-C03-K02,POL27-CF-XI-C03-K04,POL27-CF-XI-C03-K01-N01,POL27-CF-XI-C03-K01-N01-TBL01；CF下册PDF115–116 / 书114–115；blob dbe8cbeb43bdabd7aa8adc8714585456451b6b95；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C03-S01 已理解相关对象与模型关系后，于 C03-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "特征—优势—领导力量—保证不能串位",
         "items": [
           "最本质特征：回答中国特色社会主义最深层特征",
@@ -97,6 +140,24 @@
         "source_refs": ["POL27-CF-XI-C03-K01", "POL27-CF-XI-C03-K02", "POL27-CF-XI-C03-K04"]
       },
       {
+        "id": "polmem-2d94cf2d",
+        "natural_unit_id": "POL27-CF-XI-C03-S02",
+        "prompt": "为什么党的全面领导不能直接理解成由党组织包办全部具体行政社会事务？请说明这一概念区分，不要求背原句。",
+        "checking_criteria": [
+          "区分政治统领与具体组织履职；不能声称各组织职责被取消。"
+        ],
+        "memory_cue": "领导关系与具体事务职责不是同一个层级。",
+        "inspected_refs": [
+          "POL27-CF-XI-C03-K04",
+          "POL27-CF-XI-C03-K05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c03.json#POL27-CF-XI-C03-K04,POL27-CF-XI-C03-K05；CF下册PDF116–117 / 书115–116；blob dbe8cbeb43bdabd7aa8adc8714585456451b6b95；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C03-S02 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "name": "全面领导 ≠ 替代具体履职",
         "items": ["党的全面领导突出总揽全局、协调各方和政治统领", "制度化领导不等于由党组织直接包办所有具体行政社会事务"],
         "source_refs": ["POL27-CF-XI-C03-K04"]

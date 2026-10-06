@@ -27,6 +27,25 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-32c83100",
+        "prompt": "国防和军队建设对于国家主权、安全、发展利益怎样定位？新时代人民军队使命任务与党和人民事业是什么关系？",
+        "checking_criteria": [
+          "第一项保持三类国家利益及坚强后盾关系；",
+          "第二项是使命任务与整体事业的关系，不能把国防军队缩成全部国家安全。",
+          "第二项须恢复对党和人民事业的战略支撑，不能只复述使命任务而不说明其具体关系。"
+        ],
+        "memory_cue": "先分“捍卫国家利益”和“使命任务面向事业”两个关系对象，再补角色。",
+        "inspected_refs": [
+          "POL27-CF-XI-C14-K01",
+          "POL27-CF-XI-C14-K02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c14.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C14-K01 (PDF155/书154); POL27-CF-XI-C14-K02 (PDF156/书155); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C14-S01中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C14-S01",
         "name": "国防和军队建设的战略身份",
         "items": [
@@ -37,6 +56,29 @@
         "source_refs": ["POL27-CF-XI-C14-K01", "POL27-CF-XI-C14-K02"]
       },
       {
+        "id": "polmem-0188cbbe",
+        "prompt": "坚持党对人民军队绝对领导，在人民军队建设和马克思主义建党建军中分别怎样定位？军委主席负责制与这一领导原则是什么制度关系？",
+        "checking_criteria": [
+          "前三项主语为绝对领导，第四项主语为军委主席负责制；",
+          "不能将军魂与制度名称无条件互换。",
+          "军魂保留“永远不变”，第4项保留根本制度与根本实现形式两个定位。",
+          "各句所问范围与对象不同，不用一个“根本”概括全部。",
+          "绝对领导须恢复建军之本、强军之魂，以及马克思主义建党建军的一条基本原则；不能只答三个句子的共同主语。"
+        ],
+        "memory_cue": "先区分领导原则本身的判断与实现它的制度对象，再逐一恢复角色。",
+        "inspected_refs": [
+          "POL27-CF-XI-C14-K03-N01-I02",
+          "POL27-CF-XI-C14-K05-N01",
+          "POL27-CF-XI-C14-K05-N01-I01",
+          "POL27-CF-XI-C14-K05-N03-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c14.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C14-K03-N01-I02 (PDF156/书155); POL27-CF-XI-C14-K05-N01 (PDF157/书156); POL27-CF-XI-C14-K05-N01-I01 (PDF157/书156); POL27-CF-XI-C14-K05-N03-I01 (PDF157/书156); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先完成C14-S02、C14-S03中本组已授模型与对象关系理解，再无提示作答；首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "natural_unit_id": "POL27-CF-XI-C14-S03",
         "name": "党对人民军队绝对领导的高频身份",
         "items": [
@@ -63,11 +105,52 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-336112a9",
+        "natural_unit_id": "POL27-CF-XI-C14-S02",
+        "prompt": "强军目标为什么不能把听党指挥、能打胜仗、作风优良的角色互换？请按各自关涉的问题说明，并恢复对应关系。",
+        "checking_criteria": [
+          "先正确配对，再说明政治方向、职能指向、性质宗旨本色不同；",
+          "听党指挥对应灵魂，能打胜仗对应核心，作风优良对应保证；须逐对象配对，不只说三个维度不同。"
+        ],
+        "memory_cue": "回到三个维度实际回答的问题，再恢复角色词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C14-K03-N01",
+          "POL27-CF-XI-C14-K03-N02",
+          "POL27-CF-XI-C14-K03-N03"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c14.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C14-K03-N01 (PDF156/书155); POL27-CF-XI-C14-K03-N02 (PDF156/书155); POL27-CF-XI-C14-K03-N03 (PDF156/书155); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C14-S02中本组已授模型与对象关系；随后可在C14-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "灵魂—核心—保证不能串位",
         "items": ["听党指挥：灵魂", "能打胜仗：核心", "作风优良：保证"],
         "source_refs": ["POL27-CF-XI-C14-K03-N01", "POL27-CF-XI-C14-K03-N02", "POL27-CF-XI-C14-K03-N03"]
       },
       {
+        "id": "polmem-9857894a",
+        "natural_unit_id": "POL27-CF-XI-C14-S03",
+        "prompt": "党对人民军队绝对领导与国防和军队现代化分别解决什么问题？为什么不能用能力建设替代领导原则？",
+        "checking_criteria": [
+          "分别解释政治原则与能力路径，不是两种技术办法的比较；",
+          "能说明两者在原四节点中的不同位置，不把各自全部具体内容混成同义词。"
+        ],
+        "memory_cue": "分别问“根本方向怎样保证”与“使命能力怎样建设”，不加自动因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C14-K05",
+          "POL27-CF-XI-C14-S03",
+          "POL27-CF-XI-C14-K03-N01-I02",
+          "POL27-CF-XI-C14-K05-N03-I01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c14.json @ ddf18a304d3a553c478fa0e354144adea58e8ff6; POL27-CF-XI-C14-K05 (PDF157/书156); POL27-CF-XI-C14-S03 (PDF157/书156); POL27-CF-XI-C14-K03-N01-I02 (PDF156/书155); POL27-CF-XI-C14-K05-N03-I01 (PDF157/书156); 模态=original_text_span提取文字；未复核原图/表。",
+          "prerequisite": "先学习并理解C14-S03中本组已授模型与对象关系；随后可在C14-S90或后续无提示检索中使用本题。首答后才给memory_cue，初始题面隐藏含答案的组名。"
+        },
         "name": "政治保证 ≠ 能力建设路径",
         "items": ["党对人民军队绝对领导解决根本政治方向和军魂问题", "国防和军队现代化解决长期能力建设问题"],
         "source_refs": ["POL27-CF-XI-C14-K05", "POL27-CF-XI-C14-S03"]

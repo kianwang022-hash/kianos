@@ -78,6 +78,26 @@
     ],
     "active_precision": [
       {
+        "id": "polmem-c8c898cb",
+        "prompt": "中国特色社会主义道路、理论体系、制度、文化在同一实践整体中分别起什么作用？逐项完成四对角色。",
+        "checking_criteria": [
+          "道路—实现途径；理论体系—行动指南；制度—根本保障；文化—精神力量。",
+          "不得把理论‘行动指南’和制度‘根本保障’交换。",
+          "此任务考对象角色，不能用四项‘开辟/形成/确立/发展’替代回答。"
+        ],
+        "memory_cue": "走哪条路、靠什么指引、用什么保障、由什么提供精神支撑。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K03-N01-I02",
+          "POL27-CF-XI-C01-K03-N01-I03",
+          "POL27-CF-XI-C01-K03-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K03-N01-I02,POL27-CF-XI-C01-K03-N01-I03,POL27-CF-XI-C01-K03-N01-I04；CF下册PDF108–108 / 书107–107；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C01-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "natural_unit_id": "POL27-CF-XI-C01-S01",
         "name": "道路—理论—制度—文化的角色",
         "items": [
@@ -90,6 +110,26 @@
         "source_refs": ["POL27-CF-XI-C01-K03-N01-I02", "POL27-CF-XI-C01-K03-N01-I03", "POL27-CF-XI-C01-K03-N01-I04"]
       },
       {
+        "id": "polmem-342514b7",
+        "prompt": "中国特色社会主义的‘四个自信’是哪四项？",
+        "checking_criteria": [
+          "道路自信、理论自信、制度自信、文化自信四项齐全。",
+          "本题只需四项对象，不要求各项长定义。",
+          "顺序不强制，不能遗漏文化或把政治自信替入。"
+        ],
+        "memory_cue": "回到本章原有道路—理论—制度—文化四个对象，不另造缩略词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K03；CF下册PDF108–109 / 书107–108；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C01-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch01.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:2162fef5ac003af093864dd16984c1a912a8080cf9dae814e8dbf7bd775649d4"
+        },
         "natural_unit_id": "POL27-CF-XI-C01-S01",
         "name": "四个自信",
         "items": ["道路自信", "理论自信", "制度自信", "文化自信"],
@@ -99,6 +139,28 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-674591ae",
+        "natural_unit_id": "POL27-CF-XI-C01-S02",
+        "prompt": "中国特色社会主义进入新时代后，历史方位与社会主义初级阶段基本国情这两个判断分别怎样变化？两者是否矛盾？",
+        "checking_criteria": [
+          "新的历史方位；仍处于并将长期处于社会主义初级阶段，二者层级不同，可同时成立。",
+          "不能扩大为‘所有国情和国际地位都没变’。",
+          "允许语义等值的解释。"
+        ],
+        "memory_cue": "两个坐标同时看：阶段内的新方位与长期基本国情。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K04",
+          "POL27-CF-XI-C01-K05",
+          "POL27-CF-XI-C01-K04-TBL01",
+          "POL27-CF-XI-C01-K05-N04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K04,POL27-CF-XI-C01-K05,POL27-CF-XI-C01-K04-TBL01,POL27-CF-XI-C01-K05-N04；CF下册PDF109–110 / 书108–109；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C01-S02 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "name": "新时代历史方位 ≠ 基本国情改变",
         "items": [
           "变了：中国特色社会主义进入新时代，形成新的历史方位",

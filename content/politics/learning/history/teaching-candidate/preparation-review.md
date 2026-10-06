@@ -242,3 +242,52 @@ C01 polmem-b3d1b517 原组全部字段与原 sha256:d858f2d06dbf9c53816fd7913b0d
 | polmem-062d61d4 | REVIEWED | sha256:a056ca154835d30025ed131de3abc74bb46a1e851f677b96ca7fb60a9b095994 |
 
 本批原consumer的有界Node实测：加入候选但未绑定时，真实可选catalog保持332，91个本批目标被排除，16个旧projection witness实际报POLITICS_PROJECTION_SOURCE_REVISION_MISMATCH；绑定后catalog为423（politics-memory-36a885d0），原332对象逐值不变，本批史纲新增80、毛中特11可选，C00阻断。16章620条实际selector引用中史纲值全部不变；毛中特21个整precision组值变化、选中items数组不变。原guard、plan／snapshot、重放／supersession、篡改／stale、历史及Home Packet路径共91组隔离断言通过；现有repair-memory、memory-history-profile、cognitive-projection-assets校验通过。332条旧可选目标构造历史仍兼容，10条旧毛中特precision构造历史失效；C02 Source及C04答案修复保留ID但不沿用旧语义证据。所有计划、事件和Packet仅进程内Map；不是真实APPLIED、Recall或U。仅静态检查答案／checking／cue位于hidden reveal容器，不将Node代作Candidate／浏览器证据。最终Candidate／浏览器、main交付与P6仍未验证；无推送、合并或部署。
+
+### 2026-10-05｜原producer的局部精记绑定
+
+## 2026-10-05 18:06 reader有界Source补齐：独立追加delta
+
+本增量以冻结81个typed对象为基准，保留原有80个新目标与旧polmem-b3d1b517全部字段/签名；只给History C01–C08追加14个不同检索范围的作者组，并局部补原brief正文和解除范围。不是重签原81，也不把同会议/同文章误当同一答题任务。结构预览可为95个对象；实际可选catalog未验证。
+
+Source是原Mac reader task01a1071f-3c5a-7462-a3c1-d1c982d95001、turn01a10d34-e299-739a-9b55-d4205cc87bc9于父任务18:06 UTC收到的完整有界JSON。PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27/POL27-CF-LOWER标签未额外作封面/当期版本认证。作者及独立reviewer读完整receipt，不冒称亲看原PDF。页7/57只有文字；页64只有旁注文字，原表止于63。可用像素范围为12、20、29、37、44、45、63；每组source_locator保存具体页、模态、行/范围和reader身份。
+
+新范围分别为：C01两大任务及区别/联系；C02田亩方案实施边界、资政四方面/两纲领共性；C03旧三民主义配对、局限、地价三支；C04建党精神、三新及道路任务边界；C05两土地法产权递进、阶级/分配方法；C06四比较与两层箭头；C07两个务必；C08工商业实质/层级与三行分配名称。新14组仍PENDING_REVIEW，无新id/digest/签名，没有因像素完成自动准入。
+
+独立反审关注真实列表与层级、地价三支、所有权/使用权、四比较但原编号①②、国家资本主义高级合并格及初级四例、未问题不扣分。作者删去C08题面未问的独立“统购统销”答案项，保留作混淆边界；独立review确认需补C05 cue的首法/首次立法两进步和C08 cue四成员，已局部同步JSON/brief/追加payload并回读。百分数25%/5%的基数、期间及四马各份额没有receipt内容支持，未进入本轮题面或评分要求。
+
+C09三个有利于、C10社会主要矛盾比较仍itemBLOCKED：PDF69实际已看，前者只有名称，后者只有一条政治论断，原页并没有完整对照表及双方内容，也没有需接70页的表。本批不改其Source节点类型、不从知识补答案；“已看但无所需内容”不能标为已解除。
+
+未运行原producer/guard、签名、projection、工程脚本或测试，未写原Source/题库/学习记录。原81若已被工程签署，必须仅追加14个对象并保留其最新旧组信息，不能用基于旧PENDING状态的预览整文件覆盖。后续仅在原PR授权范围验证和保存，不拆取consumer绕过已被拒绝的main push；main/Website/U分开。
+
+
+本节追加绑定仅用于上述14个已独立审读的最终payload；原81个史纲对象／ID／状态／digest完整不变，不覆盖旧全章预览。原producer已实际得到14个新ID，并计算下表目标revision。前述PENDING为绑定前准备状态，只有下表范围改为REVIEWED、FIRST_ROUND_EXACT。
+
+有界输入 Library SHA256 8e7c0eed7b50d4f243375023e6e4b9f03fc6483cd6c913e644cbaf90715a8115 仅用于追溯；准入绑定不产生learner计划、Recall、队列或自动SRS，不证明全科Source、教学效果、main／Website交付或P6。
+
+<a id="history-source-delta-exact-20261005"></a>
+| Target | Content status | reviewed target revision |
+| --- | --- | --- |
+| polmem-9167c06d | REVIEWED | sha256:45fceb221be7a80436bdd41c683845fc8df7162efcd28c83d917e8b299dedb05 |
+| polmem-9aaeefb5 | REVIEWED | sha256:79dc5a9dc721f7e2866cb055850e82b13b5a65aba7916a0a2c945cac6b5e22e0 |
+| polmem-3e733e14 | REVIEWED | sha256:f9851d209a7a921acd07b223af82370874ce5f178b54c74e074d71fc57a372b4 |
+| polmem-d0fcbb6c | REVIEWED | sha256:7827df854d33b89a5642e4d94ba55bf7cb9b8f769450c1f2cb8678370f5e24b1 |
+| polmem-b920ea4b | REVIEWED | sha256:122cef08a57635cec87946a1880bc88f088ae6ea6f8936125df7eadcd8562b81 |
+| polmem-3d40eca6 | REVIEWED | sha256:df1211dc442daa16ef15b3cb0eea0c8302643208e0e333905a0c7a2030ac50a0 |
+| polmem-1af92aa1 | REVIEWED | sha256:091a88e78d5fd2b6beee8a3af094fa6206e54c672550eadc8c3580117301d989 |
+| polmem-7c265473 | REVIEWED | sha256:3c8aa48c6cfe707ca8303a293a1bc84b8444d93f9639ce65e93f27f3069b5d2a |
+| polmem-0875671f | REVIEWED | sha256:b5d15bd713f4018f7d9d2b6862bcfa42479efab05cfab06b0a6246e4641d8f21 |
+| polmem-70ecb702 | REVIEWED | sha256:cab79214bdceca93864ccc755ccb4fe656acfd124a2d232acd68a7f9276b929c |
+| polmem-7b8cd49c | REVIEWED | sha256:195b45a29df980354f9bc475f7c31447677a88ec9e165b9b689d951486671570 |
+| polmem-9797ed6f | REVIEWED | sha256:745fe6bee3c0fa67c23bfb8d4ef5315bc79f0531d8caeda07d76fd35415d1fff |
+| polmem-976351ac | REVIEWED | sha256:9d5e2fe78b602d28cff8f89625edb94cf9eebc7bb43d5462315e8393b67d3e36 |
+| polmem-1dff5d6c | REVIEWED | sha256:0802510267eeafcece9345cee5876da3311d7323fadae5b499fa6201706567a1 |
+
+本轮实际consumer有界证明：本批14个史纲追加目标及同一consumer两批目标经过原producer与review guard；catalog423→454（politics-memory-cb72e2b6），原423对象逐值不变，Xi仅17可选／51保持PENDING。26章strict compiler及1236条实际selector引用已验证，48处值变化；manifest除最终source.blob_sha无改动。96组隔离Node断言及现有memory-history-profile、repair-memory、cognitive-projection-assets校验通过。423条旧可选目标构造历史兼容，63条旧Xi构造历史失效；C17旧碎词不证明完整命题。
+
+实际Candidate 4322／Chrome使用全新测试上下文与Candidate专用learner/control根，关闭relay，使用既有studyTimer的Asia/Shanghai学习日及真实时钟。两批91＋31＝122目标逐题检查原题面、reveal前不见answer/check/cue、reveal后完整原答案/check/cue；原Native Control浏览器入口实际应用，匹配APPLIED回执已写测试专用源，记录122条合成FUZZY Recall，刷新恢复、幂等不隐藏已揭示答案、冲突与supersession，以及blocked ID／旧catalog revision／snapshot篡改不产生额外Recall均检查；644项browser检查通过。原Home Packet assembler在浏览器用真实隔离storage及SSR practice/memory catalog读回122条事件，私有bridge在新上下文亦恢复122条。该证明不是真实learner U、掌握或P6。
+
+原失败与本次窄收尾：首次build报 HOME_XIZONG_DEPENDENCY_SYMLINK:static-web/node_modules/marked，Home原复制学习包按钮报 HOME_XIZONG_PROJECTION_HTTP_500。实际owner为 scripts/currentDependencies.mjs／kianos-candidate-runtime.mjs 的隔离依赖准备与 src/lib/homeXizongProjection.mjs 的未改guard。Mac已将可信既有安装 marked 15.0.12 实体化到本隔离checkout，原symlink保留；原Stable package-lock条目、相同依赖manifest及16个文件字节/hash回执已核，Stable无写入，未新安装、未降低symlink／Source guard或改业务程序。修复后原必要build成功：1015 pages，20.38s，详见本机 build-dependency-repaired.log。
+
+2026-10-06窄按钮回读：标准Candidate 4322在新专用runtime启动，原临时测试根已清理；全新Chrome上下文只恢复既有122条fixture事件，原Home面板实际展开／按钮点击，经原guarded Home loader成功，完整序列化Packet已解析；122条Memory事件逐值一致、current_compatible_events=122。按钮显示“已复制；西综、英语今天还没有可带走的学习记录。”；clipboard为上下文内存截获，无真实剪贴板读写。Packet为701706字节，SHA256 05a4d356834688a73bef8784edc3dee75a4ceb131808e2b89bfa3caa824d10cf。首次实际按钮2849ms；复核schema拼写后同进程重读297ms，四条DOMContentLoaded：Memory457ms／Home508ms／Mao C04 395ms／Xi C17 58ms。只重跑失败按钮及四路径，既有644检查不重做；这是dev进程单次观测，不是四路冷启动或全站性能验收。relay关闭、真实learner零读写、Candidate已停止。无push／merge／deploy；main／正式Website／P6仍BLOCKED／未验。大型Packet、截图及窄回执留本机，紧凑摘要写入原Library结果item。
+
+大型逐项Node、browser事件、Packet、截图与构建日志保留在Mac xi-history-consumer-results目录；最终传输包只含需写回文件及小型摘要。前批完整结果Library libfile_b61d8f0aeb508191b86a533b7f56fe2e（SHA256 8b0660f9ce7e3fe8fdf5966740f4113bf683617d68e819ff4fbc2d4f686e5b0f）是before指针，本批输入SHA256 8e7c0eed7b50d4f243375023e6e4b9f03fc6483cd6c913e644cbaf90715a8115；两个输入均非Source PDF。
