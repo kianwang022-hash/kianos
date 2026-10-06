@@ -165,7 +165,17 @@ assertXizongFinalGroupTransition(blockUi);
 has(blockUi, 'state.completed = true;', 'block-complete-write');
 has(blockUi, 'data-source-contact-mode={sourceContactMode}', 'source-contact-mode-missing');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
-has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
+// BlockV6 owns the complete gate; a presentation dock cannot re-enable it.
+has(blockUi, 'if (completeButton) completeButton.disabled = !canComplete() || state.completed;', 'block-completion-ui-gate');
+const blockCompletionPredicate = blockUi.match(/const canComplete = \(\) =>[\s\S]*?;/)?.[0] || '';
+for (const required of ['!revisionRequiresAction(state)',
+  '(currentSourceContactCovered() || historicalXizongSourceContinuation(state))',
+  'learnedCount() >= totalKp', 'recallCount() >= totalKp',
+  'groups.every((group) => groupClosureSatisfied(group))', 'Boolean(state.blockRecallDone)']) {
+  has(blockCompletionPredicate, required, `block-completion-predicate:${required}`);
+}
+has(blockUi, '&& !groupHasBlockingVisualGap(group);', 'block-completion-visual-closure');
+assert(!/button\.disabled\s*=/.test(enhancerUi), 'presentation-dock-must-not-override-completion-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 
 has(guardUi, "requested === 'kp_recall' && counts.learned <= counts.recalled", 'premature-kp-recall-stage-guard');
