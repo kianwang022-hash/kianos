@@ -415,7 +415,9 @@ try {
   await recallCard.waitFor({ state: 'visible' });
   check(await recallCard.evaluate((node) => node.classList.contains('xzKpUnifiedCard')), 'recall_uses_same_kp_card_grammar');
   const recallTitle = (await recallCard.locator(':scope > header > h3').innerText()).trim();
-  check(recallTitle.includes('KP') && recallTitle.length > 5, 'recall_keeps_real_kp_title', recallTitle);
+  const recallKpId = await recallCard.getAttribute('data-kp-id');
+  const recallKp = payload.kps.find(kp => kp.identity.kpId === recallKpId);
+  check(Boolean(recallKp) && recallTitle === recallKp.identity.title, 'recall_keeps_real_kp_title', `${recallKpId}:${recallTitle}`);
   check((await recallCard.locator('[data-kp-learn-prompt-copy]').innerText()).includes('QA override'), 'recall_reuses_same_prompt_override');
 
   const recallFrontState = await recallCard.evaluate((node) => {
