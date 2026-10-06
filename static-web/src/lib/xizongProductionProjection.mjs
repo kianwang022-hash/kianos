@@ -607,6 +607,7 @@ export function buildXizongProductionBlock(canonicalBlock) {
       visualRequired: group.visualRequired === true,
       visualSourceState: String(group.visualSourceState || ''),
       continuityRationale: group.continuityRationale,
+      receiptAnchor: group.receiptAnchor,
       jobs: [...group.jobs]
     };
   });

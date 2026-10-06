@@ -72,6 +72,8 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Build current candidate for served Block acceptance
+        run: npm run build
       - name: Execute Block KP Learn browser acceptance
         run: node scripts/test-xizong-block-workspace.mjs
       - name: Upload Block workspace evidence
@@ -84,6 +86,7 @@ jobs:
             static-web/.qa/xizong-block-compact-header.png
             static-web/.qa/xizong-block-framework-preview.png
             static-web/.qa/xizong-block-kp-learn.png
+            static-web/.qa/xizong-block-ipad-reading.png
             static-web/.qa/xizong-block-recall-front.png
             static-web/.qa/xizong-block-ttsx-checkpoint-visual-only.png
           if-no-files-found: warn

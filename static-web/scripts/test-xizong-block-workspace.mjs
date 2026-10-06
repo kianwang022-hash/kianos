@@ -109,7 +109,9 @@ async function selectTextAndMark(page, selector, kind, { domClick = false } = {}
   else await menuButton.click();
 }
 
-const server = EXTERNAL_BASE ? null : spawn('npm', ['run', 'dev', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
+// CI builds first: exercise the served product without a dev-only toolbar intercepting controls.
+// Existing external Candidate support remains available through EXTERNAL_BASE.
+const server = EXTERNAL_BASE ? null : spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
   detached: process.platform !== 'win32'
@@ -270,11 +272,11 @@ try {
     const done=document.querySelector('[data-source-contact-done]');
     const r=done.getBoundingClientRect();
     const at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
-    return {coreHeight:core.clientHeight,buttonBottom:r.bottom,buttonHit:at===done||done.contains(at),overflow:document.documentElement.scrollWidth>innerWidth+2};
+    return {coreHeight:core.clientHeight,buttonBottom:r.bottom,buttonHit:at===done||done.contains(at),overflow:document.documentElement.scrollWidth>innerWidth+2,buttonRect:r.toJSON(),hitElement:at?.outerHTML.slice(0,1200)||null,footerRect:done.closest('footer')?.getBoundingClientRect().toJSON()};
   });
+  await page.screenshot({path:path.join(auditDir,'xizong-block-ipad-reading.png'),fullPage:false});
   check(ipad.coreHeight>=200, 'ipad_core_not_squeezed_by_persistent_chrome', JSON.stringify(ipad));
   check(ipad.buttonBottom<=820 && ipad.buttonHit && !ipad.overflow, 'ipad_source_confirmation_reachable_without_scroll_or_overlap', JSON.stringify(ipad));
-  await page.screenshot({path:path.join(auditDir,'xizong-block-ipad-reading.png'),fullPage:false});
   await page.setViewportSize({width:1512,height:982});
   await page.waitForTimeout(350);
 
@@ -377,12 +379,13 @@ try {
     return {
       index,
       storedIndex: state.kpIndex,
-      mapCurrent: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim() || ''
+      mapCurrent: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim() || '',
+      mapCurrentTitle: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current > span')?.textContent?.trim() || ''
     };
   }, { key: studyKey, kpId: movedKpId });
   check(movedNativePosition.index >= 0 && movedNativePosition.storedIndex === movedNativePosition.index,
     'kp_learn_switch_updates_native_kp_index', JSON.stringify(movedNativePosition));
-  check(movedNativePosition.mapCurrent.includes(payload.kps[movedNativePosition.index]?.identity?.displayId || ''),
+  check(movedNativePosition.mapCurrentTitle === payload.kps[movedNativePosition.index]?.identity?.title,
     'kp_learn_switch_updates_left_logic_map', JSON.stringify(movedNativePosition));
   await page.keyboard.press('Space');
   check(await movedCard.locator('[data-learner-kp-core]').isHidden(), 'space_hides_core_after_kp_switch');
@@ -412,7 +415,9 @@ try {
   await recallCard.waitFor({ state: 'visible' });
   check(await recallCard.evaluate((node) => node.classList.contains('xzKpUnifiedCard')), 'recall_uses_same_kp_card_grammar');
   const recallTitle = (await recallCard.locator(':scope > header > h3').innerText()).trim();
-  check(recallTitle.includes('KP') && recallTitle.length > 5, 'recall_keeps_real_kp_title', recallTitle);
+  const recallKpId = await recallCard.getAttribute('data-kp-id');
+  const recallKp = payload.kps.find(kp => kp.identity.kpId === recallKpId);
+  check(Boolean(recallKp) && recallTitle === recallKp.identity.title, 'recall_keeps_real_kp_title', `${recallKpId}:${recallTitle}`);
   check((await recallCard.locator('[data-kp-learn-prompt-copy]').innerText()).includes('QA override'), 'recall_reuses_same_prompt_override');
 
   const recallFrontState = await recallCard.evaluate((node) => {
