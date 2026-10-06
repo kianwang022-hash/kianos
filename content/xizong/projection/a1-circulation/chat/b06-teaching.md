@@ -242,7 +242,7 @@ CTA说明解剖，造影观察管腔，核素心肌显像主要看灌注缺损�
 <!-- b6:source 111:119 -->
 ## 来源、支持与未决边界（不作为教学分段）
 
-本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+本稿采用范围以<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>为准；医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
 
 Source范围：当前 canonical 继承内科冠心病印刷P330–354、相关PDF407–423及病理P46/48；原Source图表与药物口径以canonical Source附录为准，本次未重做PDF像素验收。
 

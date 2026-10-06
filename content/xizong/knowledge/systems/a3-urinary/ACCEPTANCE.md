@@ -11,6 +11,17 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 
 ---
 
+<a id="a-reader-entry-metadata-reconciliation"></a>
+## Reader entry metadata reconciliation — #1113
+
+This bounded reader-only correction follows Kian's `审查优化a` request and [the existing #1113 audit scope](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-6023304014). It updates current-stage wording and existing-owner links in 7 a3-urinary readers; it does **not** adopt new medical/learning meaning or another Memory item.
+
+Earlier tested candidate headers and dated construction records remain byte-preserved provenance. Their user-facing current-stage claims now point to this existing Acceptance owner rather than falsely restating candidate/nonadmission status. The earlier exact-reader-byte claims are superseded **only for these metadata/link changes** by the directly affected reader-hash checks; medical models, explanations, full Prompts and their positions, closed expansion states, original Source/HOLDs and all prepared-answer identities/bytes remain unchanged. There is no new authoritative status mirror.
+
+Proof is bounded to native/marked-HTML and existing-owner regression; no new browser/pixel, medical Source, real learner U, mastery, private learner record, merge or served-release claim is made. The current execution receipt stays in #1113/its repair PR.
+
+---
+
 <a id="a2-a3-reader-consumer-repair-20261006"></a>
 ## 2026-10-06｜Delivered A2/A3 reader and Memory consumption repair
 
@@ -70,17 +81,17 @@ All files are `content/xizong/projection/a3-urinary/chat/bNN-teaching.md`. The f
 
 | Block | SHA256 |
 |---|---|
-| B01 | `b438b54d236d848689fcb26b1361a34c12f6bc99a24764d76e67b2abf1fc6750` |
-| B02 | `50bb1722a73a427a4ddf768943ae448dcc50630e1569bd443da4846d24168410` |
-| B03 | `2d376b46364ce0ad7e49fa300b7353aac86a6434c2a2c5ee4b865c99576baafc` |
-| B04 | `e041c0bad168b78b3feb1f73108f9743de62c713ab28bdb1557a3b00d9e25a27` |
+| B01 | `7469398bef5c9548788d1b784376037ca54d5a724d7869d57f4c8b8e53bfdaa6` |
+| B02 | `72770edc3ec8db100fecdfdce8e749e83646d0e9073622c5ebcc37ec6aec3c5f` |
+| B03 | `6ee12b1c5e0062c45cd700db567c9723fea0a07686b3de2f7eee9a5874f214ab` |
+| B04 | `deac2ce87d59c4ac4f63ac4dd6604079e9c42a071db84b29da5cb63763e0e6b1` |
 | B05 | `d2a74053772d2e299897b41de7e2724f3186e8bffacc8387ecef1532a5810ac8` |
 | B06 | `64b803249c593d216ce5102a5a70aa8c635f56696714027c3957c978a0b938ef` |
 | B07 | `1acf68686956b67ff42363eac226630929b0be12fc2852a437df0b92e9015948` |
 | B08 | `143a2080808717295a78901e5a9a852c4dc78760a2507edd5e8b872db70a5064` |
-| B09 | `2a7913272435386c78488b13e83a8696d0f36674593dcdf18e8ea017e4e6b966` |
-| B10 | `d4126df0d40c6a71a2b7e2e38712963a895ff3b9934e2a6c2bf7245f51e392ad` |
-| B11 | `d47c7a96310e74121a49fd608b328da4f35b44e5909a1acc1db15f7be365b009` |
+| B09 | `2571b56d76dc917ed960509d4eeea13393ed8ac2e0181a0edf371e2aaeac487d` |
+| B10 | `c78dd3c50ea4da92f0c2388c935cf80d600bbe232703ec329081483f8f8c8712` |
+| B11 | `af713dec9a1c440e06c5e36865fa6b63bbacece50d9d01dfba073d2edd3ddb95` |
 | B12 | `1616e2ee8d8917ba7c966924a8ec579b5c60fc212aade4f28788fad408a17d97` |
 | B13 | `84164cf65e13dd42c46f8d1d52394cc6faf9d81bc151157aba7f2215ac5e0e70` |
 | B14 | `0e1794e5918593a880a03fdcae29b39d1442b4e0d49faa41775f16768ce4bf1b` |

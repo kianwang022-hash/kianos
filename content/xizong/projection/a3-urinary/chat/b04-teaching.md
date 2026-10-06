@@ -207,7 +207,7 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 
 
-本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+本稿采用范围以<a href="../../../knowledge/systems/a3-urinary/ACCEPTANCE.md#a3-teaching-adoption-20261006">本块教学采用记录</a>为准；医学依据为 `content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
 
 Source范围：生理Lecture P280–292；U026本章36题，与B3的28题同一原Outline；循环B2激素身份Recall，肾端及浓缩为本章Primary。
 

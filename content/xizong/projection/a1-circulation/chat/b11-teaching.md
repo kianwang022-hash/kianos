@@ -2,7 +2,7 @@
 
 # 泵与充盈失败 → 淤血/低灌注 → 急慢分流
 
-候选学习稿。沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。
+沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。采用范围见<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>。
 
 ## 先建立共同循环，再给心衰贴标签
 
@@ -181,7 +181,7 @@ HFpEF也控制高压、缺血、AF/心动过速与过高充盈，有适应证才
 <details>
 <summary>来源、精确记忆与原图边界</summary>
 
-本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+本稿采用范围以<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>为准；医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
 
 Source范围：内科LectureP355–366及既有canonical校准来源；U127–130共59题，B6尾段HF桥不重复计账。
 

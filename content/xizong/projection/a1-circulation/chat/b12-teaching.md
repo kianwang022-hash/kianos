@@ -2,7 +2,7 @@
 
 # 有效脉搏 → 灌注 → 第一故障 → 恢复循环
 
-候选学习稿。沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。
+沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。采用范围见<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>。
 
 ## 先分有没有有效输出，再判断是不是休克
 
@@ -143,7 +143,7 @@ VF/pVT已无有效输出，非同步除颤配CPR，即使pVT有组织宽QRS也�
 <details>
 <summary>来源、精确记忆与原图边界</summary>
 
-本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+本稿采用范围以<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>为准；医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
 
 Source范围：外科27外科精编版【带导图】SUR27-U37 PDF276–281/印刷223–227；内科Lecture398–399。SUR-U058–059共24+IM-U137第11–15共5+U138共1=30。
 

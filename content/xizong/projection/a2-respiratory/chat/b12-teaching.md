@@ -4,7 +4,7 @@
 
 <h1>呼吸衰竭：氧合失败与通气失败汇合，支持也能产生伤害</h1>
 
-<p class="scope">本地待审教学稿 · 同一模型的短读与展开；无医学／原图／学习完成验收。</p>
+<p class="scope">同一模型的短读与展开；教学采用见<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>，原图与真实学习证据仍分别保留。</p>
 
 <p>R3–R11的上游故障在此压回氧合与通气：低PaO₂和高PaCO₂可并存，但支持目标不同。空气—泵／胸膜—肺泡—膜—血流／VA-Q—Hb—组织仍是同一System；泵扩张失败与控制器／神经驱动失败分开，PaO₂正常也不保证Hb携氧与组织氧供正常。完整血液、神经及酸碱模型回原System。</p>
 
@@ -85,7 +85,7 @@
 
 <details class="references"><summary>来源、精确复习与原图去向</summary>
 
-<p>完整Current Core可由每个知识标题直达。以下Memory身份仍是现有提示范围，prepared答案为本地待审提案；此稿不会生成学习证据、到期任务或自动完成。</p>
+<p>完整Current Core可由每个知识标题直达。以下Memory身份的当前准入与答案解析以<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>及其现有答案owner为准；此稿不会生成学习证据、到期任务或自动完成。</p>
 
 
 

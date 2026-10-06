@@ -11,6 +11,19 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ---
 
+<a id="a-reader-entry-metadata-reconciliation"></a>
+## Reader entry metadata reconciliation — #1113
+
+This bounded reader-only correction follows Kian's `审查优化a` request and [the existing #1113 audit scope](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-6023304014). It updates current-stage wording and existing-owner links in 12 a2-respiratory readers; it does **not** adopt new medical/learning meaning or another Memory item.
+
+Earlier tested candidate headers and dated construction records remain byte-preserved provenance. Their user-facing current-stage claims now point to this existing Acceptance owner rather than falsely restating candidate/nonadmission status. The earlier exact-reader-byte claims are superseded **only for these metadata/link changes** by the directly affected reader-hash checks; medical models, explanations, full Prompts and their positions, closed expansion states, original Source/HOLDs and all prepared-answer identities/bytes remain unchanged. There is no new authoritative status mirror.
+
+R1–R4 now route the remaining local-accounting promise to the actual Current Framework/MI-G/MI-D sections and original cue identities. Current Prepared admission still requires the existing index and native freshness; the original six unadmitted cues and missing exact facts remain held. A Core pointer is not a new prepared answer.
+
+Proof is bounded to native/marked-HTML and existing-owner regression; no new browser/pixel, medical Source, real learner U, mastery, private learner record, merge or served-release claim is made. The current execution receipt stays in #1113/its repair PR.
+
+---
+
 <a id="a2-teaching-adoption-20261006"></a>
 ## 2026-10-06｜A2 teaching and prepared Memory System adoption
 
