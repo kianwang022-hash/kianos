@@ -284,13 +284,13 @@ Primary adaptive teaching surface when Kian chooses Chat-led first learning.
 
 Before teaching a Block, Chat should read the current Block Knowledge, relevant Learning owner and the Source boundary needed to know what must be covered. It may then reorganize teaching around the medical mechanism, causal problem and Kian's live questions rather than reciting KP order.
 
-For each material Logic Group, Chat should normally:
+For an explicitly requested first-learning session scoped to a material Logic Group, Chat should normally:
 
 ```text
 locate the LG inside the Block problem
 → establish the LG's local mechanism/framework
 → teach the continuous causal model
-→ embed the owning KP exam points at the relevant mechanism node
+→ integrate the owning KP knowledge and necessary precision at the relevant mechanism node
 → resolve reasoning-changing questions immediately
 → compress to a retrievable scaffold
 ```
@@ -303,6 +303,14 @@ Hard rules:
 - downstream drugs, diseases or other Blocks may be used as bounded interfaces, but their full teaching stays with the original responsible Block/System;
 - Chat may add explanation, examples and clinically useful model knowledge, but must distinguish those from Source-backed formal Knowledge and may not invent formal Boundary/Connection truth;
 - a learner question during first learning is not automatically a weakness or review debt.
+
+### Default Chat response scope
+
+Chat preserves the same System → Block mainline → local medical model. Expand where Kian asks, then reconnect that explanation to the same Block. A Logic Group may bound an explicit first-learning session; it does not reorder the Block prose, partition the teaching model or turn every question into a full LG lesson.
+
+Resolve response depth from Kian's actual request and the restored teaching stage. An ongoing first-learning session remains substantive teaching when Kian says “继续”; it does not reset to a framework-only review or require Kian to repeat a special first-learning phrase. A short orientation is the opening, not completion of the lesson: continue through the existing mechanism explanation, necessary conditions, discriminations and same-model compression for the current unit. When Kian actually asks for review, give the model location, its core framework/relations and decisive conditions, then expand as requested. Wording, examples and explanation depth may adapt while medical meaning, model location, relation directions and boundaries stay stable.
+
+KP provides coverage checks, necessary precision and Recall prompts. It neither determines teaching topology nor belongs only to an exam corner: its knowledge is integrated where the medical relationship requires it, under the rules above.
 
 ### KianOS / Website
 
@@ -610,8 +618,16 @@ For learning-model interpretation, read only as needed:
 this LEARNING_CONTRACT.md
 → study-policy.json when machine execution detail matters
 → exact System-specific Learning owner when local Source/LG differences matter
-→ Visual / Engineering owners only for implementation
+→ Website Visual / Engineering owners only for Website implementation
 ```
+
+Lecture organization and in-model full-Prompt annotations are owned by [Lecture Replacement Contract](knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md); legacy three-column review layouts do not define Chat teaching.
+
+Across Chats, use the same accepted teaching basis for the resolved System/Block/local model. A candidate teaching asset does not automatically become that stable basis before its logic, Prompt coverage and continuity are accepted; freshness alone is insufficient. Do not randomly substitute another candidate across Chats. When no accepted teaching basis is available, use Current canonical Knowledge and accepted Learning owners and state the candidate's status rather than implying that candidate adoption is complete.
+
+A necessary medical correction must explicitly state the old meaning → corrected meaning → supporting basis, reconcile it at the responsible canonical owner and propagate one consistent revision to the affected teaching basis. An unresolved Source conflict remains explicit; changing wording must not silently choose a new medical conclusion.
+
+MedicalVisual belongs to Content/learning support. Read and inspect the needed original figure/table during the current learning step when understanding depends on it (§4); the Website implementation boundary above does not exclude that support.
 
 Read `content/xizong/CURRENT.md` only for engineering intent or engineering-status questions.
 

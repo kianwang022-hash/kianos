@@ -121,6 +121,8 @@ Canonical `boundary`, `stress`, provenance and identity metadata may remain upst
 
 ### Ordinary headword IPA projection
 
+When a default learner locale choice is required, use **American English first**; retain British English alternatives when they are explicitly supported. This presentation preference never licenses locale inference, guessed transcription, or suppression of valid unmarked support.
+
 The authorized Vocabulary IPA surface consumes `record.form_identity.headword_pronunciations` through Final `pronunciation_support`, separately from `reference.form`. Ordinary pronunciation support creates no Reference module, Repair target or learning debt. The existing Form reference and its variants/boundaries remain intact.
 
 The fixed projection preserves each complete literal IPA, explicit `en-US`/`en-GB` locales, applicability (including exact Sense IDs and exclusions, case, POS and conditions), spelling binding and derived-transcription basis. Missing/fragmentary transcriptions remain absent. Unmarked locales remain unknown; audio, source entry POS and another region are never locale evidence. The builder does not select a first/default reading or normalize phonemes across transcription systems.

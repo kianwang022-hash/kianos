@@ -11,18 +11,35 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "日常物品",
+          "label_cn": "电灯泡",
           "label_en": "an electric light bulb",
           "pos": "noun",
           "sense_ids": [
             "sense:bulb:3bbf1d8becaed8d6"
           ]
+        },
+        {
+          "label_cn": "球茎；鳞茎",
+          "label_en": "the rounded underground part of a plant that grows into a new plant",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bulb:ee90936d35ef5e76"
+          ]
+        },
+        {
+          "label_cn": "球状部分；球状物",
+          "label_en": "a rounded or bulb-shaped part or object",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bulb:084dfd7a6aa45dd0",
+            "sense:bulb:c1846d9b2df4597d"
+          ]
         }
       ],
-      "core_meaning_cn": "球状物；灯泡；球茎",
-      "core_meaning_en": "a rounded object, especially a light bulb or plant bulb",
-      "mental_model_cn": "球状物；灯泡；球茎",
-      "mental_model_en": ""
+      "core_meaning_cn": "灯泡；球茎；球状物",
+      "core_meaning_en": "a light bulb, a plant bulb, or a rounded bulb-shaped object",
+      "mental_model_cn": "light/electric → 灯泡；plant → 球茎；shape/instrument → 球状部分。",
+      "mental_model_en": "light/electric → light bulb; plant → plant bulb; shape/instrument → bulb-shaped part"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,14 +62,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（圆柱形仪器一端的）球状部分",
-        "definition_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "definition_cn": "电灯泡",
+        "definition_en": "an electric light bulb",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:bulb:084dfd7a6aa45dd0",
-        "sense_label_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "sense_id": "sense:bulb:3bbf1d8becaed8d6",
+        "sense_label_en": "an electric light bulb",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -83,6 +100,20 @@
       {
         "collocations": [],
         "confidence": "medium",
+        "definition_cn": "（圆柱形仪器一端的）球状部分",
+        "definition_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bulb:084dfd7a6aa45dd0",
+        "sense_label_en": "a rounded part of a cylindrical instrument (usually at one end)",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
         "definition_cn": "泪滴状物；球状物",
         "definition_en": "anything with a round shape resembling a teardrop",
         "governing_pattern": "",
@@ -91,35 +122,7 @@
         "pos": "noun",
         "sense_id": "sense:bulb:c1846d9b2df4597d",
         "sense_label_en": "anything with a round shape resembling a teardrop",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "（管道或器官的）球状膨大",
-        "definition_en": "a rounded dilation or expansion in a canal or vessel or organ",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bulb:abe45eda033e5850",
-        "sense_label_en": "a rounded dilation or expansion in a canal or vessel or organ",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "电灯泡",
-        "definition_en": "an electric light bulb",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bulb:3bbf1d8becaed8d6",
-        "sense_label_en": "an electric light bulb",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -447,7 +450,22 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "（管道或器官的）球状膨大",
+      "definition_en": "a rounded dilation or expansion in a canal or vessel or organ",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bulb:abe45eda033e5850",
+      "sense_label_en": "a rounded dilation or expansion in a canal or vessel or organ",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -459,7 +477,7 @@
       },
       {
         "sense_id": "sense:bulb:abe45eda033e5850",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1723,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"

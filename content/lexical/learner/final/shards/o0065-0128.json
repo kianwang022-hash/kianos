@@ -6891,8 +6891,15 @@
     "ordinal": 100,
     "word": "affect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0100.json",
-    "source_fingerprint": "62e20889da31b6fccaa4e447ab75d19678a594bc791aba3f646348576c0562bf",
+    "source_fingerprint": "68767a53ab8ec3e6f24fdde4a8ea305d23d4271a08f3c932164517f204c26496",
     "sense_lineage": [
+      {
+        "word_id": "word:affect",
+        "target_kind": "sense",
+        "from_target_id": "sense:affect:612955c748a951c1",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:affect",
         "target_kind": "sense",
@@ -6903,8 +6910,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1N"
+        "2V"
       ],
       "density": "rich"
     },
@@ -6988,23 +6994,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "感动；打动"
         }
-      },
-      {
-        "id": "sense:affect:612955c748a951c1",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "情感；感情",
-        "definition_en": "emotion or desire, especially as influencing behavior",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:affect:612955c748a951c1",
-          "target_locator": "record.senses[2]",
-          "target_label": "情感；感情"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7035,9 +7024,7 @@
               "pos": [
                 "noun"
               ],
-              "sense_ids": [
-                "sense:affect:612955c748a951c1"
-              ]
+              "sense_ids": []
             }
           ],
           "learner_reading": "noun: AF-fect",
@@ -7051,9 +7038,6 @@
         ],
         "sense:affect:b8d5492ed2d05dfc": [
           0
-        ],
-        "sense:affect:612955c748a951c1": [
-          1
         ]
       },
       "has_scope": true
@@ -7153,6 +7137,20 @@
           "source_row": 273,
           "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "情感；感情",
+          "definition_en": "emotion or desire, especially as influencing behavior",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:affect:612955c748a951c1",
+          "sense_label_en": "emotion or desire, especially as influencing behavior",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }

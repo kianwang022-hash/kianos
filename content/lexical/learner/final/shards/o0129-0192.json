@@ -10244,22 +10244,51 @@
     "ordinal": 190,
     "word": "analytic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0190.json",
-    "source_fingerprint": "b4a16551ce07e66afaca152f1f37d14578d5564f4b58d334f051900de1eedd28",
-    "sense_lineage": [],
+    "source_fingerprint": "afa46f42bc94b4d57531eb5603853ac99b7a62993ee911220e8b0150c92c8771",
+    "sense_lineage": [
+      {
+        "word_id": "word:analytic",
+        "target_kind": "sense",
+        "from_target_id": "sense:analytic:160d47e4423f58d7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:analytic",
+        "target_kind": "sense",
+        "from_target_id": "sense:analytic:d79650360c935ae7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:analytic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b06b9099b650bfe17459",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:analytic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c0db9c473a5803323245",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "分析的；解析的",
-      "decision_cn": "",
+      "summary_cn": "分析的；善于分析的",
+      "decision_cn": "把整体拆开看结构、成分或逻辑关系。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "分析的；解析的"
+        "target_label": "分析的；善于分析的"
       }
     },
     "senses": [
@@ -10295,58 +10324,6 @@
           "target_id": "sense:analytic:fdf66a6895255bae",
           "target_locator": "record.senses[0]",
           "target_label": "分析的；善于分析的"
-        }
-      },
-      {
-        "id": "sense:analytic:160d47e4423f58d7",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "解析的（数学）",
-        "definition_en": "using or subjected to a methodology using algebra and calculus",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c0db9c473a5803323245",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "analytic geometry",
-            "meaning_cn": "解析几何",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:analytic:160d47e4423f58d7",
-          "target_locator": "record.senses[1]",
-          "target_label": "解析的（数学）"
-        }
-      },
-      {
-        "id": "sense:analytic:d79650360c935ae7",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "分析型的（语言学）",
-        "definition_en": "expressing a grammatical category by using two or more words rather than inflection",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b06b9099b650bfe17459",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "analytic language",
-            "meaning_cn": "分析语",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:analytic:d79650360c935ae7",
-          "target_locator": "record.senses[2]",
-          "target_label": "分析型的（语言学）"
         }
       }
     ],
@@ -10404,7 +10381,57 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c0db9c473a5803323245",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:analytic:160d47e4423f58d7:collocation:0"
+              ],
+              "meaning_cn": "解析几何",
+              "phrase": "analytic geometry"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "解析的（数学）",
+          "definition_en": "using or subjected to a methodology using algebra and calculus",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:analytic:160d47e4423f58d7",
+          "sense_label_en": "using or subjected to a methodology using algebra and calculus",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b06b9099b650bfe17459",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:analytic:d79650360c935ae7:collocation:0"
+              ],
+              "meaning_cn": "分析语",
+              "phrase": "analytic language"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "分析型的（语言学）",
+          "definition_en": "expressing a grammatical category by using two or more words rather than inflection",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:analytic:d79650360c935ae7",
+          "sense_label_en": "expressing a grammatical category by using two or more words rather than",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

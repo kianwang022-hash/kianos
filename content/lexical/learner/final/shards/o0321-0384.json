@@ -1481,22 +1481,37 @@
     "ordinal": 329,
     "word": "attitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0329.json",
-    "source_fingerprint": "519d505a33fa9581104d49b2a57f59a43d5d912042231da3158142ecb204df38",
-    "sense_lineage": [],
+    "source_fingerprint": "0c7c41a0426989570476c59f3ca8b85ad8e54c330db58ec5a5c0df7167be6de5",
+    "sense_lineage": [
+      {
+        "word_id": "word:attitude",
+        "target_kind": "sense",
+        "from_target_id": "sense:attitude:78c32fc6a9235814",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:attitude",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:21fea125387ed937968a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态",
-      "decision_cn": "toward issue/person → 态度看法；body/theatrical pose → 姿势；aircraft/spacecraft → 飞行姿态。",
+      "summary_cn": "态度、看法；正式语境也可指身体姿势",
+      "decision_cn": "toward issue/person → 态度看法；formal body context → 姿势。航空航天姿态保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态"
+        "target_label": "态度、看法；正式语境也可指身体姿势"
       }
     },
     "senses": [
@@ -1527,34 +1542,8 @@
         }
       },
       {
-        "id": "sense:attitude:78c32fc6a9235814",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "飞行姿态",
-        "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:21fea125387ed937968a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "attitude control",
-            "meaning_cn": "姿态控制",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:attitude:78c32fc6a9235814",
-          "target_locator": "record.senses[1]",
-          "target_label": "飞行姿态"
-        }
-      },
-      {
         "id": "sense:attitude:e3cd4c9333f758be",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "态度，看法",
@@ -1564,14 +1553,14 @@
         "usage": [
           {
             "id": "collocation:777515541729fa3b01f9",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "attitude to/toward sb/sth",
             "meaning_cn": "对某人/某事的态度",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:777515541729fa3b01f9",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "attitude to/toward sb/sth"
             }
           }
@@ -1579,7 +1568,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:attitude:e3cd4c9333f758be",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "态度，看法"
         }
       }
@@ -1622,7 +1611,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:21fea125387ed937968a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:attitude:78c32fc6a9235814:collocation:0"
+              ],
+              "meaning_cn": "姿态控制",
+              "phrase": "attitude control"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "飞行姿态",
+          "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:attitude:78c32fc6a9235814",
+          "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1922,11 +1937,26 @@
     "ordinal": 332,
     "word": "attractive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0332.json",
-    "source_fingerprint": "9cef121a7f683407d77d8daff5ea6bd27f89b0b4cb925d34190a5df9cbe0def1",
-    "sense_lineage": [],
+    "source_fingerprint": "1262acff3681c427c4a8ad184a77cff244134ac6275436073e410fab4fce3d98",
+    "sense_lineage": [
+      {
+        "word_id": "word:attractive",
+        "target_kind": "sense",
+        "from_target_id": "sense:attractive:e590470dc0c35a51",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:attractive",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7895deecc6a1f1ba5768",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -2000,32 +2030,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "引起兴趣的"
         }
-      },
-      {
-        "id": "sense:attractive:e590470dc0c35a51",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有磁性的；有吸引力的（物理）",
-        "definition_en": "having the properties of a magnet; the ability to draw or pull",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7895deecc6a1f1ba5768",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "attractive force",
-            "meaning_cn": "引力",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:attractive:e590470dc0c35a51",
-          "target_locator": "record.senses[2]",
-          "target_label": "有磁性的；有吸引力的（物理）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2077,9 +2081,6 @@
         ],
         "sense:attractive:d80e9ec24cfe55b5": [
           0
-        ],
-        "sense:attractive:e590470dc0c35a51": [
-          0
         ]
       },
       "has_scope": true
@@ -2100,6 +2101,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7895deecc6a1f1ba5768",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:attractive:e590470dc0c35a51:collocation:0"
+              ],
+              "meaning_cn": "引力",
+              "phrase": "attractive force"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "有磁性的；有吸引力的（物理）",
+          "definition_en": "having the properties of a magnet; the ability to draw or pull",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:attractive:e590470dc0c35a51",
+          "sense_label_en": "having the properties of a magnet; the ability to draw or pull",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -10419,12 +10446,27 @@
     "ordinal": 380,
     "word": "bag",
     "source_owner_path": "content/lexical/words/by-ordinal/o0380.json",
-    "source_fingerprint": "8534a296f6a8b21a5148744c7a89c955b4dec519ac8c44d2ec8d2c9a06919375",
-    "sense_lineage": [],
+    "source_fingerprint": "4bbc105933af62da76b5e52979a65c8012cc32b544d0143c5b86ef9c2b59f3d4",
+    "sense_lineage": [
+      {
+        "word_id": "word:bag",
+        "target_kind": "sense",
+        "from_target_id": "sense:bag:116b274e7f6f531b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bag",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c89691c1df4708d7001a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -10505,34 +10547,8 @@
         }
       },
       {
-        "id": "sense:bag:116b274e7f6f531b",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "猎获量",
-        "definition_en": "the quantity of game taken in a particular period (usually by one person)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c89691c1df4708d7001a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a good bag",
-            "meaning_cn": "丰硕的猎获量",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bag:116b274e7f6f531b",
-          "target_locator": "record.senses[2]",
-          "target_label": "猎获量"
-        }
-      },
-      {
         "id": "sense:bag:d793c027fd935cf3",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "猎获",
@@ -10542,7 +10558,7 @@
         "usage": [
           {
             "id": "collocation:ab7eac8e9df445e18c07",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "bag a deer",
             "meaning_cn": "猎获一头鹿",
             "kind": "usage_example",
@@ -10552,13 +10568,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bag:d793c027fd935cf3",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "猎获"
         }
       },
       {
         "id": "sense:bag:4a7a5fc6dae45504",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "袋子；包",
@@ -10569,7 +10585,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bag:4a7a5fc6dae45504",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "袋子；包"
         }
       }
@@ -10600,7 +10616,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c89691c1df4708d7001a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bag:116b274e7f6f531b:collocation:0"
+              ],
+              "meaning_cn": "丰硕的猎获量",
+              "phrase": "a good bag"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "猎获量",
+          "definition_en": "the quantity of game taken in a particular period (usually by one person)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bag:116b274e7f6f531b",
+          "sense_label_en": "the quantity of game taken in a particular period (usually by one person",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10609,11 +10651,26 @@
     "ordinal": 381,
     "word": "baggage",
     "source_owner_path": "content/lexical/words/by-ordinal/o0381.json",
-    "source_fingerprint": "fa63a42a194751ca7511d3be89ac3589a0da72c618ac97033a06e572fe3c21f8",
-    "sense_lineage": [],
+    "source_fingerprint": "3f38756d2d595b20d3e428687844efb83ca8a2cf5f8dfe09d1ec671d855661ac",
+    "sense_lineage": [
+      {
+        "word_id": "word:baggage",
+        "target_kind": "sense",
+        "from_target_id": "sense:baggage:eb36a9e9e9dc50dd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:baggage",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bbb653d79cce1590a9da",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -10681,39 +10738,8 @@
         }
       },
       {
-        "id": "sense:baggage:eb36a9e9e9dc50dd",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（军队的）辎重",
-        "definition_en": "the portable equipment and supplies of an army",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bbb653d79cce1590a9da",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "baggage train",
-            "meaning_cn": "辎重队",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bbb653d79cce1590a9da",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "baggage train"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:baggage:eb36a9e9e9dc50dd",
-          "target_locator": "record.senses[1]",
-          "target_label": "（军队的）辎重"
-        }
-      },
-      {
         "id": "sense:baggage:c2f7d0d0eb16e54d",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（情感、文化等）包袱",
@@ -10723,27 +10749,27 @@
         "usage": [
           {
             "id": "collocation:ab34bad2cf80d7271ee0",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "emotional baggage",
             "meaning_cn": "情感包袱",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ab34bad2cf80d7271ee0",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "emotional baggage"
             }
           },
           {
             "id": "collocation:c769e8a7cb66e60cfd80",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "cultural baggage",
             "meaning_cn": "文化包袱",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c769e8a7cb66e60cfd80",
-              "target_locator": "record.senses[2].collocations[1]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "cultural baggage"
             }
           }
@@ -10751,7 +10777,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:baggage:c2f7d0d0eb16e54d",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "（情感、文化等）包袱"
         }
       }
@@ -10816,7 +10842,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bbb653d79cce1590a9da",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:baggage:eb36a9e9e9dc50dd:collocation:0"
+              ],
+              "meaning_cn": "辎重队",
+              "phrase": "baggage train"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（军队的）辎重",
+          "definition_en": "the portable equipment and supplies of an army",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:baggage:eb36a9e9e9dc50dd",
+          "sense_label_en": "the portable equipment and supplies of an army",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10825,12 +10877,27 @@
     "ordinal": 382,
     "word": "bail",
     "source_owner_path": "content/lexical/words/by-ordinal/o0382.json",
-    "source_fingerprint": "d30038d2795f525a525c3021fddf7cdf060cbb49b56b96a4ceb26aa64dea9118",
-    "sense_lineage": [],
+    "source_fingerprint": "eb188071c939ea998ecfa346a3c463041cdd6440fa36071f5839623de1ef03fa",
+    "sense_lineage": [
+      {
+        "word_id": "word:bail",
+        "target_kind": "sense",
+        "from_target_id": "sense:bail:8864d17797545a55",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bail",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5af693df7cd58c1d27a3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -10940,32 +11007,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "舀水（从船里）"
         }
-      },
-      {
-        "id": "sense:bail:8864d17797545a55",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "水杓",
-        "definition_en": "a container for scooping water",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5af693df7cd58c1d27a3",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a bail for bailing",
-            "meaning_cn": "舀水用的杓",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bail:8864d17797545a55",
-          "target_locator": "record.senses[3]",
-          "target_label": "水杓"
-        }
       }
     ],
     "pronunciation_support": {
@@ -11016,7 +11057,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5af693df7cd58c1d27a3",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bail:8864d17797545a55:collocation:0"
+              ],
+              "meaning_cn": "舀水用的杓",
+              "phrase": "a bail for bailing"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "水杓",
+          "definition_en": "a container for scooping water",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bail:8864d17797545a55",
+          "sense_label_en": "a container for scooping water",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

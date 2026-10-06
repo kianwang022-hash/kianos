@@ -25,19 +25,11 @@
           "sense_ids": [
             "sense:attitude:26ee83a413115c8a"
           ]
-        },
-        {
-          "label_cn": "（航空器）姿态",
-          "label_en": "position of aircraft or spacecraft relative to a frame of reference",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:attitude:78c32fc6a9235814"
-          ]
         }
       ],
-      "core_meaning_cn": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态",
-      "core_meaning_en": "an orientation relative to something: a mental attitude, a physical pose, or an aircraft/spacecraft orientation",
-      "mental_model_cn": "toward issue/person → 态度看法；body/theatrical pose → 姿势；aircraft/spacecraft → 飞行姿态。",
+      "core_meaning_cn": "态度、看法；正式语境也可指身体姿势",
+      "core_meaning_en": "a mental attitude or, formally, a position of the body",
+      "mental_model_cn": "toward issue/person → 态度看法；formal body context → 姿势。航空航天姿态保留为 Reference。",
       "mental_model_en": "The reference frame selects mental stance, physical pose, or vehicle orientation."
     },
     "exam_paraphrases": [],
@@ -70,30 +62,6 @@
         "sense_id": "sense:attitude:26ee83a413115c8a",
         "sense_label_en": "a theatrical pose created for effect",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:21fea125387ed937968a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:attitude:78c32fc6a9235814:collocation:0"
-            ],
-            "meaning_cn": "姿态控制",
-            "phrase": "attitude control"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "飞行姿态",
-        "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:attitude:78c32fc6a9235814",
-        "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
-        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -315,7 +283,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:21fea125387ed937968a",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:attitude:78c32fc6a9235814:collocation:0"
+          ],
+          "meaning_cn": "姿态控制",
+          "phrase": "attitude control"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "飞行姿态",
+      "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:attitude:78c32fc6a9235814",
+      "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -327,7 +320,7 @@
       },
       {
         "sense_id": "sense:attitude:78c32fc6a9235814",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 841,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
@@ -342,7 +335,6 @@
     ],
     "active_collocations": [
       "collocation:02ab08a92eb78f74da0d",
-      "collocation:21fea125387ed937968a",
       "collocation:777515541729fa3b01f9"
     ],
     "facts": [],
@@ -355,7 +347,9 @@
       {
         "id": "collocation:21fea125387ed937968a",
         "source_row": 2830,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:98abb37bc9d1b5e1e9b5",

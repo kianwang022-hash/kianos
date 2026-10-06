@@ -19,13 +19,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "缓冲器；缓冲物；缓冲区；缓冲剂；抛光工具",
-          "label_en": "a person or thing that reduces a shock or protects against impact; a temporary storage area in a computer's memory; a chemical substance that resists changes in pH; a power tool used to polish surfaces",
+          "label_cn": "缓冲物；缓冲区；缓冲剂",
+          "label_en": "something that reduces shock/protects; a temporary computer-memory area; a chemical buffer",
           "pos": "noun",
           "sense_ids": [
             "sense:buffer:e4fc013fe92d58e0",
-            "sense:buffer:8108ecbe58405558",
-            "sense:buffer:86b9e462eab257df"
+            "sense:buffer:27f84c02f72d5d0e",
+            "sense:buffer:8108ecbe58405558"
           ]
         },
         {
@@ -79,6 +79,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:bdf679408311fc3f5d88",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:buffer:27f84c02f72d5d0e:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "数据缓冲区",
+            "phrase": "data buffer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（计算机）临时数据存储区",
+        "definition_en": "a temporary data-storage area in a computer's memory",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:buffer:27f84c02f72d5d0e",
+        "sense_label_en": "a temporary data-storage area in a computer's memory",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:d243022458c2ee4afa3d",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -97,7 +121,7 @@
         "pos": "noun",
         "sense_id": "sense:buffer:8108ecbe58405558",
         "sense_label_en": "a chemical substance that resists changes in pH",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -121,46 +145,8 @@
         "pos": "verb",
         "sense_id": "sense:buffer:ebc23cecf8b25277",
         "sense_label_en": "to reduce the harmful effects of something",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "抛光工具",
-        "definition_en": "a power tool used to polish surfaces",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:buffer:86b9e462eab257df",
-        "sense_label_en": "a power tool used to polish surfaces",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bdf679408311fc3f5d88",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:buffer:27f84c02f72d5d0e:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "数据缓冲区",
-            "phrase": "data buffer"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（计算机）临时数据存储区",
-        "definition_en": "a temporary data-storage area in a computer's memory",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:buffer:27f84c02f72d5d0e",
-        "sense_label_en": "a temporary data-storage area in a computer's memory",
-        "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -613,7 +599,22 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "抛光工具",
+      "definition_en": "a power tool used to polish surfaces",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:buffer:86b9e462eab257df",
+      "sense_label_en": "a power tool used to polish surfaces",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -632,7 +633,7 @@
       },
       {
         "sense_id": "sense:buffer:86b9e462eab257df",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1704,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"

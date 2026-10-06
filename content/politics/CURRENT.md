@@ -3,84 +3,92 @@
 Role: **Politics engineering Work Cursor + subject router**  
 Parent: [root CURRENT](../../CURRENT.md)
 
-Shared-platform routing inherits [Authority](../../AUTHORITY_INHERITANCE_CONTRACT.md) and its machine-registered [owner map](../../AUTHORITY_OWNERSHIP.json); Politics consumes those owners without owning shared-platform semantics.
+This file owns only **current Politics BUILD / CONTROL routing**. It does not own Source truth, political-content semantics, learner progress, Acceptance Truth, shared-platform policy, candidate branch evidence, or historical execution receipts.
 
-## Intent and execution state
+Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTRACT.md) and [AUTHORITY_OWNERSHIP.json](../../AUTHORITY_OWNERSHIP.json).
 
-- **LEARN:** ordinary Politics learning bypasses this engineering cursor. Read actual learner/Resume evidence, then the relevant Current prepared package under [Learning §3.1.1](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) and [Interaction §1.1](INTERACTION_CONTRACT.md#11-fresh-chat-teaching-continuity). Recover unknown learner position from learner truth; candidate preparation is not adoption, progress or mastery.
-- **BUILD / CONTROL:** use this cursor → exact subject/content or consumer owner → applicable design/Acceptance owner. Inherit [AGENTS](../../AGENTS.md), [change continuity](../../AUTHORITY_INHERITANCE_CONTRACT.md#31-change-continuity), [Current/history isolation](../../AUTHORITY_INHERITANCE_CONTRACT.md#33-current--history-isolation-and-closure-consistency) and [CURRENT scope](../../AUTHORITY_INHERITANCE_CONTRACT.md#8-current-scope-rule).
-- **Kian resumed the five-task queue on 2026-10-05.** Politics is priority 3 for **Marxism first**, then priority 5 for Ethics-Law / History / Mao / Xi. Resume only the appropriate bounded owner at its turn; latest explicit pause/cancel/scope instructions override prior authorization. [The task directory](https://github.com/kianwang022-hash/kian-personal-os/issues/60) owns cross-task priority.
-- This cursor owns order, next work and blockers, not Source, Learning semantics, Acceptance, learner state or shared-platform policy. Continuation/revalidation/batching mechanics inherit [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md#persistent-task-binding--revalidation-budget); no active run or explicit automation means no background continuation.
+## Intent
 
-## Bound BUILD outcome and next step
+- **LEARN:** ordinary Politics learning bypasses this engineering cursor. Read actual learner/Resume evidence, then the relevant Current prepared package under [Learning](LEARNING_CONTRACT.md) and [Interaction](INTERACTION_CONTRACT.md). Candidate preparation is not adoption, progress or mastery.
+- **BUILD / CONTROL:** enter this cursor, then the active engineering anchor or exact subject/content/consumer owner. Apply [AGENTS](../../AGENTS.md) and change continuity before material changes.
 
-Outcome: coherent Chat model → same-model compression and exact encoding/rehearsal → Website retrieval → Recall/question evidence for Chat-selected review.
+## Active engineering anchor
 
-Design: [Learning](LEARNING_CONTRACT.md) §§0.5,2,3.1–3.2,6.1; [Interaction](INTERACTION_CONTRACT.md) §§1.1,3,7; [Content Semantics](CONTENT_SEMANTICS_CONTRACT.md) §§3.1.1–3.3. [Acceptance](ACCEPTANCE.md) owns the reopened integration claim; existing base first-round acceptance does not close it.
+[**PR #1151 — model teaching, precision rehearsal and Website integration**](https://github.com/kianwang022-hash/kianos/pull/1151) is the **only live integrated Politics BUILD / delivery task**.
 
-**Priority 3 / 5 — adoption authorized, final delivery pending:** Kian explicitly authorized “政治采用” on 2026-10-06 09:27 Asia/Shanghai, after the earlier execution denial and cancelled inline-tree save. The old `681b123885b8dcc69ed406e38259baf64296a4ff` is preserved as provenance and is not pushed or adopted directly. The verified72-file Xi/History batch is now saved and remote-read back on the original [PR #1151](https://github.com/kianwang022-hash/kianos/pull/1151) at `935f4424d1b0d72e94d44d207ebb50fd5f40c7d7`; parent and worker no longer write that branch concurrently. Integrate against actual main `8145967ad595a04058ea76894a5a48de88648f33`, retaining its Reading/IPA/Lexical/Current guards and fixed Marxism C01 ten-node spine. Current prepared/admitted content and necessary Memory consumer travel together; never copy a candidate chapter witness into a different main object.
+It is a delivery branch and evidence surface, **not** a second semantic owner. Its current head/body/comments own volatile candidate status, exact prepared scope, current proof, dependency failures and delivery evidence. Do not copy those changing SHAs/counts/checkpoints into this cursor.
 
-**Next — P6 delivery plus the bounded Source15 delta:** the existing454-target integrated baseline at `e7edfa67d43315a7518576010bbcc8449544a039` retains its prior1236-selector/122-fixture proof. The next Source15 content batch adds19 reviewed targets across13 chapter owners, with unchanged prior reviewed targets and all other pending exclusions preserved; use the current PR head and chapter-local review anchors for its exact binding. Before merge, resolve the two current shared CI failures (`wrong_auto_flips_to_back` and `reviewed_wu_creates_one_visible_memory_repair:0`) with the existing latency owner, reconcile current main and Semantic Base, and complete review/CI. Then verify main and the actual Website's separate served catalog. Do not reopen unrelated completed paths or treat isolated Node proof as a browser/delivery PASS.
+Fresh continuation:
 
-**Open gates / boundaries:** actual main-to-Website delivery, P6 performance and five-subject supplemental coverage/Acceptance remain unclosed until their own evidence. The subsequent15-page Source receipt now supports the exact19-target Content/admission batch: the original producer verifies all19,13 chapters/37 units compile strictly,541 selectors resolve, and245 isolated assertions pass. Existing8 reviewed targets in these13 chapters remain byte-equivalent at candidate level;21 other pending targets remain excluded. This batch still needs actual browser/Website verification. Xi C00 uses the explicit same-edition Mao definition only for the two combination objects; PDF148's complete relation sentence is supported, while the requested table layout remains uninspected. No Source node/fidelity state or learner evidence is rewritten. Existing base first-round PASS is preserved; real learner U is untested.
+```text
+main@HEAD
+→ AGENTS.md
+→ this CURRENT
+→ PR #1151 current head / latest evidence
+→ exact Politics Content / Learning / consumer owner affected
+→ Acceptance only when the claim crosses readiness
+```
 
-**Priority 5 siblings / Source limits:** after prior queue priorities, continue the smallest verified gap in History/Mao/Xi/Ethics; do not restart existing accepted or reviewed assets. The existing [53-chapter inventory and batch evidence](https://github.com/kianwang022-hash/kianos/pull/1151#issuecomment-5993978596) preserves their prepared scope. Mao C06's disputed PDF100 unmarked “无法结合” grey box and third-step statistical/Suyi wording remain item-scoped exclusions in its brief: no invented printed cross, silent Source replacement or disputed-indicator admission. Other image/table/red-answer targets require their own page checks. Current-year/high-change/LEG historical limits remain item-scoped. Original Source PDF reads remain no-upload; optional Library transfer of those original PDFs is unapproved and unnecessary. Generated content/test artifacts use the existing authorized task-transfer path; that does not authorize uploading the original PDFs.
+Do not resume from an old PR SHA, historical comment, retired cross-task queue snapshot or pre-thinning Current.
 
-## P1–P6 commitments
+## Parent outcome
 
-These are the existing integration work packages, not a new tracker or restart checklist. Reuse earned proof within its actual scope. Read only the package and dependencies needed for the next authorized slice.
+Build one coherent Politics learning loop:
 
-| Step | Existing scope / owner and required exit |
-| --- | --- |
-| **P1 — representative content** | Ethics-Law C06 and Marxism C02 chapters/NU, existing teaching-candidate briefs, precision groups/sidecars and bounded review. Inspect necessary Chengfeng text/images and Leg support; resolve C06 old/new role wording and C02 generic boundary-prompt ambiguity. Learning §3.2 requires usable first lesson, same-model reconstruction, complete approved exact scope, useful encoding, clear prompts/answers/checking and item-scoped unresolved sources. Full author reads + independent text attack + repaired passages reread; two shapes do not prove five subjects. |
-| **P2 — exact-set reconciliation** | Reuse original chapter content_support / *.memory.json identities; compare actual catalog from politicsMemoryCandidates.mjs and politicsRepairMemory.mjs. Reconcile inspected Source/edition under the original owner. Every approved P1 target maps to one usable reviewed identity or explicit blocker; no conflicting old answer, duplicate owner, orphan C target or historical upgrade. Admission is inspectable before selection. |
-| **P3 — bounded consumer (Engineer)** | Only necessary static-web/src/lib/politicsMemoryCandidates.mjs, politicsRepairMemory.mjs, politicsMemoryRuntime.mjs, politicsMemoryClient.mjs and src/pages/politics/memory/index.astro. Reuse prompt/answer/reason/ID/plan; fields need Content Semantics §3.2 producer-to-consumer proof. Content-authored prompts survive loading, approved proactive items work without fake W/U, pending items are excluded, answer/checking reaches reveal without leakage. Preserve ID/snapshot/replay/stale meaning; no UI hard-coded political answer. |
-| **P4 — return and actual journey (Engineer + Chat)** | Existing politicsChatReturn.mjs, politicsPracticeState.mjs, dailyLearningPacketRuntime.mjs and actually dependent Memory history/profile/control owners. Isolated Candidate4322/browser storage must show intended Current IDs selected, matching APPLIED receipt, reveal/self-report, interruption/resume, next-day evidence and stale rejection. Batch W/U still permits NO_ACTION, smallest Source/model repair, exactness practice or transfer retest. No production learner writes. |
-| **P5 — five-subject prepared scope** | Existing subject cursors and admitted Source/NU sequence, preserving accepted components. Every subject has one canonical total model; every admitted chapter has Learning §§0.5,3.1.1,3.2's six-part package or a precise blocked range. Stable prepared-stage identities bind owned spine/content ranges and next/closure, so fresh Chat resumes the same prepared course without regenerating from raw Source. Completeness follows inspected items, never counts/quotas; uncertain/current-year items cannot count as complete. Current priority remains Marxism; siblings enter at queue priority 5. |
-| **P6 — landing / closeout (Engineer)** | Existing Acceptance/result owners, PR/main/Current delivery, and Personal role draft #64 only if still needed as a reference-only entrypoint; no new handoff. Targeted tests and actual independent content review pass; accepted content lands on main and actual Website consumes the same catalog while preserving Workbench/Recall. Reconcile lane/subject supplemental Acceptance after delivery proof. Measure affected cold-start/plan-to-recall usability and resolve material low-friction violations; the previously observed ~31–34s Candidate Home cold start cannot be ignored for functional PASS. Real effectiveness remains unverified until actual Kian use. |
+```text
+Chat builds the understanding model
+→ same-model compression + exact encoding / rehearsal
+→ Website retrieves only reviewed Current targets
+→ Recall / question evidence returns to Chat
+→ smallest justified review / repair
+```
 
-### Required counterexamples and proof boundaries
+The Website does not become a second Politics textbook or semantic owner. Content, Source and prepared teaching packages remain with their exact owners; Runtime consumes them and preserves evidence semantics.
 
-Extend existing tests; retain assertion, actual result and scoped failure in the bounded review/PR. Unchecked is not PASS.
+## Current / Next / Blocker
 
-- **Content:** hide metadata and read the actual first lesson; reconstruct the same model; remove mnemonic and recover the exact answer. Attack omitted member, reversed relation, wrong role/subject, missing qualifier and ambiguous prompt. Source inventories alone are insufficient.
-- **Admission:** test approved proactive/no-W/U, Source-supported individual gap and admitted-phase output targets; reject uninspected/historical-only, unsupported AI aid promoted to answer and merely C-labelled targets.
-- **Catalog:** revised brief versus old answer; C02 same generic prompt/different answers; dropped explicit prompt, ignored field, duplicate/missing/changed ID, lost Source/admission before selection. At least one actual representative defect must fail before its real repair and pass after.
-- **Execution:** unknown candidate, stale catalog/day, replay conflict, valid idempotence, required supersession, interruption/resume, exact-snapshot evidence, unrelated revision preserving unchanged history and changed answer invalidating only dependent history. Plan syntax PASS is not semantic admission.
-- **Learner:** no answer-bearing aid before clean Recall/Xiao1000 submission; cued correction is not fresh success, STABLE is not objective mastery, W/U allows continuation/NO_ACTION, overview does not unlock an item with untaught distractor prerequisites.
-- **Isolation / delivery:** fixture evidence never enters learner/control storage; preparation never auto-enqueues. Candidate and actual main-to-Website readback are separate from Node/CI. Fresh continuation must resolve next slice/design without the old Chat or Kian re-entering data.
+**Current:** #1151 remains the active integrated candidate until it is either accepted and landed, explicitly replaced, or closed. Candidate files, passing fixtures or historical counts never imply main adoption, served Website delivery or learner mastery.
 
-Known existing commands from static-web (inspect current prerequisites): node scripts/validate-politics-repair-memory.mjs; node scripts/validate-politics-memory-history-profile.mjs; node scripts/test-politics-chat-return.mjs; node scripts/test-politics-batch-review-loop.mjs; npm run validate:politics; npm run test:politics-practice-formal. Use affected existing Candidate/control/daily-packet/browser and build/CI/delivery paths for P3/P4/P6. Do not run cross-subject suites for isolated political wording; do run dependent control/packet tests when those paths change. Unavailable scripts/dependencies/consumer mean scoped BLOCKED, not a mock/grep end-to-end PASS.
+**Next:** continue the current #1151 frontier from its latest head and evidence. For landing / closeout, reconcile only real overlaps with latest main, complete exact-head review/CI, land one coherent producer+consumer set, then verify the actual served version/catalog and the affected cold-start / plan / Recall / Packet paths before updating the exact Acceptance owner.
 
-### Responsibility and stop
+**Blocker rule:** exact blockers live with #1151 or the native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
 
-Kian explicitly authorized correcting these rules, preparing the necessary substantive content/admission criteria, executable work and self-tests through delivery. Within the existing Politics owners, the responsible author may read sources, directly write/revise briefs and exact targets, reconcile old content, run isolated tests, and commit/push reviewed coherent changes with readback; no per-chapter user permission ritual is needed. Mechanical work may be batched; substantive unreviewed Work-generated text is not accepted.
+The historical P1–P6 labels remain useful package names inside #1151 evidence. Their detailed checklists and receipts belong there and in the exact owners, not in this Work Cursor.
 
-Kian has resumed this scope under the five-task queue. The prior action permissions and proof requirements remain unchanged and subordinate to later explicit pause/scope instructions. The preparation task does not authorize access/secret changes, force-push, destructive cleanup, invented learner activity, automatic live study-plan submission or a new background service.
+## Must preserve
 
-Runtime/Website mapping belongs to Engineer's existing implementation responsibility, resolved through AGENTS → Authority §3.1 → exact consumer. A worker may carry that bounded assignment without acquiring shared Runtime ownership. Missing owner/new durable structure/new command/state family/cross-system conflict → OWNER_UNRESOLVED to Engineer, not a workaround.
-
-Offline devices block only dependent Source-image/consumer claims. P3/P4 may reuse the closed representative slices; no local defect justifies a platform rewrite. A blocker does not expand sibling scope beyond its authorized queue position.
-
-Stop expansion at the delivered current-source capability and dependent test boundary. Awaited annual Source, learner U or an authorized device are named evidence gates. Ordinary study remains available; reopen only for real study evidence, authoritative annual Source, a concrete defect or explicit independent re-acceptance.
+- One canonical model per Politics subject/chapter scope; Chat may change explanation style, not the accepted model or owner.
+- First learning must support both usable understanding and same-model reconstruction; exact Memory items supplement the model rather than replacing it.
+- Prepared package completeness follows inspected Current objects and Source support, not file counts, card quotas or historical inventory.
+- Source / edition / annual / figure / table limits remain item-scoped and fail closed. Uninspected material is not silently promoted by a candidate branch.
+- New typed content fields and their real consumer compatibility land coherently. Do not push producer-only data that main cannot safely consume.
+- Reviewed proactive Memory targets may exist without fake W/U; pending/historical/unreviewed targets stay excluded.
+- No answer/check/cue leakage before the applicable clean retrieval boundary.
+- Snapshot / replay / idempotence / supersession / stale-revision semantics remain intact across delivery.
+- Synthetic tests, CI and fixture histories never manufacture Kian's real learning, plan, mastery or U.
+- A candidate branch is evidence until current main + actual consumer readback proves delivery.
 
 ## Exact routing
 
 | Scope | Work cursor | Acceptance |
 | --- | --- | --- |
-| Marxism | learning/marxism/CURRENT.md | learning/marxism/ACCEPTANCE.md |
-| History | learning/history/CURRENT.md | learning/history/ACCEPTANCE.md |
-| Mao | learning/mao/CURRENT.md | learning/mao/ACCEPTANCE.md |
-| Xi | learning/xi/CURRENT.md | learning/xi/ACCEPTANCE.md |
-| Ethics-Law | learning/ethics-law/CURRENT.md | learning/ethics-law/ACCEPTANCE.md |
+| Marxism | [learning/marxism/CURRENT.md](learning/marxism/CURRENT.md) | [learning/marxism/ACCEPTANCE.md](learning/marxism/ACCEPTANCE.md) |
+| History | [learning/history/CURRENT.md](learning/history/CURRENT.md) | [learning/history/ACCEPTANCE.md](learning/history/ACCEPTANCE.md) |
+| Mao | [learning/mao/CURRENT.md](learning/mao/CURRENT.md) | [learning/mao/ACCEPTANCE.md](learning/mao/ACCEPTANCE.md) |
+| Xi | [learning/xi/CURRENT.md](learning/xi/CURRENT.md) | [learning/xi/ACCEPTANCE.md](learning/xi/ACCEPTANCE.md) |
+| Ethics-Law | [learning/ethics-law/CURRENT.md](learning/ethics-law/CURRENT.md) | [learning/ethics-law/ACCEPTANCE.md](learning/ethics-law/ACCEPTANCE.md) |
 
-Learning/Source roles → Learning §2; Memory/private evidence and Chat-owned selection → Learning §6.1/Interaction §7. Content/NU → exact subject and canonical Content; maturity/calibration → MATURITY_PACKAGE.md; readiness → narrow Acceptance; annual affairs/Xiao8/Xiao4/final Mock → exact admitted Source/later-stage owner. Visual → ../../static-web/PRESENTATION_CONTRACT.md and exact accepted surface/Human Gate; Runtime/evidence → ../../SYSTEM_CONTRACT.md and native owner. Shared Shell/navigation/delivery/recovery/cross-subject scheduling inherit upstream ownership, not this subject.
+Learning / Source roles → [LEARNING_CONTRACT.md](LEARNING_CONTRACT.md).  
+Chat teaching continuity → [INTERACTION_CONTRACT.md](INTERACTION_CONTRACT.md).  
+Content / typed retrieval semantics → [CONTENT_SEMANTICS_CONTRACT.md](CONTENT_SEMANTICS_CONTRACT.md).  
+Maturity / calibration → [MATURITY_PACKAGE.md](MATURITY_PACKAGE.md).  
+Visual → [Presentation](../../static-web/PRESENTATION_CONTRACT.md) + exact surface/Human Gate.  
+Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact native owner.
 
-## Provenance only — not continuation authority
+## Stop / reopen
 
-Historical receipts preserve earned bounded evidence; current work state is above. Never resume from an old SHA or an old pending statement.
+Stop when the active #1151 outcome is landed and its claimed current-source consumer boundary is proved, or when a real owner/dependency blocker prevents the next authorized step.
 
-- [PR #1151 Marxism preparation review](https://github.com/kianwang022-hash/kianos/blob/3db0fd80c0775a6e8a5b1496760e0568847eff28/content/politics/learning/marxism/teaching-candidate/preparation-review.md): nine-asset/181-target content and continuity basis; C01/projection/consumer evidence; loader/Memory repair and performance limitations. Cold Packet and same-page Recall improved; other cold paths and already-open Home refresh were not proved. P6 must remeasure.
-- [Existing inventory/batch comment](https://github.com/kianwang022-hash/kianos/pull/1151#issuecomment-5993978596): 53-chapter snapshot, History C01-S04 save and subsequent Marxism route readback. [History review](https://github.com/kianwang022-hash/kianos/blob/3db0fd80c0775a6e8a5b1496760e0568847eff28/content/politics/learning/history/teaching-candidate/preparation-review.md) and [Mao C06 brief/review](https://github.com/kianwang022-hash/kianos/blob/3db0fd80c0775a6e8a5b1496760e0568847eff28/content/politics/learning/mao/teaching-candidate/ch06.brief.md) own their exact bounded proof and unresolved Source ranges, not whole-lane completion.
-- [Pre-thinning CURRENT at baseline commit](https://github.com/kianwang022-hash/kianos/blob/1ba656aa57c41b971342740eb2db2116a95be42a/content/politics/CURRENT.md), blob fa7e3c718a4a3faeddb0e0efdcc890195d4fbe75, preserves the full former cursor and unique Mac task/turn evidence locators (C05 PDF95–96 and C06/C07–C08 original-page reads). It is historical evidence only, never a fallback live router, authorization or pending-work list.
+After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
 
+Historical preparation receipts remain in Git/PR history and exact Acceptance owners. They are evidence, never fallback Current instructions.

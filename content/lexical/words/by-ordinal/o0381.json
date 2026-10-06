@@ -85,30 +85,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:bbb653d79cce1590a9da",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:baggage:eb36a9e9e9dc50dd:collocation:0"
-            ],
-            "meaning_cn": "辎重队",
-            "phrase": "baggage train"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（军队的）辎重",
-        "definition_en": "the portable equipment and supplies of an army",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:baggage:eb36a9e9e9dc50dd",
-        "sense_label_en": "the portable equipment and supplies of an army",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:ab34bad2cf80d7271ee0",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -454,7 +430,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:bbb653d79cce1590a9da",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:baggage:eb36a9e9e9dc50dd:collocation:0"
+          ],
+          "meaning_cn": "辎重队",
+          "phrase": "baggage train"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（军队的）辎重",
+      "definition_en": "the portable equipment and supplies of an army",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:baggage:eb36a9e9e9dc50dd",
+      "sense_label_en": "the portable equipment and supplies of an army",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -466,7 +467,7 @@
       },
       {
         "sense_id": "sense:baggage:eb36a9e9e9dc50dd",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 975,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -483,7 +484,6 @@
       "collocation:1d21eb7914a8f46b8783",
       "collocation:a8876dff99a01c9a10f0",
       "collocation:ab34bad2cf80d7271ee0",
-      "collocation:bbb653d79cce1590a9da",
       "collocation:c68101ac5bd7455735d3",
       "collocation:c769e8a7cb66e60cfd80"
     ],
@@ -502,7 +502,9 @@
       {
         "id": "collocation:bbb653d79cce1590a9da",
         "source_row": 15900,
-        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c68101ac5bd7455735d3",

@@ -731,7 +731,7 @@
     "ordinal": 517,
     "word": "bloom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0517.json",
-    "source_fingerprint": "c0774b8b64fea8e22d733102577191f0f2b2198d00fb1b2cc4f1062627dd6282",
+    "source_fingerprint": "b2b37d825a7753a7bfcaa968e5d10bc19b30eb888a47e635523fedf58a8d8822",
     "sense_lineage": [
       {
         "word_id": "word:bloom",
@@ -739,23 +739,37 @@
         "from_target_id": "sense:bloom:8becddc5a8d35aff",
         "status": "reference_only",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:bloom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bloom:9bc9bba13b8b5979",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bloom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b4fb4eaf9e08335021ed",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "(1+1)V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "开花；花朵；也可指生态系统中某类生物的大量快速繁殖",
-      "decision_cn": "plant/flower → 开花、花朵；ecology/science → bloom 可指短期大量增长，如 algal bloom（藻华）。",
+      "summary_cn": "开花；花朵；也可表示发展繁盛或生态中的大量增长",
+      "decision_cn": "plant → 开花/花朵；person/relationship/talent → 发展、绽放；ecology → algal bloom 等短期大量增长。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "开花；花朵；也可指生态系统中某类生物的大量快速繁殖"
+        "target_label": "开花；花朵；也可表示发展繁盛或生态中的大量增长"
       }
     },
     "senses": [
@@ -817,39 +831,8 @@
         }
       },
       {
-        "id": "sense:bloom:9bc9bba13b8b5979",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "青春；红润",
-        "definition_en": "the best time of youth or a healthy glow",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b4fb4eaf9e08335021ed",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the bloom of youth",
-            "meaning_cn": "青春焕发",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b4fb4eaf9e08335021ed",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "the bloom of youth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bloom:9bc9bba13b8b5979",
-          "target_locator": "record.senses[2]",
-          "target_label": "青春；红润"
-        }
-      },
-      {
         "id": "sense:bloom:59f4a8888835099d",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（科学、生态）大量快速生长，尤指藻华",
@@ -859,7 +842,7 @@
         "usage": [
           {
             "id": "collocation:15f686ef0b13013cbcd7",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "algal bloom",
             "meaning_cn": "藻华",
             "kind": "usage_example",
@@ -869,7 +852,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bloom:59f4a8888835099d",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "（科学、生态）大量快速生长，尤指藻华"
         }
       }
@@ -906,7 +889,22 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:bloom:b016-develop",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "发展；成长得很好；变得成功或有活力",
+        "definition_en": "to develop and become successful, happy, healthy, or attractive",
+        "pattern": "person/relationship/talent/project development context: bloom = develop or flourish; plant context keeps the literal flower sense.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:bloom:b016-develop",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "发展；成长得很好；变得成功或有活力"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -929,6 +927,30 @@
           "source_row": 1379,
           "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b4fb4eaf9e08335021ed",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:bloom:9bc9bba13b8b5979:collocation:0"
+              ],
+              "meaning_cn": "青春焕发",
+              "phrase": "the bloom of youth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "青春；红润",
+          "definition_en": "the best time of youth or a healthy glow",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bloom:9bc9bba13b8b5979",
+          "sense_label_en": "the best time of youth or a healthy glow",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -1499,12 +1521,27 @@
     "ordinal": 521,
     "word": "blue",
     "source_owner_path": "content/lexical/words/by-ordinal/o0521.json",
-    "source_fingerprint": "bb17eee334878507cd70b2b4ff7eb41296da4a5e8e03345f2dac66ea846c95f8",
-    "sense_lineage": [],
+    "source_fingerprint": "f89ea80886b520e6100e174c31b8e40e9f8c55a4f8600753c48a507e514411dc",
+    "sense_lineage": [
+      {
+        "word_id": "word:blue",
+        "target_kind": "sense",
+        "from_target_id": "sense:blue:02a633c2138b5c7a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blue",
+        "target_kind": "sense",
+        "from_target_id": "sense:blue:54e0a076405c5622",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3A",
-        "3N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -1542,6 +1579,14 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "painted blue",
             "meaning_cn": "漆成蓝色",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:2ef54cf9dd99c1d9ed76",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "dressed in blue",
+            "meaning_cn": "穿着蓝色衣服",
             "kind": "usage_example",
             "repair": null
           }
@@ -1614,51 +1659,8 @@
         }
       },
       {
-        "id": "sense:blue:54e0a076405c5622",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "蓝色衣服",
-        "definition_en": "blue clothing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2ef54cf9dd99c1d9ed76",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dressed in blue",
-            "meaning_cn": "穿着蓝色衣服",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blue:54e0a076405c5622",
-          "target_locator": "record.senses[3]",
-          "target_label": "蓝色衣服"
-        }
-      },
-      {
-        "id": "sense:blue:02a633c2138b5c7a",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "蓝蝶",
-        "definition_en": "a small butterfly of the family Lycaenidae",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blue:02a633c2138b5c7a",
-          "target_locator": "record.senses[4]",
-          "target_label": "蓝蝶"
-        }
-      },
-      {
         "id": "sense:blue:bf1e2c403f9d5fe0",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "悲伤的、忧郁的",
@@ -1669,7 +1671,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:blue:bf1e2c403f9d5fe0",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[3]",
           "target_label": "悲伤的、忧郁的"
         }
       }
@@ -1759,7 +1761,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "蓝色衣服",
+          "definition_en": "blue clothing",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:blue:54e0a076405c5622",
+          "sense_label_en": "blue clothing",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "蓝蝶",
+          "definition_en": "a small butterfly of the family Lycaenidae",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:blue:02a633c2138b5c7a",
+          "sense_label_en": "a small butterfly of the family Lycaenidae",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2483,11 +2515,26 @@
     "ordinal": 526,
     "word": "blush",
     "source_owner_path": "content/lexical/words/by-ordinal/o0526.json",
-    "source_fingerprint": "72510700fa3da2d91b688a32777dba1f1f9c64c82e99ebc8922706975a226cdc",
-    "sense_lineage": [],
+    "source_fingerprint": "a16fcd8217bad404b1c6447beb6bf375c93459d2d8fe36ec780235a397bc0121",
+    "sense_lineage": [
+      {
+        "word_id": "word:blush",
+        "target_kind": "sense",
+        "from_target_id": "sense:blush:6b03a79fe230582e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blush",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7da676cdca30449796f3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -2567,32 +2614,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "因尴尬、内疚、羞愧或谦虚而突然脸红"
         }
-      },
-      {
-        "id": "sense:blush:6b03a79fe230582e",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "变成玫瑰色或微红色",
-        "definition_en": "to become rosy or reddish",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7da676cdca30449796f3",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the sky blushed at dawn",
-            "meaning_cn": "黎明时天空泛红",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blush:6b03a79fe230582e",
-          "target_locator": "record.senses[2]",
-          "target_label": "变成玫瑰色或微红色"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2655,7 +2676,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7da676cdca30449796f3",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:blush:6b03a79fe230582e:collocation:0"
+              ],
+              "meaning_cn": "黎明时天空泛红",
+              "phrase": "the sky blushed at dawn"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "变成玫瑰色或微红色",
+          "definition_en": "to become rosy or reddish",
+          "governing_pattern": "vi.",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:blush:6b03a79fe230582e",
+          "sense_label_en": "to become rosy or reddish",
+          "sort_order": 1,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -4673,12 +4720,27 @@
     "ordinal": 537,
     "word": "bone",
     "source_owner_path": "content/lexical/words/by-ordinal/o0537.json",
-    "source_fingerprint": "5c5228137f5c10cdb47debb7373387eefd6ec5e9b78c794d788a36531c084e7e",
-    "sense_lineage": [],
+    "source_fingerprint": "b792f90c55c97f5017564824e1a6833006282958ec2239b9a25c46cbf6ca0bdb",
+    "sense_lineage": [
+      {
+        "word_id": "word:bone",
+        "target_kind": "sense",
+        "from_target_id": "sense:bone:4777c623e7d55ce2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bone",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8f0df86cbe5839f2e35c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -4783,32 +4845,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "剔骨"
         }
-      },
-      {
-        "id": "sense:bone:4777c623e7d55ce2",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "骨白色",
-        "definition_en": "a shade of white the color of bleached bones",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8f0df86cbe5839f2e35c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bone white",
-            "meaning_cn": "骨白色",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bone:4777c623e7d55ce2",
-          "target_locator": "record.senses[3]",
-          "target_label": "骨白色"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4875,7 +4911,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8f0df86cbe5839f2e35c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bone:4777c623e7d55ce2:collocation:0"
+              ],
+              "meaning_cn": "骨白色",
+              "phrase": "bone white"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "骨白色",
+          "definition_en": "a shade of white the color of bleached bones",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bone:4777c623e7d55ce2",
+          "sense_label_en": "a shade of white the color of bleached bones",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6195,8 +6257,15 @@
     "ordinal": 545,
     "word": "bore",
     "source_owner_path": "content/lexical/words/by-ordinal/o0545.json",
-    "source_fingerprint": "143d7f472e527fc30826c411ec8444f48f5aaf2891971f0b2f2039995b56e634",
+    "source_fingerprint": "93280294a207befd942ff0a3cb65aac57e6185a6ba00cb32f4f23ca5af654a66",
     "sense_lineage": [
+      {
+        "word_id": "word:bore",
+        "target_kind": "sense",
+        "from_target_id": "sense:bore:2548691e245f5c37",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:bore",
         "target_kind": "sense",
@@ -6210,23 +6279,30 @@
         "from_target_id": "collocation:3cf52dfbaa3f68349a27",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:bore",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:db0f70ca2f2c2090f060",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "(1+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使厌烦；钻孔；令人讨厌的人",
-      "decision_cn": "",
+      "summary_cn": "使厌烦；钻孔；令人厌烦的人或事",
+      "decision_cn": "verb + person → 使厌烦；tool/material → 钻孔；person → 乏味的人；activity/situation → 烦人或无聊的事。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使厌烦；钻孔；令人讨厌的人"
+        "target_label": "使厌烦；钻孔；令人厌烦的人或事"
       }
     },
     "senses": [
@@ -6330,32 +6406,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "令人讨厌的人，乏味的人"
         }
-      },
-      {
-        "id": "sense:bore:2548691e245f5c37",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "钻孔，探孔",
-        "definition_en": "a hole made by drilling, often for exploration",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:db0f70ca2f2c2090f060",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "exploratory bore",
-            "meaning_cn": "勘探钻孔",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bore:2548691e245f5c37",
-          "target_locator": "record.senses[3]",
-          "target_label": "钻孔，探孔"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6390,7 +6440,22 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:bore:b016-situation",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "（非正式）令人厌烦或麻烦的事、活动或处境",
+        "definition_en": "informal: an activity or situation that is boring, annoying, or inconvenient",
+        "pattern": "thing/activity/situation subject complement: a bore = an annoying or uninteresting thing/situation; person referent = a boring person.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:bore:b016-situation",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（非正式）令人厌烦或麻烦的事、活动或处境"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6441,6 +6506,30 @@
           "sense_id": "sense:bore:30b1817c4fac5d13",
           "sense_label_en": "the hollow inside of a tube or the diameter of a gun barrel",
           "sort_order": 3,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:db0f70ca2f2c2090f060",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bore:2548691e245f5c37:collocation:0"
+              ],
+              "meaning_cn": "勘探钻孔",
+              "phrase": "exploratory bore"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "钻孔，探孔",
+          "definition_en": "a hole made by drilling, often for exploration",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bore:2548691e245f5c37",
+          "sense_label_en": "a hole made by drilling, often for exploration",
+          "sort_order": 4,
           "transitivity": "nonverb"
         }
       ]
@@ -7677,11 +7766,39 @@
     "ordinal": 553,
     "word": "bottom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0553.json",
-    "source_fingerprint": "2b68f10bab23c549df90922da84d0e3a700fadfc8b96754ba95fc78746020662",
-    "sense_lineage": [],
+    "source_fingerprint": "17d6be9e40b76eba270be1c86a85162d0b3bf16fa723d47f51bb9bbcb85bda0e",
+    "sense_lineage": [
+      {
+        "word_id": "word:bottom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bottom:0e76df35d6cf5807",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bottom:52f2f39eefce5ca6",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:45bf6a41d70dec96e30f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f3163fdbd1be625e237d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "1A",
         "1N"
       ],
@@ -7761,63 +7878,6 @@
           "target_id": "sense:bottom:47fadea42f5c5a4b",
           "target_locator": "record.senses[1]",
           "target_label": "底部的，最低的"
-        }
-      },
-      {
-        "id": "sense:bottom:0e76df35d6cf5807",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给...装底",
-        "definition_en": "to provide with a bottom or base",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:45bf6a41d70dec96e30f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "bottom a chair",
-            "meaning_cn": "给椅子装座面",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bottom:0e76df35d6cf5807",
-          "target_locator": "record.senses[2]",
-          "target_label": "给...装底"
-        }
-      },
-      {
-        "id": "sense:bottom:52f2f39eefce5ca6",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + on/upon",
-        "definition_cn": "建立基础，基于",
-        "definition_en": "to rest on or as if on a base",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f3163fdbd1be625e237d",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bottom on + sth",
-            "meaning_cn": "以...为基础",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f3163fdbd1be625e237d",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "bottom on + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bottom:52f2f39eefce5ca6",
-          "target_locator": "record.senses[3]",
-          "target_label": "建立基础，基于"
         }
       }
     ],
@@ -7910,7 +7970,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:45bf6a41d70dec96e30f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bottom:0e76df35d6cf5807:collocation:0"
+              ],
+              "meaning_cn": "给椅子装座面",
+              "phrase": "bottom a chair"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给...装底",
+          "definition_en": "to provide with a bottom or base",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bottom:0e76df35d6cf5807",
+          "sense_label_en": "to provide with a bottom or base",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f3163fdbd1be625e237d",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:bottom:52f2f39eefce5ca6:collocation:0"
+              ],
+              "meaning_cn": "以...为基础",
+              "phrase": "bottom on + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "建立基础，基于",
+          "definition_en": "to rest on or as if on a base",
+          "governing_pattern": "vi. + on/upon",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bottom:52f2f39eefce5ca6",
+          "sense_label_en": "to rest on or as if on a base",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -10446,18 +10556,26 @@
     "ordinal": 567,
     "word": "brake",
     "source_owner_path": "content/lexical/words/by-ordinal/o0567.json",
-    "source_fingerprint": "af5c70d7dd5858f3d37851b8014751d16709640012371abe78588acd2aa3756e",
-    "sense_lineage": [],
+    "source_fingerprint": "6578602f51c240994711a1d5a447ac6b1f54fb0fa07a5a3763c8fc9043b3e10a",
+    "sense_lineage": [
+      {
+        "word_id": "word:brake",
+        "target_kind": "sense",
+        "from_target_id": "sense:brake:4399f0f1df9e5460",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "刹车装置或刹车动作；也可比喻为对进程的制约因素",
-      "decision_cn": "vehicle → 刹车；a brake on growth/progress → 对增长或进程的制约；低频 noun 还可指丛林/蕨类。",
+      "decision_cn": "vehicle → 刹车；a brake on growth/progress → 对增长或进程的制约。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10527,25 +10645,8 @@
         }
       },
       {
-        "id": "sense:brake:4399f0f1df9e5460",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "丛林；蕨类植物",
-        "definition_en": "an area thickly overgrown with plants; a fern",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:brake:4399f0f1df9e5460",
-          "target_locator": "record.senses[2]",
-          "target_label": "丛林；蕨类植物"
-        }
-      },
-      {
         "id": "sense:brake:35b47cafd263555a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "对进程起减缓或限制作用的事物",
@@ -10555,14 +10656,14 @@
         "usage": [
           {
             "id": "collocation:60c1eda4e32f4ab5db4d",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a brake on sth",
             "meaning_cn": "对…的制约",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:60c1eda4e32f4ab5db4d",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "a brake on sth"
             }
           }
@@ -10570,7 +10671,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:brake:35b47cafd263555a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "对进程起减缓或限制作用的事物"
         }
       }
@@ -10644,7 +10745,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "丛林；蕨类植物",
+          "definition_en": "an area thickly overgrown with plants; a fern",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:brake:4399f0f1df9e5460",
+          "sense_label_en": "an area thickly overgrown with plants; a fern",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

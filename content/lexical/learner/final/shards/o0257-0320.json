@@ -1651,11 +1651,26 @@
     "ordinal": 267,
     "word": "around",
     "source_owner_path": "content/lexical/words/by-ordinal/o0267.json",
-    "source_fingerprint": "984a19a06f000f5a5b03ca9bf7632d88057de4717c67051df5f3c6c512996bac",
-    "sense_lineage": [],
+    "source_fingerprint": "bac0212dcb368019dce40d09360cf20a70c24add658e17de71a7645a16381f0c",
+    "sense_lineage": [
+      {
+        "word_id": "word:around",
+        "target_kind": "sense",
+        "from_target_id": "sense:around:77c4951718525577",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:around",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:804f43608d3c032043f8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5ADV",
+        "4ADV",
         "1PREP"
       ],
       "density": "rich"
@@ -1776,34 +1791,8 @@
         }
       },
       {
-        "id": "sense:around:77c4951718525577",
-        "source_locator": "record.senses[4]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "周长",
-        "definition_en": "in circumference",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:804f43608d3c032043f8",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "ten feet around",
-            "meaning_cn": "周长十英尺",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:around:77c4951718525577",
-          "target_locator": "record.senses[4]",
-          "target_label": "周长"
-        }
-      },
-      {
         "id": "sense:around:1cfe2000dfc853bd",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "adverb/preposition",
         "governing_pattern": "",
         "definition_cn": "大约；左右",
@@ -1814,7 +1803,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:around:1cfe2000dfc853bd",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "大约；左右"
         }
       }
@@ -1867,7 +1856,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:804f43608d3c032043f8",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:around:77c4951718525577:collocation:0"
+              ],
+              "meaning_cn": "周长十英尺",
+              "phrase": "ten feet around"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "周长",
+          "definition_en": "in circumference",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adverb",
+          "sense_id": "sense:around:77c4951718525577",
+          "sense_label_en": "in circumference",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3744,7 +3759,7 @@
     "ordinal": 280,
     "word": "articulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0280.json",
-    "source_fingerprint": "46f5cc7dd3b2c6268bee7e46e058045c58bbb2db1291048312e51d114b5b8346",
+    "source_fingerprint": "1e46d9fcc9e8ee1fd05e5e5cfcddfea0cbc59a6d3e272fb7968b8eddb29529af",
     "sense_lineage": [
       {
         "word_id": "word:articulate",
@@ -3752,23 +3767,58 @@
         "from_target_id": "sense:articulate:4c41814802cb5e36",
         "status": "merged",
         "to_target_id": "sense:articulate:ea2082a5c6d057b3"
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "sense",
+        "from_target_id": "sense:articulate:ea2082a5c6d057b3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:369d447634f4049701fd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3be69718f241c5c62216",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:47d2451ff47325579110",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ab44a1ff9f1e9d308187",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "(1+1)V",
         "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "清晰表达或关节连接",
-      "decision_cn": "",
+      "summary_cn": "表达清晰；口齿清楚",
+      "decision_cn": "person → 表达清晰；idea/feeling → 清楚说出。发音义作为扩展识别。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "清晰表达或关节连接"
+        "target_label": "表达清晰；口齿清楚"
       }
     },
     "senses": [
@@ -3854,66 +3904,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "明确表达，清楚说明"
         }
-      },
-      {
-        "id": "sense:articulate:ea2082a5c6d057b3",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "（使）以关节连接",
-        "definition_en": "to connect or be connected by joints",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3be69718f241c5c62216",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "articulate + sth",
-            "meaning_cn": "用关节连接某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3be69718f241c5c62216",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "articulate + sth"
-            }
-          },
-          {
-            "id": "collocation:369d447634f4049701fd",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "articulate the bones",
-            "meaning_cn": "连接骨骼",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:47d2451ff47325579110",
-            "source_locator": "record.senses[2].collocations[2]",
-            "phrase": "articulate with + sth",
-            "meaning_cn": "与某物以关节相连",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:47d2451ff47325579110",
-              "target_locator": "record.senses[2].collocations[2]",
-              "target_label": "articulate with + sth"
-            }
-          },
-          {
-            "id": "collocation:ab44a1ff9f1e9d308187",
-            "source_locator": "record.senses[2].collocations[3]",
-            "phrase": "The bones articulate with each other.",
-            "meaning_cn": "骨骼相互连接。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:articulate:ea2082a5c6d057b3",
-          "target_locator": "record.senses[2]",
-          "target_label": "（使）以关节连接"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3967,8 +3957,7 @@
                 "verb"
               ],
               "sense_ids": [
-                "sense:articulate:812e1211820b52ca",
-                "sense:articulate:ea2082a5c6d057b3"
+                "sense:articulate:812e1211820b52ca"
               ]
             }
           ],
@@ -3987,8 +3976,7 @@
                 "verb"
               ],
               "sense_ids": [
-                "sense:articulate:812e1211820b52ca",
-                "sense:articulate:ea2082a5c6d057b3"
+                "sense:articulate:812e1211820b52ca"
               ]
             }
           ],
@@ -4005,15 +3993,26 @@
         "sense:articulate:812e1211820b52ca": [
           2,
           3
-        ],
-        "sense:articulate:ea2082a5c6d057b3": [
-          2,
-          3
         ]
       },
       "has_scope": true
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:articulate:b011-pronounce",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "清楚地发音；清晰说出（声音或词语）",
+        "definition_en": "to pronounce a sound or word clearly",
+        "pattern": "speech-sound or pronunciation context: articulate = pronounce clearly; keep separate from expressing an idea clearly and from the specialist medical joint sense.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:articulate:b011-pronounce",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "清楚地发音；清晰说出（声音或词语）"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -4093,6 +4092,57 @@
           "source_row": 710,
           "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3be69718f241c5c62216",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:articulate:ea2082a5c6d057b3:collocation:0"
+              ],
+              "meaning_cn": "用关节连接某物",
+              "phrase": "articulate + sth"
+            },
+            {
+              "collocation_id": "collocation:369d447634f4049701fd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:articulate:ea2082a5c6d057b3:collocation:1"
+              ],
+              "meaning_cn": "连接骨骼",
+              "phrase": "articulate the bones"
+            },
+            {
+              "collocation_id": "collocation:47d2451ff47325579110",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:articulate:4c41814802cb5e36:collocation:0"
+              ],
+              "meaning_cn": "与某物以关节相连",
+              "phrase": "articulate with + sth"
+            },
+            {
+              "collocation_id": "collocation:ab44a1ff9f1e9d308187",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:articulate:4c41814802cb5e36:collocation:1"
+              ],
+              "meaning_cn": "骨骼相互连接。",
+              "phrase": "The bones articulate with each other."
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（使）以关节连接",
+          "definition_en": "to connect or be connected by joints",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:articulate:ea2082a5c6d057b3",
+          "sense_label_en": "to connect by joints",
+          "sort_order": 2,
+          "transitivity": "I/T"
         }
       ]
     }
@@ -4853,22 +4903,30 @@
     "ordinal": 285,
     "word": "ascend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0285.json",
-    "source_fingerprint": "9e3ae77dfacee5f5625ae9dd4b8800e076f59af3edd009a7561a3aa3e212480f",
-    "sense_lineage": [],
+    "source_fingerprint": "928077323a9d268075bfe322ddcdcbc562048986f2f68019ef1109f3c9e3e202",
+    "sense_lineage": [
+      {
+        "word_id": "word:ascend",
+        "target_kind": "sense",
+        "from_target_id": "sense:ascend:130a1ec387d85feb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "向更高位置、层级或顺序移动：可上升/攀登，也可追溯上行或登上王位",
-      "decision_cn": "physical height → 上升/攀登；genealogical/order context → 向上追溯；throne → 即位、登基。",
+      "summary_cn": "向上移动或进入更高位置：上升、攀登，也可登上王位",
+      "decision_cn": "physical height → 上升/攀登；rank/throne → 进入更高位置、登基。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "向更高位置、层级或顺序移动：可上升/攀登，也可追溯上行或登上王位"
+        "target_label": "向上移动或进入更高位置：上升、攀登，也可登上王位"
       }
     },
     "senses": [
@@ -4938,25 +4996,8 @@
         }
       },
       {
-        "id": "sense:ascend:130a1ec387d85feb",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "追溯（到）",
-        "definition_en": "go back in order of genealogical succession",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ascend:130a1ec387d85feb",
-          "target_locator": "record.senses[2]",
-          "target_label": "追溯（到）"
-        }
-      },
-      {
         "id": "sense:ascend:1dd93d294a9a578a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "即位，登基",
@@ -4966,7 +5007,7 @@
         "usage": [
           {
             "id": "collocation:42f442c12cedf680c7a3",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "ascend the throne",
             "meaning_cn": "登基",
             "kind": "usage_example",
@@ -4976,7 +5017,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ascend:1dd93d294a9a578a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "即位，登基"
         }
       }
@@ -5017,7 +5058,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "追溯（到）",
+          "definition_en": "go back in order of genealogical succession",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:ascend:130a1ec387d85feb",
+          "sense_label_en": "go back in order of genealogical succession",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -5258,11 +5315,25 @@
     "ordinal": 288,
     "word": "ash",
     "source_owner_path": "content/lexical/words/by-ordinal/o0288.json",
-    "source_fingerprint": "7e427282393012aec287dd5d9b65560bc0cbd6acda58947f5c8174963cfff4e8",
-    "sense_lineage": [],
+    "source_fingerprint": "01c54781dc67457fa6863b1c9ea91a224c836eccf36eb6aba377c6da47d576a0",
+    "sense_lineage": [
+      {
+        "word_id": "word:ash",
+        "target_kind": "sense",
+        "from_target_id": "sense:ash:d9e4f1ec1d645e9d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ash",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e8f74496586ccab865a4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
@@ -5378,32 +5449,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "白蜡木"
         }
-      },
-      {
-        "id": "sense:ash:d9e4f1ec1d645e9d",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使成灰烬",
-        "definition_en": "to convert into ashes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e8f74496586ccab865a4",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "ash the remains",
-            "meaning_cn": "将遗骸火化",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ash:d9e4f1ec1d645e9d",
-          "target_locator": "record.senses[3]",
-          "target_label": "使成灰烬"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5442,7 +5487,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e8f74496586ccab865a4",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:ash:d9e4f1ec1d645e9d:collocation:0"
+              ],
+              "meaning_cn": "将遗骸火化",
+              "phrase": "ash the remains"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使成灰烬",
+          "definition_en": "to convert into ashes",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:ash:d9e4f1ec1d645e9d",
+          "sense_label_en": "to convert into ashes",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

@@ -13,6 +13,16 @@
         "level": "L2",
         "meaning_cn": "cap denotes an upper limit; cap sth sets that limit",
         "pattern": "cap = upper limit / cap sth"
+      },
+      {
+        "construction_id": "construction:cap:to-cap-it-all",
+        "pattern": "to cap it all / to cap it all off",
+        "meaning_cn": "最糟的是；更有甚者；最后又加上这一件事",
+        "definition_en": "used to add one final, often bad, thing to everything already mentioned",
+        "boundary": "UK to cap it all; US often to cap it all off. This is an idiom, not the ordinary surpass sense.",
+        "level": "L2",
+        "pos": "phrase",
+        "source": "https://dictionary.cambridge.org/dictionary/english/to-cap-it-all"
       }
     ],
     "content_hash": "89c9b5bac732b56a8c043dea34c84e1b0247d45b84cb2b795f3792eae37ed47a",
@@ -20,7 +30,7 @@
       "core_clusters": [
         {
           "label_cn": "帽子（便帽）；盖子；覆盖物；保护罩；菌盖",
-          "label_en": "a soft hat that fits closely; a top or cover for a bottle, jar, etc.; something that serves as a cover or protection; the top part of a mushroom",
+          "label_en": "a soft hat; a top or protective cover; the top part of a mushroom",
           "pos": "noun",
           "sense_ids": [
             "sense:cap:4ad70a32273a5cd9",
@@ -30,12 +40,27 @@
           ]
         },
         {
-          "label_cn": "给…戴帽；覆盖；胜过；超过",
-          "label_en": "to put a cap on something; to cover the top; to be better than something; to surpass",
+          "label_cn": "上限；限额",
+          "label_en": "an upper limit on an amount, price, spending, or other quantity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:cap:2a5ec0232dcf55e1"
+          ]
+        },
+        {
+          "label_cn": "给…戴帽；覆盖",
+          "label_en": "to put a cap on something or cover its top",
           "pos": "verb",
           "sense_ids": [
-            "sense:cap:a76e0da74b3851d7",
-            "sense:cap:0ffa202428d5567c"
+            "sense:cap:a76e0da74b3851d7"
+          ]
+        },
+        {
+          "label_cn": "给…设上限；限制",
+          "label_en": "to set an upper limit on an amount, price, spending, or other quantity",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:cap:5b4fe171f38a58d4"
           ]
         }
       ],
@@ -104,17 +129,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:62fa327ca1d6b88e6549",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cap:d06ea5c28f8c598d:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "支出上限",
-            "phrase": "a cap on spending"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "覆盖物；保护罩",
         "definition_en": "something that serves as a cover or protection",
@@ -176,17 +191,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e5e13feb94ce8b5c0f54",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cap:0ffa202428d5567c:collocation:0"
-            ],
-            "meaning_cn": "更妙的是；更糟的是",
-            "phrase": "cap it all"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "胜过；超过",
         "definition_en": "to be better than something; to surpass",
@@ -231,7 +236,17 @@
         ]
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:62fa327ca1d6b88e6549",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cap:d06ea5c28f8c598d:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "支出上限",
+            "phrase": "a cap on spending"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "上限；限额",
         "definition_en": "an upper limit on an amount, price, spending, or other quantity",
@@ -512,7 +527,6 @@
       "collocation:4b8a736fff6a3a1d8083",
       "collocation:62fa327ca1d6b88e6549",
       "collocation:7b6cc9d6f674a03bd8ed",
-      "collocation:e5e13feb94ce8b5c0f54",
       "collocation:f62ffa8fc2f8ac509831"
     ],
     "facts": [],
@@ -540,7 +554,9 @@
       {
         "id": "collocation:e5e13feb94ce8b5c0f54",
         "source_row": 19467,
-        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json",
+        "status": "deprecated",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f62ffa8fc2f8ac509831",

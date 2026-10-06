@@ -15,7 +15,7 @@ The parent outcome is direct Source-backed discussion and editing of canonical B
 
 - Preserve one accepted shared learner product. A1 is the accepted visual/interaction calibration reference, **not** a universal medical template or Source-mode template. Exact System Acceptance owners retain their integration evidence and real-use proof boundaries.
 - `System → Block → Logic Group → KP` is the hierarchy. Stable identity, learner order, group membership and continuous Source coverage are distinct. Preserve explicit/non-contiguous members, accepted route order, global Biochemistry Source, natural Source units, integration-primary and source-visual readiness gates.
-- Original Lecture / MarginNote stays external-primary when continuous Source contact is required. LG retrieval/closure does not automatically create another Source visit.
+- Chat-led teaching follows `LEARNING_CONTRACT.md` and the existing Lecture organization owner. Original Lecture / MarginNote stays the external-primary surface **when original-Source study or concentrated Source calibration is selected, or actual Source inspection is needed**; Source-contact execution is not the default teaching order for every Chat. LG retrieval/closure does not automatically create another Source visit.
 - Canonical Prompt/full Core, Block Framework, Memory Routing and MI-G/MI-D keep their Content owners. Current-reasoning boundaries/connections may remain in the Prompt; Attention cannot replace that skeleton. Deferred relations, Precision and MedicalVisual remain conditional support, not compulsory parallel curricula or Memory debt.
 - **MedicalVisual** is medical image/curve/diagram knowledge and its reading task. **Visual** is interface design/typography/layout. Existing wire names remain compatible; terminology is clarified in the existing `static-web/XIZONG_PRODUCT_BRIEF.md`.
 - Keep the center primary, the existing single action row and current-KP Source/Outline header; Space acts on the active frame. Use the existing design owners for actual geometry/interaction changes, not historical screenshot dimensions. No System-local pages, CSS patches or Runtime forks.
@@ -32,6 +32,7 @@ The parent outcome is direct Source-backed discussion and editing of canonical B
 | One Block/KP's complete current content | Existing native inspector below → exact owner paths in its result |
 | One System/Block Content defect | Exact scoped `CURRENT.md` when present → canonical Source / Knowledge owner |
 | Learning / cognition / version policy | `LEARNING_CONTRACT.md` → exact Learning / Evidence owner |
+| Chat teaching input / obsolete teaching layout | `knowledge/learner/README.md` → existing `LECTURE_REPLACEMENT_CONTRACT.md`; candidate admission remains separate |
 | Official Question Truth | `questions/` |
 | Learner-facing explanations | `explanations/README.md` → exact shard |
 | Reviewed Question → Knowledge | `question-relations/README.md` → exact reviewed/stale relation; manifest/freshness resolver for aggregate use |

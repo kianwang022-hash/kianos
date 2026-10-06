@@ -102,30 +102,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:c89691c1df4708d7001a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bag:116b274e7f6f531b:collocation:0"
-            ],
-            "meaning_cn": "丰硕的猎获量",
-            "phrase": "a good bag"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "猎获量",
-        "definition_en": "the quantity of game taken in a particular period (usually by one person)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bag:116b274e7f6f531b",
-        "sense_label_en": "the quantity of game taken in a particular period (usually by one person",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:ab7eac8e9df445e18c07",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -282,12 +258,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:c89691c1df4708d7001a",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:bag:116b274e7f6f531b:collocation:0"
+          ],
+          "meaning_cn": "丰硕的猎获量",
+          "phrase": "a good bag"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "猎获量",
+      "definition_en": "the quantity of game taken in a particular period (usually by one person)",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bag:116b274e7f6f531b",
+      "sense_label_en": "the quantity of game taken in a particular period (usually by one person",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:bag:116b274e7f6f531b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 969,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -325,7 +326,6 @@
       "collocation:6e2229f7bae4b7faee5c",
       "collocation:ab7eac8e9df445e18c07",
       "collocation:ac4347f789ec3b81a7a6",
-      "collocation:c89691c1df4708d7001a",
       "collocation:d6db6dc841ce0cd0f1d1"
     ],
     "facts": [],
@@ -353,7 +353,9 @@
       {
         "id": "collocation:c89691c1df4708d7001a",
         "source_row": 16952,
-        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d6db6dc841ce0cd0f1d1",

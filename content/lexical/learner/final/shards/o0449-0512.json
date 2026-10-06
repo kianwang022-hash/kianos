@@ -5614,11 +5614,18 @@
     "ordinal": 479,
     "word": "beyond",
     "source_owner_path": "content/lexical/words/by-ordinal/o0479.json",
-    "source_fingerprint": "9f6d242d9575eae2b4d2f475e3ea14ac67d83424895d36e1c8bc71fe65f32d24",
-    "sense_lineage": [],
+    "source_fingerprint": "3142d440d81c33af9a18ab292f55b6316865d5851557f2a8b100709f41c8277a",
+    "sense_lineage": [
+      {
+        "word_id": "word:beyond",
+        "target_kind": "sense",
+        "from_target_id": "sense:beyond:7e0370b80df652f1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1N",
         "1ADV",
         "2PREP"
       ],
@@ -5729,23 +5736,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "在远处；此外"
         }
-      },
-      {
-        "id": "sense:beyond:7e0370b80df652f1",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "未知之处；来世",
-        "definition_en": "the unknown or the afterlife",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:beyond:7e0370b80df652f1",
-          "target_locator": "record.senses[3]",
-          "target_label": "未知之处；来世"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5773,7 +5763,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "未知之处；来世",
+          "definition_en": "the unknown or the afterlife",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:beyond:7e0370b80df652f1",
+          "sense_label_en": "the unknown or the afterlife",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5782,24 +5788,45 @@
     "ordinal": 480,
     "word": "bias",
     "source_owner_path": "content/lexical/words/by-ordinal/o0480.json",
-    "source_fingerprint": "acb13d5f01da3a86f8e53dfb8899a35c02311f573892858b59bfb9147004cf0a",
-    "sense_lineage": [],
+    "source_fingerprint": "b07abc0d9a12a5703bd7ce49334cceb5a4620cb6c60d09fd46a21f477534df0b",
+    "sense_lineage": [
+      {
+        "word_id": "word:bias",
+        "target_kind": "sense",
+        "from_target_id": "sense:bias:3f0a0fda74f75746",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bias",
+        "target_kind": "sense",
+        "from_target_id": "sense:bias:fee162bb36795806",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bias",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5401ba185ca80499dc1b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "偏见或偏向",
-      "decision_cn": "",
+      "summary_cn": "偏见；偏向；使判断或结果产生偏差",
+      "decision_cn": "person/judgment/data/result → 偏见或系统性偏向；服装裁剪的斜纹义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "偏见或偏向"
+        "target_label": "偏见；偏向；使判断或结果产生偏差"
       }
     },
     "senses": [
@@ -5880,54 +5907,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "使有偏见；使偏向"
         }
-      },
-      {
-        "id": "sense:bias:3f0a0fda74f75746",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "斜纹；斜线",
-        "definition_en": "a slanting direction across the grain of a fabric",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5401ba185ca80499dc1b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cut on the bias",
-            "meaning_cn": "斜裁",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5401ba185ca80499dc1b",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "cut on the bias"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bias:3f0a0fda74f75746",
-          "target_locator": "record.senses[2]",
-          "target_label": "斜纹；斜线"
-        }
-      },
-      {
-        "id": "sense:bias:fee162bb36795806",
-        "source_locator": "record.senses[3]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "斜的；偏斜的",
-        "definition_en": "slanting diagonally across the grain of a fabric",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bias:fee162bb36795806",
-          "target_locator": "record.senses[3]",
-          "target_label": "斜的；偏斜的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5984,7 +5963,47 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5401ba185ca80499dc1b",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:bias:3f0a0fda74f75746:collocation:0"
+              ],
+              "meaning_cn": "斜裁",
+              "phrase": "cut on the bias"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "斜纹；斜线",
+          "definition_en": "a slanting direction across the grain of a fabric",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bias:3f0a0fda74f75746",
+          "sense_label_en": "a slanting direction across the grain of a fabric",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "斜的；偏斜的",
+          "definition_en": "slanting diagonally across the grain of a fabric",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:bias:fee162bb36795806",
+          "sense_label_en": "slanting diagonally across the grain of a fabric",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8394,11 +8413,26 @@
     "ordinal": 495,
     "word": "biscuit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0495.json",
-    "source_fingerprint": "42b4707b6fc5a9d1282d1c4ad0d381bab28a13210bf260edbbb75158757b1137",
-    "sense_lineage": [],
+    "source_fingerprint": "45ba5c71f0fd7f888d8558a532730968887f7483e5e4817fd394a3a4c30be779",
+    "sense_lineage": [
+      {
+        "word_id": "word:biscuit",
+        "target_kind": "sense",
+        "from_target_id": "sense:biscuit:e4f40271dcbc5da3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:biscuit",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e8c3991178d3ec18e849",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -8458,32 +8492,6 @@
           "target_id": "sense:biscuit:cfc5d7b83048536c",
           "target_locator": "record.senses[0]",
           "target_label": "（英）饼干、薄脆饼；（美）软面包卷"
-        }
-      },
-      {
-        "id": "sense:biscuit:e4f40271dcbc5da3",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "素坯",
-        "definition_en": "an unglazed ceramic piece after the first firing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e8c3991178d3ec18e849",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "biscuit firing",
-            "meaning_cn": "素烧",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:biscuit:e4f40271dcbc5da3",
-          "target_locator": "record.senses[1]",
-          "target_label": "素坯"
         }
       }
     ],
@@ -8586,7 +8594,33 @@
           "target_label": "In British English, biscuit typically means a cookie/cracker-like baked item; in American English, biscuit usually means a small soft bread roll."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e8c3991178d3ec18e849",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:biscuit:e4f40271dcbc5da3:collocation:0"
+              ],
+              "meaning_cn": "素烧",
+              "phrase": "biscuit firing"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "素坯",
+          "definition_en": "an unglazed ceramic piece after the first firing",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:biscuit:e4f40271dcbc5da3",
+          "sense_label_en": "an unglazed ceramic piece after the first firing",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9095,11 +9129,18 @@
     "ordinal": 498,
     "word": "bitter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0498.json",
-    "source_fingerprint": "f86bcd936f5ed89563cd995188fac08ea1bd9195740855098c0e1b7efffc3e19",
-    "sense_lineage": [],
+    "source_fingerprint": "9fe4c9c40cdc46837ae8cc3885ddc01da9a1f0218e8f8dee30a75eb24419141d",
+    "sense_lineage": [
+      {
+        "word_id": "word:bitter",
+        "target_kind": "sense",
+        "from_target_id": "sense:bitter:ea2e0692ce7a50b6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3A"
       ],
       "density": "rich"
@@ -9205,23 +9246,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "怀恨的，愤愤不平的"
         }
-      },
-      {
-        "id": "sense:bitter:ea2e0692ce7a50b6",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使变苦",
-        "definition_en": "to make bitter",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bitter:ea2e0692ce7a50b6",
-          "target_locator": "record.senses[3]",
-          "target_label": "使变苦"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9262,7 +9286,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使变苦",
+          "definition_en": "to make bitter",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bitter:ea2e0692ce7a50b6",
+          "sense_label_en": "to make bitter",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
