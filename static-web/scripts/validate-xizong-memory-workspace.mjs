@@ -255,3 +255,6 @@ console.log(JSON.stringify({
   runtime_owner: 'src/components/XizongMemoryWorkspace.astro',
   block_complete_bridge: 'UNCHANGED'
 }, null, 2));
+
+// Exact prepared answers must reach the same native Memory consumer.
+await import('./test-xizong-prepared-memory.mjs');

@@ -79,6 +79,10 @@ Current learning-cue indexes sometimes state **what must eventually be exact** w
 
 Browse / Recall must display that distinction honestly. Missing isolated answer is an asset-resolution gap, not permission to invent one.
 
+Prepared answer/aid resolution may use an explicitly reviewed `prepared_memory_ref` in the existing learning-cue index, referring to the original `shared-fields.json` memory item. It stores only identity and current KP/item witnesses, not a second answer copy or registry. The resolver verifies exact Source/KP ownership, cue identity, unique aliases and both witnesses; stale or ambiguous bindings fail closed. Original answer scope, Source conflicts and valid memory aids travel inside the protected answer payload. Retained metadata without such an admitted reference is not automatically released.
+
+Adding an exact answer to a formerly cue-only object makes that payload answer-bearing: KP Recall must honor POST_REVEAL, and Memory Recall must hide answer plus aid until Reveal. Same-ID refresh preserves history and revalidates changed meaning through the existing revision mechanism; it does not replay first-pass ratings or create automatic Today debt.
+
 ## 3｜Release is library availability, not Today debt
 
 Block Complete eventually releases every canonical KP Core card plus every valid current-owner Precision card and learner Marked fragments for that Block.

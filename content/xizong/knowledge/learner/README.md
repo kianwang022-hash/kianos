@@ -33,23 +33,14 @@ For Lecture output, read canonical Block/Framework as medical constraints and re
 
 Then route the requested output to the organization/composition owner above. `static-web/scripts/inspect-xizong-content.mjs` is the existing optional read-only native composition inspector.
 
-## Existing A1 teaching inputs and current-format boundary
+## Teaching basis resolution
 
-Read a teaching input only after its bound Current canonical/System/Learning dependencies are checked. Changed relevant premises require bounded review under the Lecture Replacement Contract; absent/stale support returns to valid Current owners.
+Only an exact teaching package accepted against [Learning Contract §0](../../LEARNING_CONTRACT.md#learning-outcome) may be the stable teaching/compressed-review basis. Refresh its relevant canonical/System/Learning dependencies; freshness or an old `REVIEWED_DERIVATION` header alone is not current-format admission.
 
-The four existing A1 inputs below retain previously reviewed explanatory content. Their old `REVIEWED_DERIVATION` headers do not establish acceptance against the current in-model full-Prompt requirement. They must not prescribe LG/Markdown-order teaching or send ordinary learners to legacy three-column review files. Until the exact current-format teaching package passes its scoped admission, teach from valid Current Knowledge and accepted Learning, preserving the same medical model and its canonical Prompt locators.
+The common teaching package on [#1150](https://github.com/kianwang022-hash/kianos/pull/1150) remains a candidate until its exact admission owner says otherwise. Resolve acceptance there, not from a stored head or file count. Without an accepted package, teach from Current canonical Knowledge and accepted Learning while explicitly retaining the unaccepted-package boundary.
 
-The common 159-Block teaching package remains a candidate on [#1150](https://github.com/kianwang022-hash/kianos/pull/1150), with #1145/#1148 dependencies. Use its current admission owner, not a stored head or file count, to decide whether any exact package is adopted. This routing cleanup neither adopts that candidate nor changes private learner evidence.
+Old A1 teaching/review files are deliberately not linked as normal lesson inputs here. They may be opened only for a bounded migration/audit of unique reviewed content. Preserve valid explanation, comparison and memory preparation with the existing responsible owners before retiring a legacy file; do not use its LG-order instructions, three-column layout or old acceptance label as the current teaching template. Legacy `*-review.md`, old Library exports, old PR prose and old screenshots are not fallback lesson authority.
 
-| Block | Lecture-replacement teaching input | Admission owner |
-|---|---|---|
-| A1 B1 | [Teaching](../../projection/a1-circulation/chat/b01-teaching.md) | Learning Contract §13 |
-| A1 B2 | [Teaching](../../projection/a1-circulation/chat/b02-teaching.md) | Learning Contract §13 |
-| A1 B3 | [Teaching](../../projection/a1-circulation/chat/b03-teaching.md) | Learning Contract §13 |
-| A1 B4 | [Teaching](../../projection/a1-circulation/chat/b04-teaching.md) | Learning Contract §13 |
-
-
-Legacy `*-review.md` is outside normal Chat teaching and normal teaching-derived review input. Keep it for bounded migration/audit of unique valid semantics; Issue comments and historical templates are not fallback teaching authority.
 
 Beginner Guide routing uses `guide-bindings.json`; the current explicit set is A1, A2, A3 and B. C/D/E/F have Current System/Learning owners without separate Guide assets. Do not infer a historical fallback from that absence.
 
