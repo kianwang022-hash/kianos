@@ -114,19 +114,11 @@
           "sense_ids": [
             "sense:intimate:9cc93fe499e056a9"
           ]
-        },
-        {
-          "label_cn": "至交，密友",
-          "label_en": "a close friend",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:intimate:c4670d8a7f05589a"
-          ]
         }
       ],
       "core_meaning_cn": "亲密的；私人的；暗示",
       "core_meaning_en": "close in relationship or private; also to hint or make known",
-      "mental_model_cn": "亲密的；私人的；暗示",
+      "mental_model_cn": "adjective → 亲密的/私密的；formal verb intimate that… → 暗示。名词“至交、密友”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -246,35 +238,6 @@
         "sense_label_en": "to suggest or hint something indirectly",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3694b642c5e16ff0e7cb",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:intimate:c4670d8a7f05589a:collocation:0"
-            ],
-            "meaning_cn": "某人的密友",
-            "phrase": "an intimate of + sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "至交，密友",
-        "definition_en": "a close friend",
-        "governing_pattern": "",
-        "level": "L3",
-        "lexical_identity_overlay": {
-          "identity_type": "pronunciation_by_part_of_speech",
-          "pronunciation": "adjective/noun ends /-mət/",
-          "surface_lemma": "intimate"
-        },
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:intimate:c4670d8a7f05589a",
-        "sense_label_en": "a close friend",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -529,7 +492,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3694b642c5e16ff0e7cb",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:intimate:c4670d8a7f05589a:collocation:0"
+          ],
+          "meaning_cn": "某人的密友",
+          "phrase": "an intimate of + sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "至交，密友",
+      "definition_en": "a close friend",
+      "governing_pattern": "",
+      "level": "L3",
+      "lexical_identity_overlay": {
+        "identity_type": "pronunciation_by_part_of_speech",
+        "pronunciation": "adjective/noun ends /-mət/",
+        "surface_lemma": "intimate"
+      },
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:intimate:c4670d8a7f05589a",
+      "sense_label_en": "a close friend",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -548,7 +541,7 @@
       },
       {
         "sense_id": "sense:intimate:c4670d8a7f05589a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7216,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
@@ -563,7 +556,6 @@
     ],
     "active_collocations": [
       "collocation:1da929421c5e8b5032e7",
-      "collocation:3694b642c5e16ff0e7cb",
       "collocation:60a13a5b5942b43d3c35",
       "collocation:998f88908208f08f9b9e",
       "collocation:d6320c1faf006f06ed2c",
@@ -590,7 +582,9 @@
       {
         "id": "collocation:3694b642c5e16ff0e7cb",
         "source_row": 4630,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:60a13a5b5942b43d3c35",

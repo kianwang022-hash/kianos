@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "引起恼怒、刺激或发炎",
       "core_meaning_en": "to cause annoyance, anger, or physical inflammation",
-      "mental_model_cn": "引起恼怒、刺激或发炎",
+      "mental_model_cn": "person → 惹恼；skin/body → 刺激、使发炎。生理学“刺激器官/组织使其活动”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,30 +78,6 @@
         "sense_id": "sense:irritate:dc6cfce2cc005027",
         "sense_label_en": "to cause a part of the body to become sore or inflamed",
         "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a018961765b2a67e0c4a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:irritate:db9e8fa460cb570a:collocation:0"
-            ],
-            "meaning_cn": "刺激神经",
-            "phrase": "irritate a nerve"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "刺激（器官或组织）使其活动",
-        "definition_en": "to stimulate a bodily organ or tissue to activity",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:irritate:db9e8fa460cb570a",
-        "sense_label_en": "to stimulate a bodily organ or tissue to activity",
-        "sort_order": 2,
         "transitivity": "vt"
       }
     ],
@@ -318,7 +294,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a018961765b2a67e0c4a",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:irritate:db9e8fa460cb570a:collocation:0"
+          ],
+          "meaning_cn": "刺激神经",
+          "phrase": "irritate a nerve"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "刺激（器官或组织）使其活动",
+      "definition_en": "to stimulate a bodily organ or tissue to activity",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:irritate:db9e8fa460cb570a",
+      "sense_label_en": "to stimulate a bodily organ or tissue to activity",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -330,7 +331,7 @@
       },
       {
         "sense_id": "sense:irritate:db9e8fa460cb570a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7298,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
@@ -346,7 +347,6 @@
     "active_collocations": [
       "collocation:50c582c7cc6c889f02f1",
       "collocation:8f079bf259b669bac599",
-      "collocation:a018961765b2a67e0c4a",
       "collocation:a9aa767c449278301b3b"
     ],
     "facts": [],
@@ -364,7 +364,9 @@
       {
         "id": "collocation:a018961765b2a67e0c4a",
         "source_row": 13615,
-        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a9aa767c449278301b3b",

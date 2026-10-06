@@ -7164,7 +7164,7 @@
     "ordinal": 2603,
     "word": "interim",
     "source_owner_path": "content/lexical/words/by-ordinal/o2603.json",
-    "source_fingerprint": "62ed39fc39233cbdf1af4d4e4c36c8d9c7716acbe4cc12f95e272992fa4e7f61",
+    "source_fingerprint": "dc1fe5292b2cafe0b0ed963b7e86da8b5b7f51faed9a22b1b6137cd97a44a833",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7175,7 +7175,7 @@
     },
     "word_feel": {
       "summary_cn": "临时的；过渡时期",
-      "decision_cn": "",
+      "decision_cn": "interim + noun → 临时/过渡的；in the interim → 在此期间。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7268,7 +7268,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:interim:in-the-interim",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in the interim",
+        "lines": [
+          {
+            "text": "在此期间；在过渡期间",
+            "lang": "cn"
+          },
+          {
+            "text": "time-between-events phrase; distinct from interim adjective = temporary",
+            "lang": "en"
+          },
+          {
+            "text": "during the time between two events or stages",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:interim:in-the-interim",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in the interim"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7282,18 +7308,33 @@
     "ordinal": 2604,
     "word": "interior",
     "source_owner_path": "content/lexical/words/by-ordinal/o2604.json",
-    "source_fingerprint": "f355a0f97bbd658ef9afd9e659d1b6e3f5f652c5baae020620bcf92f1ce43969",
-    "sense_lineage": [],
+    "source_fingerprint": "65e5b08f13a2a04d14fa3cc49904ff2d21e884711f5fb011c3f6851f041913aa",
+    "sense_lineage": [
+      {
+        "word_id": "word:interior",
+        "target_kind": "sense",
+        "from_target_id": "sense:interior:fa4ace432e9a5465",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:interior",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6f9bab9d6a190e215228",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "内部",
-      "decision_cn": "",
+      "decision_cn": "noun/adjective → 内部、室内；geography → 内陆的。政府体系中的“内政/内政部”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7379,32 +7420,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "内地的；内陆的"
         }
-      },
-      {
-        "id": "sense:interior:fa4ace432e9a5465",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "内政",
-        "definition_en": "the domestic affairs of a country",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6f9bab9d6a190e215228",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "Ministry of the Interior",
-            "meaning_cn": "内政部",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:interior:fa4ace432e9a5465",
-          "target_locator": "record.senses[3]",
-          "target_label": "内政"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7467,7 +7482,33 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6f9bab9d6a190e215228",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:interior:fa4ace432e9a5465:collocation:0"
+              ],
+              "meaning_cn": "内政部",
+              "phrase": "Ministry of the Interior"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "内政",
+          "definition_en": "the domestic affairs of a country",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:interior:fa4ace432e9a5465",
+          "sense_label_en": "the domestic affairs of a country",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7476,24 +7517,58 @@
     "ordinal": 2605,
     "word": "intermediate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2605.json",
-    "source_fingerprint": "f1ce0c730cff04961e4754efc79ecddd4a2a8206df96f003b3cf4f6bfd631370",
-    "sense_lineage": [],
+    "source_fingerprint": "61740d3d9569e2a9191eb6bbc818859d07b6163d76c5ee5ac642c902c6aa0a0a",
+    "sense_lineage": [
+      {
+        "word_id": "word:intermediate",
+        "target_kind": "sense",
+        "from_target_id": "sense:intermediate:57383eb14cc35423",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intermediate",
+        "target_kind": "sense",
+        "from_target_id": "sense:intermediate:93a05a9632d255d7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intermediate",
+        "target_kind": "sense",
+        "from_target_id": "sense:intermediate:fa5129eb4b93580b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intermediate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:15df7aa888e8a4db2f43",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intermediate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f8b43edc8a9170a34e2a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1A",
-        "2N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "中间阶段或物质",
-      "decision_cn": "",
+      "summary_cn": "中间的；中级的",
+      "decision_cn": "general learner center → intermediate level/stage = 中间的、中级的。化学中间体、调停者和少见调解动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "中间阶段或物质"
+        "target_label": "中间的；中级的"
       }
     },
     "senses": [
@@ -7521,80 +7596,6 @@
           "target_id": "sense:intermediate:d1ff5f45f6265bed",
           "target_locator": "record.senses[0]",
           "target_label": "中间的；中级的"
-        }
-      },
-      {
-        "id": "sense:intermediate:fa5129eb4b93580b",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "中间物；中间体",
-        "definition_en": "a substance formed during a chemical process before the desired product is obtained",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:15df7aa888e8a4db2f43",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "reactive intermediate",
-            "meaning_cn": "活性中间体",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intermediate:fa5129eb4b93580b",
-          "target_locator": "record.senses[1]",
-          "target_label": "中间物；中间体"
-        }
-      },
-      {
-        "id": "sense:intermediate:57383eb14cc35423",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "调停者；中间人",
-        "definition_en": "a person who acts as a mediator or go-between",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intermediate:57383eb14cc35423",
-          "target_locator": "record.senses[2]",
-          "target_label": "调停者；中间人"
-        }
-      },
-      {
-        "id": "sense:intermediate:93a05a9632d255d7",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + between",
-        "definition_cn": "起媒介作用；调解",
-        "definition_en": "to act as a mediator; to intervene",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f8b43edc8a9170a34e2a",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "intermediate between + sb/sth",
-            "meaning_cn": "在……之间调解",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f8b43edc8a9170a34e2a",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "intermediate between + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intermediate:93a05a9632d255d7",
-          "target_locator": "record.senses[3]",
-          "target_label": "起媒介作用；调解"
         }
       }
     ],
@@ -7775,18 +7776,6 @@
         "sense:intermediate:d1ff5f45f6265bed": [
           0,
           1
-        ],
-        "sense:intermediate:57383eb14cc35423": [
-          2,
-          3
-        ],
-        "sense:intermediate:fa5129eb4b93580b": [
-          2,
-          3
-        ],
-        "sense:intermediate:93a05a9632d255d7": [
-          4,
-          5
         ]
       },
       "has_scope": true
@@ -7815,7 +7804,71 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:15df7aa888e8a4db2f43",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:intermediate:fa5129eb4b93580b:collocation:0"
+              ],
+              "meaning_cn": "活性中间体",
+              "phrase": "reactive intermediate"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "中间物；中间体",
+          "definition_en": "a substance formed during a chemical process before the desired product is obtained",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:intermediate:fa5129eb4b93580b",
+          "sense_label_en": "a substance formed during a chemical process before the desired product ",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "调停者；中间人",
+          "definition_en": "a person who acts as a mediator or go-between",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:intermediate:57383eb14cc35423",
+          "sense_label_en": "a person who acts as a mediator or go-between",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f8b43edc8a9170a34e2a",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:intermediate:93a05a9632d255d7:collocation:0"
+              ],
+              "meaning_cn": "在……之间调解",
+              "phrase": "intermediate between + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "起媒介作用；调解",
+          "definition_en": "to act as a mediator; to intervene",
+          "governing_pattern": "vi. + between",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:intermediate:93a05a9632d255d7",
+          "sense_label_en": "to act as a mediator; to intervene",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -8614,26 +8667,39 @@
     "ordinal": 2611,
     "word": "interrupt",
     "source_owner_path": "content/lexical/words/by-ordinal/o2611.json",
-    "source_fingerprint": "7588e52a1f54eb3de9ca55b85f874abbe7f0f24474c090ad6d283bc008e05a0a",
+    "source_fingerprint": "4e572dcc81109e8fa73dbfaa34bf6b760730313ca21d5cc9d85c664878d3fc56",
     "sense_lineage": [
+      {
+        "word_id": "word:interrupt",
+        "target_kind": "sense",
+        "from_target_id": "sense:interrupt:282dc21a19c95d70",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:interrupt",
         "target_kind": "sense",
         "from_target_id": "sense:interrupt:98c8d956c5d1519a",
         "status": "merged",
         "to_target_id": "sense:interrupt:cc5596327725503e"
+      },
+      {
+        "word_id": "word:interrupt",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b4bcd6a27dfa3b7dafeb",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1N"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "打断，中断",
-      "decision_cn": "",
+      "decision_cn": "conversation → 打断/插嘴；activity/process → 暂时中断。计算机“中断信号”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8682,34 +8748,8 @@
         }
       },
       {
-        "id": "sense:interrupt:282dc21a19c95d70",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "中断信号",
-        "definition_en": "a signal that stops a program temporarily",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b4bcd6a27dfa3b7dafeb",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "hardware interrupt",
-            "meaning_cn": "硬件中断",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:interrupt:282dc21a19c95d70",
-          "target_locator": "record.senses[1]",
-          "target_label": "中断信号"
-        }
-      },
-      {
         "id": "sense:interrupt:968b13d6f085510b",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "打断；暂时中断",
@@ -8720,7 +8760,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:interrupt:968b13d6f085510b",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "打断；暂时中断"
         }
       }
@@ -8816,10 +8856,6 @@
         ],
         "sense:interrupt:cc5596327725503e": [
           0
-        ],
-        "sense:interrupt:282dc21a19c95d70": [
-          1,
-          2
         ]
       },
       "has_scope": true
@@ -8856,6 +8892,30 @@
           "source_row": 7201,
           "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b4bcd6a27dfa3b7dafeb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:interrupt:282dc21a19c95d70:collocation:0"
+              ],
+              "meaning_cn": "硬件中断",
+              "phrase": "hardware interrupt"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "中断信号",
+          "definition_en": "a signal that stops a program temporarily",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:interrupt:282dc21a19c95d70",
+          "sense_label_en": "a signal that stops a program temporarily",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -9537,19 +9597,33 @@
     "ordinal": 2616,
     "word": "intimate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2616.json",
-    "source_fingerprint": "f355ddfa680c09cb62d522cfe81612f0b868e4d31cc75a923841df7eb189892d",
-    "sense_lineage": [],
+    "source_fingerprint": "4e390bde0096c2aa2a4d69cb5a4ca6c3090dd3fe8f6b40477100b72e5ec8198c",
+    "sense_lineage": [
+      {
+        "word_id": "word:intimate",
+        "target_kind": "sense",
+        "from_target_id": "sense:intimate:c4670d8a7f05589a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intimate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3694b642c5e16ff0e7cb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "亲密的；私人的；暗示",
-      "decision_cn": "",
+      "decision_cn": "adjective → 亲密的/私密的；formal verb intimate that… → 暗示。名词“至交、密友”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9685,45 +9759,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "暗示，提示"
         }
-      },
-      {
-        "id": "sense:intimate:c4670d8a7f05589a",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "至交，密友",
-        "definition_en": "a close friend",
-        "note": "",
-        "identity_overlay": {
-          "text": "pronunciation_by_part_of_speech",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "pronunciation_by_part_of_speech"
-          }
-        },
-        "usage": [
-          {
-            "id": "collocation:3694b642c5e16ff0e7cb",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "an intimate of + sb",
-            "meaning_cn": "某人的密友",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3694b642c5e16ff0e7cb",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "an intimate of + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intimate:c4670d8a7f05589a",
-          "target_locator": "record.senses[3]",
-          "target_label": "至交，密友"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9847,9 +9882,6 @@
         "sense:intimate:e34860c522b45808": [
           0
         ],
-        "sense:intimate:c4670d8a7f05589a": [
-          1
-        ],
         "sense:intimate:9cc93fe499e056a9": [
           2
         ]
@@ -9884,7 +9916,38 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3694b642c5e16ff0e7cb",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:intimate:c4670d8a7f05589a:collocation:0"
+              ],
+              "meaning_cn": "某人的密友",
+              "phrase": "an intimate of + sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "至交，密友",
+          "definition_en": "a close friend",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "identity_type": "pronunciation_by_part_of_speech",
+            "pronunciation": "adjective/noun ends /-mət/",
+            "surface_lemma": "intimate"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:intimate:c4670d8a7f05589a",
+          "sense_label_en": "a close friend",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9987,7 +10050,7 @@
     "ordinal": 2618,
     "word": "into",
     "source_owner_path": "content/lexical/words/by-ordinal/o2618.json",
-    "source_fingerprint": "396f82ac0e901d407cebe13b7f72312e41af4dfb9680716b0accd8e573bd96c1",
+    "source_fingerprint": "ef8215852d60cede20801c07677eb01163ee6e121f51495697d62abbf3aa73ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9997,7 +10060,7 @@
     },
     "word_feel": {
       "summary_cn": "进入或变成",
-      "decision_cn": "",
+      "decision_cn": "movement → 进入；change → 变成；be into sth → 对…感兴趣/热衷。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10144,7 +10207,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:into:be-into",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be into sth",
+        "lines": [
+          {
+            "text": "喜欢；对…很感兴趣；热衷于",
+            "lang": "cn"
+          },
+          {
+            "text": "informal interest/involvement use; distinct from physical movement into a place",
+            "lang": "en"
+          },
+          {
+            "text": "to be very interested in or enthusiastic about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:into:be-into",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be into sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10252,18 +10341,33 @@
     "ordinal": 2620,
     "word": "intrigue",
     "source_owner_path": "content/lexical/words/by-ordinal/o2620.json",
-    "source_fingerprint": "9c773dc32e88a66662a6cf0d65ea2fda1c2d66c42951eecfc73527822a76337b",
-    "sense_lineage": [],
+    "source_fingerprint": "2a90247b191853e3bf289a9aadd3e73ec90ee6cd1d578bc1d0911f09d011ae76",
+    "sense_lineage": [
+      {
+        "word_id": "word:intrigue",
+        "target_kind": "sense",
+        "from_target_id": "sense:intrigue:d06e3b7aae715b69",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intrigue",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f5fcb90ed3f2bc12aed3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "激起兴趣；密谋",
-      "decision_cn": "",
+      "decision_cn": "verb → 激起强烈兴趣；noun → 阴谋/神秘吸引力。少见动词“密谋”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10338,39 +10442,8 @@
         }
       },
       {
-        "id": "sense:intrigue:d06e3b7aae715b69",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "密谋，私通",
-        "definition_en": "to secretly plan with others to do something harmful",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f5fcb90ed3f2bc12aed3",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "intrigue with sb",
-            "meaning_cn": "与某人密谋",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f5fcb90ed3f2bc12aed3",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "intrigue with sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intrigue:d06e3b7aae715b69",
-          "target_locator": "record.senses[2]",
-          "target_label": "密谋，私通"
-        }
-      },
-      {
         "id": "sense:intrigue:d6c937e7e3430812",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "神秘感；引人好奇之处；吸引力",
@@ -10380,20 +10453,20 @@
         "usage": [
           {
             "id": "collocation:f9685ee2e7b67812e5ce",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a sense of intrigue",
             "meaning_cn": "神秘感；好奇感",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f9685ee2e7b67812e5ce",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "a sense of intrigue"
             }
           },
           {
             "id": "collocation:b77def8b0e8769c247b9",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "mystery and intrigue",
             "meaning_cn": "神秘与吸引力",
             "kind": "usage_example",
@@ -10403,7 +10476,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:intrigue:d6c937e7e3430812",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "神秘感；引人好奇之处；吸引力"
         }
       }
@@ -10442,7 +10515,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f5fcb90ed3f2bc12aed3",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:intrigue:d06e3b7aae715b69:collocation:0"
+              ],
+              "meaning_cn": "与某人密谋",
+              "phrase": "intrigue with sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "密谋，私通",
+          "definition_en": "to secretly plan with others to do something harmful",
+          "governing_pattern": "vi. + with",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:intrigue:d06e3b7aae715b69",
+          "sense_label_en": "to secretly plan with others to do something harmful",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -10451,17 +10550,32 @@
     "ordinal": 2621,
     "word": "intrinsic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2621.json",
-    "source_fingerprint": "e57fae7ccfb6bbeee70a00ab5c6ec6005938b706c6c0e603ebffa4c47c6ac100",
-    "sense_lineage": [],
+    "source_fingerprint": "9b8d50beeb4ee493be6e7792610b395f4322211c776cb9b87f1680ee04a6bc89",
+    "sense_lineage": [
+      {
+        "word_id": "word:intrinsic",
+        "target_kind": "sense",
+        "from_target_id": "sense:intrinsic:e0955eaaa64557b2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intrinsic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ac673a5b86c6fa664fa8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "本质的，内在的",
-      "decision_cn": "",
+      "decision_cn": "intrinsic to sth → 某事物本质上固有的。医学/解剖“内在肌”等专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10508,32 +10622,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "本质的，固有的"
         }
-      },
-      {
-        "id": "sense:intrinsic:e0955eaaa64557b2",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（医）内部的，内在的",
-        "definition_en": "situated within or belonging solely to the organ or body part on which it acts",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ac673a5b86c6fa664fa8",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "intrinsic muscles",
-            "meaning_cn": "内在肌",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intrinsic:e0955eaaa64557b2",
-          "target_locator": "record.senses[1]",
-          "target_label": "（医）内部的，内在的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10570,7 +10658,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ac673a5b86c6fa664fa8",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:intrinsic:e0955eaaa64557b2:collocation:0"
+              ],
+              "meaning_cn": "内在肌",
+              "phrase": "intrinsic muscles"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（医）内部的，内在的",
+          "definition_en": "situated within or belonging solely to the organ or body part on which it acts",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:intrinsic:e0955eaaa64557b2",
+          "sense_label_en": "situated within or belonging solely to the organ or body part on which i",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10729,17 +10843,25 @@
     "ordinal": 2623,
     "word": "introduction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2623.json",
-    "source_fingerprint": "0b1b6589068f446e5989d9fc22ac16f30d6fb8eb21393a1f21cca35bab3ef958",
-    "sense_lineage": [],
+    "source_fingerprint": "7279085d3a05310ebdeb42a70e237fa87fb0c1f7951ceb5d3f8b0a850007249b",
+    "sense_lineage": [
+      {
+        "word_id": "word:introduction",
+        "target_kind": "sense",
+        "from_target_id": "sense:introduction:2abf86a1d8015acb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "引入；介绍；开头部分",
-      "decision_cn": "",
+      "decision_cn": "people → 介绍/引见；text/speech → 引言；subject → 入门；new thing → 引入/采用。低价值“新提议/新方案”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10827,25 +10949,8 @@
         }
       },
       {
-        "id": "sense:introduction:2abf86a1d8015acb",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "新提议；新方案",
-        "definition_en": "a new proposal or idea",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:introduction:2abf86a1d8015acb",
-          "target_locator": "record.senses[3]",
-          "target_label": "新提议；新方案"
-        }
-      },
-      {
         "id": "sense:introduction:e92985e56519b009",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "介绍；引见",
@@ -10855,14 +10960,14 @@
         "usage": [
           {
             "id": "collocation:2e486744f5c2d922095f",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "make an introduction",
             "meaning_cn": "作介绍；引见",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:2e486744f5c2d922095f",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "make an introduction"
             }
           }
@@ -10870,7 +10975,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:introduction:e92985e56519b009",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "介绍；引见"
         }
       }
@@ -10920,6 +11025,22 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "新提议；新方案",
+          "definition_en": "a new proposal or idea",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:introduction:2abf86a1d8015acb",
+          "sense_label_en": "a new proposal or idea",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
       ]
     }
   },
@@ -10929,17 +11050,32 @@
     "ordinal": 2624,
     "word": "intrude",
     "source_owner_path": "content/lexical/words/by-ordinal/o2624.json",
-    "source_fingerprint": "43eecb2c710e6fa3ae8e2924a872acdc5c5dd40ee711c1d48e73805526577941",
-    "sense_lineage": [],
+    "source_fingerprint": "8bab21557c2f52e2a2db7c3bcaefd8578d4aae6c6554a506ce0da368a61febc0",
+    "sense_lineage": [
+      {
+        "word_id": "word:intrude",
+        "target_kind": "sense",
+        "from_target_id": "sense:intrude:64e87b2e300c59de",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intrude",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:35ccf701548ae44f7c30",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "闯入，侵入",
-      "decision_cn": "",
+      "decision_cn": "intrude on/upon sb/sth → 不受欢迎地闯入、打扰或干涉。少见“把观点强加给某人”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10991,37 +11127,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "闯入，侵入"
         }
-      },
-      {
-        "id": "sense:intrude:64e87b2e300c59de",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "强加于",
-        "definition_en": "force something (e.g., an opinion) on someone",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:35ccf701548ae44f7c30",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "intrude one's views on + sb",
-            "meaning_cn": "把观点强加于人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:35ccf701548ae44f7c30",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "intrude one's views on + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intrude:64e87b2e300c59de",
-          "target_locator": "record.senses[1]",
-          "target_label": "强加于"
-        }
       }
     ],
     "pronunciation_support": {
@@ -11053,12 +11158,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:intrude:intrude-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "intrude on/upon sb/sth",
+        "lines": [
+          {
+            "text": "打扰；侵扰；擅自介入",
+            "lang": "cn"
+          },
+          {
+            "text": "unwelcome entry/interference pattern; distinct from the low-value force-one’s-views branch",
+            "lang": "en"
+          },
+          {
+            "text": "to enter, become involved in, or disturb a situation where you are not wanted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:intrude:intrude-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "intrude on/upon sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:35ccf701548ae44f7c30",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:intrude:64e87b2e300c59de:collocation:0"
+              ],
+              "meaning_cn": "把观点强加于人",
+              "phrase": "intrude one's views on + sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "强加于",
+          "definition_en": "force something (e.g., an opinion) on someone",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:intrude:64e87b2e300c59de",
+          "sense_label_en": "force something (e.g., an opinion) on someone",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   }
 ]
