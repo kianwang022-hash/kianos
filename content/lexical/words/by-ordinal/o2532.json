@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:information:piece-of-information",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一条信息；一则资料",
+        "definition_en": "one item or fact of information, since information is normally uncountable",
+        "pattern": "a piece/item of information",
+        "source_sense_id": "sense:information:c23d558790385835",
+        "boundary": "countability pattern; do not normally say “an information” for a single fact"
+      }
+    ],
     "content_hash": "e9bb895e13f947d7fdd2b505530dd044183f025d0ba98194ccdc06a8250a0ba4",
     "core_concept": {
       "core_clusters": [
@@ -20,9 +31,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "信息；知识",
-      "core_meaning_en": "knowledge or information communicated or learned",
-      "mental_model_cn": "信息；知识",
+      "core_meaning_cn": "信息；资料；知识",
+      "core_meaning_en": "facts, details, or knowledge communicated or learned",
+      "mental_model_cn": "information 通常不可数：some information / a piece of information。法律“起诉信息”和信息论“信息量”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,54 +69,6 @@
         "sense_id": "sense:information:67c096ccd03b5eca",
         "sense_label_en": "knowledge acquired through study or experience or instruction",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f60a2e3134553c87a5c6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:information:a577791555b8568e:collocation:0"
-            ],
-            "meaning_cn": "对……提出控告",
-            "phrase": "lay information against + sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "起诉；控告",
-        "definition_en": "formal accusation of a crime",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:information:a577791555b8568e",
-        "sense_label_en": "formal accusation of a crime",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:57d726f4f7294fca5fd5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:information:56de94aa4e165ad7:collocation:0"
-            ],
-            "meaning_cn": "信息论",
-            "phrase": "information theory"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "信息量（信息论）",
-        "definition_en": "(communication theory) a numerical measure of the uncertainty of an outcome",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:information:56de94aa4e165ad7",
-        "sense_label_en": "(communication theory) a numerical measure of the uncertainty of an outc",
-        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -240,12 +203,61 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f60a2e3134553c87a5c6",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:information:a577791555b8568e:collocation:0"
+          ],
+          "meaning_cn": "对……提出控告",
+          "phrase": "lay information against + sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "起诉；控告",
+      "definition_en": "formal accusation of a crime",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:information:a577791555b8568e",
+      "sense_label_en": "formal accusation of a crime",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:57d726f4f7294fca5fd5",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:information:56de94aa4e165ad7:collocation:0"
+          ],
+          "meaning_cn": "信息论",
+          "phrase": "information theory"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "信息量（信息论）",
+      "definition_en": "(communication theory) a numerical measure of the uncertainty of an outcome",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:information:56de94aa4e165ad7",
+      "sense_label_en": "(communication theory) a numerical measure of the uncertainty of an outc",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:information:56de94aa4e165ad7",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7009,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
@@ -259,7 +271,7 @@
       },
       {
         "sense_id": "sense:information:a577791555b8568e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7011,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
@@ -273,9 +285,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:00de7a1f5ef5ca763c01",
-      "collocation:57d726f4f7294fca5fd5",
-      "collocation:f60a2e3134553c87a5c6"
+      "collocation:00de7a1f5ef5ca763c01"
     ],
     "facts": [
       {
@@ -298,7 +308,9 @@
       {
         "id": "collocation:57d726f4f7294fca5fd5",
         "source_row": 7412,
-        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:77c0d978d592c6e36c99",
@@ -308,7 +320,9 @@
       {
         "id": "collocation:f60a2e3134553c87a5c6",
         "source_row": 20839,
-        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:inherent:inherent-in",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "…中固有的；…本身具有的",
+        "definition_en": "existing as a natural, essential, or permanent part of something",
+        "pattern": "be inherent in sth",
+        "source_sense_id": "sense:inherent:4237801bec93597c",
+        "boundary": "intrinsic-property pattern; not merely hidden or possible"
+      }
+    ],
     "content_hash": "736ec9fc2a668de6ebde91148a0b80028556ebdf82d50b6aa4a7f5ab167cd842",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "固有的，内在的",
       "core_meaning_en": "existing as a permanent, essential characteristic",
-      "mental_model_cn": "固有的，内在的",
+      "mental_model_cn": "be inherent in sth → 是某事物本身固有/内在的。重复且易误导成“潜在”的分支保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,30 +56,6 @@
         "sense_id": "sense:inherent:4237801bec93597c",
         "sense_label_en": "existing as an essential constituent or characteristic",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:776e44ac7626bdc7334c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:inherent:3ec487687fdb55aa:collocation:0"
-            ],
-            "meaning_cn": "固有风险",
-            "phrase": "inherent risk"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "潜在的；隐含的",
-        "definition_en": "in the nature of something though not readily apparent",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:inherent:3ec487687fdb55aa",
-        "sense_label_en": "in the nature of something though not readily apparent",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -294,12 +281,37 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:776e44ac7626bdc7334c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:inherent:3ec487687fdb55aa:collocation:0"
+          ],
+          "meaning_cn": "固有风险",
+          "phrase": "inherent risk"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "潜在的；隐含的",
+      "definition_en": "in the nature of something though not readily apparent",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:inherent:3ec487687fdb55aa",
+      "sense_label_en": "in the nature of something though not readily apparent",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:inherent:3ec487687fdb55aa",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7024,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
@@ -313,7 +325,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:776e44ac7626bdc7334c",
       "collocation:e84adabf99cf42755334"
     ],
     "facts": [],
@@ -321,7 +332,9 @@
       {
         "id": "collocation:776e44ac7626bdc7334c",
         "source_row": 10083,
-        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e84adabf99cf42755334",

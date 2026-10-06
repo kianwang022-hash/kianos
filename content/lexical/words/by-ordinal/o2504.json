@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "表明或暗示某事的迹象或信息",
       "core_meaning_en": "a sign or piece of information that suggests something",
-      "mental_model_cn": "表明或暗示某事的迹象或信息",
+      "mental_model_cn": "general → 迹象、指示、暗示；medical indication“适应症”专业义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,30 +54,6 @@
         "sense_id": "sense:indication:19651f55ba745344",
         "sense_label_en": "a sign or piece of information that suggests something",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:965fd966e14bb712e9e7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:indication:2c3073d4c0b25a22:collocation:0"
-            ],
-            "meaning_cn": "手术适应症",
-            "phrase": "indication for surgery"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（医学）适应症",
-        "definition_en": "a reason to prescribe a drug or perform a procedure",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:indication:2c3073d4c0b25a22",
-        "sense_label_en": "a reason to prescribe a drug or perform a procedure",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -171,7 +147,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:965fd966e14bb712e9e7",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:indication:2c3073d4c0b25a22:collocation:0"
+          ],
+          "meaning_cn": "手术适应症",
+          "phrase": "indication for surgery"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（医学）适应症",
+      "definition_en": "a reason to prescribe a drug or perform a procedure",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:indication:2c3073d4c0b25a22",
+      "sense_label_en": "a reason to prescribe a drug or perform a procedure",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -183,7 +184,7 @@
       },
       {
         "sense_id": "sense:indication:2c3073d4c0b25a22",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6950,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
@@ -191,7 +192,6 @@
     ],
     "active_collocations": [
       "collocation:804b7df5684ec7ff39f9",
-      "collocation:965fd966e14bb712e9e7",
       "collocation:ea241dcf0abef5ce3e9c"
     ],
     "facts": [],
@@ -204,7 +204,9 @@
       {
         "id": "collocation:965fd966e14bb712e9e7",
         "source_row": 12796,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ea241dcf0abef5ce3e9c",
