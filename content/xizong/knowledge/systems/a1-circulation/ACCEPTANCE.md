@@ -29,6 +29,27 @@ Merge placement and normal Chat adoption are established above. Actual Current/S
 
 ---
 
+<a id="b2-teaching-adoption-20261006"></a>
+## 2026-10-06｜B2 teaching basis and post-Chat retrieval adoption
+
+**Status: ACCEPTED — circulation-b02 only.** Under Kian's task-scoped authorization in [#1113](https://github.com/kianwang022-hash/kianos/issues/1113), this receipt records B2 adoption after bounded default-reader and actual Website retrieval acceptance. The tested B2 implementation/content head is `e6a0b9f3f86d03975564a52135ace879c4f6e621` in [#1203](https://github.com/kianwang022-hash/kianos/pull/1203). The [normal Chat router](../../learner/README.md#accepted-b2-teaching-basis) resolves here.
+
+Accepted teaching basis: [B2 circulation regulation and capacity-control model](../../../projection/a1-circulation/chat/b02-teaching.md), refreshed against its declared current canonical/System/Learning dependencies. It is the stable B2 teaching and compressed-review input under [Learning Contract §0 and §13](../../../LEARNING_CONTRACT.md), not a new medical owner or a Website KP/Core source.
+
+- The compact default reader preserves B2's three concurrent flows: global sensing/neural execution; global commands plus local perfusion needs; and hormonal/renal capacity feedback, scenarios and compensation cost. It binds 16 natural full-title/Prompt nodes plus three explicit whole-KP external destinations and retains all 374 inherited explanation lines in seven expandable ranges. These are this Block's observed coverage results, not a universal topology or KP quota. Independent whole-reader review of the actual compact marked HTML passed, with four focused groups and 16 negative cases.
+- The sole canonical wording repair replaces the old absolute exit question with “窦弓反射怎样快速、双向缓冲，并与肾—体液长期调压分工？”, following already-adopted KP02/KP13. Native comparison confirms all 19 KP Core hashes unchanged. No new medical conclusion or stale Source witness is adopted or re-signed.
+- [Actual B2 retrieval evidence](https://github.com/kianwang022-hash/kianos/actions/runs/37447398864): the final run passed all 18 B1/B2 journey checks, 54 workspace checks and 36 full-release regression checks. The clean B2 post-Chat path exercises all 19 Recall identities and 12 prepared-Precision items, hidden fronts, Reveal, rating and reload/Resume. Actual premature keyboard rating now asks for Reveal without falsely requiring Source; screenshots were independently inspected. This is isolated engineering execution; it neither asserts that Kian satisfied B2's prerequisite nor creates private learner evidence.
+- Twelve reviewed existing B2 prepared-Precision identities are admitted through their exact current-owner answers, scopes and available aids. The reviewed 窦九弓十 aid remains in m01 and 酒心咖啡糖 in m12. Five items remain outside independent admission: m04 retains its human/species qualification; m08/m15/m16/m17 remain Core/Source. No new card identity or duplicate medical owner is created.
+- At that exact implementation head, all 14 workflows completed: **9 PASS / 5 known FAIL**. Projection, Memory, System Workspace, Block Workspace, Golden Journey, Source Revision, Biochemistry Source Lifecycle, Authority and Semantic Base passed. [A2](https://github.com/kianwang022-hash/kianos/actions/runs/37447398862), [B+C](https://github.com/kianwang022-hash/kianos/actions/runs/37447398896), [QA](https://github.com/kianwang022-hash/kianos/actions/runs/37447398883), [System Exit](https://github.com/kianwang022-hash/kianos/actions/runs/37447399042) and [Mac](https://github.com/kianwang022-hash/kianos/actions/runs/37447398870) retain the earlier-main failures and their existing owners. The structure/preservation and adversarial checks support only their recorded claims; this receipt does not upgrade unrelated workflow failures to PASS.
+- The tested teaching bytes, including `CANDIDATE_DERIVATION` and candidate wording, remain unchanged. This receipt supersedes their former admission boundary **only for this exact B2 teaching use**; `medical_authority:false`, provenance and dependency freshness remain binding. No validator or preserved-original hash is weakened.
+- Original Source P153–168/P280–284, seven current POST_REVEAL cues, twelve retained visual references, eight closed-not-memory dispositions and six Connections retain their existing owners and conditions. P154's reflection curve and P280's renal execution remain original-Source gates, not newly viewed/rendered figures. Prerequisite, Visual, TTSX and completion gates remain intact.
+
+This B2 receipt follows the current Learning Contract's lawful Chat-led first pass. Navigation and preparation do not imply Chat study, original-Source contact, Learned, a Recall rating, Block completion, full-Block Memory release or Today debt. Actual Source contact, completion and U retain their native evidence requirements. **Learner U remains UNTESTED.** B1 adoption is unchanged; the other 157 Block packages and the remainder of #1150 remain unadopted.
+
+This receipt does not itself establish main-merge placement or actual Current/Stable served-version delivery; those are separate claims with their own proof.
+
+---
+
 ## Current accepted gate status
 
 ```text

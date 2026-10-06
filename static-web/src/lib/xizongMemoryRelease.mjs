@@ -198,13 +198,18 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
   return finalizeDescriptor(meta, coreCards, precisionCards, options);
 }
 
-// B1's selective index remains the only admission owner. Exact answer / aid
+// The selective index remains the only admission owner. Exact answer / aid
 // freshness is checked by resolvePreparedMemoryCue before the learner object is
 // built; this consumer additionally rejects stale references or ambiguous owners.
-// Do not broaden this entry to unreviewed retained items or to another Block.
+// Only the reviewed B1/B2 consumer slice may use explicit card-only availability.
+// The IDs, owners and witnesses remain in the existing index, never a second list.
+export function supportsXizongPreparedMemoryBlock(blockId) {
+  return ['circulation-b01', 'circulation-b02'].includes(blockId);
+}
+
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
-  const blockId = 'circulation-b01';
-  if (learnerObject?.identity?.blockId !== blockId) fail('PREPARED_BLOCK_UNSUPPORTED');
+  const blockId = text(learnerObject?.identity?.blockId);
+  if (!supportsXizongPreparedMemoryBlock(blockId)) fail('PREPARED_BLOCK_UNSUPPORTED');
   if (!learnerObject?.sourceHash || (options.sourceHash && options.sourceHash !== learnerObject.sourceHash)) {
     fail('PREPARED_SOURCE_STALE', blockId);
   }
@@ -212,7 +217,8 @@ export function buildXizongPreparedMemoryAvailability(learnerObject, options = {
     fail('PREPARED_INDEX_UNREVIEWED', blockId);
   }
   const admitted = preparedCues.precision_index.filter(row => row.anchor?.block_id === blockId);
-  if (admitted.length !== 13 || new Set(admitted.map(row => row.id)).size !== admitted.length) {
+  if (!admitted.length || admitted.some(row => !row.id || !row.prepared_memory_ref)
+    || new Set(admitted.map(row => row.id)).size !== admitted.length) {
     fail('PREPARED_ADMISSION_INVALID', blockId);
   }
   const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject);

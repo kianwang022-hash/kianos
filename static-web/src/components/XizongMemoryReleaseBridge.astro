@@ -1,6 +1,6 @@
 ---
 const { objectId = '', sourceHash = '' } = Astro.props;
-const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&block=circulation-b01`;
+const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
 ---
 <span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
 <div hidden data-prepared-memory-action data-memory-href={memoryHref}>
@@ -10,7 +10,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&blo
 
 <script>
   import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage, readXizongPersonalStorage, makePreparedMemoryAvailable } from '../lib/xizongMemoryModel.mjs';
-  import { buildXizongPreparedMemoryAvailability } from '../lib/xizongMemoryRelease.mjs';
+  import { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } from '../lib/xizongMemoryRelease.mjs';
   import {
     releaseCompletedBlockToMemory,
     syncXizongPersonalMarks,
@@ -36,7 +36,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&blo
 
   // Explicit Browse availability is independent of Source / KP / Block
   // completion. Use the resolved payload, never learner ratings or URL claims.
-  if (learnerObject?.identity?.blockId === 'circulation-b01') {
+  if (supportsXizongPreparedMemoryBlock(learnerObject?.identity?.blockId)) {
   const preparedAction = document.querySelector('[data-prepared-memory-action]');
   const preparedButton = preparedAction?.querySelector('[data-open-prepared-memory]');
   const preparedStatus = preparedAction?.querySelector('[data-prepared-memory-status]');
@@ -45,6 +45,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&blo
     try {
       const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash });
       preparedButton.textContent = `打开已准备的 Memory（${descriptor.precisionCards.length} 项）`;
+      preparedAction.setAttribute('data-memory-href', `${preparedAction.getAttribute('data-memory-href')}&block=${encodeURIComponent(descriptor.blockId)}`);
       preparedHost.append(preparedAction);
       preparedAction.hidden = false;
       preparedButton.addEventListener('click', () => {
