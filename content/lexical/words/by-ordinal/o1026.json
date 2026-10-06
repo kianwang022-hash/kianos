@@ -10,9 +10,9 @@
     "content_hash": "db7a07e302243bf7c4aa54f4bf255e6d5cb6231daba8320c2c386d35a5f70745",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "组成；在于",
-      "core_meaning_en": "to be composed or made up of",
-      "mental_model_cn": "组成；在于",
+      "core_meaning_cn": "由…组成；在于",
+      "core_meaning_en": "to be made up of; to have as an essential character",
+      "mental_model_cn": "consist of → 由…组成；consist in → 本质在于。罕见的 consist with = 与…一致保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -76,30 +76,6 @@
         "sense_id": "sense:consist:e22a1472b6b657d5",
         "sense_label_en": "to have as its essential character",
         "sort_order": 1,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:aead843f8fc9fbbbfa01",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:consist:0da790e2a63f5c56:collocation:0"
-            ],
-            "meaning_cn": "与...一致",
-            "phrase": "consist with + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "一致；符合",
-        "definition_en": "to be in agreement or harmony",
-        "governing_pattern": "vi. + with",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:consist:0da790e2a63f5c56",
-        "sense_label_en": "to be in agreement or harmony",
-        "sort_order": 2,
         "transitivity": "vi"
       }
     ],
@@ -275,12 +251,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:aead843f8fc9fbbbfa01",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:consist:0da790e2a63f5c56:collocation:0"
+          ],
+          "meaning_cn": "与...一致",
+          "phrase": "consist with + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "一致；符合",
+      "definition_en": "to be in agreement or harmony",
+      "governing_pattern": "vi. + with",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:consist:0da790e2a63f5c56",
+      "sense_label_en": "to be in agreement or harmony",
+      "sort_order": 2,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:consist:0da790e2a63f5c56",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 2888,
         "source_path": "content/lexical/canonical/senses/shards/o1025-1056.json"
@@ -302,7 +303,6 @@
     ],
     "active_collocations": [
       "collocation:6fb3b1fab06fbd7933f1",
-      "collocation:aead843f8fc9fbbbfa01",
       "collocation:c49cc358d138559ecdb3"
     ],
     "facts": [
@@ -331,7 +331,9 @@
       {
         "id": "collocation:aead843f8fc9fbbbfa01",
         "source_row": 14785,
-        "source_path": "content/lexical/canonical/collocations/shards/o1025-1056.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1025-1056.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c49cc358d138559ecdb3",
