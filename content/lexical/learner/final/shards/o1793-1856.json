@@ -10428,7 +10428,7 @@
     "ordinal": 1852,
     "word": "false",
     "source_owner_path": "content/lexical/words/by-ordinal/o1852.json",
-    "source_fingerprint": "1ee904d0cb0c7eb780e2833dd1d2c9964d89c8df13834dff50bf92b777af514b",
+    "source_fingerprint": "bb465982c268bc6d3b80bdef85fcadf549b20c9fd47b0669c5b3a4fe5692a3a1",
     "sense_lineage": [
       {
         "word_id": "word:false",
@@ -10440,6 +10440,13 @@
       {
         "word_id": "word:false",
         "target_kind": "sense",
+        "from_target_id": "sense:false:dd5baed97ada596b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:false",
+        "target_kind": "sense",
         "from_target_id": "sense:false:fb7d7bed002c54c9",
         "status": "merged",
         "to_target_id": "sense:false:77336618bf745545"
@@ -10447,19 +10454,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A",
-        "1ADV"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "不真实",
-      "decision_cn": "",
+      "summary_cn": "错误的；不真实的；假的",
+      "decision_cn": "statement/idea → 错误或不真实；object/identity → 假的、伪造的。低频副词 false 保留为 Reference；现代通常用 falsely。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不真实"
+        "target_label": "错误的；不真实的；假的"
       }
     },
     "senses": [
@@ -10495,23 +10501,6 @@
           "target_id": "sense:false:77336618bf745545",
           "target_locator": "record.senses[0]",
           "target_label": "错误的，不正确的"
-        }
-      },
-      {
-        "id": "sense:false:dd5baed97ada596b",
-        "source_locator": "record.senses[1]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "不准确地，欺诈地",
-        "definition_en": "in a false manner",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:false:dd5baed97ada596b",
-          "target_locator": "record.senses[1]",
-          "target_label": "不准确地，欺诈地"
         }
       }
     ],
@@ -10604,6 +10593,20 @@
           "source_row": 5077,
           "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "不准确地，欺诈地",
+          "definition_en": "in a false manner",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adverb",
+          "sense_id": "sense:false:dd5baed97ada596b",
+          "sense_label_en": "in a false manner",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }

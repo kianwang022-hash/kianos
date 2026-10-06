@@ -793,23 +793,30 @@
     "ordinal": 1861,
     "word": "fantasy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1861.json",
-    "source_fingerprint": "9b0ca139ea078958f5b0f3a225ba1198d02f478ede9f4cb09f21fa18c26f623b",
-    "sense_lineage": [],
+    "source_fingerprint": "e88a09abba914d3ae9eeab351a9fb52c7af41b7cb92f441b7771e33b964e9f69",
+    "sense_lineage": [
+      {
+        "word_id": "word:fantasy",
+        "target_kind": "sense",
+        "from_target_id": "sense:fantasy:1d16e789a9b65278",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "不受现实限制的想象",
-      "decision_cn": "",
+      "summary_cn": "幻想；想象；奇幻作品",
+      "decision_cn": "imagined situation/world → 幻想；genre/story → 奇幻作品。低频 fantasy 动词义保留为 Reference，现代通常用 fantasize。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不受现实限制的想象"
+        "target_label": "幻想；想象；奇幻作品"
       }
     },
     "senses": [
@@ -864,23 +871,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "幻想作品，奇幻小说"
         }
-      },
-      {
-        "id": "sense:fantasy:1d16e789a9b65278",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "幻想，想象",
-        "definition_en": "indulge in fantasies",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fantasy:1d16e789a9b65278",
-          "target_locator": "record.senses[2]",
-          "target_label": "幻想，想象"
-        }
       }
     ],
     "pronunciation_support": {
@@ -930,7 +920,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "幻想，想象",
+          "definition_en": "indulge in fantasies",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:fantasy:1d16e789a9b65278",
+          "sense_label_en": "indulge in fantasies",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3010,13 +3016,20 @@
     "ordinal": 1874,
     "word": "fatal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1874.json",
-    "source_fingerprint": "0862dd1ab7cfed8710def8e729c8add1c98b0eb1099f1e79a6c92c0d903ed430",
+    "source_fingerprint": "5bc69b5613a5e77f88c0b8aa1f94bdfa05df1df710df1fa8a79bcfa7264989e2",
     "sense_lineage": [
       {
         "word_id": "word:fatal",
         "target_kind": "sense",
         "from_target_id": "sense:fatal:5f43ba264fc45155",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fatal",
+        "target_kind": "sense",
+        "from_target_id": "sense:fatal:909005c3595657ce",
+        "status": "reference",
         "to_target_id": null
       },
       {
@@ -3029,18 +3042,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "致命的",
-      "decision_cn": "",
+      "summary_cn": "致命的；造成灾难性后果的",
+      "decision_cn": "injury/disease → 致命；mistake/decision → 灾难性后果。旧式“命运注定的”义保留为 Reference；现代更常用 fated/fateful。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "致命的"
+        "target_label": "致命的；造成灾难性后果的"
       }
     },
     "senses": [
@@ -3059,23 +3072,6 @@
           "target_id": "sense:fatal:fad7651a4240bcd6",
           "target_locator": "record.senses[0]",
           "target_label": "致命的、导致灾难的"
-        }
-      },
-      {
-        "id": "sense:fatal:909005c3595657ce",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "命运注定的",
-        "definition_en": "controlled or decreed by fate; predetermined",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fatal:909005c3595657ce",
-          "target_locator": "record.senses[1]",
-          "target_label": "命运注定的"
         }
       }
     ],
@@ -3164,6 +3160,20 @@
           "source_row": 5143,
           "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "命运注定的",
+          "definition_en": "controlled or decreed by fate; predetermined",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:fatal:909005c3595657ce",
+          "sense_label_en": "controlled or decreed by fate; predetermined",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -5505,18 +5515,39 @@
     "ordinal": 1889,
     "word": "feather",
     "source_owner_path": "content/lexical/words/by-ordinal/o1889.json",
-    "source_fingerprint": "9ddae5e59e4a3fabf02af61e1b08b5c79400180c7a6c3331ae86232697d1cf43",
-    "sense_lineage": [],
+    "source_fingerprint": "a2746d2164dd3a3bb3bc6eda3ff2630fd167bf5343dbc3a10e4e67db176eaf2b",
+    "sense_lineage": [
+      {
+        "word_id": "word:feather",
+        "target_kind": "sense",
+        "from_target_id": "sense:feather:21aa7fb0393458f5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:feather",
+        "target_kind": "sense",
+        "from_target_id": "sense:feather:59f25055175c5c8f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:feather",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8562dfd3bdb68be78d2a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "羽毛",
-      "decision_cn": "",
+      "decision_cn": "bird/body → 羽毛；高价值短语 a feather in one's cap 保留。长羽毛/用羽毛装饰等低频动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5563,49 +5594,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "羽毛"
         }
-      },
-      {
-        "id": "sense:feather:21aa7fb0393458f5",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "长羽毛",
-        "definition_en": "to grow feathers",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:feather:21aa7fb0393458f5",
-          "target_locator": "record.senses[1]",
-          "target_label": "长羽毛"
-        }
-      },
-      {
-        "id": "sense:feather:59f25055175c5c8f",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用羽毛装饰",
-        "definition_en": "to cover or fit with feathers",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8562dfd3bdb68be78d2a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "feather an arrow",
-            "meaning_cn": "给箭装上羽毛",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:feather:59f25055175c5c8f",
-          "target_locator": "record.senses[2]",
-          "target_label": "用羽毛装饰"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5646,7 +5634,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "长羽毛",
+          "definition_en": "to grow feathers",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:feather:21aa7fb0393458f5",
+          "sense_label_en": "to grow feathers",
+          "sort_order": 1,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8562dfd3bdb68be78d2a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:feather:59f25055175c5c8f:collocation:0"
+              ],
+              "meaning_cn": "给箭装上羽毛",
+              "phrase": "feather an arrow"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用羽毛装饰",
+          "definition_en": "to cover or fit with feathers",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:feather:59f25055175c5c8f",
+          "sense_label_en": "to cover or fit with feathers",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
