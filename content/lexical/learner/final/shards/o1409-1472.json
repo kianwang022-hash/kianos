@@ -1753,8 +1753,15 @@
     "ordinal": 1420,
     "word": "discriminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1420.json",
-    "source_fingerprint": "343f8a6ddf2d0591c26a7e9986995103cf1c5745698c6d5ef6e8cbb1ad15599b",
+    "source_fingerprint": "f05615e1aecba79a8dc21cb78b40a85274fa995853fe58772ba53eeb3e63f49a",
     "sense_lineage": [
+      {
+        "word_id": "word:discriminate",
+        "target_kind": "sense",
+        "from_target_id": "sense:discriminate:2c7274d9770957f3",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:discriminate",
         "target_kind": "sense",
@@ -1765,19 +1772,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3V",
-        "1A"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "区分；辨别；歧视或差别对待",
-      "decision_cn": "区分；差别对待",
+      "summary_cn": "区分、辨别；或对人群作不公平的差别对待",
+      "decision_cn": "discriminate between A and B → 辨别差异；discriminate against sb → 歧视。形容词“有辨别力的”不作为默认学习义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "区分；辨别；歧视或差别对待"
+        "target_label": "区分、辨别；或对人群作不公平的差别对待"
       }
     },
     "senses": [
@@ -1830,25 +1836,8 @@
         }
       },
       {
-        "id": "sense:discriminate:2c7274d9770957f3",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有辨别力的",
-        "definition_en": "able to see or make fine distinctions",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:discriminate:2c7274d9770957f3",
-          "target_locator": "record.senses[2]",
-          "target_label": "有辨别力的"
-        }
-      },
-      {
         "id": "sense:discriminate:f258a0c18777a10c",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + against",
         "definition_cn": "歧视；区别对待",
@@ -1859,7 +1848,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:discriminate:f258a0c18777a10c",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "歧视；区别对待"
         }
       }
@@ -2009,6 +1998,20 @@
           "source_row": 3935,
           "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "有辨别力的",
+          "definition_en": "able to see or make fine distinctions",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:discriminate:2c7274d9770957f3",
+          "sense_label_en": "able to see or make fine distinctions",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -5110,22 +5113,37 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "a98da5901de68a020b0cdf6ac1e153226761bc7797c5bf1dc2739f71d09fd454",
-    "sense_lineage": [],
+    "source_fingerprint": "6b5a9e50efad83c7fe6971f8194e7c99d925227bdef37eb594854aee72591cb8",
+    "sense_lineage": [
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "sense",
+        "from_target_id": "sense:dissipate:bdfc9c156d1a5e9e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:01ad80a6232bc19959c7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "消散；驱散；浪费",
-      "decision_cn": "",
+      "summary_cn": "消散；驱散；挥霍或耗散",
+      "decision_cn": "fog/anger/heat → 消散；force/energy → 驱散或耗散；wealth/resources → 挥霍。旧式“放荡享乐”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "消散；驱散；浪费"
+        "target_label": "消散；驱散；挥霍或耗散"
       }
     },
     "senses": [
@@ -5237,37 +5255,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "挥霍、耗尽或使资源/能量消散"
         }
-      },
-      {
-        "id": "sense:dissipate:bdfc9c156d1a5e9e",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + in",
-        "definition_cn": "放荡；沉溺于享乐",
-        "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:01ad80a6232bc19959c7",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dissipate in + sth",
-            "meaning_cn": "沉溺于某事物（尤指享乐）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01ad80a6232bc19959c7",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "dissipate in + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dissipate:bdfc9c156d1a5e9e",
-          "target_locator": "record.senses[3]",
-          "target_label": "放荡；沉溺于享乐"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5304,7 +5291,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:01ad80a6232bc19959c7",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:dissipate:bdfc9c156d1a5e9e:collocation:0"
+              ],
+              "meaning_cn": "沉溺于某事物（尤指享乐）",
+              "phrase": "dissipate in + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "放荡；沉溺于享乐",
+          "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
+          "governing_pattern": "vi. + in",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:dissipate:bdfc9c156d1a5e9e",
+          "sense_label_en": "to live a life of pleasure, especially with respect to alcoholic consump",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
