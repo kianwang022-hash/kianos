@@ -10,9 +10,9 @@
     "content_hash": "28f7781b66261e30883a629e836eb8ee4a29b96439d101b883c777cb0e5f4ab8",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "转移；转向",
-      "core_meaning_en": "the act or result of turning aside",
-      "mental_model_cn": "转移；转向",
+      "core_meaning_cn": "转移、改道；转移注意力；消遣",
+      "core_meaning_en": "a change of direction or attention; also an amusement or pastime",
+      "mental_model_cn": "route/traffic → 改道；attention → 转移注意力；activity → 消遣。军事牵制义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,6 +42,15 @@
             ],
             "meaning_cn": "交通改道",
             "phrase": "traffic diversion"
+          },
+          {
+            "collocation_id": "collocation:1e123a6acbdba1589ee0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:diversion:d4e4c4b8d988534d:collocation:0"
+            ],
+            "meaning_cn": "制造转移注意力的行动或动静",
+            "phrase": "create a diversion"
           }
         ],
         "confidence": "medium",
@@ -78,30 +87,6 @@
         "sense_id": "sense:diversion:e8a5940145ee5292",
         "sense_label_en": "an activity that diverts or amuses; a pastime",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1e123a6acbdba1589ee0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:diversion:d4e4c4b8d988534d:collocation:0"
-            ],
-            "meaning_cn": "制造牵制",
-            "phrase": "create a diversion"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "牵制；声东击西",
-        "definition_en": "an attack meant to draw enemy forces away from the main point of attack",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:diversion:d4e4c4b8d988534d",
-        "sense_label_en": "an attack meant to draw enemy forces away from the main point of attack",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -235,7 +220,22 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "牵制；声东击西",
+      "definition_en": "an attack meant to draw enemy forces away from the main point of attack",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:diversion:d4e4c4b8d988534d",
+      "sense_label_en": "an attack meant to draw enemy forces away from the main point of attack",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -247,7 +247,7 @@
       },
       {
         "sense_id": "sense:diversion:d4e4c4b8d988534d",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 4034,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
