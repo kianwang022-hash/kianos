@@ -321,17 +321,32 @@
     "ordinal": 2563,
     "word": "inspiration",
     "source_owner_path": "content/lexical/words/by-ordinal/o2563.json",
-    "source_fingerprint": "f7af8b30a67d6806c891d418d2a61f44969f60ab84105c9cf29824e11c1c8d83",
-    "sense_lineage": [],
+    "source_fingerprint": "c85fa9f4c360d80e19f75e5c74f8e1e8b48692019b687b55618267d203dd8445",
+    "sense_lineage": [
+      {
+        "word_id": "word:inspiration",
+        "target_kind": "sense",
+        "from_target_id": "sense:inspiration:9ec82019595f5db0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:inspiration",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b1956ff451bdc6b3ac0d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "灵感；激励",
-      "decision_cn": "",
+      "decision_cn": "idea/creative spark → 灵感；person/thing → 鼓舞来源。生理学“吸气”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -372,34 +387,8 @@
         }
       },
       {
-        "id": "sense:inspiration:9ec82019595f5db0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "吸气",
-        "definition_en": "the act of breathing in",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b1956ff451bdc6b3ac0d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "take a deep inspiration",
-            "meaning_cn": "深吸一口气",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inspiration:9ec82019595f5db0",
-          "target_locator": "record.senses[1]",
-          "target_label": "吸气"
-        }
-      },
-      {
         "id": "sense:inspiration:6a75d61388805bbc",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "灵感；鼓舞",
@@ -410,7 +399,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:inspiration:6a75d61388805bbc",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "灵感；鼓舞"
         }
       }
@@ -482,6 +471,32 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b1956ff451bdc6b3ac0d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:inspiration:9ec82019595f5db0:collocation:0"
+              ],
+              "meaning_cn": "深吸一口气",
+              "phrase": "take a deep inspiration"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "吸气",
+          "definition_en": "the act of breathing in",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:inspiration:9ec82019595f5db0",
+          "sense_label_en": "the act of breathing in",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
       ]
     }
   },
@@ -491,17 +506,25 @@
     "ordinal": 2564,
     "word": "inspire",
     "source_owner_path": "content/lexical/words/by-ordinal/o2564.json",
-    "source_fingerprint": "ddf9d207e120b76eba0292b46e18a343aafa084bfee485eae5a96b04518ad8e8",
-    "sense_lineage": [],
+    "source_fingerprint": "fd36a0b7e8745bc89356acd82a0826d659f37bd3e366fda5cf0a1e8aac4662ae",
+    "sense_lineage": [
+      {
+        "word_id": "word:inspire",
+        "target_kind": "sense",
+        "from_target_id": "sense:inspire:d65bb2980144594e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "鼓舞、激励；赋予灵感；激起情感",
-      "decision_cn": "",
+      "decision_cn": "people → 鼓舞/激励；creative work → 启发灵感；emotion → 激起感受。罕见技术“吸入”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -594,25 +617,8 @@
         }
       },
       {
-        "id": "sense:inspire:d65bb2980144594e",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + no fixed preposition",
-        "definition_cn": "吸入（罕见，技术用语）",
-        "definition_en": "to breathe in (rare, technical)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inspire:d65bb2980144594e",
-          "target_locator": "record.senses[2]",
-          "target_label": "吸入（罕见，技术用语）"
-        }
-      },
-      {
         "id": "sense:inspire:82b0b62d8e555bc5",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "赋予灵感；启发创作",
@@ -622,14 +628,14 @@
         "usage": [
           {
             "id": "collocation:099f2f8bd3e21348335c",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "inspire a poem/novel/design",
             "meaning_cn": "为诗歌/小说/设计提供灵感",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:099f2f8bd3e21348335c",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "inspire a poem/novel/design"
             }
           }
@@ -637,7 +643,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:inspire:82b0b62d8e555bc5",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "赋予灵感；启发创作"
         }
       }
@@ -667,7 +673,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "吸入（罕见，技术用语）",
+          "definition_en": "to breathe in (rare, technical)",
+          "governing_pattern": "vi. + no fixed preposition",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:inspire:d65bb2980144594e",
+          "sense_label_en": "to breathe in (rare, technical)",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -790,17 +812,32 @@
     "ordinal": 2566,
     "word": "installation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2566.json",
-    "source_fingerprint": "df0fd970db3ddab3c044321653c3f6331503b76b768ef6c4d9bef0d9850387f9",
-    "sense_lineage": [],
+    "source_fingerprint": "2794a0010cca80b2e1ec88f94f227ef308774566c24e54b7d308a9fd418f0bde",
+    "sense_lineage": [
+      {
+        "word_id": "word:installation",
+        "target_kind": "sense",
+        "from_target_id": "sense:installation:1441964f206253c1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:installation",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f551e9fff1cac51e5693",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "安装或安装的装置",
-      "decision_cn": "",
+      "decision_cn": "process → 安装；installed equipment/facility → 装置/设施；art installation → 装置艺术。正式“就职典礼”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -878,34 +915,8 @@
         }
       },
       {
-        "id": "sense:installation:1441964f206253c1",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "就职",
-        "definition_en": "the act of placing someone in an official position",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f551e9fff1cac51e5693",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "installation ceremony",
-            "meaning_cn": "就职典礼",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:installation:1441964f206253c1",
-          "target_locator": "record.senses[2]",
-          "target_label": "就职"
-        }
-      },
-      {
         "id": "sense:installation:61192e2e1e064f1f",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "装置艺术作品",
@@ -915,7 +926,7 @@
         "usage": [
           {
             "id": "collocation:d3e9e60386db202fdc75",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "art installation",
             "meaning_cn": "装置艺术作品",
             "kind": "usage_example",
@@ -925,7 +936,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:installation:61192e2e1e064f1f",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "装置艺术作品"
         }
       }
@@ -967,6 +978,32 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f551e9fff1cac51e5693",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:installation:1441964f206253c1:collocation:0"
+              ],
+              "meaning_cn": "就职典礼",
+              "phrase": "installation ceremony"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "就职",
+          "definition_en": "the act of placing someone in an official position",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:installation:1441964f206253c1",
+          "sense_label_en": "the act of placing someone in an official position",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
       ]
     }
   },
@@ -976,7 +1013,7 @@
     "ordinal": 2567,
     "word": "instalment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2567.json",
-    "source_fingerprint": "68d5609b2fcc7c0167b8a67d40ac5b6bd1e6786b721ccc89fdddf333011b0352",
+    "source_fingerprint": "6e0ac1ae74c180a78eb8d952da0296d83ed16be36eb31746214e53af1ef8d960",
     "sense_lineage": [
       {
         "word_id": "word:instalment",
@@ -994,7 +1031,7 @@
     },
     "word_feel": {
       "summary_cn": "系列中的一部分或分期付款",
-      "decision_cn": "",
+      "decision_cn": "money → 分期付款；series/story → 一期/一集；in instalments → 分期支付。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1066,7 +1103,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:instalment:in-instalments",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pay/buy sth in instalments",
+        "lines": [
+          {
+            "text": "分期付款地；分几次支付",
+            "lang": "cn"
+          },
+          {
+            "text": "payment-series pattern; distinct from an instalment/episode in a series",
+            "lang": "en"
+          },
+          {
+            "text": "paid in several separate amounts over a period of time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:instalment:in-instalments",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pay/buy sth in instalments"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -2484,18 +2547,32 @@
     "ordinal": 2577,
     "word": "instrument",
     "source_owner_path": "content/lexical/words/by-ordinal/o2577.json",
-    "source_fingerprint": "7ca725fec8a982a40290bcbc52b1b5934c6cdeafd6489c35836189990f6e22b4",
-    "sense_lineage": [],
+    "source_fingerprint": "dbc43385a5db729536a55eeaff4c653332688f98146f7ffd7b73b4cbf563f9fe",
+    "sense_lineage": [
+      {
+        "word_id": "word:instrument",
+        "target_kind": "sense",
+        "from_target_id": "sense:instrument:1ee7657e691c505e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:instrument",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:99e4c6a54dccb0b3be97",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "用于达成某事的工具或手段",
-      "decision_cn": "",
+      "decision_cn": "device/tool → 仪器；music → 乐器；means → 手段；legal instrument → 法律文书。工程“给…装测量仪器”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2591,34 +2668,8 @@
         }
       },
       {
-        "id": "sense:instrument:1ee7657e691c505e",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用仪器装备",
-        "definition_en": "equip with instruments for measuring, recording, or controlling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:99e4c6a54dccb0b3be97",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "instrument a spacecraft",
-            "meaning_cn": "为航天器装备仪器",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:instrument:1ee7657e691c505e",
-          "target_locator": "record.senses[3]",
-          "target_label": "用仪器装备"
-        }
-      },
-      {
         "id": "sense:instrument:baee341ecf120cfe",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "乐器",
@@ -2628,7 +2679,7 @@
         "usage": [
           {
             "id": "collocation:c1280d3e3628972471ee",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "musical instrument",
             "meaning_cn": "乐器",
             "kind": "usage_example",
@@ -2638,13 +2689,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:instrument:baee341ecf120cfe",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "乐器"
         }
       },
       {
         "id": "sense:instrument:febe4d8dd432d722",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "正式文件；法律文书",
@@ -2654,7 +2705,7 @@
         "usage": [
           {
             "id": "collocation:fda86d9aa539e7403807",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "legal instrument",
             "meaning_cn": "法律文书",
             "kind": "usage_example",
@@ -2664,7 +2715,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:instrument:febe4d8dd432d722",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "正式文件；法律文书"
         }
       }
@@ -2716,7 +2767,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:99e4c6a54dccb0b3be97",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:instrument:1ee7657e691c505e:collocation:0"
+              ],
+              "meaning_cn": "为航天器装备仪器",
+              "phrase": "instrument a spacecraft"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用仪器装备",
+          "definition_en": "equip with instruments for measuring, recording, or controlling",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:instrument:1ee7657e691c505e",
+          "sense_label_en": "equip with instruments for measuring, recording, or controlling",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3678,23 +3755,58 @@
     "ordinal": 2584,
     "word": "integral",
     "source_owner_path": "content/lexical/words/by-ordinal/o2584.json",
-    "source_fingerprint": "5d06cc8fc8b48ed2ff97b7604d7d8fed4936a144692e526f47f5781a4ce67f92",
-    "sense_lineage": [],
+    "source_fingerprint": "6d62087f74021dd291e199a5cf812f1e9569111cf598818f93e669de9f953dcf",
+    "sense_lineage": [
+      {
+        "word_id": "word:integral",
+        "target_kind": "sense",
+        "from_target_id": "sense:integral:24539d533ecd5fa7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:integral",
+        "target_kind": "sense",
+        "from_target_id": "sense:integral:c000897d306459f9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:integral",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0bae31b424102fdf92b0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:integral",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ae3cea873b7ea14280c7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:integral",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b50574b36d308cb75e26",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "构成整体所必需的；积分",
-      "decision_cn": "",
+      "summary_cn": "不可或缺的；构成整体所必需的",
+      "decision_cn": "be integral to / an integral part of → 对整体不可或缺。微积分“积分”和数学“整数的”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "构成整体所必需的；积分"
+        "target_label": "不可或缺的；构成整体所必需的"
       }
     },
     "senses": [
@@ -3740,66 +3852,6 @@
           "target_id": "sense:integral:dc328ce34b19578d",
           "target_locator": "record.senses[0]",
           "target_label": "构成整体所必需的；不可或缺的"
-        }
-      },
-      {
-        "id": "sense:integral:24539d533ecd5fa7",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "积分",
-        "definition_en": "the result of a mathematical integration",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b50574b36d308cb75e26",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "definite integral",
-            "meaning_cn": "定积分",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:ae3cea873b7ea14280c7",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "indefinite integral",
-            "meaning_cn": "不定积分",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:integral:24539d533ecd5fa7",
-          "target_locator": "record.senses[1]",
-          "target_label": "积分"
-        }
-      },
-      {
-        "id": "sense:integral:c000897d306459f9",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "整数的",
-        "definition_en": "of or denoted by an integer",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0bae31b424102fdf92b0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "integral value",
-            "meaning_cn": "整数值",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:integral:c000897d306459f9",
-          "target_locator": "record.senses[2]",
-          "target_label": "整数的"
         }
       }
     ],
@@ -4067,16 +4119,6 @@
       "sense_readings": {
         "sense:integral:dc328ce34b19578d": [
           0
-        ],
-        "sense:integral:24539d533ecd5fa7": [
-          1,
-          4
-        ],
-        "sense:integral:c000897d306459f9": [
-          2,
-          3,
-          5,
-          6
         ]
       },
       "has_scope": true
@@ -4087,7 +4129,66 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b50574b36d308cb75e26",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:integral:24539d533ecd5fa7:collocation:0"
+              ],
+              "meaning_cn": "定积分",
+              "phrase": "definite integral"
+            },
+            {
+              "collocation_id": "collocation:ae3cea873b7ea14280c7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:integral:24539d533ecd5fa7:collocation:1"
+              ],
+              "meaning_cn": "不定积分",
+              "phrase": "indefinite integral"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "积分",
+          "definition_en": "the result of a mathematical integration",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:integral:24539d533ecd5fa7",
+          "sense_label_en": "the result of a mathematical integration",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0bae31b424102fdf92b0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:integral:c000897d306459f9:collocation:0"
+              ],
+              "meaning_cn": "整数值",
+              "phrase": "integral value"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "整数的",
+          "definition_en": "of or denoted by an integer",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:integral:c000897d306459f9",
+          "sense_label_en": "of or denoted by an integer",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4096,17 +4197,32 @@
     "ordinal": 2585,
     "word": "integrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2585.json",
-    "source_fingerprint": "a4f437ab2d80776e280bb81e95a12b6a6891455e8970d51a38ea462850371a68",
-    "sense_lineage": [],
+    "source_fingerprint": "5a02a062fed299a2309e369992a742d1a55624377166eeba1376408160f7ca33",
+    "sense_lineage": [
+      {
+        "word_id": "word:integrate",
+        "target_kind": "sense",
+        "from_target_id": "sense:integrate:f0eb0c0199985116",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:integrate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3212870b81cd0c7a6c44",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "整合，使一体化",
-      "decision_cn": "",
+      "decision_cn": "things/data → 整合成整体；people/group → 融入。微积分“求积分”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4192,32 +4308,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "融入，成为一体"
         }
-      },
-      {
-        "id": "sense:integrate:f0eb0c0199985116",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "求…的积分",
-        "definition_en": "to calculate the integral of a function",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3212870b81cd0c7a6c44",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "integrate a function",
-            "meaning_cn": "对一个函数求积分",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:integrate:f0eb0c0199985116",
-          "target_locator": "record.senses[2]",
-          "target_label": "求…的积分"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4258,7 +4348,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3212870b81cd0c7a6c44",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:integrate:f0eb0c0199985116:collocation:0"
+              ],
+              "meaning_cn": "对一个函数求积分",
+              "phrase": "integrate a function"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "求…的积分",
+          "definition_en": "to calculate the integral of a function",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:integrate:f0eb0c0199985116",
+          "sense_label_en": "to calculate the integral of a function",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5474,17 +5590,32 @@
     "ordinal": 2594,
     "word": "intensive",
     "source_owner_path": "content/lexical/words/by-ordinal/o2594.json",
-    "source_fingerprint": "ce4c9d94f04a4e1bb0f77b45e73b0dbf4cade442c0e6cb91a63dda6c9a3b90b8",
-    "sense_lineage": [],
+    "source_fingerprint": "8eff70ef4b92de7fdd30c05c830d4416ee0ec04f68b5a39679a8a217dd622aa3",
+    "sense_lineage": [
+      {
+        "word_id": "word:intensive",
+        "target_kind": "sense",
+        "from_target_id": "sense:intensive:2175270953185d89",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intensive",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:254831cc85799c5ae624",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "集中的；加强的",
-      "decision_cn": "",
+      "decision_cn": "effort/concentration → 集中的、强化的；agriculture → 集约的。语法“加强语气的/强调代词”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5552,32 +5683,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "集约的（农业）"
         }
-      },
-      {
-        "id": "sense:intensive:2175270953185d89",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "加强语气的",
-        "definition_en": "giving force or emphasis (in grammar)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:254831cc85799c5ae624",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "intensive pronoun",
-            "meaning_cn": "强调代词",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intensive:2175270953185d89",
-          "target_locator": "record.senses[2]",
-          "target_label": "加强语气的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5624,7 +5729,33 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:254831cc85799c5ae624",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:intensive:2175270953185d89:collocation:0"
+              ],
+              "meaning_cn": "强调代词",
+              "phrase": "intensive pronoun"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "加强语气的",
+          "definition_en": "giving force or emphasis (in grammar)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:intensive:2175270953185d89",
+          "sense_label_en": "giving force or emphasis (in grammar)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5633,7 +5764,7 @@
     "ordinal": 2595,
     "word": "intention",
     "source_owner_path": "content/lexical/words/by-ordinal/o2595.json",
-    "source_fingerprint": "5b34531c7a733ceff9dd09ee511031762354ca31abe02f0edb21e703301408dd",
+    "source_fingerprint": "b299755d7b51c0d0d190bc9cbae23b1b5dc775fb36f2e7d3fa974aab10186f66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5643,7 +5774,7 @@
     },
     "word_feel": {
       "summary_cn": "意图；目的",
-      "decision_cn": "",
+      "decision_cn": "intention → 意图/目的；have no intention of doing → 完全不打算做。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5721,7 +5852,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:intention:no-intention",
+        "source_locator": "record.constructions[0]",
+        "pattern": "have no intention of doing sth",
+        "lines": [
+          {
+            "text": "无意做某事；完全不打算做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed plan/aim pattern; not merely good intentions",
+            "lang": "en"
+          },
+          {
+            "text": "to have no plan or aim to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:intention:no-intention",
+          "target_locator": "record.constructions[0]",
+          "target_label": "have no intention of doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5864,59 +6021,43 @@
     "ordinal": 2597,
     "word": "intercourse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2597.json",
-    "source_fingerprint": "4031f5f92b4ffdec04c97e4019dfe59c8383e80af87f18385679cb86119a8fa6",
-    "sense_lineage": [],
+    "source_fingerprint": "46d5a96e4680f35ec085fcae94e62e668289b4205ef3b90a8210fbd8b6efdd59",
+    "sense_lineage": [
+      {
+        "word_id": "word:intercourse",
+        "target_kind": "sense",
+        "from_target_id": "sense:intercourse:4a1d06acc8e95ca9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:intercourse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6c5d08e52a89b9cf4ba5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "性交；（较旧/正式）社交往来",
-      "decision_cn": "",
+      "summary_cn": "性交；性行为",
+      "decision_cn": "现代默认 → 性交/性行为。较旧、正式的“交往/交流”义保留为 Reference，避免误判现代用法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "性交；（较旧/正式）社交往来"
+        "target_label": "性交；性行为"
       }
     },
     "senses": [
       {
-        "id": "sense:intercourse:4a1d06acc8e95ca9",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "交往，交流",
-        "definition_en": "conversation, communication, or social dealings between people",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6c5d08e52a89b9cf4ba5",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "social intercourse",
-            "meaning_cn": "社交往来",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6c5d08e52a89b9cf4ba5",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "social intercourse"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:intercourse:4a1d06acc8e95ca9",
-          "target_locator": "record.senses[0]",
-          "target_label": "交往，交流"
-        }
-      },
-      {
         "id": "sense:intercourse:da9fcbc0cdd35b0b",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "性交；性行为",
@@ -5927,7 +6068,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:intercourse:da9fcbc0cdd35b0b",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "性交；性行为"
         }
       }
@@ -5983,7 +6124,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6c5d08e52a89b9cf4ba5",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:intercourse:4a1d06acc8e95ca9:collocation:0"
+              ],
+              "meaning_cn": "社交往来",
+              "phrase": "social intercourse"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "交往，交流",
+          "definition_en": "conversation, communication, or social dealings between people",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "register": "old-fashioned formal",
+          "sense_id": "sense:intercourse:4a1d06acc8e95ca9",
+          "sense_label_en": "communication or dealings between individuals or groups",
+          "sort_order": 0,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5992,7 +6160,7 @@
     "ordinal": 2598,
     "word": "interest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2598.json",
-    "source_fingerprint": "ac8b42510067710cbd3e13cf6ac40dfb7f2b27fdea44e906a02a6b476087bec3",
+    "source_fingerprint": "5532b13bcc8ee1a35db0fe787ef37023ae35e78e4748ade6e3f74ff2b672d337",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6003,7 +6171,7 @@
     },
     "word_feel": {
       "summary_cn": "兴趣或利益",
-      "decision_cn": "",
+      "decision_cn": "curiosity → 兴趣；money → 利息；stake/benefit → 利益/权益；take an interest in → 对…产生兴趣/关心。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6277,6 +6445,31 @@
           "target_id": "construction:9fdda6b1d0c378bc3bdd",
           "target_locator": "record.constructions[0]",
           "target_label": "in the interest(s) of sth"
+        }
+      },
+      {
+        "id": "construction:interest:take-an-interest-in",
+        "source_locator": "record.constructions[1]",
+        "pattern": "take an interest in sb/sth",
+        "lines": [
+          {
+            "text": "开始/表现出对…的兴趣；关心…",
+            "lang": "cn"
+          },
+          {
+            "text": "curiosity/attention pattern; distinct from financial interest or vested interests",
+            "lang": "en"
+          },
+          {
+            "text": "to become interested in or give attention to something or someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:interest:take-an-interest-in",
+          "target_locator": "record.constructions[1]",
+          "target_label": "take an interest in sb/sth"
         }
       }
     ],

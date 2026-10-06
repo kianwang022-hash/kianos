@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "整合，使一体化",
       "core_meaning_en": "to combine into a whole",
-      "mental_model_cn": "整合，使一体化",
+      "mental_model_cn": "things/data → 整合成整体；people/group → 融入。微积分“求积分”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,30 +88,6 @@
         "sense_label_en": "to become part of a group or society",
         "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3212870b81cd0c7a6c44",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:integrate:f0eb0c0199985116:collocation:0"
-            ],
-            "meaning_cn": "对一个函数求积分",
-            "phrase": "integrate a function"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "求…的积分",
-        "definition_en": "to calculate the integral of a function",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:integrate:f0eb0c0199985116",
-        "sense_label_en": "to calculate the integral of a function",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -313,7 +289,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3212870b81cd0c7a6c44",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:integrate:f0eb0c0199985116:collocation:0"
+          ],
+          "meaning_cn": "对一个函数求积分",
+          "phrase": "integrate a function"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "求…的积分",
+      "definition_en": "to calculate the integral of a function",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:integrate:f0eb0c0199985116",
+      "sense_label_en": "to calculate the integral of a function",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -325,7 +326,7 @@
       },
       {
         "sense_id": "sense:integrate:f0eb0c0199985116",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7140,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -340,7 +341,6 @@
     ],
     "active_collocations": [
       "collocation:2f77212a0dc86df293fc",
-      "collocation:3212870b81cd0c7a6c44",
       "collocation:3cf29d912444a9096ead",
       "collocation:69e8785674d053dc712c",
       "collocation:9f7540932e6fb73a38ef"
@@ -355,7 +355,9 @@
       {
         "id": "collocation:3212870b81cd0c7a6c44",
         "source_row": 4227,
-        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:3cf29d912444a9096ead",
