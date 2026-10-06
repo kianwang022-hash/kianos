@@ -52,6 +52,37 @@ async function stopServer(server) {
   server.stderr?.destroy();
 }
 
+async function installMapDiagnostics(page) {
+  await page.addInitScript(() => {
+    const trace = [];
+    const snapshot = () => {
+      const root = document.querySelector('[data-objective-root]');
+      const key = root?.getAttribute('data-objective-storage-key') || '';
+      let attempt = null;
+      try { attempt = key ? JSON.parse(localStorage.getItem(key) || 'null') : null; }
+      catch (error) { attempt = { readError: String(error) }; }
+      return {
+        writer: document.documentElement.dataset.learnerWriter || '',
+        answersReady: root?.getAttribute('data-objective-answers-ready'),
+        readonly: root?.getAttribute('data-english-readonly'),
+        score: root?.querySelector('[data-objective-score]')?.textContent?.trim() || '',
+        rows: [...(root?.querySelectorAll('[data-objective-question]') || [])].map(row => ({
+          id: row.getAttribute('data-objective-question'),
+          selected: row.querySelector('[data-reading-b-select]')?.value,
+          formal: row.getAttribute('data-answer')
+        })),
+        attempt: attempt && { submitted: attempt.submitted, answers: attempt.answers, results: attempt.results, readError: attempt.readError }
+      };
+    };
+    window.__readingBMapDiagnostics = () => ({ current: snapshot(), changes: trace });
+    document.addEventListener('change', event => {
+      if (event.target instanceof Element && event.target.matches('[data-reading-b-select]')) {
+        trace.push({ target: event.target.closest('[data-objective-question]')?.getAttribute('data-objective-question'), ...snapshot() });
+      }
+    });
+  });
+}
+
 async function answerMap(page, item, answerPayload, overrides = {}) {
   for (let index = 0; index < item.questions.length; index += 1) {
     const id = qid(item.questions[index], index);
@@ -61,6 +92,10 @@ async function answerMap(page, item, answerPayload, overrides = {}) {
   }
   await page.locator('[data-objective-submit]').click();
   await page.locator('[data-objective-result-summary]').waitFor({ state: 'visible' });
+  const diagnostic = { objectId: item.objectId, formalAnswers: answerPayload.answers, overrides,
+    ...await page.evaluate(() => window.__readingBMapDiagnostics()) };
+  (report.answerMaps ||= []).push(diagnostic);
+  return diagnostic;
 }
 
 async function validateForm(page, item, browserName) {
@@ -134,8 +169,8 @@ async function validateForm(page, item, browserName) {
     );
   }
 
-  await answerMap(page, item, loadReadingBAnswersById(item.objectId));
-  check((await page.locator('[data-objective-score]').textContent())?.trim() === `${item.questions.length} / ${item.questions.length}`, `${prefix}_clean_map_executable`);
+  const diagnostic = await answerMap(page, item, loadReadingBAnswersById(item.objectId));
+  check((await page.locator('[data-objective-score]').textContent())?.trim() === `${item.questions.length} / ${item.questions.length}`, `${prefix}_clean_map_executable`, JSON.stringify(diagnostic));
   check(await page.locator('.objectiveHandoff').isHidden(), `${prefix}_clean_pass_no_forced_chat`);
 }
 
@@ -147,6 +182,7 @@ async function runBrowser(browserType, name, itemsByForm, { handoff = false } = 
       permissions: handoff ? ['clipboard-read', 'clipboard-write'] : []
     });
     const page = await context.newPage();
+    await installMapDiagnostics(page);
     for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) {
       await validateForm(page, itemsByForm.get(form), name);
     }
