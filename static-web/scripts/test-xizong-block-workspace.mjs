@@ -379,12 +379,13 @@ try {
     return {
       index,
       storedIndex: state.kpIndex,
-      mapCurrent: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim() || ''
+      mapCurrent: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim() || '',
+      mapCurrentTitle: document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current > span')?.textContent?.trim() || ''
     };
   }, { key: studyKey, kpId: movedKpId });
   check(movedNativePosition.index >= 0 && movedNativePosition.storedIndex === movedNativePosition.index,
     'kp_learn_switch_updates_native_kp_index', JSON.stringify(movedNativePosition));
-  check(movedNativePosition.mapCurrent.includes(payload.kps[movedNativePosition.index]?.identity?.displayId || ''),
+  check(movedNativePosition.mapCurrentTitle === payload.kps[movedNativePosition.index]?.identity?.title,
     'kp_learn_switch_updates_left_logic_map', JSON.stringify(movedNativePosition));
   await page.keyboard.press('Space');
   check(await movedCard.locator('[data-learner-kp-core]').isHidden(), 'space_hides_core_after_kp_switch');

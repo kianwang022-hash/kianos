@@ -242,8 +242,16 @@ const base = import.meta.env.BASE_URL;
     };
 
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
-    const cardLabel = (item) => item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
-    const cardContext = (item) => [item.canonicalId, item.blockLabel, item.groupLabel].filter(Boolean).join(' · ');
+    // Canonical owner titles can contain the very threshold being recalled.
+    // A2 Recall uses the original answer-free cue for every queue/header label;
+    // Browse retains the canonical title. No stored Content or identity changes.
+    const nativePrecisionRecall = (item) => item.family === 'PRECISION'
+      && item.systemId === 'respiratory' && item.canonicalId === 'A2'
+      && !(view === 'PRECISION' && precisionMode === 'BROWSE');
+    const cardLabel = (item) => nativePrecisionRecall(item) ? (item.cue || 'Precision Memory')
+      : item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
+    const cardContext = (item) => [item.canonicalId, item.blockLabel,
+      ...(nativePrecisionRecall(item) ? [] : [item.groupLabel])].filter(Boolean).join(' · ');
     const repairPriorityLabel = (value) => ({ high:'高优先', medium:'中优先', low:'低优先', normal:'专项' }[String(value || '').toLowerCase()] || '专项');
     const repairOriginLabel = (value) => String(value || '') === 'SYSTEM_WU_CHAT_RETURN' ? '真题 W/U · Chat' : '专项修补';
 
@@ -435,7 +443,8 @@ const base = import.meta.env.BASE_URL;
       precisionMode = button.getAttribute('data-precision-mode') || 'BROWSE';
       precisionButtons.forEach((candidate) => candidate.classList.toggle('active', candidate === button));
       revealed = false;
-      renderCurrent();
+      // Refresh every sidebar label as well as the selected card on Recall entry.
+      rebuild();
     }));
     q('[data-memory-weak-only]')?.addEventListener('change', (event) => {
       weakOnly = event.target instanceof HTMLInputElement ? event.target.checked : false;

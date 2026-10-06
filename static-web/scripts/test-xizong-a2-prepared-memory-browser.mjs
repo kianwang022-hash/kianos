@@ -705,6 +705,26 @@ try {
     assert.equal(await answer.isVisible(), false); assert.equal(await page.locator('[data-memory-ratings]').isVisible(), false);
     await page.locator('[data-memory-rating="known"]').dispatchEvent('click');
     assert.deepEqual((await read(page, memoryKey)).evidence, [], 'Recall cannot rate before Reveal');
+    if (slug === 'r11') {
+      // Inspect the whole visible workspace, including unselected sibling cards.
+      // Canonical titles here contain T diameter values and N/M assignments.
+      const assertCleanR11 = async (id) => {
+        const selected = await choose(page, cards, id);
+        assert.equal((await page.locator('[data-memory-card-title]').textContent()).trim(), selected.cue);
+        assert.equal(await answer.isVisible(), false);
+        assert.deepEqual(await page.locator('[data-memory-queue] button > span').allTextContents(), cards.map(card => card.cue));
+        const visible = normalized(await page.locator('[data-xizong-memory-workspace]').innerText());
+        for (const leak of ['3、5、7', '等号归较小期', '对侧肺结节是 M1', '对侧淋巴结是 N3']) {
+          assert.ok(!visible.includes(normalized(leak)), `R11 clean Recall leaks: ${leak}`);
+        }
+      };
+      for (const id of ['a2-r11-kp21-precision', 'a2-r11-kp22-precision', 'a2-r11-lg05-precision']) {
+        await assertCleanR11(id);
+        await page.screenshot({ path: path.join(out, `${id}-clean-front.png`), fullPage: true });
+      }
+      await choose(page, cards, select);
+      checks.push('R11 KP21/KP22 and LG Recall whole visible front/sidebar use original cues, with no T cutoff or N/M answer leakage; Browse retains canonical titles');
+    }
     await page.screenshot({ path: path.join(out, `${slug}-prepared-front.png`), fullPage: true });
     await page.locator('[data-memory-reveal]').click(); assert.equal(await answer.isVisible(), true);
     for (const text of requiredText[select] || []) assert.ok(normalized(await answer.textContent()).includes(normalized(text)));
