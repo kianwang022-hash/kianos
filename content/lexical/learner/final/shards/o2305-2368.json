@@ -5,18 +5,39 @@
     "ordinal": 2305,
     "word": "hell",
     "source_owner_path": "content/lexical/words/by-ordinal/o2305.json",
-    "source_fingerprint": "e180d29f86d7ac21e1c4ca62414306ca93568e41935c12400c2ecbb65b77a32f",
-    "sense_lineage": [],
+    "source_fingerprint": "c3c938bec28f7f9deb85c537de464ecc80d855e37f656a45d60c6dd4d7d7205e",
+    "sense_lineage": [
+      {
+        "word_id": "word:hell",
+        "target_kind": "sense",
+        "from_target_id": "sense:hell:0ac78dfd81d0581f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hell",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6c4acf5affbbf3f819ff",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hell",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d52cf65d30ad779a931f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "地狱；苦境、极糟处境",
-      "decision_cn": "",
+      "decision_cn": "religion → 地狱；figurative → 极糟的地方/处境。罕见俚语动词“飞驰/胡闹”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -86,50 +107,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "苦境；极糟的处境"
         }
-      },
-      {
-        "id": "sense:hell:0ac78dfd81d0581f",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + about / along",
-        "definition_cn": "飞驰；狂饮",
-        "definition_en": "to move or act very fast",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6c4acf5affbbf3f819ff",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "hell about",
-            "meaning_cn": "到处乱跑",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6c4acf5affbbf3f819ff",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "hell about"
-            }
-          },
-          {
-            "id": "collocation:d52cf65d30ad779a931f",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "hell along",
-            "meaning_cn": "快速前进",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d52cf65d30ad779a931f",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "hell along"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hell:0ac78dfd81d0581f",
-          "target_locator": "record.senses[2]",
-          "target_label": "飞驰；狂饮"
-        }
       }
     ],
     "pronunciation_support": {
@@ -168,7 +145,42 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6c4acf5affbbf3f819ff",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hell:0ac78dfd81d0581f:collocation:0"
+              ],
+              "meaning_cn": "到处乱跑",
+              "phrase": "hell about"
+            },
+            {
+              "collocation_id": "collocation:d52cf65d30ad779a931f",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hell:0ac78dfd81d0581f:collocation:1"
+              ],
+              "meaning_cn": "快速前进",
+              "phrase": "hell along"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "飞驰；狂饮",
+          "definition_en": "to move or act very fast",
+          "governing_pattern": "vi. + about / along",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hell:0ac78dfd81d0581f",
+          "sense_label_en": "to move or act very fast",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -459,7 +471,7 @@
     "ordinal": 2308,
     "word": "help",
     "source_owner_path": "content/lexical/words/by-ordinal/o2308.json",
-    "source_fingerprint": "8c2c713d50887dd3346149776f5a853637224ffdf5df6b9cfcb6c802599984d4",
+    "source_fingerprint": "97ba3b604f20503860bac2c483127fc3503c3198cb82fc23c47b9f72288c7341",
     "sense_lineage": [
       {
         "word_id": "word:help",
@@ -492,7 +504,7 @@
     },
     "word_feel": {
       "summary_cn": "帮助；援助",
-      "decision_cn": "",
+      "decision_cn": "help sb → 帮助某人；need help → 需要帮助；can't help doing → 忍不住；help yourself (to sth) → 请自便/自行取用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -608,6 +620,31 @@
           "target_id": "construction:827f692425bef4b09d8e",
           "target_locator": "record.constructions[0]",
           "target_label": "cannot/can't help doing sth"
+        }
+      },
+      {
+        "id": "construction:help:help-yourself",
+        "source_locator": "record.constructions[1]",
+        "pattern": "help yourself (to sth)",
+        "lines": [
+          {
+            "text": "请自便；请自己取用（食物等）",
+            "lang": "cn"
+          },
+          {
+            "text": "self-service idiom; distinct from ordinary help = assist",
+            "lang": "en"
+          },
+          {
+            "text": "to take something you want or need, especially food or drink, without waiting to be served",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:help:help-yourself",
+          "target_locator": "record.constructions[1]",
+          "target_label": "help yourself (to sth)"
         }
       }
     ],
@@ -1041,22 +1078,30 @@
     "ordinal": 2312,
     "word": "hence",
     "source_owner_path": "content/lexical/words/by-ordinal/o2312.json",
-    "source_fingerprint": "644492ab4eb1b69a554efe9375ed84f660d560a131e73a9f078abd9507521d11",
-    "sense_lineage": [],
+    "source_fingerprint": "df88e1aac0c863e2e23364e9fd21449332e0754acbf293b1cd810d162c6c3562",
+    "sense_lineage": [
+      {
+        "word_id": "word:hence",
+        "target_kind": "sense",
+        "from_target_id": "sense:hence:de08eb97825f5004",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3ADV"
+        "2ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "因此；从此",
-      "decision_cn": "",
+      "summary_cn": "因此；从现在起/以后",
+      "decision_cn": "reason → 因此/所以；time → two years hence = 两年以后。古旧“从这里”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "因此；从此"
+        "target_label": "因此；从现在起/以后"
       }
     },
     "senses": [
@@ -1115,23 +1160,6 @@
           "target_id": "sense:hence:c9af72715252518a",
           "target_locator": "record.senses[1]",
           "target_label": "从此；从这时起"
-        }
-      },
-      {
-        "id": "sense:hence:de08eb97825f5004",
-        "source_locator": "record.senses[2]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "从此处；从这里",
-        "definition_en": "from this place",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hence:de08eb97825f5004",
-          "target_locator": "record.senses[2]",
-          "target_label": "从此处；从这里"
         }
       }
     ],
@@ -1193,7 +1221,23 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "从此处；从这里",
+          "definition_en": "from this place",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adverb",
+          "sense_id": "sense:hence:de08eb97825f5004",
+          "sense_label_en": "from this place",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1417,7 +1461,7 @@
     "ordinal": 2315,
     "word": "herald",
     "source_owner_path": "content/lexical/words/by-ordinal/o2315.json",
-    "source_fingerprint": "76dd5296f2fbd0ecfd93365ddf892de0f42995298d7c5ce64ff798e2a42f497a",
+    "source_fingerprint": "67bbda6f16990c71a8ae6918728d6a73b829039bdeca25ef1859dafa25381388",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1428,7 +1472,7 @@
     },
     "word_feel": {
       "summary_cn": "宣布、预示；使者、先驱或预兆",
-      "decision_cn": "",
+      "decision_cn": "noun → 先驱/预兆；verb → 宣布某事到来或预示变化，be heralded as 常表示“被誉为/被宣称为”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1468,7 +1512,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "预报；宣布；传达；欢呼",
+        "definition_cn": "预示；宣布；宣称",
         "definition_en": "to announce or signal the approach of something",
         "note": "",
         "identity_overlay": null,
@@ -1499,7 +1543,7 @@
           "target_kind": "sense",
           "target_id": "sense:herald:4b91aacc99185101",
           "target_locator": "record.senses[1]",
-          "target_label": "预报；宣布；传达；欢呼"
+          "target_label": "预示；宣布；宣称"
         }
       }
     ],
@@ -1643,18 +1687,33 @@
     "ordinal": 2317,
     "word": "herd",
     "source_owner_path": "content/lexical/words/by-ordinal/o2317.json",
-    "source_fingerprint": "67c118d3b061442fe86649a633b3b548a66c23f440cbdaca8ca978099b9204dc",
-    "sense_lineage": [],
+    "source_fingerprint": "009b2c24aabe1d4797cee129232ab9e8a165b0e23a875f9bad850616622b3029",
+    "sense_lineage": [
+      {
+        "word_id": "word:herd",
+        "target_kind": "sense",
+        "from_target_id": "sense:herd:eca688b795fe57be",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:herd",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9c9d0dac127e98c08381",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "兽群或人群，或聚集",
-      "decision_cn": "",
+      "decision_cn": "noun → 兽群/人群；verb → 把动物或人赶到一起。低增益的“自行聚成群”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1745,37 +1804,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "使成群；驱赶"
         }
-      },
-      {
-        "id": "sense:herd:eca688b795fe57be",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + together",
-        "definition_cn": "聚在一起；成群",
-        "definition_en": "to come together in a group",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9c9d0dac127e98c08381",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "herd together",
-            "meaning_cn": "聚在一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9c9d0dac127e98c08381",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "herd together"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:herd:eca688b795fe57be",
-          "target_locator": "record.senses[3]",
-          "target_label": "聚在一起；成群"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1816,7 +1844,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9c9d0dac127e98c08381",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:herd:eca688b795fe57be:collocation:0"
+              ],
+              "meaning_cn": "聚在一起",
+              "phrase": "herd together"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "聚在一起；成群",
+          "definition_en": "to come together in a group",
+          "governing_pattern": "vi. + together",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:herd:eca688b795fe57be",
+          "sense_label_en": "to come together in a group",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -1825,18 +1879,39 @@
     "ordinal": 2318,
     "word": "here",
     "source_owner_path": "content/lexical/words/by-ordinal/o2318.json",
-    "source_fingerprint": "26bb298dbc4fb2e0d809a73aa0a532ceb28fcbc9362b729c0489f01f14f86afb",
-    "sense_lineage": [],
+    "source_fingerprint": "7d9227c7da855e2dec3b71f88ea9809bda2400244c192a3da39bc081169db44b",
+    "sense_lineage": [
+      {
+        "word_id": "word:here",
+        "target_kind": "sense",
+        "from_target_id": "sense:here:fba598123d785671",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:here",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3e55ed2d0d8beb546630",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:here",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4b99b0631cf0ba0c368a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1N",
         "2ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "在这里；此时/在这点上",
-      "decision_cn": "",
+      "decision_cn": "place → 在这里；discourse → 到这里/此时；here you are/go → 给你、这就是。名词化“这里”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1922,45 +1997,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "此时，在这点上"
         }
-      },
-      {
-        "id": "sense:here:fba598123d785671",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "这里",
-        "definition_en": "this place",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4b99b0631cf0ba0c368a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "near here",
-            "meaning_cn": "在这附近",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4b99b0631cf0ba0c368a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "near here"
-            }
-          },
-          {
-            "id": "collocation:3e55ed2d0d8beb546630",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "from here",
-            "meaning_cn": "从这里",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:here:fba598123d785671",
-          "target_locator": "record.senses[2]",
-          "target_label": "这里"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2009,7 +2045,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:here:here-you-are-go",
+        "source_locator": "record.constructions[0]",
+        "pattern": "here you are / here you go",
+        "lines": [
+          {
+            "text": "给你；这就是；好了（递给或指出某物时）",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed interaction formula; distinct from ordinary locative here",
+            "lang": "en"
+          },
+          {
+            "text": "used when giving something to someone or drawing attention to something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:here:here-you-are-go",
+          "target_locator": "record.constructions[0]",
+          "target_label": "here you are / here you go"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -2032,7 +2094,42 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4b99b0631cf0ba0c368a",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:here:fba598123d785671:collocation:0"
+              ],
+              "meaning_cn": "在这附近",
+              "phrase": "near here"
+            },
+            {
+              "collocation_id": "collocation:3e55ed2d0d8beb546630",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:here:fba598123d785671:collocation:1"
+              ],
+              "meaning_cn": "从这里",
+              "phrase": "from here"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "这里",
+          "definition_en": "this place",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:here:fba598123d785671",
+          "sense_label_en": "this place",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2820,7 +2917,7 @@
     "ordinal": 2325,
     "word": "hesitate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2325.json",
-    "source_fingerprint": "81ffcc24b4551f00d45a5e825632be5c0975e9a417c748bedb245fb9af60672b",
+    "source_fingerprint": "b5c9f5598983ea23a2768e9fbf828fe4810fefede8e07ffad66ad9d782f37f43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2830,7 +2927,7 @@
     },
     "word_feel": {
       "summary_cn": "犹豫，迟疑",
-      "decision_cn": "",
+      "decision_cn": "literal → 犹豫/迟疑；don't hesitate to… → “请尽管/请随时…”，常用于礼貌邀请。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2964,7 +3061,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hesitate:dont-hesitate",
+        "source_locator": "record.constructions[0]",
+        "pattern": "don't hesitate to do sth",
+        "lines": [
+          {
+            "text": "请尽管做；请随时做（礼貌鼓励）",
+            "lang": "cn"
+          },
+          {
+            "text": "polite encouragement formula; not literal uncertainty about whether to act",
+            "lang": "en"
+          },
+          {
+            "text": "used politely to encourage someone to do something without worrying or waiting",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hesitate:dont-hesitate",
+          "target_locator": "record.constructions[0]",
+          "target_label": "don't hesitate to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -3000,7 +3123,7 @@
     "ordinal": 2326,
     "word": "hi",
     "source_owner_path": "content/lexical/words/by-ordinal/o2326.json",
-    "source_fingerprint": "0612c8c5e0aca3200395dd679340482d31b0386df0c99c7a49a89c1ef16fb232",
+    "source_fingerprint": "46cf62100f70f0f94c99b0076e8329cb0f1ff5b49075b83079ee254100e59b2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3010,7 +3133,7 @@
     },
     "word_feel": {
       "summary_cn": "问候语",
-      "decision_cn": "",
+      "decision_cn": "非正式问候语：嗨；你好。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3024,7 +3147,7 @@
         "source_locator": "record.senses[0]",
         "pos": "interjection",
         "governing_pattern": "",
-        "definition_cn": "喂",
+        "definition_cn": "嗨；你好",
         "definition_en": "an expression of greeting",
         "note": "",
         "identity_overlay": null,
@@ -3047,7 +3170,7 @@
           "target_kind": "sense",
           "target_id": "sense:hi:2d32ba1f81795324",
           "target_locator": "record.senses[0]",
-          "target_label": "喂"
+          "target_label": "嗨；你好"
         }
       }
     ],
@@ -4968,18 +5091,33 @@
     "ordinal": 2339,
     "word": "hinge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2339.json",
-    "source_fingerprint": "9c4f3ce713734e82a2fd89451ed5a538ac682d16d59b7d316ee7182ea6cd6dd1",
-    "sense_lineage": [],
+    "source_fingerprint": "3cf1c430707d89873085fa10dedfcc19e83d1f1c5a7373b7496ab8dd521caa90",
+    "sense_lineage": [
+      {
+        "word_id": "word:hinge",
+        "target_kind": "sense",
+        "from_target_id": "sense:hinge:efebd26eaba7539d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hinge",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5b64f2b09c8be770a658",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "铰链；关键",
-      "decision_cn": "",
+      "decision_cn": "literal noun → 铰链；figurative noun → 关键；hinge on/upon → 取决于。低价值“给…装铰链”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5078,32 +5216,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "取决于，关键在于"
         }
-      },
-      {
-        "id": "sense:hinge:efebd26eaba7539d",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装铰链",
-        "definition_en": "to attach with a hinge",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5b64f2b09c8be770a658",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "hinge a door",
-            "meaning_cn": "给门装铰链",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hinge:efebd26eaba7539d",
-          "target_locator": "record.senses[3]",
-          "target_label": "装铰链"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5188,7 +5300,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5b64f2b09c8be770a658",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hinge:efebd26eaba7539d:collocation:0"
+              ],
+              "meaning_cn": "给门装铰链",
+              "phrase": "hinge a door"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "装铰链",
+          "definition_en": "to attach with a hinge",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hinge:efebd26eaba7539d",
+          "sense_label_en": "to attach with a hinge",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5359,8 +5497,7 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {},      "has_scope": false
     },
     "secondary_senses": [],
     "constructions": [
@@ -5428,18 +5565,26 @@
     "ordinal": 2341,
     "word": "hip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2341.json",
-    "source_fingerprint": "79fc1ea32adfc8d27de62bfd8db6541c9cae9f875f280c6dba6f010af9fee90e",
-    "sense_lineage": [],
+    "source_fingerprint": "418232437c47427a7a91ce326c23276b1c19d89e8dae97ca246d795a0e891e1e",
+    "sense_lineage": [
+      {
+        "word_id": "word:hip",
+        "target_kind": "sense",
+        "from_target_id": "sense:hip:63e0cb17a73d5896",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "臀部或时髦",
-      "decision_cn": "",
+      "decision_cn": "body → 臀/髋部；informal adjective → 时髦、新潮。植物学“蔷薇果”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5499,23 +5644,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "时髦的；新潮的"
         }
-      },
-      {
-        "id": "sense:hip:63e0cb17a73d5896",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "蔷薇果",
-        "definition_en": "the fruit of a rose plant",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hip:63e0cb17a73d5896",
-          "target_locator": "record.senses[2]",
-          "target_label": "蔷薇果"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5554,7 +5682,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "蔷薇果",
+          "definition_en": "the fruit of a rose plant",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hip:63e0cb17a73d5896",
+          "sense_label_en": "the fruit of a rose plant",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5563,18 +5707,33 @@
     "ordinal": 2342,
     "word": "hire",
     "source_owner_path": "content/lexical/words/by-ordinal/o2342.json",
-    "source_fingerprint": "d453df74e5a9b8ad2e699d47922574be9ca99505bc9be8cc204d4ef41bb2ab7a",
-    "sense_lineage": [],
+    "source_fingerprint": "ee8445862ba57267713acffe3664dfe5c898fac0df57a57e071f81a9f6bc9835",
+    "sense_lineage": [
+      {
+        "word_id": "word:hire",
+        "target_kind": "sense",
+        "from_target_id": "sense:hire:d6bc32800c1a5588",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hire",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e08b9d5336807db68e75",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "雇用或租用",
-      "decision_cn": "",
+      "decision_cn": "people → 雇用；things → 租用；hire sth out → 把某物出租。低价值“受雇”独立动词分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5670,37 +5829,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "雇用；租用"
         }
-      },
-      {
-        "id": "sense:hire:d6bc32800c1a5588",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + out",
-        "definition_cn": "受雇",
-        "definition_en": "to accept employment",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e08b9d5336807db68e75",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "hire out",
-            "meaning_cn": "出租；受雇",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e08b9d5336807db68e75",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "hire out"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hire:d6bc32800c1a5588",
-          "target_locator": "record.senses[3]",
-          "target_label": "受雇"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5736,12 +5864,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hire:hire-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hire sth out (to sb)",
+        "lines": [
+          {
+            "text": "把…出租；把…租给别人使用",
+            "lang": "cn"
+          },
+          {
+            "text": "rental-out pattern; distinct from hire sb = employ",
+            "lang": "en"
+          },
+          {
+            "text": "to allow someone to use something temporarily in return for payment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hire:hire-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hire sth out (to sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e08b9d5336807db68e75",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hire:d6bc32800c1a5588:collocation:0"
+              ],
+              "meaning_cn": "出租；受雇",
+              "phrase": "hire out"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "受雇",
+          "definition_en": "to accept employment",
+          "governing_pattern": "vi. + out",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hire:d6bc32800c1a5588",
+          "sense_label_en": "to accept employment",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -5974,7 +6154,7 @@
     "ordinal": 2345,
     "word": "historic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2345.json",
-    "source_fingerprint": "4c8d1492875522647c01271769f7159f028ab03f8f25018b28c22fd9940f01a6",
+    "source_fingerprint": "1dd62afd04a70431330231f998b64959b1ddb0e0e43e93c6d4fd28a0ac7b7dfa",
     "sense_lineage": [
       {
         "word_id": "word:historic",
@@ -5992,7 +6172,7 @@
     },
     "word_feel": {
       "summary_cn": "重要到足以成为历史的一部分",
-      "decision_cn": "historic 强调“创造历史的重要”；historical 只表示“与历史有关”。",
+      "decision_cn": "historic = 具有重大历史意义、值得载入史册；historical = 与历史/过去有关。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6186,7 +6366,7 @@
     "ordinal": 2346,
     "word": "historical",
     "source_owner_path": "content/lexical/words/by-ordinal/o2346.json",
-    "source_fingerprint": "ec6abbfc85b23aebf51e20834ce78c3e1dbe9c60a6d1e178438876d0abdafd15",
+    "source_fingerprint": "c126db017ae2750bc7d844e2bac0d27537ea54308509aeca69b2a5273a6b6ffc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6196,7 +6376,7 @@
     },
     "word_feel": {
       "summary_cn": "与历史或过去有关的",
-      "decision_cn": "",
+      "decision_cn": "historical = 与历史或过去有关/史实上的；historic = 具有重大历史意义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6504,7 +6684,7 @@
     "ordinal": 2348,
     "word": "hit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2348.json",
-    "source_fingerprint": "61d0d90dc78f2af1952a039ecdb675177483f91836951eb822ebda26d5be1c4e",
+    "source_fingerprint": "2382976d0431d16a7188d1ea4a66d01e4521582f91afaab5628831f005e11476",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6515,7 +6695,7 @@
     },
     "word_feel": {
       "summary_cn": "打；击中；达到；严重影响、打击",
-      "decision_cn": "",
+      "decision_cn": "physical → 打/击中；level/target → 达到；event → 严重影响；popular item → hit；hit it off → 很快投缘。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6760,7 +6940,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hit:hit-it-off",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hit it off (with sb)",
+        "lines": [
+          {
+            "text": "一见如故；很快合得来",
+            "lang": "cn"
+          },
+          {
+            "text": "social-rapport idiom; distinct from physical hit or reach/affect senses",
+            "lang": "en"
+          },
+          {
+            "text": "to like and get along well with someone immediately",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hit:hit-it-off",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hit it off (with sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [

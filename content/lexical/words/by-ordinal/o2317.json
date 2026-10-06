@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "兽群或人群，或聚集",
       "core_meaning_en": "a group of animals or people, or to gather them together",
-      "mental_model_cn": "兽群或人群，或聚集",
+      "mental_model_cn": "noun → 兽群/人群；verb → 把动物或人赶到一起。低增益的“自行聚成群”分支保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,30 +112,6 @@
         "sense_label_en": "to gather or drive animals or people into a group",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9c9d0dac127e98c08381",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:herd:eca688b795fe57be:collocation:0"
-            ],
-            "meaning_cn": "聚在一起",
-            "phrase": "herd together"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "聚在一起；成群",
-        "definition_en": "to come together in a group",
-        "governing_pattern": "vi. + together",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:herd:eca688b795fe57be",
-        "sense_label_en": "to come together in a group",
-        "sort_order": 3,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -396,7 +372,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9c9d0dac127e98c08381",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:herd:eca688b795fe57be:collocation:0"
+          ],
+          "meaning_cn": "聚在一起",
+          "phrase": "herd together"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "聚在一起；成群",
+      "definition_en": "to come together in a group",
+      "governing_pattern": "vi. + together",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:herd:eca688b795fe57be",
+      "sense_label_en": "to come together in a group",
+      "sort_order": 3,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -422,7 +423,7 @@
       },
       {
         "sense_id": "sense:herd:eca688b795fe57be",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6475,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
@@ -431,7 +432,6 @@
     "active_collocations": [
       "collocation:6b0558b3245f409ad38c",
       "collocation:96aa6e2e27afa718add5",
-      "collocation:9c9d0dac127e98c08381",
       "collocation:e16851c28df4e38bec5b"
     ],
     "facts": [],
@@ -449,7 +449,9 @@
       {
         "id": "collocation:9c9d0dac127e98c08381",
         "source_row": 13331,
-        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e16851c28df4e38bec5b",

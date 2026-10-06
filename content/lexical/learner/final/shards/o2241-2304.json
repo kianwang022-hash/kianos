@@ -10851,25 +10851,39 @@
     "ordinal": 2302,
     "word": "heighten",
     "source_owner_path": "content/lexical/words/by-ordinal/o2302.json",
-    "source_fingerprint": "1a6dd676bc4cbc213dbe13847187b1d8a8ed9f783739db0bdf70280af10125b9",
+    "source_fingerprint": "5902b34b14c10ec97dcb6da9ed61cb421a363bf63ce1e389a78eef1d97022672",
     "sense_lineage": [
+      {
+        "word_id": "word:heighten",
+        "target_kind": "sense",
+        "from_target_id": "sense:heighten:7e718bbc9f8c5b21",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:heighten",
         "target_kind": "sense",
         "from_target_id": "sense:heighten:d6954773eb3e5611",
         "status": "merged",
         "to_target_id": "sense:heighten:f6e96c7a942555da"
+      },
+      {
+        "word_id": "word:heighten",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:83a019a7533bf370ee0e",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "提高，加强",
-      "decision_cn": "",
+      "decision_cn": "通常指“加强/加剧/提高”强度或程度；直接把墙等“加高”的字面义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10918,32 +10932,6 @@
           "target_id": "sense:heighten:f6e96c7a942555da",
           "target_locator": "record.senses[0]",
           "target_label": "提高、加强；升高、加剧"
-        }
-      },
-      {
-        "id": "sense:heighten:7e718bbc9f8c5b21",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "增高，加高",
-        "definition_en": "increase the height of",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:83a019a7533bf370ee0e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "heighten a wall",
-            "meaning_cn": "加高墙",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heighten:7e718bbc9f8c5b21",
-          "target_locator": "record.senses[1]",
-          "target_label": "增高，加高"
         }
       }
     ],
@@ -10994,6 +10982,30 @@
           "source_row": 6441,
           "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:83a019a7533bf370ee0e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:heighten:7e718bbc9f8c5b21:collocation:0"
+              ],
+              "meaning_cn": "加高墙",
+              "phrase": "heighten a wall"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "增高，加高",
+          "definition_en": "increase the height of",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:heighten:7e718bbc9f8c5b21",
+          "sense_label_en": "increase the height of",
+          "sort_order": 1,
+          "transitivity": "vt"
         }
       ]
     }

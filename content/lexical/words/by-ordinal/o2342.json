@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:hire:hire-out",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "把…出租；把…租给别人使用",
+        "definition_en": "to allow someone to use something temporarily in return for payment",
+        "pattern": "hire sth out (to sb)",
+        "source_sense_id": "sense:hire:b2448cfbd9e35bd4",
+        "boundary": "rental-out pattern; distinct from hire sb = employ"
+      }
+    ],
     "content_hash": "614556e8993e68179b353da807e31828c59ee76d383b7ce83a6679d1e0c6befd",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +41,7 @@
       ],
       "core_meaning_cn": "雇用或租用",
       "core_meaning_en": "to employ or rent",
-      "mental_model_cn": "雇用或租用",
+      "mental_model_cn": "people → 雇用；things → 租用；hire sth out → 把某物出租。低价值“受雇”独立动词分支保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,30 +123,6 @@
         "sense_label_en": "the act of hiring or the state of being hired",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e08b9d5336807db68e75",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hire:d6bc32800c1a5588:collocation:0"
-            ],
-            "meaning_cn": "出租；受雇",
-            "phrase": "hire out"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "受雇",
-        "definition_en": "to accept employment",
-        "governing_pattern": "vi. + out",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hire:d6bc32800c1a5588",
-        "sense_label_en": "to accept employment",
-        "sort_order": 3,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -332,7 +319,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e08b9d5336807db68e75",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:hire:d6bc32800c1a5588:collocation:0"
+          ],
+          "meaning_cn": "出租；受雇",
+          "phrase": "hire out"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "受雇",
+      "definition_en": "to accept employment",
+      "governing_pattern": "vi. + out",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hire:d6bc32800c1a5588",
+      "sense_label_en": "to accept employment",
+      "sort_order": 3,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -358,7 +370,7 @@
       },
       {
         "sense_id": "sense:hire:d6bc32800c1a5588",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6536,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
@@ -367,8 +379,7 @@
     "active_collocations": [
       "collocation:15a21d4bdd00fb5990b9",
       "collocation:53baea6049a3d4819c1d",
-      "collocation:bceb0e6a170e83e49051",
-      "collocation:e08b9d5336807db68e75"
+      "collocation:bceb0e6a170e83e49051"
     ],
     "facts": [],
     "collocations": [
@@ -390,7 +401,9 @@
       {
         "id": "collocation:e08b9d5336807db68e75",
         "source_row": 18989,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
