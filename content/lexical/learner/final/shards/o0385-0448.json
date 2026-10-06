@@ -4404,23 +4404,31 @@
     "ordinal": 409,
     "word": "barrel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0409.json",
-    "source_fingerprint": "0dc789e26e27187dbe1af70b2084b84b9cbb1eae2deb9acf8c0a2a57ad1c9f58",
-    "sense_lineage": [],
+    "source_fingerprint": "e2b30d2b3c4db7ace588091d3eee08f2589519b09ef78f5911191d96349674fa",
+    "sense_lineage": [
+      {
+        "word_id": "word:barrel",
+        "target_kind": "sense",
+        "from_target_id": "sense:barrel:62054dbc366452aa",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "1V+",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "圆筒形容器或管状物",
-      "decision_cn": "",
+      "summary_cn": "桶、枪管等圆筒形物；非正式动词还可表示高速冲行",
+      "decision_cn": "container/tube → 桶或枪管；barrel along/through + path → 高速冲行。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "圆筒形容器或管状物"
+        "target_label": "桶、枪管等圆筒形物；非正式动词还可表示高速冲行"
       }
     },
     "senses": [
@@ -4518,23 +4526,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "一桶之量"
         }
-      },
-      {
-        "id": "sense:barrel:62054dbc366452aa",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "装入桶内",
-        "definition_en": "to put into a barrel",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:barrel:62054dbc366452aa",
-          "target_locator": "record.senses[4]",
-          "target_label": "装入桶内"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4582,13 +4573,44 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:barrel:b014-move-fast",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "（非正式）高速前进；飞驰",
+        "definition_en": "informal: to travel or move somewhere very quickly",
+        "pattern": "movement context with along/through/down etc.: barrel = move very quickly; keep separate from the container/gun-barrel nouns and the low-value literal 'put into a barrel' verb.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:barrel:b014-move-fast",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（非正式）高速前进；飞驰"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "装入桶内",
+          "definition_en": "to put into a barrel",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:barrel:62054dbc366452aa",
+          "sense_label_en": "to put into a barrel",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -6039,23 +6061,30 @@
     "ordinal": 418,
     "word": "basket",
     "source_owner_path": "content/lexical/words/by-ordinal/o0418.json",
-    "source_fingerprint": "6f09d587ebe6ea6ac70bc5655b9fcee59eb827de8a0cd303979f5506f8a99a9a",
-    "sense_lineage": [],
+    "source_fingerprint": "f0c46ba6609d8e1e464d9d56320c98eb48bb19c310dc12f57b408d6ab8f84127",
+    "sense_lineage": [
+      {
+        "word_id": "word:basket",
+        "target_kind": "sense",
+        "from_target_id": "sense:basket:6cfbb41209a8516c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "编织容器或装入该容器的动作",
-      "decision_cn": "",
+      "summary_cn": "篮子；一篮之量；篮球中的篮筐或得分",
+      "decision_cn": "container → 篮子/一篮；basketball → 篮筐或一次投篮得分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "编织容器或装入该容器的动作"
+        "target_label": "篮子；一篮之量；篮球中的篮筐或得分"
       }
     },
     "senses": [
@@ -6162,23 +6191,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "投篮得分"
         }
-      },
-      {
-        "id": "sense:basket:6cfbb41209a8516c",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "装入篮中",
-        "definition_en": "to put into a basket",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:basket:6cfbb41209a8516c",
-          "target_locator": "record.senses[4]",
-          "target_label": "装入篮中"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6219,7 +6231,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "装入篮中",
+          "definition_en": "to put into a basket",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:basket:6cfbb41209a8516c",
+          "sense_label_en": "to put into a basket",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -6678,11 +6706,26 @@
     "ordinal": 422,
     "word": "bath",
     "source_owner_path": "content/lexical/words/by-ordinal/o0422.json",
-    "source_fingerprint": "dee790f1cf0f89db1142e88045fd355524065f2b9e808fff8c4e60eb6595f238",
-    "sense_lineage": [],
+    "source_fingerprint": "0dfd669a82ccb8e3fbe1550ad0958a452dc24240db45afecc4141e85e087eb6a",
+    "sense_lineage": [
+      {
+        "word_id": "word:bath",
+        "target_kind": "sense",
+        "from_target_id": "sense:bath:b60ffe14e67c5f7f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bath",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9181aa65f4096beee85b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -6761,32 +6804,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "浴缸；浴盆"
         }
-      },
-      {
-        "id": "sense:bath:b60ffe14e67c5f7f",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "浴液；浸液",
-        "definition_en": "a liquid in which something is immersed for processing or treatment",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9181aa65f4096beee85b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "an oil bath",
-            "meaning_cn": "油浴",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bath:b60ffe14e67c5f7f",
-          "target_locator": "record.senses[2]",
-          "target_label": "浴液；浸液"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6827,7 +6844,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9181aa65f4096beee85b",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bath:b60ffe14e67c5f7f:collocation:0"
+              ],
+              "meaning_cn": "油浴",
+              "phrase": "an oil bath"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "浴液；浸液",
+          "definition_en": "a liquid in which something is immersed for processing or treatment",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bath:b60ffe14e67c5f7f",
+          "sense_label_en": "a liquid in which something is immersed for processing or treatment",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6836,23 +6879,37 @@
     "ordinal": 423,
     "word": "bathe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0423.json",
-    "source_fingerprint": "df55dea9130f24a4a079b068f8fa04f3c3cd5e2d899b73e5624ff661ebb4ab4f",
-    "sense_lineage": [],
+    "source_fingerprint": "d8da96a482e55a63ed50ce5655fc186c52ca28f32c96e11e25f439deb2091887",
+    "sense_lineage": [
+      {
+        "word_id": "word:bathe",
+        "target_kind": "sense",
+        "from_target_id": "sense:bathe:9dbb902e8a565f91",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bathe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4ffe5a918f2ee79a2988",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
-        "1N"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "洗浴；游泳",
-      "decision_cn": "",
+      "summary_cn": "洗浴；游泳；使沐浴在光或液体中",
+      "decision_cn": "洗浴；游泳",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "洗浴；游泳"
+        "target_label": "洗浴；游泳；使沐浴在光或液体中"
       }
     },
     "senses": [
@@ -6943,32 +7000,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "使沐浴在（光等）中"
         }
-      },
-      {
-        "id": "sense:bathe:9dbb902e8a565f91",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "游泳",
-        "definition_en": "an act of swimming",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4ffe5a918f2ee79a2988",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "have a bathe",
-            "meaning_cn": "游个泳",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bathe:9dbb902e8a565f91",
-          "target_locator": "record.senses[3]",
-          "target_label": "游泳"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7029,7 +7060,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4ffe5a918f2ee79a2988",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bathe:9dbb902e8a565f91:collocation:0"
+              ],
+              "meaning_cn": "游个泳",
+              "phrase": "have a bathe"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "游泳",
+          "definition_en": "an act of swimming",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:bathe:9dbb902e8a565f91",
+          "sense_label_en": "an act of swimming",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
