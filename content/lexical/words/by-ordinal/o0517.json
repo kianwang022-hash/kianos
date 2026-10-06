@@ -15,8 +15,7 @@
           "label_en": "a flower or the state of flowering; the best time of youth or a healthy glow",
           "pos": "noun",
           "sense_ids": [
-            "sense:bloom:c60cd96fb607506b",
-            "sense:bloom:9bc9bba13b8b5979"
+            "sense:bloom:c60cd96fb607506b"
           ]
         },
         {
@@ -36,9 +35,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "开花；花朵；也可指生态系统中某类生物的大量快速繁殖",
-      "core_meaning_en": "flowering or flowers; also rapid mass growth of organisms, especially algae",
-      "mental_model_cn": "plant/flower → 开花、花朵；ecology/science → bloom 可指短期大量增长，如 algal bloom（藻华）。",
+      "core_meaning_cn": "开花；花朵；也可表示发展繁盛或生态中的大量增长",
+      "core_meaning_en": "flowering/flowers; also to develop or flourish, and in ecology a rapid mass growth",
+      "mental_model_cn": "plant → 开花/花朵；person/relationship/talent → 发展、绽放；ecology → algal bloom 等短期大量增长。",
       "mental_model_en": "Plant context selects flowering; scientific/ecological context can select rapid population growth such as algal bloom."
     },
     "exam_paraphrases": [],
@@ -46,7 +45,28 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:bloom:b016-develop",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "发展；成长得很好；变得成功或有活力",
+        "definition_cn": "发展；成长得很好；变得成功或有活力",
+        "definition_en": "to develop and become successful, happy, healthy, or attractive",
+        "boundary": "person/relationship/talent/project development context: bloom = develop or flourish; plant context keeps the literal flower sense.",
+        "pos": "verb",
+        "level": "L2",
+        "priority": "B",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "register": "neutral",
+        "task_tags": [
+          "reading",
+          "listening"
+        ],
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -96,30 +116,6 @@
         "sense_label_en": "to produce flowers",
         "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b4fb4eaf9e08335021ed",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bloom:9bc9bba13b8b5979:collocation:0"
-            ],
-            "meaning_cn": "青春焕发",
-            "phrase": "the bloom of youth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "青春；红润",
-        "definition_en": "the best time of youth or a healthy glow",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bloom:9bc9bba13b8b5979",
-        "sense_label_en": "the best time of youth or a healthy glow",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -423,6 +419,30 @@
       "source_row": 1379,
       "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b4fb4eaf9e08335021ed",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:bloom:9bc9bba13b8b5979:collocation:0"
+          ],
+          "meaning_cn": "青春焕发",
+          "phrase": "the bloom of youth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "青春；红润",
+      "definition_en": "the best time of youth or a healthy glow",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bloom:9bc9bba13b8b5979",
+      "sense_label_en": "the best time of youth or a healthy glow",
+      "sort_order": 2,
+      "transitivity": "nonverb"
     }
   ],
   "identity_refs": {
@@ -443,7 +463,7 @@
       },
       {
         "sense_id": "sense:bloom:9bc9bba13b8b5979",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1380,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -465,7 +485,6 @@
     ],
     "active_collocations": [
       "collocation:15f686ef0b13013cbcd7",
-      "collocation:b4fb4eaf9e08335021ed",
       "collocation:fbc2a80b85fdc3ed3fe4",
       "collocation:fe203ddf4d6745e677d1"
     ],
@@ -474,7 +493,9 @@
       {
         "id": "collocation:b4fb4eaf9e08335021ed",
         "source_row": 15338,
-        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fbc2a80b85fdc3ed3fe4",

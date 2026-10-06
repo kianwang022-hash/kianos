@@ -11,12 +11,11 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "因尴尬或羞愧而脸红；变成玫瑰色或微红色",
-          "label_en": "to become red in the face because of embarrassment or shame; to become rosy or reddish",
+          "label_cn": "因尴尬或羞愧而脸红",
+          "label_en": "to become red in the face because of embarrassment or shame",
           "pos": "verb",
           "sense_ids": [
-            "sense:blush:60f00cbc5e9d5f6b",
-            "sense:blush:6b03a79fe230582e"
+            "sense:blush:60f00cbc5e9d5f6b"
           ]
         },
         {
@@ -97,30 +96,6 @@
         "sense_label_en": "a sudden reddening of the face from embarrassment, guilt, shame, or mode",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7da676cdca30449796f3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:blush:6b03a79fe230582e:collocation:0"
-            ],
-            "meaning_cn": "黎明时天空泛红",
-            "phrase": "the sky blushed at dawn"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "变成玫瑰色或微红色",
-        "definition_en": "to become rosy or reddish",
-        "governing_pattern": "vi.",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:blush:6b03a79fe230582e",
-        "sense_label_en": "to become rosy or reddish",
-        "sort_order": 1,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -671,7 +646,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:7da676cdca30449796f3",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:blush:6b03a79fe230582e:collocation:0"
+          ],
+          "meaning_cn": "黎明时天空泛红",
+          "phrase": "the sky blushed at dawn"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "变成玫瑰色或微红色",
+      "definition_en": "to become rosy or reddish",
+      "governing_pattern": "vi.",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:blush:6b03a79fe230582e",
+      "sense_label_en": "to become rosy or reddish",
+      "sort_order": 1,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -690,7 +690,7 @@
       },
       {
         "sense_id": "sense:blush:6b03a79fe230582e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1413,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -698,7 +698,6 @@
     ],
     "active_collocations": [
       "collocation:5de938d1cc7c92ade1c5",
-      "collocation:7da676cdca30449796f3",
       "collocation:bea82d20a5c1d80d3f84",
       "collocation:c075e874f9579b9abab3"
     ],
@@ -712,7 +711,9 @@
       {
         "id": "collocation:7da676cdca30449796f3",
         "source_row": 10622,
-        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:bea82d20a5c1d80d3f84",
