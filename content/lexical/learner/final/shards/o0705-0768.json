@@ -7983,12 +7983,26 @@
     "ordinal": 751,
     "word": "champion",
     "source_owner_path": "content/lexical/words/by-ordinal/o0751.json",
-    "source_fingerprint": "c4d0dc51dfff235b17cb4363fd908ecbe5675bf146bc43dfc016510ec3c19b5d",
-    "sense_lineage": [],
+    "source_fingerprint": "3c845c9321caa137f14462fab1163672e02c9ff6aecd867db933d6d16f54c7ed",
+    "sense_lineage": [
+      {
+        "word_id": "word:champion",
+        "target_kind": "sense",
+        "from_target_id": "sense:champion:c7e8ad27aee65ba8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:champion",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4bc437ceb8c00485cad4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "1A",
         "2N"
       ],
       "density": "rich"
@@ -8125,32 +8139,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "支持，捍卫，拥护"
         }
-      },
-      {
-        "id": "sense:champion:c7e8ad27aee65ba8",
-        "source_locator": "record.senses[3]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "优胜的，冠军的",
-        "definition_en": "holding first place in a contest",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4bc437ceb8c00485cad4",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "champion team",
-            "meaning_cn": "冠军队",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:champion:c7e8ad27aee65ba8",
-          "target_locator": "record.senses[3]",
-          "target_label": "优胜的，冠军的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8179,7 +8167,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4bc437ceb8c00485cad4",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:champion:c7e8ad27aee65ba8:collocation:0"
+              ],
+              "meaning_cn": "冠军队",
+              "phrase": "champion team"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "优胜的，冠军的",
+          "definition_en": "holding first place in a contest",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:champion:c7e8ad27aee65ba8",
+          "sense_label_en": "holding first place in a contest",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9228,8 +9242,15 @@
     "ordinal": 757,
     "word": "chapter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0757.json",
-    "source_fingerprint": "0e63b50d2b4885ae6ecf4e8c3ccba4925b5a661b5fb854a8db5e99dfeadefa71",
+    "source_fingerprint": "68205fea578eacc07915fcb643a60028d6df493546c894300ff58b41f9543532",
     "sense_lineage": [
+      {
+        "word_id": "word:chapter",
+        "target_kind": "sense",
+        "from_target_id": "sense:chapter:c284eca55789534a",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:chapter",
         "target_kind": "sense",
@@ -9240,7 +9261,7 @@
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -9296,23 +9317,6 @@
           "target_id": "sense:chapter:ffe0b08ab969516d",
           "target_locator": "record.senses[1]",
           "target_label": "（社团、协会的）地方分会"
-        }
-      },
-      {
-        "id": "sense:chapter:c284eca55789534a",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（修道院或教堂的）教士会",
-        "definition_en": "an ecclesiastical assembly of the monks in a monastery or even of the canons of a church",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chapter:c284eca55789534a",
-          "target_locator": "record.senses[2]",
-          "target_label": "（修道院或教堂的）教士会"
         }
       }
     ],
@@ -9380,6 +9384,20 @@
           "source_row": 2144,
           "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（修道院或教堂的）教士会",
+          "definition_en": "an ecclesiastical assembly of the monks in a monastery or even of the canons of a church",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:chapter:c284eca55789534a",
+          "sense_label_en": "an ecclesiastical assembly of the monks in a monastery or even of the ca",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -10447,11 +10465,19 @@
     "ordinal": 763,
     "word": "charm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0763.json",
-    "source_fingerprint": "cc4ac7f67bf661414987b5ad3f75dbb6f39c2a5ac4f185db06d29a6144851fc8",
-    "sense_lineage": [],
+    "source_fingerprint": "14f04c9fcc9b9dff80d118a0376c26669e9cbcec0486f68c8b90419f9bdff546",
+    "sense_lineage": [
+      {
+        "word_id": "word:charm",
+        "target_kind": "sense",
+        "from_target_id": "sense:charm:88518f61773557a1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -10525,25 +10551,8 @@
         }
       },
       {
-        "id": "sense:charm:88518f61773557a1",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "用符咒，施魔法",
-        "definition_en": "to use magic spells",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:charm:88518f61773557a1",
-          "target_locator": "record.senses[2]",
-          "target_label": "用符咒，施魔法"
-        }
-      },
-      {
         "id": "sense:charm:76a95984411c50cd",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "吸引人的愉悦品质；魅力",
@@ -10554,13 +10563,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:charm:76a95984411c50cd",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "吸引人的愉悦品质；魅力"
         }
       },
       {
         "id": "sense:charm:c6f2eaf41e715d8f",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "吸引、使愉悦",
@@ -10571,7 +10580,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:charm:c6f2eaf41e715d8f",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "吸引、使愉悦"
         }
       }
@@ -10614,7 +10623,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "用符咒，施魔法",
+          "definition_en": "to use magic spells",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:charm:88518f61773557a1",
+          "sense_label_en": "to use magic spells",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {

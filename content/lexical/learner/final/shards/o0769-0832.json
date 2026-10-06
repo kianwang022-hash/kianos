@@ -3161,12 +3161,27 @@
     "ordinal": 788,
     "word": "chill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0788.json",
-    "source_fingerprint": "73f7803745f659118b9593cb5c56ad50efa5869fff494b3d04970fb06e95f32e",
-    "sense_lineage": [],
+    "source_fingerprint": "58c7a47975986a6b6115bbb5eecaed5d7caf0babf1050f74df62c2d772e3ef0f",
+    "sense_lineage": [
+      {
+        "word_id": "word:chill",
+        "target_kind": "sense",
+        "from_target_id": "sense:chill:e3bf1770f0345d29",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chill",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6b3fefa98682d81ada08",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "1A",
+        "1A+",
         "2N"
       ],
       "density": "rich"
@@ -3294,32 +3309,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "变冷"
         }
-      },
-      {
-        "id": "sense:chill:e3bf1770f0345d29",
-        "source_locator": "record.senses[4]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "寒冷的",
-        "definition_en": "unpleasantly cold",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6b3fefa98682d81ada08",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a chill wind",
-            "meaning_cn": "寒风",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chill:e3bf1770f0345d29",
-          "target_locator": "record.senses[4]",
-          "target_label": "寒冷的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3416,16 +3405,28 @@
         "sense:chill:c9c3d4d5128a53e8": [
           0
         ],
-        "sense:chill:e3bf1770f0345d29": [
-          1
-        ],
         "sense:chill:e40141c656dd59e5": [
           2
         ]
       },
       "has_scope": true
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "secondary:chill:b005-relaxed",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "adjective",
+        "definition_cn": "（非正式）放松的；随和的",
+        "definition_en": "informal: relaxed and easy-going; not tense or worried",
+        "pattern": "informal person/attitude/place/vibe context: chill = relaxed or laid-back; keep separate from literal cold senses and from the phrasal verb chill out.",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "secondary:chill:b005-relaxed",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（非正式）放松的；随和的"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:chill:baseline-v2-out",
@@ -3449,7 +3450,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6b3fefa98682d81ada08",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:chill:e3bf1770f0345d29:collocation:0"
+              ],
+              "meaning_cn": "寒风",
+              "phrase": "a chill wind"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "寒冷的",
+          "definition_en": "unpleasantly cold",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:chill:e3bf1770f0345d29",
+          "sense_label_en": "unpleasantly cold",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

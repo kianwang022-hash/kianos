@@ -35,14 +35,6 @@
             "sense:chill:e40141c656dd59e5",
             "sense:chill:01ce3214647854f7"
           ]
-        },
-        {
-          "label_cn": "寒冷的",
-          "label_en": "unpleasantly cold",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:chill:e3bf1770f0345d29"
-          ]
         }
       ],
       "core_meaning_cn": "让温度或情绪降下来：可指寒冷/冰镇，也可指恐惧带来的寒意；chill out 则是放松、冷静",
@@ -55,7 +47,28 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "fact_id": "secondary:chill:b005-relaxed",
+        "module": "secondary_senses",
+        "direction": "R",
+        "meaning_cn": "（非正式）放松的；随和的",
+        "definition_cn": "（非正式）放松的；随和的",
+        "definition_en": "informal: relaxed and easy-going; not tense or worried",
+        "boundary": "informal person/attitude/place/vibe context: chill = relaxed or laid-back; keep separate from literal cold senses and from the phrasal verb chill out.",
+        "pos": "adjective",
+        "level": "L2",
+        "priority": "B",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "register": "informal",
+        "task_tags": [
+          "reading",
+          "listening"
+        ],
+        "writing_safe": false
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -152,30 +165,6 @@
         "sense_label_en": "to become cold",
         "sort_order": 3,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6b3fefa98682d81ada08",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:chill:e3bf1770f0345d29:collocation:0"
-            ],
-            "meaning_cn": "寒风",
-            "phrase": "a chill wind"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "寒冷的",
-        "definition_en": "unpleasantly cold",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:chill:e3bf1770f0345d29",
-        "sense_label_en": "unpleasantly cold",
-        "sort_order": 4,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -444,7 +433,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6b3fefa98682d81ada08",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:chill:e3bf1770f0345d29:collocation:0"
+          ],
+          "meaning_cn": "寒风",
+          "phrase": "a chill wind"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "寒冷的",
+      "definition_en": "unpleasantly cold",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:chill:e3bf1770f0345d29",
+      "sense_label_en": "unpleasantly cold",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -470,7 +484,7 @@
       },
       {
         "sense_id": "sense:chill:e3bf1770f0345d29",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 2240,
         "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
@@ -488,7 +502,6 @@
       "collocation:21fb27c4063ccd14f591",
       "collocation:4ddd1405bf7bdbeb48db",
       "collocation:59386d402ad56d6017bb",
-      "collocation:6b3fefa98682d81ada08",
       "collocation:a6731f514d4358e1e60a"
     ],
     "facts": [],
@@ -516,7 +529,9 @@
       {
         "id": "collocation:6b3fefa98682d81ada08",
         "source_row": 9039,
-        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a6731f514d4358e1e60a",
