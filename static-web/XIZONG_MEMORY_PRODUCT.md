@@ -87,8 +87,8 @@ Adding an exact answer to a formerly cue-only object makes that payload answer-b
 
 Block Complete eventually releases every canonical KP Core card plus every valid current-owner Precision card and learner Marked fragments for that Block.
 
-Before completion, B1 may explicitly open its thirteen already-admitted prepared
-Precision items in native Browse, as required by Learning Contract §0's
+Before completion, the reviewed B1/B2 slice may explicitly open its selectively
+admitted prepared Precision items (B1: thirteen; B2: twelve) in native Browse, as required by Learning Contract §0's
 Chat → Website retrieval sequence. This card-only availability reuses the
 selective cue index and resolved learner object; it does not admit retained
 metadata, release Core, write a Block release receipt, or import learner ratings.
@@ -96,8 +96,16 @@ Source contact, learned flags, completion, attention and historical evidence
 remain unchanged. Reopening preserves the same identities and revision history.
 The later genuine Block Complete still owns the normal first-release handoff.
 Persistence must succeed before navigation; unreadable storage or a failed save
-leaves the prior record in place. The bounded B1 Browse URL only selects a view
+leaves the prior record in place. The bounded B1/B2 Browse URL only selects a view
 and yields to the existing authenticated Chat session path.
+
+B2 admission selects m01/m02/m03/m05/m06/m07/m09–m14 from the retained
+seventeen items. m04 remains unindexed pending its human/species qualification;
+LOW m08/m15/m16/m17 remain retained Core/Source destinations. Existing Source
+qualifications and aids (including 窦九弓十 and 酒心咖啡糖) travel with the answer.
+The inherited P282 ADH preparation is not a new PDF-verification claim. Neither
+this bounded consumer extension nor its tests authorize another Block or change
+medical meaning, formal teaching adoption, Source completion or learner evidence.
 
 Release means the objects become available in `Core` / `Precision` / `Marked`. It does **not** mark all of them due today.
 

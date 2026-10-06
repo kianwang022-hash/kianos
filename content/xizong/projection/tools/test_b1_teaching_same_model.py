@@ -190,7 +190,8 @@ def inspect(text):
             require(paragraph not in visible, 'original article paragraph reintroduced in default')
     require(not re.search(r'\b(?:KP|LG)\d+', plain(visible)), 'default ID skeleton exposed')
     cues = json.loads(CUES.read_text()); shared = json.loads(SHARED.read_text())
-    admitted = {item['id'] for item in cues['precision_index']}
+    admitted = {item['id'] for item in cues['precision_index']
+                if item.get('anchor', {}).get('block_id') == 'circulation-b01'}
     all_memory = {item['memory_id'] for key,field in shared['kp_fields'].items()
                   if key.startswith('circulation-b01-')
                   for item in field.get('retention_metadata',{}).get('memory_items',[])}
@@ -289,3 +290,4 @@ class B1SameModelTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

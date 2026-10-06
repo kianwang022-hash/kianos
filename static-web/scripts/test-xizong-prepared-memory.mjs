@@ -140,4 +140,79 @@ check('native reviewed B1 availability reaches exactly the same thirteen prepare
     assert.ok(!Object.keys(state.cards).some(key => key.startsWith(`precision:${id}-`)));
   }
 });
+// B2 reuses the same Current-owner/native projection path. The expected set is
+// deliberately explicit test evidence, not a second production admission list.
+const b2Canonical = loadXizongBlock('circulation', 'b02');
+const b2Current = resolveXizongLearnerProjection(b2Canonical, { enrichBlock: block => ({ ...block,
+  kpRecords: block.kpRecords.map(kp => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown)) }))
+}) }).learnerObject;
+const b2Bound = cues.precisionIndex.filter(row => row.anchor.block_id === 'circulation-b02');
+const b2Expected = ['b02-m01-baroreceptor-afferents','b02-m02-chemoreceptor-bias','b02-m03-chemoreflex-80',
+  'b02-m05-axon-reflex-cgrp','b02-m06-medulla-80-20','b02-m07-medulla-ach-n1','b02-m09-angii-angiii-extremes',
+  'b02-m10-adh-identity-origin-storage','b02-m11-v1-v2-aqp2-localization','b02-m12-adh-inhibitors','b02-m13-anp-bnp-origin','b02-m14-pg-directions'];
+const b2Selected = buildXizongPreparedMemoryAvailability(b2Current);
+check('B2 admits exactly twelve reviewed current native references without changing B1 thirteen', () => {
+  assert.deepEqual(b2Bound.map(row => row.id), b2Expected);
+  assert.equal(bound.length, 13); assert.equal(describe(current).precisionCards.length, 13);
+  assert.deepEqual(b2Selected.precisionCards.map(card => card.precisionCueId), b2Expected);
+  assert.deepEqual(b2Selected.coreCards, []); assert.deepEqual(b2Selected.attentionSignals, []);
+  const next = makePreparedMemoryAvailable(createXizongMemoryState(), b2Selected);
+  assert.equal(memorySummary(next).precision, 12); assert.equal(memorySummary(next).core, 0); assert.equal(memorySummary(next).today, 0);
+  assert.deepEqual(next.evidence, []); assert.deepEqual(next.releasedBlocks, {});
+  assert.deepEqual(makePreparedMemoryAvailable(next, b2Selected), next);
+});
+check('all B2 answer/aid/scope/source fields resolve from the original item and hide before Reveal', () => {
+  for (const row of b2Bound) {
+    assert.ok(!row.answer_html && !row.answerHtml);
+    const ref = row.prepared_memory_ref;
+    const item = shared.kp_fields[ref.kp_field_key].retention_metadata[ref.collection].find(item => item.memory_id === row.id);
+    const native = resolvePreparedMemoryCue(row, b2Canonical, shared);
+    assert.equal(ref.kp_core_sha256, preparedMemoryDigest(b2Canonical.kpRecords.find(kp => kp.kpId === row.anchor.kp_id).detailMarkdown));
+    assert.equal(ref.item_sha256, preparedMemoryDigest(item));
+    const card = b2Selected.precisionCards.find(card => card.precisionCueId === row.id);
+    assert.equal(card.answerHtml, native.answer_html); assert.equal(card.sourceLocator, native.source_locator);
+    assert.ok(card.ownerContextHtml.trim()); assert.equal(card.answerResolution, 'EXACT_CURRENT_OWNER');
+    const cue = b2Current.kps.find(kp => kp.identity.kpId === row.anchor.kp_id).precision.find(cue => cue.id === row.id);
+    assert.equal(representation(cue, {stage:'KP_RECALL_FRONT'}).visible, false);
+    assert.equal(representation(cue, {stage:'BLOCK_RECALL_FRONT'}).visible, false);
+    assert.equal(representation(cue, {stage:'KP_RECALL_REVEALED'}).visible, true);
+  }
+  const answer = id => b2Selected.precisionCards.find(card => card.precisionCueId === id).answerHtml;
+  assert.match(answer('b02-m01-baroreceptor-afferents'), /窦九弓十/);
+  assert.match(answer('b02-m01-baroreceptor-afferents'), /传入与传出分开/);
+  assert.match(answer('b02-m02-chemoreceptor-bias'), /不写成互斥的唯一功能/);
+  assert.match(answer('b02-m03-chemoreflex-80'), /不改写成临床抢救目标、SBP或MAP阈值/);
+  assert.match(answer('b02-m09-angii-angiii-extremes'), /限RAS内部比较/);
+  assert.match(answer('b02-m10-adh-identity-origin-storage'), /垂体后叶素.*OT/);
+  assert.match(answer('b02-m12-adh-inhibitors'), /酒心咖啡糖/);
+  assert.match(answer('b02-m12-adh-inhibitors'), /口诀只辅助名单/);
+  assert.match(answer('b02-m13-anp-bnp-origin'), /诊断阈值归B11/);
+});
+check('B2 seventeen retained rows remain intact; held qualifier and LOW rows stay unindexed', () => {
+  const retained = Object.entries(shared.kp_fields).filter(([id]) => id.startsWith('circulation-b02-'))
+    .flatMap(([, field]) => field.retention_metadata?.memory_items || []);
+  assert.equal(retained.length, 17);
+  for (const prefix of ['b02-m04-','b02-m08-','b02-m15-','b02-m16-','b02-m17-']) {
+    assert.equal(retained.filter(row => row.memory_id.startsWith(prefix)).length, 1);
+    assert.ok(!b2Selected.precisionCards.some(card => card.precisionCueId.startsWith(prefix)));
+  }
+});
+for (const [name, mutate, expected] of [
+  ['unreviewed owner', (_r,_b,s) => s.authority = 'UNREVIEWED', /OWNER_UNAPPROVED/],
+  ['wrong Source', (_r,b,s) => s.source_bindings[b.blockId] = 'another-owner.md', /SOURCE_BINDING_MISMATCH/],
+  ['wrong Block', r => r.anchor.block_id = 'circulation-b01', /KP_OWNER_MISMATCH/],
+  ['wrong KP', r => r.anchor.kp_id = 'circulation-b02-kp03', /FIELD_OWNER_MISMATCH/],
+  ['stale Core', (_r,b) => b.kpRecords.find(k => k.kpId === 'circulation-b02-kp02').detailMarkdown += '\nchanged', /CORE_REVIEW_STALE/],
+  ['stale answer', (r,_b,s) => s.kp_fields[r.prepared_memory_ref.kp_field_key].retention_metadata.memory_items[0].answer += 'changed', /ITEM_REVIEW_STALE/],
+  ['stale mnemonic', (r,_b,s) => s.kp_fields[r.prepared_memory_ref.kp_field_key].retention_metadata.memory_items[0].mnemonic += 'changed', /ITEM_REVIEW_STALE/],
+  ['stale scope', (r,_b,s) => s.kp_fields[r.prepared_memory_ref.kp_field_key].retention_metadata.memory_items[0].answer_scope += 'changed', /ITEM_REVIEW_STALE/],
+  ['missing item', (r,_b,s) => s.kp_fields[r.prepared_memory_ref.kp_field_key].retention_metadata.memory_items = [], /ITEM_MISSING_OR_DUPLICATE/],
+  ['duplicate item', (r,_b,s) => { const rows=s.kp_fields[r.prepared_memory_ref.kp_field_key].retention_metadata.memory_items;rows.push(structuredClone(rows[0])); }, /ITEM_MISSING_OR_DUPLICATE/],
+  ['ambiguous alias', (r,_b,s) => { s.kp_fields[r.anchor.kp_id]=structuredClone(s.kp_fields[r.prepared_memory_ref.kp_field_key]);s.kp_fields[r.anchor.kp_id].retention_metadata.memory_items[0].answer+='changed'; }, /AMBIGUOUS_IDENTITY_ALIAS/],
+  ['parallel answer', r => r.answer_html='<p>not the owner</p>', /PARALLEL_ANSWER_OWNER/]
+]) check(`B2 native ${name} fails closed`, () => {
+  const row=structuredClone(b2Bound[0]),block=structuredClone(b2Canonical),input=structuredClone(shared);
+  mutate(row,block,input); assert.throws(()=>resolvePreparedMemoryCue(row,block,input),expected);
+});
+
 console.log(JSON.stringify({status:'PASS',boundary:'native Current content + pure synthetic state; no real learner writes',checks},null,2));

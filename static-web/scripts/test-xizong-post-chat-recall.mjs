@@ -18,21 +18,26 @@ const evidenceController = bridge.match(/<script>\n([\s\S]*?)<\/script>/)?.[1]
   .replace(/  import[^\n]+\n/, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
 assert.ok(evidenceController, 'execute the actual evidence bridge');
 // Evaluate the actual frontmatter predicate, rather than restating its scope.
+const referenceExpression = component.match(/const postChatReferenceBlock = ([^\n]+);/)?.[1];
+assert.ok(referenceExpression);
+const referenceFor = (systemId, slug) => vm.runInNewContext(referenceExpression, { block: { systemId, slug } });
 const availabilityExpression = component.match(/const postChatRecallAvailable = ([\s\S]*?);/)?.[1];
 assert.ok(availabilityExpression);
 const availableFor = (systemId = 'circulation', slug = 'b01', mode = 'NATURAL_SOURCE_UNIT', perGroup = false) =>
-  vm.runInNewContext(availabilityExpression, { block: { systemId, slug }, sourceContactMode: mode, sourcePerGroup: perGroup });
+  vm.runInNewContext(availabilityExpression, { postChatReferenceBlock: referenceFor(systemId, slug), sourceContactMode: mode, sourcePerGroup: perGroup });
 assert.equal(availableFor(), true);
-for (const args of [['circulation', 'b02'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true]]) {
+assert.equal(availableFor('circulation', 'b02'), true);
+for (const args of [['circulation', 'b03'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true], ['circulation', 'b02', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b02', 'NATURAL_SOURCE_UNIT', true]]) {
   assert.equal(availableFor(...args), false, `scope:${args}`);
 }
 assert.match(component, /data-post-chat-recall-available=\{postChatRecallAvailable \? 'true' : 'false'\}/);
-// The B1 title-only presentation is independent of evidence and Source mode.
+// The B1/B2 title-only presentation is independent of evidence and Source mode.
 const titleOnlyExpression = component.match(/const titleOnlyKps = ([^\n]+);/)?.[1];
 assert.ok(titleOnlyExpression);
-const titleOnlyFor = (systemId, slug) => vm.runInNewContext(titleOnlyExpression, { block: { systemId, slug } });
+const titleOnlyFor = (systemId, slug) => vm.runInNewContext(titleOnlyExpression, { postChatReferenceBlock: referenceFor(systemId, slug) });
 assert.equal(titleOnlyFor('circulation', 'b01'), true);
-assert.equal(titleOnlyFor('circulation', 'b02'), false);
+assert.equal(titleOnlyFor('circulation', 'b02'), true);
+assert.equal(titleOnlyFor('circulation', 'b03'), false);
 assert.equal(titleOnlyFor('respiratory', 'b01'), false);
 assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
 assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);
@@ -92,8 +97,12 @@ class Element {
   click() { this.dispatchEvent({ type: 'click' }); }
 }
 const clone = value => JSON.parse(JSON.stringify(value));
-const kpIds = ['circulation-b01-kp01', 'circulation-b01-kp02', 'circulation-b01-kp03'];
-const groupIds = ['circulation-b01-lg01', 'circulation-b01-lg02'];
+// Run every consumer/gate regression for both bounded reference identities.
+for (const slug of ['b01', 'b02']) {
+const blockId = `circulation-${slug}`;
+const objectId = `xizong:${blockId}`;
+const kpIds = [1, 2, 3].map(index => `${blockId}-kp0${index}`);
+const groupIds = [1, 2].map(index => `${blockId}-lg0${index}`);
 const groupPayload = [
   { groupId: groupIds[0], kpIds: kpIds.slice(0, 2), label: 'Synthetic group one' },
   { groupId: groupIds[1], kpIds: kpIds.slice(2), label: 'Synthetic group two' }
@@ -102,12 +111,12 @@ const kpPayload = kpIds.map((kpId, index) => ({ kpId, groupId: groupIds[index < 
 const witness = { schema: 'kianos.xizong.revision-witness.v1', sourceHash: 'synthetic-source', kpOrder: kpIds,
   groupOrder: groupIds, segmentOrder: [], members: Object.fromEntries(groupPayload.map(g => [g.groupId, g.kpIds])),
   kps: Object.fromEntries(kpIds.map(id => [id, id])), groups: Object.fromEntries(groupIds.map(id => [id, id])), block: 'synthetic-block', contact: 'synthetic-contact' };
-const stateKey = 'kianos-xizong-astro-v2:xizong:circulation-b01';
-const evidenceKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b01';
+const stateKey = `kianos-xizong-astro-v2:${objectId}`;
+const evidenceKey = `kianos-xizong-memory-review-v2:${objectId}`;
 
 async function createHarness({ saved, available = true, ttsx = [], visual = false, prerequisite = false } = {}) {
-  const root = new Element({ 'data-xizong-v6-block': '', 'data-study-object': 'xizong:circulation-b01', 'data-block-label': 'B1',
-    'data-study-system-id': 'circulation', 'data-study-block-slug': 'b01', 'data-study-block-id': 'circulation-b01',
+  const root = new Element({ 'data-xizong-v6-block': '', 'data-study-object': objectId, 'data-block-label': slug.toUpperCase(),
+    'data-study-system-id': 'circulation', 'data-study-block-slug': slug, 'data-study-block-id': blockId,
     'data-study-source-hash': 'synthetic-source', 'data-post-chat-recall-available': String(available) });
   const add = (parent, attrs, hidden = false) => { const node = new Element(attrs, hidden); parent.append(node); return node; };
   const stages = Object.fromEntries(['block_learn', 'source_contact', 'kp_recall', 'ttsx_checkpoint', 'block_recall'].map(name => [name, add(root, { 'data-study-stage': name }, name !== 'block_learn')]));
@@ -132,10 +141,10 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   const recallComplete = add(stages.block_recall, { 'data-block-recall-complete': '' });
   const complete = add(stages.block_recall, { 'data-block-complete': '' });
   const ttsxDone = add(stages.ttsx_checkpoint, { 'data-ttsx-done': '' });
-  const evidenceBridge = new Element({ 'data-xizong-recall-evidence-bridge': '', 'data-study-object': 'xizong:circulation-b01', 'data-study-source-hash': 'synthetic-source' });
+  const evidenceBridge = new Element({ 'data-xizong-recall-evidence-bridge': '', 'data-study-object': objectId, 'data-study-source-hash': 'synthetic-source' });
   const evidenceKps = new Element({ 'data-xizong-recall-evidence-kps': '' }); evidenceKps.textContent = JSON.stringify(kpIds);
   const completionInput = new Element({ 'data-xizong-completion-input': '' });
-  completionInput.textContent = JSON.stringify({ blockId: 'circulation-b01', blockIds: [], blockPrerequisites: prerequisite ? [{ blockId: 'missing', requirement: null }] : [],
+  completionInput.textContent = JSON.stringify({ blockId, blockIds: [], blockPrerequisites: prerequisite ? [{ blockId: 'missing', requirement: null }] : [],
     blockingVisualGroups: visual ? [{ groupId: groupIds[1], label: 'Synthetic visual', reviewableFromOriginalSource: true }] : [], requirements: [] });
   const document = new Element(); document.append(root, evidenceBridge, evidenceKps, completionInput);
   document.createElement = () => new Element(); document.createTextNode = text => { const el = new Element(); el.textContent = text; return el; };
@@ -250,5 +259,8 @@ const pending = await createHarness({ saved: checkpoint.state(), ttsx }); pendin
 assert.equal(pending.state().stage, 'ttsx_checkpoint', 'post-Chat navigation cannot bypass pending reviewed TTSX');
 pending.ttsxDone.click(); assert.equal(pending.state().stage, 'kp_recall'); assert.equal(Object.keys(pending.state().ttsxEvidence).length, 1);
 
-console.log('B1 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+}
+
+console.log('B1/B2 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+
 

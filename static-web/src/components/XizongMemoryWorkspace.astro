@@ -139,6 +139,7 @@ const base = import.meta.env.BASE_URL;
     resolveXizongSessionNext,
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
+  import { supportsXizongPreparedMemoryBlock } from '../lib/xizongMemoryRelease.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
@@ -186,8 +187,8 @@ const base = import.meta.env.BASE_URL;
     // URL selects a view only. It cannot create cards, ratings or Chat authority.
     // A session/step request always retains the existing authenticated path.
     let preparedBlockFilter = !requestedSessionId && !requestedStepId
-      && params.get('view') === 'precision' && params.get('block') === 'circulation-b01'
-      ? 'circulation-b01' : '';
+      && params.get('view') === 'precision' && supportsXizongPreparedMemoryBlock(params.get('block'))
+      ? params.get('block') : '';
     let view = chatCardIds.length ? 'CHAT' : chatRepairTaskId ? 'REPAIR' : preparedBlockFilter ? 'PRECISION' : 'TODAY';
     let precisionMode = 'BROWSE';
     let index = 0;
@@ -395,7 +396,7 @@ const base = import.meta.env.BASE_URL;
       setText('[data-memory-view-note]', chatRepairTaskId && view === 'REPAIR'
         ? '只执行 Chat 选中的这个现有 Repair；完成修补不会自动写成 mastery。'
         : preparedBlockFilter && view === 'PRECISION'
-          ? 'B1 已准备的精确记忆；Browse 直接看答案与助记，Recall 先遮答案。打开不会写入学习证据。'
+          ? `${preparedBlockFilter === 'circulation-b02' ? 'B2' : 'B1'} 已准备的精确记忆；Browse 直接看答案与助记，Recall 先遮答案。打开不会写入学习证据。`
           : note[1]);
       tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-memory-view') === view));
       const precisionModeRoot = q('[data-memory-precision-mode]');
