@@ -7677,11 +7677,39 @@
     "ordinal": 553,
     "word": "bottom",
     "source_owner_path": "content/lexical/words/by-ordinal/o0553.json",
-    "source_fingerprint": "2b68f10bab23c549df90922da84d0e3a700fadfc8b96754ba95fc78746020662",
-    "sense_lineage": [],
+    "source_fingerprint": "17d6be9e40b76eba270be1c86a85162d0b3bf16fa723d47f51bb9bbcb85bda0e",
+    "sense_lineage": [
+      {
+        "word_id": "word:bottom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bottom:0e76df35d6cf5807",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "sense",
+        "from_target_id": "sense:bottom:52f2f39eefce5ca6",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:45bf6a41d70dec96e30f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bottom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f3163fdbd1be625e237d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "1A",
         "1N"
       ],
@@ -7761,63 +7789,6 @@
           "target_id": "sense:bottom:47fadea42f5c5a4b",
           "target_locator": "record.senses[1]",
           "target_label": "底部的，最低的"
-        }
-      },
-      {
-        "id": "sense:bottom:0e76df35d6cf5807",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给...装底",
-        "definition_en": "to provide with a bottom or base",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:45bf6a41d70dec96e30f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "bottom a chair",
-            "meaning_cn": "给椅子装座面",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bottom:0e76df35d6cf5807",
-          "target_locator": "record.senses[2]",
-          "target_label": "给...装底"
-        }
-      },
-      {
-        "id": "sense:bottom:52f2f39eefce5ca6",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + on/upon",
-        "definition_cn": "建立基础，基于",
-        "definition_en": "to rest on or as if on a base",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f3163fdbd1be625e237d",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bottom on + sth",
-            "meaning_cn": "以...为基础",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f3163fdbd1be625e237d",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "bottom on + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bottom:52f2f39eefce5ca6",
-          "target_locator": "record.senses[3]",
-          "target_label": "建立基础，基于"
         }
       }
     ],
@@ -7910,7 +7881,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:45bf6a41d70dec96e30f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:bottom:0e76df35d6cf5807:collocation:0"
+              ],
+              "meaning_cn": "给椅子装座面",
+              "phrase": "bottom a chair"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给...装底",
+          "definition_en": "to provide with a bottom or base",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bottom:0e76df35d6cf5807",
+          "sense_label_en": "to provide with a bottom or base",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f3163fdbd1be625e237d",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:bottom:52f2f39eefce5ca6:collocation:0"
+              ],
+              "meaning_cn": "以...为基础",
+              "phrase": "bottom on + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "建立基础，基于",
+          "definition_en": "to rest on or as if on a base",
+          "governing_pattern": "vi. + on/upon",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bottom:52f2f39eefce5ca6",
+          "sense_label_en": "to rest on or as if on a base",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -10446,18 +10467,26 @@
     "ordinal": 567,
     "word": "brake",
     "source_owner_path": "content/lexical/words/by-ordinal/o0567.json",
-    "source_fingerprint": "af5c70d7dd5858f3d37851b8014751d16709640012371abe78588acd2aa3756e",
-    "sense_lineage": [],
+    "source_fingerprint": "6578602f51c240994711a1d5a447ac6b1f54fb0fa07a5a3763c8fc9043b3e10a",
+    "sense_lineage": [
+      {
+        "word_id": "word:brake",
+        "target_kind": "sense",
+        "from_target_id": "sense:brake:4399f0f1df9e5460",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "刹车装置或刹车动作；也可比喻为对进程的制约因素",
-      "decision_cn": "vehicle → 刹车；a brake on growth/progress → 对增长或进程的制约；低频 noun 还可指丛林/蕨类。",
+      "decision_cn": "vehicle → 刹车；a brake on growth/progress → 对增长或进程的制约。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10527,25 +10556,8 @@
         }
       },
       {
-        "id": "sense:brake:4399f0f1df9e5460",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "丛林；蕨类植物",
-        "definition_en": "an area thickly overgrown with plants; a fern",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:brake:4399f0f1df9e5460",
-          "target_locator": "record.senses[2]",
-          "target_label": "丛林；蕨类植物"
-        }
-      },
-      {
         "id": "sense:brake:35b47cafd263555a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "对进程起减缓或限制作用的事物",
@@ -10555,14 +10567,14 @@
         "usage": [
           {
             "id": "collocation:60c1eda4e32f4ab5db4d",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a brake on sth",
             "meaning_cn": "对…的制约",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:60c1eda4e32f4ab5db4d",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "a brake on sth"
             }
           }
@@ -10570,7 +10582,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:brake:35b47cafd263555a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "对进程起减缓或限制作用的事物"
         }
       }
@@ -10644,7 +10656,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "丛林；蕨类植物",
+          "definition_en": "an area thickly overgrown with plants; a fern",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:brake:4399f0f1df9e5460",
+          "sense_label_en": "an area thickly overgrown with plants; a fern",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
