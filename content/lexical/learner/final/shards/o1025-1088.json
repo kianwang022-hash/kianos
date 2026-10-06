@@ -10786,23 +10786,30 @@
     "ordinal": 1087,
     "word": "cope",
     "source_owner_path": "content/lexical/words/by-ordinal/o1087.json",
-    "source_fingerprint": "f31197f8abb08b2b87789d04a4ed6b8f750dd6d25654884e34da3b828a0d244a",
-    "sense_lineage": [],
+    "source_fingerprint": "be91019514b32ddbd8775f96304050979a247b675c019530d4dccf8f0a7a8f2f",
+    "sense_lineage": [
+      {
+        "word_id": "word:cope",
+        "target_kind": "sense",
+        "from_target_id": "sense:cope:7e49b20a1bd45847",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "成功应对困难、压力或不利局面；低频名词义是宗教礼服长袍",
-      "decision_cn": "默认先学 verb cope with sth = 应对困难；宗教礼服 cope 是低优先名词义。历史重复 Construction 合并为一条。",
+      "summary_cn": "成功应对困难、压力或不利局面",
+      "decision_cn": "cope with sth → 应对、处理困难。宗教礼服名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "成功应对困难、压力或不利局面；低频名词义是宗教礼服长袍"
+        "target_label": "成功应对困难、压力或不利局面"
       }
     },
     "senses": [
@@ -10821,23 +10828,6 @@
           "target_id": "sense:cope:5d10974250595c40",
           "target_locator": "record.senses[0]",
           "target_label": "应对、处理（困难情况）"
-        }
-      },
-      {
-        "id": "sense:cope:7e49b20a1bd45847",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "长袍",
-        "definition_en": "a long cloak worn by a priest or bishop on ceremonial occasions",
-        "note": "低频宗教礼服义；当前阶段以识别为主。",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cope:7e49b20a1bd45847",
-          "target_locator": "record.senses[1]",
-          "target_label": "长袍"
         }
       }
     ],
@@ -10897,7 +10887,24 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "长袍",
+          "definition_en": "a long cloak worn by a priest or bishop on ceremonial occasions",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:cope:7e49b20a1bd45847",
+          "sense_label_en": "a long cloak worn by a priest or bishop on ceremonial occasions",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "usage_note": "低频宗教礼服义；当前阶段以识别为主。"
+        }
+      ]
     }
   },
   {
