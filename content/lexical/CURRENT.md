@@ -2,13 +2,23 @@
 
 Role: **Lexical backend engineering Work Cursor + scope router**
 
-Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, pronunciation truth, or historical batch evidence.
+Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, pronunciation truth, runtime truth, or historical evidence.
 
-## Active control anchor
+## Active semantic-review anchor
 
-[**#1166 — Lexical batched audit: learner-facing semantic quality**](https://github.com/kianwang022-hash/kianos/issues/1166) is the **only live Lexical semantic-review cursor**. It owns the current Parent outcome → batch cursor → Next → Blocker and its compact batch checkpoints.
+[**#1166 — Lexical batched audit: learner-facing semantic quality**](https://github.com/kianwang022-hash/kianos/issues/1166) is the **only live Lexical semantic-review cursor**.
 
-Fresh BUILD / CONTROL continuation:
+It owns only its current:
+
+```text
+Parent outcome
+→ active batch / exact cursor
+→ Next
+→ item-scoped Blockers
+→ acceptance / stop
+```
+
+Fresh semantic-review continuation:
 
 ```text
 main@HEAD
@@ -19,24 +29,21 @@ main@HEAD
 → Final / consumer owner only when affected
 ```
 
-Do not reconstruct the live batch from historical semantic-review files, old PRs, prior Chat state, or #1155.
+Do not recover #1166 progress from old PRs, retired semantic-review/audit files, prior Chats or closed Issues.
 
-### Closed calibration / delivered work
+## Route by need
 
-- [#1155](https://github.com/kianwang022-hash/kianos/issues/1155) is calibration/evidence for the learner-value defect class and the delivered #1163 repair slice. It is **not** a second continuation cursor. Its career demotion remains item-scoped BLOCKED evidence unless #1166 obtains new evidence.
-- IPA delivery [#1152](https://github.com/kianwang022-hash/kianos/pull/1152) is merged and no longer an active task. Stable pronunciation projection rules live in `FINAL_LEARNER_OBJECT_CONTRACT.md` plus exact Word/Form owners; reopen only for a concrete pronunciation/source/product defect.
-- The rating→next-word latency investigation remains separately owned and is outside #1166. Do not absorb or overwrite it from Lexical semantic review.
-
-## Current routing
-
-- There is no live A/B/C ordinal production cursor in this file.
-- A concrete Word/Form/Relation semantic defect routes directly to its Natural Owner; when it falls inside the authorized batched quality review, #1166 owns the work cursor.
-- Materialization/runtime mechanics route to `CONTENT_EXECUTION.md` and the exact active tool/consumer.
-- Acceptance/readiness questions route to `ACCEPTANCE.md`; this cursor does not restate campaign closure or gate results.
-- An admitted new Source or explicit new lexical scope opens only the smallest responsible owner/program.
-- Final Learner Objects remain derived learner assets; learner truth remains private and is never manufactured by content/runtime readiness.
-
-Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and per-window delivery procedures are provenance only, not continuation authority.
+| Need | Read next |
+| --- | --- |
+| Ordinary Vocabulary study / where Kian actually stopped | English learner path + native private learner/runtime evidence; bypass this engineering cursor |
+| Active batched learner-value semantic review | #1166 → exact Word / Relation / Form owner |
+| One concrete Word/Form/Relation defect outside the current batch | exact Natural Owner; reconcile with #1166 only if its write-set overlaps |
+| Content rules / learning semantics | `CONTENT_ASSET_CONTRACT.md` / `LEARNING_CONTRACT.md` |
+| Materialization / derived Final mechanics | `CONTENT_EXECUTION.md` → exact active tool |
+| Derived learner object | `learner/final/` + `FINAL_LEARNER_OBJECT_CONTRACT.md` |
+| Product / runtime defect | exact `static-web/` consumer owner; do not absorb it into #1166 merely because the surface is Vocabulary |
+| Visual/product design | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
+| Acceptance/readiness claim | `ACCEPTANCE.md` |
 
 ## Owner map
 
@@ -44,12 +51,12 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 | --- | --- |
 | Learning Rule / Model | `content/lexical/LEARNING_CONTRACT.md` |
 | Content-quality rules | `content/lexical/CONTENT_ASSET_CONTRACT.md` |
-| Current execution / materialization mechanics | `content/lexical/CONTENT_EXECUTION.md` + exact active tool when needed |
 | Word semantic truth | `content/lexical/words/` |
 | Cross-word confusable / contrast truth | `content/lexical/relations/` |
 | Form / spelling / pronunciation / inflection identity | exact Word Form/Identity owner |
 | Derived final learner objects | `content/lexical/learner/final/` |
 | Independent semantic audit method | `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md` |
+| Materialization mechanics | `content/lexical/CONTENT_EXECUTION.md` + exact active tool |
 | Visual/product design | `static-web/LEXICAL_PRODUCT_BRIEF.md` |
 | Final acceptance | `content/lexical/ACCEPTANCE.md` |
 
@@ -58,24 +65,19 @@ Historical A/B/C campaigns, BF branches, batch boards, checkpoint narratives and
 - one Main Word remains the learning container;
 - cross-word confusion belongs to Relation, not a fake Sense;
 - spelling/capitalization/pronunciation/inflection belongs to Form/Identity, not a fake Relation;
-- worth knowing does not automatically mean Core or prebuilt Repair;
-- L3 / rare / reference-only does not mean delete;
-- Fast Pass stays cheap while rich Depth remains available where intrinsic lexical risk earns it;
+- worth knowing does not automatically mean Core or Repair;
+- valid low-value truth may remain Reference without default Study/Repair debt;
 - lookup alone creates no Repair/mastery state;
-- content maintenance does not reopen accepted UI without a real renderer/product defect.
+- learner evidence may expose a defect but does not become semantic authority;
+- content maintenance does not reopen accepted UI/runtime semantics without a real consumer defect;
+- Final Learner Objects are derived assets; they never become a competing semantic owner.
 
-Exact semantic and pronunciation rules remain in the Content/Learning/Final owners, not this cursor.
+Exact semantic, pronunciation, audit and projection rules stay in their existing owners, not this cursor.
 
-## Batched semantic-review boundary
+## Concurrency / stop
 
-#1166 is authorized to review the Current 7,946 Main Words in bounded batches, but it is a **review program, not a mechanical rewrite**. Current owner truth stays canonical. Each object may remain unchanged; Reference preserves valid low-value truth without default Study/Repair debt; learner evidence may expose defects but never becomes semantic authority.
+#1166 may proceed batch by batch under its own accepted scope. An overlapping writer blocks only the exact shared owner/write-set; unrelated Lexical, English or Website work remains independent.
 
-Reuse #1155's delivered decisions as calibration without re-litigating them absent new evidence. Refresh exact owners before writes and keep unrelated IPA, latency, UI, scheduling and learner-state work outside this task.
+When #1166 closes or is replaced, update this pointer once. Do not leave the retired Issue, a merged PR, a closed calibration task or a historical batch document as a second Next.
 
-## Reopen / stop
-
-Ordinary learning uses the English learner path, not this engineering cursor.
-
-For BUILD / CONTROL, continue only the live #1166 frontier or a concrete independently owned defect/new Source/explicit scope. When #1166 is closed or replaced, update this routing pointer once; do not leave the retired Issue as a parallel Next.
-
-Historical campaign and delivery snapshots are not continuation authority. The pre-cleanup cursor remains available only as Git history; do not use its old Next as current work.
+Historical campaigns and delivery evidence remain in Git history / their exact owners and stay outside normal continuation.
