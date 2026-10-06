@@ -25,14 +25,13 @@
           "pos": "noun",
           "sense_ids": [
             "sense:guide:06cd154f625450b3",
-            "sense:guide:b2466b26b4fe590f",
-            "sense:guide:94f47b572b5e5408"
+            "sense:guide:b2466b26b4fe590f"
           ]
         }
       ],
       "core_meaning_cn": "引导；向导",
       "core_meaning_en": "to lead or direct; a person or thing that shows the way",
-      "mental_model_cn": "引导；向导",
+      "mental_model_cn": "person → 向导；book/manual → 指南；verb → 带路或指导。机械/工程导向装置义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -140,30 +139,6 @@
         "sense_id": "sense:guide:b2466b26b4fe590f",
         "sense_label_en": "a book or manual giving information or instructions",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e3fbe44eb49c8482446d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:guide:94f47b572b5e5408:collocation:0"
-            ],
-            "meaning_cn": "导轨",
-            "phrase": "a guide rail"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "路标；导向装置",
-        "definition_en": "a structure or marking that directs motion or positioning",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:guide:94f47b572b5e5408",
-        "sense_label_en": "a structure or marking that directs motion or positioning",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -673,7 +648,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e3fbe44eb49c8482446d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:guide:94f47b572b5e5408:collocation:0"
+          ],
+          "meaning_cn": "导轨",
+          "phrase": "a guide rail"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "路标；导向装置",
+      "definition_en": "a structure or marking that directs motion or positioning",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:guide:94f47b572b5e5408",
+      "sense_label_en": "a structure or marking that directs motion or positioning",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -699,7 +699,7 @@
       },
       {
         "sense_id": "sense:guide:94f47b572b5e5408",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6213,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
@@ -716,8 +716,7 @@
       "collocation:362316bb673f715a3dc7",
       "collocation:7d14e9981550a9188294",
       "collocation:929514b47c73051acee0",
-      "collocation:a1c14eebb14e475c77d8",
-      "collocation:e3fbe44eb49c8482446d"
+      "collocation:a1c14eebb14e475c77d8"
     ],
     "facts": [
       {
@@ -750,7 +749,9 @@
       {
         "id": "collocation:e3fbe44eb49c8482446d",
         "source_row": 19302,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

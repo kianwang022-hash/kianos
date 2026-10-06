@@ -680,7 +680,7 @@
     "ordinal": 2245,
     "word": "hammer",
     "source_owner_path": "content/lexical/words/by-ordinal/o2245.json",
-    "source_fingerprint": "9b753587b533f427a261015f8f4c47fa37a9389bf20de62f1b8102d3511820d3",
+    "source_fingerprint": "f052a9c447a64808a66bcdb2d9e8e6804b112dd9bf940d5dce3d3c6efcc80432",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -691,7 +691,7 @@
     },
     "word_feel": {
       "summary_cn": "敲击工具",
-      "decision_cn": "",
+      "decision_cn": "tool → 锤子；literal verb → 锤打/反复敲击；hammer out an agreement/solution → 经过讨论敲定。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -825,7 +825,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hammer:hammer-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hammer out sth / hammer sth out",
+        "lines": [
+          {
+            "text": "经过充分讨论/争论后达成或敲定（协议、方案等）",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative agreement/solution phrasal verb; distinct from literal hammering",
+            "lang": "en"
+          },
+          {
+            "text": "to reach or produce an agreement or solution after detailed discussion or argument",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hammer:hammer-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hammer out sth / hammer sth out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -967,7 +993,7 @@
     "ordinal": 2247,
     "word": "hand",
     "source_owner_path": "content/lexical/words/by-ordinal/o2247.json",
-    "source_fingerprint": "27d2750e6a0b73a0dbfaf39304e98cd443b58c8013b71026d91c2d91cc1b7d93",
+    "source_fingerprint": "d5d9a6e235036e4eaf5154dd882bff88ea252f7db3e60a425864d717f6579ca5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1254,6 +1280,31 @@
           "target_id": "construction:6e191727a14bfda38ce6",
           "target_locator": "record.constructions[0]",
           "target_label": "on the one hand ... on the other hand ..."
+        }
+      },
+      {
+        "id": "construction:hand:at-hand",
+        "source_locator": "record.constructions[1]",
+        "pattern": "at hand / the task or matter at hand",
+        "lines": [
+          {
+            "text": "在手边；临近；当前正在处理",
+            "lang": "cn"
+          },
+          {
+            "text": "idiomatic availability/current-focus use; not literal body-part possession",
+            "lang": "en"
+          },
+          {
+            "text": "near or available, or currently being dealt with",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hand:at-hand",
+          "target_locator": "record.constructions[1]",
+          "target_label": "at hand / the task or matter at hand"
         }
       }
     ],

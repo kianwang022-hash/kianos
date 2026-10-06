@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:guy:you-guys",
+        "direction": "R",
+        "level": "L1",
+        "meaning_cn": "大家；各位（主要美式，复数，可称呼任何性别的一群人）",
+        "definition_en": "used, especially in American English, to address a group of people of any gender",
+        "pattern": "you guys / guys",
+        "source_sense_id": "sense:guy:9d4a4f75f34852a5",
+        "boundary": "plural group-address use; not the technical guy-wire lexeme"
+      }
+    ],
     "content_hash": "0efe8342335340e049eba4aac2b015ac6c7560c8193dbc0eebba8ed8564442d6",
     "core_concept": {
       "core_clusters": [
@@ -19,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "家伙；男人（非正式）",
-      "core_meaning_en": "an informal term for a man/person",
-      "mental_model_cn": "家伙；男人（非正式）",
+      "core_meaning_cn": "家伙；男人；复数 guys 也可泛指/称呼一群人",
+      "core_meaning_en": "informal person/man; plural guys can address a mixed group",
+      "mental_model_cn": "singular guy → 非正式“家伙/男人”；guys/you guys → 大家、各位。支索/拉线及旧式“嘲弄”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,88 +46,16 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "家伙；男人（非正式）",
-        "definition_en": "an informal term for a youth or man",
+        "definition_cn": "家伙；男人（非正式）；复数 guys 也常用于称呼一群人",
+        "definition_en": "informal: a man or person; plural guys is also commonly used to address a group of people of any gender",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:guy:9d4a4f75f34852a5",
-        "sense_label_en": "an informal term for a youth or man",
+        "sense_label_en": "informal: a man or person; plural guys is also commonly used to address a group of people of any gender",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3519618be8956710f00c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:guy:c2e20cf020fa5a39:collocation:0"
-            ],
-            "meaning_cn": "拉线，支索",
-            "phrase": "guy wire"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "支索，拉线",
-        "definition_en": "a cable, wire, or rope used to brace something",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:guy:c2e20cf020fa5a39",
-        "sense_label_en": "a cable, wire, or rope used to brace something",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:44c7650a8ba4096c5b50",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:guy:ae80ad5bd7fe5cfa:collocation:0"
-            ],
-            "meaning_cn": "用支索固定某物",
-            "phrase": "guy + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "用支索撑住",
-        "definition_en": "steady or support with a guy wire or cable",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:guy:ae80ad5bd7fe5cfa",
-        "sense_label_en": "steady or support with a guy wire or cable",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:63ae22e5386daebff1a8",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:guy:098ffa2b70d4557e:collocation:0"
-            ],
-            "meaning_cn": "取笑某人",
-            "phrase": "guy + sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "取笑，嘲弄",
-        "definition_en": "make fun of or tease",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:guy:098ffa2b70d4557e",
-        "sense_label_en": "make fun of or tease",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -263,12 +202,85 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3519618be8956710f00c",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:guy:c2e20cf020fa5a39:collocation:0"
+          ],
+          "meaning_cn": "拉线，支索",
+          "phrase": "guy wire"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "支索，拉线",
+      "definition_en": "a cable, wire, or rope used to brace something",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:guy:c2e20cf020fa5a39",
+      "sense_label_en": "a cable, wire, or rope used to brace something",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:44c7650a8ba4096c5b50",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:guy:ae80ad5bd7fe5cfa:collocation:0"
+          ],
+          "meaning_cn": "用支索固定某物",
+          "phrase": "guy + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "用支索撑住",
+      "definition_en": "steady or support with a guy wire or cable",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:guy:ae80ad5bd7fe5cfa",
+      "sense_label_en": "steady or support with a guy wire or cable",
+      "sort_order": 2,
+      "transitivity": "vt"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:63ae22e5386daebff1a8",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:guy:098ffa2b70d4557e:collocation:0"
+          ],
+          "meaning_cn": "取笑某人",
+          "phrase": "guy + sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "取笑，嘲弄",
+      "definition_en": "make fun of or tease",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:guy:098ffa2b70d4557e",
+      "sense_label_en": "make fun of or tease",
+      "sort_order": 3,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:guy:098ffa2b70d4557e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6237,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
@@ -282,40 +294,42 @@
       },
       {
         "sense_id": "sense:guy:ae80ad5bd7fe5cfa",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6239,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
       },
       {
         "sense_id": "sense:guy:c2e20cf020fa5a39",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6240,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
       }
     ],
-    "active_collocations": [
-      "collocation:3519618be8956710f00c",
-      "collocation:44c7650a8ba4096c5b50",
-      "collocation:63ae22e5386daebff1a8"
-    ],
+    "active_collocations": [],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:3519618be8956710f00c",
         "source_row": 4497,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:44c7650a8ba4096c5b50",
         "source_row": 5815,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:63ae22e5386daebff1a8",
         "source_row": 8400,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e84a9d8fd1c6da316ca6",
