@@ -120,22 +120,37 @@
     "ordinal": 1026,
     "word": "consist",
     "source_owner_path": "content/lexical/words/by-ordinal/o1026.json",
-    "source_fingerprint": "13b69d9684747cfa51d3ec506eced4ab2e456ef2ebc494d74368eb8052e0b05f",
-    "sense_lineage": [],
+    "source_fingerprint": "fcdf9e2af1abc6249343b41d437aa5f88e4d43a8156e10c763238ec9a556c6cd",
+    "sense_lineage": [
+      {
+        "word_id": "word:consist",
+        "target_kind": "sense",
+        "from_target_id": "sense:consist:0da790e2a63f5c56",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:consist",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:aead843f8fc9fbbbfa01",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "组成；在于",
-      "decision_cn": "",
+      "summary_cn": "由…组成；在于",
+      "decision_cn": "consist of → 由…组成；consist in → 本质在于。罕见的 consist with = 与…一致保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "组成；在于"
+        "target_label": "由…组成；在于"
       }
     },
     "senses": [
@@ -200,37 +215,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "存在于；在于"
         }
-      },
-      {
-        "id": "sense:consist:0da790e2a63f5c56",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "一致；符合",
-        "definition_en": "to be in agreement or harmony",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:aead843f8fc9fbbbfa01",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "consist with + sth",
-            "meaning_cn": "与...一致",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:aead843f8fc9fbbbfa01",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "consist with + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:consist:0da790e2a63f5c56",
-          "target_locator": "record.senses[2]",
-          "target_label": "一致；符合"
-        }
       }
     ],
     "pronunciation_support": {
@@ -269,7 +253,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:aead843f8fc9fbbbfa01",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:consist:0da790e2a63f5c56:collocation:0"
+              ],
+              "meaning_cn": "与...一致",
+              "phrase": "consist with + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "一致；符合",
+          "definition_en": "to be in agreement or harmony",
+          "governing_pattern": "vi. + with",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:consist:0da790e2a63f5c56",
+          "sense_label_en": "to be in agreement or harmony",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -3465,22 +3475,37 @@
     "ordinal": 1046,
     "word": "contemplate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1046.json",
-    "source_fingerprint": "9da397a534741be0edb5b013f724a6133b0e19fd2a56d603600c5a68ecb6060c",
-    "sense_lineage": [],
+    "source_fingerprint": "b61c57ab2612b85abec190c584e73c35ddf7efac20b698fb5a3931e53d828e08",
+    "sense_lineage": [
+      {
+        "word_id": "word:contemplate",
+        "target_kind": "sense",
+        "from_target_id": "sense:contemplate:2569afd655df5cb9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:contemplate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d595942ec320bcc79c93",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "沉思，考虑",
-      "decision_cn": "",
+      "summary_cn": "沉思；认真考虑",
+      "decision_cn": "think about sth deeply → 沉思；consider doing/change → 认真考虑。文学性的“凝视”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "沉思，考虑"
+        "target_label": "沉思；认真考虑"
       }
     },
     "senses": [
@@ -3561,32 +3586,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "考虑，盘算（做某事）"
         }
-      },
-      {
-        "id": "sense:contemplate:2569afd655df5cb9",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "凝视，注视",
-        "definition_en": "to look at something thoughtfully for a long time",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d595942ec320bcc79c93",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "contemplate the stars",
-            "meaning_cn": "凝视星空",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:contemplate:2569afd655df5cb9",
-          "target_locator": "record.senses[2]",
-          "target_label": "凝视，注视"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3645,7 +3644,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d595942ec320bcc79c93",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:contemplate:2569afd655df5cb9:collocation:0"
+              ],
+              "meaning_cn": "凝视星空",
+              "phrase": "contemplate the stars"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "凝视，注视",
+          "definition_en": "to look at something thoughtfully for a long time",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:contemplate:2569afd655df5cb9",
+          "sense_label_en": "to look at something thoughtfully for a long time",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
