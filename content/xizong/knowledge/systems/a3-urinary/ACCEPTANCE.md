@@ -11,6 +11,22 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 
 ---
 
+<a id="a2-a3-reader-consumer-repair-20261006"></a>
+## 2026-10-06｜Delivered A2/A3 reader and Memory consumption repair
+
+**Status: ACCEPTED for the bounded consumer repair in [#1215](https://github.com/kianwang022-hash/kianos/pull/1215).** The [quality audit](https://github.com/kianwang022-hash/kianos/issues/1113#issuecomment-6022003601) correctly separated full-text preservation from usable same-model compressed review. This receipt supersedes the earlier blanket compact-reader/available-external-route proof in the A2/A3 teaching receipts below; it does not revoke their medical owners, Runtime adoption or genuine prior evidence. [Learning Contract §0](../../../LEARNING_CONTRACT.md#learning-outcome) remains the unchanged criterion.
+
+- All **26 actual A2/A3 marked HTML trees** were independently reviewed with closed-details bodies excluded and their summaries retained. **18 readers** needed existing node-owned retrieval keys exposed; **four A2 readers** needed only footer repair; **four readers** remain unchanged. B3's proximal pump/transport and front/back entries, and B5's isotonic/hypotonic/hypertonic/water-excess branches now carry their full formal titles/Prompts at their existing model nodes. All **493 native titles/full Prompts** remain exact once; medical relationships, node order, model prose and explanation answers are unchanged. Answers remain folded. This is semantic node coverage, not a visible-KP quota or a second Recall Map.
+- **31 intentionally model-external whole keys** keep exact existing Core-section destinations. The eight absent B5–B8 file links and same-class local-only footer claims in A3 B1–B4/A2 R9–R12 now resolve to actual Core Framework/MI-G/MI-D, exact KP, admitted cue/answer, Learning and Acceptance owners. Independent review resolved **906 hyperlinks against 55 actual published file versions**, including their frozen paths and selectors; the CI check separately verifies checkout paths/anchors/line bounds. No mirror accounting file was added, and a Core link is not counted as prepared-card admission. Existing A2 holds and the A3 B3 ratio-table hold remain.
+- The existing Memory Workspace alone adapts authored answer grouping into semantic paragraphs/lists and progressively discloses provenance. **230 existing prepared cards** preserve their complete raw answer text/order, conditions, aids, IDs, witnesses, revisions, clean Recall, Reveal/rating behavior and history; no medical or answer owner is rewritten. B3 shows its PCT/TAL/DCT/CD groups and B5 its diagnostic paragraphs after Reveal. Source limits and the diagnostic-only B5 contract remain unchanged.
+- Reviewed product head **`4c0585976cc782f723c6fc47e690901fb89244b5`**, tree **`27881b28e1a38919b9493b83d962a55879c58a4e`**, has exactly 32 reviewed changes and preserves the concurrent Lexical base. Existing A2/A3 test-oracle edits change only the eight/fourteen repaired reader SHA fields; all answer oracles are unchanged. Local reader proof passes **2,498 checks** and rejects the old baseline with **38 targeted failures**; independent Memory review covers **230 cards / 1,898 assertions**. A1/A2/A3 native, freshness, raw-owner, pre-entry, post-Chat, save/history and completion-gate regressions pass.
+- [Memory CI 37509271791](https://github.com/kianwang022-hash/kianos/actions/runs/37509271791) passes both new regressions, all existing native gates, build and the actual Workspace/full A1/A2/A3 release browser journeys. [Artifact 11434835599](https://github.com/kianwang022-hash/kianos/actions/runs/37509271791/artifacts/11434835599), ZIP SHA256 **`c31931f8ef356eafd6929ba7eb66c0edb18767518aeaba6297c9658b3171be24`**, was independently verified and the B3/B5 clean-front and revealed grouping/aid/provenance screenshots inspected. The actual CI checkout is synthetic merge **`6b363e6d5a11b42636de4e759b0955c942e6db8f`**, whose tree equals the reviewed product tree; it is not mislabeled as a literal head checkout.
+- The current check set has **six success / three prior-owner failures / two skipped**, not whole-repository green. [B+C](https://github.com/kianwang022-hash/kianos/actions/runs/37509271796), [A2 Journey](https://github.com/kianwang022-hash/kianos/actions/runs/37509271499) and [QA](https://github.com/kianwang022-hash/kianos/actions/runs/37509271590) retain the exact prior fingerprints `b_biochemistry_repair_missing_axis_fails_closed`, `reviewed_relation_question_exists` and `reviewed_wu_creates_one_visible_memory_repair:0`. The historical Mac `wrong_auto_flips_to_back` check was not scheduled here; it is neither newly failed nor claimed fixed.
+
+**Limits:** this is reader/native-view and isolated synthetic consumer evidence. No new Source pixels/contact, clinical revalidation, real learner U, mastery, learner record or publisher action is claimed. Existing Source/Human holds remain. Main merge placement and actual Current/Stable served release require their own later evidence. Unrelated System preparation is not reopened.
+
+---
+
 <a id="a3-teaching-adoption-20261006"></a>
 ## 2026-10-06｜A3 teaching and prepared Memory System adoption
 
@@ -50,24 +66,24 @@ Actual A3 browser coverage includes all28 complete reviewed answers and aids, KP
 
 ### Exact accepted teaching inputs
 
-All files are `content/xizong/projection/a3-urinary/chat/bNN-teaching.md`. The following SHA256 values bind the independently reviewed compact and expanded bytes; this receipt does not regenerate them.
+All files are `content/xizong/projection/a3-urinary/chat/bNN-teaching.md`. The following SHA256 values bind the independently reviewed repaired reader bytes accepted by the consumer-repair receipt above. Only retrieval-key placement and responsible-owner routing changed; the medical model and folded explanations were not regenerated.
 
 | Block | SHA256 |
 |---|---|
-| B01 | `8c12f7f39fdde00460a70860232f0e792a543763874e7bb526ad638ac02a08a3` |
-| B02 | `4e2ba9870921da5ced97a6f219363ff471e874c7fc79dd4605434d0aad9e9f38` |
-| B03 | `ae6c889288334347c22e44f3aaa08f4e20045330b24e4d8430c24b18c854e0fe` |
-| B04 | `fc6fd44adcb1347831ebb568bce839ad0e79f210513624bc7e2ed4b45a0c2a49` |
-| B05 | `fa187189e28a2757ad665af4c29a9d542ee9fc51f6fde5b78834e151c23a17fd` |
-| B06 | `b5e30a1df7b117702aa4bc8ab847ed5a51a70d764dc515fbe9783439e99b9692` |
-| B07 | `81c0751088da942cf71ca70094218b210f6149adccfc4cb692951194ac88fb40` |
-| B08 | `070615cea24fe8ef4906d0fce204852241079bd80ca8e10c9686fe1e09a9a9fe` |
-| B09 | `e34648c01853349b44bc3e0c7c8f724d13ba8ec31392677b3d3efbf0eef35521` |
-| B10 | `f854687dafa1abae6ed1d52e26da37d1a0a19c8a899660a92b0dc403c34a1afc` |
-| B11 | `d0213cbf3992dc998cac9011cb6a66707a01faf41f8fb43af5373a055117a75d` |
-| B12 | `64bd830afd6719153f377681465ae5819c4b8831a83cde5e17e9babf1b83dbee` |
-| B13 | `e9c46c7995d083e8d91f19ddc2498e1ce90dc2c01483bda7e5b32e9fa4609041` |
-| B14 | `c7a8a1d0d0df6a2eae5795f743fbe32bc709aefb0b843fa176b976e640298474` |
+| B01 | `b438b54d236d848689fcb26b1361a34c12f6bc99a24764d76e67b2abf1fc6750` |
+| B02 | `50bb1722a73a427a4ddf768943ae448dcc50630e1569bd443da4846d24168410` |
+| B03 | `2d376b46364ce0ad7e49fa300b7353aac86a6434c2a2c5ee4b865c99576baafc` |
+| B04 | `e041c0bad168b78b3feb1f73108f9743de62c713ab28bdb1557a3b00d9e25a27` |
+| B05 | `d2a74053772d2e299897b41de7e2724f3186e8bffacc8387ecef1532a5810ac8` |
+| B06 | `64b803249c593d216ce5102a5a70aa8c635f56696714027c3957c978a0b938ef` |
+| B07 | `1acf68686956b67ff42363eac226630929b0be12fc2852a437df0b92e9015948` |
+| B08 | `143a2080808717295a78901e5a9a852c4dc78760a2507edd5e8b872db70a5064` |
+| B09 | `2a7913272435386c78488b13e83a8696d0f36674593dcdf18e8ea017e4e6b966` |
+| B10 | `d4126df0d40c6a71a2b7e2e38712963a895ff3b9934e2a6c2bf7245f51e392ad` |
+| B11 | `d47c7a96310e74121a49fd608b328da4f35b44e5909a1acc1db15f7be365b009` |
+| B12 | `1616e2ee8d8917ba7c966924a8ec579b5c60fc212aade4f28788fad408a17d97` |
+| B13 | `84164cf65e13dd42c46f8d1d52394cc6faf9d81bc151157aba7f2215ac5e0e70` |
+| B14 | `0e1794e5918593a880a03fdcae29b39d1442b4e0d49faa41775f16768ce4bf1b` |
 
 ### Learner and delivery boundary
 
