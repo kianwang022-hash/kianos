@@ -198,13 +198,45 @@ try {
   const assertAnswer = async (page, row) => {
     const answer = page.locator(`[data-memory-answer] [data-prepared-memory="${row.id}"]`);
     assert.equal(await answer.count(), 1); assert.equal(await answer.isVisible(), true);
-    // First paragraph is the complete reviewed answer, not a runtime-derived oracle.
-    assert.equal(normalized(await answer.locator(':scope > p').first().textContent()), normalized(row.answer), `${row.id}: whole independent reviewed answer, every operator/unit/condition preserved`);
+    // The view groups only authored boundaries; the independent reviewed raw
+    // answer remains byte-for-byte text, never a new stored answer or oracle.
+    const body = answer.locator(':scope > [data-memory-prepared-answer]');
+    assert.equal(await body.count(), 1); assert.equal(await body.isVisible(), true);
+    assert.equal(await body.textContent(), row.answer, `${row.id}: exact raw answer, every operator/unit/condition and authored newline preserved`);
+    assert.equal(await body.locator('details').count(), 0, `${row.id}: no answer/condition hidden after Reveal`);
+    const visibility = await answer.evaluate(root => ({
+      hiddenQualifications: [...root.querySelectorAll('p')].filter(p => /^(?:适用范围：|来源差异：|处理边界：|助记（不能代替答案）：)/u.test(p.textContent || ''))
+        .filter(p => !p.getClientRects().length).map(p => p.textContent),
+      openProvenance: root.querySelectorAll('[data-memory-provenance][open]').length,
+      visible: root.innerText
+    }));
+    assert.deepEqual(visibility.hiddenQualifications, [], `${row.id}: all qualifications and aids visible`);
+    assert.equal(visibility.openProvenance, 0, `${row.id}: audit detail starts closed`);
+    assert.ok(normalized(visibility.visible).includes(normalized(row.mnemonic)), `${row.id}: aid stays next to answer`);
+    for (const ref of row.source_refs) assert.ok(!visibility.visible.includes(ref), `${row.id}: long audit URL deferred`);
+    if (row.id === 'a3-b03-lg05-precision') {
+      const groups = body.locator(':scope > [data-memory-answer-group]');
+      assert.deepEqual(await groups.locator(':scope > p > strong').allTextContents(), ['PCT：', 'TAL：', 'DCT：', '集合管主细胞：']);
+      assert.deepEqual(await groups.evaluateAll(nodes => nodes.map(node => node.querySelectorAll('li').length)), [2, 1, 1, 3]);
+      assert.equal(await body.locator('li').count(), 7);
+    }
+    if (row.id === 'a3-b05-lg06-precision') {
+      assert.deepEqual(await body.locator(':scope > p').allTextContents(), row.answer.split('\n'), 'six authored diagnostic steps preserve their entire conditions');
+    }
     const text = normalized(await answer.textContent());
     assert.ok(text.includes(normalized(row.mnemonic)), `${row.id}: complete reviewed aid`);
     for (const ref of row.source_refs) assert.ok(text.includes(normalized(ref)), `${row.id}: provenance retained after Reveal`);
     assert.ok(text.includes('来源（保留记录，非本次原文核验）'), `${row.id}: no fresh Source-contact claim`);
     assert.match(await page.locator('[data-memory-precision-resolution]').textContent(), /已绑定精确答案/);
+    if (['a3-b03-lg05-precision', 'a3-b05-lg06-precision'].includes(row.id)) {
+      const before = await raw(page, memoryKey);
+      const details = answer.locator('[data-memory-provenance]');
+      for (let n = 0; n < await details.count(); n++) await details.nth(n).locator(':scope > summary').click();
+      for (const ref of row.source_refs) assert.ok((await answer.innerText()).includes(ref), `${row.id}: original provenance reachable on demand`);
+      for (let n = 0; n < await details.count(); n++) await details.nth(n).locator(':scope > summary').click();
+      assert.equal(await raw(page, memoryKey), before, `${row.id}: disclosure never changes raw card, identity, refs, ratings or history`);
+      assert.equal(await body.textContent(), row.answer);
+    }
   };
   const assertCleanFront = async (page, slug, selected) => {
     const reviewed = bySlug.get(slug), cards = cardsBySlug.get(slug);
@@ -341,9 +373,9 @@ try {
       await choose(page, slug, row.id); await assertCleanFront(page, slug, row);
       await page.locator('[data-memory-rating="known"]').dispatchEvent('click');
       assert.deepEqual((await read(page, memoryKey)).evidence, [], 'unrevealed Recall cannot rate');
-      if (['a3-b01-kp14-precision', 'a3-b05-lg06-precision', 'a3-b05-kp13-precision', 'a3-b12-kp16-precision'].includes(row.id)) await page.screenshot({ path: path.join(out, `${row.id}-front.png`), fullPage: true });
+      if (['a3-b01-kp14-precision', 'a3-b03-lg05-precision', 'a3-b05-lg06-precision', 'a3-b05-kp13-precision', 'a3-b12-kp16-precision'].includes(row.id)) await page.screenshot({ path: path.join(out, `${row.id}-front.png`), fullPage: true });
       await page.locator('[data-memory-reveal]').click(); await assertAnswer(page, row);
-      if (['a3-b01-kp14-precision', 'a3-b05-lg06-precision', 'a3-b05-kp13-precision', 'a3-b12-kp16-precision'].includes(row.id)) await page.screenshot({ path: path.join(out, `${row.id}-reveal.png`), fullPage: true });
+      if (['a3-b01-kp14-precision', 'a3-b03-lg05-precision', 'a3-b05-lg06-precision', 'a3-b05-kp13-precision', 'a3-b12-kp16-precision'].includes(row.id)) await page.screenshot({ path: path.join(out, `${row.id}-reveal.png`), fullPage: true });
     }
     const selected = reviewed.find(row => row.external_contract_required) || reviewed[0];
     await choose(page, slug, selected.id); await assertCleanFront(page, slug, selected);

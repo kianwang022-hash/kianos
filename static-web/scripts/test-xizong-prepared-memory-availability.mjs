@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import * as memory from '../src/lib/xizongMemoryModel.mjs';
 import * as release from '../src/lib/xizongMemoryRelease.mjs';
 import * as autoRelease from '../src/lib/xizongMemoryAutoRelease.mjs';
+import { preparedMemoryPresentationHtml } from '../src/lib/xizongMemoryPresentation.mjs';
 
 // The real shipped controllers run against a small synthetic DOM/storage
 // adapter. This proves state/control behavior, not Candidate or learner U.
@@ -181,7 +182,7 @@ async function harness({ payload = learner, saved, failSave = false, search = ''
   const context = { document, window, localStorage: storage, URLSearchParams, HTMLElement: Element, Element,
     HTMLInputElement: Input, HTMLTextAreaElement: Input, HTMLAnchorElement: Input,
     CustomEvent: class { constructor(type, opts) { this.type = type; this.detail = opts?.detail; } },
-    learnerWriterReady: Promise.resolve(), console: { error() {} }, ...memory, ...release, ...autoRelease,
+    learnerWriterReady: Promise.resolve(), console: { error() {} }, ...memory, ...release, ...autoRelease, preparedMemoryPresentationHtml,
     XIZONG_SESSION_KEY: 'synthetic-session', studyDayAt: () => 'synthetic-day',
     validateXizongSessionInstruction: () => chat, resolveXizongSessionNext: () => ({ step: chat?.step }) };
   let root, button, status;

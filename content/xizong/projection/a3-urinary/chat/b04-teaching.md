@@ -18,19 +18,22 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b04-kp15"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L637">降支细段：出水、不出NaCl，管液一路变浓〔水/NaCl/尿素3通透轴｜AQP1｜管液渗透压/折返峰｜UT-A2通透程度/逻辑〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp16"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L658">升支细段→粗段→远曲：不出水，只出NaCl，管液一路变稀〔升细/升粗/远曲｜转运体与主动/被动｜共同水通透性｜稀释强度｜进入集合管状态。〕</a></small></p>
+
 <details class="teaching-expansion"><summary>沿管液推进</summary>
 
 
 
 近端等渗液进入降支细段，AQP1使水高度通透，NaCl相对不容易通过这段管壁；外部髓质间质越深、渗透压越高，水越能沿渗透梯度离开管腔，管液越走越浓，到髓袢折返最高。UT-A2对尿素中等通透，让内髓尿素适度进入管腔；若进入过多，会减小水外流的渗透差，并削弱以后升细段NaCl被动外流。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp15"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L637">降支细段：出水、不出NaCl，管液一路变浓〔水/NaCl/尿素3通透轴｜AQP1｜管液渗透压/折返峰｜UT-A2通透程度/逻辑〕</a></small>
+
 
 折返后升细段不透水，高浓管液NaCl可被动流入内髓；升粗段同样不透水，却用NKCC2主动回收NaCl，外髓高渗增加、管液显著稀释。远曲NCC继续拿盐不拿水，进入集合管时课程模型中已低渗。
 
 这不是一次静态交换就做完：持续滤过不断补入新液、推动沿袢流动，让每层水盐分离反复发生，形成皮质至乳头的纵向梯度。NKCC2是逆流倍增的重要起始动力；持续流动把局部横向差异累积到纵向，不能只列各段转运体而漏掉这一步。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp16"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L658">升支细段→粗段→远曲：不出水，只出NaCl，管液一路变稀〔升细/升粗/远曲｜转运体与主动/被动｜共同水通透性｜稀释强度｜进入集合管状态。〕</a></small>
+
 
 低渗液进入集合管后仍可回收ENaC相关Na，但终尿水量由另一扇门决定。ADH低，顶端AQP2少，水通透性低，稀管液保持稀，交出大量低渗尿；ADH高，AQP2上膜，水沿髓质高渗被拿回，内髓尿素回流又加强，能形成少量高渗尿。终尿可低、等或高渗，不由“进入时低渗”锁死。
 
@@ -58,6 +61,11 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b04-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L525">外髓 vs 内髓：外髓靠NaCl，内髓靠NaCl+尿素〔外髓 vs 内髓高渗来源｜主要溶质｜皮质→髓质梯度｜集合管水动力〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp12"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L548">U形直小血管：逆流交换“只带走多余，尽量不洗掉梯度”〔直小血管降/升支水盐方向｜折返峰值｜梯度维持｜流量两端风险〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L582">尿素再循环：A2入管，A1/A3出管，UT-B帮直小血管交换〔3段通透性｜UT-A2｜UT-A1/A3｜UT-B｜循环路线｜作用｜vs 生化尿素循环。〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp14"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L612">AQP地图：AQP1负责固定通水，AQP2负责激素可调通水〔AQP1三处/调节｜AQP2位置/膜侧｜AQP3/4｜尿崩断点〕</a></small></p>
+
 <details class="teaching-expansion"><summary>梯度建立、维持与通路</summary>
 
 
@@ -66,17 +74,17 @@
 
 外髓的高渗状态主要由NaCl维持，内髓的高渗状态由NaCl和尿素共同维持，课程内髓各约50%、最深约1200mOsm/L/血浆四倍是示意数值。外髓集合管主要用盐梯度，内髓还依赖尿素，空间与溶质来源比单背1200更能解释故障。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L525">外髓 vs 内髓：外髓靠NaCl，内髓靠NaCl+尿素〔外髓 vs 内髓高渗来源｜主要溶质｜皮质→髓质梯度｜集合管水动力〕</a></small>
+
 
 直小血管深入时，周围更高渗，溶质从间质进入血液，水从血液进入间质；血浆渗透压沿降支逐步升高、折返处最高；折返上行，血相对同层间质更高渗，溶质从血液返回间质，水从间质进入血液。U形逆流交换让它带走回收水和多余溶质，同时尽量返还NaCl/尿素。它是维持器，不是另一个NKCC2梯度发动机。直小血管血流太快会洗出髓质溶质，血流过低又会造成缺氧、损害主动转运，不能教成越慢越好。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp12"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L548">U形直小血管：逆流交换“只带走多余，尽量不洗掉梯度”〔直小血管降/升支水盐方向｜折返峰值｜梯度维持｜流量两端风险〕</a></small>
+
 
 尿素也有自己的闭路：内髓间质经降细UT-A2进管，升支、远曲、皮质/外髓集合管尿素通透性低，水回收使尿素渐浓；到内髓集合管，ADH增加UT-A1/A3所介导的尿素通透性，尿素返回间质，再进入降支细段。直小血管UT-B帮助逆流交换。这个再循环让尿素留在内髓支撑高渗，和肝鸟氨酸尿素循环解毒氨是不同任务。
 
 AQP1在近端、降细、直小血管构成较固定水通路；AQP2在集合管主细胞顶端/胞质囊泡可调，基底AQP3/4提供另一侧接口。只有把两膜和外部环境一起看，才知道“有水通道”为什么仍不保证浓缩。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L582">尿素再循环：A2入管，A1/A3出管，UT-B帮直小血管交换〔3段通透性｜UT-A2｜UT-A1/A3｜UT-B｜循环路线｜作用｜vs 生化尿素循环。〕</a></small> <small class="kp-annotation" data-kp="urinary-b04-kp14"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L612">AQP地图：AQP1负责固定通水，AQP2负责激素可调通水〔AQP1三处/调节｜AQP2位置/膜侧｜AQP3/4｜尿崩断点〕</a></small>
+ 
 
 
 
@@ -94,6 +102,8 @@ ADH在下丘脑合成、神经垂体储放；主细胞基底V2→G蛋白/AC/cAMP
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b04-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L401">ADH释放：先看晶体渗透压，再看有效循环量〔渗透/容量双入口｜促抑因素｜出汗/胃肠丢失｜清水vs盐水〕</a></small></p>
+
 <details class="teaching-expansion"><summary>水门的输入与效应</summary>
 
 
@@ -106,7 +116,7 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 呕吐腹泻不能一概高渗，要看丢什么和补什么；即使不高渗，有效循环下降与恶心也可非渗透促ADH。尿量变化因此不必先假设GFR大变。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L401">ADH释放：先看晶体渗透压，再看有效循环量〔渗透/容量双入口｜促抑因素｜出汗/胃肠丢失｜清水vs盐水〕</a></small>
+
 
 
 
@@ -124,6 +134,13 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b04-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L187">四个系统的最小分工：交感抢救、RAAS保压保盐、ADH保水、ANP卸载〔4系统｜输入/肾端/终尿｜快慢接力〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp02"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L207">交感 + AngⅡ：轻中度先保GFR，严重时“少滤 + 多吸收”〔交感4路｜AngⅡ低/高浓度靶点对照｜近端｜醛固酮/ADH｜尿量总效应。〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L246">肾素释放：先抓三大稳定输入，再处理 Source-specific 调节因子〔肾素3输入/双向｜NaCl→TGF与肾素2出口｜AngⅡ短反馈｜低频调节的条件边界〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp04"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L313">醛固酮肾端：ENaC吸Na⁺、排K⁺与水随行条件〔醛固酮：来源/刺激｜靶点/受体｜Na⁺/水/K⁺方向｜允许作用｜ACTH边界〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L343">原醛 vs Liddle：表型相似，激素方向与靶点相反〔共同表型2｜第一故障｜肾素/醛固酮双轴｜肾上腺｜药物靶点〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b04-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L440">ANP肾端：提高滤过、减少回收、关闭保容量系统〔牵拉入口/刺激名单｜肾小球→滤过｜小管cGMP｜抑制3激素｜血管/重构〕</a></small></p>
+
 <details class="teaching-expansion"><summary>保盐、排钾与容量卸载</summary>
 
 
@@ -132,25 +149,25 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 轻中低灌注时较低浓度AngⅡ偏向收缩出球小动脉，维持肾小球压力和相对GFR，同时增加近端重吸收；严重低灌注时，较高浓度AngⅡ可显著收缩入球小动脉、降低Kf，并促进醛固酮和ADH作用。滤过减少与重吸收增加共同使尿量明显减少。局部反馈使GFR恢复不保证终尿增，须加小管回收，不能把AngⅡ方向写死。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L187">四个系统的最小分工：交感抢救、RAAS保压保盐、ADH保水、ANP卸载〔4系统｜输入/肾端/终尿｜快慢接力〕</a></small> <small class="kp-annotation" data-kp="urinary-b04-kp02"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L207">交感 + AngⅡ：轻中度先保GFR，严重时“少滤 + 多吸收”〔交感4路｜AngⅡ低/高浓度靶点对照｜近端｜醛固酮/ADH｜尿量总效应。〕</a></small>
+ 
 
 肾素稳定三输入是入球灌注低、球旁β₁强、致密斑NaCl少。到达致密斑的NaCl较高时，一方面通过ATP/腺苷相关TGF信号促进入球小动脉收缩，另一方面抑制肾素释放。NaCl较低时，一方面减弱快速入球收缩信号，另一方面通过PGE₂等促进肾素释放，两出口分别存在。AngⅡ又负反馈抑入口，避免下游无限推高自己。
 
 长期低盐在课程模型中可因水随Na变化而使容量减少，但实际须确认灌注和NaCl递送，不等于必低压。NO在JGA/致密斑有情境依赖、常见允许/促进，不无条件记抑肾素；其余历史多巴、缓激肽、ET、VP、ANP等促抑名单回B1，保留Source低频信息而不制造第二套因果主干。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L246">肾素释放：先抓三大稳定输入，再处理 Source-specific 调节因子〔肾素3输入/双向｜NaCl→TGF与肾素2出口｜AngⅡ短反馈｜低频调节的条件边界〕</a></small>
+
 
 醛固酮来自肾上腺球状带，主要受AngⅡ和血K调节，应激时ACTH也可促进其释放。进入主细胞结合胞内核受体/转录因子，增ENaC、Na-K泵、ATP合酶等，直接增加Na重吸收和K排泄；只有水通透性及梯度允许时水才随行，不能把远曲稀释段也写成直接保水。课程增强血管对缩血管物质敏感性的允许作用保留；糖皮质的主要ACTH控制与此不同。
 
 原醛与Liddle都可高压低K，第一故障却不同：前者的醛固酮自主升高、肾素受抑，可有肾上腺肿瘤或增生，药物靶点对应MR拮抗；后者的ENaC因遗传异常而过度活跃，容量反馈使肾素和醛固酮都降低，没有相应肾上腺增生，药物靶点对应ENaC抑制。完整原醛筛查定位留内分泌。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp04"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L313">醛固酮肾端：ENaC吸Na⁺、排K⁺与水随行条件〔醛固酮：来源/刺激｜靶点/受体｜Na⁺/水/K⁺方向｜允许作用｜ACTH边界〕</a></small> <small class="kp-annotation" data-kp="urinary-b04-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L343">原醛 vs Liddle：表型相似，激素方向与靶点相反〔共同表型2｜第一故障｜肾素/醛固酮双轴｜肾上腺｜药物靶点〕</a></small>
+ 
 
 心房牵拉则发出ANP卸载信号，课程CVP/容量高、头低足高、浸水和CGRP/NE/ACh/ADH/K升经回心牵拉的名单保留。肾端入球及系膜舒张增滤过/Kf，课程GFR/FF升；cGMP抑集合管Na通道、少回收盐水，又抑肾素、醛固酮、ADH，对抗RAAS/ET/NE。课程舒血管、抑血管/心肌成纤维增殖、心率搏量血压下降方向保留，不在此重新建立BNP心衰诊断。
 
 三轴比较才不会换错药：ADH是肽类激素，主要响应渗透压变化，通过V2受体增加水通透性；醛固酮是类固醇激素，响应AngⅡ和血K，通过核受体调节Na重吸收与K排泄；ANP是肽类激素，响应心房牵拉，从滤过和重吸收两端减轻容量负荷。托伐普坦减少水回收、课程不增加排Na的水利尿接口，螺内酯/依普利酮则切保Na排K；ANP没有当前完整拮抗治疗模型。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L440">ANP肾端：提高滤过、减少回收、关闭保容量系统〔牵拉入口/刺激名单｜肾小球→滤过｜小管cGMP｜抑制3激素｜血管/重构〕</a></small>
+
 
 
 
@@ -168,6 +185,8 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b04-kp18"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L733">浓缩功能下降：先定位三层故障〔梯度形成4类｜梯度维持2端｜水通透性2断点｜每类例子｜夜尿/低比重接口。〕</a></small></p>
+
 <details class="teaching-expansion"><summary>反向定位多尿</summary>
 
 
@@ -176,7 +195,7 @@ ADH释放的最重要输入是血浆晶体渗透压上升，容量或动脉压�
 
 水利尿首先发生在末端水通透性降低的环节，典型情境是饮清水或尿崩，尿液明显变稀；渗透性利尿首先来自管腔中难以回收的溶质增多，典型情境是高糖、甘露醇或SGLT2抑制，尿渗由溶质负荷决定，不保证很低。先读尿是否稀、有没有大量溶质，再回水门、梯度或近端处理，B5才将这些正常模型用于临床水钠钾酸碱。
 
-<small class="kp-annotation" data-kp="urinary-b04-kp18"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L733">浓缩功能下降：先定位三层故障〔梯度形成4类｜梯度维持2端｜水通透性2断点｜每类例子｜夜尿/低比重接口。〕</a></small>
+
 
 
 
@@ -194,11 +213,13 @@ Source范围：生理Lecture P280–292；U026本章36题，与B3的28题同一�
 
 读取实际 System Learning `content/xizong/knowledge/learner/a3-urinary-learning.json#/blocks/urinary-b04`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
 
-未决/限制：已读P285逆流系统、P287渗透轨迹两SourceVisual的身份/provenance，未声称本轮像素验收；shared retention为空，无precision。NO、低盐、ADH胃肠丢失和水随Na条件均继承formal。完整DI/SIADH/原醛和现代药物诊疗不扩写。
+未决/限制：已读P285逆流系统、P287渗透轨迹两SourceVisual的身份/provenance，未声称本轮像素验收；Prepared Memory准入及保留项见下方现有owner。NO、低盐、ADH胃肠丢失和水随Na条件均继承formal。完整DI/SIADH/原醛和现代药物诊疗不扩写。
 
 
 
-完整Current Core：[本章原有知识owner](https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md). 精确数值、名单及非KP去向逐项列在本地 disposition；未制成可用卡片的内容不计Prepared Memory。原有原图门禁及所有Source范围保留，未记录新的Source接触。
+<p>完整知识与非KP去向沿现有owner回查：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md">本章Core</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L90-L146">1｜总 Framework</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L795-L815">7｜Framework Reconstruction</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L816-L817">8｜Memory Routing</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L818-L836">8.1 MI-G｜第一轮必须即时掌握</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block4_%E5%AE%B9%E9%87%8F%E6%BF%80%E7%B4%A0%E4%B8%8E%E5%B0%BF%E6%B6%B2%E6%B5%93%E7%BC%A9%E7%A8%80%E9%87%8A_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L837-L852">8.2 MI-D｜进入 MarginNote 3</a>。阈值、名单、比较与未准入项保留这些原有章节，不因折叠而删除，也不自动成为已入队卡片。</p>
+<p>本章现有Prepared Memory：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L213">a3-b04-lg03-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L8941">完整答案、条件与助记</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L300">a3-b04-kp05-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L9035">完整答案、条件与助记</a>。<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md#L14">采用范围与仍未解决的限制</a>。原生准入与本人的Recall、评分、到期或完成记录仍分开。</p>
+<p>LG、原Source与支持的定位：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning.json#L64">本章Learning</a>（/blocks/urinary-b04）；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1303">a3-b04-lg03-visual · 原图任务</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1312">a3-b04-lg04-visual · 原图任务</a>。原图的来源范围、时机与现有HOLD保持；本次未新增原PDF像素验收、Source接触或学习完成。</p>
 
 
 </details>

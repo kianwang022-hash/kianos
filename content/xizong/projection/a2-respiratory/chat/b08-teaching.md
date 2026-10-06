@@ -14,6 +14,9 @@
 
 继续这条关系：[通气与换气定位](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md#L350)。
 
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r08-kp03" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L238">低氧机制坐标：通气、VA/Q、弥散、分流不能混成一个词〔课程5组｜4机制｜V/Q/弥散｜CO₂条件〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp01" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L166">ILD 的入口：进行性气短、干咳与两个 IPF 特殊体征〔症状2｜特殊2｜听诊4点｜HRCT总入口〕</a></p>
+
 <details id="r08-mechanics-exchange-explain">
 <summary>展开容量、流量、弥散与临床入口</summary>
 
@@ -23,7 +26,7 @@
 
 所以一秒呼出量少，不能独自判阻塞；FVC低也不能独自确认限制，需要TLC。RV是最大呼气后仍留在肺内的残气量：单纯限制常低，其他亚型可相对保留甚至高。RV/TLC描述总容量中残气所占比例，单纯限制常正常、复杂限制可升高；这个比值高不会自动取消限制。
 
-间质增厚增加氧跨膜距离，DLCO和PaO₂下降。 <a class="kp-binding" data-kp-id="respiratory-r08-kp03" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L238">低氧机制坐标：通气、VA/Q、弥散、分流不能混成一个词〔课程5组｜4机制｜V/Q/弥散｜CO₂条件〕</a> CO₂溶解度高、扩散快，单纯弥散通常不引起CO₂潴留；若出现高CO₂，要重新考虑其他通气条件，不能用低DLCO解释所有血气。
+间质增厚增加氧跨膜距离，DLCO和PaO₂下降。  CO₂溶解度高、扩散快，单纯弥散通常不引起CO₂潴留；若出现高CO₂，要重新考虑其他通气条件，不能用低DLCO解释所有血气。
 
 课程把COPD/哮喘配肺泡通气下降、PE/肺炎配VA/Q、一般ILD配弥散、蛋白沉着和ARDS配分流，保留出题方向，但R2模型仍有效：气道病区域V/Q也重要，整体通气下降更直接解释CO₂；ILD也可V/Q与弥散同时受损。课程五组配对不是每病只许一个机制。
 
@@ -34,7 +37,7 @@
            空间不同，低氧并非同一个故障
 ```
 
-临床进行性气短、干咳少痰使我们进入这一功能坐标。 <a class="kp-binding" data-kp-id="respiratory-r08-kp01" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L166">ILD 的入口：进行性气短、干咳与两个 IPF 特殊体征〔症状2｜特殊2｜听诊4点｜HRCT总入口〕</a> 双肺底、吸气末、高调细湿Velcro爆裂音和杵状指，是课程IPF高识别入口。HRCT再看网格、蜂窝、牵拉及分布，形态词本身不能专属病名。
+临床进行性气短、干咳少痰使我们进入这一功能坐标。  双肺底、吸气末、高调细湿Velcro爆裂音和杵状指，是课程IPF高识别入口。HRCT再看网格、蜂窝、牵拉及分布，形态词本身不能专属病名。
 
 </details>
 
@@ -50,16 +53,19 @@ IPF把功能异常连到双肺外带、胸膜下、基底网格/蜂窝，伴或�
 
 继续这条关系：[支扩症的管壁诊断门槛](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L138)；[呼衰的氧合/通气失败入口](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L673)。
 
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r08-kp04" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L269">IPF 证据链：基底胸膜下 + 蜂窝 + 牵拉支扩〔临床识别/体征2｜BALF2轴｜HRCT分布/形态3｜活检条件〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp05" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L307">IPF 治疗：延缓纤维化、改善氧合，肺移植最有效〔移植｜药物证据｜急加重｜通气条件〕</a></p>
+
 <details id="r08-ipf-traction-explain">
 <summary>展开IPF证据、结构边界与治疗目标</summary>
 
-IPF是特发性肺纤维化，BALF是支气管肺泡灌洗液；IPF的课程组合是进行性干咳气短、Velcro/杵状指、限制加DLCO低，HRCT双肺外带、胸膜下、基底，网格蜂窝，可伴牵拉支扩；BALF中性粒、嗜酸粒增加是支持接口。 <a class="kp-binding" data-kp-id="respiratory-r08-kp04" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L269">IPF 证据链：基底胸膜下 + 蜂窝 + 牵拉支扩〔临床识别/体征2｜BALF2轴｜HRCT分布/形态3｜活检条件〕</a> 这不是由BALF一个细胞数确诊，而是将症状、功能与空间放在一起。
+IPF是特发性肺纤维化，BALF是支气管肺泡灌洗液；IPF的课程组合是进行性干咳气短、Velcro/杵状指、限制加DLCO低，HRCT双肺外带、胸膜下、基底，网格蜂窝，可伴牵拉支扩；BALF中性粒、嗜酸粒增加是支持接口。  这不是由BALF一个细胞数确诊，而是将症状、功能与空间放在一起。
 
 课程HRCT不明确接外科活检，canonical已保留先多学科讨论、取样收益风险：合适背景UIP或部分probable UIP可无需活检，高风险尤其谨慎。诊断不确定也不自动等于每个人都要手术取肺。
 
 胶原增加并收缩，会从外侧把邻近支气管拉大，形成牵拉性支扩。R6支扩症却是管壁支撑破坏、肉芽纤维修复，连到脓痰、固定湿音、咯血的独立疾病模型。相同影像“扩张”，上游和管壁身份不同，因此不能让IPF自动继承化脓支扩的全部处理。
 
-治疗也要分目标：尼达尼布、吡非尼酮是抗纤维化角色，氧疗改善低氧，移植在课程中最有效。 <a class="kp-binding" data-kp-id="respiratory-r08-kp05" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L307">IPF 治疗：延缓纤维化、改善氧合，肺移植最有效〔移植｜药物证据｜急加重｜通气条件〕</a> 高剂量NAC虽被课程与两药并列，抗氧化机制并不证明临床保留FVC；canonical已记录单药随机试验未证实、ATS/ERS2015条件性反对，不能将列表改写成三种同等有效药。
+治疗也要分目标：尼达尼布、吡非尼酮是抗纤维化角色，氧疗改善低氧，移植在课程中最有效。  高剂量NAC虽被课程与两药并列，抗氧化机制并不证明临床保留FVC；canonical已记录单药随机试验未证实、ATS/ERS2015条件性反对，不能将列表改写成三种同等有效药。
 
 急加重先评感染等诱因，防控感染不等于常规预防抗菌。课程高剂量激素接口的证据方案不确定，不外推稳定期长期高剂量。多数进展期IPF机械通气预后获益有限的“不推荐”，也不是绝对禁令，可逆诱因、移植桥接等需个体评估；主要低氧不会使支持绝无用途。
 
@@ -75,14 +81,17 @@ IPF是特发性肺纤维化，BALF是支气管肺泡灌洗液；IPF的课程组�
 
 [此处原图任务：内科 P23：结节病 HRCT、支气管镜铺路石样黏膜；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L684)
 
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r08-kp07" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L369">结节病识别：肺门淋巴结 + 皮肤眼部 + 多系统肉芽肿〔入口4｜BALF｜HRCT2｜镜下/镜内｜金标准〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp09" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L422">结节病 vs 肺结核：都可上叶和肉芽肿，但坏死与肺门方向不同〔共性｜肉芽肿/肺门/PPD｜治疗条件〕</a></p>
+
 <details id="r08-granuloma-nodes-explain">
 <summary>展开结节病证据、分期和结核鉴别</summary>
 
-双肺门淋巴结肿大，伴结节性红斑、冻疮样狼疮、葡萄膜炎，提示多系统结节病模型。 <a class="kp-binding" data-kp-id="respiratory-r08-kp07" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L369">结节病识别：肺门淋巴结 + 皮肤眼部 + 多系统肉芽肿〔入口4｜BALF｜HRCT2｜镜下/镜内｜金标准〕</a> HRCT肺门结与沿支气管血管束结节、BALF CD4增加、活检非干酪肉芽肿形成证据层，课程活检为金标准。支气管镜黏膜结节的铺路石描述，必须带“镜下黏膜”，不能与下一节CT铺路石混在一起。
+双肺门淋巴结肿大，伴结节性红斑、冻疮样狼疮、葡萄膜炎，提示多系统结节病模型。  HRCT肺门结与沿支气管血管束结节、BALF CD4增加、活检非干酪肉芽肿形成证据层，课程活检为金标准。支气管镜黏膜结节的铺路石描述，必须带“镜下黏膜”，不能与下一节CT铺路石混在一起。
 
 课程影像I期仅双肺门结，II结加肺浸润，III仅浸润，IV蜂窝纤维化和肺气肿。分期是影像坐标；III肺门结不见，也不能直接宣布痊愈。多数无需治疗，症状严重时激素、课程6–24月，不能让“诊断结节病”自动触发长期用药。
 
-结节病与TB都可有CD4、肉芽肿、上叶/肺门、蜂窝与发热盗汗消瘦、关节及红斑，区别首先在非干酪对干酪、双侧对典型单侧肺门。 <a class="kp-binding" data-kp-id="respiratory-r08-kp09" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L422">结节病 vs 肺结核：都可上叶和肉芽肿，但坏死与肺门方向不同〔共性｜肉芽肿/肺门/PPD｜治疗条件〕</a> PPD前者多阴、TB多阳仍是支持，不越过R7免疫弱假阴的边界。结节病不以空洞为主，继发TB常有；组织、影像、感染证据一起判断。两病疗程不能作共同属性：药敏肺TB课程六个月与需治结节病6–24月完全不同，许多结节病无需药。
+结节病与TB都可有CD4、肉芽肿、上叶/肺门、蜂窝与发热盗汗消瘦、关节及红斑，区别首先在非干酪对干酪、双侧对典型单侧肺门。  PPD前者多阴、TB多阳仍是支持，不越过R7免疫弱假阴的边界。结节病不以空洞为主，继发TB常有；组织、影像、感染证据一起判断。两病疗程不能作共同属性：药敏肺TB课程六个月与需治结节病6–24月完全不同，许多结节病无需药。
 
 </details>
 
@@ -98,14 +107,17 @@ IPF是特发性肺纤维化，BALF是支气管肺泡灌洗液；IPF的课程组�
 
 继续这条关系：[空调相关军团菌感染](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md#L650)。
 
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r08-kp11" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L484">过敏性肺炎：暴露史 + 马赛克磨玻璃 + CD8〔暴露3｜CT｜BALF｜根本1｜药1〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp12" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L509">嗜酸性粒细胞肺炎：肺水肿影反转 + BALF嗜酸粒〔影像1｜BALF1｜治疗1｜与蛋白沉着/过敏比较〕</a></p>
+
 <details id="r08-alveolar-antigen-eosinophil-explain">
 <summary>展开三个空间/炎症模型的同轴比较</summary>
 
 肺泡蛋白沉着主要在腔内，大量表面活性物质样成分堵住正常交换，有灌注却不能充分氧合，课程归肺内分流。磨玻璃和正常区边界鲜明呈地图、CT铺路石或蝴蝶样；BALF奶白、稠厚、可分层、PAS阳性连接腔内内容物，课程治疗全肺灌洗。从这条空间关系就能理解它为什么不是“所有ILD都膜厚”的例子。
 
-过敏性肺炎从抗原暴露出发，鸽子、农民、空调背景接斑片磨玻璃、马赛克与BALF CD8增加。 <a class="kp-binding" data-kp-id="respiratory-r08-kp11" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L484">过敏性肺炎：暴露史 + 马赛克磨玻璃 + CD8〔暴露3｜CT｜BALF｜根本1｜药1〕</a> 根本处理是避免接触，激素是药物接口，不能用激素掩盖持续暴露。单独磨玻璃无特异，空调一词也不能取消R5军团菌的感染方向，要读整体组合。
+过敏性肺炎从抗原暴露出发，鸽子、农民、空调背景接斑片磨玻璃、马赛克与BALF CD8增加。  根本处理是避免接触，激素是药物接口，不能用激素掩盖持续暴露。单独磨玻璃无特异，空调一词也不能取消R5军团菌的感染方向，要读整体组合。
 
-嗜酸性粒细胞肺炎则用课程反肺水肿影和BALF嗜酸粒明显增加定位，激素治疗接口来自这一炎症身份。 <a class="kp-binding" data-kp-id="respiratory-r08-kp12" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L509">嗜酸性粒细胞肺炎：肺水肿影反转 + BALF嗜酸粒〔影像1｜BALF1｜治疗1｜与蛋白沉着/过敏比较〕</a> 三者影像都可能“淡淡一片”，但腔内奶白PAS、暴露CD8与嗜酸粒是不同对象的证据，不能互换全肺灌洗、避免抗原与抗炎任务。
+嗜酸性粒细胞肺炎则用课程反肺水肿影和BALF嗜酸粒明显增加定位，激素治疗接口来自这一炎症身份。  三者影像都可能“淡淡一片”，但腔内奶白PAS、暴露CD8与嗜酸粒是不同对象的证据，不能互换全肺灌洗、避免抗原与抗炎任务。
 
 </details>
 
@@ -123,12 +135,16 @@ IPF是特发性肺纤维化，BALF是支气管肺泡灌洗液；IPF的课程组�
 
 继续这条关系：[TB活动与传播证据](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md#L888)；[慢性PVR与右室负荷](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md#L171)。
 
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r08-kp14" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L560">硅结节：粒径、形成顺序、位置与同心圆胶原〔基本/特征｜粒径2｜细胞｜结节2步｜最早部位｜胶原形｜玻璃样/Ig｜空洞〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp15" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L590">硅肺分期：先肺门，再双肺结节和胸膜，最后融合成块〔病理I–III：部位/分布/融合｜胸膜/蛋壳钙化｜晚期标本/浮沉〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r08-kp16" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L610">硅肺结局：TB最常见，纤维化还能推高肺循环阻力〔并发4｜最常见1｜纤维化→PVR链｜气道结果〕</a></p>
+
 <details id="r08-silica-persistence-explain">
 <summary>展开粒径、结节、病理分期与并发去向</summary>
 
 SiO₂进入肺泡后被巨噬细胞吞噬，课程以形成硅酸接细胞崩解自溶、颗粒再释放，再被新巨噬细胞吞噬。于是脱离暴露阻止新输入，却不能立即停止肺内已有颗粒的反复损伤和纤维化。这条Source机制保留病理范围，不在此造职业病管理方案。
 
-小于5μm可进入肺泡，1–2μm课程致病最强；先细胞性结节后纤维性。 <a class="kp-binding" data-kp-id="respiratory-r08-kp14" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L560">硅结节：粒径、形成顺序、位置与同心圆胶原〔基本/特征｜粒径2｜细胞｜结节2步｜最早部位｜胶原形｜玻璃样/Ig｜空洞〕</a> 基本病变是弥漫纤维化，特征是硅结节，二者不是互斥答案。结节最早肺门淋巴结，胶原同心圆/漩涡排列，可玻璃样变；含较多免疫球蛋白的课程观察提示免疫因素，不能把玻璃样蛋白沉积等同纤维素或纤维素样坏死。多个结节融合，中央可坏死形成洞，也需与R7/R6的不同坏死来源分开。
+小于5μm可进入肺泡，1–2μm课程致病最强；先细胞性结节后纤维性。  基本病变是弥漫纤维化，特征是硅结节，二者不是互斥答案。结节最早肺门淋巴结，胶原同心圆/漩涡排列，可玻璃样变；含较多免疫球蛋白的课程观察提示免疫因素，不能把玻璃样蛋白沉积等同纤维素或纤维素样坏死。多个结节融合，中央可坏死形成洞，也需与R7/R6的不同坏死来源分开。
 
 ```text
 肺内SiO₂ → 巨噬吞噬 → 损伤自溶 → 再释放 → 新巨噬吞噬
@@ -138,9 +154,9 @@ SiO₂进入肺泡后被巨噬细胞吞噬，课程以形成硅酸接细胞崩�
                          肺变硬 + 血管床受压/减少
 ```
 
-课程病理I主要肺门结肿大，II双肺散结、胸膜厚、肺门蛋壳钙化，III胸膜广厚、结节纤维融合团块，周围可肺气肿或不张。 <a class="kp-binding" data-kp-id="respiratory-r08-kp15" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L590">硅肺分期：先肺门，再双肺结节和胸膜，最后融合成块〔病理I–III：部位/分布/融合｜胸膜/蛋壳钙化｜晚期标本/浮沉〕</a> 晚期肺重量硬度增加，新鲜标本可竖立、入水下沉，浮沉实验是大体形态语言，不是这里新建临床检测。
+课程病理I主要肺门结肿大，II双肺散结、胸膜厚、肺门蛋壳钙化，III胸膜广厚、结节纤维融合团块，周围可肺气肿或不张。  晚期肺重量硬度增加，新鲜标本可竖立、入水下沉，浮沉实验是大体形态语言，不是这里新建临床检测。
 
-并发最常见TB，还可肺感染、慢肺心、阻塞性肺气肿。 <a class="kp-binding" data-kp-id="respiratory-r08-kp16" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L610">硅肺结局：TB最常见，纤维化还能推高肺循环阻力〔并发4｜最常见1｜纤维化→PVR链｜气道结果〕</a> 硅肺背景叠加TB时继承R7共同免疫/干酪/活动传播模型，不从职业史直接认定活动结核。弥漫纤维让血管床受压减少、PVR增加，肺高压提高右室后负荷，完整模型转R9；小气道改变还能与阻塞肺气肿并存。因此本章的限制出口也不排除同一患者存在阻塞因素。
+并发最常见TB，还可肺感染、慢肺心、阻塞性肺气肿。  硅肺背景叠加TB时继承R7共同免疫/干酪/活动传播模型，不从职业史直接认定活动结核。弥漫纤维让血管床受压减少、PVR增加，肺高压提高右室后负荷，完整模型转R9；小气道改变还能与阻塞肺气肿并存。因此本章的限制出口也不排除同一患者存在阻塞因素。
 
 回到病例，先用容量和交换确定功能，再以HRCT分布、暴露、BALF内容/细胞和组织寻找来源。蜂窝、肺门、地图、马赛克、反肺水肿、蛋壳钙化必须绑定位置与载体，才能分别识别纤维、肉芽肿、腔内物质和粉尘模型，而不把六种病都教成一串影像词。
 
