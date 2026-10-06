@@ -289,7 +289,17 @@ has(blockUi, "if (root.dataset.xizongStateBlocked === 'true') return false;", 'b
 matches(blockUi, /const serialized = JSON\.stringify\(state\);\s*localStorage\.setItem\(storageKey, serialized\);\s*lastPersistedState = serialized;/, 'block-persistence-write-missing');
 matches(blockUi, /catch\s*\{\s*state = JSON\.parse\(lastPersistedState\);\s*suspend\(/, 'failed-save-must-restore-last-persisted-state');
 has(blockUi, "suspend('本次学习状态未能保存", 'block-persistence-write-fail-closed-missing');
-has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
+// BlockV6 owns the complete gate; a presentation dock cannot re-enable it.
+has(blockUi, 'if (completeButton) completeButton.disabled = !canComplete() || state.completed;', 'block-completion-ui-gate');
+const blockCompletionPredicate = blockUi.match(/const canComplete = \(\) =>[\s\S]*?;/)?.[0] || '';
+for (const required of ['!revisionRequiresAction(state)',
+  '(currentSourceContactCovered() || historicalXizongSourceContinuation(state))',
+  'learnedCount() >= totalKp', 'recallCount() >= totalKp',
+  'groups.every((group) => groupClosureSatisfied(group))', 'Boolean(state.blockRecallDone)']) {
+  has(blockCompletionPredicate, required, `block-completion-predicate:${required}`);
+}
+has(blockUi, '&& !groupHasBlockingVisualGap(group);', 'block-completion-visual-closure');
+assert(!/button\.disabled\s*=/.test(enhancerUi), 'presentation-dock-must-not-override-completion-gate');
 assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 
 has(recallEvidenceUi, "appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')", 'real-recall-attempt-not-preserved');

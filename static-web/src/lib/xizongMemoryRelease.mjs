@@ -1,4 +1,5 @@
 import nativePreparedCues from '../../../content/xizong/knowledge/learner/a2-respiratory-learning-cues.json' with { type: 'json' };
+import urinaryPreparedCues from '../../../content/xizong/knowledge/learner/a3-urinary-learning-cues.json' with { type: 'json' };
 import preparedCues from '../../../content/xizong/knowledge/learner/a1-circulation-learning-cues.json' with { type: 'json' };
 
 export const XIZONG_MEMORY_RELEASE_SCHEMA = 'kianos.xizong.memory_release.v1';
@@ -163,6 +164,7 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
     sourceHash: text(options?.sourceHash || learnerObject?.sourceHash),
     revisionWitness: learnerObject.revisionWitness || null
   };
+  assertNativePreparedIdentity(meta);
   const { kps, groups } = learnerMaps(learnerObject);
   if (!kps.size) fail('CORE_KP_MISSING', blockId);
 
@@ -209,7 +211,7 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
 // The selective index remains the only admission owner. Exact answer / aid
 // freshness is checked by resolvePreparedMemoryCue before the learner object is
 // built; this consumer additionally rejects stale references or ambiguous owners.
-// Only the reviewed A1 consumer slice may use explicit card-only availability.
+// Only the reviewed A1/A2/A3 slices may use explicit card-only availability.
 // The IDs, owners and witnesses remain in the existing index, never a second list.
 // Strict structural equality survives JSON serialization without discarding
 // nested member/Core witnesses. Object key order is irrelevant; arrays are ordered.
@@ -224,14 +226,31 @@ function strictPreparedReferenceEqual(left, right) {
     && strictPreparedReferenceEqual(left[key], right[key]));
 }
 
-const isNativePreparedSystem = meta => meta?.systemId === 'respiratory' && meta?.canonicalId === 'A2';
+function nativePreparedIndex(blockId) {
+  if (/^respiratory-r(?:0[1-9]|1[0-2])$/.test(blockId)) return nativePreparedCues;
+  if (/^urinary-b(?:0[1-9]|1[0-4])$/.test(blockId)) return urinaryPreparedCues;
+  return null;
+}
+const isNativePreparedSystem = meta => (meta?.systemId === 'respiratory' && meta?.canonicalId === 'A2'
+  && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(meta?.blockId))
+  || (meta?.systemId === 'urinary' && meta?.canonicalId === 'A3'
+    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(meta?.blockId));
+function assertNativePreparedIdentity(meta) {
+  const claimed = ['respiratory', 'urinary'].includes(meta?.systemId) || ['A2', 'A3'].includes(meta?.canonicalId)
+    || /^(?:respiratory|urinary)-/.test(meta?.blockId);
+  if (claimed && !isNativePreparedSystem(meta)) fail('PREPARED_OWNER_MISMATCH', meta?.blockId);
+}
 const hasPreparedRef = row => Object.hasOwn(row || {}, 'prepared_memory_ref');
 const objectShape = (value, keys) => Boolean(value) && typeof value === 'object' && !Array.isArray(value)
   && Object.keys(value).length === keys.length && keys.every(key => Object.hasOwn(value, key));
 function nativeAdmissionRows(blockId) {
-  if (nativePreparedCues.status !== 'CURRENT' || !nativePreparedCues.authority?.startsWith('CHAT_APPROVED')
-    || nativePreparedCues.system_id !== 'respiratory' || nativePreparedCues.canonical_id !== 'A2') fail('PREPARED_INDEX_UNREVIEWED', blockId);
-  const rows = array(nativePreparedCues.precision_index).filter(row => row.anchor?.block_id === blockId);
+  const index = nativePreparedIndex(blockId);
+  if (!index) return [];
+  const urinary = index === urinaryPreparedCues;
+  if (index.status !== 'CURRENT' || !index.authority?.startsWith('CHAT_APPROVED')
+    || index.system_id !== (urinary ? 'urinary' : 'respiratory')
+    || index.canonical_id !== (urinary ? 'A3' : 'A2')) fail('PREPARED_INDEX_UNREVIEWED', blockId);
+  const rows = array(index.precision_index).filter(row => row.anchor?.block_id === blockId);
   if (new Set(rows.map(row => row.id)).size !== rows.length) fail('PREPARED_ADMISSION_INVALID', blockId);
   const admitted = rows.filter(hasPreparedRef);
   for (const row of admitted) {
@@ -251,10 +270,11 @@ function nativeAdmissionRows(blockId) {
 // Selected prepared views intersect the current admission owner with stored
 // actual ownership. Historical owner-context cards remain in general history.
 export function isXizongPreparedMemoryCard(card, blockId) {
-  const index = /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId) ? preparedCues
-    : nativePreparedCues;
-  const rows = index === nativePreparedCues ? nativeAdmissionRows(blockId)
-    : array(index.precision_index).filter(row => row.anchor?.block_id === blockId && row.prepared_memory_ref);
+  const index = /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId) ? preparedCues : nativePreparedIndex(blockId);
+  if (!index) return false;
+  const rows = index === preparedCues
+    ? array(index.precision_index).filter(row => row.anchor?.block_id === blockId && row.prepared_memory_ref)
+    : nativeAdmissionRows(blockId);
   const row = rows.find(row => card?.id === `precision:${row.id}` && card.precisionCueId === row.id);
   if (!row || card.blockId !== blockId || card.systemId !== index.system_id || card.canonicalId !== index.canonical_id
     || card.answerResolution !== 'EXACT_CURRENT_OWNER' || !text(card.answerHtml).trim()) return false;
@@ -295,6 +315,7 @@ export function supportsXizongPreparedMemoryBlock(blockId) {
 
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
   const blockId = text(learnerObject?.identity?.blockId);
+  assertNativePreparedIdentity(learnerObject?.identity);
   const native = isNativePreparedSystem(learnerObject?.identity);
   if ((!native && (learnerObject?.identity?.systemId !== 'circulation' || learnerObject?.identity?.canonicalId !== 'A1'))
     || !supportsXizongPreparedMemoryBlock(blockId)) fail('PREPARED_BLOCK_UNSUPPORTED');
@@ -462,6 +483,7 @@ export function buildXizongBlockMemoryReleaseDescriptor(block, learningCues = nu
     blockTitle: text(block?.title),
     sourceHash: text(block?.sourceHash)
   };
+  assertNativePreparedIdentity(meta);
   if (isNativePreparedSystem(meta)) {
     const rows = precisionRows.map(cue => ({ cue, kpId: text(cue.anchor?.kp_id),
       logicGroupId: text(cue.anchor?.logic_group_id), kpIds: groups.get(cue.anchor?.logic_group_id)?.kpIds }));

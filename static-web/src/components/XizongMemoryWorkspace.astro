@@ -46,7 +46,7 @@ const base = import.meta.env.BASE_URL;
       <section class="xzMemoryEmpty" data-memory-empty>
         <span>Memory 还没有已释放内容</span>
         <h2>先学，不制造假复习。</h2>
-        <p>已准备并审定的 A1 / A2 Precision 可从 Block 单独打开；Core 仍在真实 Block Complete 后进入长期库。可浏览不代表学完，也不等于今天必须复习。</p>
+        <p>已准备并审定的 A1 / A2 / A3 Precision 可从 Block 单独打开；Core 仍在真实 Block Complete 后进入长期库。可浏览不代表学完，也不等于今天必须复习。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -243,10 +243,11 @@ const base = import.meta.env.BASE_URL;
 
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
     // Canonical owner titles can contain the very threshold being recalled.
-    // A2 Recall uses the original answer-free cue for every queue/header label;
+    // A2/A3 Recall uses the reviewed answer-free cue for every queue/header label;
     // Browse retains the canonical title. No stored Content or identity changes.
     const nativePrecisionRecall = (item) => item.family === 'PRECISION'
-      && item.systemId === 'respiratory' && item.canonicalId === 'A2'
+      && ((item.systemId === 'respiratory' && item.canonicalId === 'A2')
+        || (item.systemId === 'urinary' && item.canonicalId === 'A3'))
       && !(view === 'PRECISION' && precisionMode === 'BROWSE');
     const cardLabel = (item) => nativePrecisionRecall(item) ? (item.cue || 'Precision Memory')
       : item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;

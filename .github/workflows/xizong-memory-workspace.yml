@@ -9,6 +9,8 @@ on:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
       - 'static-web/src/lib/xizongMemory*.mjs'
       - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/scripts/test-xizong-study-dock-completion-gate.mjs'
       - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
@@ -24,6 +26,16 @@ on:
       - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
       - 'static-web/scripts/test-xizong-a2-system-prepared-memory.mjs'
       - 'static-web/scripts/test-xizong-a2-prepared-memory-browser.mjs'
+      - 'static-web/scripts/test-xizong-a3-prepared-memory-browser.mjs'
+      - 'static-web/scripts/test-xizong-a3-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a3-preentry.mjs'
+      - 'static-web/scripts/test-xizong-a3-raw-owner-mutations.py'
+      - 'static-web/scripts/xizong-a3-raw-owner-probe.mjs'
+      - 'static-web/scripts/xizong-a3-raw-admission-probe.mjs'
+      - 'static-web/scripts/fixtures/a3-*.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-*.json'
+      - 'content/xizong/knowledge/systems/a3-urinary/**'
+      - 'content/xizong/projection/a3-urinary/chat/**'
       - 'static-web/src/lib/xizongLearningCues.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
@@ -37,6 +49,8 @@ on:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
       - 'static-web/src/lib/xizongMemory*.mjs'
       - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/scripts/test-xizong-study-dock-completion-gate.mjs'
       - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
@@ -52,6 +66,16 @@ on:
       - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
       - 'static-web/scripts/test-xizong-a2-system-prepared-memory.mjs'
       - 'static-web/scripts/test-xizong-a2-prepared-memory-browser.mjs'
+      - 'static-web/scripts/test-xizong-a3-prepared-memory-browser.mjs'
+      - 'static-web/scripts/test-xizong-a3-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a3-preentry.mjs'
+      - 'static-web/scripts/test-xizong-a3-raw-owner-mutations.py'
+      - 'static-web/scripts/xizong-a3-raw-owner-probe.mjs'
+      - 'static-web/scripts/xizong-a3-raw-admission-probe.mjs'
+      - 'static-web/scripts/fixtures/a3-*.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-*.json'
+      - 'content/xizong/knowledge/systems/a3-urinary/**'
+      - 'content/xizong/projection/a3-urinary/chat/**'
       - 'static-web/src/lib/xizongLearningCues.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
@@ -91,7 +115,15 @@ jobs:
         run: node scripts/test-xizong-a1-system-prepared-memory.mjs
       - name: Validate coherent A2 native owners and negative freshness cases
         run: node scripts/test-xizong-a2-system-prepared-memory.mjs
-      - name: Validate A1 and A2 post-Chat state and prerequisite gates
+      - name: Validate coherent A3 native owners and independent legacy snapshots
+        run: node scripts/test-xizong-a3-system-prepared-memory.mjs
+      - name: Validate A3 raw pre-entry routing and legacy compatibility
+        run: node scripts/test-xizong-a3-preentry.mjs
+      - name: Validate B5 full contract bytes and fresh-process raw owner mutations
+        run: python3 scripts/test-xizong-a3-raw-owner-mutations.py
+      - name: Validate Study dock cannot override complete eligibility
+        run: node scripts/test-xizong-study-dock-completion-gate.mjs
+      - name: Validate A1, A2 and A3 post-Chat state and prerequisite gates
         run: node scripts/test-xizong-post-chat-recall.mjs
       - name: Build Astro
         run: npm run build
@@ -110,6 +142,9 @@ jobs:
           name: xizong-memory-workspace-browser
           path: |
             static-web/.qa/xizong-a2-system-prepared-memory.json
+            static-web/.qa/xizong-a3-system-prepared-memory.json
+            static-web/.qa/xizong-a3-preentry.json
+            static-web/.qa/xizong-a3-raw-owner-mutations.json
             static-web/.qa/xizong-memory-workspace-browser.json
             static-web/.qa/xizong-memory-workspace.png
             static-web/.qa/xizong-memory-auto-release-browser.json

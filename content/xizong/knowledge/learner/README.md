@@ -89,6 +89,31 @@ The exact composition tested at `428d41d7d50faaac3dc95f1653f0831d684b8c50` in [#
 
 The receipt supersedes the saved `CANDIDATE_DERIVATION` headers only for these twelve teaching inputs. Those exact tested bytes and `medical_authority:false` remain provenance; canonical Core/System/Learning, Source freshness and learner evidence keep their existing owners. R12's candidate-only AB/SB definition and the recorded visual/Source conflicts are not adopted. Old A2 review/Library/three-column material is not normal lesson fallback. A1's accepted entries above remain unchanged; other Systems and the rest of #1150 are not admitted by implication.
 
+### Accepted A3 Urinary teaching basis
+
+For **A3 Urinary / urinary-b01 through urinary-b14**, the [one-System adoption receipt](../systems/a3-urinary/ACCEPTANCE.md#a3-teaching-adoption-20261006) admits these exact compact teaching/same-model compressed-review inputs under [Learning Contract §0](../../LEARNING_CONTRACT.md#learning-outcome). Refresh the full Current System, canonical Block/KP, accepted Learning and required Source/MedicalVisual owners before using them.
+
+- [B1 肾脏总地图、清除率、肾血流与内分泌](../../projection/a3-urinary/chat/b01-teaching.md)
+- [B2 肾小球滤过屏障与GFR](../../projection/a3-urinary/chat/b02-teaching.md)
+- [B3 分段小管转运与利尿剂](../../projection/a3-urinary/chat/b03-teaching.md)
+- [B4 容量激素与尿液浓缩稀释](../../projection/a3-urinary/chat/b04-teaching.md)
+- [B5 水钠钾钙与酸碱整合](../../projection/a3-urinary/chat/b05-teaching.md)
+- [B6 尿液证据与肾功能诊断语言](../../projection/a3-urinary/chat/b06-teaching.md)
+- [B7 AKI、CKD与透析](../../projection/a3-urinary/chat/b07-teaching.md)
+- [B8 细菌性尿路感染](../../projection/a3-urinary/chat/b08-teaching.md)
+- [B9 肾小球免疫机制与双坐标地图](../../projection/a3-urinary/chat/b09-teaching.md)
+- [B10 肾炎分支：急性、急进、IgA与慢性肾炎](../../projection/a3-urinary/chat/b10-teaching.md)
+- [B11 肾病综合征分支：大量蛋白漏出与病理类型](../../projection/a3-urinary/chat/b11-teaching.md)
+- [B12 排尿梗阻、结石、BPH与尿失禁](../../projection/a3-urinary/chat/b12-teaching.md)
+- [B13 肾结核与泌尿系统肿瘤](../../projection/a3-urinary/chat/b13-teaching.md)
+- [B14 泌尿系外伤](../../projection/a3-urinary/chat/b14-teaching.md)
+
+The reviewed [#1210](https://github.com/kianwang022-hash/kianos/pull/1210) composition preserves all 14 canonical Blocks / 257 KP / 75 LG. The existing [A3 cue index](./a3-urinary-learning-cues.json) admits **28 new Precision identities (20 KP / 8 LG)** through the existing shared exact-answer owner and native KP/LG witnesses. These are newly reviewed IDs at existing semantic owners, not inherited prepared identities or duplicated whole Core. All 176 A1 and 26 A2 prepared identities, answers, history and holds remain intact. B3 KP03's ratio-table unit stays at its exact Current MI-D destination without a prepared ID because its unique table facts are outside native KP freshness.
+
+The existing pre-entry route now carries all **199 MI-G / 141 MI-D topics**, including 47 previously dropped MI-D topics, all 14 A3 routing anchors and 11 existing numbered Framework sections. These remain ATTENTION destinations, not automatic exact-card admissions or learning evidence. Preserve all qualifications, real compound owners and dependencies; answer/aid payloads and answer-bearing owner labels stay hidden before Recall Reveal.
+
+The receipt supersedes candidate-admission headers only for these fourteen reviewed files; exact bytes and `medical_authority:false` remain provenance. B5's diagnostic-only contract, Current **<120** versus candidate **≤120** hold, B10 P195/P197 task/asset mismatch and all other Source/visual limits remain explicit. No new original-PDF pixels or learner U are claimed. Old A3 review/Library/three-column material is not normal lesson fallback. A1/A2 routes above stay unchanged; other Systems and the remainder of #1150 are not adopted by implication.
+
 The common teaching package on [#1150](https://github.com/kianwang022-hash/kianos/pull/1150) remains a candidate until its exact admission owner says otherwise. Resolve acceptance there, not from a stored head or file count. Without an accepted package, teach from Current canonical Knowledge and accepted Learning while explicitly retaining the unaccepted-package boundary.
 
 Except for the explicitly accepted B1, B2 and B3–B12 teaching entries above, old A1 teaching/review files are deliberately not linked as normal lesson inputs here. They may be opened only for a bounded migration/audit of unique reviewed content. Preserve valid explanation, comparison and memory preparation with the existing responsible owners before retiring a legacy file; do not use its LG-order instructions, three-column layout or old acceptance label as the current teaching template. Legacy `*-review.md`, old Library exports, old PR prose and old screenshots are not fallback lesson authority.

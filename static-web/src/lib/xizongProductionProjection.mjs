@@ -372,25 +372,30 @@ export function compileXizongExplicitAttentionCues(canonicalBlock, kpRecords = c
   return rows;
 }
 
-function normalizePreentryHeading(title) {
+function normalizePreentryHeading(title, normalizePipes = false) {
   return cleanExplicitAttentionText(title)
-    .replace(/^\d+(?:\.\d+)*\s*/, '')
+    .replace(normalizePipes ? /^\d+(?:\.\d+)*\s*(?:[|｜]\s*)?/ : /^\d+(?:\.\d+)*\s*/, '')
     .replace(/^\/\/\s*/, '')
     .trim();
 }
 
-function explicitPreentrySection(markdown, token, ownerPath) {
-  const { lines, headings } = markdownHeadings(markdown);
-  const matches = headings.filter((row) => {
-    const title = normalizePreentryHeading(row.title);
-    return title === token || title.startsWith(`${token}｜`) || title.startsWith(`${token}|`);
-  });
-  // Optional support fails closed locally: an ambiguous heading does not block
-  // the Block or license the renderer to guess which section is authoritative.
-  if (matches.length !== 1) return null;
+function preentryHeadingMatches(row, token, normalizePipes) {
+  const title = normalizePreentryHeading(row.title, normalizePipes);
+  return title === token || title.startsWith(`${token}｜`) || title.startsWith(`${token}|`);
+}
+
+function explicitPreentrySection(document, token, ownerPath, parent = null, ownBody = false) {
+  const { lines, headings } = document;
+  const parentEnd = parent
+    ? headings.find(row => row.index > parent.index && row.level <= parent.level)?.index ?? lines.length
+    : lines.length;
+  const matches = headings.filter(row => preentryHeadingMatches(row, token, document.normalizePipes)
+    && (!parent || (row.index > parent.index && row.index < parentEnd && row.level === parent.level + 1)));
+  // Missing and ambiguous are distinct: ambiguity never licenses global fallback.
+  if (matches.length !== 1) return { count: matches.length, section: null, heading: null };
   const start = matches[0];
-  const end = headings.find((row) => row.index > start.index && row.level <= start.level)?.index ?? lines.length;
-  const bodyLines = lines.slice(start.index + 1, end);
+  const end = headings.find(row => row.index > start.index && (ownBody || row.level <= start.level))?.index ?? lines.length;
+  const bodyLines = lines.slice(start.index + 1, Math.min(end, parentEnd));
   const explicitItems = bodyLines
     .map((line) => line.match(/^\s*(?:[-*+]\s+|\d+[.)、]\s*)(.+?)\s*$/)?.[1] || '')
     .map(cleanExplicitAttentionText)
@@ -402,11 +407,15 @@ function explicitPreentrySection(markdown, token, ownerPath) {
       .join(' ')
   );
   return {
-    present: true,
-    ownerPath,
-    anchor: start.title,
-    items: explicitItems.length ? explicitItems : (paragraph ? [paragraph] : []),
-    markdown: lines.slice(start.index, end).join('\n').trim()
+    count: 1,
+    heading: start,
+    section: {
+      present: true,
+      ownerPath,
+      anchor: start.title,
+      items: explicitItems.length ? explicitItems : (paragraph ? [paragraph] : []),
+      markdown: lines.slice(start.index, Math.min(end, parentEnd)).join('\n').trim()
+    }
   };
 }
 
@@ -418,11 +427,21 @@ export function compileXizongBlockPreentry(canonicalBlock) {
       memoryRouting: { present: false, ownerPath: ownerPath || null, anchor: null, miG: [], miD: [], miGAnchor: null, miDAnchor: null }
     };
   }
-  const markdown = readText(ownerPath);
-  const framework = explicitPreentrySection(markdown, '总 Framework', ownerPath);
-  const memoryRouting = explicitPreentrySection(markdown, 'Memory Routing', ownerPath);
-  const miG = explicitPreentrySection(markdown, 'MI-G', ownerPath);
-  const miD = explicitPreentrySection(markdown, 'MI-D', ownerPath);
+  const a3 = canonicalBlock?.systemId === 'urinary' || canonicalBlock?.systemCanonicalId === 'A3';
+  const document = { ...markdownHeadings(readText(ownerPath)), normalizePipes: a3 };
+  const framework = explicitPreentrySection(document, '总 Framework', ownerPath).section;
+  const visibleParent = explicitPreentrySection(document, 'Memory Routing', ownerPath);
+  // Existing A1/A2 presentation remains byte-value stable; normalized parents
+  // still bound selection so inline sections cannot capture their children.
+  const scopedSystem = a3 || ['circulation', 'respiratory'].includes(canonicalBlock?.systemId);
+  const parent = scopedSystem ? explicitPreentrySection({ ...document, normalizePipes: true }, 'Memory Routing', ownerPath) : visibleParent;
+  const scoped = scopedSystem && parent.count === 1 && (!a3 || parent.heading.level === 1);
+  const fallback = !scopedSystem || (parent.count === 0 && !a3);
+  const memoryRouting = scoped || !scopedSystem ? visibleParent.section : null;
+  const child = token => scoped
+    ? explicitPreentrySection(document, token, ownerPath, parent.heading, true).section
+    : fallback ? explicitPreentrySection(document, token, ownerPath).section : null;
+  const miG = child('MI-G'), miD = child('MI-D');
   return {
     framework: framework || { present: false, ownerPath, anchor: null, items: [], markdown: '' },
     memoryRouting: {
