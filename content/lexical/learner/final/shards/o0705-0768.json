@@ -3499,11 +3499,26 @@
     "ordinal": 722,
     "word": "cave",
     "source_owner_path": "content/lexical/words/by-ordinal/o0722.json",
-    "source_fingerprint": "a1c448ec57c4e77c069048719e5d5c471661a5a63df1333e89a2e2c7be700fa6",
-    "sense_lineage": [],
+    "source_fingerprint": "6b8ba6d0fce5861f8e0bc317a65be37ef3c0d313a482bf3e1c29261f75808912",
+    "sense_lineage": [
+      {
+        "word_id": "word:cave",
+        "target_kind": "sense",
+        "from_target_id": "sense:cave:ef550c01800f5042",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cave",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bb5b2e8dd46f1f8bbbad",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -3577,32 +3592,6 @@
           "target_id": "sense:cave:99ddfab7e27c50ec",
           "target_locator": "record.senses[1]",
           "target_label": "塌陷，塌落"
-        }
-      },
-      {
-        "id": "sense:cave:ef550c01800f5042",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "挖洞，使凹陷",
-        "definition_en": "to hollow out or make a cave in",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bb5b2e8dd46f1f8bbbad",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cave a tunnel",
-            "meaning_cn": "挖隧道",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cave:ef550c01800f5042",
-          "target_locator": "record.senses[2]",
-          "target_label": "挖洞，使凹陷"
         }
       }
     ],
@@ -3688,9 +3677,6 @@
         ],
         "sense:cave:99ddfab7e27c50ec": [
           1
-        ],
-        "sense:cave:ef550c01800f5042": [
-          1
         ]
       },
       "has_scope": true
@@ -3719,7 +3705,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bb5b2e8dd46f1f8bbbad",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cave:ef550c01800f5042:collocation:0"
+              ],
+              "meaning_cn": "挖隧道",
+              "phrase": "cave a tunnel"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "挖洞，使凹陷",
+          "definition_en": "to hollow out or make a cave in",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cave:ef550c01800f5042",
+          "sense_label_en": "to hollow out or make a cave in",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3865,7 +3877,7 @@
     "ordinal": 724,
     "word": "ceiling",
     "source_owner_path": "content/lexical/words/by-ordinal/o0724.json",
-    "source_fingerprint": "3a375d0f88383eaf039a8c835514ed7a471bbcccfd4990dedccca6bc1f4043d4",
+    "source_fingerprint": "ea665517d0012824a98ebb2cea69e17145029ca847b515f1575947865f8834e0",
     "sense_lineage": [
       {
         "word_id": "word:ceiling",
@@ -3873,11 +3885,18 @@
         "from_target_id": "sense:ceiling:870e46ebb56556ac",
         "status": "merged",
         "to_target_id": "sense:ceiling:fe8e2eb3a68c5d0b"
+      },
+      {
+        "word_id": "word:ceiling",
+        "target_kind": "sense",
+        "from_target_id": "sense:ceiling:c8a4beb2608e59e8",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -3961,23 +3980,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "上限，尤指价格、支出或债务上限"
         }
-      },
-      {
-        "id": "sense:ceiling:c8a4beb2608e59e8",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "飞机升限",
-        "definition_en": "maximum altitude at which a plane can fly (under specified conditions)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ceiling:c8a4beb2608e59e8",
-          "target_locator": "record.senses[2]",
-          "target_label": "飞机升限"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4044,6 +4046,20 @@
           "source_row": 2055,
           "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "飞机升限",
+          "definition_en": "maximum altitude at which a plane can fly (under specified conditions)",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:ceiling:c8a4beb2608e59e8",
+          "sense_label_en": "maximum altitude at which a plane can fly (under specified conditions)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
