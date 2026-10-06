@@ -9,11 +9,28 @@
     "constructions": [],
     "content_hash": "0aa89e86fed276657d70009514ead3594e162c6b56947db04743b7b9fcb0cc4e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "各部分能够稳定“黏合/对齐”成一个整体：逻辑上连贯、表达上清楚，物理上也可指相位一致或物质黏合",
-      "core_meaning_en": "logically consistent and clear",
-      "mental_model_cn": "argument/narrative → 逻辑连贯；speaker → 思路和表达一致；waves/light → 相位关系稳定；mass → 黏成整体。",
-      "mental_model_en": "A shared 'holding together consistently' model links logical, cognitive, physical-wave, and material uses."
+      "core_clusters": [
+        {
+          "label_cn": "逻辑连贯；前后一致",
+          "label_en": "orderly, logical, and internally consistent",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:coherent:f5e6ec81a3bb507c"
+          ]
+        },
+        {
+          "label_cn": "思路和表达清楚连贯",
+          "label_en": "able to think and express oneself clearly and consistently",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:coherent:a622cdf5ef315781"
+          ]
+        }
+      ],
+      "core_meaning_cn": "连贯的；条理清楚、前后一致的",
+      "core_meaning_en": "logical, clear, and internally consistent",
+      "mental_model_cn": "argument/narrative → 逻辑连贯；person/speech → 思路和表达清楚。物理相干与材料黏合义保留为 Reference。",
+      "mental_model_en": "General learner use is logical/expressive coherence; physics and material-cohesion senses stay Reference."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -80,63 +97,6 @@
         "sense_id": "sense:coherent:a622cdf5ef315781",
         "sense_label_en": "capable of thinking and expressing yourself in a clear and consistent ma",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d54440d7740875cc3f71",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:coherent:785e94858eab5950:collocation:0"
-            ],
-            "meaning_cn": "相干光",
-            "phrase": "coherent light"
-          },
-          {
-            "collocation_id": "collocation:107ad0b2e31a15ce18f9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:coherent:785e94858eab5950:collocation:1"
-            ],
-            "meaning_cn": "相干辐射",
-            "phrase": "coherent radiation"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（物理）波具有恒定相位关系的",
-        "definition_en": "(physics) of waves having a constant phase relation",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:coherent:785e94858eab5950",
-        "sense_label_en": "(physics) of waves having a constant phase relation",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9afb9ab08d1f29d9fdd6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:coherent:382e243045a55b86:collocation:0"
-            ],
-            "meaning_cn": "粘在一起的团块",
-            "phrase": "coherent mass"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "粘在一起的",
-        "definition_en": "sticking together",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:coherent:382e243045a55b86",
-        "sense_label_en": "sticking together",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -330,19 +290,77 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d54440d7740875cc3f71",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:coherent:785e94858eab5950:collocation:0"
+          ],
+          "meaning_cn": "相干光",
+          "phrase": "coherent light"
+        },
+        {
+          "collocation_id": "collocation:107ad0b2e31a15ce18f9",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:coherent:785e94858eab5950:collocation:1"
+          ],
+          "meaning_cn": "相干辐射",
+          "phrase": "coherent radiation"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（物理）波具有恒定相位关系的",
+      "definition_en": "(physics) of waves having a constant phase relation",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:coherent:785e94858eab5950",
+      "sense_label_en": "(physics) of waves having a constant phase relation",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9afb9ab08d1f29d9fdd6",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:coherent:382e243045a55b86:collocation:0"
+          ],
+          "meaning_cn": "粘在一起的团块",
+          "phrase": "coherent mass"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "粘在一起的",
+      "definition_en": "sticking together",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:coherent:382e243045a55b86",
+      "sense_label_en": "sticking together",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:coherent:382e243045a55b86",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 2508,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
       },
       {
         "sense_id": "sense:coherent:785e94858eab5950",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 2509,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
@@ -363,11 +381,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:107ad0b2e31a15ce18f9",
       "collocation:66de4b469d6db778e9a1",
       "collocation:779e75a7449012b1c855",
-      "collocation:9afb9ab08d1f29d9fdd6",
-      "collocation:d54440d7740875cc3f71",
       "collocation:f503747278e599495046"
     ],
     "facts": [
@@ -381,7 +396,9 @@
       {
         "id": "collocation:107ad0b2e31a15ce18f9",
         "source_row": 1365,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:66de4b469d6db778e9a1",
@@ -396,12 +413,16 @@
       {
         "id": "collocation:9afb9ab08d1f29d9fdd6",
         "source_row": 13208,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d54440d7740875cc3f71",
         "source_row": 18031,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f503747278e599495046",
