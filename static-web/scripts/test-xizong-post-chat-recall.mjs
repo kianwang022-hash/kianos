@@ -7,6 +7,10 @@ import * as revision from '../src/lib/xizongContentRevision.mjs';
 // small synthetic DOM/storage adapter. This is not browser, medical or learner U proof.
 const component = fs.readFileSync(new URL('../src/components/XizongBlockV6.astro', import.meta.url), 'utf8');
 const bridge = fs.readFileSync(new URL('../src/components/XizongRecallEvidenceBridge.astro', import.meta.url), 'utf8');
+const guard = fs.readFileSync(new URL('../src/components/XizongRuntimeStageGuard.astro', import.meta.url), 'utf8');
+const guardController = guard.match(/<script>\n([\s\S]*?)<\/script>/)?.[1]
+  .replace(/^  import[^\n]+\n/gm, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
+assert.ok(guardController, 'execute the actual prerequisite/Reveal/rating capture guard');
 const runtime = component.match(/<script define:vars=\{\{[\s\S]*?\}\}>\n([\s\S]*?)<\/script>/)?.[1];
 assert.ok(runtime, 'execute the actual Block controller');
 const controller = runtime.replace(/await import\(revisionRuntimeUrl\)/, '__revision');
@@ -77,12 +81,12 @@ const kpPayload = kpIds.map((kpId, index) => ({ kpId, groupId: groupIds[index < 
 const witness = { schema: 'kianos.xizong.revision-witness.v1', sourceHash: 'synthetic-source', kpOrder: kpIds,
   groupOrder: groupIds, segmentOrder: [], members: Object.fromEntries(groupPayload.map(g => [g.groupId, g.kpIds])),
   kps: Object.fromEntries(kpIds.map(id => [id, id])), groups: Object.fromEntries(groupIds.map(id => [id, id])), block: 'synthetic-block', contact: 'synthetic-contact' };
-const stateKey = 'kianos-xizong-astro-v2:xizong:circulation:b01';
-const evidenceKey = 'kianos-xizong-memory-review-v2:xizong:circulation:b01';
+const stateKey = 'kianos-xizong-astro-v2:xizong:circulation-b01';
+const evidenceKey = 'kianos-xizong-memory-review-v2:xizong:circulation-b01';
 
-async function createHarness({ saved, available = true, ttsx = [], visual = false } = {}) {
-  const root = new Element({ 'data-xizong-v6-block': '', 'data-study-object': 'xizong:circulation:b01', 'data-block-label': 'B1',
-    'data-study-system-id': 'circulation', 'data-study-block-slug': 'b01', 'data-study-block-id': 'B1',
+async function createHarness({ saved, available = true, ttsx = [], visual = false, prerequisite = false } = {}) {
+  const root = new Element({ 'data-xizong-v6-block': '', 'data-study-object': 'xizong:circulation-b01', 'data-block-label': 'B1',
+    'data-study-system-id': 'circulation', 'data-study-block-slug': 'b01', 'data-study-block-id': 'circulation-b01',
     'data-study-source-hash': 'synthetic-source', 'data-post-chat-recall-available': String(available) });
   const add = (parent, attrs, hidden = false) => { const node = new Element(attrs, hidden); parent.append(node); return node; };
   const stages = Object.fromEntries(['block_learn', 'source_contact', 'kp_recall', 'ttsx_checkpoint', 'block_recall'].map(name => [name, add(root, { 'data-study-stage': name }, name !== 'block_learn')]));
@@ -90,6 +94,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   const sourceEntry = add(stages.source_contact, { 'data-post-chat-recall': '' });
   const lectureEntry = add(stages.block_learn, { 'data-stage-next': 'logic_group' });
   const sourceReturn = add(stages.kp_recall, { 'data-stage-target': 'source_contact' });
+  const recallTarget = add(root, { 'data-stage-target': 'kp_recall' });
   const confirmSource = add(stages.source_contact, { 'data-source-contact-done': '' });
   const groupButtons = groupPayload.map((_, i) => add(root, { 'data-group-target': String(i) }));
   const cards = kpIds.map((id, i) => {
@@ -106,9 +111,12 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   const recallComplete = add(stages.block_recall, { 'data-block-recall-complete': '' });
   const complete = add(stages.block_recall, { 'data-block-complete': '' });
   const ttsxDone = add(stages.ttsx_checkpoint, { 'data-ttsx-done': '' });
-  const evidenceBridge = new Element({ 'data-xizong-recall-evidence-bridge': '', 'data-study-object': 'xizong:circulation:b01', 'data-study-source-hash': 'synthetic-source' });
+  const evidenceBridge = new Element({ 'data-xizong-recall-evidence-bridge': '', 'data-study-object': 'xizong:circulation-b01', 'data-study-source-hash': 'synthetic-source' });
   const evidenceKps = new Element({ 'data-xizong-recall-evidence-kps': '' }); evidenceKps.textContent = JSON.stringify(kpIds);
-  const document = new Element(); document.append(root, evidenceBridge, evidenceKps);
+  const completionInput = new Element({ 'data-xizong-completion-input': '' });
+  completionInput.textContent = JSON.stringify({ blockId: 'circulation-b01', blockIds: [], blockPrerequisites: prerequisite ? [{ blockId: 'missing', requirement: null }] : [],
+    blockingVisualGroups: visual ? [{ groupId: groupIds[1], label: 'Synthetic visual', reviewableFromOriginalSource: true }] : [], requirements: [] });
+  const document = new Element(); document.append(root, evidenceBridge, evidenceKps, completionInput);
   document.createElement = () => new Element(); document.createTextNode = text => { const el = new Element(); el.textContent = text; return el; };
   const values = new Map(saved ? [[stateKey, JSON.stringify(saved)]] : []);
   let failKey = null;
@@ -119,13 +127,15 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   class CustomEvent { constructor(type, options = {}) { this.type = type; this.detail = options.detail; } }
   const groups = clone(groupPayload); if (visual) { groups[1].visualRequired = true; groups[1].visualSourceState = 'GAP_NOT_MOUNTED'; }
   const context = vm.createContext({ window, document, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, Element, CustomEvent, __revision: revision,
-    learnerWriterReady: Promise.resolve(), groupPayload: groups, kpPayload, revisionRuntimeUrl: '', revisionWitness: witness,
+    learnerWriterReady: Promise.resolve(), sourceContactCompatible: revision.sourceContactCompatible, revisionRequiresAction: revision.revisionRequiresAction, needsFreshKpRecall: revision.needsFreshKpRecall,
+    groupPayload: groups, kpPayload, revisionRuntimeUrl: '', revisionWitness: witness,
     sourcePerGroup: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
     naturalSourceUnits: false, integrationPrimary: false, integrationTargetedSourceReturns: false, integrationReleaseLogicGroupIds: [], segmentedSourceUnits: false,
     blockSourceDebtPayload: [], blockSourceConflictPayload: [], blockVisualDebtPayload: visual ? [groupIds[1]] : [], sourceSegmentPayload: [], biochemistrySourcePayload: null, ttsxPayload: ttsx });
   await vm.runInContext(controller, context);
+  await vm.runInContext(guardController, context);
   await vm.runInContext(evidenceController, context);
-  return { root, entry, sourceEntry, lectureEntry, sourceReturn, confirmSource, groupButtons, cards, stages, recallReveal, recallAnswer, recallComplete, complete, ttsxDone, dispatched,
+  return { root, entry, sourceEntry, lectureEntry, sourceReturn, recallTarget, confirmSource, groupButtons, cards, stages, recallReveal, recallAnswer, recallComplete, complete, ttsxDone, dispatched,
     state: () => JSON.parse(values.get(stateKey)), evidence: () => JSON.parse(values.get(evidenceKey)),
     flush: () => { while (timers.length) timers.shift()(); }, fail: key => { failKey = key; }, stateKey, evidenceKey };
 }
@@ -146,7 +156,7 @@ assert.equal(revision.studyHasEvidence(fresh.state()), false, 'entry creates no 
 assert.deepEqual(fresh.evidence(), initialEvidence, 'entry writes no Recall history'); noContact(fresh);
 assert.equal(fresh.cards[0].answer.hidden, true); assert.equal(fresh.cards[0].rating.hidden, true);
 fresh.cards[0].buttons.known.click(); assert.deepEqual(fresh.state().ratings, {}); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'unrevealed rejected');
-fresh.cards[1].reveal.click(); fresh.cards[1].buttons.known.click(); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'hidden card rejected');
+fresh.cards[1].reveal.click(); assert.equal(fresh.cards[1].answer.hidden, true, 'guard rejects hidden post-Chat Reveal'); fresh.cards[1].buttons.known.click(); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'hidden card rejected');
 fresh.cards[0].reveal.click(); fresh.cards[0].buttons.invalid.click(); assert.equal(fresh.evidence().evidenceHistory.length, 0, 'invalid rating rejected');
 fresh.cards[0].buttons.known.click();
 assert.equal(fresh.state().ratings[kpIds[0]], 'known'); assert.equal(fresh.evidence().evidenceHistory.length, 1);
@@ -159,7 +169,7 @@ assert.equal(resumed.cards[1].answer.hidden, true, 'Resume is a clean Front');
 resumed.groupButtons[1].click(); assert.equal(resumed.state().stage, 'kp_recall'); assert.equal(resumed.state().resumeGroupId, groupIds[1]);
 assert.equal(resumed.state().resumeKpId, kpIds[2]); noContact(resumed);
 resumed.sourceReturn.click(); assert.equal(resumed.state().stage, 'source_contact', 'explicit Source navigation remains');
-resumed.cards[2].reveal.click(); resumed.cards[2].buttons.known.click(); assert.equal(resumed.state().ratings[kpIds[2]], undefined, 'inactive Recall stage rejected');
+resumed.cards[2].reveal.click(); assert.equal(resumed.cards[2].answer.hidden, true, 'guard rejects post-Chat Reveal from Source stage'); resumed.cards[2].buttons.known.click(); assert.equal(resumed.state().ratings[kpIds[2]], undefined, 'inactive Recall stage rejected');
 const sourceResumed = await createHarness({ saved: resumed.state() });
 assert.equal(sourceResumed.state().stage, 'source_contact', 'explicit Source intention survives reload');
 sourceResumed.sourceEntry.click(); assert.equal(sourceResumed.state().stage, 'kp_recall'); assert.equal(sourceResumed.state().kpIndex, 2); noContact(sourceResumed);
@@ -171,6 +181,13 @@ for (const available of [false, true]) {
   rate(injection, injection.state().kpIndex); assert.equal(injection.evidence().evidenceHistory.length, 0);
   if (!available) { injection.entry.click(); assert.equal(injection.state().stage, 'source_contact'); }
 }
+const prerequisite = await createHarness({ prerequisite: true }); prerequisite.entry.click();
+assert.equal(prerequisite.state().stage, 'block_learn', 'post-Chat entry preserves hard prerequisite gate');
+assert.equal(prerequisite.state().recallEntryMode, undefined); noContact(prerequisite);
+const targetEntry = await createHarness(); targetEntry.recallTarget.click();
+assert.equal(targetEntry.state().stage, 'block_learn', 'guard rejects Source-free ordinary Recall target');
+targetEntry.entry.click(); targetEntry.sourceReturn.click(); targetEntry.recallTarget.click();
+assert.equal(targetEntry.state().stage, 'kp_recall', 'validated post-Chat target routes through guard'); noContact(targetEntry);
 const normal = await createHarness(); normal.lectureEntry.click();
 assert.equal(normal.state().stage, 'source_contact', 'original Lecture entry remains the default'); noContact(normal);
 normal.confirmSource.click(); assert.equal(normal.state().sourceContactDone, true); assert.equal(Object.keys(normal.state().learned).length, 3);
@@ -212,4 +229,4 @@ const pending = await createHarness({ saved: checkpoint.state(), ttsx }); pendin
 assert.equal(pending.state().stage, 'ttsx_checkpoint', 'post-Chat navigation cannot bypass pending reviewed TTSX');
 pending.ttsxDone.click(); assert.equal(pending.state().stage, 'kp_recall'); assert.equal(Object.keys(pending.state().ttsxEvidence).length, 1);
 
-console.log('B1 post-Chat Recall PASS | actual controller + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+console.log('B1 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
