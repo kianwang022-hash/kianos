@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "乘船游览；平稳巡航或行驶",
       "core_meaning_en": "a pleasure journey by ship; to travel steadily or cruise",
-      "mental_model_cn": "核心是“平稳地持续前进”：可指乘游轮旅行，也可指车辆以稳定速度行驶。低频成人语义保留在非默认分支。",
+      "mental_model_cn": "ship/travel → 乘船休闲旅行；vehicle/speed → 平稳巡航。成人社交语义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,20 +96,6 @@
         "sense_id": "sense:cruise:1def33711b6b5905",
         "sense_label_en": "to move at a steady speed in a vehicle",
         "sort_order": 1,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "（在公共场所）猎艳",
-        "definition_en": "to look for a sexual partner in a public place",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:cruise:a3d9a277c0fd5114",
-        "sense_label_en": "to look for a sexual partner in a public place",
-        "sort_order": 2,
         "transitivity": "vi"
       },
       {
@@ -385,7 +371,22 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "（在公共场所）猎艳",
+      "definition_en": "to look for a sexual partner in a public place",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:cruise:a3d9a277c0fd5114",
+      "sense_label_en": "to look for a sexual partner in a public place",
+      "sort_order": 2,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -404,7 +405,7 @@
       },
       {
         "sense_id": "sense:cruise:a3d9a277c0fd5114",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 3295,
         "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json"
