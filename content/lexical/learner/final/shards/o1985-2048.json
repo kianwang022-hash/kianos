@@ -1489,24 +1489,38 @@
     "ordinal": 1993,
     "word": "fore",
     "source_owner_path": "content/lexical/words/by-ordinal/o1993.json",
-    "source_fingerprint": "7c1c846404e1eaae66f211286739ab411c013b0d7e919ace7d3a7c1b7736315d",
-    "sense_lineage": [],
+    "source_fingerprint": "32decf96bc5b7dcf191224ca5870907780942c46c9bd331988c2ca63caa58ac6",
+    "sense_lineage": [
+      {
+        "word_id": "word:fore",
+        "target_kind": "sense",
+        "from_target_id": "sense:fore:291103d6348555d3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fore",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cab95bac91188a5bba5e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "1ADV",
-        "1PREP"
+        "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "前面或之前",
-      "decision_cn": "",
+      "summary_cn": "前部的；在前部，尤指船头方向",
+      "decision_cn": "front/ship → 前部、船头方向。旧式介词 fore = before 保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "前面或之前"
+        "target_label": "前部的；在前部，尤指船头方向"
       }
     },
     "senses": [
@@ -1565,32 +1579,6 @@
           "target_id": "sense:fore:513750e6abf65690",
           "target_locator": "record.senses[1]",
           "target_label": "在前面；在船头"
-        }
-      },
-      {
-        "id": "sense:fore:291103d6348555d3",
-        "source_locator": "record.senses[2]",
-        "pos": "preposition",
-        "governing_pattern": "",
-        "definition_cn": "在...前",
-        "definition_en": "before (in time or place)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cab95bac91188a5bba5e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "fore the mast",
-            "meaning_cn": "在桅杆前",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fore:291103d6348555d3",
-          "target_locator": "record.senses[2]",
-          "target_label": "在...前"
         }
       }
     ],
@@ -1657,7 +1645,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cab95bac91188a5bba5e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fore:291103d6348555d3:collocation:0"
+              ],
+              "meaning_cn": "在桅杆前",
+              "phrase": "fore the mast"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "在...前",
+          "definition_en": "before (in time or place)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "preposition",
+          "sense_id": "sense:fore:291103d6348555d3",
+          "sense_label_en": "before (in time or place)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
