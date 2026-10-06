@@ -1358,7 +1358,8 @@ window.__kianosLearnerWriterReady.then(async () => {
       const group = currentGroup();
       if (group) state.kpIndex = firstIndexForGroup(group);
       save();
-      if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');
+      if (isPostChatRecall()) setStage('kp_recall');
+      else if (biochemistrySource?.laneSourceHash) setStage(currentGroupSourceCovered() ? 'kp_recall' : 'source_contact');
       else if (sourcePerGroup) setStage('kp_learn');
       else if (segmentedSourceUnits) {
         if (integrationPrimary) ensureIntegrationPrimaryReady();
@@ -1368,7 +1369,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       } else if (integrationPrimary) {
         ensureIntegrationPrimaryReady();
         setStage('kp_recall');
-      } else if (state.sourceContactDone || isPostChatRecall()) setStage('kp_recall');
+      } else if (state.sourceContactDone) setStage('kp_recall');
       else setStage('source_contact');
     });
     root.querySelector('[data-group-lecture-done]')?.addEventListener('click', () => {
