@@ -10,9 +10,9 @@
     "content_hash": "3197c529bd8b20ff05ce426aec9f86c97509cd4737a20e9716379b1cee345acb",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "检测或响应信号或刺激的装置",
-      "core_meaning_en": "a device that detects or responds to a signal or stimulus",
-      "mental_model_cn": "检测或响应信号或刺激的装置",
+      "core_meaning_cn": "检测或响应某种信号、物质或刺激的装置",
+      "core_meaning_en": "a device that detects or responds to a signal, substance, or stimulus",
+      "mental_model_cn": "smoke/metal/radiation 等对象由上下文指定；无线电解调器等专业子义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -61,54 +61,6 @@
         "sense_id": "sense:detector:3f24ea0de2355323",
         "sense_label_en": "a device that receives a signal or stimulus and responds to it",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9ab82a424d8a86bbafbc",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:detector:b57f8cdf92915fec:collocation:0"
-            ],
-            "meaning_cn": "无线电检波器",
-            "phrase": "radio detector"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "从无线电载波中提取调制的整流器",
-        "definition_en": "a rectifier that extracts modulation from a radio carrier wave",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:detector:b57f8cdf92915fec",
-        "sense_label_en": "a rectifier that extracts modulation from a radio carrier wave",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:95a93eab2cfe37199e48",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:detector:28c96b03d9d25d25:collocation:0"
-            ],
-            "meaning_cn": "辐射探测器",
-            "phrase": "radiation detector"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "检测无线电信号或放射性的电子设备",
-        "definition_en": "electronic equipment that detects the presence of radio signals or radioactivity",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:detector:28c96b03d9d25d25",
-        "sense_label_en": "electronic equipment that detects the presence of radio signals or radio",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -245,12 +197,61 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9ab82a424d8a86bbafbc",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:detector:b57f8cdf92915fec:collocation:0"
+          ],
+          "meaning_cn": "无线电检波器",
+          "phrase": "radio detector"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "从无线电载波中提取调制的整流器",
+      "definition_en": "a rectifier that extracts modulation from a radio carrier wave",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:detector:b57f8cdf92915fec",
+      "sense_label_en": "a rectifier that extracts modulation from a radio carrier wave",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:95a93eab2cfe37199e48",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:detector:28c96b03d9d25d25:collocation:0"
+          ],
+          "meaning_cn": "辐射探测器",
+          "phrase": "radiation detector"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "检测无线电信号或放射性的电子设备",
+      "definition_en": "electronic equipment that detects the presence of radio signals or radioactivity",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:detector:28c96b03d9d25d25",
+      "sense_label_en": "electronic equipment that detects the presence of radio signals or radio",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:detector:28c96b03d9d25d25",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 3744,
         "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
@@ -264,15 +265,13 @@
       },
       {
         "sense_id": "sense:detector:b57f8cdf92915fec",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 3746,
         "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
       }
     ],
     "active_collocations": [
-      "collocation:95a93eab2cfe37199e48",
-      "collocation:9ab82a424d8a86bbafbc",
       "collocation:af78cc16411ece156929",
       "collocation:e600a50166cbfaf3c9cd"
     ],
@@ -297,12 +296,16 @@
       {
         "id": "collocation:95a93eab2cfe37199e48",
         "source_row": 12732,
-        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9ab82a424d8a86bbafbc",
         "source_row": 13180,
-        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:af78cc16411ece156929",
