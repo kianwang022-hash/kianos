@@ -17,19 +17,11 @@
           "sense_ids": [
             "sense:detail:44fce5922f7b5445"
           ]
-        },
-        {
-          "label_cn": "详述；画详图",
-          "label_en": "to describe something fully; to provide a detailed drawing",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:detail:daf05574a0655289"
-          ]
         }
       ],
       "core_meaning_cn": "小部分或具体信息",
       "core_meaning_en": "a small part or specific information",
-      "mental_model_cn": "小部分或具体信息",
+      "mental_model_cn": "noun → 具体细节；verb → 详细说明。制图专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,30 +64,6 @@
         "sense_label_en": "a small part that can be considered separately from the whole",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ad975d6bc16e91f89eb5",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:detail:daf05574a0655289:collocation:0"
-            ],
-            "meaning_cn": "在...中画详图",
-            "phrase": "detail in + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "画详图",
-        "definition_en": "to provide a detailed drawing",
-        "governing_pattern": "vi. + in",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:detail:daf05574a0655289",
-        "sense_label_en": "to provide a detailed drawing",
-        "sort_order": 1,
-        "transitivity": "vi"
       },
       {
         "collocations": [],
@@ -726,7 +694,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ad975d6bc16e91f89eb5",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:detail:daf05574a0655289:collocation:0"
+          ],
+          "meaning_cn": "在...中画详图",
+          "phrase": "detail in + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "画详图",
+      "definition_en": "to provide a detailed drawing",
+      "governing_pattern": "vi. + in",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:detail:daf05574a0655289",
+      "sense_label_en": "to provide a detailed drawing",
+      "sort_order": 1,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -745,14 +738,13 @@
       },
       {
         "sense_id": "sense:detail:daf05574a0655289",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 3737,
         "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
       }
     ],
     "active_collocations": [
-      "collocation:ad975d6bc16e91f89eb5",
       "collocation:d110dc19329573e24284",
       "collocation:feea72322c01770ab620"
     ],
@@ -766,7 +758,9 @@
       {
         "id": "collocation:ad975d6bc16e91f89eb5",
         "source_row": 14699,
-        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d110dc19329573e24284",
