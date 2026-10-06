@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:hay:make-hay-while-sun-shines",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "趁条件有利时抓住机会；及时行动",
+        "definition_en": "to make good use of an opportunity while conditions are favorable",
+        "pattern": "make hay while the sun shines",
+        "source_sense_id": "sense:hay:f44701a5c5d05208",
+        "boundary": "figurative proverb; distinct from literal hay-making"
+      }
+    ],
     "content_hash": "06995df49d41fc82deaae3c722cb6856d7626fee47b348974834a9e2fb171142",
     "core_concept": {
       "core_clusters": [
@@ -21,7 +32,7 @@
       ],
       "core_meaning_cn": "干草",
       "core_meaning_en": "dried grass used as animal fodder",
-      "mental_model_cn": "干草",
+      "mental_model_cn": "noun hay → 干草；make hay while the sun shines → 趁有利时机及时行动。专业农业动词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,44 +75,6 @@
         "sense_label_en": "grass that has been cut and dried for use as animal feed",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4b796d34de8154fafb67",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hay:c9c5e7a179f25b28:collocation:0"
-            ],
-            "meaning_cn": "把草晒成干草",
-            "phrase": "hay the grass"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "把（草）制成干草",
-        "definition_en": "convert (grass) into hay",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hay:c9c5e7a179f25b28",
-        "sense_label_en": "convert (grass) into hay",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "晒干草",
-        "definition_en": "make hay",
-        "governing_pattern": "vi.",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hay:94e5c6f4ddeb5f23",
-        "sense_label_en": "make hay",
-        "sort_order": 2,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -422,19 +395,58 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:4b796d34de8154fafb67",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hay:c9c5e7a179f25b28:collocation:0"
+          ],
+          "meaning_cn": "把草晒成干草",
+          "phrase": "hay the grass"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "把（草）制成干草",
+      "definition_en": "convert (grass) into hay",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hay:c9c5e7a179f25b28",
+      "sense_label_en": "convert (grass) into hay",
+      "sort_order": 1,
+      "transitivity": "vt"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "晒干草",
+      "definition_en": "make hay",
+      "governing_pattern": "vi.",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hay:94e5c6f4ddeb5f23",
+      "sense_label_en": "make hay",
+      "sort_order": 2,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:hay:94e5c6f4ddeb5f23",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6364,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
       },
       {
         "sense_id": "sense:hay:c9c5e7a179f25b28",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6365,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
@@ -448,7 +460,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:4b796d34de8154fafb67",
       "collocation:5343adf28cb5f6ee1ff8",
       "collocation:ef2501fc5894b3264377"
     ],
@@ -457,7 +468,9 @@
       {
         "id": "collocation:4b796d34de8154fafb67",
         "source_row": 6358,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5343adf28cb5f6ee1ff8",

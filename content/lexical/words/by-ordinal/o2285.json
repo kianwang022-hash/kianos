@@ -6,7 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:headline:headline-event",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "在活动/演出中担任主角、领衔",
+        "definition_en": "to be the main performer or most prominently featured person at an event or show",
+        "pattern": "headline an event/show/festival",
+        "boundary": "current performer/feature use; distinct from the older publicize-widely sense kept as Reference"
+      }
+    ],
     "content_hash": "912e7c70158f9974f6f93d7c7c3b267abf3ced3db2960c19cfe57f4f309c5943",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +40,7 @@
       ],
       "core_meaning_cn": "标题；新闻摘要；给…加标题",
       "core_meaning_en": "a headline or news summary; to add a headline",
-      "mental_model_cn": "标题；新闻摘要；给…加标题",
+      "mental_model_cn": "noun → 新闻标题/新闻摘要；verb → 给报道加标题；headline a show/festival → 领衔演出。旧式“广泛宣传”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -111,30 +121,6 @@
         "sense_id": "sense:headline:703fe39c48825e6a",
         "sense_label_en": "provide (a newspaper page or a story) with a headline",
         "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a186f1cd1835a57e2c10",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:headline:f3caf0423799512e:collocation:0"
-            ],
-            "meaning_cn": "大力宣传一个事件",
-            "phrase": "headline an event"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "大力宣传",
-        "definition_en": "publicize widely or highly, as if with a headline",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:headline:f3caf0423799512e",
-        "sense_label_en": "publicize widely or highly, as if with a headline",
-        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -247,7 +233,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a186f1cd1835a57e2c10",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:headline:f3caf0423799512e:collocation:0"
+          ],
+          "meaning_cn": "大力宣传一个事件",
+          "phrase": "headline an event"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "大力宣传",
+      "definition_en": "publicize widely or highly, as if with a headline",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:headline:f3caf0423799512e",
+      "sense_label_en": "publicize widely or highly, as if with a headline",
+      "sort_order": 3,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -266,7 +277,7 @@
       },
       {
         "sense_id": "sense:headline:f3caf0423799512e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6381,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
@@ -282,7 +293,6 @@
     "active_collocations": [
       "collocation:0bb0baab84adb98c5864",
       "collocation:114ccda0228ee4f59b2d",
-      "collocation:a186f1cd1835a57e2c10",
       "collocation:a79eff762504f9a18fc6"
     ],
     "facts": [],
@@ -300,7 +310,9 @@
       {
         "id": "collocation:a186f1cd1835a57e2c10",
         "source_row": 13723,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a79eff762504f9a18fc6",

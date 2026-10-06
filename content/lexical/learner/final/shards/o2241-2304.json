@@ -1784,7 +1784,7 @@
     "ordinal": 2251,
     "word": "handkerchief",
     "source_owner_path": "content/lexical/words/by-ordinal/o2251.json",
-    "source_fingerprint": "2385876d89afc88ff0ad838cd25bfdd8e96adee8cc1ed72634249e23352a526a",
+    "source_fingerprint": "e0cabbe8c94a9aa4b87ca26c4f27e836fa06e1a79c357dcc5eb36b3ada97d626",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1794,7 +1794,7 @@
     },
     "word_feel": {
       "summary_cn": "手帕",
-      "decision_cn": "",
+      "decision_cn": "通常是一块方布，用来擦鼻/眼或作装饰；一般“围巾”用 scarf。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1808,7 +1808,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "手帕；头巾；围巾",
+        "definition_cn": "手帕；可作装饰的方巾",
         "definition_en": "a square piece of cloth used for wiping the eyes or nose or as a costume accessory",
         "note": "",
         "identity_overlay": null,
@@ -1826,7 +1826,7 @@
           "target_kind": "sense",
           "target_id": "sense:handkerchief:57699b6d293e5362",
           "target_locator": "record.senses[0]",
-          "target_label": "手帕；头巾；围巾"
+          "target_label": "手帕；可作装饰的方巾"
         }
       }
     ],
@@ -1877,18 +1877,26 @@
     "ordinal": 2252,
     "word": "handle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2252.json",
-    "source_fingerprint": "a28604f9ba8a4df26e14ce210aba6015787105f80b203ce0afaf418512f292e6",
-    "sense_lineage": [],
+    "source_fingerprint": "f6b4d0f60ad009fce6c1b09611a774da9d2c10a2493a4bcdc258f689fa8829ff",
+    "sense_lineage": [
+      {
+        "word_id": "word:handle",
+        "target_kind": "sense",
+        "from_target_id": "sense:handle:5d19a451b2db5d6c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "处理；把手",
-      "decision_cn": "",
+      "decision_cn": "object → 把手；problem/person → 处理应对；physical goods → 拿、搬、接触。专业动物训练义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1974,23 +1982,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "触摸，拿，搬"
         }
-      },
-      {
-        "id": "sense:handle:5d19a451b2db5d6c",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "训练（动物）",
-        "definition_en": "to show or train (an animal) in handling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:handle:5d19a451b2db5d6c",
-          "target_locator": "record.senses[3]",
-          "target_label": "训练（动物）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2018,7 +2009,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "训练（动物）",
+          "definition_en": "to show or train (an animal) in handling",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:handle:5d19a451b2db5d6c",
+          "sense_label_en": "to show or train (an animal) in handling",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -2384,18 +2391,25 @@
     "ordinal": 2256,
     "word": "hang",
     "source_owner_path": "content/lexical/words/by-ordinal/o2256.json",
-    "source_fingerprint": "8265d04fe95012607e0f6ae775805a5f809d57e59c629db8e319c648bc9142ac",
-    "sense_lineage": [],
+    "source_fingerprint": "5899cf234e1dda3b82682d1b944278af0c9002d8147b1e8810f499f401b4c677",
+    "sense_lineage": [
+      {
+        "word_id": "word:hang",
+        "target_kind": "sense",
+        "from_target_id": "sense:hang:76febdaf8e665f7b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
-        "1N"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "悬挂或从上方吊起",
-      "decision_cn": "",
+      "decision_cn": "thing suspended → 悬挂；cause it to suspend → 挂起；hang out → 闲待/一起玩。服装“垂坠方式”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2507,23 +2521,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "绞死；吊死"
         }
-      },
-      {
-        "id": "sense:hang:76febdaf8e665f7b",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "衣服的下垂方式",
-        "definition_en": "the way a garment hangs",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hang:76febdaf8e665f7b",
-          "target_locator": "record.senses[3]",
-          "target_label": "衣服的下垂方式"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2608,7 +2605,23 @@
           "target_label": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "衣服的下垂方式",
+          "definition_en": "the way a garment hangs",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hang:76febdaf8e665f7b",
+          "sense_label_en": "the way a garment hangs",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2795,7 +2808,7 @@
     "ordinal": 2258,
     "word": "happy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2258.json",
-    "source_fingerprint": "e7dca4c17a83fbe18d2862981aaa4d3645342345848504ae88e4498242242f04",
+    "source_fingerprint": "33880d693e54efa0d33607ab66c1d2a058024df10b9786ca45f7f4222621b600",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2805,7 +2818,7 @@
     },
     "word_feel": {
       "summary_cn": "快乐的",
-      "decision_cn": "",
+      "decision_cn": "emotion → 快乐；be happy with → 对…满意；be happy to do → 乐意/愿意做；较正式 happy choice → 恰当的。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2901,7 +2914,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:happy:happy-to-do",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be happy to do sth",
+        "lines": [
+          {
+            "text": "很乐意做某事；愿意做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "willingness/pleased-to pattern; distinct from merely describing a happy mood",
+            "lang": "en"
+          },
+          {
+            "text": "to be pleased or willing to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:happy:happy-to-do",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be happy to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4638,18 +4677,33 @@
     "ordinal": 2270,
     "word": "harvest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2270.json",
-    "source_fingerprint": "873e94f77f37c1cb43dc39b233c934ec3c5c2f6f3f4bf7366da272219faae5df",
-    "sense_lineage": [],
+    "source_fingerprint": "ac072aae0eaaf93aa4c8a801d394019cca8274a3ce789c63bc7ef299eaaa871e",
+    "sense_lineage": [
+      {
+        "word_id": "word:harvest",
+        "target_kind": "sense",
+        "from_target_id": "sense:harvest:200f3629b29b5567",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:harvest",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7367a2928154af0e10df",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "收割庄稼或收获成果",
-      "decision_cn": "",
+      "decision_cn": "crop → 收割/收获；figurative result → 努力的成果。移植医学中的细胞/组织采集保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4756,32 +4810,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "努力的成果"
         }
-      },
-      {
-        "id": "sense:harvest:200f3629b29b5567",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "（为移植）采集（细胞或组织）",
-        "definition_en": "to remove cells or tissue from a living or dead body for transplantation",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7367a2928154af0e10df",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "harvest organs",
-            "meaning_cn": "采集器官",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:harvest:200f3629b29b5567",
-          "target_locator": "record.senses[3]",
-          "target_label": "（为移植）采集（细胞或组织）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4848,7 +4876,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7367a2928154af0e10df",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:harvest:200f3629b29b5567:collocation:0"
+              ],
+              "meaning_cn": "采集器官",
+              "phrase": "harvest organs"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（为移植）采集（细胞或组织）",
+          "definition_en": "to remove cells or tissue from a living or dead body for transplantation",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:harvest:200f3629b29b5567",
+          "sense_label_en": "to remove cells or tissue from a living or dead body for transplantation",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5091,7 +5145,7 @@
     "ordinal": 2273,
     "word": "hat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2273.json",
-    "source_fingerprint": "0aa8e61a064554e3be7dbda399b5d7b4791c45c7cb2128926b4665b1f66189df",
+    "source_fingerprint": "a82f32a846ffed9e86754a153db8278011bc01b78e55205532f3f0a392e143ac",
     "sense_lineage": [
       {
         "word_id": "word:hat",
@@ -5116,7 +5170,7 @@
     },
     "word_feel": {
       "summary_cn": "帽子",
-      "decision_cn": "",
+      "decision_cn": "literal → 帽子；wear many hats → 身兼数职、承担多种角色。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5186,7 +5240,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hat:wear-many-hats",
+        "source_locator": "record.constructions[0]",
+        "pattern": "wear many/different hats",
+        "lines": [
+          {
+            "text": "身兼数职；同时承担多种角色",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative roles/responsibilities idiom; not literal hats",
+            "lang": "en"
+          },
+          {
+            "text": "to have several different roles or responsibilities",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hat:wear-many-hats",
+          "target_locator": "record.constructions[0]",
+          "target_label": "wear many/different hats"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5252,18 +5332,33 @@
     "ordinal": 2274,
     "word": "hatch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2274.json",
-    "source_fingerprint": "46863c286f49654e775eaa8963db6a483bf785088961c9f212a17929ba2d69eb",
-    "sense_lineage": [],
+    "source_fingerprint": "df1c5bf24fda4f4e09cb108b9f50932f5329061861d3dea5cf4711b5adc61336",
+    "sense_lineage": [
+      {
+        "word_id": "word:hatch",
+        "target_kind": "sense",
+        "from_target_id": "sense:hatch:fd5cdadca7785a56",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hatch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b759ffc74efa418662a6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "孵化；舱口",
-      "decision_cn": "",
+      "decision_cn": "egg → 孵化/孵出；plan → hatch a plan 策划；opening → 舱口/舱门。绘画交叉阴影线义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5396,32 +5491,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "舱口，舱门"
         }
-      },
-      {
-        "id": "sense:hatch:fd5cdadca7785a56",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "交叉阴影线",
-        "definition_en": "shading consisting of multiple crossing lines",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b759ffc74efa418662a6",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "cross-hatch",
-            "meaning_cn": "交叉阴影线",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hatch:fd5cdadca7785a56",
-          "target_locator": "record.senses[4]",
-          "target_label": "交叉阴影线"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5460,7 +5529,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b759ffc74efa418662a6",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hatch:fd5cdadca7785a56:collocation:0"
+              ],
+              "meaning_cn": "交叉阴影线",
+              "phrase": "cross-hatch"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "交叉阴影线",
+          "definition_en": "shading consisting of multiple crossing lines",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hatch:fd5cdadca7785a56",
+          "sense_label_en": "shading consisting of multiple crossing lines",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5714,18 +5809,40 @@
     "ordinal": 2277,
     "word": "haul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2277.json",
-    "source_fingerprint": "bb3e1f2ecc585c4becddcfadfc1ae9c3da89bcd428ce3f7acfb59421ba3dea68",
-    "sense_lineage": [],
+    "source_fingerprint": "fe8108a3429efa0d2e6f5c5a293ac09efb04f0b9bd8f293d945d813dd8995934",
+    "sense_lineage": [
+      {
+        "word_id": "word:haul",
+        "target_kind": "sense",
+        "from_target_id": "sense:haul:63ddd0423ce75145",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:haul",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:589c9522c501e44b2f61",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:haul",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:aa3d728a19ff46c18354",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "用力拉或搬运；大量捕获",
-      "decision_cn": "",
+      "decision_cn": "verb → 用力拖/拉；noun haul → 一大批捕获物/赃物；long haul → 长途或长期艰难过程。低增益的重复“拉/拖”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5800,52 +5917,8 @@
         }
       },
       {
-        "id": "sense:haul:63ddd0423ce75145",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + on / at",
-        "definition_cn": "拉；拖",
-        "definition_en": "to pull or tug at something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:589c9522c501e44b2f61",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "haul on + sth",
-            "meaning_cn": "用力拉某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:589c9522c501e44b2f61",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "haul on + sth"
-            }
-          },
-          {
-            "id": "collocation:aa3d728a19ff46c18354",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "haul at + sth",
-            "meaning_cn": "用力拉某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:aa3d728a19ff46c18354",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "haul at + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:haul:63ddd0423ce75145",
-          "target_locator": "record.senses[2]",
-          "target_label": "拉；拖"
-        }
-      },
-      {
         "id": "sense:haul:d8dd94aac5a552f6",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "for the long haul",
         "definition_cn": "漫长或艰难的旅程、距离或持续努力",
@@ -5856,7 +5929,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:haul:d8dd94aac5a552f6",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "漫长或艰难的旅程、距离或持续努力"
         }
       }
@@ -5904,7 +5977,42 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:589c9522c501e44b2f61",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:haul:63ddd0423ce75145:collocation:0"
+              ],
+              "meaning_cn": "用力拉某物",
+              "phrase": "haul on + sth"
+            },
+            {
+              "collocation_id": "collocation:aa3d728a19ff46c18354",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:haul:63ddd0423ce75145:collocation:1"
+              ],
+              "meaning_cn": "用力拉某物",
+              "phrase": "haul at + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "拉；拖",
+          "definition_en": "to pull or tug at something",
+          "governing_pattern": "vi. + on / at",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:haul:63ddd0423ce75145",
+          "sense_label_en": "to pull or tug at something",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6140,18 +6248,33 @@
     "ordinal": 2279,
     "word": "hawk",
     "source_owner_path": "content/lexical/words/by-ordinal/o2279.json",
-    "source_fingerprint": "f2f57e83e6940ca75762786342a1a83f3afa358948b2ce2fc6d45b9ee69fe195",
-    "sense_lineage": [],
+    "source_fingerprint": "2b6e6d8b54bee8be5d147f5935f63da45fe0728a91121ca77a96d2124a3f661c",
+    "sense_lineage": [
+      {
+        "word_id": "word:hawk",
+        "target_kind": "sense",
+        "from_target_id": "sense:hawk:4af246b562aa57fd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hawk",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:33f633a47fbfffa12dbc",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "猛禽；也指主张强硬路线的人",
-      "decision_cn": "",
+      "decision_cn": "bird → 鹰；politics → 鹰派人物；hawk wares → 兜售叫卖。放鹰行猎的猎鹰术义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6237,37 +6360,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "兜售，叫卖"
         }
-      },
-      {
-        "id": "sense:hawk:4af246b562aa57fd",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + at",
-        "definition_cn": "放鹰行猎",
-        "definition_en": "to hunt with hawks",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:33f633a47fbfffa12dbc",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "hawk at + game",
-            "meaning_cn": "放鹰猎取猎物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:33f633a47fbfffa12dbc",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "hawk at + game"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hawk:4af246b562aa57fd",
-          "target_locator": "record.senses[3]",
-          "target_label": "放鹰行猎"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6295,7 +6387,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:33f633a47fbfffa12dbc",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hawk:4af246b562aa57fd:collocation:0"
+              ],
+              "meaning_cn": "放鹰猎取猎物",
+              "phrase": "hawk at + game"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "放鹰行猎",
+          "definition_en": "to hunt with hawks",
+          "governing_pattern": "vi. + at",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hawk:4af246b562aa57fd",
+          "sense_label_en": "to hunt with hawks",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6304,18 +6422,39 @@
     "ordinal": 2280,
     "word": "hay",
     "source_owner_path": "content/lexical/words/by-ordinal/o2280.json",
-    "source_fingerprint": "40ed18aaa6abb9f95888ddc58bc3516a4f4dd57304b4a2f729cd54bec2b9b0db",
-    "sense_lineage": [],
+    "source_fingerprint": "f698fc8fc0ff0dcfec771e24b1a2a77b779d6407b8fc7d40d17f3ba505a34ec8",
+    "sense_lineage": [
+      {
+        "word_id": "word:hay",
+        "target_kind": "sense",
+        "from_target_id": "sense:hay:94e5c6f4ddeb5f23",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hay",
+        "target_kind": "sense",
+        "from_target_id": "sense:hay:c9c5e7a179f25b28",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hay",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4b796d34de8154fafb67",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "干草",
-      "decision_cn": "",
+      "decision_cn": "noun hay → 干草；make hay while the sun shines → 趁有利时机及时行动。专业农业动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6367,49 +6506,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "干草（用作饲料）"
         }
-      },
-      {
-        "id": "sense:hay:c9c5e7a179f25b28",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "把（草）制成干草",
-        "definition_en": "convert (grass) into hay",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4b796d34de8154fafb67",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "hay the grass",
-            "meaning_cn": "把草晒成干草",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hay:c9c5e7a179f25b28",
-          "target_locator": "record.senses[1]",
-          "target_label": "把（草）制成干草"
-        }
-      },
-      {
-        "id": "sense:hay:94e5c6f4ddeb5f23",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "晒干草",
-        "definition_en": "make hay",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hay:94e5c6f4ddeb5f23",
-          "target_locator": "record.senses[2]",
-          "target_label": "晒干草"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6443,12 +6539,78 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hay:make-hay-while-sun-shines",
+        "source_locator": "record.constructions[0]",
+        "pattern": "make hay while the sun shines",
+        "lines": [
+          {
+            "text": "趁条件有利时抓住机会；及时行动",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative proverb; distinct from literal hay-making",
+            "lang": "en"
+          },
+          {
+            "text": "to make good use of an opportunity while conditions are favorable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hay:make-hay-while-sun-shines",
+          "target_locator": "record.constructions[0]",
+          "target_label": "make hay while the sun shines"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4b796d34de8154fafb67",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hay:c9c5e7a179f25b28:collocation:0"
+              ],
+              "meaning_cn": "把草晒成干草",
+              "phrase": "hay the grass"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "把（草）制成干草",
+          "definition_en": "convert (grass) into hay",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hay:c9c5e7a179f25b28",
+          "sense_label_en": "convert (grass) into hay",
+          "sort_order": 1,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "晒干草",
+          "definition_en": "make hay",
+          "governing_pattern": "vi.",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hay:94e5c6f4ddeb5f23",
+          "sense_label_en": "make hay",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -7220,18 +7382,33 @@
     "ordinal": 2285,
     "word": "headline",
     "source_owner_path": "content/lexical/words/by-ordinal/o2285.json",
-    "source_fingerprint": "73ef63fd623cc2d3a17d6e72025813f3bddbcff70bc04576ffb7bd800a6801a1",
-    "sense_lineage": [],
+    "source_fingerprint": "efd730a1510012385792993c5b6cfca2c42c437c990a476fb057a8fd108fafb6",
+    "sense_lineage": [
+      {
+        "word_id": "word:headline",
+        "target_kind": "sense",
+        "from_target_id": "sense:headline:f3caf0423799512e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:headline",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a186f1cd1835a57e2c10",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "标题；新闻摘要；给…加标题",
-      "decision_cn": "",
+      "decision_cn": "noun → 新闻标题/新闻摘要；verb → 给报道加标题；headline a show/festival → 领衔演出。旧式“广泛宣传”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7322,32 +7499,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "给…加标题"
         }
-      },
-      {
-        "id": "sense:headline:f3caf0423799512e",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "大力宣传",
-        "definition_en": "publicize widely or highly, as if with a headline",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a186f1cd1835a57e2c10",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "headline an event",
-            "meaning_cn": "大力宣传一个事件",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:headline:f3caf0423799512e",
-          "target_locator": "record.senses[3]",
-          "target_label": "大力宣传"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7370,12 +7521,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:headline:headline-event",
+        "source_locator": "record.constructions[0]",
+        "pattern": "headline an event/show/festival",
+        "lines": [
+          {
+            "text": "在活动/演出中担任主角、领衔",
+            "lang": "cn"
+          },
+          {
+            "text": "current performer/feature use; distinct from the older publicize-widely sense kept as Reference",
+            "lang": "en"
+          },
+          {
+            "text": "to be the main performer or most prominently featured person at an event or show",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:headline:headline-event",
+          "target_locator": "record.constructions[0]",
+          "target_label": "headline an event/show/festival"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a186f1cd1835a57e2c10",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:headline:f3caf0423799512e:collocation:0"
+              ],
+              "meaning_cn": "大力宣传一个事件",
+              "phrase": "headline an event"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "大力宣传",
+          "definition_en": "publicize widely or highly, as if with a headline",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:headline:f3caf0423799512e",
+          "sense_label_en": "publicize widely or highly, as if with a headline",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8320,7 +8523,7 @@
     "ordinal": 2292,
     "word": "hear",
     "source_owner_path": "content/lexical/words/by-ordinal/o2292.json",
-    "source_fingerprint": "d3554273b3ee81b294db43e43fe38738f50b82eb4a1238b6bb9f17b353ea462a",
+    "source_fingerprint": "069524a254c042ccc139a9260216bbd7f64c08c95817ee3a1761460adff71b76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8330,7 +8533,7 @@
     },
     "word_feel": {
       "summary_cn": "听到",
-      "decision_cn": "",
+      "decision_cn": "sound → 听到；news/info → 听说；hear from sb → 收到某人消息；legal → 审理案件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8482,7 +8685,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hear:hear-from",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hear from sb",
+        "lines": [
+          {
+            "text": "收到某人的消息；接到某人的联系",
+            "lang": "cn"
+          },
+          {
+            "text": "communication-from-person use; distinct from hear of/about = learn that something exists or happened",
+            "lang": "en"
+          },
+          {
+            "text": "to receive a message, letter, call, or other communication from someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hear:hear-from",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hear from sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -8719,7 +8948,7 @@
     "ordinal": 2294,
     "word": "heart",
     "source_owner_path": "content/lexical/words/by-ordinal/o2294.json",
-    "source_fingerprint": "aa0f8f9fe43b08cef87c807f5417e0921e5e7b52da9b8aa8af9d5c8bb2dc84e4",
+    "source_fingerprint": "fddd3a3a6b3b21de3041c72a0281f0cff7311e4cdafe146fbaf4cbea8ff6539c",
     "sense_lineage": [
       {
         "word_id": "word:heart",
@@ -8737,7 +8966,7 @@
     },
     "word_feel": {
       "summary_cn": "心脏；内心",
-      "decision_cn": "",
+      "decision_cn": "body → 心脏；emotion/self → 内心；courage → take/lose heart；center → 核心；by heart → 熟记、背熟。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8913,7 +9142,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:heart:by-heart",
+        "source_locator": "record.constructions[0]",
+        "pattern": "know/learn sth by heart",
+        "lines": [
+          {
+            "text": "凭记忆；背熟地",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed memory idiom; not the body organ or emotional-center senses",
+            "lang": "en"
+          },
+          {
+            "text": "from memory, so that you can repeat something without reading it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:heart:by-heart",
+          "target_locator": "record.constructions[0]",
+          "target_label": "know/learn sth by heart"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9343,18 +9598,32 @@
     "ordinal": 2296,
     "word": "heave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2296.json",
-    "source_fingerprint": "d48475e5e765ea9e46ef52430c988c0f842b0eb493297ecab19f5126ff980eb7",
-    "sense_lineage": [],
+    "source_fingerprint": "860945031cee4bd83314e5a135b9c5ff1e14b35d4039729fbf75d062bc68639e",
+    "sense_lineage": [
+      {
+        "word_id": "word:heave",
+        "target_kind": "sense",
+        "from_target_id": "sense:heave:30ad7b3f61195b2a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heave",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bb569627b2e080185c22",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V",
-        "1N"
+        "4V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "用力举起、拖起；起伏；用力抛出；作呕",
-      "decision_cn": "",
+      "decision_cn": "effort → 用力举/拖/扔；surface/body → 起伏；stomach → 作呕。低杠杆的名词“举起/起伏”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9518,32 +9787,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "恶心，作呕"
         }
-      },
-      {
-        "id": "sense:heave:30ad7b3f61195b2a",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "举起，起伏",
-        "definition_en": "an upward movement, especially a rhythmical rising and falling",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bb569627b2e080185c22",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "the heave of the sea",
-            "meaning_cn": "大海的起伏",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heave:30ad7b3f61195b2a",
-          "target_locator": "record.senses[4]",
-          "target_label": "举起，起伏"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9569,7 +9812,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bb569627b2e080185c22",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:heave:30ad7b3f61195b2a:collocation:0"
+              ],
+              "meaning_cn": "大海的起伏",
+              "phrase": "the heave of the sea"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "举起，起伏",
+          "definition_en": "an upward movement, especially a rhythmical rising and falling",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:heave:30ad7b3f61195b2a",
+          "sense_label_en": "an upward movement, especially a rhythmical rising and falling",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10138,23 +10407,65 @@
     "ordinal": 2300,
     "word": "heel",
     "source_owner_path": "content/lexical/words/by-ordinal/o2300.json",
-    "source_fingerprint": "e24853d26ec06815b909ed9b1de3716d001cb8d57b79e2e275a02eb24c8f2a6b",
-    "sense_lineage": [],
+    "source_fingerprint": "040544025b44c7f37c834c813386e4f4b25ab614c086ceec49e9073704976b79",
+    "sense_lineage": [
+      {
+        "word_id": "word:heel",
+        "target_kind": "sense",
+        "from_target_id": "sense:heel:29879622d0e05cbd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heel",
+        "target_kind": "sense",
+        "from_target_id": "sense:heel:5fc88a9b523951b4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heel",
+        "target_kind": "sense",
+        "from_target_id": "sense:heel:817a2ab0d3b15c32",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heel",
+        "target_kind": "sense",
+        "from_target_id": "sense:heel:eef0b1cae75b5f56",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heel",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:80b05eb7b7fe1a9d20ad",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:heel",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c994b93cdeb5fe516729",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "脚后跟，鞋跟",
-      "decision_cn": "",
+      "summary_cn": "脚后跟；鞋跟",
+      "decision_cn": "body/shoe → 脚后跟、鞋跟；on the heels of → 紧接着；hot on sb's heels → 紧追不舍。面包头、桅杆下端及低价值动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "脚后跟，鞋跟"
+        "target_label": "脚后跟；鞋跟"
       }
     },
     "senses": [
@@ -10199,102 +10510,6 @@
           "target_id": "sense:heel:4a17b42f0ac15ca6",
           "target_locator": "record.senses[1]",
           "target_label": "鞋跟"
-        }
-      },
-      {
-        "id": "sense:heel:817a2ab0d3b15c32",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "面包头",
-        "definition_en": "one of the crusty ends of a loaf of bread",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:817a2ab0d3b15c32",
-          "target_locator": "record.senses[2]",
-          "target_label": "面包头"
-        }
-      },
-      {
-        "id": "sense:heel:29879622d0e05cbd",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + after",
-        "definition_cn": "紧随，尾随",
-        "definition_en": "to follow closely behind someone",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:80b05eb7b7fe1a9d20ad",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "heel after sb",
-            "meaning_cn": "紧随某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:80b05eb7b7fe1a9d20ad",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "heel after sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:29879622d0e05cbd",
-          "target_locator": "record.senses[3]",
-          "target_label": "紧随，尾随"
-        }
-      },
-      {
-        "id": "sense:heel:5fc88a9b523951b4",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "桅杆下端",
-        "definition_en": "the lower end of a ship's mast",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:5fc88a9b523951b4",
-          "target_locator": "record.senses[4]",
-          "target_label": "桅杆下端"
-        }
-      },
-      {
-        "id": "sense:heel:eef0b1cae75b5f56",
-        "source_locator": "record.senses[5]",
-        "pos": "verb",
-        "governing_pattern": "vi. + over",
-        "definition_cn": "倾侧",
-        "definition_en": "to lean to one side (of a ship)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c994b93cdeb5fe516729",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "heel over",
-            "meaning_cn": "倾侧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c994b93cdeb5fe516729",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "heel over"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:heel:eef0b1cae75b5f56",
-          "target_locator": "record.senses[5]",
-          "target_label": "倾侧"
         }
       }
     ],
@@ -10342,7 +10557,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:heel:on-the-heels-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on the heels of sth",
+        "lines": [
+          {
+            "text": "紧接在…之后；随着…马上发生",
+            "lang": "cn"
+          },
+          {
+            "text": "time/event sequence idiom; not literal anatomy",
+            "lang": "en"
+          },
+          {
+            "text": "very soon after something else",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:heel:on-the-heels-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on the heels of sth"
+        }
+      },
+      {
+        "id": "construction:heel:hot-on-heels",
+        "source_locator": "record.constructions[1]",
+        "pattern": "hot on sb's heels",
+        "lines": [
+          {
+            "text": "紧追某人；紧随其后",
+            "lang": "cn"
+          },
+          {
+            "text": "close-pursuit idiom; not the low-value standalone heel verb",
+            "lang": "en"
+          },
+          {
+            "text": "following or chasing someone very closely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:heel:hot-on-heels",
+          "target_locator": "record.constructions[1]",
+          "target_label": "hot on sb's heels"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -10381,7 +10647,85 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "面包头",
+          "definition_en": "one of the crusty ends of a loaf of bread",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:heel:817a2ab0d3b15c32",
+          "sense_label_en": "one of the crusty ends of a loaf of bread",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:80b05eb7b7fe1a9d20ad",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:heel:29879622d0e05cbd:collocation:0"
+              ],
+              "meaning_cn": "紧随某人",
+              "phrase": "heel after sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "紧随，尾随",
+          "definition_en": "to follow closely behind someone",
+          "governing_pattern": "vi. + after",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:heel:29879622d0e05cbd",
+          "sense_label_en": "to follow closely behind someone",
+          "sort_order": 3,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "桅杆下端",
+          "definition_en": "the lower end of a ship's mast",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:heel:5fc88a9b523951b4",
+          "sense_label_en": "the lower end of a ship's mast",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c994b93cdeb5fe516729",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:heel:eef0b1cae75b5f56:collocation:0"
+              ],
+              "meaning_cn": "倾侧",
+              "phrase": "heel over"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "倾侧",
+          "definition_en": "to lean to one side (of a ship)",
+          "governing_pattern": "vi. + over",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:heel:eef0b1cae75b5f56",
+          "sense_label_en": "to lean to one side (of a ship)",
+          "sort_order": 5,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {

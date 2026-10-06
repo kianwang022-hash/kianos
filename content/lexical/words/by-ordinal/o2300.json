@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:heel:on-the-heels-of",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "紧接在…之后；随着…马上发生",
+        "definition_en": "very soon after something else",
+        "pattern": "on the heels of sth",
+        "source_sense_id": "sense:heel:df90a5ed966853e0",
+        "boundary": "time/event sequence idiom; not literal anatomy"
+      },
+      {
+        "construction_id": "construction:heel:hot-on-heels",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "紧追某人；紧随其后",
+        "definition_en": "following or chasing someone very closely",
+        "pattern": "hot on sb's heels",
+        "source_sense_id": "sense:heel:df90a5ed966853e0",
+        "boundary": "close-pursuit idiom; not the low-value standalone heel verb"
+      }
+    ],
     "content_hash": "083c77587dc0a9bac210c5468ef02118c26918e794f4751415da460f963b1b21",
     "core_concept": {
       "core_clusters": [
@@ -16,22 +37,13 @@
           "pos": "noun",
           "sense_ids": [
             "sense:heel:df90a5ed966853e0",
-            "sense:heel:4a17b42f0ac15ca6",
-            "sense:heel:817a2ab0d3b15c32"
-          ]
-        },
-        {
-          "label_cn": "紧随，尾随",
-          "label_en": "to follow closely behind someone",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:heel:29879622d0e05cbd"
+            "sense:heel:4a17b42f0ac15ca6"
           ]
         }
       ],
-      "core_meaning_cn": "脚后跟，鞋跟",
-      "core_meaning_en": "the back part of the foot or shoe",
-      "mental_model_cn": "脚后跟，鞋跟",
+      "core_meaning_cn": "脚后跟；鞋跟",
+      "core_meaning_en": "the back part of the foot or the raised back part of a shoe",
+      "mental_model_cn": "body/shoe → 脚后跟、鞋跟；on the heels of → 紧接着；hot on sb's heels → 紧追不舍。面包头、桅杆下端及低价值动词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,82 +91,6 @@
         "sense_label_en": "the part of a shoe or boot that touches the ground and provides elevatio",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "面包头",
-        "definition_en": "one of the crusty ends of a loaf of bread",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:heel:817a2ab0d3b15c32",
-        "sense_label_en": "one of the crusty ends of a loaf of bread",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:80b05eb7b7fe1a9d20ad",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:heel:29879622d0e05cbd:collocation:0"
-            ],
-            "meaning_cn": "紧随某人",
-            "phrase": "heel after sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "紧随，尾随",
-        "definition_en": "to follow closely behind someone",
-        "governing_pattern": "vi. + after",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:heel:29879622d0e05cbd",
-        "sense_label_en": "to follow closely behind someone",
-        "sort_order": 3,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "桅杆下端",
-        "definition_en": "the lower end of a ship's mast",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:heel:5fc88a9b523951b4",
-        "sense_label_en": "the lower end of a ship's mast",
-        "sort_order": 4,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c994b93cdeb5fe516729",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:heel:eef0b1cae75b5f56:collocation:0"
-            ],
-            "meaning_cn": "倾侧",
-            "phrase": "heel over"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "倾侧",
-        "definition_en": "to lean to one side (of a ship)",
-        "governing_pattern": "vi. + over",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:heel:eef0b1cae75b5f56",
-        "sense_label_en": "to lean to one side (of a ship)",
-        "sort_order": 5,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -616,12 +552,89 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "面包头",
+      "definition_en": "one of the crusty ends of a loaf of bread",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:heel:817a2ab0d3b15c32",
+      "sense_label_en": "one of the crusty ends of a loaf of bread",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:80b05eb7b7fe1a9d20ad",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:heel:29879622d0e05cbd:collocation:0"
+          ],
+          "meaning_cn": "紧随某人",
+          "phrase": "heel after sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "紧随，尾随",
+      "definition_en": "to follow closely behind someone",
+      "governing_pattern": "vi. + after",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:heel:29879622d0e05cbd",
+      "sense_label_en": "to follow closely behind someone",
+      "sort_order": 3,
+      "transitivity": "vi"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "桅杆下端",
+      "definition_en": "the lower end of a ship's mast",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:heel:5fc88a9b523951b4",
+      "sense_label_en": "the lower end of a ship's mast",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:c994b93cdeb5fe516729",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:heel:eef0b1cae75b5f56:collocation:0"
+          ],
+          "meaning_cn": "倾侧",
+          "phrase": "heel over"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "倾侧",
+      "definition_en": "to lean to one side (of a ship)",
+      "governing_pattern": "vi. + over",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:heel:eef0b1cae75b5f56",
+      "sense_label_en": "to lean to one side (of a ship)",
+      "sort_order": 5,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:heel:29879622d0e05cbd",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6432,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
@@ -635,14 +648,14 @@
       },
       {
         "sense_id": "sense:heel:5fc88a9b523951b4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6434,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
       },
       {
         "sense_id": "sense:heel:817a2ab0d3b15c32",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6435,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
@@ -656,15 +669,13 @@
       },
       {
         "sense_id": "sense:heel:eef0b1cae75b5f56",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6437,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
       }
     ],
     "active_collocations": [
-      "collocation:80b05eb7b7fe1a9d20ad",
-      "collocation:c994b93cdeb5fe516729",
       "collocation:d5be8e04cb6ac9e20480"
     ],
     "facts": [],
@@ -682,12 +693,16 @@
       {
         "id": "collocation:80b05eb7b7fe1a9d20ad",
         "source_row": 10900,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c994b93cdeb5fe516729",
         "source_row": 17031,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d5be8e04cb6ac9e20480",
