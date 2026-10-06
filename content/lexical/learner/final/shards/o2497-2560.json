@@ -383,7 +383,7 @@
     "ordinal": 2500,
     "word": "independence",
     "source_owner_path": "content/lexical/words/by-ordinal/o2500.json",
-    "source_fingerprint": "ead84c3011003b225f92149ea3b42939f0820b68e00ab738737e8292e76e3306",
+    "source_fingerprint": "6052eab37ad85f52c9d94d5133c460cb12519dc4c0de6a3accfd06683212ce37",
     "sense_lineage": [
       {
         "word_id": "word:independence",
@@ -391,17 +391,24 @@
         "from_target_id": "sense:independence:6e8695ab62e55741",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:independence",
+        "target_kind": "sense",
+        "from_target_id": "sense:independence:87453499bc195ab4",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "独立；自主",
-      "decision_cn": "",
+      "decision_cn": "abstract noun → 独立、自主。美国密苏里州城市 Independence 的专名知识保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -411,25 +418,8 @@
     },
     "senses": [
       {
-        "id": "sense:independence:87453499bc195ab4",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "美国密苏里州西部城市，圣菲小径的起点",
-        "definition_en": "a city in western Missouri; the beginning of the Santa Fe Trail",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:independence:87453499bc195ab4",
-          "target_locator": "record.senses[0]",
-          "target_label": "美国密苏里州西部城市，圣菲小径的起点"
-        }
-      },
-      {
         "id": "sense:independence:b9023a509fe35aec",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "独立；不受外部控制",
@@ -440,7 +430,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:independence:b9023a509fe35aec",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "独立；不受外部控制"
         }
       }
@@ -545,6 +535,20 @@
           "source_row": 6933,
           "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "美国密苏里州西部城市，圣菲小径的起点",
+          "definition_en": "a city in western Missouri; the beginning of the Santa Fe Trail",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:independence:87453499bc195ab4",
+          "sense_label_en": "a city in western Missouri; the beginning of the Santa Fe Trail",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }

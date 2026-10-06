@@ -4244,23 +4244,38 @@
     "ordinal": 2462,
     "word": "impact",
     "source_owner_path": "content/lexical/words/by-ordinal/o2462.json",
-    "source_fingerprint": "7ee724840ef91337e0afd70e2e9171d190af79fbd56763b67330849a0603f4b8",
-    "sense_lineage": [],
+    "source_fingerprint": "1f964d786d2440103b6e8cdfce921aecd29331c0a9f1f3107f85f0a6638e048c",
+    "sense_lineage": [
+      {
+        "word_id": "word:impact",
+        "target_kind": "sense",
+        "from_target_id": "sense:impact:e567c05e33e95c87",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impact",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bc035240d260424b4a23",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冲击；影响",
-      "decision_cn": "",
+      "summary_cn": "影响；冲击；影响某事",
+      "decision_cn": "effect → 影响；collision → 冲击/撞击；verb → 对…产生影响。工程/土壤“压紧、挤入”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冲击；影响"
+        "target_label": "影响；冲击；影响某事"
       }
     },
     "senses": [
@@ -4343,34 +4358,8 @@
         }
       },
       {
-        "id": "sense:impact:e567c05e33e95c87",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "压紧；挤入",
-        "definition_en": "press or wedge together; pack together",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bc035240d260424b4a23",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "impact the soil",
-            "meaning_cn": "压实土壤",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:impact:e567c05e33e95c87",
-          "target_locator": "record.senses[2]",
-          "target_label": "压紧；挤入"
-        }
-      },
-      {
         "id": "sense:impact:7a4440d447cd56dd",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "对……有影响；影响",
@@ -4381,7 +4370,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:impact:7a4440d447cd56dd",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "对……有影响；影响"
         }
       }
@@ -4472,9 +4461,6 @@
         ],
         "sense:impact:7a4440d447cd56dd": [
           1
-        ],
-        "sense:impact:e567c05e33e95c87": [
-          1
         ]
       },
       "has_scope": true
@@ -4485,7 +4471,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bc035240d260424b4a23",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:impact:e567c05e33e95c87:collocation:0"
+              ],
+              "meaning_cn": "压实土壤",
+              "phrase": "impact the soil"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "压紧；挤入",
+          "definition_en": "press or wedge together; pack together",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:impact:e567c05e33e95c87",
+          "sense_label_en": "press or wedge together; pack together",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -4898,7 +4910,7 @@
     "ordinal": 2466,
     "word": "imperative",
     "source_owner_path": "content/lexical/words/by-ordinal/o2466.json",
-    "source_fingerprint": "3c1071fe3f246d6bfd69d952f780f866464785434943e33c1b620300ae438bf3",
+    "source_fingerprint": "ad1f9dfeec9e36c74e21a938836ea8043d92a3cab36aee6d12dab0d9b8994415",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4909,7 +4921,7 @@
     },
     "word_feel": {
       "summary_cn": "必要的、紧急的或命令",
-      "decision_cn": "",
+      "decision_cn": "adjective/noun → 至关重要、必须做的事；it is imperative that… → …是必须的；grammar → 祈使语气。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5062,7 +5074,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:imperative:it-is-imperative-that",
+        "source_locator": "record.constructions[0]",
+        "pattern": "it is imperative that + clause",
+        "lines": [
+          {
+            "text": "…是至关重要/必须的",
+            "lang": "cn"
+          },
+          {
+            "text": "importance/necessity pattern; distinct from grammatical imperative mood",
+            "lang": "en"
+          },
+          {
+            "text": "used to say that something is extremely important or must be done",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:imperative:it-is-imperative-that",
+          "target_locator": "record.constructions[0]",
+          "target_label": "it is imperative that + clause"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5238,22 +5276,37 @@
     "ordinal": 2468,
     "word": "impetus",
     "source_owner_path": "content/lexical/words/by-ordinal/o2468.json",
-    "source_fingerprint": "c1c1f9a0e9cea829d391d2bed091713616990be4b6b539261d7d868b1a5920fe",
-    "sense_lineage": [],
+    "source_fingerprint": "3180c37ebfdae87f6d6c4243522dd88463f00a2183162db43a90c593f3aa5d4d",
+    "sense_lineage": [
+      {
+        "word_id": "word:impetus",
+        "target_kind": "sense",
+        "from_target_id": "sense:impetus:500832752c65522b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impetus",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:37ee58fa434de07dcbdb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "推动力",
-      "decision_cn": "",
+      "summary_cn": "推动力；促进因素",
+      "decision_cn": "give impetus to sth → 推动/促进某事。旧式或非现代物理核心的“动量”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "推动力"
+        "target_label": "推动力；促进因素"
       }
     },
     "senses": [
@@ -5286,32 +5339,6 @@
           "target_id": "sense:impetus:ab5d89217c4f55fd",
           "target_locator": "record.senses[0]",
           "target_label": "推动力"
-        }
-      },
-      {
-        "id": "sense:impetus:500832752c65522b",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "动量",
-        "definition_en": "the force that moves an object",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:37ee58fa434de07dcbdb",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the impetus of the ball",
-            "meaning_cn": "球的动量",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:impetus:500832752c65522b",
-          "target_locator": "record.senses[1]",
-          "target_label": "动量"
         }
       }
     ],
@@ -5351,7 +5378,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:37ee58fa434de07dcbdb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:impetus:500832752c65522b:collocation:0"
+              ],
+              "meaning_cn": "球的动量",
+              "phrase": "the impetus of the ball"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "动量",
+          "definition_en": "the force that moves an object",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:impetus:500832752c65522b",
+          "sense_label_en": "the force that moves an object",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5519,17 +5572,32 @@
     "ordinal": 2470,
     "word": "implication",
     "source_owner_path": "content/lexical/words/by-ordinal/o2470.json",
-    "source_fingerprint": "ff1cfa392083432696473f73d3b58a572f68f04f155cf73eff28283ea67839d9",
-    "sense_lineage": [],
+    "source_fingerprint": "64d3adebf3fa4f67efc3fa576e9e1de52eb81ed998534d193d03e59db67b836a",
+    "sense_lineage": [
+      {
+        "word_id": "word:implication",
+        "target_kind": "sense",
+        "from_target_id": "sense:implication:a4ab701a234651b8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:implication",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e20c2ab0317f218ba7a3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "影响、后果；含义、暗示",
-      "decision_cn": "",
+      "decision_cn": "consequence → 可能影响/后果；meaning → 暗示/含义；involvement → 牵连。形式逻辑“蕴含关系”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5630,32 +5698,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "牵连；涉及"
         }
-      },
-      {
-        "id": "sense:implication:a4ab701a234651b8",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "逻辑蕴含；推断",
-        "definition_en": "a logical relation between propositions",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e20c2ab0317f218ba7a3",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "logical implication",
-            "meaning_cn": "逻辑蕴含",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:implication:a4ab701a234651b8",
-          "target_locator": "record.senses[3]",
-          "target_label": "逻辑蕴含；推断"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5737,6 +5779,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e20c2ab0317f218ba7a3",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:implication:a4ab701a234651b8:collocation:0"
+              ],
+              "meaning_cn": "逻辑蕴含",
+              "phrase": "logical implication"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "逻辑蕴含；推断",
+          "definition_en": "a logical relation between propositions",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:implication:a4ab701a234651b8",
+          "sense_label_en": "a logical relation between propositions",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -6038,23 +6106,52 @@
     "ordinal": 2473,
     "word": "import",
     "source_owner_path": "content/lexical/words/by-ordinal/o2473.json",
-    "source_fingerprint": "f77f813560fa2e102b91eb4b15fdf9a3e667788c184c9622a4673e8b120c749c",
-    "sense_lineage": [],
+    "source_fingerprint": "a2ee8f89faf59c1ca4331b015ad6f3c80ced09b73f42a890395d3640b12c487b",
+    "sense_lineage": [
+      {
+        "word_id": "word:import",
+        "target_kind": "sense",
+        "from_target_id": "sense:import:5dd9febfadcf5954",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:import",
+        "target_kind": "sense",
+        "from_target_id": "sense:import:e495faf518c059cf",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:import",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:97b7b8b8d62dce4cf38e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:import",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c98ec97cd7ee17db4849",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
-        "2N"
+        "2V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "进口、导入；进口品；含义、重要性",
-      "decision_cn": "",
+      "summary_cn": "进口；进口品；导入数据",
+      "decision_cn": "trade → 进口/进口货；computing → 导入数据。正式旧式“含义/重要性”及“有重要性”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "进口、导入；进口品；含义、重要性"
+        "target_label": "进口；进口品；导入数据"
       }
     },
     "senses": [
@@ -6189,68 +6286,6 @@
           "target_id": "sense:import:83dd6840f252538a",
           "target_locator": "record.senses[2]",
           "target_label": "（计算机）导入；引入"
-        }
-      },
-      {
-        "id": "sense:import:5dd9febfadcf5954",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "含义；重要性",
-        "definition_en": "the meaning or significance of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:97b7b8b8d62dce4cf38e",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "the import of + sth",
-            "meaning_cn": "某事的含义/重要性",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:97b7b8b8d62dce4cf38e",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "the import of + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:import:5dd9febfadcf5954",
-          "target_locator": "record.senses[3]",
-          "target_label": "含义；重要性"
-        }
-      },
-      {
-        "id": "sense:import:e495faf518c059cf",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "有关系；有重要性",
-        "definition_en": "to be of importance or consequence",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c98ec97cd7ee17db4849",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "import to + sb/sth",
-            "meaning_cn": "对某人/某事重要",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c98ec97cd7ee17db4849",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "import to + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:import:e495faf518c059cf",
-          "target_locator": "record.senses[4]",
-          "target_label": "有关系；有重要性"
         }
       }
     ],
@@ -6523,10 +6558,6 @@
         "sense:import:2aea7b0ca1245c41": [
           1,
           4
-        ],
-        "sense:import:5dd9febfadcf5954": [
-          2,
-          5
         ]
       },
       "has_scope": true
@@ -6558,7 +6589,57 @@
           "target_label": "import has noun stress on the first syllable and verb stress on the second syllable."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:97b7b8b8d62dce4cf38e",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:import:5dd9febfadcf5954:collocation:0"
+              ],
+              "meaning_cn": "某事的含义/重要性",
+              "phrase": "the import of + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "含义；重要性",
+          "definition_en": "the meaning or significance of something",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:import:5dd9febfadcf5954",
+          "sense_label_en": "the meaning or significance of something",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c98ec97cd7ee17db4849",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:import:e495faf518c059cf:collocation:0"
+              ],
+              "meaning_cn": "对某人/某事重要",
+              "phrase": "import to + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "有关系；有重要性",
+          "definition_en": "to be of importance or consequence",
+          "governing_pattern": "vi. + to",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:import:e495faf518c059cf",
+          "sense_label_en": "to be of importance or consequence",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6829,7 +6910,7 @@
     "ordinal": 2476,
     "word": "impose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2476.json",
-    "source_fingerprint": "b0abd7655f12046088e1f3ed8f52b596e7de9ffdf36b28e5820f2fd210aafba4",
+    "source_fingerprint": "811d803c28846a8651d6a73ff816c141799f83af59cdc26c08b6970b48359226",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6839,7 +6920,7 @@
     },
     "word_feel": {
       "summary_cn": "强加，施加",
-      "decision_cn": "",
+      "decision_cn": "rule/tax/burden → 强加或征收；impose on/upon sb → 利用某人的好意、给人添麻烦。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6998,7 +7079,33 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:impose:impose-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "impose on/upon sb / impose on sb’s kindness/hospitality",
+        "lines": [
+          {
+            "text": "利用某人的好意；给某人添麻烦/占便宜",
+            "lang": "cn"
+          },
+          {
+            "text": "take-advantage/inconvenience pattern; distinct from impose a rule/tax on someone",
+            "lang": "en"
+          },
+          {
+            "text": "to take unfair advantage of someone or ask too much of their kindness",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:impose:impose-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "impose on/upon sb / impose on sb’s kindness/hospitality"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -7425,22 +7532,51 @@
     "ordinal": 2479,
     "word": "impression",
     "source_owner_path": "content/lexical/words/by-ordinal/o2479.json",
-    "source_fingerprint": "82567c21f632b24ee81691f7c18b5f2e4945d8acf893c5ad85b0f88511362864",
-    "sense_lineage": [],
+    "source_fingerprint": "651d86bb564f6c7292f1d023d30a46df9c3355bf1c5a6e3d6602625d6b1d1b66",
+    "sense_lineage": [
+      {
+        "word_id": "word:impression",
+        "target_kind": "sense",
+        "from_target_id": "sense:impression:461564eed12e5231",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impression",
+        "target_kind": "sense",
+        "from_target_id": "sense:impression:f92b03a35e245a23",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impression",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:094ce98f9f4fa98dd819",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impression",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fda7a1aa0bf2359d212a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "印象、看法或感觉",
-      "decision_cn": "",
+      "summary_cn": "印象；看法；感觉",
+      "decision_cn": "idea/feeling → 印象、看法；effect/appearance → 给人的感觉；under the impression that… → 以为/误以为。印刷“印次”和牙科“印模”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "印象、看法或感觉"
+        "target_label": "印象；看法；感觉"
       }
     },
     "senses": [
@@ -7476,58 +7612,6 @@
           "target_id": "sense:impression:fd8081be960952a6",
           "target_locator": "record.senses[1]",
           "target_label": "外观；印象"
-        }
-      },
-      {
-        "id": "sense:impression:461564eed12e5231",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "印数，印次",
-        "definition_en": "all the copies of a work printed at one time",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:094ce98f9f4fa98dd819",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "first impression of a book",
-            "meaning_cn": "一本书的第一次印刷",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:impression:461564eed12e5231",
-          "target_locator": "record.senses[2]",
-          "target_label": "印数，印次"
-        }
-      },
-      {
-        "id": "sense:impression:f92b03a35e245a23",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "印模",
-        "definition_en": "(dentistry) an imprint of the teeth and gums in wax or plaster",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fda7a1aa0bf2359d212a",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "take an impression of the teeth",
-            "meaning_cn": "取牙齿印模",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:impression:f92b03a35e245a23",
-          "target_locator": "record.senses[3]",
-          "target_label": "印模"
         }
       }
     ],
@@ -7591,7 +7675,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:094ce98f9f4fa98dd819",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:impression:461564eed12e5231:collocation:0"
+              ],
+              "meaning_cn": "一本书的第一次印刷",
+              "phrase": "first impression of a book"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "印数，印次",
+          "definition_en": "all the copies of a work printed at one time",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:impression:461564eed12e5231",
+          "sense_label_en": "all the copies of a work printed at one time",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fda7a1aa0bf2359d212a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:impression:f92b03a35e245a23:collocation:0"
+              ],
+              "meaning_cn": "取牙齿印模",
+              "phrase": "take an impression of the teeth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "印模",
+          "definition_en": "(dentistry) an imprint of the teeth and gums in wax or plaster",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:impression:f92b03a35e245a23",
+          "sense_label_en": "(dentistry) an imprint of the teeth and gums in wax or plaster",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8709,22 +8843,37 @@
     "ordinal": 2487,
     "word": "incidence",
     "source_owner_path": "content/lexical/words/by-ordinal/o2487.json",
-    "source_fingerprint": "ebaccf861d7fbcdb89428b91aed77714672cfd2c2c84a9399ba9adbb4a10a1c2",
-    "sense_lineage": [],
+    "source_fingerprint": "b9d4e000878b8876475fb64a2210602395c06e515bbdd0d7dd73b7ee8767dee7",
+    "sense_lineage": [
+      {
+        "word_id": "word:incidence",
+        "target_kind": "sense",
+        "from_target_id": "sense:incidence:4a2ce082f3875262",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:incidence",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:11401adc50389f0cd8e0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发生率；入射",
-      "decision_cn": "",
+      "summary_cn": "发生率；发生频率",
+      "decision_cn": "incidence of disease/crime → 发生率。光学“入射/入射角”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发生率；入射"
+        "target_label": "发生率；发生频率"
       }
     },
     "senses": [
@@ -8765,37 +8914,6 @@
           "target_id": "sense:incidence:5eac9f86a97150e8",
           "target_locator": "record.senses[0]",
           "target_label": "发生率"
-        }
-      },
-      {
-        "id": "sense:incidence:4a2ce082f3875262",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "入射",
-        "definition_en": "the striking of a light beam on a surface",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:11401adc50389f0cd8e0",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "angle of incidence",
-            "meaning_cn": "入射角",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:11401adc50389f0cd8e0",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "angle of incidence"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:incidence:4a2ce082f3875262",
-          "target_locator": "record.senses[1]",
-          "target_label": "入射"
         }
       }
     ],
@@ -8861,7 +8979,33 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:11401adc50389f0cd8e0",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:incidence:4a2ce082f3875262:collocation:0"
+              ],
+              "meaning_cn": "入射角",
+              "phrase": "angle of incidence"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "入射",
+          "definition_en": "the striking of a light beam on a surface",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:incidence:4a2ce082f3875262",
+          "sense_label_en": "the striking of a light beam on a surface",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8870,18 +9014,32 @@
     "ordinal": 2488,
     "word": "incident",
     "source_owner_path": "content/lexical/words/by-ordinal/o2488.json",
-    "source_fingerprint": "d9a15fa0e22cd4bd28d23efb0a05e45f6c549eb8eae04ad68d67a4b4198000d3",
-    "sense_lineage": [],
+    "source_fingerprint": "7575733abbb70591aaf7e4ed4dae5538355e60748c6a42a585e1f99312cf5aab",
+    "sense_lineage": [
+      {
+        "word_id": "word:incident",
+        "target_kind": "sense",
+        "from_target_id": "sense:incident:fa4d2f8c20bf5ab2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:incident",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8184e392c64a816c6b00",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "事件；事变",
-      "decision_cn": "",
+      "decision_cn": "event → 事件；public disturbance/border event → 事变。光学形容词 incident light“入射的”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8954,32 +9112,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "骚乱，事变"
         }
-      },
-      {
-        "id": "sense:incident:fa4d2f8c20bf5ab2",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "入射的",
-        "definition_en": "falling or striking of light rays on something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8184e392c64a816c6b00",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "incident light",
-            "meaning_cn": "入射光",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:incident:fa4d2f8c20bf5ab2",
-          "target_locator": "record.senses[2]",
-          "target_label": "入射的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9031,7 +9163,33 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8184e392c64a816c6b00",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:incident:fa4d2f8c20bf5ab2:collocation:0"
+              ],
+              "meaning_cn": "入射光",
+              "phrase": "incident light"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "入射的",
+          "definition_en": "falling or striking of light rays on something",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:incident:fa4d2f8c20bf5ab2",
+          "sense_label_en": "falling or striking of light rays on something",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

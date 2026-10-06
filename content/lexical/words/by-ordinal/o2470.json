@@ -29,7 +29,7 @@
       ],
       "core_meaning_cn": "影响、后果；含义、暗示",
       "core_meaning_en": "a possible consequence or an implied meaning",
-      "mental_model_cn": "影响、后果；含义、暗示",
+      "mental_model_cn": "consequence → 可能影响/后果；meaning → 暗示/含义；involvement → 牵连。形式逻辑“蕴含关系”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -113,30 +113,6 @@
         "sense_id": "sense:implication:851223e7f7f55364",
         "sense_label_en": "involvement in a crime or other event",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e20c2ab0317f218ba7a3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:implication:a4ab701a234651b8:collocation:0"
-            ],
-            "meaning_cn": "逻辑蕴含",
-            "phrase": "logical implication"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "逻辑蕴含；推断",
-        "definition_en": "a logical relation between propositions",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:implication:a4ab701a234651b8",
-        "sense_label_en": "a logical relation between propositions",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -505,7 +481,32 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e20c2ab0317f218ba7a3",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:implication:a4ab701a234651b8:collocation:0"
+          ],
+          "meaning_cn": "逻辑蕴含",
+          "phrase": "logical implication"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "逻辑蕴含；推断",
+      "definition_en": "a logical relation between propositions",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:implication:a4ab701a234651b8",
+      "sense_label_en": "a logical relation between propositions",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -531,7 +532,7 @@
       },
       {
         "sense_id": "sense:implication:a4ab701a234651b8",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6860,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
@@ -540,8 +541,7 @@
     "active_collocations": [
       "collocation:16cd788103529069cb95",
       "collocation:5cc13eebea587912552c",
-      "collocation:6fd6983ddb3fc5224d8b",
-      "collocation:e20c2ab0317f218ba7a3"
+      "collocation:6fd6983ddb3fc5224d8b"
     ],
     "facts": [
       {
@@ -569,7 +569,9 @@
       {
         "id": "collocation:e20c2ab0317f218ba7a3",
         "source_row": 19122,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
