@@ -6288,7 +6288,7 @@
     "ordinal": 998,
     "word": "confine",
     "source_owner_path": "content/lexical/words/by-ordinal/o0998.json",
-    "source_fingerprint": "948d4359fbcf850581ce96fba8b2efb3c27cfeca24873a06074855014f66533a",
+    "source_fingerprint": "26014980e6bde100003c95b4442d097a2843dcfbe1ba238dea4471eb5c98b3ba",
     "sense_lineage": [
       {
         "word_id": "word:confine",
@@ -6296,22 +6296,29 @@
         "from_target_id": "sense:confine:8ace2d228bf1526a",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:confine",
+        "target_kind": "sense",
+        "from_target_id": "sense:confine:f533ff512a24534e",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把人或事物限制在某个边界/范围内；较低频还可表示与某地接壤",
-      "decision_cn": "confine sb/sth to X / be confined to X → 限制、局限；border geography → 接壤。默认先学“限制在范围内”。",
+      "summary_cn": "限制；使局限于某个范围",
+      "decision_cn": "confine sb/sth to X / be confined to X → 限制、局限。罕见的“接壤”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把人或事物限制在某个边界/范围内；较低频还可表示与某地接壤"
+        "target_label": "限制；使局限于某个范围"
       }
     },
     "senses": [
@@ -6344,23 +6351,6 @@
           "target_id": "sense:confine:3ec742797c75560d",
           "target_locator": "record.senses[0]",
           "target_label": "限制、使局限于一定范围"
-        }
-      },
-      {
-        "id": "sense:confine:f533ff512a24534e",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "邻接，交界",
-        "definition_en": "to share a border with",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:confine:f533ff512a24534e",
-          "target_locator": "record.senses[1]",
-          "target_label": "邻接，交界"
         }
       }
     ],
@@ -6433,6 +6423,20 @@
           "source_row": 2823,
           "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "邻接，交界",
+          "definition_en": "to share a border with",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:confine:f533ff512a24534e",
+          "sense_label_en": "to share a border with",
+          "sort_order": 1,
+          "transitivity": "vi"
         }
       ]
     }
