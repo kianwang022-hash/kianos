@@ -1,15 +1,42 @@
-<!-- kianos:reviewed-reading-view {"status":"REVIEWED_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b01","view":"teaching","reviewed_at":"2026-10-03","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md","canonical_blob":"68787c46d9d389157985bfa258ebff4cb97f4be7","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b01","rule_path":"content/xizong/LEARNING_CONTRACT.md","original_m0_sha256":"11e01157ffb09b29c38fe20c3a0a7410be8f5d83cc494abad69eba2c9987a9aa","freshness":"Read current canonical and Learning owners; a changed relevant premise requires bounded review. This view never overrides newer owners.","learning_value_sha256":"c165debf11eb216c4a38107626ff06282004974d28c304f93a30bc38c2302ca3","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","system_selector":"/logic_index/circulation-b01","system_value_sha256":"7022d6df97de47d2815be8a48b7dbf7afba99a971b42abaae3a68c2f98215fee","dependency_value_serialization":"UTF-8 JSON, keys sorted, compact separators, Unicode preserved"} -->
+<!-- kianos:reviewed-reading-view {"status":"CANDIDATE_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b01","view":"teaching","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md","canonical_blob":"68787c46d9d389157985bfa258ebff4cb97f4be7","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b01","rule_path":"content/xizong/LEARNING_CONTRACT.md","original_m0_sha256":"11e01157ffb09b29c38fe20c3a0a7410be8f5d83cc494abad69eba2c9987a9aa","freshness":"Read current canonical and Learning owners; a changed relevant premise requires bounded review. This view never overrides newer owners.","learning_value_sha256":"c165debf11eb216c4a38107626ff06282004974d28c304f93a30bc38c2302ca3","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","system_selector":"/logic_index/circulation-b01","system_value_sha256":"7022d6df97de47d2815be8a48b7dbf7afba99a971b42abaae3a68c2f98215fee","dependency_value_serialization":"UTF-8 JSON, keys sorted, compact separators, Unicode preserved","prior_reviewed_at":"2026-10-03","candidate_review":"Current local prose changes have no new medical/Human acceptance."} -->
 
 # B1｜一圈血怎样被推出、分配、回收，再供养心脏
+<!-- b1:view:add -->
+
+候选阅读稿。默认折叠解释与演算，沿原模型复习；初学时依次展开所在位置的解释。图、知识标题〔完整 Prompt〕和推理条件共用同一份正文。标题链接回正式知识原位。展开、阅读和跳转均不记录学习完成。
+
+<!-- /b1:view:add -->
+<!-- b1:view:add -->
+<details>
+<summary>编写说明与规则</summary>
+
+<!-- /b1:view:add -->
 ## 给 Chat 的建模教学稿 · 正式正文对齐版
 
-按当前七个LG教学：每组先交代在整章中的位置，再展开子模型。第一次先让学习者能沿因果走，不先给满屏正常值。原图用于压力—容积、曲线与通路确实比文字更清楚的部分。当前样稿不要求用户回答问题；故障与反例直接演示推导。
+> 组织规则：[Lecture Replacement Contract](../../../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。
+
+沿整块医学模型连续教学；LG 的 membership/order/goal/closure 只负责后台覆盖、检索与收口，不把讲解切成 LG01/LG02 的视觉或话术分段。先建立整章位置与机制，再在需要处放大子模型。第一次先让学习者能沿真实关系走，不先给满屏正常值。原图用于压力—容积、曲线与通路确实比文字更清楚的部分。当前样稿不要求用户回答问题；故障与反例直接演示推导。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 # 开 Block｜先给循环系统一副机械骨架
 
+<!-- b1:view:add -->
+<details>
+<summary>展开整圈背景</summary>
+
+<!-- /b1:view:add -->
 B1要解决的不是“心脏有几个时期、血压有几个指标”，而是一个连续问题：心脏间断收缩，怎样使血液持续走完一圈，并让组织完成交换。
 
 这条路线有泵、有只允许合适方向通过的瓣膜、有储能和分流的血管，还有把血送回来的容量池。泵自己也需要供血，因此冠脉必须回接到同一个模型，而不是最后额外背一章。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ```text
 静脉把血送回来 → 心室得到充盈
@@ -30,6 +57,12 @@ B1要解决的不是“心脏有几个时期、血压有几个指标”，而是
                                   ↓
                             保持下一搏的能力
 ```
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp17","canonical_line":383,"after_original_line":34,"retention_selector":"/kp_fields/circulation-b01-kp017/retention_metadata"} -->
+[7 类血管功能分工〔7类：名称→结构→功能｜最重要｜病理细动脉对应｜AS危害最大类型〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L383)
+
+<!-- /b1:view:add -->
 
 第一遍只保留四个变量：压力P、流量Q、阻力R、容量V。随后四个公式都在描述这同一圈血：
 
@@ -40,15 +73,35 @@ B1要解决的不是“心脏有几个时期、血压有几个指标”，而是
 
 不要把总血量、心室容积、每搏流量和每分钟流量当成同一个“血多了”。单位与位置先分清，后面的题就容易落位。
 
-七个LG依次交接：周期怎样发生 → 每搏和每分钟输出如何决定 → 装血及泵功能怎样评价 → 用图形核验变量 → 动脉怎样储能分流 → 静脉和微循环怎样闭环 → 心肌怎样获得自己的氧供。
+<!-- b1:view:add -->
+<details>
+<summary>展开路线说明</summary>
+
+<!-- /b1:view:add -->
+模型从周期与充盈形成每搏输出，再沿动脉分配、微循环交换、静脉回收与冠脉供养闭合；PV环在周期与负荷改变处直接核验。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ---
 
-# LG01｜压差开门，容积才改变
+# 泵的一搏：周期、充盈、输出与图形核验
 
-## 位置与子框架
+## 压差开门，容积才改变
 
+<!-- b1:view:add -->
+<details>
+<summary>展开周期读法</summary>
+
+<!-- /b1:view:add -->
 先把一搏跑顺，暂不讨论所有调节激素。这里最稳定的推理顺序是：心肌状态改变压力，压力关系决定瓣膜状态，瓣膜与血流共同决定容积变化。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ```text
 舒张末充盈完成，EDV达到本搏最大
@@ -69,88 +122,89 @@ B1要解决的不是“心脏有几个时期、血压有几个指标”，而是
              ↓
 下一搏EDV
 ```
+<!-- b1:view:add -->
 
-## 1｜等容不是不工作，而是门还没开
+<!-- b1:annotation {"kp_id":"circulation-b01-kp01","canonical_line":86,"after_original_line":73,"retention_selector":"/kp_fields/circulation-b01-kp001/retention_metadata"} -->
+[心动周期总览〔定义｜HR↔周期｜收舒时长｜房室时序｜左室7期｜舒张末定位〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L86)
+
+<!-- /b1:view:add -->
+
+<!-- b1:view:add -->
+<details>
+<summary>展开等容解释</summary>
+
+<!-- /b1:view:add -->
+### 1｜等容不是不工作，而是门还没开
 
 等容收缩时，肌肉已在产生张力和压力，只是出口尚未打开，血液还没有被明显排出。等容舒张时，肌肉已经放松、压力快速下降，但入口尚未打开，因此容积暂时也不变。
 
 所以“压力在变”和“容积在变”可以分开。它们在PV环中分别表现为近竖直的两段，而不是一张时间图里所有曲线同步上下。
+<!-- b1:view:add -->
 
-## 2｜瓣膜事件给整段过程定边界
+</details>
+
+<!-- /b1:view:add -->
+
+### 2｜瓣膜事件给整段过程定边界
 
 房室瓣关闭与S1对应，半月瓣关闭与S2对应；这两个声音帮助定位收缩与舒张交界。S3放在快速充盈，S4放在心房收缩末端，不能把四个心音全记成四扇瓣膜各自关一次。
 
 正常房室机械时序中，心房先于心室收缩，房室可以同时处在舒张阶段；不能把这个正常模式扩大成任何异常节律下都不可能出现房室收缩重叠。
 
-## 3｜压差规则有一个必须当场理解的动态边界
+### 3｜压差规则有一个必须当场理解的动态边界
 
 瓣膜的开闭可用局部压差理解，但已经运动的血液具有动能。减慢射血后段，即使心室压略低于主动脉压，仍可短暂继续向前流。因此“射血时每一瞬间室压都一定高于动脉压”是过度简化。
 
 先有加速，才有随后惯性延续；这不是血液长期自发逆压力梯度运行。原图中三个压力的位置和血流方向要同时看，不能只背一个不等号。
+<!-- b1:view:add -->
 
-## 4｜极值从过程长出来
+<!-- b1:annotation {"kp_id":"circulation-b01-kp02","canonical_line":101,"after_original_line":91,"retention_selector":"/kp_fields/circulation-b01-kp002/retention_metadata"} -->
+[压力差 → 瓣膜 → 4 心音〔4压差规则｜等容/减慢射血｜4心音｜4瓣膜事件〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L101)
+
+<!-- /b1:view:add -->
+
+### 4｜极值从过程长出来
 
 两瓣闭时容积不变，因此EDV不仅是一个瞬间，也延续到等容收缩段；ESV同样延续到等容舒张段。压力最快上升、下降分别在两个等容阶段；血量最多的流入、流出阶段则分别是快速充盈、快速射血。
 
-精确时点和正常静息时长表放在复习表里。先有这条机械路线，再记极值，数字就有地址。
+<!-- b1:view:add -->
+<details>
+<summary>查看原有精确项索引</summary>
 
----
+<!-- /b1:view:add -->
+精确时点与正常静息时长取同一 canonical B1 KP01「心动周期总览」和 KP03「心动周期极值 / 最值」的完整正文。先有这条机械路线，再记极值，数字就有地址。
+<!-- b1:view:add -->
 
-# LG02｜从一搏能射多少，到一分钟能送多少
+</details>
 
-## 位置与子框架
+<!-- /b1:view:add -->
+<!-- b1:view:add -->
 
-LG01交出EDV和ESV。现在先看它们之差，再看什么能改变这个差。不要先背三种负荷的定义，却不知道它们改变了容积环哪一端。
+<!-- b1:annotation {"kp_id":"circulation-b01-kp03","canonical_line":127,"after_original_line":97,"retention_selector":"/kp_fields/circulation-b01-kp003/retention_metadata"} -->
+[心动周期极值 / 最值〔时长2极｜主/室压各2极｜室压升降速｜射/充量极值｜容积2极〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L127)
 
-```text
-充盈 / 回心 → EDV ─┐
-                   ├→ SV＝EDV－ESV → 乘HR → CO
-排空 / 出口 → ESV ─┘
+<!-- /b1:view:add -->
 
-前负荷：收缩前的初长度 / 充盈条件
-后负荷：收缩时需克服的负担
-收缩性：在负荷相近时，心肌自身能产生怎样的收缩
-```
+## 装得进去、还能加量、比例看起来正常，是三件事
 
-## 1｜装得更多，与挤得更干净，是两条增加SV的路
+<!-- b1:view:add -->
+<details>
+<summary>展开充盈与储备引入</summary>
 
-一定范围内，回心增加使收缩前初长度增加，心肌通过Frank–Starling机制提高本搏输出。这叫异长调节：主要改变了起始长度。
+<!-- /b1:view:add -->
+输出建立在充盈与排空条件上；现在先看心室怎样获得可用的起始容量与储备。静息时数字尚可，不等于心室装血轻松，也不等于运动时还有足够储备。
+<!-- b1:view:add -->
 
-增强收缩性则是另一条路：在相近起始条件下，心肌排空能力更强，ESV可减少，SV增加。它不是必须先把心室装得更大。
+</details>
 
-因此“实际收缩力变强”不能直接等于“收缩性变强”。实际表现同时受前负荷、后负荷和内在收缩性影响。
-
-## 2｜出口突然更难推时，先看当前一搏，再看后来
-
-后负荷突然升高，心室需要更高压力才打开出口，等容收缩过程改变，缩短和排空受限，当前SV减少、ESV增加。
-
-若后续回心没有明显减少，残余更多加上新流入，次搏EDV可增加，再通过Frank–Starling补偿；还可能出现收缩能力方面的调节。这是“即时结果”和“之后代偿”，不能把后面的恢复直接覆盖最初的下降。
-
-```text
-后负荷突然↑ → 当搏射出减少 → ESV↑
-                     ↓ 还要看后续回心条件
-               次搏EDV可↑ → 异长代偿
-```
-
-前负荷用EDV、EDP作近似时必须保留顺应性背景。同样容积在硬的心室里压力更高，因此压力与容积不是天然同义词。
-
-## 3｜心率乘上去之前，搏出量可能已经变了
-
-CO＝HR×SV是恒等关系，不是“心率提高而SV永远固定”的保证。心率增加会缩短周期，尤其缩短可用于舒张充盈的时间；过快时SV下降足以盖过次数增加，CO反而降低。
-
-课程约180次/分用于正常条件下极快心率的方向示例，不是每个人一到某个数字才出现充盈问题。病变心室的条件可能更早受限。
+<!-- /b1:view:add -->
 
 CI用体表面积标准化CO，适合不同体型的比较。它与“射出比例”EF不同，也与“克服多大压力所做的功”不同。
+<!-- b1:view:add -->
 
-**本组收束：先分EDV端与ESV端，再把HR的充盈代价放回乘法；增加一个变量不等于总输出必然同向。**
+同一知识位置：[输出量与体型比较](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L228)。
 
----
-
-# LG03｜装得进去、还能加量、比例看起来正常，是三件事
-
-## 位置与子框架
-
-前面建立输出，现在反过来看输出是怎样获得的。静息时数字尚可，不等于心室装血轻松，也不等于运动时还有足够储备。
+<!-- /b1:view:add -->
 
 ```text
 主动舒张＋弹性回缩＋被动顺应性＋房室压差
@@ -162,41 +216,173 @@ CI用体表面积标准化CO，适合不同体型的比较。它与“射出比�
           EF、CI、压力、超声分别观察不同侧面
 ```
 
-## 1｜放松得快，与容易被撑开，不是同一个性质
+### 1｜放松得快，与容易被撑开，不是同一个性质
 
 胞质Ca²⁺回降、横桥解离等参与主动舒张，弹性回缩也可支持早期抽吸。顺应性则描述压力变化与容积变化的关系，偏被动充盈性质。
 
 两者都能影响充盈，却不能互相替代。一个心室可以松弛变慢，也可以变硬，也可以同时存在两种问题。后面看到E/A变化和舒张压力升高，要先定位到哪一层。
 
-## 2｜房缩有贡献，但不是固定给每个人补四分之一
+### 2｜房缩有贡献，但不是固定给每个人补四分之一
 
 课程用正常静息约75%与25%帮助分开早期舒张充盈和房缩贡献。它不是所有年龄、心率和顺应性背景的恒定比例。
 
 房颤丢掉有效房缩；若再伴快速室率，又丢失舒张时间。二者可以叠加，使某些患者充盈与输出下降更明显。先理解机械后果，再把节律诊断和治疗交B10，不能在B1用一条比例决定临床处理。
+<!-- b1:view:add -->
 
-## 3｜储备是“还能增加多少”
+<!-- b1:annotation {"kp_id":"circulation-b01-kp09","canonical_line":243,"after_original_line":125,"retention_selector":"/kp_fields/circulation-b01-kp009/retention_metadata"} -->
+[心室充盈、主动舒张与房颤〔充盈2来源/比例/条件｜弹性回缩链｜Ca²⁺回降链｜房颤损失＋快室率｜控率意义〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L243)
+
+<!-- /b1:view:add -->
+
+### 3｜储备是“还能增加多少”
 
 心输出量可通过心率储备和SV储备增加；SV储备又来自进一步增加充盈与进一步增强排空。若静息时已经大量动用代偿，运动时可调用的余量就会减少。
 
 “腔已经很大”不等于“舒张储备很强”，它可能意味着相关余量已经耗用。也不能把所有类型心衰都套成同一幅扩张、低EF的图；这里先理解储备概念。
+<!-- b1:view:add -->
 
-## 4｜EF把输出放回起始容量，但不是整个心功能的通行证
+<!-- b1:annotation {"kp_id":"circulation-b01-kp10","canonical_line":263,"after_original_line":131} -->
+[心泵功能储备〔定义｜储备2类｜SV储备2支｜正常大小｜心衰3项变化〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L263)
+
+<!-- /b1:view:add -->
+
+### 4｜EF把输出放回起始容量，但不是整个心功能的通行证
 
 若EDV由120增到160 mL，SV仍为70 mL，EF由约58%降到约44%。这是演算示例：每搏量接近时，射出比例仍可不同。它说明单看SV会遗漏代偿性扩容。
 
 相反，EF保留并不能排除舒张问题或心衰。EF不是直接独立于负荷的收缩性测量，也不能替代症状、充盈压和结构证据。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp12","canonical_line":297,"after_original_line":137,"retention_selector":"/kp_fields/circulation-b01-kp012/retention_metadata"} -->
+[射血分数 EF〔公式/正常值｜代偿期SV-EDV-EF链｜比SV敏感的原因〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L297)
+
+<!-- /b1:view:add -->
 
 压力可借助导管测量，容积与功能通常借助超声评估。E/A＜1是早期松弛受损的典型基础模式，年龄、假性正常和限制性充盈可改变形态；不能只凭一个比值把所有舒张异常排除。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp13","canonical_line":313,"after_original_line":139,"retention_selector":"/kp_fields/circulation-b01-kp013/retention_metadata"} -->
+[心功能检查：压力 / 容积 / 超声〔压力评价地位｜容积首选｜超声收缩指标｜舒张指标/解释限度〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L313)
+
+<!-- /b1:view:add -->
 
 左右心室在稳态下每分钟输出接近，但克服的压力不同，因此做功不同。“送相同体积”不等于“付出相同机械功”。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp11","canonical_line":282,"after_original_line":141,"retention_selector":"/kp_fields/circulation-b01-kp011/retention_metadata"} -->
+[心脏做功〔左右室量压功比较｜做功比较2情境｜高血压链｜CI vs 做功〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L282)
+
+<!-- /b1:view:add -->
 
 ---
 
-# LG04｜用PV环和曲线检查前面的推理
+## 从一搏能射多少，到一分钟能送多少
 
-## 位置与子框架
+<!-- b1:view:add -->
+<details>
+<summary>展开输出推理引入</summary>
 
+<!-- /b1:view:add -->
+周期与充盈条件给出了EDV和ESV。现在先看它们之差，再看什么能改变这个差。不要先背三种负荷的定义，却不知道它们改变了容积环哪一端。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
+
+```text
+充盈 / 回心 → EDV ─┐
+                   ├→ SV＝EDV－ESV → 乘HR → CO
+排空 / 出口 → ESV ─┘
+
+前负荷：收缩前的初长度 / 充盈条件
+后负荷：收缩时需克服的负担
+收缩性：在负荷相近时，心肌自身能产生怎样的收缩
+```
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp04","canonical_line":150,"after_original_line":157,"retention_selector":"/kp_fields/circulation-b01-kp004/retention_metadata"} -->
+[搏出量 SV：一次泵多少〔定义/正常值｜SV公式｜EDV/ESV｜决定因素3〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L150)
+
+<!-- /b1:view:add -->
+
+### 1｜装得更多，与挤得更干净，是两条增加SV的路
+
+一定范围内，回心增加使收缩前初长度增加，心肌通过Frank–Starling机制提高本搏输出。这叫异长调节：主要改变了起始长度。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp05","canonical_line":166,"after_original_line":161,"retention_selector":"/kp_fields/circulation-b01-kp005/retention_metadata"} -->
+[前负荷 → Frank–Starling〔别称3｜本质｜前负荷→SV（范围）｜回心入口｜长度—张力比较｜压力≈容积边界〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L166)
+
+<!-- /b1:view:add -->
+
+增强收缩性则是另一条路：在相近起始条件下，心肌排空能力更强，ESV可减少，SV增加。它不是必须先把心室装得更大。
+
+因此“实际收缩力变强”不能直接等于“收缩性变强”。实际表现同时受前负荷、后负荷和内在收缩性影响。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp07","canonical_line":210,"after_original_line":165,"retention_selector":"/kp_fields/circulation-b01-kp007/retention_metadata"} -->
+[收缩性 vs 实际收缩力；异长 vs 等长〔收缩性定义｜决定因素3组｜实际力3因素｜异长vs等长｜总和边界〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L210)
+
+<!-- /b1:view:add -->
+
+### 2｜出口突然更难推时，先看当前一搏，再看后来
+
+<!-- b1:view:add -->
+<details>
+<summary>展开当搏后负荷解释</summary>
+
+<!-- /b1:view:add -->
+后负荷突然升高，心室需要更高压力才打开出口，等容收缩过程改变，缩短和排空受限，当前SV减少、ESV增加。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
+
+若后续回心没有明显减少，残余更多加上新流入，次搏EDV可增加，再通过Frank–Starling补偿；还可能出现收缩能力方面的调节。这是“即时结果”和“之后代偿”，不能把后面的恢复直接覆盖最初的下降。
+
+```text
+后负荷突然↑ → 当搏射出减少 → ESV↑
+                     ↓ 还要看后续回心条件
+               次搏EDV可↑ → 异长代偿
+```
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp06","canonical_line":185,"after_original_line":177,"retention_selector":"/kp_fields/circulation-b01-kp006/retention_metadata"} -->
+[后负荷：出口压力突然变大〔别称2｜左右室出口｜后负荷骤增6环节｜随后代偿2（条件）〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L185)
+
+<!-- /b1:view:add -->
+
+前负荷用EDV、EDP作近似时必须保留顺应性背景。同样容积在硬的心室里压力更高，因此压力与容积不是天然同义词。
+
+### 3｜心率乘上去之前，搏出量可能已经变了
+
+CO＝HR×SV是恒等关系，不是“心率提高而SV永远固定”的保证。心率增加会缩短周期，尤其缩短可用于舒张充盈的时间；过快时SV下降足以盖过次数增加，CO反而降低。
+
+课程约180次/分用于正常条件下极快心率的方向示例，不是每个人一到某个数字才出现充盈问题。病变心室的条件可能更早受限。
+
+**关系压缩：先分EDV端与ESV端，再把HR的充盈代价放回乘法；增加一个变量不等于总输出必然同向。**
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp08","canonical_line":228,"after_original_line":187,"retention_selector":"/kp_fields/circulation-b01-kp008/retention_metadata"} -->
+[心输出量 CO / 心指数 CI / 心率〔CO定义/值/公式｜CI定义/用途｜直接因素2｜HR→CO的范围/反转〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L228)
+
+<!-- /b1:view:add -->
+
+## 用PV环和曲线检查前面的推理
+
+<!-- b1:view:add -->
+<details>
+<summary>展开坐标核验读法</summary>
+
+<!-- /b1:view:add -->
 这里不是再加一种抽象记忆，而是把已经理解的周期和负荷投到坐标系。先认轴，再认边界和方向，最后才看整幅形状。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ```text
 横轴＝心室容积，纵轴＝心室压力
@@ -209,7 +395,7 @@ CI用体表面积标准化CO，适合不同体型的比较。它与“射出比�
 再改变一个条件，检查哪一端或哪条关系先变
 ```
 
-## 四种改变保留四个不同原因
+### 四种改变保留四个不同原因
 
 - 前负荷增加：在其他条件近似不变时，EDV向右，输出可增加
 - 后负荷增加：压力负担升高，ESV可向右，环更高、更窄
@@ -217,20 +403,44 @@ CI用体表面积标准化CO，适合不同体型的比较。它与“射出比�
 - 顺应性下降：舒张压力—容积关系左上移；相同充盈压下装得更少
 
 前负荷增加和收缩性增强都能使环变宽，但前者主要推动右边界，后者改变收缩末期关系并影响左边界。这就是图比“SV都增加”更有用的地方。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp14","canonical_line":329,"after_original_line":211,"retention_selector":"/kp_fields/circulation-b01-kp014/retention_metadata"} -->
+[PV 环：4 个变量怎么改〔PV4变量｜EDV/ESV/压力/斜率｜几何量/SV｜单变量条件〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L329)
+
+<!-- /b1:view:add -->
 
 不能把“向左上移”当通用咒语：心室功能曲线、ESPVR、舒张P—V曲线不是同一张图。顺应性下降是同容积压力更高 / 同压力容积更小，描述的是充盈关系，不是把整只PV环任意搬走。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp15","canonical_line":348,"after_original_line":213} -->
+[3 类曲线 + 顺应性〔长度—张力/张力—速度｜心室功能曲线｜压力—容积曲线｜收缩性/顺应性改图｜充盈受累段〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L348)
+
+<!-- /b1:view:add -->
 
 四瓣膜短接口也用同一时间轴定位：狭窄在本应开放的通行时段产生阻碍，关闭不全在本应关闭的时段出现反流。由此定位MS、MR、AS、AR的时期，再用对应原图记声音形态。MS的典型舒张末增强与有效房缩相关，不能把所有MS杂音全程画成单纯递增。
 
 完整瓣膜病因、重构与手术门槛回B7。
+<!-- b1:view:add -->
 
----
+<!-- b1:annotation {"kp_id":"circulation-b01-kp16","canonical_line":366,"after_original_line":217,"retention_selector":"/kp_fields/circulation-b01-kp016/retention_metadata"} -->
+[四瓣膜病：时相 + 杂音形态｜短验证接口〔4瓣膜病｜时相｜杂音形态〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L366)
 
-# LG05｜泵间断射血，动脉为何能持续供血
+<!-- /b1:view:add -->
 
-## 位置与子框架
+
+
+# 动脉分配：把间断输出变成持续供血
+
+## 泵间断射血，动脉为何能持续供血
 
 血离开心室后，不是直接把每搏输出均匀送到所有器官。大动脉先储能，小动脉再调阻力和分配，最后形成我们测到的不同压力指标。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp19","canonical_line":419,"after_original_line":225,"retention_selector":"/kp_fields/circulation-b01-kp019/retention_metadata"} -->
+[微动脉 7 件事〔功能7项｜神经/阻力/压降/调压/分流｜收缩后5量联动〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L419)
+
+<!-- /b1:view:add -->
 
 ```text
 收缩期射血 → 大动脉扩张储能
@@ -241,34 +451,78 @@ CI用体表面积标准化CO，适合不同体型的比较。它与“射出比�
                   ↓
 形成SBP、DBP、PP与整个周期的平均压力
 ```
+<!-- b1:view:add -->
 
-## 1｜弹性储器与阻力配合，才解释舒张压
+<!-- b1:annotation {"kp_id":"circulation-b01-kp20","canonical_line":435,"after_original_line":235,"retention_selector":"/kp_fields/circulation-b01-kp020/retention_metadata"} -->
+[动脉血压 4 个基本量〔SBP/DBP/PP/MAP｜定义/时点｜公式｜正常或理想值〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L435)
 
+<!-- /b1:view:add -->
+
+### 1｜弹性储器与阻力配合，才解释舒张压
+
+<!-- b1:view:add -->
+<details>
+<summary>展开舒张期持续供血解释</summary>
+
+<!-- /b1:view:add -->
 若只看到心脏射血，就容易以为舒张期动脉血压应当立即归零。大动脉弹性和外周阻力让排出过程延续，舒张期仍有压力和前向流量。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 储器作用减弱时，同样射血可使收缩压更高，舒张期支持减少，脉压变宽。它与单纯TPR升高不同，不能都写成“血管不好所以所有血压一起升”。
 
-## 2｜局部阻力最重要的旋钮是口径
+### 2｜局部阻力最重要的旋钮是口径
 
 理想层流模型中R与ηL/r⁴有关，半径变化影响很大。但人体血液和血管不完全符合刚性圆管条件，所以它是解释方向与敏感性的近似，不是拿一段真实血管直接精确算全身阻力的公式。
 
 HCT、切率、口径范围与温度都影响表观黏度。贫血可降低黏度，但心脏加输出还要考虑氧输送需要；不能把高排量状态仅归结为一个阻力数字。冬季血栓风险也不能只靠温度—黏度这一条链解释所有病例。
+<!-- b1:view:add -->
 
-## 3｜从一个输入推压强，必须先固定其他条件
+<!-- b1:annotation {"kp_id":"circulation-b01-kp18","canonical_line":401,"after_original_line":247} -->
+[血流阻力 / 血液黏度〔R公式/主变量｜黏度4轴（条件）｜贫血链｜温度链〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L401)
+
+<!-- /b1:view:add -->
+
+### 3｜从一个输入推压强，必须先固定其他条件
 
 增加SV，收缩期输入更多，SBP升幅通常更突出；在生理可代偿范围内加快HR，舒张期外流时间减少，DBP可升得更多；TPR增加同样可使舒张期外流受限。储器作用减弱则让SBP、DBP可能反向变化。
 
 这是一张单因素实验矩阵，不是一份所有疾病的固定答案。极快心率已经减少SV时，不能还假定SV不变继续套表。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp22","canonical_line":461,"after_original_line":253,"retention_selector":"/kp_fields/circulation-b01-kp022/retention_metadata"} -->
+[动脉压形成与 5 因素方向矩阵〔形成条件4｜影响因素5｜储器作用2｜充盈压升高2路｜SBP/DBP/PP方向矩阵（条件）｜指标主反映〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L461)
+
+<!-- /b1:view:add -->
 
 年龄与昼夜属于背景条件。老年动脉硬化可出现SBP继续升而DBP下降、PP变宽，不应把“年龄越大，SBP和DBP都无限单调升高”冻结成模型。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp21","canonical_line":448,"after_original_line":255,"retention_selector":"/kp_fields/circulation-b01-kp021/retention_metadata"} -->
+[动脉压的生理变异〔年龄→SBP/DBP｜昼夜调节｜2高峰〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L448)
+
+<!-- /b1:view:add -->
 
 ---
 
-# LG06｜回心得到持续支持，交换才真正闭环
+# 回收与供养：让同一圈血闭合
 
-## 位置与子框架
+## 回心得到持续支持，交换才真正闭环
 
-动脉侧输出不能脱离静脉侧输入。这个LG把血管回路合上，同时把“血流经过”与“组织完成交换”分开。
+<!-- b1:view:add -->
+<details>
+<summary>展开回心与交换引入</summary>
+
+<!-- /b1:view:add -->
+动脉侧输出不能脱离静脉侧输入。回心与交换关系把血管回路合上，同时把“血流经过”与“组织完成交换”分开。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ```text
 外周静脉侧压力 / 容量条件
@@ -282,47 +536,92 @@ HCT、切率、口径范围与温度都影响表观黏度。贫血可降低黏�
                  组织液 ↔ 淋巴回收
 ```
 
-## 1｜CVP是两端合成结果，不是一支血容量计
+### 1｜CVP是两端合成结果，不是一支血容量计
 
 更多血向右心返回，可使CVP升高；右心排出受限，也能使CVP升高。两种情况下“压力高”的原因不同，不能直接推得相同补液决策。
 
 右心泵出增强可降低右房压力，增大外周静脉到右房的驱动差，回心随之增加。这里CVP下降并不意味着静脉回流一定减少。
 
 静脉回流还受回流通路阻力等因素影响；当胸内大静脉塌陷等限制出现，不能把“右房压力越低，回流无限增加”当定律。
+<!-- b1:view:add -->
 
-## 2｜把13项方向放进送血端与接受端
+<!-- b1:annotation {"kp_id":"circulation-b01-kp23","canonical_line":506,"after_original_line":283,"retention_selector":"/kp_fields/circulation-b01-kp023/retention_metadata"} -->
+[中心静脉压 CVP〔定义/正常值｜合力2端｜升降各2因｜右心射血↑→CVP/回心〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L506)
+
+<!-- /b1:view:add -->
+
+### 2｜把13项方向放进送血端与接受端
 
 血容量、静脉张力、体位和肌肉泵等主要改变送血条件；右心泵功能、舒张、心包压力和顺应性等影响接受条件。这样一张名单就被放到压差模型的两边。
 
 送血端先拆成三个旋钮：**血有多少、容量池有多大、血被留在哪个位置**。血容量或输液输入增加，在容纳空间近似不变时提高充盈；静脉收缩则不增加总血量，而是缩小容量池、动员已有的血。两种方式可以同样支持回心，起点却不同。
 
+<!-- b1:view:add -->
+<details>
+<summary>展开送血端原有例子</summary>
+
+<!-- /b1:view:add -->
 再看分布和外力。直立转平卧，低位静脉因重力留下的血减少；走路时肌肉一挤一松，配合静脉瓣把血向近心端推；浸入深水，外部静水压力也会压缩低位容量池，让血向中央转移。它们共同改变的是“已有血怎样回去”，不是制造了新血。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 接受端则看**能否排空、能否放松、能否被充开**。右心及时泵出，右房积血和压力可下降；Ca²⁺回收加快帮助主动松弛；顺应性增加使相同压力下较容易装入血；心包外压下降减轻外部限制。心率若原来过快，适当减慢还可把充盈时间还回来。这些因素都支持接受回流，但彼此不是同一种“抽吸力”。
 
 微动脉舒张另占一个位置：它改变血通过外周通路的阻力。在驱动压近似维持的短时模型里，血更容易流向静脉端；若同时发生明显全身低压，就要重新比较驱动压和阻力，不能只记“舒张必增回心”。
 
 吸气促进右心回流的常见链条，默认自主呼吸等条件；正压通气的胸内压变化不能直接照搬。节律性肌肉收缩配合静脉瓣促进回流，持续强力压迫则可能阻碍回流。这些条件不是低频装饰，会改变答案方向。
+<!-- b1:view:add -->
 
-## 3｜有流量不等于交换充分
+<!-- b1:annotation {"kp_id":"circulation-b01-kp24","canonical_line":521,"after_original_line":297,"retention_selector":"/kp_fields/circulation-b01-kp024/retention_metadata"} -->
+[静脉回心：一个模型 + 13 个方向〔回心压差｜抽吸6＋送血7｜突然站立链｜节律泵vs持续收缩〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L521)
+
+<!-- /b1:view:add -->
+
+### 3｜有流量不等于交换充分
 
 迂回营养通路经过真毛细血管，适合交换；直捷通路偏快速回流；动静脉短路绕过正常交换床，参与体温等调节。总闸门、分闸门与后闸门决定了不同层面的流量、压力和交换条件。
+<!-- b1:view:add -->
+
+同一知识位置：[微动脉的完整功能与收缩后联动](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L419)。
+
+<!-- /b1:view:add -->
 
 因此皮肤温暖、总流量尚可，不保证全身微循环交换均匀有效。暖休克只是后续接口，不把一个短路通道当成所有暖休克的唯一成因。
+<!-- b1:view:add -->
 
-## 4｜水肿是“进入组织的水”与“清除”不平衡
+<!-- b1:annotation {"kp_id":"circulation-b01-kp25","canonical_line":555,"after_original_line":303,"retention_selector":"/kp_fields/circulation-b01-kp025/retention_metadata"} -->
+[微循环：3 条通路 + 3 个闸门〔闸门3｜通路3：结构/功能/分布/流速/开闭/交换｜营养路排除项｜局部vs器官调节｜暖休克接口〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L555)
+
+<!-- /b1:view:add -->
+
+### 4｜水肿是“进入组织的水”与“清除”不平衡
 
 经典滤过模型比较静水压与胶体渗透压；通透性决定屏障怎样工作，淋巴则把一部分水和蛋白回收。因此水肿可以从静水压升高、血浆胶体渗透压降低、通透性增加、淋巴受阻四个入口进入。
 
 同样是肿，可以分别来自上游淤血、蛋白不足、屏障漏或回收不畅。不要只看见“组织水多”就默认血管内有效容量也多。经典公式用于当前课程坐标，不替代所有组织、所有时间状态的完整微血管交换模型。
+<!-- b1:view:add -->
 
----
+<!-- b1:annotation {"kp_id":"circulation-b01-kp26","canonical_line":588,"after_original_line":309,"retention_selector":"/kp_fields/circulation-b01-kp026/retention_metadata"} -->
+[组织液 / 淋巴 / 水肿〔滤过压4力｜淋巴日量/功能4｜水肿入口4→例子〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L588)
 
-# LG07｜泵要自己有氧，才能持续为全身工作
+<!-- /b1:view:add -->
 
-## 位置与子框架
+## 泵要自己有氧，才能持续为全身工作
 
+<!-- b1:view:add -->
+<details>
+<summary>展开冠脉引入</summary>
+
+<!-- /b1:view:add -->
 现在把冠脉接回循环起点：心脏一边给全身射血，一边也需要自身灌注。心肌已有较高摄氧，需求增加时，增加冠脉流量非常重要。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
 
 ```text
 氧供端：灌注压＋可用灌注时间＋冠脉阻力＋血液携氧
@@ -331,28 +630,69 @@ HCT、切率、口径范围与温度都影响表观黏度。贫血可降低黏�
                             ↓
                     供需是否匹配
 ```
+<!-- b1:view:add -->
 
-## 1｜左室最努力收缩时，自己的小血管反而被压
+<!-- b1:annotation {"kp_id":"circulation-b01-kp30","canonical_line":693,"after_original_line":321,"retention_selector":"/kp_fields/circulation-b01-kp030/retention_metadata"} -->
+[心绞痛的统一入口〔供需失衡本质｜供氧2轴｜耗氧4轴｜疾病7场景〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L693)
+
+<!-- /b1:view:add -->
+
+### 1｜左室最努力收缩时，自己的小血管反而被压
 
 左室收缩压迫壁内血管，因此左冠供血更依赖舒张期。以主动脉舒张压减左室舒张末压近似观察驱动差，可以同时看到两种供血不利条件：入口压力不足，或心室内压力过高。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp27","canonical_line":614,"after_original_line":325,"retention_selector":"/kp_fields/circulation-b01-kp027/retention_metadata"} -->
+[冠脉：高耗氧 + 有效灌注压〔摄氧特点｜左冠压差｜左右时相/条件〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L614)
+
+<!-- /b1:view:add -->
 
 心率过快缩短舒张期，同时还可能提高需求；所以一个变化可以从供、需两端制造压力。不能只看心率乘CO的一面。
 
 右室通常受收缩期压迫较小，收缩期也能获得灌注；这不等于右冠只在收缩期有血流。右室压力或肥厚改变时，时相也会改变，不能把左、右冠画成两个绝对互斥时段。
+<!-- b1:view:add -->
 
-## 2｜交感兴奋时，局部代谢可以盖过直接缩血管
+<!-- b1:annotation {"kp_id":"circulation-b01-kp28","canonical_line":629,"after_original_line":329,"retention_selector":"/kp_fields/circulation-b01-kp028/retention_metadata"} -->
+[冠脉流量：3 因素 + 心动周期时相〔流量因素3｜等容收缩/舒张方向｜峰值时相｜HR链｜TPR单因素固定条件｜供需边界〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L629)
+
+<!-- /b1:view:add -->
+
+### 2｜交感兴奋时，局部代谢可以盖过直接缩血管
 
 交感增强心肌工作→耗氧增加→局部代谢舒张信号增加，净冠脉血流可上升。若只背冠脉α受体收缩，就会得出相反结论。
 
 同样，迷走降低心肌工作后的总体影响，与直接冠脉受体作用不是同一层。复习时先辨局部受体效应还是完整器官净效应，再用课程介质表补名字。
+<!-- b1:view:add -->
 
-## 3｜药物只用来验证供需变量
+<!-- b1:annotation {"kp_id":"circulation-b01-kp29","canonical_line":650,"after_original_line":335,"retention_selector":"/kp_fields/circulation-b01-kp029/retention_metadata"} -->
+[冠脉调节：局部代谢是主角〔主调节｜局部产物5｜舒/缩因素｜交感vs迷走：直接/总体｜大失血再分配〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L650)
+
+<!-- /b1:view:add -->
+
+### 3｜药物只用来验证供需变量
 
 β₁阻断降低心率与收缩活动，可减少耗氧，并增加舒张灌注时间；不要求所有有效药都必须同时阻断β₂。硝酸酯主要通过静脉侧减轻前负荷和壁张力，也有动脉及冠脉相关作用；严重固定狭窄时，不能简单认为扩血管就必然提高总冠脉流量。
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp31","canonical_line":706,"after_original_line":339} -->
+[β 受体阻断剂为何抗心绞痛〔β₁主链｜供需2端｜舒张时间｜再分配次级链（适用边界）〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L706)
+
+<!-- /b1:view:add -->
+<!-- b1:view:add -->
+
+<!-- b1:annotation {"kp_id":"circulation-b01-kp32","canonical_line":718,"after_original_line":339,"retention_selector":"/kp_fields/circulation-b01-kp032/retention_metadata"} -->
+[硝酸酯抗心绞痛：供需两端〔靶血管3路｜前/后负荷｜张力/耗氧｜局部供氧｜固定狭窄边界〕](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L718)
+
+<!-- /b1:view:add -->
 
 这些解释让药物有可理解的位置，不足以独立给出具体病人的用药选择。完整心绞痛、ACS与治疗方案交B6。
+<!-- b1:view:add -->
 
-## 整块交给B2的变量
+同一知识位置：[供需失衡的疾病场景](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L693)。
+
+<!-- /b1:view:add -->
+
+### 整块交给B2的变量
 
 ```text
 HR / 收缩性 → SV / CO
@@ -363,9 +703,28 @@ HR / 收缩性 → SV / CO
 ```
 
 B2只需接着回答这些变量偏了以后谁感知、谁执行、谁调整容量。B1不是静态名词目录，而是一条可以逐处改变输入、再沿上下游推结果的机械模型。
+<!-- b1:view:add -->
+
+## 模型外细项：回到已有位置
+
+上方标题链接包含对应完整条目；数值、名单、比较表和场景不另画成模型箭头。
+
+- 已有 13 项准备精记：读[现有 Precision 索引](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L19)；具体内容及条件仍取[已有 retention 元数据](../../../knowledge/learner/shared-fields.json?plain=1#L674)。本页不新建或释放卡片。
+- 4 项仍留原知识语境、未进入该精记索引：[流量与容积极值](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L127)、[正常静息充盈比例及条件](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L243)、[病理细动脉对应](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L383)、[昼夜高峰](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L448)。
+- 上下文保留、不独立制卡：[检查指标与 E/A 的解释条件](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L313)、[理想血压的本节生理参考](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L435)、[回心十三因素](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L521)、[抗心绞痛药物的机制边界](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L718)。
+- 原图与来源：[全部十项原图要求](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L892)、[当前选择性图像定位](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L34)、[原资料与短接口范围](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L836)。定位不等于已看原图；CVP 跨学科单位仍需各自原语境。
+- 整块检索：[六条反事实链](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L732)、[进入 B2 前十二问](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L815)、[B1 到 B2 的交接](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L782)。
+- 即时与延后归位：[即时机制及边界](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L866)、[延后精度类别](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L881)；完整疾病沿原有 B5/B6/B7/B8/B10/B11/B12 接口，回[各短接口既有归属](../../../knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md?plain=1#L836)；[心肌与心包限制充盈的既有接口](../../../knowledge/learner/shared-fields.json?plain=1#L1183)。
+
+<!-- /b1:view:add -->
 
 ---
 
+<!-- b1:view:add -->
+<details>
+<summary>查看原有验证、来源与候选记录</summary>
+
+<!-- /b1:view:add -->
 ## 供Chat查阅的验证与来源附注
 
 - 分组来自当前A1 system.json：7LG、32KP。内容依据B1现行阅读版及生理Source112–119、121–126、128–133；原图检查范围另据验收记录，不以文件存在代替已看。
@@ -382,3 +741,12 @@ B2只需接着回答这些变量偏了以后谁感知、谁执行、谁调整容
 本稿沿用已有教学/复习模型，对照已发布正式正文与A1收尾的59个具体Source边界主题；不再把旧2/5/4/7无题目身份汇总当作当前待办。B1–B4共291条原题路由已有逐行依据，但路由完成不等于本稿自含全部细项答案，也不等于全部原图已重看。当前唯一精确Source符号未定项为B3 physiology-U012-row27（生理印刷P127/物理P142），其余已处理模型条件或有界保留的Source差异仍按原结论保留。
 
 教学和复习共用正式Block知识；此文件不另定医学真相、不生成学习记录、完成或复习债。绑定正文、Learning或来源条件变化时，先读最新正式owner并重新核对受影响内容，不能拿本稿覆盖当前规则。
+
+## 本次候选内容核对｜2026-10-04
+
+本次 Prompt 支持定位：正文的周期电影、负荷/充盈比较、PV 环、压力/回心/交换和冠脉供需是连续主线。未逐项展开的正常值/时点取 canonical KP01–04、KP08、KP10、KP12、KP20、KP23 对应表项；动脉压昼夜两高峰取 KP21；五因素方向矩阵取 KP22；送血/接受端十三项取 KP24；三通路结构/分布/开闭全比较取 KP25。这里是精确支持位置，不宣称正文已经自含这些全量表项。
+<!-- b1:view:add -->
+
+</details>
+
+<!-- /b1:view:add -->
