@@ -16,6 +16,10 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b03-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L163">四个方向 + 两张膜：先把箭头画对〔4方向/量平衡｜顶端vs基底侧｜转运观察面｜原尿量/水回收率〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L276">近端小管的底层发动机：钠泵把所有转运串起来〔基底侧动力｜顶端3类入口｜水2通路｜等渗同步/比例边界〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp04"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L311">近端前半 vs 后半：跨细胞先走，Cl⁻再拉着Na⁺走细胞旁〔前/后比例｜跨细胞vs细胞旁｜Cl浓度→Na电位2梯度｜水通路接口〕</a></small></p>
+
 <details class="teaching-expansion"><summary>膜运输与负荷适应</summary>
 
 
@@ -24,13 +28,13 @@
 
 近曲、远曲在皮质，髓袢向髓质伸且长短不同，集合管从皮质向髓质和乳头引流。不能只背转运体却丢掉它所在的路线。浓缩/稀释说的是管液或终尿相对血浆的渗透状态，不是把肾组织本身浓缩。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L163">四个方向 + 两张膜：先把箭头画对〔4方向/量平衡｜顶端vs基底侧｜转运观察面｜原尿量/水回收率〕</a></small>
+
 
 近端基底侧Na⁺-K⁺泵耗能把Na排出细胞，留下低胞内Na梯度。顶端膜上的Na因此能与葡萄糖、氨基酸同向进入细胞，或通过交换将H送入管腔，支持继发主动运输。溶质离开管腔后，水经AQP1跨细胞加细胞旁跟随，所以近端回收大批量、近似等渗、水盐同步；“等渗”并不等于每种物质回收同一百分比。
 
 课程近端比例为尿素40%–50%，Na/Cl/水/K约67%，Ca70%，HCO₃⁻80%，糖/氨基酸正常约100%。近端内部前半约承担Na水回收的2/3、以跨细胞为主，后半约1/3、以细胞旁为主。前段先回收其他溶质，Cl相对留下浓度升高，后段Cl顺浓度差回收，造成电位差再让Na被动跟随，水也跟随。Cl的浓度梯度和Na的电位梯度不是同一个驱动。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L276">近端小管的底层发动机：钠泵把所有转运串起来〔基底侧动力｜顶端3类入口｜水2通路｜等渗同步/比例边界〕</a></small> <small class="kp-annotation" data-kp="urinary-b03-kp04"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L311">近端前半 vs 后半：跨细胞先走，Cl⁻再拉着Na⁺走细胞旁〔前/后比例｜跨细胞vs细胞旁｜Cl浓度→Na电位2梯度｜水通路接口〕</a></small>
+ 
 
 近端通常把Na水按滤过负荷的65%–70%、课程常取67%拿回，称球管平衡，帮助尿量和尿Na相对稳定。若GFR相对RPF增加、FF升高，出球后蛋白更浓；同时管周静水压下降时，较高的血浆胶体渗透压与较低的管周静水压，促进组织间液中的水进入血液，近端回收增多。但只见GFR高不能保证这两个管周变量，尚有流量和转运适应。
 
@@ -52,13 +56,18 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b03-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L338">葡萄糖 / 氨基酸：近端正常时接近100%回收〔重吸收率｜顶端2个SGLT分工｜基底侧GLUT｜转运性质｜清除率指纹。〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L416">SGLT2 抑制：主动把葡萄糖和Na⁺留在管腔〔SGLT2靶点｜管腔底物2｜尿糖/水方向｜结果4身份｜治疗边界〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L440">渗透性利尿：不是先把GFR做大，而是让水留在管腔〔管腔溶质→水回收｜球管平衡边界｜尿量/尿Na｜例4｜水利尿对照〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp16"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L784">甘露醇：靠“留在管腔的溶质”利尿〔甘露醇：作用部位｜滤过/重吸收性质｜渗透性利尿链｜与糖尿/SGLT2同轴｜电解质接口〕</a></small></p>
+
 <details class="teaching-expansion"><summary>糖回收与管腔留溶质</summary>
 
 
 
 顶端SGLT2在近端早段承担约90%的糖回收，较晚段SGLT1处理剩余；糖进入细胞后经基底侧GLUT易化扩散回血。课程用GLUT2概括，但分段、物种的GLUT1/2细分要带证据，不能宣布全段唯一亚型。正常近乎全回收，糖清除率约零；氨基酸也走Na耦联继发主动回收。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L338">葡萄糖 / 氨基酸：近端正常时接近100%回收〔重吸收率｜顶端2个SGLT分工｜基底侧GLUT｜转运性质｜清除率指纹。〕</a></small>
+
 
 血糖逐渐升高，滤过负荷＝GFR×血糖也增大。尿刚开始出现糖的最低血糖称肾糖阈，课程约180mg/dL；Tm却是每分钟最大回收量，量纲不同。肾单位负荷和能力不均带来饱和曲线展宽，可在全肾总Tm前已有尿糖，不能简单令阈＝Tm/GFR。
 
@@ -68,7 +77,7 @@
 
 甘露醇则是外源溶质，能滤过、不易回收，从近端等部位把水留管腔。它与高血糖、SGLT2抑制、高渗葡萄糖场景共享管内溶质模型，但入口各异。尿量及尿Na排出可增，课程药表的低钾接口保留；不在这里扩完整临床禁忌。水利尿首先是ADH/集合管水通透性减少，B4再比较。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L416">SGLT2 抑制：主动把葡萄糖和Na⁺留在管腔〔SGLT2靶点｜管腔底物2｜尿糖/水方向｜结果4身份｜治疗边界〕</a></small> <small class="kp-annotation" data-kp="urinary-b03-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L440">渗透性利尿：不是先把GFR做大，而是让水留在管腔〔管腔溶质→水回收｜球管平衡边界｜尿量/尿Na｜例4｜水利尿对照〕</a></small> <small class="kp-annotation" data-kp="urinary-b03-kp16"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L784">甘露醇：靠“留在管腔的溶质”利尿〔甘露醇：作用部位｜滤过/重吸收性质｜渗透性利尿链｜与糖尿/SGLT2同轴｜电解质接口〕</a></small>
+  
 
 
 
@@ -85,6 +94,9 @@
 <small class="kp-annotation" data-kp="urinary-b03-kp09"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L467">HCO₃⁻重吸收：不是整颗直接穿膜，而是先变成CO₂〔近端比例｜顶端—管腔—跨膜｜胞内CA/H｜基底回血｜Cl先后｜回收/排酸〕</a></small>
 
 
+
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b03-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L496">H⁺与氨：近端“交换”，集合管“扩散并捕获”〔近端泌H2路/主者｜近端NH₄交换｜集合管NH₃捕获｜NH₄-HCO₃配对｜慢酸调节〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp17"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L809">乙酰唑胺：CA被切断，NaHCO₃和水留在尿里〔靶点｜Na-H交换链｜尿中3物↑｜2不良｜2应用｜尿pH方向。〕</a></small></p>
 
 <details class="teaching-expansion"><summary>保碱循环与净排酸</summary>
 
@@ -103,7 +115,7 @@ CO₂扩散快，所以这段HCO₃⁻回收先于Cl。循环H主要帮拿回已
 
 乙酰唑胺抑CA，把这条保碱循环切断，Na-H相关回收也减少，Na、HCO₃⁻、水留在尿，利尿且尿碱化；碱丢失接小管性酸中毒，末端K分泌增加可导致低钾，最早可出现肌无力。课程用途利尿/碱化尿保留，不在此新增完整RTA分型。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L496">H⁺与氨：近端“交换”，集合管“扩散并捕获”〔近端泌H2路/主者｜近端NH₄交换｜集合管NH₃捕获｜NH₄-HCO₃配对｜慢酸调节〕</a></small> <small class="kp-annotation" data-kp="urinary-b03-kp17"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L809">乙酰唑胺：CA被切断，NaHCO₃和水留在尿里〔靶点｜Na-H交换链｜尿中3物↑｜2不良｜2应用｜尿pH方向。〕</a></small>
+ 
 
 
 
@@ -121,6 +133,10 @@ CO₂扩散快，所以这段HCO₃⁻回收先于Cl。循环H主要帮拿回已
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b03-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L540">主细胞与A/B型闰细胞：分别辨认转运方向〔主细胞/A型/B型｜Na/K/H与排碱方向｜2泵｜终尿K来源〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L595">K⁺分泌四个控制柄：肾功能、醛固酮、流量、H⁺竞争〔排K4控制柄/方向｜下游流量/K方向｜保钾2靶点｜肾功能接口〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b03-kp19"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L869">保钾与V2拮抗：一个减少Na⁺入口，一个直接减少水入口〔MR2药vsENaC2药｜尿K方向/血K风险｜原醛vsLiddle靶点｜V₂第一作用/Na-K边界〕</a></small></p>
+
 <details class="teaching-expansion"><summary>末端细胞与药物断点</summary>
 
 
@@ -129,13 +145,13 @@ CO₂扩散快，所以这段HCO₃⁻回收先于Cl。循环H主要帮拿回已
 
 主细胞基底侧的Na-K泵维持胞内低Na、高K的状态，顶端ENaC（上皮钠通道）让Na入细胞，管腔相对变负。ROMK等K通道利用胞内外浓度差加管腔负电位，把K送进尿。Cl可循电位经细胞旁回收；水是否跟随还取决ADH/AQP2，不能由ENaC开放直接保证水全拿回。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L540">主细胞与A/B型闰细胞：分别辨认转运方向〔主细胞/A型/B型｜Na/K/H与排碱方向｜2泵｜终尿K来源〕</a></small>
+
 
 排K受四个控制柄约束：有效肾单位/分泌能力下降可少排K；醛固酮增ENaC及Na-K泵，促排K；下游流量高不断带走管腔K、维持梯度，常使排钾利尿剂失K；H和K处理互相影响但要看情境。还需读取远端Na递送、细胞K/Mg、酸碱负荷和容量背景。
 
 MR（盐皮质激素受体）拮抗剂螺内酯/依普利酮减少醛固酮相关表达，ENaC阻滞阿米洛利/氨苯蝶啶直接减Na入口，这两类药均削弱K分泌，从而保钾，主要风险是高钾。原醛的药物靶点可对应MR拮抗；Liddle是异常ENaC而醛固酮已低，靶点要回到ENaC，不能仅因“保钾药”四字互换。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L595">K⁺分泌四个控制柄：肾功能、醛固酮、流量、H⁺竞争〔排K4控制柄/方向｜下游流量/K方向｜保钾2靶点｜肾功能接口〕</a></small> <small class="kp-annotation" data-kp="urinary-b03-kp19"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L869">保钾与V2拮抗：一个减少Na⁺入口，一个直接减少水入口〔MR2药vsENaC2药｜尿K方向/血K风险｜原醛vsLiddle靶点｜V₂第一作用/Na-K边界〕</a></small>
+ 
 
 
 
@@ -181,6 +197,8 @@ MR（盐皮质激素受体）拮抗剂螺内酯/依普利酮减少醛固酮相�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b03-kp18"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L834">袢 vs 噻嗪：NKCC2切在梯度发动机，NCC切在远曲精调〔段位2｜转运体2｜对水通透性｜强弱逻辑｜共同K方向｜袢特殊不良1。〕</a></small></p>
+
 <details class="teaching-expansion"><summary>沿段位展开药物比较</summary>
 
 
@@ -189,7 +207,7 @@ MR（盐皮质激素受体）拮抗剂螺内酯/依普利酮减少醛固酮相�
 
 现在可把七类靶点放回路线：近端管腔溶质与CA，升粗NKCC2，远曲NCC，集合管ENaC、MR、V2。托伐普坦抑V2—AQP2，第一结果少回收水，不能解释成直接抑ENaC的Na-K交换。B4将把升粗造梯度、集合管读激素这两个动作接起来，解释为什么同一小管能交出浓尿或稀尿。
 
-<small class="kp-annotation" data-kp="urinary-b03-kp18"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L834">袢 vs 噻嗪：NKCC2切在梯度发动机，NCC切在远曲精调〔段位2｜转运体2｜对水通透性｜强弱逻辑｜共同K方向｜袢特殊不良1。〕</a></small>
+
 
 <details class="source-table" data-slot="urinary-b03-lg05-diuretic-targets" data-timing="POST_REVEAL" data-state="COLLAPSED"><summary>完成靶点回忆后，打开已有七类药物比较</summary>
 
@@ -223,11 +241,13 @@ Source范围：生理Lecture P275–279、P293–296；U026本章28题，其余3
 
 读取实际 System Learning `content/xizong/knowledge/learner/a3-urinary-learning.json#/blocks/urinary-b03`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
 
-未决/限制：已读P275 SourceVisual及P293完整StructuredTable/provenance，不声称本轮像素验收。shared retention为空，无precision。K-H/尿pH条件、Tm/splay、球管平衡条件、GLUT亚型边界继承formal；完整RTA、利尿剂剂量和现代适应证未获Source支持，不扩写。
+未决/限制：已读P275 SourceVisual及P293完整StructuredTable/provenance，不声称本轮像素验收。Prepared Memory准入及保留项见下方现有owner。K-H/尿pH条件、Tm/splay、球管平衡条件、GLUT亚型边界继承formal；完整RTA、利尿剂剂量和现代适应证未获Source支持，不扩写。
 
 
 
-完整Current Core：[本章原有知识owner](https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md). 精确数值、名单及非KP去向逐项列在本地 disposition；未制成可用卡片的内容不计Prepared Memory。原有原图门禁及所有Source范围保留，未记录新的Source接触。
+<p>完整知识与非KP去向沿现有owner回查：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md">本章Core</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L76-L125">1｜总 Framework</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L907-L927">7｜Framework Reconstruction</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L928-L929">8｜Memory Routing</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L930-L947">8.1 MI-G｜第一轮必须即时掌握</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block3_%E5%88%86%E6%AE%B5%E5%B0%8F%E7%AE%A1%E8%BD%AC%E8%BF%90%E4%B8%8E%E5%88%A9%E5%B0%BF%E5%89%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L948-L962">8.2 MI-D｜进入 MarginNote 3</a>。阈值、名单、比较与未准入项保留这些原有章节，不因折叠而删除，也不自动成为已入队卡片。</p>
+<p>本章现有Prepared Memory：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L126">a3-b03-lg05-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L8852">完整答案、条件与助记</a>。<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md#L14">采用范围与仍未解决的限制</a>。原生准入与本人的Recall、评分、到期或完成记录仍分开。</p>
+<p>LG、原Source与支持的定位：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning.json#L52">本章Learning</a>（/blocks/urinary-b03）；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1294">a3-b03-lg05-visual · 原图任务</a>。原图的来源范围、时机与现有HOLD保持；本次未新增原PDF像素验收、Source接触或学习完成。</p>
 
 
 </details>

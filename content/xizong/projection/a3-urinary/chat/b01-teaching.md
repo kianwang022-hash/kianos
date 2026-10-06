@@ -18,6 +18,9 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b01-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L181">肾脏总任务：高流量“洗血”，再分层形成终尿〔皮质/髓质｜生成3过程｜肾单位边界｜集合管→尿路｜高流量目的〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b01-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L448">皮质肾单位 vs 近髓肾单位：滤过效率与浓缩能力的结构分工〔皮质vs近髓7轴｜直小血管归属〕</a></small></p>
+
 <details class="teaching-expansion"><summary>空间与方向细化</summary>
 
 
@@ -26,7 +29,7 @@
 
 肾单位是肾小体加肾小管，肾小体是肾小球加小囊；集合管参与尿生成，却不属于肾单位。课程不能再生新肾单位、40岁后功能单位可减，剩余正常时仍可维持，不能从年龄单项宣布衰竭。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L181">肾脏总任务：高流量“洗血”，再分层形成终尿〔皮质/髓质｜生成3过程｜肾单位边界｜集合管→尿路｜高流量目的〕</a></small>
+
 
 血液经入球小动脉进入肾小球，再经出球小动脉流向管周毛细血管或直小血管。原尿从肾小囊进入近曲小管，随后经过降支粗段、降支细段、升支细段、升支粗段和远曲小管，最后进入集合管。课程所说的近端包含近曲小管与降支粗段，远端包含升支粗段与远曲小管；使用这些名称时，要保留课程的结构划分口径。
 
@@ -40,7 +43,7 @@
 
 皮质肾单位的肾小体位于外皮质，课程将其位置描述为皮质外2/3；近髓肾单位的肾小体位于内皮质，邻近髓质。皮质肾单位数量较多，肾小球较小，髓袢较短。课程将其入球与出球小动脉的口径比概括为约2:1，这种结构使肾小球内的压力有利于滤过。蛋白大多留在血液中，水被滤出后，管周血液的胶体渗透压较高，有利于接收重吸收的水；这不意味着蛋白绝对不能通过滤过屏障。近髓肾单位数量较少，肾小球较大，长髓袢深入内髓，甚至到达乳头。其入球与出球小动脉的口径没有明显差别，出球小动脉连接U形直小血管，共同支持髓质渗透梯度和尿液浓缩。两类肾单位的肾小球都位于皮质；“近髓”指靠近髓质，不是肾小球进入髓质。完整的逆流机制留在B4展开。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L448">皮质肾单位 vs 近髓肾单位：滤过效率与浓缩能力的结构分工〔皮质vs近髓7轴｜直小血管归属〕</a></small>
+
 
 
 
@@ -58,6 +61,8 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b01-kp02"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L263">肾脏内分泌：肾素、EPO、活化 VitD 与局部血流介质〔3内分泌｜来源+作用｜VitD 3站｜肾衰2后果｜局部介质2〕</a></small></p>
+
 <details class="teaching-expansion"><summary>传感器与内分泌分支</summary>
 
 
@@ -66,7 +71,7 @@
 
 肾素将低灌注信号与RAAS调节相接。EPO（促红细胞生成素）来自皮质小管周围间质的成纤维样细胞，促进红细胞生成；双肾严重损伤时，EPO不足可导致贫血，EPO不是由球旁细胞产生。VitD的活化经过三个部位：皮肤中的7脱氢胆固醇经UVB作用形成前D3和D3，随后在肝脏进行25羟化，再在肾小管进行1α羟化，成为1,25双羟钙三醇。活化后的钙三醇具有升钙、升磷作用；肾衰时活化减少，与低钙和骨病相联系，完整的PTH/VitD轴仍由内分泌章节负责。PG和激肽释放酶参与局部血流调节；肾脏对胃泌素和PTH的灭活也是课程保留的接口。肾脏的任务不只是生成尿液，还包括这些内分泌作用。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp02"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L263">肾脏内分泌：肾素、EPO、活化 VitD 与局部血流介质〔3内分泌｜来源+作用｜VitD 3站｜肾衰2后果｜局部介质2〕</a></small>
+
 
 
 
@@ -84,6 +89,10 @@ C＝UV/P，单位mL/min。菊粉C＝GFR；肌酐C常因分泌而高估；PAH近�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b01-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L542">清除率指纹：菊粉、肌酐、PAH、葡萄糖和“不滤过物”〔C=0/GFR/RPF/&gt;/&lt;｜菊粉 vs 肌酐｜PAH边界｜葡萄糖例外〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b01-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L634">四个计算：清除率、RPF、RBF 与 FF〔4公式｜PAH修正｜RPF→RBF｜FF｜尿量3阈值〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b01-kp09"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L716">自由水清除率：肾小管是在保纯水，还是排纯水〔CH₂O意义｜高/低渗尿正负｜浓缩差时方向〕</a></small></p>
+
 <details class="teaching-expansion"><summary>标志物、计算与水处理</summary>
 
 
@@ -94,15 +103,15 @@ C＝UV/P，单位mL/min。菊粉C＝GFR；肌酐C常因分泌而高估；PAH近�
 
 清除率为零可以来自两条不同路径：理想情况下，某物质既不滤过也不分泌，从未进入尿液；正常葡萄糖则先被滤过，随后全部被重吸收。大蛋白仍可能有少量滤过及小管处理，血细胞又不是血浆溶质，所以不能把它们粗略当作清除率绝对为零的例子。在物质自由滤过、滤液与血浆中的浓度一致、没有明显肾内生成或代谢且采样可靠的条件下，C>GFR提示净分泌，C<GFR提示净重吸收。C=GFR只说明两者净效应为零，也可能是重吸收与分泌相互抵消。单次测得葡萄糖清除率为零，不代表已达到最大重吸收量Tm；估算最大重吸收量，需要观察饱和平台，并用滤过负荷减去排出量。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp07"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L542">清除率指纹：菊粉、肌酐、PAH、葡萄糖和“不滤过物”〔C=0/GFR/RPF/&gt;/&lt;｜菊粉 vs 肌酐｜PAH边界｜葡萄糖例外〕</a></small>
+
 
 若PAH提取率为90%，则实际RPF=C/0.90。血浆占全血的比例是1−HCT，因此RBF=RPF/(1−HCT)；HCT使用红细胞容积分数，课程计算忽略薄层。FF=GFR/RPF，表示肾血浆中被滤出的比例，课程例子约19%。肾炎时FF降低、心衰时FF升高，是课程中的典型相对变化；实际仍需比较分子和分母各下降多少，不能仅由病名保证这一比值的方向。课程用35g终产物，按排出7g终产物需要100mL尿的假设，推算约500mL最低尿量；少尿<400、无尿<100mL/24h作为后续危险判断的入口。尿量少仍不能直接区分所有故障。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L634">四个计算：清除率、RPF、RBF 与 FF〔4公式｜PAH修正｜RPF→RBF｜FF｜尿量3阈值〕</a></small>
+
 
 自由水清除率CH₂O=V−Uosm×V/Posm，用于观察相对于溶质的排出，肾脏如何处理水。排出高渗尿时，自由水清除率为负，表示相对保水；等渗尿时为零；低渗尿时为正，表示相对排出自由水。浓缩能力下降时，数值可先从负值向零靠近；它是否变为正值或进一步增大，还要看尿和血浆渗透压、尿量、摄水与ADH，不能仅由“浓缩能力低”决定。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp09"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L716">自由水清除率：肾小管是在保纯水，还是排纯水〔CH₂O意义｜高/低渗尿正负｜浓缩差时方向〕</a></small>
+
 
 
 
@@ -122,6 +131,10 @@ C＝UV/P，单位mL/min。菊粉C＝GFR；肌酐C常因分泌而高估；PAH近�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b01-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L752">肾血流的神经与体液调节：先分“血管方向”和“肾素方向”〔交感2出口｜缩/舒血管组｜肾素↑/↓｜NSAID链｜腺苷肾/冠〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b01-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L820">肌源性自身调节：灌注压升高时，入球动脉主动收缩〔自身调节范围｜肌源链｜越界｜稳定2指标〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b01-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L977">高糖、高蛋白与 SGLT2：近端重吸收改变致密斑信号〔Na⁺共转运2底物｜致密斑变化｜RBF/GFR｜早期超滤过｜SGLT2 4身份〕</a></small></p>
+
 <details class="teaching-expansion"><summary>反馈、保护与情境变化</summary>
 
 
@@ -130,11 +143,11 @@ C＝UV/P，单位mL/min。菊粉C＝GFR；肌酐C常因分泌而高估；PAH近�
 
 NSAID抑制PG，撤去其血管舒张保护，可使肾血流下降并导致AKI。小剂量多巴胺的血流效应不等于临床护肾作用，正式owner保留KDIGO不推荐用它防治AKI的边界。这里仅解释血流调节的上游机制，不展开完整药物性损伤模型。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L752">肾血流的神经与体液调节：先分“血管方向”和“肾素方向”〔交感2出口｜缩/舒血管组｜肾素↑/↓｜NSAID链｜腺苷肾/冠〕</a></small>
+
 
 灌注压升高时，入球小动脉壁受到牵张，机械相关Ca通道开放，Ca进入平滑肌细胞，促使血管收缩、阻力增加。因此，在有限的自身调节平台内，肾血流量RBF和GFR不会随灌注压等比例升高；灌注压降低时，这条调节链的方向相反。课程范围为70–180 mmHg，其他来源的80–180或80–160 mmHg保留为版本差异。超过调节范围后，血管不能继续充分补偿，所以“自身调节”不意味着任何休克状态下肾血流和GFR都恒定。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L820">肌源性自身调节：灌注压升高时，入球动脉主动收缩〔自身调节范围｜肌源链｜越界｜稳定2指标〕</a></small>
+
 
 到达致密斑的NaCl较高时，局部信号促使入球小动脉收缩，单个肾单位的血流和GFR下降，同时抑制肾素释放。NaCl较低时，入球收缩信号减弱，血管相对舒张以支持血流，同时由肾素和RAAS参与较慢的容量调节。快速管球反馈TGF首先作用于入球小动脉，不能只讲成“致密斑→肾素→AngⅡ”。局部TGF不必引起全身血压升高；这也不否认全身低灌注时RAAS参与升压。
 
@@ -142,7 +155,7 @@ NSAID抑制PG，撤去其血管舒张保护，可使肾血流下降并导致AKI�
 
 高糖或高蛋白可使近端与Na耦联的重吸收增加，到达致密斑的NaCl减少，入球收缩信号减弱，并与RAAS调节相接。在灌注尚可的早期糖尿病肾病情境下，这条链可导致高滤过；若出现脱水、休克或进展性损伤，整体GFR反而可能下降，因此不能把所有严重高血糖都解释为GFR升高。达格列净抑制SGLT2，使近端葡萄糖和Na重吸收减少，恢复远端信号，作用方向是纠正高滤过。课程所列降糖、降压、护心和护肾身份仍保留，完整治疗模型留给后续章节。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L977">高糖、高蛋白与 SGLT2：近端重吸收改变致密斑信号〔Na⁺共转运2底物｜致密斑变化｜RBF/GFR｜早期超滤过｜SGLT2 4身份〕</a></small>
+
 
 
 
@@ -160,6 +173,8 @@ NSAID抑制PG，撤去其血管舒张保护，可使肾血流下降并导致AKI�
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b01-kp15"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L1075">排尿神经损伤：传入、传出、骶髓和高位脊髓四层定位〔4损伤层｜急性/恢复｜张力—排空—漏尿〕</a></small></p>
+
 <details class="teaching-expansion"><summary>反射与损伤层级</summary>
 
 
@@ -168,7 +183,7 @@ NSAID抑制PG，撤去其血管舒张保护，可使肾血流下降并导致AKI�
 
 传入通路受损时，中枢不能正确读取膀胱充盈信号，膀胱失去张力，过度充盈后可出现溢流。传出通路或骶髓受损时，逼尿肌不能正常收缩，形成尿潴留。高位脊髓损伤时，骶髓反射弧原本可以完整保留；急性脊髓休克使反射暂时消失，可先出现潴留和过满后的溢流。恢复期反射重新出现，却失去高级中枢控制，膀胱充盈后可直接触发反射性漏尿。急性期与恢复期必须分开，不能把所有高位损伤都解释成“神经断了，所以没有反射”。B12会继续将这个模型用于梗阻和尿失禁。
 
-<small class="kp-annotation" data-kp="urinary-b01-kp15"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L1075">排尿神经损伤：传入、传出、骶髓和高位脊髓四层定位〔4损伤层｜急性/恢复｜张力—排空—漏尿〕</a></small>
+
 
 下一章在这个血路和测量语言上拆开滤过器：哪些物质能过，与总共滤多少是不同问题。本章已把灌注、回收分泌、终尿排泄和测量连成链，不能用一个Cr或尿量取代全层定位。
 
@@ -188,11 +203,13 @@ Source范围：生理Lecture PDF P257–266；27精编生理合集【带导图�
 
 读取实际 System Learning `content/xizong/knowledge/learner/a3-urinary-learning.json#/blocks/urinary-b01`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
 
-未决/限制：formal已校准肌酐净分泌、C比较/Tm、自由水条件、NO多巴边界与双向TGF。支持2 SourceVisual均读其provenance/资产指针，未声称本轮图像验收；shared retention为空，2 visual无precision匹配。不自动移植旧Lecture-first流程。
+未决/限制：formal已校准肌酐净分泌、C比较/Tm、自由水条件、NO多巴边界与双向TGF。支持2 SourceVisual均读其provenance/资产指针，未声称本轮图像验收；Prepared Memory准入及保留项见下方现有owner。不自动移植旧Lecture-first流程。
 
 
 
-完整Current Core：[本章原有知识owner](https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md). 精确数值、名单及非KP去向逐项列在本地 disposition；未制成可用卡片的内容不计Prepared Memory。原有原图门禁及所有Source范围保留，未记录新的Source接触。
+<p>完整知识与非KP去向沿现有owner回查：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block1_%E8%82%BE%E8%84%8F%E6%80%BB%E5%9C%B0%E5%9B%BE_%E6%B8%85%E9%99%A4%E7%8E%87_%E8%82%BE%E8%A1%80%E6%B5%81%E4%B8%8E%E5%86%85%E5%88%86%E6%B3%8C_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md">本章Core</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block1_%E8%82%BE%E8%84%8F%E6%80%BB%E5%9C%B0%E5%9B%BE_%E6%B8%85%E9%99%A4%E7%8E%87_%E8%82%BE%E8%A1%80%E6%B5%81%E4%B8%8E%E5%86%85%E5%88%86%E6%B3%8C_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L75-L142">1｜总 Framework</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block1_%E8%82%BE%E8%84%8F%E6%80%BB%E5%9C%B0%E5%9B%BE_%E6%B8%85%E9%99%A4%E7%8E%87_%E8%82%BE%E8%A1%80%E6%B5%81%E4%B8%8E%E5%86%85%E5%88%86%E6%B3%8C_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1190-L1191">9｜Memory Routing</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block1_%E8%82%BE%E8%84%8F%E6%80%BB%E5%9C%B0%E5%9B%BE_%E6%B8%85%E9%99%A4%E7%8E%87_%E8%82%BE%E8%A1%80%E6%B5%81%E4%B8%8E%E5%86%85%E5%88%86%E6%B3%8C_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1211-L1229">9.2 MI-G｜会阻断 B2–B14，必须即时掌握</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block1_%E8%82%BE%E8%84%8F%E6%80%BB%E5%9C%B0%E5%9B%BE_%E6%B8%85%E9%99%A4%E7%8E%87_%E8%82%BE%E8%A1%80%E6%B5%81%E4%B8%8E%E5%86%85%E5%88%86%E6%B3%8C_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1230-L1245">9.3 MI-D｜归位后进入 MarginNote 3</a>。阈值、名单、比较与未准入项保留这些原有章节，不因折叠而删除，也不自动成为已入队卡片。</p>
+<p>本章现有Prepared Memory：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L21">a3-b01-lg04-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L8738">完整答案、条件与助记</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L72">a3-b01-kp14-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L8792">完整答案、条件与助记</a>。<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md#L14">采用范围与仍未解决的限制</a>。原生准入与本人的Recall、评分、到期或完成记录仍分开。</p>
+<p>LG、原Source与支持的定位：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning.json#L28">本章Learning</a>（/blocks/urinary-b01）；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1258">a3-b01-lg03-visual · 原图任务</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1267">a3-b01-lg05-visual · 原图任务</a>。原图的来源范围、时机与现有HOLD保持；本次未新增原PDF像素验收、Source接触或学习完成。</p>
 
 
 </details>

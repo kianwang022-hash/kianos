@@ -18,6 +18,9 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b02-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L190">滤过膜三层：内皮、基膜、足细胞裂隙膜〔滤过膜3层/孔隙｜机械屏障强弱｜细胞/蛋白限制｜结构损伤接口〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b02-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L330">原尿与 GFR：双肾每分钟生成多少超滤液〔原尿 vs 血浆｜超滤｜GFR单/双肾｜正常值｜体表面积4指标〕</a></small></p>
+
 <details class="teaching-expansion"><summary>筛选结构与计量</summary>
 
 
@@ -28,7 +31,7 @@
 
 原尿是血浆的超滤液，主要差别是蛋白显著减少。血浆本就不含血细胞，不能拿“无红细胞”作原尿相对血浆的独有差别。原尿也不是终尿，正常葡萄糖进入原尿后还可被小管拿回。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp01"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L190">滤过膜三层：内皮、基膜、足细胞裂隙膜〔滤过膜3层/孔隙｜机械屏障强弱｜细胞/蛋白限制｜结构损伤接口〕</a></small> <small class="kp-annotation" data-kp="urinary-b02-kp03"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L330">原尿与 GFR：双肾每分钟生成多少超滤液〔原尿 vs 血浆｜超滤｜GFR单/双肾｜正常值｜体表面积4指标〕</a></small>
+ 
 
 双肾每分钟生成原尿量称GFR，课程约125mL/min、每天约180L，体表面积不同可按1.73m²归一化。心指数与课程基础代谢率也有体表面积口径；特定肺顺应性则用肺容积/FRC归一，不把所有“指数”都除以体表面积。
 
@@ -50,6 +53,8 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b02-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L458">滤过平衡点：为什么越靠近出球端越难继续滤〔沿毛细血管3压｜净滤压方向｜平衡点｜有效面积｜前后移→GFR〕</a></small></p>
+
 <details class="teaching-expansion"><summary>沿毛细血管的压力电影</summary>
 
 
@@ -69,7 +74,7 @@
 
 这个空间解释不是人人都必定在出球前达到平衡，也不意味着病理下净压力永远不能为负。平衡点向入球端移可缩短实际参与滤过的区域，向出球端移可延长；这里改变的是功能性参与范围，不能自动当作解剖毛细血管面积或Kf改变。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp05"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L458">滤过平衡点：为什么越靠近出球端越难继续滤〔沿毛细血管3压｜净滤压方向｜平衡点｜有效面积｜前后移→GFR〕</a></small>
+
 
 
 
@@ -87,19 +92,22 @@
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b02-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L775">肾血浆流量：不一定改变起始压力，却能移动滤过平衡点〔RPF双向｜蛋白浓缩速度｜平衡点/面积/GFR｜起始压力轴区别〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b02-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L817">Kf 与球内系膜细胞：筛网面积和通透能力可以主动改变〔Kf定义｜系膜收缩→2项｜收缩介质｜肾炎GFR｜通透性陷阱〕</a></small></p>
+
 <details class="teaching-expansion"><summary>流量和Kf的独立通路</summary>
 
 
 
 压力决定某处是否还有向外驱动力；RPF决定蛋白沿程浓缩的速度；Kf是水力通透系数乘可用滤过膜面积。增加RPF，在其他决定因素受控时，血浆蛋白浓缩较慢，沿程胶渗压上升较慢，滤过能保持更远；降低RPF相反。只有在达到平衡的模型里，才把这说成平衡点后移/前移。RPF不等同于起始净压力，也不直接证明Kf变化。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp10"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L775">肾血浆流量：不一定改变起始压力，却能移动滤过平衡点〔RPF双向｜蛋白浓缩速度｜平衡点/面积/GFR｜起始压力轴区别〕</a></small>
+
 
 Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而降低。球内系膜收缩牵拉毛细袢，课程同时强调有效面积及孔隙/通透能力下降。交感儿茶酚胺、AngⅡ、大剂量VP、ET、腺苷、TXA₂等可走这个轴，也可另走血管阻力轴，不应只记一条箭头。
 
 肾小球肾炎时，内皮/系膜增生让管腔窄甚至闭塞，Kf下降、GFR下降，水钠潴留可接肾炎性水肿和容量依赖型高血压。另一方面屏障破坏又能漏蛋白或血细胞。这便解释了开头的并存结果：对蛋白的限制变差，不代表整体水力滤过量一定上升。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp11"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L817">Kf 与球内系膜细胞：筛网面积和通透能力可以主动改变〔Kf定义｜系膜收缩→2项｜收缩介质｜肾炎GFR｜通透性陷阱〕</a></small>
+
 
 
 
@@ -117,6 +125,8 @@ Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b02-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L669">肾小囊囊内压：尿路堵住，压力会反向传回滤过器〔囊内压阻力轴｜梗阻3例｜反向压力→GFR｜新月体接口〕</a></small></p>
+
 <details class="teaching-expansion"><summary>血管两端及尿路反压</summary>
 
 
@@ -129,7 +139,7 @@ Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而
 
 尿路结石、肿瘤压迫、蛋白管型等阻塞不是首先加了ADH：压力沿尿路向上游传，囊内静水压升高，直接抵抗滤过。课程新月体接口是壁层上皮增生占囊腔，使囊内空间/压力和滤过受限；完整RPGN在B10，不把所有新月体效应压成一个单因子。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp08"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L669">肾小囊囊内压：尿路堵住，压力会反向传回滤过器〔囊内压阻力轴｜梗阻3例｜反向压力→GFR｜新月体接口〕</a></small>
+
 
 
 
@@ -147,6 +157,9 @@ Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而
 
 
 
+<p class="model-retrieval-keys"><small class="kp-annotation" data-kp="urinary-b02-kp09"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L714">血浆胶体渗透压：蛋白越少，局部滤过阻力越小〔Alb↓→3变量｜大量输液｜肝病：局部 vs 整体〕</a></small><br>
+<small class="kp-annotation" data-kp="urinary-b02-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L933">肾交感强烈兴奋：四条路同时把尿量压低〔交感强刺激4路｜入球2通路｜系膜｜RAAS/ADH｜近端α₁｜尿量〕</a></small></p>
+
 <details class="teaching-expansion"><summary>局部与整体的正反场景</summary>
 
 
@@ -155,7 +168,7 @@ Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而
 
 临床肝硬化却还可能让水进入组织和腹腔，有效循环血量下降、肾灌注和球压下降，整体GFR反而下降。局部公式与整体病程没有矛盾，题目必须说明控制了哪些变量；低白蛋白、腹水加Cr高也不足以单独确诊肝肾综合征，仍需病因与排除评估。
 
-<small class="kp-annotation" data-kp="urinary-b02-kp09"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L714">血浆胶体渗透压：蛋白越少，局部滤过阻力越小〔Alb↓→3变量｜大量输液｜肝病：局部 vs 整体〕</a></small>
+
 
 将两条轴放回具体情境就不容易背反。大量输液在课程模型中，一边稀释蛋白降低胶渗阻力，一边增加RPF、减慢蛋白浓缩，汇合为GFR增加。大失血一边降低球内压力，一边降低RPF、使蛋白浓缩较快，汇合为GFR下降。涉及平衡点仍继承前述条件，不把功能性范围写成解剖Kf改变。
 
@@ -167,7 +180,7 @@ Kf可因可用毛细血管面积少、水力通透能力下降或管腔闭塞而
        → 肾素/保钠保水 + 近端α₁ → 回收↑ → 终尿↓
 ```
 
-<small class="kp-annotation" data-kp="urinary-b02-kp13"><a href="https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L933">肾交感强烈兴奋：四条路同时把尿量压低〔交感强刺激4路｜入球2通路｜系膜｜RAAS/ADH｜近端α₁｜尿量〕</a></small>
+
 
 
 
@@ -209,11 +222,13 @@ Source范围：生理Lecture PDF P267–274；U02523题；原图任务267–272�
 
 读取实际 System Learning `content/xizong/knowledge/learner/a3-urinary-learning.json#/blocks/urinary-b02`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
 
-未决/限制：两张SOURCE_VISUAL的P267屏障与P269Starling图身份/provenance已读，未声称像素验收；shared retention为空，无匹配precision。平衡点条件、量/选择性、Kf与功能面积区别继承formal；不补造定量方向矩阵。
+未决/限制：两张SOURCE_VISUAL的P267屏障与P269Starling图身份/provenance已读，未声称像素验收；Prepared Memory准入及保留项见下方现有owner。平衡点条件、量/选择性、Kf与功能面积区别继承formal；不补造定量方向矩阵。
 
 
 
-完整Current Core：[本章原有知识owner](https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md). 精确数值、名单及非KP去向逐项列在本地 disposition；未制成可用卡片的内容不计Prepared Memory。原有原图门禁及所有Source范围保留，未记录新的Source接触。
+<p>完整知识与非KP去向沿现有owner回查：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block2_%E8%82%BE%E5%B0%8F%E7%90%83%E6%BB%A4%E8%BF%87%E5%B1%8F%E9%9A%9C%E4%B8%8EGFR_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md">本章Core</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block2_%E8%82%BE%E5%B0%8F%E7%90%83%E6%BB%A4%E8%BF%87%E5%B1%8F%E9%9A%9C%E4%B8%8EGFR_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L101-L169">1｜总 Framework</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block2_%E8%82%BE%E5%B0%8F%E7%90%83%E6%BB%A4%E8%BF%87%E5%B1%8F%E9%9A%9C%E4%B8%8EGFR_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1126-L1127">12｜Memory Routing</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block2_%E8%82%BE%E5%B0%8F%E7%90%83%E6%BB%A4%E8%BF%87%E5%B1%8F%E9%9A%9C%E4%B8%8EGFR_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1141-L1159">12.2 MI-G｜必须即时掌握</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/blocks/%E6%B3%8C%E5%B0%BF%E7%B3%BB%E7%BB%9F_Block2_%E8%82%BE%E5%B0%8F%E7%90%83%E6%BB%A4%E8%BF%87%E5%B1%8F%E9%9A%9C%E4%B8%8EGFR_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1160-L1173">12.3 MI-D｜进入 MarginNote 3</a>。阈值、名单、比较与未准入项保留这些原有章节，不因折叠而删除，也不自动成为已入队卡片。</p>
+<p>本章现有Prepared Memory：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L99">a3-b02-kp04-precision · 准入/归属</a> / <a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/shared-fields.json#L8822">完整答案、条件与助记</a>。<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md#L14">采用范围与仍未解决的限制</a>。原生准入与本人的Recall、评分、到期或完成记录仍分开。</p>
+<p>LG、原Source与支持的定位：<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning.json#L41">本章Learning</a>（/blocks/urinary-b02）；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1276">a3-b02-lg01-visual · 原图任务</a>；<a href="https://github.com/kianwang022-hash/kianos/blob/d1a2f6a9efd8ca7bad11045bdcaeca00717ff87b/content/xizong/knowledge/learner/a3-urinary-learning-cues.json#L1285">a3-b02-lg02-visual · 原图任务</a>。原图的来源范围、时机与现有HOLD保持；本次未新增原PDF像素验收、Source接触或学习完成。</p>
 
 
 </details>
