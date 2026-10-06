@@ -37,9 +37,15 @@ Then route the requested output to the organization/composition owner above. `st
 
 Only an exact teaching package accepted against [Learning Contract §0](../../LEARNING_CONTRACT.md#learning-outcome) may be the stable teaching/compressed-review basis. Refresh its relevant canonical/System/Learning dependencies; freshness or an old `REVIEWED_DERIVATION` header alone is not current-format admission.
 
+### Accepted B1 teaching basis
+
+For **A1 Circulation / circulation-b01 only**, the [exact B1 adoption receipt](../systems/a1-circulation/ACCEPTANCE.md#b1-teaching-adoption-20261006) admits [the B1 teaching/compressed-review model](../../projection/a1-circulation/chat/b01-teaching.md) as the stable normal Chat input under Learning Contract §0 and §13. Read the receipt and refresh the canonical/System/Learning owners above before using the same model for teaching or compressed reconstruction.
+
+This is the corrected `2ea5d4df25a98c60241d0233a9c04cac650ffa44` B1 view, explicitly adopted by Kian on 2026-10-06 and merged by [#1197](https://github.com/kianwang022-hash/kianos/pull/1197). Its saved `CANDIDATE_DERIVATION` header and candidate wording record the review-time artifact boundary; the current adoption state is owned by the exact Acceptance receipt. They remain byte-preserved with the tested teaching content and do not create medical authority. This routing exception admits no other Block or old review file.
+
 The common teaching package on [#1150](https://github.com/kianwang022-hash/kianos/pull/1150) remains a candidate until its exact admission owner says otherwise. Resolve acceptance there, not from a stored head or file count. Without an accepted package, teach from Current canonical Knowledge and accepted Learning while explicitly retaining the unaccepted-package boundary.
 
-Old A1 teaching/review files are deliberately not linked as normal lesson inputs here. They may be opened only for a bounded migration/audit of unique reviewed content. Preserve valid explanation, comparison and memory preparation with the existing responsible owners before retiring a legacy file; do not use its LG-order instructions, three-column layout or old acceptance label as the current teaching template. Legacy `*-review.md`, old Library exports, old PR prose and old screenshots are not fallback lesson authority.
+Except for the explicitly accepted B1 teaching entry above, old A1 teaching/review files are deliberately not linked as normal lesson inputs here. They may be opened only for a bounded migration/audit of unique reviewed content. Preserve valid explanation, comparison and memory preparation with the existing responsible owners before retiring a legacy file; do not use its LG-order instructions, three-column layout or old acceptance label as the current teaching template. Legacy `*-review.md`, old Library exports, old PR prose and old screenshots are not fallback lesson authority.
 
 
 Beginner Guide routing uses `guide-bindings.json`; the current explicit set is A1, A2, A3 and B. C/D/E/F have Current System/Learning owners without separate Guide assets. Do not infer a historical fallback from that absence.
