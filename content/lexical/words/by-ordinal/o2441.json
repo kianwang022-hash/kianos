@@ -6,7 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ill:speak-ill-of",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "说某人的坏话；贬低某人",
+        "definition_en": "to say unkind or negative things about someone",
+        "pattern": "speak/think ill of sb",
+        "boundary": "fixed formal phrase; retains useful ill adverbial semantics without defaulting the standalone adverb"
+      }
+    ],
     "content_hash": "4990e448601ec294b6e1f20a7eca5b54a123de86171abb720cb6d2b60f0f101d",
     "core_concept": {
       "core_clusters": [
@@ -18,19 +28,11 @@
             "sense:ill:91859c679aee5684",
             "sense:ill:a6f577fee45b516e"
           ]
-        },
-        {
-          "label_cn": "坏事，灾难，罪恶",
-          "label_en": "harm, evil, or misfortune",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:ill:2406d05645805e6e"
-          ]
         }
       ],
       "core_meaning_cn": "生病；坏；有害",
       "core_meaning_en": "not healthy; bad or harmful",
-      "mental_model_cn": "生病；坏；有害",
+      "mental_model_cn": "adjective → 生病的；formal adjective → 坏的/有害的；speak ill of sb → 说某人坏话。独立名词与副词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -87,54 +89,6 @@
         "sense_id": "sense:ill:a6f577fee45b516e",
         "sense_label_en": "bad, harmful, or unfavorable",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b2cc91cef5b11d434e45",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:ill:2406d05645805e6e:collocation:0"
-            ],
-            "meaning_cn": "伤害某人",
-            "phrase": "do ill to sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "坏事，灾难，罪恶",
-        "definition_en": "harm, evil, or misfortune",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:ill:2406d05645805e6e",
-        "sense_label_en": "harm, evil, or misfortune",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:eadc1ec48ce955cbcda4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:ill:3c96c681a50254a4:collocation:0"
-            ],
-            "meaning_cn": "说某人坏话",
-            "phrase": "speak ill of sb"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "不好地，不利地",
-        "definition_en": "badly, poorly, or in an unfavorable way",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "sense_id": "sense:ill:3c96c681a50254a4",
-        "sense_label_en": "badly, poorly, or in an unfavorable way",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -768,19 +722,68 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b2cc91cef5b11d434e45",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:ill:2406d05645805e6e:collocation:0"
+          ],
+          "meaning_cn": "伤害某人",
+          "phrase": "do ill to sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "坏事，灾难，罪恶",
+      "definition_en": "harm, evil, or misfortune",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:ill:2406d05645805e6e",
+      "sense_label_en": "harm, evil, or misfortune",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:eadc1ec48ce955cbcda4",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:ill:3c96c681a50254a4:collocation:0"
+          ],
+          "meaning_cn": "说某人坏话",
+          "phrase": "speak ill of sb"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "不好地，不利地",
+      "definition_en": "badly, poorly, or in an unfavorable way",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adverb",
+      "sense_id": "sense:ill:3c96c681a50254a4",
+      "sense_label_en": "badly, poorly, or in an unfavorable way",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:ill:2406d05645805e6e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6792,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
       },
       {
         "sense_id": "sense:ill:3c96c681a50254a4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6793,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
@@ -802,9 +805,7 @@
     ],
     "active_collocations": [
       "collocation:5718b522f3fb8a139ee5",
-      "collocation:75d8bc359d7264dfd706",
-      "collocation:b2cc91cef5b11d434e45",
-      "collocation:eadc1ec48ce955cbcda4"
+      "collocation:75d8bc359d7264dfd706"
     ],
     "facts": [],
     "collocations": [
@@ -821,12 +822,16 @@
       {
         "id": "collocation:b2cc91cef5b11d434e45",
         "source_row": 15152,
-        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:eadc1ec48ce955cbcda4",
         "source_row": 19897,
-        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

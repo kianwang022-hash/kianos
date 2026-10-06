@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ice:break-the-ice",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "打破冷场；打破陌生或紧张气氛",
+        "definition_en": "to make people who have not met before feel more relaxed and comfortable with each other",
+        "pattern": "break the ice",
+        "source_sense_id": "sense:ice:d7fd89a64b605971",
+        "boundary": "social idiom; distinct from literal frozen water"
+      },
+      {
+        "construction_id": "construction:ice:on-ice",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "暂时搁置；留待以后处理",
+        "definition_en": "temporarily delayed or not being acted on",
+        "pattern": "put/keep sth on ice / be on ice",
+        "source_sense_id": "sense:ice:d7fd89a64b605971",
+        "boundary": "figurative delay idiom; distinct from literal cooling/storage"
+      }
+    ],
     "content_hash": "33f82e7ef71535b856647630092d88a24d2526f4d3d499ae0ccdcb65b3711bb8",
     "core_concept": {
       "core_clusters": [
@@ -15,8 +36,7 @@
           "label_en": "water frozen into a solid state; a frozen dessert, especially one without milk",
           "pos": "noun",
           "sense_ids": [
-            "sense:ice:d7fd89a64b605971",
-            "sense:ice:9c489c9fcf765697"
+            "sense:ice:d7fd89a64b605971"
           ]
         },
         {
@@ -32,7 +52,7 @@
       ],
       "core_meaning_cn": "冰；冰镇；结冰",
       "core_meaning_en": "frozen water; to chill or become icy",
-      "mental_model_cn": "冰；冰镇；结冰",
+      "mental_model_cn": "noun → 冰；verb → 冰镇/结冰/给蛋糕覆糖衣；break the ice → 打破冷场；on ice → 暂时搁置。旧式“冰糕/冰淇淋”独立名词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -83,30 +103,6 @@
         "sense_id": "sense:ice:d7fd89a64b605971",
         "sense_label_en": "water frozen into a solid state",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6283f105f044104be637",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:ice:9c489c9fcf765697:collocation:0"
-            ],
-            "meaning_cn": "冰淇淋",
-            "phrase": "ice cream"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "冰淇淋；冰糕",
-        "definition_en": "a frozen dessert, especially one without milk",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:ice:9c489c9fcf765697",
-        "sense_label_en": "a frozen dessert, especially one without milk",
-        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -327,6 +323,30 @@
       "source_row": 6754,
       "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6283f105f044104be637",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:ice:9c489c9fcf765697:collocation:0"
+          ],
+          "meaning_cn": "冰淇淋",
+          "phrase": "ice cream"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "冰淇淋；冰糕",
+      "definition_en": "a frozen dessert, especially one without milk",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:ice:9c489c9fcf765697",
+      "sense_label_en": "a frozen dessert, especially one without milk",
+      "sort_order": 1,
+      "transitivity": "nonverb"
     }
   ],
   "identity_refs": {
@@ -340,7 +360,7 @@
       },
       {
         "sense_id": "sense:ice:9c489c9fcf765697",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6750,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
@@ -376,7 +396,6 @@
     ],
     "active_collocations": [
       "collocation:242f533115f8ddfe4e93",
-      "collocation:6283f105f044104be637",
       "collocation:656f76b8216a3576a5ce",
       "collocation:71c44830280011d12f64",
       "collocation:a5276de9b6038b1ec6ed",
@@ -394,7 +413,9 @@
       {
         "id": "collocation:6283f105f044104be637",
         "source_row": 8302,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:656f76b8216a3576a5ce",

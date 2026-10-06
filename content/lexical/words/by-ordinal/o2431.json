@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "身份；特性",
       "core_meaning_en": "who or what someone or something is",
-      "mental_model_cn": "身份；特性",
+      "mental_model_cn": "person/group → 身份与特性；logic/general → 同一性、相同。数学“恒等式/恒等算子”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -107,30 +107,6 @@
         "sense_id": "sense:identity:e8f64dd392095e1b",
         "sense_label_en": "exact sameness",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:68c651b7e3d3652a7eb7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:identity:fbe569f35fb15cdf:collocation:0"
-            ],
-            "meaning_cn": "单位矩阵",
-            "phrase": "identity matrix"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "恒等式；恒等算子",
-        "definition_en": "an operator that leaves unchanged the element on which it operates",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:identity:fbe569f35fb15cdf",
-        "sense_label_en": "an operator that leaves unchanged the element on which it operates",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -290,7 +266,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:68c651b7e3d3652a7eb7",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:identity:fbe569f35fb15cdf:collocation:0"
+          ],
+          "meaning_cn": "单位矩阵",
+          "phrase": "identity matrix"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "恒等式；恒等算子",
+      "definition_en": "an operator that leaves unchanged the element on which it operates",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:identity:fbe569f35fb15cdf",
+      "sense_label_en": "an operator that leaves unchanged the element on which it operates",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -316,7 +317,7 @@
       },
       {
         "sense_id": "sense:identity:fbe569f35fb15cdf",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6775,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
@@ -326,8 +327,7 @@
       "collocation:168cadad64cd4a868119",
       "collocation:1dbbe6c3554d600e0c4a",
       "collocation:4146ca94d7e56f1b5ded",
-      "collocation:64bb032cc4a568871057",
-      "collocation:68c651b7e3d3652a7eb7"
+      "collocation:64bb032cc4a568871057"
     ],
     "facts": [
       {
@@ -365,7 +365,9 @@
       {
         "id": "collocation:68c651b7e3d3652a7eb7",
         "source_row": 8843,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -5497,7 +5497,8 @@
     "word_id": "word:humidity",
     "ordinal": 2403,
     "word": "humidity",
-    "source_owner_path": "content/lexical/words/by-ordinal/o2403.json",    "source_fingerprint": "15a70112f111fd9fc899bb759138bc86a7e48a69d7fe6a35e9c37d950e38bd50",
+    "source_owner_path": "content/lexical/words/by-ordinal/o2403.json",
+    "source_fingerprint": "15a70112f111fd9fc899bb759138bc86a7e48a69d7fe6a35e9c37d950e38bd50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5673,23 +5674,45 @@
     "ordinal": 2405,
     "word": "humor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2405.json",
-    "source_fingerprint": "96927b24d793440302a8bc0ee342fe00e0b98422e08242d40ec4ee96c2e0a8a2",
-    "sense_lineage": [],
+    "source_fingerprint": "3b7c53982b9c3e9b1df0efa8f91e5e1a520004e5b446518cf7c8ccc26843f0e7",
+    "sense_lineage": [
+      {
+        "word_id": "word:humor",
+        "target_kind": "sense",
+        "from_target_id": "sense:humor:f3d23c8d9ee659bd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:humor",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1e93f84e185b7bfd6fd8",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:humor",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6891be999685d06ee6d4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "幽默；心情、情绪",
-      "decision_cn": "",
+      "summary_cn": "幽默；迁就",
+      "decision_cn": "noun → 幽默；verb humor sb → 迁就某人；humor me → “先听我说完/迁就我一下”。旧式“心情、情绪”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "幽默；心情、情绪"
+        "target_label": "幽默；迁就"
       }
     },
     "senses": [
@@ -5736,42 +5759,8 @@
         }
       },
       {
-        "id": "sense:humor:f3d23c8d9ee659bd",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "心情；情绪",
-        "definition_en": "a mood or state of mind",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1e93f84e185b7bfd6fd8",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "in a good humor",
-            "meaning_cn": "心情好",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:6891be999685d06ee6d4",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "in a bad humor",
-            "meaning_cn": "心情不好",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:humor:f3d23c8d9ee659bd",
-          "target_locator": "record.senses[1]",
-          "target_label": "心情；情绪"
-        }
-      },
-      {
         "id": "sense:humor:aff50c652cd354a2",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "迎合；迁就",
@@ -5781,14 +5770,14 @@
         "usage": [
           {
             "id": "collocation:30cad9cdf75c71d28e1c",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "humor sb",
             "meaning_cn": "迁就某人",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:30cad9cdf75c71d28e1c",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "humor sb"
             }
           }
@@ -5796,7 +5785,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:humor:aff50c652cd354a2",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "迎合；迁就"
         }
       }
@@ -5834,7 +5823,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:humor:humor-me",
+        "source_locator": "record.constructions[0]",
+        "pattern": "humor me",
+        "lines": [
+          {
+            "text": "迁就我一下；听我把这个想法说完",
+            "lang": "cn"
+          },
+          {
+            "text": "discourse request to indulge the speaker; distinct from humor = comedy",
+            "lang": "en"
+          },
+          {
+            "text": "used to ask someone to go along with an idea or request, even if they think it is unnecessary or odd",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:humor:humor-me",
+          "target_locator": "record.constructions[0]",
+          "target_label": "humor me"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5860,7 +5875,42 @@
           "target_label": "humor is the usual American spelling; humour is the usual British spelling."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1e93f84e185b7bfd6fd8",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:humor:f3d23c8d9ee659bd:collocation:0"
+              ],
+              "meaning_cn": "心情好",
+              "phrase": "in a good humor"
+            },
+            {
+              "collocation_id": "collocation:6891be999685d06ee6d4",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:humor:f3d23c8d9ee659bd:collocation:1"
+              ],
+              "meaning_cn": "心情不好",
+              "phrase": "in a bad humor"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "心情；情绪",
+          "definition_en": "a mood or state of mind",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:humor:f3d23c8d9ee659bd",
+          "sense_label_en": "a mood or state of mind",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5995,7 +6045,7 @@
     "ordinal": 2407,
     "word": "hundred",
     "source_owner_path": "content/lexical/words/by-ordinal/o2407.json",
-    "source_fingerprint": "6520069fa451e3fec0c620f717b89adffbf9e7386d80aa10f2fed30eeeb6423f",
+    "source_fingerprint": "7c01bd9e3df26b32782a0aec7fccdb460fcb6fcf925da8128a03d0d6f6e3578c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6129,7 +6179,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hundred:hundreds-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hundreds of + plural noun",
+        "lines": [
+          {
+            "text": "数百；成百上千的",
+            "lang": "cn"
+          },
+          {
+            "text": "plural approximate quantity; not exact one hundred",
+            "lang": "en"
+          },
+          {
+            "text": "a large number in the hundreds",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hundred:hundreds-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hundreds of + plural noun"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6143,18 +6219,26 @@
     "ordinal": 2408,
     "word": "hunger",
     "source_owner_path": "content/lexical/words/by-ordinal/o2408.json",
-    "source_fingerprint": "ed9f2c69b10f8a11d11ff2126b4d8cd3f573258f7ba48690c6c00f1244f143d9",
-    "sense_lineage": [],
+    "source_fingerprint": "f6f30643ac60946dfe1f658aaa4d84c675b2075ba15edadf70212e933cfb1177",
+    "sense_lineage": [
+      {
+        "word_id": "word:hunger",
+        "target_kind": "sense",
+        "from_target_id": "sense:hunger:13f6b826957959b3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "饥饿或强烈渴望",
-      "decision_cn": "",
+      "decision_cn": "physical noun → 饥饿；figurative noun/verb → 对…强烈渴望（hunger for/after）。少见“感到饥饿”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6255,23 +6339,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "渴望，渴求"
         }
-      },
-      {
-        "id": "sense:hunger:13f6b826957959b3",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "感到饥饿",
-        "definition_en": "to feel the need to eat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hunger:13f6b826957959b3",
-          "target_locator": "record.senses[3]",
-          "target_label": "感到饥饿"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6312,7 +6379,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "感到饥饿",
+          "definition_en": "to feel the need to eat",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hunger:13f6b826957959b3",
+          "sense_label_en": "to feel the need to eat",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6621,18 +6704,25 @@
     "ordinal": 2411,
     "word": "hurl",
     "source_owner_path": "content/lexical/words/by-ordinal/o2411.json",
-    "source_fingerprint": "aceca26b7b568122ee86b08d0b01215187531ef00a1f1f868c70e986c27ddbaf",
-    "sense_lineage": [],
+    "source_fingerprint": "d64ed18f9b23fe9c0bf7120f1238b49351fdcd819e92f1325b9d9e027e854eac",
+    "sense_lineage": [
+      {
+        "word_id": "word:hurl",
+        "target_kind": "sense",
+        "from_target_id": "sense:hurl:2460b6b6b84b5512",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1N"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "猛掷；大声说出",
-      "decision_cn": "",
+      "decision_cn": "verb → 猛掷；figurative speech → hurl abuse/accusations 等激烈地说出。低价值“用力投掷”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6710,23 +6800,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "大声说出；愤慨地说"
         }
-      },
-      {
-        "id": "sense:hurl:2460b6b6b84b5512",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "用力投掷",
-        "definition_en": "a violent throw",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hurl:2460b6b6b84b5512",
-          "target_locator": "record.senses[2]",
-          "target_label": "用力投掷"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6754,7 +6827,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "用力投掷",
+          "definition_en": "a violent throw",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hurl:2460b6b6b84b5512",
+          "sense_label_en": "a violent throw",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6864,7 +6953,7 @@
     "ordinal": 2413,
     "word": "hurry",
     "source_owner_path": "content/lexical/words/by-ordinal/o2413.json",
-    "source_fingerprint": "665208e561c3afc4dad0b24eb48d771ad31ca18e9241332e43f841f379cd0d0c",
+    "source_fingerprint": "f77753a47e28da47790ae605253a464367d2e2f9558df94dd9f8a215c95a1ccd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7037,7 +7126,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:hurry:hurry-up",
+        "source_locator": "record.constructions[0]",
+        "pattern": "hurry up",
+        "lines": [
+          {
+            "text": "快点；赶快",
+            "lang": "cn"
+          },
+          {
+            "text": "productive phrasal/imperative use; distinct from noun in a hurry",
+            "lang": "en"
+          },
+          {
+            "text": "to do something more quickly, or used to tell someone to be quicker",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:hurry:hurry-up",
+          "target_locator": "record.constructions[0]",
+          "target_label": "hurry up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7259,23 +7374,37 @@
     "ordinal": 2415,
     "word": "husband",
     "source_owner_path": "content/lexical/words/by-ordinal/o2415.json",
-    "source_fingerprint": "d7711ef32e69128878e1b27b743fc8602fcbff64f13d66750b5d795f63f20bd4",
-    "sense_lineage": [],
+    "source_fingerprint": "d85f7d3b1482c180cfc7de5b3c459661f1f3c3efd4b2214ff100907c81c7edc8",
+    "sense_lineage": [
+      {
+        "word_id": "word:husband",
+        "target_kind": "sense",
+        "from_target_id": "sense:husband:080a19ec9a11554b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:husband",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:242373a9ec6a61d4f78a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "丈夫；节俭管理",
-      "decision_cn": "",
+      "summary_cn": "丈夫",
+      "decision_cn": "现代默认 → 丈夫。正式/少见“节约并谨慎管理资源”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "丈夫；节俭管理"
+        "target_label": "丈夫"
       }
     },
     "senses": [
@@ -7311,32 +7440,6 @@
           "target_id": "sense:husband:08059508d49d5c6b",
           "target_locator": "record.senses[0]",
           "target_label": "丈夫"
-        }
-      },
-      {
-        "id": "sense:husband:080a19ec9a11554b",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "节约使用；节俭管理",
-        "definition_en": "to use something carefully so that you do not waste it",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:242373a9ec6a61d4f78a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "husband resources",
-            "meaning_cn": "节约资源",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:husband:080a19ec9a11554b",
-          "target_locator": "record.senses[1]",
-          "target_label": "节约使用；节俭管理"
         }
       }
     ],
@@ -7377,7 +7480,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:242373a9ec6a61d4f78a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:husband:080a19ec9a11554b:collocation:0"
+              ],
+              "meaning_cn": "节约资源",
+              "phrase": "husband resources"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "节约使用；节俭管理",
+          "definition_en": "to use something carefully so that you do not waste it",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:husband:080a19ec9a11554b",
+          "sense_label_en": "to use something carefully so that you do not waste it",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -7386,23 +7515,44 @@
     "ordinal": 2416,
     "word": "hut",
     "source_owner_path": "content/lexical/words/by-ordinal/o2416.json",
-    "source_fingerprint": "1baf659da97c093f31c31ae0354c2569aee145e3c78ca23fe198f3bc12b3a4ca",
-    "sense_lineage": [],
+    "source_fingerprint": "f9d0ecb5dd81a1995ff68f3e2fea4ddee6c3d870847c29f1ce3ad6700f1cd989",
+    "sense_lineage": [
+      {
+        "word_id": "word:hut",
+        "target_kind": "sense",
+        "from_target_id": "sense:hut:6409f9cc4fd45832",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hut",
+        "target_kind": "sense",
+        "from_target_id": "sense:hut:e8901d79992858a4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hut",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3da58086e4ce4617b73a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "小屋；茅舍",
-      "decision_cn": "",
+      "summary_cn": "小屋；简陋的棚屋",
+      "decision_cn": "核心就是小而简陋的住处/棚屋。狭窄军事子类与少见动词“使住小屋”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小屋；茅舍"
+        "target_label": "小屋；简陋的棚屋"
       }
     },
     "senses": [
@@ -7439,49 +7589,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "小屋；茅舍"
         }
-      },
-      {
-        "id": "sense:hut:e8901d79992858a4",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "临时军营",
-        "definition_en": "a temporary military shelter",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3da58086e4ce4617b73a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "army hut",
-            "meaning_cn": "军营棚屋",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hut:e8901d79992858a4",
-          "target_locator": "record.senses[1]",
-          "target_label": "临时军营"
-        }
-      },
-      {
-        "id": "sense:hut:6409f9cc4fd45832",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使住在小屋中",
-        "definition_en": "to shelter or lodge in a hut",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hut:6409f9cc4fd45832",
-          "target_locator": "record.senses[2]",
-          "target_label": "使住在小屋中"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7512,9 +7619,6 @@
       "sense_readings": {
         "sense:hut:6dd884dd0d535011": [
           0
-        ],
-        "sense:hut:e8901d79992858a4": [
-          0
         ]
       },
       "has_scope": true
@@ -7525,7 +7629,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3da58086e4ce4617b73a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hut:e8901d79992858a4:collocation:0"
+              ],
+              "meaning_cn": "军营棚屋",
+              "phrase": "army hut"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "临时军营",
+          "definition_en": "a temporary military shelter",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:hut:e8901d79992858a4",
+          "sense_label_en": "a temporary military shelter",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使住在小屋中",
+          "definition_en": "to shelter or lodge in a hut",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hut:6409f9cc4fd45832",
+          "sense_label_en": "to shelter or lodge in a hut",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8409,26 +8553,40 @@
     "ordinal": 2424,
     "word": "ice",
     "source_owner_path": "content/lexical/words/by-ordinal/o2424.json",
-    "source_fingerprint": "825309c0f3a930959f8c3bcf422baad99f45192c083c0210b6e4d4a18cd10112",
+    "source_fingerprint": "942c939282b83be13dc7d6b88e6bf60a2995c9b185ceb0272ba888a32a31c145",
     "sense_lineage": [
+      {
+        "word_id": "word:ice",
+        "target_kind": "sense",
+        "from_target_id": "sense:ice:9c489c9fcf765697",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:ice",
         "target_kind": "sense",
         "from_target_id": "sense:ice:eef55cd5c6cb556b",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:ice",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6283f105f044104be637",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "冰；冰镇；结冰",
-      "decision_cn": "",
+      "decision_cn": "noun → 冰；verb → 冰镇/结冰/给蛋糕覆糖衣；break the ice → 打破冷场；on ice → 暂时搁置。旧式“冰糕/冰淇淋”独立名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8485,34 +8643,8 @@
         }
       },
       {
-        "id": "sense:ice:9c489c9fcf765697",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "冰淇淋；冰糕",
-        "definition_en": "a frozen dessert, especially one without milk",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6283f105f044104be637",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "ice cream",
-            "meaning_cn": "冰淇淋",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ice:9c489c9fcf765697",
-          "target_locator": "record.senses[1]",
-          "target_label": "冰淇淋；冰糕"
-        }
-      },
-      {
         "id": "sense:ice:c53379c20d9e5c37",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "冰镇；使冰冷",
@@ -8522,7 +8654,7 @@
         "usage": [
           {
             "id": "collocation:71c44830280011d12f64",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "ice a drink",
             "meaning_cn": "冰镇饮料",
             "kind": "usage_example",
@@ -8532,13 +8664,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ice:c53379c20d9e5c37",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "冰镇；使冰冷"
         }
       },
       {
         "id": "sense:ice:45982b75dae750b5",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "给（蛋糕）覆上糖衣",
@@ -8548,7 +8680,7 @@
         "usage": [
           {
             "id": "collocation:d5e157c14f1c7410ec16",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "ice a cake",
             "meaning_cn": "给蛋糕挂糖衣",
             "kind": "usage_example",
@@ -8558,13 +8690,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ice:45982b75dae750b5",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "给（蛋糕）覆上糖衣"
         }
       },
       {
         "id": "sense:ice:c94e607ecade5b6e",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + over/up",
         "definition_cn": "结冰；被冰覆盖",
@@ -8574,27 +8706,27 @@
         "usage": [
           {
             "id": "collocation:b9291161ee8438b22bc7",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "ice over",
             "meaning_cn": "结冰；被冰覆盖",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b9291161ee8438b22bc7",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "ice over"
             }
           },
           {
             "id": "collocation:a5276de9b6038b1ec6ed",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "ice up",
             "meaning_cn": "结冰；被冰覆盖",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a5276de9b6038b1ec6ed",
-              "target_locator": "record.senses[4].collocations[1]",
+              "target_locator": "record.senses[3].collocations[1]",
               "target_label": "ice up"
             }
           }
@@ -8602,7 +8734,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ice:c94e607ecade5b6e",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "结冰；被冰覆盖"
         }
       }
@@ -8627,7 +8759,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ice:break-the-ice",
+        "source_locator": "record.constructions[0]",
+        "pattern": "break the ice",
+        "lines": [
+          {
+            "text": "打破冷场；打破陌生或紧张气氛",
+            "lang": "cn"
+          },
+          {
+            "text": "social idiom; distinct from literal frozen water",
+            "lang": "en"
+          },
+          {
+            "text": "to make people who have not met before feel more relaxed and comfortable with each other",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ice:break-the-ice",
+          "target_locator": "record.constructions[0]",
+          "target_label": "break the ice"
+        }
+      },
+      {
+        "id": "construction:ice:on-ice",
+        "source_locator": "record.constructions[1]",
+        "pattern": "put/keep sth on ice / be on ice",
+        "lines": [
+          {
+            "text": "暂时搁置；留待以后处理",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative delay idiom; distinct from literal cooling/storage",
+            "lang": "en"
+          },
+          {
+            "text": "temporarily delayed or not being acted on",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ice:on-ice",
+          "target_locator": "record.constructions[1]",
+          "target_label": "put/keep sth on ice / be on ice"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8658,6 +8841,30 @@
           "source_row": 6754,
           "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6283f105f044104be637",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:ice:9c489c9fcf765697:collocation:0"
+              ],
+              "meaning_cn": "冰淇淋",
+              "phrase": "ice cream"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "冰淇淋；冰糕",
+          "definition_en": "a frozen dessert, especially one without milk",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:ice:9c489c9fcf765697",
+          "sense_label_en": "a frozen dessert, especially one without milk",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -8668,17 +8875,32 @@
     "ordinal": 2425,
     "word": "icon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2425.json",
-    "source_fingerprint": "cc9fe2c9189ad66461e28eb654155115b3f2f458f5fa2d2a0b9f6bb721931fd5",
-    "sense_lineage": [],
+    "source_fingerprint": "4efbb9ef18e8946ed0946eb057446e921121cf2c79d7926a43440f452db90828",
+    "sense_lineage": [
+      {
+        "word_id": "word:icon",
+        "target_kind": "sense",
+        "from_target_id": "sense:icon:875ac272bff95e91",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:icon",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ef8045c76be02c6cc67e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "图标；偶像",
-      "decision_cn": "",
+      "decision_cn": "digital → 图标；culture/person → 偶像、代表性象征。宗教艺术“圣像”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8746,32 +8968,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "偶像；象征"
         }
-      },
-      {
-        "id": "sense:icon:875ac272bff95e91",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "圣像",
-        "definition_en": "a religious painting, typically of a saint or holy figure",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ef8045c76be02c6cc67e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a Byzantine icon",
-            "meaning_cn": "拜占庭圣像",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:icon:875ac272bff95e91",
-          "target_locator": "record.senses[2]",
-          "target_label": "圣像"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8825,7 +9021,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ef8045c76be02c6cc67e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:icon:875ac272bff95e91:collocation:0"
+              ],
+              "meaning_cn": "拜占庭圣像",
+              "phrase": "a Byzantine icon"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "圣像",
+          "definition_en": "a religious painting, typically of a saint or holy figure",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:icon:875ac272bff95e91",
+          "sense_label_en": "a religious painting, typically of a saint or holy figure",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8834,7 +9056,7 @@
     "ordinal": 2426,
     "word": "idea",
     "source_owner_path": "content/lexical/words/by-ordinal/o2426.json",
-    "source_fingerprint": "a5523b57a340151150b0b9cabc1305c4f79b3ed9226773209c3cf0b6d15f287e",
+    "source_fingerprint": "9c42c3231b250d2441b271231ea3bf9a063180a6b7a92330b90a42b5c2aad94e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8844,7 +9066,7 @@
     },
     "word_feel": {
       "summary_cn": "头脑中形成的想法或概念",
-      "decision_cn": "",
+      "decision_cn": "idea → 主意/想法/计划；have no idea → 完全不知道、毫无头绪。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8970,7 +9192,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:idea:have-no-idea",
+        "source_locator": "record.constructions[0]",
+        "pattern": "have no idea (about/of sth) / have no idea + wh-clause",
+        "lines": [
+          {
+            "text": "完全不知道；毫无头绪",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed lack-of-knowledge pattern; distinct from idea = suggestion/plan",
+            "lang": "en"
+          },
+          {
+            "text": "to not know something at all",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:idea:have-no-idea",
+          "target_locator": "record.constructions[0]",
+          "target_label": "have no idea (about/of sth) / have no idea + wh-clause"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9154,17 +9402,46 @@
     "ordinal": 2428,
     "word": "identical",
     "source_owner_path": "content/lexical/words/by-ordinal/o2428.json",
-    "source_fingerprint": "a35d965bfa8962e12dbe13a96b4810f84c99e00ccb9301c0cd0dacd16712aa9c",
-    "sense_lineage": [],
+    "source_fingerprint": "eca4ac7e80c5dd5a6ec9a02057cd643625666c6a1ca6a9d556c9d5dc0bd6f3fb",
+    "sense_lineage": [
+      {
+        "word_id": "word:identical",
+        "target_kind": "sense",
+        "from_target_id": "sense:identical:823a9e10977d5644",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:identical",
+        "target_kind": "sense",
+        "from_target_id": "sense:identical:c84e373e17a75bac",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:identical",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5345c1e90d4f037c1069",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:identical",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e063bed95bef7a0d1f33",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "完全相同的",
-      "decision_cn": "",
+      "decision_cn": "identical to/with → 完全相同；identical twins → 同卵双胞胎。低频“正是同一个”旧式分支及重复的双胞胎专门分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9211,58 +9488,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "完全相同的；无法区分的"
         }
-      },
-      {
-        "id": "sense:identical:823a9e10977d5644",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "同一的；正是那个的",
-        "definition_en": "being the exact same one; not any other",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e063bed95bef7a0d1f33",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the identical person",
-            "meaning_cn": "同一个人",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:identical:823a9e10977d5644",
-          "target_locator": "record.senses[1]",
-          "target_label": "同一的；正是那个的"
-        }
-      },
-      {
-        "id": "sense:identical:c84e373e17a75bac",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（指双胞胎）同卵的",
-        "definition_en": "(of twins) derived from a single egg or ovum",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5345c1e90d4f037c1069",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "identical twins",
-            "meaning_cn": "同卵双胞胎",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:identical:c84e373e17a75bac",
-          "target_locator": "record.senses[2]",
-          "target_label": "（指双胞胎）同卵的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9299,7 +9524,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e063bed95bef7a0d1f33",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:identical:823a9e10977d5644:collocation:0"
+              ],
+              "meaning_cn": "同一个人",
+              "phrase": "the identical person"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "同一的；正是那个的",
+          "definition_en": "being the exact same one; not any other",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:identical:823a9e10977d5644",
+          "sense_label_en": "being the exact same one; not any other",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5345c1e90d4f037c1069",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:identical:c84e373e17a75bac:collocation:0"
+              ],
+              "meaning_cn": "同卵双胞胎",
+              "phrase": "identical twins"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（指双胞胎）同卵的",
+          "definition_en": "(of twins) derived from a single egg or ovum",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:identical:c84e373e17a75bac",
+          "sense_label_en": "(of twins) derived from a single egg or ovum",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9683,17 +9958,32 @@
     "ordinal": 2431,
     "word": "identity",
     "source_owner_path": "content/lexical/words/by-ordinal/o2431.json",
-    "source_fingerprint": "9f2032e5cdcfca91a0176f9559d5ec7e12773bc1d45e56838a579b7c26b6998e",
-    "sense_lineage": [],
+    "source_fingerprint": "c32a0a9d3a1afbe493dc374821528f88c4e837ad6b6148aab19c3e3405e5c25a",
+    "sense_lineage": [
+      {
+        "word_id": "word:identity",
+        "target_kind": "sense",
+        "from_target_id": "sense:identity:fbe569f35fb15cdf",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:identity",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:68c651b7e3d3652a7eb7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "身份；特性",
-      "decision_cn": "",
+      "decision_cn": "person/group → 身份与特性；logic/general → 同一性、相同。数学“恒等式/恒等算子”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9787,32 +10077,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "同一性；相同"
         }
-      },
-      {
-        "id": "sense:identity:fbe569f35fb15cdf",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "恒等式；恒等算子",
-        "definition_en": "an operator that leaves unchanged the element on which it operates",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:68c651b7e3d3652a7eb7",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "identity matrix",
-            "meaning_cn": "单位矩阵",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:identity:fbe569f35fb15cdf",
-          "target_locator": "record.senses[3]",
-          "target_label": "恒等式；恒等算子"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9860,6 +10124,32 @@
             }
           ],
           "source_locator": "record.word_family[1]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:68c651b7e3d3652a7eb7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:identity:fbe569f35fb15cdf:collocation:0"
+              ],
+              "meaning_cn": "单位矩阵",
+              "phrase": "identity matrix"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "恒等式；恒等算子",
+          "definition_en": "an operator that leaves unchanged the element on which it operates",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:identity:fbe569f35fb15cdf",
+          "sense_label_en": "an operator that leaves unchanged the element on which it operates",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
