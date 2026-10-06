@@ -7968,22 +7968,58 @@
     "ordinal": 880,
     "word": "coherent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0880.json",
-    "source_fingerprint": "14a2ee294ba3b9351707fd4b4566d28328449d07c6f504dfa205e07ab896976e",
-    "sense_lineage": [],
+    "source_fingerprint": "12bcc5556a1fee95a54f469c9f4532982d43986d1d2b73ca7642acee58647b66",
+    "sense_lineage": [
+      {
+        "word_id": "word:coherent",
+        "target_kind": "sense",
+        "from_target_id": "sense:coherent:382e243045a55b86",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coherent",
+        "target_kind": "sense",
+        "from_target_id": "sense:coherent:785e94858eab5950",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coherent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:107ad0b2e31a15ce18f9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coherent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9afb9ab08d1f29d9fdd6",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coherent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d54440d7740875cc3f71",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "各部分能够稳定“黏合/对齐”成一个整体：逻辑上连贯、表达上清楚，物理上也可指相位一致或物质黏合",
-      "decision_cn": "argument/narrative → 逻辑连贯；speaker → 思路和表达一致；waves/light → 相位关系稳定；mass → 黏成整体。",
+      "summary_cn": "连贯的；条理清楚、前后一致的",
+      "decision_cn": "argument/narrative → 逻辑连贯；person/speech → 思路和表达清楚。物理相干与材料黏合义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "各部分能够稳定“黏合/对齐”成一个整体：逻辑上连贯、表达上清楚，物理上也可指相位一致或物质黏合"
+        "target_label": "连贯的；条理清楚、前后一致的"
       }
     },
     "senses": [
@@ -8045,66 +8081,6 @@
           "target_id": "sense:coherent:a622cdf5ef315781",
           "target_locator": "record.senses[1]",
           "target_label": "能够清晰且一致地思考和表达"
-        }
-      },
-      {
-        "id": "sense:coherent:785e94858eab5950",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（物理）波具有恒定相位关系的",
-        "definition_en": "(physics) of waves having a constant phase relation",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d54440d7740875cc3f71",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "coherent light",
-            "meaning_cn": "相干光",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:107ad0b2e31a15ce18f9",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "coherent radiation",
-            "meaning_cn": "相干辐射",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:coherent:785e94858eab5950",
-          "target_locator": "record.senses[2]",
-          "target_label": "（物理）波具有恒定相位关系的"
-        }
-      },
-      {
-        "id": "sense:coherent:382e243045a55b86",
-        "source_locator": "record.senses[3]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "粘在一起的",
-        "definition_en": "sticking together",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9afb9ab08d1f29d9fdd6",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "coherent mass",
-            "meaning_cn": "粘在一起的团块",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:coherent:382e243045a55b86",
-          "target_locator": "record.senses[3]",
-          "target_label": "粘在一起的"
         }
       }
     ],
@@ -8177,7 +8153,66 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d54440d7740875cc3f71",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:coherent:785e94858eab5950:collocation:0"
+              ],
+              "meaning_cn": "相干光",
+              "phrase": "coherent light"
+            },
+            {
+              "collocation_id": "collocation:107ad0b2e31a15ce18f9",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:coherent:785e94858eab5950:collocation:1"
+              ],
+              "meaning_cn": "相干辐射",
+              "phrase": "coherent radiation"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（物理）波具有恒定相位关系的",
+          "definition_en": "(physics) of waves having a constant phase relation",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:coherent:785e94858eab5950",
+          "sense_label_en": "(physics) of waves having a constant phase relation",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9afb9ab08d1f29d9fdd6",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:coherent:382e243045a55b86:collocation:0"
+              ],
+              "meaning_cn": "粘在一起的团块",
+              "phrase": "coherent mass"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "粘在一起的",
+          "definition_en": "sticking together",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:coherent:382e243045a55b86",
+          "sense_label_en": "sticking together",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
