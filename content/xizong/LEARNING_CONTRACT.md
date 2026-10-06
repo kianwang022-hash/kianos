@@ -19,29 +19,56 @@ It does not own medical facts, exact Source provenance, page layout, Runtime fie
 
 ---
 
-## 0｜Purpose
+<a id="0purpose"></a>
+<a id="learning-outcome"></a>
+## 0｜Purpose — highest learner-facing invariant
 
-Xizong exists to turn a very large medical syllabus into a **lossless but progressively compressed, mechanism-centered, retrievable and applicable knowledge system**.
+**Kian-adopted learning outcome (2026-10-06).** This section is the controlling Xizong learning criterion. Existing teaching formats, lower-level rules, generation procedures, Runtime and historical acceptance claims must be interpreted and repaired against it, not used to redefine it. Medical/source truth, private evidence integrity and explicit Source gaps keep their own authority; this is not permission to invent facts or completion.
 
-The target capability develops as:
+### One stable model, expanded and compressed
+
+The System is one coherent large model; each Block supplies its responsible submodel. A Block must be traversable as a continuous medical model, not a stack of disconnected LG lessons. LG is the smallest useful local logic/retrieval unit inside that Block. KP is the complete knowledge/recall unit, not the generator of the model's topology or teaching order.
+
+The accepted model's main relationships, directions, boundaries and knowledge locations stay fixed across Chats. Explanation, examples, analogies and depth may adapt. Teaching expansion and later compression are two uses of **the same model**, not independently authored knowledge maps. A justified model correction returns to its existing owner explicitly; convenience or a new Chat is not a reason to redraw it.
+
+### Integrate titles and full Prompts at natural locations
+
+Establish the model first. At the matching semantic node attach the canonical knowledge title and **full formal Prompt**, for example `前负荷〔别称3｜本质｜前负荷→SV（范围）｜回心入口｜长度—张力比较｜压力≈容积边界〕`. The example illustrates placement, not a replacement source for an exact current Prompt.
+
+Default learner display hides KP numbers. A Prompt may include recall slots that are not causal arrows: they belong to the knowledge topic at that node. Attaching it must not create, remove or reorder medical relationships. Do not alternate disconnected model/KP/Precision cards or put the KP list in a parallel column. Hide the annotations and the model must remain intelligible and unchanged.
+
+### Complete coverage without distorting the model
+
+For the accepted Source scope, completeness is the **union** of:
+
+- the stable model and the complete knowledge recoverable through its attached titles/Prompts;
+- indispensable model-external knowledge with an exact existing Core/Memory/Precision/MedicalVisual destination and appropriate retrieval material.
+
+Do not force every fact into the framework, but do not lose facts to make the framework look clean. Numbers, lists, pairings, exceptions, discriminations, image requirements and non-KP Block content all need an explicit disposition. Reference, external-owner and unresolved Source items keep those honest dispositions; they are not silently discarded or falsely counted as learned. An omitted detail is not covered merely because its KP ID exists or future questions might expose it.
+
+Model-external knowledge may be an entire recallable KP or a smaller exact item. Reuse its existing identity and responsible owner; do not automatically duplicate all Core as Precision. Model and Memory may deliberately revisit the same knowledge without creating competing truth or double debt.
+
+### Make pure memory easier, not merely available
+
+Reuse previously reviewed memory preparation before generating anything new. Where useful, organize exact content through chunking, same-axis comparison, meaningful grouping, contrasts, sequences, short causal supports or valid mnemonics. Preserve the complete answer, qualifications and provenance. A mnemonic is optional assistance, never medical authority or a substitute for the exact answer.
+
+A cue naming what to memorize, a link to a long Core, or a metadata row that the actual consumer drops is **not** delivery of prepared exact-memory content. The native learner path must receive the applicable answer and memory aids. Preserve answer/aid hiding on clean Recall fronts, independent content revisions, history and deduplication.
+
+### Learning and acceptance sequence
 
 ```text
-understand the medical model
-→ actively reconstruct it
-→ locate real gaps
-→ repair the smallest failed object
-→ apply in questions / cases
-→ stabilize high-value precision
-→ compress without losing decisive information
+Chat establishes the coherent Block model quickly
+→ teach/fill the existing knowledge at its natural model locations
+→ immediately compress that same model with titles + full Prompts
+→ Website KP recall + prepared model-external Memory/Precision
+→ reconstruct the Block, then connect Blocks into the System model
+→ broad Lecture sweep / official questions to calibrate and expose remaining gaps
+→ smallest justified repair
 ```
 
-Xizong is not optimized for:
+Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation. A broad Lecture sweep may be later; source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
 
-- copying every Lecture paragraph into KianOS;
-- maximizing KP / page / question / Visual count;
-- memorizing isolated facts before their owning model exists;
-- turning every first exposure into future review debt;
-- using engineering completion as evidence that Kian learned anything.
+Acceptance must demonstrate a whole representative Block end to end: stable model, full in-model Prompt bindings, accounted model-external material, useful memory preparation and the actual Website retrieval path. A locally elegant LG, a file count, an engineering green check or a candidate inventory cannot stand in for this outcome. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
 
 ---
 

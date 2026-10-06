@@ -29,6 +29,8 @@ The two lanes share the same Current canonical System/Block/KP identities and me
 
 ## 2｜Authority
 
+The controlling learning outcome is [Learning Contract §0](../../LEARNING_CONTRACT.md#learning-outcome): one stable model for teaching and compressed recall, complete in-model Prompt bindings, and prepared model-external memory. This organization owner implements that criterion; it cannot replace it with a format or a candidate acceptance shortcut.
+
 Medical facts still belong to Current canonical owners under `content/xizong/knowledge/systems/**`.  
 Learning/evidence semantics still belong to `content/xizong/LEARNING_CONTRACT.md` and its existing owners.
 
