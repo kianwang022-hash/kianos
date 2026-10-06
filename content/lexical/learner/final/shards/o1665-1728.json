@@ -1124,7 +1124,7 @@
     "ordinal": 1671,
     "word": "entail",
     "source_owner_path": "content/lexical/words/by-ordinal/o1671.json",
-    "source_fingerprint": "10343f257d47e37f3f8e8bd0931640d021166f55d9ff78e3bd7ad9537650436c",
+    "source_fingerprint": "615be8dbade148025ec5af655e1fbdaef23717764525bf453174950605a49d02",
     "sense_lineage": [
       {
         "word_id": "word:entail",
@@ -1139,18 +1139,24 @@
         "from_target_id": "sense:entail:a1ccbf8bfbf15d71",
         "status": "merged",
         "to_target_id": "sense:entail:15074ae624f75f34"
+      },
+      {
+        "word_id": "word:entail",
+        "target_kind": "sense",
+        "from_target_id": "sense:entail:b934ea6036fd5021",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "必然涉及；需要",
-      "decision_cn": "使成为必需，需要",
+      "decision_cn": "entail sth/doing sth → 必然涉及、需要。地产法中的限定继承名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1174,23 +1180,6 @@
           "target_id": "sense:entail:1a7bd968f5b1bdca",
           "target_locator": "record.senses[0]",
           "target_label": "必然涉及、需要"
-        }
-      },
-      {
-        "id": "sense:entail:b934ea6036fd5021",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "限定继承",
-        "definition_en": "land received by fee tail; the act of entailing property",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:entail:b934ea6036fd5021",
-          "target_locator": "record.senses[1]",
-          "target_label": "限定继承"
         }
       }
     ],
@@ -1339,6 +1328,20 @@
           "source_row": 4626,
           "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "限定继承",
+          "definition_en": "land received by fee tail; the act of entailing property",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:entail:b934ea6036fd5021",
+          "sense_label_en": "land received by fee tail; the act of entailing property",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -3259,8 +3262,15 @@
     "ordinal": 1684,
     "word": "envelope",
     "source_owner_path": "content/lexical/words/by-ordinal/o1684.json",
-    "source_fingerprint": "cfacc48f804924988486c5a1086da7377804bc357f57914e53522c73a7731bf4",
+    "source_fingerprint": "8af59dcf5c40fdc36c29ab0ab7e5c8955b2b252796f1b9045e529110d64bd2a5",
     "sense_lineage": [
+      {
+        "word_id": "word:envelope",
+        "target_kind": "sense",
+        "from_target_id": "sense:envelope:231b9d6246595d6a",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:envelope",
         "target_kind": "sense",
@@ -3278,18 +3288,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "信封或封套",
-      "decision_cn": "",
+      "summary_cn": "信封；封套；包裹或覆盖物",
+      "decision_cn": "letter/container → 信封、封套；outer layer → 包裹或覆盖。数学包络线义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "信封或封套"
+        "target_label": "信封；封套；包裹或覆盖物"
       }
     },
     "senses": [
@@ -3308,23 +3318,6 @@
           "target_id": "sense:envelope:53928979bd6237cd",
           "target_locator": "record.senses[0]",
           "target_label": "信封；包裹或覆盖物"
-        }
-      },
-      {
-        "id": "sense:envelope:231b9d6246595d6a",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "包络线",
-        "definition_en": "a curve that is tangent to each of a family of curves (mathematics)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:envelope:231b9d6246595d6a",
-          "target_locator": "record.senses[1]",
-          "target_label": "包络线"
         }
       }
     ],
@@ -3417,6 +3410,20 @@
           "source_row": 4655,
           "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "包络线",
+          "definition_en": "a curve that is tangent to each of a family of curves (mathematics)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:envelope:231b9d6246595d6a",
+          "sense_label_en": "a curve that is tangent to each of a family of curves (mathematics)",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -5582,7 +5589,7 @@
     "ordinal": 1699,
     "word": "equivalent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1699.json",
-    "source_fingerprint": "7d1da3d7de0d747644406f8157c8d898a20e257fa5e5e5628be61696a082dff7",
+    "source_fingerprint": "dae4cdbd781bfc5fbc4a82463f57e68e02b4507b51615623bc6dc3ed3993a989",
     "sense_lineage": [
       {
         "word_id": "word:equivalent",
@@ -5590,18 +5597,32 @@
         "from_target_id": "sense:equivalent:6fad78a83e735ae1",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:equivalent",
+        "target_kind": "sense",
+        "from_target_id": "sense:equivalent:df3e9e6f3eef5571",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:equivalent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cabdeed181101c00eefb",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "相等、相当或等价；等值物",
-      "decision_cn": "相等，等价",
+      "decision_cn": "be equivalent to → 相等/相当；noun → 对应物或等值物。化学“当量”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5664,37 +5685,6 @@
           "target_id": "sense:equivalent:f4484729e8e8c1cc",
           "target_locator": "record.senses[1]",
           "target_label": "等值物、对应物或功能相当的人/物"
-        }
-      },
-      {
-        "id": "sense:equivalent:df3e9e6f3eef5571",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "当量（化学）",
-        "definition_en": "the atomic weight of an element that has the same combining capacity as a given weight of another element; the standard is 8 for oxygen",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cabdeed181101c00eefb",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "equivalent weight",
-            "meaning_cn": "当量",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cabdeed181101c00eefb",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "equivalent weight"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:equivalent:df3e9e6f3eef5571",
-          "target_locator": "record.senses[2]",
-          "target_label": "当量（化学）"
         }
       }
     ],
@@ -5761,6 +5751,30 @@
           "source_row": 4684,
           "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cabdeed181101c00eefb",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:equivalent:df3e9e6f3eef5571:collocation:0"
+              ],
+              "meaning_cn": "当量",
+              "phrase": "equivalent weight"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "当量（化学）",
+          "definition_en": "the atomic weight of an element that has the same combining capacity as a given weight of another element; the standard is 8 for oxygen",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:equivalent:df3e9e6f3eef5571",
+          "sense_label_en": "the atomic weight of an element that has the same combining capacity as ",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
