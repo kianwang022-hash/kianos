@@ -42,6 +42,11 @@ let browser;
 
 try {
   await waitForHttp(`${BASE}${BLOCK_ROUTE}`);
+  // Reuse this isolated built-site server for the bounded B1 entry path. That
+  // scenario starts its own empty browser context and never seeds a release.
+  process.env.KIANOS_PREPARED_MEMORY_TEST_BASE = BASE;
+  process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT = path.resolve('.qa/xizong-prepared-memory-browser');
+  await import('./test-xizong-prepared-memory-browser.mjs');
   browser = await chromium.launch({ headless: true, executablePath:process.env.KIANOS_TEST_CHROME });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();

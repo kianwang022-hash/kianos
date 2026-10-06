@@ -1,5 +1,5 @@
-// Run only against an already-started isolated Candidate. Never use Stable or
-// a persistent browser profile. Medical assets are Current; all evidence is fake.
+// Run against an already-started isolated Candidate or CI built-site preview.
+// Never use Stable or a persistent profile. Current content; synthetic evidence only.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,8 +7,8 @@ import { marked } from 'marked';
 import { loadXizongBlock } from '../src/lib/xizong.mjs';
 import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
 import { projectKpCore } from '../src/lib/xizongProjection.mjs';
-import { buildXizongMemoryReleaseDescriptorFromLearnerObject as describe } from '../src/lib/xizongMemoryRelease.mjs';
-import { createXizongMemoryState, releaseBlockMemory, releasedMemoryCards } from '../src/lib/xizongMemoryModel.mjs';
+import { buildXizongPreparedMemoryAvailability as describe } from '../src/lib/xizongMemoryRelease.mjs';
+import { createXizongMemoryState, makePreparedMemoryAvailable, releasedMemoryCards } from '../src/lib/xizongMemoryModel.mjs';
 const base = new URL(process.env.KIANOS_PREPARED_MEMORY_TEST_BASE || 'http://127.0.0.1:4322/');
 assert.equal(base.hostname,'127.0.0.1'); assert.notEqual(base.port,'4321');
 const { chromium } = await import(process.env.KIANOS_PLAYWRIGHT_MODULE || 'playwright');
@@ -16,7 +16,8 @@ const object = resolveXizongLearnerProjection(loadXizongBlock('circulation','b01
   enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:marked.parse(projectKpCore(k.detailMarkdown))}))})
 }).learnerObject;
 const descriptor=describe(object);
-const fixture=releaseBlockMemory(createXizongMemoryState(),descriptor,'2026-10-01T00:00:00Z');
+// Expected cards only: the browser must create availability through its real button.
+const fixture=makePreparedMemoryAvailable(createXizongMemoryState(),descriptor,'2026-10-01T00:00:00Z');
 const cards=releasedMemoryCards(fixture,'PRECISION');
 assert.equal(cards.length,13);
 const key='kianos-xizong-memory-v1';
@@ -28,19 +29,69 @@ try {
     const url=new URL(route.request().url());
     return url.origin===base.origin ? route.continue() : route.abort();
   });
-  await context.addInitScript(({key,fixture,origin})=>{
-    if(location.origin===origin && !sessionStorage.getItem('xizong-prepared-memory-fixture-installed')){
-      localStorage.setItem(key,JSON.stringify(fixture));
-      sessionStorage.setItem('xizong-prepared-memory-fixture-installed','1');
-    }
-  },{key,fixture,origin:base.origin});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(new URL('/xizong/memory/',base).href,{waitUntil:'domcontentloaded',timeout:30000});
-  await page.bringToFront();
-  console.log('Candidate loaded',await page.evaluate(()=>({focus:document.hasFocus(),writer:document.documentElement.dataset.learnerWriter})));
-  await page.waitForFunction(()=>document.querySelector('[data-memory-summary-precision]')?.textContent==='13',{},{timeout:30000});
-  await page.locator('[data-memory-view="PRECISION"]').click();
+  const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');
+  fs.mkdirSync(out,{recursive:true});
+  const ready=async()=>{
+    await page.bringToFront();
+    await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active',{},{timeout:30000});
+  };
+  const blockUrl=new URL('/xizong/circulation/b01/',base).href;
+  await page.goto(blockUrl,{waitUntil:'domcontentloaded',timeout:30000});
+  await ready();
+  const root=page.locator('[data-xizong-v6-block]');
+  const objectId=await root.getAttribute('data-study-object');
+  const studyKey=`kianos-xizong-astro-v2:${objectId}`;
+  const recallKey=`kianos-xizong-memory-review-v2:${objectId}`;
+  const read=key=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'null'),key);
+  const claims=state=>({sourceContactDone:state?.sourceContactDone===true,sourceContactEvidence:state?.sourceContactEvidence||[],
+    learned:state?.learned||{},completed:state?.completed===true,blockRecallDone:state?.blockRecallDone===true});
+  const initial=await read(studyKey);
+  assert.equal(await read(key),null);
+  assert.deepEqual(claims(initial),{sourceContactDone:false,sourceContactEvidence:[],learned:{},completed:false,blockRecallDone:false});
+  await root.locator('[data-study-stage="block_learn"] [data-post-chat-recall]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({state:'visible'});
+  const entry=await read(studyKey);
+  assert.equal(entry.recallEntryMode,'POST_CHAT_RECALL');assert.deepEqual(claims(entry),claims(initial));
+  const firstKp=root.locator('[data-kp-recall-card]:visible').first();
+  const firstKpId=await firstKp.getAttribute('data-kp-id');
+  assert.equal(await firstKp.locator('[data-kp-answer]').isVisible(),false);
+  assert.equal(await firstKp.locator('[data-kp-rating]').isVisible(),false);
+  assert.equal((await read(recallKey)).evidenceHistory.length,0);
+  await page.screenshot({path:path.join(out,'post-chat-kp-front.png'),fullPage:true});
+  checks.push('fresh real B1 Chat button enters clean KP Recall without Source, learned or completion claims');
+  await firstKp.locator('[data-kp-reveal]').click();
+  assert.equal(await firstKp.locator('[data-kp-answer]').isVisible(),true);
+  await firstKp.locator('[data-rating="known"]').click();
+  await page.waitForFunction(({studyKey,firstKpId,kpIndex})=>{
+    const state=JSON.parse(localStorage.getItem(studyKey)||'null');
+    return state?.ratings?.[firstKpId]==='known' && state.kpIndex!==kpIndex;
+  },{studyKey,firstKpId,kpIndex:entry.kpIndex});
+  const afterKp=await read(studyKey),kpEvidence=await read(recallKey);
+  assert.deepEqual(claims(afterKp),claims(initial));
+  assert.equal(kpEvidence.evidenceHistory.length,1);
+  assert.equal(kpEvidence.evidenceHistory[0].evidence_origin,'USER_RECALL_ATTEMPT');
+  assert.equal(kpEvidence.evidenceHistory[0].kp_id,firstKpId);
+  await page.reload({waitUntil:'domcontentloaded'});await ready();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({state:'visible'});
+  const resumed=await read(studyKey);
+  assert.equal(resumed.kpIndex,afterKp.kpIndex);assert.equal(resumed.recallEntryMode,'POST_CHAT_RECALL');
+  assert.deepEqual((await read(recallKey)).evidenceHistory,kpEvidence.evidenceHistory);
+  assert.equal(await root.locator('[data-kp-recall-card]:visible [data-kp-answer]').isVisible(),false);
+  assert.deepEqual(claims(resumed),claims(initial));
+  checks.push('real KP Reveal/rating persists once and reload resumes post-Chat position with a hidden answer');
+  await root.locator('[data-open-prepared-memory]').click();
+  await page.waitForURL(url=>url.pathname.endsWith('/xizong/memory/') && url.searchParams.get('view')==='precision');await ready();
+  await page.waitForFunction(()=>document.querySelector('[data-memory-summary-precision]')?.textContent==='13');
+  const available=await read(key);
+  assert.equal(Object.keys(available.cards).length,13);assert.deepEqual(available.releasedBlocks,{});
+  assert.deepEqual(available.evidence,[]);assert.deepEqual(available.attention,{});
+  assert.equal((await page.locator('[data-memory-summary-core]').textContent()).trim(),'0');
+  assert.equal((await page.locator('[data-memory-summary-today]').textContent()).trim(),'0');
+  assert.deepEqual(claims(await read(studyKey)),claims(initial));
+  assert.deepEqual((await read(recallKey)).evidenceHistory,kpEvidence.evidenceHistory);
   assert.equal(await page.locator('[data-memory-queue] button').count(),13);
+  checks.push('actual prepared Memory action persists exactly 13 Precision then opens Browse, with zero Core/Today/release receipts');
   const answer=page.locator('[data-memory-answer]');
   for(const [i,card] of cards.entries()){
     await page.locator('[data-memory-queue] button').nth(i).click();
@@ -50,6 +101,12 @@ try {
     assert.match(await page.locator('[data-memory-precision-resolution]').textContent(),/已绑定精确答案/);
   }
   checks.push('all 13 actual native answers render in existing Precision Browse');
+  const cvpIndex=cards.findIndex(c=>c.id==='precision:b01-m14-cvp-normal-physiology');
+  await page.locator('[data-memory-queue] button').nth(cvpIndex).click();
+  assert.match(await answer.textContent(),/4–12 cmH₂O/);
+  assert.match(await answer.textContent(),/Physiology Study only/);
+  assert.match(await answer.textContent(),/no cross-subject unified Memory/i);
+  checks.push('actual Browse preserves CVP scope and unresolved Source conflict without reinterpretation');
   const idx=cards.findIndex(c=>c.id==='precision:b01-m02-cycle-pressure-extrema');
   await page.locator('[data-memory-queue] button').nth(idx).click();
   assert.match(await answer.textContent(),/快射-双双高潮/);
@@ -62,20 +119,32 @@ try {
   assert.equal(await answer.isVisible(),true);assert.match(await answer.textContent(),/快射-双双高潮/);
   assert.equal(await page.locator('[data-memory-ratings]').isVisible(),true);
   checks.push('Reveal restores the exact answer and memory aid');
-  const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');
-  fs.mkdirSync(out,{recursive:true});await page.screenshot({path:path.join(out,'prepared-memory-reveal.png'),fullPage:true});
+  await page.screenshot({path:path.join(out,'prepared-memory-reveal.png'),fullPage:true});
   await page.locator('[data-memory-rating="known"]').click();
   const saved=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
   assert.equal(saved.evidence.length,1);assert.equal(saved.evidence[0].cardId,cards[idx].id);
-  assert.equal(Object.keys(saved.cards).length,45);
+  assert.equal(Object.keys(saved.cards).length,13);
   checks.push('one synthetic rating uses the existing identity, not a duplicate card');
   await page.reload({waitUntil:'domcontentloaded'});
-  await page.bringToFront();
+  await ready();
   await page.waitForFunction(()=>document.querySelector('[data-memory-summary-precision]')?.textContent==='13');
   const after=await page.evaluate(key=>JSON.parse(localStorage.getItem(key)),key);
-  assert.deepEqual(after.evidence,saved.evidence);assert.equal(Object.keys(after.cards).length,45);
+  assert.deepEqual(after.evidence,saved.evidence);assert.equal(Object.keys(after.cards).length,13);
   checks.push('reload retains the synthetic result without replay');
+  await page.goto(blockUrl,{waitUntil:'domcontentloaded'});await ready();
+  await root.locator('[data-open-prepared-memory]').click();
+  await page.waitForURL(url=>url.pathname.endsWith('/xizong/memory/'));await ready();
+  const reopened=await read(key);
+  assert.deepEqual(reopened,saved);assert.deepEqual(reopened.releasedBlocks,{});
+  assert.deepEqual((await read(recallKey)).evidenceHistory,kpEvidence.evidenceHistory);
+  assert.deepEqual(claims(await read(studyKey)),claims(initial));
+  checks.push('reopening through the actual B1 action preserves existing Memory/KP evidence and does not consume full Block release');
   assert.deepEqual(errors,[]);
-  const result={status:'PASS',base:base.href,scope:'native B1 prepared answers in isolated Candidate browser; not real learner or deployed Stable proof',checks};
+  const result={status:'PASS',base:base.href,scope:'native B1 post-Chat KP Recall and prepared Memory in an isolated built-site browser; synthetic evidence only, not real learner or Stable proof',checks};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+} catch (error) {
+  const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');
+  fs.mkdirSync(out,{recursive:true});
+  fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'FAIL',base:base.href,checks,errors,error:String(error?.stack||error)},null,2));
+  throw error;
 } finally {await browser.close();}

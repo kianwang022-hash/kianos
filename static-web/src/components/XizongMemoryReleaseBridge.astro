@@ -36,11 +36,12 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&blo
 
   // Explicit Browse availability is independent of Source / KP / Block
   // completion. Use the resolved payload, never learner ratings or URL claims.
+  if (learnerObject?.identity?.blockId === 'circulation-b01') {
   const preparedAction = document.querySelector('[data-prepared-memory-action]');
   const preparedButton = preparedAction?.querySelector('[data-open-prepared-memory]');
   const preparedStatus = preparedAction?.querySelector('[data-prepared-memory-status]');
   const preparedHost = root?.querySelector('.portedStudyShellActions');
-  if (learnerObject?.identity?.blockId === 'circulation-b01' && preparedAction && preparedButton && preparedHost) {
+  if (preparedAction && preparedButton && preparedHost) {
     try {
       const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash });
       preparedButton.textContent = `打开已准备的 Memory（${descriptor.precisionCards.length} 项）`;
@@ -62,6 +63,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&blo
         }
       });
     } catch (error) { console.error(error); }
+  }
   }
 
   const attemptRelease = () => {
