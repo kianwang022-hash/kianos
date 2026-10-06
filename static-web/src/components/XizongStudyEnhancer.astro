@@ -239,16 +239,8 @@ const packetMeta = {
     });
     window.setTimeout(consumePendingReturn, 0);
 
-    const applyCompletionGate = () => {
-      const button = root.querySelector('[data-block-complete]');
-      if (!button) return;
-      const study = readStudy();
-      const learned = Object.values(study.learned || {}).filter(Boolean).length;
-      const recalled = Object.keys(study.ratings || {}).length;
-      const coreReady = kpRows.length > 0 && learned >= kpRows.length && recalled >= kpRows.length && Boolean(study.blockRecallDone);
-      button.disabled = !coreReady || Boolean(study.completed);
-      button.title = '';
-    };
+    // BlockV6 owns the complete Source/revision/visual completion gate.
+    // This presentation dock must never replace it with a count-only test.
 
     const syncReviewVisibility = () => {
       const extension = document.querySelector('[data-study-extension]');
@@ -266,7 +258,6 @@ const packetMeta = {
         if (comment && document.activeElement !== comment && renderedKpId !== row.kpId) comment.value = local?.comment || '';
         renderedKpId = row.kpId;
       }
-      applyCompletionGate();
       syncReviewVisibility();
     };
 

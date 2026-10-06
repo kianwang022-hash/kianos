@@ -9,6 +9,8 @@ on:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
       - 'static-web/src/lib/xizongMemory*.mjs'
       - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/scripts/test-xizong-study-dock-completion-gate.mjs'
       - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
@@ -47,6 +49,8 @@ on:
       - 'static-web/XIZONG_MEMORY_PRODUCT.md'
       - 'static-web/src/lib/xizongMemory*.mjs'
       - 'static-web/src/components/XizongMemoryWorkspace.astro'
+      - 'static-web/src/components/XizongStudyEnhancer.astro'
+      - 'static-web/scripts/test-xizong-study-dock-completion-gate.mjs'
       - 'static-web/src/components/XizongMemoryReleaseBridge.astro'
       - 'static-web/src/pages/xizong/memory/**'
       - 'static-web/src/pages/xizong/[system]/[block].astro'
@@ -117,6 +121,8 @@ jobs:
         run: node scripts/test-xizong-a3-preentry.mjs
       - name: Validate B5 full contract bytes and fresh-process raw owner mutations
         run: python3 scripts/test-xizong-a3-raw-owner-mutations.py
+      - name: Validate Study dock cannot override complete eligibility
+        run: node scripts/test-xizong-study-dock-completion-gate.mjs
       - name: Validate A1, A2 and A3 post-Chat state and prerequisite gates
         run: node scripts/test-xizong-post-chat-recall.mjs
       - name: Build Astro
