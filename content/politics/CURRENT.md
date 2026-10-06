@@ -12,20 +12,20 @@ Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTR
 - **LEARN:** ordinary Politics learning bypasses this engineering cursor. Read actual learner/Resume evidence, then the relevant Current prepared package under [Learning](LEARNING_CONTRACT.md) and [Interaction](INTERACTION_CONTRACT.md). Candidate preparation is not adoption, progress or mastery.
 - **BUILD / CONTROL:** enter this cursor, then the active engineering anchor or exact subject/content/consumer owner. Apply [AGENTS](../../AGENTS.md) and change continuity before material changes.
 
-## Active engineering anchor
+## Completed bounded Memory delivery
 
-[**PR #1151 — model teaching, precision rehearsal and Website integration**](https://github.com/kianwang022-hash/kianos/pull/1151) is the **only live integrated Politics BUILD / delivery task**.
+[**PR #1151 — model teaching, precision rehearsal and Website integration**](https://github.com/kianwang022-hash/kianos/pull/1151) is **merged, with bounded Memory delivery verified**. It is delivery evidence, not a live engineering task or a second semantic owner.
 
-It is a delivery branch and evidence surface, **not** a second semantic owner. Its current head/body/comments own volatile candidate status, exact prepared scope, current proof, dependency failures and delivery evidence. Do not copy those changing SHAs/counts/checkpoints into this cursor.
+The PR's final receipts own exact prepared scope, code/catalog identities, candidate proof and formal served/remote readback. Do not copy those SHAs/counts/checkpoints into this cursor. This closure does not declare full five-subject teaching, Source acceptance or learner U/mastery complete.
 
-Fresh continuation:
+For a concrete follow-on BUILD / CONTROL task:
 
 ```text
 main@HEAD
 → AGENTS.md
 → this CURRENT
-→ PR #1151 current head / latest evidence
 → exact Politics Content / Learning / consumer owner affected
+→ #1151 delivery evidence only when relevant
 → Acceptance only when the claim crosses readiness
 ```
 
@@ -47,11 +47,11 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** #1151 remains the active integrated candidate until it is either accepted and landed, explicitly replaced, or closed. Candidate files, passing fixtures or historical counts never imply main adoption, served Website delivery or learner mastery.
+**Current:** the reviewed-target Memory set and its original producer/runtime/client are landed and delivered. Exact-candidate plan → Recall → reveal → self-rating/save → reload/reopen Resume → native Packet proof and formal served/catalog/remote readback are recorded in #1151. Synthetic proof is not real learning or mastery; Source, teaching-package and subject Acceptance boundaries remain with their exact owners.
 
-**Next:** continue the current #1151 frontier from its latest head and evidence. For landing / closeout, reconcile only real overlaps with latest main, complete exact-head review/CI, land one coherent producer+consumer set, then verify the actual served version/catalog and the affected cold-start / plan / Recall / Packet paths before updating the exact Acceptance owner.
+**Next:** ordinary Politics learning uses actual learner/Resume evidence and the relevant prepared package under Learning / Interaction; it does not resume this closed delivery task. Reopen bounded engineering only for a concrete defect, authoritative Source change or explicit new scope. Remaining teaching/Source limitations stay item-scoped and do not undo the delivered reviewed-target chain.
 
-**Blocker rule:** exact blockers live with #1151 or the native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
+**Blocker rule:** any remaining or new blocker lives with its exact task/native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
 
 The historical P1–P6 labels remain useful package names inside #1151 evidence. Their detailed checklists and receipts belong there and in the exact owners, not in this Work Cursor.
 
@@ -87,7 +87,7 @@ Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact nati
 
 ## Stop / reopen
 
-Stop when the active #1151 outcome is landed and its claimed current-source consumer boundary is proved, or when a real owner/dependency blocker prevents the next authorized step.
+The bounded #1151 Memory delivery is closed. Its technical delivery proof does not promote unresolved content/Source claims or learner acceptance.
 
 After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
 
