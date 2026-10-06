@@ -471,6 +471,9 @@ try {
     await ctx.addInitScript(()=>{const save=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='kianos-xizong-memory-v1')throw Error('Declared batch persistence failure');return save.call(this,k,v);};});
     const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));const url=new URL('/xizong/circulation/b12/',base).href;
     await p.goto(url,{waitUntil:'domcontentloaded'});await p.bringToFront();await p.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
+    // The Block controller imports revision logic asynchronously after writer
+    // readiness. Snapshot its genuine initialized baseline, not pre-init null.
+    await p.waitForFunction(()=>Boolean(JSON.parse(localStorage.getItem('kianos-xizong-astro-v2:xizong:circulation-b12')||'null')?.contentRevision?.witness?.block));
     const before=await p.evaluate(()=>localStorage.getItem('kianos-xizong-astro-v2:xizong:circulation-b12'));
     await p.locator('[data-open-prepared-memory]').click();await p.waitForFunction(()=>document.querySelector('[data-prepared-memory-status]')?.textContent.includes('无法安全打开'));
     assert.equal(p.url(),url);assert.equal(await p.evaluate(key=>localStorage.getItem(key),key),null);
