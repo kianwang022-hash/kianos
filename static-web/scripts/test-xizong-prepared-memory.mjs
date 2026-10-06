@@ -11,8 +11,8 @@ import { buildXizongLearnerObject } from '../src/lib/xizongLearnerObject.mjs';
 import { extensionAssetsForBlock } from '../src/lib/xizongExtensionAssets.mjs';
 import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
 import { resolveXizongLearnerAssetRepresentation as representation } from '../src/lib/xizongRepresentationGate.mjs';
-import { buildXizongMemoryReleaseDescriptorFromLearnerObject as describe } from '../src/lib/xizongMemoryRelease.mjs';
-import { createXizongMemoryState, releaseBlockMemory, appendMemoryEvidence, setPersonalPrompt, memorySummary } from '../src/lib/xizongMemoryModel.mjs';
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as describe, buildXizongPreparedMemoryAvailability } from '../src/lib/xizongMemoryRelease.mjs';
+import { createXizongMemoryState, releaseBlockMemory, makePreparedMemoryAvailable, appendMemoryEvidence, setPersonalPrompt, memorySummary } from '../src/lib/xizongMemoryModel.mjs';
 import { releaseCompletedBlockToMemory } from '../src/lib/xizongMemoryAutoRelease.mjs';
 
 const shared = JSON.parse(fs.readFileSync(new URL('../../content/xizong/knowledge/learner/shared-fields.json', import.meta.url)));
@@ -125,5 +125,19 @@ check('same-revision revisit does not replay or duplicate evidence', () => {
 check('new library availability is not Today debt', () => {
   const fresh=releaseBlockMemory(createXizongMemoryState(),descriptor,'2026-10-01T00:00:00Z');
   assert.equal(memorySummary(fresh).today,0);assert.equal(fresh.evidence.length,0);
+});
+check('native reviewed B1 availability reaches exactly the same thirteen prepared answers without full release', () => {
+  const selected = buildXizongPreparedMemoryAvailability(current);
+  assert.deepEqual(selected.precisionCards, descriptor.precisionCards);
+  assert.deepEqual(selected.coreCards, []); assert.deepEqual(selected.attentionSignals, []);
+  const state = makePreparedMemoryAvailable(createXizongMemoryState(), selected, '2026-10-01T00:00:00Z');
+  assert.equal(memorySummary(state).precision, 13); assert.equal(memorySummary(state).core, 0);
+  assert.equal(memorySummary(state).today, 0); assert.deepEqual(state.releasedBlocks, {});
+  assert.deepEqual(state.evidence, []);
+  const again = makePreparedMemoryAvailable(state, selected, '2026-10-02T00:00:00Z');
+  assert.deepEqual(again, state);
+  for (const id of ['b01-m03', 'b01-m07', 'b01-m11', 'b01-m13']) {
+    assert.ok(!Object.keys(state.cards).some(key => key.startsWith(`precision:${id}-`)));
+  }
 });
 console.log(JSON.stringify({status:'PASS',boundary:'native Current content + pure synthetic state; no real learner writes',checks},null,2));

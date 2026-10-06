@@ -1,3 +1,5 @@
+import preparedCues from '../../../content/xizong/knowledge/learner/a1-circulation-learning-cues.json' with { type: 'json' };
+
 export const XIZONG_MEMORY_RELEASE_SCHEMA = 'kianos.xizong.memory_release.v1';
 export const XIZONG_LEARNER_OBJECT_SCHEMA = 'kianos.xizong.learner_object.v1';
 
@@ -194,6 +196,57 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
     card.semanticRevision = card.kpId ? learnerObject.revisionWitness?.kps?.[card.kpId] || '' : learnerObject.revisionWitness?.groups?.[card.logicGroupId] || '';
   }
   return finalizeDescriptor(meta, coreCards, precisionCards, options);
+}
+
+// B1's selective index remains the only admission owner. Exact answer / aid
+// freshness is checked by resolvePreparedMemoryCue before the learner object is
+// built; this consumer additionally rejects stale references or ambiguous owners.
+// Do not broaden this entry to unreviewed retained items or to another Block.
+export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
+  const blockId = 'circulation-b01';
+  if (learnerObject?.identity?.blockId !== blockId) fail('PREPARED_BLOCK_UNSUPPORTED');
+  if (!learnerObject?.sourceHash || (options.sourceHash && options.sourceHash !== learnerObject.sourceHash)) {
+    fail('PREPARED_SOURCE_STALE', blockId);
+  }
+  if (preparedCues.status !== 'CURRENT' || !preparedCues.authority?.startsWith('CHAT_APPROVED')) {
+    fail('PREPARED_INDEX_UNREVIEWED', blockId);
+  }
+  const admitted = preparedCues.precision_index.filter(row => row.anchor?.block_id === blockId);
+  if (admitted.length !== 13 || new Set(admitted.map(row => row.id)).size !== admitted.length) {
+    fail('PREPARED_ADMISSION_INVALID', blockId);
+  }
+  const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject);
+  const rows = array(learnerObject.kps).flatMap(kp => array(kp.precision).map(cue => ({ kp, cue })));
+  const precisionCards = admitted.map(expected => {
+    const matches = rows.filter(row => row.cue.id === expected.id);
+    if (matches.length !== 1) fail('PREPARED_OWNER_AMBIGUOUS', expected.id);
+    const { kp, cue } = matches[0];
+    const raw = cue.raw || {};
+    const ref = raw.prepared_memory_ref;
+    const expectedRef = expected.prepared_memory_ref;
+    if (!expectedRef || !ref || Object.keys(ref).length !== Object.keys(expectedRef).length
+      || Object.keys(expectedRef).some(key => ref[key] !== expectedRef[key])) {
+      fail('PREPARED_REFERENCE_STALE', expected.id);
+    }
+    if (kp.identity.kpId !== expected.anchor.kp_id
+      || cue.anchor?.kp_id !== expected.anchor.kp_id || cue.anchor?.block_id !== blockId
+      || raw.anchor?.kp_id !== expected.anchor.kp_id || raw.anchor?.block_id !== blockId
+      || raw.prepared_memory_owner !== 'content/xizong/knowledge/learner/shared-fields.json') {
+      fail('PREPARED_OWNER_MISMATCH', expected.id);
+    }
+    const cards = descriptor.precisionCards.filter(card => card.precisionCueId === expected.id);
+    const card = cards[0];
+    if (cards.length !== 1 || card.kpId !== expected.anchor.kp_id
+      || card.answerResolution !== 'EXACT_CURRENT_OWNER' || !card.answerHtml.trim()
+      || card.answerHtml !== raw.answer_html || card.cue !== expected.cue
+      || !card.answerHtml.includes(`data-prepared-memory="${expected.id}"`)
+      || !card.answerHtml.replace(/<[^>]*>/g, '').trim()) {
+      fail('PREPARED_EXACT_ANSWER_MISSING', expected.id);
+    }
+    return card;
+  });
+  // No Core, first-pass signals, ratings or private annotations enter this path.
+  return { ...descriptor, coreCards: [], precisionCards, attentionSignals: [], promptOverrides: {}, markedFragments: [] };
 }
 
 // ---------------------------------------------------------------------------

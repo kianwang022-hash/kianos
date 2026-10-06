@@ -87,6 +87,18 @@ Adding an exact answer to a formerly cue-only object makes that payload answer-b
 
 Block Complete eventually releases every canonical KP Core card plus every valid current-owner Precision card and learner Marked fragments for that Block.
 
+Before completion, B1 may explicitly open its thirteen already-admitted prepared
+Precision items in native Browse, as required by Learning Contract §0's
+Chat → Website retrieval sequence. This card-only availability reuses the
+selective cue index and resolved learner object; it does not admit retained
+metadata, release Core, write a Block release receipt, or import learner ratings.
+Source contact, learned flags, completion, attention and historical evidence
+remain unchanged. Reopening preserves the same identities and revision history.
+The later genuine Block Complete still owns the normal first-release handoff.
+Persistence must succeed before navigation; unreadable storage or a failed save
+leaves the prior record in place. The bounded B1 Browse URL only selects a view
+and yields to the existing authenticated Chat session path.
+
 Release means the objects become available in `Core` / `Precision` / `Marked`. It does **not** mark all of them due today.
 
 Today combines **signal-driven rolling priority** with the selective delayed rechecks defined by `content/xizong/knowledge/learner/study-policy.json` → `memory_admission.retention_clock`. That execution-policy owner defines the current cadence and anti-inflation rules; time passage alone never creates review debt for untouched released cards.

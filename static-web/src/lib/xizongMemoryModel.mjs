@@ -216,6 +216,34 @@ export function releaseBlockMemory(stateInput, descriptor, releasedAt = null) {
   return next;
 }
 
+// Card-only availability is deliberately separate from Block completion. It
+// must never set releasedBlocks, consume the first-release handoff, or import
+// attention / evidence. Callers supply the reviewed prepared-only descriptor.
+export function makePreparedMemoryAvailable(stateInput, descriptor, availableAt = null) {
+  const state = normalizeXizongMemoryState(stateInput);
+  const { blockId, coreCards, precisionCards } = validateDescriptor(descriptor);
+  if (coreCards.length || !precisionCards.length) fail('PREPARED_CARDS_INVALID', blockId);
+  const stamp = nowIso(availableAt);
+  const cards = { ...state.cards };
+  for (const raw of precisionCards) {
+    const card = normalizeCard(raw, 'PRECISION', blockId, text(descriptor.sourceHash));
+    if (card.blockId !== blockId || !card.kpId || card.answerResolution !== 'EXACT_CURRENT_OWNER'
+      || !card.answerHtml.trim()) fail('PREPARED_CARD_INVALID', card.id);
+    const previous = cards[card.id];
+    if (previous && (previous.family !== 'PRECISION' || previous.blockId !== card.blockId || previous.kpId !== card.kpId)) {
+      fail('PREPARED_CARD_OWNER_CHANGED', card.id);
+    }
+    cards[card.id] = {
+      ...(previous || {}),
+      ...card,
+      releasedAt: previous?.releasedAt || stamp,
+      contentHistory: previous?.contentHistory || [],
+      ...memoryRevision(previous, card, stamp)
+    };
+  }
+  return { ...state, cards };
+}
+
 export function setPersonalPrompt(stateInput, kpId, prompt) {
   const state = normalizeXizongMemoryState(stateInput);
   const id = text(kpId);

@@ -46,7 +46,7 @@ const base = import.meta.env.BASE_URL;
       <section class="xzMemoryEmpty" data-memory-empty>
         <span>Memory 还没有已释放内容</span>
         <h2>先学，不制造假复习。</h2>
-        <p>Core / Precision 会在真实 Block Complete 后自动进入长期库；“进入库”不等于“今天必须复习”，只有真正值得回收的内容才会进入 Today。</p>
+        <p>已准备的 B1 Precision 可从 Block 单独打开；Core 仍在真实 Block Complete 后进入长期库。可浏览不代表学完，也不等于今天必须复习。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -183,7 +183,12 @@ const base = import.meta.env.BASE_URL;
         }
       } catch {}
     }
-    let view = chatCardIds.length ? 'CHAT' : chatRepairTaskId ? 'REPAIR' : 'TODAY';
+    // URL selects a view only. It cannot create cards, ratings or Chat authority.
+    // A session/step request always retains the existing authenticated path.
+    let preparedBlockFilter = !requestedSessionId && !requestedStepId
+      && params.get('view') === 'precision' && params.get('block') === 'circulation-b01'
+      ? 'circulation-b01' : '';
+    let view = chatCardIds.length ? 'CHAT' : chatRepairTaskId ? 'REPAIR' : preparedBlockFilter ? 'PRECISION' : 'TODAY';
     let precisionMode = 'BROWSE';
     let index = 0;
     let currentItems = [];
@@ -356,6 +361,9 @@ const base = import.meta.env.BASE_URL;
         };
       }
       const result = selectMemoryView(state, view);
+      if (view === 'PRECISION' && preparedBlockFilter) {
+        return { ...result, items: result.items.filter(item => item.blockId === preparedBlockFilter) };
+      }
       if (view === 'REPAIR' && chatRepairTaskId) {
         return {
           ...result,
@@ -386,7 +394,9 @@ const base = import.meta.env.BASE_URL;
       setText('[data-memory-view-title]', chatRepairTaskId && view === 'REPAIR' ? 'Chat 安排 · Repair' : note[0]);
       setText('[data-memory-view-note]', chatRepairTaskId && view === 'REPAIR'
         ? '只执行 Chat 选中的这个现有 Repair；完成修补不会自动写成 mastery。'
-        : note[1]);
+        : preparedBlockFilter && view === 'PRECISION'
+          ? 'B1 已准备的精确记忆；Browse 直接看答案与助记，Recall 先遮答案。打开不会写入学习证据。'
+          : note[1]);
       tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-memory-view') === view));
       const precisionModeRoot = q('[data-memory-precision-mode]');
       if (precisionModeRoot) precisionModeRoot.hidden = view !== 'PRECISION';
@@ -409,6 +419,7 @@ const base = import.meta.env.BASE_URL;
 
     tabs.forEach((button) => button.addEventListener('click', () => {
       view = button.getAttribute('data-memory-view') || 'TODAY';
+      preparedBlockFilter = '';
       index = 0;
       revealed = false;
       rebuild();
@@ -439,6 +450,7 @@ const base = import.meta.env.BASE_URL;
       const item = selectedItem();
       const rating = button.getAttribute('data-memory-rating') || '';
       if (!item?.id || !rating) return;
+      if (!revealed || (item.family === 'PRECISION' && view === 'PRECISION' && precisionMode === 'BROWSE')) return;
       state = appendMemoryEvidence(state, { cardId: item.id, rating, origin: item.family === 'PRECISION' ? 'PRECISION_MEMORY_RECALL' : 'CORE_MEMORY_RECALL' });
       if (!save()) return;
       revealed = false;
