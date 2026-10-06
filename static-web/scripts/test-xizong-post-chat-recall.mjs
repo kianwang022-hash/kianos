@@ -18,7 +18,7 @@ const evidenceController = bridge.match(/<script>\n([\s\S]*?)<\/script>/)?.[1]
   .replace(/  import[^\n]+\n/, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
 assert.ok(evidenceController, 'execute the actual evidence bridge');
 // Evaluate the actual frontmatter predicate, rather than restating its scope.
-const referenceExpression = component.match(/const postChatReferenceBlock = ([^\n]+);/)?.[1];
+const referenceExpression = component.match(/const postChatReferenceBlock = ([\s\S]*?);/)?.[1];
 assert.ok(referenceExpression);
 const referenceFor = (systemId, slug) => vm.runInNewContext(referenceExpression, { block: { systemId, slug } });
 const availabilityExpression = component.match(/const postChatRecallAvailable = ([\s\S]*?);/)?.[1];
@@ -40,6 +40,8 @@ assert.equal(titleOnlyFor('circulation', 'b02'), true);
 for(let n=3;n<=12;n++){ const slug=`b${String(n).padStart(2,'0')}`;assert.equal(availableFor('circulation',slug),true);assert.equal(titleOnlyFor('circulation',slug),true);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNIT',true),false);}
 assert.equal(titleOnlyFor('circulation', 'b13'), false);
 assert.equal(titleOnlyFor('respiratory', 'b01'), false);
+for(let n=1;n<=12;n++){const slug=`r${String(n).padStart(2,'0')}`;assert.equal(availableFor('respiratory',slug),true);assert.equal(titleOnlyFor('respiratory',slug),true);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNIT',true),false);}
+assert.equal(availableFor('respiratory','r13'),false);assert.equal(titleOnlyFor('respiratory','r13'),false);
 assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
 assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);
 assert.match(component, /data-kp-recall-title>\{titleOnlyKps \? firstKp\?\.title : firstKp\?\.displayId\}/);
@@ -98,9 +100,11 @@ class Element {
   click() { this.dispatchEvent({ type: 'click' }); }
 }
 const clone = value => JSON.parse(JSON.stringify(value));
-// Run every consumer/gate regression for both bounded reference identities.
-for (const slug of ['b01', 'b02']) {
-const blockId = `circulation-${slug}`;
+// Replay every existing consumer/gate assertion for each reviewed A1/A2 Block.
+for (const [systemId, prefix] of [['circulation', 'b'], ['respiratory', 'r']]) {
+for (let ordinal = 1; ordinal <= 12; ordinal++) {
+const slug = `${prefix}${String(ordinal).padStart(2, '0')}`;
+const blockId = `${systemId}-${slug}`;
 const objectId = `xizong:${blockId}`;
 const kpIds = [1, 2, 3].map(index => `${blockId}-kp0${index}`);
 const groupIds = [1, 2].map(index => `${blockId}-lg0${index}`);
@@ -117,7 +121,7 @@ const evidenceKey = `kianos-xizong-memory-review-v2:${objectId}`;
 
 async function createHarness({ saved, available = true, ttsx = [], visual = false, prerequisite = false } = {}) {
   const root = new Element({ 'data-xizong-v6-block': '', 'data-study-object': objectId, 'data-block-label': slug.toUpperCase(),
-    'data-study-system-id': 'circulation', 'data-study-block-slug': slug, 'data-study-block-id': blockId,
+    'data-study-system-id': systemId, 'data-study-block-slug': slug, 'data-study-block-id': blockId,
     'data-study-source-hash': 'synthetic-source', 'data-post-chat-recall-available': String(available) });
   const add = (parent, attrs, hidden = false) => { const node = new Element(attrs, hidden); parent.append(node); return node; };
   add(root, { 'data-study-local-status': '' });
@@ -266,6 +270,7 @@ pending.ttsxDone.click(); assert.equal(pending.state().stage, 'kp_recall'); asse
 
 }
 
-console.log('B1/B2 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+}
+console.log('All 12 A1 and 12 A2 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
 
 

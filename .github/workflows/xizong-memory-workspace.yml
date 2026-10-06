@@ -22,6 +22,15 @@ on:
       - 'static-web/scripts/test-xizong-prepared-memory-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-availability.mjs'
       - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a2-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a2-prepared-memory-browser.mjs'
+      - 'static-web/src/lib/xizongLearningCues.mjs'
+      - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
+      - 'content/xizong/knowledge/learner/shared-fields.json'
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/projection/a2-respiratory/chat/**'
       - '.github/workflows/xizong-memory-workspace.yml'
   pull_request:
     paths:
@@ -41,6 +50,15 @@ on:
       - 'static-web/scripts/test-xizong-prepared-memory-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-availability.mjs'
       - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a2-system-prepared-memory.mjs'
+      - 'static-web/scripts/test-xizong-a2-prepared-memory-browser.mjs'
+      - 'static-web/src/lib/xizongLearningCues.mjs'
+      - 'static-web/src/lib/xizongProductionProjection.mjs'
+      - 'static-web/src/components/XizongBlockV6.astro'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
+      - 'content/xizong/knowledge/learner/shared-fields.json'
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/projection/a2-respiratory/chat/**'
       - '.github/workflows/xizong-memory-workspace.yml'
 
 permissions:
@@ -71,6 +89,10 @@ jobs:
         run: node scripts/validate-xizong-memory-retention.mjs
       - name: Validate coherent A1 prepared owners and negative freshness cases
         run: node scripts/test-xizong-a1-system-prepared-memory.mjs
+      - name: Validate coherent A2 native owners and negative freshness cases
+        run: node scripts/test-xizong-a2-system-prepared-memory.mjs
+      - name: Validate A1 and A2 post-Chat state and prerequisite gates
+        run: node scripts/test-xizong-post-chat-recall.mjs
       - name: Build Astro
         run: npm run build
       - name: Install isolated browser acceptance tool
@@ -87,8 +109,10 @@ jobs:
         with:
           name: xizong-memory-workspace-browser
           path: |
+            static-web/.qa/xizong-a2-system-prepared-memory.json
             static-web/.qa/xizong-memory-workspace-browser.json
             static-web/.qa/xizong-memory-workspace.png
             static-web/.qa/xizong-memory-auto-release-browser.json
             static-web/.qa/xizong-prepared-memory-browser/
           if-no-files-found: warn
+

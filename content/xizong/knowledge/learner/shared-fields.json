@@ -14,7 +14,18 @@
     "circulation-b09": "content/xizong/knowledge/systems/a1-circulation/blocks/Block9_周围血管疾病_学习阅读版_v1_Batch4冻结版.md",
     "circulation-b10": "content/xizong/knowledge/systems/a1-circulation/blocks/Block10_心律失常_学习阅读版_v2_最终执行版.md",
     "circulation-b11": "content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md",
-    "circulation-b12": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md"
+    "circulation-b12": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
+    "respiratory-r01": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
+    "respiratory-r03": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+    "respiratory-r02": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+    "respiratory-r05": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+    "respiratory-r06": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+    "respiratory-r08": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+    "respiratory-r07": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md",
+    "respiratory-r09": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+    "respiratory-r10": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+    "respiratory-r11": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+    "respiratory-r12": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
   },
   "block_fields": {
     "circulation-b01": {
@@ -7169,6 +7180,1545 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
+      }
+    },
+    "a2-r01-kp01-precision": {
+      "cue": "肺容积 / 肺容量的常用数值与组合公式最终需要精确恢复。",
+      "answer": "先用平静呼吸两端拼四个容积，再组合四个容量。\n- VT/TV：每次平静吸入或呼出的气体量，约500 mL。\n- IRV：平静吸气末再用力吸入的量。\n- ERV：平静呼气末再用力呼出的量。\n- RV：最大呼气末仍在肺内、不能呼出的量。\n- IC：平静呼气末用力吸到最大所吸入的量；IC＝VT＋IRV。\n- FRC：平静呼气末留肺内的量；FRC＝ERV＋RV，约2500 mL。\n- VC：用力吸气后再用力呼气所能呼出的最大量；VC＝VT＋IRV＋ERV。\n- TLC：肺能容纳的最大气量；TLC＝VC＋RV。\n气体缓冲：正常解剖无效腔约150 mL，每口真正进入肺泡的新鲜气约500−150＝350 mL；相对FRC约2500 mL，每口更新约1/7，缓冲肺泡气分压波动。",
+      "answer_scope": "现有KP01容量/组合与明确常用近似数值；不扩成R1所有数值卡。",
+      "scope_note": [
+        "数值属于本节Study的典型近似值，不能当所有人的实测值。",
+        "RV定位最大呼气末；FRC定位平静呼气末且包括ERV，不可互换。",
+        "Current没有给IRV/ERV/RV各自通用数值，也未给正常呼吸频率数值；答案只恢复本意图现有明确数值，MI-D的频率缺口单列Source/HOLD。",
+        "正常肺泡无效腔很小，150 mL计算按解剖无效腔；PE使肺泡无效腔增加时不能仍把生理无效腔一律等于150。"
+      ],
+      "source_conflict": {
+        "conflict": [
+          "Current没有给IRV/ERV/RV各自通用数值，也未给正常呼吸频率数值；答案只恢复本意图现有明确数值，MI-D的频率缺口单列Source/HOLD。"
+        ],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "四容积按“平静一口、上储备、下储备、尽呼余量”定位；四容量按IC/VC是可移动范围、FRC/TLC含RV复原。先定呼气末，再写加法；350÷2500解释气池，不独背1/7。",
+        "Current KP01容量拼图/气体缓冲池与KP04无效腔条件；非新增医学口诀。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L163-L189",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L319-L334",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp01"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r01-kp02-precision": {
+      "cue": "FEV1–3 的百分比与一秒率相关数字最终需要精确恢复。",
+      "answer": "课程时间肺活量：开始用力呼气后的1、2、3秒呼出量分别是FEV1、FEV2、FEV3；与FVC相比约83%、96%、99%。\nFEV1/FVC是一秒率，分母为本次FVC，主要回答相对流速是否受限。FEV1%pred以预计FEV1作分母，回答气流受限严重程度，两者不能互换。\nVC强调最大可动气量，FVC额外要求用力并尽快呼气；小气道动态提前关闭时FVC可小于SVC，正常或无明显动态压缩时可接近，不把VC>FVC写成每次必然。\n后续COPD的支扩剂后FEV1/FVC<70%是持续气流受限的重要入口，不是本节正常83%的另一写法；必须结合暴露、症状及其他病因，不能单数值确诊。",
+      "answer_scope": "现有KP02百分比/分母身份；疾病阈值只作既有接口，不扩为COPD完整分级卡。",
+      "scope_note": [
+        "83/96/99是当前生理Study近似比例，不是GOLD严重度级别。",
+        "FEV1/FVC与FEV1%pred的分母不同。",
+        "<70%保留支扩后条件；并非COPD独有，疾病诊断正式由R3承担。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "沿同一次用力呼气的1→2→3秒，把83→96→99放在同一时间轴；再问分母是“本次FVC”还是“预计FEV1”。",
+        "Current KP02数值/指标职责；没有发明新数值口诀。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L206-L253",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L514-L514",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp02"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp06",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r02-kp03-precision": {
+      "cue": "全肺平均、肺尖与肺底 VA/Q 的数值最终需要精确恢复。",
+      "answer": "VA/Q＝肺泡通气量÷每分钟肺血流量；肺血流量约等于右室心输出量。\n本节Study：全肺平均约0.84；直立位肺尖约3.3，肺底约0.63。重力使通气和血流都改变，血流变化更明显，所以肺尖相对血少、比值高；肺底相对通气少、比值低。\n高VA/Q：气相对多/血少，肺泡气体无人交换→肺泡无效腔增加→死腔样；接口PE、DIC、肺气肿毛细床减少。\n低VA/Q：气少/血相对多，静脉血流经未充分通气肺泡→功能性短路/分流样；接口哮喘、纤维化、肺炎、肺不张、ARDS。",
+      "answer_scope": "既有KP03数值与两方向；不拆为三个新数值卡。",
+      "scope_note": [
+        "0.84是全肺平均，不能把生理性肺尖/肺底偏离都当病变。",
+        "功能性分流不等于另有真实解剖通道。",
+        "相对高低是气与血匹配轴；同一COPD肺可同时有低V/Q和高V/Q区域。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "Current已有“大大”：比值大→肺泡无效腔大；“短小”：功能性动静脉短路→比值小。数字按“全肺中间、尖高底低”归位，先问是气少还是血少。",
+        "Current KP03“大大/短小”与肺尖/肺底机制。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L291-L348",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L381-L393",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp03"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r02-lg04-precision": {
+      "cue": "P50、Hb 氧容量与氧解离曲线的关键数字 / 移动边界最终需要精确恢复。",
+      "answer": "先分“载体最多装多少”与“给定氧分压抓得多紧”。\n容量/含量/饱和度：1 g Hb最多约结合1.34 mL O₂；Hb约15 g/100 mL时氧容量约20.1 mL/100 mL。氧含量是溶解＋结合氧；正常Hb的SaO₂只以实际结合氧/最大可结合氧计算，不用总CaO₂作分子。正常动脉SaO₂约97%；约98.5%的O₂用Hb结合形式运输。COHb/MetHb时分清功能性/分数饱和度并用共氧测定。\n曲线数字：上段PO₂ 60–100 mmHg平坦，PaO₂≥60时SaO₂通常≥90%，利肺装氧；中段40–60较陡，利安静组织卸氧；下段15–40最陡，利高代谢卸氧。P50＝Hb饱和50%时PO₂，约26.5 mmHg。T型亲和低、R型高，亚基协同形成S形。\n移动：温度↑、PCO₂↑、H⁺↑/pH↓、2,3-DPG↑→P50↑、右移、亲和↓、易卸氧；反向以及CO中毒→左移、P50↓、亲和↑、难卸氧。库存血2,3-DPG维持受损，不等于细胞代谢绝对停止。低温同时降低耗氧并左移；不当补碱可妨碍卸氧，不能把生理串联直接变成治疗决定。\n效应分组：波尔“酸度→O₂亲和”；霍尔丹“Hb氧合→CO₂/H⁺携带”。组织卸O₂、装CO₂，肺内反向。\n携氧/利用边界：CO与Hb亲和本节约为O₂的250倍，既减少可结合位点又使余位点左移；PaO₂/普通SpO₂正常不能排除，CO的PvO₂非固定方向。发绀看去氧Hb绝对量≥50 g/L（5 g/100 mL），不等于组织缺氧：肺通气/换气失败常PaO₂与含量↓；严重贫血PaO₂可正常、含量↓且不绀；CO亦可不绀，樱桃红非人人典型；氰化物主要不能利用O₂，PaO₂/含量按本节表可正常而PvO₂↑。\nCO救治仅继承Current接口：脱离暴露、100%氧，按神经/心脏表现、酸中毒及暴露条件评高压氧；旧“加5%CO₂”不能当常规操作。",
+      "answer_scope": "原LG04的P50/Hb容量/曲线精度与完整鉴别条件，保留5个原成员＋额外容量owner。",
+      "scope_note": [
+        "原LG07–11全成员保留；容量来自额外KP05，不能为方便把LG改锚KP07。",
+        "曲线上段原题PaCO₂≥60为符号冲突，Current讨论PaO₂≥60；不把高碳酸设成氧合目标。",
+        "氧容量1.34×Hb不是完整氧供；PaO₂、SaO₂、Hb与CaO₂不可互换。",
+        "CO的PvO₂不得固定写↓；普通SpO₂可能误导，按共氧证据。",
+        "库存血、低温、酸碱和中毒只留机制/已审治疗接口；完整决策归既有外部owner。"
+      ],
+      "source_conflict": {
+        "conflict": [
+          "曲线上段原题PaCO₂≥60为符号冲突，Current讨论PaO₂≥60；不把高碳酸设成氧合目标。"
+        ],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "保留“上坡缓，下坡陡”和“增高右移”。把60/90放装氧安全段、26.5放50%横线；用P50定义反推亲和。再把250放Hb竞争、50 g/L放发绀绝对量，避免三个数字互相替代。波尔/霍尔丹按输入→输出归类。",
+        "KP07/08既有口诀；其余为对Current数字的分组，不新增医学结论。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L563-L609",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L617-L659",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L667-L721",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L729-L783",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L791-L835",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L433-L500",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r02",
+            "logic_group_id": "respiratory-r02-lg04"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r03-lg03-precision": {
+      "cue": "持续气流受限的诊断边界与 GOLD 严重度数字最终需要精确恢复。",
+      "answer": "诊断与定级先分分母/前提：吸入支气管扩张剂后FEV1/FVC仍<70%，是本课程持续气流受限入口；需合看暴露、症状和其他病因，不是COPD独有。FEV1%pred用于GOLD肺功能严重度：1级≥80%；2级50%–79%；3级30%–49%；4级<30%。它不是一秒率，也不是症状/加重史的A/B/E治疗分组。\n把数字放回原LG的力学范围：小气道可先出现MEFV下降、闭合容积升高、动态顺应性下降；合并肺气肿的弹性破坏才可静态顺应性升高，不能记成所有COPD的必经先后。呼气受限且呼气时间不够、下一吸气尚未达静态平衡，才形成PEEPi；RV/FRC增大不能单独证明。\n肺功能条件：FEV1下降；FEV1/FVC下降；VA在通气失败时可下降；RV在滞气时常升、FRC在过充时常升，TLC在气肿等可升而非必然；课程RV/TLC>40%是肺气肿接口；DLCO在肺气肿/毛细床破坏时常下降，不能套所有气道为主COPD。\n血气：有效肺泡通气下降是CO₂潴留主轴；低VA/Q、高VA/Q和弥散面积丢失均可参与低氧。换气主导可PaO₂低、PaCO₂正常的Ⅰ型；通气不足主导可PaCO₂>50 mmHg并低氧，常慢性Ⅱ型。有血气以实际PaO₂/PaCO₂为准，不能凭病名覆盖。传统Ⅱ型判据完整背景为海平面、静息、室内空气PaO₂<60且PaCO₂>50；给氧纠正PaO₂不等于通气衰竭消失。",
+      "answer_scope": "原LG03完整PFT/气体失败条件，诊断阈值与严重度答案不丢原LG成员。",
+      "scope_note": [
+        "原LG03成员KP09–11全部保留，定义/诊断限定另读KP06、KP13、KP14；GOLD与ABE区别另读KP16。",
+        "固定70%属于当前课程/GOLD入口；一次舒张反应不能把COPD与哮喘绝对二分。",
+        "不能把RV/FRC/TLC/DLCO简写成所有COPD无条件方向。",
+        "低氧主因不由高CO₂机制一项覆盖；所有血气与呼衰阈值保留采样情境。"
+      ],
+      "source_conflict": {
+        "conflict": [
+          "固定70%属于当前课程/GOLD入口；一次舒张反应不能把COPD与哮喘绝对二分。"
+        ],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "先问“有没有持续限速”（支扩后比值70），再问“受限多重”（预计值80/50/30分界）；残气、弥散、血气分三条旁轴。用这一顺序复原数字，避免把ABE症状风险塞进肺功能分级。",
+        "Current KP09–16同轴组织；无新卡片或新医学口诀。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L612-L657",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L665-L695",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L703-L759",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L480-L516",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L767-L772",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L807-L820",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L858-L858",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L951-L951",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r03",
+            "logic_group_id": "respiratory-r03-lg03"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp06",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r03-lg05-precision": {
+      "cue": "长期家庭氧疗与 AECOPD 的关键阈值 / 用药边界最终需要精确恢复。",
+      "answer": "先分稳定慢性管理与急性加重，不能混用阈值或给药身份。\n稳定风险：课程去年中度加重≤1且未因加重住院为低风险；≥2次中度或因加重住院为E风险。mMRC 0仅剧烈活动气短、1快走/缓坡气短、2比同龄慢或自己节奏也要停、3约100m/几分钟需停、4不能离家或穿脱衣气短；0–1症状少、2–4症状多。课程A低风险少症、B低风险多症、E高风险；Current另标GOLD2026将一次中度加重作为升级治疗评估阈值，旧组不叫最新版。\n稳定用药：A一种支扩；B LABA＋LAMA；E LABA＋LAMA或符合条件三联加ICS。SABA沙丁胺醇/特布他林；SAMA异丙托溴铵；LABA沙美特罗/福莫特罗；LAMA噻托溴铵。ICS代表布地奈德、氟替卡松、倍氯米松；加重住院史、每年≥2次中度、血嗜酸≥300个/μL、伴哮喘共同评获益。300不是独立充分指征，区分初始/随访升级、当前支扩下持续加重及肺炎等风险。茶碱为课程列举，不等于常用吸入支扩的默认地位。\nLTOT：生存获益主要面向稳定慢性重度静息低氧。Current ATS条件示例PaO₂≤55 mmHg或SpO₂≤88%；或PaO₂56–59/SpO₂89%并水肿、红细胞增多或肺型P等；至少15h/d并复评。课程长期目标PaO₂≥60、SaO₂≥90%；鼻导1–2 L/min，“约30%”只是随设备/呼吸模式/分钟通气变化的粗估。\n氧致高碳酸不只因低氧驱动被解除：还要看V/Q恶化、霍尔丹效应及部分通气下降。高碳酸风险AECOPD常按SpO₂88–92%滴定，复查血气、评通气支持；不能延误严重低氧纠正，也不能把此目标套所有Ⅱ型或CO中毒。LTOT目标与急性滴定情境分开，吸氧不替代排CO₂。\nAECOPD：感染最常见触发，咳痰喘加重、黄脓痰/发热、气促/血气恶化。课程Ⅰ级无高碳酸呼衰且无意识变，Ⅱ级有呼衰而意识未变，Ⅲ级有呼衰并意识变/肺性脑病。感染按必要抗菌，痉挛吸入支扩，住院炎症加重用口服或静脉全身激素；稳定期条件性ICS不能混为同一给药身份。低氧滴定；适合且无禁忌的急性高碳酸呼衰评NIV。不能保护气道、持续循环不稳、呼吸停止或NIV失败需升级有创；Ⅲ级要求立即评通气/保护气道，不是所有意识变化自动插管，不为试NIV延误。\n酸碱/药物安全：呼酸先改善通气/病因；课程pH<7.2只是补碱接口，要看新增CO₂能否排出、混合代酸和循环不稳。通气失败/意识差不可自行加镇静抑呼吸药；课程吗啡禁用不能扩大到所有呼吸病、所有目的和专业监护下永久绝对禁忌。",
+      "answer_scope": "原LG05的LTOT/AECOPD关键阈值与用药边界；全成员/版本差异保留，不声称完整现代处方。",
+      "scope_note": [
+        "原LG05全成员KP16–20保留，不能只留下LTOT数字或改锚KP18。",
+        "课程ABE与GOLD2026并列，不以本提案更新指南；稳定/急性氧疗、ICS/全身激素明确分开。",
+        "LTOT适应证是Current给出的条件示例；红细胞增多未提供Hct数值，不补造。",
+        "Current未给完整抗菌药名/剂量/疗程、NIV数值准入细则；本cue恢复已存在关键阈值与用药边界，这些未提供的MI-D细则保持Source/HOLD。"
+      ],
+      "source_conflict": {
+        "conflict": [
+          "课程ABE与GOLD2026并列，不以本提案更新指南；稳定/急性氧疗、ICS/全身激素明确分开。",
+          "LTOT适应证是Current给出的条件示例；红细胞增多未提供Hct数值，不补造。",
+          "Current未给完整抗菌药名/剂量/疗程、NIV数值准入细则；本cue恢复已存在关键阈值与用药边界，这些未提供的MI-D细则保持Source/HOLD。"
+        ],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "把记忆分“稳—氧—急—安全”：稳定先ABE和ICS获益；氧疗先问长期适应证还是急性滴定；急发用意识与气道保护升级；pH只放在通气优先条件后。mMRC沿活动能力从剧烈→快走→同龄→百米→穿衣递减。",
+        "Current KP16–20及R2 KP15既有顺序/情境组织，没有新剂量或处方。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L908-L953",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L961-L1012",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1020-L1049",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1057-L1102",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1109-L1133",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1047-L1049",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r03",
+            "logic_group_id": "respiratory-r03-lg05"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": []
+      }
+    },
+    "a2-r05-lg01-precision": {
+      "cue": "CAP / HAP 时间边界与 CURB-65 五项阈值最终需要精确恢复。",
+      "answer": "CAP：医院外发生；或院外感染有明确潜伏期的病原体，入院后仍在潜伏期内发病。不能用‘已经住院’一项直接排除CAP。HAP：入院时不存在、也不处于潜伏期，加上入院≥48小时后医院内新发生。\nCURB-65五项：C意识障碍；U血尿素>7 mmol/L；R呼吸频率≥30次/分；B收缩压<90或舒张压≤60 mmHg，任一满足即可；65年龄≥65岁。它是严重度入口，不是病原诊断。\n血尿素7 mmol/L不能直接当作BUN的mg/dL数值。血压条件是‘或’，不能改为两者同时满足。肺炎并休克时循环复苏/补液与尽快抗感染并行；不等待补液结束才给药，取材不应造成明显延误。",
+      "answer_scope": "Cue仍属于lg01（空间、环境、证据、严重度），不缩成KP02或KP04单卡。完整药原清单与样本阈值仍在本LG Current Core；本cue精确答案限定原cue时间/严重度意图。",
+      "scope_note": [
+        "定义只用于Current的CAP/HAP获得环境；潜伏期与入院时间必须合看。",
+        "不额外引入Current未给出的CURB评分分层或住院切点。",
+        "严重度不替代空间、影像与合格病原证据，原LG01四成员全部保留。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "先问‘何处获得、入院时是否已经存在/潜伏’，再逐字恢复C-U-R-B-65。把尿素的单位与血压的‘或’单独核对；已有CURB缩写是检索支架，不新增医学口诀。"
+      ],
+      "source": "> **Primary Study**：`病理学讲义_AI阅读版.md`，原 PDF `27病理精编版合集【不带导图】.pdf` P72–76；`内科学讲义_AI阅读版.md`，原 PDF `内科精编版小合集1【开始→胸膜疾病】.pdf` P33–39。  ",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r05",
+            "logic_group_id": "respiratory-r05-lg01"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [
+          "Cue仍属于lg01（空间、环境、证据、严重度），不缩成KP02或KP04单卡。完整药原清单与样本阈值仍在本LG Current Core；本cue精确答案限定原cue时间/严重度意图。"
+        ],
+        "source_bindings": []
+      }
+    },
+    "a2-r05-lg03-precision": {
+      "cue": "高频病原—治疗药物的精确配对按当前 Study 口径最终需要稳定。",
+      "answer": "肺炎链球菌：课程首选青霉素，实际结合药敏、感染部位和当地耐药；耐药时课程选项为喹诺酮、头孢噻肟、头孢曲松。合并休克时复苏和抗感染并行；抗菌约3天仍不退热或降后复升，既要查脓胸/心包炎/关节炎等肺外感染，也要复核病原、耐药、给药和其他并发症。\n金葡菌：非MRSA课程选苯唑西林、氯唑西林或头孢呋辛；MRSA选万古霉素、替考拉宁、利奈唑胺或头孢洛林。不得把前一组作为MRSA覆盖。\n克雷伯：课程β-内酰胺类；重症按课程可联合喹诺酮或氨基糖苷（阿米卡星、妥布霉素）。须看药敏和耐药机制，不能把所有β-内酰胺视作等效。\n支原体：课程因大环内酯耐药列左氧氟沙星、莫西沙星为首选，四环素类也可用，β-内酰胺无效。该成人/课程选项不能外推全部年龄和地区；课程妊娠、哺乳、<18岁不用喹诺酮。儿童通常仍从大环内酯起步，无改善或耐药再按年龄与风险选择替代；需合看当地耐药和疗效。\n军团菌：课程六组选项是大环内酯、喹诺酮、多西环素、替加环素、复方磺胺甲噁唑、利福平。保留为课程代表选项，不把六种任意等效互换；军团菌虽为非典型病原，但可为纤维素性化脓性实质炎，不以‘间质病原’代称。\n病毒性：先对症支持。课程列奥司他韦、利巴韦林、阿昔洛韦等，须按具体病毒与适应证选：奥司他韦用于流感，阿昔洛韦用于相应疱疹病毒，利巴韦林不能补造Current未给出的低频病毒精确配对。流感肺炎不因重症就常规用激素；另有哮喘急发、肾上腺功能不足、难治休克等适应证另论。不用抗生素预防继发细菌感染，确有细菌感染再用敏感药。",
+      "answer_scope": "保持LG03六个病原成员、单一cue身份；不拆六张新卡。",
+      "scope_note": [
+        "这是Current Study配对恢复，不是新的统一经验处方、剂量或疗程。",
+        "药敏、耐药身份、年龄、妊娠/哺乳和具体病毒条件属于完整答案，不能藏到链接里。",
+        "利巴韦林具体低频病毒配对不在Current，本次不补；原cue要求的Current药名及其范围均已保留。"
+      ],
+      "source_conflict": {
+        "conflict": [
+          "低频病毒—利巴韦林精确配对是单独MI-D Source边界，不在此推断。"
+        ],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "按六个原有病原模型逐行恢复‘课程代表药→改变选择的条件’：链球菌看药敏；金葡先分MSSA/MRSA；克雷伯看耐药机制；支原体看年龄/妊娠；军团菌保留六组；病毒先问具体病毒。分组帮助恢复，不新增第二份医学药谱。"
+      ],
+      "source": "> **Primary Study**：`病理学讲义_AI阅读版.md`，原 PDF `27病理精编版合集【不带导图】.pdf` P72–76；`内科学讲义_AI阅读版.md`，原 PDF `内科精编版小合集1【开始→胸膜疾病】.pdf` P33–39。  ",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r05",
+            "logic_group_id": "respiratory-r05-lg03"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [
+          "保持LG03六个病原成员、单一cue身份；不拆六张新卡。"
+        ],
+        "source_bindings": []
+      }
+    },
+    "a2-r06-lg02-precision": {
+      "cue": "大咯血数值边界与止血药禁忌最终需要精确恢复。",
+      "answer": "课程中等量咯血两药：垂体后叶素以大剂量VP/ADH收缩血管；酚妥拉明以α受体阻断、扩血管降低肺血管压力。\n垂体后叶素四项禁忌：高血压、冠心病、肾衰、妊娠。酚妥拉明可用于课程所述伴高血压或肺心病者，不能把它和垂体后叶素的血管方向混为一谈。\n课程大量咯血：>500 mL/日，或>100 mL/次。这个数值不是生命危险或救治启动的必要条件；少于此量也会因血块阻塞气道窒息。外见咯血量减少不代表严重度下降。\n先保护气道、稳定循环，药物止血不能延误气道及介入评估。持续显著咯血常优先考虑支气管动脉栓塞；局限病变同样可栓塞。课程‘弥漫→栓塞、局限→手术’仅是简化分支，手术须结合可切除性、肺储备、病因和其他止血措施成败，不能仅凭局限决定。\n正在咯血或不能有效保护气道时，应重新评估清除方式，不能强行套普通体位引流。完整急救体位、气道和介入操作细则不在本Block新增。",
+      "answer_scope": "单一lg02 cue保持范围；抗假单胞菌完整名单另有Current KP09，未以此cue名义扩成新药谱卡。",
+      "scope_note": [
+        "严格保留>而非≥；日总量与单次数值为‘或’。",
+        "Current只给中等量用药身份，没有中等量数值区间，不能自行补出。",
+        "LG02包含清痰、感染和鉴别，依赖全部原成员，不改锚点。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "先气道，后量级：数值只分课程量级，堵塞决定紧迫性。再按‘收缩药→四禁忌；扩血管药→课程适用场景’对比。展开答案始终同时显示救治与程序边界。"
+      ],
+      "source": "> **Primary Study**：`病理学讲义_AI阅读版.md`，原 PDF `27病理精编版合集【不带导图】.pdf` P68–69；`内科学讲义_AI阅读版.md`，原 PDF `内科精编版小合集1【开始→胸膜疾病】.pdf` P27–32。  ",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r06",
+            "logic_group_id": "respiratory-r06-lg02"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [
+          "单一lg02 cue保持范围；抗假单胞菌完整名单另有Current KP09，未以此cue名义扩成新药谱卡。"
+        ],
+        "source_bindings": []
+      }
+    },
+    "a2-r06-lg03-precision": {
+      "cue": "误吸体位对应肺段与关键抗感染配对最终需要精确恢复。",
+      "answer": "三入口：吸入性最常见，厌氧菌为主，右肺多、通常单发；血源性常金葡菌、双肺外周多发；继发性依既有病灶/阻塞或邻近感染而变。右主支气管粗、短、陡解释误吸侧别，具体肺段还取决于误吸当时体位。\n仰卧：上叶后段或下叶背段。坐位：下叶后基底段。右侧卧：右上叶前段或后段。这是Current三个体位的精确肺段，不补造其他体位规则。\n吸入性抗感染课程配对：多数厌氧菌列青霉素；脆弱拟杆菌列甲硝唑+林可霉素类。必须同时保留校准：青霉素耐药可导致厌氧感染治疗失败，氨苄西林/舒巴坦等含β-内酰胺酶抑制剂方案有研究支持；脆弱拟杆菌不是一律固定双药，选择须结合感染来源、混合菌及药敏。历史研究不升级为2026统一首选。\n课程常见疗程6–8周；临床停药综合临床、炎症与影像反应，不能只看退热、痰臭消失或到某周数。课程影像终点：空洞周围炎症吸收→空洞缩小、消失→仅余少量纤维条索。\n血源性从皮肤外伤/疖/痈、骨髓炎、右心感染性心内膜炎等追源，血培养取证。课程苯唑西林或头孢呋辛须在相应MSSA条件内，不能覆盖MRSA；菌血症须复查血培养，查心内膜炎及远处灶，控制原发源。MRSA需专门方案，药物/疗程结合菌血症、心内膜炎与肺部感染，不套普通肺炎短疗程。\n继发性需查金葡、克雷伯、铜绿等坏死性肺炎，支扩/肺癌/结核继发感染，小儿异物，或阿米巴肝脓肿邻近累及右下肺。控制病原还要解除持续阻塞和引流障碍，不能只反复加抗菌药。",
+      "answer_scope": "原LG身份、五个成员与单一cue不变。",
+      "scope_note": [
+        "保留完整lg03 KP11–15，而非把体位记忆缩到KP12。",
+        "不新增抗菌剂量、程序操作或临床统一首选。",
+        "脓腔需要抗感染与引流/控源共同处理；早期无洞不排除肺脓肿。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "先分入口再配空间：气道误吸→体位/重力；血道菌栓→双肺外周；局部持续源→解除阻塞。体位分三格恢复，药物每格紧跟耐药/混合感染与终点条件。"
+      ],
+      "source": "> **Primary Study**：`病理学讲义_AI阅读版.md`，原 PDF `27病理精编版合集【不带导图】.pdf` P68–69；`内科学讲义_AI阅读版.md`，原 PDF `内科精编版小合集1【开始→胸膜疾病】.pdf` P27–32。  ",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r06",
+            "logic_group_id": "respiratory-r06-lg03"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [
+          "原LG身份、五个成员与单一cue不变。"
+        ],
+        "source_bindings": []
+      }
+    },
+    "a2-r08-lg03-precision": {
+      "cue": "结节病分期的精确影像组合最终需要精确恢复。",
+      "answer": "结节病课程影像I期：双肺门淋巴结肿大。II期：双肺门淋巴结肿大+肺部浸润影。III期：仅肺部浸润影。IV期：蜂窝肺、肺纤维化、肺气肿。\n分期描述影像分布/形态。III期肺门结消失不能直接判病情好转。多数患者无需治疗；症状严重者课程糖皮质激素，疗程6–24个月，不能把所有结节病都判为至少治6个月。\n完整识别背景：双肺门结伴皮肤眼部表现，BALF CD4↑、沿支气管血管束结节、活检非干酪性肉芽肿；支气管镜铺路石是黏膜载体，不是肺泡蛋白沉着的CT铺路石。与TB相比，非干酪/典型双侧肺门/PPD多阴对干酪/典型多单侧/PPD多阳，仍须结合影像组织与感染证据；免疫弱的TB也可PPD阴。",
+      "answer_scope": "保持a2-r08-lg03-precision及LG原范围。",
+      "scope_note": [
+        "完整原LG03三成员作为证据/鉴别/分期共同范围；只把分期cue移到KP08将丢掉原范围，禁止。",
+        "不增加Current未列的0期。",
+        "PPD只是比较线索，阴阳不能独立确诊或排除；药敏TB6个月与结节病疗程不互相套用。"
+      ],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+      },
+      "mnemonic": [
+        "按‘肺门结/肺内浸润/纤维化’三轴恢复：I结、II结加肺、III仅肺、IV纤维化形态。用影像定位作支架；III期肺门结消失不等于好转。"
+      ],
+      "source": "> **Primary Study**：`内科学讲义_AI阅读版.md`，原 PDF《内科精编版小合集1【开始→胸膜疾病】》P22–26；`病理学讲义_AI阅读版.md`，原 PDF《27病理精编版合集【不带导图】》P70–71。  ",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r08",
+            "logic_group_id": "respiratory-r08-lg03"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r07",
+            "kp_id": "respiratory-r07-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [
+          "保持a2-r08-lg03-precision及LG原范围。"
+        ],
+        "source_bindings": []
+      }
+    },
+    "a2-r09-lg05-precision": {
+      "cue": "PE 危险分层、溶栓时间窗与抗凝疗程边界最终需要精确恢复。",
+      "answer": "先按血流动力学分层，再把抗凝与再灌注分工。\n低危：无右心功能不全、血压正常，直接抗凝，不溶栓。\n中危：结合右室、肌钙蛋白及临床风险，但无持续低压；抗凝＋监测，不常规全身溶栓，恶化评估救援再灌注。\n高危：心搏骤停；或阻塞性休克（低压／需升压支持并有低灌注）；或收缩压<90 mmHg／下降≥40 mmHg持续>15分钟，且排除新发心律失常、低容量、脓毒症等。紧急评估再灌注并安排抗凝，全身溶栓、导管或外科按风险和可用性选择，不能为等检查或完成抗凝延误。\n溶栓课程药：rt-PA、尿激酶、链激酶；时间窗≤14天，最严重并发症颅内出血。窗内不等于有适应证；活动性出血等禁忌仍评估。濒死个体化权衡不等于“绝对禁忌也一律溶”；禁忌或失败可导管／外科，不能称唯一方法。保留课程低／中／高框架，与AHA/ACC 2026 A–E版本分开。\n抗凝是无禁忌时基础：普通肝素、低分子肝素、磺达肝癸钠、华法林、直接口服抗凝药。免疫性HIT疑似／确诊须停肝素选非肝素药；磺达可用于合适稳定患者，须看肾功能和出血。急性HIT血小板恢复前不得直接启动华法林。非HIT常规华法林过渡须重叠至少5天且INR达治疗要求，不能第五天自动停肝素。\n疗程三层：短暂／可逆因素初发≥3个月；复发、APS、遗传性易栓、持续因素或来源不明初发延长；活动性肿瘤／持续风险常需长期，定期复评活动度、出血和获益，任何肿瘤史不等于终身。\n作用分工：抗凝阻新纤维蛋白网／血栓扩大；抗血小板不是PTE主轴；溶栓溶已成纤维蛋白血栓。\n原LG完整比较范围保留：慢性肺病多年、右室先肥厚后扩张、右衰可双腿对称水肿、COPD可高CO₂，控制感染／改善呼吸优先；急PTE多突发、DVT常不对称、右室急扩、常低PaO₂／低PaCO₂但非必需，无禁忌抗凝，高危评再灌注。两者可共存，任何单征不定病。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "三层风险配三层动作；抗凝疗程另用“短暂≥3月／持续延长／活动肿瘤复评长期”。时间、右室、腿征、血气、治疗同轴比较慢／急。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md#L694",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md#L728",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md#L760",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r09",
+            "logic_group_id": "respiratory-r09-lg05"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P19  ",
+          "> **Outline →** 内科 U006｜治疗1–2  ",
+          "> **讲义定位 →** 内科 Lecture P19–21  ",
+          "> **Outline →** 内科 U006｜治疗3–5  ",
+          "> **讲义回看 →** 病理 P65–66；内科 P12–21  ",
+          "> **Outline →** Batch integration  "
+        ]
+      }
+    },
+    "a2-r10-kp02-precision": {
+      "cue": "进行性血胸的持续引流阈值与判定数字最终需要精确恢复。",
+      "answer": "进行性血胸依四组持续出血证据共同判断：\n1. 胸腔闭式引流量每小时>200 mL，持续3小时。\n2. 脉搏持续加快、血压降低，或补充血容量后仍不稳定。\n3. Hb、RBC、Hct进行性下降。\n4. 引流血Hb／RBC与周围血相近，且迅速凝固。\n处理：开胸探查；胸腔处理与循环容量丢失同时关注。一次抽到血不等于进行性出血。血性胸水仅为胸水带血，血胸为全血入胸膜腔；不能以这两个身份互换阈值。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "按“流量持续／循环不稳／血象下降／引流血近外周且凝”四证据回忆；数字只绑定第一证据。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#L215",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp02"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp23",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P67  ",
+          "> **Outline →** 内科 U026｜血胸3–4  "
+        ]
+      }
+    },
+    "a2-r10-kp04-precision": {
+      "cue": "胸水化验比值、梯度与 Light 判定边界最终需要精确恢复。",
+      "answer": "先理解机制：局部炎症／通透性增加多为渗出，系统静水压／胶渗压失衡多为漏出；药物／超敏胸膜炎归渗出（R10-SC01）。\nLight三条任一满足即渗出：胸水／血清蛋白>0.5；胸水／血清LDH>0.6；胸水LDH>血清LDH正常上限的2/3。三条均不满足才支持漏出。一个比值阴性不够。\n完整定量对照（典型方向，不要求每项同时符合）：\n- 比重：渗出>1.018；漏出<1.018。\n- 外观／凝固：渗出混浊、可凝；漏出清亮、不凝。\n- 蛋白：渗出>30 g/L、Rivalta＋；漏出<30 g/L、Rivalta−。\n- 葡萄糖：部分感染、恶性或类风湿胸水可降低，并非所有渗出均<3.3 mmol/L；漏出常与血糖相近。\n- 细胞：渗出>500×10⁶/L；漏出多<100×10⁶/L。\n- 蛋白比：>0.5为Light一条；不超过0.5且其余Light亦阴性才按漏出判断。\n- LDH比：>0.6为Light一条；不超过0.6且其余Light亦阴性才按漏出判断。\n- 血清−胸水白蛋白梯度：课程渗出<12 g/L、漏出≥12 g/L；是辅助指标，不是Light必备条件。\n- 肿瘤细胞／细菌：渗出可有，漏出无（课程典型表）。\n利尿后心衰胸水可能假性渗出，结合病因和白蛋白梯度；外观、比重、Rivalta、细胞和葡萄糖均不能替代Light。原Extension表的“所有渗出低糖”和单一比值即漏出不得进入答案。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "先“任一阳性／全阴才漏”，再将典型表按外观→蛋白／细胞→糖→比值／梯度分组；梯度带g/L。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#L304",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp04"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P68  ",
+          "> **Outline →** 内科 U026｜胸水4；U027｜5  "
+        ]
+      }
+    },
+    "a2-r10-kp08-precision": {
+      "cue": "胸穿首次 / 后续容量、频率与相关边界最终需要精确恢复。",
+      "answer": "课程大量胸水抽液：每周2–3次，首次<800 mL，以后每次<1000 mL。目的为减轻肺受压／呼吸困难，同时避免胸膜腔压力及肺血流短时变化过大，不追求一次抽空。\n这些是讲义考试数值，不是所有病因固定每周抽液处方。Current另保留BTS 2023版本：缓慢引流，一般单次最多1.5 L；胸闷、胸痛、持续咳嗽或气促加重须提前停止。上限不是目标；需专业评估和超声定位。\n出现异常先停止、评估：抽快／多后剧咳、泡沫痰、湿啰音／低氧／新浸润提示复张后水肿；穿刺迷走反应则心率可慢、低压、苍白出汗／晕厥。不能把二者混为“抽够量后的正常反应”，不能默认利尿激素或普通迷走反应用肾上腺素。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "课程“每周2–3／首800／后1000”与BTS“慢／一般≤1.5 L／症状先停”分开记，不拼成一个处方。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#L419",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp08"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P70  ",
+          "> **Outline →** 内科 U028｜12  "
+        ]
+      }
+    },
+    "a2-r10-kp16-precision": {
+      "cue": "闭合性气胸压缩比例与观察 / 抽气边界最终需要精确恢复。",
+      "answer": "闭合性又称单纯性气胸：破口已闭合；课程胸膜腔压低于大气压，纵隔可不移。课程肺压缩<20%观察，超过该范围采用穿刺抽气；Current没有把恰好20%的等号另外裁决，不能自行补成“≥20%必抽”。\n20%是课程简化分支。实际先看症状、低氧、循环稳定性、基础肺病及类型：现代原发自发性气胸可按症状观察，不仅凭大小；继发性、创伤性、正压通气患者不能套同一阈值。\n闭合只说明破口状态，不保证整个呼吸周期都低于大气压，也不排张力生理。若持续升压造成呼吸／循环障碍，需按张力性立即减压，不能等待大小达到阈值。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "先“稳不稳／何种气胸”，后读课程大小分支；“破口闭”不等于“无张力”。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#L642",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp16"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P71  ",
+          "> **Outline →** 内科 U030｜6  "
+        ]
+      }
+    },
+    "a2-r10-kp19-precision": {
+      "cue": "胸管位置、插拔呼吸时相与拔管组合最终需要精确恢复。",
+      "answer": "课程传统位置：气胸锁骨中线第2肋间；胸水腋中线与腋后线之间第6–7肋间。不能替代术前影像和安全定位；液体须超声定位，正式置管常在安全三角选合适位置，不把应急针刺减压点当正式胸管点。\n呼吸配合：插管深呼气后屏气；课程拔管深吸气后屏气。现代操作按流程配合屏气／Valsalva并立即密闭创口，吸气末或呼气末不是唯一成败因素。\n拔管四组合：肺复张好且无气液排出→拔；肺不张且有排出→不拔；复张好、少量残留、管通畅→继续引流；复张好、少量残留、堵塞→课程列可拔，但实际先明确堵塞、漏气／积液和复张状态，堵塞绝不是自动拔管依据。\nCurrent列出的适应证完整保留六行：中／大量闭合性气胸；开放／张力性气胸；穿刺后肺未复张；机械通气相关气胸／血气胸；拔管后复发；开胸术后。Prompt“适应5”仍保持身份原文，不删第六行求齐数字。\n紧急边界：张力性先立即减压；开放封口后监测张力恶化；闭合性大小阈值服从症状、稳定性、基础病和类型。以上是课程提取及安全条件，不构成完整胸管操作教程。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "位置、呼吸时相、拔管三变量分开；拔管用“肺／残留排出／管通畅”三轴，不用堵塞单项。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#L712",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp19"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P72  ",
+          "> **Outline →** 内科 U030｜胸腔引流1–3  "
+        ]
+      }
+    },
+    "a2-r11-kp21-precision": {
+      "cue": "T 分期的三个直径边界与等号归属最终需要精确恢复。",
+      "answer": "课程简化T大小：T1≤3 cm；T2>3且≤5 cm；T3>5且≤7 cm；T4>7 cm。故3 cm归T1、5 cm归T2、7 cm归T3，“等号归较小档”。\n肺癌T仍看大小与侵犯范围，这张表不是完整分期；消化管肿瘤常重浸润深度，不能跨器官机械套用。T4也不等于任何情形不可切，治疗还看具体侵犯结构、N／M及多学科评估。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "记3／5／7三界及等号向较小档；大小档与侵犯／可切除判断分层。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L955",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp21"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜TNM1  "
+        ]
+      }
+    },
+    "a2-r11-kp22-precision": {
+      "cue": "N / M 分层的空间边界与 M1 细分最终需要精确恢复。",
+      "answer": "N0无区域结转移；N1同侧支气管周围、肺门、肺内；N2同侧纵隔、隆突下；N3对侧肺门／纵隔，或前斜角肌及锁骨上结。\nM1三入口：对侧肺叶同一肺癌转移结节（须区别同步第二原发）；恶性胸／心包积液或胸膜／心包结节；远处器官灶。对侧肺同癌结节归M，对侧肺门／纵隔结归N3。\n胸水可反应性或回流受阻，不自动恶性；癌细胞阳性可确认，但一次细胞阴性不排恶性，胸膜结节组织证据和完整临床分期也重要，不能要求只有抽到癌细胞才可M1。\nM1a胸腔内播散／对侧肺结节／恶性胸心包受累；M1b胸腔外单发；M1c远处多发，Current Source补M1c1一个胸外器官内多发，M1c2多个胸外器官多发。第9版N2a单站、N2b多站，仅作版本辨认，与较早题粗类分开。\n分期与治疗不是单个字母自动等同；可切除性还看具体结构及完整N／M、耐受和多学科条件。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "先分“肺实质结节／淋巴结”，再分侧别与区域；M细分按胸内／胸外单发／单器官多发／多器官多发。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L982",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp22"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜TNM2–3  "
+        ]
+      }
+    },
+    "a2-r11-lg05-precision": {
+      "cue": "靶点—药物配对与 SCLC / NSCLC 治疗边界最终需要稳定精确。",
+      "answer": "先组织与范围，再耐受／可切除性，最后靶点和方案；保留原LG全部KP19–22的范围。\n靶点—课程代表药四组：EGFR／HER1／ERBB1突变→厄洛替尼、吉非替尼；ALK或ROS1重排→克唑替尼；VEGF-A→贝伐珠单抗；PD-1→帕博利珠单抗（讲义“派姆单抗”）。PD-L1表达可作部分方案选择指标，但直接靶点是PD-1；检查点治疗不同于EGFR／ALK驱动靶向。课程药不代表所有分期现代一线，仍看突变亚型、分期及联合方案。\nSCLC早期广泛播散、放化疗敏感，课程首选依托泊苷＋铂类化疗；敏感不等于好预后，早播散与耐药仍在。临床须分局限／广泛及适用条件选放化疗、免疫等，少数很早且完成纵隔分期者可手术，非一律禁止。\nNSCLC I／II期可切且能耐受者手术是重要根治手段；不能手术仍有根治放疗等选择。课程T4／N3／M1快捷不可手术边界中，T4需看具体侵犯结构、N／M与多学科，不能一律不可切；晚期不只放化疗，还看分子／免疫指标。放疗可缩瘤、缓解气促疼痛，也可骨髓抑制使全血细胞减少。\n原范围内T：≤3 cm／>3–≤5／>5–≤7／>7分别T1／T2／T3／T4，等号归较小档，仍看侵犯。\n原范围内N：N0无区域结；N1同侧支气管周围／肺门／肺内；N2同侧纵隔／隆突下；N3对侧肺门／纵隔或前斜角／锁骨上。第9版N2a单站、N2b多站，版本分开。\n原范围内M：对侧肺同癌转移须别第二原发；恶性胸心包液／结节；远处灶。M1a胸内，M1b胸外单发，M1c多发含c1单胸外器官内多发、c2多胸外器官多发。对侧肺结节M1不同于对侧结N3，癌患者胸水不自动恶性，一次细胞阴性不排；不得以“只有抽到癌细胞”为M1必要条件。\n检查接口：影像回答分布与范围，分子检测回答靶点；不以PET浓聚代替组织确诊。完整现代处方、放疗剂量及手术术式仍在本Source之外。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "“组织／TNM／能否耐受与可切／靶点”四步；药表按受体驱动—重排—血管生成—免疫检查点分组，PD-1和PD-L1分开。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L897",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L924",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L955",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L982",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r11",
+            "logic_group_id": "respiratory-r11-lg05"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜治疗3  ",
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜治疗1–2  ",
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜TNM1  ",
+          "> **讲义定位 →** 内科 Lecture P64  ",
+          "> **Outline →** 内科 U025｜TNM2–3  "
+        ]
+      }
+    },
+    "a2-r12-kp08-precision": {
+      "cue": "P/F 定义与三档分度最终需要精确恢复。",
+      "answer": "首选动脉血气。P/F=PaO₂（mmHg）÷FiO₂（小数），单位mmHg；例PaO₂80、FiO₂40%：80/0.40=200。\n课程必要氧合条件P/F≤300；轻200<P/F≤300，中100<P/F≤200，重≤100。200归中、100归重、300归轻。\n按Berlin版本使用须同时满足相应正压条件：PEEP≥5 cmH₂O，轻度可CPAP≥5；还须起病时间、双肺影像及水肿来源条件，不能仅凭P/F降低确诊，也不把该版本视作全部现代定义唯一入口。相关Current入口为高危事件后1周内，常72小时；水肿起点需分屏障通透性与左心／肺静脉压力，心衰与ARDS可并存。\n普通低流量鼻导管粗估吸入氧浓度(%)≈21+4×流量(L/min)，受呼吸型式、分钟通气和装置影响，不能套面罩、高流量或呼吸机；分级优先可靠实际设定／测定FiO₂。\n比值低表示给氧增加而动脉氧仍难升，不是单一诊断标签。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "先分母换小数，再300／200／100三界；把“数字条件”和Berlin其余条件同时提取。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L427",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp08"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P55  ",
+          "> **Outline →** 内科 U021｜检查1–2  "
+        ]
+      }
+    },
+    "a2-r12-kp09-precision": {
+      "cue": "PAWP 鉴别阈值与可并存边界最终需要精确恢复。",
+      "answer": "起点先分：ARDS为屏障通透性升高、富蛋白非心源渗漏；心源性肺水肿为左心／肺静脉压力升高、静水压水肿。首选鉴别检查均为心脏超声。\nCurrent课程PAWP：ARDS通常<18 mmHg，心源通常>18 mmHg；>18仍不能排除ARDS，可与心衰并存。Current没有给恰好18的独立裁决，不能添等号把它当排除线。\nSwan–Ganz心导管测肺小动脉／肺毛细血管楔压。一个楔压数值不能代替起点、心脏证据与完整背景。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "先“屏障漏／压力高”，后“通常18两侧”；再加并存，不背成一刀切排除。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L475",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp09"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P55；Recall循环左心衰  ",
+          "> **Outline →** 内科 U021｜检查3–4  "
+        ]
+      }
+    },
+    "a2-r12-kp12-precision": {
+      "cue": "PEEP 起始 / 目标范围与容量门槛最终需要精确恢复。",
+      "answer": "课程PEEP从5 cmH₂O起，逐步调到8–18 cmH₂O适当范围；不是人人固定目标。\n四效：增加呼气末肺容量；重新开放萎陷肺泡／小气道；改善弥散与VA/Q、减少分流；防止每呼吸周期反复开闭。\n两条风险：压力过高→肺气压伤；胸内压↑→静脉回心↓→CO↓→血压↓。\n因此低起、看反应，血容量不足需纠正，不能只追求更高PEEP或更漂亮PaO₂。相对干肺不能利到低容量，低容量会放大PEEP回心下降，还须防痰稠与低钾低氯碱中毒。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "“5起／8–18课程范围”；效果记开肺、留容积、减分流、少开闭；代价分肺与循环。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L554",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp12"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P55  ",
+          "> **Outline →** 内科 U021｜治疗3–4  "
+        ]
+      }
+    },
+    "a2-r12-kp13-precision": {
+      "cue": "潮气量、平台压、允许性高碳酸血症与 pH 范围最终需要精确恢复。",
+      "answer": "肺保护潮气量4–8 mL/kg预测体重PBW，绝非实际体重。平台压课程≤30 cmH₂O，Current所引ATS推荐表述<30 cmH₂O；版本符号分别保留。\nARDS损伤不均，难开病灶之外剩余baby lung更易进气；大潮气量使残余健康肺过度扩张和机械损伤。\n小潮气量可减少CO₂排出，课程容许一定CO₂潴留、pH约7.25–7.3，以可接受代价减少过度扩张。不是主动追高CO₂，也不是所有人必须达到或安全耐受的固定pH目标；同时看酸血症、颅内压、右心负荷和循环。\n肺保护由实际潮气量、平台压与反应决定。压力控制与容量控制均可做到；压力控制本身不保证潮气量安全，容量控制也不是不能限压。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "按“体重基准PBW／容量／压力／可接受代价”四项提取；模式名不能替代结果。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L593",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp13"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P56  ",
+          "> **Outline →** 内科 U022｜5  "
+        ]
+      }
+    },
+    "a2-r12-kp16-precision": {
+      "cue": "Ⅰ / Ⅱ型呼衰的血气边界最终需要精确恢复。",
+      "answer": "传统判据按海平面、静息、室内空气，并记mmHg：Ⅰ型PaO₂<60且PaCO₂正常或低，主要换气障碍；Ⅱ型PaO₂<60且PaCO₂>50，主要有效肺泡通气障碍。\n已给氧须标装置／FiO₂、结合治疗前血气；PaO₂被纠正而CO₂仍高不能取消已确立通气衰竭，不要求治疗后PaO₂仍<60。\nⅠ型代表：ARDS、急PE、急肺水肿／左心衰、严重肺感染、ILD。Ⅱ型代表：严重哮喘、脑干出血、膈肌麻痹／MG、镇静催眠中毒、气管异物、COPD、脊柱侧凸／胸廓畸形。\nILD虽有“限制性通气”肺功能表现，呼衰主矛盾可为弥散／换气；COPD亦有换气障碍，但CO₂潴留显示通气失败。类型按血气与条件，不按病名固定分箱。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "测量前提先说全，再“氧<60／Ⅱ再加CO₂>50”；肺功能名称与终末血气分层。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L673",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp16"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P58；Recall R2  ",
+          "> **Outline →** 内科 U023｜分类1–2  "
+        ]
+      }
+    },
+    "a2-r12-kp17-precision": {
+      "cue": "慢性Ⅱ型呼衰氧疗浓度边界与急性哮喘例外最终需要精确恢复。",
+      "answer": "Ⅰ型换气失败、低氧突出，课程为高浓度给氧方向，仍按病情和目标滴定。\n慢性Ⅱ型COPD控制给氧：课程<35%；Current临床对高碳酸风险者通常先SpO₂88–92%，复查血气后调整。固定氧浓度不能代目标监测，担心CO₂不能放任严重低氧。\n过量给氧使CO₂升高的三机制：长期高CO₂后中枢适应、低氧外周驱动更重要，给氧可减少部分驱动；解除低氧性肺血管收缩→VA/Q失配加重；Haldane效应→血液释CO₂。不能缩成“全靠缺氧呼吸”。\n急性严重哮喘可为Ⅱ型，但氧疗也按病情／目标滴定，不机械套慢性COPD方案。\n传统Ⅱ型血气按室内空气PaO₂<60及PaCO₂>50 mmHg；给氧已纠正PaO₂而高CO₂持续，不取消原有通气衰竭，须结合治疗前血气、酸碱与病因。",
+      "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
+      "scope_note": [],
+      "source_conflict": {
+        "conflict": [],
+        "policy": "Frozen Current only. Existing external-guideline labels are inherited provenance, not newly inspected sources. Compute native Core/item/scope hashes only during reviewed integration."
+      },
+      "mnemonic": [
+        "“课程浓度／监测目标”分开；CO₂三因按驱动、配对、血中释放记；慢COPD规则不等于所有Ⅱ型。"
+      ],
+      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md#L693",
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+      ],
+      "retention_metadata": {
+        "native_owner": {
+          "system_id": "respiratory",
+          "canonical_id": "A2",
+          "anchor": {
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp17"
+          }
+        },
+        "required_core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md"
+          }
+        ],
+        "source_scope_notes": [],
+        "source_bindings": [
+          "> **讲义定位 →** 内科 Lecture P58；Recall R2化学感受器  ",
+          "> **Outline →** 内科 U023｜分类2  "
+        ]
       }
     }
   }

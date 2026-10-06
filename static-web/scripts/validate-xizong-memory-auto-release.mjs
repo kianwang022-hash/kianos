@@ -1,3 +1,4 @@
+// Generic owner-context fixtures deliberately have no real admitted System identity.
 import {
   appendMemoryEvidence,
   createXizongMemoryState,
@@ -20,31 +21,31 @@ const learner = {
   schema: 'kianos.xizong.learner_object.v1',
   objectType: 'BLOCK',
   identity: {
-    systemId: 'respiratory',
-    canonicalId: 'A2',
-    blockId: 'respiratory-r01',
+    systemId: 'fixture',
+    canonicalId: 'FIXTURE',
+    blockId: 'fixture-r01',
     blockLabel: 'R1',
     title: '呼吸生理'
   },
   kps: [
     {
       identity: {
-        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
-        kpId: 'respiratory-r01-kp01', displayId: 'KP1', title: '肺容积'
+        logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'fixture-r01-kp01', displayId: 'KP1', title: '肺容积'
       },
       prompt: { canonical: '容积 / 容量 → 组合关系' },
       core: { markdown: 'KP1 canonical markdown', html: '<p>KP1 canonical Core</p>' },
       source: { locator: 'P10–11' }, outline: { locator: 'Outline 1' },
       precision: [{
-        id: 'a2-r01-kp01-precision', kind: 'PRECISION',
-        anchor: { block_id: 'respiratory-r01', kp_id: 'respiratory-r01-kp01' },
+        id: 'fixture-r01-kp01-precision', kind: 'PRECISION',
+        anchor: { block_id: 'fixture-r01', kp_id: 'fixture-r01-kp01' },
         cue: 'KP1 exact target', sourceLocator: 'P10'
       }]
     },
     {
       identity: {
-        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
-        kpId: 'respiratory-r01-kp02', displayId: 'KP2', title: '时间肺活量'
+        logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'fixture-r01-kp02', displayId: 'KP2', title: '时间肺活量'
       },
       prompt: { canonical: 'FEV → 一秒率' },
       core: { markdown: 'KP2 canonical markdown', html: '<p>KP2 canonical Core</p>' },
@@ -53,11 +54,11 @@ const learner = {
     }
   ],
   logicGroups: [{
-    identity: { logicGroupId: 'respiratory-r01-lg01', label: '容量与流速' },
-    kpIds: ['respiratory-r01-kp01', 'respiratory-r01-kp02'],
+    identity: { logicGroupId: 'fixture-r01-lg01', label: '容量与流速' },
+    kpIds: ['fixture-r01-kp01', 'fixture-r01-kp02'],
     precision: [{
-      id: 'a2-r01-lg01-precision', kind: 'PRECISION',
-      anchor: { block_id: 'respiratory-r01', logic_group_id: 'respiratory-r01-lg01' },
+      id: 'fixture-r01-lg01-precision', kind: 'PRECISION',
+      anchor: { block_id: 'fixture-r01', logic_group_id: 'fixture-r01-lg01' },
       cue: 'LG exact target', sourceLocator: 'P10–12'
     }]
   }]
@@ -66,12 +67,12 @@ const learner = {
 const validStudy = {
   stage: 'block_complete',
   learned: {
-    'respiratory-r01-kp01': true,
-    'respiratory-r01-kp02': true
+    'fixture-r01-kp01': true,
+    'fixture-r01-kp02': true
   },
   ratings: {
-    'respiratory-r01-kp01': 'fuzzy',
-    'respiratory-r01-kp02': 'known'
+    'fixture-r01-kp01': 'fuzzy',
+    'fixture-r01-kp02': 'known'
   },
   blockRecallDone: true,
   completed: true
@@ -82,11 +83,11 @@ assert(inspectXizongBlockCompletion(learner, { ...validStudy, completed: false }
 assert(inspectXizongBlockCompletion(learner, { ...validStudy, blockRecallDone: false }).reason === 'BLOCK_RECALL_MISSING', 'requires-block-recall');
 assert(inspectXizongBlockCompletion(learner, {
   ...validStudy,
-  learned: { ...validStudy.learned, 'respiratory-r01-kp02': false }
+  learned: { ...validStudy.learned, 'fixture-r01-kp02': false }
 }).reason === 'KP_LEARN_INCOMPLETE', 'requires-all-kp-learned');
 assert(inspectXizongBlockCompletion(learner, {
   ...validStudy,
-  ratings: { 'respiratory-r01-kp01': 'fuzzy' }
+  ratings: { 'fixture-r01-kp01': 'fuzzy' }
 }).reason === 'KP_RECALL_INCOMPLETE', 'requires-all-kp-ratings');
 
 // Visual-required closure is evidence-bearing, not prose-bearing. A missing visual
@@ -100,9 +101,9 @@ assert(inspectXizongBlockCompletion(externalVisualLearner, { ...validStudy, sour
 const externalVisualStudy = {
   ...validStudy,
   sourceContactEvidence: [{
-    segment_id: 'block-cumulative:xizong:respiratory-r01',
+    segment_id: 'block-cumulative:xizong:fixture-r01',
     source_hash: 'fixture-visual-source-v1',
-    visual_reviewed_lg_ids: ['respiratory-r01-lg01']
+    visual_reviewed_lg_ids: ['fixture-r01-lg01']
   }]
 };
 assert(inspectXizongBlockCompletion(externalVisualLearner, externalVisualStudy).complete === true, 'external-visual-review-not-accepted');
@@ -111,12 +112,12 @@ unresolvedVisualLearner.logicGroups[0].visualSourceState = 'VISUAL_SOURCE_GAP';
 assert(inspectXizongBlockCompletion(unresolvedVisualLearner, externalVisualStudy).reason === 'VISUAL_EVIDENCE_INCOMPLETE', 'true-visual-gap-illegally-closed');
 
 const systemStorageRows = new Map([
-  ['kianos-xizong-astro-v2:xizong:respiratory-r01', JSON.stringify(externalVisualStudy)]
+  ['kianos-xizong-astro-v2:xizong:fixture-r01', JSON.stringify(externalVisualStudy)]
 ]);
 const systemStorage = { getItem: (key) => systemStorageRows.get(key) ?? null };
 const systemRequirement = { ...externalVisualLearner, evidenceVersion: '' };
 assert(inspectXizongSystemCompletion([systemRequirement], systemStorage).complete === true, 'system-release-lost-visual-evidence');
-systemStorageRows.set('kianos-xizong-astro-v2:xizong:respiratory-r01', JSON.stringify(validStudy));
+systemStorageRows.set('kianos-xizong-astro-v2:xizong:fixture-r01', JSON.stringify(validStudy));
 assert(inspectXizongSystemCompletion([systemRequirement], systemStorage).complete === false, 'system-release-bypassed-visual-evidence');
 
 let memory = createXizongMemoryState();
@@ -127,11 +128,11 @@ assert(memorySummary(result.state).releasedBlocks === 0, 'incomplete-created-lib
 result = releaseCompletedBlockToMemory(memory, learner, validStudy, {
   sourceHash: 'fixture-source-v1',
   releasedAt: '2026-09-17T08:00:00Z',
-  promptOverrides: { 'respiratory-r01-kp01': '我的第一轮 Prompt' },
+  promptOverrides: { 'fixture-r01-kp01': '我的第一轮 Prompt' },
   markedFragments: [{
     id: 'mark:first-pass',
-    cardId: 'core:respiratory-r01-kp01',
-    kpId: 'respiratory-r01-kp01',
+    cardId: 'core:fixture-r01-kp01',
+    kpId: 'fixture-r01-kp01',
     surface: 'CORE',
     text: '第一轮真正想标记的片段',
     createdAt: '2026-09-17T08:00:00Z'
@@ -144,30 +145,30 @@ assert(summary.releasedBlocks === 1, 'released-block-count');
 assert(summary.core === 2, 'core-release-count');
 assert(summary.precision === 2, 'kp-and-lg-precision-release-count');
 assert(summary.marked === 1, 'marked-release-count');
-assert(memory.promptOverrides['respiratory-r01-kp01'] === '我的第一轮 Prompt', 'prompt-override-release');
-assert(resolvedCorePrompt(memory, memory.cards['core:respiratory-r01-kp01']) === '我的第一轮 Prompt', 'released-prompt-resolution');
+assert(memory.promptOverrides['fixture-r01-kp01'] === '我的第一轮 Prompt', 'prompt-override-release');
+assert(resolvedCorePrompt(memory, memory.cards['core:fixture-r01-kp01']) === '我的第一轮 Prompt', 'released-prompt-resolution');
 const today = todayMemoryQueue(memory);
-assert(today.length === 1 && today[0].id === 'core:respiratory-r01-kp01', 'first-pass-weak-selectivity');
+assert(today.length === 1 && today[0].id === 'core:fixture-r01-kp01', 'first-pass-weak-selectivity');
 assert(!today.some((card) => card.family === 'PRECISION'), 'release-created-precision-debt');
 
 // Later Memory evidence may stabilize the first-pass weak card. Reopening the Block
 // must not replay the stale first-pass fuzzy signal.
 memory = appendMemoryEvidence(memory, {
-  cardId: 'core:respiratory-r01-kp01',
+  cardId: 'core:fixture-r01-kp01',
   rating: 'mastered',
   origin: 'AUTO_RELEASE_VALIDATION'
 }, '2026-09-18T08:00:00Z');
 assert(todayMemoryQueue(memory, { now: Date.parse('2026-09-18T08:01:00Z') }).length === 0, 'mastered-card-still-in-immediate-today');
 const evidenceBefore = memory.evidence.length;
-const refreshedAtBefore = memory.releasedBlocks['respiratory-r01'].refreshedAt;
+const refreshedAtBefore = memory.releasedBlocks['fixture-r01'].refreshedAt;
 result = releaseCompletedBlockToMemory(memory, learner, validStudy, {
   sourceHash: 'fixture-source-v1',
   releasedAt: '2026-09-19T08:00:00Z'
 });
 assert(!result.released && result.reason === 'ALREADY_RELEASED', 'repeat-release-not-noop');
 assert(result.state.evidence.length === evidenceBefore, 'repeat-release-added-evidence');
-assert(result.state.releasedBlocks['respiratory-r01'].refreshedAt === refreshedAtBefore, 'repeat-release-mutated-release');
-assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'repeat-release-resurrected-stale-weak-signal');
+assert(result.state.releasedBlocks['fixture-r01'].refreshedAt === refreshedAtBefore, 'repeat-release-mutated-release');
+assert(result.state.attention['core:fixture-r01-kp01']?.reviewRequested !== true, 'repeat-release-resurrected-stale-weak-signal');
 assert(todayMemoryQueue(result.state, { now: Date.parse('2026-09-18T08:01:00Z') }).length === 0, 'repeat-release-mutated-immediate-memory-state');
 
 // Canonical content revision must refresh already-released stable card identities
@@ -175,7 +176,7 @@ assert(todayMemoryQueue(result.state, { now: Date.parse('2026-09-18T08:01:00Z') 
 // Memory evidence is preserved; the changed Core becomes due because its content
 // changed after the latest evidence.
 const revisionEvidenceBefore = result.state.evidence.length;
-const oldCoreSourceHash = result.state.cards['core:respiratory-r01-kp01'].sourceHash;
+const oldCoreSourceHash = result.state.cards['core:fixture-r01-kp01'].sourceHash;
 const revisedLearner = structuredClone(learner);
 revisedLearner.kps[0].core = { markdown: 'KP1 canonical markdown v2', html: '<p>KP1 canonical Core v2</p>' };
 result = releaseCompletedBlockToMemory(result.state, revisedLearner, { ...validStudy, completed: false }, {
@@ -184,14 +185,14 @@ result = releaseCompletedBlockToMemory(result.state, revisedLearner, { ...validS
 });
 assert(!result.released && result.refreshed === true && result.reason === 'CONTENT_REVISION_REFRESHED', 'revision-refresh-not-detected');
 assert(result.state.evidence.length === revisionEvidenceBefore, 'revision-refresh-mutated-evidence-history');
-assert(result.state.releasedBlocks['respiratory-r01'].sourceHash === 'fixture-source-v2', 'revision-refresh-release-hash');
-assert(result.state.cards['core:respiratory-r01-kp01'].sourceHash === 'fixture-source-v2', 'revision-refresh-card-hash');
-assert(result.state.cards['core:respiratory-r01-kp01'].sourceHash !== oldCoreSourceHash, 'revision-refresh-card-hash-unchanged');
-assert(result.state.cards['core:respiratory-r01-kp01'].contentChangedAt === '2026-09-20T08:00:00.000Z', 'revision-refresh-content-changed-at');
-assert(result.state.cards['core:respiratory-r01-kp01'].coreHtml.includes('v2'), 'revision-refresh-core-not-updated');
-assert(result.state.attention['core:respiratory-r01-kp01']?.reviewRequested !== true, 'revision-refresh-replayed-first-pass-weak-signal');
+assert(result.state.releasedBlocks['fixture-r01'].sourceHash === 'fixture-source-v2', 'revision-refresh-release-hash');
+assert(result.state.cards['core:fixture-r01-kp01'].sourceHash === 'fixture-source-v2', 'revision-refresh-card-hash');
+assert(result.state.cards['core:fixture-r01-kp01'].sourceHash !== oldCoreSourceHash, 'revision-refresh-card-hash-unchanged');
+assert(result.state.cards['core:fixture-r01-kp01'].contentChangedAt === '2026-09-20T08:00:00.000Z', 'revision-refresh-content-changed-at');
+assert(result.state.cards['core:fixture-r01-kp01'].coreHtml.includes('v2'), 'revision-refresh-core-not-updated');
+assert(result.state.attention['core:fixture-r01-kp01']?.reviewRequested !== true, 'revision-refresh-replayed-first-pass-weak-signal');
 const revisedToday = todayMemoryQueue(result.state, { now: Date.parse('2026-09-20T08:01:00Z') });
-assert(revisedToday.some((card) => card.id === 'core:respiratory-r01-kp01' && card.dueReason === 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE'), 'revision-refresh-not-due-content-changed');
+assert(revisedToday.some((card) => card.id === 'core:fixture-r01-kp01' && card.dueReason === 'CONTENT_CHANGED_AFTER_LAST_EVIDENCE'), 'revision-refresh-not-due-content-changed');
 
 let invalidFailed = false;
 try {

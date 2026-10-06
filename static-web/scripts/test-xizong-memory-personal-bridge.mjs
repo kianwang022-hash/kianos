@@ -7,8 +7,8 @@ const base=new URL('../',import.meta.url);
 import assert from 'node:assert/strict';
 const fixture=fs.readFileSync(new URL('scripts/validate-xizong-memory-auto-release.mjs',base),'utf8');
 const learner=vm.runInNewContext(fixture.slice(fixture.indexOf('const learner ='),fixture.indexOf('assert(xizongStudyStorageKey'))+';({learner,validStudy})');
-export async function probe(bridgePath,raw=null,personal={kp:{'respiratory-r01-kp01':{marks:[{surface:'CORE',text:'KP1 canonical Core',kind:'important',createdAt:'2026-09-30T00:00:00Z'}]}}},failWrite=false){
- const objectId='xizong:respiratory-r01';
+export async function probe(bridgePath,raw=null,personal={kp:{'fixture-r01-kp01':{marks:[{surface:'CORE',text:'KP1 canonical Core',kind:'important',createdAt:'2026-09-30T00:00:00Z'}]}}},failWrite=false){
+ const objectId='xizong:fixture-r01';
  const storage=new Map([[auto.xizongStudyStorageKey(objectId),JSON.stringify(learner.validStudy)],['kianos-xizong-personal-v1:'+objectId,JSON.stringify(personal)]]);
  if(raw!==null) storage.set(model.XIZONG_MEMORY_STORAGE_KEY,raw);
  const callbacks={};let writes=0;const errors=[];
@@ -25,11 +25,11 @@ const [id]=Object.keys(state.marks); assert.equal(state.marks[id].personalKind,'
 const before=JSON.stringify(state), writes=first.writes;
 first.callbacks['kianos:xizong-personal-marks'](new first.sandbox.CustomEvent('fixture',{detail:{object_id:'unrelated'}}));
 assert.equal(first.writes,writes,'unrelated object cannot write');
-first.callbacks['kianos:xizong-block-complete'](new first.sandbox.CustomEvent('fixture',{detail:{object_id:'xizong:respiratory-r01'}}));
+first.callbacks['kianos:xizong-block-complete'](new first.sandbox.CustomEvent('fixture',{detail:{object_id:'xizong:fixture-r01'}}));
 assert.equal(first.storage.get(model.XIZONG_MEMORY_STORAGE_KEY),before,'completion idempotent');assert.equal(first.writes,writes);
-state=model.addMarkedFragment(state,{id:'memory-only',cardId:'core:respiratory-r01-kp01',surface:'CORE',text:'Memory standalone'},'2026-09-30T00:00:00Z');
+state=model.addMarkedFragment(state,{id:'memory-only',cardId:'core:fixture-r01-kp01',surface:'CORE',text:'Memory standalone'},'2026-09-30T00:00:00Z');
 state.marks[id].reviewRequested=true;
-state=model.appendMemoryEvidence(state,{cardId:'core:respiratory-r01-kp01',rating:'mastered',origin:'SYNTHETIC_BRIDGE_TEST'},'2026-09-30T01:00:00Z');
+state=model.appendMemoryEvidence(state,{cardId:'core:fixture-r01-kp01',rating:'mastered',origin:'SYNTHETIC_BRIDGE_TEST'},'2026-09-30T01:00:00Z');
 const evidence=JSON.stringify(state.evidence),attention=JSON.stringify(state.attention);
 const same=await probe(bridge,JSON.stringify(state));assert.equal(same.writes,0,'private request preserved');
 assert.equal(JSON.parse(same.storage.get(model.XIZONG_MEMORY_STORAGE_KEY)).marks[id].reviewRequested,true);
@@ -71,12 +71,12 @@ const repair=fs.readFileSync(new URL('src/components/XizongRepairInboxBridge.ast
 assert.ok(repair.includes('try { memory = readXizongMemoryStorage(localStorage); }'));
 console.log('Memory actual Prompt writer corruption gate + Workspace save rollback PASS');
 const eventMark={surface:'CORE',text:'KP2 canonical Core',kind:'weak',createdAt:'2026-09-30T02:00:00Z'};
-const personalKey='kianos-xizong-personal-v1:xizong:respiratory-r01';
+const personalKey='kianos-xizong-personal-v1:xizong:fixture-r01';
 const originalAttention=JSON.stringify(JSON.parse(first.storage.get(model.XIZONG_MEMORY_STORAGE_KEY)).attention);
-first.storage.set(personalKey,JSON.stringify({kp:{'respiratory-r01-kp02':{marks:[eventMark]}}}));
-first.callbacks['kianos:xizong-personal-marks'](new first.sandbox.CustomEvent('fixture',{detail:{object_id:'xizong:respiratory-r01'}}));
+first.storage.set(personalKey,JSON.stringify({kp:{'fixture-r01-kp02':{marks:[eventMark]}}}));
+first.callbacks['kianos:xizong-personal-marks'](new first.sandbox.CustomEvent('fixture',{detail:{object_id:'xizong:fixture-r01'}}));
 const eventState=JSON.parse(first.storage.get(model.XIZONG_MEMORY_STORAGE_KEY));
-assert.equal(Object.keys(eventState.marks).length,1);assert.equal(Object.values(eventState.marks)[0].kpId,'respiratory-r01-kp02');
+assert.equal(Object.keys(eventState.marks).length,1);assert.equal(Object.values(eventState.marks)[0].kpId,'fixture-r01-kp02');
 assert.equal(Object.values(eventState.marks)[0].reviewRequested,false,'weak mark does not manufacture review request');
 assert.equal(JSON.stringify(eventState.attention),originalAttention,'post-release mark does not inflate due attention');
 console.log('Memory post-release mark/unmark event + no automatic weakness PASS');

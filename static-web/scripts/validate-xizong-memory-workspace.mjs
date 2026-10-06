@@ -1,3 +1,4 @@
+// Generic owner-context fixtures deliberately have no real admitted System identity.
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -27,31 +28,31 @@ function assert(condition, message) {
 }
 
 const release = {
-  blockId: 'respiratory-r01',
-  systemId: 'respiratory',
-  canonicalId: 'A2',
+  blockId: 'fixture-r01',
+  systemId: 'fixture',
+  canonicalId: 'FIXTURE',
   blockLabel: 'R1',
   blockTitle: '呼吸生理',
   sourceHash: 'fixture-source-v1',
   coreCards: [
     {
-      id: 'core:respiratory-r01-kp01',
-      systemId: 'respiratory', canonicalId: 'A2', blockId: 'respiratory-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
-      logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速', kpId: 'respiratory-r01-kp01', displayId: 'KP1', title: '肺容积',
+      id: 'core:fixture-r01-kp01',
+      systemId: 'fixture', canonicalId: 'FIXTURE', blockId: 'fixture-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
+      logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速', kpId: 'fixture-r01-kp01', displayId: 'KP1', title: '肺容积',
       promptCanonical: '容积 / 容量 → 组合关系', coreHtml: '<p>canonical core</p>'
     },
     {
-      id: 'core:respiratory-r01-kp02',
-      systemId: 'respiratory', canonicalId: 'A2', blockId: 'respiratory-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
-      logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速', kpId: 'respiratory-r01-kp02', displayId: 'KP2', title: '时间肺活量',
+      id: 'core:fixture-r01-kp02',
+      systemId: 'fixture', canonicalId: 'FIXTURE', blockId: 'fixture-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
+      logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速', kpId: 'fixture-r01-kp02', displayId: 'KP2', title: '时间肺活量',
       promptCanonical: 'FEV → 一秒率', coreHtml: '<p>second core</p>'
     }
   ],
   precisionCards: [
     {
-      id: 'precision:a2-r01-kp01-precision',
-      systemId: 'respiratory', canonicalId: 'A2', blockId: 'respiratory-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
-      kpId: 'respiratory-r01-kp01', displayId: 'KP1', title: '肺容积精确项',
+      id: 'precision:fixture-r01-kp01-precision',
+      systemId: 'fixture', canonicalId: 'FIXTURE', blockId: 'fixture-r01', blockLabel: 'R1', blockTitle: '呼吸生理',
+      kpId: 'fixture-r01-kp01', displayId: 'KP1', title: '肺容积精确项',
       cue: '肺容积 / 肺容量常用数值最终需要精确恢复。', answerHtml: '', ownerContextHtml: '<p>canonical owner context</p>', answerResolution: 'OWNER_CONTEXT_ONLY'
     }
   ]
@@ -72,11 +73,11 @@ assert(Object.keys(state.cards).length === 3, 'idempotent-card-identity');
 assert(state.evidence.length === 0, 'idempotent-no-evidence');
 assert(summary.today === 0, 'idempotent-no-debt');
 
-state = setPersonalPrompt(state, 'respiratory-r01-kp01', '我自己的提示');
-const core = state.cards['core:respiratory-r01-kp01'];
+state = setPersonalPrompt(state, 'fixture-r01-kp01', '我自己的提示');
+const core = state.cards['core:fixture-r01-kp01'];
 assert(core.promptCanonical === '容积 / 容量 → 组合关系', 'canonical-prompt-mutated');
 assert(resolvedCorePrompt(state, core) === '我自己的提示', 'prompt-override-missing');
-state = setPersonalPrompt(state, 'respiratory-r01-kp01', '');
+state = setPersonalPrompt(state, 'fixture-r01-kp01', '');
 assert(resolvedCorePrompt(state, core) === core.promptCanonical, 'prompt-reset-failed');
 
 state = addMarkedFragment(state, {
@@ -103,21 +104,21 @@ assert(state.evidence[0].rating === 'unknown', 'original-observation-lost');
 assert(!todayMemoryQueue(state, { now: Date.parse('2026-09-17T12:05:00Z') }).some((row) => row.id === core.id), 'stable-evidence-did-not-clear-immediate-today-priority');
 assert(state.cards[core.id], 'stable-evidence-deleted-card');
 
-const precision = state.cards['precision:a2-r01-kp01-precision'];
+const precision = state.cards['precision:fixture-r01-kp01-precision'];
 assert(precision.answerResolution === 'OWNER_CONTEXT_ONLY', 'precision-resolution');
 assert(!precision.answerHtml && precision.ownerContextHtml.includes('owner context'), 'precision-fallback-context');
 
 state = setRepairTasks(state, [{
   id: 'repair:test',
   cardId: core.id,
-  blockId: 'respiratory-r01',
+  blockId: 'fixture-r01',
   title: '只修一个机制断点',
   reason: 'Chat discriminating check',
   action: '重新运行局部链条',
   priority: 'high',
   sourceQuestionIds: ['xizong-official-2025-n101'],
-  blockHref: '/xizong/respiratory/r01/',
-  returnHref: '/xizong/practice/respiratory/'
+  blockHref: '/xizong/fixture/r01/',
+  returnHref: '/xizong/practice/fixture/'
 }]);
 assert(selectMemoryView(state, 'REPAIR').items.length === 1, 'repair-queue');
 assert(selectMemoryView(state, 'REPAIR').items[0].sourceQuestionIds[0] === 'xizong-official-2025-n101', 'repair-question-provenance');
@@ -130,34 +131,34 @@ const learnerObjectFixture = {
   schema: 'kianos.xizong.learner_object.v1',
   objectType: 'BLOCK',
   identity: {
-    systemId: 'respiratory',
-    canonicalId: 'A2',
-    blockId: 'respiratory-r01',
+    systemId: 'fixture',
+    canonicalId: 'FIXTURE',
+    blockId: 'fixture-r01',
     blockLabel: 'R1',
     title: '呼吸生理'
   },
   kps: [
     {
       identity: {
-        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
-        kpId: 'respiratory-r01-kp01', displayId: 'KP1', title: '肺容积'
+        logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'fixture-r01-kp01', displayId: 'KP1', title: '肺容积'
       },
       prompt: { canonical: '容积 / 容量 → 组合关系' },
       core: { markdown: 'KP1 canonical markdown', html: '<p>KP1 canonical Core</p>' },
       source: { locator: 'P10–11' },
       outline: { locator: 'Outline 1' },
       precision: [{
-        id: 'a2-r01-kp01-precision',
+        id: 'fixture-r01-kp01-precision',
         kind: 'PRECISION',
-        anchor: { block_id: 'respiratory-r01', kp_id: 'respiratory-r01-kp01' },
+        anchor: { block_id: 'fixture-r01', kp_id: 'fixture-r01-kp01' },
         cue: 'KP1 exact target',
         sourceLocator: 'P10'
       }]
     },
     {
       identity: {
-        logicGroupId: 'respiratory-r01-lg01', groupLabel: '容量与流速',
-        kpId: 'respiratory-r01-kp02', displayId: 'KP2', title: '时间肺活量'
+        logicGroupId: 'fixture-r01-lg01', groupLabel: '容量与流速',
+        kpId: 'fixture-r01-kp02', displayId: 'KP2', title: '时间肺活量'
       },
       prompt: { canonical: 'FEV → 一秒率' },
       core: { markdown: 'KP2 canonical markdown', html: '<p>KP2 canonical Core</p>' },
@@ -168,12 +169,12 @@ const learnerObjectFixture = {
   ],
   logicGroups: [
     {
-      identity: { logicGroupId: 'respiratory-r01-lg01', label: '容量与流速' },
-      kpIds: ['respiratory-r01-kp01', 'respiratory-r01-kp02'],
+      identity: { logicGroupId: 'fixture-r01-lg01', label: '容量与流速' },
+      kpIds: ['fixture-r01-kp01', 'fixture-r01-kp02'],
       precision: [{
-        id: 'a2-r01-lg01-precision',
+        id: 'fixture-r01-lg01-precision',
         kind: 'PRECISION',
-        anchor: { block_id: 'respiratory-r01', logic_group_id: 'respiratory-r01-lg01' },
+        anchor: { block_id: 'fixture-r01', logic_group_id: 'fixture-r01-lg01' },
         cue: 'LG exact target',
         sourceLocator: 'P10–12'
       }]
@@ -183,35 +184,35 @@ const learnerObjectFixture = {
 const learnerDescriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjectFixture, {
   sourceHash: 'learner-object-source-v1',
   recallRatings: {
-    'respiratory-r01-kp01': 'fuzzy',
-    'respiratory-r01-kp02': 'known'
+    'fixture-r01-kp01': 'fuzzy',
+    'fixture-r01-kp02': 'known'
   },
-  promptOverrides: { 'respiratory-r01-kp01': '私有 Prompt fixture' },
+  promptOverrides: { 'fixture-r01-kp01': '私有 Prompt fixture' },
   markedFragments: [{
     id: 'mark:pre-release',
-    cardId: 'core:respiratory-r01-kp01',
-    kpId: 'respiratory-r01-kp01',
+    cardId: 'core:fixture-r01-kp01',
+    kpId: 'fixture-r01-kp01',
     surface: 'CORE',
     text: '只标这一小段'
   }]
 });
 assert(learnerDescriptor.schema === XIZONG_MEMORY_RELEASE_SCHEMA, 'learner-release-schema');
 assert(learnerDescriptor.coreCards.length === 2, 'learner-release-core-count');
-assert(learnerDescriptor.coreCards.map((card) => card.id).join('|') === 'core:respiratory-r01-kp01|core:respiratory-r01-kp02', 'learner-release-core-identities');
+assert(learnerDescriptor.coreCards.map((card) => card.id).join('|') === 'core:fixture-r01-kp01|core:fixture-r01-kp02', 'learner-release-core-identities');
 assert(learnerDescriptor.coreCards[0].promptCanonical === '容积 / 容量 → 组合关系', 'learner-release-prompt-drift');
 assert(learnerDescriptor.coreCards[0].coreHtml === '<p>KP1 canonical Core</p>', 'learner-release-core-drift');
 assert(learnerDescriptor.precisionCards.length === 2, 'learner-release-precision-count');
 assert(new Set(learnerDescriptor.precisionCards.map((card) => card.id)).size === 2, 'learner-release-precision-duplicate');
-const kpPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:a2-r01-kp01-precision');
-const lgPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:a2-r01-lg01-precision');
-assert(kpPrecisionRelease?.kpId === 'respiratory-r01-kp01', 'learner-release-kp-precision-owner');
+const kpPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:fixture-r01-kp01-precision');
+const lgPrecisionRelease = learnerDescriptor.precisionCards.find((card) => card.id === 'precision:fixture-r01-lg01-precision');
+assert(kpPrecisionRelease?.kpId === 'fixture-r01-kp01', 'learner-release-kp-precision-owner');
 assert(kpPrecisionRelease?.ownerContextHtml === '<p>KP1 canonical Core</p>', 'learner-release-kp-precision-context');
 assert(kpPrecisionRelease?.answerResolution === 'OWNER_CONTEXT_ONLY' && !kpPrecisionRelease?.answerHtml, 'learner-release-kp-precision-no-invention');
-assert(lgPrecisionRelease?.kpId === '' && lgPrecisionRelease?.logicGroupId === 'respiratory-r01-lg01', 'learner-release-lg-precision-owner');
+assert(lgPrecisionRelease?.kpId === '' && lgPrecisionRelease?.logicGroupId === 'fixture-r01-lg01', 'learner-release-lg-precision-owner');
 assert(lgPrecisionRelease?.ownerContextHtml.includes('KP1 canonical Core') && lgPrecisionRelease?.ownerContextHtml.includes('KP2 canonical Core'), 'learner-release-lg-context-coverage');
 assert(lgPrecisionRelease?.answerResolution === 'OWNER_CONTEXT_ONLY' && !lgPrecisionRelease?.answerHtml, 'learner-release-lg-precision-no-invention');
-assert(learnerDescriptor.attentionSignals.length === 1 && learnerDescriptor.attentionSignals[0].cardId === 'core:respiratory-r01-kp01', 'learner-release-attention-selectivity');
-assert(learnerDescriptor.promptOverrides['respiratory-r01-kp01'] === '私有 Prompt fixture', 'learner-release-prompt-override-pass-through');
+assert(learnerDescriptor.attentionSignals.length === 1 && learnerDescriptor.attentionSignals[0].cardId === 'core:fixture-r01-kp01', 'learner-release-attention-selectivity');
+assert(learnerDescriptor.promptOverrides['fixture-r01-kp01'] === '私有 Prompt fixture', 'learner-release-prompt-override-pass-through');
 assert(learnerDescriptor.markedFragments.length === 1 && learnerDescriptor.markedFragments[0].text === '只标这一小段', 'learner-release-mark-pass-through');
 let invalidLearnerFailed = false;
 try {

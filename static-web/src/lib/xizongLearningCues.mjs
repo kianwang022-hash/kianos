@@ -72,16 +72,130 @@ export const preparedMemoryDigest = value => createHash('sha256')
 const escapeHtml = value => String(value || '').replace(/[&<>"']/g,
   char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 
+// Native cue answers reuse precision_fields and actual native KP/LG ownership.
+// This fixed projection is shared by explicit reviewed authoring and resolution;
+// resolution compares existing witnesses and never re-signs them.
+const nativeObject = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+const nativeShape = (value, required, optional = []) => nativeObject(value)
+  && required.every(key => Object.hasOwn(value, key))
+  && Object.keys(value).every(key => [...required, ...optional].includes(key));
+const nativeString = value => typeof value === 'string' && Boolean(value.trim());
+const nativeEqual = (left, right) => JSON.stringify(stable(left)) === JSON.stringify(stable(right));
+const coreIdentityKeys = ['system_id', 'block_id', 'kp_id', 'source_path'];
+const nativeReferenceKeys = ['collection', 'owner_mode', 'precision_id', 'item_sha256', 'owner_kp_ids', 'owner_sha256', 'core_refs'];
+const nativeFailure = row => code => { throw new Error(`CURRENT_XIZONG_PREPARED_MEMORY_${code}:${row?.id || ''}`); };
+
+export function preparedNativeCueWitness(row, block, item, shared, { loadBlock = loadXizongBlock } = {}) {
+  const fail = nativeFailure(row);
+  if (block?.systemId !== 'respiratory' || block?.systemCanonicalId !== 'A2') fail('NATIVE_SYSTEM_UNSUPPORTED');
+  const anchor = row?.anchor;
+  const kpOwned = nativeShape(anchor, ['block_id', 'kp_id']);
+  const lgOwned = nativeShape(anchor, ['block_id', 'logic_group_id']);
+  if ((!kpOwned && !lgOwned) || anchor.block_id !== block.blockId
+    || Object.values(anchor).some(value => !nativeString(value))) fail('NATIVE_ANCHOR_INVALID');
+  if (!nativeShape(item, ['cue', 'answer', 'retention_metadata'],
+    ['answer_scope', 'scope_note', 'source_conflict', 'mnemonic', 'source', 'source_refs'])
+    || !nativeShape(item.retention_metadata, ['native_owner', 'required_core_refs'], ['source_scope_notes', 'source_bindings'])) fail('NATIVE_ITEM_SHAPE_INVALID');
+  const nativeOwner = item.retention_metadata.native_owner;
+  if (!nativeShape(nativeOwner, ['system_id', 'canonical_id', 'anchor'])
+    || nativeOwner.system_id !== block.systemId || nativeOwner.canonical_id !== block.systemCanonicalId
+    || !nativeEqual(nativeOwner.anchor, anchor)) fail('NATIVE_ITEM_OWNER_MISMATCH');
+  if (!nativeString(item.answer) || !nativeString(row.id) || !nativeString(row.cue) || item.cue !== row.cue) fail('ANSWER_OR_CUE_MISMATCH');
+  if (!String(shared?.authority || '').startsWith('CHAT_APPROVED')) fail('OWNER_UNAPPROVED');
+  const matchOne = (values, key, id, code) => {
+    const matches = (values || []).filter(value => value?.[key] === id);
+    if (matches.length !== 1) fail(code);
+    return matches[0];
+  };
+  const group = lgOwned ? matchOne(block.logicGroups, 'groupId', anchor.logic_group_id, 'NATIVE_GROUP_UNKNOWN') : null;
+  const ownerIds = kpOwned ? [anchor.kp_id] : group.kpIds;
+  if (!Array.isArray(ownerIds) || !ownerIds.length || ownerIds.some(id => !nativeString(id))
+    || new Set(ownerIds).size !== ownerIds.length) fail('NATIVE_MEMBERSHIP_INVALID');
+  for (const id of ownerIds) {
+    const kp = matchOne(block.kpRecords, 'kpId', id, 'NATIVE_MEMBER_UNKNOWN');
+    if (lgOwned && kp.groupId !== group.groupId) fail('NATIVE_MEMBER_MOVED');
+  }
+  const required = item.retention_metadata.required_core_refs;
+  if (!Array.isArray(required) || required.length < ownerIds.length
+    || required.some(ref => !nativeShape(ref, coreIdentityKeys) || Object.values(ref).some(value => !nativeString(value)))) fail('NATIVE_CORE_IDENTITIES_INVALID');
+  const identity = ref => `${ref.system_id}:${ref.block_id}:${ref.kp_id}`;
+  if (new Set(required.map(identity)).size !== required.length) fail('NATIVE_CORE_DUPLICATE');
+  const ownerRefs = ownerIds.map(kp_id => ({ system_id: block.systemId, block_id: block.blockId, kp_id, source_path: block.sourcePath }));
+  if (!nativeEqual(required.slice(0, ownerIds.length), ownerRefs)) fail('NATIVE_CORE_MEMBERSHIP_MISMATCH');
+  const extras = required.slice(ownerIds.length).map(identity);
+  if (!nativeEqual(extras, [...extras].sort())) fail('NATIVE_CORE_ORDER_INVALID');
+  const blockIdentity = owner => {
+    const fields = ['systemId', 'systemCanonicalId', 'blockId', 'sourcePath', 'systemSourcePath', 'learningSupportSourcePath'];
+    if (fields.some(key => !nativeString(owner?.[key]))) fail('NATIVE_OWNER_METADATA_MISSING');
+    if (shared?.source_bindings?.[owner.blockId] !== owner.sourcePath) fail('SOURCE_BINDING_MISMATCH');
+    return Object.fromEntries(fields.map(key => [key, owner[key]]));
+  };
+  const qualifiers = owner => {
+    const fields = ['firstPassFocus', 'stopLine', 'recallSpine'];
+    if (fields.some(key => typeof owner?.[key] !== 'string')) fail('NATIVE_BLOCK_QUALIFIER_MISSING');
+    return { ...blockIdentity(owner), ...Object.fromEntries(fields.map(key => [key, owner[key]])) };
+  };
+  const blockQualifiers = [qualifiers(block)];
+  const seenBlocks = new Set([`${block.systemId}:${block.blockId}`]);
+  const dependencyOwners = [], coreRefs = [];
+  for (const ref of required) {
+    let owner;
+    try { owner = ref.system_id === block.systemId && ref.block_id === block.blockId ? block : loadBlock(ref.system_id, ref.block_id); }
+    catch { fail('NATIVE_CORE_MISSING'); }
+    if (!owner || owner.systemId !== ref.system_id || owner.blockId !== ref.block_id || owner.sourcePath !== ref.source_path) fail('NATIVE_CORE_OWNER_MISMATCH');
+    const kp = matchOne(owner.kpRecords, 'kpId', ref.kp_id, 'NATIVE_CORE_MISSING');
+    const fields = ['kpId', 'ordinal', 'title', 'prompt', 'sourceLocator', 'outlineLocator', 'groupId', 'groupLabel'];
+    if (!Number.isInteger(kp.ordinal) || kp.ordinal < 1
+      || fields.filter(key => !['ordinal', 'sourceLocator', 'outlineLocator'].includes(key)).some(key => !nativeString(kp[key]))
+      || ['sourceLocator', 'outlineLocator'].some(key => typeof kp[key] !== 'string')) fail('NATIVE_KP_METADATA_MISSING');
+    if (kp.contentDiagnostics !== undefined && (!Array.isArray(kp.contentDiagnostics) || kp.contentDiagnostics.length)) fail('NATIVE_KP_METADATA_DIAGNOSTIC');
+    if (!nativeString(kp.detailMarkdown)) fail('NATIVE_CORE_EMPTY');
+    dependencyOwners.push({ ...blockIdentity(owner), ...Object.fromEntries(fields.map(key => [key, kp[key]])), contentDiagnostics: kp.contentDiagnostics || [] });
+    coreRefs.push({ ...ref, kp_core_sha256: preparedMemoryDigest(kp.detailMarkdown) });
+    const blockKey = `${owner.systemId}:${owner.blockId}`;
+    if (!seenBlocks.has(blockKey)) { seenBlocks.add(blockKey); blockQualifiers.push(qualifiers(owner)); }
+  }
+  let groupWitness = null;
+  if (group) {
+    const fields = ['groupId', 'order', 'label', 'membershipMode', 'kpOrdinals', 'kpCount', 'kpIds', 'jobs', 'goal', 'closure', 'visualRequired', 'visualSourceState', 'continuityRationale', 'receiptAnchor', 'start', 'end'];
+    if (fields.some(key => group[key] === undefined || group[key] === null)
+      || !Array.isArray(group.kpOrdinals) || group.kpCount !== ownerIds.length) fail('NATIVE_GROUP_METADATA_MISSING');
+    groupWitness = Object.fromEntries(fields.map(key => [key, group[key]]));
+  }
+  const snapshot = { ...blockIdentity(block), anchor, owner_kp_ids: ownerIds, dependency_owners: dependencyOwners,
+    logic_group: groupWitness, block_qualifiers: blockQualifiers };
+  return { owner_kp_ids: [...ownerIds], owner_sha256: preparedMemoryDigest(snapshot), core_refs: coreRefs };
+}
+
+function resolveNativePreparedMemoryCue(row, block, shared, options) {
+  const fail = nativeFailure(row), ref = row.prepared_memory_ref;
+  if (!nativeShape(ref, nativeReferenceKeys) || ref.collection !== 'precision_fields' || ref.owner_mode !== 'NATIVE_CUE'
+    || !nativeString(ref.item_sha256) || !nativeString(ref.owner_sha256)) fail('NATIVE_REFERENCE_SHAPE_INVALID');
+  if (row.answerHtml || row.answer_html) fail('PARALLEL_ANSWER_OWNER');
+  if (ref.precision_id !== row.id) fail('IDENTITY_MISMATCH');
+  const item = shared?.precision_fields?.[ref.precision_id];
+  const witnesses = preparedNativeCueWitness(row, block, item, shared, options);
+  if (ref.item_sha256 !== preparedMemoryDigest(item)) fail('ITEM_REVIEW_STALE');
+  if (!nativeEqual(ref.owner_kp_ids, witnesses.owner_kp_ids)) fail('NATIVE_MEMBERSHIP_STALE');
+  if (!Array.isArray(ref.core_refs) || ref.core_refs.some(value => !nativeShape(value, [...coreIdentityKeys, 'kp_core_sha256']))
+    || !nativeEqual(ref.core_refs, witnesses.core_refs)) fail('NATIVE_CORE_REVIEW_STALE');
+  if (ref.owner_sha256 !== witnesses.owner_sha256) fail('NATIVE_OWNER_REVIEW_STALE');
+  return renderPreparedMemoryCue(row, item);
+}
+
 export function resolvePreparedMemoryCue(row, block, shared, { loadBlock = loadXizongBlock } = {}) {
   const ref = row?.prepared_memory_ref;
-  if (!ref) return row;
+  if (!Object.hasOwn(row || {}, 'prepared_memory_ref')) return row;
   const fail = code => { throw new Error(`CURRENT_XIZONG_PREPARED_MEMORY_${code}:${row?.id || ''}`); };
   const object = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
   const shape = (value, required, optional = []) => object(value)
     && required.every(key => Object.hasOwn(value, key))
     && Object.keys(value).every(key => [...required, ...optional].includes(key));
+  if (!object(ref)) fail('REFERENCE_SHAPE_INVALID');
   if (!String(shared?.authority || '').startsWith('CHAT_APPROVED')) fail('OWNER_UNAPPROVED');
   if (shared?.source_bindings?.[block.blockId] !== block.sourcePath) fail('SOURCE_BINDING_MISMATCH');
+  if (ref.owner_mode === 'NATIVE_CUE') return resolveNativePreparedMemoryCue(row, block, shared, { loadBlock });
+  if (Object.hasOwn(ref, 'owner_mode')) fail('OWNER_MODE_UNSUPPORTED');
   const kp = (block.kpRecords || []).find(k => k.kpId === row?.anchor?.kp_id);
   if (!kp || row?.anchor?.block_id !== block.blockId) fail('KP_OWNER_MISMATCH');
   const aliases = [...new Set([kp.kpId, `${block.blockId}-kp${String(Number(kp.ordinal)).padStart(3, '0')}`])];
@@ -171,6 +285,10 @@ export function resolvePreparedMemoryCue(row, block, shared, { loadBlock = loadX
   }
   if (typeof item.answer !== 'string' || !item.answer.trim() || !item.cue || item.cue !== row.cue) fail('ANSWER_OR_CUE_MISMATCH');
   if (ref.item_sha256 !== preparedMemoryDigest(item)) fail('ITEM_REVIEW_STALE');
+  return renderPreparedMemoryCue(row, item, members, precisionMode);
+}
+
+function renderPreparedMemoryCue(row, item, members = [], precisionMode = true) {
   const rendered = new Set();
   const note = (label, value) => {
     if (value === null || value === undefined || value === '') return '';

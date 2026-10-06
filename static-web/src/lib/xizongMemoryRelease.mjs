@@ -1,3 +1,4 @@
+import nativePreparedCues from '../../../content/xizong/knowledge/learner/a2-respiratory-learning-cues.json' with { type: 'json' };
 import preparedCues from '../../../content/xizong/knowledge/learner/a1-circulation-learning-cues.json' with { type: 'json' };
 
 export const XIZONG_MEMORY_RELEASE_SCHEMA = 'kianos.xizong.memory_release.v1';
@@ -166,7 +167,7 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
   if (!kps.size) fail('CORE_KP_MISSING', blockId);
 
   const coreCards = [...kps.values()].map((kp) => learnerCoreCard(learnerObject, kp));
-  const precisionCards = [];
+  let precisionCards = [];
   for (const kp of kps.values()) {
     const kpIdentity = kp?.identity || {};
     const owner = {
@@ -192,6 +193,13 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
     for (const cue of array(group?.precision)) precisionCards.push(learnerPrecisionCard(meta, cue, owner));
   }
 
+  if (isNativePreparedSystem(meta)) {
+    const rows = [
+      ...[...kps.values()].flatMap(kp => array(kp.precision).map(cue => ({ cue, kpId: kp.identity.kpId, logicGroupId: kp.identity.logicGroupId }))),
+      ...[...groups.values()].flatMap(group => array(group.precision).map(cue => ({ cue, kpId: '', logicGroupId: group.identity.logicGroupId, kpIds: group.kpIds })))
+    ];
+    precisionCards = selectNativePreparedCards(meta, rows, precisionCards);
+  }
   for (const card of precisionCards) {
     card.semanticRevision = card.kpId ? learnerObject.revisionWitness?.kps?.[card.kpId] || '' : learnerObject.revisionWitness?.groups?.[card.logicGroupId] || '';
   }
@@ -216,16 +224,86 @@ function strictPreparedReferenceEqual(left, right) {
     && strictPreparedReferenceEqual(left[key], right[key]));
 }
 
+const isNativePreparedSystem = meta => meta?.systemId === 'respiratory' && meta?.canonicalId === 'A2';
+const hasPreparedRef = row => Object.hasOwn(row || {}, 'prepared_memory_ref');
+const objectShape = (value, keys) => Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+  && Object.keys(value).length === keys.length && keys.every(key => Object.hasOwn(value, key));
+function nativeAdmissionRows(blockId) {
+  if (nativePreparedCues.status !== 'CURRENT' || !nativePreparedCues.authority?.startsWith('CHAT_APPROVED')
+    || nativePreparedCues.system_id !== 'respiratory' || nativePreparedCues.canonical_id !== 'A2') fail('PREPARED_INDEX_UNREVIEWED', blockId);
+  const rows = array(nativePreparedCues.precision_index).filter(row => row.anchor?.block_id === blockId);
+  if (new Set(rows.map(row => row.id)).size !== rows.length) fail('PREPARED_ADMISSION_INVALID', blockId);
+  const admitted = rows.filter(hasPreparedRef);
+  for (const row of admitted) {
+    const ref = row.prepared_memory_ref;
+    if (!row.id || !objectShape(ref, ['collection', 'owner_mode', 'precision_id', 'item_sha256', 'owner_kp_ids', 'owner_sha256', 'core_refs'])
+      || ref.owner_mode !== 'NATIVE_CUE' || ref.collection !== 'precision_fields' || ref.precision_id !== row.id
+      || !/^[a-f0-9]{64}$/.test(ref.item_sha256) || !/^[a-f0-9]{64}$/.test(ref.owner_sha256)
+      || !Array.isArray(ref.owner_kp_ids) || !ref.owner_kp_ids.length || ref.owner_kp_ids.some(id => !text(id))
+      || new Set(ref.owner_kp_ids).size !== ref.owner_kp_ids.length || !Array.isArray(ref.core_refs) || !ref.core_refs.length
+      || ref.core_refs.some(w => !objectShape(w, ['system_id', 'block_id', 'kp_id', 'source_path', 'kp_core_sha256'])
+        || !/^[a-f0-9]{64}$/.test(w.kp_core_sha256))
+      || !(objectShape(row.anchor, ['block_id', 'kp_id']) || objectShape(row.anchor, ['block_id', 'logic_group_id']))) fail('PREPARED_ADMISSION_INVALID', row.id);
+  }
+  return admitted;
+}
+
+// Selected prepared views intersect the current admission owner with stored
+// actual ownership. Historical owner-context cards remain in general history.
+export function isXizongPreparedMemoryCard(card, blockId) {
+  const index = /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId) ? preparedCues
+    : nativePreparedCues;
+  const rows = index === nativePreparedCues ? nativeAdmissionRows(blockId)
+    : array(index.precision_index).filter(row => row.anchor?.block_id === blockId && row.prepared_memory_ref);
+  const row = rows.find(row => card?.id === `precision:${row.id}` && card.precisionCueId === row.id);
+  if (!row || card.blockId !== blockId || card.systemId !== index.system_id || card.canonicalId !== index.canonical_id
+    || card.answerResolution !== 'EXACT_CURRENT_OWNER' || !text(card.answerHtml).trim()) return false;
+  return row.anchor.kp_id ? card.kpId === row.anchor.kp_id
+    : !card.kpId && card.logicGroupId === row.anchor.logic_group_id;
+}
+
+function selectNativePreparedCards(meta, rows, cards) {
+  const admitted = nativeAdmissionRows(meta.blockId);
+  const ids = new Set(admitted.map(row => row.id));
+  for (const { cue } of rows) {
+    if (!ids.has(cue.id) && (hasPreparedRef(cue.raw || cue) || exactAnswerFromResolvedCue(cue))) fail('PREPARED_UNADMITTED_ANSWER', cue.id);
+  }
+  return admitted.map(expected => {
+    const matches = rows.filter(row => row.cue.id === expected.id);
+    if (matches.length !== 1) fail('PREPARED_OWNER_AMBIGUOUS', expected.id);
+    const { cue, kpId, logicGroupId, kpIds } = matches[0];
+    const raw = cue.raw || cue;
+    if (!strictPreparedReferenceEqual(raw.prepared_memory_ref, expected.prepared_memory_ref)) fail('PREPARED_REFERENCE_STALE', expected.id);
+    if (!strictPreparedReferenceEqual(cue.anchor, expected.anchor) || !strictPreparedReferenceEqual(raw.anchor, expected.anchor)
+      || raw.prepared_memory_owner !== 'content/xizong/knowledge/learner/shared-fields.json'
+      || raw.answer_bearing !== true || raw.display_policy?.timing !== 'POST_REVEAL'
+      || cue.cue !== expected.cue || raw.cue !== expected.cue
+      || (expected.anchor.kp_id ? kpId !== expected.anchor.kp_id
+        : Boolean(kpId) || logicGroupId !== expected.anchor.logic_group_id || !strictPreparedReferenceEqual(kpIds, expected.prepared_memory_ref.owner_kp_ids))) fail('PREPARED_OWNER_MISMATCH', expected.id);
+    const matchesCards = cards.filter(card => card.precisionCueId === expected.id), card = matchesCards[0];
+    if (matchesCards.length !== 1 || !isXizongPreparedMemoryCard(card, meta.blockId)
+      || card.answerHtml !== raw.answer_html || card.cue !== expected.cue
+      || !card.answerHtml.includes(`data-prepared-memory="${expected.id}"`)
+      || !card.answerHtml.replace(/<[^>]*>/g, '').trim()) fail('PREPARED_EXACT_ANSWER_MISSING', expected.id);
+    return card;
+  });
+}
+
 export function supportsXizongPreparedMemoryBlock(blockId) {
-  return /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId);
+  return /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId) || nativeAdmissionRows(blockId).length > 0;
 }
 
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
   const blockId = text(learnerObject?.identity?.blockId);
-  if (learnerObject?.identity?.systemId !== 'circulation' || learnerObject?.identity?.canonicalId !== 'A1'
+  const native = isNativePreparedSystem(learnerObject?.identity);
+  if ((!native && (learnerObject?.identity?.systemId !== 'circulation' || learnerObject?.identity?.canonicalId !== 'A1'))
     || !supportsXizongPreparedMemoryBlock(blockId)) fail('PREPARED_BLOCK_UNSUPPORTED');
   if (!learnerObject?.sourceHash || (options.sourceHash && options.sourceHash !== learnerObject.sourceHash)) {
     fail('PREPARED_SOURCE_STALE', blockId);
+  }
+  if (native) {
+    const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject);
+    return { ...descriptor, coreCards: [], attentionSignals: [], promptOverrides: {}, markedFragments: [] };
   }
   if (preparedCues.status !== 'CURRENT' || !preparedCues.authority?.startsWith('CHAT_APPROVED')) {
     fail('PREPARED_INDEX_UNREVIEWED', blockId);
@@ -372,7 +450,7 @@ export function buildXizongBlockMemoryReleaseDescriptor(block, learningCues = nu
   if (!kps.size) fail('CORE_KP_MISSING', blockId);
   const coreCards = [...kps.values()].map((kp) => coreCard(block, kp));
   const precisionRows = array(learningCues?.precision);
-  const precisionCards = precisionRows.map((cue) => {
+  let precisionCards = precisionRows.map((cue) => {
     if (cue?.anchor?.block_id && cue.anchor.block_id !== blockId) fail('PRECISION_BLOCK_MISMATCH', text(cue?.id));
     return precisionCard(block, cue, kps, groups);
   });
@@ -384,5 +462,11 @@ export function buildXizongBlockMemoryReleaseDescriptor(block, learningCues = nu
     blockTitle: text(block?.title),
     sourceHash: text(block?.sourceHash)
   };
+  if (isNativePreparedSystem(meta)) {
+    const rows = precisionRows.map(cue => ({ cue, kpId: text(cue.anchor?.kp_id),
+      logicGroupId: text(cue.anchor?.logic_group_id), kpIds: groups.get(cue.anchor?.logic_group_id)?.kpIds }));
+    precisionCards = selectNativePreparedCards(meta, rows, precisionCards);
+  }
   return finalizeDescriptor(meta, coreCards, precisionCards, options);
 }
+

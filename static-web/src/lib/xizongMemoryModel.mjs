@@ -139,7 +139,12 @@ function memoryRevision(previous, card, stamp) {
   const bound = previous.semanticRevision && card.semanticRevision;
   // Explicit card answer is still checked for old callers without witnesses.
   const answer = c => JSON.stringify(revisionStable({ core:c.coreMarkdown ? stripRevisionKpMetadata(c.coreMarkdown) : c.coreHtml, answer:c.answerHtml, cue:c.cue, context:c.ownerContextHtml }));
-  const changed = bound ? previous.semanticRevision !== card.semanticRevision : answer(previous) !== answer(card);
+  const native = card.systemId === 'respiratory' && card.canonicalId === 'A2';
+  const changed = (bound ? previous.semanticRevision !== card.semanticRevision : answer(previous) !== answer(card))
+    || (native && (previous.answerResolution !== card.answerResolution || answer(previous) !== answer(card)));
+  const nativeHistory = native ? { ownerContextHtml: previous.ownerContextHtml, answerResolution: previous.answerResolution,
+    systemId: previous.systemId, canonicalId: previous.canonicalId, blockId: previous.blockId,
+    kpId: previous.kpId, logicGroupId: previous.logicGroupId, cue: previous.cue } : {};
   const unclassified = !bound && (Boolean(card.semanticRevision) || previous.sourceHash !== card.sourceHash);
   const unknown = unclassified || previous.revisionReview === 'UNCLASSIFIED_REVISION';
   return {
@@ -148,7 +153,7 @@ function memoryRevision(previous, card, stamp) {
     // The artifact baseline may advance; UNKNOWN remains until an actual
     // current retrieval. Observing content never certifies prior evidence.
     semanticRevision: card.semanticRevision || '',
-    contentHistory: changed || unclassified ? [...(previous.contentHistory || []), { sourceHash:previous.sourceHash, semanticRevision:previous.semanticRevision || '', coreMarkdown:previous.coreMarkdown, coreHtml:previous.coreHtml, answerHtml:previous.answerHtml, at:stamp }] : previous.contentHistory || []
+    contentHistory: changed || unclassified ? [...(previous.contentHistory || []), { sourceHash:previous.sourceHash, semanticRevision:previous.semanticRevision || '', coreMarkdown:previous.coreMarkdown, coreHtml:previous.coreHtml, answerHtml:previous.answerHtml, ...nativeHistory, at:stamp }] : previous.contentHistory || []
   };
 }
 
@@ -227,10 +232,16 @@ export function makePreparedMemoryAvailable(stateInput, descriptor, availableAt 
   const cards = { ...state.cards };
   for (const raw of precisionCards) {
     const card = normalizeCard(raw, 'PRECISION', blockId, text(descriptor.sourceHash));
-    if (card.blockId !== blockId || !card.kpId || card.answerResolution !== 'EXACT_CURRENT_OWNER'
+    const native = (card.systemId === 'respiratory' && card.canonicalId === 'A2')
+      || (descriptor.systemId === 'respiratory' && descriptor.canonicalId === 'A2');
+    if (card.blockId !== blockId || (!card.kpId && (!native || !card.logicGroupId))
+      || (native && (card.systemId !== 'respiratory' || card.canonicalId !== 'A2'
+        || descriptor.systemId !== card.systemId || descriptor.canonicalId !== card.canonicalId)) || card.answerResolution !== 'EXACT_CURRENT_OWNER'
       || !card.answerHtml.trim()) fail('PREPARED_CARD_INVALID', card.id);
     const previous = cards[card.id];
-    if (previous && (previous.family !== 'PRECISION' || previous.blockId !== card.blockId || previous.kpId !== card.kpId)) {
+    if (previous && (previous.family !== 'PRECISION' || previous.blockId !== card.blockId || previous.kpId !== card.kpId
+      || (native && (previous.systemId !== card.systemId || previous.canonicalId !== card.canonicalId
+        || (!card.kpId && previous.logicGroupId !== card.logicGroupId))))) {
       fail('PREPARED_CARD_OWNER_CHANGED', card.id);
     }
     cards[card.id] = {
@@ -721,3 +732,4 @@ export function memoryFamilySummary(stateInput, familyInput, now = Date.now()) {
 export function cloneMemoryState(stateInput) {
   return clone(normalizeXizongMemoryState(stateInput));
 }
+
