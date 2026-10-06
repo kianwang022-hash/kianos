@@ -68,6 +68,27 @@ This is the coherent composition accepted at `5dd646f017d67132e82feef5d764f5d363
 
 The files' preserved candidate headers and review-time language record their provenance. This exact Acceptance receipt supersedes that admission boundary only for the ten named inputs; medical authority, freshness, original Source limits and learner evidence retain their owners. B1/B2 remain governed by their accepted entries above. This route does not adopt other Systems, old review files or the whole #1150 branch.
 
+### Accepted A2 Respiratory teaching basis
+
+For **A2 Respiratory / respiratory-r01 through respiratory-r12**, the [one-System teaching and retrieval adoption receipt](../systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006) admits these exact compact teaching/same-model compressed-review inputs under Learning Contract §0 and §13. Read that receipt and refresh the full Current System, canonical Block/KP, accepted Learning and required Source/MedicalVisual owners before use.
+
+- [R1 正常通气力学与肺功能](../../projection/a2-respiratory/chat/b01-teaching.md)
+- [R2 肺换气、气体运输与呼吸调节](../../projection/a2-respiratory/chat/b02-teaching.md)
+- [R3 COPD：持续气流受限](../../projection/a2-respiratory/chat/b03-teaching.md)
+- [R4 支气管哮喘：可逆性气流受限](../../projection/a2-respiratory/chat/b04-teaching.md)
+- [R5 肺炎：病变空间、病原体与严重度](../../projection/a2-respiratory/chat/b05-teaching.md)
+- [R6 支气管扩张与肺脓肿](../../projection/a2-respiratory/chat/b06-teaching.md)
+- [R7 肺结核：肉芽肿、空洞、播散与化疗](../../projection/a2-respiratory/chat/b07-teaching.md)
+- [R8 间质性肺疾病与硅肺](../../projection/a2-respiratory/chat/b08-teaching.md)
+- [R9 肺动脉高压、肺心病与急性肺血栓栓塞](../../projection/a2-respiratory/chat/b09-teaching.md)
+- [R10 胸膜空间与胸部损伤](../../projection/a2-respiratory/chat/b10-teaching.md)
+- [R11 肺癌与纵隔](../../projection/a2-respiratory/chat/b11-teaching.md)
+- [R12 ARDS 与呼吸衰竭](../../projection/a2-respiratory/chat/b12-teaching.md)
+
+The exact composition tested at `428d41d7d50faaac3dc95f1653f0831d684b8c50` in [#1207](https://github.com/kianwang022-hash/kianos/pull/1207) retains all twelve frozen readers, 236 KP, 62 LG and the finite destinations for all 111 MI-D topics. The existing [A2 cue index](./a2-respiratory-learning-cues.json) admits only 26 of its original 32 identities through exact `shared-fields.json#/precision_fields` owners and native KP/LG witnesses. R7 LG06 is supported but unadmitted; five other whole cues remain held. A whole Core destination or source-only topic is not a prepared exact answer. Preserve authentic LG membership, every qualifier and dependency, and the existing IDs rather than splitting/reanchoring cards.
+
+The receipt supersedes the saved `CANDIDATE_DERIVATION` headers only for these twelve teaching inputs. Those exact tested bytes and `medical_authority:false` remain provenance; canonical Core/System/Learning, Source freshness and learner evidence keep their existing owners. R12's candidate-only AB/SB definition and the recorded visual/Source conflicts are not adopted. Old A2 review/Library/three-column material is not normal lesson fallback. A1's accepted entries above remain unchanged; other Systems and the rest of #1150 are not admitted by implication.
+
 The common teaching package on [#1150](https://github.com/kianwang022-hash/kianos/pull/1150) remains a candidate until its exact admission owner says otherwise. Resolve acceptance there, not from a stored head or file count. Without an accepted package, teach from Current canonical Knowledge and accepted Learning while explicitly retaining the unaccepted-package boundary.
 
 Except for the explicitly accepted B1, B2 and B3–B12 teaching entries above, old A1 teaching/review files are deliberately not linked as normal lesson inputs here. They may be opened only for a bounded migration/audit of unique reviewed content. Preserve valid explanation, comparison and memory preparation with the existing responsible owners before retiring a legacy file; do not use its LG-order instructions, three-column layout or old acceptance label as the current teaching template. Legacy `*-review.md`, old Library exports, old PR prose and old screenshots are not fallback lesson authority.

@@ -11,6 +11,47 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ---
 
+<a id="a2-teaching-adoption-20261006"></a>
+## 2026-10-06｜A2 teaching and prepared Memory System adoption
+
+**Status: ACCEPTED — respiratory-r01 through respiratory-r12 only.** Under Kian's task-scoped one-System authorization in [#1113](https://github.com/kianwang022-hash/kianos/issues/1113), this receipt adopts the twelve reviewed compact teaching/same-model compressed-review inputs and their bounded post-Chat/prepared-Memory integration in [#1207](https://github.com/kianwang022-hash/kianos/pull/1207). The tested product head is `428d41d7d50faaac3dc95f1653f0831d684b8c50`; the [normal Chat route](../../learner/README.md#accepted-a2-respiratory-teaching-basis) lists all twelve exact inputs.
+
+### Teaching and existing-owner scope
+
+- All twelve actual compact defaults and expanded narratives were independently read against Current System/Learning and [Learning Contract §0](../../../LEARNING_CONTRACT.md#learning-outcome). Their natural models, full canonical title〔Prompt〕 bindings, System bridges and model/external coverage retain **236 KP / 62 LG**, all **111 MI-D topic destinations** and the original visual/Source obligations. These are observed accounting results, not an instruction to derive topology from KP/LG order or make 111 cards. R8→R12 respiratory-failure support and R9's exact arrhythmia qualifier were corrected before reader freeze.
+- The twelve reader files are byte-preserved from independent acceptance. Their original `CANDIDATE_DERIVATION` headers and candidate wording remain review-time provenance; this receipt supersedes that admission boundary only for this exact teaching use. `medical_authority:false`, dependency freshness and original Source limits remain binding. No new canonical medical model, Core, System, Learning membership, question relation or visual asset is introduced.
+- **26 original Precision identities are admitted: 16 KP-owned and 10 LG-owned.** All **32 original cue IDs, cue text, KP/LG anchors and ordered memberships**, plus all **17 visual cues**, remain intact. Existing `shared-fields.json#/precision_fields/{cue-id}` owns each complete answer, condition, aid and provenance; the existing A2 index alone admits it through a discriminated `NATIVE_CUE` ref. Whole native member/Core witnesses and every required dependency's identity/metadata/Block qualifications fail closed on missing, stale, moved, duplicate or extra witnesses. No new registry, parser, cache, per-member card, fake KP owner or dependency-created learning target is added.
+- All **176 A1 prepared identities and native descriptors** remain unchanged. Genuine LG cards keep empty `kpId` and real `logicGroupId`; historical owner equality, evidence, marks, released-at and content history survive. A2 same-ID owner-context upgrades now retain the old context/resolution/owner in the existing history path. Both generic A2 descriptor paths omit new fallback cards for unadmitted cues, while general historical records remain preserved and selected prepared views exclude them.
+
+### Exact admission holds and Source limits
+
+Six original cues remain unadmitted; no partial answer or broad-Core fallback is relabeled as their exact delivery:
+
+- `a2-r04-lg03-precision`: missing FeNO numeric scope and unspecified weekly PEF calculation.
+- `a2-r04-lg05-precision`: course severe-attack PEF percentage lacks its denominator.
+- `a2-r07-lg05-precision`: PPD millimetre thresholds absent from frozen Current.
+- `a2-r08-lg05-precision`: the original additional low-frequency imaging-number scope is unsupported.
+- `a2-r09-kp18-precision`: requested acute-PE ECG numbers are absent; chronic-cor-pulmonale numbers are not substitutes.
+- `a2-r07-lg06-precision`: a complete Current-supported treatment proposal remains unadmitted because accepted Learning says 足量 while Current Core says 适量. This receipt does not amend Learning or resolve that medical/source choice.
+
+R4 and R7 consequently have zero prepared availability. Supported Core, unchanged awareness cues and Source destinations remain accessible. R12's candidate-only AB/SB standardization definition remains excluded; the existing A3 destination is routing, not a new A3 review. R6/R11 pathology page-locator conflicts, R9's partial different-source visual support, original question-count discrepancies and R1/R10 older Extension shortcuts keep their recorded boundaries. Frozen Current course/drug/procedure/oxygen/edition qualifications remain explicit; no fresh original-PDF pixels, guideline validity, Source contact or clinical competence is claimed.
+
+### Executed native and actual consumer proof
+
+- Independent native/adversarial proof passes **212 checks** with frozen pre-integration content/identity oracles. Independent execution of the actual shipped A2 controllers passes **58 checks**, including the reproduced/fixed R11 title/sidebar answer leak. A1 actual controllers pass **46** and A1 native regression passes **60**. All **12 A1 + 12 A2** post-Chat controller fixtures retain Source, visual, prerequisite, TTSX and completion gates, save-failure behavior and real rating semantics.
+- [Final Memory CI run37472841320](https://github.com/kianwang022-hash/kianos/actions/runs/37472841320) built the actual website and passed **13 grouped A2 browser cases**, the unchanged **25 A1 prepared cases**, **54 Workspace cases** and **36 genuine full-release cases**. [Artifact11417587778](https://github.com/kianwang022-hash/kianos/actions/runs/37472841320/artifacts/11417587778), ZIP SHA256 `f3ae0e249270749f2efcda84ff123c13588c8d0a4119d1cc3f15f5f5f5e8248d`, was independently hash-verified and actual screenshots inspected.
+- A2 browser cases cover KP R1, true multi-KP LG R2, qualified anticoagulation/procedure/staging/ventilation samples R9–R12, held KP/LG/R7 LG06, old same-ID owner-context history, Browse, hidden Recall, full Reveal, explicit rating, reload/reopen, failed availability/rating save and unavailable-writer behavior. The final R11 KP21/KP22/LG whole visible Recall screenshots show original answer-free cues in headers and the complete sidebar; numeric T thresholds and contralateral M/N answer assignments no longer leak from canonical owner titles. Browse retains the canonical titles; content/identity/evidence are untouched.
+- [Final Block Workspace run37472841014](https://github.com/kianwang022-hash/kianos/actions/runs/37472841014) passed **78 checks** in the actual built-preview KP Learn/Recall journey, including iPad Source-confirmation reachability, exact native title/position, personal Prompt/marks, clean Front, Source/TTSX and completion semantics. [Artifact11416524546](https://github.com/kianwang022-hash/kianos/actions/runs/37472841014/artifacts/11416524546), ZIP SHA256 `3eb57e26c3d0583ca9f6f960f12d6ed45e7193e50f47a0b2d2f4a7d947837d1c`, was independently hash-verified; final iPad and clean-Recall screenshots were read. A development-only Astro toolbar was the proven earlier hit-test interceptor; the same assertion now tests the built product. Display-number heuristics were replaced by exact canonical-title/native-ID assertions, not removed. No product layout was changed for that environment defect.
+- Overall exact-product CI is **9 PASS / 4 known-owner FAIL**, not all green. [A2 relation](https://github.com/kianwang022-hash/kianos/actions/runs/37472841168), [B+C](https://github.com/kianwang022-hash/kianos/actions/runs/37472841077), [Mac](https://github.com/kianwang022-hash/kianos/actions/runs/37472841706) and [QA Return](https://github.com/kianwang022-hash/kianos/actions/runs/37472840987) retain their earlier-main exact failures: `reviewed_relation_question_exists`, `b_biochemistry_repair_missing_axis_fails_closed`, `wrong_auto_flips_to_back` and `reviewed_wu_creates_one_visible_memory_repair:0`. Their existing owners remain responsible; no assertion, mapping rule or source witness was weakened to make this batch pass.
+
+### Evidence and delivery boundary
+
+The current Learning Contract's lawful sequence is Chat model → native KP retrieval/prepared Memory → Block/System reconstruction → broad Lecture/question calibration. Earlier Lecture-first engineering sequences below retain their recorded scope; they are not the sole legal entry for these accepted Chat lessons. Navigation, post-Chat entry, dependency reads and prepared availability alone create no Source contact, Learned, rating, completion, full-Block release or Today debt. Explicit Recall observations and later genuine completion retain their existing native requirements.
+
+**Learner U remains UNTESTED.** This scoped adoption does not mean Kian has studied Respiratory, viewed original images, mastered the content or created due work. It does not adopt other Systems, the whole #1150 branch, legacy/Library retirement or unrelated performance/relation repairs. Main merge placement and actual Current/Stable served-SHA delivery are separate claims; this receipt does not assert either.
+
+---
+
 ## Gate status
 
 ```text
