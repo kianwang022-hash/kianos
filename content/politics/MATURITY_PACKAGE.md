@@ -1,12 +1,14 @@
 # Politics Maturity Package
 
-Status: **SYSTEM_LOGIC_ACCEPTED · NORMAL USE / REAL-U RECALIBRATION**
+Status: **ACCEPTED BASELINE · MODEL→MEMORY INTEGRATION REOPENED**
 Upstream acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Final independent audit: `MATURITY_FRESH_INDEPENDENT_AUDIT.md`
 
 This is the practical Politics whole-cycle maturity package. It summarizes accepted subject truth and points to exact owners; it is not a second Source, learner-state, scheduler or Website strategy owner.
 
-## Truth boundary — Layer A Ultra-Maturity final split
+## Truth boundary — accepted Layer A baseline
+
+The sealed maturity result below remains evidence for its tested baseline. The accepted prepared-package / model→Memory extension in [Learning §3.1.1–§3.2](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) has a separate open delivery/acceptance boundary, routed only by [Politics Current](CURRENT.md). This summary does not mark that integration, Website delivery or real learner mastery PASS.
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
@@ -18,9 +20,9 @@ REMAINING_CONCRETE_DEFECTS = none
 
 This five-field split is the compact Layer-A acceptance surface required by the current shared `EXAM_SUBJECT_MATURITY_STANDARD.md`.
 
-Evidence reuse is valid here because the sealed v6 Fresh Independent / Anti-Anchored audit already tested the current Politics maturity system rather than merely a local integration slice. It explicitly attacked Source fidelity, stale Chat Plan basis, false Secure/Unstable, reused Analysis material, Future Source supersession, transport replay/conflict, Fresh Chat, no-Website operation, attention-cost closure and the stop rule. The later Ultra standard adds no unproven Politics-specific system-logic requirement that changes the current decision boundary.
+Evidence reuse is valid for that baseline because the sealed v6 Fresh Independent / Anti-Anchored audit tested the Politics maturity system within its recorded scope rather than merely a local integration slice. It explicitly attacked Source fidelity, stale Chat Plan basis, false Secure/Unstable, reused Analysis material, Future Source supersession, transport replay/conflict, Fresh Chat, no-Website operation, attention-cost closure and the stop rule. The later Ultra standard adds no unproven Politics-specific system-logic requirement that changes the current decision boundary.
 
-Remaining unknowns are therefore gates, not hidden defects:
+The baseline's remaining calibration unknowns are gates, not hidden defects; they do not close the separate model→Memory integration:
 - Kian-specific throughput / retention / transfer / score calibration → Real-U;
 - current-year exact wording / current affairs / Xiao8/Xiao4 → authoritative Source arrival + fidelity admission;
 - final timed physical/paper execution → authentic-modality / Mock evidence.
@@ -53,14 +55,16 @@ Politics-native control:
 ## Subject-native learning control
 
 ```text
-first-round continuous source learning
-→ Xiao1000 verification
-→ preserve Wrong / Uncertain evidence
-→ learner-triggered batch diagnosis
-→ smallest causal Repair when justified
-→ selective source-grounded Memory
+Current prepared chapter model / route
+→ Chat continuous teaching + same-model compression
+→ Chat encoding / first retrieval of reviewed exact targets
+→ authorized Website Memory retrieval + first-ready Xiao1000 verification
+→ Recall / Wrong / Uncertain evidence returns to Chat
+→ adaptive practice / smallest causal or model repair / no extra action when justified
 → later Analysis / current-year / Mock work when its Source window opens
 ```
+
+Learning and admission remain owned by [Learning §3.1.1 / §6.1](LEARNING_CONTRACT.md). The reviewed proactive exact baseline does not require Wrong/Uncertain; first-contact questions alone do not create remedial debt. Source remains calibration/repair support, not a compulsory second course. Chat adapts today's selection, quantity and reappearance to actual evidence and prerequisites.
 
 Stable work must get cheaper. One Wrong does not create one Repair task. Recall labels are evidence, not mastery/priority scores. No D1/D3/D7 learner-facing cadence and no Politics-only second scheduler.
 
@@ -104,7 +108,7 @@ Website does not choose Politics priority, Memory burden, cross-subject allocati
 
 ## Final independent acceptance
 
-`MATURITY_FRESH_INDEPENDENT_AUDIT.md` is the durable final result.
+`MATURITY_FRESH_INDEPENDENT_AUDIT.md` is the durable final result for the sealed baseline, not the reopened integrated extension.
 
 - SYSTEM_LOGIC_ACCEPTED: **YES**
 - KIAN_SPECIFIC_CALIBRATED: **NO**
@@ -114,7 +118,7 @@ The audit attacked false Secure, false Unstable, stale Chat Plan basis, source-f
 
 ## Remaining work
 
-Only:
+- Complete the already-open prepared-package / model→Memory integration through the existing [Current delivery owner](CURRENT.md), with its own exact acceptance and actual consumer proof.
 - real Kian study → throughput/error/retention/transfer recalibration;
 - current-year Source arrival → bounded delta ingestion;
 - authentic timed/paper execution;
@@ -127,7 +131,9 @@ Do not restart broad Politics maturity architecture. A real defect reopens only 
 
 ## Layer A Ultra-Maturity evidence map
 
-| Ultra gate | Current evidence | Status |
+This map preserves the sealed baseline evidence; it does not extend those claims to the reopened teaching/Memory integration.
+
+| Ultra gate | Baseline evidence | Status |
 | --- | --- | --- |
 | need / score / capability truth | this package score path + Objective/Analysis split | CLOSED |
 | material / Source / fidelity | current Source owners + learner-admission fidelity gate | CLOSED at current-source boundary |
@@ -142,5 +148,5 @@ Do not restart broad Politics maturity architecture. A real defect reopens only 
 
 ### Layer A verdict
 
-> **POLITICS_LAYER_A_ULTRA_MATURE = YES at SYSTEM_LOGIC level.**  
+> **POLITICS_LAYER_A_ULTRA_MATURE = YES at the sealed baseline SYSTEM_LOGIC level.**  
 > Do not reopen broad Politics maturity engineering. Only Real-U, authoritative current-year Source, authentic-modality evidence, or a concrete decision-changing defect may reopen the smallest responsible owner.

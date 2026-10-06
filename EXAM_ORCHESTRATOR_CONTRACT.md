@@ -358,13 +358,15 @@ KianOS orientation / cue
 - Establish and sustain the real first-round loop:
 
 ```text
-KianOS orientation
-→ Chengfeng continuous learning on iPad / MarginNote
-→ short closure
-→ Xiao1000 verification
-→ Wrong / Uncertain smallest repair
-→ continue
+Current prepared chapter package
+→ Chat model teaching / progressive explanation
+→ same-model compression + Chat exact encoding / first rehearsal
+→ authorized Website Memory retrieval + first-ready Xiao1000 verification
+→ Recall / Wrong / Uncertain evidence returns to Chat
+→ adaptive practice / smallest justified repair / continue
 ```
+
+Learning roles and admission follow [Politics Learning Contract §2 / §3.1.1 / §6.1](content/politics/LEARNING_CONTRACT.md). Chengfeng remains Source/calibration support when needed, not a compulsory parallel iPad course; reviewed proactive exact targets do not require a prior error. This subject path follows the current owner without changing the phase dates or claiming Website delivery.
 
 - Default planning seed: about **1.5h/day**, dynamically increased if observed pace threatens the ~10/20 first-round exit.
 

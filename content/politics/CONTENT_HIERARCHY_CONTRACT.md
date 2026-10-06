@@ -40,12 +40,12 @@ Suyi being useful does not make Suyi a second learner course.
 
 ### `H1_ORIENTATION_CORE`
 
-The smallest content needed to know **what this Natural Unit is solving and what structural relation to hold while entering Chengfeng**.
+The smallest content needed to know **what this Natural Unit is solving and what structural relation to hold while entering the Current prepared Chat lesson**.
 
 Typical content:
 - current `Problem`;
-- one minimal primary relation / comparison / stage / hierarchy skeleton when it materially reduces source-reading load;
-- Chengfeng locator + small `look_for` list.
+- one minimal primary relation / comparison / stage / hierarchy skeleton when it materially reduces teaching/understanding load;
+- Chengfeng locator + small `look_for` list when Source calibration is needed, not as a mandatory second course.
 
 H1 is not a summary of the whole Unit. It is the entry scaffold.
 
@@ -119,7 +119,7 @@ Explicit Content-owned overrides are allowed only for real semantic exceptions.
 | precision `LATER_PRECISION` | `H4_ON_DEMAND` |
 | precision `REFERENCE_OR_QUESTION_TRIGGERED` | `H5_REPAIR_REFERENCE` |
 | precision `REPAIR_ONLY` | `H5_REPAIR_REFERENCE` |
-| `source_handoff.locator` + `look_for` | `H1_ORIENTATION_CORE` as an operational handoff, not knowledge content |
+| `source_handoff.locator` + `look_for` | `H1_ORIENTATION_CORE` when Source calibration is selected; operational handoff, not mandatory learning order or knowledge content |
 | `source_handoff.source_owner_ids` | `H5_REPAIR_REFERENCE` / provenance; not default learner copy |
 | `recall_seed` | `H4_ON_DEMAND` at close/review time |
 | optional `closure_cue` | `H4_ON_DEMAND` until `RETURN / CLOSE` owns the state |
@@ -181,9 +181,9 @@ Default visible attention:
 H3/H4/H5 do not become first-screen content merely because they exist.
 
 ### `EXTERNAL_LEARN`
-Astro remains companion-only:
+This retained native state identifier does not choose the primary teaching surface or prove Runtime migration; [Interaction](INTERACTION_CONTRACT.md#31-politics-cognitive-state-model) owns its interpretation. During Chat-primary teaching, Astro remains companion-only:
 - compact H1 problem / structural anchor;
-- Chengfeng locator + `look_for`;
+- Chengfeng locator + `look_for` only when calibration is needed;
 - a decisive H2 boundary only when materially useful.
 
 ### `RETURN / CLOSE`

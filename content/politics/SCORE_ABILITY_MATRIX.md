@@ -93,7 +93,7 @@ Recall hats, actors, chronology, lists, identities, scope, fixed legal/policy wo
 Current source-grounded precision candidates; future designated handbook/current-affairs source.
 
 **Method**
-Admit only exact targets with source support plus demonstrated learner/output need. Recall selectively.
+Follow [Learning Contract §6.1](LEARNING_CONTRACT.md#61-memory-admission-proactive-precision-with-source-bounded-scope): reviewed Source-supported proactive baseline (including explicitly selected `FIRST_ROUND_EXACT`), individual Wrong/Uncertain gap, or exact output requirement. The proactive route needs no prior error. Chat teaches encoding/first retrieval and adaptively selects timely admitted targets; Website executes the authorized selection and records Recall evidence.
 
 **Evidence**
 Delayed production recall + successful later task use.
@@ -591,11 +591,12 @@ Analysis evidence ladder                    READY SYSTEM PATH / REAL U EMPTY
 Current-year exact analysis source          FUTURE / SOURCE GATED
 Politics Forecast                           CURRENT-SOURCE MODEL READY / ADVERSARIAL CLOSURE ACTIVE
 Dynamic control semantics                   ACTIVE POLITICS-NATIVE POLICY
-First-round Chat↔Website execution          STRONG
-Whole-lifecycle adversarial proof           ACTIVE
+Base first-round Chat↔Website execution     ACCEPTED WITHIN EXISTING BASELINE
+Model→Memory integrated delivery            REOPENED / NOT YET VERIFIED
+Whole-lifecycle adversarial proof           ACCEPTED WITHIN SEALED BASELINE
 ```
 
-The next engineering priority is **proof closure, not more learning architecture**: Analysis-bank machine validation → Forecast decision-flip/adversarial proof → lifecycle/Fresh-Chat/No-Website closure.
+Current engineering continuation belongs to [Politics Current](CURRENT.md) and its existing integrated delivery owner. Earlier baseline maturity does not certify the reopened model→Memory capability or actual Website delivery; do not restart completed Analysis/Forecast/lifecycle work from this summary.
 
 
 ---
