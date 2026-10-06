@@ -27,6 +27,27 @@ for (const args of [['circulation', 'b02'], ['respiratory', 'b01'], ['circulatio
   assert.equal(availableFor(...args), false, `scope:${args}`);
 }
 assert.match(component, /data-post-chat-recall-available=\{postChatRecallAvailable \? 'true' : 'false'\}/);
+// The B1 title-only presentation is independent of evidence and Source mode.
+const titleOnlyExpression = component.match(/const titleOnlyKps = ([^\n]+);/)?.[1];
+assert.ok(titleOnlyExpression);
+const titleOnlyFor = (systemId, slug) => vm.runInNewContext(titleOnlyExpression, { block: { systemId, slug } });
+assert.equal(titleOnlyFor('circulation', 'b01'), true);
+assert.equal(titleOnlyFor('circulation', 'b02'), false);
+assert.equal(titleOnlyFor('respiratory', 'b01'), false);
+assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
+assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);
+assert.match(component, /data-kp-recall-title>\{titleOnlyKps \? firstKp\?\.title : firstKp\?\.displayId\}/);
+const interaction = fs.readFileSync(new URL('../src/components/XizongKpLearnInteraction.astro', import.meta.url), 'utf8');
+assert.match(interaction, /const titleOnlyKps = root.dataset.kpTitleOnly === 'true';/);
+const titleExpression = interaction.match(/if \(titleNode\) titleNode.textContent = ([^\n]+);/)?.[1];
+const railExpression = interaction.match(/code.textContent = ([^\n]+);/)?.[1];
+assert.ok(titleExpression); assert.ok(railExpression);
+const titleKp = { identity: { displayId: 'KP01', kpId: 'stable-kp01', title: '完整知识标题' } };
+assert.equal(vm.runInNewContext(titleExpression, { titleOnlyKps: true, kp: titleKp }), '完整知识标题');
+assert.equal(vm.runInNewContext(titleExpression, { titleOnlyKps: false, kp: titleKp }), 'KP01 · 完整知识标题');
+assert.equal(vm.runInNewContext(railExpression, { titleOnlyKps: true, item: titleKp, id: 'stable-kp01' }), '');
+assert.equal(vm.runInNewContext(railExpression, { titleOnlyKps: false, item: titleKp, id: 'stable-kp01' }), 'KP01');
+
 assert.equal((component.match(/postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆/g) || []).length, 2, 'fresh and saved Source-stage entry');
 assert.match(component, /postChatRecallAvailable && <button type="button" data-stage-target="source_contact">回原讲义/);
 
@@ -230,3 +251,4 @@ assert.equal(pending.state().stage, 'ttsx_checkpoint', 'post-Chat navigation can
 pending.ttsxDone.click(); assert.equal(pending.state().stage, 'kp_recall'); assert.equal(Object.keys(pending.state().ttsxEvidence).length, 1);
 
 console.log('B1 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+

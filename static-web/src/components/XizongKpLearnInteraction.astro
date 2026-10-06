@@ -22,6 +22,7 @@
     try { learner = JSON.parse(payloadNode.textContent || 'null'); } catch {}
     if (learner?.schema === 'kianos.xizong.learner_object.v1') {
       const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
+      const titleOnlyKps = root.dataset.kpTitleOnly === 'true';
       const studyKey = `kianos-xizong-astro-v2:${objectId}`;
       const personalKey = `kianos-xizong-personal-v1:${objectId}`;
       const kpById = new Map((learner.kps || []).map((kp) => [kp?.identity?.kpId, kp]));
@@ -280,7 +281,8 @@
           row.classList.toggle('recalled', Boolean(study.ratings?.[id]));
 
           const code = document.createElement('b');
-          code.textContent = item?.identity?.displayId || id;
+          code.textContent = titleOnlyKps ? '' : item?.identity?.displayId || id;
+          if (titleOnlyKps) code.setAttribute('aria-hidden', 'true');
           row.append(code);
 
           const title = document.createElement('span');
@@ -502,7 +504,7 @@
 
           const header = card.querySelector(':scope > header');
           const titleNode = header?.querySelector(':scope > h3');
-          if (titleNode) titleNode.textContent = [kp?.identity?.displayId, kp?.identity?.title].filter(Boolean).join(' · ');
+          if (titleNode) titleNode.textContent = titleOnlyKps ? kp?.identity?.title || '' : [kp?.identity?.displayId, kp?.identity?.title].filter(Boolean).join(' · ');
           const prompt = header?.querySelector(':scope > p');
           if (prompt instanceof HTMLElement) {
             prompt.dataset.kpLearnPromptCopy = '';

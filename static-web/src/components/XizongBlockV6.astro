@@ -27,6 +27,7 @@ const blockSourceConflict = Array.isArray(sourceContact.blockSourceConflict) ? s
 const blockVisualDebt = Array.isArray(sourceContact.blockVisualDebt) ? sourceContact.blockVisualDebt : [];
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
+const titleOnlyKps = block?.systemId === 'circulation' && block?.slug === 'b01';
 // B1 reference slice only. This opens retrieval; it never certifies Chat or Source study.
 const postChatRecallAvailable = block?.systemId === 'circulation' && block?.slug === 'b01'
   && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
@@ -110,6 +111,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   data-block-label={block.label}
   data-source-contact-mode={sourceContactMode}
   data-post-chat-recall-available={postChatRecallAvailable ? 'true' : 'false'}
+  data-kp-title-only={titleOnlyKps ? 'true' : 'false'}
   data-semantic-adapter={block.semanticAdapterSchema || ''}
 >
   <header class="portedStudyHeader">
@@ -160,7 +162,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
       </nav>
       <nav class="portedStudyKpRail" data-study-kp-rail aria-label="KP navigation" hidden>
         {kps.map((kp, index) => <button type="button" data-kp-target={index}>
-          <b>{kp.displayId}</b><span>{kp.title}</span><small data-kp-state={kp.kpId}>—</small>
+          <b aria-hidden={titleOnlyKps ? 'true' : undefined}>{titleOnlyKps ? '' : kp.displayId}</b><span>{kp.title}</span><small data-kp-state={kp.kpId}>—</small>
         </button>)}
       </nav>
       <footer>位置图只负责导航；学习顺序由当前学习路径决定。</footer>
@@ -328,13 +330,13 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
 
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
           <header class="portedKpWorkspaceHeader">
-            <div><span>主动回忆 · 当前学习节</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
+            <div><span>主动回忆 · 当前学习节</span><strong data-kp-recall-title>{titleOnlyKps ? firstKp?.title : firstKp?.displayId}</strong></div>
             {postChatRecallAvailable && <button type="button" data-stage-target="source_contact">回原讲义</button>}
             <div><button type="button" data-recall-prev>‹</button><em data-recall-counter>本节 1/{firstGroup?.kpCount || 1}</em><button type="button" data-recall-next>›</button></div>
           </header>
           <div class="portedKpCards">
             {kps.map((kp, index) => <article class="portedKpRecallCard" data-kp-recall-card={index} data-kp-id={kp.kpId} hidden={index !== 0}>
-              <header><span>{kp.groupLabel}</span><h3>{kp.displayId}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
+              <header><span>{kp.groupLabel}</span><h3>{titleOnlyKps ? kp.title : kp.displayId}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
               <div class="portedRecallPrompt"><strong>先自己回忆；答案暂时隐藏。</strong><button type="button" data-kp-reveal>核对答案</button></div>
               <div class="portedRecallAnswer" data-kp-answer hidden>
                 <h4>{kp.title}</h4>

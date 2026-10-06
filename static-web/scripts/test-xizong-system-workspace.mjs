@@ -76,9 +76,16 @@ try {
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();
+  const waitForWriter = async () => {
+    await page.bringToFront();
+    await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active');
+  };
 
   for (const item of systems) {
     await page.goto(`${BASE}${item.route}`, { waitUntil: 'domcontentloaded' });
+    // DOM readiness is not ownership of the native writer lock. Fixture setup
+    // obeys the same guard as the product rather than racing or bypassing it.
+    await waitForWriter();
     await page.evaluate(() => {
       sessionStorage.clear();
       [...Object.keys(localStorage)]
@@ -86,6 +93,7 @@ try {
         .forEach((key) => localStorage.removeItem(key));
     });
     await page.reload({ waitUntil: 'domcontentloaded' });
+    await waitForWriter();
 
     const root = page.locator('[data-xizong-system]');
     await root.waitFor({ state: 'visible' });

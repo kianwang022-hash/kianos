@@ -40,6 +40,27 @@ try {
   await page.goto(blockUrl,{waitUntil:'domcontentloaded',timeout:30000});
   await ready();
   const root=page.locator('[data-xizong-v6-block]');
+  const assertTitleOnlyKp=async(kpId)=>{
+    const expected=object.kps.find(k=>k.identity.kpId===kpId);
+    assert.ok(expected,'visible stable KP identity remains canonical');
+    await page.waitForFunction(({kpId,title})=>{
+      const host=document.querySelector('[data-xizong-v6-block]');
+      const card=[...host.querySelectorAll('[data-kp-recall-card]')].find(c=>c.getAttribute('data-kp-id')===kpId);
+      return card && !card.hidden && card.querySelector('h3')?.textContent.trim()===title
+        && host.querySelector('[data-kp-recall-title]')?.textContent.trim()===title
+        && host.querySelector('.xzLogicGroupKp.current');
+    },{kpId,title:expected.identity.title});
+    const card=root.locator(`[data-kp-recall-card][data-kp-id="${kpId}"]`);
+    assert.equal((await card.locator('h3').textContent()).trim(),expected.identity.title);
+    assert.equal((await root.locator('[data-kp-recall-title]').textContent()).trim(),expected.identity.title);
+    assert.equal((await card.locator(':scope > header > p').textContent()).trim(),expected.prompt.canonical.trim());
+    const group=object.logicGroups.find(g=>g.identity.logicGroupId===expected.identity.logicGroupId);
+    const expectedTitles=group.kpIds.map(id=>object.kps.find(k=>k.identity.kpId===id).identity.title);
+    assert.deepEqual((await root.locator('.xzLogicGroupKp > span').allTextContents()).map(t=>t.trim()),expectedTitles);
+    assert.ok((await root.locator('.xzLogicGroupKp > b').allTextContents()).every(t=>t.trim()===''));
+    assert.equal(await card.getAttribute('data-kp-id'),kpId);
+  };
+
   const objectId=await root.getAttribute('data-study-object');
   const studyKey=`kianos-xizong-astro-v2:${objectId}`;
   const recallKey=`kianos-xizong-memory-review-v2:${objectId}`;
@@ -58,6 +79,8 @@ try {
   assert.equal(await firstKp.locator('[data-kp-answer]').isVisible(),false);
   assert.equal(await firstKp.locator('[data-kp-rating]').isVisible(),false);
   assert.equal((await read(recallKey)).evidenceHistory.length,0);
+  await assertTitleOnlyKp(firstKpId);
+  checks.push('B1 front and toolbar show the exact canonical title, rail hides KP numbers, full Prompt and stable identity remain');
   await page.screenshot({path:path.join(out,'post-chat-kp-front.png'),fullPage:true});
   checks.push('fresh real B1 Chat button enters clean KP Recall without Source, learned or completion claims');
   await firstKp.locator('[data-kp-reveal]').click();
@@ -79,6 +102,8 @@ try {
   assert.deepEqual((await read(recallKey)).evidenceHistory,kpEvidence.evidenceHistory);
   assert.equal(await root.locator('[data-kp-recall-card]:visible [data-kp-answer]').isVisible(),false);
   assert.deepEqual(claims(resumed),claims(initial));
+  await assertTitleOnlyKp(resumed.resumeKpId);
+  checks.push('title-only B1 presentation survives rating, next-KP navigation and reload without changing Prompt or Resume identity');
   checks.push('real KP Reveal/rating persists once and reload resumes post-Chat position with a hidden answer');
   await root.locator('[data-open-prepared-memory]').click();
   await page.waitForURL(url=>url.pathname.endsWith('/xizong/memory/') && url.searchParams.get('view')==='precision');await ready();
@@ -148,3 +173,4 @@ try {
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'FAIL',base:base.href,checks,errors,error:String(error?.stack||error)},null,2));
   throw error;
 } finally {await browser.close();}
+
