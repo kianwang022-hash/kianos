@@ -258,7 +258,7 @@ Rules:
 
 ## UI non-isomorphism
 
-Do not clone Reading A's one-current-question layout.
+Reading A preserves its passage and complete question set in natural order. Part B shares the full-task visibility rule, but its complete structure / placement / candidate map must remain task-native rather than copying Reading A's question-and-options composition.
 
 Part B must preserve **simultaneous awareness of material structure, open positions, and candidate inventory**.
 

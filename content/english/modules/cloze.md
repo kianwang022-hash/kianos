@@ -35,7 +35,7 @@ Preferred interaction:
 
 - passage remains visually primary;
 - blanks stay in context;
-- one active blank may expose its four candidates without hiding surrounding text;
+- the full blank set and its candidate sets remain available with continuous passage context; an active blank is only interaction focus, not exclusive visibility;
 - fast previous/next navigation is allowed;
 - `Uncertain` may be captured with one low-friction action;
 - timer/progress remain quiet;
@@ -216,7 +216,7 @@ Rules:
 
 Do not clone Reading A mechanically.
 
-Reading A centers passage + current question + options. Cloze should center **continuous passage context + active slot**.
+Reading A centers **passage + the complete question set and options in natural order**. Cloze centers **continuous passage context + the full blank/candidate sets**, with an active slot only as interaction focus.
 
 Shared components are allowed only when they preserve this cognitive action.
 

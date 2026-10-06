@@ -219,40 +219,20 @@ Do not silently pass an ambiguous object to preserve throughput.
 
 These rules exist to prevent semantic drift and stylistic churn across repeated content-upgrade passes.
 
-### Two-phase lifecycle
+### Closed baseline and current maintenance
 
-The catalog has two different operating phases. Do not mix them.
+The full 7,946-word Baseline-v2 campaign after the 2026-09-18 module-rule freeze is **closed**. Its all-word review and first-shard revalidation requirements are retired, not remaining work.
 
-#### Phase 1 — Baseline v2 full re-validation
+Current scoped work is routed only by [Lexical Current](CURRENT.md) and remains subject to the [current broad semantic change guard](#current-broad-semantic-change-guard). The default is **PRESERVE without full-catalog re-running**.
 
-Current phase after the 2026-09-18 module-rule freeze.
-
-Every Main Word and every required module must receive a **fresh current-generation judgment**, even when historical Acceptance already says PASS.
-
-Historical PASS / prior audit / prior module wording may inform the review, but may not substitute for reading the Current object.
-
-For each module:
+When an explicitly scoped current review requires a fresh module judgment, retain this method:
 
 ```text
 fresh read
 → NOT_NEEDED / PRESERVE / UPGRADED / BLOCKED
 ```
 
-`PRESERVE` in this phase means:
-
-> **Freshly re-read under the frozen generation rule and confirmed good enough.**
-
-It does not mean “old baseline is trusted by default”.
-
-A mutation still requires an allowed gap reason. Fresh review is permission to challenge the old baseline; it is **not** permission to rewrite for style.
-
-The first o0001–o0050 shard predates this frozen module matrix. Its semantic upgrades remain valid Current content, but the shard must receive one bounded rule-conformance re-validation / module matrix before it becomes the canonical Baseline-v2 receipt.
-
-#### Phase 2 — Evidence-triggered maintenance
-
-Begins only after the full 7,946-word Baseline-v2 re-validation is closed.
-
-Then the default becomes **PRESERVE without full-catalog re-running**.
+`PRESERVE` within that review means freshly re-read under the applicable generation rule and confirmed good enough. Historical PASS / prior audit / prior module wording may inform the judgment, but cannot substitute for reading the Current object. A mutation still requires an allowed gap reason; fresh review is not permission to rewrite for style.
 
 A module reopens only when new evidence establishes an allowed gap, for example:
 

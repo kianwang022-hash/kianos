@@ -554,7 +554,7 @@ It should answer, in the first viewport:
 
 - one meaningful Resume / Continue entry that restores the exact unfinished object when one exists;
 - direct access to Vocabulary, Reading A, External Reading, true-paper work and Review when they are available in the current phase;
-- current phase / Gate context derived from the accepted scheduler/orchestrator owner rather than re-authored locally;
+- current phase / Gate facts derived from their accepted owner rather than re-authored locally; Chat owns strategic task selection and allocation, and those facts do not themselves authorize Home to assign work;
 - review counts / problem state derived from real evidence, not fake completion cards;
 - First Learning / Guide access as a secondary support route, not the normal task path;
 - existing learner state and cross-surface return semantics.
@@ -611,7 +611,7 @@ English Home follows the shared UI floor but should not aim at the floor:
 
 If an unfinished English object exists, Resume is the most important action on Home.
 
-If nothing is unfinished, Home may promote the most relevant current-phase task, but must not manufacture a fake `Continue` or fake progress state.
+If nothing is unfinished, Home may promote only the current phase-valid task selected by a current valid explicit Chat instruction. Without that instruction, Home shows available choices and factual phase / Gate / review context; it must not infer or rank the next assignment, manufacture a fake `Continue`, or create fake progress state.
 
 ### Review / Guide rail
 

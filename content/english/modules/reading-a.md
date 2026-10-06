@@ -272,7 +272,9 @@ Backend richness does not require learner-facing display. Do not create a durabl
 
 ## External reading
 
-Reading A measures exam fitness. Fresh TPO / IELTS / periodical material can provide lower-memory-residue transfer, language breadth, and reading-speed evidence.
+Reading A measures exam fitness. Fresh TPO / IELTS / periodical material can support lower-memory-residue transfer, language breadth, reading-speed development and long-passage endurance.
+
+Current recorded External Reading elapsed time is **whole-task elapsed**, including any source-native question work. It does not isolate passage-reading time or normalize passage length, so it is not direct pure-reading-speed evidence and must not become WPM or a broad reading-speed claim. Reading-only completion proves exposure; question outcomes support only the source-native demands they actually test. Actual exposure, assistance and transfer strength remain private learner evidence.
 
 These pools are complementary. Reused exam passages are useful for mechanics/repair, but remembered correctness must not be treated as unseen mastery.
 
