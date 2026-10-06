@@ -10,9 +10,9 @@
     "content_hash": "7abb48b59cdfe95c7000384b8d2ca883777c36ec83c87096788b39d5e50b6d39",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "喷泉，水源",
-      "core_meaning_en": "a structure or flow of water",
-      "mental_model_cn": "喷泉，水源",
+      "core_meaning_cn": "喷泉；喷出的水",
+      "core_meaning_en": "a structure or jet/flow of water",
+      "mental_model_cn": "structure/place → 喷泉；jet/flow → 喷出的水。比喻“源泉、根源”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,30 +78,6 @@
         "sense_id": "sense:fountain:d6c91dc438fa5d50",
         "sense_label_en": "an artificially produced flow of water",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d96cd1b31957e4edb73d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fountain:a457f76c30695c0b:collocation:0"
-            ],
-            "meaning_cn": "知识的源泉",
-            "phrase": "fountain of knowledge"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "本源，根源",
-        "definition_en": "a source or origin",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:fountain:a457f76c30695c0b",
-        "sense_label_en": "a source or origin",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -280,7 +256,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d96cd1b31957e4edb73d",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:fountain:a457f76c30695c0b:collocation:0"
+          ],
+          "meaning_cn": "知识的源泉",
+          "phrase": "fountain of knowledge"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "本源，根源",
+      "definition_en": "a source or origin",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:fountain:a457f76c30695c0b",
+      "sense_label_en": "a source or origin",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -292,7 +293,7 @@
       },
       {
         "sense_id": "sense:fountain:a457f76c30695c0b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5639,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
@@ -308,7 +309,6 @@
     "active_collocations": [
       "collocation:019a9428676f9f88364f",
       "collocation:82c1a4081d7d98330adc",
-      "collocation:d96cd1b31957e4edb73d",
       "collocation:e65d6305d4ada93a7aa2"
     ],
     "facts": [],
@@ -326,7 +326,9 @@
       {
         "id": "collocation:d96cd1b31957e4edb73d",
         "source_row": 18391,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e65d6305d4ada93a7aa2",

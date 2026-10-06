@@ -10,9 +10,9 @@
     "content_hash": "54480cae413b55976f0b1bb39e58b56b3e664508f6b4d104c0ad17eb69b96c7f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "创立；建立；铸造",
-      "core_meaning_en": "to found/establish; also to cast metal",
-      "mental_model_cn": "默认先认独立动词 found=创立/建立；铸造是较低层。相同表面 found 作为 find 的过去式/过去分词由 Form 单独提示。",
+      "core_meaning_cn": "创立；建立",
+      "core_meaning_en": "to establish or bring an organization, institution, or settlement into existence",
+      "mental_model_cn": "organization/institution/settlement → 创立、建立。金属“铸造”义保留为 Reference。",
       "mental_model_en": "Default to lexical found = establish; casting metal is lower priority. The identical surface used as the past/past participle of find is handled in Form."
     },
     "exam_paraphrases": [],
@@ -40,30 +40,6 @@
         "sense_id": "sense:found:4ac77dc17bb452e5",
         "sense_label_en": "to establish or set up an organization, institution, or settlement",
         "sort_order": 0,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d8656ba068e7d22cf048",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:found:c3642182dee15ad8:collocation:0"
-            ],
-            "meaning_cn": "铸造钟",
-            "phrase": "found a bell"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "铸造",
-        "definition_en": "to cast (metal) by melting and pouring into a mold",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:found:c3642182dee15ad8",
-        "sense_label_en": "to cast (metal) by melting and pouring into a mold",
-        "sort_order": 1,
         "transitivity": "vt"
       }
     ],
@@ -404,6 +380,30 @@
       "source_row": 5633,
       "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d8656ba068e7d22cf048",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:found:c3642182dee15ad8:collocation:0"
+          ],
+          "meaning_cn": "铸造钟",
+          "phrase": "found a bell"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "铸造",
+      "definition_en": "to cast (metal) by melting and pouring into a mold",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:found:c3642182dee15ad8",
+      "sense_label_en": "to cast (metal) by melting and pouring into a mold",
+      "sort_order": 1,
+      "transitivity": "vt"
     }
   ],
   "identity_refs": {
@@ -417,7 +417,7 @@
       },
       {
         "sense_id": "sense:found:c3642182dee15ad8",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5632,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
@@ -430,9 +430,7 @@
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
       }
     ],
-    "active_collocations": [
-      "collocation:d8656ba068e7d22cf048"
-    ],
+    "active_collocations": [],
     "facts": [
       {
         "id": "deep:word_family:found:6cb0b14bd817fbe8",
@@ -459,7 +457,9 @@
       {
         "id": "collocation:d8656ba068e7d22cf048",
         "source_row": 18301,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

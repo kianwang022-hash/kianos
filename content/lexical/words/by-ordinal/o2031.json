@@ -10,9 +10,9 @@
     "content_hash": "5242c1980f8e5f9e938c824a9e909f217eeb1296e9a9bb5019775fe59ea1adf7",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "小部分或分数",
-      "core_meaning_en": "a small part or a numerical quotient",
-      "mental_model_cn": "小部分或分数",
+      "core_meaning_cn": "一小部分；分数",
+      "core_meaning_en": "a small part or amount; a mathematical fraction",
+      "mental_model_cn": "part/amount → 一小部分；math → 分数。分馏等过程得到的化学“馏分”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,39 +96,6 @@
         "sense_id": "sense:fraction:4204831b65225898",
         "sense_label_en": "a number that represents a part of a whole, such as 1/2",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6f75f4196e742df2fda1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fraction:228f9f25c0435405:collocation:0"
-            ],
-            "meaning_cn": "混合物的一部分（分离出的）",
-            "phrase": "a fraction of the mixture"
-          },
-          {
-            "collocation_id": "collocation:f9315940ff8d132d64bd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:fraction:228f9f25c0435405:collocation:1"
-            ],
-            "meaning_cn": "分离成各个部分",
-            "phrase": "separate into fractions"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（分馏等分离出的）成分；馏分",
-        "definition_en": "a component of a mixture that has been separated by a fractional process",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:fraction:228f9f25c0435405",
-        "sense_label_en": "a component of a mixture that has been separated by a fractional process",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -435,12 +402,46 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6f75f4196e742df2fda1",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:fraction:228f9f25c0435405:collocation:0"
+          ],
+          "meaning_cn": "混合物的一部分（分离出的）",
+          "phrase": "a fraction of the mixture"
+        },
+        {
+          "collocation_id": "collocation:f9315940ff8d132d64bd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:fraction:228f9f25c0435405:collocation:1"
+          ],
+          "meaning_cn": "分离成各个部分",
+          "phrase": "separate into fractions"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（分馏等分离出的）成分；馏分",
+      "definition_en": "a component of a mixture that has been separated by a fractional process",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:fraction:228f9f25c0435405",
+      "sense_label_en": "a component of a mixture that has been separated by a fractional process",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:fraction:228f9f25c0435405",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5647,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
@@ -463,11 +464,9 @@
     "active_collocations": [
       "collocation:2ac9a294f4972a340277",
       "collocation:2de9e4fe28aa2606f1b2",
-      "collocation:6f75f4196e742df2fda1",
       "collocation:d8d36a628ceeb0f5d9eb",
       "collocation:e2afe282dc909345f29a",
-      "collocation:ed4587e9b1b0e220ac94",
-      "collocation:f9315940ff8d132d64bd"
+      "collocation:ed4587e9b1b0e220ac94"
     ],
     "facts": [],
     "collocations": [
@@ -484,7 +483,9 @@
       {
         "id": "collocation:6f75f4196e742df2fda1",
         "source_row": 9411,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d8d36a628ceeb0f5d9eb",
@@ -504,7 +505,9 @@
       {
         "id": "collocation:f9315940ff8d132d64bd",
         "source_row": 21108,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
