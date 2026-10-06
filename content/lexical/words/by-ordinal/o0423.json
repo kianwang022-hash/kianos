@@ -29,18 +29,10 @@
             "sense:bathe:dee908aad07f5186",
             "sense:bathe:04c0873048285666"
           ]
-        },
-        {
-          "label_cn": "游泳",
-          "label_en": "an act of swimming",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:bathe:9dbb902e8a565f91"
-          ]
         }
       ],
-      "core_meaning_cn": "洗浴；游泳",
-      "core_meaning_en": "to wash or immerse in water, or an act of swimming",
+      "core_meaning_cn": "洗浴；游泳；使沐浴在光或液体中",
+      "core_meaning_en": "to wash/bathe, swim, or cover/suffuse with light or liquid",
       "mental_model_cn": "洗浴；游泳",
       "mental_model_en": ""
     },
@@ -123,30 +115,6 @@
         "sense_label_en": "to cover or suffuse with light or another substance",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4ffe5a918f2ee79a2988",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bathe:9dbb902e8a565f91:collocation:0"
-            ],
-            "meaning_cn": "游个泳",
-            "phrase": "have a bathe"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "游泳",
-        "definition_en": "an act of swimming",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bathe:9dbb902e8a565f91",
-        "sense_label_en": "an act of swimming",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -393,7 +361,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:4ffe5a918f2ee79a2988",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:bathe:9dbb902e8a565f91:collocation:0"
+          ],
+          "meaning_cn": "游个泳",
+          "phrase": "have a bathe"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "游泳",
+      "definition_en": "an act of swimming",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bathe:9dbb902e8a565f91",
+      "sense_label_en": "an act of swimming",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -412,7 +405,7 @@
       },
       {
         "sense_id": "sense:bathe:9dbb902e8a565f91",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1105,
         "source_path": "content/lexical/canonical/senses/shards/o0417-0448.json"
@@ -426,7 +419,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:4ffe5a918f2ee79a2988",
       "collocation:6d0af7d29992fed7dfc9",
       "collocation:ba7c1f086c55d598cfe4",
       "collocation:ef535fd0dd5042c339e8"
@@ -436,7 +428,9 @@
       {
         "id": "collocation:4ffe5a918f2ee79a2988",
         "source_row": 6752,
-        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6d0af7d29992fed7dfc9",
