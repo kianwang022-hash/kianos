@@ -27,6 +27,9 @@ const blockSourceConflict = Array.isArray(sourceContact.blockSourceConflict) ? s
 const blockVisualDebt = Array.isArray(sourceContact.blockVisualDebt) ? sourceContact.blockVisualDebt : [];
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
+// B1 reference slice only. This opens retrieval; it never certifies Chat or Source study.
+const postChatRecallAvailable = block?.systemId === 'circulation' && block?.slug === 'b01'
+  && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
 const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';
 const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';
 const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';
@@ -106,6 +109,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   data-study-source-hash={block.sourceHash || ''}
   data-block-label={block.label}
   data-source-contact-mode={sourceContactMode}
+  data-post-chat-recall-available={postChatRecallAvailable ? 'true' : 'false'}
   data-semantic-adapter={block.semanticAdapterSchema || ''}
 >
   <header class="portedStudyHeader">
@@ -194,6 +198,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
                   : integrationPrimary
                     ? '开始整合回忆'
                     : '去原讲义连续学习'}</button>
+            {postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆</button>}
           </footer>
         </section>
 
@@ -266,6 +271,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
               {globalBiochemistrySource
                 ? <a class="portedPrimaryAction" href={`${base}xizong/${block.systemId}/?view=biochemistry`}>回到 27 生化跟课</a>
                 : <button type="button" class="portedPrimaryAction" data-source-contact-done>{naturalSourceUnits ? '这个 Source unit 已完成' : integrationTargetedSourceReturns ? '这次定点回原讲义已完成' : '本段原讲义已完成'}</button>}
+              {postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆</button>}
             </footer>
           </section>
         )}
@@ -323,6 +329,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
           <header class="portedKpWorkspaceHeader">
             <div><span>主动回忆 · 当前学习节</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
+            {postChatRecallAvailable && <button type="button" data-stage-target="source_contact">回原讲义</button>}
             <div><button type="button" data-recall-prev>‹</button><em data-recall-counter>本节 1/{firstGroup?.kpCount || 1}</em><button type="button" data-recall-next>›</button></div>
           </header>
           <div class="portedKpCards">
@@ -389,6 +396,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   revisionRuntimeUrl,
   revisionWitness: block.learnerObject?.revisionWitness,
   sourcePerGroup,
+  postChatRecallAvailable,
   sourceContactPayload: sourceContact,
   sourceContactMode,
   naturalSourceUnits,
@@ -467,6 +475,10 @@ window.__kianosLearnerWriterReady.then(async () => {
     }
     // Missing legacy Source flags remain missing: learned counts cannot invent
     // a contact confirmation or turn UNKNOWN history into a Current claim.
+    // This optional field is navigation intent, scoped to the reference Block.
+    // Foreign/unknown values cannot release Recall or manufacture contact.
+    if (!postChatRecallAvailable || state.recallEntryMode !== 'POST_CHAT_RECALL') delete state.recallEntryMode;
+    const isPostChatRecall = () => postChatRecallAvailable && state.recallEntryMode === 'POST_CHAT_RECALL';
 
     // Bind a fresh empty state before Source adapters form their first evidence.
     if (!state.contentRevision) state = reconcileXizongRevision(state, revisionWitness);
@@ -1084,6 +1096,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       if (sourceRevisionMigrated && validStages.includes(state.stage) && state.stage !== 'block_complete') return;
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
+      if (isPostChatRecall() && ['logic_group', 'kp_learn'].includes(state.stage)) state.stage = 'kp_recall';
       const visualBlockedIndex = firstBlockingVisualGroupIndex();
       if (visualBlockedIndex >= 0) {
         // Keep historical completion; visual readiness gates current actions.
@@ -1173,7 +1186,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       let stage = requested || 'block_learn';
       // Historical UNKNOWN completion permits continuation without inventing
       // Source evidence or rewriting the learner's saved Recall position.
-      if (historicalXizongSourceContinuation(state)) {
+      if (historicalXizongSourceContinuation(state) || isPostChatRecall()) {
         // Whole-LG kp_learn is an actual explicit Source-view panel. Keep
         // that saved intention; only adapt legacy routes without that panel.
         if (stage === 'logic_group' || (stage === 'kp_learn' && !sourcePerGroup)) stage = 'kp_recall';
@@ -1246,6 +1259,12 @@ window.__kianosLearnerWriterReady.then(async () => {
       if (name === 'learn') setStage(state.stage || 'block_learn');
     };
     tabButtons.forEach((button) => button.addEventListener('click', () => switchTab(button.dataset.studyTab || 'learn')));
+    root.querySelectorAll('[data-post-chat-recall]').forEach((button) => button.addEventListener('click', () => {
+      if (!postChatRecallAvailable || root.dataset.xizongStateBlocked === 'true' || root.inert) return;
+      state.recallEntryMode = 'POST_CHAT_RECALL';
+      // Keep the current KP/LG/Resume. Only an actual revealed rating writes evidence.
+      setStage('kp_recall');
+    }));
     root.querySelectorAll('[data-stage-target],[data-stage-next]').forEach((button) => button.addEventListener('click', () => {
       switchTab('learn');
       const requested = button.getAttribute('data-stage-target') || button.getAttribute('data-stage-next') || 'block_learn';
@@ -1349,7 +1368,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       } else if (integrationPrimary) {
         ensureIntegrationPrimaryReady();
         setStage('kp_recall');
-      } else if (state.sourceContactDone) setStage('kp_recall');
+      } else if (state.sourceContactDone || isPostChatRecall()) setStage('kp_recall');
       else setStage('source_contact');
     });
     root.querySelector('[data-group-lecture-done]')?.addEventListener('click', () => {
@@ -1394,6 +1413,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       setStage('kp_recall');
     });
     const stageForSelectedGroup = () => {
+      if (isPostChatRecall()) return 'kp_recall';
       if (historicalXizongSourceContinuation(state)) return 'kp_recall';
       if (biochemistrySource?.laneSourceHash) return currentGroupSourceCovered() ? 'kp_recall' : 'source_contact';
       if (sourcePerGroup) return 'kp_learn';
@@ -1449,7 +1469,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       card.querySelectorAll('[data-rating]').forEach((button) => button.addEventListener('click', () => {
         const kpId = card.getAttribute('data-kp-id') || '';
         const value = button.getAttribute('data-rating') || '';
-        if (state.stage !== 'kp_recall' || card.hidden || answer?.hidden !== false || state.learned?.[kpId] !== true || card.dataset.ratingCommitted === 'true') return;
+        if (root.dataset.xizongStateBlocked === 'true' || root.inert || state.stage !== 'kp_recall' || card.hidden || answer?.hidden !== false || (state.learned?.[kpId] !== true && !isPostChatRecall()) || card.dataset.ratingCommitted === 'true') return;
         if (!['unknown', 'fuzzy', 'known', 'mastered'].includes(value)) return;
         card.dataset.ratingCommitted = 'true';
         revalidateXizongUnit(state, 'KP', kpId);
