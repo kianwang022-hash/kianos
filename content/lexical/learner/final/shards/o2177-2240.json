@@ -5441,26 +5441,40 @@
     "ordinal": 2208,
     "word": "grind",
     "source_owner_path": "content/lexical/words/by-ordinal/o2208.json",
-    "source_fingerprint": "f52a4b0d659cf7259d6e76b408ea588fbe2bf52436585a0fad2b2324eccaeeca",
+    "source_fingerprint": "e78a90d9a59df9ea30d84526ee95dc80932e53bf35bb94f1e3943abb364cb9ba",
     "sense_lineage": [
+      {
+        "word_id": "word:grind",
+        "target_kind": "sense",
+        "from_target_id": "sense:grind:8685d0b631b35c19",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:grind",
         "target_kind": "sense",
         "from_target_id": "sense:grind:f75f275c859c5ec6",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:grind",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:97d17c7190a8b85b68c1",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "磨碎、研磨；苦干或缓慢艰难地继续",
-      "decision_cn": "",
+      "decision_cn": "material → 磨碎/研磨；work/study → 苦干；process → grind on 缓慢推进；noun → 研磨粗细。低杠杆舞蹈义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5576,37 +5590,6 @@
           "target_id": "sense:grind:188274e620fa5dff",
           "target_locator": "record.senses[2]",
           "target_label": "研磨程度；细度"
-        }
-      },
-      {
-        "id": "sense:grind:8685d0b631b35c19",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + against",
-        "definition_cn": "扭摆（舞蹈动作）",
-        "definition_en": "dance by rotating the pelvis in an erotically suggestive way, often while in contact with one's partner such that the dancers' legs are interlaced",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:97d17c7190a8b85b68c1",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "grind against + sb/sth",
-            "meaning_cn": "与某人/某物扭摆摩擦",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:97d17c7190a8b85b68c1",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "grind against + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:grind:8685d0b631b35c19",
-          "target_locator": "record.senses[3]",
-          "target_label": "扭摆（舞蹈动作）"
         }
       }
     ],
@@ -5725,9 +5708,6 @@
         "sense:grind:188274e620fa5dff": [
           1
         ],
-        "sense:grind:8685d0b631b35c19": [
-          2
-        ],
         "sense:grind:e85ad2cf0edf5477": [
           3
         ]
@@ -5818,6 +5798,30 @@
           "source_row": 6160,
           "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:97d17c7190a8b85b68c1",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:grind:8685d0b631b35c19:collocation:0"
+              ],
+              "meaning_cn": "与某人/某物扭摆摩擦",
+              "phrase": "grind against + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "扭摆（舞蹈动作）",
+          "definition_en": "dance by rotating the pelvis in an erotically suggestive way, often while in contact with one's partner such that the dancers' legs are interlaced",
+          "governing_pattern": "vi. + against",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:grind:8685d0b631b35c19",
+          "sense_label_en": "dance by rotating the pelvis in an erotically suggestive way, often whil",
+          "sort_order": 3,
+          "transitivity": "vi"
         }
       ]
     }
@@ -5828,7 +5832,7 @@
     "ordinal": 2209,
     "word": "grip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2209.json",
-    "source_fingerprint": "b230dae0a0949c17ee84b1cebbcd84d51ad89a6890abcf9e01284b11f21f3692",
+    "source_fingerprint": "f245189dbdd89c56833663f61a93630e89d785d0c581f40732c3ec3cf3f8bd72",
     "sense_lineage": [
       {
         "word_id": "word:grip",
@@ -5861,7 +5865,7 @@
     },
     "word_feel": {
       "summary_cn": "紧握、控制；牢牢抓住；吸引注意力",
-      "decision_cn": "",
+      "decision_cn": "physical → 紧握；control → 掌控；attention → 吸引；come/get to grips with sth → 努力理解并处理问题。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5991,7 +5995,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:grip:come-get-to-grips-with",
+        "source_locator": "record.constructions[0]",
+        "pattern": "come/get to grips with sth",
+        "lines": [
+          {
+            "text": "开始理解并着手处理；设法应对",
+            "lang": "cn"
+          },
+          {
+            "text": "understand-and-deal-with idiom; distinct from literal physical gripping",
+            "lang": "en"
+          },
+          {
+            "text": "to make an effort to understand and deal with a problem or situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:grip:come-get-to-grips-with",
+          "target_locator": "record.constructions[0]",
+          "target_label": "come/get to grips with sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6568,24 +6598,39 @@
     "ordinal": 2213,
     "word": "gross",
     "source_owner_path": "content/lexical/words/by-ordinal/o2213.json",
-    "source_fingerprint": "04926a61e33ae1f6d1e129b42abcbff46331ee0491d8936e5d56ed4dfb909554",
-    "sense_lineage": [],
+    "source_fingerprint": "12cedbb53c46b898d53e9301fd10c4e767cee6e319a9ad459b43b61af7798e60",
+    "sense_lineage": [
+      {
+        "word_id": "word:gross",
+        "target_kind": "sense",
+        "from_target_id": "sense:gross:9d95b56e55bf53fd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gross",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:140545955cd6f801cb71",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
         "2A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "总的；粗俗的",
-      "decision_cn": "",
+      "summary_cn": "总额/毛额；总的；粗俗或恶心的",
+      "decision_cn": "finance → 未扣除前的总额/毛额；informal evaluation → 粗俗、恶心；gross sb out → 使人恶心。计数单位“一罗=144”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "总的；粗俗的"
+        "target_label": "总额/毛额；总的；粗俗或恶心的"
       }
     },
     "senses": [
@@ -6662,8 +6707,8 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "粗野的，恶劣的",
-        "definition_en": "very rude or offensive; coarse",
+        "definition_cn": "粗俗的；令人恶心的；恶劣的",
+        "definition_en": "very rude, offensive, unpleasant, or disgusting",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6680,7 +6725,7 @@
           "target_kind": "sense",
           "target_id": "sense:gross:edac74577c725c5b",
           "target_locator": "record.senses[2]",
-          "target_label": "粗野的，恶劣的"
+          "target_label": "粗俗的；令人恶心的；恶劣的"
         }
       },
       {
@@ -6707,32 +6752,6 @@
           "target_id": "sense:gross:816e14f311f9573b",
           "target_locator": "record.senses[3]",
           "target_label": "总共收入，毛利为"
-        }
-      },
-      {
-        "id": "sense:gross:9d95b56e55bf53fd",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "十二打，罗",
-        "definition_en": "a unit of count equal to twelve dozen",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:140545955cd6f801cb71",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a gross of pencils",
-            "meaning_cn": "一罗铅笔（144支）",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gross:9d95b56e55bf53fd",
-          "target_locator": "record.senses[4]",
-          "target_label": "十二打，罗"
         }
       }
     ],
@@ -6769,12 +6788,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:gross:gross-sb-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gross sb out",
+        "lines": [
+          {
+            "text": "使某人觉得恶心或极不舒服",
+            "lang": "cn"
+          },
+          {
+            "text": "mainly US informal phrasal verb; not financial gross",
+            "lang": "en"
+          },
+          {
+            "text": "to make someone feel very uncomfortable or disgusted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:gross:gross-sb-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gross sb out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:140545955cd6f801cb71",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:gross:9d95b56e55bf53fd:collocation:0"
+              ],
+              "meaning_cn": "一罗铅笔（144支）",
+              "phrase": "a gross of pencils"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "十二打，罗",
+          "definition_en": "a unit of count equal to twelve dozen",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:gross:9d95b56e55bf53fd",
+          "sense_label_en": "a unit of count equal to twelve dozen",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6783,7 +6854,7 @@
     "ordinal": 2214,
     "word": "ground",
     "source_owner_path": "content/lexical/words/by-ordinal/o2214.json",
-    "source_fingerprint": "7cd23b719a62261b3d34cf0474b67997c8e97d9fee4e8f0a0f1cef9d20e5b355",
+    "source_fingerprint": "11a531cabe201ecbf754c094804cc0cd16a7ab5fe8ce5e1251030b48b01efcd5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6966,7 +7037,33 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ground:on-the-grounds",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on the grounds of sth / on the grounds that ...",
+        "lines": [
+          {
+            "text": "以…为理由；因为…",
+            "lang": "cn"
+          },
+          {
+            "text": "plural grounds = reason/justification; distinct from physical ground",
+            "lang": "en"
+          },
+          {
+            "text": "for the reason that or because of a stated reason",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ground:on-the-grounds",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on the grounds of sth / on the grounds that ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7001,18 +7098,33 @@
     "ordinal": 2215,
     "word": "group",
     "source_owner_path": "content/lexical/words/by-ordinal/o2215.json",
-    "source_fingerprint": "1d27a3a8933f108218815cfc2cbb77dacb90950f9d4f3a1fe99b535f8d4bfa07",
-    "sense_lineage": [],
+    "source_fingerprint": "14c210e75af2ffbff9dc44a7f6d1714c3dd3ed7c99706c0532b2add468fdea76",
+    "sense_lineage": [
+      {
+        "word_id": "word:group",
+        "target_kind": "sense",
+        "from_target_id": "sense:group:a1e18bf7a8f4502d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:group",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5ee4bfc68bfb33b79384",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "组，团体，群；分组、归类",
-      "decision_cn": "",
+      "decision_cn": "people/things → 一组；verb → 分组/聚成群；chemistry → 原子团/周期表族。抽象代数“群”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7108,34 +7220,8 @@
         }
       },
       {
-        "id": "sense:group:a1e18bf7a8f4502d",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "群（数学）",
-        "definition_en": "a mathematical set with certain properties",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5ee4bfc68bfb33b79384",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "group theory",
-            "meaning_cn": "群论",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:group:a1e18bf7a8f4502d",
-          "target_locator": "record.senses[3]",
-          "target_label": "群（数学）"
-        }
-      },
-      {
         "id": "sense:group:c7cc822bb1ce57aa",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + together",
         "definition_cn": "聚集，成群",
@@ -7145,14 +7231,14 @@
         "usage": [
           {
             "id": "collocation:e956435cf08d08f3f573",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "group together",
             "meaning_cn": "聚集在一起",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e956435cf08d08f3f573",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "group together"
             }
           }
@@ -7160,7 +7246,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:group:c7cc822bb1ce57aa",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "聚集，成群"
         }
       }
@@ -7203,7 +7289,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5ee4bfc68bfb33b79384",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:group:a1e18bf7a8f4502d:collocation:0"
+              ],
+              "meaning_cn": "群论",
+              "phrase": "group theory"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "群（数学）",
+          "definition_en": "a mathematical set with certain properties",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:group:a1e18bf7a8f4502d",
+          "sense_label_en": "a mathematical set with certain properties",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7688,18 +7800,26 @@
     "ordinal": 2219,
     "word": "guarantee",
     "source_owner_path": "content/lexical/words/by-ordinal/o2219.json",
-    "source_fingerprint": "87a7626ef8798d42444de9ff3b7e2330794f977a3e26375e09d3d16652f3c77c",
-    "sense_lineage": [],
+    "source_fingerprint": "ba4938857c804b974fbf878b437be016e08e061d90186361c1144994d196de17",
+    "sense_lineage": [
+      {
+        "word_id": "word:guarantee",
+        "target_kind": "sense",
+        "from_target_id": "sense:guarantee:206b74fca60b5bcb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "保证；担保",
-      "decision_cn": "",
+      "decision_cn": "promise/certainty → 保证；product → 保修承诺/保证书；verb → 保证、担保。作为债务抵押物的银行/法律义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7834,23 +7954,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "保修单；保证书"
         }
-      },
-      {
-        "id": "sense:guarantee:206b74fca60b5bcb",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "抵押品；担保物",
-        "definition_en": "something given as security for a debt",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guarantee:206b74fca60b5bcb",
-          "target_locator": "record.senses[3]",
-          "target_label": "抵押品；担保物"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7878,7 +7981,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "抵押品；担保物",
+          "definition_en": "something given as security for a debt",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:guarantee:206b74fca60b5bcb",
+          "sense_label_en": "something given as security for a debt",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8503,18 +8622,33 @@
     "ordinal": 2224,
     "word": "guide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2224.json",
-    "source_fingerprint": "1d2994edebcd9cf121768f4cb16e26be18522faa43d49cce7c4373d82d74d10c",
-    "sense_lineage": [],
+    "source_fingerprint": "855a8e6bb040a48d80c15450b9268f7c4a1f940ec1dbb422775cdb05042ea641",
+    "sense_lineage": [
+      {
+        "word_id": "word:guide",
+        "target_kind": "sense",
+        "from_target_id": "sense:guide:94f47b572b5e5408",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guide",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e3fbe44eb49c8482446d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "引导；向导",
-      "decision_cn": "",
+      "decision_cn": "person → 向导；book/manual → 指南；verb → 带路或指导。机械/工程导向装置义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8631,32 +8765,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "指南；手册"
         }
-      },
-      {
-        "id": "sense:guide:94f47b572b5e5408",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "路标；导向装置",
-        "definition_en": "a structure or marking that directs motion or positioning",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e3fbe44eb49c8482446d",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a guide rail",
-            "meaning_cn": "导轨",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guide:94f47b572b5e5408",
-          "target_locator": "record.senses[4]",
-          "target_label": "路标；导向装置"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8729,6 +8837,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e3fbe44eb49c8482446d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:guide:94f47b572b5e5408:collocation:0"
+              ],
+              "meaning_cn": "导轨",
+              "phrase": "a guide rail"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "路标；导向装置",
+          "definition_en": "a structure or marking that directs motion or positioning",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:guide:94f47b572b5e5408",
+          "sense_label_en": "a structure or marking that directs motion or positioning",
+          "sort_order": 4,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -9318,23 +9452,37 @@
     "ordinal": 2230,
     "word": "gulf",
     "source_owner_path": "content/lexical/words/by-ordinal/o2230.json",
-    "source_fingerprint": "2cb98722dc0cb12b8d9e7a37b25a106ec37ff861732d99f9b312c95fa70fb3b0",
-    "sense_lineage": [],
+    "source_fingerprint": "174df090802942476ce85a35ba28b43eceb5ac9c25eaf8124d8366ea08ad41cb",
+    "sense_lineage": [
+      {
+        "word_id": "word:gulf",
+        "target_kind": "sense",
+        "from_target_id": "sense:gulf:1f13bc6c01bb5e4f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gulf",
+        "target_kind": "sense",
+        "from_target_id": "sense:gulf:c0d98e952d1754e6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "海湾或巨大差距",
-      "decision_cn": "",
+      "summary_cn": "海湾；巨大差距/鸿沟",
+      "decision_cn": "geography → 海湾；people/status/ideas → 巨大差距、鸿沟。文学性“深渊”与动词“吞没”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "海湾或巨大差距"
+        "target_label": "海湾；巨大差距/鸿沟"
       }
     },
     "senses": [
@@ -9405,40 +9553,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "隔阂；鸿沟"
         }
-      },
-      {
-        "id": "sense:gulf:1f13bc6c01bb5e4f",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "深渊；深坑",
-        "definition_en": "a deep wide chasm or abyss",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gulf:1f13bc6c01bb5e4f",
-          "target_locator": "record.senses[2]",
-          "target_label": "深渊；深坑"
-        }
-      },
-      {
-        "id": "sense:gulf:c0d98e952d1754e6",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "吞没",
-        "definition_en": "to swallow up or engulf",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gulf:c0d98e952d1754e6",
-          "target_locator": "record.senses[3]",
-          "target_label": "吞没"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9477,7 +9591,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "深渊；深坑",
+          "definition_en": "a deep wide chasm or abyss",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:gulf:1f13bc6c01bb5e4f",
+          "sense_label_en": "a deep wide chasm or abyss",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "吞没",
+          "definition_en": "to swallow up or engulf",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:gulf:c0d98e952d1754e6",
+          "sense_label_en": "to swallow up or engulf",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -9486,7 +9630,7 @@
     "ordinal": 2231,
     "word": "gum",
     "source_owner_path": "content/lexical/words/by-ordinal/o2231.json",
-    "source_fingerprint": "79646c709ae73c88eb5e52f50f5a7f15b55a352458c8e2648c37566000cdfcd0",
+    "source_fingerprint": "c19e9e94289d385ecf214d4ffc997693d6a626df034683028fd1af7a27d564d3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9689,7 +9833,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:gum:gum-up-the-works",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gum up the works",
+        "lines": [
+          {
+            "text": "把事情搞乱；妨碍系统正常运转",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative obstruction idiom; distinct from literal gum/stickiness",
+            "lang": "en"
+          },
+          {
+            "text": "to prevent a process, system, or organization from working smoothly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:gum:gum-up-the-works",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gum up the works"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9883,18 +10053,33 @@
     "ordinal": 2233,
     "word": "gut",
     "source_owner_path": "content/lexical/words/by-ordinal/o2233.json",
-    "source_fingerprint": "120ee0521a4b0a786b7b11d72a52941b0d37c394f027d075e055e47e08709cf8",
-    "sense_lineage": [],
+    "source_fingerprint": "09a0bce4ecb4c8aa6964cdcfaac1513cad44fa6495f5f77745583bf69e53f985",
+    "sense_lineage": [
+      {
+        "word_id": "word:gut",
+        "target_kind": "sense",
+        "from_target_id": "sense:gut:c7e4c7c4f55c514e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gut",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:69728a3c89e378b8bedf",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "内脏或内部；去除或毁坏内部",
-      "decision_cn": "",
+      "decision_cn": "body/inside → 内脏、肚子、内部；gut an animal → 去内脏；fire gutted a building → 毁掉内部；gut feeling / have the guts → 直觉/勇气。地理“狭水道”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9974,34 +10159,8 @@
         }
       },
       {
-        "id": "sense:gut:c7e4c7c4f55c514e",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "海峡；狭水道",
-        "definition_en": "a narrow channel or strait",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:69728a3c89e378b8bedf",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the Gut of Canso",
-            "meaning_cn": "坎索海峡",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gut:c7e4c7c4f55c514e",
-          "target_locator": "record.senses[2]",
-          "target_label": "海峡；狭水道"
-        }
-      },
-      {
         "id": "sense:gut:fe5b6eba20e2549e",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "毁坏（建筑物等）的内部",
@@ -10011,7 +10170,7 @@
         "usage": [
           {
             "id": "collocation:67004428f2d2fabf90b8",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "gut a building",
             "meaning_cn": "烧毁建筑内部",
             "kind": "usage_example",
@@ -10021,7 +10180,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gut:fe5b6eba20e2549e",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "毁坏（建筑物等）的内部"
         }
       }
@@ -10062,7 +10221,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:69728a3c89e378b8bedf",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:gut:c7e4c7c4f55c514e:collocation:0"
+              ],
+              "meaning_cn": "坎索海峡",
+              "phrase": "the Gut of Canso"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "海峡；狭水道",
+          "definition_en": "a narrow channel or strait",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:gut:c7e4c7c4f55c514e",
+          "sense_label_en": "a narrow channel or strait",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10071,23 +10256,65 @@
     "ordinal": 2234,
     "word": "guy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2234.json",
-    "source_fingerprint": "56026ff22bf262c8235d7050cc5b0bfcde68efeb0a8785915d1f78e90ff523a7",
-    "sense_lineage": [],
+    "source_fingerprint": "4b55d95af893e82d243904b089115b640d9aa1bc4a8ae79d0fa6b590fa9bb098",
+    "sense_lineage": [
+      {
+        "word_id": "word:guy",
+        "target_kind": "sense",
+        "from_target_id": "sense:guy:098ffa2b70d4557e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guy",
+        "target_kind": "sense",
+        "from_target_id": "sense:guy:ae80ad5bd7fe5cfa",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guy",
+        "target_kind": "sense",
+        "from_target_id": "sense:guy:c2e20cf020fa5a39",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3519618be8956710f00c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:44c7650a8ba4096c5b50",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:guy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:63ae22e5386daebff1a8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "家伙；男人（非正式）",
-      "decision_cn": "",
+      "summary_cn": "家伙；男人；复数 guys 也可泛指/称呼一群人",
+      "decision_cn": "singular guy → 非正式“家伙/男人”；guys/you guys → 大家、各位。支索/拉线及旧式“嘲弄”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "家伙；男人（非正式）"
+        "target_label": "家伙；男人；复数 guys 也可泛指/称呼一群人"
       }
     },
     "senses": [
@@ -10096,8 +10323,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "家伙；男人（非正式）",
-        "definition_en": "an informal term for a youth or man",
+        "definition_cn": "家伙；男人（非正式）；复数 guys 也常用于称呼一群人",
+        "definition_en": "informal: a man or person; plural guys is also commonly used to address a group of people of any gender",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -10105,100 +10332,7 @@
           "target_kind": "sense",
           "target_id": "sense:guy:9d4a4f75f34852a5",
           "target_locator": "record.senses[0]",
-          "target_label": "家伙；男人（非正式）"
-        }
-      },
-      {
-        "id": "sense:guy:c2e20cf020fa5a39",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "支索，拉线",
-        "definition_en": "a cable, wire, or rope used to brace something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3519618be8956710f00c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "guy wire",
-            "meaning_cn": "拉线，支索",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3519618be8956710f00c",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "guy wire"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:c2e20cf020fa5a39",
-          "target_locator": "record.senses[1]",
-          "target_label": "支索，拉线"
-        }
-      },
-      {
-        "id": "sense:guy:ae80ad5bd7fe5cfa",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用支索撑住",
-        "definition_en": "steady or support with a guy wire or cable",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:44c7650a8ba4096c5b50",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "guy + sth",
-            "meaning_cn": "用支索固定某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:44c7650a8ba4096c5b50",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "guy + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:ae80ad5bd7fe5cfa",
-          "target_locator": "record.senses[2]",
-          "target_label": "用支索撑住"
-        }
-      },
-      {
-        "id": "sense:guy:098ffa2b70d4557e",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "取笑，嘲弄",
-        "definition_en": "make fun of or tease",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:63ae22e5386daebff1a8",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "guy + sb",
-            "meaning_cn": "取笑某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:63ae22e5386daebff1a8",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "guy + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:guy:098ffa2b70d4557e",
-          "target_locator": "record.senses[3]",
-          "target_label": "取笑，嘲弄"
+          "target_label": "家伙；男人（非正式）；复数 guys 也常用于称呼一群人"
         }
       }
     ],
@@ -10220,12 +10354,112 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:guy:you-guys",
+        "source_locator": "record.constructions[0]",
+        "pattern": "you guys / guys",
+        "lines": [
+          {
+            "text": "大家；各位（主要美式，复数，可称呼任何性别的一群人）",
+            "lang": "cn"
+          },
+          {
+            "text": "plural group-address use; not the technical guy-wire lexeme",
+            "lang": "en"
+          },
+          {
+            "text": "used, especially in American English, to address a group of people of any gender",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:guy:you-guys",
+          "target_locator": "record.constructions[0]",
+          "target_label": "you guys / guys"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3519618be8956710f00c",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:guy:c2e20cf020fa5a39:collocation:0"
+              ],
+              "meaning_cn": "拉线，支索",
+              "phrase": "guy wire"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "支索，拉线",
+          "definition_en": "a cable, wire, or rope used to brace something",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:guy:c2e20cf020fa5a39",
+          "sense_label_en": "a cable, wire, or rope used to brace something",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:44c7650a8ba4096c5b50",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:guy:ae80ad5bd7fe5cfa:collocation:0"
+              ],
+              "meaning_cn": "用支索固定某物",
+              "phrase": "guy + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用支索撑住",
+          "definition_en": "steady or support with a guy wire or cable",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:guy:ae80ad5bd7fe5cfa",
+          "sense_label_en": "steady or support with a guy wire or cable",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:63ae22e5386daebff1a8",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:guy:098ffa2b70d4557e:collocation:0"
+              ],
+              "meaning_cn": "取笑某人",
+              "phrase": "guy + sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "取笑，嘲弄",
+          "definition_en": "make fun of or tease",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:guy:098ffa2b70d4557e",
+          "sense_label_en": "make fun of or tease",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

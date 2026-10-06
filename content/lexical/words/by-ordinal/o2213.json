@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:gross:gross-sb-out",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "使某人觉得恶心或极不舒服",
+        "definition_en": "to make someone feel very uncomfortable or disgusted",
+        "pattern": "gross sb out",
+        "source_sense_id": "sense:gross:edac74577c725c5b",
+        "boundary": "mainly US informal phrasal verb; not financial gross"
+      }
+    ],
     "content_hash": "61f891914978fa47f49dc59d62c380866493dc9973028cb028756a6b1f543661",
     "core_concept": {
       "core_clusters": [
@@ -15,8 +26,7 @@
           "label_en": "the entire amount of income before any deductions are made; a unit of count equal to twelve dozen",
           "pos": "noun",
           "sense_ids": [
-            "sense:gross:6101087d70ce5ac1",
-            "sense:gross:9d95b56e55bf53fd"
+            "sense:gross:6101087d70ce5ac1"
           ]
         },
         {
@@ -37,9 +47,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "总的；粗俗的",
+      "core_meaning_cn": "总额/毛额；总的；粗俗或恶心的",
       "core_meaning_en": "total amount before deductions; coarse or vulgar",
-      "mental_model_cn": "总的；粗俗的",
+      "mental_model_cn": "finance → 未扣除前的总额/毛额；informal evaluation → 粗俗、恶心；gross sb out → 使人恶心。计数单位“一罗=144”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -129,14 +139,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "粗野的，恶劣的",
-        "definition_en": "very rude or offensive; coarse",
+        "definition_cn": "粗俗的；令人恶心的；恶劣的",
+        "definition_en": "very rude, offensive, unpleasant, or disgusting",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:gross:edac74577c725c5b",
-        "sense_label_en": "very rude or offensive; coarse",
+        "sense_label_en": "very rude, offensive, unpleasant, or disgusting",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -163,30 +173,6 @@
         "sense_label_en": "to earn an amount of money before taxes or costs are taken away",
         "sort_order": 3,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:140545955cd6f801cb71",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gross:9d95b56e55bf53fd:collocation:0"
-            ],
-            "meaning_cn": "一罗铅笔（144支）",
-            "phrase": "a gross of pencils"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "十二打，罗",
-        "definition_en": "a unit of count equal to twelve dozen",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:gross:9d95b56e55bf53fd",
-        "sense_label_en": "a unit of count equal to twelve dozen",
-        "sort_order": 4,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -447,7 +433,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:140545955cd6f801cb71",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:gross:9d95b56e55bf53fd:collocation:0"
+          ],
+          "meaning_cn": "一罗铅笔（144支）",
+          "phrase": "a gross of pencils"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "十二打，罗",
+      "definition_en": "a unit of count equal to twelve dozen",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:gross:9d95b56e55bf53fd",
+      "sense_label_en": "a unit of count equal to twelve dozen",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -473,7 +484,7 @@
       },
       {
         "sense_id": "sense:gross:9d95b56e55bf53fd",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6177,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
@@ -487,7 +498,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:140545955cd6f801cb71",
       "collocation:3fad2ec1a98a43168ecc",
       "collocation:5cd88773940d191f46c8",
       "collocation:6a719eed1752bfaba5b0",
@@ -500,7 +510,9 @@
       {
         "id": "collocation:140545955cd6f801cb71",
         "source_row": 1655,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:3fad2ec1a98a43168ecc",
