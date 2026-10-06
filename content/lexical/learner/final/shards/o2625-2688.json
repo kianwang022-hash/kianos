@@ -303,7 +303,7 @@
     "ordinal": 2627,
     "word": "invalid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2627.json",
-    "source_fingerprint": "c271188d6f972f81c78ba2b223b1d9998de5c508079950212de62351a47034a2",
+    "source_fingerprint": "bb99a680be5dae3772902c858f5bf47d96c69fbbe5c9b447a63a0270c3d74bb0",
     "sense_lineage": [
       {
         "word_id": "word:invalid",
@@ -311,18 +311,24 @@
         "from_target_id": "sense:invalid:0c40fe881e2958c7",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:invalid",
+        "target_kind": "sense",
+        "from_target_id": "sense:invalid:4354699e448b5545",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "无效的；不成立的",
-      "decision_cn": "",
+      "decision_cn": "现代默认 adjective invalid → 无效的、不成立的。旧式用作人的名词义现多避免，保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -354,31 +360,6 @@
           "target_id": "sense:invalid:a54f27133cd658b3",
           "target_locator": "record.senses[0]",
           "target_label": "无效的；不成立的；不被规则/系统接受的"
-        }
-      },
-      {
-        "id": "sense:invalid:4354699e448b5545",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "病人；伤残者",
-        "definition_en": "a person who is very weak or disabled due to illness or injury",
-        "note": "Old-fashioned and potentially inappropriate for a sick or disabled person.",
-        "identity_overlay": {
-          "text": "pronunciation_by_part_of_speech",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "pronunciation_by_part_of_speech"
-          }
-        },
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:invalid:4354699e448b5545",
-          "target_locator": "record.senses[1]",
-          "target_label": "病人；伤残者"
         }
       }
     ],
@@ -454,9 +435,6 @@
       "sense_readings": {
         "sense:invalid:a54f27133cd658b3": [
           0
-        ],
-        "sense:invalid:4354699e448b5545": [
-          1
         ]
       },
       "has_scope": true
@@ -493,6 +471,27 @@
           "source_row": 7242,
           "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "旧式、现多避免：病弱者或残疾人",
+          "definition_en": "dated and now often avoided: a person who is chronically ill or disabled",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "identity_type": "pronunciation_by_part_of_speech",
+            "pronunciation": "dated noun /ˈɪnvəlɪd/",
+            "surface_lemma": "invalid"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "register": "dated/old-fashioned",
+          "sense_id": "sense:invalid:4354699e448b5545",
+          "sense_label_en": "dated and now often avoided: a person who is chronically ill or disabled",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "usage_note": "Old-fashioned and potentially inappropriate for a sick or disabled person."
         }
       ]
     }
@@ -589,17 +588,32 @@
     "ordinal": 2629,
     "word": "invasion",
     "source_owner_path": "content/lexical/words/by-ordinal/o2629.json",
-    "source_fingerprint": "568b12df2c854f725550647ceb28ca142f3075452cdbf2dbe109178b5a5c29f2",
-    "sense_lineage": [],
+    "source_fingerprint": "3c834238fad66e575853cff2e9183046078774d887e0ae0b49dc2d34f424ddd6",
+    "sense_lineage": [
+      {
+        "word_id": "word:invasion",
+        "target_kind": "sense",
+        "from_target_id": "sense:invasion:074d2e43807d5ffb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:invasion",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5cd3a19cc61170f5ae49",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "强行进入或不受欢迎的侵入",
-      "decision_cn": "",
+      "decision_cn": "military → 入侵/侵略；figurative/general → 不受欢迎的侵入，如 invasion of privacy。病理“肿瘤/病原体侵袭”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -664,32 +678,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "侵入，闯入"
         }
-      },
-      {
-        "id": "sense:invasion:074d2e43807d5ffb",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（病理）侵袭，扩散",
-        "definition_en": "the spread of pathogenic microorganisms or malignant cells to new sites in the body",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5cd3a19cc61170f5ae49",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "tumor invasion",
-            "meaning_cn": "肿瘤侵袭",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:invasion:074d2e43807d5ffb",
-          "target_locator": "record.senses[2]",
-          "target_label": "（病理）侵袭，扩散"
-        }
       }
     ],
     "pronunciation_support": {
@@ -725,6 +713,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5cd3a19cc61170f5ae49",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:invasion:074d2e43807d5ffb:collocation:0"
+              ],
+              "meaning_cn": "肿瘤侵袭",
+              "phrase": "tumor invasion"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（病理）侵袭，扩散",
+          "definition_en": "the spread of pathogenic microorganisms or malignant cells to new sites in the body",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:invasion:074d2e43807d5ffb",
+          "sense_label_en": "the spread of pathogenic microorganisms or malignant cells to new sites ",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -1216,18 +1230,33 @@
     "ordinal": 2633,
     "word": "inverse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2633.json",
-    "source_fingerprint": "4d8e7e256b6ae86de3da6aa569fb17cbc50ae6f14b5da8bd1d754f51973b64fb",
-    "sense_lineage": [],
+    "source_fingerprint": "baaac9d678a44c9fc8dadcad6949c3c88ee3f7960cdc53a7394b8c881462560d",
+    "sense_lineage": [
+      {
+        "word_id": "word:inverse",
+        "target_kind": "sense",
+        "from_target_id": "sense:inverse:c5db044642e15db5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:inverse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bdd167256a47103a12cd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "相反的；反向",
-      "decision_cn": "",
+      "decision_cn": "adjective → 相反/反向，如 inverse relationship；noun → 相反事物。数学“倒数/乘法逆元”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1310,37 +1339,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "反面；相反的事物"
         }
-      },
-      {
-        "id": "sense:inverse:c5db044642e15db5",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "倒数（数学）",
-        "definition_en": "a reciprocal quantity in mathematics",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bdd167256a47103a12cd",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "multiplicative inverse",
-            "meaning_cn": "乘法逆元",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bdd167256a47103a12cd",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "multiplicative inverse"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inverse:c5db044642e15db5",
-          "target_locator": "record.senses[2]",
-          "target_label": "倒数（数学）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1381,7 +1379,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bdd167256a47103a12cd",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:inverse:c5db044642e15db5:collocation:0"
+              ],
+              "meaning_cn": "乘法逆元",
+              "phrase": "multiplicative inverse"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "倒数（数学）",
+          "definition_en": "a reciprocal quantity in mathematics",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:inverse:c5db044642e15db5",
+          "sense_label_en": "a reciprocal quantity in mathematics",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1857,17 +1881,25 @@
     "ordinal": 2637,
     "word": "investment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2637.json",
-    "source_fingerprint": "6bfff869c5aa96216860731bd801487bd967b86d0c2ca3c39d8fc8ea1ceb77eb",
-    "sense_lineage": [],
+    "source_fingerprint": "cc67ed3bd5b53ba490f911904984a4b63a0bf638bd3aa541bc6c50bb55969f1c",
+    "sense_lineage": [
+      {
+        "word_id": "word:investment",
+        "target_kind": "sense",
+        "from_target_id": "sense:investment:c68f1b5bdbc65acc",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "投资或投入",
-      "decision_cn": "",
+      "decision_cn": "money → 投资；time/effort → 投入。生物/解剖“包被、外膜”专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1940,23 +1972,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "（时间、精力等的）投入"
         }
-      },
-      {
-        "id": "sense:investment:c68f1b5bdbc65acc",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "包被；外被；被膜（生物/解剖，专业）",
-        "definition_en": "outer layer or covering of an organ, part, or organism",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:investment:c68f1b5bdbc65acc",
-          "target_locator": "record.senses[2]",
-          "target_label": "包被；外被；被膜（生物/解剖，专业）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2003,6 +2018,22 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "包被；外被；被膜（生物/解剖，专业）",
+          "definition_en": "outer layer or covering of an organ, part, or organism",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:investment:c68f1b5bdbc65acc",
+          "sense_label_en": "outer layer or covering of an organ, part, or organism",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -2996,18 +3027,47 @@
     "ordinal": 2644,
     "word": "iron",
     "source_owner_path": "content/lexical/words/by-ordinal/o2644.json",
-    "source_fingerprint": "bf25ec5f7f77fc50b28896b6932a61a458261238a984ba66ca3e497ca4e22c26",
-    "sense_lineage": [],
+    "source_fingerprint": "e8cdbe0a1270b6be17d57bb929ca52854d3e30d234f54ff14e984fa28d5cc246",
+    "sense_lineage": [
+      {
+        "word_id": "word:iron",
+        "target_kind": "sense",
+        "from_target_id": "sense:iron:1b68649c49055c39",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:iron",
+        "target_kind": "sense",
+        "from_target_id": "sense:iron:44cc72db80e95918",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:iron",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0a1141b9c49b55129d10",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:iron",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:689e3a3330036620710f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "(2+1)V",
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "铁；熨斗",
-      "decision_cn": "",
+      "decision_cn": "material → 铁；appliance → 熨斗；verb → 熨烫；iron sth out → 解决问题/分歧。高尔夫铁杆和烙印工具义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3082,60 +3142,8 @@
         }
       },
       {
-        "id": "sense:iron:1b68649c49055c39",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "高尔夫球铁杆",
-        "definition_en": "a golf club that has a relatively narrow metal head",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:689e3a3330036620710f",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a set of irons",
-            "meaning_cn": "一套铁杆",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:iron:1b68649c49055c39",
-          "target_locator": "record.senses[2]",
-          "target_label": "高尔夫球铁杆"
-        }
-      },
-      {
-        "id": "sense:iron:44cc72db80e95918",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "烙铁",
-        "definition_en": "implement used to brand live stock",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0a1141b9c49b55129d10",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a branding iron",
-            "meaning_cn": "烙铁",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:iron:44cc72db80e95918",
-          "target_locator": "record.senses[3]",
-          "target_label": "烙铁"
-        }
-      },
-      {
         "id": "sense:iron:6df34532c197576c",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "熨，烫平",
@@ -3145,7 +3153,7 @@
         "usage": [
           {
             "id": "collocation:905a934bd1a4e3938825",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "iron a shirt",
             "meaning_cn": "熨衬衫",
             "kind": "usage_example",
@@ -3155,13 +3163,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:iron:6df34532c197576c",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[2]",
           "target_label": "熨，烫平"
         }
       },
       {
         "id": "sense:iron:1a142bf970af50f0",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + out",
         "definition_cn": "（衣物）被烫平",
@@ -3171,7 +3179,7 @@
         "usage": [
           {
             "id": "collocation:249ff3b21fd2878a16b1",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "This fabric irons well.",
             "meaning_cn": "这种布料容易烫平。",
             "kind": "usage_example",
@@ -3181,7 +3189,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:iron:1a142bf970af50f0",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[3]",
           "target_label": "（衣物）被烫平"
         }
       }
@@ -3265,7 +3273,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:689e3a3330036620710f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:iron:1b68649c49055c39:collocation:0"
+              ],
+              "meaning_cn": "一套铁杆",
+              "phrase": "a set of irons"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "高尔夫球铁杆",
+          "definition_en": "a golf club that has a relatively narrow metal head",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:iron:1b68649c49055c39",
+          "sense_label_en": "a golf club that has a relatively narrow metal head",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0a1141b9c49b55129d10",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:iron:44cc72db80e95918:collocation:0"
+              ],
+              "meaning_cn": "烙铁",
+              "phrase": "a branding iron"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "烙铁",
+          "definition_en": "implement used to brand live stock",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:iron:44cc72db80e95918",
+          "sense_label_en": "implement used to brand live stock",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3600,22 +3658,37 @@
     "ordinal": 2647,
     "word": "irrigate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2647.json",
-    "source_fingerprint": "f182021f3bf43774efccc8875c5f33dc50ef6a16f0addcc0a68fc6e7c234ef11",
-    "sense_lineage": [],
+    "source_fingerprint": "c06d2fd7b9a0c12587000c4727bedc9ac3231be6cfdd2ea4f217b92e0ff2b896",
+    "sense_lineage": [
+      {
+        "word_id": "word:irrigate",
+        "target_kind": "sense",
+        "from_target_id": "sense:irrigate:684fd6e2ad5b5502",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:irrigate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:88ebe17887034365509d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "供水或液体",
-      "decision_cn": "",
+      "summary_cn": "灌溉",
+      "decision_cn": "general center → 灌溉田地/作物。医学“用液体冲洗伤口”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "供水或液体"
+        "target_label": "灌溉"
       }
     },
     "senses": [
@@ -3643,32 +3716,6 @@
           "target_id": "sense:irrigate:3bcea28e6872547c",
           "target_locator": "record.senses[0]",
           "target_label": "灌溉（田地）"
-        }
-      },
-      {
-        "id": "sense:irrigate:684fd6e2ad5b5502",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "冲洗（伤口）",
-        "definition_en": "to wash out a wound or body part with a stream of liquid",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:88ebe17887034365509d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "irrigate the wound",
-            "meaning_cn": "冲洗伤口",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:irrigate:684fd6e2ad5b5502",
-          "target_locator": "record.senses[1]",
-          "target_label": "冲洗（伤口）"
         }
       }
     ],
@@ -3719,7 +3766,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:88ebe17887034365509d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:irrigate:684fd6e2ad5b5502:collocation:0"
+              ],
+              "meaning_cn": "冲洗伤口",
+              "phrase": "irrigate the wound"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "冲洗（伤口）",
+          "definition_en": "to wash out a wound or body part with a stream of liquid",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:irrigate:684fd6e2ad5b5502",
+          "sense_label_en": "to wash out a wound or body part with a stream of liquid",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3728,17 +3801,32 @@
     "ordinal": 2648,
     "word": "irritate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2648.json",
-    "source_fingerprint": "e437dec8203a2f04688aed1af9240f4aaba2efc5a1a5f2de432c0f41204951ab",
-    "sense_lineage": [],
+    "source_fingerprint": "378fe6150ac394202eb1d35d50291371f2f81654995f43c333a6e1aac8047504",
+    "sense_lineage": [
+      {
+        "word_id": "word:irritate",
+        "target_kind": "sense",
+        "from_target_id": "sense:irritate:db9e8fa460cb570a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:irritate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a018961765b2a67e0c4a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "引起恼怒、刺激或发炎",
-      "decision_cn": "",
+      "decision_cn": "person → 惹恼；skin/body → 刺激、使发炎。生理学“刺激器官/组织使其活动”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3816,32 +3904,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "使发炎，刺激（身体部位）"
         }
-      },
-      {
-        "id": "sense:irritate:db9e8fa460cb570a",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "刺激（器官或组织）使其活动",
-        "definition_en": "to stimulate a bodily organ or tissue to activity",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a018961765b2a67e0c4a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "irritate a nerve",
-            "meaning_cn": "刺激神经",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:irritate:db9e8fa460cb570a",
-          "target_locator": "record.senses[2]",
-          "target_label": "刺激（器官或组织）使其活动"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3891,7 +3953,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a018961765b2a67e0c4a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:irritate:db9e8fa460cb570a:collocation:0"
+              ],
+              "meaning_cn": "刺激神经",
+              "phrase": "irritate a nerve"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "刺激（器官或组织）使其活动",
+          "definition_en": "to stimulate a bodily organ or tissue to activity",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:irritate:db9e8fa460cb570a",
+          "sense_label_en": "to stimulate a bodily organ or tissue to activity",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3900,18 +3988,32 @@
     "ordinal": 2649,
     "word": "island",
     "source_owner_path": "content/lexical/words/by-ordinal/o2649.json",
-    "source_fingerprint": "44a3e189d8ac8f63d01b71099e6b34aa36144220a9f3e85e0ebcee891aa02214",
-    "sense_lineage": [],
+    "source_fingerprint": "ce5bafb663f34ffd4fb6f4911bc04a881787c74c9aa778b0861a094d1258bc79",
+    "sense_lineage": [
+      {
+        "word_id": "word:island",
+        "target_kind": "sense",
+        "from_target_id": "sense:island:e97de064b4625b4b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:island",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d733266051680a5590a6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "被水环绕的陆地",
-      "decision_cn": "",
+      "decision_cn": "literal → 岛屿；extended noun → 与周围分离的小区域/安全岛。少见动词“使成岛状、孤立”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3979,37 +4081,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "孤立地区，安全岛"
         }
-      },
-      {
-        "id": "sense:island:e97de064b4625b4b",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使成岛状，孤立",
-        "definition_en": "to make something into an island or isolate it",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d733266051680a5590a6",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "island + sth",
-            "meaning_cn": "使某物成岛状",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d733266051680a5590a6",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "island + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:island:e97de064b4625b4b",
-          "target_locator": "record.senses[2]",
-          "target_label": "使成岛状，孤立"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4053,7 +4124,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d733266051680a5590a6",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:island:e97de064b4625b4b:collocation:0"
+              ],
+              "meaning_cn": "使某物成岛状",
+              "phrase": "island + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使成岛状，孤立",
+          "definition_en": "to make something into an island or isolate it",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:island:e97de064b4625b4b",
+          "sense_label_en": "to make something into an island or isolate it",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

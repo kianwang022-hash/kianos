@@ -18,19 +18,11 @@
             "sense:interrupt:cc5596327725503e",
             "sense:interrupt:968b13d6f085510b"
           ]
-        },
-        {
-          "label_cn": "中断信号",
-          "label_en": "a signal that stops a program temporarily",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:interrupt:282dc21a19c95d70"
-          ]
         }
       ],
       "core_meaning_cn": "打断，中断",
       "core_meaning_en": "to stop something temporarily or to break the continuity of something",
-      "mental_model_cn": "打断，中断",
+      "mental_model_cn": "conversation → 打断/插嘴；activity/process → 暂时中断。计算机“中断信号”名词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -73,30 +65,6 @@
         "sense_label_en": "to stop someone from speaking by saying something",
         "sort_order": 0,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b4bcd6a27dfa3b7dafeb",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:interrupt:282dc21a19c95d70:collocation:0"
-            ],
-            "meaning_cn": "硬件中断",
-            "phrase": "hardware interrupt"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "中断信号",
-        "definition_en": "a signal that stops a program temporarily",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:interrupt:282dc21a19c95d70",
-        "sense_label_en": "a signal that stops a program temporarily",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [],
@@ -362,13 +330,37 @@
       "source_row": 7201,
       "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b4bcd6a27dfa3b7dafeb",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:interrupt:282dc21a19c95d70:collocation:0"
+          ],
+          "meaning_cn": "硬件中断",
+          "phrase": "hardware interrupt"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "中断信号",
+      "definition_en": "a signal that stops a program temporarily",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:interrupt:282dc21a19c95d70",
+      "sense_label_en": "a signal that stops a program temporarily",
+      "sort_order": 1,
+      "transitivity": "nonverb"
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:interrupt:282dc21a19c95d70",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7199,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
@@ -397,7 +389,6 @@
     ],
     "active_collocations": [
       "collocation:027f4d4bc873a2b996fd",
-      "collocation:b4bcd6a27dfa3b7dafeb",
       "collocation:e0bfd2adffbfe1ef0083"
     ],
     "facts": [],
@@ -425,7 +416,9 @@
       {
         "id": "collocation:b4bcd6a27dfa3b7dafeb",
         "source_row": 15317,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e0bfd2adffbfe1ef0083",

@@ -18,19 +18,11 @@
             "sense:island:f2ae58f4e69a5c07",
             "sense:island:500f93c458735d40"
           ]
-        },
-        {
-          "label_cn": "使成岛状，孤立",
-          "label_en": "to make something into an island or isolate it",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:island:e97de064b4625b4b"
-          ]
         }
       ],
       "core_meaning_cn": "被水环绕的陆地",
       "core_meaning_en": "a piece of land surrounded by water",
-      "mental_model_cn": "被水环绕的陆地",
+      "mental_model_cn": "literal → 岛屿；extended noun → 与周围分离的小区域/安全岛。少见动词“使成岛状、孤立”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -97,30 +89,6 @@
         "sense_label_en": "a place that is different from its surroundings",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d733266051680a5590a6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:island:e97de064b4625b4b:collocation:0"
-            ],
-            "meaning_cn": "使某物成岛状",
-            "phrase": "island + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使成岛状，孤立",
-        "definition_en": "to make something into an island or isolate it",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:island:e97de064b4625b4b",
-        "sense_label_en": "to make something into an island or isolate it",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -217,7 +185,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d733266051680a5590a6",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:island:e97de064b4625b4b:collocation:0"
+          ],
+          "meaning_cn": "使某物成岛状",
+          "phrase": "island + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "使成岛状，孤立",
+      "definition_en": "to make something into an island or isolate it",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:island:e97de064b4625b4b",
+      "sense_label_en": "to make something into an island or isolate it",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -229,7 +222,7 @@
       },
       {
         "sense_id": "sense:island:e97de064b4625b4b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7301,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
@@ -245,8 +238,7 @@
     "active_collocations": [
       "collocation:290f2199e68b8bbe0662",
       "collocation:4c6c25c9a023edc7a151",
-      "collocation:86e3faf5e6e67c54013d",
-      "collocation:d733266051680a5590a6"
+      "collocation:86e3faf5e6e67c54013d"
     ],
     "facts": [],
     "collocations": [
@@ -268,7 +260,9 @@
       {
         "id": "collocation:d733266051680a5590a6",
         "source_row": 18204,
-        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -23,14 +23,13 @@
           "label_en": "something that is the opposite or reverse of something else; a reciprocal quantity in mathematics",
           "pos": "noun",
           "sense_ids": [
-            "sense:inverse:4041ba02d55755f9",
-            "sense:inverse:c5db044642e15db5"
+            "sense:inverse:4041ba02d55755f9"
           ]
         }
       ],
       "core_meaning_cn": "相反的；反向",
       "core_meaning_en": "opposite or reversed in order or effect",
-      "mental_model_cn": "相反的；反向",
+      "mental_model_cn": "adjective → 相反/反向，如 inverse relationship；noun → 相反事物。数学“倒数/乘法逆元”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,30 +95,6 @@
         "sense_id": "sense:inverse:4041ba02d55755f9",
         "sense_label_en": "something that is the opposite or reverse of something else",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bdd167256a47103a12cd",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:inverse:c5db044642e15db5:collocation:0"
-            ],
-            "meaning_cn": "乘法逆元",
-            "phrase": "multiplicative inverse"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "倒数（数学）",
-        "definition_en": "a reciprocal quantity in mathematics",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:inverse:c5db044642e15db5",
-        "sense_label_en": "a reciprocal quantity in mathematics",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -381,7 +356,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:bdd167256a47103a12cd",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:inverse:c5db044642e15db5:collocation:0"
+          ],
+          "meaning_cn": "乘法逆元",
+          "phrase": "multiplicative inverse"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "倒数（数学）",
+      "definition_en": "a reciprocal quantity in mathematics",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:inverse:c5db044642e15db5",
+      "sense_label_en": "a reciprocal quantity in mathematics",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -400,7 +400,7 @@
       },
       {
         "sense_id": "sense:inverse:c5db044642e15db5",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7260,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
@@ -409,7 +409,6 @@
     "active_collocations": [
       "collocation:54b176820da371b6e0f7",
       "collocation:81679bb93acb422c553e",
-      "collocation:bdd167256a47103a12cd",
       "collocation:fc80e06a51cdb08ba8ec"
     ],
     "facts": [],
@@ -427,7 +426,9 @@
       {
         "id": "collocation:bdd167256a47103a12cd",
         "source_row": 16066,
-        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fc80e06a51cdb08ba8ec",
