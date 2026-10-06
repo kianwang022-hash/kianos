@@ -5221,22 +5221,37 @@
     "ordinal": 1503,
     "word": "drawback",
     "source_owner_path": "content/lexical/words/by-ordinal/o1503.json",
-    "source_fingerprint": "379bec933b6f67ae18fb171f3e3200f80e10bfb69dae1d69d49dde69ed6bb019",
-    "sense_lineage": [],
+    "source_fingerprint": "74bd9d08f660750a498e5a3950d1a788ff50495ff83fe879ba27cc1d84fc6b48",
+    "sense_lineage": [
+      {
+        "word_id": "word:drawback",
+        "target_kind": "sense",
+        "from_target_id": "sense:drawback:72824340d1ca5ff4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drawback",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:68f5234bc05ca3e2e455",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "缺点或不利之处",
-      "decision_cn": "",
+      "summary_cn": "缺点；不利之处",
+      "decision_cn": "general evaluation → 缺点、不利之处。海关/贸易中的退税义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "缺点或不利之处"
+        "target_label": "缺点；不利之处"
       }
     },
     "senses": [
@@ -5278,32 +5293,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "缺点；障碍"
         }
-      },
-      {
-        "id": "sense:drawback:72824340d1ca5ff4",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "退税",
-        "definition_en": "a refund of duties or taxes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:68f5234bc05ca3e2e455",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "tax drawback",
-            "meaning_cn": "退税",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drawback:72824340d1ca5ff4",
-          "target_locator": "record.senses[1]",
-          "target_label": "退税"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5344,7 +5333,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:68f5234bc05ca3e2e455",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:drawback:72824340d1ca5ff4:collocation:0"
+              ],
+              "meaning_cn": "退税",
+              "phrase": "tax drawback"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "退税",
+          "definition_en": "a refund of duties or taxes",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:drawback:72824340d1ca5ff4",
+          "sense_label_en": "a refund of duties or taxes",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -10321,22 +10336,37 @@
     "ordinal": 1528,
     "word": "dumb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1528.json",
-    "source_fingerprint": "ca40500c98e633135571999bee6832b9414a7b80a8c43de84ebaf709961e548f",
-    "sense_lineage": [],
+    "source_fingerprint": "e90d7f80e5428db7a0c434392944c2e9976b26e2da22dc500ad802081eb56f38",
+    "sense_lineage": [
+      {
+        "word_id": "word:dumb",
+        "target_kind": "sense",
+        "from_target_id": "sense:dumb:6fe0e3635fd058d1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dumb",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f0622289a5f0df665937",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "愚蠢的；沉默的",
-      "decision_cn": "愚蠢、笨的；暂时沉默的",
+      "summary_cn": "（非正式）愚蠢的；也可表示一时说不出话",
+      "decision_cn": "informal judgment → 愚蠢；strike dumb / temporary silence → 一时说不出话。旧式且可能冒犯的残障称呼保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "愚蠢的；沉默的"
+        "target_label": "（非正式）愚蠢的；也可表示一时说不出话"
       }
     },
     "senses": [
@@ -10387,32 +10417,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "不说话的，沉默的"
         }
-      },
-      {
-        "id": "sense:dumb:6fe0e3635fd058d1",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "不能说话的（旧式或可能冒犯）",
-        "definition_en": "unable to speak, old-fashioned or potentially offensive",
-        "note": "old-fashioned and potentially offensive when used of a person unable to speak",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f0622289a5f0df665937",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "dumb person",
-            "meaning_cn": "哑巴",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dumb:6fe0e3635fd058d1",
-          "target_locator": "record.senses[2]",
-          "target_label": "不能说话的（旧式或可能冒犯）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10451,7 +10455,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f0622289a5f0df665937",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dumb:6fe0e3635fd058d1:collocation:0"
+              ],
+              "meaning_cn": "哑巴",
+              "phrase": "dumb person"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "不能说话的（旧式或可能冒犯）",
+          "definition_en": "unable to speak, old-fashioned or potentially offensive",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:dumb:6fe0e3635fd058d1",
+          "sense_label_en": "unable to speak, old-fashioned or potentially offensive",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "usage_note": "old-fashioned and potentially offensive when used of a person unable to speak"
+        }
+      ]
     }
   },
   {
@@ -11315,24 +11346,44 @@
     "ordinal": 1534,
     "word": "dusk",
     "source_owner_path": "content/lexical/words/by-ordinal/o1534.json",
-    "source_fingerprint": "1aac0e9c14650d8752bc2eb2747c4d9056457382042077f45702799eedddf538",
-    "sense_lineage": [],
+    "source_fingerprint": "c47d948d7140c12a899286a8b1095cf49d48063bb1c3a2395ab8b5bac736b9d4",
+    "sense_lineage": [
+      {
+        "word_id": "word:dusk",
+        "target_kind": "sense",
+        "from_target_id": "sense:dusk:28947182d0805947",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dusk",
+        "target_kind": "sense",
+        "from_target_id": "sense:dusk:a1b21a6362c35532",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dusk",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3962e2770192417538de",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "天色渐暗的时刻或状态",
-      "decision_cn": "",
+      "summary_cn": "薄暮；黄昏",
+      "decision_cn": "at dusk / from dawn to dusk → 黄昏时分。形容词/动词派生义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "天色渐暗的时刻或状态"
+        "target_label": "薄暮；黄昏"
       }
     },
     "senses": [
@@ -11379,49 +11430,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "薄暮，黄昏"
         }
-      },
-      {
-        "id": "sense:dusk:28947182d0805947",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "微暗的",
-        "definition_en": "darkish; dim",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3962e2770192417538de",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "dusk light",
-            "meaning_cn": "昏暗的光线",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dusk:28947182d0805947",
-          "target_locator": "record.senses[1]",
-          "target_label": "微暗的"
-        }
-      },
-      {
-        "id": "sense:dusk:a1b21a6362c35532",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "（使）变微暗",
-        "definition_en": "to make or become dark",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dusk:a1b21a6362c35532",
-          "target_locator": "record.senses[2]",
-          "target_label": "（使）变微暗"
-        }
       }
     ],
     "pronunciation_support": {
@@ -11450,7 +11458,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3962e2770192417538de",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dusk:28947182d0805947:collocation:0"
+              ],
+              "meaning_cn": "昏暗的光线",
+              "phrase": "dusk light"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "微暗的",
+          "definition_en": "darkish; dim",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:dusk:28947182d0805947",
+          "sense_label_en": "darkish; dim",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（使）变微暗",
+          "definition_en": "to make or become dark",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:dusk:a1b21a6362c35532",
+          "sense_label_en": "to make or become dark",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
