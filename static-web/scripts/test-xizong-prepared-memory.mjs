@@ -73,7 +73,7 @@ testFailure('conflicting legacy/current aliases rejected', (_r,_b,s) => {
 check('unbound cue stays context-only; other retained rows are not auto-admitted', () => {
   const raw = structuredClone(sample); delete raw.prepared_memory_ref;
   assert.deepEqual(resolvePreparedMemoryCue(raw, canonical, null), raw);
-  assert.equal(describe(resolveXizongLearnerProjection(loadXizongBlock('circulation','b03')).learnerObject).precisionCards.length, 0);
+  assert.ok(!describe(resolveXizongLearnerProjection(loadXizongBlock('circulation','b03')).learnerObject).precisionCards.some(card => card.id === 'precision:B03-M04'));
 });
 check('prepared text is escaped, not executable markup', () => {
   const row=structuredClone(sample), input=structuredClone(shared);

@@ -201,15 +201,29 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
 // The selective index remains the only admission owner. Exact answer / aid
 // freshness is checked by resolvePreparedMemoryCue before the learner object is
 // built; this consumer additionally rejects stale references or ambiguous owners.
-// Only the reviewed B1/B2 consumer slice may use explicit card-only availability.
+// Only the reviewed A1 consumer slice may use explicit card-only availability.
 // The IDs, owners and witnesses remain in the existing index, never a second list.
+// Strict structural equality survives JSON serialization without discarding
+// nested member/Core witnesses. Object key order is irrelevant; arrays are ordered.
+function strictPreparedReferenceEqual(left, right) {
+  if (left === right) return true;
+  if (!left || !right || typeof left !== 'object' || typeof right !== 'object') return false;
+  if (Array.isArray(left) !== Array.isArray(right)) return false;
+  if (Array.isArray(left)) return left.length === right.length
+    && left.every((value, i) => strictPreparedReferenceEqual(value, right[i]));
+  const keys = Object.keys(left);
+  return keys.length === Object.keys(right).length && keys.every(key => Object.hasOwn(right, key)
+    && strictPreparedReferenceEqual(left[key], right[key]));
+}
+
 export function supportsXizongPreparedMemoryBlock(blockId) {
-  return ['circulation-b01', 'circulation-b02'].includes(blockId);
+  return /^circulation-b(?:0[1-9]|1[0-2])$/.test(blockId);
 }
 
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
   const blockId = text(learnerObject?.identity?.blockId);
-  if (!supportsXizongPreparedMemoryBlock(blockId)) fail('PREPARED_BLOCK_UNSUPPORTED');
+  if (learnerObject?.identity?.systemId !== 'circulation' || learnerObject?.identity?.canonicalId !== 'A1'
+    || !supportsXizongPreparedMemoryBlock(blockId)) fail('PREPARED_BLOCK_UNSUPPORTED');
   if (!learnerObject?.sourceHash || (options.sourceHash && options.sourceHash !== learnerObject.sourceHash)) {
     fail('PREPARED_SOURCE_STALE', blockId);
   }
@@ -230,8 +244,7 @@ export function buildXizongPreparedMemoryAvailability(learnerObject, options = {
     const raw = cue.raw || {};
     const ref = raw.prepared_memory_ref;
     const expectedRef = expected.prepared_memory_ref;
-    if (!expectedRef || !ref || Object.keys(ref).length !== Object.keys(expectedRef).length
-      || Object.keys(expectedRef).some(key => ref[key] !== expectedRef[key])) {
+    if (!expectedRef || !ref || !strictPreparedReferenceEqual(ref, expectedRef)) {
       fail('PREPARED_REFERENCE_STALE', expected.id);
     }
     if (kp.identity.kpId !== expected.anchor.kp_id

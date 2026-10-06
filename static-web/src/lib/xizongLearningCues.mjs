@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { loadXizongBlock } from './xizong.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -71,47 +72,133 @@ export const preparedMemoryDigest = value => createHash('sha256')
 const escapeHtml = value => String(value || '').replace(/[&<>"']/g,
   char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 
-export function resolvePreparedMemoryCue(row, block, shared) {
+export function resolvePreparedMemoryCue(row, block, shared, { loadBlock = loadXizongBlock } = {}) {
   const ref = row?.prepared_memory_ref;
   if (!ref) return row;
   const fail = code => { throw new Error(`CURRENT_XIZONG_PREPARED_MEMORY_${code}:${row?.id || ''}`); };
+  const object = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+  const shape = (value, required, optional = []) => object(value)
+    && required.every(key => Object.hasOwn(value, key))
+    && Object.keys(value).every(key => [...required, ...optional].includes(key));
   if (!String(shared?.authority || '').startsWith('CHAT_APPROVED')) fail('OWNER_UNAPPROVED');
   if (shared?.source_bindings?.[block.blockId] !== block.sourcePath) fail('SOURCE_BINDING_MISMATCH');
   const kp = (block.kpRecords || []).find(k => k.kpId === row?.anchor?.kp_id);
   if (!kp || row?.anchor?.block_id !== block.blockId) fail('KP_OWNER_MISMATCH');
   const aliases = [...new Set([kp.kpId, `${block.blockId}-kp${String(Number(kp.ordinal)).padStart(3, '0')}`])];
   if (!aliases.includes(ref.kp_field_key)) fail('FIELD_OWNER_MISMATCH');
-  if (!['memory_items', 'source_memory_items'].includes(ref.collection)) fail('COLLECTION_UNSUPPORTED');
-  if (ref.memory_id !== row.id) fail('IDENTITY_MISMATCH');
-  const matches = key => (shared?.kp_fields?.[key]?.retention_metadata?.[ref.collection] || [])
-    .filter(item => item.memory_id === ref.memory_id);
-  const items = matches(ref.kp_field_key);
-  if (items.length !== 1) fail('ITEM_MISSING_OR_DUPLICATE');
-  const item = items[0];
-  for (const alias of aliases) {
-    const other = matches(alias);
-    if (other.length > 1 || other.some(value => preparedMemoryDigest(value) !== preparedMemoryDigest(item))) {
-      fail('AMBIGUOUS_IDENTITY_ALIAS');
-    }
-  }
-  if (typeof item.answer !== 'string' || !item.answer.trim() || item.cue !== row.cue) fail('ANSWER_OR_CUE_MISMATCH');
-  if (ref.collection === 'source_memory_items' && item.binding_status !== 'RETAINED_EXACT_SINGLE_OWNER') fail('ITEM_NOT_REVIEWED');
-  // Any change in current KP body or retained answer/aid/scope requires bounded
-  // content review. Do not guess equality or silently re-sign stale evidence.
-  if (ref.kp_core_sha256 !== preparedMemoryDigest(String(kp.detailMarkdown || ''))) fail('CORE_REVIEW_STALE');
-  if (ref.item_sha256 !== preparedMemoryDigest(item)) fail('ITEM_REVIEW_STALE');
+  const precisionMode = ref.collection === 'precision_fields';
+  if (!['memory_items', 'source_memory_items', 'precision_fields'].includes(ref.collection)) fail('COLLECTION_UNSUPPORTED');
+  const common = ['collection', 'kp_field_key', 'kp_core_sha256', 'item_sha256'];
+  if (!shape(ref, [...common, ...(precisionMode
+    ? ['precision_id', 'source_memory_refs', 'expected_missing_source_memory_ids'] : ['memory_id'])], ['additional_core_refs'])) fail('REFERENCE_SHAPE_INVALID');
   if (row.answerHtml || row.answer_html) fail('PARALLEL_ANSWER_OWNER');
-  const note = (label, value) => value ? `<p><strong>${label}</strong>${escapeHtml(value)}</p>` : '';
+  if (ref.kp_core_sha256 !== preparedMemoryDigest(String(kp.detailMarkdown || ''))) fail('CORE_REVIEW_STALE');
+
+  // These are additional medical premises, not new learning/release targets.
+  // Cross-Block reads reuse the native loader and its existing build cache.
+  const additional = ref.additional_core_refs ?? [];
+  if (!Array.isArray(additional)) fail('ADDITIONAL_CORE_INVALID');
+  const seen = new Set([`${block.systemId}:${block.blockId}:${kp.kpId}`]);
+  for (const witness of additional) {
+    if (!shape(witness, ['system_id', 'block_id', 'kp_id', 'source_path', 'kp_core_sha256'])) fail('ADDITIONAL_CORE_INVALID');
+    const identity = `${witness.system_id}:${witness.block_id}:${witness.kp_id}`;
+    if (seen.has(identity)) fail('ADDITIONAL_CORE_DUPLICATE');
+    seen.add(identity);
+    let owner;
+    try { owner = witness.system_id === block.systemId && witness.block_id === block.blockId
+      ? block : loadBlock(witness.system_id, witness.block_id); }
+    catch { fail('ADDITIONAL_CORE_MISSING'); }
+    if (!owner || owner.systemId !== witness.system_id || owner.blockId !== witness.block_id
+      || owner.sourcePath !== witness.source_path
+      || shared?.source_bindings?.[owner.blockId] !== owner.sourcePath) fail('ADDITIONAL_CORE_OWNER_MISMATCH');
+    const premise = (owner.kpRecords || []).find(value => value.kpId === witness.kp_id);
+    if (!premise || !witness.kp_core_sha256
+      || witness.kp_core_sha256 !== preparedMemoryDigest(String(premise.detailMarkdown || ''))) fail('ADDITIONAL_CORE_REVIEW_STALE');
+  }
+  const sourceItem = (fieldKey, memoryId, collection) => {
+    if (!aliases.includes(fieldKey)) fail('MEMBER_OWNER_MISMATCH');
+    const matches = key => (shared?.kp_fields?.[key]?.retention_metadata?.[collection] || [])
+      .filter(item => item.memory_id === memoryId);
+    const items = matches(fieldKey);
+    if (items.length !== 1) fail('ITEM_MISSING_OR_DUPLICATE');
+    const item = items[0];
+    for (const alias of aliases) {
+      const other = matches(alias);
+      if (other.length > 1 || other.some(value => preparedMemoryDigest(value) !== preparedMemoryDigest(item))) fail('AMBIGUOUS_IDENTITY_ALIAS');
+    }
+    if (collection === 'source_memory_items' && item.binding_status !== 'RETAINED_EXACT_SINGLE_OWNER') fail('ITEM_NOT_REVIEWED');
+    return item;
+  };
+  let item, members = [];
+  if (precisionMode) {
+    if (row.id !== ref.precision_id) fail('IDENTITY_MISMATCH');
+    item = shared?.precision_fields?.[ref.precision_id];
+    if (!object(item)) fail('ITEM_MISSING_OR_DUPLICATE');
+    const declared = item.retention_metadata?.source_memory_ids;
+    if (!Array.isArray(declared) || !declared.length || declared.some(id => typeof id !== 'string' || !id)
+      || new Set(declared).size !== declared.length) fail('MEMBERSHIP_INVALID');
+    if (!Array.isArray(ref.source_memory_refs) || !Array.isArray(ref.expected_missing_source_memory_ids)) fail('MEMBERSHIP_INVALID');
+    const refs = ref.source_memory_refs;
+    if (refs.some(value => !shape(value, ['kp_field_key', 'memory_id', 'item_sha256']))
+      || new Set(refs.map(value => value.memory_id)).size !== refs.length) fail('MEMBERSHIP_INVALID');
+    // Derive actual membership, including expected absence. Newly appearing,
+    // disappearing, moved or reassigned rows need review; no row is invented.
+    const extant = new Set();
+    for (const [fieldKey, field] of Object.entries(shared.kp_fields || {})) {
+      for (const member of field?.retention_metadata?.source_memory_items || []) {
+        if (!declared.includes(member.memory_id)) {
+          if (member.precision_id === ref.precision_id) fail('MEMBERSHIP_MISMATCH');
+          continue;
+        }
+        if (!aliases.includes(fieldKey) || member.precision_id !== ref.precision_id) fail('MEMBER_OWNER_MISMATCH');
+        extant.add(member.memory_id);
+      }
+    }
+    const expectedPresent = declared.filter(id => extant.has(id));
+    const expectedMissing = declared.filter(id => !extant.has(id));
+    if (JSON.stringify(refs.map(value => value.memory_id)) !== JSON.stringify(expectedPresent)
+      || JSON.stringify(ref.expected_missing_source_memory_ids) !== JSON.stringify(expectedMissing)) fail('MEMBERSHIP_MISMATCH');
+    members = refs.map(memberRef => {
+      const member = sourceItem(memberRef.kp_field_key, memberRef.memory_id, 'source_memory_items');
+      if (memberRef.item_sha256 !== preparedMemoryDigest(member)) fail('MEMBER_REVIEW_STALE');
+      return member;
+    });
+  } else {
+    if (ref.memory_id !== row.id) fail('IDENTITY_MISMATCH');
+    item = sourceItem(ref.kp_field_key, ref.memory_id, ref.collection);
+    // Precision identities cannot be copied into a second ordinary card.
+    if (item.precision_id) fail('PRECISION_OWNER_REQUIRED');
+  }
+  if (typeof item.answer !== 'string' || !item.answer.trim() || !item.cue || item.cue !== row.cue) fail('ANSWER_OR_CUE_MISMATCH');
+  if (ref.item_sha256 !== preparedMemoryDigest(item)) fail('ITEM_REVIEW_STALE');
+  const rendered = new Set();
+  const note = (label, value) => {
+    if (value === null || value === undefined || value === '') return '';
+    if (Array.isArray(value)) return value.map(part => note(label, part)).join('');
+    const content = typeof value === 'string' ? value : JSON.stringify(stable(value));
+    const key = `${label}:${content}`;
+    if (rendered.has(key)) return '';
+    rendered.add(key);
+    return `<p><strong>${label}</strong>${escapeHtml(content)}</p>`;
+  };
+  const qualifications = value => {
+    const scopes = [...new Set([value.answer_scope, value.scope_note].filter(Boolean))];
+    return scopes.map(scope => note('适用范围：', scope)).join('')
+      + note('来源差异：', value.source_conflict?.conflict)
+      + note('处理边界：', value.source_conflict?.policy)
+      + note('助记（不能代替答案）：', value.mnemonic)
+      + note('来源（保留记录，非本次原文核验）：', value.source)
+      + note('来源引用：', value.source_refs);
+  };
   const html = `<section data-prepared-memory="${escapeHtml(row.id)}">`
-    + `<p>${escapeHtml(item.answer)}</p>`
-    + note('适用范围：', item.answer_scope)
-    + note('来源差异：', item.source_conflict?.conflict)
-    + note('处理边界：', item.source_conflict?.policy)
-    + note('助记（不能代替答案）：', item.mnemonic)
+    + `<p>${escapeHtml(item.answer)}</p>` + qualifications(item)
+    + (precisionMode ? note('适用范围：', item.retention_metadata?.source_scope_notes)
+      + note('来源（保留记录，非本次原文核验）：', item.retention_metadata?.source_bindings)
+      + members.map(member => `<section data-prepared-memory-member="${escapeHtml(member.memory_id)}">`
+        + note('条目：', member.cue) + qualifications(member) + '</section>').join('') : '')
     + '</section>';
   return {
     ...row, answer_html: html,
-    // Adding exact answers must not leak them via formerly cue-only KP Context.
     answer_bearing: true,
     display_policy: { ...(row.display_policy || {}), timing: 'POST_REVEAL' },
     source_locator: row.source_locator || item.source

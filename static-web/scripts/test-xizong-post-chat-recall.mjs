@@ -27,7 +27,7 @@ const availableFor = (systemId = 'circulation', slug = 'b01', mode = 'NATURAL_SO
   vm.runInNewContext(availabilityExpression, { postChatReferenceBlock: referenceFor(systemId, slug), sourceContactMode: mode, sourcePerGroup: perGroup });
 assert.equal(availableFor(), true);
 assert.equal(availableFor('circulation', 'b02'), true);
-for (const args of [['circulation', 'b03'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true], ['circulation', 'b02', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b02', 'NATURAL_SOURCE_UNIT', true]]) {
+for (const args of [['circulation', 'b13'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true], ['circulation', 'b02', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b02', 'NATURAL_SOURCE_UNIT', true]]) {
   assert.equal(availableFor(...args), false, `scope:${args}`);
 }
 assert.match(component, /data-post-chat-recall-available=\{postChatRecallAvailable \? 'true' : 'false'\}/);
@@ -37,7 +37,8 @@ assert.ok(titleOnlyExpression);
 const titleOnlyFor = (systemId, slug) => vm.runInNewContext(titleOnlyExpression, { postChatReferenceBlock: referenceFor(systemId, slug) });
 assert.equal(titleOnlyFor('circulation', 'b01'), true);
 assert.equal(titleOnlyFor('circulation', 'b02'), true);
-assert.equal(titleOnlyFor('circulation', 'b03'), false);
+for(let n=3;n<=12;n++){ const slug=`b${String(n).padStart(2,'0')}`;assert.equal(availableFor('circulation',slug),true);assert.equal(titleOnlyFor('circulation',slug),true);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNIT',true),false);}
+assert.equal(titleOnlyFor('circulation', 'b13'), false);
 assert.equal(titleOnlyFor('respiratory', 'b01'), false);
 assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
 assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);

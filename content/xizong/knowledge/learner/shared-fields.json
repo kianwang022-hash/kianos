@@ -2151,7 +2151,8 @@
             "cue": "心室肌静息电位｜阈电位",
             "answer": "约 -90 mV｜约 -70 mV",
             "source": "生理 PDF P139",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅本Study心室肌近似值；不作所有细胞/实验条件的硬阈值。"
           }
         ]
       }
@@ -2166,7 +2167,8 @@
             "cue": "窦房结P细胞最大复极电位｜阈电位",
             "answer": "约 -65 mV｜约 -40 mV",
             "source": "生理 PDF P141–142",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅本Study窦房结P细胞；最大复极电位不同于工作细胞稳定静息。"
           }
         ]
       }
@@ -2181,7 +2183,8 @@
             "cue": "心室肌不应期电位分界",
             "answer": "ERP至约 -60 mV；相对不应期约 -60→-80 mV；超常期约 -80→-90 mV",
             "source": "生理 PDF P142",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study心室肌曲线近似分界；不替代通道恢复、刺激强度和细胞条件。"
           }
         ]
       }
@@ -2274,27 +2277,30 @@
             "cue": "抗心律失常药—主要电流（按本Study）",
             "answer": "I类→INa（IA奎尼丁；IB利多卡因，偏INa,late；IC普罗帕酮）；III类如胺碘酮→IK；IV类如维拉帕米→ICa-L",
             "source": "生理 PDF P140",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study主要电流定位，并非完整药理或所有药物的单一靶点；APD效应另看M09/M10条件。"
           },
           {
             "memory_id": "B03-M09",
             "kind": "PAIRING_D",
             "memory_timing": null,
             "cue": "缩短APD的Study条目",
-            "answer": "维拉帕米/IV类CCB、ACh、利多卡因（抑INa,late）、高钙血症（按本讲义膜屏障→INa,late↓）",
+            "answer": "维拉帕米阻ICa-L、ACh、利多卡因抑INa,late可缩短APD；高钙常使平台/ST缩短。课程从膜表面电荷/晚Na切入，但不是唯一机制，净APD还受其他电流及实验条件影响。",
             "source": "生理 PDF P140",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "严格保留本Study表述，不外推为通用临床结论"
+            "scope_note": "严格保留本Study表述，不外推为通用临床结论",
+            "answer_scope": "严格保留本Study表述，不外推为通用临床结论；仅相应细胞/组织、频率与实验条件；不排除Ca依赖性L型通道失活等机制。"
           },
           {
             "memory_id": "B03-M10",
             "kind": "PAIRING_D",
             "memory_timing": null,
             "cue": "延长APD的Study药物",
-            "answer": "III类如胺碘酮（明显）；IA奎尼丁；IC普罗帕酮",
+            "answer": "Ⅲ类如胺碘酮/E-4031抑K复极电流为典型延长路径；ⅠA奎尼丁也有延长方向。ⅠC普罗帕酮核心是强抑Na、减慢传导；APD依组织、频率和浓度，犬浦肯野原始实验可见缩短，不能由ⅠC身份推出必然延长。",
             "source": "生理 PDF P140",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "按本Study表格保留"
+            "scope_note": "按本Study表格保留",
+            "answer_scope": "按本Study表格保留；按当前Core区分典型延长与普罗帕酮的组织/频率/浓度依赖；保留原Study分类来源，不当通用方向。"
           },
           {
             "memory_id": "B03-M11",
@@ -2318,7 +2324,8 @@
             "cue": "左右交感/迷走主要分布",
             "answer": "右交感偏窦房结；左交感偏房室交界+心室；右迷走偏窦房结；左迷走偏房室交界；迷走对心室支配少",
             "source": "生理 PDF P149–150",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "主要分布偏好而非排他性支配；交感与迷走分别看靶组织。"
           }
         ]
       }
@@ -2333,7 +2340,8 @@
             "cue": "E-4031",
             "answer": "阻断IK；在窦房结使最大复极不足→If激活减少→自律性下降（机制仍归KP Recall）",
             "source": "生理 PDF P149–150",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "课程窦房结比较情境；反应依细胞区域/大小和实验条件，不外推所有K阻断的统一心率结果。"
           }
         ]
       }
@@ -2348,7 +2356,8 @@
             "cue": "血小板黏附桥梁",
             "answer": "vWF — GPIb；Bernard-Soulier/巨大血小板综合征缺GPIb，vWD缺vWF",
             "source": "生理 PDF P91 / P101",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "记壁—血小板的连接，不将受体缺陷线索等同个体诊断。"
           },
           {
             "memory_id": "B04-M02",
@@ -2357,7 +2366,8 @@
             "cue": "血小板聚集桥梁",
             "answer": "GPIIb/IIIa — Ca²⁺ — 纤维蛋白原；血小板无力症/Glanzmann与GPIIb/IIIa异常相关",
             "source": "生理 PDF P91–92",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "血小板彼此由纤维蛋白原桥接；不提前替换为纤维蛋白网。"
           },
           {
             "memory_id": "B04-M03",
@@ -2366,7 +2376,8 @@
             "cue": "血小板颗粒释放",
             "answer": "致密体：ADP、ATP、5-HT、Ca²⁺；α颗粒：PF4、β血小板球蛋白等",
             "source": "生理 PDF P92",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "预存致密体与α颗粒分组；TXA₂属于临时合成，不混为第三类储存颗粒。"
           }
         ]
       }
@@ -2381,7 +2392,8 @@
             "cue": "第一 vs 第二聚集时相",
             "answer": "第一：迅速、可逆、低浓度ADP等；第二：缓慢、不可逆、高浓度ADP/TXA₂，主要由释放的内源性ADP推动",
             "source": "生理 PDF P92",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "相应致聚剂/浓度下的课程观察模型，不泛化为体内固定两阶段。"
           }
         ]
       }
@@ -2396,7 +2408,8 @@
             "cue": "凝血因子低耦合角色",
             "answer": "FⅢ=组织因子；FⅣ=Ca²⁺；FⅤ=易变因子；无FⅥ；FⅦ外源性特有；FⅩⅢ=纤维蛋白稳定因子",
             "source": "生理 PDF P101–102",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "低耦合角色复习；FⅥ为历史编号，不能新建现行凝血因子。"
           },
           {
             "memory_id": "B04-M06",
@@ -2405,7 +2418,8 @@
             "cue": "VitK依赖凝血因子",
             "answer": "Ⅱ、Ⅶ、Ⅸ、Ⅹ",
             "source": "生理 PDF P102",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本项列传统VitK依赖凝血因子，不是所有VitK依赖蛋白；PC系统另有VitK依赖性。"
           },
           {
             "memory_id": "B04-M08",
@@ -2414,7 +2428,8 @@
             "cue": "凝血时被消耗的因子",
             "answer": "Ⅰ、Ⅱ、Ⅴ、Ⅷ、ⅩⅢ",
             "source": "生理 PDF P104 / 血小板回缩接口 P92",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study凝血过程因子消耗分组，不等于血清中所有因子全无。"
           },
           {
             "memory_id": "B04-M09",
@@ -2423,7 +2438,8 @@
             "cue": "本Study凝血辅因子",
             "answer": "HK、FⅢ、FⅣ(Ca²⁺)、FⅤ、FⅧ",
             "source": "生理 PDF P102",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "按该Study角色口径；Ca²⁺为离子，HK/TF/V/VIII分工仍看机制。"
           }
         ]
       }
@@ -2438,7 +2454,8 @@
             "cue": "血友病与vWD",
             "answer": "A=FⅧ；B=FⅨ；C=FⅪ；vWD=缺vWF并影响FⅧ稳定",
             "source": "生理 PDF P101",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "因子定位辅助；完整疾病诊疗归血液，不由缺陷编号预测个体严重度。"
           }
         ]
       }
@@ -2451,10 +2468,11 @@
             "kind": "EXACT_LIST_D",
             "memory_timing": "D",
             "cue": "AT抑制范围（本Study）",
-            "answer": "Ⅱ、Ⅸ、Ⅹ、Ⅺ、Ⅻ、前激肽释放酶；FⅦ较弱",
+            "answer": "FⅡa、FⅨa、FⅩa、FⅪa、FⅫa及已活化血浆激肽释放酶；弱抑制FⅦa。原表PK若指prekallikrein酶原，不能与活化靶酶直接等同。",
             "source": "生理 PDF P102–104",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "保留本Study列法，不外推成独立临床处方规则"
+            "scope_note": "保留本Study列法，不外推成独立临床处方规则",
+            "answer_scope": "保留本Study列法，不外推成独立临床处方规则；按当前Core区分活化靶酶与PK酶原；体内/体外效力比较仍依剂量及实验背景，不作处方。"
           }
         ]
       }
@@ -2469,7 +2487,8 @@
             "cue": "PC–PS–TM最终灭活谁",
             "answer": "凝血酶+TM激活PC；PS辅助；APC灭活FⅤa、FⅧa",
             "source": "生理 PDF P102–103",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "凝血酶与TM结合环境改变作用；vWF保护未活化VIII不等于所有VIIIa同样稳定。"
           }
         ]
       }
@@ -2484,7 +2503,8 @@
             "cue": "纤溶酶原激活物",
             "answer": "t-PA、u-PA/尿激酶、激肽释放酶、FⅫa",
             "source": "生理 PDF P105",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "t-PA/u-PA与接触系统入口并列；XIIa/激肽释放酶平时贡献较小，体外负电表面接触时可重要。"
           }
         ]
       }
@@ -2499,7 +2519,8 @@
             "cue": "纤溶刹车",
             "answer": "α₂-AP、PAI-1、TAFI",
             "source": "生理 PDF P105",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "名单附着各自靶点：α₂-AP限纤溶酶、PAI-1限激活物、TAFI减少纤溶放大。"
           }
         ]
       }
@@ -2514,7 +2535,8 @@
             "cue": "PT/APTT/TT因子集合（按本Study）",
             "answer": "PT：Ⅶ、Ⅹ、Ⅴ、Ⅱ、Ⅰ；APTT：Ⅻ、Ⅺ、Ⅸ、Ⅷ、Ⅹ、Ⅴ、Ⅱ、Ⅰ；TT：Ⅰ",
             "source": "生理 PDF P106",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "集合是检测依赖范围，非逐个酶切顺序；TT观察加入凝血酶后的纤维蛋白形成，延长不唯一证明I缺乏。"
           }
         ]
       }
@@ -2529,7 +2551,8 @@
             "cue": "抗血小板代表药—靶点",
             "answer": "阿司匹林/吲哚布芬→COX-1→TXA₂↓；氯吡格雷/替格瑞洛→ADP受体；阿昔单抗/替罗非班→GPIIb/IIIa",
             "source": "生理 PDF P92 / P107",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "机制配对，不自行产生ACS适应证、禁忌、顺序或剂量。"
           },
           {
             "memory_id": "B04-M16",
@@ -2538,7 +2561,8 @@
             "cue": "抗凝代表机制",
             "answer": "肝素→增强AT（主要）+促进TFPI释放；华法林→拮抗VitK、抑制Ⅱ/Ⅶ/Ⅸ/Ⅹ新合成；枸橼酸/草酸→螯合Ca²⁺用于体外抗凝",
             "source": "生理 PDF P107",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "华法林影响新生成的有效因子，已有因子不立即消失；肝素体内/体外比较须条件；非临床处方。"
           },
           {
             "memory_id": "B04-M17",
@@ -2547,7 +2571,8 @@
             "cue": "溶栓代表机制",
             "answer": "t-PA / 尿激酶→激活纤溶酶原",
             "source": "生理 PDF P105 / P107",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "t-PA/u-PA是激活物，实际降解由纤溶酶执行；不是对任何堵塞都可溶栓。"
           }
         ]
       }
@@ -2569,9 +2594,10 @@
             "kind": "EXACT_LIST_D",
             "memory_timing": "D",
             "cue": "血栓结局",
-            "answer": "软化/溶解吸收；机化；再通；营养不良性钙化（静脉石/动脉石）",
+            "answer": "溶解/软化吸收；机化；再通；钙化；脱落。营养不良性钙化、静脉石/动脉石名称保留原Source细项。",
             "source": "病理 PDF P154",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "血栓结局是可选分支而非必经顺序；再通不等于完全恢复原血管。"
           },
           {
             "memory_id": "B04-M20",
@@ -2597,7 +2623,8 @@
             "answer": "高血压≥140和/或90；1级140–159/90–99，2级160–179/100–109，3级≥180/≥110；单纯收缩期≥140且DBP<90；单纯舒张期SBP<140且DBP≥90；SBP/DBP不同级按较高级",
             "source": "内科 高血压 P308（PDF P377）",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_0852e46f484f8e0d"
+            "precision_id": "xpg_0852e46f484f8e0d",
+            "answer_scope": "本课程办公室血压分级；不假称全部现行指南统一，也不替代规范重复测量。"
           }
         ]
       }
@@ -2610,19 +2637,21 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "ABPM诊断坐标",
-            "answer": "24h平均<130/80，白天<135/85，夜间<120/70；主要用于白大衣、隐蔽性、顽固性高血压及昼夜/疗效评估",
+            "answer": "本Study正常ABPM平均值：24h<130/80、白天<135/85、夜间<120/70；用于白大衣、隐蔽性、难治/顽固、短时变异、昼夜和疗效评估。",
             "source": "内科 高血压 P308（PDF P377）",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_ea8036e479b7d5ec"
+            "precision_id": "xpg_ea8036e479b7d5ec",
+            "answer_scope": "下列为本Study正常平均值，并非诊室阈值；用途依对应临床问题。"
           },
           {
             "memory_id": "B05-M13",
             "kind": "PROCEDURE_PRECISION_D",
             "memory_timing": "D",
             "cue": "诊室测压操作细节",
-            "answer": "测前禁烟约30min、安静坐位/上臂与心脏同水平；非同日重复测量；首次双上臂、以后通常取较高侧；疑直立性低血压时补平卧/站立位",
+            "answer": "至少禁烟半小时，安静坐位、上臂同心高；非同日3次；初次双上臂，以后测较高侧；疑直立性低压补卧/立位。",
             "source": "内科 高血压 P308",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study办公室测量；疑直立性低压再补卧/立，不与动态平均值混用。"
           }
         ]
       }
@@ -2635,10 +2664,11 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "高血压危象身份",
-            "answer": "当前Study入口：血压突然明显升高，一般>180/120；有急性进行性靶器官损害=高血压急症，无=高血压亚急症；绝对血压与损害程度不成正比",
+            "answer": "血压突然明显升高，课程入口SBP>180或DBP>120 mmHg；伴急性进行性心/脑/肾等靶器官损害为急症，缺少急性损害则为亚急症。",
             "source": "内科 高血压 P309–310",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_c606cf1e10747a10"
+            "precision_id": "xpg_c606cf1e10747a10",
+            "answer_scope": "课程危象入口；紧急程度靠急性进行性靶器官损害，不由绝对数值单独决定。"
           },
           {
             "memory_id": "B05-M04",
@@ -2648,7 +2678,8 @@
             "answer": "DBP持续≥130 mmHg + 肾损害突出（蛋白尿/血尿/管型尿）",
             "source": "内科 高血压 P309–310",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "仅按当前Study考试口径保持，不外推成通用临床定义"
+            "scope_note": "仅按当前Study考试口径保持，不外推成通用临床定义",
+            "answer_scope": "仅按当前Study考试口径保持，不外推成通用临床定义；仅本Study恶性/急进型临床入口，不作通用现代诊断定义；仍须器官证据。"
           }
         ]
       }
@@ -2661,10 +2692,11 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "高血压急症降压节奏",
-            "answer": "初始1h内MAP降幅<25%；随后2–6h至约160/100；24–48h逐步降至正常；若出现重要器官缺血，降幅更小并延缓至约1–2周",
+            "answer": "当前Study：1h内MAP降幅≤25%；2–6h约至160/100；24–48h逐步正常；若出现器官缺血，降幅更小并据灌注调整。",
             "source": "内科 高血压 P309–310",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_ee3aabc71215185d"
+            "precision_id": "xpg_ee3aabc71215185d",
+            "answer_scope": "课程一般节奏，病因特例不由此覆盖；若器官缺血降幅更小，不补Core未列的固定延后时长。"
           }
         ]
       }
@@ -2681,7 +2713,8 @@
             "source": "内科 高血压 P309–310",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "保持Study口径，不替代现实临床个体化处置",
-            "precision_id": "xpg_896d49a403801df8"
+            "precision_id": "xpg_896d49a403801df8",
+            "answer_scope": "保持Study口径，不替代现实临床个体化处置；本课程场景—药物入口，非患者处方；病因、灌注与耐受决定使用，不据表机械同用。"
           }
         ]
       }
@@ -2696,7 +2729,8 @@
             "cue": "高血压脑出血高频位置",
             "answer": "基底节最常见，尤其豆状核/内囊区域；与豆纹动脉等深穿支高压损伤和微动脉瘤破裂相关",
             "source": "病理 高血压 PDF P39–40",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study位置配对；不把局部典型性当作全部高压脑出血的唯一位置。"
           }
         ]
       }
@@ -2712,7 +2746,8 @@
             "answer": "巨噬细胞源性和SMC源性都可形成泡沫细胞；泡沫细胞大量聚集形成脂质点/脂纹，是当前Study最早病变",
             "source": "病理 AS PDF P42–43",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "机制主线仍由KP23 Recall；Memory只辅助精确配对"
+            "scope_note": "机制主线仍由KP23 Recall；Memory只辅助精确配对",
+            "answer_scope": "机制主线仍由KP23 Recall；Memory只辅助精确配对；区分始动环节=内皮损伤、特征细胞=泡沫细胞、最早肉眼=脂纹；机制仍归Core。"
           },
           {
             "memory_id": "B05-M20",
@@ -2722,7 +2757,8 @@
             "answer": "清道夫受体、CD36、Fc受体 → 摄取ox-LDL → 巨噬细胞源性泡沫细胞",
             "source": "病理/内科 AS 发病机制",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "SMC受体因Source冲突未写入此Memory项"
+            "scope_note": "SMC受体因Source冲突未写入此Memory项",
+            "answer_scope": "SMC受体因Source冲突未写入此Memory项；仅巨噬细胞摄脂；SMC受体Source冲突继续排除，不扩写为统一受体结论。"
           }
         ]
       }
@@ -2738,7 +2774,8 @@
             "answer": "血管中膜SMC迁入内膜、增殖并合成胶原/ECM形成纤维帽；不是把“成纤维细胞/肉芽组织”当作纤维帽主答案",
             "source": "病理 AS PDF P43–44",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "机制主线仍由KP24 Recall"
+            "scope_note": "机制主线仍由KP24 Recall",
+            "answer_scope": "机制主线仍由KP24 Recall；SMC既能吞脂也能形成保护性帽；不把细胞标成单向促坏。"
           }
         ]
       }
@@ -2763,17 +2800,19 @@
             "cue": "ACEI/ARB最大降压作用时间",
             "answer": "ACEI约3–4周；ARB约6–8周",
             "source": "内科 高血压 P313",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "课程药类概括；具体药起效/调量不同，不作为患者等待或停药规则。"
           },
           {
             "memory_id": "B05-M18",
             "kind": "SAFETY_PRECISION_D_SHARED",
             "memory_timing": "D",
             "cue": "A类数值安全边界（当前Study）",
-            "answer": "血Cr>265 μmol/L、高血钾K+>5.5 mmol/L等被当前Study列为ACEI/ARB不用的重要数值接口",
+            "answer": "课程列Cr>265 μmol/L、K>5.5 mmol/L为ACEI/ARB不用口径；不能以单一Cr或任何肾功能不全判全部RAAS药永久禁用。应监测Cr/K/血压；当前Core引用开始/加量后4周内Cr升幅>30%等情形触发复评，不因eGFR<30自动停药；蛋白尿CKD也可有适应证。",
             "source": "内科 高血压/一线药表 P314",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "类别级禁忌在B5为Gate；数值本身作为Shared Precision保留，未来B11/肾脏正式owner再调用，不在B5制造第二套临床规则"
+            "scope_note": "类别级禁忌在B5为Gate；数值本身作为Shared Precision保留，未来B11/肾脏正式owner再调用，不在B5制造第二套临床规则",
+            "answer_scope": "类别级禁忌在B5为Gate；数值本身作为Shared Precision保留，未来B11/肾脏正式owner再调用，不在B5制造第二套临床规则；Source数值必须与监测/复评边界一同展示；B11/肾脏只调用共同安全owner，不新建第二套规则。"
           }
         ],
         "shared_owner_refs": [
@@ -2818,7 +2857,8 @@
             "cue": "高血压眼底I–IV级",
             "answer": "I：视网膜动脉变细/反光增强；II：狭窄 + 动静脉交叉压迫；III：再加出血/棉絮状渗出；IV：再加视盘水肿",
             "source": "内科 高血压 P308",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study分级；与完整风险矩阵分开，不据单个眼底分级替代总体风险。"
           }
         ]
       }
@@ -2834,7 +2874,8 @@
             "answer": "一般<140/90；合并糖尿病/肾病/心衰/冠心病当前Study多用<130/80；老年单纯收缩期、无合并症时可先<150/90（尤其>80岁），耐受再<140/90",
             "source": "内科 高血压 P310",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "不与泌尿各病种自己的目标值强行合并成一张通用卡"
+            "scope_note": "不与泌尿各病种自己的目标值强行合并成一张通用卡",
+            "answer_scope": "不与泌尿各病种自己的目标值强行合并成一张通用卡；只按高血压章节目标分层；耐受条件必须保留，不与各肾病目标统一，不替代现实指南/个体目标。"
           },
           {
             "memory_id": "B05-M16",
@@ -2843,7 +2884,8 @@
             "cue": "限钠",
             "answer": "当前Study：食盐<6 g/d",
             "source": "内科 高血压 P310",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study食盐量，单位为g/d且不是钠元素等量。"
           }
         ]
       }
@@ -2858,7 +2900,8 @@
             "cue": "AS脂蛋白方向",
             "answer": "TC、TG、LDL-C、VLDL、CM、apoB↑与风险上升同向；HDL、apoA↓与风险上升同向；当前Study最强调LDL-C/ox-LDL",
             "source": "病理 AS P42 + 内科冠心病基础接口",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "课程风险方向/配对，不是每个病人的治疗处方，LDL-C/ox-LDL为课程重点。"
           }
         ]
       }
@@ -2873,7 +2916,8 @@
             "cue": "AS斑块继发改变完整名单",
             "answer": "斑块内出血；纤维帽破裂/溃疡；营养不良性钙化；动脉瘤；血栓形成；动脉狭窄；栓塞（含血栓/胆固醇栓子）；梗死",
             "source": "病理 AS PDF P44–45",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "可选改变/后果，不是每个斑块必须按顺序发生。"
           }
         ]
       }
@@ -2888,7 +2932,8 @@
             "cue": "AS高频分布",
             "answer": "中、大动脉；冠脉危害大，左前降支常见；主动脉后壁/分支开口、腹主动脉重；颈内动脉起始处；肾动脉开口及主动脉近侧端；下肢多于上肢；肠系膜受累可致肠缺血坏死",
             "source": "病理 AS PDF P45–47",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "本Study好发位置及后果；完整器官模型归相应owner，不能从同名AS跳过解剖。"
           }
         ]
       }
@@ -2916,10 +2961,11 @@
             "kind": "DRUG_SAFETY_G",
             "memory_timing": "G",
             "cue": "变异型心绞痛治疗边界",
-            "answer": "当前Study：严重冠脉痉挛是核心；CCB进入首选治疗接口，β受体阻断剂可能加重痉挛，应避免机械套用稳定型心绞痛方案。",
+            "answer": "严重冠脉痉挛→血流暂降；本Study CCB首选接口，不宜单用β阻断，不能机械套稳定型心绞痛方案。",
             "source": "内科 冠心病 P336附近/PDF P407–408",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "保持当前Study口径；机制仍由KP12 Recall。"
+            "scope_note": "保持当前Study口径；机制仍由KP12 Recall。",
+            "answer_scope": "保持当前Study口径；机制仍由KP12 Recall。；本Study变异型痉挛机制；ST暂抬高不等于坏死，治疗仍依实际诊断及风险。"
           }
         ]
       }
@@ -2935,7 +2981,8 @@
             "answer": "出现休克/严重心衰、致命心律失常或心停、机械并发症等极高危信号时进入紧急侵入路径；当前Study以<2h作为极高危PCI时间接口。",
             "source": "内科 冠心病 P340–341",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_50805f062cd6fac7"
+            "precision_id": "xpg_50805f062cd6fac7",
+            "answer_scope": "仅当前Study极高危侵入评估时限；循环不稳不等待标志物确认，具体策略仍依危险层。"
           }
         ]
       }
@@ -2948,10 +2995,11 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "UA vs NSTEMI",
-            "answer": "二者临床与ECG可相似；关键分界是是否已有心肌坏死标志物升高。早期阴性需结合起病时间复测，不能机械排除NSTEMI。",
+            "answer": "UA与NSTEMI症状/ECG可相似；UA无急性缺血性坏死证据，NSTEMI有符合缺血性梗死的心肌损伤。标志物动态必须结合急性缺血症状/ECG；早期一次阴性不能直接定UA，单次阳性不能独立定MI。",
             "source": "内科 冠心病",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_a2c17594fb529f8d"
+            "precision_id": "xpg_a2c17594fb529f8d",
+            "answer_scope": "早期单阴性不排梗死，单升高只提示心肌损伤；缺血性梗死须合看动态和缺血证据。"
           }
         ]
       }
@@ -2964,10 +3012,11 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "NSTEMI vs STEMI",
-            "answer": "NSTEMI：坏死标志物阳性但无典型持续ST抬高谱系；STEMI：典型ST抬高谱系+心肌坏死，并进入紧急再灌注路径；NSTEMI不走STEMI溶栓路径。",
+            "answer": "NSTEMI有缺血性坏死而无典型持续ST抬高谱系；典型持续ST抬高谱系须紧急再灌注评估，不等待标志物凑齐。NSTEMI不常规沿STEMI全身溶栓路径，按抗栓和风险分层侵入评估。",
             "source": "内科 冠心病",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_ccbcd69499cfe14d"
+            "precision_id": "xpg_ccbcd69499cfe14d",
+            "answer_scope": "ECG分型不是大小、单一闭塞程度或绝对血栓物质二分；不等待标志物凑齐才识别STEMI。"
           }
         ]
       }
@@ -2983,7 +3032,8 @@
             "answer": "约4天：梗死灶外围充血/出血带；1–2周：边缘肉芽组织向内长入；约3周：肉芽组织开始机化并逐渐形成瘢痕；6–8周：瘢痕愈合，陈旧性心梗。",
             "source": "病理 PDF P46",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_be5621635eaf04ac"
+            "precision_id": "xpg_be5621635eaf04ac",
+            "answer_scope": "本Study病理时间范围，受组织演变条件影响；瘢痕修复不等于恢复收缩肌。"
           }
         ]
       }
@@ -2996,10 +3046,11 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "三种心肌坏死标志物时程与用途",
-            "answer": "当前Study：肌红蛋白最早，约2h内升高、1–2d恢复，敏感性高；cTn约3–4h后升高，可持续1–2周，特异性最高/诊断价值高；CK-MB约4h内升高、3–4d恢复，更适合短期再梗死与梗死范围/再通时程判断。",
+            "answer": "传统Study：肌红蛋白约2h内升、1–2d回，较早但特异低；cTn约3–4h后升、持续1–2w，提示心肌损伤，MI须动态+缺血证据；CK-MB约4h内升、3–4d回，可辅助短期再梗死。持续cTn升高期仍看再次动态，不是完全无用。",
             "source": "内科 冠心病 P350–351/PDF P422–423",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_c1450a8661aad7b7"
+            "precision_id": "xpg_c1450a8661aad7b7",
+            "answer_scope": "传统课程检测时间，检测方法和再灌注会改变表现；高敏cTn不能套旧最早时点。"
           }
         ]
       }
@@ -3086,7 +3137,8 @@
             "answer": "心梗后数周–数月出现免疫性心包炎，可伴胸膜炎/肺部炎症表现；与早期梗死后2–3天心包摩擦音分开。",
             "source": "内科 冠心病 P337",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_3ea1baa529dd254b"
+            "precision_id": "xpg_3ea1baa529dd254b",
+            "answer_scope": "免疫炎症与早期梗死相关摩擦音分开；不是固定到某一天。"
           },
           {
             "memory_id": "B06-M27",
@@ -3108,11 +3160,12 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "STEMI再灌注时间与路径",
-            "answer": "当前Study强调起病3–6h尽快再灌注、最多12h；有PCI条件走直接PCI；无PCI条件或预计直接PCI>2h时进入溶栓路径。",
+            "answer": "越早再灌注越好；及时PCI优先。课程预计直接PCI>2h或无及时条件时，须同时起病12h内、适应证成立且无禁忌才考虑溶栓；>12h仍持续缺血/休克/恶性节律需紧急评估。120min按来源分开：ESC从STEMI诊断到导丝通过；AHA从首次医疗接触到器械启动，直接就诊目标≤90min、转运≤120min，不能混算。",
             "source": "内科 冠心病 P341–343/PDF P414–416",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "考试Study口径；不外推替代现实急救规范。",
-            "precision_id": "xpg_bf172640d9560fe9"
+            "precision_id": "xpg_bf172640d9560fe9",
+            "answer_scope": "考试Study口径；不外推替代现实急救规范。；课程3–6h不是等待窗，12h不是全体放弃界；120min起止按来源分别保留。"
           }
         ]
       }
@@ -3125,10 +3178,11 @@
             "kind": "PRECISION_G_SAFETY",
             "memory_timing": "G",
             "cue": "溶栓禁忌 + 再通证据",
-            "answer": "先排脑卒中/中枢神经病变、未排除主动脉夹层、未控制严重高血压、近期活动性内脏出血/创伤/大手术/不可压迫部位穿刺等高危禁忌。间接再通证据：CK-MB峰提前<14h、胸痛2h内明显缓解、2h内再灌注性心律失常、抬高ST段2h内回降>50%。",
+            "answer": "溶栓前评估卒中类型/时点、中枢病变、活动出血、近期重大创伤/手术及不可压迫穿刺、未控严重高压、夹层；还需判断CPR是否创伤性/延长，不能将全部旧卒中或任何短暂成功CPR判终身绝对禁忌。CK-MB峰<14h从起病算；胸痛消失、再灌注性节律和ST回落>50%的2h从溶栓算，均为间接线索。",
             "source": "内科 冠心病 P342/PDF P415",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_ae4e8a47b5a75087"
+            "precision_id": "xpg_ae4e8a47b5a75087",
+            "answer_scope": "五风险组不是完整绝对/相对禁忌清单；所有间接再通证据不等于造影证实，持续不稳不能等2h。"
           },
           {
             "memory_id": "B06-M25",
@@ -3150,9 +3204,10 @@
             "kind": "DRUG_SAFETY_G",
             "memory_timing": "G",
             "cue": "急性右室梗死：前负荷依赖",
-            "answer": "多与下壁/后壁心梗同现，可见颈静脉怒张、CVP↑而PAWP正常或↓；关键是补充血容量、维持前负荷并尽快再灌注；避免硝酸酯、利尿剂等减少回心血量的措施。",
+            "answer": "右室梗死常伴下/后壁，CVP高而PAWP正常/低、肺相对清；RV前送不足使LV前负荷下降。维持适当充盈并尽快再灌注，低容量才谨慎补并复评，不无限扩容；硝酸酯/强利尿可进一步减回心。",
             "source": "内科 冠心病 P340/PDF P412–413",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "适当充盈与再灌注；容量治疗需血流动力学/肺淤血和反应复评。"
           }
         ]
       }
@@ -3167,7 +3222,8 @@
             "cue": "胸痛致命鉴别：主动脉夹层",
             "answer": "未排除主动脉夹层不得溶栓；高价值红旗为撕裂样胸/背痛、起病即达峰值、两上肢血压或脉搏明显不对称等。",
             "source": "内科 冠心病/主动脉夹层串联",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "夹层冠口受累也能ST抬高；红旗需结合影像等，不能凭症状缺失自动排除。"
           }
         ]
       }
@@ -3180,10 +3236,11 @@
             "kind": "EMERGENCY_PAIRING_G",
             "memory_timing": "G",
             "cue": "AMI心律失常急救分流",
-            "answer": "室颤/无脉性室速等无有效循环的恶性室性节律→立即电治疗；偶发且无症状/无血流动力学障碍室早→可观察；缓慢型可调用阿托品；二度II型/三度房室传导阻滞→临时起搏接口。胺碘酮与利多卡因精确先后顺序因Source冲突不记。",
+            "answer": "无脉VF/pVT→CPR+非同步除颤；有脉不稳定快律→可靠同步者同步复律，持续多形性室速非同步。偶发无症状/无灌注影响室早可观察，不因频发自动预防性静脉用药；慢律阿托品及高阶AVB临时起搏接口依节律/禁忌。胺碘酮与利多卡因精确先后因Source冲突不记。",
             "source": "内科 冠心病 P339–340/PDF P411–413",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "精确抗心律失常药序列HOLD，B10为完整owner。"
+            "scope_note": "精确抗心律失常药序列HOLD，B10为完整owner。",
+            "answer_scope": "精确抗心律失常药序列HOLD，B10为完整owner。；B6只留即刻改变路径的门槛；完整节律归B10，骤停归B12；药物精确先后仍HOLD。"
           }
         ]
       }
@@ -3213,7 +3270,8 @@
             "cue": "CCS I–IV活动量分级",
             "answer": "I：一般活动不受限，强/快/持续用力才发作；II：一般活动轻度受限，通常平地>200m或登楼>1层受限；III：明显受限，约200m以内或登楼1层即可发作；IV：轻微活动或休息也可发作。",
             "source": "内科 冠心病 P336附近",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "此CCS是加拿大心绞痛活动分级，非慢性冠脉综合征；课程约200m和楼层为活动接口。"
           }
         ]
       }
@@ -3226,10 +3284,11 @@
             "kind": "TEST_ROLE_D_STUDY_BOUND",
             "memory_timing": "D",
             "cue": "冠脉/心肌检查职责",
-            "answer": "当前Study：冠脉CTA用于无创解剖评估；冠脉造影DSA作为冠心病确诊/解剖“金标准”口径；核素心肌显像看灌注缺损；PET看灌注+代谢、评估心肌活力。",
+            "answer": "当前Study：CTA看无创冠脉解剖，DSA看管腔/狭窄并有课程金标准口径，核素心肌显像看灌注，PET通过代谢评估存活心肌；超声等按结构/机械问题选择，不把证据层互相替代。",
             "source": "内科 冠心病 P340",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "“金标准”仅作为当前Study考试语言，不外推为所有现实场景唯一表述。"
+            "scope_note": "“金标准”仅作为当前Study考试语言，不外推为所有现实场景唯一表述。",
+            "answer_scope": "“金标准”仅作为当前Study考试语言，不外推为所有现实场景唯一表述。；金标准为课程冠脉解剖考试口径，不是所有现实问题唯一最佳检查；选择依要证明的层级。"
           }
         ]
       }
@@ -3242,9 +3301,10 @@
             "kind": "PAIRING_G",
             "memory_timing": "G",
             "cue": "四瓣膜病：时相 + 杂音形态",
-            "answer": "MS：舒张期递增；MR：收缩期一贯/平台样；AS：收缩期递增-递减；AR：舒张期递减。第一次用心动周期理解，后续作为快速配对滚动。",
+            "answer": "MS：心尖舒张期隆隆样，窦律时舒张晚期（收缩前）可增强，不能把整个舒张期画成单向递增；房颤时房缩相关晚期增强可消失。MR：心尖全收缩期一贯/平台样吹风声；AS：收缩期递增—递减喷射声；AR：舒张期递减声。先用心动周期理解，再作配对。",
             "source": "内科 循环系统重要表现/心瓣膜病 + 生理B1已学串联",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "MS为舒张隆隆声，窦律晚期可增强；不把整个舒张期描述为递增。"
           }
         ]
       }
@@ -3283,7 +3343,8 @@
             "cue": "Aschoff细胞形态",
             "answer": "Aschoff细胞来源于巨噬细胞；核横切可呈枭眼样，纵切可呈毛虫样。属于形态记忆，不替代三阶段机制。",
             "source": "病理 PDF P41",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "不以形态词替代三阶段与病理原图；现有MedicalVisual身份原样引用。"
           }
         ]
       }
@@ -3298,7 +3359,8 @@
             "cue": "风湿性心内膜炎最小形态",
             "answer": "最常累及二尖瓣；闭锁缘形成小、灰白、单行串珠样、无菌且不易脱落的赘生物；反复发作可形成慢性瓣膜狭窄/关闭不全。",
             "source": "病理 PDF P42",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "无菌、牢固与反复机化必须一起恢复；图像验收未重做。"
           },
           {
             "memory_id": "B07-M22",
@@ -3307,7 +3369,8 @@
             "cue": "McCallum斑",
             "answer": "风湿性瓣膜病反流血流反复冲击可使左心房后壁心内膜局灶增厚，形成McCallum斑。",
             "source": "病理 PDF P42",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "必须接MR反流冲击的现有机制，不增加其他部位。"
           }
         ]
       }
@@ -3322,7 +3385,8 @@
             "cue": "Janeway / Osler / Roth",
             "answer": "Janeway：手掌/足底、无痛性出血性斑；Osler：指/趾端、疼痛性结节；Roth：视网膜出血伴中央淡白区。用于IE周围体征快速鉴别。",
             "source": "内科 IE P373附近",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅作IE周围体征线索，不凭单一体征诊断IE。"
           }
         ]
       }
@@ -3362,7 +3426,8 @@
             "answer": "连续血培养后尽早开始；足量、长程、静脉、以杀菌性方案为主；NVE一般2–6周，PVE约6–8周。",
             "source": "内科 IE",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_58d002be5a2b04ea"
+            "precision_id": "xpg_58d002be5a2b04ea",
+            "answer_scope": "课程2–6周/6–8周；具体按病原、药敏、瓣类型与肾功能，不把联合/氨基糖苷普遍化。"
           },
           {
             "memory_id": "B07-M10",
@@ -3412,7 +3477,8 @@
             "answer": "正常4–6cm²；轻度>2.5、跨瓣压差<5、肺动脉压<30；中度1.6–2.5、5–9、30–50；重度<1.6、>9、>50。",
             "source": "内科 心瓣膜病 PDF P390",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_f55aa8433b798d5a"
+            "precision_id": "xpg_f55aa8433b798d5a",
+            "answer_scope": "面积cm²、压差和肺动脉压mmHg；只按本页课程分组并保留同流量条件，不替换现代分级。"
           }
         ]
       }
@@ -3427,7 +3493,8 @@
             "cue": "MS听诊三件套",
             "answer": "S1通常增强但重度钙化可减弱；瓣膜弹性好可有开瓣音，S2-OS越近提示左房压越高/狭窄越重；房颤后心房收缩消失，舒张晚期增强可消失。",
             "source": "内科 心瓣膜病 P390–391",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "开瓣音依弹性；S2–OS依LA压力；房颤晚期增强可消失但不能宣称绝无收缩前振动。"
           }
         ]
       }
@@ -3442,7 +3509,8 @@
             "cue": "MR杂音与传导",
             "answer": "心尖部收缩期一贯/全收缩期吹风样；传导方向跟随反流射流方向。杂音强度受左室收缩力等影响，不能机械等同于反流严重度。",
             "source": "内科 心瓣膜病",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "响度受LV收缩力、流量与射流影响，不能等同严重度。"
           },
           {
             "memory_id": "B07-M28",
@@ -3467,7 +3535,8 @@
             "answer": "当前Study：正常主动脉瓣口面积3–4cm²；≤1cm²进入明显临床症状/重度处理语境。完整未见的跨瓣压差矩阵不得自行补数。",
             "source": "内科 心瓣膜病 P393–394",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_8d762513ba202953"
+            "precision_id": "xpg_8d762513ba202953",
+            "answer_scope": "当前Study正常3–4cm²，≤1cm²语境；完整跨瓣压差矩阵缺失，不补数、不把单阈值替代综合评估。"
           },
           {
             "memory_id": "B07-M31",
@@ -3476,7 +3545,8 @@
             "cue": "AS年龄/术式细节",
             "answer": "儿童/青少年非钙化先天性主狭可用瓣膜分离术；成人以瓣膜置换为主；老龄重度且不耐受外科者可行TAVR。首轮理解只需知道固定结构病最终处理‘门’。",
             "source": "内科 心瓣膜病 P394",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅按当前Study接口；不是按年龄单项直接选术式。"
           }
         ]
       }
@@ -3491,7 +3561,8 @@
             "cue": "AS杂音严重度线索",
             "answer": "胸骨右缘第2肋间收缩期递增-递减、喷射样并向颈部传导；通常高峰越晚/持续越长提示狭窄越重，但严重钙化僵硬时杂音可反而减弱。",
             "source": "内科 心瓣膜病 P393–394",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "低流量重度AS也可不响，钙化患者可在心尖较清；不要把响度当严重度。"
           }
         ]
       }
@@ -3506,7 +3577,8 @@
             "cue": "五个常用瓣膜听诊区",
             "answer": "心尖：二尖瓣；胸骨左缘2肋间：肺动脉瓣；胸骨右缘2肋间：主动脉瓣第一听诊区；胸骨左缘3–4肋间：主动脉瓣第二听诊区/室间隔；胸骨左缘4–5肋间：三尖瓣。",
             "source": "内科 循环系统重要表现 P385–389",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "听诊地址仅提供线索；须回时相、异常血流与超声。"
           },
           {
             "memory_id": "B07-M19",
@@ -3530,7 +3602,8 @@
             "cue": "风湿病心外身份",
             "answer": "游走性大关节炎且一般不留畸形、环形红斑、皮下结节、动脉炎、小舞蹈病等；用于病例补强，不拆散抢占心瓣膜主线。",
             "source": "病理 PDF P43",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "环形红斑无Aschoff，结节可见且指相应阶段；不将心外表现抢作瓣膜主线。"
           }
         ]
       }
@@ -3545,7 +3618,8 @@
             "cue": "MS影像/ECG形态组",
             "answer": "超声城墙样/穹顶状/鱼钩样/鱼嘴样；ECG二尖瓣型P波；X线梨形心、肺淤血/Kerley B线/肺门蝴蝶征等按需快速复看。",
             "source": "内科 心瓣膜病 P391",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "MedicalVisual/Source回看须在使用前满足原图门禁；文字准备不证明图像接触或像素验收。"
           }
         ]
       }
@@ -3605,7 +3679,8 @@
             "cue": "AR主动脉根部扩张病因全表",
             "answer": "Marfan、梅毒、高血压、银屑病性关节炎、强直性脊柱炎、主动脉夹层等作为Deferred Memory；首轮先分‘瓣叶坏了’与‘根部/瓣环被撑大’。",
             "source": "内科 心瓣膜病 P395",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "先分瓣叶与根部；炎性脊柱关节病等具体病因按原课程，不替代各系统完整机制。"
           }
         ]
       }
@@ -3620,7 +3695,8 @@
             "cue": "AR周围血管征名称",
             "answer": "Duroziez双重音、Traube枪击音、毛细血管搏动征、水冲脉、De Musset点头征；共同机制先理解为脉压显著增大。",
             "source": "内科 心瓣膜病 P395",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "各名必须回脉压增宽；急性AR不能等慢性周围征齐全。"
           }
         ]
       }
@@ -3635,7 +3711,8 @@
             "cue": "HCM结构身份",
             "answer": "常染色体显性遗传背景；心室尤其室间隔非对称肥厚。当前Study：室间隔约15mm、室间隔/左室游离壁>1.3。",
             "source": "内科 心肌疾病P293 + 病理不带导图P49",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "约15mm与>1.3保留Study范围；心房不是原发肥厚，单个数字不独自诊断HCM。"
           },
           {
             "memory_id": "B08-M18",
@@ -3672,18 +3749,20 @@
             "kind": "TREATMENT_SAFETY_G",
             "memory_timing": "G",
             "cue": "HCM治疗方向",
-            "answer": "β受体阻断剂首选；非二氢吡啶CCB可替代。避免正性肌力药、强血管扩张、二氢吡啶CCB及大量利尿等可能加重动态梗阻/减少回心的措施。",
+            "answer": "有症状的梗阻性HCM：首选非血管扩张性β受体阻断剂，非DHP-CCB可替代。正性肌力、强血管扩张、DHP-CCB和大量利尿可能使腔更空/梗阻更重；有淤血时谨慎小剂量利尿不等于一律禁用，不能把上述限制套给全部非梗阻HCM。",
             "source": "内科 心肌疾病P294",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "有症状梗阻性HCM；非血管扩张性β阻断；淤血可谨慎小剂量利尿，非全部非梗阻HCM禁忌。"
           },
           {
             "memory_id": "B08-M04",
             "kind": "PRECISION_G_RISK",
             "memory_timing": "G",
             "cue": "HCM猝死高危",
-            "answer": "当前Study八项：心尖室壁瘤、晕厥、室性心动过速相关史、早发家族史、心脏骤停史、LVEF<50%、LGE≥15%左室质量、左室肥厚≥30mm；用于猝死风险/ICD入口。",
+            "answer": "当前Study八项：心尖室壁瘤、晕厥、持续VT伴血流动力学不稳或反复NSVT、早发猝死家族史、心脏骤停史、LVEF<50%、广泛LGE≥15%左室质量、最大左室壁厚≥30mm。室速写VT；各风险因素不等于单项自动触发同一ICD指征。",
             "source": "内科 心肌疾病P294",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "室速应为VT；当前Core明确持续VT伴不稳或反复NSVT；八项并非每项各自自动ICD指征。"
           },
           {
             "memory_id": "B08-M05",
@@ -3692,7 +3771,8 @@
             "cue": "玛伐凯泰安全边界",
             "answer": "当前Study：玛伐凯泰抑制过量肌动-肌球蛋白横桥形成；LVEF<55%者不适合。",
             "source": "内科 心肌疾病P294",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅在当前Core有症状的梗阻性HCM治疗段范围：心肌肌球蛋白抑制剂，减少过强收缩；LVEF<55%按当前Study，不把它当泵弱强心药或所有HCM通用适应证。"
           },
           {
             "memory_id": "B08-M19",
@@ -3701,7 +3781,8 @@
             "cue": "HCM次级药物与侵入治疗名称",
             "answer": "丙吡胺、西苯唑啉、室间隔切除、酒精室间隔消融等具体名称可后滚；首轮先稳定‘减慢心率/减弱过强收缩/维持充盈，不能把动态梗阻当普通心衰减负荷’。",
             "source": "内科 心肌疾病P294",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "仅挂在症状性梗阻HCM方向下；不自动推适应证。"
           }
         ]
       }
@@ -3755,7 +3836,8 @@
             "cue": "病毒性心肌炎病例入口",
             "answer": "1–3周前有上呼吸道/消化道等感染，随后出现胸痛、心悸/心律失常或左心功能不全；心率与体温不相称可增强提示。",
             "source": "内科 心肌疾病P296",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "支持线索而非充分诊断，必须连电/泵损伤证据。"
           },
           {
             "memory_id": "B08-M28",
@@ -3764,7 +3846,8 @@
             "cue": "发热时心率正常增幅",
             "answer": "当前Study：体温每升高1°C，心率一般增加约12–18次/分；用于判断‘心率与体温不相称’，可后滚。",
             "source": "内科 心肌疾病P296",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "只是判断相称性的课程近似，不作个体必然关系或诊断阈值。"
           }
         ]
       }
@@ -3822,9 +3905,10 @@
             "kind": "ECG_G",
             "memory_timing": "G",
             "cue": "急性心包炎ECG",
-            "answer": "当前Study：除aVR、V1导联ST段压低外，其余导联广泛ST段凹面向上/弓背向下抬高；关键是弥漫、不按单支冠脉分布。",
+            "answer": "当前Study：急性心包炎多导联弥漫性ST弓背向下/凹面向上抬高，aVR/V1可压低；与STEMI的冠脉/心壁分布相区别。该分布需要和病程、症状及其他证据校准。",
             "source": "内科 心包疾病P299",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "aVR/V1“可压低”，非所有病例必然；弥漫vs冠脉分布需临床校准。"
           }
         ]
       }
@@ -3839,7 +3923,8 @@
             "cue": "Beck三联征",
             "answer": "心脏压塞：血压下降 + 颈静脉怒张/静脉压高 + 心音低弱遥远。先记‘动脉压低、静脉压高、心音低’再回到外部限充盈机制。",
             "source": "内科 心包疾病P298–299",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "动脉压低、静脉压高、心音低；Kussmaul征不能捆成压塞必备。"
           },
           {
             "memory_id": "B08-M32",
@@ -3848,7 +3933,8 @@
             "cue": "Ewart征",
             "answer": "大量心包积液压迫左下肺时，可有左肩胛下浊音、语颤增强、异常支气管呼吸音。Source mnemonic：water→Ewart。",
             "source": "内科 心包疾病P298",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "大量积液压迫左下肺，不把助记变成诊断或另一张卡。"
           }
         ]
       }
@@ -3863,7 +3949,8 @@
             "cue": "心包积液：超声 / 穿刺 / 主动脉夹层",
             "answer": "超声心动图为首选；心包穿刺可明确积液性质/病因并可减压治疗压塞；当前Study把主动脉夹层列为心包穿刺绝对禁忌。",
             "source": "内科 心包疾病P299",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "夹层破入心包时降低心包压可促出血；“绝对禁忌”限定当前Study，未扩写现代例外。"
           },
           {
             "memory_id": "B08-M31",
@@ -3872,7 +3959,8 @@
             "cue": "少量心包积液X线阴性门槛",
             "answer": "当前Study：成人<250mL、儿童<150mL时X线可为阴性；不把X线阴性机械当作排除心包积液。",
             "source": "内科 心包疾病P299",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "成人<250mL、儿童<150mL仅课程可阴性接口；阴性不能排除积液或急性压塞。"
           }
         ]
       }
@@ -3905,7 +3993,8 @@
             "cue": "DCM病理重量数字",
             "answer": "病理真题可出现心脏重量约500–800g等肉眼数字；作为低耦合形态Precision后滚，不进入DCM机械模型主线。",
             "source": "病理不带导图P52真题侧",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "只作原课程肉眼重量参考，不能作为DCM诊断界限；无新原图/来源核验。"
           }
         ]
       }
@@ -3935,7 +4024,8 @@
             "cue": "ARVC结构身份",
             "answer": "致心律失常性右室心肌病：右室心肌被脂肪或纤维脂肪组织进行性替代，可导致右室扩大、难治性右心衰和节律危险。",
             "source": "病理不带导图P51",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "完整节律/危险分层归B10，不能由结构身份直接选器械。"
           }
         ]
       }
@@ -3950,7 +4040,8 @@
             "cue": "克山病最小形态",
             "answer": "缺硒相关；两侧心腔扩大、室壁变薄、心脏球形且心尖部较重，可见心肌变性、坏死和瘢痕，表型类似DCM。",
             "source": "病理不带导图P51",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "先回DCM样结构后果；缺硒相关不额外推断未给病因或治疗。"
           }
         ]
       }
@@ -3989,7 +4080,8 @@
             "cue": "正常心包液",
             "answer": "当前Study：正常心包腔约15–50mL浆膜液，起润滑作用。",
             "source": "内科 心包疾病P298",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "用于正常润滑背景，不据此定义压塞；速度/压力决定危险。"
           }
         ]
       }
@@ -4019,7 +4111,8 @@
             "cue": "周围血管体位",
             "answer": "动低静高：动脉缺血患肢下垂有利于灌注；静脉回流障碍抬高患肢有利于回流。必须先判动/静脉再套体位。",
             "source": "外科 周围血管疾病 P124–126",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "先判动静/急慢/层级，不能不分原因统一摆体位。"
           }
         ]
       }
@@ -4034,7 +4127,8 @@
             "cue": "Raynaud三段颜色",
             "answer": "苍白/发冷 → 青紫/疼痛 → 潮红/复原；动脉搏动可正常，通常无中大动脉杂音。",
             "source": "外科 P124 / 原PDF physical P101",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "小动脉痉挛故大动脉搏动可正常，颜色本身不充分诊断。"
           }
         ]
       }
@@ -4050,7 +4144,8 @@
             "answer": "当前Study明确：禁用普萘洛尔，理由为β₂阻断可加重末梢血管痉挛。",
             "source": "外科 P124",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "按当前Study考试口径保留，不外推替代现实个体化处方。"
+            "scope_note": "按当前Study考试口径保留，不外推替代现实个体化处方。",
+            "answer_scope": "按当前Study考试口径，不替代现实个体处方；历史方案不是现代统一首选。"
           },
           {
             "memory_id": "B09-M14",
@@ -4059,16 +4154,18 @@
             "cue": "Raynaud当前Study药物名",
             "answer": "肾上腺素能神经末梢阻断剂：胍乙啶、利血平。口诀‘瓜瓜一定摆平’可附着，不单独建第二张卡。",
             "source": "外科 P124",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "胍乙啶/利血平为历史课程入口，不能叫现代统一首选；现有Core有系统性硬化相关CCB校准。"
           },
           {
             "memory_id": "B09-M15",
             "kind": "ASSOCIATION_LIST_D",
             "memory_timing": "D",
             "cue": "Raynaud现象继发疾病",
-            "answer": "当前Study列Raynaud病、系统性硬化症、SLE（抗RNP接口）、多发性骨髓瘤/冷球蛋白接口；完整风湿/血液病机制在正式owner再展开。",
+            "answer": "Raynaud病与继发性Raynaud现象先分开。当前Core列系统性硬化、SLE、多发性骨髓瘤/冷球蛋白等继发背景；完整风湿/血液病机制归相应owner。旧行抗RNP为原Source接口，本次不扩大其含义。",
             "source": "外科 P124",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "Raynaud病不是继发病之一，应与系统性硬化/SLE/骨髓瘤冷球蛋白接口分开；完整病机制归各owner。"
           }
         ]
       }
@@ -4083,7 +4180,8 @@
             "cue": "急性动脉栓塞来源 + 5P",
             "answer": "左心来源栓子最常见；5P：疼痛、麻痹、苍白、无脉、感觉异常。口诀‘痛骂白无常’只作快速恢复钩子。",
             "source": "外科 P124 / 原PDF physical P101",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "助记顺序不是严重度分级；感觉运动丧失与可救性模型一起读。"
           }
         ]
       }
@@ -4124,7 +4222,8 @@
             "answer": "当前Study：ABI<0.9进入慢性动脉供血不足识别；ABI<0.4进入严重缺血/坏疽危险语境。",
             "source": "外科 P124 / 原PDF physical P101",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_1ab9a00aa348efde"
+            "precision_id": "xpg_1ab9a00aa348efde",
+            "answer_scope": "<0.9供血不足、<0.4严重语境；不能仅凭ABI分期，钙化可假升高，需其他证据。"
           },
           {
             "memory_id": "B09-M19",
@@ -4133,7 +4232,8 @@
             "cue": "慢性缺血IIa/IIb距离",
             "answer": "当前Study：IIa最大步行距离>200m，IIb<200m。与Rutherford距离体系不要混成同一分级。",
             "source": "外科 P124",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": ">200m和<200m；等于200m原页未给，保持Source-gap，不增等号。"
           }
         ]
       }
@@ -4148,7 +4248,8 @@
             "cue": "AS闭塞 vs TAO",
             "answer": "AS闭塞：中大动脉、>45岁男性多见、多种AS危险因素、广泛狭窄/钙化；TAO：青壮年男性、吸烟突出、中小动静脉、节段性病变+游走性浅静脉炎。",
             "source": "外科 P125 / 原PDF physical P102",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "以本页课程人群/危险因素为线索，不因年龄或吸烟单项确诊。"
           }
         ]
       }
@@ -4172,7 +4273,8 @@
             "cue": "单纯性静脉曲张术式",
             "answer": "当前Study：浅静脉结扎、曲张静脉剥脱、曲张静脉注射硬化剂；前提仍是深静脉通畅。",
             "source": "外科 P125–126",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "结扎/剥脱/硬化均带深静脉通畅前提，不在此生成操作方案。"
           }
         ]
       }
@@ -4188,7 +4290,8 @@
             "answer": "Buerger→动脉供血不足；Trendelenburg→大隐静脉瓣；Pratt→交通支瓣；Perthes→深静脉通畅；Homans→小腿DVT接口。",
             "source": "外科 P126 / 原PDF physical P103",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "Buerger页内存在版面/语义歧义，当前只保留canonical与真题链稳定支持的动脉供血用途。"
+            "scope_note": "Buerger页内存在版面/语义歧义，当前只保留canonical与真题链稳定支持的动脉供血用途。",
+            "answer_scope": "Buerger仅保留已稳定支持的动脉供血用途；不继承版面歧义的新用途；操作须回Source，Homans不是确诊。"
           },
           {
             "memory_id": "B09-M23",
@@ -4210,9 +4313,10 @@
             "kind": "SAFETY_G",
             "memory_timing": "G",
             "cue": "DVT后最危险的事",
-            "answer": "DVT最严重后果为PE；当前Study：血栓尚未形成时活动可减少淤滞，急性DVT已形成后避免下肢运动，防止血栓脱落。口诀‘没形成则动、形成后别动’必须带这个范围。",
+            "answer": "DVT最严重后果为PE。预防阶段活动可减少淤滞；确诊急性DVT后不自行按摩或剧烈活动，但不等于所有患者长期卧床。完成有效抗凝、循环稳定并经评估后，可按疼痛、水肿及PE风险安排早期活动。未抗凝、不稳定或严重症状者不能套用同一活动方案；完整PE归呼吸系统。",
             "source": "外科 P125 + 真题2021N98-99",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "急性DVT不自行按摩/剧烈活动；有效抗凝、循环稳定、评估后按症状/PE风险安排早期活动；未抗凝/不稳/重症不套同一方案。"
           }
         ]
       }
@@ -4227,7 +4331,8 @@
             "cue": "股白肿 vs 股青肿",
             "answer": "股白肿：苍白、皮温升高；股青肿：青紫、皮温下降、动脉搏动消失，提示严重肿胀已影响动脉供血，是更危险的肢体信号。",
             "source": "外科 P126 / 原PDF physical P103",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "股青肿提示严重静脉阻塞可压动脉，不能误作单纯动脉原发病。"
           },
           {
             "memory_id": "B09-M22",
@@ -4236,7 +4341,8 @@
             "cue": "DVT周围/中央/混合型细节",
             "answer": "周围型按股静脉/小腿深静脉定位痛肿；中央型髂窝/股三角痛并全下肢肿；混合型多部位疼痛+全下肢肿。股青肿危险身份另由Gate承担。",
             "source": "外科 P126",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "股青肿危险另由同一模型安全门负责；症状范围不能代替影像。"
           }
         ]
       }
@@ -4267,7 +4373,8 @@
             "cue": "Rutherford 1–3级步行距离",
             "answer": "当前Study：1级>500m；2级300–500m；3级<300m；4级静息/夜间痛；5级小范围组织缺损/活动性溃疡；6级大范围溃疡/坏疽。结构主链由KP07承担，精确距离可后滚。",
             "source": "外科 P124 / 原PDF physical P101",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "不同于IIa/IIb的200m体系；不混合两套分级。"
           }
         ]
       }
@@ -4282,7 +4389,8 @@
             "cue": "静脉曲张足靴区",
             "answer": "晚期可见足靴区/小腿远侧1/3色素沉着等慢性静脉高压改变。",
             "source": "外科 P125",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "解释仍回慢性静脉高压，不单凭色素定位深浅通路。"
           }
         ]
       }
@@ -4335,7 +4443,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "预激/WPW ECG",
-            "answer": "PR<0.12s + δ波 + QRS增宽；预激本身不等于已发生心动过速，仍需适时早搏触发折返。",
+            "answer": "典型 ECG：\n\n```text\nPR＜0.12s\nQRS起始部粗钝形成δ波\nQRS可增宽\nST-T继发性改变\n```\n\n核心：房室旁路绕开房室结生理延搁，提前激动部分心室。\n\n顺向型AVRT：心房 → 房室结 → 希氏束/浦肯野 → 心室 → 旁路逆传回心房，构成折返。心室经正常传导系统下传激动，所以QRS通常窄；若合并室内差异性传导等也可增宽。它与窦律时旁路提前激动部分心室形成δ波，是不同观察场景。",
             "source": "内科 心律失常 / physical P448–450",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "precision_id": "xpg_3da97cdce06afc63"
@@ -4345,7 +4453,7 @@
             "kind": "DRUG_SAFETY_G_STUDY_BOUND",
             "memory_timing": "G",
             "cue": "预激合并房颤/房扑：禁用房室结抑制路径",
-            "answer": "当前Study禁止刺激迷走神经及腺苷、β受体阻断剂、维拉帕米/地尔硫卓、强心苷、胺碘酮；终止接口为电复律，或伊布利特/普罗帕酮。",
+            "answer": "- 预激伴房颤/房扑与规则顺向AVRT须分开：课程前者首选电复律，药物列伊布利特/普罗帕酮；禁用强心苷、维拉帕米、地尔硫卓、β阻断和胺碘酮。现行AF指南同样警示预激房颤避免房室结阻断药（还包括腺苷）；不稳定立即电复律。不能把规则顺向AVRT的腺苷路径套给宽QRS不规则的预激房颤。",
             "source": "内科 心律失常 physical P448–450",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "严格限于‘预激综合征合并房颤/房扑’；普通房颤药物表不能覆盖该特殊分支。"
@@ -4419,7 +4527,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "CHA₂DS₂-VASc抗凝阈值",
-            "answer": "当前Study：男性0/女性1不抗凝；男性1/女性2权衡获益风险考虑抗凝；男性≥2/女性≥3需抗凝。",
+            "answer": "- 合并机械瓣 / 中重度二尖瓣狭窄等瓣膜性场景，按 Study 采用长期华法林等方案；\n- 其余按课程CHA₂DS₂-VASc评估：心衰1、高血压1、年龄≥75岁2、糖尿病1、既往卒中/TIA/栓塞2、血管病1、年龄65–74岁1、女性1分；两个年龄档互斥，不重复加分。\n- 课程阈值：男0/女1通常不因房颤常规抗凝；男1/女2权衡；男≥2/女≥3推荐。符合条件时优先直接口服抗凝药（NOAC/DOAC），仍需核对肾功能及出血风险；\n\n版本分清：上面的评分和>48 h沿用课程；2024 ESC改用不含性别的CHA₂DS₂-VA，并采用>24 h的择期转复安全门槛。不能把两版分值与时间拼成一套新规则，也不能把短于48 h理解成必然安全、必然无需抗凝。",
             "source": "内科 房颤 physical P454",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           },
@@ -4428,7 +4536,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "房颤>48h围转复抗凝",
-            "answer": "当前Study：房颤持续>48h/时间不明，转复前抗凝3周→转复→转复后抗凝4周；危急者可肝素紧急抗凝，或TEE排除左房血栓后提前转复。",
+            "answer": "转复前后：\n\n```text\n房颤持续＞48h或时间不明\n→ 先有效抗凝至少3周，或走经食管超声排栓的提前转复路径\n→ 转复前建立治疗性抗凝，排栓不等于不用抗凝\n→ 转复后通常至少4周，是否长期继续再按栓塞风险\n```\n\n危急不稳定者不能因等待常规抗凝而延误电复律，抗凝按禁忌及急救条件尽快衔接。\n\n版本分清：上面的评分和>48 h沿用课程；2024 ESC改用不含性别的CHA₂DS₂-VA，并采用>24 h的择期转复安全门槛。不能把两版分值与时间拼成一套新规则，也不能把短于48 h理解成必然安全、必然无需抗凝。",
             "source": "内科 房颤 physical P455",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "precision_id": "xpg_0c34985447aebb53"
@@ -4453,7 +4561,7 @@
             "kind": "RATE_TARGET_G_STUDY_BOUND",
             "memory_timing": "G",
             "cue": "房颤控率目标",
-            "answer": "当前Study：无症状且左室收缩功能正常可将静息心率控制<110/min；有症状或心动过速性心肌病时静息<80/min、运动<110/min。",
+            "answer": "课程控率目标：无症状且LV收缩功能正常，静息室率<110次/分；症状明显或心动过速性心肌病，静息<80、运动时<110次/分。达到目标后用Holter检查过缓或停搏；具体目标须结合症状、心功能与耐受，不能把所有人压到同一心率。\n\n（易混：控率不是恢复窦律；抗凝也不能因为心室率控制好而自动停用。）",
             "source": "内科 房颤 physical P455",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           }
@@ -4471,7 +4579,8 @@
             "answer": "当前Study/诊断学接口：频发>5/min、成对、短阵室速、多源、R-on-T/易损期出现提示危险性增加。",
             "source": "内科 室早 physical P456–457",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "用作Study危险形态识别，不替代完整临床风险分层。"
+            "scope_note": "用作Study危险形态识别，不替代完整临床风险分层。",
+            "answer_scope": "高危形态包括：频发、成对、多源 / 多形、短阵室速、R-on-T 等。偶发、无症状且无器质性心脏病者通常先观察和处理病因。"
           }
         ]
       }
@@ -4511,7 +4620,8 @@
             "answer": "一度PR>0.20s且每个P后均有QRS；二ⅠPR进行性延长后QRS脱落；二ⅡPR恒定而QRS突然脱落；三度P与QRS无固定关系、房率>室率。",
             "source": "内科 AVB physical P458–462",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_7999d5fca8346ab4"
+            "precision_id": "xpg_7999d5fca8346ab4",
+            "answer_scope": "课程明确：二度Ⅱ型/三度AVB有显著缓慢或Adams–Stokes发作应及早起搏；不可逆者无论有无症状均植入永久起搏器。临床指南同样将非可逆/非生理性获得性MobitzⅡ、高度或三度AVB列为不依赖症状的永久起搏适应证，不能等晕厥后才处理。急性期仍先评估并纠正可逆原因。"
           },
           {
             "memory_id": "B10-M16",
@@ -4537,7 +4647,8 @@
             "answer": "当前Study：完全性束支阻滞QRS≥0.12s；不完全性<0.12s；RBBB主要看V1/V2 M型，LBBB主要看V5/V6 M型。",
             "source": "内科 束支阻滞 physical P463附近",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_d4d9e061bbacd6d0"
+            "precision_id": "xpg_d4d9e061bbacd6d0",
+            "answer_scope": "### 束支阻滞\n\n- 完全性束支阻滞：QRS ≥0.12s；\n- 右束支阻滞：右胸导联兔耳 / rsR′等 Study 图形；\n- 左束支阻滞：左侧导联宽大、切迹 R 波等，具体图形必须回原图。"
           }
         ]
       }
@@ -4591,7 +4702,7 @@
             "kind": "CLASSIFICATION_D_STUDY_BOUND",
             "memory_timing": "D",
             "cue": "房颤时间分类",
-            "answer": "当前Study：阵发性≤1周（常≤48h、自发终止）；持续性>1周且不自发终止；长期持续/持久性>1年仍可转复；永久性>1年且无法维持窦律或很快复发。",
+            "answer": "先分时间轴与治疗策略轴：\n\n| 类别 | 恢复要点 |\n|---|---|\n| 阵发性 | 发作在7天内终止；课程强调能自行终止 |\n| 持续性 | 连续超过7天，往往需干预终止 |\n| 长期持续/持久性 | 连续超过12个月，仍考虑节律控制 |\n| 永久性 | 医患共同接受当前房颤，不再尝试恢复/维持窦律；属于治疗决策 |\n\n旧课将永久性写为超过1年、不能转复或24小时内复发，这个描述不能当成“生物学上永远治不好”的定义。四类不必逐级必然演变。",
             "source": "内科 房颤",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "保留Study术语和时间口径，不静默替换。"
@@ -4655,7 +4766,7 @@
             "kind": "DEVICE_PAIRING_D",
             "memory_timing": "D",
             "cue": "起搏模式低耦合配对",
-            "answer": "当前Study：VVI可用于多种缓慢型但有起搏器综合征风险；VDD适合窦房结正常+严重AVB；DDD适合SSS+严重AVB；AAI适合SSS且房室传导正常；慢房颤因心房无法可靠起搏，不选AAI/DDD。",
+            "answer": "| 模式 | 起搏 | 感知 | 典型适合 |\n|---|---|---|---|\n| VVI | 心室 | 心室 | 多类缓慢节律；慢房颤合并房室阻滞接口 |\n| AAI | 心房 | 心房 | SSS且房室传导正常 |\n| VDD | 心室 | 心房+心室 | 窦房结正常、严重房室阻滞 |\n| DDD | 心房+心室 | 心房+心室 | SSS合并严重房室阻滞，维持房室顺序 |\n\n第三位字母回答“感知后怎样反应”：I为抑制，D为兼有触发与抑制。VVI感知自身室性信号后抑制相应脉冲；AAI感知自身房性信号后抑制；VDD/DDD可由房性信号按设定房室间期触发室性起搏，也可因感知到自身室性信号而抑制。\n\nVVI可破坏房室同步，引起起搏器综合征；心功能差者需谨慎。持续/永久房颤时心房起搏和追踪无有效窦性房活动的目标，不能机械选AAI或让DDD追踪房颤；具体模式与模式切换需设备评估。",
             "source": "内科 physical P467",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           }
@@ -4686,7 +4797,7 @@
             "kind": "CLASSIFICATION_G",
             "memory_timing": "G",
             "cue": "A–D心衰分期",
-            "answer": "A：仅危险因素；B：已有结构/功能异常但无心衰临床表现；C：既往或目前有心衰症状/体征；D：优化治疗后仍明显症状、反复住院/晚期心衰。",
+            "answer": "| 分期 | 状态 |\n|---|---|\n| A | 只有高危因素，如高血压、冠心病危险因素；无结构异常、无症状 |\n| B | 前心衰：已有结构改变、充盈压 / 标志物异常，但无症状 |\n| C | 症状性心衰：既往或目前有症状 / 体征 |\n| D | 晚期心衰：优化治疗后仍明显症状、反复住院，可有心源性恶病质 |",
             "source": "内科 printed P352 / physical P427",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           }
@@ -4703,7 +4814,8 @@
             "cue": "NYHA I–IV核心边界",
             "answer": "I：活动不受限；II：一般活动受限；III：活动明显受限、轻微活动即症状但休息无症状；IV：休息时也有症状/任何活动均加重。",
             "source": "内科 printed P352 / physical P427",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "（易混：端坐呼吸不能机械等同于NYHAⅣ；Study 强调“夜间躺下后坐起可缓解”可在Ⅲ级，而持续半卧、完全躺不下更接近Ⅳ级。）"
           },
           {
             "memory_id": "B11-M21",
@@ -4767,7 +4879,8 @@
             "answer": "当前Study：左心衰PAWP/PCWP≥18 mmHg提示肺淤血/湿；CI≤2.2 L·min⁻¹·m⁻²提示低输出/冷。CVP只作右侧容量/泵关系，正常值不跨学科统一。",
             "source": "内科 printed P355 / physical P430",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_e817b36d446e7568"
+            "precision_id": "xpg_e817b36d446e7568",
+            "answer_scope": "上面的CO/CI参考为本课简化值，受体表面积、负荷等影响；CI≤2.2是低输出严重度线索，不是所有左心衰必须满足的诊断条件。"
           }
         ]
       }
@@ -4804,7 +4917,7 @@
             "kind": "PRECISION_D_STUDY_BOUND",
             "memory_timing": "D",
             "cue": "慢性心衰BNP排除阈值",
-            "answer": "当前Study：NT-proBNP<125 ng/L或BNP<35 ng/L可基本排除慢性心衰；但约20% HFpEF可正常，因此仅作资料口径的排除性参考。",
+            "answer": "课程慢性/非急性排除参考：NT-proBNP<125 pg/mL或BNP<35 pg/mL；急性常用NT-proBNP<300 pg/mL或BNP<100 pg/mL（ESC急性心衰口径补充，讲义此处仅写“正常”）。低值使心衰可能性下降，不代表所有HFpEF均被绝对排除；高值亦非心衰独有，需结合临床和影像。",
             "source": "内科 printed P355 / physical P430",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           },
@@ -4859,7 +4972,7 @@
             "kind": "EXACT_LIST_G_STUDY_BOUND",
             "memory_timing": "G",
             "cue": "慢性HFrEF当前Study结局药物主轴",
-            "answer": "ACEI/ARB/ARNI + β受体阻断剂 + MRA + SGLT2i + sGC刺激剂；核心共同目标是抗神经体液/抗重构和改善长期结局，不能与单纯利尿混为一组。",
+            "answer": "课程“五朵金花”列出以下5类；这是课程分类，不等于五类在任何人群都已分别证明降低死亡：\n\n1. ACEI / ARB / ARNI；\n2. β受体拮抗剂；\n3. MRA；\n4. SGLT2抑制剂；\n5. sGC刺激剂。\n\n现代HFrEF基础治疗以其中前4类为骨架；sGC刺激剂维立西呱是在特定患者中考虑的加用治疗。\n\n结局要分开：VICTORIA在近期恶化HFrEF中改善“心血管死亡或心衰住院”复合终点，单独心血管死亡未达显著；2025 VICTOR在无近期恶化人群的主要复合终点未达显著。预设合并分析则观察到心血管死亡减少，说明不能反过来说“绝无死亡获益”。共同学习规则是：看具体人群、药物与终点，不能将所有复合获益都改写为单独死亡率结论。",
             "source": "内科 printed P357–358 / physical P433–434",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           }
@@ -4874,7 +4987,7 @@
             "kind": "PRECISION_G_SAFETY",
             "memory_timing": "G",
             "cue": "RAAS/MRA/SGLT2i安全门",
-            "answer": "当前Study：ACEI/ARB/ARNI等受高K、明显肾功能异常、低血压、妊娠/双肾动脉狭窄等限制；MRA强调K>5或GFR<30不用；SGLT2i当前资料按达格列净GFR<30、恩格列净GFR<20作低肾功能门槛。",
+            "answer": "| 药组 | 主要限制与阈值 |\n|---|---|\n| ACEI/ARB/ARNI一般安全 | 引用既有B5 KP18（content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md?plain=1#L463）；一般数值、禁忌与换药限制仍由该owner承担，不在B11复制新的通用精度目标。 |\n| MRA | HFrEF启动通常要求eGFR>30 mL/min/1.73m²且K<5.0 mmol/L；治疗中若无法维持K<5.5 mmol/L需停用/重新评估，不能与RAAS三类共用一条阈值 |\n| SGLT2i | 注意容量不足、酮症风险及长期禁食/手术/危重病暂缓；按药物和适应证分启用与维持。课程达格列净表写GFR<30、正文写<25，存在差异；FDA心肾适应证口径eGFR<25不建议新启用，但既有治疗可有继续条件。恩格列净课程20界值不等于下降后必停；KDIGO允许符合条件者低于20继续至不耐受或肾替代治疗 |\n| sGC刺激剂维立西呱 | 妊娠禁用；不可与其他sGC刺激剂合用，不推荐合用PDE5抑制剂；关注低血压。不要套用MRA的K/eGFR门槛 |\n\n上表是机制学习中的风险核对，不替代具体制剂说明书及个体处方。",
             "source": "内科 printed P357 / physical P433及高血压药表",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "严格按当前Study安全口径，不外推为现实处方规则。",
@@ -4923,7 +5036,7 @@
             "kind": "DRUG_SELECTION_G_STUDY_BOUND",
             "memory_timing": "G",
             "cue": "伊伐布雷定适用身份",
-            "answer": "当前Study：慢性HFrEF在β受体阻断剂基础上仍符合条件、窦性心律，LVEF≤35%、NYHA II–IV、HR≥70/min；房颤和急性心衰不用。",
+            "answer": "选择性抑制窦房结If。课程条件：慢性HFrEF、LVEF≤35%、NYHAⅡ–Ⅳ、窦性心律、静息HR≥70次/min，且已用β受体拮抗剂；房颤、急性失代偿期不用。2022 AHA/ACC/HFSA推荐具体限定为稳定慢性、NYHAⅡ–Ⅲ且接受含最大耐受β阻滞剂的规范治疗，不能省去稳定状态与背景治疗。",
             "source": "内科 printed P358 / physical P434",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
           },
@@ -4999,7 +5112,8 @@
             "cue": "急性心衰血管扩张剂",
             "answer": "当前Study列：硝普钠、硝酸酯类、乌拉地尔、奈西立肽；先按‘是否该扩管’判断，再记药名。",
             "source": "内科 printed P356 / physical P431",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "- 高血压急症伴急性肺水肿：硝普钠等扩张动静脉可降前后负荷；\n- 低血压 / 休克、HCM、AS、急性右室梗死等禁忌 / 慎用扩血管。\n\n> **核心边界**：急性心衰“减负荷”成立的前提是仍有足够灌注；已休克时继续扩血管可加重低灌注。"
           },
           {
             "memory_id": "B11-M30",
@@ -5024,7 +5138,8 @@
             "cue": "利尿剂低耦合选择",
             "answer": "当前Study药表：GFR<30时偏向呋塞米；低钠可见托伐普坦接口；排钾与保钾利尿剂可按容量/电解质状态组合。具体剂量与不良反应后滚。",
             "source": "内科相关药物表 / printed P357附近",
-            "binding_status": "RETAINED_EXACT_SINGLE_OWNER"
+            "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
+            "answer_scope": "只要存在明显体液潴留，利尿剂可改善淤血。剂量不足 → 淤血持续；剂量过大 → 容量不足、低血压、肾功能恶化。\n\nB5当前药物适用边界：托伐普坦排游离水，不能用于低容量低钠，也不能把高钠患者列为其一般适用人群。"
           }
         ]
       }
@@ -5037,7 +5152,7 @@
             "kind": "PRECISION_G_STUDY_BOUND",
             "memory_timing": "G",
             "cue": "DIC五项Study提示",
-            "answer": "当前Study：血小板<80×10^9/L；PT延长>3 s；纤维蛋白原<1.5 g/L；3P试验；破碎红细胞>2%。早期高凝阶段保留肝素接口。",
+            "answer": "### 2｜按本节 Study 的提示指标\n\n- 血小板 `<80×10⁹/L`；\n- PT 延长 `>3 s`；\n- 纤维蛋白原 `<1.5 g/L`；\n- 3P试验；\n- 血涂片破碎红细胞 `>2%`。\n\n> 原页省略了血小板和纤维蛋白原单位，这里按常规检验单位补全；该组是课程提示，不是单独确诊DIC的完整标准。结合基础病、动态变化及相应评分，不能用一项异常直接确诊。\n\n### 3｜治疗接口\n\n课程写“早期/高凝期→肝素”。临床核心先处理病因；治疗性肝素需看血栓主导表现、出血风险等条件，不能仅凭“休克早期”自动抗凝。\n\n完整 DIC 分期、替代治疗和现代临床路径归血液系统；本 Block 只掌握它是休克微循环衰竭的重要出口。",
             "source": "外科 printed P223 / physical P225",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "仅按当前Study考试口径保留；DIC机制仍由KP04+B4 Recall承担。",
@@ -5057,7 +5172,8 @@
             "answer": "当前Study：轻度<20%（<800 mL）；中度20–40%；重度>40%（>1600 mL）。中度常见SBP 90–70 mmHg，重度SBP<70 mmHg；需结合脉率、脉压与神志。",
             "source": "外科 printed P224 / physical P226",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_6fd0a828da004022"
+            "precision_id": "xpg_6fd0a828da004022",
+            "answer_scope": "以下为当前Core保留的既往核对记录与边界；本轮未重新查看PDF或原图：\n\n原PDF物理277页/印刷224页已看清：脉搏栏确实写“中度100–200、重度>200”，不是OCR误读。但不能把>200次/min作为重度失血性休克的必备门槛，明显低于此值也可严重休克。这里保留源文数值作为待勘误记录，不擅换成另一套分级数字，也不把疑点作为已核精度释放。\n\n### 3｜重要边界\n\n- 《各论》题目中的“休克”常默认已进入休克期，SBP `<90`；\n- 但总论中必须保留早期可血压正常的机制。"
           }
         ]
       }
@@ -5070,7 +5186,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "休克指数",
-            "answer": "休克指数=脉率/收缩压。当前Study：约0.5提示无休克；>1–1.5进入休克；>2提示严重休克。",
+            "answer": "```text\n休克指数 = 脉率 / 收缩压\n```\n\n按 Study：\n\n- `0.5`：无休克；\n- `>1–1.5`：休克；\n- `>2`：严重休克。\n\n感性理解：\n\n```text\n脉率越快\n+ SBP越低\n→ 指数越大\n→ 代偿越强、循环越不稳定\n```\n\n（易混：休克指数不能区分低容量、心源、分布或阻塞性休克；它只是辅助严重度线索。低指数不能独自排除休克，心率受药物、节律、年龄和代偿能力影响，不能将课程“0.5无休克”当作绝对排除规则。）",
             "source": "外科 printed P224 / physical P226",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "precision_id": "xpg_82e6609d04c98fd9"
@@ -5089,7 +5205,8 @@
             "answer": "当前Study：尿量≥30 mL/h提示微循环/容量补充改善；<25 mL/h且尿比重升高偏向低容量/肾前性；血压恢复后仍少尿且尿比重低提示肾实质损伤接口。乳酸/BE用于校准无氧代谢和酸碱负担；BE<-2.3为代酸接口，>+2.3为代碱接口；胃黏膜pH用于隐匿低灌注接口。",
             "source": "外科 printed P224 / physical P226",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_d76f77b61375a94f"
+            "precision_id": "xpg_d76f77b61375a94f",
+            "answer_scope": "肾脏恢复提示重要器官灌注改善，但不能只靠单一尿量判断全部循环状态。"
           }
         ]
       }
@@ -5118,7 +5235,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "CVP×BP四格与补液试验",
-            "answer": "当前Study：CVP低+BP低→严重容量不足，充分补液；CVP低+BP正常→容量不足，适量补液；CVP高+BP正常→资料记作容量血管过度收缩，考虑扩静脉；CVP高+BP低→心功能不全/相对容量过多，先改善泵并纠正相关问题。CVP正常+BP低时补液试验：BP升支持容量不足，CVP升支持心功能不全。",
+            "answer": "| CVP | BP | 按本节 Study 推断 | 处理方向 |\n|---|---|---|---|\n| 低 | 低 | 血容量严重不足 | 充分补液 |\n| 低 | 正常 | 血容量不足但BP暂被代偿 | 适当补液 |\n| 高 | 正常 | 容量血管过度收缩 / 回心过多接口 | 扩静脉 |\n| 高 | 低 | 心功能不全或相对容量过多 | 强心、纠酸等；不能盲目补液 |\n\n### 补液试验\n\n按 Study，在 `CVP正常 + BP低` 的不确定场景进行：\n\n```text\n补液后BP升高\n→ 血容量不足更可能\n\n补液后CVP明显升高而BP不改善\n→ 心功能不全更可能\n```\n\n（易混：表格是考试决策工具，不代表脱离病因、肺部和超声即可机械处理真实患者。）",
             "source": "外科 printed P225 / physical P227",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "按当前Study矩阵保留；不把其CVP正常值跨Source统一。",
@@ -5138,7 +5255,8 @@
             "answer": "当前Study：Hb>100 g/L通常不输血；Hb<70 g/L输浓缩红细胞；70–100 g/L结合情况决定。",
             "source": "外科 printed P223 / physical P225",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "precision_id": "xpg_4004a850c58fd059"
+            "precision_id": "xpg_4004a850c58fd059",
+            "answer_scope": "按本节 Study：\n\n- 等待配血期间首选平衡盐；\n- “先晶后胶再输血”是课程记忆顺序，不是活动性大出血必须逐项走完的临床流程；\n- 失血量增加时逐步加入浓缩红细胞 / 全血接口；\n- Hb是否输血按 Study 的 `<70 / 70–100 / >100`范围进入 MI-D。\n\n活动性大出血要把止血与血液/凝血复苏并行，不能等晶体或胶体输完、更不能等单次Hb降到阈值后才处理。急性失血早期Hb可暂不反映真实丢失量；血液制品选择结合出血、灌注和凝血状态。\n\n2026 SSC对脓毒症/感染性休克以晶体液为一线，反对淀粉类、建议不用明胶；所以“晶体后接人工胶体”不能成为所有休克通用顺序。"
           },
           {
             "memory_id": "B12-M09",
@@ -5149,7 +5267,8 @@
             "source": "外科 printed P223 / physical P225",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": ">30%的旧版具体‘1/2浓缩红+1/2全血’比例降为Deferred，见B12-M20。",
-            "precision_id": "xpg_4004a850c58fd059"
+            "precision_id": "xpg_4004a850c58fd059",
+            "answer_scope": "按本节 Study：\n\n- 等待配血期间首选平衡盐；\n- “先晶后胶再输血”是课程记忆顺序，不是活动性大出血必须逐项走完的临床流程；\n- 失血量增加时逐步加入浓缩红细胞 / 全血接口；\n- Hb是否输血按 Study 的 `<70 / 70–100 / >100`范围进入 MI-D。\n\n活动性大出血要把止血与血液/凝血复苏并行，不能等晶体或胶体输完、更不能等单次Hb降到阈值后才处理。急性失血早期Hb可暂不反映真实丢失量；血液制品选择结合出血、灌注和凝血状态。\n\n2026 SSC对脓毒症/感染性休克以晶体液为一线，反对淀粉类、建议不用明胶；所以“晶体后接人工胶体”不能成为所有休克通用顺序。"
           },
           {
             "memory_id": "B12-M20",
@@ -5194,7 +5313,8 @@
             "answer": "当前Study：T>38℃或<36℃；HR>90/min；RR>20/min或PaCO2<4.3 kPa（约32.3 mmHg）；WBC>12或<4×10^9/L或幼稚细胞>10%。",
             "source": "外科 printed P225 / physical P227",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
-            "scope_note": "作为当前Study旧式感染性休克接口后滚，不把SIRS当成现代脓毒症定义替代品。"
+            "scope_note": "作为当前Study旧式感染性休克接口后滚，不把SIRS当成现代脓毒症定义替代品。",
+            "answer_scope": "SIRS是炎症反应筛查线索，不等于感染或脓毒症的单独确诊。"
           },
           {
             "memory_id": "B12-M18",
@@ -5241,7 +5361,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "CAB/按压通气标准",
-            "answer": "当前Study：C→A→B；按压胸骨下1/2（资料同时写剑突上4–5 cm/双乳头连线中点）；深度5–6 cm；频率100–120/min；按压:放松=1:1；按压:通气=30:2；通气约10/min；吹气持续>1 s并见胸廓起伏。",
+            "answer": "按本节 Study：\n\n```text\nC｜Circulation：胸外按压\n→ A｜Airway：开放气道\n→ B｜Breathing：人工呼吸\n```\n\n### 胸外按压\n\n- 部位：胸部中央的胸骨下半部；不把乳头连线或距剑突固定距离当成人人相同的定位替代；\n- 深度：5–6 cm；\n- 频率：100–120次/min；\n- 按压与放松时间比：1:1；\n- 尚未置入高级气道时，按压与通气比30:2；每组通气尽量减少按压中断。\n\n### 气道与通气\n\n- 无头颈创伤时，仰头抬颏开放气道；疑头颈创伤时，由受训者先用不后仰头部的托颌法，若仍不能开放，优先保证有效气道；\n- 捏鼻；\n- 不需深吸气；\n- 每次用约1 s送气，以可见胸廓起伏为准，避免过快、过多通气；\n- 已置入高级气道：连续按压，约每6 s通气1次（10次/min），不再机械套用30:2；\n- 有脉但无正常呼吸的呼吸骤停，也可用10次/min救援通气；这与无脉骤停的按压路径分开。\n\n课程P394把30:2、10次/min和“>1 s”并排列出；这里按实际场景补齐条件，不把两种通气节奏叠加。",
             "source": "内科 printed P394 / physical P476",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "scope_note": "按压定位使用当前Study原文，不做外部指南静默纠正。",
@@ -5258,7 +5378,7 @@
             "kind": "PRECISION_G",
             "memory_timing": "G",
             "cue": "VF/pVT首次除颤能量",
-            "answer": "当前Study：单相波360 J；双相波120–200 J。",
+            "answer": "按 Study首次能量：\n\n- 单相波 360 J；\n- 双相波按设备厂家推荐的首次能量（常见示例120–200 J）；不知推荐值时，AHA 2025算法用设备可用最大能量。不能把所有双相设备一律设为120 J。",
             "source": "内科 printed P394 / physical P476",
             "binding_status": "RETAINED_EXACT_SINGLE_OWNER",
             "precision_id": "xpg_f1a6b330348234d3"
@@ -6387,7 +6507,7 @@
   "precision_fields": {
     "xpg_0852e46f484f8e0d": {
       "cue": "办公室血压诊断/分级",
-      "answer": "办公室血压诊断/分级：高血压≥140和/或90；1级140–159/90–99，2级160–179/100–109，3级≥180/≥110；单纯收缩期≥140且DBP<90；单纯舒张期SBP<140且DBP≥90；SBP/DBP不同级按较高级",
+      "answer": "办公室血压诊断/分级：高血压≥140和/或90；1级140–159/90–99，2级160–179/100–109，3级≥180/≥110；单纯收缩期≥140且DBP<90；单纯舒张期SBP<140且DBP≥90；SBP/DBP不同级按较高级\n适用范围：本课程办公室血压分级；不假称全部现行指南统一，也不替代规范重复测量。",
       "retention_metadata": {
         "source_memory_ids": [
           "B05-M01"
@@ -6396,12 +6516,14 @@
           "内科 高血压 P308（PDF P377）"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "本课程办公室血压分级；不假称全部现行指南统一，也不替代规范重复测量。"
+        ]
       }
     },
     "xpg_ea8036e479b7d5ec": {
       "cue": "ABPM诊断坐标",
-      "answer": "ABPM诊断坐标：24h平均<130/80，白天<135/85，夜间<120/70；主要用于白大衣、隐蔽性、顽固性高血压及昼夜/疗效评估",
+      "answer": "ABPM诊断坐标：本Study正常ABPM平均值：24h<130/80、白天<135/85、夜间<120/70；用于白大衣、隐蔽性、难治/顽固、短时变异、昼夜和疗效评估。\n适用范围：下列为本Study正常平均值，并非诊室阈值；用途依对应临床问题。",
       "retention_metadata": {
         "source_memory_ids": [
           "B05-M02"
@@ -6410,12 +6532,14 @@
           "内科 高血压 P308（PDF P377）"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "下列为本Study正常平均值，并非诊室阈值；用途依对应临床问题。"
+        ]
       }
     },
     "xpg_c606cf1e10747a10": {
       "cue": "高血压危象身份",
-      "answer": "高血压危象身份：当前Study入口：血压突然明显升高，一般>180/120；有急性进行性靶器官损害=高血压急症，无=高血压亚急症；绝对血压与损害程度不成正比",
+      "answer": "高血压危象身份：血压突然明显升高，课程入口SBP>180或DBP>120 mmHg；伴急性进行性心/脑/肾等靶器官损害为急症，缺少急性损害则为亚急症。\n适用范围：课程危象入口；紧急程度靠急性进行性靶器官损害，不由绝对数值单独决定。",
       "retention_metadata": {
         "source_memory_ids": [
           "B05-M03"
@@ -6424,12 +6548,14 @@
           "内科 高血压 P309–310"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "课程危象入口；紧急程度靠急性进行性靶器官损害，不由绝对数值单独决定。"
+        ]
       }
     },
     "xpg_ee3aabc71215185d": {
       "cue": "高血压急症降压节奏",
-      "answer": "高血压急症降压节奏：初始1h内MAP降幅<25%；随后2–6h至约160/100；24–48h逐步降至正常；若出现重要器官缺血，降幅更小并延缓至约1–2周",
+      "answer": "高血压急症降压节奏：当前Study：1h内MAP降幅≤25%；2–6h约至160/100；24–48h逐步正常；若出现器官缺血，降幅更小并据灌注调整。\n适用范围：课程一般节奏，病因特例不由此覆盖；若器官缺血降幅更小，不补Core未列的固定延后时长。",
       "retention_metadata": {
         "source_memory_ids": [
           "B05-M05"
@@ -6438,12 +6564,14 @@
           "内科 高血压 P309–310"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "课程一般节奏，病因特例不由此覆盖；若器官缺血降幅更小，不补Core未列的固定延后时长。"
+        ]
       }
     },
     "xpg_896d49a403801df8": {
       "cue": "高血压急症场景—药物",
-      "answer": "高血压急症场景—药物：当前Study：一般静脉硝普钠；ACS可用硝酸酯；急性脑血管病可用尼卡地平；妊娠或肾功能不全可用拉贝洛尔；初期一般不用呋塞米，除非心衰/明显容量负荷过重",
+      "answer": "高血压急症场景—药物：当前Study：一般静脉硝普钠；ACS可用硝酸酯；急性脑血管病可用尼卡地平；妊娠或肾功能不全可用拉贝洛尔；初期一般不用呋塞米，除非心衰/明显容量负荷过重\n适用范围：保持Study口径，不替代现实临床个体化处置；本课程场景—药物入口，非患者处方；病因、灌注与耐受决定使用，不据表机械同用。",
       "retention_metadata": {
         "source_memory_ids": [
           "B05-M06"
@@ -6453,13 +6581,14 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": [
-          "保持Study口径，不替代现实临床个体化处置"
+          "保持Study口径，不替代现实临床个体化处置",
+          "保持Study口径，不替代现实临床个体化处置；本课程场景—药物入口，非患者处方；病因、灌注与耐受决定使用，不据表机械同用。"
         ]
       }
     },
     "xpg_50805f062cd6fac7": {
       "cue": "NSTE-ACS极高危→侵入策略",
-      "answer": "NSTE-ACS极高危→侵入策略：出现休克/严重心衰、致命心律失常或心停、机械并发症等极高危信号时进入紧急侵入路径；当前Study以<2h作为极高危PCI时间接口。",
+      "answer": "NSTE-ACS极高危→侵入策略：出现休克/严重心衰、致命心律失常或心停、机械并发症等极高危信号时进入紧急侵入路径；当前Study以<2h作为极高危PCI时间接口。\n适用范围：仅当前Study极高危侵入评估时限；循环不稳不等待标志物确认，具体策略仍依危险层。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M02"
@@ -6468,12 +6597,14 @@
           "内科 冠心病 P340–341"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "仅当前Study极高危侵入评估时限；循环不稳不等待标志物确认，具体策略仍依危险层。"
+        ]
       }
     },
     "xpg_a2c17594fb529f8d": {
       "cue": "UA vs NSTEMI",
-      "answer": "UA vs NSTEMI：二者临床与ECG可相似；关键分界是是否已有心肌坏死标志物升高。早期阴性需结合起病时间复测，不能机械排除NSTEMI。",
+      "answer": "UA vs NSTEMI：UA与NSTEMI症状/ECG可相似；UA无急性缺血性坏死证据，NSTEMI有符合缺血性梗死的心肌损伤。标志物动态必须结合急性缺血症状/ECG；早期一次阴性不能直接定UA，单次阳性不能独立定MI。\n适用范围：早期单阴性不排梗死，单升高只提示心肌损伤；缺血性梗死须合看动态和缺血证据。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M03"
@@ -6482,12 +6613,14 @@
           "内科 冠心病"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "早期单阴性不排梗死，单升高只提示心肌损伤；缺血性梗死须合看动态和缺血证据。"
+        ]
       }
     },
     "xpg_ccbcd69499cfe14d": {
       "cue": "NSTEMI vs STEMI",
-      "answer": "NSTEMI vs STEMI：NSTEMI：坏死标志物阳性但无典型持续ST抬高谱系；STEMI：典型ST抬高谱系+心肌坏死，并进入紧急再灌注路径；NSTEMI不走STEMI溶栓路径。",
+      "answer": "NSTEMI vs STEMI：NSTEMI有缺血性坏死而无典型持续ST抬高谱系；典型持续ST抬高谱系须紧急再灌注评估，不等待标志物凑齐。NSTEMI不常规沿STEMI全身溶栓路径，按抗栓和风险分层侵入评估。\n适用范围：ECG分型不是大小、单一闭塞程度或绝对血栓物质二分；不等待标志物凑齐才识别STEMI。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M04"
@@ -6496,12 +6629,14 @@
           "内科 冠心病"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "ECG分型不是大小、单一闭塞程度或绝对血栓物质二分；不等待标志物凑齐才识别STEMI。"
+        ]
       }
     },
     "xpg_be5621635eaf04ac": {
       "cue": "MI病理4阶段时间轴",
-      "answer": "MI病理4阶段时间轴：约4天：梗死灶外围充血/出血带；1–2周：边缘肉芽组织向内长入；约3周：肉芽组织开始机化并逐渐形成瘢痕；6–8周：瘢痕愈合，陈旧性心梗。",
+      "answer": "MI病理4阶段时间轴：约4天：梗死灶外围充血/出血带；1–2周：边缘肉芽组织向内长入；约3周：肉芽组织开始机化并逐渐形成瘢痕；6–8周：瘢痕愈合，陈旧性心梗。\n适用范围：本Study病理时间范围，受组织演变条件影响；瘢痕修复不等于恢复收缩肌。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M05"
@@ -6510,12 +6645,14 @@
           "病理 PDF P46"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "本Study病理时间范围，受组织演变条件影响；瘢痕修复不等于恢复收缩肌。"
+        ]
       }
     },
     "xpg_c1450a8661aad7b7": {
       "cue": "三种心肌坏死标志物时程与用途",
-      "answer": "三种心肌坏死标志物时程与用途：当前Study：肌红蛋白最早，约2h内升高、1–2d恢复，敏感性高；cTn约3–4h后升高，可持续1–2周，特异性最高/诊断价值高；CK-MB约4h内升高、3–4d恢复，更适合短期再梗死与梗死范围/再通时程判断。",
+      "answer": "三种心肌坏死标志物时程与用途：传统Study：肌红蛋白约2h内升、1–2d回，较早但特异低；cTn约3–4h后升、持续1–2w，提示心肌损伤，MI须动态+缺血证据；CK-MB约4h内升、3–4d回，可辅助短期再梗死。持续cTn升高期仍看再次动态，不是完全无用。\n适用范围：传统课程检测时间，检测方法和再灌注会改变表现；高敏cTn不能套旧最早时点。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M06"
@@ -6524,7 +6661,9 @@
           "内科 冠心病 P350–351/PDF P422–423"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "传统课程检测时间，检测方法和再灌注会改变表现；高敏cTn不能套旧最早时点。"
+        ]
       }
     },
     "xpg_71ea8526693b50d8": {
@@ -6571,7 +6710,7 @@
     },
     "xpg_3ea1baa529dd254b": {
       "cue": "Dressler时相",
-      "answer": "Dressler时相：心梗后数周–数月出现免疫性心包炎，可伴胸膜炎/肺部炎症表现；与早期梗死后2–3天心包摩擦音分开。",
+      "answer": "Dressler时相：心梗后数周–数月出现免疫性心包炎，可伴胸膜炎/肺部炎症表现；与早期梗死后2–3天心包摩擦音分开。\n适用范围：免疫炎症与早期梗死相关摩擦音分开；不是固定到某一天。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M11"
@@ -6580,12 +6719,14 @@
           "内科 冠心病 P337"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "免疫炎症与早期梗死相关摩擦音分开；不是固定到某一天。"
+        ]
       }
     },
     "xpg_bf172640d9560fe9": {
       "cue": "STEMI再灌注时间与路径",
-      "answer": "STEMI再灌注时间与路径：当前Study强调起病3–6h尽快再灌注、最多12h；有PCI条件走直接PCI；无PCI条件或预计直接PCI>2h时进入溶栓路径。",
+      "answer": "STEMI再灌注时间与路径：越早再灌注越好；及时PCI优先。课程预计直接PCI>2h或无及时条件时，须同时起病12h内、适应证成立且无禁忌才考虑溶栓；>12h仍持续缺血/休克/恶性节律需紧急评估。120min按来源分开：ESC从STEMI诊断到导丝通过；AHA从首次医疗接触到器械启动，直接就诊目标≤90min、转运≤120min，不能混算。\n适用范围：考试Study口径；不外推替代现实急救规范。；课程3–6h不是等待窗，12h不是全体放弃界；120min起止按来源分别保留。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M12"
@@ -6595,13 +6736,14 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": [
-          "考试Study口径；不外推替代现实急救规范。"
+          "考试Study口径；不外推替代现实急救规范。",
+          "考试Study口径；不外推替代现实急救规范。；课程3–6h不是等待窗，12h不是全体放弃界；120min起止按来源分别保留。"
         ]
       }
     },
     "xpg_ae4e8a47b5a75087": {
       "cue": "溶栓禁忌 + 再通证据",
-      "answer": "溶栓禁忌 + 再通证据：先排脑卒中/中枢神经病变、未排除主动脉夹层、未控制严重高血压、近期活动性内脏出血/创伤/大手术/不可压迫部位穿刺等高危禁忌。间接再通证据：CK-MB峰提前<14h、胸痛2h内明显缓解、2h内再灌注性心律失常、抬高ST段2h内回降>50%。",
+      "answer": "溶栓禁忌 + 再通证据：溶栓前评估卒中类型/时点、中枢病变、活动出血、近期重大创伤/手术及不可压迫穿刺、未控严重高压、夹层；还需判断CPR是否创伤性/延长，不能将全部旧卒中或任何短暂成功CPR判终身绝对禁忌。CK-MB峰<14h从起病算；胸痛消失、再灌注性节律和ST回落>50%的2h从溶栓算，均为间接线索。\n适用范围：五风险组不是完整绝对/相对禁忌清单；所有间接再通证据不等于造影证实，持续不稳不能等2h。",
       "retention_metadata": {
         "source_memory_ids": [
           "B06-M13"
@@ -6610,7 +6752,9 @@
           "内科 冠心病 P342/PDF P415"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "五风险组不是完整绝对/相对禁忌清单；所有间接再通证据不等于造影证实，持续不稳不能等2h。"
+        ]
       }
     },
     "xpg_58d002be5a2b04ea": {
@@ -6624,7 +6768,9 @@
           "内科 IE"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "课程2–6周/6–8周；具体按病原、药敏、瓣类型与肾功能，不把联合/氨基糖苷普遍化。"
+        ]
       }
     },
     "xpg_883f41ff386085a0": {
@@ -6652,7 +6798,9 @@
           "内科 心瓣膜病 PDF P390"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "面积cm²、压差和肺动脉压mmHg；只按本页课程分组并保留同流量条件，不替换现代分级。"
+        ]
       }
     },
     "xpg_8d762513ba202953": {
@@ -6666,7 +6814,9 @@
           "内科 心瓣膜病 P393–394"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "当前Study正常3–4cm²，≤1cm²语境；完整跨瓣压差矩阵缺失，不补数、不把单阈值替代综合评估。"
+        ]
       }
     },
     "xpg_058263469d13d685": {
@@ -6694,7 +6844,9 @@
           "外科 P124 / 原PDF physical P101"
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
-        "source_scope_notes": []
+        "source_scope_notes": [
+          "<0.9供血不足、<0.4严重语境；不能仅凭ABI分期，钙化可假升高，需其他证据。"
+        ]
       }
     },
     "xpg_2f3dc8b2ab10a87b": {
@@ -6713,7 +6865,7 @@
     },
     "xpg_3da97cdce06afc63": {
       "cue": "预激/WPW ECG",
-      "answer": "预激/WPW ECG：PR<0.12s + δ波 + QRS增宽；预激本身不等于已发生心动过速，仍需适时早搏触发折返。",
+      "answer": "预激/WPW ECG：典型 ECG：\n\n```text\nPR＜0.12s\nQRS起始部粗钝形成δ波\nQRS可增宽\nST-T继发性改变\n```\n\n核心：房室旁路绕开房室结生理延搁，提前激动部分心室。\n\n顺向型AVRT：心房 → 房室结 → 希氏束/浦肯野 → 心室 → 旁路逆传回心房，构成折返。心室经正常传导系统下传激动，所以QRS通常窄；若合并室内差异性传导等也可增宽。它与窦律时旁路提前激动部分心室形成δ波，是不同观察场景。",
       "retention_metadata": {
         "source_memory_ids": [
           "B10-M03"
@@ -6727,7 +6879,7 @@
     },
     "xpg_0c34985447aebb53": {
       "cue": "房颤>48h围转复抗凝",
-      "answer": "房颤>48h围转复抗凝：当前Study：房颤持续>48h/时间不明，转复前抗凝3周→转复→转复后抗凝4周；危急者可肝素紧急抗凝，或TEE排除左房血栓后提前转复。",
+      "answer": "房颤>48h围转复抗凝：转复前后：\n\n```text\n房颤持续＞48h或时间不明\n→ 先有效抗凝至少3周，或走经食管超声排栓的提前转复路径\n→ 转复前建立治疗性抗凝，排栓不等于不用抗凝\n→ 转复后通常至少4周，是否长期继续再按栓塞风险\n```\n\n危急不稳定者不能因等待常规抗凝而延误电复律，抗凝按禁忌及急救条件尽快衔接。\n\n版本分清：上面的评分和>48 h沿用课程；2024 ESC改用不含性别的CHA₂DS₂-VA，并采用>24 h的择期转复安全门槛。不能把两版分值与时间拼成一套新规则，也不能把短于48 h理解成必然安全、必然无需抗凝。",
       "retention_metadata": {
         "source_memory_ids": [
           "B10-M11"
@@ -6751,7 +6903,8 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
-      }
+      },
+      "answer_scope": "课程明确：二度Ⅱ型/三度AVB有显著缓慢或Adams–Stokes发作应及早起搏；不可逆者无论有无症状均植入永久起搏器。临床指南同样将非可逆/非生理性获得性MobitzⅡ、高度或三度AVB列为不依赖症状的永久起搏适应证，不能等晕厥后才处理。急性期仍先评估并纠正可逆原因。"
     },
     "xpg_77ea34a02828c1b1": {
       "cue": "高阶AVB/严重缓慢型起搏",
@@ -6779,7 +6932,8 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
-      }
+      },
+      "answer_scope": "### 束支阻滞\n\n- 完全性束支阻滞：QRS ≥0.12s；\n- 右束支阻滞：右胸导联兔耳 / rsR′等 Study 图形；\n- 左束支阻滞：左侧导联宽大、切迹 R 波等，具体图形必须回原图。"
     },
     "xpg_2042c8750f29a44d": {
       "cue": "快速型电治疗安全分流",
@@ -6823,7 +6977,8 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
-      }
+      },
+      "answer_scope": "无创不能确诊HFpEF且存在劳力性呼吸困难者，课程侵入性支持证据为静息PCWP≥15 mmHg，或LVEDP≥16 mmHg，或负荷PCWP≥25 mmHg。右心漂浮导管测PCWP，LVEDP须左心侧测量，不能把两者当作同一处直接测值。\n\n上面的CO/CI参考为本课简化值，受体表面积、负荷等影响；CI≤2.2是低输出严重度线索，不是所有左心衰必须满足的诊断条件。"
     },
     "xpg_761f08292f42f48f": {
       "cue": "急性心衰SBP 90动作门",
@@ -6841,7 +6996,7 @@
     },
     "xpg_b85cb6960f8b0b25": {
       "cue": "MRA/SGLT2i及HFrEF特异安全门",
-      "answer": "MRA强调K>5或GFR<30不用；SGLT2i当前资料按达格列净GFR<30、恩格列净GFR<20作低肾功能门槛。ACEI/ARB/ARNI一般安全边界引用B5。",
+      "answer": "MRA/SGLT2i及HFrEF特异安全门：| 药组 | 主要限制与阈值 |\n|---|---|\n| ACEI/ARB/ARNI一般安全 | 引用既有B5 KP18（content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md?plain=1#L463）；一般数值、禁忌与换药限制仍由该owner承担，不在B11复制新的通用精度目标。 |\n| MRA | HFrEF启动通常要求eGFR>30 mL/min/1.73m²且K<5.0 mmol/L；治疗中若无法维持K<5.5 mmol/L需停用/重新评估，不能与RAAS三类共用一条阈值 |\n| SGLT2i | 注意容量不足、酮症风险及长期禁食/手术/危重病暂缓；按药物和适应证分启用与维持。课程达格列净表写GFR<30、正文写<25，存在差异；FDA心肾适应证口径eGFR<25不建议新启用，但既有治疗可有继续条件。恩格列净课程20界值不等于下降后必停；KDIGO允许符合条件者低于20继续至不耐受或肾替代治疗 |\n| sGC刺激剂维立西呱 | 妊娠禁用；不可与其他sGC刺激剂合用，不推荐合用PDE5抑制剂；关注低血压。不要套用MRA的K/eGFR门槛 |\n\n上表是机制学习中的风险核对，不替代具体制剂说明书及个体处方。",
       "retention_metadata": {
         "source_memory_ids": [
           "B11-M16"
@@ -6854,7 +7009,8 @@
           "严格按当前Study安全口径，不外推为现实处方规则。"
         ],
         "normalization": "B11-M16 general ACEI/ARB/ARNI portion bound to B5; HF-specific MRA/SGLT2i retained here"
-      }
+      },
+      "scope_note": "严格按当前Study安全口径，不外推为现实处方规则。"
     },
     "xpg_fe0ed973500aa7ce": {
       "cue": "β受体阻断剂：稳定期 vs 急性失代偿",
@@ -6888,7 +7044,7 @@
     },
     "xpg_8820d9610e059977": {
       "cue": "DIC五项Study提示",
-      "answer": "DIC五项Study提示：当前Study：血小板<80×10^9/L；PT延长>3 s；纤维蛋白原<1.5 g/L；3P试验；破碎红细胞>2%。早期高凝阶段保留肝素接口。",
+      "answer": "DIC五项Study提示：### 2｜按本节 Study 的提示指标\n\n- 血小板 `<80×10⁹/L`；\n- PT 延长 `>3 s`；\n- 纤维蛋白原 `<1.5 g/L`；\n- 3P试验；\n- 血涂片破碎红细胞 `>2%`。\n\n> 原页省略了血小板和纤维蛋白原单位，这里按常规检验单位补全；该组是课程提示，不是单独确诊DIC的完整标准。结合基础病、动态变化及相应评分，不能用一项异常直接确诊。\n\n### 3｜治疗接口\n\n课程写“早期/高凝期→肝素”。临床核心先处理病因；治疗性肝素需看血栓主导表现、出血风险等条件，不能仅凭“休克早期”自动抗凝。\n\n完整 DIC 分期、替代治疗和现代临床路径归血液系统；本 Block 只掌握它是休克微循环衰竭的重要出口。",
       "retention_metadata": {
         "source_memory_ids": [
           "B12-M02"
@@ -6900,7 +7056,8 @@
         "source_scope_notes": [
           "仅按当前Study考试口径保留；DIC机制仍由KP04+B4 Recall承担。"
         ]
-      }
+      },
+      "scope_note": "仅按当前Study考试口径保留；DIC机制仍由KP04+B4 Recall承担。"
     },
     "xpg_6fd0a828da004022": {
       "cue": "休克严重度/失血门槛",
@@ -6914,11 +7071,12 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
-      }
+      },
+      "answer_scope": "以下为当前Core保留的既往核对记录与边界；本轮未重新查看PDF或原图：\n\n原PDF物理277页/印刷224页已看清：脉搏栏确实写“中度100–200、重度>200”，不是OCR误读。但不能把>200次/min作为重度失血性休克的必备门槛，明显低于此值也可严重休克。这里保留源文数值作为待勘误记录，不擅换成另一套分级数字，也不把疑点作为已核精度释放。\n\n### 3｜重要边界\n\n- 《各论》题目中的“休克”常默认已进入休克期，SBP `<90`；\n- 但总论中必须保留早期可血压正常的机制。"
     },
     "xpg_82e6609d04c98fd9": {
       "cue": "休克指数",
-      "answer": "休克指数：休克指数=脉率/收缩压。当前Study：约0.5提示无休克；>1–1.5进入休克；>2提示严重休克。",
+      "answer": "休克指数：```text\n休克指数 = 脉率 / 收缩压\n```\n\n按 Study：\n\n- `0.5`：无休克；\n- `>1–1.5`：休克；\n- `>2`：严重休克。\n\n感性理解：\n\n```text\n脉率越快\n+ SBP越低\n→ 指数越大\n→ 代偿越强、循环越不稳定\n```\n\n（易混：休克指数不能区分低容量、心源、分布或阻塞性休克；它只是辅助严重度线索。低指数不能独自排除休克，心率受药物、节律、年龄和代偿能力影响，不能将课程“0.5无休克”当作绝对排除规则。）",
       "retention_metadata": {
         "source_memory_ids": [
           "B12-M04"
@@ -6942,11 +7100,12 @@
         ],
         "dedup_action": "REUSE_EXISTING_PRECISION_IDENTITY",
         "source_scope_notes": []
-      }
+      },
+      "answer_scope": "肾脏恢复提示重要器官灌注改善，但不能只靠单一尿量判断全部循环状态。"
     },
     "xpg_03f70b43216a1f2e": {
       "cue": "CVP×BP四格与补液试验",
-      "answer": "CVP×BP四格与补液试验：当前Study：CVP低+BP低→严重容量不足，充分补液；CVP低+BP正常→容量不足，适量补液；CVP高+BP正常→资料记作容量血管过度收缩，考虑扩静脉；CVP高+BP低→心功能不全/相对容量过多，先改善泵并纠正相关问题。CVP正常+BP低时补液试验：BP升支持容量不足，CVP升支持心功能不全。",
+      "answer": "CVP×BP四格与补液试验：| CVP | BP | 按本节 Study 推断 | 处理方向 |\n|---|---|---|---|\n| 低 | 低 | 血容量严重不足 | 充分补液 |\n| 低 | 正常 | 血容量不足但BP暂被代偿 | 适当补液 |\n| 高 | 正常 | 容量血管过度收缩 / 回心过多接口 | 扩静脉 |\n| 高 | 低 | 心功能不全或相对容量过多 | 强心、纠酸等；不能盲目补液 |\n\n### 补液试验\n\n按 Study，在 `CVP正常 + BP低` 的不确定场景进行：\n\n```text\n补液后BP升高\n→ 血容量不足更可能\n\n补液后CVP明显升高而BP不改善\n→ 心功能不全更可能\n```\n\n（易混：表格是考试决策工具，不代表脱离病因、肺部和超声即可机械处理真实患者。）",
       "retention_metadata": {
         "source_memory_ids": [
           "B12-M07"
@@ -6958,7 +7117,8 @@
         "source_scope_notes": [
           "按当前Study矩阵保留；不把其CVP正常值跨Source统一。"
         ]
-      }
+      },
+      "scope_note": "按当前Study矩阵保留；不把其CVP正常值跨Source统一。"
     },
     "xpg_4004a850c58fd059": {
       "cue": "Hb输血门槛；失血量与容量支持",
@@ -6976,11 +7136,13 @@
         "source_scope_notes": [
           ">30%的旧版具体‘1/2浓缩红+1/2全血’比例降为Deferred，见B12-M20。"
         ]
-      }
+      },
+      "answer_scope": "按本节 Study：\n\n- 等待配血期间首选平衡盐；\n- “先晶后胶再输血”是课程记忆顺序，不是活动性大出血必须逐项走完的临床流程；\n- 失血量增加时逐步加入浓缩红细胞 / 全血接口；\n- Hb是否输血按 Study 的 `<70 / 70–100 / >100`范围进入 MI-D。\n\n活动性大出血要把止血与血液/凝血复苏并行，不能等晶体或胶体输完、更不能等单次Hb降到阈值后才处理。急性失血早期Hb可暂不反映真实丢失量；血液制品选择结合出血、灌注和凝血状态。\n\n2026 SSC对脓毒症/感染性休克以晶体液为一线，反对淀粉类、建议不用明胶；所以“晶体后接人工胶体”不能成为所有休克通用顺序。",
+      "scope_note": ">30%的旧版具体‘1/2浓缩红+1/2全血’比例降为Deferred，见B12-M20。"
     },
     "xpg_cd2e780a8067b5a6": {
       "cue": "CAB/按压通气标准",
-      "answer": "CAB/按压通气标准：当前Study：C→A→B；按压胸骨下1/2（资料同时写剑突上4–5 cm/双乳头连线中点）；深度5–6 cm；频率100–120/min；按压:放松=1:1；按压:通气=30:2；通气约10/min；吹气持续>1 s并见胸廓起伏。",
+      "answer": "CAB/按压通气标准：按本节 Study：\n\n```text\nC｜Circulation：胸外按压\n→ A｜Airway：开放气道\n→ B｜Breathing：人工呼吸\n```\n\n### 胸外按压\n\n- 部位：胸部中央的胸骨下半部；不把乳头连线或距剑突固定距离当成人人相同的定位替代；\n- 深度：5–6 cm；\n- 频率：100–120次/min；\n- 按压与放松时间比：1:1；\n- 尚未置入高级气道时，按压与通气比30:2；每组通气尽量减少按压中断。\n\n### 气道与通气\n\n- 无头颈创伤时，仰头抬颏开放气道；疑头颈创伤时，由受训者先用不后仰头部的托颌法，若仍不能开放，优先保证有效气道；\n- 捏鼻；\n- 不需深吸气；\n- 每次用约1 s送气，以可见胸廓起伏为准，避免过快、过多通气；\n- 已置入高级气道：连续按压，约每6 s通气1次（10次/min），不再机械套用30:2；\n- 有脉但无正常呼吸的呼吸骤停，也可用10次/min救援通气；这与无脉骤停的按压路径分开。\n\n课程P394把30:2、10次/min和“>1 s”并排列出；这里按实际场景补齐条件，不把两种通气节奏叠加。",
       "retention_metadata": {
         "source_memory_ids": [
           "B12-M14"
@@ -6992,11 +7154,12 @@
         "source_scope_notes": [
           "按压定位使用当前Study原文，不做外部指南静默纠正。"
         ]
-      }
+      },
+      "scope_note": "按压定位使用当前Study原文，不做外部指南静默纠正。"
     },
     "xpg_f1a6b330348234d3": {
       "cue": "VF/pVT首次除颤能量",
-      "answer": "VF/pVT首次除颤能量：当前Study：单相波360 J；双相波120–200 J。",
+      "answer": "VF/pVT首次除颤能量：按 Study首次能量：\n\n- 单相波 360 J；\n- 双相波按设备厂家推荐的首次能量（常见示例120–200 J）；不知推荐值时，AHA 2025算法用设备可用最大能量。不能把所有双相设备一律设为120 J。",
       "retention_metadata": {
         "source_memory_ids": [
           "B12-M15"
