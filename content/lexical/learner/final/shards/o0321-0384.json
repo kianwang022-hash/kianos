@@ -1481,22 +1481,37 @@
     "ordinal": 329,
     "word": "attitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0329.json",
-    "source_fingerprint": "519d505a33fa9581104d49b2a57f59a43d5d912042231da3158142ecb204df38",
-    "sense_lineage": [],
+    "source_fingerprint": "0c7c41a0426989570476c59f3ca8b85ad8e54c330db58ec5a5c0df7167be6de5",
+    "sense_lineage": [
+      {
+        "word_id": "word:attitude",
+        "target_kind": "sense",
+        "from_target_id": "sense:attitude:78c32fc6a9235814",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:attitude",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:21fea125387ed937968a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态",
-      "decision_cn": "toward issue/person → 态度看法；body/theatrical pose → 姿势；aircraft/spacecraft → 飞行姿态。",
+      "summary_cn": "态度、看法；正式语境也可指身体姿势",
+      "decision_cn": "toward issue/person → 态度看法；formal body context → 姿势。航空航天姿态保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "某对象相对参照系的“姿态/取向”：可指人的态度，也可指身体姿势或航空器姿态"
+        "target_label": "态度、看法；正式语境也可指身体姿势"
       }
     },
     "senses": [
@@ -1527,34 +1542,8 @@
         }
       },
       {
-        "id": "sense:attitude:78c32fc6a9235814",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "飞行姿态",
-        "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:21fea125387ed937968a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "attitude control",
-            "meaning_cn": "姿态控制",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:attitude:78c32fc6a9235814",
-          "target_locator": "record.senses[1]",
-          "target_label": "飞行姿态"
-        }
-      },
-      {
         "id": "sense:attitude:e3cd4c9333f758be",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "态度，看法",
@@ -1564,14 +1553,14 @@
         "usage": [
           {
             "id": "collocation:777515541729fa3b01f9",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "attitude to/toward sb/sth",
             "meaning_cn": "对某人/某事的态度",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:777515541729fa3b01f9",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "attitude to/toward sb/sth"
             }
           }
@@ -1579,7 +1568,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:attitude:e3cd4c9333f758be",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "态度，看法"
         }
       }
@@ -1622,7 +1611,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:21fea125387ed937968a",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:attitude:78c32fc6a9235814:collocation:0"
+              ],
+              "meaning_cn": "姿态控制",
+              "phrase": "attitude control"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "飞行姿态",
+          "definition_en": "position of aircraft or spacecraft relative to a frame of reference (the horizon or direction of motion)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:attitude:78c32fc6a9235814",
+          "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1922,11 +1937,26 @@
     "ordinal": 332,
     "word": "attractive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0332.json",
-    "source_fingerprint": "9cef121a7f683407d77d8daff5ea6bd27f89b0b4cb925d34190a5df9cbe0def1",
-    "sense_lineage": [],
+    "source_fingerprint": "1262acff3681c427c4a8ad184a77cff244134ac6275436073e410fab4fce3d98",
+    "sense_lineage": [
+      {
+        "word_id": "word:attractive",
+        "target_kind": "sense",
+        "from_target_id": "sense:attractive:e590470dc0c35a51",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:attractive",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7895deecc6a1f1ba5768",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -2000,32 +2030,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "引起兴趣的"
         }
-      },
-      {
-        "id": "sense:attractive:e590470dc0c35a51",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有磁性的；有吸引力的（物理）",
-        "definition_en": "having the properties of a magnet; the ability to draw or pull",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7895deecc6a1f1ba5768",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "attractive force",
-            "meaning_cn": "引力",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:attractive:e590470dc0c35a51",
-          "target_locator": "record.senses[2]",
-          "target_label": "有磁性的；有吸引力的（物理）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2077,9 +2081,6 @@
         ],
         "sense:attractive:d80e9ec24cfe55b5": [
           0
-        ],
-        "sense:attractive:e590470dc0c35a51": [
-          0
         ]
       },
       "has_scope": true
@@ -2100,6 +2101,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7895deecc6a1f1ba5768",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:attractive:e590470dc0c35a51:collocation:0"
+              ],
+              "meaning_cn": "引力",
+              "phrase": "attractive force"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "有磁性的；有吸引力的（物理）",
+          "definition_en": "having the properties of a magnet; the ability to draw or pull",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:attractive:e590470dc0c35a51",
+          "sense_label_en": "having the properties of a magnet; the ability to draw or pull",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }
