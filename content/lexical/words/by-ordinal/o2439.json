@@ -10,9 +10,9 @@
     "content_hash": "fc2aeb5861ad5f3e0a2706c52d8d99c882e456dc4c376a5375a9c3b7fa7c9a1d",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "缺乏知识或意识",
+      "core_meaning_cn": "无知的；不了解的",
       "core_meaning_en": "lacking knowledge or awareness",
-      "mental_model_cn": "缺乏知识或意识",
+      "mental_model_cn": "ignorant of/about sth → 对某事不了解/缺乏知识。重复的“因缺乏信息而不知道”分支保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -36,39 +36,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "缺乏知识或世故的",
-        "definition_en": "lacking knowledge or sophistication",
+        "definition_cn": "无知的；不了解的；缺乏相关知识的",
+        "definition_en": "lacking knowledge, information, or awareness about something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:ignorant:aba2c0f465375ed4",
-        "sense_label_en": "lacking knowledge or sophistication",
+        "sense_label_en": "lacking knowledge, information, or awareness about something",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:04a05ead7c90aef0b0ae",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:ignorant:cf1b9b162f505875:collocation:0"
-            ],
-            "meaning_cn": "不了解事实",
-            "phrase": "ignorant of the facts"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "因缺乏相关信息或知识而不知道的",
-        "definition_en": "unaware because of a lack of relevant information or knowledge",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:ignorant:cf1b9b162f505875",
-        "sense_label_en": "unaware because of a lack of relevant information or knowledge",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -201,7 +177,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:04a05ead7c90aef0b0ae",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:ignorant:cf1b9b162f505875:collocation:0"
+          ],
+          "meaning_cn": "不了解事实",
+          "phrase": "ignorant of the facts"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "因缺乏相关信息或知识而不知道的",
+      "definition_en": "unaware because of a lack of relevant information or knowledge",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:ignorant:cf1b9b162f505875",
+      "sense_label_en": "unaware because of a lack of relevant information or knowledge",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -213,14 +214,13 @@
       },
       {
         "sense_id": "sense:ignorant:cf1b9b162f505875",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6790,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
       }
     ],
     "active_collocations": [
-      "collocation:04a05ead7c90aef0b0ae",
       "collocation:5559822ca5aa84359c10"
     ],
     "facts": [],
@@ -228,7 +228,9 @@
       {
         "id": "collocation:04a05ead7c90aef0b0ae",
         "source_row": 372,
-        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5559822ca5aa84359c10",

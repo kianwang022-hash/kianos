@@ -130,7 +130,7 @@
     "ordinal": 2434,
     "word": "idiot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2434.json",
-    "source_fingerprint": "307f48f0b2078f5ce2d86595160b993cf35e505bff0cd467922b8765d899f90c",
+    "source_fingerprint": "2174740192589e3a24892cbb3b3b6871cd8497ee3b6af42764c7df6dca0ac3e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -139,13 +139,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "智力极低的人",
-      "decision_cn": "",
+      "summary_cn": "笨蛋；蠢人（侮辱性）",
+      "decision_cn": "现代普通用法是侮辱性称呼“笨蛋/蠢人”，不是正式的智力或医学分类。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "智力极低的人"
+        "target_label": "笨蛋；蠢人（侮辱性）"
       }
     },
     "senses": [
@@ -154,8 +154,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "白痴，傻瓜",
-        "definition_en": "a person who is considered extremely stupid or foolish",
+        "definition_cn": "笨蛋；蠢人（侮辱性用语）",
+        "definition_en": "an insulting word for a person you think is very stupid or has done something stupid",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -172,7 +172,7 @@
           "target_kind": "sense",
           "target_id": "sense:idiot:d1736a72539c5448",
           "target_locator": "record.senses[0]",
-          "target_label": "白痴，傻瓜"
+          "target_label": "笨蛋；蠢人（侮辱性用语）"
         }
       }
     ],
@@ -449,7 +449,7 @@
     "ordinal": 2436,
     "word": "if",
     "source_owner_path": "content/lexical/words/by-ordinal/o2436.json",
-    "source_fingerprint": "ddb14b09b24b1a497e6a72012f9c0c141888637a0d9930600604056277842ea0",
+    "source_fingerprint": "6156759606439d9cc7d4b4bdfca99633eaf7747cd25369a8d4ce5dff163bdb54",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -563,7 +563,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:if:what-if",
+        "source_locator": "record.constructions[0]",
+        "pattern": "what if + clause?",
+        "lines": [
+          {
+            "text": "如果…会怎样？；要是…怎么办？",
+            "lang": "cn"
+          },
+          {
+            "text": "hypothetical question frame; not an ordinary if-clause",
+            "lang": "en"
+          },
+          {
+            "text": "used to ask about the possible result of a situation, especially a worrying or hypothetical one",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:if:what-if",
+          "target_locator": "record.constructions[0]",
+          "target_label": "what if + clause?"
+        }
+      },
+      {
+        "id": "construction:if:if-only",
+        "source_locator": "record.constructions[1]",
+        "pattern": "if only + clause",
+        "lines": [
+          {
+            "text": "要是…就好了；只要…就好了",
+            "lang": "cn"
+          },
+          {
+            "text": "wish/regret frame; distinct from neutral conditional if",
+            "lang": "en"
+          },
+          {
+            "text": "used to express a strong wish that a situation were different",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:if:if-only",
+          "target_locator": "record.constructions[1]",
+          "target_label": "if only + clause"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -819,22 +870,37 @@
     "ordinal": 2439,
     "word": "ignorant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2439.json",
-    "source_fingerprint": "9afbbc30214c3ebff9696bc9cc97cf1c6a968a73482a5430aed19b5f4d8496a8",
-    "sense_lineage": [],
+    "source_fingerprint": "9af0672f80e1a3c2c6a771550632de3841850888e6a1b7cedbf82a49ed330bf5",
+    "sense_lineage": [
+      {
+        "word_id": "word:ignorant",
+        "target_kind": "sense",
+        "from_target_id": "sense:ignorant:cf1b9b162f505875",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ignorant",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:04a05ead7c90aef0b0ae",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "缺乏知识或意识",
-      "decision_cn": "",
+      "summary_cn": "无知的；不了解的",
+      "decision_cn": "ignorant of/about sth → 对某事不了解/缺乏知识。重复的“因缺乏信息而不知道”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "缺乏知识或意识"
+        "target_label": "无知的；不了解的"
       }
     },
     "senses": [
@@ -843,8 +909,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "缺乏知识或世故的",
-        "definition_en": "lacking knowledge or sophistication",
+        "definition_cn": "无知的；不了解的；缺乏相关知识的",
+        "definition_en": "lacking knowledge, information, or awareness about something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -866,33 +932,7 @@
           "target_kind": "sense",
           "target_id": "sense:ignorant:aba2c0f465375ed4",
           "target_locator": "record.senses[0]",
-          "target_label": "缺乏知识或世故的"
-        }
-      },
-      {
-        "id": "sense:ignorant:cf1b9b162f505875",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "因缺乏相关信息或知识而不知道的",
-        "definition_en": "unaware because of a lack of relevant information or knowledge",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:04a05ead7c90aef0b0ae",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "ignorant of the facts",
-            "meaning_cn": "不了解事实",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ignorant:cf1b9b162f505875",
-          "target_locator": "record.senses[1]",
-          "target_label": "因缺乏相关信息或知识而不知道的"
+          "target_label": "无知的；不了解的；缺乏相关知识的"
         }
       }
     ],
@@ -930,7 +970,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:04a05ead7c90aef0b0ae",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:ignorant:cf1b9b162f505875:collocation:0"
+              ],
+              "meaning_cn": "不了解事实",
+              "phrase": "ignorant of the facts"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "因缺乏相关信息或知识而不知道的",
+          "definition_en": "unaware because of a lack of relevant information or knowledge",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:ignorant:cf1b9b162f505875",
+          "sense_label_en": "unaware because of a lack of relevant information or knowledge",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1056,19 +1122,46 @@
     "ordinal": 2441,
     "word": "ill",
     "source_owner_path": "content/lexical/words/by-ordinal/o2441.json",
-    "source_fingerprint": "44fe176e0ad44153386a2dfff14c6403b9d81a8a83927d3c2ac0a65f977f4335",
-    "sense_lineage": [],
+    "source_fingerprint": "99e9b94ac7124a22cd8aac9e57c236631856dd95bd589305d25e84bef0e0c0a1",
+    "sense_lineage": [
+      {
+        "word_id": "word:ill",
+        "target_kind": "sense",
+        "from_target_id": "sense:ill:2406d05645805e6e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ill",
+        "target_kind": "sense",
+        "from_target_id": "sense:ill:3c96c681a50254a4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ill",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b2cc91cef5b11d434e45",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ill",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:eadc1ec48ce955cbcda4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N",
-        "1ADV"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "生病；坏；有害",
-      "decision_cn": "",
+      "decision_cn": "adjective → 生病的；formal adjective → 坏的/有害的；speak ill of sb → 说某人坏话。独立名词与副词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1128,68 +1221,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "坏的，有害的，不良的"
         }
-      },
-      {
-        "id": "sense:ill:2406d05645805e6e",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "坏事，灾难，罪恶",
-        "definition_en": "harm, evil, or misfortune",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b2cc91cef5b11d434e45",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "do ill to sb",
-            "meaning_cn": "伤害某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b2cc91cef5b11d434e45",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "do ill to sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ill:2406d05645805e6e",
-          "target_locator": "record.senses[2]",
-          "target_label": "坏事，灾难，罪恶"
-        }
-      },
-      {
-        "id": "sense:ill:3c96c681a50254a4",
-        "source_locator": "record.senses[3]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "不好地，不利地",
-        "definition_en": "badly, poorly, or in an unfavorable way",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:eadc1ec48ce955cbcda4",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "speak ill of sb",
-            "meaning_cn": "说某人坏话",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:eadc1ec48ce955cbcda4",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "speak ill of sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ill:3c96c681a50254a4",
-          "target_locator": "record.senses[3]",
-          "target_label": "不好地，不利地"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1223,12 +1254,88 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ill:speak-ill-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "speak/think ill of sb",
+        "lines": [
+          {
+            "text": "说某人的坏话；贬低某人",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed formal phrase; retains useful ill adverbial semantics without defaulting the standalone adverb",
+            "lang": "en"
+          },
+          {
+            "text": "to say unkind or negative things about someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ill:speak-ill-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "speak/think ill of sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b2cc91cef5b11d434e45",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:ill:2406d05645805e6e:collocation:0"
+              ],
+              "meaning_cn": "伤害某人",
+              "phrase": "do ill to sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "坏事，灾难，罪恶",
+          "definition_en": "harm, evil, or misfortune",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:ill:2406d05645805e6e",
+          "sense_label_en": "harm, evil, or misfortune",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:eadc1ec48ce955cbcda4",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:ill:3c96c681a50254a4:collocation:0"
+              ],
+              "meaning_cn": "说某人坏话",
+              "phrase": "speak ill of sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "不好地，不利地",
+          "definition_en": "badly, poorly, or in an unfavorable way",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adverb",
+          "sense_id": "sense:ill:3c96c681a50254a4",
+          "sense_label_en": "badly, poorly, or in an unfavorable way",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1338,7 +1445,7 @@
     "ordinal": 2443,
     "word": "illiterate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2443.json",
-    "source_fingerprint": "a9677a3e1287f7e29f4515bba2ccf90dc809c5e8e7bba31c080ed77d393dce94",
+    "source_fingerprint": "ab10166fbc152553096fabd6457746b7301e653c82a367796021360f67243885",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1348,13 +1455,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "文盲的",
-      "decision_cn": "",
+      "summary_cn": "不识字的；对某领域缺乏基本知识的",
+      "decision_cn": "literal literacy → 不识字；extended use → computer/financially/musically illiterate，指对某领域缺乏基本知识。避免把该义简单理解为“没文化”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "文盲的"
+        "target_label": "不识字的；对某领域缺乏基本知识的"
       }
     },
     "senses": [
@@ -1415,8 +1522,8 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "缺乏文化的，未受教育的",
-        "definition_en": "lacking culture, especially in language and literature",
+        "definition_cn": "对某一领域缺乏基本知识或能力的；一窍不通的",
+        "definition_en": "lacking basic knowledge or competence in a particular area",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1433,7 +1540,7 @@
           "target_kind": "sense",
           "target_id": "sense:illiterate:423fb93fc800583b",
           "target_locator": "record.senses[2]",
-          "target_label": "缺乏文化的，未受教育的"
+          "target_label": "对某一领域缺乏基本知识或能力的；一窍不通的"
         }
       }
     ],
@@ -1601,25 +1708,39 @@
     "ordinal": 2445,
     "word": "illuminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2445.json",
-    "source_fingerprint": "3718c0a552cf67712577c6ca5f80423f3a1a7232d9369c3c10372117b42be033",
+    "source_fingerprint": "2805e2dcff83da8fb8dc55d0447235c4de22825d7f9d3e25268280438998c251",
     "sense_lineage": [
+      {
+        "word_id": "word:illuminate",
+        "target_kind": "sense",
+        "from_target_id": "sense:illuminate:3bacd9b9d6e05541",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:illuminate",
         "target_kind": "sense",
         "from_target_id": "sense:illuminate:5ca4a221bc6057b3",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:illuminate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:373f41196755e6fbd764",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "照亮；阐明",
-      "decision_cn": "",
+      "decision_cn": "literal light → 照亮；figurative explanation → 阐明。手稿装饰的历史专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1629,34 +1750,8 @@
     },
     "senses": [
       {
-        "id": "sense:illuminate:3bacd9b9d6e05541",
-        "source_locator": "record.senses[0]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装饰（手稿）",
-        "definition_en": "to decorate (a manuscript) with gold, colors, etc.",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:373f41196755e6fbd764",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "illuminated manuscript",
-            "meaning_cn": "彩饰手稿",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:illuminate:3bacd9b9d6e05541",
-          "target_locator": "record.senses[0]",
-          "target_label": "装饰（手稿）"
-        }
-      },
-      {
         "id": "sense:illuminate:da61979eee075a5d",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "照亮；使明亮",
@@ -1667,13 +1762,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:illuminate:da61979eee075a5d",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "照亮；使明亮"
         }
       },
       {
         "id": "sense:illuminate:d86cc6505fbf5144",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "阐明；解释清楚",
@@ -1684,7 +1779,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:illuminate:d86cc6505fbf5144",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "阐明；解释清楚"
         }
       }
@@ -1767,10 +1862,6 @@
         }
       ],
       "sense_readings": {
-        "sense:illuminate:3bacd9b9d6e05541": [
-          0,
-          1
-        ],
         "sense:illuminate:d86cc6505fbf5144": [
           0,
           1
@@ -1814,6 +1905,30 @@
           "source_row": 6802,
           "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:373f41196755e6fbd764",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:illuminate:3bacd9b9d6e05541:collocation:0"
+              ],
+              "meaning_cn": "彩饰手稿",
+              "phrase": "illuminated manuscript"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "装饰（手稿）",
+          "definition_en": "to decorate (a manuscript) with gold, colors, etc.",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:illuminate:3bacd9b9d6e05541",
+          "sense_label_en": "to decorate (a manuscript) with gold, colors, etc.",
+          "sort_order": 2,
+          "transitivity": "vt"
         }
       ]
     }
@@ -1824,7 +1939,7 @@
     "ordinal": 2446,
     "word": "illusion",
     "source_owner_path": "content/lexical/words/by-ordinal/o2446.json",
-    "source_fingerprint": "5b39a54e071d6d9022743e79ba55b133fa35f8fd951610e816e4c4843d718abd",
+    "source_fingerprint": "859729e68616e4b7ee6c72de7d229a40ed71c73736272f9e9839cb7388c47692",
     "sense_lineage": [
       {
         "word_id": "word:illusion",
@@ -1841,13 +1956,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "错误的感知或信念",
-      "decision_cn": "",
+      "summary_cn": "错觉；幻觉；错误观念",
+      "decision_cn": "perception → 错觉/幻觉；belief → 错误观念；be under the illusion that… → 错误地以为…。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "错误的感知或信念"
+        "target_label": "错觉；幻觉；错误观念"
       }
     },
     "senses": [
@@ -1856,8 +1971,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "错误的心理表象",
-        "definition_en": "an erroneous mental representation",
+        "definition_cn": "错觉；幻觉；错误观念",
+        "definition_en": "a false or misleading perception, appearance, idea, or belief",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1879,7 +1994,7 @@
           "target_kind": "sense",
           "target_id": "sense:illusion:22acdbf0dada599d",
           "target_locator": "record.senses[0]",
-          "target_label": "错误的心理表象"
+          "target_label": "错觉；幻觉；错误观念"
         }
       }
     ],
@@ -1944,7 +2059,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:illusion:under-the-illusion",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be under the illusion that ... / be under no illusion(s) about sth",
+        "lines": [
+          {
+            "text": "错误地以为；抱有…的错觉",
+            "lang": "cn"
+          },
+          {
+            "text": "false-belief pattern; distinct from a visual illusion",
+            "lang": "en"
+          },
+          {
+            "text": "to wrongly believe that something is true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:illusion:under-the-illusion",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be under the illusion that ... / be under no illusion(s) about sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

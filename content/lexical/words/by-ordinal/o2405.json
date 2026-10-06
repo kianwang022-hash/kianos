@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:humor:humor-me",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "迁就我一下；听我把这个想法说完",
+        "definition_en": "used to ask someone to go along with an idea or request, even if they think it is unnecessary or odd",
+        "pattern": "humor me",
+        "source_sense_id": "sense:humor:aff50c652cd354a2",
+        "boundary": "discourse request to indulge the speaker; distinct from humor = comedy"
+      }
+    ],
     "content_hash": "ad925070fa8764f985630a6734deeee10b0df178d7b5616fb5e761de5514f0d1",
     "core_concept": {
       "core_clusters": [
@@ -15,14 +26,13 @@
           "label_en": "the ability to appreciate or express what is funny; a mood or state of mind",
           "pos": "noun",
           "sense_ids": [
-            "sense:humor:619268be4f125c6a",
-            "sense:humor:f3d23c8d9ee659bd"
+            "sense:humor:619268be4f125c6a"
           ]
         }
       ],
-      "core_meaning_cn": "幽默；心情、情绪",
-      "core_meaning_en": "humor; a mood or state of mind",
-      "mental_model_cn": "幽默；心情、情绪",
+      "core_meaning_cn": "幽默；迁就",
+      "core_meaning_en": "humor; to indulge or accommodate someone",
+      "mental_model_cn": "noun → 幽默；verb humor sb → 迁就某人；humor me → “先听我说完/迁就我一下”。旧式“心情、情绪”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -74,39 +84,6 @@
         "sense_id": "sense:humor:619268be4f125c6a",
         "sense_label_en": "the ability to appreciate or express what is funny",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1e93f84e185b7bfd6fd8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:humor:f3d23c8d9ee659bd:collocation:0"
-            ],
-            "meaning_cn": "心情好",
-            "phrase": "in a good humor"
-          },
-          {
-            "collocation_id": "collocation:6891be999685d06ee6d4",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:humor:f3d23c8d9ee659bd:collocation:1"
-            ],
-            "meaning_cn": "心情不好",
-            "phrase": "in a bad humor"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "心情；情绪",
-        "definition_en": "a mood or state of mind",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:humor:f3d23c8d9ee659bd",
-        "sense_label_en": "a mood or state of mind",
-        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -346,7 +323,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:1e93f84e185b7bfd6fd8",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:humor:f3d23c8d9ee659bd:collocation:0"
+          ],
+          "meaning_cn": "心情好",
+          "phrase": "in a good humor"
+        },
+        {
+          "collocation_id": "collocation:6891be999685d06ee6d4",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:humor:f3d23c8d9ee659bd:collocation:1"
+          ],
+          "meaning_cn": "心情不好",
+          "phrase": "in a bad humor"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "心情；情绪",
+      "definition_en": "a mood or state of mind",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:humor:f3d23c8d9ee659bd",
+      "sense_label_en": "a mood or state of mind",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -365,16 +376,14 @@
       },
       {
         "sense_id": "sense:humor:f3d23c8d9ee659bd",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6707,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
       }
     ],
     "active_collocations": [
-      "collocation:1e93f84e185b7bfd6fd8",
       "collocation:30cad9cdf75c71d28e1c",
-      "collocation:6891be999685d06ee6d4",
       "collocation:d029cd26963d07212ca4",
       "collocation:f242647edd149280f9f4"
     ],
@@ -383,7 +392,9 @@
       {
         "id": "collocation:1e93f84e185b7bfd6fd8",
         "source_row": 2538,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:30cad9cdf75c71d28e1c",
@@ -393,7 +404,9 @@
       {
         "id": "collocation:6891be999685d06ee6d4",
         "source_row": 8825,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d029cd26963d07212ca4",

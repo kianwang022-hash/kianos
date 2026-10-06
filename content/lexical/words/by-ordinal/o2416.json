@@ -15,14 +15,13 @@
           "label_en": "a small, simple shelter or a temporary military shelter",
           "pos": "noun",
           "sense_ids": [
-            "sense:hut:6dd884dd0d535011",
-            "sense:hut:e8901d79992858a4"
+            "sense:hut:6dd884dd0d535011"
           ]
         }
       ],
-      "core_meaning_cn": "小屋；茅舍",
-      "core_meaning_en": "a small simple shelter or house",
-      "mental_model_cn": "小屋；茅舍",
+      "core_meaning_cn": "小屋；简陋的棚屋",
+      "core_meaning_en": "a small, simple shelter or roughly built house",
+      "mental_model_cn": "核心就是小而简陋的住处/棚屋。狭窄军事子类与少见动词“使住小屋”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,44 +64,6 @@
         "sense_label_en": "a small, simple, roughly built house or shelter",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3da58086e4ce4617b73a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hut:e8901d79992858a4:collocation:0"
-            ],
-            "meaning_cn": "军营棚屋",
-            "phrase": "army hut"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "临时军营",
-        "definition_en": "a temporary military shelter",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:hut:e8901d79992858a4",
-        "sense_label_en": "a temporary military shelter",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "使住在小屋中",
-        "definition_en": "to shelter or lodge in a hut",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hut:6409f9cc4fd45832",
-        "sense_label_en": "to shelter or lodge in a hut",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -235,12 +196,51 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3da58086e4ce4617b73a",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hut:e8901d79992858a4:collocation:0"
+          ],
+          "meaning_cn": "军营棚屋",
+          "phrase": "army hut"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "临时军营",
+      "definition_en": "a temporary military shelter",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:hut:e8901d79992858a4",
+      "sense_label_en": "a temporary military shelter",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "使住在小屋中",
+      "definition_en": "to shelter or lodge in a hut",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hut:6409f9cc4fd45832",
+      "sense_label_en": "to shelter or lodge in a hut",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:hut:6409f9cc4fd45832",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6734,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
@@ -254,14 +254,13 @@
       },
       {
         "sense_id": "sense:hut:e8901d79992858a4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6736,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
       }
     ],
     "active_collocations": [
-      "collocation:3da58086e4ce4617b73a",
       "collocation:3ea137d3d85dd7459351",
       "collocation:c406190865be754e2079"
     ],
@@ -270,7 +269,9 @@
       {
         "id": "collocation:3da58086e4ce4617b73a",
         "source_row": 5212,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:3ea137d3d85dd7459351",
