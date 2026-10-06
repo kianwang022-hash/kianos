@@ -28,12 +28,12 @@ const assertTitleOnlyKp=async(page,root,object,kpId)=>{
     await page.waitForFunction(({kpId,title})=>{
       const host=document.querySelector('[data-xizong-v6-block]');
       const card=[...host.querySelectorAll('[data-kp-recall-card]')].find(c=>c.getAttribute('data-kp-id')===kpId);
-      return card && !card.hidden && card.querySelector('h3')?.textContent.trim()===title
+      return card && !card.hidden && card.querySelector(':scope > header > h3')?.textContent.trim()===title
         && host.querySelector('[data-kp-recall-title]')?.textContent.trim()===title
         && host.querySelector('.xzLogicGroupKp.current');
     },{kpId,title:expected.identity.title});
     const card=root.locator(`[data-kp-recall-card][data-kp-id="${kpId}"]`);
-    assert.equal((await card.locator('h3').textContent()).trim(),expected.identity.title);
+    assert.equal((await card.locator(':scope > header > h3').textContent()).trim(),expected.identity.title);
     assert.equal((await root.locator('[data-kp-recall-title]').textContent()).trim(),expected.identity.title);
     assert.equal((await card.locator(':scope > header > p').textContent()).trim(),expected.prompt.canonical.trim());
     const group=object.logicGroups.find(g=>g.identity.logicGroupId===expected.identity.logicGroupId);
