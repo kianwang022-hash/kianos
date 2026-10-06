@@ -76,7 +76,7 @@ check('content revision uses existing history semantics without evidence replay'
   assert.deepEqual(next.evidence, rated.evidence); assert.deepEqual(next.releasedBlocks, rated.releasedBlocks);
 });
 for (const [name, mutate] of [
-  ['unreviewed Block', x => x.identity.blockId = 'circulation-b03'],
+  ['unreviewed Block', x => x.identity.blockId = 'circulation-b13'],
   ['duplicate owner', x => x.kps.push(clone(x.kps[2]))],
   ['duplicate cue', x => x.kps[2].precision.push(clone(x.kps[2].precision[0]))],
   ['missing admission', x => x.kps[2].precision.pop()],

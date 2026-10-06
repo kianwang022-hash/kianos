@@ -21,6 +21,7 @@ on:
       - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-availability.mjs'
+      - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
       - '.github/workflows/xizong-memory-workspace.yml'
   pull_request:
     paths:
@@ -39,6 +40,7 @@ on:
       - 'static-web/scripts/test-xizong-memory-auto-release-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-browser.mjs'
       - 'static-web/scripts/test-xizong-prepared-memory-availability.mjs'
+      - 'static-web/scripts/test-xizong-a1-system-prepared-memory.mjs'
       - '.github/workflows/xizong-memory-workspace.yml'
 
 permissions:
@@ -67,6 +69,8 @@ jobs:
         run: node scripts/validate-xizong-memory-auto-release.mjs
       - name: Validate selective delayed retention clock
         run: node scripts/validate-xizong-memory-retention.mjs
+      - name: Validate coherent A1 prepared owners and negative freshness cases
+        run: node scripts/test-xizong-a1-system-prepared-memory.mjs
       - name: Build Astro
         run: npm run build
       - name: Install isolated browser acceptance tool

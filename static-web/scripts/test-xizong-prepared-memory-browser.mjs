@@ -363,8 +363,123 @@ try {
     checks.push('actual B2 persistence failure leaves old storage and Source/learned/completion intact and refuses navigation');
     await b2Context.close();
   }
+  // Coherent remaining-System journeys. Empty isolated profiles, native current
+  // requirements and original identities; no fake completion or Source contact.
+  const cases=[
+    {slug:'b03',id:'B03-M01',text:/约 -90 mV/,label:'ordinary retained row'},
+    {slug:'b05',id:'xpg_ee3aabc71215185d',text:/25%/,label:'current-Core corrected scope'},
+    {slug:'b07',id:'B07-M01',text:/窦律/,label:'multi-Core murmur qualification and original visual destination'},
+    {slug:'b10',id:'xpg_2f3dc8b2ab10a87b',text:/QRS/,label:'existing Precision with held rate content excluded'},
+    {slug:'b11',id:'xpg_e817b36d446e7568',text:/HFpEF/,label:'complete owner with expected-absent M08'},
+    {slug:'b12',id:'xpg_4004a850c58fd059',text:/活动性大出血/,label:'compound Hb/volume owner and additional safety Core'}
+  ];
+  for(const scenario of cases){
+    const blockId=`circulation-${scenario.slug}`;
+    const blockObject=resolveXizongLearnerProjection(loadXizongBlock('circulation',scenario.slug),{
+      enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:marked.parse(projectKpCore(k.detailMarkdown))}))})
+    }).learnerObject;
+    const expected=describe(blockObject);
+    const ctx=await browser.newContext({viewport:{width:1440,height:960}});
+    await ctx.route('**/*',route=>new URL(route.request().url()).origin===base.origin?route.continue():route.abort());
+    const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));
+    const ready=async()=>{await p.bringToFront();await p.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');};
+    const url=new URL(`/xizong/circulation/${scenario.slug}/`,base).href;
+    const studyKey=`kianos-xizong-astro-v2:xizong:${blockId}`,recallKey=`kianos-xizong-memory-review-v2:xizong:${blockId}`;
+    const read=k=>p.evaluate(k=>JSON.parse(localStorage.getItem(k)||'null'),k);
+    const unchanged=s=>({...claims(s),ttsxEvidence:s?.ttsxEvidence||{}});
+    await p.goto(url,{waitUntil:'domcontentloaded'});await ready();
+    const host=p.locator('[data-xizong-v6-block]');
+    assert.equal(await host.getAttribute('data-post-chat-recall-available'),'true');
+    const payload=JSON.parse(await p.locator('[data-xizong-learner-object-payload]').textContent());
+    assert.deepEqual(payload.kps.map(k=>k.identity.kpId),blockObject.kps.map(k=>k.identity.kpId));
+    assert.deepEqual(payload.sourceContact.hardReadinessBlockIds,[]);
+    assert.deepEqual(payload.sourceContact.requiredPriorBlockIds,[]);
+    const initial=await read(studyKey);assert.equal(await read(key),null);
+    assert.notEqual(initial.completed,true);
+    await host.locator('[data-study-stage="block_learn"] [data-post-chat-recall]').click();
+    await host.locator('[data-study-stage="kp_recall"]').waitFor({state:'visible'});
+    const front=host.locator('[data-kp-recall-card]:visible').first();
+    const firstId=await front.getAttribute('data-kp-id');
+    await assertTitleOnlyKp(p,host,blockObject,firstId);
+    assert.equal(await front.locator('[data-kp-answer]').isVisible(),false);
+    assert.equal(await host.locator('[data-prepared-memory]:visible').count(),0);
+    await p.keyboard.press('3');assert.deepEqual((await read(studyKey)).ratings,{});
+    assert.equal((await read(recallKey)).evidenceHistory.length,0);
+    await front.locator('[data-kp-reveal]').click();
+    await front.locator('[data-rating="known"]').click();
+    await p.waitForFunction(({studyKey,firstId})=>JSON.parse(localStorage.getItem(studyKey))?.ratings?.[firstId]==='known',{studyKey,firstId});
+    const kpHistory=await read(recallKey),afterKp=await read(studyKey);
+    assert.equal(kpHistory.evidenceHistory.length,1);assert.deepEqual(unchanged(afterKp),unchanged(initial));
+    assert.equal(await host.locator('[data-block-complete]').isDisabled(),true);
+    await p.reload({waitUntil:'domcontentloaded'});await ready();
+    assert.equal((await read(studyKey)).resumeKpId,afterKp.resumeKpId);
+    assert.deepEqual((await read(recallKey)).evidenceHistory,kpHistory.evidenceHistory);
+    assert.equal(await host.locator('[data-kp-recall-card]:visible [data-kp-answer]').isVisible(),false);
+    // Verify original current visual destinations are served, without claiming
+    // a fresh interpretation of PDF/image pixels or visual gate completion.
+    if(['b03','b05','b07'].includes(scenario.slug)){
+      const visualRows=[...payload.kps,...payload.logicGroups].flatMap(x=>x.visual||[]);
+      const assets=visualRows.flatMap(x=>x.sourceVisualBundle?.assets||[]);
+      assert.ok(assets.length>0,`${scenario.slug}: existing original-source visual bundle`);
+      for(const asset of assets){assert.ok(asset.src);const response=await p.request.get(new URL(asset.src,base).href);assert.equal(response.status(),200);assert.match(response.headers()['content-type'],/image/);}
+    }
+    await host.locator('[data-open-prepared-memory]').click();
+    await p.waitForURL(u=>u.pathname.endsWith('/xizong/memory/')&&u.searchParams.get('block')===blockId);await ready();
+    const memory=await read(key);assert.deepEqual(Object.keys(memory.cards).sort(),expected.precisionCards.map(c=>c.id).sort());
+    assert.deepEqual(memory.evidence,[]);assert.deepEqual(memory.releasedBlocks,{});assert.deepEqual(memory.attention,{});
+    assert.equal((await p.locator('[data-memory-summary-core]').textContent()).trim(),'0');
+    assert.equal((await p.locator('[data-memory-summary-today]').textContent()).trim(),'0');
+    assert.equal(await p.locator('[data-memory-queue] button').count(),expected.precisionCards.length);
+    const answer=p.locator('[data-memory-answer]');
+    const cardIds=await p.evaluate(key=>Object.keys(JSON.parse(localStorage.getItem(key)).cards),key);
+    for(const held of ['B03-M04','B06-M08','xpg_c8ea9e6209ee8fb6','B12-M08','B12-M09','B12-M19'])assert.ok(!cardIds.includes(`precision:${held}`));
+    const expectedCards=releasedMemoryCards(memory,'PRECISION');
+    for(const [i,card] of expectedCards.entries()){
+      await p.locator('[data-memory-queue] button').nth(i).click();
+      const actual=answer.locator(`[data-prepared-memory="${card.precisionCueId}"]`);assert.equal(await actual.count(),1);
+      const expectedText=await p.evaluate(html=>{const t=document.createElement('template');t.innerHTML=html;return t.content.textContent.replace(/\s+/g,' ').trim();},card.answerHtml);
+      assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),expectedText);
+    }
+    const index=expectedCards.findIndex(c=>c.precisionCueId===scenario.id);assert.ok(index>=0,scenario.id);
+    await p.locator('[data-memory-queue] button').nth(index).click();assert.match(await answer.textContent(),scenario.text);
+    await p.locator('[data-precision-mode="RECALL"]').click();
+    assert.equal(await answer.isVisible(),false);assert.equal(await p.locator('[data-memory-ratings]').isVisible(),false);
+    await p.screenshot({path:path.join(out,`${scenario.slug}-prepared-front.png`),fullPage:true});
+    await p.locator('[data-memory-reveal]').click();assert.equal(await answer.isVisible(),true);assert.match(await answer.textContent(),scenario.text);
+    await p.screenshot({path:path.join(out,`${scenario.slug}-prepared-reveal.png`),fullPage:true});
+    await p.locator('[data-memory-rating="known"]').click();
+    const rated=await read(key);assert.equal(rated.evidence.length,1);assert.equal(rated.evidence[0].cardId,`precision:${scenario.id}`);
+    await p.reload({waitUntil:'domcontentloaded'});await ready();assert.deepEqual((await read(key)).evidence,rated.evidence);
+    await p.goto(url,{waitUntil:'domcontentloaded'});await ready();await host.locator('[data-open-prepared-memory]').click();
+    await p.waitForURL(u=>u.pathname.endsWith('/xizong/memory/'));await ready();
+    assert.deepEqual((await read(key)).evidence,rated.evidence);assert.deepEqual((await read(key)).releasedBlocks,{});
+    assert.deepEqual(unchanged(await read(studyKey)),unchanged(initial));
+    assert.deepEqual((await read(recallKey)).evidenceHistory,kpHistory.evidenceHistory);
+    // Earlier-revision data is an explicit synthetic fixture on the same ID.
+    await p.evaluate(({key,id})=>{const s=JSON.parse(localStorage.getItem(key));s.cards[id].semanticRevision='declared-prior-content-fixture';s.cards[id].answerHtml='<p>Declared prior answer fixture</p>';s.marks={private:{text:'Synthetic preserved mark'}};localStorage.setItem(key,JSON.stringify(s));},{key,id:`precision:${scenario.id}`});
+    await p.goto(url,{waitUntil:'domcontentloaded'});await ready();await host.locator('[data-open-prepared-memory]').click();
+    await p.waitForURL(u=>u.pathname.endsWith('/xizong/memory/'));await ready();
+    const refreshed=await read(key);assert.deepEqual(refreshed.evidence,rated.evidence);assert.deepEqual(refreshed.marks,{private:{text:'Synthetic preserved mark'}});
+    assert.equal(refreshed.cards[`precision:${scenario.id}`].contentHistory.at(-1).answerHtml,'<p>Declared prior answer fixture</p>');
+    assert.deepEqual(refreshed.releasedBlocks,{});
+    checks.push(`${scenario.slug}: ${scenario.label}; native Front/Reveal/rating/Resume, every prepared answer/qualification, hidden Recall, one rating, history/reopen and no Source/Core/completion/debt`);
+    await ctx.close();
+  }
+  // The compound path must stop before navigation if persistence fails.
+  {
+    const ctx=await browser.newContext();await ctx.route('**/*',r=>new URL(r.request().url()).origin===base.origin?r.continue():r.abort());
+    await ctx.addInitScript(()=>{const save=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='kianos-xizong-memory-v1')throw Error('Declared batch persistence failure');return save.call(this,k,v);};});
+    const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));const url=new URL('/xizong/circulation/b12/',base).href;
+    await p.goto(url,{waitUntil:'domcontentloaded'});await p.bringToFront();await p.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
+    const before=await p.evaluate(()=>localStorage.getItem('kianos-xizong-astro-v2:xizong:circulation-b12'));
+    await p.locator('[data-open-prepared-memory]').click();await p.waitForFunction(()=>document.querySelector('[data-prepared-memory-status]')?.textContent.includes('无法安全打开'));
+    assert.equal(p.url(),url);assert.equal(await p.evaluate(key=>localStorage.getItem(key),key),null);
+    assert.equal(await p.evaluate(()=>localStorage.getItem('kianos-xizong-astro-v2:xizong:circulation-b12')),before);
+    checks.push('B12 compound persistence failure preserves old storage, Source and completion and refuses routing');await ctx.close();
+  }
+
   assert.deepEqual(errors,[]);
-  const result={status:'PASS',base:base.href,scope:'native B1/B2 post-Chat KP Recall and prepared Memory in an isolated built-site browser; synthetic evidence only, not real learner or Stable proof',checks};
+  const result={status:'PASS',base:base.href,scope:'native B1/B2 regressions plus coherent remaining-A1 representative post-Chat KP Recall and prepared Memory in an isolated built-site browser; synthetic evidence only, not real learner or Stable proof',checks};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
 } catch (error) {
   const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');

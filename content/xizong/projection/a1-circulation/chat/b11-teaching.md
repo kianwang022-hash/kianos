@@ -1,0 +1,194 @@
+<!-- kianos:reviewed-reading-view {"status":"CANDIDATE_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b11","view":"teaching","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md","canonical_blob":"ef37c918a55d7a6b73b319336b0afb4f0e99bf3a","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b11","learning_value_sha256":"3ca8915ded162a086e41d8d8e59b6ab58c0b6a80f9fafaa1a811bd159b7481fb","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","rule_path":"content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md","freshness":"Read Current canonical/System/Learning and owned support before use; relevant changes require bounded review. Candidate prose is not medical authority or learner evidence."} -->
+
+# 泵与充盈失败 → 淤血/低灌注 → 急慢分流
+
+候选学习稿。沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。
+
+## 先建立共同循环，再给心衰贴标签
+
+- [心衰共同电影〔首故障｜前向/后向｜代偿系统｜短期→长期代价｜闭环｜ANP/BNP反向信号〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L298)<!-- b11:node {"kp_id":"circulation-b11-kp006","canonical_line":298} -->：心肌/瓣膜/负荷或节律故障 → 排空或充盈失败 → 有效输出不足，或靠更高充盈压维持。前向低灌注与后向淤血可同时存在；肾读到灌注不足 → 交感、RAAS、醛固酮、ADH激活 → 短期保压回心，长期后负荷、潴留与重构增加 → 故障更重。
+
+<details>
+<summary>展开：总水量多而灌注仍不足，以及代偿为何反噬</summary>
+
+<!-- b11:candidate-explanation-section 0 -->
+
+心衰是结构或功能异常造成收缩和/或充盈障碍，静息或运动时不能充分输出，或必须借更高充盈压才能维持。前向灌注不足与后向淤血可以同时发生；全身水多也不保证肾得到足够灌注，正是这件事把保水代偿变成长期恶性循环。
+
+
+```text
+排空/充盈失败 → 有效输出不足或充盈压↑
+      ├ 前向低灌注 → 肾/交感读取不足 → RAAS/醛固酮/ADH↑
+      └ 后向淤血 ← 水钠潴留/充盈压再升高
+短期保压/回心 → 长期耗氧、后负荷、纤维化/重构↑ → 故障再加重
+```
+
+ANP/BNP是牵张后的反向卸货信号及标志物，不是引起心衰的上游原因。不同冠脉、瓣膜、心肌或节律病，都可通过这条链汇入共同综合征，当前调用已有医学模型，不重讲所有原发病。
+
+</details>
+
+## 沿串联泵定位淤血，分清旧病与新推手
+
+- [病因两大类：“泵本体坏了”或“长期负荷不对”〔心肌损害2组｜负荷3入口｜压力vs容量重构｜超代偿→心衰〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L242)<!-- b11:node {"kp_id":"circulation-b11-kp004","canonical_line":242} -->：缺血、心肌病、瓣膜或长期高压提供基础故障；感染、房颤、容量增加或停药可把原有代偿推入急性失代偿。左房/肺静脉压力升高 → 肺淤血；右房/体静脉压力升高 → 颈静脉、肝和低垂部位淤血。
+- [左心衰发展到右心衰后，肺淤血为什么可减轻〔串联泵｜输入/肺淤血｜体淤/低输出｜变化判读〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L396)<!-- b11:node {"kp_id":"circulation-b11-kp009","canonical_line":396} -->：左衰后右衰使送往肺的血减少，肺淤血可减轻，却同时总输出更低、体静脉淤血更重；外观上的呼吸改善不等于循环好转。
+
+<details>
+<summary>展开：病因/诱因、左肺与右体静脉证据</summary>
+
+<!-- b11:candidate-explanation-section 1 -->
+
+心肌本体可因缺血、炎症免疫、遗传，或DM、甲状腺、浸润/毒性药物等损伤；长期高压、AS或肺高压增加压力负荷，瓣膜反流、分流或高排量增加容量负荷，MS又可能限制左室充盈。压力通常先向心肥厚，容量通常先扩张/离心重构，最终超过代偿都可心衰。高排量状态输出不一定绝对低，贫血、甲亢、动静脉瘘等仍可能相对于需要不足。
+
+
+病因能造成长期结构功能异常，诱因则把已有代偿推倒：课程呼吸道感染最常见，AF、过快过多输液、劳累/情绪、妊娠分娩、不当停药或原病加重都可进入。急性MI直接造成心衰是病因，旧MI稳定后感染导致失代偿则是基础病因加当前诱因，不能互换时间角色。
+
+[诱因：本来能勉强维持的系统被一次额外负担推入失代偿〔诱因6组/最常见｜病因vs诱因｜旧MI＋新事件定位〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L269)<!-- b11:node {"kp_id":"circulation-b11-kp005","canonical_line":269} -->
+
+左房/肺静脉高压解释咳嗽、白泡沫痰、湿啰音及劳力呼吸困难，夜间阵发/端坐更有特点，急肺水肿可粉红泡沫、干湿共存的心源性哮喘。平卧回心增加、膈肌上移减肺量、迷走支气管收缩及熟睡呼吸敏感性下降共同加重夜间症状；并非一个单独原因。心尖左下、相对MR、S1弱、S3奔马、交替脉是泵后果。肺水肿气体交换失败与低CO下组织提氧增加分别构成中央及周围发绀成分，指定教材归混合或中央型的Source差别保留，不强选唯一标签。
+
+[左心衰：必须关注肺〔呼吸困难序列｜咯血/肺水肿｜心脏体征｜发绀2机制/来源〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L321)<!-- b11:node {"kp_id":"circulation-b11-kp007","canonical_line":321} -->
+
+严重支气管哮喘以呼气困难、干啰音或沉默肺为主，心源性常混合呼吸困难、端坐、粉红痰和肺淤血影，干啰音本身不能区分。血丝痰与毛细血管淤血、大咯血与压力经侧支传至支气管静脉分别解释，也不能与B7血来源混名。
+
+右心失败使肺循环前向流量下降，右房/体静脉高压引起JVD，课程肝颈回流阳性最有价值；肝大压痛、长期心源肝硬化，胃肠淤血、对称凹陷低垂水肿、漏出胸腹水及相对TR/奔马一并可推。单侧痛肿先考虑DVT，甲减黏液多不凹陷；课程严重右衰奇脉只留低权重接口。左衰继右衰时肺输入减少，呼吸困难可减轻而总输出更低、体淤更重，这种“好转外观”必须由串联泵关系校正。
+
+[右心衰：必须关注体静脉〔最有价值征｜体静脉7组表现｜水肿3特征｜DVT/甲减对照｜奇脉低权重接口〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L370)<!-- b11:node {"kp_id":"circulation-b11-kp008","canonical_line":370} -->
+
+</details>
+
+## EF是射血比例，不能代替完整的机械判断
+
+- [按 LVEF 分型：EF回答射血比例，不等于完整泵功能〔EF分型4｜HFrEFvsHFpEF机制｜EF公式｜保留EF≠完整功能正常〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L146)<!-- b11:node {"kp_id":"circulation-b11-kp001","canonical_line":146} -->：EF=SV/EDV。泵弱可排空失败、EF降低；顺应性下降或主动舒张异常可使同一容积需要更高压力，EF保留仍肺淤血。两种机制可并存。A–D看疾病阶段，NYHA看活动限制，Killip只用于急性MI，不能混作同一轴。
+
+<details>
+<summary>展开：EF表型、HFpEF充盈模型、分期与功能标签</summary>
+
+<!-- b11:candidate-explanation-section 2 -->
+
+EF=SV/EDV。HFrEF≤40%、HFmrEF 41–49%、HFpEF≥50%、HFimpEF既往≤40治疗后大于40，分别描述射血比例，而非穷尽机械功能。排空弱时ESV增加，EDV代偿增加一度维持SV，却使EF更早下降；充盈硬或主动舒张/Ca回收异常时同一容积要更高压力，EDV不大也可肺淤血。PV舒张关系上/左移解释HFpEF，但HFrEF可兼舒张障碍、HFpEF亦可有收缩异常，不能两个名字各只装一功能。
+
+高压肥厚、HCM、RCM或老龄可提供HFpEF底物。超声看E/e′、E/A、组织多普勒及LA/充盈压综合，课程E/e′≥15、E/A小于1.2是记忆入口；松弛、假性正常和限制性充盈使E/A呈不同模式，不是所有HFpEF必备单值。
+
+[HFpEF：泵不一定弱，但“泵硬、充不进去、压力高”〔基础病｜充盈障碍2路｜压力/容积/肺淤血｜PV/EDV/EF｜超声指标〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L687)<!-- b11:node {"kp_id":"circulation-b11-kp022","canonical_line":687} -->
+
+A期只有危险因素无结构症状，B前心衰有结构、充盈压或标志物异常却无症状，C既往/目前症状体征，D优化后仍重症反复住院/恶病质；改善症状不轻易倒退疾病阶段。NYHA I一般活动不受限、II一般活动症状、III较轻活动症状、IV静息症状；夜间坐起缓解与持续完全不能平卧要分条件，不把端坐一词自动判IV。急MI采用Killip，无心衰、少于50%肺野啰音、超过50%/肺水肿、心源休克四级；陈旧MI慢性仍NYHA。课程6分钟步行小于150、150–450、大于450米为重中轻，是慢性量化而不替代其余分级。
+
+[NYHA、Killip 与 6 分钟步行分别回答什么〔NYHA4级｜夜间vs持续不能平卧｜Killip适用/4级｜6MWT3档〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L200)<!-- b11:node {"kp_id":"circulation-b11-kp003","canonical_line":200} -->
+
+[A–D 分期：描述疾病进展，治疗只能延缓，不轻易逆转阶段〔A–D4期｜有无症状边界｜无症状期ESV/EDV/SV/EF链〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L175)<!-- b11:node {"kp_id":"circulation-b11-kp002","canonical_line":175} -->
+
+</details>
+
+## 证据分别校准结构、压力、输出和牵张
+
+- [BNP / NT-proBNP 与心肺运动试验〔BNP/NT-proBNP：来源/排除/严重度/预后/局限｜CPET用途/指标〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L456)<!-- b11:node {"kp_id":"circulation-b11-kp012","canonical_line":456} -->：超声看腔、壁、瓣与收缩/充盈；X线看肺淤血；血流动力学区分左右充盈压与输出；BNP反映牵张。单项不能替代全貌：低BNP不能绝对排除HFpEF，正常EF不排除高充盈压，CPET只用于稳定慢性情境。
+
+<details>
+<summary>展开：超声/MRI/X线、PAWP/CVP/CI、BNP与CPET</summary>
+
+<!-- b11:candidate-explanation-section 3 -->
+
+漂浮导管看PCWP/PAWP、CVP及CO/CI，左心淤血可PAWP≥18、低输出CI≤2.2，但并非所有左衰必须两项达到。课程正常PAWP小于12 mmHg、CVP约5–10 cmH₂O、CO大于5 L/min及CI大于2.5是条件性参考，不能忽视体表面积和负荷。疑HFpEF而无创不确诊时，课程静息PCWP≥15、LVEDP≥16或负荷PCWP≥25为支持，LVEDP需要左侧测量，不是漂浮导管直接测得同一位置。
+
+[血流动力学：Swan-Ganz 是 Study 金标准〔PAWP/CVP/CO/CI：参考值/方向｜Swan-Ganz地位｜HFpEF静息/负荷证据〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L419)<!-- b11:node {"kp_id":"circulation-b11-kp010","canonical_line":419} -->
+
+超声首选影像看腔、壁、瓣和收缩/舒张，MRI精确容积/运动，X线看心影和肺：Kerley B偏慢性间质，肺门蝴蝶偏急性肺泡。BNP主要由心室牵张释放，与严重度/预后相关但高值非专属；低值降可能性，约20%HFpEF仍可正常。非急性NT-proBNP小于125或BNP小于35、急性小于300/100 pg/mL的来源阈值要连情境保留，不能绝对排除。CPET以最大耗氧和无氧阈评稳定慢性运动能力、疗效预后/移植，急不稳不安排负荷。
+
+[心衰影像：超声、MRI与X线的证据职责〔影像3类：超声/MRI/X线→职责｜KerleyBvs蝴蝶征｜EF比例边界〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L441)<!-- b11:node {"kp_id":"circulation-b11-kp011","canonical_line":441} -->
+
+</details>
+
+## 急性先问湿不湿、冷不冷，减负荷服从灌注
+
+- [急性心衰四象限：先判断“湿不湿、冷不冷”〔湿/冷2判断轴｜4象限｜最常见/最严重〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L480)<!-- b11:node {"kp_id":"circulation-b11-kp013","canonical_line":480} -->：湿＝上游淤血/充盈压高；冷＝前向灌注不足。干暖相对稳定；湿暖偏减淤血；干冷先辨容量不足还是泵弱；湿冷同时需要减压与保灌注。
+- [急性处理的四个目标〔急性目标4｜湿暖/干冷/湿冷→处理｜血压与充盈前提｜扩管慎禁情境〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L499)<!-- b11:node {"kp_id":"circulation-b11-kp014","canonical_line":499} -->：氧合、减轻过高充盈、维持血压、恢复灌注并处理诱因共同推进。明显低压/低灌注时不能先强扩管；急性支持跨过危险后再调整淤血。持续严重低灌注接B12。
+
+<details>
+<summary>展开：四象限怎样决定动作前提，急性药物为何不能互换</summary>
+
+<!-- b11:candidate-explanation-section 4 -->
+
+前面的检查要回答的，不只是“有没有心衰”，还有现在血流卡在哪里。急性处理先把两个问题分开：上游压力是否太高，组织是否仍得到足够前向血流。前一个问题用“湿”表达，后一个问题用“冷”表达。这两个词描述不同变量，因此既可以只有湿，也可以只有冷，最危险的是同时湿冷。
+
+湿并不单指身体看起来有很多水。肺啰音、静脉淤血、水肿和充盈压升高说明血或液体堆在上游，当前需要减轻过高压力。冷也不单指测到低血压：少尿、意识变差、皮肤冷等说明器官得到的有效灌注不够。血压帮助判断能否承受某个动作，但不能代替这两组证据。
+
+把二者组合，干暖暂时没有明显淤血或低灌注；湿暖虽然淤血突出，灌注尚可，是课程最常见的类型；干冷有低输出，却未见明显淤血，可能容量不足，也可能泵弱；湿冷则是泵前的压力已经很高，向前送出的血仍然不够。因此湿冷不能简单理解成“水最多，先把水排掉”。
+
+
+```text
+上游充盈压/淤血太高 → 希望减轻容量或前负荷
+前向器官灌注不足    → 必须先保证足够输出和血压
+          两者并存时：减负荷不能继续压低灌注
+```
+
+湿暖的灌注尚可，利尿和适当静脉扩张就能针对过高充盈压工作。利尿减少液体潴留，静脉扩张降低前负荷；这不是两种药名的配对，而是让堆在上游的压力降下来。但扩管也可能降低血压，所以即使“湿”成立，仍要看循环能否承受。
+
+干冷则不能沿用同一动作。没有明显淤血而输出不足时，应先判断是不是可用容量不足：若是，合适的补液试验可能改善充盈和输出；若主要是泵弱，追加容量并不能自动让泵向前射出更多血。课程把补液试验或正性肌力放在这条分支，意思是先找低输出来源，再选择改变容量还是支持收缩。
+
+湿冷最清楚地显示两目标的冲突。此时即便肺湿、静脉压高，若血压和器官灌注已经很低，继续强扩管会使低灌注更重。课程SBP小于90 mmHg的接口因此先考虑正性肌力、必要时血管收缩支持，低灌注改善后再处理剩余淤血。这个先后不是放弃减淤血，而是让患者先有能力承受减负荷。
+
+高血压急症合并肺水肿又是不同的条件：压力负荷很高时，课程硝普钠等扩张动静脉可同时降低前、后负荷，减轻泵的负担。相反，HCM动态梗阻、AS固定出口或急性右室梗死对负荷改变有各自限制，不能因为都出现呼吸困难就套同一种扩管动作。相关机制分别回B7、B8和B6，不在这里造第二套诊疗标准。
+
+
+药物现在可以按它们改变的变量出现。袢利尿剂针对液体潴留与淤血；硝酸酯、硝普钠、奈西立肽等是课程扩管接口，必须连前述血压和病因条件阅读。它们回答的是怎样降低过高充盈或负荷，不负责修复已经断裂的瓣膜，也不能代替MI的通路恢复。
+
+[急性药物与非药物按功能归类〔急性药物4功能→代表｜呼吸/循环支持｜耗氧代价与退出〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L520)<!-- b11:node {"kp_id":"circulation-b11-kp015","canonical_line":520} -->
+
+若主要危险是泵支持不足，课程多巴酚丁胺、多巴胺、米力农、左西孟旦或短效强心苷等进入正性肌力的场景选择；这个列表保存来源角色，不代表可任意互换。去甲肾上腺素等血管收缩支持则主要针对维持血压和灌注，任务又与单纯提高收缩力不同。具体选择仍取决于低灌注、血压、病因和药物限制，不能从“冷”一个字直接开出完整处方。
+
+支持也包括氧合和通气、必要机械循环支持，以及处理ACS、节律或感染这些诱因。当前目标合起来是改善氧合、减轻过高充盈、保持足够血压并恢复组织灌注；几项工作要互相校准。尤其β受体激动剂和PDE抑制剂会增加心肌耗氧，低灌注纠正后应尽早退出。它们帮助渡过急性危险，并不承担下一节长期抗重构药物的同一任务。
+
+</details>
+
+## 稳定后的长期任务，是打断反噬并保留症状出口
+
+- [治疗目标分三层：改善结局、改善症状、处理诱因 / 合并症〔治疗目标3层｜长期结局vs症状｜上游病因/诱因｜缓解≠降死亡〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L540)<!-- b11:node {"kp_id":"circulation-b11-kp016","canonical_line":540} -->：慢性HFrEF以抗神经体液/重构改善结局，利尿主要减淤血，另处理上游病因和适用的节律/器械问题。四类基础治疗与特定加用药分开，症状改善或复合终点获益不自动等于单独死亡率结论。
+- [HFpEF 治疗：控制上游病因、延长充盈、适量减淤血，避免盲目强心〔病因/心率/充盈3目标｜药物→目标｜利尿容量边界｜强心局限〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L709)<!-- b11:node {"kp_id":"circulation-b11-kp023","canonical_line":709} -->：HFpEF同样减淤血并处理高压、缺血和AF；降率须有适应证，利尿避免前负荷过低，盲目强心不能修复顺应性。SGLT2的心衰住院/心血管死亡复合风险获益仍须按现有Core条件理解。B2的急性保压在B5/B11可变成慢性反噬，最终严重时进入B12灌注崩溃。
+
+<details>
+<summary>展开：HFrEF各药启用/维持、CRT/ICD与HFpEF治疗边界</summary>
+
+<!-- b11:candidate-explanation-section 5 -->
+
+利尿迅速改善淤血，并不自动证明降死亡；抗重构、控制缺血/瓣膜/AF/感染及设备治疗各有目标。课程五类列ACEI/ARB/ARNI、β阻断、MRA、SGLT2i、sGC，现代HFrEF基础骨架为前四，维立西呱为特定加用。VICTORIA近期恶化人群改善复合心血管死亡/住院、单独死亡不显著，VICTOR无近期恶化主要复合不显著，预设合并又见死亡减少；应分药、人群、终点，既不概括全部单独降死亡，也不反说绝无死亡获益。
+
+[Study“降低死亡率五朵金花”与共同逻辑〔课程5类｜4基础+加用｜机制角色｜结局边界〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L559)<!-- b11:node {"kp_id":"circulation-b11-kp017","canonical_line":559} -->
+
+RAAS降低AngII/AT₁与醛固酮/重构，ARNI还增强利钠肽；MRA阻保钠排钾及重构；SGLT2近端排糖钠与心肾保护；sGC增强NO–cGMP。安全须按类：RAAS妊娠、双肾动脉狭窄、高K/低压及肾变化评估，课程Cr265/K5.5不是永久全类界限，ARNI血管水肿及ACEI间隔36小时由B5；MRA启动通常eGFR大于30且K小于5，维持若不能低于5.5需停/重评。SGLT2容量、酮症、禁食/手术/危重暂缓及启动/维持分开，达格列净课程30/25差异保留，心肾eGFR小于25不建议新启用不等于既有必停，恩格列净20亦非下降就停；维立西呱妊娠、其他sGC、PDE5及低压限制不套MRA门。
+
+[ACEI / ARB / ARNI、MRA、SGLT2i、sGC〔4药组机制｜各自限制｜肾功/血钾｜启用vs维持〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L587)<!-- b11:node {"kp_id":"circulation-b11-kp018","canonical_line":587} -->
+
+β阻断在慢性稳HFrEF减少交感毒性、脱敏、耗氧和重构，可减猝死；美托洛尔缓释、比索洛尔、卡维地洛为代表。休克/明显低灌注不能强行启用加量，严重慢/SSS/高AVB及哮喘、痉挛/雷诺等按亚类和场景；已长期使用而失代偿无休克时通常尽量继续避免反跳。体液潴留利尿不足则淤血，过多则低容量/低压/肾恶化；袢强且低GFR常用、低K/耳毒，噻嗪受低GFR限制、低K/高尿酸，MRA或ENaC保钾、V2拮抗减水用于低Na/抵抗接口，不能只因水肿越重越加量。
+
+[利尿剂：改善液体潴留症状的基石〔用药前提｜不足vs过量｜利尿4组：作用/不良反应｜低钠/抵抗接口〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L631)<!-- b11:node {"kp_id":"circulation-b11-kp020","canonical_line":631} -->
+
+[β受体拮抗剂：慢性稳定期抗重构，不是急性休克时强行压心率〔稳定期作用链｜代表3药｜慎禁情境｜急性失代偿继续/调整条件〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L607)<!-- b11:node {"kp_id":"circulation-b11-kp019","canonical_line":607} -->
+
+伊伐布雷定抑If，课程慢HFrEF EF≤35、窦律HR≥70、NYHA II–IV且β背景，已有校准指南稳定II–III、最大耐受β与规范治疗条件不可漏，AF/急失代偿不用。苷抑Na/K泵使Na梯度减小、NCX净Ca外排减少、可用Ca增加而肌力增加，NCX不必每时相反转；另抑AV结/增迷走可适合快AF等。预激、SSS/高AVB、早MI/重肌炎、HCM/AS或MS窦律等课程避免情境要分机制，正在用苷不等于禁止危急电击，疑中毒延后择期复律须独立评估。
+
+[伊伐布雷定、强心苷、血管扩张剂、CRT 与 ICD〔药械5类→靶点/场景｜强心苷链｜用药边界｜CRTvsICD〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L644)<!-- b11:node {"kp_id":"circulation-b11-kp021","canonical_line":644} -->
+
+扩管不耐受RAAS或合并心绞痛高压时按条件，低压、动态堵/固定出口、右室前负荷依赖仍限制。CRT改善房室/室间室内同步，课程优化后有症状、窦律、完全LBBB、QRS大于130ms、EF≤35、NYHA II–IV是组合，不能一项自动植入；ICD防VT/VF猝死而不直接修复同步，可组合但任务不同。
+
+HFpEF也控制高压、缺血、AF/心动过速与过高充盈，有适应证才降率延长舒张，利尿避免前负荷过低，RAAS/非DHP按背景；强心不能直接改善顺应性，另有AF控率适应证单独判断。canonical已有2023更新SGLT2用于HFpEF降低住院/心血管死亡复合风险，不能从旧清单遗漏推出只用于HFrEF，也不能把复合风险叫每例死亡获益。任何病例最终同时回答故障、淤血方向、EF表型、病因诱因、急慢湿冷及证据，再选当前靶点；进入休克或无有效脉搏时由B12接续。
+
+[心衰六问〔病例6问｜机制/方向/EF/时程诱因/湿冷证据/治疗｜反事实3〕](../../../knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md?plain=1#L730)<!-- b11:node {"kp_id":"circulation-b11-kp024","canonical_line":730} -->
+
+</details>
+
+闭环：先说明泵/充盈故障和淤血方向，再用表型与证据校准，依急慢与湿冷选择当前目标；不能用长期药表替代急性灌注判断。
+
+<details>
+<summary>来源、精确记忆与原图边界</summary>
+
+本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+
+Source范围：内科LectureP355–366及既有canonical校准来源；U127–130共59题，B6尾段HF桥不重复计账。
+
+读取实际 System Learning `content/xizong/knowledge/learner/a1-circulation-learning.json#/blocks/circulation-b11`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
+
+未决/限制：发绀中央/混合教材差异、急性药物Source歧义、SGLT2课程25/30差异保留；正文继承canonical各药启动/维持与终点限制，旧M16共享简写不回写。阈值/风险与设备组合不等医学处方验收，原图未重新核验。
+
+本轮只复用当前 Core 已有的校准和来源记录；未重新查看PDF/原图，未形成临床协议、操作验收或Learner-U证据。精确及模型外内容的现有 owner、别名和阻断状态见本组逐项 disposition；当前没有B10–B12 reviewed visual bundle，原图需求保持Source-gap。
+
+</details>

@@ -1,0 +1,156 @@
+<!-- kianos:reviewed-reading-view {"status":"CANDIDATE_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b12","view":"teaching","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md","canonical_blob":"bedceacc45cee281e805191aeb2cb124586ec1f0","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b12","learning_value_sha256":"588b993aae57f2dea8cc9f76bb8684ef0159d7e9b6a1a766b7ac52e5e943a508","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","rule_path":"content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md","freshness":"Read Current canonical/System/Learning and owned support before use; relevant changes require bounded review. Candidate prose is not medical authority or learner evidence."} -->
+
+# 有效脉搏 → 灌注 → 第一故障 → 恢复循环
+
+候选学习稿。沿默认模型读通因果与分支，需要时原位展开；来源与精确条件仍由现有医学 owner 承担。
+
+## 先分有没有有效输出，再判断是不是休克
+
+- [无脉搏是B12的最高优先级门槛〔休克vs骤停｜电活动≠输出｜识别3条件→第一动作｜Primaryvs系统接口〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L750)<!-- b12:node {"kp_id":"circulation-b12-kp015","canonical_line":750} -->：无反应、无正常呼吸、无有效脉搏 → 立即CAB/CPR，不等待完整病因或节律命名。仍有有效脉搏 → 继续判断组织低灌注；ECG成直线不是骤停的唯一外观。
+- [休克的本质、特征与“血压正常仍可休克”〔本质/Study特征｜氧供失败4路｜BP≠灌注｜监测7组〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L139)<!-- b12:node {"kp_id":"circulation-b12-kp001","canonical_line":139} -->：组织灌注/氧供失败才是休克核心。交感和RAAS可暂保BP而牺牲肾、皮肤、胃肠血流，故正常BP不排除休克；单纯低压也不能自动叫休克。
+
+<details>
+<summary>展开：有脉/无脉最高门槛与四类故障入口</summary>
+
+<!-- b12:candidate-explanation-section 0 -->
+
+倒地无反应、低压、少尿或皮肤异常都要求先看有效脉搏。休克仍有一定前向输出，却不能充分灌注组织；骤停已没有有效脉搏，不论ECG混乱、快速宽QRS、规则活动还是直线。无反应、无正常呼吸、无有效脉搏时立即进入CAB/CPR，不等图形命名完整；有脉再用组织证据判断休克。
+
+
+```text
+有脉 + 组织低灌注
+ ├ 容量不足 → 回心/前负荷↓ → CO↓
+ ├ 泵失败 → 前向CO↓ + 上游淤血
+ ├ 阻力/分布异常 → 相对容量不足/微循环分流
+ └ 通路阻塞 → 回心或向前血流中断
+无有效脉搏 → CPR → 可电击VF/pVT；不可电击仅系统接口
+```
+
+课程有效循环量下降与炎症介质特征应接回器官氧供：低CO、异常分配、回心不足或机械阻断均可失败。早期交感、RAAS让心率/收缩与阻力增加，血压可能暂维持，却牺牲皮肤、肾、胃肠；正常BP不能排隐匿休克，反之没有低灌注的单纯低压不能机械命名休克。四类最后都少尿、意识差，终末表现不能替代第一故障分型。
+
+</details>
+
+## 有脉低灌注：用四个第一故障组织所有分支
+
+- [四类休克：容量、泵、阻力分布、回流通路〔休克4类：首故障→变量→场景｜终末表现≠分型｜补液边界〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L196)<!-- b12:node {"kp_id":"circulation-b12-kp002","canonical_line":196} -->：容量不足 → 回心/前负荷↓ → CO↓；泵失败 → CO↓且上游压力可↑；阻力/分布异常 → 相对容量不足或微循环分流；通路阻塞 → 回心、右室输出或左室充盈受限。末端都可少尿/低压，分型要回第一故障。
+- [PAWP看左侧充盈，CVP看右侧回心与射血的平衡〔PAWP左侧定位｜CVP解剖/正常值｜合力2端｜CVP高3原因｜非容量计〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L439)<!-- b12:node {"kp_id":"circulation-b12-kp008","canonical_line":439} -->：意识、尿量、皮肤/再充盈、乳酸/BE与血压趋势共同校准灌注。PAWP看左充盈，CVP看回心与右心射血的平衡，不是血容量计；结合肺部、超声、病因后才判断容量、泵或阻塞。
+
+<details>
+<summary>展开：灌注指标、CVP–BP、补液试验及数字的适用边界</summary>
+
+<!-- b12:candidate-explanation-section 1 -->
+
+意识、尿量、皮温/颜色与再充盈、脉压和脉率、乳酸/BE、必要胃肠pH及血流动力学要连续看。代偿微动脉收缩使DBP升而SBP暂维持，脉压缩小；失血课程轻小于20%/800mL、中20–40%且SBP90–70、重超过40%/1600mL且SBP小于70，连神志和脉搏读取。原PDF确写中脉100–200、重超过200，并非OCR错，但不能要求所有重休克先达200；这条原文仍待勘误，不换别表也不释放为可靠Gate。《各论》常默认SBP小于90的失代偿，不能覆盖总论早期机制。
+
+[休克早期、中度、重度：失血量—血压—脉搏—神志一起看〔Study3度：失血/SBP/DBP/PP/脉搏/神志｜早期代偿链｜总论vs各论口径〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L319)<!-- b12:node {"kp_id":"circulation-b12-kp005","canonical_line":319} -->
+
+休克指数=脉率/SBP，课程0.5、超过1–1.5、超过2为无/有/重方向接口，不能只凭低指数排除或分病因，药物、节律、年龄与代偿改变心率。尿量30mL/h改善提示灌注/容量恢复，小于25且高比重偏肾仍能浓缩的肾前不足；BP正常仍少尿且低比重可肾实质/ATN，但任何单项都不证明整个循环已足够。胃肠pH可捕捉被牺牲床的酸化，乳酸与BE校准缺氧、无氧代谢、酸碱及复苏趋势；课程BE小于−2.3或大于+2.3为代酸/代碱接口。
+
+[尿量、胃肠道pH、乳酸和BE：寻找被BP掩盖的低灌注〔尿量2门槛｜尿比重→肾前/肾性｜隐匿灌注指标｜乳酸/BE4职责｜单项局限〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L389)<!-- b12:node {"kp_id":"circulation-b12-kp007","canonical_line":389} -->
+
+[休克指数：把心动过速和低血压压成一个方向指标〔指数公式｜Study3档｜方向机制｜严重度线索≠病因〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L360)<!-- b12:node {"kp_id":"circulation-b12-kp006","canonical_line":360} -->
+
+PAWP/PCWP定位肺静脉—左房—左充盈，CVP定位右房及胸内大静脉，是静脉回心与右心射血的合力。少容量可低，多容量或静脉缩可高，右泵失败/外部阻塞也可高；课程5–10cmH₂O不跨Source强行统一，CVP从来不是单独血容量计。
+
+```text
+课程CVP低 + BP低/正常 → 不足，分别充分/适当补充接口
+课程CVP高 + BP低 → 泵或相对过量，勿盲补
+CVP正常 + BP低 → 有条件试验并复评
+                  BP改善支持不足；CVP升而BP不改善支持泵问题
+```
+
+高CVP而BP正常的“容量血管过缩/考虑扩静脉”同属课程矩阵，必须加肺、超声、病因，不能当独立处方。低压高CVP而肺湿指向左泵/淤血，肺相对清要考虑PE、压塞或右室MI，这些病共享压力读数却需要不同根本处理。
+
+[CVP–BP四格与补液试验〔CVP×BP四格｜各自处理｜补液试验门槛｜BP升 vs CVP升解释〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L486)<!-- b12:node {"kp_id":"circulation-b12-kp009","canonical_line":486} -->
+
+</details>
+
+## 持续低灌注会把代偿推成自我强化的崩溃
+
+- [休克微循环三期：缩、扩、凝〔微循环占比｜3期：入口/出口→流量｜早期分配｜后期5后果｜衰竭出口〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L224)<!-- b12:node {"kp_id":"circulation-b12-kp003","canonical_line":224} -->：早期入口收缩，把血重新分给心脑；持续缺血/酸化 → 入口开放而出口仍受限 → 淤积、外渗、浓缩 → 回心再降 → 微血栓/DIC和器官损伤。DIC可凝血与出血并存；“休克早期”不等于自动肝素。
+
+<details>
+<summary>展开：微循环缩—扩—凝及DIC的条件</summary>
+
+<!-- b12:candidate-explanation-section 2 -->
+
+课程微循环约占总循环量20%，代偿期微动脉、后微动脉及前括约肌收缩，A端入口更敏感而V端未全关，“只出不进”把血重新分给心脑。持续缺血使酸和代谢物积累，入口开放但微静脉仍敏感、出口关，“只进不出”让血淤积、毛细压高、渗液、浓缩黏稠，回心进一步下降。淤滞、内皮损伤、酸中毒又推动微血栓/透明血栓与器官屏障崩溃。
+
+```text
+灌注不足 → 入口缩 → 代谢酸化 → 入口开而出口受限
+→ 淤积/外渗/浓缩 → 回心再降 → 微血栓/DIC → 器官更差
+```
+
+DIC广泛凝血产生纤维蛋白微栓，耗血小板/因子并继纤溶，故血栓与出血并存。课程血小板小于80×10⁹/L、PT延长大于3秒、纤维蛋白原小于1.5g/L、3P和破碎红细胞大于2%是提示，不是单项确诊或完整现代标准。早期/高凝肝素原口径仍须病因、血栓主导与出血风险条件，不能因为“早休克”自动抗凝；完整DIC归血液。
+
+[DIC接口：凝得太多，最后反而出血〔DIC形成链｜5项指标/单位｜抗凝条件｜凝血vs出血〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L281)<!-- b12:node {"kp_id":"circulation-b12-kp004","canonical_line":281} -->
+
+</details>
+
+## 恢复灌注与修复第一故障必须并行
+
+- [休克治疗总原则：恢复有效循环 + 同时处理病因〔容量支持/液体/血液｜4故障层→根本处理｜复苏目标5组〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L518)<!-- b12:node {"kp_id":"circulation-b12-kp010","canonical_line":518} -->：低容量：补有效容量/血液＋止住丢失；心源：维持适当充盈＋支持泵，并处理缺血/机械故障；分布性：容量/血管活性支持＋源控制；阻塞性：灌注支持只作过渡，必须解除阻塞。不能给全部休克统一大量补液或只追一个BP。
+- [感染性休克：容量、血管分布、心肌和源控制同时出问题〔感染源｜冷暖：CO/TPR/体征｜SIRS｜灌注+源控制｜药物条件〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L666)<!-- b12:node {"kp_id":"circulation-b12-kp014","canonical_line":666} -->：感染可同时影响容量、分布、心肌和微交换。冷暖是血流动力学表型；升压、选择性泵支持及激素各有条件，旧“大剂量短时冲击”不能当通用治疗。血制品、药物和复苏精确参数回有条件的Core/Precision，不由这张模型直接给出处方。
+
+<details>
+<summary>展开：失血/心源/分布/阻塞四路、药物与源控制条件</summary>
+
+<!-- b12:candidate-explanation-section 3 -->
+
+补血容量是外科课程重要入口，却不是全部休克统一大量补液。低容量失血使平均充盈压下降、回心与EDV/SV/CO下降，补容量/血液必须与止血并行；活动性大出血不等晶体、胶体逐项输完，不等单次Hb低于阈值，因为早期Hb尚未充分反映丢失。课程平衡盐等待配血，Hb小于70、70–100、大于100g/L以及失血比例血液支持是来源参考；血液/凝血复苏依出血和灌注，旧“先晶后胶再血”或固定血液比例不是普遍急救顺序。
+
+[低容量 / 失血性休克：恢复有效循环与控制失血并行〔首变量/回心链｜CVP变化时序｜Study液体次序/血液门槛｜复苏/止血〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L561)<!-- b12:node {"kp_id":"circulation-b12-kp011","canonical_line":561} -->
+
+感染/分布性相对容量、血管分布、心肌和微交换可能同坏，课程腹膜/穿孔、AOSC、绞窄肠、尿路和重胰腺等背景提供源控制入口。冷表型低CO高阻、苍白湿冷、再充盈慢、细速/小脉压少尿；暖高排低阻/微分流皮肤热却有效交换不足，受容量心功能与病程影响，不把G−/G+做互斥病原标签。SIRS温大于38或小于36、HR大于90、RR大于20或PaCO₂小于4.3kPa、WBC大于12或小于4×10⁹/L/未成熟大于10%，是炎症筛查而不独自确诊感染脓毒症。
+
+支持容量/灌注和抗菌、引流/源控制同步；去甲肾上腺素的升压与多巴酚丁胺适合心功能受损/持续低灌注的任务不同。canonical已有2026 SSC晶体一线、反淀粉/建议不明胶及静脉激素条件，旧短时大剂量GC不能当通用治疗；SCCM反对氢化可的松等效超过400mg/d且小于3天的方案。保持原Source差异，不在教案另造剂量、补液量或升压组合。
+
+心源总水未必少，输出低且CVP/PAWP可高，需维持适当充盈、改善泵和处理MI通路/机械灾难。急左衰低于90的肌力支持不能接强扩管，AMI再灌注根本，IABP旧过渡接口必须继承B6非机械MI休克不常规的限制；乳头肌断裂、IE穿孔/瘘需结构处理。右室MI谨慎维持前负荷，与左侧肺湿盲补不同。
+
+[心源性休克：总容量未必少，问题是泵打不出去〔泵故障→前后向｜CVP/PAWP｜强心/再灌注/机械4场景｜左右心容量边界〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L596)<!-- b12:node {"kp_id":"circulation-b12-kp012","canonical_line":596} -->
+
+阻塞的泵未必弱：PE增加RV后负荷、减右输出与左前负荷；张力气胸胸压升压大静脉、立即减压；压塞心包压限制充盈、静脉高而输出低，解除压力仍需继承B8夹层病因穿刺风险。PE完整分层/溶栓安全归呼吸，支持只是过渡，必须解除通路。复苏以意识、尿、皮肤、乳酸/BE及CO器官趋势为目标，不是仅把BP补好看。
+
+[阻塞性休克：泵可能有力，但血回不来或过不去〔阻塞3处｜回流/右室后负荷/LV充盈｜血流动力学｜解除目标〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L622)<!-- b12:node {"kp_id":"circulation-b12-kp013","canonical_line":622} -->
+
+</details>
+
+## 无脉分支：按压维持流量，电击只用于可电击节律
+
+- [VF / pVT电击路径；PEA / 心静止只作系统级接口〔VF/pVT路径｜同步vs非同步层级｜首能量2波形｜肾上腺素途径｜不可电击来源层级〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L844)<!-- b12:node {"kp_id":"circulation-b12-kp018","canonical_line":844} -->：VF/pVT → CPR＋非同步除颤；pVT即使有组织化QRS仍属无脉骤停。PEA/心静止只保留系统级不可电击定位，不扩写当前Source未提供的Primary。按压、气道/通气和设备能量须按场景区分，不能混用节奏或统一双相能量。
+
+<details>
+<summary>展开：猝死背景、CAB、通气场景和除颤边界</summary>
+
+<!-- b12:candidate-explanation-section 4 -->
+
+课程猝死总体冠心病/并发症最常，35岁以下强调梗阻HCM、ARVC、长QT/Brugada等；源内VF最常与pVT转VF说明电底物，但不延误无脉识别。CAB先胸外按压，再气道和通气，成人胸中央胸骨下半定位、5–6cm、100–120/min、按压放松1:1；乳头线或剑突固定距离不当人人替代。无高级气道30:2且尽量少中断，每次约1秒至可见胸起伏避免过量；有高级气道连续按压/每6秒一次，不能把10/min和30:2叠加。有脉无呼吸的救援通气10/min与无脉路径区分；疑颈创伤受训者先托颌，仍不通则优先有效气道，无创伤仰头抬颏。
+
+[初级心肺复苏：步骤与操作要点〔CAB｜按压4要点｜气道条件｜通气3场景〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L806)<!-- b12:node {"kp_id":"circulation-b12-kp017","canonical_line":806} -->
+
+[心源性猝死病因与骤停节律〔Study最常病因｜青年原因3组｜骤停节律｜pVTvs有脉VT〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L776)<!-- b12:node {"kp_id":"circulation-b12-kp016","canonical_line":776} -->
+
+VF/pVT已无有效输出，非同步除颤配CPR，即使pVT有组织宽QRS也不改有脉复律。课程单相首360J，双相按厂家常见120–200J，不知道推荐则canonical继承AHA2025可用最大，不能所有一律120。肾上腺素仅保留Source静脉途径，没有完整剂量/时表就不补造。PEA/心静止为系统整合的不可电击定位，当前Source/Outline未完整展开，不升级Primary或增加题数；全套可逆原因/高级复苏待正式Source。
+
+把脉搏、组织灌注、第一故障、P/Q/R/V与淤血低灌注、代偿阶段和最能校准的证据连起来，才知道当下要补真实容量、修泵、保张力、解阻塞、源控制或按压除颤。循环系统各病理机制由此汇合，任何支持手段都不能遮住真正的上游故障。
+
+[休克 / 骤停七步决策〔脉搏/灌注｜首故障｜P/Q/R/V｜淤血/灌注｜阶段｜证据｜危险/根本处理〕](../../../knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md?plain=1#L897)<!-- b12:node {"kp_id":"circulation-b12-kp019","canonical_line":897} -->
+
+</details>
+
+闭环：脉搏 → 组织灌注 → 第一故障 → P/Q/R/V与淤血 → 代偿阶段 → 证据 → 最危险变量及根本处理。接回B2→B5/B11→B12：能暂时保压的代偿不能保证持续灌注。
+
+<details>
+<summary>来源、精确记忆与原图边界</summary>
+
+本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+
+Source范围：外科27外科精编版【带导图】SUR27-U37 PDF276–281/印刷223–227；内科Lecture398–399。SUR-U058–059共24+IM-U137第11–15共5+U138共1=30。
+
+读取实际 System Learning `content/xizong/knowledge/learner/a1-circulation-learning.json#/blocks/circulation-b12`、`shared-fields.json` 对应 stable KP 的完整 retention_metadata、实际 System cues 的 precision_index/visual_bindings 与 Current Extension/Connection owner。精确名单、阈值和药物安全以当前 owner 为准；支持为空不补造，Memory资产存在不等于已入队/到期。
+
+未决/限制：原Source中重度脉率100–200/>200待勘误且不作必备；旧M19高剂量GC、M14定位/通气合并、M15固定双相能量、M02无条件肝素均继承已校准canonical条件。B12IABP/穿刺短接口经实际B6/B8 owner限定，未改医学资产。PEA/心静止仅Guide-level，不加Primary，图像和复苏操作均未Human验收。
+
+本轮只复用当前 Core 已有的校准和来源记录；未重新查看PDF/原图，未形成临床协议、操作验收或Learner-U证据。精确及模型外内容的现有 owner、别名和阻断状态见本组逐项 disposition；当前没有B10–B12 reviewed visual bundle，原图需求保持Source-gap。
+
+</details>

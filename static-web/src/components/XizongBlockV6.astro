@@ -27,9 +27,9 @@ const blockSourceConflict = Array.isArray(sourceContact.blockSourceConflict) ? s
 const blockVisualDebt = Array.isArray(sourceContact.blockVisualDebt) ? sourceContact.blockVisualDebt : [];
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
-const postChatReferenceBlock = block?.systemId === 'circulation' && ['b01', 'b02'].includes(block?.slug);
+const postChatReferenceBlock = block?.systemId === 'circulation' && /^b(?:0[1-9]|1[0-2])$/.test(block?.slug);
 const titleOnlyKps = postChatReferenceBlock;
-// B1/B2 reference slices only. This opens retrieval; it never certifies Chat or Source study.
+// Reviewed A1 reference slices only. This opens retrieval; it never certifies Chat or Source study.
 const postChatRecallAvailable = postChatReferenceBlock
   && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
 const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';
