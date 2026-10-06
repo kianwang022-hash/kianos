@@ -15,8 +15,7 @@
           "label_en": "a partiality that prevents objective consideration of an issue or situation; a slanting direction across the grain of a fabric",
           "pos": "noun",
           "sense_ids": [
-            "sense:bias:648c335993925883",
-            "sense:bias:3f0a0fda74f75746"
+            "sense:bias:648c335993925883"
           ]
         },
         {
@@ -26,19 +25,11 @@
           "sense_ids": [
             "sense:bias:c4dbdfbc84d5530c"
           ]
-        },
-        {
-          "label_cn": "斜的；偏斜的",
-          "label_en": "slanting diagonally across the grain of a fabric",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:bias:fee162bb36795806"
-          ]
         }
       ],
-      "core_meaning_cn": "偏见或偏向",
-      "core_meaning_en": "prejudice or slant",
-      "mental_model_cn": "偏见或偏向",
+      "core_meaning_cn": "偏见；偏向；使判断或结果产生偏差",
+      "core_meaning_en": "an unfair inclination or skew; to cause such a bias",
+      "mental_model_cn": "person/judgment/data/result → 偏见或系统性偏向；服装裁剪的斜纹义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,44 +105,6 @@
         "sense_label_en": "influence in an unfair way",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5401ba185ca80499dc1b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bias:3f0a0fda74f75746:collocation:0"
-            ],
-            "meaning_cn": "斜裁",
-            "phrase": "cut on the bias"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "斜纹；斜线",
-        "definition_en": "a slanting direction across the grain of a fabric",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:bias:3f0a0fda74f75746",
-        "sense_label_en": "a slanting direction across the grain of a fabric",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "斜的；偏斜的",
-        "definition_en": "slanting diagonally across the grain of a fabric",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:bias:fee162bb36795806",
-        "sense_label_en": "slanting diagonally across the grain of a fabric",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -581,12 +534,51 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:5401ba185ca80499dc1b",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:bias:3f0a0fda74f75746:collocation:0"
+          ],
+          "meaning_cn": "斜裁",
+          "phrase": "cut on the bias"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "斜纹；斜线",
+      "definition_en": "a slanting direction across the grain of a fabric",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:bias:3f0a0fda74f75746",
+      "sense_label_en": "a slanting direction across the grain of a fabric",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "斜的；偏斜的",
+      "definition_en": "slanting diagonally across the grain of a fabric",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:bias:fee162bb36795806",
+      "sense_label_en": "slanting diagonally across the grain of a fabric",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:bias:3f0a0fda74f75746",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1267,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
@@ -607,7 +599,7 @@
       },
       {
         "sense_id": "sense:bias:fee162bb36795806",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 1270,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
@@ -615,7 +607,6 @@
     ],
     "active_collocations": [
       "collocation:337c172e6e66f3b8c7a3",
-      "collocation:5401ba185ca80499dc1b",
       "collocation:a99be19f803cb8eede2f",
       "collocation:e0f750e3bc4a2ef4198f",
       "collocation:f73160884cebd72e5651"
@@ -630,7 +621,9 @@
       {
         "id": "collocation:5401ba185ca80499dc1b",
         "source_row": 7085,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a99be19f803cb8eede2f",
