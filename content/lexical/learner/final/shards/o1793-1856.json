@@ -977,22 +977,65 @@
     "ordinal": 1798,
     "word": "expire",
     "source_owner_path": "content/lexical/words/by-ordinal/o1798.json",
-    "source_fingerprint": "f02f22dd0344dff8c6232224c3f391d794473bdb8b863ff2c51f0a6ab28f52b6",
-    "sense_lineage": [],
+    "source_fingerprint": "60b6fa6cbc6f016e5ca738fd1758928b5747ae9502e766ec34107e5b7c52e3f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:expire",
+        "target_kind": "sense",
+        "from_target_id": "sense:expire:a21e7f6af41550bf",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:expire",
+        "target_kind": "sense",
+        "from_target_id": "sense:expire:b519f64bab7d5cd7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:expire",
+        "target_kind": "sense",
+        "from_target_id": "sense:expire:df7add6b2141560d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:expire",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3358e235ed93793bbf92",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:expire",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4bdaa41ee103ea8f6aec",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:expire",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:523972084f39b92d3659",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V"
+        "1V"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "到期；失效；结束",
-      "decision_cn": "现代默认先认合同、证件、期限等“到期/失效”；死亡和呼气义保留在低优先级扩展。",
+      "summary_cn": "到期；失效；期限结束",
+      "decision_cn": "passport/contract/card/term → 到期、失效。文学性的“死亡”和医学/生物学“呼气”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "到期；失效；结束"
+        "target_label": "到期；失效；期限结束"
       }
     },
     "senses": [
@@ -1011,84 +1054,6 @@
           "target_id": "sense:expire:335279e31bab5316",
           "target_locator": "record.senses[0]",
           "target_label": "到期、失效或结束"
-        }
-      },
-      {
-        "id": "sense:expire:b519f64bab7d5cd7",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "断气；死亡",
-        "definition_en": "to pass from physical life; to die",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:523972084f39b92d3659",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "expire peacefully",
-            "meaning_cn": "安详地去世",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:expire:b519f64bab7d5cd7",
-          "target_locator": "record.senses[1]",
-          "target_label": "断气；死亡"
-        }
-      },
-      {
-        "id": "sense:expire:df7add6b2141560d",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "呼气",
-        "definition_en": "to expel air; to breathe out",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3358e235ed93793bbf92",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "expire deeply",
-            "meaning_cn": "深呼吸",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:expire:df7add6b2141560d",
-          "target_locator": "record.senses[2]",
-          "target_label": "呼气"
-        }
-      },
-      {
-        "id": "sense:expire:a21e7f6af41550bf",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "呼出",
-        "definition_en": "to breathe out (air)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4bdaa41ee103ea8f6aec",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "expire air from the lungs",
-            "meaning_cn": "从肺部呼出空气",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:expire:a21e7f6af41550bf",
-          "target_locator": "record.senses[3]",
-          "target_label": "呼出"
         }
       }
     ],
@@ -1138,7 +1103,81 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:523972084f39b92d3659",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:expire:b519f64bab7d5cd7:collocation:0"
+              ],
+              "meaning_cn": "安详地去世",
+              "phrase": "expire peacefully"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "断气；死亡",
+          "definition_en": "to pass from physical life; to die",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:expire:b519f64bab7d5cd7",
+          "sense_label_en": "to pass from physical life; to die",
+          "sort_order": 1,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3358e235ed93793bbf92",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:expire:df7add6b2141560d:collocation:0"
+              ],
+              "meaning_cn": "深呼吸",
+              "phrase": "expire deeply"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "呼气",
+          "definition_en": "to expel air; to breathe out",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:expire:df7add6b2141560d",
+          "sense_label_en": "to expel air; to breathe out",
+          "sort_order": 2,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4bdaa41ee103ea8f6aec",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:expire:a21e7f6af41550bf:collocation:0"
+              ],
+              "meaning_cn": "从肺部呼出空气",
+              "phrase": "expire air from the lungs"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "呼出",
+          "definition_en": "to breathe out (air)",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:expire:a21e7f6af41550bf",
+          "sense_label_en": "to breathe out (air)",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
