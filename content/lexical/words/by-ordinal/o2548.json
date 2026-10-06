@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "身体上的伤害或损伤",
       "core_meaning_en": "physical harm or damage",
-      "mental_model_cn": "身体上的伤害或损伤",
+      "mental_model_cn": "body/property → 伤害、损伤；figurative → 对名誉/利益的损害。法律上“权利侵害/不法行为”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -87,30 +87,6 @@
         "sense_id": "sense:injury:bf9b143a928359ba",
         "sense_label_en": "an act that damages or hurts someone or something",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:63a646b8d09de93c9f6d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:injury:7781ce84ce9a57c4:collocation:0"
-            ],
-            "meaning_cn": "人身伤害",
-            "phrase": "personal injury"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "侵害；不法行为",
-        "definition_en": "wrongful action that violates another's rights",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:injury:7781ce84ce9a57c4",
-        "sense_label_en": "wrongful action that violates another's rights",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -428,12 +404,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:63a646b8d09de93c9f6d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:injury:7781ce84ce9a57c4:collocation:0"
+          ],
+          "meaning_cn": "人身伤害",
+          "phrase": "personal injury"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "侵害；不法行为",
+      "definition_en": "wrongful action that violates another's rights",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:injury:7781ce84ce9a57c4",
+      "sense_label_en": "wrongful action that violates another's rights",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:injury:7781ce84ce9a57c4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7044,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
@@ -454,7 +455,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:63a646b8d09de93c9f6d",
       "collocation:69e4284142e3fd771a4b",
       "collocation:869f74ee01fe22b15c10",
       "collocation:8af73a8af19baed4a7fa",
@@ -465,7 +465,9 @@
       {
         "id": "collocation:63a646b8d09de93c9f6d",
         "source_row": 8398,
-        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:69e4284142e3fd771a4b",

@@ -22,7 +22,7 @@
       ],
       "core_meaning_cn": "表明；显示；指出、指示",
       "core_meaning_en": "to show, suggest, point out, or indicate",
-      "mental_model_cn": "表明；显示；指出、指示",
+      "mental_model_cn": "evidence/data → 表明；gesture/choice → 指出/表示；medical “treatment is indicated” 专业义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -233,50 +233,6 @@
             "source": "ai_curated_mvp_v1"
           }
         ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:085b7324412a17654741",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:indicate:8fe39b47ac895439:collocation:0"
-            ],
-            "meaning_cn": "显示适应证；建议采用",
-            "meaning_en": "to show that a treatment or procedure is suitable",
-            "phrase": "surgery is indicated"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "显示适应证；建议采用",
-        "definition_en": "to show that a treatment or procedure is suitable",
-        "depth": "recognition_only",
-        "domain_tag": "medicine",
-        "frequency_tag": "specialized",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:indicate:8fe39b47ac895439",
-        "sense_label_en": "medical recommendation",
-        "sort_order": 3,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
       }
     ],
     "verification_summary": {
@@ -448,7 +404,52 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:085b7324412a17654741",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:indicate:8fe39b47ac895439:collocation:0"
+          ],
+          "meaning_cn": "显示适应证；建议采用",
+          "meaning_en": "to show that a treatment or procedure is suitable",
+          "phrase": "surgery is indicated"
+        }
+      ],
+      "confidence": "high",
+      "definition_cn": "显示适应证；建议采用",
+      "definition_en": "to show that a treatment or procedure is suitable",
+      "depth": "recognition_only",
+      "domain_tag": "medicine",
+      "frequency_tag": "specialized",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:indicate:8fe39b47ac895439",
+      "sense_label_en": "medical recommendation",
+      "sort_order": 3,
+      "source_evidence": [
+        {
+          "role": "local_evidence",
+          "source": "kaoyan"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_ecdict"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_oewn"
+        },
+        {
+          "role": "local_evidence",
+          "source": "ai_curated_mvp_v1"
+        }
+      ]
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -474,14 +475,13 @@
       },
       {
         "sense_id": "sense:indicate:8fe39b47ac895439",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6948,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
       }
     ],
     "active_collocations": [
-      "collocation:085b7324412a17654741",
       "collocation:28a1e4de81acd5452d54",
       "collocation:34190ba90ec5c6bde79d",
       "collocation:66f244a6bebdac7d10f1",
@@ -509,7 +509,9 @@
       {
         "id": "collocation:085b7324412a17654741",
         "source_row": 695,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:28a1e4de81acd5452d54",

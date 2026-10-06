@@ -742,18 +742,40 @@
     "ordinal": 2502,
     "word": "index",
     "source_owner_path": "content/lexical/words/by-ordinal/o2502.json",
-    "source_fingerprint": "1dc577c63a9fe3a8957b91d0a6a19f5862290675d9ea5dcb451d0be8b69935b4",
-    "sense_lineage": [],
+    "source_fingerprint": "230476c64f0add88215655a488191f3bee2c2c41be7ce562feb871d98b0f85a2",
+    "sense_lineage": [
+      {
+        "word_id": "word:index",
+        "target_kind": "sense",
+        "from_target_id": "sense:index:9c91b264d0e75213",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:index",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1ecbf710fd32f71121e7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:index",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4683fcfc7b2e0ba21c3e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "索引；指数；指标",
-      "decision_cn": "",
+      "decision_cn": "book/data → 索引；number/ratio → 指数；sign → 指标；verb → 编索引。按指数调整工资/价格的专业金融义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -891,45 +913,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "为…编索引"
         }
-      },
-      {
-        "id": "sense:index:9c91b264d0e75213",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "按指数调整（工资、价格等）",
-        "definition_en": "to adjust wages, prices, etc. according to an index",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4683fcfc7b2e0ba21c3e",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "index to + sth",
-            "meaning_cn": "按某指数调整",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4683fcfc7b2e0ba21c3e",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "index to + sth"
-            }
-          },
-          {
-            "id": "collocation:1ecbf710fd32f71121e7",
-            "source_locator": "record.senses[4].collocations[1]",
-            "phrase": "index to inflation",
-            "meaning_cn": "按通货膨胀调整",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:index:9c91b264d0e75213",
-          "target_locator": "record.senses[4]",
-          "target_label": "按指数调整（工资、价格等）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -958,7 +941,42 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4683fcfc7b2e0ba21c3e",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:index:9c91b264d0e75213:collocation:0"
+              ],
+              "meaning_cn": "按某指数调整",
+              "phrase": "index to + sth"
+            },
+            {
+              "collocation_id": "collocation:1ecbf710fd32f71121e7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:index:9c91b264d0e75213:collocation:1"
+              ],
+              "meaning_cn": "按通货膨胀调整",
+              "phrase": "index to inflation"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "按指数调整（工资、价格等）",
+          "definition_en": "to adjust wages, prices, etc. according to an index",
+          "governing_pattern": "vi. + to",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:index:9c91b264d0e75213",
+          "sense_label_en": "to adjust wages, prices, etc. according to an index",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -967,17 +985,32 @@
     "ordinal": 2503,
     "word": "indicate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2503.json",
-    "source_fingerprint": "a25178023e42a852581194ec89d4e49a053960df1345b168c8c3c43ff9119509",
-    "sense_lineage": [],
+    "source_fingerprint": "04dc79499c70a63c5495bfe99dd2accc42d8fdae4a1075681ab5f36083059207",
+    "sense_lineage": [
+      {
+        "word_id": "word:indicate",
+        "target_kind": "sense",
+        "from_target_id": "sense:indicate:8fe39b47ac895439",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:indicate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:085b7324412a17654741",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "(4+1)V"
+        "(3+1)V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "表明；显示；指出、指示",
-      "decision_cn": "",
+      "decision_cn": "evidence/data → 表明；gesture/choice → 指出/表示；medical “treatment is indicated” 专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1079,32 +1112,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "象征；意味着"
         }
-      },
-      {
-        "id": "sense:indicate:8fe39b47ac895439",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "显示适应证；建议采用",
-        "definition_en": "to show that a treatment or procedure is suitable",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:085b7324412a17654741",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "surgery is indicated",
-            "meaning_cn": "显示适应证；建议采用",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:indicate:8fe39b47ac895439",
-          "target_locator": "record.senses[3]",
-          "target_label": "显示适应证；建议采用"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1166,6 +1173,52 @@
           ],
           "source_locator": "record.word_family[1]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:085b7324412a17654741",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:indicate:8fe39b47ac895439:collocation:0"
+              ],
+              "meaning_cn": "显示适应证；建议采用",
+              "meaning_en": "to show that a treatment or procedure is suitable",
+              "phrase": "surgery is indicated"
+            }
+          ],
+          "confidence": "high",
+          "definition_cn": "显示适应证；建议采用",
+          "definition_en": "to show that a treatment or procedure is suitable",
+          "depth": "recognition_only",
+          "domain_tag": "medicine",
+          "frequency_tag": "specialized",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:indicate:8fe39b47ac895439",
+          "sense_label_en": "medical recommendation",
+          "sort_order": 3,
+          "source_evidence": [
+            {
+              "role": "local_evidence",
+              "source": "kaoyan"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_ecdict"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_oewn"
+            },
+            {
+              "role": "local_evidence",
+              "source": "ai_curated_mvp_v1"
+            }
+          ]
+        }
       ]
     }
   },
@@ -1175,17 +1228,32 @@
     "ordinal": 2504,
     "word": "indication",
     "source_owner_path": "content/lexical/words/by-ordinal/o2504.json",
-    "source_fingerprint": "6ea07e3c5e20599e3a3b4d2b0770e4479df3b9b58f79bef1b724eb9cf39f4e66",
-    "sense_lineage": [],
+    "source_fingerprint": "d9dc430310793de7a9d7a470503617c4dc3eec5e446bcc1afd195e94f11d5cb6",
+    "sense_lineage": [
+      {
+        "word_id": "word:indication",
+        "target_kind": "sense",
+        "from_target_id": "sense:indication:2c3073d4c0b25a22",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:indication",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:965fd966e14bb712e9e7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "表明或暗示某事的迹象或信息",
-      "decision_cn": "",
+      "decision_cn": "general → 迹象、指示、暗示；medical indication“适应症”专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1232,37 +1300,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "迹象；暗示；指示"
         }
-      },
-      {
-        "id": "sense:indication:2c3073d4c0b25a22",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（医学）适应症",
-        "definition_en": "a reason to prescribe a drug or perform a procedure",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:965fd966e14bb712e9e7",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "indication for surgery",
-            "meaning_cn": "手术适应症",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:965fd966e14bb712e9e7",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "indication for surgery"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:indication:2c3073d4c0b25a22",
-          "target_locator": "record.senses[1]",
-          "target_label": "（医学）适应症"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1288,7 +1325,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:965fd966e14bb712e9e7",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:indication:2c3073d4c0b25a22:collocation:0"
+              ],
+              "meaning_cn": "手术适应症",
+              "phrase": "indication for surgery"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（医学）适应症",
+          "definition_en": "a reason to prescribe a drug or perform a procedure",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:indication:2c3073d4c0b25a22",
+          "sense_label_en": "a reason to prescribe a drug or perform a procedure",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1453,17 +1516,32 @@
     "ordinal": 2506,
     "word": "indifferent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2506.json",
-    "source_fingerprint": "3f05729d95654220642c2a2bc8a3c5440b64b7a7f5664c1ccb74dafa184b180b",
-    "sense_lineage": [],
+    "source_fingerprint": "7d6196aa8370d9b6d44509c930c917a732c394c9b41ed80ac7d40a94de61a23a",
+    "sense_lineage": [
+      {
+        "word_id": "word:indifferent",
+        "target_kind": "sense",
+        "from_target_id": "sense:indifferent:2d9e92b8def15046",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:indifferent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:aa80d36f13e027cc5390",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "不关心，无偏好",
-      "decision_cn": "",
+      "decision_cn": "attitude → 漠不关心；choice → 无所谓/无偏好。较旧式“平庸、较差”评价义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1536,32 +1614,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "中立的，无偏好的"
         }
-      },
-      {
-        "id": "sense:indifferent:2d9e92b8def15046",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "平庸的，较差的",
-        "definition_en": "fairly poor to not very good",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:aa80d36f13e027cc5390",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "an indifferent performance",
-            "meaning_cn": "平庸的表演",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:indifferent:2d9e92b8def15046",
-          "target_locator": "record.senses[2]",
-          "target_label": "平庸的，较差的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1609,7 +1661,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:aa80d36f13e027cc5390",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:indifferent:2d9e92b8def15046:collocation:0"
+              ],
+              "meaning_cn": "平庸的表演",
+              "phrase": "an indifferent performance"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "平庸的，较差的",
+          "definition_en": "fairly poor to not very good",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:indifferent:2d9e92b8def15046",
+          "sense_label_en": "fairly poor to not very good",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2388,7 +2466,7 @@
     "ordinal": 2513,
     "word": "indulge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2513.json",
-    "source_fingerprint": "228954c759983a6bdafb166bfe278facedc419d428566c7937bb0b32cf48127d",
+    "source_fingerprint": "3bb572622aa510b4307c72cbb34b5caa6a85e0818f6f3d18c4de9147aa462bac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2398,7 +2476,7 @@
     },
     "word_feel": {
       "summary_cn": "放纵欲望；沉溺享受；纵容某人",
-      "decision_cn": "",
+      "decision_cn": "indulge in sth → 沉溺/纵情享受；indulge sb → 纵容、娇惯或迁就某人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2511,7 +2589,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:indulge:indulge-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "indulge in sth / indulge oneself in sth",
+        "lines": [
+          {
+            "text": "沉溺于；纵情享受；尽情做",
+            "lang": "cn"
+          },
+          {
+            "text": "self-gratification pattern; distinct from indulge sb = spoil/accommodate someone",
+            "lang": "en"
+          },
+          {
+            "text": "to allow yourself to enjoy something, often more than is good for you",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:indulge:indulge-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "indulge in sth / indulge oneself in sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4217,7 +4321,7 @@
     "ordinal": 2525,
     "word": "infinite",
     "source_owner_path": "content/lexical/words/by-ordinal/o2525.json",
-    "source_fingerprint": "9dbe2e7aa8d88715d16c962626dce40dd07737a27c4904757bf56466334b7195",
+    "source_fingerprint": "8f79afa697127dcd7c6c4d668102c2eaa1c678f76dbda1777d7b0c23b12a3a60",
     "sense_lineage": [
       {
         "word_id": "word:infinite",
@@ -4225,18 +4329,24 @@
         "from_target_id": "sense:infinite:74493114dcd75f0a",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:infinite",
+        "target_kind": "sense",
+        "from_target_id": "sense:infinite:8b2e28339dc7557f",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "无限的；无穷的",
-      "decision_cn": "",
+      "decision_cn": "adjective infinite → 无限的/无穷的。名词 the Infinite = 无限/神 的哲学神学义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4246,25 +4356,8 @@
     },
     "senses": [
       {
-        "id": "sense:infinite:8b2e28339dc7557f",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "无限；神",
-        "definition_en": "that which is infinite; God",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:infinite:8b2e28339dc7557f",
-          "target_locator": "record.senses[0]",
-          "target_label": "无限；神"
-        }
-      },
-      {
         "id": "sense:infinite:625b8ad0935f551a",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "无限的；无穷的",
@@ -4275,7 +4368,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:infinite:625b8ad0935f551a",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "无限的；无穷的"
         }
       }
@@ -4343,6 +4436,20 @@
           "source_row": 6996,
           "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "无限；神",
+          "definition_en": "that which is infinite; God",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:infinite:8b2e28339dc7557f",
+          "sense_label_en": "that which is infinite; God",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -4353,17 +4460,32 @@
     "ordinal": 2526,
     "word": "inflation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2526.json",
-    "source_fingerprint": "999559658fc38e49f4fba1e46edaa382a134e87712704182ae58e6ab48887f15",
-    "sense_lineage": [],
+    "source_fingerprint": "4456d69b7fe75db631b45b2acc78257cc58a854eb6857443472eeeba5be01f21",
+    "sense_lineage": [
+      {
+        "word_id": "word:inflation",
+        "target_kind": "sense",
+        "from_target_id": "sense:inflation:e01800f974965b0b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:inflation",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ac3e9287b74a6f65b3fd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "物价普遍上涨；充气",
-      "decision_cn": "",
+      "decision_cn": "economics → 通货膨胀；physical filling → 充气/膨胀。宇宙学 cosmic inflation 专业义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4431,32 +4553,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "充气，膨胀"
         }
-      },
-      {
-        "id": "sense:inflation:e01800f974965b0b",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "宇宙膨胀（宇宙学）",
-        "definition_en": "a brief exponential expansion of the universe in cosmology",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ac3e9287b74a6f65b3fd",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cosmic inflation",
-            "meaning_cn": "宇宙膨胀",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inflation:e01800f974965b0b",
-          "target_locator": "record.senses[2]",
-          "target_label": "宇宙膨胀（宇宙学）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4497,7 +4593,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ac3e9287b74a6f65b3fd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:inflation:e01800f974965b0b:collocation:0"
+              ],
+              "meaning_cn": "宇宙膨胀",
+              "phrase": "cosmic inflation"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "宇宙膨胀（宇宙学）",
+          "definition_en": "a brief exponential expansion of the universe in cosmology",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:inflation:e01800f974965b0b",
+          "sense_label_en": "a brief exponential expansion of the universe in cosmology",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5019,7 +5141,7 @@
     "ordinal": 2531,
     "word": "inform",
     "source_owner_path": "content/lexical/words/by-ordinal/o2531.json",
-    "source_fingerprint": "192e38ead0de03c6c1faff997cf884d0a5e00484ec8cce51b153e8612eb5d06d",
+    "source_fingerprint": "523c2b8309a257cc98bb5ea5cc6521847c98f9b47d061a391f55aa163c498d68",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5029,7 +5151,7 @@
     },
     "word_feel": {
       "summary_cn": "通知；告知",
-      "decision_cn": "",
+      "decision_cn": "inform sb of/about sth → 通知/告知；inform on sb → 向警方或权威告发某人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5198,6 +5320,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + sb + of/about + sth"
         }
+      },
+      {
+        "id": "construction:inform:inform-on",
+        "source_locator": "record.constructions[1]",
+        "pattern": "inform on sb (to the police/authorities)",
+        "lines": [
+          {
+            "text": "告发；检举某人",
+            "lang": "cn"
+          },
+          {
+            "text": "report-wrongdoing pattern; distinct from inform sb of/about sth = notify",
+            "lang": "en"
+          },
+          {
+            "text": "to give the police or another authority information about someone's wrongdoing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:inform:inform-on",
+          "target_locator": "record.constructions[1]",
+          "target_label": "inform on sb (to the police/authorities)"
+        }
       }
     ],
     "reference": {
@@ -5213,22 +5360,51 @@
     "ordinal": 2532,
     "word": "information",
     "source_owner_path": "content/lexical/words/by-ordinal/o2532.json",
-    "source_fingerprint": "bda5dd013b70a58798a401753bcf3699fe836b6bdc1959bca83bdbfa0bb05d7d",
-    "sense_lineage": [],
+    "source_fingerprint": "931cdca16f8702917e7d576b5f06770e65ae1a8cfa45419f993931f957833a90",
+    "sense_lineage": [
+      {
+        "word_id": "word:information",
+        "target_kind": "sense",
+        "from_target_id": "sense:information:56de94aa4e165ad7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:information",
+        "target_kind": "sense",
+        "from_target_id": "sense:information:a577791555b8568e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:information",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:57d726f4f7294fca5fd5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:information",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f60a2e3134553c87a5c6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "信息；知识",
-      "decision_cn": "",
+      "summary_cn": "信息；资料；知识",
+      "decision_cn": "information 通常不可数：some information / a piece of information。法律“起诉信息”和信息论“信息量”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "信息；知识"
+        "target_label": "信息；资料；知识"
       }
     },
     "senses": [
@@ -5259,65 +5435,8 @@
         }
       },
       {
-        "id": "sense:information:a577791555b8568e",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "起诉；控告",
-        "definition_en": "formal accusation of a crime",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f60a2e3134553c87a5c6",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "lay information against + sb",
-            "meaning_cn": "对……提出控告",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f60a2e3134553c87a5c6",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "lay information against + sb"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:information:a577791555b8568e",
-          "target_locator": "record.senses[1]",
-          "target_label": "起诉；控告"
-        }
-      },
-      {
-        "id": "sense:information:56de94aa4e165ad7",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "信息量（信息论）",
-        "definition_en": "(communication theory) a numerical measure of the uncertainty of an outcome",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:57d726f4f7294fca5fd5",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "information theory",
-            "meaning_cn": "信息论",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:information:56de94aa4e165ad7",
-          "target_locator": "record.senses[2]",
-          "target_label": "信息量（信息论）"
-        }
-      },
-      {
         "id": "sense:information:c23d558790385835",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "信息；资料（不可数）",
@@ -5328,7 +5447,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:information:c23d558790385835",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "信息；资料（不可数）"
         }
       }
@@ -5353,7 +5472,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:information:piece-of-information",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a piece/item of information",
+        "lines": [
+          {
+            "text": "一条信息；一则资料",
+            "lang": "cn"
+          },
+          {
+            "text": "countability pattern; do not normally say “an information” for a single fact",
+            "lang": "en"
+          },
+          {
+            "text": "one item or fact of information, since information is normally uncountable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:information:piece-of-information",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a piece/item of information"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5368,6 +5513,56 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f60a2e3134553c87a5c6",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:information:a577791555b8568e:collocation:0"
+              ],
+              "meaning_cn": "对……提出控告",
+              "phrase": "lay information against + sb"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "起诉；控告",
+          "definition_en": "formal accusation of a crime",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:information:a577791555b8568e",
+          "sense_label_en": "formal accusation of a crime",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:57d726f4f7294fca5fd5",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:information:56de94aa4e165ad7:collocation:0"
+              ],
+              "meaning_cn": "信息论",
+              "phrase": "information theory"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "信息量（信息论）",
+          "definition_en": "(communication theory) a numerical measure of the uncertainty of an outcome",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:information:56de94aa4e165ad7",
+          "sense_label_en": "(communication theory) a numerical measure of the uncertainty of an outc",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -6255,17 +6450,32 @@
     "ordinal": 2540,
     "word": "inherent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2540.json",
-    "source_fingerprint": "e27ce4b3ec1f5a67127ec2c1725706f5819ec149a4272aea0d04ed7008a59807",
-    "sense_lineage": [],
+    "source_fingerprint": "c06559825d731f616b8be134dba7de702592bff98d362da4abf92b367488d41a",
+    "sense_lineage": [
+      {
+        "word_id": "word:inherent",
+        "target_kind": "sense",
+        "from_target_id": "sense:inherent:3ec487687fdb55aa",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:inherent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:776e44ac7626bdc7334c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "固有的，内在的",
-      "decision_cn": "",
+      "decision_cn": "be inherent in sth → 是某事物本身固有/内在的。重复且易误导成“潜在”的分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6303,32 +6513,6 @@
           "target_id": "sense:inherent:4237801bec93597c",
           "target_locator": "record.senses[0]",
           "target_label": "固有的；内在的"
-        }
-      },
-      {
-        "id": "sense:inherent:3ec487687fdb55aa",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "潜在的；隐含的",
-        "definition_en": "in the nature of something though not readily apparent",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:776e44ac7626bdc7334c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "inherent risk",
-            "meaning_cn": "固有风险",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inherent:3ec487687fdb55aa",
-          "target_locator": "record.senses[1]",
-          "target_label": "潜在的；隐含的"
         }
       }
     ],
@@ -6374,7 +6558,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:inherent:inherent-in",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be inherent in sth",
+        "lines": [
+          {
+            "text": "…中固有的；…本身具有的",
+            "lang": "cn"
+          },
+          {
+            "text": "intrinsic-property pattern; not merely hidden or possible",
+            "lang": "en"
+          },
+          {
+            "text": "existing as a natural, essential, or permanent part of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:inherent:inherent-in",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be inherent in sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -6405,7 +6615,33 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:776e44ac7626bdc7334c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:inherent:3ec487687fdb55aa:collocation:0"
+              ],
+              "meaning_cn": "固有风险",
+              "phrase": "inherent risk"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "潜在的；隐含的",
+          "definition_en": "in the nature of something though not readily apparent",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:inherent:3ec487687fdb55aa",
+          "sense_label_en": "in the nature of something though not readily apparent",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6620,17 +6856,25 @@
     "ordinal": 2542,
     "word": "inhibit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2542.json",
-    "source_fingerprint": "d46e00184880f297fc490aea1c315ed307082e97635f5fdb493e23317f38c711",
-    "sense_lineage": [],
+    "source_fingerprint": "c58de31d43a41404de7a5c571889376af2b84c93d59d0292034528fd4c0c51d9",
+    "sense_lineage": [
+      {
+        "word_id": "word:inhibit",
+        "target_kind": "sense",
+        "from_target_id": "sense:inhibit:f324d5ae9ef05b20",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "抑制，阻止",
-      "decision_cn": "",
+      "decision_cn": "process/function → 抑制、阻碍；emotion/behavior → 克制。生化/技术“起抑制剂作用”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6721,23 +6965,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "抑制（情感、欲望等）"
         }
-      },
-      {
-        "id": "sense:inhibit:f324d5ae9ef05b20",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "起抑制作用",
-        "definition_en": "act as an inhibitor",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:inhibit:f324d5ae9ef05b20",
-          "target_locator": "record.senses[2]",
-          "target_label": "起抑制作用"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6789,7 +7016,23 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "起抑制作用",
+          "definition_en": "act as an inhibitor",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:inhibit:f324d5ae9ef05b20",
+          "sense_label_en": "act as an inhibitor",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6943,18 +7186,32 @@
     "ordinal": 2544,
     "word": "initiate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2544.json",
-    "source_fingerprint": "3ef21908ed1091f64c164e7dafd4868b2595c39b1a0dbeaa332853f46e09646b",
-    "sense_lineage": [],
+    "source_fingerprint": "9f9ab06b1c70e24c4d9507e3d81d74cf5844b14dee97ccfce47375ae9e5164f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:initiate",
+        "target_kind": "sense",
+        "from_target_id": "sense:initiate:81117e56a17b57f5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:initiate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:32b7adbab29535c6047d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "1N"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "开始；发起；接纳",
-      "decision_cn": "",
+      "decision_cn": "verb → 开始/发起；initiate sb into… → 接纳某人加入/使入门。名词“入会者/被传授者”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7039,32 +7296,6 @@
           "target_id": "sense:initiate:30c7fac478ab512c",
           "target_locator": "record.senses[1]",
           "target_label": "使加入；接纳（常通过仪式）"
-        }
-      },
-      {
-        "id": "sense:initiate:81117e56a17b57f5",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "入会者；被传授知识的人",
-        "definition_en": "a person who has been admitted to a group or has been introduced to a field",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:32b7adbab29535c6047d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "an initiate of the society",
-            "meaning_cn": "该社团的入会者",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:initiate:81117e56a17b57f5",
-          "target_locator": "record.senses[2]",
-          "target_label": "入会者；被传授知识的人"
         }
       }
     ],
@@ -7189,10 +7420,6 @@
         "sense:initiate:5c5a18e54f625a2c": [
           0,
           1
-        ],
-        "sense:initiate:81117e56a17b57f5": [
-          2,
-          3
         ]
       },
       "has_scope": true
@@ -7203,7 +7430,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:32b7adbab29535c6047d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:initiate:81117e56a17b57f5:collocation:0"
+              ],
+              "meaning_cn": "该社团的入会者",
+              "phrase": "an initiate of the society"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "入会者；被传授知识的人",
+          "definition_en": "a person who has been admitted to a group or has been introduced to a field",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:initiate:81117e56a17b57f5",
+          "sense_label_en": "a person who has been admitted to a group or has been introduced to a fi",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7599,17 +7852,32 @@
     "ordinal": 2548,
     "word": "injury",
     "source_owner_path": "content/lexical/words/by-ordinal/o2548.json",
-    "source_fingerprint": "970d79a3a39450d0bb436dfb213f9baea652aa0b31a3aa73bc7eb19095fd0738",
-    "sense_lineage": [],
+    "source_fingerprint": "af9038b89f0b51d8da140b36d5d6467bba5fec710d4c5c93709fa182e42a5384",
+    "sense_lineage": [
+      {
+        "word_id": "word:injury",
+        "target_kind": "sense",
+        "from_target_id": "sense:injury:7781ce84ce9a57c4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:injury",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:63a646b8d09de93c9f6d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "身体上的伤害或损伤",
-      "decision_cn": "",
+      "decision_cn": "body/property → 伤害、损伤；figurative → 对名誉/利益的损害。法律上“权利侵害/不法行为”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7695,32 +7963,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "损害行为；伤害行为"
         }
-      },
-      {
-        "id": "sense:injury:7781ce84ce9a57c4",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "侵害；不法行为",
-        "definition_en": "wrongful action that violates another's rights",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:63a646b8d09de93c9f6d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "personal injury",
-            "meaning_cn": "人身伤害",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:injury:7781ce84ce9a57c4",
-          "target_locator": "record.senses[2]",
-          "target_label": "侵害；不法行为"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7789,7 +8031,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:63a646b8d09de93c9f6d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:injury:7781ce84ce9a57c4:collocation:0"
+              ],
+              "meaning_cn": "人身伤害",
+              "phrase": "personal injury"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "侵害；不法行为",
+          "definition_en": "wrongful action that violates another's rights",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:injury:7781ce84ce9a57c4",
+          "sense_label_en": "wrongful action that violates another's rights",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7798,18 +8066,33 @@
     "ordinal": 2549,
     "word": "ink",
     "source_owner_path": "content/lexical/words/by-ordinal/o2549.json",
-    "source_fingerprint": "7ecafb278f3215d6ca99a160450f07b1072f58438dc9e3c7d53df39c93c24901",
-    "sense_lineage": [],
+    "source_fingerprint": "4a3484f2285d6c6b81d8126b2e0629ec24db077f4c065edc037ef06f10bd3fce",
+    "sense_lineage": [
+      {
+        "word_id": "word:ink",
+        "target_kind": "sense",
+        "from_target_id": "sense:ink:e1229382478350d3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ink",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:69012ff55589baefba89",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "墨水；签署",
-      "decision_cn": "",
+      "decision_cn": "noun → 墨水（也可指 squid ink）；journalistic verb ink a deal → 签署协议。技术“给…涂墨”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7903,32 +8186,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "签署"
         }
-      },
-      {
-        "id": "sense:ink:e1229382478350d3",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "涂墨水于",
-        "definition_en": "to mark or cover with ink",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:69012ff55589baefba89",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "ink a stamp",
-            "meaning_cn": "给印章涂墨水",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:ink:e1229382478350d3",
-          "target_locator": "record.senses[3]",
-          "target_label": "涂墨水于"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7981,7 +8238,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:69012ff55589baefba89",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:ink:e1229382478350d3:collocation:0"
+              ],
+              "meaning_cn": "给印章涂墨水",
+              "phrase": "ink a stamp"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "涂墨水于",
+          "definition_en": "to mark or cover with ink",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:ink:e1229382478350d3",
+          "sense_label_en": "to mark or cover with ink",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
