@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:foul:foul-up",
+        "pattern": "foul (something) up",
+        "meaning_cn": "搞砸；把…弄糟",
+        "definition_en": "to spoil something by making a mistake or doing something stupid",
+        "boundary": "General informal phrasal verb; keep it distinct from the lower-value mechanical entangle/clog sense.",
+        "level": "L2",
+        "pos": "phrase",
+        "source": "https://dictionary.cambridge.org/dictionary/english/foul-up"
+      }
+    ],
     "content_hash": "3769a30ba2c925998cca1cb679eb19be6d9019fc7b2f623aeca1076f69b1764c",
     "core_concept": {
       "core_clusters": [
@@ -32,14 +43,13 @@
           "pos": "verb",
           "sense_ids": [
             "sense:foul:45bc2ac13cdf579a",
-            "sense:foul:766c01bb73185d64",
-            "sense:foul:0092047f827653ef"
+            "sense:foul:766c01bb73185d64"
           ]
         }
       ],
-      "core_meaning_cn": "肮脏、恶劣或违规",
-      "core_meaning_en": "dirty, bad, or violating rules",
-      "mental_model_cn": "肮脏、恶劣或违规",
+      "core_meaning_cn": "肮脏、恶劣或违规；也可表示弄脏/污染",
+      "core_meaning_en": "dirty, unpleasant, or against rules; also to make dirty or polluted",
+      "mental_model_cn": "quality → 污秽/恶劣；sport → 犯规；verb + object → 弄脏、污染；foul (something) up → 非正式“搞砸”。机械“缠结/淤塞”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -171,39 +181,6 @@
         "sense_id": "sense:foul:766c01bb73185d64",
         "sense_label_en": "to commit a foul in a sport",
         "sort_order": 3,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:175a6fcb40e904765df3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:foul:0092047f827653ef:collocation:0"
-            ],
-            "meaning_cn": "搞糟，堵塞",
-            "phrase": "foul up"
-          },
-          {
-            "collocation_id": "collocation:337b20195bb2c85a7b58",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:foul:0092047f827653ef:collocation:1"
-            ],
-            "meaning_cn": "绳子缠住了。",
-            "phrase": "The rope fouled up."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "缠结，淤塞",
-        "definition_en": "to become entangled or clogged",
-        "governing_pattern": "vi. + up",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:foul:0092047f827653ef",
-        "sense_label_en": "to become entangled or clogged",
-        "sort_order": 4,
         "transitivity": "vi"
       }
     ],
@@ -624,12 +601,46 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:175a6fcb40e904765df3",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:foul:0092047f827653ef:collocation:0"
+          ],
+          "meaning_cn": "搞糟，堵塞",
+          "phrase": "foul up"
+        },
+        {
+          "collocation_id": "collocation:337b20195bb2c85a7b58",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:foul:0092047f827653ef:collocation:1"
+          ],
+          "meaning_cn": "绳子缠住了。",
+          "phrase": "The rope fouled up."
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "缠结，淤塞",
+      "definition_en": "to become entangled or clogged",
+      "governing_pattern": "vi. + up",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:foul:0092047f827653ef",
+      "sense_label_en": "to become entangled or clogged",
+      "sort_order": 4,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:foul:0092047f827653ef",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5626,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
@@ -665,9 +676,7 @@
     ],
     "active_collocations": [
       "collocation:14f9abf39c624b0c2d44",
-      "collocation:175a6fcb40e904765df3",
       "collocation:1baf5cd5b02106041f13",
-      "collocation:337b20195bb2c85a7b58",
       "collocation:800a4c45713b77eeeda3",
       "collocation:909b25297d3cfbd049cd",
       "collocation:9d8ace683fdedf47b7e7",
@@ -684,7 +693,9 @@
       {
         "id": "collocation:175a6fcb40e904765df3",
         "source_row": 1930,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:1baf5cd5b02106041f13",
@@ -694,7 +705,9 @@
       {
         "id": "collocation:337b20195bb2c85a7b58",
         "source_row": 4346,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:800a4c45713b77eeeda3",
