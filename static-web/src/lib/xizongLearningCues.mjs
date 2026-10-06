@@ -87,7 +87,11 @@ const nativeFailure = row => code => { throw new Error(`CURRENT_XIZONG_PREPARED_
 
 export function preparedNativeCueWitness(row, block, item, shared, { loadBlock = loadXizongBlock } = {}) {
   const fail = nativeFailure(row);
-  if (block?.systemId !== 'respiratory' || block?.systemCanonicalId !== 'A2') fail('NATIVE_SYSTEM_UNSUPPORTED');
+  const supported = (block?.systemId === 'respiratory' && block?.systemCanonicalId === 'A2'
+    && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(block?.blockId))
+    || (block?.systemId === 'urinary' && block?.systemCanonicalId === 'A3'
+      && /^urinary-b(?:0[1-9]|1[0-4])$/.test(block?.blockId));
+  if (!supported) fail('NATIVE_SYSTEM_UNSUPPORTED');
   const anchor = row?.anchor;
   const kpOwned = nativeShape(anchor, ['block_id', 'kp_id']);
   const lgOwned = nativeShape(anchor, ['block_id', 'logic_group_id']);
@@ -164,6 +168,22 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
   }
   const snapshot = { ...blockIdentity(block), anchor, owner_kp_ids: ownerIds, dependency_owners: dependencyOwners,
     logic_group: groupWitness, block_qualifiers: blockQualifiers };
+  // B5's admitted diagnostic supplement depends on the complete existing scope
+  // contract, even when its native Core has not changed. Never re-sign here.
+  if (block.systemId === 'urinary' && block.systemCanonicalId === 'A3'
+    && required.some(ref => ref.system_id === 'urinary' && ref.block_id === 'urinary-b05'
+      && ['urinary-b05-kp19', 'urinary-b05-kp20'].includes(ref.kp_id))) {
+    const sourcePath = `${LEARNER_ROOT}/a3-urinary-b05-external-source-contract.json`;
+    let bytes, contract;
+    try { bytes = fs.readFileSync(absolute(sourcePath)); }
+    catch { fail('NATIVE_EXTERNAL_CONTRACT_MISSING'); }
+    try { contract = JSON.parse(bytes.toString('utf8')); }
+    catch { fail('NATIVE_EXTERNAL_CONTRACT_INVALID'); }
+    if (contract?.schema !== 'kianos.xizong.external_source_contract.v1'
+      || contract?.status !== 'ADMITTED_NARROW_SCOPE' || contract?.authority !== 'CHAT_APPROVED_SOURCE_ADMISSION'
+      || contract?.system_id !== 'urinary' || contract?.block_id !== 'urinary-b05') fail('NATIVE_EXTERNAL_CONTRACT_INVALID');
+    snapshot.external_source_contract = { source_path: sourcePath, raw_sha256: createHash('sha256').update(bytes).digest('hex') };
+  }
   return { owner_kp_ids: [...ownerIds], owner_sha256: preparedMemoryDigest(snapshot), core_refs: coreRefs };
 }
 

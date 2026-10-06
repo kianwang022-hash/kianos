@@ -20,7 +20,7 @@ assert.ok(evidenceController, 'execute the actual evidence bridge');
 // Evaluate the actual frontmatter predicate, rather than restating its scope.
 const referenceExpression = component.match(/const postChatReferenceBlock = ([\s\S]*?);/)?.[1];
 assert.ok(referenceExpression);
-const referenceFor = (systemId, slug) => vm.runInNewContext(referenceExpression, { block: { systemId, slug } });
+const referenceFor = (systemId, slug, systemCanonicalId = ({ circulation:'A1', respiratory:'A2', urinary:'A3' })[systemId]) => vm.runInNewContext(referenceExpression, { block: { systemId, slug, systemCanonicalId } });
 const availabilityExpression = component.match(/const postChatRecallAvailable = ([\s\S]*?);/)?.[1];
 assert.ok(availabilityExpression);
 const availableFor = (systemId = 'circulation', slug = 'b01', mode = 'NATURAL_SOURCE_UNIT', perGroup = false) =>
@@ -42,6 +42,9 @@ assert.equal(titleOnlyFor('circulation', 'b13'), false);
 assert.equal(titleOnlyFor('respiratory', 'b01'), false);
 for(let n=1;n<=12;n++){const slug=`r${String(n).padStart(2,'0')}`;assert.equal(availableFor('respiratory',slug),true);assert.equal(titleOnlyFor('respiratory',slug),true);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNIT',true),false);}
 assert.equal(availableFor('respiratory','r13'),false);assert.equal(titleOnlyFor('respiratory','r13'),false);
+for(let n=1;n<=14;n++){const slug=`b${String(n).padStart(2,'0')}`;assert.equal(availableFor('urinary',slug),true);assert.equal(titleOnlyFor('urinary',slug),true);assert.equal(availableFor('urinary',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('urinary',slug,'NATURAL_SOURCE_UNIT',true),false);}
+for(const slug of ['b00','b15','b1','r01'])assert.equal(referenceFor('urinary',slug),false);
+for(const canonical of ['A1','A2','',null])assert.equal(referenceFor('urinary','b01',canonical),false);
 assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
 assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);
 assert.match(component, /data-kp-recall-title>\{titleOnlyKps \? firstKp\?\.title : firstKp\?\.displayId\}/);
@@ -100,9 +103,9 @@ class Element {
   click() { this.dispatchEvent({ type: 'click' }); }
 }
 const clone = value => JSON.parse(JSON.stringify(value));
-// Replay every existing consumer/gate assertion for each reviewed A1/A2 Block.
-for (const [systemId, prefix] of [['circulation', 'b'], ['respiratory', 'r']]) {
-for (let ordinal = 1; ordinal <= 12; ordinal++) {
+// Replay every existing consumer/gate assertion for each reviewed A1/A2/A3 Block.
+for (const [systemId, prefix, count] of [['circulation', 'b', 12], ['respiratory', 'r', 12], ['urinary', 'b', 14]]) {
+for (let ordinal = 1; ordinal <= count; ordinal++) {
 const slug = `${prefix}${String(ordinal).padStart(2, '0')}`;
 const blockId = `${systemId}-${slug}`;
 const objectId = `xizong:${blockId}`;
@@ -271,6 +274,6 @@ pending.ttsxDone.click(); assert.equal(pending.state().stage, 'kp_recall'); asse
 }
 
 }
-console.log('All 12 A1 and 12 A2 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
+console.log('All 12 A1, 12 A2 and 14 A3 post-Chat Recall PASS | actual controller + stage guard + evidence bridge, synthetic DOM/storage | entry=no evidence | Recall=explicit revealed rating | Resume/group/source navigation preserved | foreign mode/failure/duplicate guards | completion/visual/TTSX gates preserved | browser/U=NOT_TESTED');
 
 

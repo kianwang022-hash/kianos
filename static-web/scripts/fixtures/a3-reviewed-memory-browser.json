@@ -1,0 +1,2627 @@
+{
+  "schema": "kianos.xizong.a3_reviewed_browser_oracle.v1",
+  "frozen_main": "c1757c440ceef29f0700646fb37b24de9941a0c3",
+  "source_hashes": {
+    "memory/review-decisions.json": "cdcb094751f25c44f85a391281e3eb8448e0b2a95f1b14382a3377499281e4f7",
+    "memory/raw-preentry-expected.json": "21dbbec26f4dd1170592a80b9d6332905d9b93e28882b7067eb3a582eb63976f",
+    "accepted-readers.json": "8a780a4482fdfebaf97d21222a6aec7a11b64db9d47f5dd4945683c2c1ed18c8"
+  },
+  "counts": {
+    "accepted": 28,
+    "KP": 20,
+    "LG": 8,
+    "miG": 199,
+    "miD": 141
+  },
+  "rows": [
+    {
+      "id": "a3-b01-lg04-precision",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg04"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b01-kp06",
+        "urinary-b01-kp07",
+        "urinary-b01-kp08",
+        "urinary-b01-kp09"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b01",
+          "kp_id": "urinary-b01-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b01",
+          "kp_id": "urinary-b01-kp07",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b01",
+          "kp_id": "urinary-b01-kp08",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b01",
+          "kp_id": "urinary-b01-kp09",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "怎样由同一次尿/血测量得到C、RPF、RBF、FF及自由水方向，并在什么条件下用C与GFR比较？",
+      "answer": "Cₓ＝Uₓ×V/Pₓ，U为尿中浓度，P为血浆浓度，浓度单位一致，V为每分钟尿量；C是mL/min的等效血浆容积，不是百分比。菊粉可自由滤过、无重吸收/分泌，C菊粉＝GFR；内生肌酐常因近端分泌高估GFR，肉食和剧烈运动影响生成量，旧讲义少量重吸收不是主偏差。PAH可滤过、强分泌、不重吸收，其C近似有效RPF；若本题采用约90%提取率，实际RPF＝C_PAH/0.90，不把90%当所有测量的恒定值。RBF＝RPF/(1−HCT)，HCT是红细胞容积分数，课程计算忽略白细胞/血小板薄层。FF＝GFR/RPF，为无量纲比例；课程例约19%，肾炎下降/心衰升高只是典型情境，须比较分子、分母相对变化。\n仅在该物质自由滤过、浓度定义一致、无显著肾内生成或代谢且收集测量可靠时：C>GFR为净分泌；C<GFR为净重吸收；C=GFR为净转运零，不能排除相互抵消。蛋白结合/不可自由滤过不可直接套用。C=0既可是不进入尿，也可为滤过后全回收；正常葡萄糖零清除不能证明Tm，须观察饱和平台。\nCH₂O＝V−Uosm×V/Posm，Uosm/Posm单位一致，结果与V同为容积/时间。高渗尿负、等渗零、低渗正。浓缩下降时负值可先向零靠近；是否转正及正值大小还取决尿/血渗透浓度、尿量、摄水和ADH。",
+      "answer_sha256": "c3ddde9aa869377bd61a8c557ae532489594ae0082aacd4093945f0d0a82c574",
+      "mnemonic": "先“量＝浓度×容积”得C，再以提取率补RPF、以血浆分数补RBF；FF只比较“滤出/流入”。沿用课程“尿尿除血清”仅帮助记C，不能取代单位与标志物前提。",
+      "mnemonic_sha256": "98430f91687451ec205665b7e605cb7e5756ad1967f6b35ec1ccdc6c14f60bbb",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L496",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L542",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L634",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L716"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b01-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "kp_id": "urinary-b01-kp14"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b01-kp14"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b01",
+          "kp_id": "urinary-b01-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "本课程正常排尿反射有哪些压力与容量数字，各对应什么阶段、单位和适用语境？",
+      "answer": "课程描述膀胱内压常保持约10 cmH₂O以下；约35 cmH₂O时逼尿肌出现节律性收缩、尿意明显，但仍可控制；约70 cmH₂O以上出现明显痛感、迫使排尿。约400–500 mL或以上的尿量可明显刺激膀胱壁牵张感受器。前三个是压力，最后是容量；不能混作mmHg或四个尿量界值。它们是本节Study的近似测量语境，用于“充盈—牵张—骶髓—正反馈排空”，不当作所有人统一的治疗阈值。",
+      "answer_sha256": "422731ba4fbd5fa81778038aaa833e99dede89cce60120f2ed0a3259ecb2bb51",
+      "mnemonic": "分成“压力三站：低压储尿→可控尿意→痛感；容量一站：牵张触发”，保留约/以下/以上。",
+      "mnemonic_sha256": "867616fe6b15929117a1da45072e681abd4dff2530ac2e98ce597fe5909c5bdb",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md#L1023"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b02-kp04-precision",
+      "anchor": {
+        "block_id": "urinary-b02",
+        "kp_id": "urinary-b02-kp04"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b02-kp04"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b02",
+          "kp_id": "urinary-b02-kp04",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "写完整净滤过压式、可简化的条件及课程入球端数值。",
+      "answer": "有效滤过压＝（肾小球毛细血管静水压＋肾小囊胶体渗透压）−（肾小囊囊内静水压＋血浆胶体渗透压）。正常多数蛋白受限时，囊内胶渗压≈0，才简化为毛细血管压−囊内压−血浆胶渗压。课程入球端例：毛细血管压约45 mmHg、血浆胶渗压约25 mmHg、囊内压约10 mmHg，所以45−25−10＝10 mmHg。直接推动原尿生成的是肾小球毛细血管压；全身平均动脉压、肾动脉压是上游条件。不能在所有病理条件下删去囊内胶渗压，也不能将示例值当恒定压力。",
+      "answer_sha256": "8cfd25b0fcea0acb34a4b2b876d6744ec3ca04684803a573918735526c9fef0b",
+      "mnemonic": "按方向成组：“球内推＋囊内拉”对“囊内顶＋血浆拉”；再套45−25−10。",
+      "mnemonic_sha256": "851f52d814553ce45138e303a14c2357542deb56f1b21e7930163a790d8136c4",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L400"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b03-lg05-precision",
+      "anchor": {
+        "block_id": "urinary-b03",
+        "logic_group_id": "urinary-b03-lg05"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b03-kp15",
+        "urinary-b03-kp16",
+        "urinary-b03-kp17",
+        "urinary-b03-kp18",
+        "urinary-b03-kp19"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp15",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp17",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp18",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp19",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp09",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "沿PCT→TAL→DCT→集合管，把七类药物、靶点和课程主要效应/风险放回同一段位图。",
+      "answer": "PCT：①甘露醇是可滤过、不易回收的管腔溶质，使水重吸收下降；课程保留低K接口。②乙酰唑胺抑CA，使Na⁺、HCO₃⁻、水留尿，利尿/碱化尿；可致肾小管性酸中毒接口及低K（最早可肌无力）。\nTAL：③呋塞米/依他尼酸抑NKCC2（Na⁺-K⁺-2Cl⁻），少回收NaCl并削弱髓质高渗，强效利尿；课程主要低K、耳毒性。该段本不透水，不是直接阻断升粗水回收。\nDCT：④氢氯噻嗪/吲达帕胺抑NCC（Na⁺-Cl⁻）；末端Na递送和流量增加，可利尿并排K，与袢药共同有低K风险。\n集合管主细胞：⑤阿米洛利/氨苯蝶啶直接抑ENaC，减弱管腔负电和K分泌；⑥螺内酯/依普利酮拮抗醛固酮核受体，降低ENaC/Na-K泵相关表达，两类均保K且有高K风险。原醛可对应MR拮抗；Liddle的醛固酮已低，第一靶点为异常ENaC。⑦托伐普坦拮V2—AQP2，第一效应减少水回收，不是通过ENaC直接改Na-K交换。\n所有方向都回到有效肾分泌能力、醛固酮、末端流量等背景；完整剂量、现代适应证、全部不良反应、RTA分型与患者选择不在本章Source范围。",
+      "answer_sha256": "a808ce7750b2650a743b8805e7f122976765a8ad49f9d74e69dc161d02749782",
+      "mnemonic": "沿当前Prompt的“PCT 2｜TAL 1｜DCT 1｜CD 3”分组，再逐项找真实靶点。先定位段位，再说第一效应，最后辨K风险；不能由药名或“保钾”替代机制。",
+      "mnemonic_sha256": "fb7bf259ced04dd2b38c8edf0d3075256c23207d4a1ed8a9eb9b7e756f65285a",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L763",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L784",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L809",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L834",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L869",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L563",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L595",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L367",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L471"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b04-lg03-precision",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg03"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b04-kp10",
+        "urinary-b04-kp11",
+        "urinary-b04-kp12",
+        "urinary-b04-kp13",
+        "urinary-b04-kp14"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp10",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp11",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp15",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp17",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "尿素再循环与AQP通路分别在哪些段、哪侧膜，怎样帮助建立、维持和利用髓质梯度？",
+      "answer": "尿素：内髓间质→降支细段UT-A2中等通透入管→升支、远曲、皮质/外髓集合管尿素低通透，水回收后尿素浓缩→内髓集合管在ADH下经UT-A1/UT-A3高通透回间质→再入降细；直小血管UT-B参与尿素逆流交换。UT-A2若让过多尿素入管，可减小水外流渗透差并削弱后续升细NaCl被动外流，不是越通透越好。此肾内再循环聚集尿素，与NaCl建立内髓高渗；肝鸟氨酸尿素循环负责氨解毒，任务不同。\n水通道：AQP1在近端、髓袢降细、直小血管等，形成较固定高水通透；AQP2在集合管主细胞顶端膜/胞质囊泡，受基底V2—ADH调节；AQP3/4位于集合管基底侧接口，课程列了解。\n三个角色不能互换：NaCl/尿素建梯度，U形直小血管逆流交换护梯度，ADH/AQP2开水门利用梯度。血流过快会洗出，过低会缺氧；水门开而梯度不足仍不能正常浓缩。",
+      "answer_sha256": "644ddfb1745298046195adea5d288a9d0c40b6b50cae51f6cffd9beb88346f9e",
+      "mnemonic": "沿原KP标题“A2入管，A1/A3出管，UT-B帮血管”；AQP按“两侧膜”配对：1固定三处、2顶端可调、3/4基底。口诀不替代通透程度和方向条件。",
+      "mnemonic_sha256": "58f1805223bd497b7704da6883e2e67dab6943d1ab83f50a49bd51c9accb409c",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L493",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L525",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L548",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L582",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L612",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L367",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L637",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L658",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L697"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b04-kp05-precision",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "kp_id": "urinary-b04-kp05"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b04-kp05"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp05",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b03",
+          "kp_id": "urinary-b03-kp19",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b04",
+          "kp_id": "urinary-b04-kp04",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "同为高血压、低血钾时，怎样用第一故障、肾素/醛固酮、肾上腺及药物靶点区分原醛和Liddle？",
+      "answer": "课程对照：两者均可高血压、低血钾。原发性醛固酮增多症第一故障是醛固酮自主增多，肾素↓、醛固酮↑，可有肾上腺肿瘤/增生；Study药物靶点是醛固酮受体，对应螺内酯/依普利酮。Liddle第一故障是ENaC遗传性过度激活，肾素↓、醛固酮↓，无相应肾上腺增生；核心靶点是ENaC，对应阿米洛利/氨苯蝶啶，不能因同为保钾药就换成MR拮抗。\n两类药都减少末端K分泌并有高K风险。醛固酮直接调Na/K，水随行还需水通透性/梯度。这里只是机制和Source药物接口，完整原醛筛查、确诊、定位及治疗后置内分泌，不凭表型或此对照完成诊断。",
+      "answer_sha256": "ce2f7b08343e09671fe7e3f606f591e452dd66ad97946bf69a7aab8247f06e8a",
+      "mnemonic": "先找“激素高”还是“通道开”，再看同低肾素下醛固酮的一高一低；靶点跟第一故障走。",
+      "mnemonic_sha256": "09b9e762c225b2b115a3748bb6cf7f67d9a18146b607dbd74ba55dc70ed8c894",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L343",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md#L869",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md#L313"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": "Retained in complete_answer and Current dependency excerpts; no treatment protocol or new source choice"
+    },
+    {
+      "id": "a3-b05-lg06-precision",
+      "anchor": {
+        "block_id": "urinary-b05",
+        "logic_group_id": "urinary-b05-lg06"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b05-kp19",
+        "urinary-b05-kp20"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b05",
+          "kp_id": "urinary-b05-kp19",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b05",
+          "kp_id": "urinary-b05-kp20",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "怎样用应有代偿和间隙分析识别并列出全部原发酸碱过程？",
+      "answer": "先并行识别休克／低灌注、高钾心肌危险、Ca²⁺严重神经肌肉或心电异常、严重呼吸／通气问题；生命支持优先于计算。pH<7.35为acidemia方向、>7.45为alkalemia方向，接近正常不排除混合型。用PaCO₂≈40 mmHg、HCO₃⁻≈24 mmol/L为计算锚，先提出原发过程：代酸HCO₃⁻↓／固定酸↑，代碱HCO₃⁻↑，呼酸PaCO₂↑，呼碱PaCO₂↓；代谢原发主要肺代偿，呼吸原发主要肾代偿。单纯代偿拉回pH，不会把原发酸代成碱或反之。\n代酸：expected PaCO₂=1.5×HCO₃⁻+8±2 mmHg；实测在范围内与单纯代酸相符，高于上限另有呼酸，低于下限另有呼碱。\n代碱：ΔPaCO₂≈0.6–0.75×ΔHCO₃⁻，即expected PaCO₂≈40+[0.6–0.75×(HCO₃⁻−24)] mmHg。单纯代碱代偿性PaCO₂通常不高于约55 mmHg；明显偏离预期考虑第二呼吸性原发过程。\n呼酸：PaCO₂每升高10 mmHg，急性HCO₃⁻约升1–2 mmol/L，慢性约升3–4 mmol/L。呼碱：PaCO₂每降低10 mmHg，急性HCO₃⁻约降1–2 mmol/L，慢性约降4–5 mmol/L。对呼吸原发过程，实测HCO₃⁻明显高于预期提示另有代碱、低于预期提示另有代酸，同时重查急慢性假设；不以“过度／不足代偿”结束判断。\n只要有代酸就算AG=Na⁺−(Cl⁻+HCO₃⁻)。明显低白蛋白先校正：校正AG=实测AG+2.5×[4.0−白蛋白(g/dL)]。若为HAGMA，再算ΔAG=校正AG−12；校正HCO₃⁻=实测HCO₃⁻+ΔAG。或用delta ratio=(校正AG−12)/(24−实测HCO₃⁻)。<1提示并存NAGMA方向，1–2多与单纯HAGMA相符，>2提示并存代碱或原先HCO₃⁻偏高方向。电解质／AG与HCO₃⁻按mmol/L计算；12／24是此算法常用锚，AG实验室参考受方法影响。delta是HAGMA条件下筛第二代谢过程的辅助量，不能脱离病程、临床和expected compensation孤立下最终诊断。\n逐条写出所有原发过程，例如代酸+呼碱、呼酸+代碱或HAGMA+NAGMA，再与呕吐、腹泻、乳酸、酮症、肾衰、COPD、过度通气等真实语境核对。该准入只补诊断，不扩水NaKCa阈值、纠钠速度、DKA/HHS、碳酸氢钠治疗指征、呼吸机／ICU或复杂KRT。",
+      "answer_sha256": "6f149a3a2f6e480da53c0e42cb3533498d636a4aa3e1b7ff93569a2b12ee0151",
+      "mnemonic": "先定轴，再算应有值；呼吸急慢成对记；有代酸算间隙，低白蛋白先校正，HAGMA再看delta，最后列全原发过程。",
+      "mnemonic_sha256": "41616407005dd62f121419334217580a408f2d38418eb393ce880ae851f7a720",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md#L810",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md#L892",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json"
+      ],
+      "external_contract_required": true,
+      "scope_and_conditions_from_author": [
+        "MSD/NCBI合同2026-09-12准入；不是新查的医学结论。",
+        "基线40 mmHg／24 mmol/L；PaCO₂变化量以每10 mmHg；HCO₃⁻变化量mmol/L；白蛋白g/dL。",
+        "严格保留Winter ±2、代碱0.6–0.75及约55限定、呼酸急1–2慢3–4、呼碱急1–2慢4–5。",
+        "delta仅HAGMA时使用；<1、1–2、>2各为辅助方向，不是最终病名。",
+        "严禁由本补充扩写治疗或另造K-H owner。"
+      ]
+    },
+    {
+      "id": "a3-b05-kp13-precision",
+      "anchor": {
+        "block_id": "urinary-b05",
+        "kp_id": "urinary-b05-kp13"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b05-kp13"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b05",
+          "kp_id": "urinary-b05-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "当前课程静脉补KCl怎样同时核对四道门及安全条件？",
+      "answer": "按当前Study记忆：补钾量40–80 mmol/d（KCl 3–6 g/d）；浓度<40 mmol/L（约3 g KCl/L接口）；速度<20 mmol/h；尿量>40 mL/h再补钾。浓缩KCl须按规范稀释输注，禁止静脉推注。“见尿补钾”只是安全筛查之一：尿量不足可能提示肾排钾下降，继续补入可致高钾；还须结合肾功能、反复血钾、ECG、输注通路和泵控。尿量达标不保证任意剂量或速度安全。补钾后仍不改善考虑合并低Mg²⁺。这些是课程考试数字，临床输注须监测，不据此生成患者处方。",
+      "answer_sha256": "f2759e9d5f48776ba88815e5cc370fd552d2f3a72f46aeae5b71cb6bfaf2c4e0",
+      "mnemonic": "按不同分母排一行：每天的量／每升的浓度／每小时的速度／每小时的尿量。再补“稀释、禁静推、持续监测”。",
+      "mnemonic_sha256": "eeb3e42bc660bd5eb16178247ab29fba0e7cfa38d4dcbcf97bf86978f19f35f0",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md#L590"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "40–80 mmol/d；<40 mmol/L；<20 mmol/h；>40 mL/h，不改为≤或≥。",
+        "3–6 g/d及约3 g/L为Current KCl换算接口。",
+        "四门不覆盖完整临床安全；不能从尿量达标推出自由加量。",
+        "不纳入DKA四格，避免30–40与血K边界空档被此题填平。"
+      ]
+    },
+    {
+      "id": "a3-b06-lg01-precision",
+      "anchor": {
+        "block_id": "urinary-b06",
+        "logic_group_id": "urinary-b06-lg01"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b06-kp01",
+        "urinary-b06-kp02",
+        "urinary-b06-kp03",
+        "urinary-b06-kp04",
+        "urinary-b06-kp05",
+        "urinary-b06-kp06"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp01",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp02",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp03",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp04",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp05",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b07",
+          "kp_id": "urinary-b07-kp08",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "肾小管性蛋白尿五种小蛋白与肾衰大分子毒素五项怎样区分，并与其他蛋白尿来源对照？",
+      "answer": "肾小管性蛋白尿的第一故障是近端重吸收失败：可滤小蛋白拿不回来，Study量级多<2 g/d。五种是VitA结合蛋白、溶菌酶、核糖核酸酶、轻链蛋白、β₂-微球蛋白。肾衰“大分子毒素”Study名单是核糖核酸酶、溶菌酶、β₂-微球蛋白、VitA结合蛋白、氨甲酰化蛋白；相对前一名单是去轻链、加氨甲酰化蛋白。两套名单参考分类不同，重叠不等于同一机制。\n放回同一来源轴：肾小球性是屏障限制下降，选择性以白蛋白为主，非选择性还见免疫球蛋白与C3等，课程常可>2 g/d只是量级；溢出性是血中小蛋白负荷增加超过初始可正常的小管回收上限，血管内溶血—血红蛋白、横纹肌溶解／挤压—肌红蛋白、多发性骨髓瘤—Bence-Jones／凝溶蛋白／游离轻链。轻链可出现于不同机制，不能只凭蛋白名字定位。分泌性为尿IgA增多；组织性Tamm-Horsfall／尿调节素来自小管，升粗为主且早远曲亦表达，是可聚合糖蛋白及管型基质，不能当滤后回收“小分子T-H”。",
+      "answer_sha256": "7814b89bb5024b3edbe4dc299cc087411b191f47fbedce845af16903c67e0cc8",
+      "mnemonic": "先保留共同四项“VitA结合／溶菌酶／核糖核酸酶／β₂微球”，第五项按故障区分：小管名单轻链；肾衰名单氨甲酰化。每个名字再问“漏、回收失败、超载还是自身产生”。",
+      "mnemonic_sha256": "dfded433c78732cecd5ce8012f88b2d03d7ec47a6afafb93126ff7c155c90760",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L162",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L195",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L222",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L249",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L278",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L307",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md#L457"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "“大分子毒素”按Study分类，不重新按一般分子量裁定。",
+        "<2 g/d与常可>2 g/d是课程量级，不是独立病理诊断。",
+        "维持LG01原有KP01–KP06全成员，不将KP04和KP06剪成伪新LG。",
+        "B7 KP08重复使用肾衰名单，为额外依赖；不得产生第二份同知识债。"
+      ]
+    },
+    {
+      "id": "a3-b06-kp07-precision",
+      "anchor": {
+        "block_id": "urinary-b06",
+        "kp_id": "urinary-b06-kp07"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b06-kp07"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b06",
+          "kp_id": "urinary-b06-kp07",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "肉眼血尿、镜下血尿和脓尿的课程阈值如何带着检测方法与单位一起恢复？",
+      "answer": "按本讲义及相应检测方法：肉眼血尿为>1 mL血／1 L尿，典型洗肉水样。镜下血尿为尿沉渣RBC>3个／HP，或12 h尿RBC>5×10⁵。脓尿为尿沉渣WBC>5个／HP，或12 h尿WBC>10⁶。常见血尿病因包括泌尿系统炎症、结石、肿瘤、外伤。这些数量证据不说明最终病因或精确来源；一次肉眼外观或旧计数法不等于所有情境的临床确诊。血尿／脓尿是细胞数量概念，红／白细胞管型还要求细胞在肾小管内与蛋白凝固。",
+      "answer_sha256": "7fde25e21ede180c08a255ac0fc93d291a8c41f1ff64643ad7c7b90e8e85f89d",
+      "mnemonic": "按样本轴记：肉眼看“血mL／尿L”；沉渣每HP红3白5；12小时总数红5×10⁵白10⁶。每个阈值保留>。",
+      "mnemonic_sha256": "80a4abc91130ea9797911e54163fdf0ce4c974da974fa08d78f51381746c507c",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md#L336"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        ">1 mL/L、RBC>3/HP或12 h>5×10⁵、WBC>5/HP或12 h>10⁶。",
+        "按课程／检测方法限定，不改造成全部临床确诊标准。",
+        "细胞数量不等于管型，不由数量直接命名病因。"
+      ]
+    },
+    {
+      "id": "a3-b07-kp06-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp06"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b07-kp06"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b07",
+          "kp_id": "urinary-b07-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "怎样恢复AKI的三条动态诊断标准，并区分初查与非稳态eGFR的作用？",
+      "answer": "三条标准中任一满足：48 h内Scr升高≥0.3 mg/dL（≥26.5 μmol/L）；7 d内Scr较基础值升高≥50%；尿量<0.5 mL/(kg·h)，持续≥6 h。Scr/BUN容易取得，可先查；讲义“GFR最准确”说的是滤过能力，不能把真实GFR与血肌酐估算eGFR混为同一测量。急性非稳态时常规eGFR可能滞后失真，不能替代动态Scr／尿量标准。",
+      "answer_sha256": "3789e564cce62b6d374ea144a5f5902cd36eaed6ba049efa06ed69cedc30ad49",
+      "mnemonic": "48小时配绝对增量；7天配较基线比例；6小时配每公斤每小时尿量。先查方便与理论准确分开。",
+      "mnemonic_sha256": "a0e2aed27ed019bdbea96587a4d4af8c571470739650c6f1cb781d36bfc2f662",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md#L402"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "≥0.3 mg/dL等同这里的≥26.5 μmol/L；不可遗漏48 h。",
+        "≥50%相对基础值配7 d；不是绝对0.5。",
+        "尿量<0.5 mL/(kg·h)且持续≥6 h，两个不同不等号。",
+        "动态标准不被非稳态eGFR替代。"
+      ]
+    },
+    {
+      "id": "a3-b07-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp14"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b07-kp14"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b07",
+          "kp_id": "urinary-b07-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b07",
+          "kp_id": "urinary-b07-kp01",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "CKD G分类如何恢复，旧血Cr四档和透析标签怎样保留边界？",
+      "answer": "先确立结构／功能异常持续≥3个月并有健康影响的CKD，再按GFR（mL/min/1.73m²）分：G1≥90；G2 60–89；G3a 45–59；G3b 30–44；G4 15–29；G5<15。G1/G2还需白蛋白尿或结构异常等肾损伤证据，单独GFR≥60不能确诊CKD。维持透析的慢性肾衰可标G5D；AKI也可临时透析，所以透析≠CKD G5。\n原P153血Cr行四档为Scr<177、<442、<707、≥707 μmol/L，属于旧“代偿／氮质血症或失代偿／肾衰竭／尿毒症”等阶段辅助口径，原表合并单元格，不是五个G stage各配一个Scr阈值。保留四档原写法，不从嵌套<号自行补区间，也不制造G1=某Scr等假映射。",
+      "answer_sha256": "824083e27989ecc5e346bd23eb272a86cd7063584277da7bc0a4bba290bbfa4e",
+      "mnemonic": "先慢性证据，再GFR区间；G3拆a/b。另挂一行旧Cr四档，只记来源层，绝不拉线一一配对。",
+      "mnemonic_sha256": "9cc40d723e2fb0b54ec824202c5cd91d7b03ccf80b59d2fd0c7364a45666ed85",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md#L681",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md#L194"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "GFR单位mL/min/1.73m²；Scr单位μmol/L，不能混轴。",
+        "≥3个月、G1/G2额外损伤证据与AKI临时透析例外不可省。",
+        "Cr四档严格原<177／<442／<707／≥707，不自行解释为四个不重叠闭开区间。",
+        "Current记录过原表重核；本地未再次读PDF。"
+      ]
+    },
+    {
+      "id": "a3-b07-kp15-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp15"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b07-kp15"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b07",
+          "kp_id": "urinary-b07-kp15",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "ACEI/ARB护肾后怎样按相对变化和临床状态监测，并区分旧Scr/BP口径？",
+      "answer": "ACEI/ARB阻断RAAS使出球小动脉相对舒张、肾小球内压及蛋白尿下降，加系统血压控制减少持续肾单位损伤。启动／加量后监测Scr/eGFR变化、K⁺、血压与容量，并查合用NSAID／利尿剂、脱水、肾动脉狭窄等可逆因素。Current所列KDIGO 2024：Practice Point 3.6.4为启动／加量后4周内Scr升高>30%，需重新评估继续治疗；图21为eGFR下降≥30%，触发查其他原因，两者不能作为同一个百分比量。一般2–4周复查血压、Scr和K，先查可逆因素。症状性低血压或治疗后仍无法控制的高钾可考虑减量／停药；eGFR<30 mL/min/1.73m²本身不是自动停ACEI/ARB理由。\n旧Lecture列Scr>265 μmol/L、K⁺>5.5 mmol/L、双肾动脉狭窄、妊娠、低血压；后四种风险语境仍重要，Scr>265仅为旧考试数字，不能升为通用绝对禁忌。旧BP目标UACR≥30 mg/g时<130/80 mmHg，UACR<30 mg/g时<140/90 mmHg，只保留Source Precision。Current所列非透析成人CKD主建议是在标准化诊室测压且能耐受时SBP<120 mmHg，并个体化。未展开完整高血压指南或其他旧治疗目标。",
+      "answer_sha256": "b17a3a558fc53aa189309f29cab811b7702a341f8297b02f4f4c0ebd5d73a9e9",
+      "mnemonic": "先认指标再记符号：Scr“升>30%、4周内”；eGFR“降≥30%、查原因”。共同监测血压、Cr、K与容量；旧绝对Scr另放来源层。",
+      "mnemonic_sha256": "c744dfd1dd2d525cf257f6207ccece020c5bb23f5604c9ccabce71b8c2b189de",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md#L724"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "继承Current所列KDIGO 2024及BP指南表述；无本次外部更新核验。",
+        "Scr>30%与eGFR≥30%保留不同指标、方向与算子。",
+        "2–4周复查与4周内触发条件不互相替代。",
+        "症状低血压／治疗后仍失控高K、可逆因素、低eGFR非自动停药均不可省。",
+        "标准化测压、能耐受、成人非透析、个体化限定随SBP<120同时保留。"
+      ]
+    },
+    {
+      "id": "a3-b08-kp05-precision",
+      "anchor": {
+        "block_id": "urinary-b08",
+        "kp_id": "urinary-b08-kp05"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b08-kp05"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b08",
+          "kp_id": "urinary-b08-kp05",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b08",
+          "kp_id": "urinary-b08-kp07",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "无症状细菌尿怎样按症状、样本、男女确认次数和获益人群判断？",
+      "answer": "ASB核心是无尿路感染症状，且规范留取尿培养达到ASB菌落标准。经典清洁中段尿阈值为≥10⁵ CFU/mL；为确认持续菌尿，女性通常需2份连续清洁中段尿检出同一菌种／相符菌量，男性1份合格清洁中段尿即可满足培养定义。旧“两次同菌”不能男女通用。该10⁵不能作为所有有症状UTI的万能排除门槛；有症状较低菌量可有临床意义，导尿／穿刺另有解释情境。\n高收益治疗主轴是妊娠，以及即将接受造成泌尿道黏膜创伤的内镜／泌尿操作。健康非妊娠女性、婴幼儿／儿童、很多老年人、糖尿病患者、长期导尿者、脊髓损伤者一般不做常规筛查／治疗。妊娠相关尿流／反流改变可增加上行肾盂肾炎风险。“有菌”本身不等于人人要治疗；本题不扩全部现代亚群指南。",
+      "answer_sha256": "1f977bb12a7f5b8627f8b253d917e969faf8842c02585bc6a5134de545ef4c22",
+      "mnemonic": "先“无症状+合格样本”，再女2男1，最后问妊娠或将伤黏膜的操作；菌量、样本与人群一起记。",
+      "mnemonic_sha256": "030d267c24d074e1fa70d71d518a7eebdb4a64067abf878cb707e0f374f4eefa",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md#L296",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md#L372"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "≥10⁵ CFU/mL限定经典清洁中段／ASB，不用于否定全部症状性UTI。",
+        "女性通常2份连续同菌／相符量，男性1份合格样本。",
+        "操作须会造成尿黏膜创伤，不扩大到一切泌尿操作。",
+        "常见不获益组保留“一般／很多”等范围，不断言所有亚群。"
+      ]
+    },
+    {
+      "id": "a3-b08-kp13-precision",
+      "anchor": {
+        "block_id": "urinary-b08",
+        "kp_id": "urinary-b08-kp13"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b08-kp13"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b08",
+          "kp_id": "urinary-b08-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "课程尿感药名如何按下尿路与肾实质效应位置保留妊娠及毒性边界？",
+      "answer": "Study常用三类：磺胺；β-内酰胺（青霉素如阿莫西林、头孢菌素）；喹诺酮。Study急性膀胱炎一线三项为SMZ-TMP／复方新诺明、呋喃妥因、匹美西林。不能把整套膀胱炎一线上移治肾盂肾炎：呋喃妥因、匹美西林不用于肾盂肾炎，须按肾实质／系统感染有效暴露、药敏与当地耐药选择。莫西沙星尿中不能达到适合UTI治疗的有效浓度，不作常规尿感药。妊娠Study口径不用磺胺、喹诺酮而用β-内酰胺，完整孕期选药不在本Block。\n氨基糖苷有肾毒／耳毒性，不适合作为普通简单膀胱炎的随意首选；但合适患者的住院肾盂肾炎／系统性UTI等严重情境可有静脉方案，需结合肾功能、病原风险、药敏和毒性监测。毒性提醒不等于所有UTI绝对禁用。这是Current继承的分类及场景边界，不是完整处方或本次指南更新。",
+      "answer_sha256": "aed79808dd22700279361829786514cc0f9445935e459922d272a44156f8117f",
+      "mnemonic": "先记感染位置：尿中有效不等于肾实质有效。三组名字分别贴“常用类／膀胱一线／特殊场景”，药名始终带限制。",
+      "mnemonic_sha256": "a42f6679f30a2d99f76652eecf5c3fc6aae2e9cfb5128ad043ceaa68be4084ad",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md#L555"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "各药名按Current原文，不引入剂量、疗程或全新方案。",
+        "呋喃妥因与匹美西林不上移到肾盂，莫西沙星非常规UTI。",
+        "妊娠为Study口径，完整药理后置。",
+        "氨基糖苷保留严重场景与肾功能／病原／药敏／毒监条件。"
+      ]
+    },
+    {
+      "id": "a3-b09-lg03-precision",
+      "anchor": {
+        "block_id": "urinary-b09",
+        "logic_group_id": "urinary-b09-lg03"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b09-kp07",
+        "urinary-b09-kp08",
+        "urinary-b09-kp09"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp07",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp08",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp09",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "按空间、检查任务与荧光形态，恢复肾小球病理三视角，并说出不能推出什么。",
+      "answer": "空间：系膜在毛细血管袢之间、未被 GBM 完整包围；内皮下在内皮与 GBM 之间；上皮下在 GBM 与足细胞之间；致密层在 GBM 内部。内皮下/腔侧较易招募炎细胞并扰乱 GFR，偏肾炎性血尿和功能下降；上皮下/足细胞侧偏通透性异常和大量蛋白尿。这些是倾向；同一疾病随阶段与严重度可兼有血尿、蛋白尿、功能下降甚至新月体，位置不能唯一指定综合征或病因。\nLM：细胞增生、基质、基膜、硬化、新月体及大体结构。IF：Ig/补体等成分及线状、颗粒或阴性/极弱的形态。EM：电子致密物位置、足突融合、GBM 超微结构。三者不可互替；MCD 的球 LM 基本正常不能推出 EM 也正常。\nIF 对照：抗 GBM/Ⅰ型 RPGN 线状；多数免疫复合物性病变颗粒状；MCD 与Ⅲ型 RPGN/pauci-immune 无特异或极弱荧光。无荧光不等于无病变。课程抗 GBM 无典型电子致密物，免疫复合物型有，pauci-immune 无典型沉积；ANCA 常相关而非 pauci-immune 定义必需。",
+      "answer_sha256": "1fbccb949b0e1c99eb62412868acf794e08f3ae29ab591762d12cbb05da73fbb",
+      "mnemonic": "同一轴依次问“在哪里 → 什么仪器看什么 → 呈什么形态 → 哪一步还不能下结论”。这只是分组提示，不增设医学分类。",
+      "mnemonic_sha256": "e46bf499b311aa2aca7505b252ed61cda80a837eb4c8cd9186249b0ec24aa91b",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L305",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L333",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L355",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L288"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b10-kp06-precision",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "kp_id": "urinary-b10-kp06"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b10-kp06"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp02",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "课程急性肾炎中，什么三类情境需要考虑肾活检？",
+      "answer": "三类情境：① 少尿超过 1 周、尿量进行性减少或 Cr 持续升高；② 伴肾病综合征；③ 病程超过 8 周无好转趋势。第一类是并列的趋势/时程条件，不要求三项同时出现。一般典型病例可依临床判断；非典型或进展证据时用活检明确。活检提供 LM / IF / EM 病理模式证据，但需评估出血风险、凝血/抗栓用药、血压、结构与获益，不能把“金标准”推成人人立即穿刺；本页不是完整禁忌清单。",
+      "answer_sha256": "39be55eabe1e54941334823797dcfcd764c6b03c6afa2d300f891686e260ca06",
+      "mnemonic": "三组触发：功能趋势变坏 / 出现肾病综合征 / 到 8 周仍不改善；功能组另记“少尿超过 1 周”。",
+      "mnemonic_sha256": "3772e41e7f53056068014a8222cb3095e981c02b26d9922f9d202e740c633e86",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L247",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L196"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b10-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "kp_id": "urinary-b10-kp14"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b10-kp14"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp09",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp11",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b10",
+          "kp_id": "urinary-b10-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "恢复课程 RPGN 三型的机制、IF、EM、常见度/预后和定义边界。",
+      "answer": "Ⅰ型：抗 GBM 抗体方向，IF 连续线状；当前 Study 无典型电子致密物；课程预后最差。Ⅱ型：原位或循环免疫复合物，IF 颗粒状，EM 有电子致密物；课程最常见，C3 可持续降低。Ⅲ型：pauci-immune，IF Ig/补体沉积极少或几乎没有，EM 无典型电子致密物；常与 ANCA 相关小血管炎相连，但 ANCA 阴性也存在，ANCA 阳性并非其定义必要条件。\n先有临床肾功能快速恶化的急进警报，再描述新月体形态和免疫模式；速度与新月体负荷不机械等同。Cr 常 >200 μmol/L 是课程比较线索，不能等越线才识别。上述常见度/预后属课程识别，不能由 IF 一项独断最终病因或统一治疗。",
+      "answer_sha256": "5ea4a09e89da069fa7746806dd1dd0adf09b3c4dcf2a041614b7e3a225308ed9",
+      "mnemonic": "同轴顺序固定为“机制—IF—EM—课程倾向—不能推出什么”；线状/颗粒/少沉积帮助对齐，不取代完整答案。",
+      "mnemonic_sha256": "ff15d6d49d327afc77a0e05cf60b2cacb4332107410eb37b143e7bdae8c77984",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L405",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L298",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L335",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L353",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L371",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md#L439"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b11-lg04-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "logic_group_id": "urinary-b11-lg04"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b11-kp13",
+        "urinary-b11-kp14",
+        "urinary-b11-kp15",
+        "urinary-b11-kp16"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp15",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b02",
+          "kp_id": "urinary-b02-kp01",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b02",
+          "kp_id": "urinary-b02-kp02",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b09",
+          "kp_id": "urinary-b09-kp05",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "比较 MCD 与膜性的名字、年龄、机制/三镜、蛋白选择性和并发症，并恢复各自边界。",
+      "answer": "MCD 的课程三名：脂性肾病、足突病、微小病变性肾病。儿童肾病综合征最常见；球 LM 基本正常，近端小管可脂质沉积；IF 无特异沉积/阴性；EM 足突融合。稳定机制是足细胞与裂隙膜屏障功能异常，课程以 T 细胞相关细胞免疫解释。经典模型为电荷选择性受损、大小/机械屏障相对保留，以白蛋白漏出为主，呈选择性蛋白尿和典型 NS、几乎无血尿和高血压；这不是某个电荷分子缺失的唯一现代机制。60 岁后可有发病小高峰，并可更常伴高血压和肾功能损害。对照表保留 MCD 的 AKI 接口。\n膜性：课程中老年肾病综合征最常见，原位免疫复合物在足细胞侧的方向；LM 的四个词为 GBM 明显增厚、钉状突起、齿梳样、虫蚀样空隙；EM 上皮下电子致密物，足突也可融合；IF 毛细血管壁颗粒状 IgG/C3。蛋白尿可非选择性，肾静脉血栓突出。血清抗 PLA2R 抗体可辅助诊断、疗效与复发监测；PLA2R 本身是抗原，不能把抗原名当抗体浓度。经典形态后仍需原发/继发及具体抗原层的病因证据。\n共同足突融合只说明共同超微损伤，不能反推同一病因；先比较 LM 与免疫沉积，再回临床与病因。B2 的三层结构/足细胞裂隙膜 Core 继续支配机制解释。",
+      "answer_sha256": "6192bac60358d95f3823ff79aed61a7bbaa7129810f7b49d4afcbe1af473ee16",
+      "mnemonic": "沿同一六轴对照：人群 → LM → IF → EM → 蛋白选择性 → 并发症。先抓“球 LM 近正常/无典型沉积”与“基膜改变/上皮下沉积”，最后才用年龄加权。",
+      "mnemonic_sha256": "987923f14d281524733d8412d9fa0a312ad6e86594c58472917328d67d922808",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L443",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L464",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L488",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L509",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L190",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md#L241",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md#L258"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b11-kp19-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp19"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b11-kp19"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp19",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp18",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "恢复课程 MPGN 传统Ⅰ、Ⅱ、Ⅲ型的沉积位置/形状与分型边界。",
+      "answer": "Ⅰ型：课程最常见，系膜区 + 内皮下电子致密物。Ⅱ型：传统称致密沉积物病，GBM 致密层带状沉积。Ⅲ型：内皮下 + 上皮下沉积。\n这是当前 306 Study 的传统形态/LM-EM 识别索引；MPGN 首先是双轨等 LM 损伤模式，需结合 IF、EM、补体与病因。传统 type 不等于唯一现代病因；完整现代免疫复合物性 MPGN、C3 glomerulopathy 的病因重组未在此 Source 展开。",
+      "answer_sha256": "cf3bb9e78dab1c36287cf545e44cce8476102a032ce24c8576750961830a8379",
+      "mnemonic": "按同一空间轴比较：Ⅰ“系膜＋内皮下”，Ⅱ“GBM 内带状”，Ⅲ“内皮下＋上皮下”；保持这三个完整组合，不缩成单个位置。",
+      "mnemonic_sha256": "e2130af64c163b9ec64e50ffaaa955eb39768b494933e12219c99aa7d05db528",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L581",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L551"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b11-kp21-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp21"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b11-kp21"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp21",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp11",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp15",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp20",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "课程中哪三类可见足突融合？各用一个最强差别重新分开，为什么不能由足突融合定病因？",
+      "answer": "三类是 MCD、膜性肾病、FSGS。MCD：球 LM 近正常、无典型免疫复合物沉积；膜性：上皮下沉积及基膜改变；FSGS：LM 为部分肾小球的节段硬化。足突融合只是共同超微证据，不能反推出唯一病因。FSGS lesion 仍可有原发、遗传、继发/适应性背景，不由这一形态自动决定免疫抑制。",
+      "answer_sha256": "696c7e1c4d613c7fd57e36f34e3b5dac23d6849e6b7436eb14d50499899d6c24",
+      "mnemonic": "采用已有三类的同轴对比。Prompt 中“自己摸足3”未提供可验证的逐字映射，本提案不扩造口诀，用完整三名与各自差异替代含混助记。",
+      "mnemonic_sha256": "b714255109b3053671a7e6b0ef809d7df721a84fb3e682f4c82fc2e8b317ed15",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L622",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L381",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L443",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L464",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L488",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L509",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L598"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b11-kp23-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp23"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b11-kp23"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp23",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "恢复课程继发性肾病综合征的儿童/青年与中老年病因组，并说出年龄的作用与诊断次序。",
+      "answer": "儿童/青年：乙肝病毒相关性肾炎、狼疮肾炎、IgA 血管炎肾炎（旧称过敏性紫癜肾炎）。中老年：骨髓瘤性肾病、淋巴瘤/实体肿瘤相关肾病、糖尿病肾病、肾淀粉样变性。\n这是 Source P172 的相对多见分组，不是年龄排除规则。年龄和病史提高病因权重，继以尿液、血液/免疫/感染证据，必要时活检明确 LM / IF / EM，再把模式与具体病因合成最终诊断；完整系统病模型归各自系统。",
+      "answer_sha256": "a27e5f7799c374957dabf60862d05a33114ea03b54637d3b8d06b22f7ae09a3c",
+      "mnemonic": "儿童/青年组按感染—系统免疫分组；中老年组按血液/实体肿瘤—代谢—沉积病分组。每组仍须完整说出列名，分组不新增病因。",
+      "mnemonic_sha256": "c7b762d0854dd18786d38383604957bd4be30e30b9a45f615a4c4cf653fc4fbf",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L667"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b11-kp10-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp10"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b11-kp10"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp10",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp11",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b11",
+          "kp_id": "urinary-b11-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "仅按当前 306 Study，恢复泼尼松的剂量、足量疗程、减量/维持、两个疗效判断时点及处理；说明适用边界。",
+      "answer": "当前 306 Study：泼尼松 1 mg/kg/d；起始足量 8–12 周；缓慢减量；长期维持约半年。4 周尿蛋白仍 +++：继续原剂量。8 周仍无效：进入加用环磷酰胺等分层。\n这些是课程统一模板的考试 Precision，不能外推为所有现代肾病综合征病因/病理模式的治疗。真正治疗必须先明确具体疾病实体与病因背景。尤其 FSGS、MsPGN、MPGN 的形态不能直接给出免疫抑制方案；遗传、继发/适应性 FSGS 不由 lesion 名称自动采用原发 FSGS 激素方案。",
+      "answer_sha256": "831a0e552fe83b5a717e438c2733919c911ed16dfec6551c40e8203512ed6af9",
+      "mnemonic": "按时间线组织：开始 1 mg/kg/d → 足量 8–12 周 → 缓减 → 约半年维持；4 周/8 周是两个不同的课程判断点。每次正面题干必须明示“306 Study”，揭示必须同时包含非现代通用模板限制。",
+      "mnemonic_sha256": "b93aeaeb2b11e6c6137f01c72765becc38d634bee2b15fa7c6bb6ad2694d2833",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L361",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L381",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md#L421"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "clean front contains only neutral question and source/course version when applicable; no answer or aid",
+        "reveal includes complete answer, every limitation, aid and provenance",
+        "bind full required native Core, metadata, title/Prompt/source locator, membership and qualifiers; missing/changed witness fails closed",
+        "rating/save/reload/history/deduplication and failed-save must be proven before admission; no Today/learned/source-contact fabrication"
+      ]
+    },
+    {
+      "id": "a3-b12-kp09-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp09"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b12-kp09"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp09",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "按同一比较轴恢复四类尿路结石，并说明显影与尿pH处理不能怎样简单化。",
+      "answer": "草酸钙：最常见；硬、粗糙、桑葚样，棕褐色，X线高密度。磷酸钙：课程概括易碎、粗糙、鹿角样，灰白等，X线显影；不同矿物类型可有差异，须区分碳酸磷灰石、磷酸氢钙及甲旁亢/RTA/感染等背景。尿酸盐：硬、光滑、颗粒状，红色，平片不显影，一般有碱化尿液逻辑。胱氨酸：硬、光滑、蜡样，淡黄至黄棕，通常弱显影、平片可难见，不是完全透X线；结合胱氨酸尿症评估稀释、碱化等。\n含钙较多者多粗糙、显影，但显影还受成分、大小和成像方式影响；不含钙不等于完全不显影，平片阴性不等于CT看不到。\n感染石常含磷酸铵镁/碳酸磷灰石，重视清石与控制感染，酸化只是特定辅助。磷酸钙可由高钙尿、甲旁亢或RTA引起，RTA甚至需要补碱，不能说“磷酸钙一律酸化抗感染”，也不能说“其余结石一律碱化”。",
+      "answer_sha256": "6bab1b75457077ff9a754e2c5a92241c0921356ca506aaf36b51cdf912d6bd47",
+      "mnemonic": "沿“成分 → 质地/表面 → 颜色 → 显影 → 条件”做四行同轴比较。先对比尿酸盐不显与胱氨酸弱显，再检查感染石和代谢石是否分开；此比较法不增加医疗规则。",
+      "mnemonic_sha256": "180d22d9a80bc7e04d09e40cebd4f3ca2b8e8b2962624df0e2327e5ec6b45f95",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L470"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": []
+    },
+    {
+      "id": "a3-b12-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp14"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b12-kp14"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp14",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp02",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp13",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "完整恢复本课程结石位置×尺寸矩阵、两个特殊情境，并说明Current调用矩阵前后的条件。",
+      "answer": "306 Study矩阵，尺寸单位均为cm，列保持 <0.6、0.6–2、>2：\n肾结石：药物＋饮水；ESWL；PCNL。\n输尿管上段：药物＋饮水；ESWL；腹腔镜输尿管切开取石。\n输尿管中下段：药物＋饮水；输尿管镜碎石取石；腹腔镜输尿管切开取石。\n特殊一：肾盂结石合并肾盂输尿管连接处梗阻，Study列肾盂切开取石，同时解除梗阻。特殊二：中下段受肠道气体影响，Study把0.6–2 cm主术式放在输尿管镜。\n调用之前先检查危险：感染性梗阻/尿源性脓毒症风险、无尿、明显肾功能威胁优先引流减压，配合抗感染和稳定患者，之后处理结石。双侧或孤立肾梗阻是高危；单侧受累肾GFR下降不等于总Cr一定升高或少尿。\n稳定后按位置＋大小＋成分/硬度/CT密度＋解剖及患者因素选择SWL/URS-RIRS/PCNL等。肾结石 >2 cm时PCNL是一线强锚点；SWL成功受大小、位置、硬度和患者条件影响；现代内镜压缩开放/腹腔镜常规适用面。课程矩阵用于306精确识别，不是单变量Current术式算法。",
+      "answer_sha256": "fe953ca1f90f23e43842e6eff508a2f2446bca8b88f0bfbf246e81203f9a803d",
+      "mnemonic": "先恢复三列共享的最小尺寸格，再对比中间列“肾/上段”与“中下段”，最后对比大尺寸“肾”与“输尿管”。每次先复述危险门，再复述多变量条件；不把位置×尺寸表拆成失去限定的独立小卡。",
+      "mnemonic_sha256": "eecb1b393387d497706da23999c18f905e15067022a3589558c0ff7612e30119",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L619",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L217",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L547",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L591"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "306",
+        "<0.6",
+        "0.6–2",
+        ">2",
+        "0.6–2 cm",
+        ">2 cm",
+        "306"
+      ]
+    },
+    {
+      "id": "a3-b12-kp16-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp16"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b12-kp16"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp16",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp01",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b12",
+          "kp_id": "urinary-b12-kp04",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "沿漏尿时相、膀胱状态、控制失败层和病因，比较四类尿失禁，并接回BPH前后期。",
+      "answer": "持续性/真性：任何时间与体位持续不自主流尿；膀胱颈或尿道括约肌完整性丧失；课程病因为外伤、手术、先天疾病。\n充溢性/假性：不连续滴沥、夜间多，膀胱过度充盈；长期排不净使残余尿累积，膀胱内压超过尿道阻力；病因为BPH、肿瘤、尿道狭窄、神经性逼尿肌无力。不是逼尿肌“太会收缩”。\n急迫性：尿急伴难以抑制的不自主漏尿，可有严重尿频；逼尿肌不稳定收缩；病因为膀胱炎、神经源性膀胱、重度出口梗阻。\n压力性：平时控制正常，咳嗽、起立等腹压升高时少量漏尿；盆底支持或外括约肌抵抗不足；见于多产、绝经后，或前列腺术后外括约肌损伤。\nBPH早期膀胱不稳定可急迫性漏尿；晚期残余尿增加、过度充盈可充溢性漏尿。四类是故障层与时相的比较，不以同一个“漏尿”症状混为一类。",
+      "answer_sha256": "1f257a13539b4063578fd43644ed2b783208d220fa3f2842bf2cfc68e9c29012",
+      "mnemonic": "四行同轴比较：持续看完整性，过满滴沥看排空，急迫看不稳定收缩，腹压触发看支持/抵抗。最后用BPH由早期急迫到晚期充溢的时间链检验，而非把两者当互不相关疾病。",
+      "mnemonic_sha256": "b4aa4f7f3829ad6e9dd266d4f5add522edbfee25e32273a3be3f4c1c68a9a67a",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L683",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L182",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md#L296"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": []
+    },
+    {
+      "id": "a3-b13-kp12-precision",
+      "anchor": {
+        "block_id": "urinary-b13",
+        "kp_id": "urinary-b13-kp12"
+      },
+      "owner_kind": "KP",
+      "owner_kp_ids": [
+        "urinary-b13-kp12"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b13",
+          "kp_id": "urinary-b13-kp12",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b13",
+          "kp_id": "urinary-b13-kp11",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "恢复膀胱癌Ta/Tis/T1/T2及更外层、NMIBC成员，并说明取材与治疗分组的限制。",
+      "answer": "Ta：非浸润性乳头状癌。Tis：原位癌/CIS，平坦型高等级病变。T1：侵犯黏膜下/固有层，即subepithelial connective tissue。T2：侵犯逼尿肌/肌层。T3–T4：超出肌层，进入膀胱周围或邻近结构。\nTa不是原位癌；Tis才是CIS。Ta、T1、Tis共同组成NMIBC治疗管理分组，不代表三者病理含义相同。\n膀胱镜观察及TURBT/活检获得病理与肌层信息；TURBT也切除可见肿瘤。MRI可补局部分期，不能替代组织学诊断。BCG是高危NMIBC/CIS的重要膀胱内免疫治疗接口；CIS不能仅靠内镜切除治愈，不能把“NMIBC→TURBT”当每个人的完整治疗。\nT2及以上进入根治性膀胱切除/放化疗膀胱保留等更高层决策。课程“根治切除＋尿流改道”保留为306主干；详细风险分层、二次电切、BCG维持和完整现代多学科方案仍后置。CIS可突出刺激性排尿症状，刺激症不等于晚期。",
+      "answer_sha256": "5e7dc280dae1a4e0ed34f2198e27f81b75bf0f9e0fb3741620ff371a91e9737f",
+      "mnemonic": "用两条轴记忆：形态轴区分Ta乳头状与Tis平坦原位；深度轴区分T1固有层、T2肌层、T3–T4周围结构。Ta/T1/Tis圈为同一管理组，但不能把组名当同义词，也不把Ta和Tis排成必然进展序列。",
+      "mnemonic_sha256": "e16dbc5c2c1538aa23056eeee44daaf28804b57e6be30b984877f010ec6a026a",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md#L505",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md#L478"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "1",
+        "2",
+        "306"
+      ]
+    },
+    {
+      "id": "a3-b14-lg02-precision",
+      "anchor": {
+        "block_id": "urinary-b14",
+        "logic_group_id": "urinary-b14-lg02"
+      },
+      "owner_kind": "LG",
+      "owner_kp_ids": [
+        "urinary-b14-kp04",
+        "urinary-b14-kp05",
+        "urinary-b14-kp06"
+      ],
+      "required_core_refs": [
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp04",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp05",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp06",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp01",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp02",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        },
+        {
+          "system_id": "urinary",
+          "block_id": "urinary-b14",
+          "kp_id": "urinary-b14-kp03",
+          "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md"
+        }
+      ],
+      "cue": "用尿生殖膈、受伤机制、常伤部位、外渗空间和检查证据完整比较前后尿道损伤，并说明安全与旧体征边界。",
+      "answer": "前尿道：尿生殖膈以下；典型会阴骑跨伤，常伤球部；血肿/尿外渗到会阴、阴囊、阴茎、下腹壁。骑跨伤＋排尿困难＋尿道滴血＋会阴/阴囊肿胀，支持前尿道球部损伤。\n后尿道/PFUI：传统定位为膈以上方向；典型骨盆骨折，课程常记膜部/后尿道；外渗到膀胱周围及耻骨后间隙。骨盆多发骨折＋排尿困难/尿道滴血＋这些外渗空间，高度怀疑PFUI，需RUG/内镜证据确认。\n两者男性早期标准检查均为RUG，合适场景可用柔性膀胱尿道镜。RUG外漏能确证并帮助前后定位，但不能在所有病例可靠分完全/部分；旧“造影剂不能进入后尿道＝完全断裂”只是Source提示。\n旧DRE肿痛、高位/浮动前列腺提示后尿道伤，但敏感性和可重复性有限；DRE阴性不能排除，检查也用于识别直肠等伴随伤。不能用旧体征替代RUG/空间证据。\n尿道滴血或高度怀疑尿道伤时，避免盲目、反复、暴力导尿；先评估或由有经验人员按明确创伤路径处理，必要时经尿道或耻骨上引流，不等于永远不能置管。持续不稳定/致命出血先复苏与止血，不能为完整影像延误。空间比较须结合原图；本提案不是原图接触或像素验收。",
+      "answer_sha256": "9bdadfb9b00ed889fc61f1b0afc9d330bff538bffdf69226dcbde778999e8251",
+      "mnemonic": "只把“前骑球、后骨盆”作为入口，再从尿生殖膈向相邻间隙恢复四区对两区。随后单列共同RUG路径和DRE/RUG局限，避免口诀吞掉证据条件。",
+      "mnemonic_sha256": "e9d242a8d27b1ac3c87091d0d75579cb1172e2b7e2601ef9f000c24766cbc8bf",
+      "source_refs": [
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L283",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L309",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L338",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L195",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L225",
+        "https://github.com/kianwang022-hash/kianos/blob/c1757c440ceef29f0700646fb37b24de9941a0c3/content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md#L249"
+      ],
+      "external_contract_required": false,
+      "scope_and_conditions_from_author": []
+    }
+  ],
+  "held": {
+    "native_owner": "urinary-b03-kp03",
+    "id": null,
+    "reason": "Top-level ratio facts not sealed by native KP Core/metadata; no Memory ID assigned."
+  },
+  "preentry": [
+    {
+      "block_id": "urinary-b01",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+      "anchor": "9｜Memory Routing",
+      "miGAnchor": "9.2 MI-G｜会阻断 B2–B14，必须即时掌握",
+      "miDAnchor": "9.3 MI-D｜归位后进入 MarginNote 3",
+      "miG": [
+        "肾单位 = 肾小体 + 肾小管；不含集合管；",
+        "滤过、重吸收、分泌、排泄四个方向；",
+        "入球—肾小球—出球—管周 / 直小血管顺序；",
+        "皮质与近髓肾单位分工；",
+        "球旁器三组成；",
+        "肾素、EPO、1α-羟化酶的来源与接口；",
+        "清除率不是比例；",
+        "菊粉 = 准确 GFR，肌酐 = 常用近似 GFR，PAH ≈ ERPF；",
+        "C>GFR 净分泌，C<GFR 净重吸收；",
+        "FF=GFR/RPF，RBF=RPF/(1-HCT)；",
+        "交感 α₁收缩肾血管、β₁促肾素；",
+        "肌源性自身调节；",
+        "TGF：远端 NaCl↑ → 入球收缩/GFR↓；远端 NaCl↓ → 入球收缩信号减弱并促进肾素；",
+        "低浓度 AngⅡ偏出球、高浓度可收缩入球；",
+        "双肾动脉狭窄依赖出球收缩维持 GFR；",
+        "排尿反射基本中枢在骶髓并受高级控制。"
+      ],
+      "miD": [
+        "肾血流量约 1200 mL/min；",
+        "皮质 / 近髓肾单位全部比例与尺寸；",
+        "尿量 500 / 400 / 100 mL；",
+        "PAH 90%提取率计算；",
+        "FF约19%；",
+        "自由水清除率全部变式；",
+        "肾血管活性物质完整名单；",
+        "肾素↑ / ↓完整名单；",
+        "自身调节 70–180、80–180、80–160 mmHg不同口径；",
+        "排尿反射 10 / 35 / 70 cmH₂O及400–500 mL；",
+        "低频内分泌灭活与药物细节。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b02",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
+      "anchor": "12｜Memory Routing",
+      "miGAnchor": "12.2 MI-G｜必须即时掌握",
+      "miDAnchor": "12.3 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "滤过膜三层；",
+        "基膜机械屏障最强（Study 口径）；",
+        "经典负电荷选择性重点限制白蛋白；",
+        "nephrin 属于足细胞裂隙膜的结构 / 通透选择性轴，不等于“负电荷屏障分子”；",
+        "pH<pI 正、pH=pI 中性、pH>pI 负；",
+        "GFR 是双肾每分钟原尿量；",
+        "有效滤过压简化公式；",
+        "滤过平衡点与有效滤过面积；",
+        "GFR 三层因素：有效滤过压、RPF、Kf；",
+        "入球收缩、出球适度收缩、出球舒张的核心方向；",
+        "囊内压升高导致肾后性 GFR下降；",
+        "RPF通过蛋白浓缩速度移动平衡点；",
+        "系膜收缩 / 增生使Kf下降；",
+        "大量输液与大失血的正反电影；",
+        "强交感减少尿量的四条路径；",
+        "“筛网漏”与“滤得少”两类问题的区分。"
+      ],
+      "miD": [
+        "GFR 125 mL/min、180 L/day；",
+        "入球端 45 / 25 / 10 mmHg 与有效滤过压 10 mmHg；",
+        "与体表面积相关的四个指标；",
+        "所有缩血管 / 系膜收缩物质名单；",
+        "70–180 mmHg 自身调节范围与 40–50 mmHg 无尿接口；",
+        "所有真题年份；",
+        "低频等电点变式；",
+        "早期糖尿病 / 糖尿病肾病措辞边界；",
+        "肝功能受损局部公式与肝硬化整体临床的双口径。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b03",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+      "anchor": "8｜Memory Routing",
+      "miGAnchor": "8.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "8.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "滤过、重吸收、分泌、排泄四方向；",
+        "顶端膜与基底侧膜；",
+        "近端小管约67% Na⁺和水等渗重吸收；",
+        "球管平衡 vs 管球反馈；",
+        "SGLT2 / SGLT1与基底侧GLUT的位置、方向及分段口径；",
+        "肾糖阈及“滤得多 vs 吸得差”两类尿糖；",
+        "渗透性利尿主链；",
+        "HCO₃⁻以CO₂形式回收，CA与Na-H交换；",
+        "近端NH₄⁺交换、集合管NH₃扩散捕获；",
+        "主细胞ENaC—Na/K泵—ROMK；",
+        "A型闰细胞H⁺-ATPase / H-K-ATPase；与B型排碱区分；",
+        "K⁺分泌四控制柄；",
+        "K⁺—酸碱双向耦联必须按第一故障与容量/醛固酮/NH₄⁺等情境判断，尿 pH 不能由血 K⁺机械推出；",
+        "利尿剂段位—靶点—主要K方向；",
+        "原醛 vs Liddle 的药物靶点边界。"
+      ],
+      "miD": [
+        "近端前 / 后半精确比例；",
+        "原尿180 L/d、水重吸收99%；",
+        "肾糖阈约180 mg/dL；",
+        "SGLT2 90% / SGLT1剩余比例；",
+        "尿素40%–50%、Na/Cl/水/K 67%、Ca 70%、HCO₃⁻80%、葡萄糖/氨基酸100%；",
+        "利尿剂完整药名；",
+        "各药全部不良反应与低频用途；",
+        "库存血高钾碱中毒细节；",
+        "低镁—ROMK模型；",
+        "低频转运体亚型和药理扩展。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b04",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+      "anchor": "8｜Memory Routing",
+      "miGAnchor": "8.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "8.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "交感 / RAAS / ADH / ANP读取变量和第一肾端作用；",
+        "低浓 AngⅡ偏出球、高浓可入球 + 系膜；",
+        "肾素三条稳定主输入：灌注压↓、β1↑、致密斑NaCl↓；高NaCl抑肾素；AngⅡ负反馈；",
+        "醛固酮—ENaC—Na/K泵—保Na排K；",
+        "ADH—V2—cAMP—PKA—AQP2；",
+        "ADH对内髓尿素和高剂量V1；",
+        "ANP提高滤过、抑制Na水回收、抑制RAAS / ADH；",
+        "原醛 vs Liddle；",
+        "浓缩三大条件；",
+        "外髓NaCl、内髓NaCl+尿素；",
+        "直小血管维持梯度；",
+        "尿素再循环；",
+        "降支浓缩、升支/远曲稀释、集合管最终可变；",
+        "NKCC2是逆流倍增最重要起始动力；",
+        "浓缩失败三层定位；",
+        "水利尿 vs 渗透性利尿。"
+      ],
+      "miD": [
+        "肾素 Source-specific 低频促 / 抑名单（不作为第一轮因果主链）；",
+        "ANP完整刺激名单；",
+        "ADH完整促 / 抑名单；",
+        "饮水1 L后1小时峰值；",
+        "内髓约1200 mOsm/L与外/内髓比例；",
+        "UT-A1 / A2 / A3 / B全部亚型；",
+        "AQP1 / 2 / 3 / 4全部膜侧；",
+        "原醛与Liddle低频细节；",
+        "托伐普坦具体临床场景；",
+        "小儿、老年、营养不良浓缩特殊；",
+        "精确尿渗透压与低频真题年份。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b05",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+      "anchor": "9｜Memory Routing",
+      "miGAnchor": "9.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "9.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "容量与张力不是同一变量；",
+        "三类脱水的丢水 / 丢钠关系；",
+        "低渗性脱水 vs 水中毒；",
+        "休克优先于精细纠钠；",
+        "高钾病因三分与去极化阻滞；",
+        "高钾首要保护心肌；",
+        "抗K、转K、排K、稀K任务不同；",
+        "低钾肌无力、肠麻痹、ECG与心律风险；",
+        "见尿补钾；",
+        "低Mg导致难纠正低钾；",
+        "K-H只调用B3 context-gated owner，尿pH不是血K单变量函数；",
+        "库存血高钾与枸橼酸碱负荷是两条机制；",
+        "高钙ST短、低钙ST长与神经肌肉兴奋；",
+        "酸碱四层系统；",
+        "四类原发酸碱方向；",
+        "expected compensation超界 = 第二个原发过程 / 重查急慢，不是“过度代偿”；",
+        "代谢性酸中毒要算AG；低白蛋白时校正AG；",
+        "HAGMA用delta分析筛第二个代谢过程。"
+      ],
+      "miD": [
+        "血Na⁺、渗透压、K⁺、Ca²⁺全部阈值；",
+        "低渗性脱水三级数字；",
+        "钠缺失公式；",
+        "17 mmol Na⁺与13.4 mmol K⁺换算；",
+        "补钾量、浓度、速度、尿量；",
+        "DKA四格精确数字；",
+        "D-S钙：先分Ⅰ期正常上限与Ⅲ期>12 mg/dL（约3.0 mmol/L）；外科2.65旁注未标分期，不能直接判错，内科原图Ⅲ期>2.65已确认，和经典Ⅲ期标准的来源冲突须明示；",
+        "10%制剂易混；",
+        "具体液体名称和特殊场景；",
+        "四类expected compensation精确数字；",
+        "albumin-corrected AG公式；",
+        "delta ratio公式与 <1 / 1–2 / >2 解释；",
+        "全部真题年份。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b06",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+      "anchor": "8｜Memory Routing",
+      "miGAnchor": "8.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "8.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "蛋白尿五类机制；",
+        "肾小球性 vs 肾小管性 vs 溢出性；",
+        "选择性 / 非选择性蛋白尿；",
+        "变形 / 棘形RBC、RBC管型、蛋白等肾小球来源证据；",
+        "RBC形态正常不能单独排除肾小球来源，疾病名也不能直接决定来源；",
+        "血尿 / 脓尿与管型的区别；",
+        "红、白、蜡、上皮、脂肪管型定位；",
+        "Cr / BUN是总肾功能；",
+        "核素肾图是定量分肾功能主工具；Study另列CTU、IVP/IVU作为分侧 / 排泄检查；",
+        "MRU / 逆行造影的Study边界；",
+        "尿三杯初始 / 终末 / 全程定位；",
+        "无痛全程肉眼血尿的恶性警报；",
+        "证据—位置—功能—病因四层算法。"
+      ],
+      "miD": [
+        "蛋白尿0.15 g/d；",
+        "尿白蛋白排泄量30–300 mg/d，不能用总尿蛋白替代；",
+        "肾小管性蛋白尿<2 g/d；",
+        "五种小分子蛋白；",
+        "肾衰大分子毒素名单；",
+        "肉眼血尿1 mL/L；",
+        "RBC >3 / HP、12 h >5×10⁵；",
+        "WBC >5 / HP、12 h >10⁶；",
+        "各管型低频疾病例；",
+        "肾图 / CTU / IVP缩写与Study列表；",
+        "尿三杯低频疾病名单；",
+        "各疾病后续首选 / 最佳 / 金标准检查。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b07",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+      "anchor": "12｜Memory Routing",
+      "miGAnchor": "12.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "12.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "AKI肾前 / 肾性 / 肾后三分；",
+        "肾前性 vs ATN 的机制与核心指标方向；",
+        "少尿 <400、无尿 <100；",
+        "少尿期“3高3低2中毒”；",
+        "少尿期主要死因：高K、水中毒；",
+        "多尿期主要死因：低K、感染；",
+        "AKI三条诊断标准的时间轴；",
+        "GFR定义与菊粉 / Ccr / 肾图定位；",
+        "CKD消化最先、心衰主要死因（Study口径）；",
+        "EPO↓导致肾性贫血，尿毒素导致血小板功能低；",
+        "CKD高转化骨病主链；",
+        "急慢性鉴别和“小肾不绝对”；",
+        "CKD GFR分期；",
+        "ACEI/ARB减蛋白尿主逻辑 + 看相对肾功能变化 / K / BP，不用Scr绝对值机械停药；",
+        "难治高K、严重酸中毒、容量超负荷、尿毒症器官表现等KRT临床门槛；",
+        "IHD / CRRT / PD均是KRT modality，按患者 / 场景 / 资源选择；",
+        "透析失衡综合征。"
+      ],
+      "miD": [
+        "肾前 vs ATN 全部数值；",
+        "AKI Scr精确阈值与单位；",
+        "CKD毒素完整名单；",
+        "贫血男女 / 妊娠阈值与四级分度；",
+        "罗沙司他等药名；",
+        "CKD-MBD低频细节；",
+        "血Cr旧阶段四档；",
+        "ACEI / ARB旧禁忌数字；",
+        "CKD旧BP / 血糖 / 蛋白尿等治疗目标数字；",
+        "少尿 / 多尿补液公式；",
+        "司维拉姆、碳酸镧；",
+        "透析Study数值阈值；",
+        "CRRT历史全称；",
+        "透析并发症长表；",
+        "“脂溶性中毒”透析边界。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b08",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
+      "anchor": "15｜Memory Routing",
+      "miGAnchor": "15.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "15.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "上行感染最常见；女性多；E.coli多；",
+        "变形杆菌—结石、金葡菌—血源、铜绿—器械；",
+        "尿流 / 反流 / 结构 / 器械 / 宿主怎样使感染复杂化；",
+        "ASB：无症状、经典10^5、女性2次/男性1次、主要治疗两类；",
+        "10^5不是所有有症状UTI的万能排除门槛；",
+        "膀胱炎 vs 肾盂肾炎：全身症状、肾区体征、WBC管型支持证据；",
+        "WBC管型支持肾实质受累但不是必需；",
+        "先留标本、立即治疗；",
+        "疗程按位置 / 宿主 / 复发升级，精确3/7/14d、6w、6mo为Study Precision；",
+        "复发 vs 再感染；",
+        "莫西沙星特殊、妊娠Study边界；",
+        "氨基糖苷有肾/耳毒性但不是所有UTI绝对禁用；",
+        "急性肾盂肾炎并发症；",
+        "尿源性脓毒症最常见危险因素：尿路梗阻；",
+        "慢性肾盂肾炎：瘢痕/不对称 + 小管浓缩 / 分泌先受损；",
+        "尿道综合征“无普通真性细菌尿”。"
+      ],
+      "miD": [
+        "WBC>5/HP、RBC>3/HP、蛋白尿>0.15g/d；",
+        "10^5 CFU/mL及Study三种“真性细菌尿”阈值；",
+        "男性=复杂性尿感的Study旧分类；",
+        "NAG、β₂-MG；",
+        "硝酸盐还原试验的技术条件；",
+        "各抗菌药完整药名；",
+        "3d / 7d / 2w / 6w / 6mo旧疗程路线；",
+        "复发 / 再感染6周边界；",
+        "慢性>6个月与IVU“金标准”Study口径；",
+        "PSP；",
+        "肾小管“甲状腺化”形态；",
+        "慢性肾盂肾炎 vs 高血压颗粒性固缩肾；",
+        "尿源性脓毒症完整危险因素名单。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b09",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+      "anchor": "2｜Memory Routing",
+      "miGAnchor": "MI-G",
+      "miDAnchor": "MI-D",
+      "miG": [
+        "原发 / 继发 / 遗传三类；",
+        "肾穿刺活检是明确病理类型的金标准；",
+        "MCD以T细胞相关细胞免疫为特殊入口；",
+        "原位 vs 循环免疫复合物的形成位置；",
+        "抗GBM、免疫复合物、ANCA三条急进性入口；",
+        "系膜、内皮下、上皮下、致密层四个沉积位置；",
+        "LM / IF / EM各自职责；",
+        "线状 / 颗粒 / 无荧光大边界；",
+        "五类临床综合征；",
+        "急性肾炎血尿必备突出；肾病综合征大量蛋白尿与低白蛋白必备；",
+        "肾炎性水肿以GFR下降、水钠潴留为主；肾病性水肿以低胶体渗透压为主；",
+        "无症状性血尿和/或蛋白尿的“三无”；",
+        "临床分型不等于病理分型，病理模式也不自动等于病因实体。"
+      ],
+      "miD": [
+        "全部沉积组合；",
+        "低频免疫球蛋白组合；",
+        "各病理类型完整 LM / IF / EM；",
+        "所有继发性疾病名单；",
+        "原图中足细胞、GBM、内皮和系膜的空间关系；",
+        "病理表中每一个特殊染色和形态词。"
+      ],
+      "framework_present": false
+    },
+    {
+      "block_id": "urinary-b10",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+      "anchor": "2｜Memory Routing",
+      "miGAnchor": "MI-G",
+      "miDAnchor": "MI-D",
+      "miG": [
+        "急性肾炎三个别名；",
+        "β溶血性链球菌感染后1–3周；",
+        "大红肾、蚤咬肾、内皮+系膜增生、上皮下驼峰、颗粒IF；",
+        "C3一过性下降，8周内恢复；",
+        "急性肾炎自限、对症为主、活检3指征；",
+        "急进性三个别名与“肾功能快速恶化”；",
+        "新月体形成链；",
+        "RPGNⅠ/Ⅱ/Ⅲ：线状 / 颗粒 / pauci-immune，EM有无；",
+        "III 型常与 ANCA 相关，但 pauci-immune 不以 ANCA 必阳性为定义；",
+        "血浆置换与甲泼尼龙冲击的 Source-specific 类型配对；",
+        "IgA上感后1–3天、系膜区 IgA 优势/共优势沉积；LM常见系膜增生但并非固定唯一形态；",
+        "血IgA与严重度不完全相关；",
+        "急性GN vs IgA vs 紫癜肾炎；",
+        "慢性肾炎 >3个月、后期双肾对称缩小；",
+        "慢性肾炎治疗目标是延缓恶化，不是消灭全部尿异常。"
+      ],
+      "miD": [
+        "全部剂量、疗程与禁忌；",
+        "各类继发疾病完整名单；",
+        "新月体细胞—纤维阶段细节；",
+        "IgA五种临床表型的完整处方；",
+        "慢性肾炎全部限盐限水限蛋白数字；",
+        "原发性高血压与慢性肾炎全部鉴别细节；",
+        "病例串联页完整大表。"
+      ],
+      "framework_present": false
+    },
+    {
+      "block_id": "urinary-b11",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+      "anchor": "2｜Memory Routing",
+      "miGAnchor": "MI-G",
+      "miDAnchor": "MI-D",
+      "miG": [
+        "四联及两个必备阈值；",
+        "水肿与高脂形成机制；",
+        "四类并发症；",
+        "膜性最易血栓，肾静脉最常；",
+        "突发腰痛、血尿/蛋白尿加重、肾大；",
+        "首选B超、最佳肾静脉造影、白蛋白阈值按 Source；",
+        "不预防性用抗生素；",
+        "AKI最常见于MCD；",
+        "当前 Study 的激素足量、缓减、维持原则作为考试 Precision；",
+        "MCD典型激素敏感；传统“原发FSGS”相对更易激素抵抗，但 FSGS lesion 本身不自动规定治疗；",
+        "MCD：儿童、LM基本正常、足突融合、无典型沉积、选择性蛋白尿方向；",
+        "膜性：中老年、GBM增厚、钉突、上皮下沉积、PLA2R、血栓；",
+        "MsPGN：系膜增生是 LM 模式，不等于单一病因；",
+        "MPGN：双轨是形态模式，需再结合 IF / EM 和病因；",
+        "FSGS：局灶 + 节段 + 硬化是损伤模式，可有不同病因背景；",
+        "足突融合三类只是共同超微证据。"
+      ],
+      "miD": [
+        "全部剂量、疗程和复治方案；",
+        "免疫抑制剂完整药名；",
+        "预防性抗凝和溶栓细节；",
+        "MCD 60岁后小高峰；",
+        "膜性病理各阶段染色；",
+        "MPGN I/II/III传统超微细节；",
+        "FSGS五种亚型；",
+        "儿童青年和中老年继发病因完整口诀；",
+        "原发性肾病综合征传统病理总表。"
+      ],
+      "framework_present": false
+    },
+    {
+      "block_id": "urinary-b12",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+      "anchor": "7｜Memory Routing",
+      "miGAnchor": "MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "MI-D｜允许卡片化后置",
+      "miG": [
+        "正常排尿最小链及逼尿肌 / 括约肌方向；",
+        "梗阻 → 残余尿 → 感染 / 结石 → 上游压力 → GFR↓；",
+        "BPH：老龄 + 功能睾丸、移行带、尿频最早、进行性排尿困难最典型；",
+        "BPH DRE / B超的考试身份和两类核心药；",
+        "急性尿潴留先导尿；",
+        "草酸钙最常见、四类结石显影规律；",
+        "肾 / 输尿管 / 膀胱结石的疼痛特点；",
+        "感染合并梗阻、双侧 / 孤立肾梗阻、肾功能极差时先减压；",
+        "结石最终方案看位置 + 大小 + 成分/密度 + 解剖/患者因素；",
+        "四类尿失禁的故障层与典型场景。"
+      ],
+      "miD": [
+        "P263–264 膀胱压力和容量数字；",
+        "BPH 全部术式、EEP ≥80 mL；",
+        "Lecture “CCB禁用”历史口径；",
+        "BPH 全部并发症长名单；",
+        "四类结石的完整形态、颜色和口诀；",
+        "尿路 vs 胆系结石完整比较表；",
+        "0.6 cm、2 cm 与各部位术式矩阵；",
+        "“癌变最严重”Source措辞；",
+        "ESWL、PCNL、输尿管镜、腹腔镜切开取石等缩写；",
+        "膀胱 / 尿道结石低频操作细节。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b13",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md",
+      "anchor": "11｜Memory Routing",
+      "miGAnchor": "11.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "11.2 MI-D｜进入延迟记忆流",
+      "miG": [
+        "肾结核：慢性膀胱刺激症，血尿常在其后；破坏性影像；微生物学确证；规范药物治疗优先。",
+        "无痛性肉眼全程血尿首先警惕泌尿系统恶性肿瘤。",
+        "肾癌：透明细胞癌、肿块、同侧不消失精索静脉曲张 / 癌栓；增强CT主轴。",
+        "上尿路尿路上皮癌：传统移行细胞癌、条状血块、输尿管口喷血、CTU + 必要时URS。",
+        "膀胱癌：Ta非浸润乳头状、Tis原位癌、T1固有层、T2肌层；膀胱镜/TURBT诊断。",
+        "前列腺癌：外周带腺癌、PSA/DRE → MRI/活检风险分层；治疗不是单一包膜开关。",
+        "检查分层：先问“诊断、局部分期、转移分期还是病理确证”。"
+      ],
+      "miD": [
+        "肾结核 6–9个月无效、术前 >2周、术后3–6个月等历史精确时段；",
+        "膀胱重建与尿流改道术式名称；",
+        "“移行细胞癌”历史术语；",
+        "Source 的 B超/CTU/MRI/ECT/IVU 首选/最佳表；",
+        "酸性磷酸酶与经典骨扫描口径；",
+        "前列腺癌“局限手术/突破去势”传统二分；",
+        "全部现代 TNM、系统治疗和药物细节。"
+      ],
+      "framework_present": true
+    },
+    {
+      "block_id": "urinary-b14",
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+      "anchor": "9｜Memory Routing",
+      "miGAnchor": "9.1 MI-G｜第一轮必须即时掌握",
+      "miDAnchor": "9.2 MI-D｜进入 MarginNote 3",
+      "miG": [
+        "血流动力学稳定性是泌尿外伤第一决策门；",
+        "会阴骑跨伤 → 前尿道球部；骨盆骨折 → PFUI / 后尿道方向；",
+        "尿道滴血 / 可疑尿道伤时避免盲目反复导尿；RUG为男性早期标准检查；",
+        "前尿道尿外渗：会阴、阴囊、阴茎、下腹壁；",
+        "后尿道尿外渗：膀胱周围、耻骨后；“浮动前列腺”只作旧支持线索；",
+        "膀胱损伤用逆行膀胱造影 / CT膀胱造影分腹膜内外；",
+        "uncomplicated blunt 腹膜外破裂：持续导尿引流；复杂型才手术；",
+        "blunt 腹膜内破裂：通常手术修补；",
+        "稳定可疑肾外伤：多期CT；稳定钝伤多数非手术，必要时介入栓塞；",
+        "持续不稳定且肾出血：探查；",
+        "血尿与损伤程度不相关。"
+      ],
+      "miD": [
+        "尿生殖膈以上 / 以下的精确空间；",
+        "前尿道外渗四个区域；",
+        "DRE高位/浮动前列腺的历史考试线索；",
+        "RUG complete/partial 的旧题源判断；",
+        "膀胱腹膜内外典型壁位置；",
+        "腹膜外膀胱复杂型手术指征名单；",
+        "肾挫伤可有 / 无血尿的选项口径；",
+        "复杂尿道 / 膀胱重建术式和完整肾外伤现代分级，当前只认归属，不展开。"
+      ],
+      "framework_present": true
+    }
+  ],
+  "reader_counts": [
+    {
+      "block_id": "urinary-b01",
+      "kp_count": 15,
+      "lg_count": 6,
+      "mi_g_count": 16,
+      "mi_d_count": 11
+    },
+    {
+      "block_id": "urinary-b02",
+      "kp_count": 14,
+      "lg_count": 4,
+      "mi_g_count": 16,
+      "mi_d_count": 9
+    },
+    {
+      "block_id": "urinary-b03",
+      "kp_count": 19,
+      "lg_count": 5,
+      "mi_g_count": 15,
+      "mi_d_count": 10
+    },
+    {
+      "block_id": "urinary-b04",
+      "kp_count": 19,
+      "lg_count": 5,
+      "mi_g_count": 16,
+      "mi_d_count": 11
+    },
+    {
+      "block_id": "urinary-b05",
+      "kp_count": 20,
+      "lg_count": 6,
+      "mi_g_count": 18,
+      "mi_d_count": 13
+    },
+    {
+      "block_id": "urinary-b06",
+      "kp_count": 16,
+      "lg_count": 5,
+      "mi_g_count": 13,
+      "mi_d_count": 12
+    },
+    {
+      "block_id": "urinary-b07",
+      "kp_count": 20,
+      "lg_count": 6,
+      "mi_g_count": 17,
+      "mi_d_count": 15
+    },
+    {
+      "block_id": "urinary-b08",
+      "kp_count": 17,
+      "lg_count": 5,
+      "mi_g_count": 16,
+      "mi_d_count": 13
+    },
+    {
+      "block_id": "urinary-b09",
+      "kp_count": 18,
+      "lg_count": 5,
+      "mi_g_count": 13,
+      "mi_d_count": 6
+    },
+    {
+      "block_id": "urinary-b10",
+      "kp_count": 26,
+      "lg_count": 6,
+      "mi_g_count": 15,
+      "mi_d_count": 7
+    },
+    {
+      "block_id": "urinary-b11",
+      "kp_count": 24,
+      "lg_count": 6,
+      "mi_g_count": 16,
+      "mi_d_count": 9
+    },
+    {
+      "block_id": "urinary-b12",
+      "kp_count": 17,
+      "lg_count": 6,
+      "mi_g_count": 10,
+      "mi_d_count": 10
+    },
+    {
+      "block_id": "urinary-b13",
+      "kp_count": 18,
+      "lg_count": 6,
+      "mi_g_count": 7,
+      "mi_d_count": 7
+    },
+    {
+      "block_id": "urinary-b14",
+      "kp_count": 14,
+      "lg_count": 4,
+      "mi_g_count": 11,
+      "mi_d_count": 8
+    }
+  ],
+  "regression": {
+    "A1": {
+      "system_id": "circulation",
+      "cue_index_path": "content/xizong/knowledge/learner/a1-circulation-learning-cues.json",
+      "cue_index_sha256": "94d2fb461246ad2ac5f0d53b8af161d953776d60427f9891d68a429e9f92744f",
+      "admitted_ids": [
+        "b01-m01-cycle-time-extrema",
+        "b01-m02-cycle-pressure-extrema",
+        "b01-m04-sv-normal",
+        "b01-m05-co-normal",
+        "b01-m06-hr-overfast-anchor",
+        "b01-m08-rv-work",
+        "b01-m09-ef-normal",
+        "b01-m10-vein-capacitance",
+        "b01-m12-pulse-pressure",
+        "b01-m14-cvp-normal-physiology",
+        "b01-m15-microcirculation-distribution",
+        "b01-m16-lymph-volume",
+        "b01-m17-coronary-mediators",
+        "b02-m01-baroreceptor-afferents",
+        "b02-m02-chemoreceptor-bias",
+        "b02-m03-chemoreflex-80",
+        "b02-m05-axon-reflex-cgrp",
+        "b02-m06-medulla-80-20",
+        "b02-m07-medulla-ach-n1",
+        "b02-m09-angii-angiii-extremes",
+        "b02-m10-adh-identity-origin-storage",
+        "b02-m11-v1-v2-aqp2-localization",
+        "b02-m12-adh-inhibitors",
+        "b02-m13-anp-bnp-origin",
+        "b02-m14-pg-directions",
+        "B03-M01",
+        "B03-M02",
+        "B03-M03",
+        "B03-M08",
+        "B03-M09",
+        "B03-M10",
+        "B03-M13",
+        "B03-M14",
+        "B04-M01",
+        "B04-M02",
+        "B04-M03",
+        "B04-M04",
+        "B04-M05",
+        "B04-M06",
+        "B04-M08",
+        "B04-M09",
+        "B04-M07",
+        "B04-M10",
+        "B04-M11",
+        "B04-M12",
+        "B04-M13",
+        "B04-M14",
+        "B04-M15",
+        "B04-M16",
+        "B04-M17",
+        "B04-M19",
+        "xpg_0852e46f484f8e0d",
+        "xpg_ea8036e479b7d5ec",
+        "B05-M13",
+        "xpg_c606cf1e10747a10",
+        "B05-M04",
+        "xpg_ee3aabc71215185d",
+        "xpg_896d49a403801df8",
+        "B05-M08",
+        "B05-M09",
+        "B05-M20",
+        "B05-M10",
+        "B05-M17",
+        "B05-M18",
+        "B05-M14",
+        "B05-M15",
+        "B05-M16",
+        "B05-M19",
+        "B05-M21",
+        "B05-M22",
+        "B06-M01",
+        "xpg_50805f062cd6fac7",
+        "xpg_a2c17594fb529f8d",
+        "xpg_ccbcd69499cfe14d",
+        "xpg_be5621635eaf04ac",
+        "xpg_c1450a8661aad7b7",
+        "xpg_3ea1baa529dd254b",
+        "xpg_bf172640d9560fe9",
+        "xpg_ae4e8a47b5a75087",
+        "B06-M14",
+        "B06-M15",
+        "B06-M16",
+        "B06-M20",
+        "B06-M24",
+        "B07-M01",
+        "B07-M21",
+        "B07-M04",
+        "B07-M22",
+        "B07-M06",
+        "xpg_58d002be5a2b04ea",
+        "xpg_f55aa8433b798d5a",
+        "B07-M13",
+        "B07-M14",
+        "xpg_8d762513ba202953",
+        "B07-M31",
+        "B07-M16",
+        "B07-M18",
+        "B07-M20",
+        "B07-M25",
+        "B07-M32",
+        "B07-M33",
+        "B08-M01",
+        "B08-M03",
+        "B08-M04",
+        "B08-M05",
+        "B08-M19",
+        "B08-M09",
+        "B08-M28",
+        "B08-M13",
+        "B08-M14",
+        "B08-M32",
+        "B08-M15",
+        "B08-M31",
+        "B08-M22",
+        "B08-M25",
+        "B08-M26",
+        "B08-M30",
+        "B09-M01",
+        "B09-M02",
+        "B09-M03",
+        "B09-M14",
+        "B09-M15",
+        "B09-M04",
+        "xpg_1ab9a00aa348efde",
+        "B09-M19",
+        "B09-M07",
+        "B09-M21",
+        "B09-M10",
+        "B09-M11",
+        "B09-M12",
+        "B09-M22",
+        "B09-M16",
+        "B09-M20",
+        "xpg_2f3dc8b2ab10a87b",
+        "B10-M19",
+        "xpg_3da97cdce06afc63",
+        "B10-M04",
+        "B10-M10",
+        "xpg_0c34985447aebb53",
+        "B10-M12",
+        "B10-M13",
+        "xpg_7999d5fca8346ab4",
+        "xpg_d4d9e061bbacd6d0",
+        "B10-M20",
+        "B10-M23",
+        "B10-M25",
+        "B10-M28",
+        "B10-M29",
+        "B10-M31",
+        "B10-M32",
+        "xpg_4f47320b70803b75",
+        "B11-M02",
+        "B11-M03",
+        "B11-M21",
+        "xpg_e817b36d446e7568",
+        "B11-M09",
+        "B11-M26",
+        "B11-M15",
+        "xpg_b85cb6960f8b0b25",
+        "B11-M18",
+        "B11-M22",
+        "B11-M24",
+        "B11-M29",
+        "B11-M32",
+        "xpg_8820d9610e059977",
+        "xpg_6fd0a828da004022",
+        "xpg_82e6609d04c98fd9",
+        "xpg_d76f77b61375a94f",
+        "xpg_03f70b43216a1f2e",
+        "xpg_4004a850c58fd059",
+        "B12-M17",
+        "B12-M18",
+        "B12-M11",
+        "xpg_cd2e780a8067b5a6",
+        "xpg_f1a6b330348234d3",
+        "B12-M16"
+      ],
+      "held_ids": [],
+      "descriptor_sha256_by_block": {
+        "circulation-b01": "8253884a18514de30a2fb52ffd8c293d66c39b513ef88ea8b43b2914d9f678a6",
+        "circulation-b02": "ec4b00f1bb3e6563cb31237f93fe5a6f29186b7f9bb0494037f5756a9ff7eb5a",
+        "circulation-b03": "93fc9f4daafadbb3ef60793728749688234e626a9da5b18e583e7d2a5dae6ce5",
+        "circulation-b04": "0c4e68bad9436134252c8afc88b4ff0de94ef1dcb47e5fabcc8de6b88be7f14f",
+        "circulation-b05": "3fea94beb83216e6b651e3ed9b085044e7bcb582c50e5c0960088feba5a9233a",
+        "circulation-b06": "baafaefa62485dfd8f8197a8dd06372dc249c2b105fa93faec4732252aca18e2",
+        "circulation-b07": "584c1fd7fd47d04573225ec4c5948302413da878cd54d31aa5d5f84190855c8b",
+        "circulation-b08": "a646d96b47332d7d1c32101e21da161f631ebae5c4c8e60bd543b97437ce2510",
+        "circulation-b09": "d615854e10fda2808875e167eec483edceedc7ccb322bebaf7b2fe7b8aa23c06",
+        "circulation-b10": "52f3525b1da296b29f43bf027042572402a6d7289658b1277a3ce2e9e6a79f48",
+        "circulation-b11": "07f36a0fd1ccfa13a8cad46e00ef5260eebf1e1229f1a56cdd051a4f7ef52512",
+        "circulation-b12": "e3b3bc799182b335e4736c8f74ee62fb89742421129029badb1857b51969a139"
+      }
+    },
+    "A2": {
+      "system_id": "respiratory",
+      "cue_index_path": "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+      "cue_index_sha256": "2f0a98308cd05ba15c968fae934aeab5c953d5ed8ec81487e59a6a157e7edb4e",
+      "admitted_ids": [
+        "a2-r01-kp01-precision",
+        "a2-r01-kp02-precision",
+        "a2-r02-kp03-precision",
+        "a2-r02-lg04-precision",
+        "a2-r03-lg03-precision",
+        "a2-r03-lg05-precision",
+        "a2-r05-lg01-precision",
+        "a2-r05-lg03-precision",
+        "a2-r06-lg02-precision",
+        "a2-r06-lg03-precision",
+        "a2-r08-lg03-precision",
+        "a2-r09-lg05-precision",
+        "a2-r10-kp02-precision",
+        "a2-r10-kp04-precision",
+        "a2-r10-kp08-precision",
+        "a2-r10-kp16-precision",
+        "a2-r10-kp19-precision",
+        "a2-r11-kp21-precision",
+        "a2-r11-kp22-precision",
+        "a2-r11-lg05-precision",
+        "a2-r12-kp08-precision",
+        "a2-r12-kp09-precision",
+        "a2-r12-kp12-precision",
+        "a2-r12-kp13-precision",
+        "a2-r12-kp16-precision",
+        "a2-r12-kp17-precision"
+      ],
+      "held_ids": [
+        "a2-r04-lg03-precision",
+        "a2-r04-lg05-precision",
+        "a2-r07-lg05-precision",
+        "a2-r07-lg06-precision",
+        "a2-r08-lg05-precision",
+        "a2-r09-kp18-precision"
+      ],
+      "descriptor_sha256_by_block": {
+        "respiratory-r01": "4682c50916149ce62f82f0a5be811baf97f4e96b539a2db0095fa8fac3832ef2",
+        "respiratory-r02": "cb6caa1bbec441c401fc556746e622ccda698d6e568b067963b3b239839a6548",
+        "respiratory-r03": "222f18eba352d2839bc8a628411fddb75dcaa694606ebc2e7c455dbef3461e92",
+        "respiratory-r04": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "respiratory-r05": "24a7bbebb21d73a319ad216a0d9f1813bce6fa2f70a1532c9d95f825caebe538",
+        "respiratory-r06": "dfa332476d00df0c6b84672758f63c0a5141ed3a78d6cfdfbe602584dbc1627f",
+        "respiratory-r07": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "respiratory-r08": "6cf0ac957039f629cd1d4446affcaf7f9135f93cf37718f54ac7ca4341c5d068",
+        "respiratory-r09": "17ac07336c8c276014d4189426469a451ecb621444efdfbed0df1a47d388daf9",
+        "respiratory-r10": "34b22c83cd30e76c689a3fe51f43bddd75c0f69fb4339684798c0c6c66689131",
+        "respiratory-r11": "2fd5ceacce0fbf389b4e18f83a45dd09cf07d734ecdeb03795c42d0afc140187",
+        "respiratory-r12": "4fb3e535e357d51464b90f9eebbef5bab75213e89d34ca3221fb4532f96ed1d8"
+      }
+    }
+  },
+  "protected_shared_entries": {
+    "source_bindings": {
+      "circulation-b01": "42e9faabb246fc0c613c53310899ebd17f5c441d5cfc285b01d0f61dbe19267f",
+      "circulation-b02": "cf140ff45a8e95e70e927d85ccca5bff47cf233d047b462574b3876b6f9b54c1",
+      "circulation-b03": "3b04fd898464b667281769fe1db23398e8bf29502c8838ee9ad33661fdf13fe1",
+      "circulation-b04": "fb86163195e7eea2dadf09b76d6a3ac43f42687d4be8d80122cbf0f1565d6719",
+      "circulation-b05": "318f4c861c745c21b210b2407474527b24ee57e49bf7fa7c5ddf2dfa14c4a0bf",
+      "circulation-b06": "42e9dc01158fd5110cd2a8f5968def01588e3e13c05bf6a6dec14ba4dcc1275d",
+      "circulation-b07": "6a48a92b05d7aa8fefc6b68df28cce9bfb4463d4fad560ca65b906e5519988e5",
+      "circulation-b08": "2bdadb0e5cc2f13fe2a600abbd512d88616f3e67f1ad38147cac1901d65f58d9",
+      "circulation-b09": "e8ab428f37d5749b11c7e91e518db9088b6967d83e65974549619789eea11cfa",
+      "circulation-b10": "3f2c94b75cf85d67a4df9bc3b1ba36d868779ec46e804aca190f114402c78b3b",
+      "circulation-b11": "724efa92f4251d1e85930063ff87460772b2d9569a08a836b7053efa9ab96b38",
+      "circulation-b12": "7f0580206a500d0d680f264de09bf5e0eb52bd83a184ed4f969aa89376c3e87b",
+      "respiratory-r01": "68d341a6b1991ac3655ee29bf2c364da62b79da554415a408064655a404ba4c4",
+      "respiratory-r03": "5120bd356ea96c74f62a03380b8fa2bd720c9b8df4caa1dea8a266a3bdfd7752",
+      "respiratory-r02": "179eddc5f7281462f0fa8e7bbed7d3e84c629f9dd9a55f3d1fe677befcae622f",
+      "respiratory-r05": "087c615c813fc6e84272584ba1a6593c74eb98b8b7747abb0b69ee469d3859a1",
+      "respiratory-r06": "ac03753b5f4a54c4d8dafcb91d5f91fd8693293d1733c7d9b803c27f8713ca0a",
+      "respiratory-r08": "be5475fd9ae02b69ce3a1f47d4c241d24814e1bd92fdb2baa821cd4727c02e8f",
+      "respiratory-r07": "2d62acfe62518ea5c9ae12a127d0f533a0eea2dd932ec59b0b83e4da5d57e1f1",
+      "respiratory-r09": "63551ae7f691298c45cb19f37df00f91f574af95cd0c7a584b61fddc5e1edc09",
+      "respiratory-r10": "10e3b05a96b936e042a638a1853e42c4a9bbdba854b9453a81e67406d9a2cb94",
+      "respiratory-r11": "87761ce8261c5c66406947d7fdbb895c5496a7d041546d93a51cc90c7f0f4697",
+      "respiratory-r12": "aca995d0c9dfb3bd00d4e606c010dd7b228ec6b7464f5acf90b1c4ae9ef2bb14"
+    },
+    "block_fields": {
+      "circulation-b01": "82ea807c16e62b20a80b83594b54b974985f831f54c2ccd0a88acbc91fd9816c",
+      "circulation-b02": "2976f0655ff8004a3c973685d05ad75e297229540092ace75ca140fc110f50e8",
+      "circulation-b03": "df530836854dee7e68519685508f68e6db6a79d67f4a6b746129ccbb2124db90",
+      "circulation-b04": "4de3f3421da2a8ce38a080e725615f2dd34f5032d3ee52d483355fe6c23d37cd",
+      "circulation-b05": "083a6843ba27615c3c74f15a6b4eeccdc6ab287a4469b192d6d961315c928ba2",
+      "circulation-b06": "e201f19678900dbdb6392de90e923c843899054f77f4b0d54c29f6e9f5f017a8",
+      "circulation-b07": "78ab2eaa91775ebb85d274a960359573da3aa364c74459c7e525dfee204e8b62",
+      "circulation-b08": "11f6a167fbc818a31e0eed1864021e21624bef8aac44e04257f425579f5770a9",
+      "circulation-b09": "4628f445d988a8bbb5acda35b2ae904121843af9cfb3efb317dd67951e5a00e4",
+      "circulation-b10": "ddc675901bd7e863805ba67e2fceddaba2eca00240800e33a0e63454c8d00ffe",
+      "circulation-b11": "9d2f2bc08b17ba5623d69ff67da4e8bfe2de11ce804fb0d98bbafe75575e86e6",
+      "circulation-b12": "ec13e74fefbc5455f31af926fa19a6c69e3517579974715c260fd241d00eb0fe"
+    },
+    "system_fields": {
+      "circulation": "cbe5adf637aa810d979ae59577025b66e83d40804fda8002f67945aa71d5a030",
+      "respiratory": "69e296f9da1278269eab230769dea90c4beb6423374f224f45f715047a3821b2",
+      "urinary": "e190f61356e1fbd08b24b08d26c89953acefc488dbb9087c9bae81d2075159ab",
+      "digestive-metabolic-endocrine": "7869b2f322663b0093b2bfb3a09d99a60f975b0432cd676be3c8f9c175632573",
+      "hematology-immunity-infection": "ca50cc1b3a11313781df56929c837683ea633a93cc9824bf29e89cc4259e6972",
+      "neuro-sensory-motor-orthopedics": "2352edeedee892b5e09c5f34bb48a5b245856bd1f81dd3983b9a709a6f8cfa7c",
+      "reproductive-breast": "894c4523da1e516eefe34e69d5e4ee1b9f33bfb2c825f7190b4aba2543a0a07b",
+      "final-clinical-modules": "020e0fe83c086f44e306d2f1f2fdb5755411c09c2cb861c359351a735068dd45"
+    },
+    "kp_fields": {
+      "circulation-b01-kp001": "c839ae9948f7d052ae2da9e651b09f4c53729c63e5f031dda9d0fefcc60e5041",
+      "circulation-b01-kp002": "04cfff3ada30648a883d4fc8625c13ad74ca9b3670ffa4c0b69114d56701aa11",
+      "circulation-b01-kp003": "721c5db9556c8b0aefc3f260b120728051fb09d67a70922a97fb809867ed04b1",
+      "circulation-b01-kp004": "68c4703084b1dacfefc32b892f6c15c73f5bb9acaf70f52c74ad619747c5fb9f",
+      "circulation-b01-kp005": "c1b5884fab7fdf31bcc88217780766dee0e5630ebb65a3b8efe21b3f99a5170c",
+      "circulation-b01-kp006": "8ee4296655e89a2bad565f982f9cca4eea598665b73b6e96978882aea41a9f12",
+      "circulation-b01-kp007": "d73993c8e392c5b4a06fb82b0308c745009a110ac624255087cfd820cd6ad6e0",
+      "circulation-b01-kp008": "372df0092ca6bf42f12169781514b4cba443fbf4aff3bb45fcf85fae078c6682",
+      "circulation-b01-kp009": "1ffaed9582c69cc8de2f1c534261f3f69ba89affd3c5b2c4a45b6c8358cc0eb4",
+      "circulation-b01-kp011": "2b9ab01e6aa29e64de9c0de781064fcd1d3dba9524e710fe3c866f0969674217",
+      "circulation-b01-kp012": "7dc4a9cf939c768544ae6995fdd60f5e3d92bb40e25ea42a3be4e0cc9a6ca6b1",
+      "circulation-b01-kp013": "9224e84b45e3a7129d207d597525a77318cd53d5e760adf686c0320be068931c",
+      "circulation-b01-kp014": "745849d09b7789fafc607dcd118ac9a3386addafd9a9938063dd17c9a7822ecf",
+      "circulation-b01-kp016": "a1f3a90b4d120f36e15c4de3e32cc297e3b2a8a133f0468a55f5cb0eff378bbf",
+      "circulation-b01-kp017": "8eda91bd8bb95dd36804d50c9feb2c328f83e0af2356d09b8109d8dcf97e6261",
+      "circulation-b01-kp019": "0c1931f9f3c7d28e412af458d8d31c3095b1f88aa758c855d26f2056447d4e8f",
+      "circulation-b01-kp020": "f953038d5d15900bb386f0110c652a15154b6ad2916c3b102a6d83fc5873a72c",
+      "circulation-b01-kp021": "1a6973fae35ab9e989f4eeaddc856d4e58410ebe8a1e3eeee58593b342a4fa45",
+      "circulation-b01-kp022": "7b9310220a6f0b9b46f67dd83b6aac298c7155623685adc8baa413f1dc9e118f",
+      "circulation-b01-kp023": "4c9ccca3d41cf3e38f90423f505a225fbb367c77b9f6cce74c02a98597fc73bc",
+      "circulation-b01-kp024": "1b5abe75b6ef42731d555381925015c525e6ef226950e684c8a63c6f8f40c013",
+      "circulation-b01-kp025": "ecb837e02c1d74f846d4877a8f499a7b156adcd3ac04eb003dcb6862b4cec8b9",
+      "circulation-b01-kp026": "3cc24e6733cb7fcccbe0b30ad97f3c727f0ab055b904bbd340a4eb3830c48e8b",
+      "circulation-b01-kp027": "412eb75b825cb4086578cb42da7e835f48f29e23a43b05e397e41fccfe588863",
+      "circulation-b01-kp028": "73dd80faa067dd58546421a77cec2ec4dd1da314200bbd92a3b91ea9d0acbd9f",
+      "circulation-b01-kp029": "7cbe1a9ff38542260d00b5defab5eadc38059387ff288fadc49a90b311926b45",
+      "circulation-b01-kp030": "9373d47e6d8408904c46b29959e2efb4b40ea9a423df3c62f8823d47537c61a5",
+      "circulation-b01-kp032": "54131877f5cfbe9637472deab6889df9b8b39246a56c0debe0cd548ca56ec61b",
+      "circulation-b02-kp001": "6cb1716c82882dc9dae126e5366cd6e036f7ceeb6e9514fce3039cd9d516c270",
+      "circulation-b02-kp002": "3858b079fd4266b374bdeb47e3817d4badf634b8437a647fe56e8ad86cba2377",
+      "circulation-b02-kp003": "3d8fda23af51843c5819ddbbf849e430e57de708d989e6ad6f4324a09d0946c7",
+      "circulation-b02-kp004": "ec2485ffbba5b302abae79a1853727c06fbeceb3b683a2cad1a4180b7bc51640",
+      "circulation-b02-kp005": "0328fa465da205d2994f85d7be1da9303e7672d1e9c0e09ac3a9aeda64b504fa",
+      "circulation-b02-kp006": "d602de3ce5b8f44931869cd34562a80049d1e54fb46faddd84d692c4a2c5f01e",
+      "circulation-b02-kp007": "a8cb09e60bb0909618b616c1da1cf11ffacf41c9c695d1350610c89f891475d9",
+      "circulation-b02-kp008": "86a47a3020f4baddcdcf6bfa1faf3aacc111713d3d2379f88081d05453837c28",
+      "circulation-b02-kp009": "fa1e0d2571d3656203e44724690b44a7e89e5c07171b4fcba540bef072ef31b9",
+      "circulation-b02-kp010": "1f8f30c92f832eba3a2b9402f231d4cf20484300d3cc6b9f5118f98715a7693f",
+      "circulation-b02-kp011": "9db5ca11f900d4000bf057e3eef2ffcfbb083f095953c691fa272277a5ccc680",
+      "circulation-b02-kp012": "8933aae43ac9ffd3f5c75335cf887674a58dd0892a54d92ff8c6d9544e21d8bd",
+      "circulation-b02-kp013": "5fec2b7f804500af11af5bb7ac5957917866c548267915f2c8ddd1a501ce8801",
+      "circulation-b02-kp014": "16400eaba426c5f1e4833eb8471a199b473492454a6eee66d4dd5f8cf81fc93a",
+      "circulation-b02-kp015": "ebe0fd7534b19d8c3e51d8492804e1fdd1d241519c851497f994c54993cfd0c0",
+      "circulation-b02-kp016": "035b333060b519d3a11365218cc8fc2f3aac49ab0e27f82bf6cefb44b3d4a8b4",
+      "circulation-b02-kp017": "c58ab68396d6bac1f28a86d2fb63f76de1e19537698fac4410b5f9300aaac2f2",
+      "circulation-b02-kp018": "476907edb737138a9fbf02a9a17930efa63ee5cdabcca5168d0cd98d51cf6492",
+      "circulation-b02-kp019": "9c2bc9800b73e11cb54e88da7dab84a07c664e935de86e5ecab86422f7736528",
+      "circulation-b03-kp003": "17846d6c7ab82728de417dbb215fd8c5eed7d57c3c2864a8563aad56d1a28823",
+      "circulation-b03-kp006": "94cc2479bdb3c4b5981dd4bc10ec42a276068fca28a1acc0ed9bd483a961d6a6",
+      "circulation-b03-kp009": "f99e53a05bfb5e9efea57a2682f5d891dc72f70bfaabc6e65cdbbce5b8986c8e",
+      "circulation-b03-kp007": "dfe739ea795ea97835e33870b8d7cee8a3b35d8b5ff3965e42893bba39dfe8ff",
+      "circulation-b03-kp015": "dc7a15691928717f68c740c0de152fa2573f2e475baf35c34edf9621402fe12f",
+      "circulation-b03-kp017": "6d1ad627a149d606b9196132a593f4f340bfa02c5021b397308594f53ce1a81f",
+      "circulation-b03-kp008": "e757a2cd8ff41bcda1f8d95d6149529c0c1671a5f5f751770c6685d05ebabaf7",
+      "circulation-b03-kp005": "04c8ed360b6b54e0160166f905a3c299e93de0b8d7a9193f0307261d6bb83259",
+      "circulation-b03-kp020": "441d33e851fee806b181c80b3785abc1234ca274fc92d24e0e9c20d20191a24a",
+      "circulation-b03-kp021": "0ec96a31c0d87bb0404acfa95d7c699bd9333a2dce07a91c479009c009c92c01",
+      "circulation-b04-kp003": "6eb286b6cf031201b0833a8b588b120b8ba03dc277bc9ecf2a1b25b42973f8d0",
+      "circulation-b04-kp004": "498a80258a351f9e31695beffcf2f6a47fa5eba6b756d5e673df91bb28e7b8f5",
+      "circulation-b04-kp007": "c5918f37a07c9441c15a8619b84156bf332585fe6178e867d4893feb5343fd9e",
+      "circulation-b04-kp009": "46f8afef7ad26a2f61c91eea335a2fb42c3c297b7bc2ee673ffb1e38217c217c",
+      "circulation-b04-kp010": "16d5cbadec968ab7f3cd42a15c229822ac9856495ede490935eed01b8d71dcda",
+      "circulation-b04-kp011": "64f3429e9454b6a8ea20956b81472b8e2f2a352b0107e838102f969aebfc1ba2",
+      "circulation-b04-kp013": "c52647fe528bc03ef08a4cc6791cbcd3f858a06b676b2764b27893b22ce80d61",
+      "circulation-b04-kp014": "440e99d105aa1c507b3de5f35bee03a183147054e32f66bf05c666540ded81bf",
+      "circulation-b04-kp015": "2e8db9344f538e65337bfd4a9982e0ea51fabf150d4a728f1c1335a89b5a0a1a",
+      "circulation-b04-kp016": "e7c5de0ac0bceb8b06b8a572bd766eb139cf5cdeb90a7815f8b9e45442462dc5",
+      "circulation-b04-kp018": "fe705d2b6dbbba73d32a9b23a387bd5e0e61358a5e1e5e20fc25d91ed3342a60",
+      "circulation-b05-kp005": "2d9f6194c0404b67a09a510e47a7717513f199145e341007759ddc2a0c072412",
+      "circulation-b05-kp004": "dfed6bf593254f66ba9d4fecde7192db6338c439683e1f985dfc2cabe3ee85ff",
+      "circulation-b05-kp013": "4b5f085b248190818b8df2d99c5389688e8a86b13da5c961b311f7563d77f19a",
+      "circulation-b05-kp014": "b68c85c87dd03c197045f37afe6f22ee59ea7e00216708d60c5443d80eabc432",
+      "circulation-b05-kp015": "af1fbaa25cd74e50ec9f79e2fcfefceb2e4a263455c0590e111b485abe0c9dbd",
+      "circulation-b05-kp010": "d96309ab7899d34dedc95ae946150dea074c85a571c03ae97de080bee45a4e8d",
+      "circulation-b05-kp023": "5c34060958428d42aaacc0e44c787e7c3181c74f3c7ef7088d528d3371685b3f",
+      "circulation-b05-kp024": "7a3a034d4203031d268d69da89d41f87992ecec5db84dfbfcce974269759c992",
+      "circulation-b05-kp018": "0164f9889c0149573c07d3a06a50e27752cb83ea257f1a083c0e7da154420c77",
+      "circulation-b05-kp019": "14a32895e15b342a5ab467a01e1ef561b7d3671d11fa9dd132c4c9de0d48debf",
+      "circulation-b05-kp011": "c75f4a1e34563cc3759fc25546c44d6a2fa4f0934f23d447c13d001a09eae0ef",
+      "circulation-b05-kp016": "1834ceadc3febbbf38d55df7130904f300ff62d088c200a61db1d43445820f52",
+      "circulation-b05-kp021": "7e1be916889daddab1f8685d4940f23bf51bd3398d5ca7ff66a4cf07e77539cd",
+      "circulation-b05-kp025": "609754ba03efd389027558545f331ea5991b2ab7db89b2eea744b90712b6ba71",
+      "circulation-b05-kp026": "f1dcff4c39db938b2bd0008dd6e6a5a84f82141164fae97bd66ce34938b79898",
+      "circulation-b05-kp006": "0df46d2e35a5112fac35cb132e66899c54392caca13118b047fb3844d0f754b8",
+      "circulation-b06-kp012": "cf41f4fa3652440b3d663d4c51ab60b6b06d6c1ac7616804d723d06d3c692ce9",
+      "circulation-b06-kp013": "11d3b56e18ed9d32b7867533e54eae1aa52b1944bef20cc461c43a7ea1368e29",
+      "circulation-b06-kp014": "33e28e0e32d2bc0af8ded866e55b984ebc24dcf7027d45de669ed64c4f926cb7",
+      "circulation-b06-kp015": "60dfd067a3b231806ea24a68358abac3fa91434d6b6ec6585fea0812cecde68e",
+      "circulation-b06-kp019": "f4f08f2e07030d3366e6468835a2d91c6949e5d272254fe42cef64628dacd735",
+      "circulation-b06-kp020": "8ae8befa1f8227d14cd08875e90d5ab3e872d91ed2b46d1f05feaed4ce9bba27",
+      "circulation-b06-kp022": "b3e8a1e516fd4c96c609a4ad61d7dfd9b6593e7eb8e4831e08473237a95cb3fa",
+      "circulation-b06-kp028": "3d1d9597adca4c1e9176ad7c1fb31a1af42145cfef3df4262a6489ff2b85c661",
+      "circulation-b06-kp025": "946840c622f8b4017a7daa50868142fa8f523a1ab64ac8091c3a06d544c3995c",
+      "circulation-b06-kp026": "8c7a06bb6a538e57c17f7bdfe4dd643bbd37c732681aa7f38450df9b21b2e246",
+      "circulation-b06-kp027": "7eb24bd1da2481298acbf4d3045638d1b2bb0b0a1b458f49a3d25df07802a647",
+      "circulation-b06-kp029": "4d3c0be66553b28b9eab3b76a8fd05b1b3803ea170d11403e0b23258d6df607b",
+      "circulation-b06-kp031": "42705ee2c03d2ec5cbed00c657f4c833bc8d771fe10356f85f4db2af781b621d",
+      "circulation-b06-kp032": "0f2e5629cc15cc94e86c844b7e09d3b2925e206f3ae74761936f362c6e93bcb2",
+      "circulation-b06-kp033": "2f30ddd962b2a7098a27b12b081e23d450257d6bfe55b5d8254d490f30cce8b3",
+      "circulation-b06-kp035": "b0c652e54586e1e6bcede9fa29a35683d4e9d629311e3fd824ac4824d011b55d",
+      "circulation-b06-kp021": "e7e50634c8e574eced9720ea7681236b1594ad9fa82f4d8a6ba1b65de670c54e",
+      "circulation-b06-kp007": "e9dd680b62671c7792e30434ad77f7a26a11eb16a31878930efeeb718ba0a3bd",
+      "circulation-b06-kp023": "59e10b66168601f53ed2d8366a40dc8b14b243dfec82cf3f0d17698dcc09244b",
+      "circulation-b07-kp018": "a4c7cb4b64b7d28d5f06ffba76a8314165f89ea04b8276affa88ceda8a53467b",
+      "circulation-b07-kp005": "4cbe81953f8c4ca53c8a104912d2dbea12481ada657cd2102e70463435750109",
+      "circulation-b07-kp006": "fc61fa07320be62d71bab804955887daa7846e9a346c969af9c2cd8a7c38a4f3",
+      "circulation-b07-kp007": "29770f6b833c98aa69161e7039daa2047ebc9f34615ede9486a05143cd2e48e9",
+      "circulation-b07-kp014": "27b1197f5ba715b9e2fd75c2650cc4895cbc352c9a33e9e9356d6583a779d10a",
+      "circulation-b07-kp015": "13ca0df2e4b1ea732a0dca34ac01dc4a0881f9b68c9fe6e2031210b4eabf06cf",
+      "circulation-b07-kp016": "fb89d9914d72cf39831a52c4464d90c22fd8d0a324e83a95e91541703d59d637",
+      "circulation-b07-kp017": "cf3d10cfc9979e3108ff7cfe8029b3a176a2f36a0340db5a8e3d5011ba4e6a8e",
+      "circulation-b07-kp020": "74b99ce89d57feb98345a7bd80c0e9a89bb87d660e94ecb59c534e523a9cb35b",
+      "circulation-b07-kp021": "5803044403db4490b4223d26b471e189468b38a6f09755b8e0a9e4f33e162314",
+      "circulation-b07-kp026": "8f521ef8c5eb26ee9bf1f41be96f5c105e962a5593baeef486946aca78b2a709",
+      "circulation-b07-kp034": "d322a163a85172fc91db966a6dd2c1ffeeddde7f7d6ef0b94bc1c93e6c341cbd",
+      "circulation-b07-kp031": "43a6abc302ff1d58640ae0ddca9625c20c71639ee452b4f68f5535b767e06174",
+      "circulation-b07-kp002": "0b3b937caa91611b134722f87f3ea7ad9cd17331317b2e037642f2510c350be4",
+      "circulation-b07-kp009": "73022100b659cd2c29f8b909b8dd8fb06b982a36b67363c1c56aa9d84d9dc670",
+      "circulation-b07-kp023": "2dad124fe8728da04df522b62599537a2d6285a5aaab822c11a133591076e9bc",
+      "circulation-b07-kp022": "cdd35a7c6fe199a37cc6f7b47700f540b07a4fcb6fdc06344143cb4501f1c45a",
+      "circulation-b07-kp029": "41fd116cf009cd49f60cd46a15ac95392a802e7c6b370f993df4f8182edb7c1f",
+      "circulation-b07-kp032": "828252d6f2bba0248d1283955a316fcb5025813db660c598669d1895c82414f5",
+      "circulation-b07-kp035": "9852a61bb39f4060c19cfefe6725c408248edbae59a6b1cff173c14fc179dbc5",
+      "circulation-b07-kp037": "02335360d4c2ab9a9c033be7a6db64577878916b2924b40830e5fe38bfaddac6",
+      "circulation-b08-kp003": "6edc162d9385505d7ac8a283644af1fb8f11dbb62eb6a3a79bbf5e8717bf3194",
+      "circulation-b08-kp006": "38a289b05ecb196cb68e4c14708bf189d2f1960c685dc57929bd8fdae9b754a2",
+      "circulation-b08-kp008": "d2aad07280b0034ecb3cd6aad6a8462091f909cb10ceb353b3df092e9786dbad",
+      "circulation-b08-kp012": "2597a1d010021270b7c0000064306635fbd0e861a113c1fa2fc5b8ac341d6990",
+      "circulation-b08-kp016": "04b9af8c537b9cfb48dcc2ab248d43045ad5a0261f17cb076afea882ff33594d",
+      "circulation-b08-kp020": "7396c72ca4f6556c93bcf3fa60d607ef910919eb1e949c4a4323ff3e4590250f",
+      "circulation-b08-kp021": "9124638d3ff43e18ca389bee3d580027b6b108027b5203b587d0ddb3af28a12a",
+      "circulation-b08-kp022": "b7d4881f4f83859f3b222f0dde9440a527916d088ab7c6c973876ecfc4dda9bb",
+      "circulation-b08-kp025": "d55a0bc5503915ad26101ca360ea5e98e6e012912a6f091d0221ebef010184d7",
+      "circulation-b08-kp026": "31b6dce008f3afda9d87da9a68f790bbb32772da4f112aff4911940eccdc6e02",
+      "circulation-b08-kp029": "de198b026366dfed9c33c70d921673563de38ed8ee58f9603cd4664a7299d0d3",
+      "circulation-b08-kp030": "2099d78b3e7f8313264f2994e7391fd1524c54bd22bcf27dcde58eec13c29d1a",
+      "circulation-b08-kp009": "036abe44dee002427c4d885af8a442d4143e8155ed8503529ba2fd2608b10eae",
+      "circulation-b08-kp015": "f99e6a7009510191bf80c66c99455d8a71fdbd855294bf26dc4063fb9234e2c9",
+      "circulation-b08-kp017": "be3b9cfe1dcc27dd1119c104bfa7b83ffb6f09dc5e248cebc2391578e62d2530",
+      "circulation-b08-kp018": "81548562597f84ff8d03e2cf6edbbe487ff4af125bf451e312f59773be562d37",
+      "circulation-b08-kp019": "203c0389e498070c9135e35b869b3cd64bcfa9b198a9695c07bfe7657750cf32",
+      "circulation-b08-kp024": "e040fa3a4659d07b0320c805b7f8656ccb29e551acf6c733488ec0c39357f892",
+      "circulation-b08-kp031": "685561b012e8fe6d6380bfb1088831842ddf6e950c4ce13a90ee111788472f43",
+      "circulation-b09-kp001": "eeb730af9d975be5a14dc6dba7f5850dd5819f7dbc39bc0a482a0edc6e322702",
+      "circulation-b09-kp002": "8a61defd29c855e15f28767e5ed6202fdca8f57dea9cc133947036fa87e6c7b0",
+      "circulation-b09-kp003": "82702cfbe4532e34efeedf8ef2314738c999f6178cfbf45f03a9ce5e96b7e5d5",
+      "circulation-b09-kp004": "19f0ac4b506d85cf9273fcd4e680f9ee0a54e162f6b3a819e54b5551ec758df1",
+      "circulation-b09-kp005": "900f10d02a4d324c690317cda20b9cfa7d696bceb27434b905e7f08cd30029f1",
+      "circulation-b09-kp006": "3f3084cd9451d1a6ea650b0426ddab81bf0a3ee8ac601894b5fc0d5318c2bc29",
+      "circulation-b09-kp008": "f90f83d2cb533d2410cfc215a9172f383765a42b1247ac504a53a1411927e4f6",
+      "circulation-b09-kp011": "3601d49cb0b8bf7a9c3a0da520d8bc73f7654572b636a2a98a85115c7a9410b7",
+      "circulation-b09-kp015": "70b5a95b95013f93c3221ca6efff726dc0dfbeb4ad5e1d746888b02cdf0fe4aa",
+      "circulation-b09-kp012": "726ae9b73f8246b6bd76ec716e51c0ccd2f339203feaf09570a4b84ef8e10de9",
+      "circulation-b09-kp013": "70061b46f722ccb34954999d7570a6f96cd511015555906687d8648652d70d3a",
+      "circulation-b09-kp014": "8d196d23863b014e780bec41e6484fc3d337ef460c40e6010e9251062c032fc0",
+      "circulation-b09-kp007": "4d289573a892580472d028cb7c76d4f7e7a8fcda0ba23fba09972e55d2309d2c",
+      "circulation-b09-kp010": "ec3ffcf6f68ec310a8be2d58991c248acbab392737e14fea0d13d8a6eeeeaa0d",
+      "circulation-b10-kp001": "7ad4955a9dc7f675a59320169c52503f38ca8f5a492c53fe8fb1025d326b249d",
+      "circulation-b10-kp004": "58a9eaaf50a7d3d81f9ed6f62fde75080490c4f9a0d56962fb229498a5b56cc7",
+      "circulation-b10-kp006": "5fec011afccaa20b6f30579677c149992ddab15ae69fb21fac85a2937360b298",
+      "circulation-b10-kp008": "2146365012e7d402ad611c9d92373d31a0cef4d227b5e3d8c9f0d07616b27ae9",
+      "circulation-b10-kp010": "1044206c795ff1c05113a2bec44fb6890b380422d6264db374a2038e66ae7036",
+      "circulation-b10-kp012": "17c27f219e8c996421a46e3f419a114705248666b74ed7e5d3ae8daa8a61b12a",
+      "circulation-b10-kp013": "ba2635ec8ca4d16bf7979d32582cc957bf8f09106d47bbe6dde14d4d1f0ac82b",
+      "circulation-b10-kp014": "784b1fc2ef7c7d853eb5575886ddf7570b56c6743e03543d12f6b4088228a20b",
+      "circulation-b10-kp016": "33d5ec7a772b313957c6c369cb052d4b2e0808529362e73270a753d5af4671d0",
+      "circulation-b10-kp017": "423309df3edbf60b372481ff8abc62f73bf40e26567c62597e3b98aeca975152",
+      "circulation-b10-kp019": "030a7768d73e386b4f63938aee005c8c5cb38600a32d60355d935a3414a6449d",
+      "circulation-b10-kp021": "c530b9c75a04993c7eff04737f5b7dddc133365311be30733676354ce0fbfb39",
+      "circulation-b10-kp005": "f40e49ec00b762b94d7aebf5c4fe577764aabeefce23915d37174aff783edf10",
+      "circulation-b10-kp011": "c43e23caca10aad808b6a011c3503d3d07f5e8cdb38c6b5bb683568a51dd8e5f",
+      "circulation-b10-kp015": "019542e1e85800a75d8b96eb11b0291d69550aedb4daaeafd7290626c2d69423",
+      "circulation-b10-kp020": "65d032cac5f06cb9cb4a401aba09b455fa270ce7d2f898bf84280a1f0ca7d8dc",
+      "circulation-b10-kp022": "e8b967725172d1d7643194ccb2841434922f140190c2a1e8b4ce5af985ef72d6",
+      "circulation-b11-kp001": "69764bc41927cc5effd9d0f83002ae112ad6a8c3279d1237d03ac398fa60dbdc",
+      "circulation-b11-kp002": "9677d5b68e34486f622b5d6ed9ac6f844519db3b2658dcac7ac3f4a72d009832",
+      "circulation-b11-kp003": "bfa7e35a885a083738d34f703b219d69587f1a2b423a4c90ffe64aeee73b7d2a",
+      "circulation-b11-kp008": "b3c34078a3b50103e9cca5947b5564b60b2ea35c10ab7ca6ac771296daf2ac65",
+      "circulation-b11-kp009": "83fccaf2c0ad01517ffd85bda5c3cb36bd94f392ab9b80c5e7716e9e8e000f47",
+      "circulation-b11-kp010": "d955b41ec2d8ca4bd5c55cbeff17992b1e02ead637f2661a8c7c2f2c787c448f",
+      "circulation-b11-kp011": "9f3fbce6d2443f1fef87dffe39653189d9b134905bfdfac32125c9145defa828",
+      "circulation-b11-kp012": "67b1693bd53c749694cdb9fee2da5778063a85d4e46ef1b2bc1701a84be858e6",
+      "circulation-b11-kp013": "25fa7b60abb83cd798dfdf2b8f526acf9874d23b9d6f3c44673430ffea9e99d0",
+      "circulation-b11-kp014": "64086d405bf6f5e2cf69c0568b55b6256ffa895889caf6eb80061e66727bf451",
+      "circulation-b11-kp017": "0bef43afbfb379826985fd29e528da0a2b40db0bcacdfe0e734a0131db936eac",
+      "circulation-b11-kp018": "4368ac0df2a454d9b0a2a716426fe320812210a3c207c37bae9ea13629debb67",
+      "circulation-b11-kp019": "fdf14baae605667383fa4ea5bb32eace99eb0da80a916de3c6896e2b4a164728",
+      "circulation-b11-kp021": "b7280704becaf999a581fc0f6c5032d99cd9cac8d2c299d7c505019a56ed3331",
+      "circulation-b11-kp004": "834141e50f95f78746dfec66bcc963f67d6197501c64614953d2b816e5b8222b",
+      "circulation-b11-kp007": "c6b48350f900bb9778dfb7b74bdc56d5aa04dd4f431419eb375c16b29f984aab",
+      "circulation-b11-kp015": "892323cdd330df2b082757e24a8585ab65cf91c6070c0addeb83fa52161fae67",
+      "circulation-b11-kp020": "4ff99fbbed1ba46ba6295797d7d3ccba6fa0d471a2785985223db94f902baa74",
+      "circulation-b12-kp004": "3c468aa3593e1eb214d0846df2f86d3f2b8443d67e52d6816b6ae184c65a41e2",
+      "circulation-b12-kp005": "b5333b735c072660ff8308cb22595ed2ceb1d81e55555007a504c45b1e72e564",
+      "circulation-b12-kp006": "dbbada31ba771aa86eee58060891d77cbd58358c5cedd85a0a4e087131c2a572",
+      "circulation-b12-kp007": "76a24bed62d8580e1490f9bb97999aef577fdc61ecd03ca753080b199ceb78f8",
+      "circulation-b12-kp008": "79ef7e6514730d34808aac6187a3ea52e673141fe1ac30889e2578d70f5d7420",
+      "circulation-b12-kp009": "74f09675b1cb6c5886c57b6e80007994f1a140288a38e2ecc8d680d261b7d4c4",
+      "circulation-b12-kp011": "819a5dedc0058fa70ccedee7866b9457345e31f11a0b4e3f8c6bd941371f4a8b",
+      "circulation-b12-kp014": "09aeae3ccfdbe44887008e88800ad1bffb8b680d863beb88186c00b57ca6e171",
+      "circulation-b12-kp016": "6f06ae6f6f933a130b729cf0621e7f7bbf5af381755f7ee15a472882d38ef510",
+      "circulation-b12-kp017": "648eeac4b21eaa90efee0e8687da0c6e2f3b4470136c6dabf3ae8b5fbc9ffdf6",
+      "circulation-b12-kp018": "ffcbee7c2d2e7e54e71d8059aa693e51bc24b0a0a4f44eef2b4768f6a12731a9",
+      "circulation-b12-kp012": "875b6fb8b6b37103555d422b9c2bb635347eb767cd9e46b8b35a290b233097cc",
+      "circulation-b12-kp013": "bad0f30520de0e66f3601284b4aa364888c7284825e3543b1c92e863d1250f79"
+    },
+    "logic_groups": {
+      "circulation-b01": "0f05deea2c756a7557d2fdab0da74b62357fedbb6329337887f5ed2939017e3d",
+      "circulation-b02": "7aab04a3dbc2e0a616f26311de2a024605e5645b645a27d1f9a079738467b438",
+      "circulation-b03": "4471434386b3565ab2a2cf63c1278508ae8d365f8083fa6c06f25069be602ad5",
+      "circulation-b04": "4c2f7ea60f2790b5b4fa55538b21a96bdc01bab640b04484c6cc26be31a482f1",
+      "circulation-b05": "c1573c813a63932b4512e4d507bb25560f53a660ad99aea991017fc8ca83c565",
+      "circulation-b06": "88b0e45d0d217ab33987ae81ac538ba5d5b1f84e2ab24b23e728abe5d5513854",
+      "circulation-b07": "f21da9fd2818f4c4180bc7fe45bbaea6809ed5c62fcd04178968c581bf0f8926",
+      "circulation-b08": "ad1a6f0a9b8e0cf5b8ada09ab4112eabda4bf8dd583298d604643f3557a90a32",
+      "circulation-b09": "b2a46ed7b5dd555aef99c55057eb827151d26c6a8a701b940554e67c74aedab3",
+      "circulation-b10": "cf6b0b5311220692a5178719106fe6fb7d5ccacb948128101d96e27858a09cb3",
+      "circulation-b11": "c2f135d04ec97507e28cc95881747eea6a91b8f6fd23f95de3255eaf7a22a1ff",
+      "circulation-b12": "11b7f1d118e240184f1d039f646555fe0cb12119305e61d5ec09d2ff855e1668"
+    },
+    "precision_fields": {
+      "xpg_0852e46f484f8e0d": "4d734e22a2d17212dfd28e6aff43c1ea241b1e41d2a6ad4d99ddffc5d84c649e",
+      "xpg_ea8036e479b7d5ec": "79f5bd2feb12252f975f61769d62ab058ae0f5c7d85fc3145fd3607ee97ea20b",
+      "xpg_c606cf1e10747a10": "525045dbd6643f243b431d2bc761764888945b7d4d88514b796605d9cc7fed80",
+      "xpg_ee3aabc71215185d": "01a52086d75cc72e7d9b8eafff7844d64ba08c837a51e7a32535d04c83b51e88",
+      "xpg_896d49a403801df8": "be288e39d842bb538db0f8ef4b4feb61dd31f8faeb1d6e6bec5bbc54cd756b8e",
+      "xpg_50805f062cd6fac7": "9fd48b23e0449742a48560bda49ac1da9a4eb97f16373dfaaf8156a79c82a076",
+      "xpg_a2c17594fb529f8d": "20c0827a61a22ec7f521871421eb7664d4c4e7d80c3c7a9bd30f1bc889284084",
+      "xpg_ccbcd69499cfe14d": "c2038f618f3e740c620dedf42c4353a19c46657b754c79b1cd9e5ecdc76ab2d9",
+      "xpg_be5621635eaf04ac": "c6828952fbfbd11f430d3506c2079d6647a59cd85ac4676c61293df81ac7b8e4",
+      "xpg_c1450a8661aad7b7": "b729351b43476b9b607b3a9464d1a14cb1a40e04c9019b73dbff1d202f98d29d",
+      "xpg_71ea8526693b50d8": "8c60696f370998a2a251bcc97a11fc94c5c26878dbe1f28fdf26d9272b06be70",
+      "xpg_31a33b1906400615": "e87c49829739f7e06e1a156ca772d01b57a079166674749918827f480c5dc1fd",
+      "xpg_83bc1ab5221931b7": "4b6f488ddf62765145197c59e714c6633dde003a87a893ed321481e4dd04fea8",
+      "xpg_3ea1baa529dd254b": "3d71821df21591922ee329626ff217b72361925003d3d47282de9b43efbc482f",
+      "xpg_bf172640d9560fe9": "bde34250138ba2d47ff5997af31fd3b9091d54c0edbf330bb827ce4a7ebab19a",
+      "xpg_ae4e8a47b5a75087": "3b10f8fdfe41fa611e4359bae3606fe43eed520638ae2ee3344a650b9a8bc70a",
+      "xpg_58d002be5a2b04ea": "47a0c2dad25519129a5d00d7ac69da3de66e89fc3a87244b55affc98ffba23cd",
+      "xpg_883f41ff386085a0": "e5af65ee9264b7c0af723f25bd54a04fb32b86a79b1369d10eb7ba31684bf0a6",
+      "xpg_f55aa8433b798d5a": "4ac32beb2cad3d2748b149bd0cb972575b0db800f0fb1f33c711018e5c481f1c",
+      "xpg_8d762513ba202953": "e30a5a228dab93b141661b8ce5b110f3982e438d3e7c3918ee593c4c13407daf",
+      "xpg_058263469d13d685": "24ae3df288892af6f5ff2c72f551cc86f5622987342140be3a51672812ce8734",
+      "xpg_1ab9a00aa348efde": "62003015ecee9fab10553137b889a728563b2876eb9953aeec7a4da8f7500b71",
+      "xpg_2f3dc8b2ab10a87b": "cd3fa1b14a83d5f4fbeb77fa5c9f94cc8d01b3fcbfa48fd2d618c3ec567c75a6",
+      "xpg_3da97cdce06afc63": "68bdd09c581f28433ea1582611574ef6f93f8024e255a65d0231cece84c13690",
+      "xpg_0c34985447aebb53": "ad77aaf4391b22947883a631fd05cbf099ecb26bbdb121db6bc8480fe4f6b14c",
+      "xpg_7999d5fca8346ab4": "6a2e4b0c155fd401eee981d044245b20d3db5400e117257868cd1b6eb78c6409",
+      "xpg_77ea34a02828c1b1": "5df19b06de1642fa56de9bc1f8b0c63f85af5f1657f62f42ff3806bb80b41e66",
+      "xpg_d4d9e061bbacd6d0": "3ee4fcd8f332442a6fad3fea503a843f66238ff75d170357087923a5a7ab2c98",
+      "xpg_2042c8750f29a44d": "0d82262e58342401c545bbd0cb20495c87f6394ac7528e4ab128e479e11d2385",
+      "xpg_4f47320b70803b75": "de350d3d51ec66bc8256bf3c8cdbe52fdce0bb81e80b76953316feeab1237036",
+      "xpg_e817b36d446e7568": "d32d17a737dbd0bae035d303e08af93a38fe355cb5d43b954ea375cae56703c1",
+      "xpg_761f08292f42f48f": "c6a3a0763eb151cce722e90d8e7e8a690b710b8b033e83e370482eb9d60e736f",
+      "xpg_b85cb6960f8b0b25": "a2c9bbc4ee9d821d930920eddb73a2c90b4611c4e78c9b468af97982f29da1c8",
+      "xpg_fe0ed973500aa7ce": "64f2fa011d3d1208181f721171f5bc28e9d3d5791747af85e4c95e293ffe38bb",
+      "xpg_c8ea9e6209ee8fb6": "be4104d9c957b828f942ca99e512eff0c4134e5b4692d3d91b0ab36e20075651",
+      "xpg_8820d9610e059977": "eb61fff5f4e36dade5cf73cab45b5bcd8bda049d9a399b4e290e0081c1a44ef4",
+      "xpg_6fd0a828da004022": "769035fe6152b55961c6088571de9b622a162808d1f2ee7ffa0a4b18e33d84a6",
+      "xpg_82e6609d04c98fd9": "2712e4c4a203b5b2c6d3c589fc32c0450b77109bb0047eb9826af8f968055387",
+      "xpg_d76f77b61375a94f": "c02a80b5fc198f25dd8e4ba6213253d516e1337bf47a9803f6db4fe902979915",
+      "xpg_03f70b43216a1f2e": "cea88d10e2c58f4168b06ecda5544b49f73c37b42aaaf703815136ed398776cc",
+      "xpg_4004a850c58fd059": "f1dade1d7dbbd9972a76e8a7320b22f4bcfc5c454880e5e2134ce021a4343d58",
+      "xpg_cd2e780a8067b5a6": "30b580a49cdd3b4e3e946270836abf2cfad0174655b8e700a2c3cc95f4a99282",
+      "xpg_f1a6b330348234d3": "19818626b0ccd25a6c8172f2f1f11c15a993ffdec6554310c889e04605bb1b7c",
+      "a2-r01-kp01-precision": "61b7f4e07ae976abd532e6fc68521eb50ee495dbc12c556af533be9dd2d5e5a0",
+      "a2-r01-kp02-precision": "00cdeb1358f497868fbdf5e4093d1c8f38f0e36fa60253cc1fa12142c7c0e5b7",
+      "a2-r02-kp03-precision": "0938011272d7e97c1d31e65cd8859cde553159ae12c2b586a9187855bf915169",
+      "a2-r02-lg04-precision": "c6933da7fc0885cbca12a3ee9772bc6500ad0c838542351d716cf0a1241d5f5d",
+      "a2-r03-lg03-precision": "be474a58af838ad0c5edf583b91e97fae3c86a2fb437c56c0c006faf9eefe983",
+      "a2-r03-lg05-precision": "50f688dd734f6ac5b193ac6aa2f1527fff0b1a9c79d76756ad4c583bef8c1633",
+      "a2-r05-lg01-precision": "3227344bf488e441651da264e31acc19d56a4a0c67926f77ee7738b862dfdde2",
+      "a2-r05-lg03-precision": "0873e7c0906f0807b5e31b64c6f596f172e559efc58310598e0fc3a88077647f",
+      "a2-r06-lg02-precision": "8fa2ae2d8efcea23d3777e0114f79b54d1a39a0e731c986d48a0a159fc791caf",
+      "a2-r06-lg03-precision": "ba2b0ac748c00625db482c51fa272bb086cfc6e509dc76b6454c7b0d35edcca9",
+      "a2-r08-lg03-precision": "6b4ca113d6aea4656c3161667f370e5779644988bc4b5670375cdada055e57ef",
+      "a2-r09-lg05-precision": "839fe474a650fee092bbacd4d29f41568fc0a0deaedec556e91ddb8a38e0baa4",
+      "a2-r10-kp02-precision": "154dca93f8d22f9b03824a41e82c5989dca0175360302a075e076b417fa2ae43",
+      "a2-r10-kp04-precision": "73ca7ebe5a764890d82515a7a26f2f2d3e687859bfb17a66e3dac132c3806b61",
+      "a2-r10-kp08-precision": "e225fec304123fc5b2085033e519574f063305b8c22a218fa91bc5ac35b19bbf",
+      "a2-r10-kp16-precision": "abd78d4eb6538fe24b3666d469a14ba55d238565e24c578efcf5d98e6101343b",
+      "a2-r10-kp19-precision": "36246e599e09d9d4d968ffd81a9bc55390dfd52cdb74506b8919e1402cb2eef9",
+      "a2-r11-kp21-precision": "a4963f98a8938eb9431831b813682d571bfc16c76dd692a3b04e289ba01fe9de",
+      "a2-r11-kp22-precision": "390738e107493e4fcd232dcfba127e09aef497f6a3f9b8904f71f6693a702490",
+      "a2-r11-lg05-precision": "d6b8be01f8f596befcd3d1c6fd12b45276b5ba867875817e36dd8be0fa2b994b",
+      "a2-r12-kp08-precision": "ff0c0edf470f067881fc997705ad00a38a4ae5ce2d3c73c7489703516f331295",
+      "a2-r12-kp09-precision": "d6d0137228a5660fc6ad35cb47310292527afc27cfa3738cf7766bc30c7fe842",
+      "a2-r12-kp12-precision": "492b1d5bcc5f29b1376be936fbd0a434d3c0087423a13702099d7a2755a486c7",
+      "a2-r12-kp13-precision": "6d21c1542f65083bc5d8024f60a41a2f888151a01678d524ff12e26e892876c3",
+      "a2-r12-kp16-precision": "5ad95352718f55b8985ec62bda286ae8c9932b77ba5f5d96eaec7a60b1cb4d88",
+      "a2-r12-kp17-precision": "1d273a9ccd562e110f1d4f47fa73e85e6507aa0eb56c0c1b70761653899de49c"
+    }
+  },
+  "baseline_native_sha256": "0c1f26c4d064f591b620a4d2b96ce4e0acf41e56b0763d0d970e7e8f4faeaea3",
+  "baseline_shared_sha256": "74c64ef7c4c207b5c841eb5409bf59a92647ccf01ed14f7cc8f4a3796518b2fa"
+}

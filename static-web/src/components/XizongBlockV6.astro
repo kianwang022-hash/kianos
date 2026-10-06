@@ -28,9 +28,10 @@ const blockVisualDebt = Array.isArray(sourceContact.blockVisualDebt) ? sourceCon
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
 const postChatReferenceBlock = (block?.systemId === 'circulation' && /^b(?:0[1-9]|1[0-2])$/.test(block?.slug))
-  || (block?.systemId === 'respiratory' && /^r(?:0[1-9]|1[0-2])$/.test(block?.slug));
+  || (block?.systemId === 'respiratory' && /^r(?:0[1-9]|1[0-2])$/.test(block?.slug))
+  || (block?.systemId === 'urinary' && block?.systemCanonicalId === 'A3' && /^b(?:0[1-9]|1[0-4])$/.test(block?.slug));
 const titleOnlyKps = postChatReferenceBlock;
-// Reviewed A1/A2 reference slices only. This opens retrieval; it never certifies Chat or Source study.
+// Reviewed A1/A2/A3 reference slices only. This opens retrieval; it never certifies Chat or Source study.
 const postChatRecallAvailable = postChatReferenceBlock
   && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
 const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';

@@ -134,12 +134,19 @@ function validateDescriptor(descriptor) {
   return { blockId, coreCards, precisionCards };
 }
 
+const nativePreparedIdentity = value => (value?.systemId === 'respiratory' && value?.canonicalId === 'A2'
+  && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(value?.blockId))
+  || (value?.systemId === 'urinary' && value?.canonicalId === 'A3'
+    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(value?.blockId));
+const claimsNativePrepared = value => ['respiratory', 'urinary'].includes(value?.systemId)
+  || ['A2', 'A3'].includes(value?.canonicalId) || /^(?:respiratory|urinary)-/.test(value?.blockId);
+
 function memoryRevision(previous, card, stamp) {
   if (!previous) return { contentChangedAt:null, revisionReview:null };
   const bound = previous.semanticRevision && card.semanticRevision;
   // Explicit card answer is still checked for old callers without witnesses.
   const answer = c => JSON.stringify(revisionStable({ core:c.coreMarkdown ? stripRevisionKpMetadata(c.coreMarkdown) : c.coreHtml, answer:c.answerHtml, cue:c.cue, context:c.ownerContextHtml }));
-  const native = card.systemId === 'respiratory' && card.canonicalId === 'A2';
+  const native = nativePreparedIdentity(card);
   const changed = (bound ? previous.semanticRevision !== card.semanticRevision : answer(previous) !== answer(card))
     || (native && (previous.answerResolution !== card.answerResolution || answer(previous) !== answer(card)));
   const nativeHistory = native ? { ownerContextHtml: previous.ownerContextHtml, answerResolution: previous.answerResolution,
@@ -232,10 +239,9 @@ export function makePreparedMemoryAvailable(stateInput, descriptor, availableAt 
   const cards = { ...state.cards };
   for (const raw of precisionCards) {
     const card = normalizeCard(raw, 'PRECISION', blockId, text(descriptor.sourceHash));
-    const native = (card.systemId === 'respiratory' && card.canonicalId === 'A2')
-      || (descriptor.systemId === 'respiratory' && descriptor.canonicalId === 'A2');
+    const native = claimsNativePrepared(card) || claimsNativePrepared(descriptor);
     if (card.blockId !== blockId || (!card.kpId && (!native || !card.logicGroupId))
-      || (native && (card.systemId !== 'respiratory' || card.canonicalId !== 'A2'
+      || (native && (!nativePreparedIdentity(card) || !nativePreparedIdentity(descriptor)
         || descriptor.systemId !== card.systemId || descriptor.canonicalId !== card.canonicalId)) || card.answerResolution !== 'EXACT_CURRENT_OWNER'
       || !card.answerHtml.trim()) fail('PREPARED_CARD_INVALID', card.id);
     const previous = cards[card.id];
