@@ -3150,22 +3150,30 @@
     "ordinal": 1936,
     "word": "fireman",
     "source_owner_path": "content/lexical/words/by-ordinal/o1936.json",
-    "source_fingerprint": "a003f79852237e5eb0f4e477a8c828f0dbc44dc2093abf00a84130f232ca1a8c",
-    "sense_lineage": [],
+    "source_fingerprint": "8e0dcb64b2599dfa60f3f1c34d4fd7c195f10f5fe9b2be7fe95cc3a43b3a5d6b",
+    "sense_lineage": [
+      {
+        "word_id": "word:fireman",
+        "target_kind": "sense",
+        "from_target_id": "sense:fireman:1576b50685185f25",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "消防队员",
-      "decision_cn": "",
+      "summary_cn": "消防队员（现代中性职业称呼通常为 firefighter）",
+      "decision_cn": "occupation → 消防队员；firefighter 是现代中性称呼。蒸汽机/锅炉“司炉”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "消防队员"
+        "target_label": "消防队员（现代中性职业称呼通常为 firefighter）"
       }
     },
     "senses": [
@@ -3193,23 +3201,6 @@
           "target_id": "sense:fireman:150fb04ea2435020",
           "target_locator": "record.senses[0]",
           "target_label": "消防队员"
-        }
-      },
-      {
-        "id": "sense:fireman:1576b50685185f25",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "司炉",
-        "definition_en": "a person who tends a furnace or boiler (stoker)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fireman:1576b50685185f25",
-          "target_locator": "record.senses[1]",
-          "target_label": "司炉"
         }
       }
     ],
@@ -3251,7 +3242,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "司炉",
+          "definition_en": "a person who tends a furnace or boiler (stoker)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:fireman:1576b50685185f25",
+          "sense_label_en": "a person who tends a furnace or boiler (stoker)",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
