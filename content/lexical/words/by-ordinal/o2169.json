@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "控制或影响",
       "core_meaning_en": "to control or influence",
-      "mental_model_cn": "控制或影响",
+      "mental_model_cn": "country/institution → 统治治理；rule/factor → 支配、影响。语言学“支配格/语气”等专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -69,30 +69,6 @@
         "sense_id": "sense:govern:fec8318acc3e59d6",
         "sense_label_en": "direct or strongly influence the behavior of",
         "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cbff9ac2aa07e5fd0e21",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:govern:42b0915192da52c4:collocation:0"
-            ],
-            "meaning_cn": "支配虚拟语气",
-            "phrase": "govern the subjunctive"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（语法）支配（格、语态或语气）",
-        "definition_en": "require to be in a certain grammatical case, voice, or mood",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:govern:42b0915192da52c4",
-        "sense_label_en": "require to be in a certain grammatical case, voice, or mood",
-        "sort_order": 2,
         "transitivity": "vt"
       }
     ],
@@ -292,7 +268,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:cbff9ac2aa07e5fd0e21",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:govern:42b0915192da52c4:collocation:0"
+          ],
+          "meaning_cn": "支配虚拟语气",
+          "phrase": "govern the subjunctive"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（语法）支配（格、语态或语气）",
+      "definition_en": "require to be in a certain grammatical case, voice, or mood",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:govern:42b0915192da52c4",
+      "sense_label_en": "require to be in a certain grammatical case, voice, or mood",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -304,7 +305,7 @@
       },
       {
         "sense_id": "sense:govern:42b0915192da52c4",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 6043,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
@@ -319,8 +320,7 @@
     ],
     "active_collocations": [
       "collocation:24aeb039d7d1feebb389",
-      "collocation:9a55100cab0e574b207f",
-      "collocation:cbff9ac2aa07e5fd0e21"
+      "collocation:9a55100cab0e574b207f"
     ],
     "facts": [],
     "collocations": [
@@ -337,7 +337,9 @@
       {
         "id": "collocation:cbff9ac2aa07e5fd0e21",
         "source_row": 17234,
-        "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
