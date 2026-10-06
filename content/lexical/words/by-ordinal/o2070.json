@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "发怒或冒烟",
       "core_meaning_en": "to show anger or to emit smoke or gas",
-      "mental_model_cn": "发怒或冒烟",
+      "mental_model_cn": "person → 气得冒烟/发怒；substance/source → 冒烟、冒气；fumes → 有害或刺鼻烟气。“用烟气熏/处理”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,30 +130,6 @@
         "sense_label_en": "a cloud of fine particles or gas",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9c59273b89f7e2f574cd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:fume:2f430966c2155b11:collocation:0"
-            ],
-            "meaning_cn": "熏木材",
-            "phrase": "fume wood"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "熏",
-        "definition_en": "to expose to fumes or smoke",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:fume:2f430966c2155b11",
-        "sense_label_en": "to expose to fumes or smoke",
-        "sort_order": 3,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -329,7 +305,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9c59273b89f7e2f574cd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:fume:2f430966c2155b11:collocation:0"
+          ],
+          "meaning_cn": "熏木材",
+          "phrase": "fume wood"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "熏",
+      "definition_en": "to expose to fumes or smoke",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:fume:2f430966c2155b11",
+      "sense_label_en": "to expose to fumes or smoke",
+      "sort_order": 3,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -348,7 +349,7 @@
       },
       {
         "sense_id": "sense:fume:2f430966c2155b11",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5773,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
@@ -366,8 +367,7 @@
       "collocation:39f32030f4a304225111",
       "collocation:73ecdf354b9e4b864c20",
       "collocation:8cb1c7abc72faca17864",
-      "collocation:99e354ee329b4e45fb36",
-      "collocation:9c59273b89f7e2f574cd"
+      "collocation:99e354ee329b4e45fb36"
     ],
     "facts": [],
     "collocations": [
@@ -399,7 +399,9 @@
       {
         "id": "collocation:9c59273b89f7e2f574cd",
         "source_row": 13311,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

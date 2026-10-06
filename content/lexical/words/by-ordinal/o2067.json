@@ -35,14 +35,13 @@
           "pos": "verb",
           "sense_ids": [
             "sense:fuel:91ffc8fc79cf5d2f",
-            "sense:fuel:9418e091fa6658d9",
             "sense:fuel:078467f8c24859f3"
           ]
         }
       ],
-      "core_meaning_cn": "燃料；加燃料；加剧或助长",
-      "core_meaning_en": "fuel; to supply fuel; figuratively to intensify or encourage",
-      "mental_model_cn": "燃料；加燃料",
+      "core_meaning_cn": "燃料；给…加燃料；加剧或助长",
+      "core_meaning_en": "fuel; to supply with fuel; figuratively, to intensify or encourage",
+      "mental_model_cn": "substance → 燃料；fuel + object → 给…加燃料；abstract object → 加剧/助长。交通工具“停靠取燃料”的不及物义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -122,30 +121,6 @@
         "sense_label_en": "to supply something with fuel",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:55f15da6c3d627eefcd2",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fuel:9418e091fa6658d9:collocation:0"
-            ],
-            "meaning_cn": "用某物作为燃料",
-            "phrase": "fuel with + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "得到燃料",
-        "definition_en": "to take in fuel (as of a ship)",
-        "governing_pattern": "vi. + with",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:fuel:9418e091fa6658d9",
-        "sense_label_en": "to take in fuel (as of a ship)",
-        "sort_order": 2,
-        "transitivity": "vi"
       },
       {
         "collocations": [],
@@ -403,7 +378,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:55f15da6c3d627eefcd2",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:fuel:9418e091fa6658d9:collocation:0"
+          ],
+          "meaning_cn": "用某物作为燃料",
+          "phrase": "fuel with + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "得到燃料",
+      "definition_en": "to take in fuel (as of a ship)",
+      "governing_pattern": "vi. + with",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:fuel:9418e091fa6658d9",
+      "sense_label_en": "to take in fuel (as of a ship)",
+      "sort_order": 2,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -429,7 +429,7 @@
       },
       {
         "sense_id": "sense:fuel:9418e091fa6658d9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5760,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
@@ -438,7 +438,6 @@
     "active_collocations": [
       "collocation:281927109b2ba4935736",
       "collocation:349b66bf23814d7d8667",
-      "collocation:55f15da6c3d627eefcd2",
       "collocation:6bafdbe49485d04ae06e",
       "collocation:9471e01b10d9fdcf15c1"
     ],
@@ -457,7 +456,9 @@
       {
         "id": "collocation:55f15da6c3d627eefcd2",
         "source_row": 7250,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6bafdbe49485d04ae06e",

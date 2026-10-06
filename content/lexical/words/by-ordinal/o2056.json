@@ -6,25 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:fringe:be-fringed-with",
+        "sense_id": "sense:fringe:5ec2608054a458a5",
+        "pattern": "be fringed with sth",
+        "meaning_cn": "周围/边缘有…；以…为边",
+        "definition_en": "to have something forming a border around the edge",
+        "boundary": "General border/edge use; distinct from the specialist optics noun interference fringe.",
+        "level": "L2",
+        "pos": "phrase",
+        "source": "https://dictionary.cambridge.org/dictionary/english/fringe"
+      }
+    ],
     "content_hash": "ed2b5de560e52b37ac83a98d64bb469efbebadfa3bdd9c8fda1336b8f35029c2",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "流苏；边缘；干涉条纹；边缘群体",
-          "label_en": "a fringe/tassel; an outer edge; an interference fringe; a marginal group",
+          "label_cn": "刘海；流苏；边缘；边缘群体",
+          "label_en": "a fringe/bangs or tassel; an outer edge; a marginal group",
           "pos": "noun",
           "sense_ids": [
             "sense:fringe:cf43a5b7bec75886",
             "sense:fringe:9ef4d3efae2157fb",
-            "sense:fringe:ab163450e40554d9",
             "sense:fringe:aaa9aabe33355a90"
           ]
         }
       ],
-      "core_meaning_cn": "边缘；流苏",
-      "core_meaning_en": "an ornamental border or the edge of something",
-      "mental_model_cn": "边缘；流苏",
+      "core_meaning_cn": "边缘；流苏；边缘群体",
+      "core_meaning_en": "an outer edge or decorative fringe; also a marginal group",
+      "mental_model_cn": "edge/border → 边缘；threads/hair → 流苏/刘海；people/views → 边缘群体；be fringed with → 周围有…、以…为边。物理“干涉条纹”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,14 +68,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "流苏；穗",
-        "definition_en": "an ornamental border of hanging threads or tassels",
+        "definition_cn": "刘海；流苏；穗",
+        "definition_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:fringe:cf43a5b7bec75886",
-        "sense_label_en": "an ornamental border of hanging threads or tassels",
+        "sense_label_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -99,30 +110,6 @@
         "sense_id": "sense:fringe:9ef4d3efae2157fb",
         "sense_label_en": "the outer edge or margin of something",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ed60efa728a1f36270ea",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fringe:ab163450e40554d9:collocation:0"
-            ],
-            "meaning_cn": "干涉条纹",
-            "phrase": "interference fringes"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "干涉条纹",
-        "definition_en": "a light or dark band produced by interference or diffraction",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:fringe:ab163450e40554d9",
-        "sense_label_en": "a light or dark band produced by interference or diffraction",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -186,14 +173,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "加穗于；加饰边于",
-        "definition_en": "to adorn with a fringe",
+        "definition_cn": "形成…的边缘；给…加饰边",
+        "definition_en": "to form or add a border around the edge of something",
         "governing_pattern": "vt. + object",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:fringe:5ec2608054a458a5",
-        "sense_label_en": "to adorn with a fringe",
+        "sense_label_en": "to form or add a border around the edge of something",
         "sort_order": 5,
         "transitivity": "vt"
       }
@@ -352,7 +339,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ed60efa728a1f36270ea",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:fringe:ab163450e40554d9:collocation:0"
+          ],
+          "meaning_cn": "干涉条纹",
+          "phrase": "interference fringes"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "干涉条纹",
+      "definition_en": "a light or dark band produced by interference or diffraction",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:fringe:ab163450e40554d9",
+      "sense_label_en": "a light or dark band produced by interference or diffraction",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -378,7 +390,7 @@
       },
       {
         "sense_id": "sense:fringe:ab163450e40554d9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5719,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
@@ -405,7 +417,6 @@
       "collocation:89bcf4bf3b787712e16d",
       "collocation:c5ba7e80c0f0caf71037",
       "collocation:d0b4ba00f78f55cec8ce",
-      "collocation:ed60efa728a1f36270ea",
       "collocation:ff3d91e3e7b280ea84df"
     ],
     "facts": [],
@@ -443,7 +454,9 @@
       {
         "id": "collocation:ed60efa728a1f36270ea",
         "source_row": 20114,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ff3d91e3e7b280ea84df",

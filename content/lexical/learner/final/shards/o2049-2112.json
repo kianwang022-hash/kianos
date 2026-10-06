@@ -253,17 +253,25 @@
     "ordinal": 2051,
     "word": "friend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2051.json",
-    "source_fingerprint": "04dffa0d6f6baa750f1e416344661ec618c2e094f213d8b82de832e54a7eff19",
-    "sense_lineage": [],
+    "source_fingerprint": "7ac078672bf44a1c29f2c810224d61a98c69d0e0ec0e7ddb0c1e865954b2a99c",
+    "sense_lineage": [
+      {
+        "word_id": "word:friend",
+        "target_kind": "sense",
+        "from_target_id": "sense:friend:033bab57aa605ebe",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "朋友",
-      "decision_cn": "",
+      "decision_cn": "ordinary friend → 朋友。宗教名称 Friend（贵格会教徒）保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -310,23 +318,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "朋友"
         }
-      },
-      {
-        "id": "sense:friend:033bab57aa605ebe",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "贵格会教徒",
-        "definition_en": "a member of the Society of Friends (Quaker)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:friend:033bab57aa605ebe",
-          "target_locator": "record.senses[1]",
-          "target_label": "贵格会教徒"
-        }
       }
     ],
     "pronunciation_support": {
@@ -365,6 +356,22 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "贵格会教徒",
+          "definition_en": "a member of the Society of Friends (Quaker)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:friend:033bab57aa605ebe",
+          "sense_label_en": "a member of the Society of Friends (Quaker)",
+          "sort_order": 1,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -974,24 +981,39 @@
     "ordinal": 2056,
     "word": "fringe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2056.json",
-    "source_fingerprint": "6b34f7bfb57a16b2430b3b1138c3c445737d911159e584ff3109ad20acf2650a",
-    "sense_lineage": [],
+    "source_fingerprint": "5d803e5b6f6b6e7850d3cd8f84104331f6364583cdf8bbf2282b2a810f30ddb0",
+    "sense_lineage": [
+      {
+        "word_id": "word:fringe",
+        "target_kind": "sense",
+        "from_target_id": "sense:fringe:ab163450e40554d9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fringe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ed60efa728a1f36270ea",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "边缘；流苏",
-      "decision_cn": "",
+      "summary_cn": "边缘；流苏；边缘群体",
+      "decision_cn": "edge/border → 边缘；threads/hair → 流苏/刘海；people/views → 边缘群体；be fringed with → 周围有…、以…为边。物理“干涉条纹”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "边缘；流苏"
+        "target_label": "边缘；流苏；边缘群体"
       }
     },
     "senses": [
@@ -1000,8 +1022,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "流苏；穗",
-        "definition_en": "an ornamental border of hanging threads or tassels",
+        "definition_cn": "刘海；流苏；穗",
+        "definition_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1031,7 +1053,7 @@
           "target_kind": "sense",
           "target_id": "sense:fringe:cf43a5b7bec75886",
           "target_locator": "record.senses[0]",
-          "target_label": "流苏；穗"
+          "target_label": "刘海；流苏；穗"
         }
       },
       {
@@ -1074,39 +1096,8 @@
         }
       },
       {
-        "id": "sense:fringe:ab163450e40554d9",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "干涉条纹",
-        "definition_en": "a light or dark band produced by interference or diffraction",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ed60efa728a1f36270ea",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "interference fringes",
-            "meaning_cn": "干涉条纹",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ed60efa728a1f36270ea",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "interference fringes"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fringe:ab163450e40554d9",
-          "target_locator": "record.senses[2]",
-          "target_label": "干涉条纹"
-        }
-      },
-      {
         "id": "sense:fringe:aaa9aabe33355a90",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "边缘群体",
@@ -1116,14 +1107,14 @@
         "usage": [
           {
             "id": "collocation:d0b4ba00f78f55cec8ce",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the fringe of politics",
             "meaning_cn": "政治的边缘",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d0b4ba00f78f55cec8ce",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "the fringe of politics"
             }
           }
@@ -1131,13 +1122,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fringe:aaa9aabe33355a90",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "边缘群体"
         }
       },
       {
         "id": "sense:fringe:f4a5827f89945adf",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "边缘的；附加的",
@@ -1147,14 +1138,14 @@
         "usage": [
           {
             "id": "collocation:ff3d91e3e7b280ea84df",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "fringe benefits",
             "meaning_cn": "附加福利",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ff3d91e3e7b280ea84df",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "fringe benefits"
             }
           }
@@ -1162,30 +1153,30 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fringe:f4a5827f89945adf",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "边缘的；附加的"
         }
       },
       {
         "id": "sense:fringe:5ec2608054a458a5",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "加穗于；加饰边于",
-        "definition_en": "to adorn with a fringe",
+        "definition_cn": "形成…的边缘；给…加饰边",
+        "definition_en": "to form or add a border around the edge of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c5ba7e80c0f0caf71037",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "fringe a jacket",
             "meaning_cn": "给夹克加流苏",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c5ba7e80c0f0caf71037",
-              "target_locator": "record.senses[5].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "fringe a jacket"
             }
           }
@@ -1193,8 +1184,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fringe:5ec2608054a458a5",
-          "target_locator": "record.senses[5]",
-          "target_label": "加穗于；加饰边于"
+          "target_locator": "record.senses[4]",
+          "target_label": "形成…的边缘；给…加饰边"
         }
       }
     ],
@@ -1219,12 +1210,65 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:fringe:be-fringed-with",
+        "sense_id": "sense:fringe:5ec2608054a458a5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be fringed with sth",
+        "lines": [
+          {
+            "text": "周围/边缘有…；以…为边",
+            "lang": "cn"
+          },
+          {
+            "text": "General border/edge use; distinct from the specialist optics noun interference fringe.",
+            "lang": "en"
+          },
+          {
+            "text": "to have something forming a border around the edge",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fringe:be-fringed-with",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be fringed with sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ed60efa728a1f36270ea",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:fringe:ab163450e40554d9:collocation:0"
+              ],
+              "meaning_cn": "干涉条纹",
+              "phrase": "interference fringes"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "干涉条纹",
+          "definition_en": "a light or dark band produced by interference or diffraction",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:fringe:ab163450e40554d9",
+          "sense_label_en": "a light or dark band produced by interference or diffraction",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1233,26 +1277,46 @@
     "ordinal": 2057,
     "word": "frog",
     "source_owner_path": "content/lexical/words/by-ordinal/o2057.json",
-    "source_fingerprint": "22a9b1128605b73bab6a30a95d58477b99282f4036acd42a828589759256aac9",
+    "source_fingerprint": "d098accc3b52d18b0e1340535c73d7ec204c2e9ce99628333e51c5e7df2bad48",
     "sense_lineage": [
+      {
+        "word_id": "word:frog",
+        "target_kind": "sense",
+        "from_target_id": "sense:frog:2c30feca71da5370",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:frog",
         "target_kind": "sense",
         "from_target_id": "sense:frog:45d60f6d21295464",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:frog",
+        "target_kind": "sense",
+        "from_target_id": "sense:frog:d02e8afcc8c05964",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:frog",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:09b8b2bde4829150af1b",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "青蛙",
-      "decision_cn": "",
+      "decision_cn": "ordinary animal noun → 青蛙。对法国人的冒犯性旧称与“捕蛙”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1298,54 +1362,6 @@
           "target_id": "sense:frog:e0f6fa3d469a56e8",
           "target_locator": "record.senses[0]",
           "target_label": "青蛙"
-        }
-      },
-      {
-        "id": "sense:frog:2c30feca71da5370",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "法国人（贬称）",
-        "definition_en": "a person of French descent",
-        "note": "Frog meaning a French person is offensive and dated; keep it out of unmarked learner Core.",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:frog:2c30feca71da5370",
-          "target_locator": "record.senses[1]",
-          "target_label": "法国人（贬称）"
-        }
-      },
-      {
-        "id": "sense:frog:d02e8afcc8c05964",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "捕蛙",
-        "definition_en": "hunt frogs for food",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:09b8b2bde4829150af1b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "frog for + sth",
-            "meaning_cn": "捕（某物）为食",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:09b8b2bde4829150af1b",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "frog for + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:frog:d02e8afcc8c05964",
-          "target_locator": "record.senses[2]",
-          "target_label": "捕蛙"
         }
       }
     ],
@@ -1400,6 +1416,45 @@
           "source_row": 5723,
           "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "法国人（贬称）",
+          "definition_en": "a person of French descent",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:frog:2c30feca71da5370",
+          "sense_label_en": "a person of French descent",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "usage_note": "Frog meaning a French person is offensive and dated; keep it out of unmarked learner Core."
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:09b8b2bde4829150af1b",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:frog:d02e8afcc8c05964:collocation:0"
+              ],
+              "meaning_cn": "捕（某物）为食",
+              "phrase": "frog for + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "捕蛙",
+          "definition_en": "hunt frogs for food",
+          "governing_pattern": "vi. + for",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:frog:d02e8afcc8c05964",
+          "sense_label_en": "hunt frogs for food",
+          "sort_order": 2,
+          "transitivity": "vi"
         }
       ]
     }
@@ -3240,23 +3295,38 @@
     "ordinal": 2067,
     "word": "fuel",
     "source_owner_path": "content/lexical/words/by-ordinal/o2067.json",
-    "source_fingerprint": "3b5a5cd0c510941df4ac1b24fe09e3912a503863a68e40621eb1004af00e0155",
-    "sense_lineage": [],
+    "source_fingerprint": "9235ac3861141dcd72e972f5b36253879e5f1a0f2ba26647202106a74d5421f2",
+    "sense_lineage": [
+      {
+        "word_id": "word:fuel",
+        "target_kind": "sense",
+        "from_target_id": "sense:fuel:9418e091fa6658d9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fuel",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:55f15da6c3d627eefcd2",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "燃料；加燃料；加剧或助长",
-      "decision_cn": "燃料；加燃料",
+      "summary_cn": "燃料；给…加燃料；加剧或助长",
+      "decision_cn": "substance → 燃料；fuel + object → 给…加燃料；abstract object → 加剧/助长。交通工具“停靠取燃料”的不及物义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "燃料；加燃料；加剧或助长"
+        "target_label": "燃料；给…加燃料；加剧或助长"
       }
     },
     "senses": [
@@ -3334,39 +3404,8 @@
         }
       },
       {
-        "id": "sense:fuel:9418e091fa6658d9",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "得到燃料",
-        "definition_en": "to take in fuel (as of a ship)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:55f15da6c3d627eefcd2",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "fuel with + sth",
-            "meaning_cn": "用某物作为燃料",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:55f15da6c3d627eefcd2",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "fuel with + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fuel:9418e091fa6658d9",
-          "target_locator": "record.senses[2]",
-          "target_label": "得到燃料"
-        }
-      },
-      {
         "id": "sense:fuel:078467f8c24859f3",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "加剧；助长；刺激（情绪、争议、行为等）",
@@ -3377,7 +3416,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fuel:078467f8c24859f3",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "加剧；助长；刺激（情绪、争议、行为等）"
         }
       }
@@ -3453,7 +3492,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:55f15da6c3d627eefcd2",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:fuel:9418e091fa6658d9:collocation:0"
+              ],
+              "meaning_cn": "用某物作为燃料",
+              "phrase": "fuel with + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "得到燃料",
+          "definition_en": "to take in fuel (as of a ship)",
+          "governing_pattern": "vi. + with",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:fuel:9418e091fa6658d9",
+          "sense_label_en": "to take in fuel (as of a ship)",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -4032,18 +4097,33 @@
     "ordinal": 2070,
     "word": "fume",
     "source_owner_path": "content/lexical/words/by-ordinal/o2070.json",
-    "source_fingerprint": "f0790e6681ca617964ba56fb0ffa714df99ffb34b6dbdfd7fa61ded2779bcdd2",
-    "sense_lineage": [],
+    "source_fingerprint": "e073e0f8b87770cbb631d24b6ac1d8c03bf2085c453f2a3c859e5079de7a1809",
+    "sense_lineage": [
+      {
+        "word_id": "word:fume",
+        "target_kind": "sense",
+        "from_target_id": "sense:fume:2f430966c2155b11",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fume",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9c59273b89f7e2f574cd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "发怒或冒烟",
-      "decision_cn": "",
+      "decision_cn": "person → 气得冒烟/发怒；substance/source → 冒烟、冒气；fumes → 有害或刺鼻烟气。“用烟气熏/处理”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4160,32 +4240,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "烟，气，臭气"
         }
-      },
-      {
-        "id": "sense:fume:2f430966c2155b11",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "熏",
-        "definition_en": "to expose to fumes or smoke",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9c59273b89f7e2f574cd",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "fume wood",
-            "meaning_cn": "熏木材",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:fume:2f430966c2155b11",
-          "target_locator": "record.senses[3]",
-          "target_label": "熏"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4213,7 +4267,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9c59273b89f7e2f574cd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fume:2f430966c2155b11:collocation:0"
+              ],
+              "meaning_cn": "熏木材",
+              "phrase": "fume wood"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "熏",
+          "definition_en": "to expose to fumes or smoke",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:fume:2f430966c2155b11",
+          "sense_label_en": "to expose to fumes or smoke",
+          "sort_order": 3,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -6395,7 +6475,7 @@
     "ordinal": 2084,
     "word": "fuss",
     "source_owner_path": "content/lexical/words/by-ordinal/o2084.json",
-    "source_fingerprint": "54866b7a3605024e5417addce64b0029e9178709cf8bfb0de0381b20b38bccea",
+    "source_fingerprint": "411a562b64bdcef1e1cd5699a205d59079089c7a662b80601646917eb883b2a6",
     "sense_lineage": [
       {
         "word_id": "word:fuss",
@@ -6414,7 +6494,7 @@
     },
     "word_feel": {
       "summary_cn": "大惊小怪；焦虑不安",
-      "decision_cn": "",
+      "decision_cn": "noun fuss → 不必要的紧张或喧闹；make/kick up a fuss → 大惊小怪或抱怨；make a fuss of/over sb → 特别关心或热情招待；verb fuss → 为小事过度操心。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6479,7 +6559,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:fuss:make-a-fuss",
+        "source_locator": "record.constructions[0]",
+        "pattern": "make/kick up a fuss (about/over sth)",
+        "lines": [
+          {
+            "text": "大惊小怪；抱怨；闹起来",
+            "lang": "cn"
+          },
+          {
+            "text": "commotion/complaint pattern; not the attention-to-a-person phrase",
+            "lang": "en"
+          },
+          {
+            "text": "to show unnecessary anger, worry, excitement, or complaint about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fuss:make-a-fuss",
+          "target_locator": "record.constructions[0]",
+          "target_label": "make/kick up a fuss (about/over sth)"
+        }
+      },
+      {
+        "id": "construction:fuss:make-a-fuss-of-over",
+        "source_locator": "record.constructions[1]",
+        "pattern": "make a fuss of sb / make a fuss over sb",
+        "lines": [
+          {
+            "text": "对某人特别关心或热情招待",
+            "lang": "cn"
+          },
+          {
+            "text": "attention/treatment phrase; distinct from complaining or making a commotion",
+            "lang": "en"
+          },
+          {
+            "text": "to give someone a lot of attention and treat them well",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fuss:make-a-fuss-of-over",
+          "target_locator": "record.constructions[1]",
+          "target_label": "make a fuss of sb / make a fuss over sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6647,7 +6778,7 @@
     "ordinal": 2086,
     "word": "future",
     "source_owner_path": "content/lexical/words/by-ordinal/o2086.json",
-    "source_fingerprint": "fc9191d9a6df506ddb37f6ee9a4ff3473bfe4c2eb58b47e7917c8b44da900486",
+    "source_fingerprint": "74d10fe55ce7ba69109b29a12b3da39ac8f51bc56a1fd7457bb102564b77d39d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6658,7 +6789,7 @@
     },
     "word_feel": {
       "summary_cn": "未来",
-      "decision_cn": "",
+      "decision_cn": "the future → 将来的时间；future + noun → 将来的；futures → 期货；BrE in future → 从现在起/今后，而 in the future 更一般地指未来某时。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6779,7 +6910,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:future:in-future-bre",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in future (BrE)",
+        "lines": [
+          {
+            "text": "今后；从现在起（英式英语）",
+            "lang": "cn"
+          },
+          {
+            "text": "BrE from-now-on use; contrast with in the future for a later time or period more generally",
+            "lang": "en"
+          },
+          {
+            "text": "from now on, especially in British English",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:future:in-future-bre",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in future (BrE)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7267,17 +7424,32 @@
     "ordinal": 2090,
     "word": "gallery",
     "source_owner_path": "content/lexical/words/by-ordinal/o2090.json",
-    "source_fingerprint": "a1b237681cec77401adc5166f6c94c988882d33a178169c9e4828d378773ead4",
-    "sense_lineage": [],
+    "source_fingerprint": "3134ac00df09139b4b05d0a88a6ab5385ee516c68c98e6503beda120fa496ba5",
+    "sense_lineage": [
+      {
+        "word_id": "word:gallery",
+        "target_kind": "sense",
+        "from_target_id": "sense:gallery:8cca647dac325db2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gallery",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5863e66a8e0fe9ea64aa",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "展示艺术品的房间或建筑，或狭长的房间/走廊",
-      "decision_cn": "",
+      "decision_cn": "art → 画廊/美术馆；building → 长廊；theatre → 顶层楼座。高尔夫/网球“观众群”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7371,32 +7543,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "（剧场）顶层楼座；楼座观众"
         }
-      },
-      {
-        "id": "sense:gallery:8cca647dac325db2",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（高尔夫或网球比赛的）观众",
-        "definition_en": "spectators at a golf or tennis match",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5863e66a8e0fe9ea64aa",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "gallery at a golf match",
-            "meaning_cn": "高尔夫比赛的观众",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gallery:8cca647dac325db2",
-          "target_locator": "record.senses[3]",
-          "target_label": "（高尔夫或网球比赛的）观众"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7439,7 +7585,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5863e66a8e0fe9ea64aa",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:gallery:8cca647dac325db2:collocation:0"
+              ],
+              "meaning_cn": "高尔夫比赛的观众",
+              "phrase": "gallery at a golf match"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（高尔夫或网球比赛的）观众",
+          "definition_en": "spectators at a golf or tennis match",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:gallery:8cca647dac325db2",
+          "sense_label_en": "spectators at a golf or tennis match",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7729,11 +7901,18 @@
     "ordinal": 2093,
     "word": "game",
     "source_owner_path": "content/lexical/words/by-ordinal/o2093.json",
-    "source_fingerprint": "4d16de48d9139de15890df08aaca0dcf832b64450720a364820c23878f9e67cb",
-    "sense_lineage": [],
+    "source_fingerprint": "27b31f1049be4b610146e18c329426eafb38ec74ee52744567210ebc650f105f",
+    "sense_lineage": [
+      {
+        "word_id": "word:game",
+        "target_kind": "sense",
+        "from_target_id": "sense:game:5c38e4bca030589e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A",
         "4N"
       ],
@@ -7741,7 +7920,7 @@
     },
     "word_feel": {
       "summary_cn": "游戏；比赛；野味",
-      "decision_cn": "",
+      "decision_cn": "activity/contest → 游戏、比赛；one unit → 一局/一场；hunted animals → 猎物/野味；be game (for) → 愿意尝试；game the system → 钻制度空子、操纵规则。较旧的“赌博”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7871,25 +8050,8 @@
         }
       },
       {
-        "id": "sense:game:5c38e4bca030589e",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "赌博",
-        "definition_en": "to gamble",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:game:5c38e4bca030589e",
-          "target_locator": "record.senses[4]",
-          "target_label": "赌博"
-        }
-      },
-      {
         "id": "sense:game:289f755f083553a6",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "勇敢的，有胆量的",
@@ -7899,14 +8061,14 @@
         "usage": [
           {
             "id": "collocation:f383cc63b2858d242f27",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "be game for + sth",
             "meaning_cn": "愿意尝试某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f383cc63b2858d242f27",
-              "target_locator": "record.senses[5].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "be game for + sth"
             }
           }
@@ -7914,7 +8076,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:game:289f755f083553a6",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "勇敢的，有胆量的"
         }
       }
@@ -7937,12 +8099,54 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:game:game-the-system",
+        "source_locator": "record.constructions[0]",
+        "pattern": "game the system",
+        "lines": [
+          {
+            "text": "钻制度空子；利用/操纵规则谋利",
+            "lang": "cn"
+          },
+          {
+            "text": "modern disapproving manipulation sense; distinct from the low-value older game = gamble verb",
+            "lang": "en"
+          },
+          {
+            "text": "to use the rules of a system to get what you want in a slightly dishonest way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:game:game-the-system",
+          "target_locator": "record.constructions[0]",
+          "target_label": "game the system"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "赌博",
+          "definition_en": "to gamble",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:game:5c38e4bca030589e",
+          "sense_label_en": "to gamble",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -8147,23 +8351,44 @@
     "ordinal": 2095,
     "word": "gaol",
     "source_owner_path": "content/lexical/words/by-ordinal/o2095.json",
-    "source_fingerprint": "093a767fa8910ab0100c33bcbf9ba8afd1b858abf83b01c95746d56cdf5f7d5d",
-    "sense_lineage": [],
+    "source_fingerprint": "ea66f8a4d97925234983be84bf9761b7e02ef645f0642d23df011743b5130be2",
+    "sense_lineage": [
+      {
+        "word_id": "word:gaol",
+        "target_kind": "sense",
+        "from_target_id": "sense:gaol:3f9b0c1f7d435189",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gaol",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:54d8d1ca1937b5dd6b36",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gaol",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c02654e904d1d8273ce4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "监狱；监禁",
-      "decision_cn": "",
+      "summary_cn": "监狱（英式旧拼法）",
+      "decision_cn": "gaol 是 jail 的英式旧拼法；学习重点保留名词“监狱”。动词“监禁”用法保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "监狱；监禁"
+        "target_label": "监狱（英式旧拼法）"
       }
     },
     "senses": [
@@ -8204,45 +8429,6 @@
           "target_id": "sense:gaol:740ea592b6665446",
           "target_locator": "record.senses[0]",
           "target_label": "监狱；拘留所"
-        }
-      },
-      {
-        "id": "sense:gaol:3f9b0c1f7d435189",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "监禁；关押",
-        "definition_en": "to lock up or confine in or as if in a jail",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c02654e904d1d8273ce4",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "gaol sb for + crime",
-            "meaning_cn": "因某罪监禁某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c02654e904d1d8273ce4",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "gaol sb for + crime"
-            }
-          },
-          {
-            "id": "collocation:54d8d1ca1937b5dd6b36",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "He was gaoled for theft.",
-            "meaning_cn": "他因盗窃被监禁。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gaol:3f9b0c1f7d435189",
-          "target_locator": "record.senses[1]",
-          "target_label": "监禁；关押"
         }
       }
     ],
@@ -8290,7 +8476,42 @@
           "target_label": "gaol is a chiefly British traditional spelling of jail and is now much less common; jail is the usual modern spelling."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c02654e904d1d8273ce4",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:gaol:3f9b0c1f7d435189:collocation:0"
+              ],
+              "meaning_cn": "因某罪监禁某人",
+              "phrase": "gaol sb for + crime"
+            },
+            {
+              "collocation_id": "collocation:54d8d1ca1937b5dd6b36",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:gaol:3f9b0c1f7d435189:collocation:1"
+              ],
+              "meaning_cn": "他因盗窃被监禁。",
+              "phrase": "He was gaoled for theft."
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "监禁；关押",
+          "definition_en": "to lock up or confine in or as if in a jail",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:gaol:3f9b0c1f7d435189",
+          "sense_label_en": "to lock up or confine in or as if in a jail",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8299,23 +8520,30 @@
     "ordinal": 2096,
     "word": "gap",
     "source_owner_path": "content/lexical/words/by-ordinal/o2096.json",
-    "source_fingerprint": "1432ed5977710b22b6d68c9147a1c12c68143bc80c0f9edf657d76b488804d0d",
-    "sense_lineage": [],
+    "source_fingerprint": "e8b6a3a2360a57f5eafbbe3e4fa87022f4f781aff446e19d70f49cabaedbdd0e",
+    "sense_lineage": [
+      {
+        "word_id": "word:gap",
+        "target_kind": "sense",
+        "from_target_id": "sense:gap:a6262b013a2e5de4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "缺口；差距",
-      "decision_cn": "",
+      "summary_cn": "缺口；间隔；差距",
+      "decision_cn": "physical space → 缺口；time/missing part → 间隔/空缺；comparison → 差距。罕见动词“使产生缺口”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "缺口；差距"
+        "target_label": "缺口；间隔；差距"
       }
     },
     "senses": [
@@ -8391,23 +8619,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "差距；分歧"
         }
-      },
-      {
-        "id": "sense:gap:a6262b013a2e5de4",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使产生缺口；打开缺口",
-        "definition_en": "to make an opening or gap in something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gap:a6262b013a2e5de4",
-          "target_locator": "record.senses[2]",
-          "target_label": "使产生缺口；打开缺口"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8449,7 +8660,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使产生缺口；打开缺口",
+          "definition_en": "to make an opening or gap in something",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:gap:a6262b013a2e5de4",
+          "sense_label_en": "to make an opening or gap in something",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

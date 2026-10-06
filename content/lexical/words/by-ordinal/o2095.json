@@ -17,19 +17,11 @@
           "sense_ids": [
             "sense:gaol:740ea592b6665446"
           ]
-        },
-        {
-          "label_cn": "监禁；关押",
-          "label_en": "to lock up or confine in or as if in a jail",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:gaol:3f9b0c1f7d435189"
-          ]
         }
       ],
-      "core_meaning_cn": "监狱；监禁",
-      "core_meaning_en": "a place of confinement; to confine",
-      "mental_model_cn": "监狱；监禁",
+      "core_meaning_cn": "监狱（英式旧拼法）",
+      "core_meaning_en": "old-fashioned British spelling of jail, especially the noun prison",
+      "mental_model_cn": "gaol 是 jail 的英式旧拼法；学习重点保留名词“监狱”。动词“监禁”用法保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,39 +64,6 @@
         "sense_label_en": "a correctional institution where persons are held in lawful custody",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c02654e904d1d8273ce4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:gaol:3f9b0c1f7d435189:collocation:0"
-            ],
-            "meaning_cn": "因某罪监禁某人",
-            "phrase": "gaol sb for + crime"
-          },
-          {
-            "collocation_id": "collocation:54d8d1ca1937b5dd6b36",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gaol:3f9b0c1f7d435189:collocation:1"
-            ],
-            "meaning_cn": "他因盗窃被监禁。",
-            "phrase": "He was gaoled for theft."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "监禁；关押",
-        "definition_en": "to lock up or confine in or as if in a jail",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:gaol:3f9b0c1f7d435189",
-        "sense_label_en": "to lock up or confine in or as if in a jail",
-        "sort_order": 1,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -215,12 +174,46 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:c02654e904d1d8273ce4",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:gaol:3f9b0c1f7d435189:collocation:0"
+          ],
+          "meaning_cn": "因某罪监禁某人",
+          "phrase": "gaol sb for + crime"
+        },
+        {
+          "collocation_id": "collocation:54d8d1ca1937b5dd6b36",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:gaol:3f9b0c1f7d435189:collocation:1"
+          ],
+          "meaning_cn": "他因盗窃被监禁。",
+          "phrase": "He was gaoled for theft."
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "监禁；关押",
+      "definition_en": "to lock up or confine in or as if in a jail",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:gaol:3f9b0c1f7d435189",
+      "sense_label_en": "to lock up or confine in or as if in a jail",
+      "sort_order": 1,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:gaol:3f9b0c1f7d435189",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 5840,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
@@ -234,9 +227,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:54d8d1ca1937b5dd6b36",
       "collocation:6d91f96138d4903418ad",
-      "collocation:c02654e904d1d8273ce4",
       "collocation:eda6cb4a64a23024e54b"
     ],
     "facts": [],
@@ -244,7 +235,9 @@
       {
         "id": "collocation:54d8d1ca1937b5dd6b36",
         "source_row": 7155,
-        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6d91f96138d4903418ad",
@@ -254,7 +247,9 @@
       {
         "id": "collocation:c02654e904d1d8273ce4",
         "source_row": 16244,
-        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:eda6cb4a64a23024e54b",
