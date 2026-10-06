@@ -7,15 +7,29 @@
   "teaching_shape": "HIERARCHY_ROLE_GOAL_PRINCIPLE_PATH_WITH_CONFUSABLE_FORMULATION_BOUNDARIES",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-XI-C07-S01", "POL27-REGION-XI-C07-S02", "POL27-REGION-XI-C07-S03", "POL27-REGION-XI-C07-S04"],
-    "natural_unit_ids": ["POL27-CF-XI-C07-S01", "POL27-CF-XI-C07-S02", "POL27-CF-XI-C07-S03", "POL27-CF-XI-C07-S04"],
+    "region_ids": [
+      "POL27-REGION-XI-C07-S01",
+      "POL27-REGION-XI-C07-S02",
+      "POL27-REGION-XI-C07-S03",
+      "POL27-REGION-XI-C07-S04"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-XI-C07-S01",
+      "POL27-CF-XI-C07-S02",
+      "POL27-CF-XI-C07-S03",
+      "POL27-CF-XI-C07-S04"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
     "role_in_subject": "现代化的基础性战略性支撑",
     "core_problem": "为什么教育、科技、人才不能被看成三个彼此独立的政策领域，而要放在同一条现代化能力链里？",
     "core_answer": "教育培养人，人才承载创新，科技形成核心能力，三者共同决定长期发展潜力和现代化水平。",
-    "learning_order": ["先理解为什么创新发展需要长期能力基础。", "再分别看教育、科技、人才各自解决什么问题。", "最后把三者重新合成一条‘培养—集聚—创新—发展’链。"],
+    "learning_order": [
+      "先理解为什么创新发展需要长期能力基础。",
+      "再分别看教育、科技、人才各自解决什么问题。",
+      "最后把三者重新合成一条‘培养—集聚—创新—发展’链。"
+    ],
     "attention_rule": "这一章固定表述很多，但第一轮最重要的是分清：教育解决培养基础，人才解决主体支撑，科技解决创新能力。"
   },
   "units": [
@@ -24,7 +38,10 @@
       "title": "第一节 完整、准确、全面贯彻新发展理念",
       "role_question": "为什么这一节放在教育科技人才之前？",
       "answer": "因为教育科技人才建设不是孤立工程，而是服务创新驱动和高质量发展的长期能力建设，需要放回新发展理念特别是创新发展的总体要求中理解。",
-      "hierarchy": {"role": "总的发展理念背景", "downstream": "教育/科技/人才支撑"},
+      "hierarchy": {
+        "role": "总的发展理念背景",
+        "downstream": "教育/科技/人才支撑"
+      },
       "boundary": "发展理念提供方向和方法，不等于具体建设任务本身。",
       "next": "下一节进入最基础的人才培养环节——教育。"
     },
@@ -33,7 +50,10 @@
       "title": "第二节 加快建设教育强国",
       "role_question": "教育在现代化能力链中承担什么角色？",
       "answer": "教育承担人才培养和人的全面发展的基础任务，是国家创新能力和长远竞争力的重要底座。",
-      "hierarchy": {"role": "人才培养基础", "relation": "教育 → 人才 → 创新"},
+      "hierarchy": {
+        "role": "人才培养基础",
+        "relation": "教育 → 人才 → 创新"
+      },
       "boundary": "教育强国的固定帽子需要精准识别，但先不要把它们和科技强国、人才强国的定位混写。",
       "next": "有了人才培养基础，下一节看创新能力本身怎样形成。"
     },
@@ -42,7 +62,10 @@
       "title": "第三节 加快建设科技强国",
       "role_question": "科技为什么被放在现代化核心能力位置？",
       "answer": "科技创新直接影响产业升级、发展质量和国家战略能力，是形成新动能和提升自主发展能力的重要支撑。",
-      "hierarchy": {"role": "创新能力核心", "upstream": "教育培养与人才支撑"},
+      "hierarchy": {
+        "role": "创新能力核心",
+        "upstream": "教育培养与人才支撑"
+      },
       "boundary": "科技自立自强强调提升自主创新能力，不等于封闭发展或脱离国际科技合作。",
       "next": "科技最终由人创造，下一节回到人才这个关键主体。"
     },
@@ -51,7 +74,10 @@
       "title": "第四节 加快建设人才强国",
       "role_question": "人才为什么既接教育又接科技？",
       "answer": "教育提供培养体系，人才成为创新和发展的主体，科技成果又反过来依赖高水平人才持续创造和转化。",
-      "hierarchy": {"role": "创新和发展主体支撑", "relation": "教育培养 → 人才成长 → 科技创新 → 高质量发展"},
+      "hierarchy": {
+        "role": "创新和发展主体支撑",
+        "relation": "教育培养 → 人才成长 → 科技创新 → 高质量发展"
+      },
       "boundary": "人才强国不是简单追求数量，更强调高水平人才、创新能力和人才发展环境。",
       "next": "经济和创新支撑之后，第八章转向政治制度和人民民主如何保障人民当家作主。"
     }
@@ -60,6 +86,31 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-649114a8",
+        "prompt": "不看提示，恢复教材关于教育、科技、人才共同作用的表述，分别写出人才、科技、创新的定位，并恢复三者发展要求的整句。",
+        "checking_criteria": [
+          "共同作用须含全面建设社会主义现代化国家及基础性、战略性支撑，不能只答“很重要”。",
+          "人才对应第一资源，科技对应第一生产力，创新对应第一动力；三对必须一一对应，不按出现顺序猜角色。",
+          "发展要求须完整恢复教育优先发展、科技自立自强、人才引领驱动，不漏任一对象，不把它改成另一组“第一”。"
+        ],
+        "memory_cue": "作答后可提示：先回到共同位置，再分别恢复三个对象，最后恢复同一句发展要求。提示仅指回原节点，不解释未经来源确认的效应。",
+        "inspected_refs": [
+          "POL27-CF-XI-C07-K01-N02-TBL01",
+          "POL27-CF-XI-C07-K02-N02",
+          "POL27-CF-XI-C07-K03",
+          "POL27-CF-XI-C07-K02-N03",
+          "POL27-CF-XI-C06-K10-TBL01",
+          "POL27-CF-XI-C06-K11"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c07.json#POL27-CF-XI-C07-K01-N02-TBL01,POL27-CF-XI-C07-K02-N02,POL27-CF-XI-C07-K03,POL27-CF-XI-C07-K02-N03；CF下册PDF133–133 / 书132–132；blob d5b328f2fae26ee2e95795f8bc43e6a132fc6e42；既有original_text_span提取文字定位。；补充现存节点 content/politics/source/nodes/shards/pol27-cf/xi/c06.json#POL27-CF-XI-C06-K10-TBL01,POL27-CF-XI-C06-K11；角色表实际位于K11，K10-TBL01为跨考点宽提取范围。PDF物理页130/133（印刷页129/132）；目标polmem-649114a8：PDF130考点11后网格身份表左侧合并总对象及第4行基础性、战略性支撑—教育科技人才；PDF133题干引用到倍增效应句末，不用C选项。；有界补证采用原书读取回执 Library libfile_e545fb072d90819187f7bb9e66e83269 v1（原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca）；回执报告在同一原PDF实际核读指定像素范围，本次作者仅读回执文字，未本人看图。",
+          "prerequisite": "完成 C07-S01/C07-S04 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch07.brief.md#source15-content-review-20261006",
+          "reviewed_target_revision": "sha256:5d3d331da10e021122a79be079a542820623924b1f0efc42f206372fad36e37f"
+        },
         "natural_unit_id": "POL27-CF-XI-C07-S01",
         "name": "教育科技人才一体推进的高频身份",
         "items": [
@@ -70,9 +121,35 @@
           "坚持教育优先发展、科技自立自强、人才引领驱动"
         ],
         "learning_rule": "这组身份极易与高质量发展的‘首要任务’、农业强国的‘根基’串位。",
-        "source_refs": ["POL27-CF-XI-C07-K01-N02-TBL01", "POL27-CF-XI-C07-K02-N02", "POL27-CF-XI-C07-K03"]
+        "source_refs": [
+          "POL27-CF-XI-C07-K01-N02-TBL01",
+          "POL27-CF-XI-C07-K02-N02",
+          "POL27-CF-XI-C07-K03"
+        ]
       },
       {
+        "id": "polmem-637ec9c2",
+        "prompt": "立德树人对教育承担什么任务？建设教育强国与全面建成社会主义现代化强国、与实现高水平科技自立自强分别是什么关系？请分别恢复三句完整表述。",
+        "checking_criteria": [
+          "第一条须把立德树人对应教育的根本任务，不能换成人民满意或党的领导。",
+          "第二条须含建设教育强国、全面建成社会主义现代化强国、战略先导三部分；第三条须含建设教育强国、实现高水平科技自立自强、重要支撑三部分。",
+          "仅说根本、先导、支撑三个词不合格；两个目标指向交换也不合格。"
+        ],
+        "memory_cue": "作答后可提示：一条回到教育培养任务，两条回到教育强国与不同目标的关系。不要在初始题面显示“根本任务、战略先导、重要支撑”。",
+        "inspected_refs": [
+          "POL27-CF-XI-C07-K04-N01-I02",
+          "POL27-CF-XI-C07-K04-N02-I02",
+          "POL27-CF-XI-C07-K05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c07.json#POL27-CF-XI-C07-K04-N01-I02,POL27-CF-XI-C07-K04-N02-I02,POL27-CF-XI-C07-K05；CF下册PDF133–134 / 书132–133；blob d5b328f2fae26ee2e95795f8bc43e6a132fc6e42；既有original_text_span提取文字定位。；PDF物理页133（印刷页132）；目标polmem-637ec9c2：考点4、2下（2）完整两行，到基础工程止，下界3基本原则。；有界补证采用原书读取回执 Library libfile_e545fb072d90819187f7bb9e66e83269 v1（原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca）；回执报告在同一原PDF实际核读指定像素范围，本次作者仅读回执文字，未本人看图。",
+          "prerequisite": "完成 C07-S02 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch07.brief.md#source15-content-review-20261006",
+          "reviewed_target_revision": "sha256:8b3fdfa1beb54ad890f9a4776cd6efb3b77fbf81edecc23427e235291638ce0d"
+        },
         "natural_unit_id": "POL27-CF-XI-C07-S02",
         "name": "教育强国的关键身份",
         "items": [
@@ -81,9 +158,38 @@
           "建设教育强国是实现高水平科技自立自强的重要支撑"
         ],
         "learning_rule": "根本任务、战略先导、重要支撑属于不同帽子，不能互换。",
-        "source_refs": ["POL27-CF-XI-C07-K04-N01-I02", "POL27-CF-XI-C07-K04-N02-I02", "POL27-CF-XI-C07-K05"]
+        "source_refs": [
+          "POL27-CF-XI-C07-K04-N01-I02",
+          "POL27-CF-XI-C07-K04-N02-I02",
+          "POL27-CF-XI-C07-K05"
+        ]
       },
       {
+        "id": "polmem-bcf74861",
+        "prompt": "科技自立自强对于国家强盛和安全具有什么基本定位？再分别从国家强盛和民族复兴、应对风险挑战和维护国家利益、构建新发展格局和推动高质量发展及满足人民美好生活需要三个方面，恢复实现高水平科技自立自强的必要性表述。每条写清对象和关系。",
+        "checking_criteria": [
+          "第一条同时恢复国家强盛之基与安全之要，主体为科技自立自强。",
+          "第二条保留高水平、国家强盛和民族复兴、战略基石；回答含“实现高水平科技自立自强”的完整起句也可。",
+          "第三条须同时含应对风险挑战和维护国家利益，并对应必然选择。",
+          "第四条须含构建新发展格局、推动高质量发展、满足人民美好生活需要三个方面，并对应内在要求；漏一项即标明具体缺项。",
+          "三个必要性对象不可串位，不能只按四条数量给分。"
+        ],
+        "memory_cue": "作答后可提示：先想科技自立自强的基本定位，再按国家强盛和复兴、风险与利益、发展与人民需要找回三条原句。这里仅是已读原句的检索线索，不新增因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C07-K07-N01",
+          "POL27-CF-XI-C07-K07-N02-I01",
+          "POL27-CF-XI-C07-K07-N02-I02",
+          "POL27-CF-XI-C07-K07-N02-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c07.json#POL27-CF-XI-C07-K07-N01,POL27-CF-XI-C07-K07-N02-I01,POL27-CF-XI-C07-K07-N02-I02,POL27-CF-XI-C07-K07-N02-I03；CF下册PDF134–134 / 书133–133；blob d5b328f2fae26ee2e95795f8bc43e6a132fc6e42；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C07-S03 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch07.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:e1abeb255495723b001ba75c7261185352c18db647dab0ac245c49d22046fd37"
+        },
         "natural_unit_id": "POL27-CF-XI-C07-S03",
         "name": "科技自立自强的高频身份",
         "items": [
@@ -93,11 +199,38 @@
           "实现高水平科技自立自强是构建新发展格局、推动高质量发展、满足人民美好生活需要的内在要求"
         ],
         "learning_rule": "‘国家强盛之基、安全之要’属于科技自立自强，不能误给民生等对象。",
-        "source_refs": ["POL27-CF-XI-C07-K07-N01", "POL27-CF-XI-C07-K07-N02-I01", "POL27-CF-XI-C07-K07-N02-I02", "POL27-CF-XI-C07-K07-N02-I03"]
+        "source_refs": [
+          "POL27-CF-XI-C07-K07-N01",
+          "POL27-CF-XI-C07-K07-N02-I01",
+          "POL27-CF-XI-C07-K07-N02-I02",
+          "POL27-CF-XI-C07-K07-N02-I03"
+        ]
       }
     ],
     "active_boundaries": [
       {
+        "id": "polmem-b8bf4859",
+        "prompt": "请说明教育、科技、人才各自关注什么，以及为何需要放在同一章中合起来理解。用三者的具体分工和关系作答。",
+        "checking_criteria": [
+          "教育需说出培养基础和立德树人；科技需说出自主创新和核心能力；人才需说出第一资源和创新主体，不能三格写同一套空泛词。",
+          "相互关系须含内在一致性、相互支撑和一体推进；不能从教学顺序推出必然单向因果。"
+        ],
+        "memory_cue": "作答后可让学习者沿原模型中间三个节点各说一句，再回到首尾的共同位置和一体推进。",
+        "inspected_refs": [
+          "POL27-CF-XI-C07-K01",
+          "POL27-CF-XI-C07-K01-N01-I01",
+          "POL27-CF-XI-C07-K01-N02-TBL01",
+          "POL27-CF-XI-C07-K03",
+          "POL27-CF-XI-C07-K04-N01-I02",
+          "POL27-CF-XI-C07-K02-N02"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c07.json#POL27-CF-XI-C07-K01,POL27-CF-XI-C07-K01-N01-I01,POL27-CF-XI-C07-K01-N02-TBL01,POL27-CF-XI-C07-K03,POL27-CF-XI-C07-K04-N01-I02,POL27-CF-XI-C07-K02-N02；CF下册PDF132–133 / 书131–132；blob d5b328f2fae26ee2e95795f8bc43e6a132fc6e42；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C07-S01/C07-S02/C07-S03/C07-S04 已理解相关对象与模型关系后，于 C07-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "教育—科技—人才不是三个孤立政策筐",
         "items": [
           "教育侧重培养基础和立德树人",
@@ -105,12 +238,40 @@
           "人才侧重第一资源和创新主体",
           "三者具有内在一致性和相互支撑性，必须一体推进"
         ],
-        "source_refs": ["POL27-CF-XI-C07-K01", "POL27-CF-XI-C07-K01-N01-I01", "POL27-CF-XI-C07-K01-N02-TBL01"]
+        "source_refs": [
+          "POL27-CF-XI-C07-K01",
+          "POL27-CF-XI-C07-K01-N01-I01",
+          "POL27-CF-XI-C07-K01-N02-TBL01"
+        ]
       },
       {
+        "id": "polmem-c9f15f44",
+        "natural_unit_id": "POL27-CF-XI-C07-S03",
+        "prompt": "如何理解本章关于科技自主能力与对外科技交流的关系？请恢复原章关于二者的边界。",
+        "checking_criteria": [
+          "按旧章边界应说出增强自主创新能力、维护发展安全，以及不排斥国际科技交流合作，不能只复述“自立自强”。",
+          "回答不能推出一切技术、任何条件下都必须独立完成，也不能推出外部合作可替代自主能力。"
+        ],
+        "memory_cue": "作答后提醒回看原章科技节点的自主能力与交流合作两个方面。",
+        "inspected_refs": [
+          "POL27-CF-XI-C07-K07",
+          "POL27-CF-XI-C07-K09-N01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c07.json#POL27-CF-XI-C07-K07,POL27-CF-XI-C07-K09-N01；CF下册PDF134–134 / 书133–133；blob d5b328f2fae26ee2e95795f8bc43e6a132fc6e42；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C07-S03 已理解相关对象与模型关系后，于 C07-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "科技自立自强 ≠ 科技封闭",
-        "items": ["自立自强强调增强自主创新能力和维护发展安全", "不等于排斥国际科技交流合作"],
-        "source_refs": ["POL27-CF-XI-C07-K07"]
+        "items": [
+          "自立自强强调增强自主创新能力和维护发展安全",
+          "不等于排斥国际科技交流合作"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C07-K07"
+        ]
       }
     ],
     "suyi_dispositions": [],

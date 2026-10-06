@@ -7,8 +7,16 @@
   "teaching_shape": "CONCEPT_BOUNDARY_NORMATIVE_JUDGMENT_IDENTITY_AND_SITUATIONAL_APPLICATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-ETHICS-C02-S01", "POL27-REGION-ETHICS-C02-S02", "POL27-REGION-ETHICS-C02-S03"],
-    "natural_unit_ids": ["POL27-CF-ETHICS-C02-S01", "POL27-CF-ETHICS-C02-S02", "POL27-CF-ETHICS-C02-S03"],
+    "region_ids": [
+      "POL27-REGION-ETHICS-C02-S01",
+      "POL27-REGION-ETHICS-C02-S02",
+      "POL27-REGION-ETHICS-C02-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-ETHICS-C02-S01",
+      "POL27-CF-ETHICS-C02-S02",
+      "POL27-CF-ETHICS-C02-S03"
+    ],
     "suyi_refs": []
   },
   "chapter_orientation": {
@@ -29,10 +37,10 @@
     {
       "natural_unit_id": "POL27-CF-ETHICS-C02-S02",
       "title": "第二节 坚定信仰信念信心",
-      "concept_question": "为什么信念强调长期稳定性，却不能等同于拒绝认识更新？",
-      "answer": "信念是认知、情感和意志的统一，在实践考验中体现执着和支撑作用；同一人的信念又有不同层次，高层次信念对低层次信念有统摄作用。",
-      "boundary": "坚定 ≠ 盲目。信仰是最高层次的信念，但信仰也有科学与盲目之分；科学信仰来自对客观规律的正确认识。",
-      "application": "遇到困难时既不能因现实不合意就放弃方向，也不能把‘坚定’理解为拒绝事实、规律和实践检验。"
+      "concept_question": "本课程为何提出马克思主义信仰、共同理想与远大理想，如何区分理论依据、阶段与最高目标？",
+      "answer": "本节按科学性、人民性、实践性和开放发展性说明马克思主义理论品格；中国特色社会主义共同理想与共产主义远大理想分别属于阶段性理想和最高理想。目标须通过长期实践落实，不以坚定代替依据与条件。",
+      "boundary": "课程理论与价值立场不免除具体事实依据；远大目标不等于当下已全部实现，也不提供固定期限。",
+      "application": "先判断题面问理论品格、理想层次还是实现过程；只说理想坚定不能代替对应解释。"
     },
     {
       "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
@@ -47,33 +55,373 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "name": "理想的内涵与五种分类",
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01-TBL01"
+        ],
+        "prompt": "理想的内涵有哪些限定？按主体、时期、内容、层次和科学程度，各怎样分类？",
+        "items": [
+          "理想是在实践中形成的、有实现可能性的、对未来社会和自身发展目标的向往与追求，是三观在奋斗目标上的集中体现",
+          "主体：个人理想和社会理想；时期：近期理想和远期理想",
+          "内容：生活理想、职业理想、道德理想和政治理想",
+          "层次：崇高理想和一般理想；科学程度：科学理想和非科学理想"
+        ],
+        "checking_criteria": [
+          "内涵保住实践形成、实现可能与未来目标，不把任意幻想直接当理想",
+          "五个分类标准及各成员准确配对；同一目标可跨不同分类维度",
+          "不能用“个人/社会”回答层次，也不能因名称叫理想就认证其科学性"
+        ],
+        "memory_cue": "先问谁、何时、哪方面、什么层次、是否科学；五个问题对应五把分类尺。",
+        "id": "polmem-ba4678a8",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:85cad3fb10a15d948f26bafff328079105af6374fcd2d8f15e0ded03abd1594b"
+        }
+      },
+      {
         "name": "理想的三个高价值特征",
-        "items": ["超越性", "实践性", "时代性（历史性）"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N01"]
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01-TBL01"
+        ],
+        "prompt": "理想的三个特征是什么？分别怎样联系现实、实践与时代条件？",
+        "items": [
+          "超越性",
+          "实践性",
+          "时代性（历史性）",
+          "超越性：源于现实又超越现实；实践性：在实践中产生、发展，也只有在实践中才能实现；时代性：受时代条件制约，不同条件形成不同理想"
+        ],
+        "checking_criteria": [
+          "三项与原义对应，不能只列名词",
+          "超越不等于脱离现实；时代制约不等于个人不能选择；实现须经实践"
+        ],
+        "memory_cue": "现状不是终点，行动是路径，时代给条件：超越—实践—时代。",
+        "id": "polmem-2c4604c8",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:aa47f942601e6d69dbda72988e1bf7b13a7931272dbf2bfabc4f6e62c4b7357c"
+        }
       },
       {
+        "name": "信念的内涵与层次",
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01-TBL01"
+        ],
+        "prompt": "信念的内涵和三个构成要素是什么？高低层次信念怎样联系，信仰处在哪一层，科学信仰依据什么？",
+        "items": [
+          "信念是在一定认识基础上确立的、对某种思想或事物坚信不疑并身体力行的精神状态，是认知、情感和意志的有机统一体",
+          "高层次信念决定低层次信念，低层次信念服从高层次信念",
+          "信仰是最高层次的信念，具有最大的统摄力；信仰有盲目和科学之分",
+          "科学信仰来自对自然界和人类社会发展规律的正确认识"
+        ],
+        "checking_criteria": [
+          "内涵必须有认识基础与身体力行，构成不能漏认知、情感、意志",
+          "高低层方向准确，信仰不等于一切信念，也不天然等于科学",
+          "信念强烈稳定不能替代正确认识的依据"
+        ],
+        "memory_cue": "认识—投入—坚持对应认知—情感—意志；再沿信念层级向上找信仰。",
+        "id": "polmem-16f49e60",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:df7b2e3e8683dbeb2f407de534e29722173a694be96a1dbc35bd4cc8cf11d081"
+        }
+      },
+      {
         "name": "信念的三个高价值特征",
-        "items": ["执着性", "支撑性", "多样性"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N01"]
-      },
-      {
         "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
-        "name": "理想—信念关系",
-        "items": ["理想是信念所指的对象", "信念是理想实现的保障", "二者相互依存"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K01-N03"]
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N01-TBL01"
+        ],
+        "prompt": "信念有哪些特征？分别怎样解释，执着性是否等于绝不改变？",
+        "items": [
+          "执着性",
+          "支撑性",
+          "多样性",
+          "执着性：形成后不轻易改变；支撑性：使人在实践考验中坚守理想的精神力量；多样性：同一个体有不同类型和层次的信念"
+        ],
+        "checking_criteria": [
+          "三项名称与含义完整对应",
+          "不轻易改变不能改成不顾事实绝不改变；支撑理想不等于保证一切目标自动实现"
+        ],
+        "memory_cue": "稳住方向、撑住实践、容纳层次：执着—支撑—多样。",
+        "id": "polmem-b0829e8d",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:003523bfd92eddb08af63e8177454b231e49c0b0c29dbc7f46e62b2f70152103"
+        }
       },
       {
-        "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
+        "name": "理想—信念关系",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N03"
+        ],
+        "prompt": "理想和信念分别在二者关系中起什么作用？相互依存怎样理解，保障是否等于充分条件？",
+        "items": [
+          "理想是信念所指的对象",
+          "信念是理想实现的保障",
+          "二者相互依存",
+          "离开理想，信念无从产生；离开信念，理想寸步难行；保障是精神支撑，不能推出有信念就必然实现"
+        ],
+        "checking_criteria": [
+          "对象与保障方向不可颠倒；双方依存都要说明",
+          "不能把信念替代现实条件与实践"
+        ],
+        "memory_cue": "先有指向什么的目标，再有支持坚持的力量；保障不是结果保险。",
+        "id": "polmem-4b602eee",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N03",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:4145673d6d3007c588d78f64bebf3547d8e051dd33cec2e6a666d019ba6de124"
+        }
+      },
+      {
+        "name": "理想信念四种作用",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K01-N04"
+        ],
+        "prompt": "理想信念的四种作用及各自定位是什么？怎样限制“精神之钙”和“信念决定成败”的理解？",
+        "items": [
+          "昭示奋斗目标：崇高理想信念是思想和行为的定向器",
+          "催生前进动力：理想信念是人的精神世界的核心",
+          "提供精神支柱：是精神生活领域安身立命的根本",
+          "提高精神境界：是衡量精神境界高下的重要标尺",
+          "精神之钙是比喻；信念的重要不能推出单靠信念决定全部结果、社会发展方向或人生道路"
+        ],
+        "checking_criteria": [
+          "四作用与定位准确，不能把定向器、核心、根本、标尺换主语",
+          "不将修辞当单因规律或医学判断；现实条件与实践不可省"
+        ],
+        "memory_cue": "向哪里—为何动—靠什么撑—精神到哪层，对应目标—动力—支柱—境界。",
+        "id": "polmem-07a2e005",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF101；节点 POL27-CF-ETHICS-C02-K01-N04",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:68737327cdff66f816eed2ce468a5db8abdcdc0b860b7f4671eefe270f218017"
+        }
+      },
+      {
+        "name": "马克思主义四种理论品格",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K02-N01"
+        ],
+        "prompt": "本章从哪四种理论品格说明马克思主义信仰的依据，各对应什么论述？",
+        "items": [
+          "科学的理论：创造性揭示人类社会发展规律",
+          "人民的理论：第一次创立人民实现自身解放的思想体系",
+          "实践的理论：指引人民改造世界的行动",
+          "不断发展的开放的理论：始终站在时代前沿"
+        ],
+        "checking_criteria": [
+          "科学、人民、实践、开放四项与本章论述一一对应",
+          "按课程理论范围作答，不能用标签免除具体判断依据"
+        ],
+        "memory_cue": "规律—人民解放—改造行动—时代发展，四个对象帮助还原四品格。",
+        "id": "polmem-4dcf9e48",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF102；节点 POL27-CF-ETHICS-C02-K02-N01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S02 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:58b1897eacc2367ef6ff502d34fbf348f6a44062af7d6aa126565ccc3e8ae0aa"
+        }
+      },
+      {
+        "name": "共同理想与远大理想",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K02-N02",
+          "POL27-CF-ETHICS-C02-K02-N02-TIP01"
+        ],
+        "prompt": "共同理想和远大理想各是什么，处在什么关系？共产主义的几种用法、实现过程怎样理解？",
+        "items": [
+          "中国特色社会主义共同理想与共产主义远大理想，是阶段性理想与最高理想的关系",
+          "共产主义是一种理想、学说、制度，更是一种实践；是现实运动和长远目标相统一的过程",
+          "远大理想最终实现是漫长、艰辛的历史过程，需要一代又一代人的努力"
+        ],
+        "checking_criteria": [
+          "两个名称及阶段/最高的对应准确",
+          "几种用法按对象区分，不把未来制度说成当下已全部实现，也不编造固定期限"
+        ],
+        "memory_cue": "阶段连最高；目标连运动；长期连实践。",
+        "id": "polmem-16cee341",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF102；节点 POL27-CF-ETHICS-C02-K02-N02, POL27-CF-ETHICS-C02-K02-N02-TIP01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S02 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:70d26d63791a013609a5ee9dae31726816b6a31fcf7d04f7e5682617b01e55ef"
+        }
+      },
+      {
         "name": "理想—现实关系",
-        "items": ["对立统一", "现实是理想形成和实现的基础", "理想源于现实并超越现实，最终依靠实践转化"],
-        "source_refs": ["POL27-CF-ETHICS-C02-K03"]
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K03"
+        ],
+        "prompt": "理想与现实为什么对立又统一？形成、实现各依靠什么，为什么不能以应然代替实然？",
+        "items": [
+          "对立统一",
+          "现实是理想形成和实现的基础",
+          "理想源于现实并超越现实，最终依靠实践转化",
+          "对立：理想是应然追求，现实是实然状况；统一：理想受现实规定制约，在认识现实基础上发展，并在一定条件下经实践转化为现实"
+        ],
+        "checking_criteria": [
+          "对立和统一两面都解释；保留现实基础、条件与实践中介",
+          "不能把任何理想说成绝对完美或必定实现，也不能因为未实现就否定全部理想"
+        ],
+        "memory_cue": "实然提供起点，应然给出目标，条件和实践连接两端。",
+        "id": "polmem-1538f238",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF102；节点 POL27-CF-ETHICS-C02-K03",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:665a3c90c85f8d6b1b0407deace6724b9abb2a88b5539f8f62e7a3af623a5d05"
+        }
+      },
+      {
+        "name": "理想实现的过程条件途径",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K03-N02"
+        ],
+        "prompt": "实现理想的过程有哪些特点？艰苦奋斗与实践分别是什么地位？",
+        "items": [
+          "实现过程具有长期性、艰巨性和曲折性",
+          "艰苦奋斗是实现理想的重要条件，是成就人生事业不可或缺的条件",
+          "实践是实现理想的根本途径"
+        ],
+        "checking_criteria": [
+          "三过程特点完整；重要条件和根本途径对象不换",
+          "不能推出只等待、只受苦或有坚定信念就必然成功"
+        ],
+        "memory_cue": "过程有长艰曲；奋斗是条件；实践是途径。",
+        "id": "polmem-bc0d52d6",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF102；节点 POL27-CF-ETHICS-C02-K03-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:e0cf61b4029a6c2c021543ca1df8a9b47aa34c50a2be0b7f52c90f3666b70536"
+        }
+      },
+      {
+        "name": "个人理想与社会理想",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K04"
+        ],
+        "prompt": "个人理想、社会理想各指什么？二者怎样相互联系，形成基础与实现条件怎样区分？",
+        "items": [
+          "个人理想：一定历史条件和社会关系中的个体对未来物质、精神生活的向往追求；社会理想：社会集体乃至全体成员的共同理想，即全社会占主导地位的共同奋斗目标",
+          "个人理想以社会理想为指引；社会理想在理想体系中最根本、最重要，个人理想从属于社会理想",
+          "社会理想是对个人理想的汇聚和升华，建立在众人个人理想基础上，不是机械叠加，也不排斥抹杀个人理想；冲突时个人理想服从共同理想",
+          "形成以众人理想为基础，不等于社会理想实现须先实现每个人全部理想；个人理想实现依赖共同社会条件建设，不能推成最高理想全部实现前个人目标一概不可能实现"
+        ],
+        "checking_criteria": [
+          "定义、指引、汇聚升华及冲突位阶均能恢复",
+          "不混淆形成与实现，不作机械叠加或先完成全部个人目标的倒置",
+          "保留共同条件的过程含义，不制造任何个人目标均不可能的过强结论"
+        ],
+        "memory_cue": "谁形成共同方向，与实现依赖什么条件，是两问；指引向下，汇聚向上。",
+        "id": "polmem-77206a58",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF102–103；节点 POL27-CF-ETHICS-C02-K04",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:5205765d7935b0a6966e777aa6880300cc2fdc2f1a0f48aab712a552b3873adc"
+        }
+      },
+      {
+        "name": "立志双义与青年实践",
+        "natural_unit_id": "POL27-CF-ETHICS-C02-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C02-K05",
+          "POL27-CF-ETHICS-C02-K04-N02-TBL01"
+        ],
+        "prompt": "“志”有哪两层含义？本章将青年实践分成哪三组要求？",
+        "items": [
+          "志包含对未来目标的向往即志向，以及实现奋斗目标的顽强意志；立志即确立理想信念",
+          "立鸿鹄志，做奋斗者",
+          "心怀国之大者，敢于担当",
+          "自觉躬身实践，知行合一"
+        ],
+        "checking_criteria": [
+          "志向和意志均有；三行动组保留目标奋斗、责任担当、实践知行各自重心",
+          "不要求背完名言，不以远大口号替代具体能力积累"
+        ],
+        "memory_cue": "目标与意志合成志；定方向—担责任—做实事。",
+        "id": "polmem-cd2d672b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF103；节点 POL27-CF-ETHICS-C02-K05, POL27-CF-ETHICS-C02-K04-N02-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C02-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:84897d6d36dd1b4a9d9b2345acb7d39eb16cab53109c2f1d02db5e4adcb3c0e9"
+        }
       }
     ],
     "deferred_precision": [
-      "理想按主体、时期、内容、层次、科学程度等分类的完整清单保留在 Chengfeng；除非 Xiao1000 或后期记忆证据要求，不把分类表全部变成第一轮常驻背诵债务。",
-      "S02 为 canonical P2 provisional，保留理解入口但不额外制造独立 Recall 任务。"
+      "已审理想五分类和其他准确范围由本章FIRST_ROUND_EXACT对象承接；仅概览不解锁整组，不需先制造Wrong/Uncertain。",
+      "S02原canonical P2 provisional/default Recall inactive保持；本次原Content逐项批准四种理论品格、共同与远大理想两个Memory对象，依据PDF102并经完整正文解释。此为独立Memory准入，不升级整NU、不自动排程；其他未选内容、名言全文继续按具体需要回Source。"
     ]
   },
   "chapter_compression": {

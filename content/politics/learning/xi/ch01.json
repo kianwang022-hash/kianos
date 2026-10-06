@@ -7,15 +7,29 @@
   "teaching_shape": "HIERARCHY_ROLE_GOAL_PRINCIPLE_PATH_WITH_CONFUSABLE_FORMULATION_BOUNDARIES",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-XI-C01-S01", "POL27-REGION-XI-C01-S02", "POL27-REGION-XI-C01-S03"],
-    "natural_unit_ids": ["POL27-CF-XI-C01-S01", "POL27-CF-XI-C01-S02", "POL27-CF-XI-C01-S03"],
-    "suyi_refs": ["POL27-SY-XI-P063-B130"]
+    "region_ids": [
+      "POL27-REGION-XI-C01-S01",
+      "POL27-REGION-XI-C01-S02",
+      "POL27-REGION-XI-C01-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-XI-C01-S01",
+      "POL27-CF-XI-C01-S02",
+      "POL27-CF-XI-C01-S03"
+    ],
+    "suyi_refs": [
+      "POL27-SY-XI-P063-B130"
+    ]
   },
   "chapter_orientation": {
     "role_in_subject": "方向与历史方位",
     "core_problem": "新时代所有目标和政策为什么都必须先建立在中国特色社会主义这个方向上；‘进入新时代’又到底改变了什么？",
     "core_answer": "中国特色社会主义是历史和人民的选择，新时代是在这条道路长期发展基础上形成的新历史方位，它改变的是发展条件、任务和矛盾表现，而不是改变社会主义初级阶段这个基本国情判断。",
-    "learning_order": ["先回答为什么必须坚持中国特色社会主义方向。", "再区分‘进入新时代’与‘仍处社会主义初级阶段’两个不同层级判断。", "最后理解为什么新时代仍要一以贯之坚持和发展中国特色社会主义。"],
+    "learning_order": [
+      "先回答为什么必须坚持中国特色社会主义方向。",
+      "再区分‘进入新时代’与‘仍处社会主义初级阶段’两个不同层级判断。",
+      "最后理解为什么新时代仍要一以贯之坚持和发展中国特色社会主义。"
+    ],
     "attention_rule": "这一章最重要的是不串层级：道路选择回答方向，新时代回答历史方位，初级阶段回答基本国情。"
   },
   "units": [
@@ -24,7 +38,10 @@
       "title": "第一节 方向决定道路，道路决定命运",
       "role_question": "为什么中国特色社会主义不是若干可替换发展模式中的一个普通选项？",
       "answer": "它是在长期历史实践中形成的道路和制度选择，改革开放以来取得的成就进一步验证其现实基础。",
-      "hierarchy": {"role": "根本方向", "not_role": "某一个具体政策领域"},
+      "hierarchy": {
+        "role": "根本方向",
+        "not_role": "某一个具体政策领域"
+      },
       "boundary": "道路自信、理论自信、制度自信、文化自信属于同一整体，但分别指向不同支撑层面。",
       "next": "方向确定以后，才有必要问今天处在这条道路的哪个历史阶段。"
     },
@@ -33,7 +50,10 @@
       "title": "第二节 中国特色社会主义进入新时代",
       "role_question": "‘新时代’到底是在说社会性质变了，还是发展阶段和历史任务进入了新条件？",
       "answer": "新时代是中国特色社会主义发展的新历史方位，意味着党和国家事业进入新的阶段、民族复兴进入新的进程，但我国仍处于并将长期处于社会主义初级阶段。",
-      "hierarchy": {"role": "历史方位", "parallel_boundary": "社会主义初级阶段属于基本国情/发展阶段判断"},
+      "hierarchy": {
+        "role": "历史方位",
+        "parallel_boundary": "社会主义初级阶段属于基本国情/发展阶段判断"
+      },
       "boundary": "进入新时代 ≠ 超越社会主义初级阶段；这两个结论可以同时成立。",
       "next": "既然方向不变、条件更新，下一节要回答怎样长期坚持并继续发展这条道路。"
     },
@@ -73,11 +93,35 @@
           "科学社会主义在二十一世纪中国焕发强大生机活力，在世界上高高举起中国特色社会主义伟大旗帜",
           "中国特色社会主义道路、理论、制度、文化不断发展，拓展发展中国家走向现代化的途径并提供新的选择"
         ],
-        "source_refs": ["POL27-CF-XI-C01-K04"]
+        "source_refs": [
+          "POL27-CF-XI-C01-K04"
+        ]
       }
     ],
     "active_precision": [
       {
+        "id": "polmem-c8c898cb",
+        "prompt": "中国特色社会主义道路、理论体系、制度、文化在同一实践整体中分别起什么作用？逐项完成四对角色。",
+        "checking_criteria": [
+          "道路—实现途径；理论体系—行动指南；制度—根本保障；文化—精神力量。",
+          "不得把理论‘行动指南’和制度‘根本保障’交换。",
+          "此任务考对象角色，不能用四项‘开辟/形成/确立/发展’替代回答。"
+        ],
+        "memory_cue": "走哪条路、靠什么指引、用什么保障、由什么提供精神支撑。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K03-N01-I02",
+          "POL27-CF-XI-C01-K03-N01-I03",
+          "POL27-CF-XI-C01-K03-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K03-N01-I02,POL27-CF-XI-C01-K03-N01-I03,POL27-CF-XI-C01-K03-N01-I04；CF下册PDF108–108 / 书107–107；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；既有original_text_span提取文字定位。；PDF物理页108（印刷页107）；目标polmem-c8c898cb：考点3四项及右侧大括号旁注，核道路/理论体系/制度/文化四角色；保/障跨行，止于伟大实践。；有界补证采用原书读取回执 Library libfile_e545fb072d90819187f7bb9e66e83269 v1（原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca）；回执报告在同一原PDF实际核读指定像素范围，本次作者仅读回执文字，未本人看图。",
+          "prerequisite": "完成 C01-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch01.brief.md#source15-content-review-20261006",
+          "reviewed_target_revision": "sha256:36b6ef2c3061b484ff187f8df54a6d6cc8f365c4a818d686f3fea1e27de67126"
+        },
         "natural_unit_id": "POL27-CF-XI-C01-S01",
         "name": "道路—理论—制度—文化的角色",
         "items": [
@@ -87,28 +131,90 @@
           "文化：精神力量"
         ],
         "learning_rule": "四项既是根本原因结构，也是四个自信的对象；角色词要能区分。",
-        "source_refs": ["POL27-CF-XI-C01-K03-N01-I02", "POL27-CF-XI-C01-K03-N01-I03", "POL27-CF-XI-C01-K03-N01-I04"]
+        "source_refs": [
+          "POL27-CF-XI-C01-K03-N01-I02",
+          "POL27-CF-XI-C01-K03-N01-I03",
+          "POL27-CF-XI-C01-K03-N01-I04"
+        ]
       },
       {
+        "id": "polmem-342514b7",
+        "prompt": "中国特色社会主义的‘四个自信’是哪四项？",
+        "checking_criteria": [
+          "道路自信、理论自信、制度自信、文化自信四项齐全。",
+          "本题只需四项对象，不要求各项长定义。",
+          "顺序不强制，不能遗漏文化或把政治自信替入。"
+        ],
+        "memory_cue": "回到本章原有道路—理论—制度—文化四个对象，不另造缩略词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K03；CF下册PDF108–109 / 书107–108；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C01-S01 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch01.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:2162fef5ac003af093864dd16984c1a912a8080cf9dae814e8dbf7bd775649d4"
+        },
         "natural_unit_id": "POL27-CF-XI-C01-S01",
         "name": "四个自信",
-        "items": ["道路自信", "理论自信", "制度自信", "文化自信"],
+        "items": [
+          "道路自信",
+          "理论自信",
+          "制度自信",
+          "文化自信"
+        ],
         "learning_rule": "作为固定四项完整识别，但优先理解它们分别依托道路、理论、制度、文化。",
-        "source_refs": ["POL27-CF-XI-C01-K03"]
+        "source_refs": [
+          "POL27-CF-XI-C01-K03"
+        ]
       }
     ],
     "active_boundaries": [
       {
+        "id": "polmem-674591ae",
+        "natural_unit_id": "POL27-CF-XI-C01-S02",
+        "prompt": "中国特色社会主义进入新时代后，历史方位与社会主义初级阶段基本国情这两个判断分别怎样变化？两者是否矛盾？",
+        "checking_criteria": [
+          "新的历史方位；仍处于并将长期处于社会主义初级阶段，二者层级不同，可同时成立。",
+          "不能扩大为‘所有国情和国际地位都没变’。",
+          "允许语义等值的解释。"
+        ],
+        "memory_cue": "两个坐标同时看：阶段内的新方位与长期基本国情。",
+        "inspected_refs": [
+          "POL27-CF-XI-C01-K04",
+          "POL27-CF-XI-C01-K05",
+          "POL27-CF-XI-C01-K04-TBL01",
+          "POL27-CF-XI-C01-K05-N04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c01.json#POL27-CF-XI-C01-K04,POL27-CF-XI-C01-K05,POL27-CF-XI-C01-K04-TBL01,POL27-CF-XI-C01-K05-N04；CF下册PDF109–110 / 书108–109；blob d1cd4c7559e8fa743b3410c2a2bdd0bff334d75a；既有original_text_span提取文字定位。；PDF物理页109/110（印刷页108/109）；目标polmem-674591ae：PDF109考点4二行表与PDF110考点5编号4两个没有变及主要矛盾变化的完整范围，不扩后续历史表。；有界补证采用原书读取回执 Library libfile_e545fb072d90819187f7bb9e66e83269 v1（原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca）；回执报告在同一原PDF实际核读指定像素范围，本次作者仅读回执文字，未本人看图。",
+          "prerequisite": "完成 C01-S02 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch01.brief.md#source15-content-review-20261006",
+          "reviewed_target_revision": "sha256:5d6264820c1ff2a0156c205f4709241fee0c2aef350ecbea326f78e9ec77ea6f"
+        },
         "name": "新时代历史方位 ≠ 基本国情改变",
         "items": [
           "变了：中国特色社会主义进入新时代，形成新的历史方位",
           "没变：我国仍处于并将长期处于社会主义初级阶段"
         ],
-        "source_refs": ["POL27-CF-XI-C01-K04", "POL27-CF-XI-C01-K05"]
+        "source_refs": [
+          "POL27-CF-XI-C01-K04",
+          "POL27-CF-XI-C01-K05"
+        ]
       }
     ],
     "suyi_dispositions": [
-      {"source_ref": "POL27-SY-XI-P063-B130", "disposition": "COMPACT_CROSSCHECK", "reason": "用于新时代方位/初级阶段边界校准，不另开课程。"}
+      {
+        "source_ref": "POL27-SY-XI-P063-B130",
+        "disposition": "COMPACT_CROSSCHECK",
+        "reason": "用于新时代方位/初级阶段边界校准，不另开课程。"
+      }
     ],
     "source_primary_detail": "第三节一以贯之的展开细节属于 P2；第一轮由乘风连续学习，KianOS 不制造额外常驻背诵对象。"
   },

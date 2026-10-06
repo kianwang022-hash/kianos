@@ -129,7 +129,7 @@
         {
           "label": "实践检验",
           "problem": "最终靠什么判断认识是否符合客观实际？",
-          "relation": "实践把主观认识与客观结果连接起来，因此是检验真理的根本标准；具体实践又具有历史条件，所以检验过程会持续发展。"
+          "relation": "实践把主观认识与客观结果连接起来，因此是检验真理的唯一标准；具体实践又具有历史条件，所以检验过程会持续发展。"
         },
         {
           "label": "价值与真理",
@@ -183,7 +183,7 @@
       "认识从感性材料上升为理性把握",
       "理性认识必须回到实践并接受检验",
       "真理要求正确反映客观实际，同时具有具体条件和发展性",
-      "实践是检验真理的根本标准",
+      "实践是检验真理的唯一标准",
       "现实行动还包含价值选择，但价值必须以尊重客观规律为基础",
       "认识世界和改造世界最终统一于不断发展的实践"
     ],
@@ -198,10 +198,738 @@
     "review_prompt": "闭卷恢复一个循环，而不是背名词：实践 → 感性/理性认识 → 回到实践 → 真理检验 → 价值选择 → 认识和改造世界 → 新实践。"
   },
   "projection_notes": {
-    "learner_default": "SHOW_ORIENTATION_THEN_CHENGFENG_CONTINUOUS_SOURCE",
+    "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
     "suyi_default": "HIDDEN_BACKGROUND_REFERENCE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
-    "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
+    "memory_default": "CHAT_ENCODING_THEN_AUTHORIZED_WEBSITE_RETRIEVAL",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "name": "实践本质与三特征",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K01"
+        ],
+        "prompt": "实践的本质怎样界定，区别于纯意识活动的判断是什么？三项基本特征各说明什么，其中哪项是本质属性？",
+        "items": [
+          "实践是人能动改造世界的社会性物质活动，超出纯粹意识状态变化，对客观对象发生现实作用",
+          "客观实在性即直接现实性：要素和条件客观、受规律制约，可以把观念方案转为现实成果，是实践本质属性",
+          "自觉能动性：受目的意愿指引并有创造性，不等于不受客观限制",
+          "社会历史性：内容性质范围水平方式受社会历史条件制约，并随之发展"
+        ],
+        "checking_criteria": [
+          "本质保留人、能动改造、社会性、物质性；三特征对应机制，直接现实性与自觉能动性不换",
+          "思考可服务实践但不因此所有纯思考都是实践，独自操作也有社会历史条件",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "是不是现实改造，再问客观条件、目的组织、历史关系。",
+        "id": "polmem-9d78d476",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF32–33；节点 POL27-CF-MARX-C03-K01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:4dbd65e710348538c5d4b0c790539f8f9dc8cc31beca42e3a5391bb3852809c6"
+        }
+      },
+      {
+        "name": "实践主体客体与中介",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K02"
+        ],
+        "prompt": "实践三个基本要素各是什么？主体的能力、形态和任务怎样分，客体与全部客观世界是否相同，中介分哪两系统？",
+        "items": [
+          "主体是有一定主体能力、从事现实社会实践活动的人；能力含自然与精神，精神中知识性因素是首要能力，另有情感意志等非知识因素",
+          "主体形态：个体、群体、人类；任务：设目的、操作中介、改造客体",
+          "客体是进入该次实践范围、为主体活动指向并相互作用的客观对象，不等于全部客观世界",
+          "中介是工具手段及运用程序方法，包括物质工具系统和语言符号工具系统；三要素有机统一构成实践基本结构"
+        ],
+        "checking_criteria": [
+          "三要素定义、主体三形态三任务与两系统完整，首要知识能力不排除其他能力",
+          "不是任何人任何时刻都为某次实践主体，也不是所有客观物自动是该活动客体",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "谁活动—指向什么—借助什么；主体再分能力形态任务。",
+        "id": "polmem-92502e29",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF33；节点 POL27-CF-MARX-C03-K02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:1e1fc35f2d48aa395730c9ab768807e8b073ecf3e963749a1e91134c8749d884"
+        }
+      },
+      {
+        "name": "主体客体关系与双向转化",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K02-N02",
+          "POL27-CF-MARX-C03-K02-N03"
+        ],
+        "prompt": "主体与客体之间有哪三种关系，哪种最根本？主体客体化和客体主体化分别怎样变化？",
+        "items": [
+          "实践关系最根本，认识关系与价值关系在实践基础上形成",
+          "认识关系问认识与被认识；价值关系问客体对主体需要的意义",
+          "主体客体化：主体本质力量通过实践凝聚物化于客体，使对象具有人的活动成果，如树加工成筷子",
+          "客体主体化：客观对象因素转为主体生命结构或能力的一部分，如药物被吸收作用于身体"
+        ],
+        "checking_criteria": [
+          "三关系及最根本定位准确；双向各是谁的力量/因素到哪一边，例子允许替换但机制不变",
+          "不把认识的反映直接等同现实实践改造",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先有现实作用，再认识与评价；能力入对象、对象入主体分两方向。",
+        "id": "polmem-a32f83c0",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF33–34；节点 POL27-CF-MARX-C03-K02-N02, POL27-CF-MARX-C03-K02-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:7ce320053a7999bff501dd4b24d975bc04c269e349b39e0d8ef6d9920fafc5fa"
+        }
+      },
+      {
+        "name": "实践三类型与虚拟派生",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K03"
+        ],
+        "prompt": "实践三种基本类型各解决什么，哪种最基本？虚拟实践有什么身份与特点，为什么不是第四种独立基本类型？",
+        "items": [
+          "物质生产实践：处理人与自然关系，是最基本实践活动及全部社会生活基础",
+          "社会政治实践：处理人与人社会关系；科学文化实践：创造精神文化产品，两者在生产实践基础上发展并反作用于它",
+          "虚拟实践是基本实践派生的新形式，具有相对独立性和交互性、开放性、间接性等特点，仍依赖现实物质技术与社会条件"
+        ],
+        "checking_criteria": [
+          "三类型完整并有对象，生产基础与其他反作用保留；虚拟派生及三特点准确",
+          "科学文化不等于纯粹脑内认识，虚拟不等于完全独立",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "生产供基础，社会关系与文化实践展开；虚拟是新形态而非另一本原。",
+        "id": "polmem-fd1af0b6",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF34；节点 POL27-CF-MARX-C03-K03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:795fac698b00c00c7d4d37e4b48a432de2fe3f6c7ca568fd2dabe6a9fb00eb4a"
+        }
+      },
+      {
+        "name": "实践决定认识的四方面",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K04"
+        ],
+        "prompt": "实践对认识有哪些决定作用？动力作用有哪三机制，直接与间接经验怎样联系，认识反作用如何限定？",
+        "items": [
+          "来源：认识在实践基础上形成发展；个人可有直接和间接经验，间接知识最终源于人的实践，不要求每人亲历一切",
+          "动力：实践提出认识需要，提供经验材料和工具条件，锻炼提高主体认识能力",
+          "目的：认识为了更好改造客体、有效指导实践；实践是认识起点和归宿",
+          "检验：实践是检验认识真理性的唯一标准",
+          "认识有相对独立性、可超前或出错，并经实践发生反作用；不与实践并列为相互决定"
+        ],
+        "checking_criteria": [
+          "四方面分别恢复，动力三机制和经验关系完整",
+          "认识不是永远滞后，错误认识也能作用但不保证正确有效；探索不是唯一终极目的",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "从哪来—为何进—为啥用—怎样验，动力再看需要、条件、能力。",
+        "id": "polmem-df91f123",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF34–35；节点 POL27-CF-MARX-C03-K04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:95d356d98437c3a0fd46c1af78b854056e6f0d5663256fa14f762b670a0f896d"
+        }
+      },
+      {
+        "name": "认识本质与反映创造统一",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K05"
+        ],
+        "prompt": "认识本质是什么？唯心先验、旧唯物反映、新唯物能动反映怎样区别，反映性与创造性如何联系？",
+        "items": [
+          "认识是主体在实践基础上对客体的能动反映",
+          "唯心先验从思想感觉到物；唯物反映从物到思想感觉，旧唯物把反映理解为直观机械被动，新唯物引入实践与辩证发展",
+          "反映性以客观对象为原型摹写其状态属性本质，是基本规定；创造性是思维中能动加工，不是照镜式复制",
+          "二者是同一本质的两方面、不可分割；只反映不创造滑向旧唯物直观，只创造不反映滑向唯心/不可知"
+        ],
+        "checking_criteria": [
+          "本质含主体、实践、客体、能动反映，旧唯物并非不承认物到思想方向",
+          "新观点两突出点为实践与发展；创造有现实材料来源，本质不因主观判断自行变",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "有对象原型，又有主体加工；实践和发展使反映成为能动过程。",
+        "id": "polmem-c1a49727",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF36；节点 POL27-CF-MARX-C03-K05",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:11216a701683ae2a0beed2df8488ebc63c5acd404cfa31fef53b965852d32384"
+        }
+      },
+      {
+        "name": "感性认识三形式",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K06-N01",
+          "POL27-CF-MARX-C03-K06-N02"
+        ],
+        "prompt": "感性认识怎样形成、把握什么、有何特点？三种形式各是什么，起始环节与较高形式如何配对？",
+        "items": [
+          "在实践基础上由感觉器官直接感受到事物现象、外部联系和各方面，属于认识初级阶段，具有直接性、具体性",
+          "感觉：个别属性和方面的直接反映，是感性认识乃至整个认识过程的起始环节",
+          "知觉：事物外部特征整体的反映",
+          "表象：头脑对过去感觉知觉的回忆，是感性认识较高形式"
+        ],
+        "checking_criteria": [
+          "三形式定义、起始/较高和阶段特点准确",
+          "初级不等于必错或不可靠，表象不等于抽象概念",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "单属性成感觉，外部整体成知觉，记忆再现成表象。",
+        "id": "polmem-7dc403ec",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF37；节点 POL27-CF-MARX-C03-K06-N01, POL27-CF-MARX-C03-K06-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:ef408fe579b796962192a1a0659a39310e66492d434b731b0867952c381c9f01"
+        }
+      },
+      {
+        "name": "理性认识三形式",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K06"
+        ],
+        "prompt": "理性认识以什么形成、把握什么、有何特点？三种形式各是什么，概念的地位是什么？",
+        "items": [
+          "在概括整理大量感性材料基础上通过抽象思维，把握本质、全体、内部联系和规律；属认识高级阶段，具有间接性、抽象性",
+          "概念：对同类事物共同一般特性和本质属性的概括反映，是思维细胞、最基本思维形式",
+          "判断：展开概念，反映事物联系和关系并作肯否判断",
+          "推理：从已知合逻辑推出未知的反映形式"
+        ],
+        "checking_criteria": [
+          "三形式及地位、对象与特点完整",
+          "高级不是最后终点、抽象不保证正确，也不等于仅把握数量",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "概念定共同规定，判断连接并肯否，推理从已知到新判断。",
+        "id": "polmem-0a2b5cb0",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF37；节点 POL27-CF-MARX-C03-K06",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:b69839451f0c21f2527ee93da3fd0c75696a2fec34fdb98891a1ff39f157ddbd"
+        }
+      },
+      {
+        "name": "两阶段关系与第一飞跃",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K06"
+        ],
+        "prompt": "感性与理性认识怎样联系，第一飞跃有哪两条件和四种加工要求？割裂两者各有什么错误？",
+        "items": [
+          "理性依赖感性，感性有待发展深化为理性；两者相互渗透包含，统一基础是实践",
+          "第一飞跃需投身实践深入调查，取得丰富且合乎实际的感性材料",
+          "再经理论思维和科学抽象加工：去粗取精、去伪存真、由此及彼、由表及里",
+          "片面强调理性导致唯理论/教条主义，片面强调感性导致经验论/经验主义"
+        ],
+        "checking_criteria": [
+          "依赖、发展、渗透三关系与两条件四加工词完整，错误方向不倒置",
+          "材料堆积不自动形成理论，理性先行模板不能替代实际材料",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "材料要丰富真实，加工要取精存真、连彼入里；两端都靠实践。",
+        "id": "polmem-6cb95449",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF37–38；节点 POL27-CF-MARX-C03-K06",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:f20128bef0a76dda01c3eebef9fe18e24a62396a0c043e559f7c0b065d626af2"
+        }
+      },
+      {
+        "name": "第二飞跃与实施环节",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K06",
+          "POL27-CF-MARX-C03-K06-N02-TBL01"
+        ],
+        "prompt": "第二次认识飞跃从哪到哪，为什么更重要？源列哪些中介环节使理论转为现实行动？",
+        "items": [
+          "从理性认识到实践，是更为重要的一次能动飞跃，因为实践是认识目的并检验发展认识",
+          "中介环节：确定实践目的、形成实践理念、制定实践方案、进行中间实验、运用科学实践方法，以及对人民群众组织和宣传",
+          "理论的价值与威力须在指导实践中实现，学习成果须接受实践成效检验"
+        ],
+        "checking_criteria": [
+          "方向与更重要理由准确；六类环节能恢复，不只写制定计划",
+          "更重要不取消第一飞跃，背出理论不等于完成现实转化",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "目的理念先组织方向，方案实验落实可行，方法组织使人行动。",
+        "id": "polmem-2f946e8b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF38；节点 POL27-CF-MARX-C03-K06, POL27-CF-MARX-C03-K06-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:70499a285dc0f9552e51a592c60dda416a32970f7e70a58d9f0dda1a1ad01e5a"
+        }
+      },
+      {
+        "name": "理性非理性因素与阶段区别",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K07"
+        ],
+        "prompt": "理性因素、非理性因素各包含什么、有什么作用？它们与感性/理性认识两个阶段是什么关系？",
+        "items": [
+          "理性因素主要为理性直观、理性思维等能力，作用为指导、解释、预见",
+          "非理性因素主要为情感意志，广义有联想想象猜测顿悟灵感等非逻辑形式，作用为激活、驱动、控制",
+          "两类是认识过程中的作用因素，可存在于两个阶段；不分别等同感性认识和理性认识，协同参与认识"
+        ],
+        "checking_criteria": [
+          "两类内容与三作用词分别完整，阶段/因素不混",
+          "非理性不等于不理智错误，情感灵感可促进但不能替代证据",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "阶段说认识到哪，因素说什么参与推动；理性指解释预见，情感激活驱动控制。",
+        "id": "polmem-0a07d44e",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF38–39；节点 POL27-CF-MARX-C03-K07",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:60733e425861f1bcdff61f883f4fcf00317863fa29bc59a08db5933342ed6bc6"
+        }
+      },
+      {
+        "name": "认识反复无限与具体历史统一",
+        "natural_unit_id": "POL27-CF-MARX-C03-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K08",
+          "POL27-CF-MARX-C03-K09"
+        ],
+        "prompt": "认识为什么有反复性与无限性？基本运动过程是什么，“具体的历史的统一”各限定什么？",
+        "items": [
+          "反复性：复杂对象本质显露有过程，主体能力提高有过程，认识受主客观条件限制，须多次由感性到理性再回实践",
+          "无限性：世界及实践不断发展，人类认识无止境；实践—认识—再实践—再认识循环上升，形式反复而实质前进",
+          "具体统一：符合一定时间地点条件下的客观实践；历史统一：符合特定历史发展阶段的实践，客观条件变了认识应相应调整"
+        ],
+        "checking_criteria": [
+          "两性质原因、上升过程及具体/历史限定完整",
+          "不是认识复杂性决定客观对象复杂性，不是原地重复或任意变换真理",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "对象展开与能力成长要求反复，世界发展要求无限；每次判断落在具体时空阶段。",
+        "id": "polmem-70bd59d1",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF39；节点 POL27-CF-MARX-C03-K08, POL27-CF-MARX-C03-K09",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:5af08eea55f07b8de303a5d0afb1e34f7f4dbff27e27b49fd8ca01e498596158"
+        }
+      },
+      {
+        "name": "真理客观性与一元性",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K10-N01",
+          "POL27-CF-MARX-C03-K10-N02",
+          "POL27-CF-MARX-C03-K10-N03"
+        ],
+        "prompt": "真理怎样定义，客观性有哪两面，一元性须限定什么？主观形式、多数认可或有用能否取代真理标准？",
+        "items": [
+          "真理是对客观事物及其规律的正确反映，是认识而非物质对象本身",
+          "客观性是本质属性：正确反映的内容客观，检验标准社会实践也客观；表达形式可以主观",
+          "一元性：同样条件、同一对象同一方面同一问题，互相矛盾的判断不能同真；同一正确内容可有不同表达，不同方面可互补",
+          "多数认可、权威偏好或有用本身不等于客观符合；来源客观也不足以证明内容正确"
+        ],
+        "checking_criteria": [
+          "定义保留正确反映，两客观面与一元限定完整",
+          "不把真理叫物质存在或无条件主观，也不将所有不同认识都判互相排斥",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "正确符合对象是内容，实践是标准；同题同条件才谈不能两真。",
+        "id": "polmem-2d35b124",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF39–40；节点 POL27-CF-MARX-C03-K10-N01, POL27-CF-MARX-C03-K10-N02, POL27-CF-MARX-C03-K10-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:6b3fadde31c3c2b13851eff847d7244076cdb5a6ed45a932303c4e0b1204c3fe"
+        }
+      },
+      {
+        "name": "真理绝对性与相对性",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K10-N04"
+        ],
+        "prompt": "任何真理的绝对性、相对性分别有哪两层含义，怎样联系？夸大任一面各导致什么？",
+        "items": [
+          "绝对性：含有与客观对象相符的正确内容，和谬误有原则界限；人类能够不断正确认识无限发展的物质世界",
+          "相对性：广度上是某阶段某部分的认识，有待发展；深度上是对象某方面层次程度的认识，有待深化",
+          "两性相互依存包含，绝对性通过相对性表现，绝对真理寓于相对真理；是同一真理两个方面，不是两类真理或两套任意表达",
+          "认识不断由相对走向绝对；人类认识能力无限与个人时代条件有限统一，有限结论之和不能当已完成全部绝对认识",
+          "夸大绝对性为教条主义/思想僵化，夸大相对性为怀疑主义/诡辩论"
+        ],
+        "checking_criteria": [
+          "两边各两含义、相互关系和错误方向准确",
+          "相对真理不是错误认识，发展不是任意抹掉原适用范围内已确证内容",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "正确内容与可认识性守绝对；范围深度有限守相对；发展中接近而非一次封顶。",
+        "id": "polmem-7b8c1e20",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF40–41；节点 POL27-CF-MARX-C03-K10-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:b2d09688dabe9f81818dd400af638b1c3b6e676f16de39318d8c360eb548aa5e"
+        }
+      },
+      {
+        "name": "真理谬误的界限与转化",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K11"
+        ],
+        "prompt": "真理与谬误怎样区别、联系和有条件转化？失败的价值与真误调和有什么不同？",
+        "items": [
+          "谬误是对客观事物及发展规律的歪曲反映；真误在确定对象条件下有原则界限，同一内容不能既真又假",
+          "二者相比较而存在，条件改变或认识纠错可发生转化；整套认识可含不同真误部分，不等于同一正确内容本身就是错误",
+          "总结失败、批判谬误是获得正确认识的路径；价值在纠错过程，不是错误本身因有用就成为真理",
+          "真理发展不是同谬误调和或互补折中，谬误不是相对真理"
+        ],
+        "checking_criteria": [
+          "定义与确定条件界限准确；转化保留条件，认识整体与具体内容区分",
+          "不直接把源“真理含后来错误”解释成同条件同内容兼真误",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先定对象条件判真误，再看条件变化与纠错过程。",
+        "id": "polmem-8954f09a",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF41–42；节点 POL27-CF-MARX-C03-K11",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:c98209f7cbdfb7fbd57c42ac8be4eb28d806277eed30fda5b183923ca5049f4f"
+        }
+      },
+      {
+        "name": "实践唯一标准与逻辑证明",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K12-N01",
+          "POL27-CF-MARX-C03-K12-N02"
+        ],
+        "prompt": "实践为何是检验真理的唯一标准？逻辑证明有什么作用及限制？",
+        "items": [
+          "真理要求主观认识与客观对象一致；实践有直接现实性，将主观见之于客观、比较认识与对象，因此能担当唯一标准",
+          "逻辑证明是探索论证真理、扩展认识的重要手段，是实践标准的重要补充、正确思维表达的必要条件和建立科学理论体系的重要途径",
+          "逻辑自洽不能独立证明客观符合；逻辑证明须服从实践检验最终结果，不是另一独立真理标准"
+        ],
+        "checking_criteria": [
+          "真理本性与实践特点两依据明确，逻辑作用和边界都保留",
+          "不能说实践唯一便排斥逻辑，或符合逻辑就必然真",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "要比较主客观，须现实活动作桥；逻辑帮助论证但不替对象检验。",
+        "id": "polmem-05a8b2fd",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF42；节点 POL27-CF-MARX-C03-K12-N01, POL27-CF-MARX-C03-K12-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:32d7b63d19fe80626e11e6bc20f59d26fa64394d74df2707b07c46fe4d46b134"
+        }
+      },
+      {
+        "name": "实践标准的确定与不确定",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K12-N03",
+          "POL27-CF-MARX-C03-K12-N04"
+        ],
+        "prompt": "实践标准的确定性和不确定性各指什么，怎样处理已检验认识与继续检验的关系？",
+        "items": [
+          "确定性即绝对性：实践标准的唯一性、最终性、归根到底性，认识须最终受实践检验",
+          "不确定性：具体历史实践有相对性与有限性，一次过程未必能充分证实证伪；检验是社会历史实践的持续过程",
+          "原适用条件下确证的客观正确内容不因意见变化被取消；已检验认识仍须继续接受发展实践检验，不能把一次成功标签变成整套理论免检"
+        ],
+        "checking_criteria": [
+          "两性及社会历史过程准确，具体一次与最终标准分开",
+          "不按不同阶级各设客观真理标准，也不把一次失败或成功绝对化",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "唯一标准是确定，具体实践有限是不确定；反复检验不取消正确内容。",
+        "id": "polmem-68340bf4",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF42–43；节点 POL27-CF-MARX-C03-K12-N03, POL27-CF-MARX-C03-K12-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:0fcffd7acae28ca8a058d47fb0a550bc705d10435bc5bf81faea936f8a5a0655"
+        }
+      },
+      {
+        "name": "价值定义与四特性",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K13-N01",
+          "POL27-CF-MARX-C03-K13-N02"
+        ],
+        "prompt": "价值反映什么关系，由什么构成？四项基本特性分别怎样理解，潜在价值如何成为现实价值？",
+        "items": [
+          "价值反映主体与客体的意义关系，是客体对个人群体社会生活活动的积极意义，由主体需要与客体属性关系构成",
+          "主体性：主体不同价值不同，依赖主体存在与创造；必须说对谁的价值，实践使潜在转为现实",
+          "客观性：一定条件下价值不依主观愿望任意有无，需要与属性有现实依据",
+          "多维性：同一客体可满足不同需要；社会历史性：实践和历史条件改变，价值关系随之变化"
+        ],
+        "checking_criteria": [
+          "定义两端与四性完整，主体性与主观任意区别",
+          "不能把认识评价本身当创造客观价值，或属性自然显露就自动形成现实社会价值",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "谁需要什么、对象能提供什么；主体有别、属性客观、多种用途、随历史变化。",
+        "id": "polmem-6dbffa20",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF43；节点 POL27-CF-MARX-C03-K13-N01, POL27-CF-MARX-C03-K13-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:3f4765e0058d4663a6e943a0296e86d0b9cc51b3c00efabcfc8a0118ecee0e0b"
+        }
+      },
+      {
+        "name": "价值评价与事实判断",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K13",
+          "POL27-CF-MARX-C03-K13-N04"
+        ],
+        "prompt": "价值评价认识的对象是什么，有哪几项基本特点？与事实判断怎样区别，如何判断评价是否科学？",
+        "items": [
+          "评价是对客体价值及价值大小的判断，以主客体价值关系为对象；事实认识以客体性质规律为对象，追问是什么，价值判断另问应怎样及对主体意义",
+          "评价结果直接关联主体需要特点及情感兴趣；其正确与否依赖对客体状况和主体需要的真实认识",
+          "评价有正确错误、科学非科学之分，虽具主观性却非主观随意，须以真理为根据",
+          "本课程规范尺度为有利人类生存发展、合社会历史规律并推进进步、以最广大人民需要利益为根本"
+        ],
+        "checking_criteria": [
+          "对象、主体相关、认识依据、科学非科学四特点均能恢复",
+          "价值主体性与评价主观性不混；课程规范立场不冒充只由事实自动推出的结论",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "事实问是什么，评价问对谁意味着什么；评价虽有人参与仍须真实依据。",
+        "id": "polmem-a9996df9",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF43–44；节点 POL27-CF-MARX-C03-K13, POL27-CF-MARX-C03-K13-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:4d9055f7f98293a502197cc6c0c6bbf33d8b2789bb914dedd1044c50fc8ef5de"
+        }
+      },
+      {
+        "name": "真理尺度与价值尺度统一",
+        "natural_unit_id": "POL27-CF-MARX-C03-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K13-N05"
+        ],
+        "prompt": "实践中的真理尺度与价值尺度各指什么，怎样相互联系，统一基础和性质是什么？",
+        "items": [
+          "真理尺度：遵循正确反映客观本质规律的认识；价值尺度：依主体合理需要目的进行认识改造",
+          "成功实践统一合规律性与合目的性；实践是认识价值产生基础，也是真理价值统一基础",
+          "价值目标须以真理为指导，主体需要又推动发现真理；统一是具体的历史的",
+          "有价值想法不必是真理，正确认识也不保证某主体立即取得任意收益"
+        ],
+        "checking_criteria": [
+          "两尺度与合规律/合目的准确，基础和相互作用方向完整",
+          "不把合理价值当事实证据，不把真理一定有价值泛化为任何即时收益",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "规律定可行，目的定所求，实践把两者具体结合。",
+        "id": "polmem-ceaf5261",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF44；节点 POL27-CF-MARX-C03-K13-N05",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:0051eeb74cd723d21d7c7ca2a5e525b7ab4b4dc7b42514b29d03d2d19e83185d"
+        }
+      },
+      {
+        "name": "认识改造与主客观矛盾",
+        "natural_unit_id": "POL27-CF-MARX-C03-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K14"
+        ],
+        "prompt": "认识世界与改造世界、改造主观与客观世界分别是什么关系？主客观矛盾在这里是什么地位？",
+        "items": [
+          "认识世界的目的是改造世界，正确认识是有效改造的必要前提，实践是认识与改造统一基础",
+          "改造客观世界同时改变主体的认识能力观念；主客观改造相互依赖促进、缺一不可",
+          "主观需要目的与客观现实不总一致，其矛盾是认识和实践活动的基本矛盾、认识改造世界的根本动力"
+        ],
+        "checking_criteria": [
+          "目的/必要前提/统一基础准确，主客观改造双向有解释",
+          "这里的主客观矛盾不等于社会历史基本矛盾，客观世界不会自动满足愿望",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "认识为有效改造，改造也塑造主体；需要与现实差异推动继续行动。",
+        "id": "polmem-1a06ed41",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF44–45；节点 POL27-CF-MARX-C03-K14",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:be848df81dd1d5aa0f8359454b8c8e9f66e0e2f36ce788f740ed4a4b85c138bf"
+        }
+      },
+      {
+        "name": "自由必然与两种错误",
+        "natural_unit_id": "POL27-CF-MARX-C03-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K15"
+        ],
+        "prompt": "自由与必然怎样定义并联系？自由有哪两条件，夸大自由或必然各导致什么，意志自由是否等于唯意志论？",
+        "items": [
+          "自由是在认识利用必然中表现的自觉自主活动状态；必然指不依意识的自然社会客观规律",
+          "自由是对必然的认识和对客观世界的改造，必然既是根据也是限度；自由有历史条件且是相对的",
+          "认识条件：认识规律；实践条件：依规律行动并有现实能力条件，本课程另要求不牺牲他人自由",
+          "否认必然而夸大自由为唯意志论；否认自由而夸大必然为宿命论；意志自由是依据认识作决定的能力，不等于唯意志论",
+          "从必然王国到自由王国是社会活动状态的历史发展，无止境过程，不是进入无规律空间"
+        ],
+        "checking_criteria": [
+          "定义、根据/限度、两条件和两错误完整，意志自由区分准确",
+          "认识越多有助自由但知识不能独立替代行动条件；规范边界不从规律定义自动推出",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "认识与利用规律才扩展自主，既不任性无界，也非人在规律前无所作为。",
+        "id": "polmem-056e7d72",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF45；节点 POL27-CF-MARX-C03-K15",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:4343f6b2208f236b8dd7a5277a993bc0a19255300c21b3e0a7e2f2d95b799da9"
+        }
+      },
+      {
+        "name": "理论创新与实践创新",
+        "natural_unit_id": "POL27-CF-MARX-C03-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C03-K16"
+        ],
+        "prompt": "实践创新与理论创新各给对方什么，良性互动怎样避免相互决定的误读？",
+        "items": [
+          "实践创新为理论创新提供不竭动力源泉，理论创新以实践创新为基础",
+          "理论创新为实践创新提供科学行动指南",
+          "二者相互激发、共同促进；理论创新接受实践检验，并指导实践创新，实践基础与理论指导不是同等决定或互为真理标准"
+        ],
+        "checking_criteria": [
+          "基础动力与行动指南分别对应，互动不抹掉不同地位",
+          "不能只凭新颖就叫正确创新，须回到实际问题与检验",
+          "题面未问的防误解说明只诊断回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "实践提出新问题和材料，理论形成指导，再回实践检查推进。",
+        "id": "polmem-59dff1bd",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF45；节点 POL27-CF-MARX-C03-K16",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C03-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:a317febb4ceb25430084c340db424cf241f57abeb11866e2886107dfe4bc8cae"
+        }
+      }
+    ],
+    "deferred_precision": [
+      "真理与谬误在同对象同条件下有界；原真理内含后来错误按认识整体或适用范围变化解释，不批准同一正确内容兼错误。",
+      "实践标准的唯一最终性不让任何一次自报检验永久免检；价值的课程规范立场与事实判断分开，不批准任意收益保证。",
+      "理论创新接受实践检验并指导实践创新，不用相互检验抹平唯一标准。原题答案和原Source fidelity不改。"
+    ]
   }
 }

@@ -83,16 +83,74 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C03-S01",
         "name": "一化三改",
-        "items": ["社会主义工业化", "农业社会主义改造", "手工业社会主义改造", "资本主义工商业社会主义改造"],
+        "items": [
+          "社会主义工业化",
+          "农业社会主义改造",
+          "手工业社会主义改造",
+          "资本主义工商业社会主义改造"
+        ],
         "learning_rule": "P0 固定结构 active；完整总路线长句和提出时间可后续按题精确。",
-        "source_refs": ["POL27-CF-MAO-C03-K02-N01-I01"]
+        "source_refs": [
+          "POL27-CF-MAO-C03-K02-N01-I01"
+        ],
+        "id": "polmem-193fba0d",
+        "prompt": "过渡时期总路线中的一化三改分别指什么？完整指出一化以及三类改造对象。",
+        "checking_criteria": [
+          "社会主义工业化与农业、手工业、资本主义工商业社会主义改造四项齐全。",
+          "一化是工业化，不把工业化列为第四项改造。",
+          "资本主义工商业不可漏资本主义限定；三类改造对象可换序。",
+          "不问完整总路线长句或年份；允许不改变对象和任务的语序。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：一个建设任务、三类所有制改造对象。必须还原社会主义工业化及三类完整名称。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C03-K02-N01",
+          "POL27-CF-MAO-C03-K02-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF87／印刷86，主句owner K02-N01及I01续文，Markdown997–1008行，总路线主句、（1）及相邻主体/两翼图至（2）前。实际原图主句明列社会主义工业化、对农业/手工业/资本主义工商业社会主义改造；I01进一步写“三改”对个体农业、手工业和资本主义工商业改造。现有题仅问一化及三类对象，沿用主句支持的原四项；可答个体农业，但不增设未问的个体限定扣分，也不扩成完整总路线逐字题。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch03.brief.md#c03-precision-review-20261005",
+          "prerequisite": "T02已实际解释工业化与所有制改造并举；不以名称提取代替理解。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:4c4ff1d67c65c4eab2e9920e356fc7bafe18ae7a618f7c61e94ba45e98952c6f"
+        }
       },
       {
         "natural_unit_id": "POL27-CF-MAO-C03-S02",
         "name": "资本主义工商业国家资本主义层级",
-        "items": ["低级形式：委托加工、计划订货、统购包销、经销代销等", "高级形式：公私合营；由个别企业公私合营发展到全行业公私合营"],
+        "items": [
+          "低级形式：委托加工、计划订货、统购包销、经销代销等",
+          "高级形式：公私合营；由个别企业公私合营发展到全行业公私合营"
+        ],
         "learning_rule": "保留层级识别；利润分配比例等更细数字继续由乘风/题证据触发。",
-        "source_refs": ["POL27-CF-MAO-C03-K04-N02"]
+        "source_refs": [
+          "POL27-CF-MAO-C03-K04-N02"
+        ],
+        "id": "polmem-987a9b23",
+        "prompt": "资本主义工商业改造中，国家资本主义的低级形式有哪些（答出四种）？高级形式是什么，又怎样从个别企业发展到更大范围？不需利润比例。",
+        "checking_criteria": [
+          "低级四例为委托加工、计划订货、统购包销、经销代销，四项完整，顺序可变。",
+          "高级为公私合营，由个别企业公私合营发展到全行业公私合营；不能互换方向。",
+          "低级例子不冒称穷尽一切形式；高级不与低级混列。",
+          "不要求利润比例、具体年份或表格符号；允许不改变层级和方向的表达。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：业务联系四例→所有制层面的公私合营；个别→全行业。必须展开四例及高级全名，不由此推导比例。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C03-K04-N02",
+          "POL27-CF-MAO-C03-K04-N02-TBL02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF89／印刷88，K04-N02及K04-N02-TBL02，Markdown1127–1140、1145–1169行中的形式范围。实际像素确认四例委托加工、计划订货、统购包销、经销代销同属初级形式；高级公私合营合并格包含个别企业、全行业两行，原文步骤由初级到个别到全行业。现有低级/高级两项答案与方向不变；四例与高级两种不是六个同层项目。不取利润比例，不扩PDF90。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch03.brief.md#c03-precision-review-20261005",
+          "prerequisite": "T03已实际解释资本主义工商业改造及国家资本主义层级；利润比例与完整阶段表不纳入本题。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:44dbc4cdba6082a14545c2d39b3ee8bafac2bece236a1caa3a3d92117c8433a3"
+        }
       }
     ],
     "active_boundaries": [

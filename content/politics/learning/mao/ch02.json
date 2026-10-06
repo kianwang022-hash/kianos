@@ -77,16 +77,76 @@
       {
         "natural_unit_id": "POL27-CF-MAO-C02-S02",
         "name": "动力角色",
-        "items": ["无产阶级：最基本动力、领导力量", "农民：主力军；农民问题是中国革命的基本问题", "城市小资产阶级：可靠同盟者、革命动力", "民族资产阶级：革命动力之一，同时具有革命性和软弱妥协动摇性"],
+        "items": [
+          "无产阶级：最基本动力、领导力量",
+          "农民：主力军；农民问题是中国革命的基本问题",
+          "城市小资产阶级：可靠同盟者、革命动力",
+          "民族资产阶级：革命动力之一，同时具有革命性和软弱妥协动摇性"
+        ],
         "learning_rule": "P0 身份关系 active；各阶级细分理由和例证继续留在乘风。",
-        "source_refs": ["POL27-CF-MAO-C02-K03"]
+        "source_refs": [
+          "POL27-CF-MAO-C02-K03"
+        ],
+        "id": "polmem-a2563e9c",
+        "prompt": "列出新民主主义革命的四类革命动力，并分别指出无产阶级、农民、城市小资产阶级、民族资产阶级的角色；说明农民问题的地位，民族资产阶级需保留两面性。",
+        "checking_criteria": [
+          "四类完整，最基本动力/领导力量与主力军不交换。",
+          "农民为主力军，农民问题是中国革命的基本问题；城市小资产阶级为可靠同盟者、革命动力。",
+          "民族资产阶级为革命动力之一，兼有革命性和软弱、妥协、动摇性，不能只留其中一面。",
+          "不要求贫雇农/中农等本题未问细分；允许保留角色限定的同义表达，四类叙述次序可变。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：领—主—盟—两面。展开原四项，并在农民项补回农民问题是革命的基本问题。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C02-K03-N02-TBL01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册PDF79／印刷78，K03-N02-TBL01内“3.新民主主义革命的动力：人民大众”四类表至“4.领导力量”前，Markdown506–529行。实际像素确认：最基本动力/领导力量属无产阶级，主力军/农民问题是基本问题属农民，可靠同盟者/革命动力属城市小资产阶级，革命性及软弱妥协动摇性属民族资产阶级。现有四项答案与所问角色均得到同列支持；未取上方不同阶段革命对象表。既有Mac任务01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；原PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca。该reader实际核图，本作者仅读取2026-10-05 18:06有界receipt，未本人新看像素；Source核清不等于准入。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch02.brief.md#c02-precision-review-20261005",
+          "prerequisite": "T02已实际解释总路线中的对象、动力、领导、性质与前途；四类角色与两面性解释后再提取。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:58879ca33e1fa20a8ccc2d46a6b707d755a56e9ceb02b188e34b4f7892ef1c67"
+        }
       },
       {
         "natural_unit_id": "POL27-CF-MAO-C02-S03",
         "name": "三大法宝",
-        "items": ["统一战线", "武装斗争", "党的建设"],
+        "items": [
+          "统一战线",
+          "武装斗争",
+          "党的建设"
+        ],
         "learning_rule": "固定三项必须稳定，同时要知道各自作用而不是只背名词。",
-        "source_refs": ["POL27-CF-MAO-C02-K07"]
+        "source_refs": [
+          "POL27-CF-MAO-C02-K06-N01",
+          "POL27-CF-MAO-C02-K06-N02",
+          "POL27-CF-MAO-C02-K06-N03"
+        ],
+        "id": "polmem-df4b02ba",
+        "prompt": "新民主主义革命的三大法宝是哪三项？完整恢复名称；本题不要求复述其全部历史经验。",
+        "checking_criteria": [
+          "统一战线、武装斗争、党的建设三项名称齐全。",
+          "不能以土地革命、根据地或革命道路替代任一项；无固定作答字序要求。",
+          "作用与关系属于解释前提，本题未问全部关系，未复述不扣漏项。"
+        ],
+        "memory_cue": "教学助记，非Source；无提示回答后再显示：团结力量—斗争形式—保证领导。必须恢复三个名称，不作为Source原句。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-MAO-C02-K06-N01",
+          "POL27-CF-MAO-C02-K06-N02",
+          "POL27-CF-MAO-C02-K06-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册，PDF83–84／印刷82–83；当前三标题分别完整给出统一战线、武装斗争、党的建设。旧K07是理论意义标题，不能作为三名称证据；本次有据修正source_refs，关系展开仍回K06-N04。 本作者读取当前Source文字与原Current/brief；未新看原图。",
+          "review_ref": "content/politics/learning/mao/teaching-candidate/ch02.brief.md#c02-precision-review-20261005",
+          "prerequisite": "T04已实际解释三大法宝的作用及相互关系；本题只提取三项名称。 本次完整payload仍须独立审读、现行producer签名与consumer验证；原身份不等于新增handoff已准入。",
+          "reviewed_target_revision": "sha256:1901f318ad06599a4a544360de69fa8360f5c816ca21a8eb79aefbb9870aa8d7"
+        }
       }
     ],
     "active_boundaries": [

@@ -158,6 +158,24 @@ const pendingReturn=JSON.parse(xzReturnStorage.getItem('kianos:xizong:pending-ch
 assert.equal(pendingReturn.pending_by_object['xizong:circulation-b01'].return_id,xzReturn.return_id);
 assert.equal(JSON.parse(xzReturnStorage.getItem('kianos-exam-chat-plan-v1')).subjects.xizong.session_ref,xzReturn.return_id);
 
+// Native receipt replay must preserve a snapshot supplied by the original command.
+const snapshotStorage=new MemoryStorage(),snapshotCommand={
+ schema:CONTROL_BROWSER_SCHEMA,command_id:'politics-snapshot-replay-001',command_hash:'snapshot-exact',study_day:day,generated_at:generatedAt,expires_at:null,
+ operations:[{kind:'politics.memory_plan',payload:{schema:'kianos.politics.memory-plan.v1',plan_id:'politics-snapshot-plan',study_day:day,generated_at:generatedAt,catalog_revision:'snapshot-catalog',items:[{candidate_id:'snapshot-fixture',candidate_snapshot:{id:'snapshot-fixture',prompt:'original'}}]}}]
+};
+assert.equal((await applyPrivateControlCommand(snapshotStorage,snapshotCommand,{day,now})).status,'applied');
+assert.equal((await applyPrivateControlCommand(snapshotStorage,snapshotCommand,{day,now})).status,'idempotent');
+const tamperedPlan=JSON.parse(snapshotStorage.getItem(POLITICS_MEMORY_PLAN_KEY));tamperedPlan.items[0].candidate_snapshot.prompt='different';snapshotStorage.setItem(POLITICS_MEMORY_PLAN_KEY,JSON.stringify(tamperedPlan));
+await assert.rejects(applyPrivateControlCommand(snapshotStorage,snapshotCommand,{day,now}),/PLAN_REPLAY_CONFLICT/,'APPLIED receipt does not acknowledge a tampered native snapshot');
+
+const idOnlyStorage=new MemoryStorage(),idOnlyCommand=structuredClone(snapshotCommand);
+idOnlyCommand.command_id='politics-id-only-replay-001';idOnlyCommand.command_hash='id-only-exact';
+const idOnlyPayload=idOnlyCommand.operations[0].payload;idOnlyPayload.plan_id='politics-id-only-plan';delete idOnlyPayload.items[0].candidate_snapshot;
+assert.equal((await applyPrivateControlCommand(idOnlyStorage,idOnlyCommand,{day,now})).status,'applied');
+assert.equal((await applyPrivateControlCommand(idOnlyStorage,idOnlyCommand,{day,now})).status,'idempotent');
+const extraSnapshot=JSON.parse(idOnlyStorage.getItem(POLITICS_MEMORY_PLAN_KEY));extraSnapshot.items[0].candidate_snapshot={id:'snapshot-fixture',prompt:'tampered unchecked enrichment'};idOnlyStorage.setItem(POLITICS_MEMORY_PLAN_KEY,JSON.stringify(extraSnapshot));
+await assert.rejects(applyPrivateControlCommand(idOnlyStorage,idOnlyCommand,{day,now}),/PLAN_REPLAY_CONFLICT/,'ID-only APPLIED receipt cannot hide extra or tampered native snapshot');
+
 const polMemory={
   schema:'kianos.politics.memory-plan.v1',
   plan_id:'politics-direct-plan',

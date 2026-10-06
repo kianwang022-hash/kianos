@@ -63,5 +63,243 @@
     "timeline": ["鸦片战争", "社会性质变化", "列强多层侵略", "持续反抗", "失败原因暴露", "民族意识觉醒"],
     "causal_chain": "外部资本主义侵略 + 国内封建制度危机 → 半殖民地半封建社会 → 民族危机加深 → 旧式抵抗难以成功 → 必须寻找新的国家出路",
     "review_prompt": "闭卷只回答三个问题：1840后中国变成了什么社会？为什么反侵略屡败？这些失败把历史推向了什么新任务？"
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S04",
+        "name": "晚清反侵略战争失败的两层原因",
+        "items": [
+          "本章晚清反侵略战争总体失败的根本原因是社会制度的腐败，它阻碍了中国人民群众的广泛动员和组织。",
+          "重要原因是经济技术的落后；经济技术落后不能替代制度层面的根本解释。"
+        ],
+        "learning_rule": "首轮拟精确范围只含两层原因的准确配对及制度腐败妨碍群众动员组织的机制；不是把整章C范围直接准入。须完成本组内容审读后才可按FIRST_ROUND_EXACT主动选择，无须制造Wrong/Uncertain。",
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K10-N01-I01",
+          "POL27-CF-HISTORY-C01-K10-N01-I02"
+        ],
+        "prompt": "本章晚清反侵略战争总体失败的根本原因和重要原因分别是什么？根本原因怎样妨碍人民群众形成抵抗力量？",
+        "checking_criteria": [
+          "根本原因必须对应社会制度的腐败，重要原因必须对应经济技术的落后；两层均答、配对准确，不能把重要原因升为根本原因，也不能只答经济技术落后。",
+          "须说明制度腐败阻碍中国人民群众的广泛动员和组织；漏群众对象、广泛动员或组织任一决定性成分，均不算全对。",
+          "允许忠实释义和交换叙述次序，例如用腐朽的社会制度表述制度腐败；经济与技术两方面仍须完整，不能只说武器落后。",
+          "题面已经限定本章晚清反侵略战争总体失败，回答不必机械重复该范围；若主动泛化为所有时代的战争或所有局部战斗都失败，或否定经济技术因素作用，则为边界错误。",
+          "未问的时代人物判断、洋务运动原因及后来的胜利条件不另作必答项；不能因未主动补述这些内容扣分。"
+        ],
+        "memory_cue": "教学助记，非Source原句：沿原模型“失败原因暴露”问两层。根本看制度：腐败阻碍群众广泛动员和组织；重要看能力：经济、技术落后。先说晚清反侵略战争范围，再把根本与重要配回各自原因。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K10-N01-I01",
+          "POL27-CF-HISTORY-C01-K10-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027下册 PDF10／印刷9；已读Source c01 shard（blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824）K10-N01及I01/I02连续文字，并与本章cause_layers及原brief互核；本次未看原PDF像素，不涉及相邻地图、勾叉、红答案或OCR TIP。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#p5-history-c01-s04-20261005",
+          "prerequisite": "先读本章S03持续抵抗并未完成民族独立的承接，再完成ch01.brief.md“失败怎样推动问题升级”第一段及“本组精记的固定位置与用法”中两层原因、群众动员组织机制和晚清范围的解释；仅看章概览不足。内容准入不自动建立计划。",
+          "reviewed_target_revision": "sha256:d858f2d06dbf9c53816fd7913b0dc93f1fbec4c0de1070a5e64f824f946539b9"
+        },
+        "id": "polmem-b3d1b517"
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S01",
+        "name": "封建社会四方面",
+        "items": [
+          "经济：封建地主土地所有制经济占主导。",
+          "政治：高度中央集权的封建君主专制制度。",
+          "社会结构：族权与政权相结合的封建宗法等级制度，核心是宗族家长制。",
+          "思想文化：以儒家思想为核心。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K01-N01-I01",
+          "POL27-CF-HISTORY-C01-K01-N01-I02",
+          "POL27-CF-HISTORY-C01-K01-N01-I03",
+          "POL27-CF-HISTORY-C01-K01-N01-I04"
+        ],
+        "prompt": "按本章封建社会的四方面，分别恢复经济主导、政治基本特征、社会结构及其核心、思想文化核心。",
+        "checking_criteria": [
+          "四方面须齐且对象配对；社会结构须含族权/政权结合与宗族家长制核心。保义释义可，顺序可换；只说封建思想、漏土地所有制或把儒家作社会结构核心不全对。题目未要求三教合一，不另扣。"
+        ],
+        "memory_cue": "教学助记：田归谁、权怎样、家与国怎样相连、思想以谁为核；四问分别展开四项，家这一问还需答族权政权与家长制。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K01-N01-I01",
+          "POL27-CF-HISTORY-C01-K01-N01-I02",
+          "POL27-CF-HISTORY-C01-K01-N01-I03",
+          "POL27-CF-HISTORY-C01-K01-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 4；c01.json blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824；refs：POL27-CF-HISTORY-C01-K01-N01-I01；POL27-CF-HISTORY-C01-K01-N01-I02；POL27-CF-HISTORY-C01-K01-N01-I03；POL27-CF-HISTORY-C01-K01-N01-I04。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md；先教本brief“先看两个历史进程怎样相遇”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:6985620e6cb429c407d29e5b90f0d5e18f1f94e78ccc8750bc44bfb08192e720"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S03",
+        "name": "三元里地位",
+        "items": [
+          "中国近代史上中国人民第一次大规模的反侵略武装斗争。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K07-N01-I01"
+        ],
+        "prompt": "本章把1841年广州三元里人民抗英斗争定位为什么？恢复首次的完整范围。",
+        "checking_criteria": [
+          "须保留中国近代、中国人民、第一次、大规模、反侵略、武装斗争；允许改句式，不能省成中国第一次战争或首次完成民族独立。题面已给年份地点不须复述。"
+        ],
+        "memory_cue": "教学助记：先圈近代中国人民，再依次补规模、对象、形式；不是所有历史中的第一次。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K07-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 8；c01.json blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824；refs：POL27-CF-HISTORY-C01-K07-N01-I01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md；先教本brief“持续抵抗做到了什么，为什么还不能叫完成救亡”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:cdd5f7b1ce410e29161de5168df8c74d63e8d87a802c31d2da68144c5c0bf21d"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S03",
+        "name": "义和团三局限",
+        "items": [
+          "对帝国主义认识停留于感性阶段，存在笼统排外错误。",
+          "未认清帝国主义联合中国封建地主阶级压迫人民的实质，曾受封建统治者欺骗。",
+          "小生产者的局限性带来迷信、落后倾向。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K08-N01-I01",
+          "POL27-CF-HISTORY-C01-K08-N01-I02",
+          "POL27-CF-HISTORY-C01-K08-N01-I03"
+        ],
+        "prompt": "据本章文字，义和团运动的三项局限分别是什么，各对应什么认识或阶级条件？",
+        "checking_criteria": [
+          "三项及条件配对均须答；换序和忠实释义可。只说落后或迷信不足，不能以指出局限否定全部爱国反侵略作用。后一句是防主动越界，不要求另背完整历史意义。"
+        ],
+        "memory_cue": "教学助记：怎么看外国、怎么看内外统治的联合、什么阶级眼界；分别恢复排外、受骗、迷信落后。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K08-N01-I01",
+          "POL27-CF-HISTORY-C01-K08-N01-I02",
+          "POL27-CF-HISTORY-C01-K08-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 9；c01.json blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824；refs：POL27-CF-HISTORY-C01-K08-N01-I01；POL27-CF-HISTORY-C01-K08-N01-I02；POL27-CF-HISTORY-C01-K08-N01-I03。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md；先教本brief“持续抵抗做到了什么，为什么还不能叫完成救亡”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:9ac2d1effc5ba75fa276993dfb8103c8f1886fa252038b1865655b2909a6e67c"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S04",
+        "name": "林则徐人物著作",
+        "items": [
+          "林则徐；《四洲志》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K11-N01-I01"
+        ],
+        "prompt": "按本章课程，近代中国睁眼看世界的第一人是谁，他编成的著作是哪一部？",
+        "checking_criteria": [
+          "人物著作两项准确；不能换成魏源与《海国图志》。这是本章课程地位，不推出他此前所有中国人都不了解外部世界。"
+        ],
+        "memory_cue": "教学对照：本题只连林则徐—四洲志；魏源续编问题不并入此题。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K11-N01-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 10；c01.json blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824；refs：POL27-CF-HISTORY-C01-K11-N01-I01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md；先教本brief“失败怎样推动问题升级”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:5589a0b639a2023cec8afc2f4427c77ee3970b66ab79b7117f2bd1e3f14d2f4c"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S03",
+        "name": "爱国官兵与战争配对",
+        "items": [
+          "刘铭传、冯子材：中法战争。",
+          "关天培、陈化成、海龄：鸦片战争。",
+          "史荣椿、乐善：第二次鸦片战争。",
+          "邓世昌：中日甲午战争。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K07-N02-I02",
+          "POL27-CF-HISTORY-C01-K07-N02-I03",
+          "POL27-CF-HISTORY-C01-K07-N02-I04",
+          "POL27-CF-HISTORY-C01-K07-N02-I05"
+        ],
+        "prompt": "将本章爱国官兵按战争准确配对：刘铭传、冯子材；关天培、陈化成、海龄；史荣椿、乐善；邓世昌。各属于哪一场战争？",
+        "checking_criteria": [
+          "四组完整配对；可换序。题面已给人名，不要求额外职衔、地点、战绩或补完Source的OCR疑字“殉困”。不能把某局部胜利改成整场战争胜利。"
+        ],
+        "memory_cue": "教学对照：用战争作四个抽屉收回人名，尤其第一次/第二次鸦片战争两组不混。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K07-N02-I02",
+          "POL27-CF-HISTORY-C01-K07-N02-I03",
+          "POL27-CF-HISTORY-C01-K07-N02-I04",
+          "POL27-CF-HISTORY-C01-K07-N02-I05"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 8；c01.json blob b3ea2294ff169ac16b84e22aa3bdd8243d8a6824；refs：POL27-CF-HISTORY-C01-K07-N02-I02；POL27-CF-HISTORY-C01-K07-N02-I03；POL27-CF-HISTORY-C01-K07-N02-I04；POL27-CF-HISTORY-C01-K07-N02-I05。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md；先教本brief“持续抵抗做到了什么，为什么还不能叫完成救亡”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:f7158f7413e4f743660246872826f11b300dd6336d2d99c639c185fda559df39"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C01-S01",
+        "name": "近代两大历史任务与关系",
+        "items": [
+          "前一任务：争取民族独立、人民解放。后一任务：实现国家富强、人民幸福。",
+          "两任务的主题、内容和实现方式不同。",
+          "前一个任务为后一个扫除障碍，创造必要前提；后一个是前一个的最终目的和必然要求。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C01-K05-N02-I01",
+          "POL27-CF-HISTORY-C01-K05-N02-I02"
+        ],
+        "prompt": "近代以来中华民族的两大历史任务分别是什么？它们在哪三方面不同，前后两个任务又是什么关系？",
+        "checking_criteria": [
+          "两任务四对象、三方面区别、关系两个方向齐全；允许保义释义和换序，但不得把必要前提改成充分保证或把目的方向倒置。未问民主革命点拨不另扣。"
+        ],
+        "memory_cue": "教学支点：先独立/解放，后富强/幸福；主题内容方式不同；前者扫障碍造前提，后者是目的和必然要求。 仅答后提示，提示后补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C01-K05-N02-I01",
+          "POL27-CF-HISTORY-C01-K05-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "原Mac reader task 01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；父任务2026-10-05 18:06 UTC收到完整有界JSON。 PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27 / POL27-CF-LOWER; no additional cover/current-year verification。物理页7／印刷页6；实际模态T；文字行定位[255,269]；已读范围：两大历史任务内容、区别与联系，至相邻民主革命点拨止。印刷页6来自文字source-page注记，未看PDF7像素。本作者实际读完整reader receipt，不冒称亲看原PDF；Source shard未改，完整支持含receipt所恢复的续行/行列。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch01.brief.md“新国情怎样改变矛盾、任务和社会力量”及2026-10-05 18:06有界Source补齐段；沿原章固定spine解释后再无提示检索。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-source-delta-exact-20261005",
+          "reviewed_target_revision": "sha256:45fceb221be7a80436bdd41c683845fc8df7162efcd28c83d917e8b299dedb05"
+        }
+      }
+    ]
   }
 }

@@ -81,7 +81,11 @@ const memorySnapshot={
   prompt:memoryCandidate.prompt,
   answer_items:[...(memoryCandidate.answer_items||[])],
   source_refs:[...(memoryCandidate.source_refs||[])],
-  source_role:memoryCandidate.source_role
+  source_role:memoryCandidate.source_role,
+  checking_criteria:[...(memoryCandidate.checking_criteria||[])],
+  memory_cue:memoryCandidate.memory_cue||null,
+  inspected_refs:[...(memoryCandidate.inspected_refs||[])],
+  admission_basis:structuredClone(memoryCandidate.admission_basis)
 };
 const pSubject=politics.subjects[0];
 const pChapter=politics.chapters.find(row=>row.subject===pSubject.id)||politics.chapters[0];

@@ -8,14 +8,16 @@
     "role": "DESIGNATED_MEMORY_HANDBOOK",
     "label": "腿姐背诵手册",
     "binding_status": "PENDING_SOURCE_BINDING",
-    "rule": "When the designated handbook is available, use it as a preferred admission/cross-check source for fixed memory points; never infer handbook coverage from memory or substitute another source without marking it."
+    "rule": "2027 handbook remains unbound. Historical LEG26 upper PDF19–20 was actually inspected and reconciled in preparation-review; it is not current-year standalone admission. Current CF first-round Content review is an independent route under Learning §6.1."
   },
   "admission_gate": {
     "default": "NOT_ADMITTED",
     "requires_source_grounding": true,
     "admit_when_any": [
       "DESIGNATED_MEMORY_SOURCE_CONFIRMS",
-      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+      "CURRENT_CONTENT_OWNER_REVIEWS_FIRST_ROUND_EXACT",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED",
+      "ADMITTED_LATER_OUTPUT_REQUIREMENT"
     ],
     "do_not_admit_for": [
       "explanation richness alone",
@@ -31,34 +33,672 @@
         {
           "id": "POL27-MEM-MARX-C02-K03-M01",
           "form": "boundary",
-          "statement": "同一性强调相互依存、相互贯通，是有条件的、相对的；斗争性强调相互排斥、相互分离，是无条件的、绝对的。",
-          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "statement": "同一性指对立面相互依存、相互贯通，互为存在前提，并在一定条件下相互转化，是有条件的、相对的；斗争性指相互排斥、相互分离，是无条件的、绝对的。无条件不等于每一种具体斗争形式都不需要具体条件。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03"
+          ],
+          "prompt": "矛盾的同一性和斗争性各指什么？它们在条件性、相对性或绝对性上的对应是什么？",
+          "checking_criteria": [
+            "两定义与两组地位配对，允许释义",
+            "不能把同一解释成完全相同、斗争解释成只有暴力对抗"
+          ],
+          "memory_cue": "先分属性含义，再配条件性；不能仅靠同相斗绝四字替代关系。",
+          "admission": "CANDIDATE_ONLY",
           "handbook_alignment": "PENDING_SOURCE_BINDING",
-          "admission": "CANDIDATE_ONLY"
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF22；节点 POL27-CF-MARX-C02-K03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:a6520e0becfb2af854ac57017cd19546215a39ec9e1b4dd57e96a98fd1a4374e"
+          }
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M02",
           "form": "boundary",
-          "statement": "同一性和斗争性在矛盾统一体中同时存在，不能理解为时而同一、时而斗争。",
-          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "statement": "二者在矛盾统一体中同时存在、不可分割，不是时而同一时而斗争；斗争性寓于同一性，同一性通过斗争性体现，同一包含差别和对立。二者相结合共同推动发展，不能各自独立起作用。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03"
+          ],
+          "prompt": "同一性和斗争性是轮流出现还是同时存在？二者的依存关系和作用方式怎样表述？",
+          "checking_criteria": [
+            "同时、不可分割、寓于方向与通过体现方向、共同作用都应有",
+            "可释义但不能把作用有时偏重某一面误当另一面不存在"
+          ],
+          "memory_cue": "存在问既又，作用问结合；阶段重心变化不等于交班。",
+          "admission": "CANDIDATE_ONLY",
           "handbook_alignment": "PENDING_SOURCE_BINDING",
-          "admission": "CANDIDATE_ONLY"
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF22–23；节点 POL27-CF-MARX-C02-K03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:168f2a86aa283e980e628ef06ff47f2ad3855feacba951baf1f0e4c3f2a21d0a"
+          }
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M03",
           "form": "direction",
-          "statement": "共性寓于个性之中，并通过个性表现；不能倒置为个性寓于共性之中。",
-          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "statement": "共性寓于个性之中，并通过个性表现；个性包含共性，没有脱离个性的共性，也没有脱离共性的个性。认识由个别上升到一般，再由一般回到个别。不能倒置为个性寓于共性，也不能把共性当成个性的简单叠加。个性在一定条件下能够转化为共性，须明确具体范围和条件；这与认识由个别到一般的认知路径不是同一关系。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03"
+          ],
+          "prompt": "矛盾共性与个性的包含、寓于关系方向是什么？认识的一般路径如何返回具体对象？个性转化为共性须保留什么条件？",
+          "checking_criteria": [
+            "寓于方向与包含方向准确，认识路径两步完整",
+            "不能只说相互联系而省略方向",
+            "转化必须限定一定条件，不把认知概括等同对象关系变化"
+          ],
+          "memory_cue": "从一棵棵具体树中认识树的一般规定，再回到具体树；比喻是检索提示，非部分整体关系。",
+          "admission": "CANDIDATE_ONLY",
           "handbook_alignment": "PENDING_SOURCE_BINDING",
-          "admission": "CANDIDATE_ONLY"
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF23–24；节点 POL27-CF-MARX-C02-K03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:76caa62f1ce013399c69847b46f8d6430dd1b4a4f87c92bc2fbcac1496df8ced"
+          }
         },
         {
           "id": "POL27-MEM-MARX-C02-K03-M04",
           "form": "trap_boundary",
-          "statement": "矛盾双方可以在一定条件下转化，但不把矛盾双方描述为调和。",
-          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "statement": "矛盾双方可在一定条件下相互转化，解决形式可包括融合成新事物；不能把这种有条件变化说成取消对立的调和。和谐是矛盾的特殊表现形式，是相对的、有条件的，并非没有矛盾或无差别的绝对同一。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03"
+          ],
+          "prompt": "矛盾双方的转化、融合与调和怎样区分？和谐是否意味着无矛盾？",
+          "checking_criteria": [
+            "一定条件、特殊形式、相对性不能漏",
+            "不能把所有协商解决现实纠纷都误叫哲学上的矛盾调和"
+          ],
+          "memory_cue": "转化要条件，新统一仍有差别；和谐不等于把两面擦掉。",
+          "admission": "CANDIDATE_ONLY",
           "handbook_alignment": "PENDING_SOURCE_BINDING",
-          "admission": "CANDIDATE_ONLY"
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF23–24；节点 POL27-CF-MARX-C02-K03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:9e7ace360b94afa37eb089749dbec2e40b89e48869fb83992f9553bea343316f"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M05",
+          "form": "SELECTIVE_PRECISION",
+          "statement": "对立统一规律揭示联系的根本内容和发展的内在动力，贯穿量变质变、否定之否定及基本范畴，提供矛盾分析这一根本方法；是否承认对立统一是辩证法与形而上学对立的实质。矛盾问题精髓指普遍性与特殊性、共性与个性的关系，不是同一性与斗争性两基本属性。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03"
+          ],
+          "prompt": "对立统一规律为什么是唯物辩证法的实质和核心？它与矛盾问题精髓的称谓如何区别？",
+          "checking_criteria": [
+            "核心四依据可释义但不能只背核心二字",
+            "实质核心、基本属性、精髓三种对象不得互换"
+          ],
+          "memory_cue": "规律问核心，属性问同斗，精髓问普特；层级不同。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF21–24；节点 POL27-CF-MARX-C02-K03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:d7e2f694eeb9e0707bd201a8767d77a6c2b6b164dc115c042ddc05e9e9a3d4f9"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M06",
+          "form": "SELECTIVE_PRECISION",
+          "statement": "同一性使双方互为条件而发展、相互吸收有利因素，并规定向对立面转化的可能和方向；斗争性使力量对比变化造成量变，促使地位或性质转化实现质变。二者结合共同作用，不能单独隔离；在不同条件下，同一性起主要作用时表现为相辅相成，斗争性起主要作用时表现为相反相成。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03-N02"
+          ],
+          "prompt": "同一性与斗争性分别怎样参与发展？哪一种能单独成为全部动力？相辅相成和相反相成各在什么作用重心下表现？",
+          "checking_criteria": [
+            "同一三项、斗争两项及共同作用完整；允许释义",
+            "不能说同一只维持不变、斗争独自推动一切",
+            "两种相成与主要作用属性配对，不能说另一属性此时消失"
+          ],
+          "memory_cue": "同一记条件、吸取、方向；斗争记力量变化与性质转化，再合起来。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF23；节点 POL27-CF-MARX-C02-K03-N02",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:be78d29afdd893db1fb84f2c636603fe3c13ccdf014edd2dcf7b7a77bf59a267"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M07",
+          "form": "SELECTIVE_PRECISION",
+          "statement": "普遍性是矛盾无处不在、无时不有；特殊性是不同事物、同一事物不同阶段、不同矛盾及方面各有性质地位作用。共性无条件、绝对，个性有条件、相对；这不取消具体矛盾的条件。要求具体问题具体分析；普遍性与特殊性辩证统一是马克思主义基本原理同各国实际相结合的哲学基础。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03-N03"
+          ],
+          "prompt": "矛盾普遍性与特殊性各说明什么，在条件性和相对/绝对性上如何配对？相应方法和理论联系实际的哲学基础是什么？",
+          "checking_criteria": [
+            "普遍两个范围、特殊三个层面和方法配对完整",
+            "普遍共性无条件绝对不取消具体事物条件"
+          ],
+          "memory_cue": "在哪都有是普遍；各处各时怎样不同是特殊；回具体问题选办法。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF23–24；节点 POL27-CF-MARX-C02-K03-N03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:1b044254b3b033eb60f36c71faddf550932ae202212f10a4c300bd0dc314176a"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M08",
+          "form": "SELECTIVE_PRECISION",
+          "statement": "主要矛盾是在多种矛盾体系中处支配地位、对发展起决定作用的矛盾；主要方面是在一对矛盾内部占支配地位的一方。事物性质由主要矛盾的主要方面规定。坚持两点论与重点论统一，不能忽略次要部分，也不能平均用力；主次可随条件阶段改变。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03-N04"
+          ],
+          "prompt": "主要矛盾与矛盾主要方面分别在哪一层比较？何者规定事物性质，方法论是什么？",
+          "checking_criteria": [
+            "两层、性质的双重主要、两点重点全",
+            "不能把次要矛盾等同非根本矛盾，这是不同分类轴"
+          ],
+          "memory_cue": "先选哪一对，再问对内哪一方；先后是分析次序，不是客观发生时序。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF24；节点 POL27-CF-MARX-C02-K03-N04",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:a408cc2272c54236390edc9b4ad0678728d73d6e4d5f42fce1ea61a610a02903"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M09",
+          "form": "SELECTIVE_PRECISION",
+          "statement": "形式包括一方克服另一方、双方形成协同运动的新形式、双方同归于尽、双方融合成新事物。内因是内部矛盾，是根本根据；外因是条件，通过内因起作用。不能由根本根据推出外因无作用。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K03-N04",
+            "POL27-CF-MARX-C02-K05-N02"
+          ],
+          "prompt": "矛盾解决的四种形式是什么？内外因在发展中如何分工？",
+          "checking_criteria": [
+            "四形式不漏协同新形式；内外因角色和通过方向准确",
+            "不能以四种形式推出所有具体矛盾都有同一解决方式"
+          ],
+          "memory_cue": "克服、协同、同尽、新生，只是分类线索；条件决定具体路径。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF24、26；节点 POL27-CF-MARX-C02-K03-N04, POL27-CF-MARX-C02-K05-N02",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-K03 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:fbedf427d65d928532b0df7beef99084afb0d0b378dd03772430b5525646fbc6"
+          }
+        }
+      ]
+    },
+    "POL27-CF-MARX-C02-S01": {
+      "runtime_region": "POL27-REGION-MARX-C02-S01",
+      "title": "事物的普遍联系和变化发展",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C02-K01-M01",
+          "form": "boundary",
+          "statement": "联系具有客观性、普遍性、多样性、条件性。自在事物与人为事物的联系都客观；人可在尊重客观规律下通过实践改变和创造条件。普遍联系不等于任意两物都有直接联系，中介不限于人。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K01"
+          ],
+          "prompt": "联系的四个特点是什么？客观联系和人为联系、普遍联系和任意直接联系怎样区分？",
+          "checking_criteria": [
+            "四特点成员完整，条件与人为客观边界须恢复",
+            "不能答客观所以实践不能改变任何联系"
+          ],
+          "memory_cue": "先问是否由愿望定、是否孤立、有哪些类型、依赖何种条件。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF19–20；节点 POL27-CF-MARX-C02-K01",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:be98c32f218ebeffcd84e82dba35159536a6679a73408fe7ef8895696a836e01"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K01-M02",
+          "form": "boundary",
+          "statement": "系统是相互联系、相互作用的若干要素组成的、具有稳定结构和特定功能的有机整体。系统观念是普遍联系观点的应有之义；从整体把握并优化结构与功能，兼顾全局局部、当前长远、宏观微观、主次矛盾、特殊一般。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K01-N04"
+          ],
+          "prompt": "系统是什么？系统观念对应什么观点，实践上应优化什么？",
+          "checking_criteria": [
+            "定义的要素互动、稳定结构、特定功能、有机整体完整",
+            "应有之义与结构功能配对；不推所有组合一定最优"
+          ],
+          "memory_cue": "要素怎样组织才产生什么功能；只数元素不等于系统。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF20；节点 POL27-CF-MARX-C02-K01-N04",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:e0090afa0efcbbbb9ced0b0819d227734a6f0d7f216056af383a7e2698aaee60"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K02-M01",
+          "form": "boundary",
+          "statement": "运动包括一切变化；发展是前进的、上升的运动。发展实质是新事物产生和旧事物灭亡。判断新旧看是否符合历史前进方向及生命力，不看出现先后、名称新旧或一时力量强弱。联系和发展是唯物辩证法总观点与总特征。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K02"
+          ],
+          "prompt": "发展与运动变化有什么区别？发展的实质和判断新旧事物的标准是什么？唯物辩证法的总观点和总特征是什么？",
+          "checking_criteria": [
+            "发展方向、实质、标准、总特征对应完整",
+            "不能把新推出产品一律判成哲学新事物"
+          ],
+          "memory_cue": "变没变与向何方向变分两问；名称新不是依据。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF19–21；节点 POL27-CF-MARX-C02-K02",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:673945fc021303ee8983b7e5d4e9c4a8ffc418879385f0412000bcfc8e6cb02f"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K02-M02",
+          "form": "boundary",
+          "statement": "与环境：新要素结构功能适应变化的条件；与旧事物：在旧事物中孕育，克服消极、保留合理并增添新内容；在社会领域：符合人民群众根本利益并得到支持。这说明历史趋势，不担保任意新产品即时成功。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K02-N03"
+          ],
+          "prompt": "教材从哪三个关系说明新事物的生命力？这能否推出所有新产品立即成功？",
+          "checking_criteria": [
+            "三关系各恢复实质，允许释义",
+            "社会领域限定不能丢；不推时间或具体商业保证"
+          ],
+          "memory_cue": "环境、旧母体、社会群众三个关系，分别解释生命力。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF21；节点 POL27-CF-MARX-C02-K02-N03",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:e4f03b4fc53cc91cc65e2067cf9ca142b15e16d814c0862eed137ffc9025e1be"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K04-M01",
+          "form": "boundary",
+          "statement": "质是事物成为自身并区别他物的内在规定性；量是规模程度速度等可数量表示的规定性；度是保持质稳定的数量界限，度两端为关节点或临界点。区分量变与质变看变化是否超出度，不能以快慢代替；量变也包括组成要素排列次序变动。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K04"
+          ],
+          "prompt": "质、量、度、关节点各是什么？区分量变质变的根本标志是什么？",
+          "checking_criteria": [
+            "四定义及根本标志完整；保留排列变化",
+            "度必须连到特定质，不是任意通用数字阈值"
+          ],
+          "memory_cue": "是什么、多大、哪段还能保持它、边界在哪，四问连起来。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF24–25；节点 POL27-CF-MARX-C02-K04",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:e0babb5d22f51f7181ba8e65e0850a1db9c49dafea88ad63d84a47efd24f963c"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K04-M02",
+          "form": "boundary",
+          "statement": "量变是质变必要准备，积累到一定程度引起质变，质变为新的量变开辟道路；总量变中有阶段性局部性部分质变，质变中有旧质收缩新质扩张。夸大质变否定量变导致激变论、冒险主义；夸大量变否定质变导致庸俗进化论、改良主义。量变阶段积累、条件成熟促质变，同时掌握适度。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K04-N02",
+            "POL27-CF-MARX-C02-K04-N03",
+            "POL27-CF-MARX-C02-K04-N04"
+          ],
+          "prompt": "量变与质变怎样相互转化渗透？夸大一方分别产生何种错误？",
+          "checking_criteria": [
+            "准备、一定程度、新量变、两种渗透、两错误配对完整",
+            "整体与局部对象须区分；不保证任意期限立即质变"
+          ],
+          "memory_cue": "积累到界再开新程；只想跳与永不跳是两种错。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF25；节点 POL27-CF-MARX-C02-K04-N02, POL27-CF-MARX-C02-K04-N03, POL27-CF-MARX-C02-K04-N04",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:488efa1767c33b562e2e7eeb5e7e2f48ae7f1d02bfbe789fe42d1f2dd5bac0a0"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K05-M01",
+          "form": "boundary",
+          "statement": "肯定因素维持事物存在，否定因素促使现存事物灭亡、转变为他物。辩证否定是内部矛盾运动的自我否定；是发展环节；是新旧联系环节；实质为扬弃，即克服消极、保留积极，批判继承统一、连续与非连续统一。不是外力单独造成，也不是肯定或否定一切。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K05-N01",
+            "POL27-CF-MARX-C02-K05-N02"
+          ],
+          "prompt": "辩证否定的四项基本内容和实质是什么？肯定否定因素如何区分？",
+          "checking_criteria": [
+            "四内容含实质，克服和保留两面完整",
+            "自我否定不否认外因通过内因起作用"
+          ],
+          "memory_cue": "自我、发展、联系、扬弃：说明根据、作用和保留方式。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF25–26；节点 POL27-CF-MARX-C02-K05-N01, POL27-CF-MARX-C02-K05-N02",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:d0d31e88fba351ec789d300ba3369b2592904bcce9e87351d0152bb9aecc2169"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K05-M02",
+          "form": "boundary",
+          "statement": "两次否定、三个阶段：肯定—否定—否定之否定；仿佛回复起点，但在更高阶段。总体表现为波浪式前进、螺旋式上升，统一前进性与曲折性。只见曲折回归不见上升是循环论；只见上升不见曲折是直线论。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K05-N03",
+            "POL27-CF-MARX-C02-K05-N04"
+          ],
+          "prompt": "否定之否定的次数阶段、发展形式和两种片面错误如何对应？",
+          "checking_criteria": [
+            "次数和阶段顺序必须准确；更高阶段条件不可漏",
+            "不能仅数三个名词或把每次挫折自动算进步"
+          ],
+          "memory_cue": "不是原点重来，也不是直线上去；回归中必须说明保留发展了什么。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF26–27；节点 POL27-CF-MARX-C02-K05-N03, POL27-CF-MARX-C02-K05-N04",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:b255bad89ce3b7382ba406d89497dc7841061d15033a4a0f0cb947df238b2e29"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K06-M01",
+          "form": "boundary",
+          "statement": "内容是要素总和，形式是统一要素的结构或表现方式；相互依赖不可分割，内容决定形式，形式反作用于内容，适合促进、不适合阻碍。一种内容可有多种形式，一种形式可表现不同内容；内容较易变、形式相对稳定。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K06"
+          ],
+          "prompt": "内容与形式谁决定谁，另一方有何作用？是否一一对应和永远同速变化？",
+          "checking_criteria": [
+            "决定与反作用方向准确，适合条件、多对多、相对稳定全",
+            "不能把形式看成可有可无包装"
+          ],
+          "memory_cue": "内容问装着什么，形式问怎样组织；比喻不取消形式反作用。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF27；节点 POL27-CF-MARX-C02-K06",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:74650f406728f4e875a62c8ca4e795aa1bf3327d25bbd34dfebfef8c04231ed0"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K07-M01",
+          "form": "boundary",
+          "statement": "现象是外部表现，个别具体、多变丰富，可感知；本质是根本性质和内在联系，一般、相对稳定、深刻，由理性把握。本质经现象表现，现象从一定方面表现本质，应透过现象认识本质。真象与假象都是客观现象，分别正面与歪曲表现本质；错觉是主观的错误感觉。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K07"
+          ],
+          "prompt": "现象与本质的差别和联系是什么？真象、假象、错觉各是客观还是主观？",
+          "checking_criteria": [
+            "现象本质的对象与认识方式、表现关系完整",
+            "真象不是正确认识，假象不是错误认识；不能把本质当永远不变"
+          ],
+          "memory_cue": "先分外部表现与内在联系，再分表现是否歪曲；错误感觉另在认识层。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF27–28；节点 POL27-CF-MARX-C02-K07",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:71224f9ccb56cafd8f0ab33479ba46ca25f044d3b0c3b08a3d5e5920b1065234"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K08-M01",
+          "form": "boundary",
+          "statement": "因果必须有引起与被引起关系，先后相继本身不足。固定范围区别确定，跨过程可转化并相互作用。六类为一因多果、同因异果、一果多因、异因同果、多因多果、复合因果；不能由一个结果唯一反推指定原因，也不能忽略条件断言同因必同一特定果。原因与结果相互渗透：结果存在于原因之中、原因表现在结果之中，指原因中蕴含结果发生的因素趋势、结果表现成因作用，不等于未来结果已经现实存在。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K08"
+          ],
+          "prompt": "原因结果与普通先后相继有何区别？列出六类复杂因果，并说明其推断边界。如何理解因果相互渗透而不把未来当成已经现实？",
+          "checking_criteria": [
+            "引起条件及六类完整；可释义，不要求列表原序",
+            "不能将昼夜交替当因果或用相互作用取消固定范围方向",
+            "相互渗透要给限定解释，不与可能现实混淆"
+          ],
+          "memory_cue": "箭头须有引起，不只是排队；先问范围再问条件。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF28；节点 POL27-CF-MARX-C02-K08",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:ce04457720878aee5f7cd1545bf6f9d11087eb92fc8084f940214d8f5316de4f"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K09-M01",
+          "form": "boundary",
+          "statement": "必然是确定不移趋势，在发展中居支配地位；偶然是不确定趋势，可促进或延缓过程。必然寓于偶然，通过大量偶然表现；偶然是必然的表现形式和补充；二者在一定条件下可转化。偶然有客观原因，不是任意选择或可以忽略。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K09"
+          ],
+          "prompt": "必然与偶然的方向作用、寓于关系如何表述？偶然能否忽略？",
+          "checking_criteria": [
+            "寓于方向、支配与促进延缓、条件均保留",
+            "不能把偶然说成决定总体方向的根本因素"
+          ],
+          "memory_cue": "总趋势通过具体事件显现；重趋势，也不能丢机遇和风险。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF28–29；节点 POL27-CF-MARX-C02-K09",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:7b179bb06286018964eadda580b4e2fa77ddaf7f499a54d26e3fa49cb461c6d0"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K10-M01",
+          "form": "boundary",
+          "statement": "可能是有现实根据的潜在趋势，现实是实际存在；主客观条件成熟，可能才转为现实。三轴分别为有无根据：可能/不可能；现实根据是否充分：现实可能/抽象可能；对人是否有利：好/坏可能。现实可能仍不是已经实现，主观努力不能替代客观根据和条件。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K10"
+          ],
+          "prompt": "可能与现实如何区别转化？可能性应按哪三个独立维度区分？",
+          "checking_criteria": [
+            "三轴与两类各配对，成熟条件不能漏",
+            "抽象可能不等于无根据；换对象或条件不是原不可能已实现"
+          ],
+          "memory_cue": "先问有据吗、条件够吗、利弊如何；三问不能混成一条高低梯。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF29–30；节点 POL27-CF-MARX-C02-K10",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S01 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:162154289e7336be1f28817147207c8e25a760bc092780f576bf671041e11b9d"
+          }
+        }
+      ]
+    },
+    "POL27-CF-MARX-C02-S02": {
+      "runtime_region": "POL27-REGION-MARX-C02-S02",
+      "title": "唯物辩证法的思维方法",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C02-K11-M01",
+          "form": "boundary",
+          "statement": "肯定现存事物同时看到否定方面，把既成形式看作暂时的，看到发生发展灭亡，因而本质是批判的革命的；同时承认具体形态在一定时代环境存在的历史理由，不等于永恒正确或价值上全盘赞许。核心方法为矛盾分析方法。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K11"
+          ],
+          "prompt": "唯物辩证法本质上的批判革命性与其承认历史正当性为何不矛盾？核心方法是什么？",
+          "checking_criteria": [
+            "三项批判理由可释义，历史条件与非永恒限定完整",
+            "核心方法不能仅答全面看待等泛话"
+          ],
+          "memory_cue": "当时为何能存在，与是否永远不变分开。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF30；节点 POL27-CF-MARX-C02-K11",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S02 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:fc46e6a433ca73465e9260b3782f7766224d16c7d82ff993aae5dc160841c354"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K12-M01",
+          "form": "boundary",
+          "statement": "客观辩证法是物质世界的辩证运动规律，采取外部必然性形式；主观辩证法是人的认识思维运动，采取观念和逻辑形式，是对客观辩证法的反映。二者本质统一、表现形式不同；唯物辩证法包含二者，不把主观客观等同唯心唯物或错误正确。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K12"
+          ],
+          "prompt": "主观与客观辩证法的反映方向、本质和表现形式如何配对？",
+          "checking_criteria": [
+            "反映方向、两形式、本质统一全",
+            "不能误倒客观反映主观或把主观自动判错误"
+          ],
+          "memory_cue": "世界的运动与脑中对它的把握，源对象和反映形式分清。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF30；节点 POL27-CF-MARX-C02-K12",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S02 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:3ed360b5110c07cf3828257698affedb0764d92ee4e210708bd1f55b9ae367a1"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K13-M01",
+          "form": "boundary",
+          "statement": "归纳与演绎：最初、最基本的思维方法，个别到一般与一般到个别；分析与综合：分析是综合的基础，综合是分析的完成；抽象与具体：辩证思维的高级形式；逻辑与历史相统一：从抽象上升到具体的内在要求",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K13"
+          ],
+          "prompt": "四组辩证逻辑方法及其地位或关系是什么？",
+          "checking_criteria": [
+            "四组和帽子全，归纳演绎方向不能倒",
+            "具体指思维中多重规定的重建，不是仅指摸得到的物体"
+          ],
+          "memory_cue": "由个别一般入门，拆开再合成，重建整体，再验逻辑历史。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF31；节点 POL27-CF-MARX-C02-K13",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S02 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:43009cd1454a2cbb0d4f0f98a0462469d756246420d5fc7de97bc3cf404f7fa7"
+          }
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K13-M02",
+          "form": "boundary",
+          "statement": "辩证、历史、系统、战略、底线、创新思维。系统关注相互联系及结构功能；战略统揽全局及总体趋势方向；底线客观设定最低目标、立足最低点争取最大期望。历史以史为鉴；创新破过时陈规因时制宜；辩证在联系发展中分析矛盾。",
+          "source_refs": [
+            "POL27-CF-MARX-C02-K13"
+          ],
+          "prompt": "本章六种思维能力分别是什么、各侧重什么？尤其系统、战略、底线如何区别？",
+          "checking_criteria": [
+            "六项完整，各对象可释义",
+            "底线不等于只追求低目标；创新不取消规律"
+          ],
+          "memory_cue": "历史看时间，系统看结构，战略看全局，底线备不测，创新破旧法；都以辩证分析为联系。",
+          "admission": "CANDIDATE_ONLY",
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission_basis": {
+            "route": "FIRST_ROUND_EXACT",
+            "review_status": "REVIEWED",
+            "source_edition": "POL27-CF",
+            "source_locator": "乘风2027上册 PDF31；节点 POL27-CF-MARX-C02-K13",
+            "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p1-model-memory-20261004",
+            "prerequisite": "已解释 POL27-CF-MARX-C02-S02 中本题涉及的全部内容和边界；仅有章节概览不足。",
+            "reviewed_target_revision": "sha256:8203c321090f4cdc687d2cc96ed6a9399651301c3ef71624528d9510cda609db"
+          }
         }
       ]
     }

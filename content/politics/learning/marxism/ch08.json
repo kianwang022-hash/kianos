@@ -6,9 +6,15 @@
   "title": "第八章 共产主义崇高理想及其最终实现",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-MARX-C08"],
-    "natural_unit_ids": ["POL27-CF-MARX-C08"],
-    "suyi_refs": ["POL27-SY-MARX-P043-B033-Y2026"]
+    "region_ids": [
+      "POL27-REGION-MARX-C08"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-MARX-C08"
+    ],
+    "suyi_refs": [
+      "POL27-SY-MARX-P043-B033-Y2026"
+    ]
   },
   "chapter_orientation": {
     "from_previous": "第七章已经说明社会主义从理论进入现实，并且必须在实践中发展。最后一章回答整个马原主线的终点问题：最终理想应怎样被科学理解。",
@@ -28,18 +34,45 @@
       "title": "第八章 共产主义崇高理想及其最终实现",
       "core_problem": "怎样既避免把共产主义学成空想，又避免把远大理想降成与现实无关的口号？",
       "teaching_beats": [
-        {"label": "科学预见的方法", "relation": "研究未来社会应把握现实社会的矛盾和发展趋势，只概括基本方向和特征，不凭主观愿望预制全部具体细节。"},
-        {"label": "基本特征", "relation": "共产主义的社会关系、人的发展和分配方式都以高度发展的社会生产力和新的社会关系为现实前提。"},
-        {"label": "历史必然性", "relation": "必然性来自社会基本矛盾和生产力发展的客观趋势，不是从道德愿望推出。"},
-        {"label": "长期性", "relation": "旧社会关系、物质条件和人的发展都需要长期历史过程，因此必然趋势与长期复杂过程必须同时成立。"},
-        {"label": "理想与现实", "relation": "远大理想通过当前社会主义实践逐步推进；现实工作不是理想的替代物，而是实现理想的历史环节。"}
+        {
+          "label": "科学预见的方法",
+          "relation": "研究未来社会应把握现实社会的矛盾和发展趋势，只概括基本方向和特征，不凭主观愿望预制全部具体细节。"
+        },
+        {
+          "label": "基本特征",
+          "relation": "共产主义的社会关系、人的发展和分配方式都以高度发展的社会生产力和新的社会关系为现实前提。"
+        },
+        {
+          "label": "历史必然性",
+          "relation": "必然性来自社会基本矛盾和生产力发展的客观趋势，不是从道德愿望推出。"
+        },
+        {
+          "label": "长期性",
+          "relation": "旧社会关系、物质条件和人的发展都需要长期历史过程，因此必然趋势与长期复杂过程必须同时成立。"
+        },
+        {
+          "label": "理想与现实",
+          "relation": "远大理想通过当前社会主义实践逐步推进；现实工作不是理想的替代物，而是实现理想的历史环节。"
+        }
       ],
-      "major_boundaries": ["科学预见不等于详细设计未来社会一切制度细节。", "历史必然性不等于自动实现。", "实现长期性不等于理想不可实现。", "远大理想和当前实践不是彼此割裂的两套目标。"],
+      "major_boundaries": [
+        "科学预见不等于详细设计未来社会一切制度细节。",
+        "历史必然性不等于自动实现。",
+        "实现长期性不等于理想不可实现。",
+        "远大理想和当前实践不是彼此割裂的两套目标。"
+      ],
       "closure_cue": "闭卷恢复四句话：从现实出发科学预见 → 基本特征有物质前提 → 方向具有历史必然性 → 实现是长期实践过程。"
     }
   ],
   "chapter_compression": {
-    "reconstruction_chain": ["现实矛盾与发展趋势", "科学预见", "共产主义基本特征", "历史必然性", "长期复杂过程", "远大理想与现实实践统一"],
+    "reconstruction_chain": [
+      "现实矛盾与发展趋势",
+      "科学预见",
+      "共产主义基本特征",
+      "历史必然性",
+      "长期复杂过程",
+      "远大理想与现实实践统一"
+    ],
     "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？"
   },
   "subject_closure": {
@@ -54,5 +87,260 @@
       "第八章：整个历史运动指向什么——共产主义理想与实现"
     ],
     "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。"
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "name": "未来社会科学预见四原则",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K01-N02",
+          "POL27-CF-MARX-C08-K01-TIP01"
+        ],
+        "prompt": "科学预见未来社会的四项方法论原则是什么，科学性与空想描绘的区别在哪里？",
+        "items": [
+          "揭示社会发展一般规律来指明方向",
+          "剖析资本主义旧世界以阐明未来新世界特点",
+          "在社会主义发展实践中不断深化认识",
+          "揭示一般特征，不把未来各种细节预先描成固定蓝图",
+          "科学性在于规律、现实矛盾和实现条件的依据，不只是批判旧社会、赞美理想或写更多细节"
+        ],
+        "checking_criteria": [
+          "四原则及方法差别完整，不将一般预测说成无根据想象，也不将经典具体判断全视为永不需检验",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "规律定向—旧世界找根据—实践深化—一般特征而非全套图纸。",
+        "id": "polmem-6e9843e2",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF92；节点 POL27-CF-MARX-C08-K01-N02, POL27-CF-MARX-C08-K01-TIP01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:1abf4de054ab735a14acb7d09dc15e47a66c08aca6f5b91b4e9e0c935d54ebe3"
+        }
+      },
+      {
+        "name": "共产主义三特征与分配条件",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K02"
+        ],
+        "prompt": "共产主义三项基本特征是什么？其中物质和分配条件怎样说明，与社会主义按劳分配如何区分？",
+        "items": [
+          "物质财富极大丰富，消费资料实行各尽所能、按需分配",
+          "社会关系高度和谐，精神境界极大提高",
+          "每个人自由而全面发展，从必然王国走向自由王国",
+          "高度发达生产力是必要条件而非单独充分条件；生产资料归全社会共同占有，该高阶段不再使用商品货币市场关系",
+          "按劳以劳动贡献为依据分配个人消费资料，按需以人的需要为依据分配个人消费资料，二者不是同一标准，按需也不等于人人平均；高阶段特征不直接搬成当下阶段已经实现的事实"
+        ],
+        "checking_criteria": [
+          "三特征、分配名称及阶段条件准确，必要不误作充分",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "物质分配—社会精神—每个人发展，阶段和条件一起记。",
+        "id": "polmem-edcb8d36",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF92–93；节点 POL27-CF-MARX-C08-K02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:40716d1c56e023f221b1c154a2d97fd5f8db5e4fdee94a5c6d677f5d0d898895"
+        }
+      },
+      {
+        "name": "和谐社会三差别及国家消亡",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K02-N02"
+        ],
+        "prompt": "共产主义社会和谐特征中，哪三大差别消失，阶级国家战争怎样变化？这是否意味着所有社会协调和一切矛盾消失？",
+        "items": [
+          "阶级消亡，作为阶级统治工具的国家消亡，战争不复存在",
+          "工业与农业、城市与乡村、脑力劳动与体力劳动三大差别消失",
+          "社会关系与人与自然高度和谐，精神境界提高",
+          "国家消亡不等于没有社会协调管理；三大差别消失不等于人人完全一样；和谐不等于任何矛盾都消失，也不等于停止按规律改造自然"
+        ],
+        "checking_criteria": [
+          "三差别及国家消亡对象准确，社会协调与阶级统治工具区分",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "工农城乡脑体三差别；消除压迫关系，不抹掉社会协作和客观规律。",
+        "id": "polmem-a9ad6316",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF92；节点 POL27-CF-MARX-C08-K02-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:c80a897d6429ac90fd887f8dd5fef42a5b4e030a5de4740a4d8179620a9723eb"
+        }
+      },
+      {
+        "name": "人的自由全面发展地位内涵",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K02-N03-I01",
+          "POL27-CF-MARX-C08-K02-N03-I02",
+          "POL27-CF-MARX-C08-K02-N03-I04"
+        ],
+        "prompt": "人的自由全面发展有什么根本地位，自由与全面各指什么，发展覆盖哪些人？",
+        "items": [
+          "是马克思主义追求的根本价值目标，也是共产主义社会的根本特征",
+          "自由指摆脱对人的依附和物的依赖而高度自由自觉，不是摆脱客观规律",
+          "全面指体力智力、各种才能工作能力和社会联系等充分发展，而非只发展单一谋生能力",
+          "指全体社会成员及每一个人的发展，不是少数人的特权或用整体发展取消个人"
+        ],
+        "checking_criteria": [
+          "两根本地位、自由全面含义及每个人完整",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先问发展为谁，再问摆脱何种依赖，最后看能力关系是否全面。",
+        "id": "polmem-91ef7ce2",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF93；节点 POL27-CF-MARX-C08-K02-N03-I01, POL27-CF-MARX-C08-K02-N03-I02, POL27-CF-MARX-C08-K02-N03-I04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:644a495f8f4309138e1aae7a509444e0c149d3a25862d3a0896e43374c7602e2"
+        }
+      },
+      {
+        "name": "自由全面发展的三条件",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K02-N03-I03"
+        ],
+        "prompt": "每个人自由全面发展的三项实现条件是什么，如何避免把旧式分工消除误解成没有任何协作？",
+        "items": [
+          "彻底摆脱旧式分工的束缚，并非取消一切合理分工协作",
+          "自由时间大大延长，为能力关系发展提供时间",
+          "劳动不再仅是谋生手段，成为生活第一需要，能够发挥人的能力"
+        ],
+        "checking_criteria": [
+          "三条件完整，劳动第一需要不等于无需劳动，也不等于每个现实岗位已如此",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "旧分工不束缚，有时间发展，劳动本身能实现人。",
+        "id": "polmem-100a9e51",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF93；节点 POL27-CF-MARX-C08-K02-N03-I03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:62e1b032d1ad7e4eb38df1d997a6f2b6e5fc8a9afc3ed512c359e228b9a7a227"
+        }
+      },
+      {
+        "name": "实现共产主义的两依据与三长期过程",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K03-N01",
+          "POL27-CF-MARX-C08-K03-N02"
+        ],
+        "prompt": "按本章论证，实现共产主义的两类依据是什么，根本原因何在？为何要经历三个长期过程？",
+        "items": [
+          "社会发展规律及资本主义基本矛盾发展提供依据，根本原因是人类社会发展规律",
+          "社会主义运动实践与社会主义国家兴起发展被本章作为现实依据；不能以单一事件充作全未来已被经验验证的结论",
+          "资本主义灭亡并向社会主义转变是长期过程；社会主义充分发展再向共产主义过渡需要长时期；共产主义在全世界实现也需长期曲折过程"
+        ],
+        "checking_criteria": [
+          "两依据、根本及三过程完整，历史趋势不是固定日期或无需实践自动实现",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "规律与实践两种依据，转变—充分发展—全世界实现三段时间。",
+        "id": "polmem-d6e145fb",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF93；节点 POL27-CF-MARX-C08-K03-N01, POL27-CF-MARX-C08-K03-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:1d34d27de3ddbdf21716735e78ccdcd70da18da05ddba15623d8e299529d4338"
+        }
+      },
+      {
+        "name": "现实阶级力量与三种解放",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K03-N02-TBL01"
+        ],
+        "prompt": "源表确定的现实阶级力量是什么，人类解放指哪三方面？",
+        "items": [
+          "现代工人阶级即无产阶级是实现共产主义的现实力量",
+          "从自然界盲目力量的压迫下解放",
+          "从旧社会关系束缚下解放",
+          "从旧的传统观念束缚下解放",
+          "自然力量的解放是认识利用规律，不是人脱离自然或创造规律"
+        ],
+        "checking_criteria": [
+          "现实力量和三解放对象准确，观念社会自然不混层",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "自然盲目力量—旧社会关系—旧传统观念，三层束缚分别说明。",
+        "id": "polmem-4bbc80b3",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF93；节点 POL27-CF-MARX-C08-K03-N02-TBL01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:ac04bd34c979b3a9b9b2e8f3579079985725916b1c5fe8a1ad85e84d50b16392"
+        }
+      },
+      {
+        "name": "远大共同理想三维关系",
+        "natural_unit_id": "POL27-CF-MARX-C08",
+        "source_refs": [
+          "POL27-CF-MARX-C08-K04-N01"
+        ],
+        "prompt": "共产主义远大理想与中国特色社会主义共同理想在时间、层次、范围上分别是什么关系？怎样把二者统一于实践？",
+        "items": [
+          "时间上是最终理想与阶段性理想",
+          "层次上是最高纲领与最低纲领",
+          "范围上是全人类理想与全体中国人民理想",
+          "远大理想指引方向，共同理想是现实阶段奋斗目标；最低不是价值低或已经完成，不能只谈终点而跳过现实建设，也不能丢掉方向"
+        ],
+        "checking_criteria": [
+          "三维对应准确，统一需现实努力而非口号，不能据理想为任何具体措施自动背书",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "时间看远近，层次看纲领，范围看谁；阶段实践接住最终方向。",
+        "id": "polmem-0b720987",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF93；节点 POL27-CF-MARX-C08-K04-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c05-c08-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C08 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:d39a7e671d011bb8095d1c733449180ba4d1bc7965515be76de95a59f91a6aec"
+        }
+      }
+    ],
+    "deferred_precision": [
+      "按原PDF92物质财富/按需属于K02，原Markdown误包K01表，候选按实际考点归属引用K02，不修改Source ID。",
+      "未来特征属于理论一般预见，不声称已观察全部实现；基本立场方法与具体判断可检验分开。",
+      "国家消亡范围、旧式分工与社会协作边界按前章关系解释，不冒充本章逐字Source。唯一正式NU不新加S01。"
+    ]
   }
 }

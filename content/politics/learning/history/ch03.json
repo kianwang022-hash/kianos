@@ -62,5 +62,294 @@
     "double_judgment": "辛亥革命成功推翻君主专制并打开共和闸门，但没有改变社会性质和完成反帝反封建任务。",
     "historical_direction": "改良失败 → 资产阶级革命 → 推翻帝制 → 共和国受挫 → 旧民主主义革命局限暴露 → 新的革命阶段即将出现",
     "review_prompt": "回答一个核心题：辛亥革命为什么既是一次伟大的历史性变革，又被判定没有完成近代中国革命任务？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "革命派基础与骨干",
+        "items": [
+          "阶级基础是民族资产阶级。",
+          "骨干力量是一批资产阶级、小资产阶级知识分子。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K01-N03-I01",
+          "POL27-CF-HISTORY-C03-K01-N03-I02"
+        ],
+        "prompt": "辛亥革命时期资产阶级革命派的阶级基础和骨干力量分别是什么？",
+        "checking_criteria": [
+          "两组对象与角色须对应；骨干两类知识分子不漏，不能把知识分子与阶级基础写成互斥两答案。无需泛化为每一参与者身份。"
+        ],
+        "memory_cue": "教学助记：代表谁的利益，与谁具体组织行动分开问。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K01-N03-I01",
+          "POL27-CF-HISTORY-C03-K01-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 19；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K01-N03-I01；POL27-CF-HISTORY-C03-K01-N03-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“从改良受挫走向革命，不把人物选择当唯一原因”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:a44b942362016f91f2fc32dc6c928e9b4175460f66ebad89430eb12b8b50c854"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "兴中会起点",
+        "items": [
+          "1894年，孙中山在檀香山组建；本章称其为第一个革命团体。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K02-N02-I01"
+        ],
+        "prompt": "兴中会由谁在何年何地组建？本章赋予它的组织地位是什么？",
+        "checking_criteria": [
+          "人物、年、地点、革命团体四项完整，不换成东京1905年或全国性政党；题面未问誓词不要求。"
+        ],
+        "memory_cue": "教学对照：兴中会是团体起点；不要把同盟会的全国性政党地位挪过来。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K02-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 19；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K02-N02-I01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“从个人主张到组织、宣传和全国性政党”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:ea916089935a6045e50b5cb485cbc503e5be58043dea872a2007eee4c667fca3"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "同盟会组织地位",
+        "items": [
+          "近代中国第一个领导资产阶级革命的全国性政党。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K02-N04-I02"
+        ],
+        "prompt": "中国同盟会在本章的历史定位是什么？须恢复“第一个”的完整组织范围。",
+        "checking_criteria": [
+          "近代中国、领导资产阶级革命、全国性政党范围完整。不能省为第一个革命团体或一切政党的第一；日期机关报不在本次所问题面内。"
+        ],
+        "memory_cue": "教学助记：时代地域、领导哪种革命、全国性政党三个限定合起来记。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K02-N04-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 19；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K02-N04-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“从个人主张到组织、宣传和全国性政党”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:fa403d844dd7dff75d221707b5c7f9b6d71cb3dc673655f6f602b699d41a4300"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S02",
+        "name": "南京临时政府性质依据",
+        "items": [
+          "资产阶级共和国性质的革命政权。",
+          "人员组成上，资产阶级革命派占领导和主体地位。",
+          "政策集中代表和反映民族资产阶级利益，并在相当程度上符合广大中国人民利益。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K06-N02",
+          "POL27-CF-HISTORY-C03-K06-N02-I01",
+          "POL27-CF-HISTORY-C03-K06-N02-I02"
+        ],
+        "prompt": "南京临时政府是什么性质的政权？从人员组成和政策两方面分别给出本章的判断依据。",
+        "checking_criteria": [
+          "性质与两依据均须答，人员为领导/主体不是全体；政策须保留民族资产阶级和在相当程度上符合广大人民利益，不能改成全面满足所有人民要求。"
+        ],
+        "memory_cue": "教学助记：先定性，再分别看谁主导、政策代表谁；“相当程度”不能从政策条件中剪掉。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K06-N02",
+          "POL27-CF-HISTORY-C03-K06-N02-I01",
+          "POL27-CF-HISTORY-C03-K06-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 21、22；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K06-N02；POL27-CF-HISTORY-C03-K06-N02-I01；POL27-CF-HISTORY-C03-K06-N02-I02。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“革命突破与共和建立，要保留两条同时发生的过程”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:789e8c56554f15944a8d8286d2bae5cf01a7e30b4b5d8162d36c0e514f5a1c4b"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S03",
+        "name": "辛亥未竟与客观根因",
+        "items": [
+          "旧中国半殖民地半封建社会性质未改变，近代主要矛盾未解决，反帝反封建革命任务未完成。",
+          "客观根本原因：在帝国主义时代、半殖民地半封建的中国，资本主义建国方案行不通。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K10-N01-I01",
+          "POL27-CF-HISTORY-C03-K10-N01-I02",
+          "POL27-CF-HISTORY-C03-K10-N02-I01"
+        ],
+        "prompt": "从社会性质、主要矛盾和革命任务三个方面，说明本章为什么判定辛亥革命仍然失败；其客观方面的根本原因是什么？",
+        "checking_criteria": [
+          "三项失败尺度及根因的时代/国情条件须完整；允许释义，不得由未完成任务说成未推翻帝制。根因不是泛指所有时空资本主义不可建国。题面不问主观三不足，不能因未答未问项扣分。"
+        ],
+        "memory_cue": "教学助记：先查国情—矛盾—任务，再给客观根因加双框：帝国主义时代、两半中国。 有提示补正只计教学修复，不能当新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K10-N01-I01",
+          "POL27-CF-HISTORY-C03-K10-N01-I02",
+          "POL27-CF-HISTORY-C03-K10-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 24；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K10-N01-I01；POL27-CF-HISTORY-C03-K10-N01-I02；POL27-CF-HISTORY-C03-K10-N02-I01。实际核验仅这些文字，不借Source verification字段宣称像素通过。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“失败判断回到未完成的任务，而不抹掉真实成果”，按上表回原spine相应节点；只看母模型不够。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:44a67de8b83d16d2ca978d517f08565028237d5e190579e8b5db38f9d937a77d"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "邹容陈天华革命宣传",
+        "items": [
+          "邹容：《革命军》。",
+          "陈天华：《警世钟》《猛回头》。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K02-N03-I02",
+          "POL27-CF-HISTORY-C03-K02-N03-I03"
+        ],
+        "prompt": "本章邹容与陈天华的革命宣传著作各是什么？需列出对应原文的全部作品。",
+        "checking_criteria": [
+          "两作者三作品配对完整，不把邹容作品归陈天华或漏其双册；不要求另背口号。章炳麟书名疑字未随本题准入。"
+        ],
+        "memory_cue": "教学分组：邹容一部，陈天华两册；数量只是检索校验，书名与作者仍须恢复。 有提示补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K02-N03-I02",
+          "POL27-CF-HISTORY-C03-K02-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF（2027），下册PDF 19；c03.json blob 26932abb314cc2503697302390aa419429ef39ea；refs：POL27-CF-HISTORY-C03-K02-N03-I02；POL27-CF-HISTORY-C03-K02-N03-I03。仅核本题所需清楚文字，不用截断尾部/疑字/表图/红答案。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md；先教本brief“从个人主张到组织、宣传和全国性政党”，再回本章固定spine。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:0601cc81ef6b72a7cf01d0bb97df812151beb2287c64a65a2f7cdb74fbeec981"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "旧三民主义纲领与革命类型",
+        "items": [
+          "民族主义对应民族革命：驱除鞑虏、恢复中华，以革命推翻清政府、改变民族压迫政策，追求独立国家。",
+          "民权主义对应政治革命：创立民国，推翻封建君主专制，建立资产阶级民主共和国。",
+          "民生主义对应社会革命：平均地权。",
+          "政治革命应与民族革命并行；民族革命扫除当时恶劣政治，政治革命扫除恶劣政治的根本。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K03-N01",
+          "POL27-CF-HISTORY-C03-K03-N02",
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "prompt": "旧三民主义的民族、民权、民生，分别对应什么革命类型和纲领内容？其中民族革命与政治革命是什么关系？",
+        "checking_criteria": [
+          "三主义/类型/纲领对应与并行关系完整；民族主义不泛化排斥一切满人；平均地权不得换成平均分配土地实物。题面不问具体地价三支，不能因此额外扣分。"
+        ],
+        "memory_cue": "教学配对：民族—民族革命—驱除/恢复；民权—政治革命—创立民国；民生—社会革命—平均地权；民族政治并行，现实统治与专制根本都要改。 仅答后提示，提示后补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K03-N01",
+          "POL27-CF-HISTORY-C03-K03-N02",
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "原Mac reader task 01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；父任务2026-10-05 18:06 UTC收到完整有界JSON。 PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27 / POL27-CF-LOWER; no additional cover/current-year verification。物理页20／印刷页19；实际模态T+P；文字行定位[1129,1173]；已读范围：页顶民族内容/局限至民生局限和该点拨；不取下方两轮论战。本作者实际读完整reader receipt，不冒称亲看原PDF；Source shard未改，完整支持含receipt所恢复的续行/行列。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md“三民主义回答三个问题，各自的缺口在哪里”及2026-10-05 18:06有界Source补齐段；沿原章固定spine解释后再无提示检索。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-source-delta-exact-20261005",
+          "reviewed_target_revision": "sha256:7827df854d33b89a5642e4d94ba55bf7cb9b8f769450c1f2cb8678370f5e24b1"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "旧三民主义各项局限",
+        "items": [
+          "民族主义未正面鲜明提出反帝，对帝国主义本质认识不清、畏惧干涉，甚至幻想承认旧不平等条约换取支持；又未明确把汉族军阀、官僚、地主列作革命对象，反封不彻底。",
+          "民权主义忽略广大劳动群众的国家地位，所称国民主要为资产阶级及其知识分子，人民民主权利难获真正保证。",
+          "民生主义没有正面触及封建土地所有制、没有把土地所有权分给农民，不能满足农民土地要求，难作发动广大工农的理论武器。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K03-N01",
+          "POL27-CF-HISTORY-C03-K03-N02",
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "prompt": "按本章旧三民主义，民族主义、民权主义、民生主义各有什么决定性局限？民族主义的两方面局限都要说明。",
+        "checking_criteria": [
+          "民族反帝/反封两面、民权主体与保障、民生所有权/土地诉求/动员局限分别齐全，不互相挪归。允许释义，不能把未彻底的纲领说成根本无纲领或已全然实现。"
+        ],
+        "memory_cue": "教学支点：民族对外未鲜明反帝、对内对象不彻底；民权忽略劳动群众；民生未把土地所有权给农民，土地与动员不足。 仅答后提示，提示后补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K03-N01",
+          "POL27-CF-HISTORY-C03-K03-N02",
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "原Mac reader task 01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；父任务2026-10-05 18:06 UTC收到完整有界JSON。 PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27 / POL27-CF-LOWER; no additional cover/current-year verification。物理页20／印刷页19；实际模态T+P；文字行定位[1129,1173]；已读范围：页顶民族内容/局限至民生局限和该点拨；不取下方两轮论战。本作者实际读完整reader receipt，不冒称亲看原PDF；Source shard未改，完整支持含receipt所恢复的续行/行列。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md“三民主义回答三个问题，各自的缺口在哪里”及2026-10-05 18:06有界Source补齐段；沿原章固定spine解释后再无提示检索。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-source-delta-exact-20261005",
+          "reviewed_target_revision": "sha256:122cef08a57635cec87946a1880bc88f088ae6ea6f8936125df7eadcd8562b81"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "name": "平均地权地价三支",
+        "items": [
+          "现有地价仍属原主，并征收地价税。",
+          "革命后的增价归国家，为国民共享，即土地增价归公。",
+          "国家还可按原定地价收买地主土地。",
+          "不等于直接把土地所有权分给农民；没有正面触及封建土地所有制。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "prompt": "旧三民主义的平均地权核定地价后，现有地价、革命后增价以及国家收买土地各如何处理？这是否等于把土地所有权直接分给农民？",
+        "checking_criteria": [
+          "三支及最后边界齐全，现价/增价归属不可倒置；收买按原定地价不是任意新价。允许换序与释义，不以相邻未读论战的“平分地权”改写本段。"
+        ],
+        "memory_cue": "教学支点：现价原主纳地价税，增价国家共享，国家可按原价收买；地价安排不等直接分田。 仅答后提示，提示后补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C03-K03-N03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "原Mac reader task 01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；父任务2026-10-05 18:06 UTC收到完整有界JSON。 PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27 / POL27-CF-LOWER; no additional cover/current-year verification。物理页20／印刷页19；实际模态T+P；文字行定位[1129,1173]；已读范围：页顶民族内容/局限至民生局限和该点拨；不取下方两轮论战。本作者实际读完整reader receipt，不冒称亲看原PDF；Source shard未改，完整支持含receipt所恢复的续行/行列。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch03.brief.md“三民主义回答三个问题，各自的缺口在哪里”及2026-10-05 18:06有界Source补齐段；沿原章固定spine解释后再无提示检索。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-source-delta-exact-20261005",
+          "reviewed_target_revision": "sha256:df1211dc442daa16ef15b3cb0eea0c8302643208e0e333905a0c7a2030ac50a0"
+        }
+      }
+    ]
   }
 }

@@ -60,6 +60,31 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "id": "polmem-a9db414c",
+        "prompt": "人民民主对于社会主义怎样定位？全过程人民民主对于社会主义民主政治的创新、在新时代我国民主政治领域的创新成果、社会主义民主政治性质这三个方面，分别如何定位？",
+        "checking_criteria": [
+          "人民民主对应社会主义的生命，不能把主语改成某一具体机构或投票环节。",
+          "全过程人民民主的三句依次可独立恢复：社会主义民主政治的伟大创造；新时代我国民主政治领域具有重大创新意义的标志性成果；社会主义民主政治的本质属性。",
+          "不以只答“创造、成果、属性”三个短词代替完整指向；不能把社会主义民主政治与社会主义整体的不同层次混写。",
+          "顺序可以不同，但三个定位必须分别完整，不能把生命配到另一主语后替代人民民主这一句。"
+        ],
+        "memory_cue": "答后可提醒：先分清两个主语，再回忆第二个主语在本章的三条表述；不在初始题面显示任何待提取角色词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K01",
+          "POL27-CF-XI-C08-K04",
+          "POL27-CF-XI-C08-K04-N01-I01",
+          "POL27-CF-XI-C08-K04-N01-I02",
+          "POL27-CF-XI-C08-S02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K01,POL27-CF-XI-C08-K04,POL27-CF-XI-C08-K04-N01-I01,POL27-CF-XI-C08-K04-N01-I02,POL27-CF-XI-C08-S02；CF下册PDF135–137 / 书134–136；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "完成 C08-S01/C08-S02 所涉对象与模型关系的讲解后使用；先无提示作答，再按内容标准检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch08.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:aadfb790437556978b4378d2b35d942b5db6a23fb46bb9592cb5426285d3a854"
+        },
         "natural_unit_id": "POL27-CF-XI-C08-S01",
         "name": "人民民主与全过程人民民主的高频身份",
         "items": [
@@ -70,6 +95,110 @@
         ],
         "learning_rule": "‘生命’‘伟大创造’‘标志性成果’‘本质属性’分别对应不同命题表述，不能串位。",
         "source_refs": ["POL27-CF-XI-C08-K01", "POL27-CF-XI-C08-K04", "POL27-CF-XI-C08-K04-N01-I01", "POL27-CF-XI-C08-K04-N01-I02"]
+      },
+      {
+        "id": "polmem-42757608",
+        "natural_unit_id": "POL27-CF-XI-C08-S02",
+        "name": "全过程人民民主的四对统一",
+        "items": [
+          "过程民主和成果民主相统一",
+          "程序民主和实质民主相统一",
+          "直接民主和间接民主相统一",
+          "人民民主和国家意志相统一"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C08-K04-N02-I01"
+        ],
+        "prompt": "不看提示，恢复教材关于全过程人民民主所实现的四组关系，保留每组的原配对。",
+        "checking_criteria": [
+          "四对两端全部出现，且必须保持原配对；八个词齐了但重配仍不合格。",
+          "不把“国家意志”改成另一种民主类型，不漏“人民民主”。",
+          "每对须保留“相统一”的关系；只并列两端而未答出关系应补全。",
+          "不要求额外解释具体实现机制，也不接受把相统一改成永远等量、任何场景同权重。"
+        ],
+        "memory_cue": "答后按过程与结果、程序与内容、参与形式、人民与国家这四个已有维度找回原对；这些只是检索提示，最终仍须恢复 Answer 全词。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K04-N02-I01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K04-N02-I01；CF下册PDF136–136 / 书135–135；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C08-S02 已理解对象与关系后，于 C08-S90 使用；先无提示作答，按完整内容与配对关系检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch08.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:5fecdc81ce704da2709dd7c27b02326ae667b958ae6f4a400a9516b3186c5e48"
+        }
+      },
+      {
+        "id": "polmem-1324cfcf",
+        "natural_unit_id": "POL27-CF-XI-C08-S04",
+        "name": "统战工作与政协工作的表述边界",
+        "items": [
+          "统战工作的本质要求/主题是大团结大联合",
+          "统战工作解决人心和力量问题",
+          "政协工作的主题是团结和民主"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C08-K09-N02-I01",
+          "POL27-CF-XI-C08-K09-N03-TIP01"
+        ],
+        "prompt": "统战工作的本质要求或主题、政协工作的主题分别是什么？统战工作主要解决什么问题？请分别完整回答。",
+        "checking_criteria": [
+          "统战工作对应大团结大联合，政协工作对应团结和民主；两组完整内容不能对调。",
+          "保留本质要求/主题与主题各自所指的工作对象，不能只说“二者都是团结”。",
+          "统战工作要解决人心与力量两个方面，不能漏任一个。",
+          "不把这三条扩大成两项工作的全部职能或全部路径，也不从“团结”推出取消一切差异。"
+        ],
+        "memory_cue": "答后可按两个工作对象逐一核对，再回看统战工作所处理的问题。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K09-N02-I01",
+          "POL27-CF-XI-C08-K09-N03-TIP01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K09-N02-I01,POL27-CF-XI-C08-K09-N03-TIP01；CF下册PDF140–140 / 书139–139；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C08-S04 已理解对象与关系后，于 C08-S90 使用；先无提示作答，按完整内容与配对关系检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch08.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:898c509365c5712996f6a8d0d15a01795863bad087ca043ad20cae349238393a"
+        }
+      },
+      {
+        "id": "polmem-8d8c9702",
+        "natural_unit_id": "POL27-CF-XI-C08-S04",
+        "name": "民族工作与共同体认同",
+        "items": [
+          "铸牢中华民族共同体意识是民族工作的主线",
+          "对中华民族形成起决定作用的是对中华民族共同体的认同，而不是种族、血缘、地域、宗教等因素"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C08-K10",
+          "POL27-CF-XI-C08-K10-N01-I01"
+        ],
+        "prompt": "不看提示，恢复教材关于铸牢中华民族共同体意识在民族工作中的定位，以及中华民族形成与共同体认同、相关因素之间关系的两条表述。",
+        "checking_criteria": [
+          "第一条须保留铸牢中华民族共同体意识、民族工作、主线三部分，不能只说“很重要”。",
+          "第二条须把决定作用配给对中华民族共同体的认同，并完整保留种族、血缘、地域、宗教这一组被排除的替代答案。",
+          "不将“中华民族共同体意识”的工作定位与“对中华民族共同体的认同”的形成判断互换成一句。",
+          "不能把“不是决定因素”改成那些因素在任何历史场景绝无关系。"
+        ],
+        "memory_cue": "答后分别回忆民族工作中的定位与中华民族形成的判断；先分两个问题，再恢复各自完整主语和关系。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K10",
+          "POL27-CF-XI-C08-K10-N01-I01",
+          "POL27-SY-XI-P080-B042-Y2024"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K10,POL27-CF-XI-C08-K10-N01-I01；CF下册PDF140–141 / 书139–140；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。；content/politics/source/nodes/shards/pol27-sy/xi/p080.json#POL27-SY-XI-P080-B042-Y2024；PDF80/书75；提取文字交叉核对，未核原图。",
+          "prerequisite": "在 C08-S04 已理解对象与关系后，于 C08-S04的讲解后检查 使用；先无提示作答，按完整内容与配对关系检查，首答后才给可选提示。",
+          "review_ref": "content/politics/learning/xi/teaching-candidate/ch08.brief.md#xi-fields-exact-review-20261005",
+          "reviewed_target_revision": "sha256:3d0a0a65f5789780ebee4ed56b5832637d258b5e6b65c5655833d2c391966868"
+        }
       }
     ],
     "active_structures": [
@@ -100,6 +229,25 @@
     ],
     "active_boundaries": [
       {
+        "id": "polmem-f248d6be",
+        "prompt": "人民代表大会制度与中国共产党领导的多党合作和政治协商制度、民族区域自治制度、基层群众自治制度，在中国特色社会主义政治制度体系中各是什么地位？请分别说明。",
+        "checking_criteria": [
+          "人民代表大会制度必须答为根本政治制度。",
+          "另外三项须同属基本政治制度，并保留中国共产党领导的多党合作和政治协商制度这一完整名称。",
+          "只说“都是重要制度”不能通过；把根本与基本对调、漏掉政治限定或混成经济制度均须明确纠错。"
+        ],
+        "memory_cue": "答后可提醒逐项配对制度名和地位；不在题目标题展示旧对象名所含答案角色。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K02-N01-I01",
+          "POL27-CF-XI-C08-K02-N01-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K02-N01-I01,POL27-CF-XI-C08-K02-N01-I02；CF下册PDF136–136 / 书135–135；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C08-S01/C08-S03 已理解相关对象与模型关系后，于 C08-S90 使用；先无提示作答，再按内容标准检查，首答后才给可选提示。"
+        },
         "name": "根本政治制度 ≠ 基本政治制度",
         "items": [
           "人民代表大会制度是根本政治制度",
@@ -108,6 +256,25 @@
         "source_refs": ["POL27-CF-XI-C08-K02-N01-I01", "POL27-CF-XI-C08-K02-N01-I02"]
       },
       {
+        "id": "polmem-61614349",
+        "natural_unit_id": "POL27-CF-XI-C08-S03",
+        "prompt": "请分别说明中国共产党领导的多党合作和政治协商制度与人民政协是什么，并完整恢复两者容易混淆的身份边界。",
+        "checking_criteria": [
+          "前者属于基本政治制度和政党制度层，后者是重要机构、专门协商机构。",
+          "人民政协不是国家权力机关，不能用“国家机关”一词含混抹掉这一否定边界。",
+          "不能把政协制度等同于一次会议活动，也不能把人民政协机构的身份替换成整个制度的地位。"
+        ],
+        "memory_cue": "答后提示分别检查制度、机构及不可替代的身份；不在初始题面呈现旧 name 的三个答案类别。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K06-N01-TBL01"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K06-N01-TBL01；CF下册PDF138–138 / 书137–137；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。",
+          "prerequisite": "在 C08-S03 已理解相关对象与模型关系后，于 C08-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "政协制度 ≠ 人民政协机构 ≠ 国家权力机关",
         "items": [
           "政党制度/政协制度属于基本政治制度层",
@@ -117,6 +284,27 @@
         "source_refs": ["POL27-CF-XI-C08-K06-N01-TBL01"]
       },
       {
+        "id": "polmem-3c99b266",
+        "prompt": "如何理解全过程人民民主？人民代表大会制度在其中起什么作用？请把两者的关系说完整。",
+        "checking_criteria": [
+          "第一部分须说明民主实践贯穿多环节，不能把全过程人民民主等同于仅有投票一次。",
+          "第二部分须将人民代表大会制度对应实现全过程人民民主的重要制度载体之一，不能把它改成全过程人民民主的唯一定义。",
+          "回答不要求列出尚未完整讲授的特点/优势名单；也不能用罗列制度名称代替解释两者关系。"
+        ],
+        "memory_cue": "答后可回到原模型第二格与第三格：先解释民主实践，再解释其制度承载关系。提示只连回原模型，不生成阶段先后或充分因果。",
+        "inspected_refs": [
+          "POL27-CF-XI-C08-K04",
+          "POL27-CF-XI-C08-K06-N01-I04",
+          "POL27-CF-XI-C08-K04-N02-I01",
+          "POL27-SY-XI-P079-B103"
+        ],
+        "admission_basis": {
+          "route": "",
+          "review_status": "PENDING_REVIEW",
+          "source_edition": "POL27-CF",
+          "source_locator": "content/politics/source/nodes/shards/pol27-cf/xi/c08.json#POL27-CF-XI-C08-K04,POL27-CF-XI-C08-K06-N01-I04,POL27-CF-XI-C08-K04-N02-I01；CF下册PDF136–137 / 书135–136；blob 54e847735b91faca7f114e590391fd9b7ef26001；original_text_span提取文字，未核原图/表格。；content/politics/source/nodes/shards/pol27-sy/xi/p079.json#POL27-SY-XI-P079-B103；PDF79/书74；提取文字交叉核对，未核原图。",
+          "prerequisite": "在 C08-S02/C08-S03 已理解相关对象与模型关系后，于 C08-S90 作解释性重建或易混辨析；先独立说明关系，再给可选提示，不要求逐字背教学归纳。"
+        },
         "name": "全过程人民民主 ≠ 单一投票环节",
         "items": ["全过程人民民主强调民主实践贯穿多环节", "人民代表大会制度是实现全过程人民民主的重要制度载体之一"],
         "source_refs": ["POL27-CF-XI-C08-K04", "POL27-CF-XI-C08-K06-N01-I04"]

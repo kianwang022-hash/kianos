@@ -7,9 +7,19 @@
   "teaching_shape": "CONCEPT_BOUNDARY_NORMATIVE_JUDGMENT_IDENTITY_AND_SITUATIONAL_APPLICATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-ETHICS-C03-S01", "POL27-REGION-ETHICS-C03-S02", "POL27-REGION-ETHICS-C03-S03"],
-    "natural_unit_ids": ["POL27-CF-ETHICS-C03-S01", "POL27-CF-ETHICS-C03-S02", "POL27-CF-ETHICS-C03-S03"],
-    "suyi_refs": ["POL27-SY-ETHICS-P131-B006-Y2020"]
+    "region_ids": [
+      "POL27-REGION-ETHICS-C03-S01",
+      "POL27-REGION-ETHICS-C03-S02",
+      "POL27-REGION-ETHICS-C03-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-ETHICS-C03-S01",
+      "POL27-CF-ETHICS-C03-S02",
+      "POL27-CF-ETHICS-C03-S03"
+    ],
+    "suyi_refs": [
+      "POL27-SY-ETHICS-P131-B006-Y2020"
+    ]
   },
   "chapter_orientation": {
     "core_problem": "个体理想为什么会进一步进入国家民族层面的精神共同体？",
@@ -47,35 +57,407 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "name": "崇尚精神的三个方面",
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K01-TBL01"
+        ],
+        "prompt": "崇尚精神传统体现在哪三个方面？义利、理想追求、品格养成分别怎样落位？",
+        "items": [
+          "对物质生活与精神生活相互关系的独到理解：见利思义、以义制利、先义后利，并主张节欲",
+          "对理想的不懈追求：儒家仁爱和谐，墨家兼相爱、交相利等",
+          "对品格养成的重视：理想人格、立德、修身与教化等"
+        ],
+        "checking_criteria": [
+          "三方面区分准确，例子按对象落位，不把不同学派等同",
+          "崇尚精神不等于否定物质需要；不能删掉“不义”限定后否定全部财富"
+        ],
+        "memory_cue": "怎样看利—追求什么—怎样成为这样的人，对应关系—理想—品格。",
+        "id": "polmem-83f0d629",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF104；节点 POL27-CF-ETHICS-C03-K01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:6b3f2be4c3e5933a3a55f24755ac58fe390160c71a6419fe5eb0874eaa7adcfc"
+        }
+      },
+      {
+        "name": "传统品格养成的准确配对",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K01-TBL01"
+        ],
+        "prompt": "源表的三组理想人格如何配对？三不朽之首、教化目的和六种修养方法是什么？",
+        "items": [
+          "儒家：君子、圣人；道家：真人、至人；梁启超：新民",
+          "立德居立德、立功、立言三不朽之首；教化目的为明人伦、培养有道德的人",
+          "修养方法：改过、慎独、重行、内省、自讼、居敬"
+        ],
+        "checking_criteria": [
+          "三组人物/学派与人格准确对应；立德位置和教化目的完整",
+          "六种方法完整，不把不同历史语境的规范无条件照搬"
+        ],
+        "memory_cue": "先配谁理想成为什么人，再记首位德、教化人、六种自修方法。",
+        "id": "polmem-951dbab5",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF104；节点 POL27-CF-ETHICS-C03-K01-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:2137deecc0261d9a85ebb9cd5fc6fe8aad298e83fa73772da4b3addec9a475bb"
+        }
+      },
+      {
         "name": "中国精神丰富内涵｜四个伟大",
-        "items": ["伟大创造精神", "伟大奋斗精神", "伟大团结精神", "伟大梦想精神"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K02-N01"]
-      },
-      {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
-        "name": "民族精神—时代精神核心",
-        "items": ["民族精神的核心：爱国主义", "时代精神的核心：改革创新", "民族精神与时代精神共同构成当今时代的中国精神"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K03-N02", "POL27-CF-ETHICS-C03-K03-N04"]
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K02-N01"
+        ],
+        "prompt": "中国精神丰富内涵的四个伟大是什么？各用一种源表中的事例类型说明。",
+        "items": [
+          "伟大创造精神",
+          "伟大奋斗精神",
+          "伟大团结精神",
+          "伟大梦想精神",
+          "创造对应思想、科技、文艺、史诗、工程成果；奋斗对应开发建设、生产治理、克服灾害等；团结对应共同建设统一多民族国家、共同反侵略等；梦想对应盘古、女娲、夸父、精卫等神话文化表达"
+        ],
+        "checking_criteria": [
+          "四项名称完整且保留身份，类型至少各准确举一类",
+          "神话是文化表达，不当作已发生历史；四内涵不等于四个核心"
+        ],
+        "memory_cue": "造出成果—干成事业—共同协作—追求可能，对应创造—奋斗—团结—梦想。",
+        "id": "polmem-24c9051c",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105；节点 POL27-CF-ETHICS-C03-K02-N01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:e6f18c39f7075973d1f04e2becaa68c2649258b44a61184fd1546043d15b5c45"
+        }
       },
       {
-        "natural_unit_id": "POL27-CF-ETHICS-C03-S02",
+        "name": "党的精神之源与中国精神",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K02-N02"
+        ],
+        "prompt": "本章怎样定位中国共产党与中国精神的关系？党的精神之源是什么，为什么不能换成中国精神总体的源头？",
+        "items": [
+          "中国共产党是中国精神的忠实继承者和坚定弘扬者",
+          "伟大建党精神是中国共产党的精神之源；中国共产党人的精神谱系形成于党领导人民的集体奋斗和共同创造"
+        ],
+        "checking_criteria": [
+          "继承弘扬关系与精神之源对应准确",
+          "精神之源的主语是中国共产党，不能无条件改给中国精神总体"
+        ],
+        "memory_cue": "先限定谁的精神之源，再谈对更大传统的继承弘扬。",
+        "id": "polmem-41de8ea9",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105；节点 POL27-CF-ETHICS-C03-K02-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:dcf22da0f66290995ecc4b547c592ea535c6378d30fb5b2e4538d9f4af7164a0"
+        }
+      },
+      {
+        "name": "民族精神—时代精神核心",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N02",
+          "POL27-CF-ETHICS-C03-K03-N04"
+        ],
+        "prompt": "民族精神和时代精神各以什么为核心？二者共同构成什么，又是怎样联系的？",
+        "items": [
+          "民族精神的核心：爱国主义",
+          "时代精神的核心：改革创新",
+          "民族精神与时代精神共同构成当今时代的中国精神",
+          "二者紧密关联，都是中华民族赖以生存发展的精神支撑；民族精神赋予民族特征，时代精神赋予时代内涵，在历史实践与时代发展中相互联系，不能以时代精神替代民族精神"
+        ],
+        "checking_criteria": [
+          "两个核心不能互换；共同构成的范围是当今时代的中国精神",
+          "说明联系而非新旧替代，也不能把四个伟大混作四核心"
+        ],
+        "memory_cue": "民族取核心爱国，时代取核心创新；两维汇为当代中国精神。",
+        "id": "polmem-99ff9f85",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105–106；节点 POL27-CF-ETHICS-C03-K03-N02, POL27-CF-ETHICS-C03-K03-N04",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:673f47fcc807d57e60203bb82540ade04f602bd21b12c2e9f001b4a1bdc24f0a"
+        }
+      },
+      {
+        "name": "民族精神与时代精神的含义",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N02",
+          "POL27-CF-ETHICS-C03-K03-N02-TBL01"
+        ],
+        "prompt": "民族精神和时代精神各怎样形成、包含什么？为什么不是任何流行观念都属于本章的时代精神？",
+        "items": [
+          "民族精神：一个民族在长期共同生活和社会实践中形成，为大多数成员认同的价值取向、思维方式、道德规范、精神气质的总和",
+          "时代精神：国家民族在新历史条件下形成发展，体现民族特质并顺应时代潮流的思想观念、价值取向、精神风貌、社会风尚的总和，是对社会发展有积极影响和推动作用的集体意识"
+        ],
+        "checking_criteria": [
+          "民族精神保留形成、认同与四内容；时代精神保留新条件、民族特质、潮流、四内容与积极集体意识",
+          "流行本身不足以证明积极作用和这里的时代精神资格"
+        ],
+        "memory_cue": "长期共同形成民族底色，新条件中形成积极时代取向；分别恢复四内容。",
+        "id": "polmem-07d70a08",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105–106；节点 POL27-CF-ETHICS-C03-K03-N02, POL27-CF-ETHICS-C03-K03-N02-TBL01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:248c411f858a32fb46a544dcee67736d1a4c3a864b9b9dd2f63e5997573ed031"
+        }
+      },
+      {
+        "name": "中国精神的三种作用",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N01"
+        ],
+        "prompt": "中国精神的三种作用怎样准确配对？源书另给哪两个对象何种根本定位，为什么不能偷换为中国精神？",
+        "items": [
+          "凝聚中国力量的精神纽带",
+          "激发创新创造的精神动力",
+          "推进复兴伟业的精神支柱",
+          "本组定位在精神层面；源书将党的领导定位为实现中华民族伟大复兴的根本保证，将中国特色社会主义道路定位为实现第二个百年奋斗目标的根本途径，不能偷换为中国精神"
+        ],
+        "checking_criteria": [
+          "凝聚/激发/推进与纽带/动力/支柱逐项准确",
+          "保留精神层面，不混淆不同对象的根本地位"
+        ],
+        "memory_cue": "把力量连起来，用动力动起来，以支柱撑下去。",
+        "id": "polmem-f003b208",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105；节点 POL27-CF-ETHICS-C03-K03-N01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:40e7ba9e5f208a0f3534d7b810b16014cb801f110f7ff3124ce4592ef6435dc5"
+        }
+      },
+      {
+        "name": "爱国主义含义与四个对象",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N02"
+        ],
+        "prompt": "爱国主义包含哪些情感与规范含义？四个对象各有什么定位，试金石、文化作用和最深刻理由分别是什么？",
+        "items": [
+          "爱国主义体现对祖国的深厚感情，包括归属感、认同感、尊严感、荣誉感；也是调节个人与祖国关系的道德要求、政治原则和法律规范",
+          "爱祖国的大好河山：不只是自然风光，也是主权、财富、民族发展进步的基本载体",
+          "爱自己的骨肉同胞：对民族利益共同体的自觉认同，是检验对祖国忠诚程度的试金石",
+          "爱祖国的灿烂文化：国家民族的灵魂与胎记、延续的精神基因，是民族心理个性精神的摇篮、凝聚力的重要基础和群体意识载体",
+          "爱自己的国家：个体与国家相互依存、密不可分，是课程所说最深刻的爱国理由"
+        ],
+        "checking_criteria": [
+          "情感四项与规范三种不能互相删替；四对象及所问角色准确配对",
+          "不采纳跨页速记“爱国只是情感”作完整定义；情感强烈不自动证明具体行为合法合理"
+        ],
+        "memory_cue": "先分情感与规范，再沿河山—同胞—文化—国家找各自作用。",
+        "id": "polmem-b56e45ae",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF105–106；节点 POL27-CF-ETHICS-C03-K03-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S01 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:a3c55ddea7df11e97ed6c3495e32bf1735d35587663635a91a4ca7c77ffb7190"
+        }
+      },
+      {
         "name": "新时代爱国主义本质",
-        "items": ["坚持爱国和爱党、爱社会主义高度统一"],
-        "source_refs": ["POL27-SY-ETHICS-P131-B006-Y2020", "POL27-SY-ETHICS-P131-B007"]
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K04-N01"
+        ],
+        "prompt": "当代中国爱国主义的本质是什么？适用语境怎样限定，主要落实到哪三个事业？",
+        "items": [
+          "坚持爱国和爱党、爱社会主义高度统一",
+          "在党的领导下献身建设新时代中国特色社会主义伟大事业、实现中华民族伟大复兴中国梦的实践、促进祖国统一大业",
+          "爱国主义具有具体、历史、现实的内容，不能将此时代规定无条件套到任何国家和历史时期"
+        ],
+        "checking_criteria": [
+          "本质中的三者及高度统一准确；三个事业完整",
+          "不能把时代性偷换为所有历史阶段相同具体内容"
+        ],
+        "memory_cue": "三者统一是本质，建设—复兴—统一是当前实践落点。",
+        "id": "polmem-ff0bba58",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF106–107；节点 POL27-CF-ETHICS-C03-K04-N01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S02 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:82b08facbe60af4e0b2ba43c9345d989425c8c91befdc960c137853378f79977"
+        }
+      },
+      {
+        "name": "新时代爱国主义四组要求",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K04"
+        ],
+        "prompt": "新时代爱国主义的四组基本要求是什么？统一团结、历史文化、立足中国面向世界分别要防哪种误解？",
+        "items": [
+          "坚持爱国爱党爱社会主义相统一",
+          "维护祖国统一和民族团结，是重要着力点和落脚点",
+          "尊重和传承中华民族历史和优秀传统文化，反对历史虚无主义；理解接受历史文化是培育发展爱国情感的重要条件",
+          "坚持立足中国又面向世界，维护发展主体性、国家安全，推动构建人类命运共同体；经济全球化不等于政治文化一体化"
+        ],
+        "checking_criteria": [
+          "四组完整，重要着力点落脚点与文化条件分别对应",
+          "开放合作不等于取消主体性；爱国不等于排外；不能取消具体历史核证"
+        ],
+        "memory_cue": "统一关系—内部共同体—历史文化—面向世界，四组由内到外展开。",
+        "id": "polmem-43c82e71",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF106–107；节点 POL27-CF-ETHICS-C03-K04",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S02 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:5f41ad45e18119ddf4fb88f943e6e3394454cf5d7f9ab30de9856085357e0dd4"
+        }
+      },
+      {
+        "name": "爱国教育主题与行动方向",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K05"
+        ],
+        "prompt": "新时代爱国主义教育的主题是什么？做忠诚爱国者的三个行动方向是什么？",
+        "items": [
+          "主题：全面建成社会主义现代化强国，实现中华民族伟大复兴",
+          "维护和推进祖国统一",
+          "促进民族团结",
+          "增强国家安全意识"
+        ],
+        "checking_criteria": [
+          "主题两部分准确，三个行动方向完整",
+          "与上题四基本要求分层，不用教育主题替代本质定义"
+        ],
+        "memory_cue": "强国复兴是主题；统一—团结—安全是三落点。",
+        "id": "polmem-c7eae279",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF107；节点 POL27-CF-ETHICS-C03-K05",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S02 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:865954c8df26329579538affc899b71a507bc5a3f1e8ed6d921128c706cd225e"
+        }
+      },
+      {
+        "name": "改革创新的角色配对",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K06"
+        ],
+        "prompt": "创新创造、创新、人才、创新能力、科技各对应什么角色？创新驱动中最根本与最紧迫的任务分别是什么？",
+        "items": [
+          "创新创造：中华民族最深沉的民族禀赋；创新：引领发展的第一动力；人才：支撑发展的第一资源",
+          "创新能力：当今国际竞争新优势的集中体现；科技：先进生产力的集中体现和主要标志",
+          "创新驱动发展战略最根本的是增强自主创新能力，最紧迫的是破除体制机制障碍"
+        ],
+        "checking_criteria": [
+          "五对象和各自角色准确，不因相似词合并创新、创新能力、科技",
+          "最根本/最紧迫方向不能倒置；不把爱国情感误配民族禀赋，也不说爱国主义只有情感"
+        ],
+        "memory_cue": "先辨对象再配帽子；能力是根本，制度障碍是紧迫待破。",
+        "id": "polmem-9b6ea2ec",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF107–108；节点 POL27-CF-ETHICS-C03-K06",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:e84c7aedbaed262f9a72bdb095a0bcd9aedde3c3dc4d86949c2124db2cb87ce9"
+        }
+      },
+      {
+        "name": "改革创新意识与本领",
+        "natural_unit_id": "POL27-CF-ETHICS-C03-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K07"
+        ],
+        "prompt": "改革创新的自觉意识和能力本领各有哪三项，怎样避免只有信心没有行动？",
+        "items": [
+          "意识：增强责任感、树立敢于突破陈规的意识、树立大胆探索未知领域的信心",
+          "本领：夯实创新基础、培养创新思维、投身改革创新实践"
+        ],
+        "checking_criteria": [
+          "意识三项与本领三项完整分层，不能只用敢想替代能力",
+          "有知识基础、思维和实践承接；创新不等于逢旧必反或任意举措都进步"
+        ],
+        "memory_cue": "心里要负责敢突破有信心，手上要有基础会思考进实践。",
+        "id": "polmem-6ec96bca",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF108；节点 POL27-CF-ETHICS-C03-K07",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c02-c03-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C03-S03 中本题涉及的全部子项和条件；目录准入不证明已教，不改变原默认Recall与provisional状态。",
+          "reviewed_target_revision": "sha256:9228a84a209cc2b661e85b8cfc9604a9e26be2c1007e13fae5dcbd2b68cbf0f2"
+        }
       }
     ],
     "role_support": [
       {
         "natural_unit_id": "POL27-CF-ETHICS-C03-S01",
         "name": "中国精神的作用定位",
-        "items": ["凝聚中国力量的精神纽带", "激发创新创造的精神动力", "推进复兴伟业的精神支柱"],
-        "source_refs": ["POL27-CF-ETHICS-C03-K03-N01"]
+        "items": [
+          "凝聚中国力量的精神纽带",
+          "激发创新创造的精神动力",
+          "推进复兴伟业的精神支柱"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C03-K03-N01"
+        ]
       }
     ],
     "deferred_precision": [
-      "四个伟大各自的大量历史事例保留在 Chengfeng；第一轮先记四项身份和彼此层级，不复制例子表。",
-      "C03-S03 为 canonical P2 provisional；理解改革创新作为时代精神核心即可，不额外制造独立 Recall 清单。"
+      "四个伟大的大量历史事例留在Source；本轮准确目标要求四项身份及各一种例子类型，不复制全表或按四词强迫全章背诵。",
+      "S03原canonical P2 provisional/default Recall inactive保持；本次原Content按PDF107–108逐项批准改革创新角色配对、意识与本领两个Memory对象。其余原例题全文/未选扩展未自动准入；未教范围不能入计划，不升级registry。"
     ]
   },
   "chapter_compression": {

@@ -1,0 +1,557 @@
+# 马原备课候选｜有界复核结果
+
+2026-10-04，北京时间。范围为总模型内导论补全及 C01–C08 八章教师稿，依据 Politics Learning Contract §3.1。稿件的准备状态、正式内容采纳、真实学习完成与原生 Recall 掌握分别判断。
+
+## 实际来源范围
+
+初稿作者完整读取 ch00–08 的适用 Current 内容、乘风原始文本及上册 PDF6–93 原页，C08的93页原图补核已完成。正式22个NU与21章内投影的差异是C02-S01内嵌独立C02-K03，未新增或合并身份。苏一仅沿用已被正式owner吸收的范围，不声称其全图另做一次完整复审。
+
+正文逐章经历来源覆盖、连续解释、同模型压缩的有界检查与独立文本反例审读；确认缺口只做原位最小修复。最终保存版本回传后逐文件核对SHA256，C01–08及总模型均与作者保存清单一致；C01随后仅增加一句考试分类工具不等于对整个哲学史机械贴标签的使用边界。
+
+最后来源复核实际看过的原页为PDF6–10、15–17、28、39–40、46–47、75、80、82、86–93；它核对导论表、哲学名言并列关系、意识错误表与规律图、六因果、真理内容与形式、社会意识表格层级、三表象、资本输出与所有控制、社会主义实践及共产主义特征。该独立原页范围不冒充另一次全本逐页审计。
+
+## 已关闭的具体缺口
+
+- C01：保留分类边界、意识器官/来源/本质三分、规律与能动性、一切从实际出发四座必要桥梁。补实际名言、意识错误项与规律四特点解释；“万物皆备于我”不再被错配为王阳明，原表只是多名字、多例句并列。
+- C02：六类因果实际解释补齐；现实可能不等于所有条件齐备或已经现实；源实例和思维方法有对应解释，而非只有覆盖标签。
+- C03：认识有现实来源不等于正确；真理一元性的对象、方面、问题、条件明确，不同方面正确认识可以互补。
+- C04：社会意识的主体分类、层次分类与意识形式内部分类分清，不误排为三个平行轴。
+- C05：效率数例明确只比较当期新价值及社会计量；利润率分母为全部预付资本，与商品价值中的当期耗用c不同；工资、利润及平均分配、形式自由平等三种遮蔽关系已有实质解释。
+- C06：资本输出的原表广义口径与商品销售实现价值的机制区别明确；所有权、治理控制权、日常经营管理分开，原图80、82页与修补一致。
+- C07：取消商品货币是政策措施与尝试，不能说已实际彻底消灭；同时保留直接过渡设想及错误。除乘风PDF88页，已核[列宁1921年10月17日报告](https://www.marxists.org/archive/lenin/works/1921/oct/17.htm)的“Our Mistake”段。
+- C08：私有制限定生产资料；国家作为阶级统治工具随阶级基础消失而消亡，公共事务仍需协调。PDF92–93的括号层次、三条件和三组理想关系已核。
+
+导论六K已有实际教师补全及21项著作配对，不再靠未来章节或空标签声称覆盖。八章压缩沿各自解释模型回收，时间顺序、事实关系、规范要求、历史趋势未被合并为一条无条件因果链。
+
+## 保留范围
+
+各章末的来源差异仍有效，包括导论《哲学的贫困》“最早”口径、哲学分类全称、虚幻反映真假措辞、AI教材断言的技术外推、部分质变整体局部、经济基础定义范围、货币历史模型、垄断利润口径等。它们按项保留，不把未决项算成已消解的精确考点，也不回写原题答案或Source fidelity。
+
+可用范围是已有解释及明确条件支撑的教师教学、补全与压缩。若后续问题恰依赖尚未消解的源范围，应回该具体owner校准，不能用本备课结论越过它。无新增Memory卡或队列，无学生学习记录变化。正式采纳仍由仓库内容流程完成，但不要求学习者逐章替备课做验收。
+
+
+## P1 model-memory 20261004
+
+本段将此前仅教学文本的审阅范围扩大到本章“解释→编码→检索→诊断”的内容准备；旧段记录的是旧范围，不是新字段/目录/网页已经通过。
+
+来源基线：main `722bba7d2540122bfec2fda3b774e836772fb787`；开始候选 `9e00e8262085e20f282d4dfa70b9a5861d08b73c`。作者本次亲自重读完整教师正文、原页、每个准确目标，分别检查覆盖、连续解释、同模型压缩和目标恢复。独立文本审查实际看原页并提出反例，已修补并有界回读。不是只审标题或计数，也不是模拟Kian学习。
+
+共用原PDF：POL27-CF上册 SHA256 `481fc2c4e20bba571f02a4d9c5c50ca38cb86185ce7aef8d210e2474fe816a1c`；LEG26上册 SHA256 `dffd0bd2b1c2c752aad2389ba53e7bdded0f8a79a84d5ecb5a697afb18381c2e`。LEG实际237页，Library返回的150页元数据不能作为页数真值。原始Source fidelity分类未被改写；needs_review条目只在本段实际看图的具体目标范围中获得作者内容判断，不批量升级Source。
+
+各项准入来自本章Content作者在已检查的现年CF支持上作出的 FIRST_ROUND_EXACT 选择；不以C标签或历史LEG26单独准入，不要求虚构Wrong/Uncertain。`handbook_alignment`的2027未绑定状态与独立Current Content路线并存。reviewed_target_revision须机械绑定下列实际目标的内容；未完成绑定/消费检查时不得宣称catalog-selectable。prerequisite保留实际授课范围要求，不能把自由文本当机器已证明学生学过。
+
+本章实际原页：CF PDF19–31（印刷18–30），完整正文图表；source shard blob `1b586ab52e19893dd182e38d02af4bc9d4c2e972`。LEG26历史对照实看上册PDF19–20（印刷12–13），包含同斗关系、共性个性及主次。下册PDF52未看图，不能计为本次像素证据。原M01–04 broad K03 Source refs保留，精确依据分别为K03-N01/PDF22、N01–02/PDF22–23、N03/PDF23–24、N02–04/PDF23–24。
+
+### 修复和回查
+
+- M01/M02不再共享泛题面：前者问定义和条件性，后者问同时存在、依存方向及共同作用。M02和正文补“同一性通过斗争性体现”。
+- M06与正文补同一性主导→相辅相成、斗争性主导→相反相成；不是另一属性消失。
+- 辩证否定中的否定因素明确促使现存事物灭亡、转变为他物，不能把普通数量变化都算这一含义。
+- 共性个性补条件下转化，并区分它与认知从个别到一般的路径；因果相互渗透补实质解释，不能把未来结果说成已现实；逻辑历史统一明确连到从抽象上升到具体的内在要求。
+- 题面与检查范围同步：总观点总特征、普特条件性、六因果枚举、六种思维侧重均明确提出，不要求回答未问内容。
+- 独立审读实际查CF19–31及LEG26的19–20原图，报告修复后逐处有界复读，未见本批修复残余缺陷。不是一次新五科总验收。
+
+### 作者内容反例自测
+
+|反例|实际核对与结果|
+|---|---|
+|两张不同答案都显示“对立统一规律｜boundary”|旧sidecar确实同form；新M01/M02自足题面互异，loader保留仍需P3证明|
+|把同一相对和斗争绝对反置|CF22表格与M01检查对应明确，错误配对被文本标准拒绝|
+|说两属性轮流出现|M02恢复同时存在并共同作用；不同作用重心不能被误算为交替存在|
+|把个性寓于共性/主要矛盾决定事物性质写为准确答案|M03方向拒绝倒置，M08要求主要矛盾的主要方面且两层清楚|
+|漏掉“同一性通过斗争性体现”与“相辅/相反”的条件|独立反例暴露真实缺口，作者已补正文和准确目标并回读原图|
+|把任意三阶段/挫折写成否定之否定|K05组要求实际矛盾和更高阶段，不能只数三词；更高阶段条件检查保留|
+|只回答六类因果说明非唯一，却没列六类|旧题面未明确枚举，新题面明确要求六类，检查不再越题|
+|拆除所有cue仍要恢复答案|26题的prompt、statement、checking均自足；帮助仅检索组织，不变成未核答案|
+|只学主线概览就选全部五范畴/思维方法题|首课路线明确每段B补全和实际授课先决，不能用章标题覆盖解锁|
+
+### P2 原身份与准确范围
+
+单一owner仍是 ch02.memory.json；原K03 M01–04身份与form/source refs保留，其余在相应S01/S02或正式嵌入K03下追加已有解释支持的目标，不另造卡库。later-stage/marxism.json 对原4项的历史Leg支持是同一身份的历史证据，不再复制一次，不自动准入其余旧later-stage条目。ch02.json只修必要Chat/Memory入口措辞，不把旧投影抄成第二份教案。
+
+26项覆盖本批选择的K01–K13准确对象；原材料对“次要=非根本”、任意男女、部分质变一刀切、弱相关皆选和不问条件迟早现实等差异仍有明确非准入范围。原例和名言仍在B及题目owner；不因选择精记改题/制造学生表现。
+
+### 逐项准入与消费者映射
+
+以下每项先决为其对应正文的完整相关子项和边界；具体Source与页码、检查标准、辅助均在原Content对象。版本绑定表已由实际审核后的对象机械生成，不能自动把未读新对象加入本表。消费者反审后，审核签名强化为同时绑定既有ID、科目、章节、NU、family及检索内容；本批原已审归属保持不变，机械刷新既有55项签名，不扩大准入范围。
+
+<a id="p1-model-memory-20261004"></a>
+
+|候选ID|目标|身份处理|准入版本|
+|---|---|---|---|
+|POL27-MEM-MARX-C02-K03-M01|矛盾的同一性和斗争性各指什么？它们在条件性、相对性或绝对性上的对应是什么？|原ID保留|sha256:a6520e0becfb2af854ac57017cd19546215a39ec9e1b4dd57e96a98fd1a4374e|
+|POL27-MEM-MARX-C02-K03-M02|同一性和斗争性是轮流出现还是同时存在？二者的依存关系和作用方式怎样表述？|原ID保留|sha256:168f2a86aa283e980e628ef06ff47f2ad3855feacba951baf1f0e4c3f2a21d0a|
+|POL27-MEM-MARX-C02-K03-M03|矛盾共性与个性的包含、寓于关系方向是什么？认识的一般路径如何返回具体对象？个性转化为共性须保留什么条件？|原ID保留|sha256:76caa62f1ce013399c69847b46f8d6430dd1b4a4f87c92bc2fbcac1496df8ced|
+|POL27-MEM-MARX-C02-K03-M04|矛盾双方的转化、融合与调和怎样区分？和谐是否意味着无矛盾？|原ID保留|sha256:9e7ace360b94afa37eb089749dbec2e40b89e48869fb83992f9553bea343316f|
+|POL27-MEM-MARX-C02-K01-M01|联系的四个特点是什么？客观联系和人为联系、普遍联系和任意直接联系怎样区分？|同owner新增准确目标|sha256:be98c32f218ebeffcd84e82dba35159536a6679a73408fe7ef8895696a836e01|
+|POL27-MEM-MARX-C02-K01-M02|系统是什么？系统观念对应什么观点，实践上应优化什么？|同owner新增准确目标|sha256:e0090afa0efcbbbb9ced0b0819d227734a6f0d7f216056af383a7e2698aaee60|
+|POL27-MEM-MARX-C02-K02-M01|发展与运动变化有什么区别？发展的实质和判断新旧事物的标准是什么？唯物辩证法的总观点和总特征是什么？|同owner新增准确目标|sha256:673945fc021303ee8983b7e5d4e9c4a8ffc418879385f0412000bcfc8e6cb02f|
+|POL27-MEM-MARX-C02-K02-M02|教材从哪三个关系说明新事物的生命力？这能否推出所有新产品立即成功？|同owner新增准确目标|sha256:e4f03b4fc53cc91cc65e2067cf9ca142b15e16d814c0862eed137ffc9025e1be|
+|POL27-MEM-MARX-C02-K03-M05|对立统一规律为什么是唯物辩证法的实质和核心？它与矛盾问题精髓的称谓如何区别？|同owner新增准确目标|sha256:d7e2f694eeb9e0707bd201a8767d77a6c2b6b164dc115c042ddc05e9e9a3d4f9|
+|POL27-MEM-MARX-C02-K03-M06|同一性与斗争性分别怎样参与发展？哪一种能单独成为全部动力？相辅相成和相反相成各在什么作用重心下表现？|同owner新增准确目标|sha256:be78d29afdd893db1fb84f2c636603fe3c13ccdf014edd2dcf7b7a77bf59a267|
+|POL27-MEM-MARX-C02-K03-M07|矛盾普遍性与特殊性各说明什么，在条件性和相对/绝对性上如何配对？相应方法和理论联系实际的哲学基础是什么？|同owner新增准确目标|sha256:1b044254b3b033eb60f36c71faddf550932ae202212f10a4c300bd0dc314176a|
+|POL27-MEM-MARX-C02-K03-M08|主要矛盾与矛盾主要方面分别在哪一层比较？何者规定事物性质，方法论是什么？|同owner新增准确目标|sha256:a408cc2272c54236390edc9b4ad0678728d73d6e4d5f42fce1ea61a610a02903|
+|POL27-MEM-MARX-C02-K03-M09|矛盾解决的四种形式是什么？内外因在发展中如何分工？|同owner新增准确目标|sha256:fbedf427d65d928532b0df7beef99084afb0d0b378dd03772430b5525646fbc6|
+|POL27-MEM-MARX-C02-K04-M01|质、量、度、关节点各是什么？区分量变质变的根本标志是什么？|同owner新增准确目标|sha256:e0babb5d22f51f7181ba8e65e0850a1db9c49dafea88ad63d84a47efd24f963c|
+|POL27-MEM-MARX-C02-K04-M02|量变与质变怎样相互转化渗透？夸大一方分别产生何种错误？|同owner新增准确目标|sha256:488efa1767c33b562e2e7eeb5e7e2f48ae7f1d02bfbe789fe42d1f2dd5bac0a0|
+|POL27-MEM-MARX-C02-K05-M01|辩证否定的四项基本内容和实质是什么？肯定否定因素如何区分？|同owner新增准确目标|sha256:d0d31e88fba351ec789d300ba3369b2592904bcce9e87351d0152bb9aecc2169|
+|POL27-MEM-MARX-C02-K05-M02|否定之否定的次数阶段、发展形式和两种片面错误如何对应？|同owner新增准确目标|sha256:b255bad89ce3b7382ba406d89497dc7841061d15033a4a0f0cb947df238b2e29|
+|POL27-MEM-MARX-C02-K06-M01|内容与形式谁决定谁，另一方有何作用？是否一一对应和永远同速变化？|同owner新增准确目标|sha256:74650f406728f4e875a62c8ca4e795aa1bf3327d25bbd34dfebfef8c04231ed0|
+|POL27-MEM-MARX-C02-K07-M01|现象与本质的差别和联系是什么？真象、假象、错觉各是客观还是主观？|同owner新增准确目标|sha256:71224f9ccb56cafd8f0ab33479ba46ca25f044d3b0c3b08a3d5e5920b1065234|
+|POL27-MEM-MARX-C02-K08-M01|原因结果与普通先后相继有何区别？列出六类复杂因果，并说明其推断边界。如何理解因果相互渗透而不把未来当成已经现实？|同owner新增准确目标|sha256:ce04457720878aee5f7cd1545bf6f9d11087eb92fc8084f940214d8f5316de4f|
+|POL27-MEM-MARX-C02-K09-M01|必然与偶然的方向作用、寓于关系如何表述？偶然能否忽略？|同owner新增准确目标|sha256:7b179bb06286018964eadda580b4e2fa77ddaf7f499a54d26e3fa49cb461c6d0|
+|POL27-MEM-MARX-C02-K10-M01|可能与现实如何区别转化？可能性应按哪三个独立维度区分？|同owner新增准确目标|sha256:162154289e7336be1f28817147207c8e25a760bc092780f576bf671041e11b9d|
+|POL27-MEM-MARX-C02-K11-M01|唯物辩证法本质上的批判革命性与其承认历史正当性为何不矛盾？核心方法是什么？|同owner新增准确目标|sha256:fc46e6a433ca73465e9260b3782f7766224d16c7d82ff993aae5dc160841c354|
+|POL27-MEM-MARX-C02-K12-M01|主观与客观辩证法的反映方向、本质和表现形式如何配对？|同owner新增准确目标|sha256:3ed360b5110c07cf3828257698affedb0764d92ee4e210708bd1f55b9ae367a1|
+|POL27-MEM-MARX-C02-K13-M01|四组辩证逻辑方法及其地位或关系是什么？|同owner新增准确目标|sha256:43009cd1454a2cbb0d4f0f98a0462469d756246420d5fc7de97bc3cf404f7fa7|
+|POL27-MEM-MARX-C02-K13-M02|本章六种思维能力分别是什么、各侧重什么？尤其系统、战略、底线如何区别？|同owner新增准确目标|sha256:8203c321090f4cdc687d2cc96ed6a9399651301c3ef71624528d9510cda609db|
+
+### 尚未证明的消费阶段
+
+本批内容审读/保存不证明新字段被loader/catalog/plan/reveal/return消费。P3机械准入与快照、P4隔离Candidate真实旅程、P6 main到实际网站读回仍待对应Engineer证据；P5其余章节未因两个样本而完成。没有真实Memory计划提交、真实回忆记录或Kian掌握判断。
+
+
+
+## P5 马原 C00/C01 模型与准确范围 20261004
+
+作者亲自读两章Current JSON的实际教学内容、全部候选教学正文与对应Source，逐页看乘风2027上册PDF6–9、10–19真实像素。C00 shard blob `6a2a18c5f3aebda960747b2fb258469bc297a7de`、C01 shard blob `370f19f8f4ca152644f8cf877ae352441d81d377`；原PDF SHA256同前。C01缺失的本地渲染页11–14/18本轮直接从同一原PDF重新渲染实看，不以转录或旧摘要替代。现年CF支持本批准入，不以LEG26、年份标签或旧CURRENT_REVIEW_COMPLETE自动推出新范围。
+
+C00在原subject-model.md的既有导论补全位置增加首课与准确恢复，不另造导论课程；沿产生条件→理论体系→持续发展→基本特征→当代价值，分组处理创立条件、来源、年月和作品。C01沿哲学问题→物质→运动静止时空→实践分化→意识→规律条件→技术与统一性，保持同一展开/压缩结构。36对象为逐项已审范围，两个巨大的S02不是一课自动学完，也不一次自动全选Memory。
+
+### 两次独立内容审读与具体修复
+
+导论独立审读实际看PDF6–9四页、14组全部字段与对应总模型正文。发现精记标准有准确限定而教师未讲到：内涵的必然、哲学理论基础/科社目的归宿、人民至上政治立场、德意志首次系统、提纲首次确立/第一个文件、列宁帝国主义革命前夜。作者在原句/原书表补回，另收窄来源题面避免隐含穷尽所有来源，明确原表保留不等于《哲学的贫困》最早命题获批。原审读者有界回读确认本轮缺口关闭。
+
+C01独立审读实际看PDF10–19全部十页，读22组完整字段与教师全文并对照shard。修复三处：明确从实际出发也是正确发挥能动性的前提，并与实践基础/途径分开；AI源理由不能为避免技术外推而只剩角度名，已冠“本章Source认为”恢复情感信念意志、社会属性、自然语言意义的具体主张，同时保留不当作全部现在/未来科研结论的范围；二重分化题由问why收窄为实际要求检索的作用与过程，避免答案仅复述结论却假称已回答因果。原审读者只回核修复后确认无新增内容缺口。
+
+### 原身份、来源与准入对账
+
+两章原无content_support精记、无memory sidecar，其旧learning_semantics.precision_objects是章内结构提示而非actual Memory卡。本次在同一章owner的content_support承接已审对象，不另建sidecar、NU、registry或调度器。C00保留全部原precision_objects ID和事实；《德意志意识形态》原REFERENCE_OR_QUESTION_TRIGGERED优先级按本轮实读CF明确的FIRST_ROUND_EXACT选择更新，不把苏一原REFERENCE_ONLY来源处置批量升级。1848、人民性、实践观点等原结构提示与新准确对象同源对齐，不当作两套可选目录。
+
+两章projection_notes沿样本已落地的Chat连续讲解/Source校准/授权Website检索语义收敛；不把旧Source主课路由继续用于新内容。实际NU、旧结构ID、题库与学习记录不变。原图著作表仍保留更多可查信息，实际精记只按题面指定成果和称谓，不以未问形容词扣分；防误解条目只诊断回答中的实际错述。
+
+### 作者反例自测
+
+|反例|本批检查/处理|
+|---|---|
+|把政经主体内容写成马克思主义只有政经|三组成及共同主体内容明确，局部表述与整体范围不混|
+|细胞学说放入直接理论来源|理论三源与科学三前提分别归类，现实条件与思想材料不同|
+|正义者同盟等同首党，1848只是泛年份|组织前身/改组政党/党纲公开问世年月分别恢复|
+|把军事纲领写成首次一国胜利论|列宁六书逐项对照，口号首次与纲领进一步明确|
+|全部原表称谓自动获批|哲学的贫困“最早”未解决，明确未准入；其他称谓限课程对象|
+|哲学第一性变重要、同一性变同一种东西|两轴与方法分野分别界定；可认识不是现已知一切|
+|运动当物质唯一特性，静止当绝对|共同规定、存在方式、条件稳定分开；两类割裂/夸大分别诊断|
+|时空相对故不客观|具体/整体和客观存在/具体特性各有主语，不能跨轴替换|
+|人脑是意识源泉或想法直接造房|器官/源泉及实践中介明确，错误意识仍可指导但未必正确|
+|自然社会规律都靠人的活动或相互决定|共同客观性与实现方式分开；前提、基础、途径各有对象|
+|AI只是角度名称或无条件未来断言|恢复本教材四理由的实际命题并标归属，不冒称独立解决意识技术争议|
+|世界统一于物质等于意识就是物质|自然、社会、意识各给依据，统一关系保留类别区别|
+
+两章题面先于揭示，答案/标准/cue只作后续检查与编码。作者测试不写成Kian事件，提示后会复述不记无提示新成功，自报稳定不变成客观掌握。
+
+### 保留的单项Source限制
+
+《哲学的贫困》绝对最早表述；C01二元论/不可知论等全称概括；虚幻反映不能判对错的适用范围；按词性判关系与高速粒子粗略物理说明；AI判断对所有未来系统的经验外推，均未因本批签名获准。原Source/fidelity/Question Truth没有被改写。允许已核独立范围继续，不把局部争议扩大成全章冻结。
+
+### C00/C01 逐项内容准入绑定
+
+<a id="p5-marx-c00-c01-20261004"></a>
+
+|候选ID|目标|身份处理|准入版本|
+|---|---|---|---|
+|polmem-927ee36f|马克思主义六方面内涵|原章owner新增准确目标，旧结构ID保留|sha256:c3efad3301ca99ee36a46c52d13a8f7de97b90166c0a8d8331b7dadf81363fe4|
+|polmem-21a94c3d|三个组成部分与分工|原章owner新增准确目标，旧结构ID保留|sha256:8f8215d96bd085549cb5c2cd82b9a72c2f77b7cc058d48701f19aab94e51d934|
+|polmem-5f839d9b|基本立场观点方法|原章owner新增准确目标，旧结构ID保留|sha256:c521576ec641ba22b539f90221e3b3e2e2f298f1407eefc15756feb49852eb4e|
+|polmem-75412a1c|创立三条件及来源分类|原章owner新增准确目标，旧结构ID保留|sha256:ceb788ce95826df38fb9f0bd5dae913feaab205e18ea0fc314a4d93fa6af8cd6|
+|polmem-6d5bc49a|三大工人运动与独立政治力量|原章owner新增准确目标，旧结构ID保留|sha256:76ce0b4ec9b292d1f2077883de2b4c3f1298e197a2552f5f1f064da37b58dff8|
+|polmem-cf61e3e7|公开问世与首党党纲|原章owner新增准确目标，旧结构ID保留|sha256:c34a4c6c30fd1ac60af4fabb1701f38c4212d7e597d0591c9afa21bf2e0aad3c|
+|polmem-660c3294|理论发展与一国胜利论|原章owner新增准确目标，旧结构ID保留|sha256:63acda8dc16a1a691b9691c0182ca3897d5b1c9f8089efd362bdfe5c44310f43|
+|polmem-72c7153b|基本特征及科学革命统一|原章owner新增准确目标，旧结构ID保留|sha256:f2b221d11d69d933f45901f180fab376a62a79433fa10f12ea05372ccce7fc50|
+|polmem-b5621ba6|实践观点与当代价值|原章owner新增准确目标，旧结构ID保留|sha256:91fb903962de0f56d4b5989e9837bce61353c26bac6d6049c11d6153490ec1a0|
+|polmem-c017896e|基础著作与成果配对|原章owner新增准确目标，旧结构ID保留|sha256:0425e5d3cf55418074365e499030b2812ea4b489b0c9fcfe624d9529dab3e3bf|
+|polmem-a5fd0e91|早期转变与实践著作|原章owner新增准确目标，旧结构ID保留|sha256:d3c3dbe7460e82137924cbfa482ac2c7713971a66ed18cfab93ba1c389a23fbe|
+|polmem-d10988da|马克思历史社会著作|原章owner新增准确目标，旧结构ID保留|sha256:c01f9fa6f29da1ecb9c013d64fcf2d1f8cf46f38f604c3af0c341aa94d15890f|
+|polmem-8d921931|恩格斯国家自然与哲学著作|原章owner新增准确目标，旧结构ID保留|sha256:c2e88dbe1b81daf794e0c45b6df3a1c318c33dac02d24bef1dab6a2beece4dfc|
+|polmem-a5b65ebb|列宁著作与理论成果|原章owner新增准确目标，旧结构ID保留|sha256:039347ab0f592d5f13016e271580cdfd6d9b1d8c1268caf666a98db69b7514a0|
+|polmem-53475931|哲学基本问题与两条分野|原章owner新增准确目标，旧结构ID保留|sha256:e0e6e4116f624e30f726493769298e1dbb3fda0c235bd04683e6308d43724332|
+|polmem-ff010bb7|唯物三形态与唯心两形态|原章owner新增准确目标，旧结构ID保留|sha256:af534490c32e0d2fd8be084416cd37228149a5e35ac8ce7de500e4f2d81c7f6d|
+|polmem-e35c7374|辩证法与形而上学|原章owner新增准确目标，旧结构ID保留|sha256:3c8f09c34087f9b6fbec73617d7c3ebfdf8395eb30927a83f23d9e6302ab34be|
+|polmem-13f84758|物质范畴与列宁定义|原章owner新增准确目标，旧结构ID保留|sha256:d1ea116c356f05b2ab2ec1eb44c2be85bb28cb6e4b564a26da1cffb21ca90bb1|
+|polmem-e274a840|物质观四项理论意义|原章owner新增准确目标，旧结构ID保留|sha256:2c98f90b1c86e65459ca5cdb793c7abd856c0718735ba4ed817d8003c6ed6b5d|
+|polmem-c110f47f|物质运动关系与两种割裂|原章owner新增准确目标，旧结构ID保留|sha256:40105840ffac8e5068ed714dbc96a1cc00ba5f659c34d7ecee5736f5782c2b0f|
+|polmem-21ef7ad2|相对静止与绝对运动|原章owner新增准确目标，旧结构ID保留|sha256:20f6a87f550f11fd3c86423310e393de537de4bb5183a086cafe6b33e753608b|
+|polmem-c8164bb1|时空定义与物质运动|原章owner新增准确目标，旧结构ID保留|sha256:8a2f1db07158db7eecf7a0a98c5158361677c9c1ed7ce45cde452dae52e4df60|
+|polmem-d10fe1a0|时空五性质的主语|原章owner新增准确目标，旧结构ID保留|sha256:f965f497a4aac408e20bcf74ba31f016b9cd9f2ba1849d3e8473d12414335a41|
+|polmem-0cb0c551|世界二重分化与实践关键|原章owner新增准确目标，旧结构ID保留|sha256:e36a849943a43242bb6f6a06d353c9504214113c05fe5cafa54269ec07f20f98|
+|polmem-1ad264b1|自然界与人类社会的联系区别|原章owner新增准确目标，旧结构ID保留|sha256:4b09dc8db73482dc6459cfd447c91f464fbfddc49304e348680faf5ef53fae7f|
+|polmem-cb5236f7|意识起源的自然社会两面|原章owner新增准确目标，旧结构ID保留|sha256:5c0c37e612e9b9b96a6c61e98dbea3c1179498a51232aff60c0ab61351cb9b58|
+|polmem-1fd2d9c1|意识本质与器官源泉|原章owner新增准确目标，旧结构ID保留|sha256:e7850900273bb46aa86be2596c9091d6a013717fba05c621ed6ae22f6f6e86ce|
+|polmem-dcb3f8ae|意识四种能动作用|原章owner新增准确目标，旧结构ID保留|sha256:87cafd923e97b8e12007ed4a63618673b86e934b6801f6b2ce840d6e44db6d1e|
+|polmem-29e94a67|物质意识的区别与联系|原章owner新增准确目标，旧结构ID保留|sha256:4b412486408869c0ae0ede42f4570693e1728ce2c9cd421a4c4286e7a2b1eebb|
+|polmem-e3f960d5|规律定义与自然社会分类|原章owner新增准确目标，旧结构ID保留|sha256:e5f4fb294b67f79c7bebf2a4f08c802eef135d958eb7b32c309f51661f6641ff|
+|polmem-8eb90949|规律四特点与条件|原章owner新增准确目标，旧结构ID保留|sha256:828b0b14d2d85fcc67d2e9bfc4736df229e62f7dd4be21cf96a4d4fa1e94f467|
+|polmem-206ef9ae|能动性规律统一的前提基础途径|原章owner新增准确目标，旧结构ID保留|sha256:ede90375f99a130581cef76d58e20c090b0d35249403e0296fe9cf7a26e4e360|
+|polmem-afa00e48|人工智能的教材定位与范围|原章owner新增准确目标，旧结构ID保留|sha256:7db4a6f4c7fcec8ffb07f9117fbec74aed65729fdef922af72ae6db7c90817c8|
+|polmem-81b53443|人工智能边界的四项源理由|原章owner新增准确目标，旧结构ID保留|sha256:8c856ccb60307001917c9379267dc20451c64fc839ba0a8556411670b66a116f|
+|polmem-d90584a5|世界物质统一性的三方面依据|原章owner新增准确目标，旧结构ID保留|sha256:f9496d00b07ba9c231db0df34949ced04c83232f235f7b88e46f650057095fc0|
+|polmem-f4b91ada|物质统一性的方法论地位|原章owner新增准确目标，旧结构ID保留|sha256:e130959a73b95e5811f5a4ff76a6fff014bb1f8b3d0b332d06a2c06001615370|
+
+### 本批消费者阶段边界
+
+上述是内容范围和强签名，不证明最终catalog、投影及正式页面已经消费。原代表样本的正式Memory/Control/Packet证据可用于机制背景，但新增两章仍需实际绑定与隔离页面样本。其余马原、下册科目、P5/P6仍开放，未发布正式网站或制造真实学习记录。
+
+
+## P5 马原 C03/C04 模型与准确范围 20261004
+
+作者亲自读两章Current JSON、完整教学候选和对应Source，逐页实看乘风上册PDF31–45（C03，31为章图）、46–58（C04）共28页，原PDF SHA256同前。Source C03 shard blob `163b874818fb0126672851be0b958ff35017abb9`、C04 blob `52309e013a9bf0761c8482c890b9a64dec90b48f`。本批准入依现年CF原文原图，不凭旧完成标签或历史版本。
+
+C03沿实践相遇→认识形成上升→返回检验→真理价值判断→改造自由→新实践；C04沿物质条件→能力关系→制度思想→交往形态→变革机制→现实创造者。两章分别加入首课顺序、分组编码、原模型压缩与具体错项诊断。47对象对应已解释的准确范围；不把巨大的NU当一次授课或整组先决已完成。
+
+### 实质反审与修复
+
+C03独立审读完整核23组/brief、Source节点，并逐页看PDF31–45。发现旧教学稿把袁隆平水稻题的错误D选项编成“两次认识”事件，本轮已按PDF35改为实践是认识的基础来源，D只是颠倒两次飞跃重要性的错误项，覆盖表同步，原题不改。另一处“理论实践创新相互检验”易取消实践唯一标准，已改原文相互激发共同促进、理论受实践检验并指导实践。原审读者定点回读关闭两项。
+
+C04独立审读完整核24组、brief及原章投影，实看PDF46–58。发现科技地位精记漏已讲的现代生产发展中日益决定性因素，现补齐并与社会历史发展层面重要影响因素分开；原S02闭卷cue遗漏新补文化，现同步到科技与文化。原审读者仅回读修复后确认无新增建议。
+
+作者写作中也补齐原解释与精记要求之间的具体缺口：实践本质属性、主体知识性首要能力、最根本实践关系、虚拟实践相对独立、第二飞跃六中介、逻辑证明的必要条件/重要途径，以及科技集中体现和主要标志。没有把尚未解释内容仅扔给精记表。
+
+### 原Content的最小一致性修复
+
+两章原无实际Memory对象，本次仍在同一chapter content_support承接，不新建sidecar、NU或registry。旧结构/Question Truth保持。
+
+C03原S02实践检验beat及章压缩将“根本标准”明确为Source与已审目标的“唯一标准”；具体实践历史局限与逻辑辅助仍保留，不产生第二检验标准。原投影依赖须在消费者阶段真实回读。
+
+C04按PDF51明确经济基础是一定阶段生产力决定的生产关系总和，其性质由其中占支配地位关系决定。旧投影将范围与性质压成“占统治地位总和”，现由原Content作者拆成两句，同步原beat、boundary和compression，独立审读确认与原页一致，不改rawSource。S02尾部追加文化重要动力beat，并同步core_problem、closure与章压缩；既有前四beat顺序、原NU保留。此为明确遗漏的Content修复，不重写Runtime或UI结构。
+
+### 作者反例自测
+
+|反例|实际内容处理|
+|---|---|
+|实践只是思考或所有独自活动没社会性|本质与三特征分别解释现实改造和社会历史条件|
+|客体等同全部世界、双向转化方向颠倒|按具体活动范围与力量/对象因素的去向检索|
+|认识来源要求每人亲历全部知识|保留个人间接经验最终来自实践，不混个人路径与根源|
+|表象当概念、非理性等同感性阶段|三形式与两个作用因素分层，不能一一硬配|
+|有用或多数承认真、相对真理等于错误|客观符合、同题同条件与正确内容范围分别检索|
+|一次检验使整套理论永久免检|唯一最终标准与具体历史实践有限性分开，继续接受检验|
+|评价主观所以任意、规范只由事实推出|保留事实依据、主体需要和课程价值立场的不同层次|
+|地理人口替代生产方式决定社会|必要影响与决定力量分开，不否定生态人口的重要作用|
+|政治法律思想与国家政权核心互换|两个上层建筑范围分别恢复，政治上层建筑主导整个结构|
+|经济基础只写支配关系而丢总和范围|按PDF51作同owner两句对账，并保留依赖投影待查|
+|技术在生产发展的帽子扩大为决定全部历史|正面角色完整保留，同时限定生产/社会历史两层|
+|群众按身份名单永远固定，个人决定总趋势|质的推动标准与具体条件优先，事件结局/历史总体区分|
+|背完cue就算学会或未主动讲防误解扣分|题面限定范围，辅助揭示后使用，提示后不记无提示新成功|
+
+原限制继续：同条件同内容不能既真又假；已确证内容与整套认识可修正不同；价值不保证任意收益；社会心理自发与全称自觉表述的范围冲突不抹平；群众不按任意阶级标签/无名身份直接判定；科技不自动产生某种制度或固定日期。原Source fidelity和题目答案不变。
+
+### C03/C04 逐项内容准入绑定
+
+<a id="p5-marx-c03-c04-20261004"></a>
+
+|候选ID|目标|身份处理|准入版本|
+|---|---|---|---|
+|polmem-9d78d476|实践本质与三特征|原章owner新增准确目标，旧结构ID保留|sha256:4dbd65e710348538c5d4b0c790539f8f9dc8cc31beca42e3a5391bb3852809c6|
+|polmem-92502e29|实践主体客体与中介|原章owner新增准确目标，旧结构ID保留|sha256:1e1fc35f2d48aa395730c9ab768807e8b073ecf3e963749a1e91134c8749d884|
+|polmem-a32f83c0|主体客体关系与双向转化|原章owner新增准确目标，旧结构ID保留|sha256:7ce320053a7999bff501dd4b24d975bc04c269e349b39e0d8ef6d9920fafc5fa|
+|polmem-fd1af0b6|实践三类型与虚拟派生|原章owner新增准确目标，旧结构ID保留|sha256:795fac698b00c00c7d4d37e4b48a432de2fe3f6c7ca568fd2dabe6a9fb00eb4a|
+|polmem-df91f123|实践决定认识的四方面|原章owner新增准确目标，旧结构ID保留|sha256:95d356d98437c3a0fd46c1af78b854056e6f0d5663256fa14f762b670a0f896d|
+|polmem-c1a49727|认识本质与反映创造统一|原章owner新增准确目标，旧结构ID保留|sha256:11216a701683ae2a0beed2df8488ebc63c5acd404cfa31fef53b965852d32384|
+|polmem-7dc403ec|感性认识三形式|原章owner新增准确目标，旧结构ID保留|sha256:ef408fe579b796962192a1a0659a39310e66492d434b731b0867952c381c9f01|
+|polmem-0a2b5cb0|理性认识三形式|原章owner新增准确目标，旧结构ID保留|sha256:b69839451f0c21f2527ee93da3fd0c75696a2fec34fdb98891a1ff39f157ddbd|
+|polmem-6cb95449|两阶段关系与第一飞跃|原章owner新增准确目标，旧结构ID保留|sha256:f20128bef0a76dda01c3eebef9fe18e24a62396a0c043e559f7c0b065d626af2|
+|polmem-2f946e8b|第二飞跃与实施环节|原章owner新增准确目标，旧结构ID保留|sha256:70499a285dc0f9552e51a592c60dda416a32970f7e70a58d9f0dda1a1ad01e5a|
+|polmem-0a07d44e|理性非理性因素与阶段区别|原章owner新增准确目标，旧结构ID保留|sha256:60733e425861f1bcdff61f883f4fcf00317863fa29bc59a08db5933342ed6bc6|
+|polmem-70bd59d1|认识反复无限与具体历史统一|原章owner新增准确目标，旧结构ID保留|sha256:5af08eea55f07b8de303a5d0afb1e34f7f4dbff27e27b49fd8ca01e498596158|
+|polmem-2d35b124|真理客观性与一元性|原章owner新增准确目标，旧结构ID保留|sha256:6b3fadde31c3c2b13851eff847d7244076cdb5a6ed45a932303c4e0b1204c3fe|
+|polmem-7b8c1e20|真理绝对性与相对性|原章owner新增准确目标，旧结构ID保留|sha256:b2d09688dabe9f81818dd400af638b1c3b6e676f16de39318d8c360eb548aa5e|
+|polmem-8954f09a|真理谬误的界限与转化|原章owner新增准确目标，旧结构ID保留|sha256:c98209f7cbdfb7fbd57c42ac8be4eb28d806277eed30fda5b183923ca5049f4f|
+|polmem-05a8b2fd|实践唯一标准与逻辑证明|原章owner新增准确目标，旧结构ID保留|sha256:32d7b63d19fe80626e11e6bc20f59d26fa64394d74df2707b07c46fe4d46b134|
+|polmem-68340bf4|实践标准的确定与不确定|原章owner新增准确目标，旧结构ID保留|sha256:0fcffd7acae28ca8a058d47fb0a550bc705d10435bc5bf81faea936f8a5a0655|
+|polmem-6dbffa20|价值定义与四特性|原章owner新增准确目标，旧结构ID保留|sha256:3f4765e0058d4663a6e943a0296e86d0b9cc51b3c00efabcfc8a0118ecee0e0b|
+|polmem-a9996df9|价值评价与事实判断|原章owner新增准确目标，旧结构ID保留|sha256:4d9055f7f98293a502197cc6c0c6bbf33d8b2789bb914dedd1044c50fc8ef5de|
+|polmem-ceaf5261|真理尺度与价值尺度统一|原章owner新增准确目标，旧结构ID保留|sha256:0051eeb74cd723d21d7c7ca2a5e525b7ab4b4dc7b42514b29d03d2d19e83185d|
+|polmem-1a06ed41|认识改造与主客观矛盾|原章owner新增准确目标，旧结构ID保留|sha256:be848df81dd1d5aa0f8359454b8c8e9f66e0e2f36ce788f740ed4a4b85c138bf|
+|polmem-056e7d72|自由必然与两种错误|原章owner新增准确目标，旧结构ID保留|sha256:4343f6b2208f236b8dd7a5277a993bc0a19255300c21b3e0a7e2f2d95b799da9|
+|polmem-59dff1bd|理论创新与实践创新|原章owner新增准确目标，旧结构ID保留|sha256:a317febb4ceb25430084c340db424cf241f57abeb11866e2886107dfe4bc8cae|
+|polmem-fe1e6a20|社会历史观基本问题与分野|原章owner新增准确目标，旧结构ID保留|sha256:5122fbd5611a4c0086dcbb74253d265d999b69cd8f020a96a819f8032f1e0611|
+|polmem-c637e12c|社会存在三要素及作用|原章owner新增准确目标，旧结构ID保留|sha256:835a77aca23d2d20da398c4a2eca85a40abec1c47b05c02c17a0db19b339483f|
+|polmem-79380697|社会意识分类与两个核心范围|原章owner新增准确目标，旧结构ID保留|sha256:b275c891501a0c9475302ba9f0daf8727cf214d7d6b3fdd6e71aad9c3c5ee352|
+|polmem-d26fba4b|社会存在意识关系与独立性|原章owner新增准确目标，旧结构ID保留|sha256:5358ca647a51722f309941eab48572ae1297d19f56d374cb6894e11ed0f41804|
+|polmem-9c595099|人与自然的物质变换|原章owner新增准确目标，旧结构ID保留|sha256:cfbd1cbfe2fd8f863900b41990e041206e1c8bfdd5bff23799254155530cab7c|
+|polmem-a97d2f6c|生产力三要素与科技地位|原章owner新增准确目标，旧结构ID保留|sha256:6817e8029b0b58ac4fec588c35092329959a241b391c4e349d228ea9e3ac80ca|
+|polmem-e892e6d9|生产关系三项与所有制|原章owner新增准确目标，旧结构ID保留|sha256:18846dc6d8ae8db2febdb0a0153db28cbb30a2e65ae0145a20d71e194711521a|
+|polmem-cae0d0ec|生产力生产关系与第一规律|原章owner新增准确目标，旧结构ID保留|sha256:22398a760bc8c44bd794b8881c3812f2b7515d29840a54675dd770d78acfe27a|
+|polmem-91221f4f|经济基础与经济体制|原章owner新增准确目标，旧结构ID保留|sha256:8e7fb4e331b0506b28ceeb19a088472053a00c9107e4cbadb996ba58190fada8|
+|polmem-9e8bdabc|上层建筑两部分与国家|原章owner新增准确目标，旧结构ID保留|sha256:f3331b7931b7f47f6bcf2d077064bf4d46a8562876b6137139be5451e3a9ca38|
+|polmem-87098dcd|经济基础上层建筑与第二规律|原章owner新增准确目标，旧结构ID保留|sha256:703755cad64edda5ae8472d3f115eb79c23fac090fbb6ef2ca9590671ca30243|
+|polmem-09324c78|交往的两类型与四作用|原章owner新增准确目标，旧结构ID保留|sha256:a2ddf352ce45871a97d4de018f1ebe2e891a4a4fce612a8756110c060324e3e3|
+|polmem-cb13de9f|世界历史与文明多样性|原章owner新增准确目标，旧结构ID保留|sha256:a67758093f551e1d54867fc3fb30b2ec6fd6222661d68b4f50b9dc06a4951119|
+|polmem-6b909dae|社会进步与人的三阶段|原章owner新增准确目标，旧结构ID保留|sha256:0ebb87e2b41d8b6c5e3f6a1c8faaf6a84365d6b4808a8943092f170935b05e6e|
+|polmem-33f9aa37|社会形态内涵与总体序列|原章owner新增准确目标，旧结构ID保留|sha256:18da2f66eb0c6d930381aa94b08d583be2a029f08df5ae695d8e72d40d86378b|
+|polmem-94693d9d|社会形态更替三组特征|原章owner新增准确目标，旧结构ID保留|sha256:adab7f844b8aad85686e2ff804192d4bceeac3bc796223f0d177927e45b39ffb|
+|polmem-9fefa9ed|根本动力最终力量与主要矛盾|原章owner新增准确目标，旧结构ID保留|sha256:f275f89d079c9864821eb3df1b69b08da395ce048d17a35f2b7b2f6ab9cfc42b|
+|polmem-8532617c|五种重要动力与阶级革命改革|原章owner新增准确目标，旧结构ID保留|sha256:30738faf9641eb99b4a10b70b81d436cb74aabf70bf5e5f78b361d818052ea8e|
+|polmem-d0c2c1d9|科技与文化动力的条件|原章owner新增准确目标，旧结构ID保留|sha256:145199fa4eed248587fc6ff3611c8952e0ec275c45f8978df240742c942d8a91|
+|polmem-73d60c05|考察历史创造者的四原则|原章owner新增准确目标，旧结构ID保留|sha256:8be69e84e83c589b1e8e65627738e254f0c531a0779df67698e2ca460c2dd75d|
+|polmem-86afb84f|人民群众质量与三种创造作用|原章owner新增准确目标，旧结构ID保留|sha256:aeb1f3dda60e7aa3f15c9378dea9c6100dd729b8ea25f073e65e16704bd5f67b|
+|polmem-3f0bda2b|群众观点与群众路线|原章owner新增准确目标，旧结构ID保留|sha256:50b5ebb905ec6372cbf48384130d2b7d0048d0fde7c18e6d062f4f562386a752|
+|polmem-29f8ff84|历史人物作用及必然偶然|原章owner新增准确目标，旧结构ID保留|sha256:0b9bfea001c910fba9c3d8775528b9875173da1722244bd91588d0e559a4565c|
+|polmem-5b9d2a42|历史人物评价与政治组织关系|原章owner新增准确目标，旧结构ID保留|sha256:4fd54ebe43efdc762eb85739a3d335fa399cbc371089372dadc13948005ce7f1|
+
+### 消费者与实际交付边界
+
+本批强签名仅绑定已审内容，最终catalog、原投影实际文本和正式页面抽检仍待对应工程验证。特别是C03标准措辞、C04经济基础和文化beat须检查实际消费者，不能只改Source blob。当前PR保存授权门槛未解除时只保留本地准备，不换写入路线规避；五科完整能力和P6正式交付未完成。
+
+
+## P5 马原 C05–C08 模型与准确范围 20261004
+
+作者亲自读取四章原Content、完整教师候选和对应Source节点，实际逐页查看乘风上册PDF59–75（C05）、76–85（C06）、86–91（C07）、92–93（C08），共35页。原PDF SHA256 `481fc2c4e20bba571f02a4d9c5c50ca38cb86185ce7aef8d210e2474fe816a1c`。Source shard blobs分别为C05 `f056a1049b1402ecd22fca78c8d6f64f3d0bbcd5`、C06 `3fc74741e5aad926d5ddced7384a70a637136bb4`、C07 `d27b513b44a299c569d4f92fb8ebdf4cf63e07b1`、C08 `53d87773ba75bfda9f3e5bcec2f02910a8e9c59d`。本批准入依现年CF，不以历史LEG或旧完成标签替代。
+
+四章各补首轮讲解顺序、分组编码、同模型压缩、准确题面/完整答案/检查标准/揭示后cue、具体错项诊断。C05沿商品劳动价值→劳动力和增殖→积累循环分配→危机与上层建筑；C06沿竞争集中→垄断控制与价值取得→国家国际扩展→适应变化与历史限度；C07沿根源主体道路→科学与历史实践→国情建设纠错→共同原则与多样长期曲折；C08沿科学预见依据→条件限定三特征→现实主体与长期过程→阶段理想和最终方向。72对象分别30/18/16/8，不将卡片数当教学质量，也不把大NU当一次已经教完。
+
+### 独立反审和定点修复回读
+
+C05独立审读30组、完整教学稿及PDF59–75。汽车例原页只给成本20和平均率10%，不能伪称明确给预付资本20；现写出依源简化解法另加预付等于该成本假设，固定资本耗用与预付不一致时不能套用。绝对剩余价值延长工作日的主模型限定劳动强度及必要劳动时间固定；提高强度另作分支，区分钟表时间和规范化劳动量，不把必要时间固定跨分支搬用。商品两因素题面明确问源泉、国家题明确问选举形式角色、包子题明确问时间并声明每小时新价值相同。自动化答案去掉后台未准入话术。原审读者回读确认这些修复闭合。
+
+C06独立审读18组、完整brief、原owner及PDF76–85。保住工业垄断与银行垄断两限定、价值创造/取得通道两层、利润价式不双算、输出双口径、所有/控制/经营三对象。反审发现并修：金融就业范围恢复为以金融为核心的服务业；国际协调机构不只空说服务方向，而保留源关于资产阶级利益和高额垄断利润的具体论断及经验边界；积累论证补基本矛盾深化和社会占有物质条件；第4/5题面明确问三价格中心和具体参与机制；变化原因恢复社会主义制度初步显示优越性及影响；原reasoning_chain与已修beat同步创造取得分层。原审读者限定回读六项闭合。
+
+C07独立审读16组、完整brief/owner及PDF86–91。修复十月五意义重复漏项，明确资本主义国家革命运动与新时代/新纪元并按跨页87–88定位；六构想第四项恢复利用资本主义建设社会主义，包含国家资本主义经济形式而非只文明成果；十原则第二项补最先进最革命和完整使命，第三项限定无产阶级斗争；晚年四组删无源的领导机关稳定要求，正文逐组解释合作组织、物质能力、文化机关能力、民主法制团结；四贡献按PDF89–90、公社年份明问。作者复看87/88/90原图，原审读者限定回读五项闭合。
+
+C08独立审读8组、完整brief/owner（含subject_closure）与PDF92–93。修复按劳/按需只说不等却没正面比较的缺口，明确个人消费资料的分配依据，保留高度生产力必要非充分及阶段边界；三解放恢复旧的传统观念原范围，删额外剥削阶级限定，题面改人类解放。A/B/C标签非准入，逐项Content选择也不自动排程或产生掌握证据。原审读者限定回读闭合。
+
+### 原Content与身份处理
+
+四原章之前无实际active_precision Memory对象。本次在原chapter content_support加入已审目标，不另造Memory sidecar、知识owner、NU、registry或scheduler。原章ID及所有既有unit_projections身份顺序保留；C08仍唯一NU `POL27-CF-MARX-C08`，绝不新造S01。C06原解释的金融资本两垄断限定、利润创造取得分层分别同步teaching beat/boundary/reasoning_chain，依赖投影须验证实质语义。C05/07/08原投影保持，教师展开与准确范围由同章绑定承接。原Source fidelity、原题答案和真实学习记录不动。
+
+### 作者反例自测
+
+|反例/遗漏|本轮处理|
+|---|---|
+|每个有用物都为商品，价值等于财富|区分交换用途、劳动产品与自然物质贡献；具体劳动/抽象劳动不同规定|
+|社会与个别效率变化一律使同时间总新价值增多|限定社会标准、强度复杂程度及时间，区分旧价值转移与新形成|
+|v像面粉一样把旧价值搬入产品|v相当价值由当前劳动重新形成，c转移与v再生产分开|
+|m′与p′分母相同，成本c等于预付c|分别用v与全部预付资本，生产商品耗用额与预付资本分开|
+|任何提高强度都保持必要钟表时间固定|只在延时主模型保持固定，强度分支另比较劳动量/价值每小时|
+|只给汽车成本便断言预付资本同数|明确源简化解法的附加假设，不冒充题设事实|
+|任一银行工业资金相融都叫金融资本|两个垄断限定保留，并教形成途径与经济政治控制方式|
+|定高价创造社会新价值，四取得通道为四新源|先劳动创造，后价格和国家等再分配，不重复加平均利润|
+|法人所有控制合一等于经理拥有全部企业|所有、重大治理控制、日常经营三对象区分|
+|只讲源批判的经验边界，漏源具体论点|保留服务利益方向、基本矛盾深化、制度优越性等准确项，同时不虚称逐国实证|
+|十月意义用两个近义短句占两项而漏新纪元|按原书五组完整恢复，并保留理论现实与历史地位的不同重心|
+|利用资本主义只等于借鉴文化成果|恢复原命题并联系已讲国家资本主义经济形式|
+|晚年四组背清单但不知机制|每组解释农民合作、工业物质、文化组织能力、监督团结的作用联系|
+|无产阶级斗争最高形式扩大为任何阶级斗争|题答及教学稿保持原主体范围|
+|按需和按劳只写“不一样”|正面比较个人消费资料按需要/劳动贡献分配，阶段条件同时保留|
+|国家消亡就是无社会协调；自由就是不受规律|限定阶级统治工具、旧束缚与协作、规律条件不混|
+|历史必然是固定期限，最低纲领是低价值|趋势/条件/实践分层，时间/纲领/范围三比较对应|
+|准备完课即整章已学会，未说无关防误解扣分|先决须精确到本题全部所问，揭示后cue不作无提示成绩，未问题项不自动扣分|
+
+原未决范围按条保留于各章deferred_precision与brief：金属货币职能的历史条件、相对剩余价值图口径、AI转移其他公司剩余价值和借贷资本量纲旁注、垄断利润价式、资本商品输出口径、当代统计全称、苏联粗线分期及未经展开的苏东因果史、未来社会一般预见。没有为消除待办而改Source或题目。
+
+### C05–C08 逐项内容准入绑定
+
+<a id="p5-marx-c05-c08-20261004"></a>
+
+|候选ID|目标|身份处理|准入版本|
+|---|---|---|---|
+|polmem-7c8844a7|商品经济条件与商品定义|原章owner新增准确目标，既有NU不变|sha256:120eff39e1217043c7d21657a3b6d4e4c2ba87dcbb36b3229cfb433ab6c49cc8|
+|polmem-cab5bcc6|商品二因素与交换价值|原章owner新增准确目标，既有NU不变|sha256:92993d3c553527f7be8469ff285fa17f65c5f1aaa0dbb67a5c47cf6fdbff8b27|
+|polmem-d7114465|劳动二重性与新旧价值|原章owner新增准确目标，既有NU不变|sha256:f1199ff9187cba38e40d719c567cd70e3bab937c0f263bb61fb1804c2965a68f|
+|polmem-a11b9e94|社会必要劳动时间与复杂劳动|原章owner新增准确目标，既有NU不变|sha256:96f0d5abfed30fac5a383a5bc4a2211385a0ac44de5717f422dc67be7053a6bc|
+|polmem-48897a13|生产率变化的比较条件|原章owner新增准确目标，既有NU不变|sha256:5b1308fb3c524b5483440b3a530a8309bff954699dfd6309ae416a79d4d4f050|
+|polmem-e1c5ce2f|四价值形式与货币|原章owner新增准确目标，既有NU不变|sha256:92372b343ca00e94ca22c769b8df0f1a4c41e7a9803b1b5a317334f9a5f07c83|
+|polmem-4264bb04|货币五职能与适用范围|原章owner新增准确目标，既有NU不变|sha256:10f55fd10acbb15c3e2d477baec713deda9294ce3f9e841a8289aafaae108fea|
+|polmem-b13cac1d|价值规律内容表现与作用|原章owner新增准确目标，既有NU不变|sha256:a19da0dfc50e627306bbc8a0c60912297435cdadaf21028554a4df25f0aed31f|
+|polmem-d9d38847|私人社会劳动的基本矛盾|原章owner新增准确目标，既有NU不变|sha256:936233cc44c7b7e92b8d163b20a5fe4f60416c4fbec748c91388924e46829068|
+|polmem-470c2b30|劳动价值论意义与深化|原章owner新增准确目标，既有NU不变|sha256:dab25d31c37aaa3b60fb4c63b76a6374b0fa919aece6bd993b4d3139933c3b32|
+|polmem-002dc8c7|资本主义形成与原始积累|原章owner新增准确目标，既有NU不变|sha256:420fdd8a3ead2186359eb924bbd92880f56df14432dd5486263824577f33a5f9|
+|polmem-2cb9a862|劳动力商品条件与特殊性|原章owner新增准确目标，既有NU不变|sha256:2d22f98b506588b10f223c49088e4a64301ef0e43b630f8a6a7276a08acdb1b2|
+|polmem-fdf4a54f|资本总公式与生产二重性|原章owner新增准确目标，既有NU不变|sha256:d52421d2031e7ece0da34942286c704492ac384ac794dfe50afaf72d000972c5|
+|polmem-199bfade|资本剩余价值与不变可变|原章owner新增准确目标，既有NU不变|sha256:b59ee0b3757cd1922d02103dac9a3f4f4dda7470914e152f58ef1de48bd3d0c9|
+|polmem-99d89938|剩余价值率与源例计算|原章owner新增准确目标，既有NU不变|sha256:1abe5121b38986478f7e5accf57444499db2a429b7f1cb49ca55a1c21e7a28a6|
+|polmem-f9835171|三种剩余价值及条件|原章owner新增准确目标，既有NU不变|sha256:59ecbe8ecb488d8cc19c72b0e2981d3cb34ff14696c95004f576533d88c12eef|
+|polmem-e410bdaa|自动化与价值源泉|原章owner新增准确目标，既有NU不变|sha256:8af56b190257530ecccd92d9ca19b404687ae01ff4b98406426689524806d123|
+|polmem-3abd9b8a|积累再生产与集中|原章owner新增准确目标，既有NU不变|sha256:93cbf9084c66fd85913319a09de45f7e0531968540415a6de8ea6a1a9b5462af|
+|polmem-5681ff5d|资本三构成与变动判别|原章owner新增准确目标，既有NU不变|sha256:2fcd1c220bc975f36d9f3164d81fe196090733b90be2b95912cf66bb904b6c8a|
+|polmem-55077776|相对过剩人口与积累趋势|原章owner新增准确目标，既有NU不变|sha256:20a2993e6939ff96ff49e9f9c04b5cf3615f384e761cbb14ae0fb4cb39f2f0c1|
+|polmem-1cf7dd15|资本循环三阶段三职能|原章owner新增准确目标，既有NU不变|sha256:2edad38260ddcabde257208aa0dc5d73e88585b531a84028c39194d51663934b|
+|polmem-ce75b737|资本周转与三种分类标准|原章owner新增准确目标，既有NU不变|sha256:7072ae53b8d6bf0aa7d63138ba606e25dec0eec88f63c853301184c2813fde5d|
+|polmem-2b469b14|社会再生产与两部类平衡|原章owner新增准确目标，既有NU不变|sha256:3bf67397cad5e79c00d9480b2d76aa50ba01f1de496a3bf3b30bc62f2aefc164|
+|polmem-46c6a4fc|工资本质与掩盖表象|原章owner新增准确目标，既有NU不变|sha256:38d210bce248dc17ba4fd845a3443b6490e3d2393f4d17f70658ca642ae3448a|
+|polmem-6a6f0714|剩余价值利润与两种率|原章owner新增准确目标，既有NU不变|sha256:71b8eba0ca107eaa97b78ea3e7ccd03dd50ce04fc258839111e0d937fbbee709|
+|polmem-c3b951e4|平均利润与生产价格|原章owner新增准确目标，既有NU不变|sha256:74146d7ae72e8b8681cbef021a3bf3f11108c3e14287beb399264452129c8184|
+|polmem-0934ae92|经济理论三种地位|原章owner新增准确目标，既有NU不变|sha256:46baa3184a65c2e06970d93cf41336c3ced7d846f052d302efbcd90a6de13178|
+|polmem-d0150667|资本主义基本矛盾与危机|原章owner新增准确目标，既有NU不变|sha256:ea1b919c9df9b8de62d6e09763e177814c2c748b6dfb01a67df705a57871c6ed|
+|polmem-3865e199|资本主义国家职能与制度构造|原章owner新增准确目标，既有NU不变|sha256:eed5b56f02c7668af3890e271b2ba9af3edb57c3f8311eaa299d44399814c422|
+|polmem-5ab4db1f|资本主义意识形态与三掩盖表象|原章owner新增准确目标，既有NU不变|sha256:bd1b9e948c2819d2a0b30c3cd02ac6e07ab01e7b276802b1cb8e0225dbcb4850|
+|polmem-9a944f8d|两阶段与集中垄断形成|原章owner新增准确目标，既有NU不变|sha256:bd2c3733d1bf0314fdca0833cdfce5830ef143e18c9dab25cf1d84fbb930acd6|
+|polmem-be59d6df|垄断竞争的原因与新特点|原章owner新增准确目标，既有NU不变|sha256:c86bb26d89a363e2f46db74b45df5bc4f59b0ae206f98498d1ad94652d369629|
+|polmem-c75e124c|金融资本与寡头两控制|原章owner新增准确目标，既有NU不变|sha256:096a5dafc61c16b783c07dd413501e8dc1ba042f0151a27e477296770c13f986|
+|polmem-e310a836|垄断利润价格与价值规律|原章owner新增准确目标，既有NU不变|sha256:f5afe0ac8572bf9eaaf16f099f3687878d33e89f188e839a75acc2d5c61906f6|
+|polmem-931d0576|国家垄断的原因与五形式|原章owner新增准确目标，既有NU不变|sha256:3ece96cb0ff874822593a670c0d87076ccd8300ff6528692353a4696ca4283e7|
+|polmem-79c1195c|宏观调节与微观规制|原章owner新增准确目标，既有NU不变|sha256:7c914d6e212f734ecb1da401fcdbd9f5a408e108d4101ba2477c19ace3318be1|
+|polmem-28813592|金融垄断发展的条件与风险|原章owner新增准确目标，既有NU不变|sha256:cbcfcc887fbd8dea0214d496e84a49a4f8bf9c92210b0b50b50f924ca59fdca8|
+|polmem-6354ba0c|跨国扩展动因形式与影响|原章owner新增准确目标，既有NU不变|sha256:22ab071802790be1db2423dcb5e8fb96b56856295c8fbbc4deb8c944269790b0|
+|polmem-9b581d68|国际同盟与协调机构|原章owner新增准确目标，既有NU不变|sha256:8c1a1e8c73e8c25d6055a6f9a1829b7e7346b0ae1affdb7c7d7bf40efbbef6c6|
+|polmem-3a4f8fa0|帝国主义五特征|原章owner新增准确目标，既有NU不变|sha256:46db6bdd23d8b1639bfb18045865968773497b175aedff25b9ed6b862ad512f1|
+|polmem-232afe0c|全球化三表现三动因与影响|原章owner新增准确目标，既有NU不变|sha256:d880ac7081f877af281c6bf6fbd28540e0b92de7c17f47374102ef6b442808eb|
+|polmem-ae6ccb63|所有制变化与三种权力|原章owner新增准确目标，既有NU不变|sha256:ceb5967bee9fe4e8093d7e5c439df07e747bd599adfdad1d6669d87e69218b0b|
+|polmem-f8a5cc6e|二战后五方面变化与危机六特点|原章owner新增准确目标，既有NU不变|sha256:65a220037076ba2f94dbd353bc5161346cd2b22bbd35c677fd393c1d7a3dbf70|
+|polmem-e5694fe6|战后新变化四原因与实质|原章owner新增准确目标，既有NU不变|sha256:721961d519bdf790d65db29cf29b9566f5db52712801897fa5e7060144121001|
+|polmem-e6ceb4c0|二十一世纪四特征与阶层观察|原章owner新增准确目标，既有NU不变|sha256:03f90f2d6de1988c321e3266d2af3787fbf3ce605d8ae97cb4a37a6e7deb7dd8|
+|polmem-9894f0e1|大变局三组失效问题|原章owner新增准确目标，既有NU不变|sha256:603b9c367b642d9fc827743726018ddd5ed6365366cacfc8aaa8517ee0e04e19|
+|polmem-ac508bcd|历史地位与替代四层论证|原章owner新增准确目标，既有NU不变|sha256:102fed1ad3ee5bcff67722be47221a522719ec03f15a903a94927c981196e2d4|
+|polmem-ec410c16|过渡长期性的三原因|原章owner新增准确目标，既有NU不变|sha256:a79ef5c58ae3b0753a2bdcd4e0015a9b508bc70f3474ddb674a7d220bbeaabbd|
+|polmem-0e0f5ef8|空想社会主义三阶段与代表|原章owner新增准确目标，既有NU不变|sha256:456560312fc49eed52e251569d41abb1d961c721498a9e1d9c54cd7c65a40dbb|
+|polmem-ea5621a2|空想贡献局限与科学创立|原章owner新增准确目标，既有NU不变|sha256:2c69c724b0d7462a0eb318f8180ee58d44e94de0273a6f6b5b1b4a4847dc757e|
+|polmem-8b91f108|第一国际与巴黎公社地位|原章owner新增准确目标，既有NU不变|sha256:5eed917b77b1b10dc5b2783cd99f7ad07ce77bd54df65f11451bffb1587b7d72|
+|polmem-cfda48f2|巴黎公社两措施与四经验|原章owner新增准确目标，既有NU不变|sha256:3179824c4237bd0b4e913f2d4081abc39741593e1ac640c6bd4996d264e0964a|
+|polmem-eaeb4498|十月革命时间对象与五意义|原章owner新增准确目标，既有NU不变|sha256:7b48e3a9d0e65202144a531f6b17c26ba42e84db42e7a8a2e430c70d522302ab|
+|polmem-68e88f5f|列宁探索三时期与两政策|原章owner新增准确目标，既有NU不变|sha256:78f8062b1cdbae8393ea572b516481dc40e02ffb0238ed99f2e93e637f674592|
+|polmem-945925db|社会主义建设六项新构想|原章owner新增准确目标，既有NU不变|sha256:4cde370fdfe7acb7d953e286929444d181f4dec5f674895f7454b60663555d35|
+|polmem-97e07162|列宁晚年四构想与思想遗产|原章owner新增准确目标，既有NU不变|sha256:b3b0ac59b2bc8b720504bd14fc804bb20a1e9771ee4dbf0fbad06333e24cc3b9|
+|polmem-ffa35aac|苏联模式形成特征与评价|原章owner新增准确目标，既有NU不变|sha256:5fd007fb42f5ced5cf2b591f5957d65ed915fe230f5a2a94f6bd0a1217e273bd|
+|polmem-0ade7c29|多国发展四条件与历史四贡献|原章owner新增准确目标，既有NU不变|sha256:599b5996c68396d8d7b4f8e7690eb7ea889f8b06e77238d87d34a4f12d6866cd|
+|polmem-841cf9b4|科学社会主义十原则|原章owner新增准确目标，既有NU不变|sha256:e0f93df798f0c7db85980face276aebc4e2dab669f287de9fc7c7d09643afde0|
+|polmem-7435c7f3|基本原则地位与把握三要求|原章owner新增准确目标，既有NU不变|sha256:f2774b52bb683b1d7b4eb19918e9f91fb3915608f9a0a6ff68d15390f91377bc|
+|polmem-b8bc2f49|建设长期艰巨四原因|原章owner新增准确目标，既有NU不变|sha256:6630766d73c375dd5ddbfbc2e7684e8912139538b7456c59ed4125fa6848db91|
+|polmem-679066d9|道路多样三原因三要求|原章owner新增准确目标，既有NU不变|sha256:348735eee5433f6ca144847737c6a4292d8e0f846fef29006c860776e4d8c6b7|
+|polmem-52db07d7|曲折发展三因素与实践三规律|原章owner新增准确目标，既有NU不变|sha256:a9c64b44df84af651d02576bc74c6e10ae28410c51b6eef7bee0e56082f36c87|
+|polmem-fdd751fd|制度模式与文明成果四区分|原章owner新增准确目标，既有NU不变|sha256:76a3069fb4253883fe3748ebf8dd71e9e9b849eaf7fd4ad3c017a005e88f01a5|
+|polmem-6e9843e2|未来社会科学预见四原则|原章owner新增准确目标，既有NU不变|sha256:1abf4de054ab735a14acb7d09dc15e47a66c08aca6f5b91b4e9e0c935d54ebe3|
+|polmem-edcb8d36|共产主义三特征与分配条件|原章owner新增准确目标，既有NU不变|sha256:40716d1c56e023f221b1c154a2d97fd5f8db5e4fdee94a5c6d677f5d0d898895|
+|polmem-a9ad6316|和谐社会三差别及国家消亡|原章owner新增准确目标，既有NU不变|sha256:c80a897d6429ac90fd887f8dd5fef42a5b4e030a5de4740a4d8179620a9723eb|
+|polmem-91ef7ce2|人的自由全面发展地位内涵|原章owner新增准确目标，既有NU不变|sha256:644a495f8f4309138e1aae7a509444e0c149d3a25862d3a0896e43374c7602e2|
+|polmem-100a9e51|自由全面发展的三条件|原章owner新增准确目标，既有NU不变|sha256:62e1b032d1ad7e4eb38df1d997a6f2b6e5fc8a9afc3ed512c359e228b9a7a227|
+|polmem-d6e145fb|实现共产主义的两依据与三长期过程|原章owner新增准确目标，既有NU不变|sha256:1d34d27de3ddbdf21716735e78ccdcd70da18da05ddba15623d8e299529d4338|
+|polmem-4bbc80b3|现实阶级力量与三种解放|原章owner新增准确目标，既有NU不变|sha256:ac04bd34c979b3a9b9b2e8f3579079985725916b1c5fe8a1ad85e84d50b16392|
+|polmem-0b720987|远大共同理想三维关系|原章owner新增准确目标，既有NU不变|sha256:d39a7e671d011bb8095d1c733449180ba4d1bc7965515be76de95a59f91a6aec|
+
+### 消费者与实际交付边界
+
+72项强签名仅证明内容版本绑定，不证明catalog加载、依赖投影或页面可用。PR分支push权限门槛未解除，本批仍只保存本地；没有绕道写入远端。后续需在同一工程任务中核catalog唯一性、原投影实际文本与抽样正式Memory路径；此前两样本与思修证明不能冒充这四章全部消费者证明。五科完整能力、main与实际Website一致及真实学习效果仍未完成。
+
+
+### 2026-10-05｜155目标保存回读与有界消费者证明（已完成独立审查；原PR分支保存批次）
+
+上述2026-10-04准备阶段的“未保存/推送门槛”仅是当时历史边界，不是当前阻塞。父端155目标准备已保存并逐字回读远端 `1e4ceaa231fb2c3eca4c91d9a81d63c55a09a1f5`（parent `58a06ffe`）；本任务fresh fetch保留17文件，不覆写教材或签名行。最新main的Current及三个Acceptance补充已保留；P6仍未关闭。
+
+- Catalog `politics-memory-0d7438a9` 共287项；新增155项为C00 14 / C01 22 / C03 23 / C04 24 / C05 30 / C06 18 / C07 16 / C08 8。唯一ID、review行/revision、Source准入与prompt/answer/checking/cue通过；遵守原每计划最多100项，分批验证全部快照。旧132项和先前三批九条测试Recall快照兼容。
+- 八章158个refs、19个surface plans实际解析旧/新Content比较：C03实践唯一标准；C04生产关系总和/支配关系决定性质分开与S02文化动力；C06两垄断金融资本、价值创造/取得分层均完整消费。只刷新八个真实source blob，不改selector或答案。NU身份/顺序、Source/题目truth与默认Recall不改，C08保留原唯一NU而非虚构S01。compiled presenter/cognitive projection validator通过。
+- 正式隔离Memory十样本覆盖八章及新增形状：polmem-927ee36f/53475931/05a8b2fd/91221f4f/d0c2c1d9/7c8844a7/c75e124c/e310a836/0e0f5ef8/6e9843e2。48断言通过：原生Control/服务端匹配APPLIED、同页首题、逐组隐藏/完整揭示、同计划事件重放不收起答案、Resume、十条测试自评FUZZY1/STABLE9、正式Home Packet十份准确快照/current287 profile，以及五处关键章节DOM。不是155项UI遍历、全科教材验收或真实Kian学习。
+
+### 2026-10-05｜共享Home transport与同页Memory证据（已完成独立审查；原PR分支保存批次）
+
+责任沿SYSTEM_CONTRACT：共享Home export → home-xizong.json → homeXizongProjection公共派生；私有证据仍由既有Daily Packet/subject adapter实时读取浏览器当前storage。没有改政治Content语义或admission/stale/replay/evidence校验。
+
+CPU：159块原构建24111.29ms；采样约12001ms在readFileSync、4160ms在semantic adapter readJson。原不可变build-cache进程同样159块计算1864.42ms，重复系统/支持文件读取为主要耗时。
+
+只缓存公共canonical transport字符串；revision绑定字节、路径/目录成员、Xizong Content/资产、lib代码、包声明/marked实际字节、Node版本和Candidate模式/HEAD。未知/缺失变化保守失效，未分类外部依赖失败。按校验字节制作临时公共快照，再在每个新revision的全新子进程启用原不可变build cache，重建Extension/SourceVisual/exam-format模块。子进程不接收私有状态/命令；结束复核live依赖，失败不回退旧值，临时快照finally删除；并发同revision共享构建。没有新服务或registry。
+
+真实旧缓存后的Source/Learning/relationship/support/exam-format变化、原图alt/扩展表格语义变化确改输出、未知文件增删、Source绑定过期拒绝、invalid owner/修复、构建中变化、symlink、并发/进程重启通过。Home daily packet与Politics repair memory验证通过。
+
+以下为真实隔离浏览器数据（ms），after为最终快照实现/catalog287，单独运行无PDF或测试并发：
+
+|路径|before|after|
+|---|---:|---:|
+|Home冷启动ready|2551.86|3235.56|
+|已有Control计划进入Memory到确认APPLIED|1445.63|1721.15|
+|Recall回Homeready|260.70|429.82|
+|冷Packet导出|25168.16|3159.60|
+
+Before transport首字节25106.42ms，服务器24827ms；after首字节3101.96ms，第二次导出58.28ms。冷Home/首次Memory/回Home尚未改善，不称整条性能验收PASS，不发明毫秒门槛。Packet含本次一条STABLE测试Recall，服务端真实匹配APPLIED。
+
+同页缺陷before：进入APPLIED1279.22ms，随后自动等2001.82ms仍无首题，需manual reload再452.71ms。原250.67ms只是重入，不是应用全程。原client补消费既有更新事件，重读原验证路径；同计划重放不隐藏答案。After无需重入，确认后首题16.54ms；十样本独立事件到首个可操作帧3ms。
+
+隔离Candidate/新browser context已停止，不动Stable/真记录；本批次已完成独立审查并获准保存至原PR分支；仍不代表main/实际Website交付，未合并PR或部署。关键before数据已落在本节；完整临时diff/JSON另供审查。
+
+
+### 2026-10-05｜独立反审后的最小补证（已完成独立审查；原PR分支保存批次）
+
+- 同一份固定公共源码复制树，两个全新Node进程分别运行原 `buildHomeXizongProjection`（`KIANOS_XIZONG_BUILD_CACHE=0`）与新loader；完整JSON逐字相等，另逐项deepEqual `xizongPacketIndex`、`xizongForecastQuestionScope`、`xizongForecastCanonicalScope`，包含全部witness/逐题semantic revisions。不是以新loader的original/restored自比代替旧实现基线。
+- 在/tmp隔离Git仓库，`candidate=true`先建立并再次命中旧缓存，empty commit改变HEAD后revision失效且canonical输出不变；提交Source字节变化而不更新原projection绑定，构建以原 `STRICT_SOURCE_STALE` 拒绝，不返回旧值；恢复Source并提交后重新正确输出。没有切换真实任务HEAD或增加Git快照系统；构建期间HEAD固定，保留首尾检查。
+- 原图alt已变化的真实旧缓存上，将ASCII `cache counterexample`替换为等长`equal counterexample`，assert byte length相同，恢复旧mtime后revision与完整body均改变。原追加换行测试注释已改为只证明mtime边界，另有等长语义替换证明。
+- 正式隔离Memory UI新增12断言PASS：已Reveal时原生有效superseding plan（准确supersedes_plan_id）显示新prompt并隐藏答案，真实服务端匹配APPLIED；删除已存plan并发既有更新事件后空态/旧card不可操作；已存stale plan为stale，malformed JSON为error，旧card/reveal/controls均不可操作。同计划事件重放保留Reveal只归类为UI事件测试，不称新原生receipt replay验收。删除/stale/malformed是隔离存储故障注入，不冒称Control接受了无效命令。全程未产生Recall。
+- 证据归类更正：前述第二次58.28ms导出使用原Home `xizongProjectionPromise`，没有再请求endpoint，是已有浏览器公共投影后的私有Packet实时重合成，不是新server cache暖命中。已打开Home不会主动因owner变化取新公共投影；本轮保持固定Candidate/page生命周期，不主张端到端实时刷新，也不改client缓存策略。
+
+另实测两次真实HTTP GET（不同query，均200/no-store，完整1674472字节JSON逐字相同）：cold首字节2930.87ms/读完2953.07ms；warm首字节89.50ms/读完115.33ms。两响应SHA256 `c7c621c47e7f48e1cc1d6f7ce69244b003cfc0277b2a652dcfcb79b739de1722`。这是server transport暖复用证据，与58.28ms同页Packet重合成分开。原25.17秒→3.16秒冷Packet实测保留；其余冷路径未改善。
+
+
+### 2026-10-05｜保存后CI兼容性回读
+
+已审13文件批次 `3f71dc0f51fce70aedb487791f4da84dcd70a89d` 已正常push原PR分支，13文件远端逐字readback；保留main `0cb20236`的三科Acceptance限定。该head受影响CI的政治blob/Content/Runtime前置校验通过，但多条Astro构建遇到同一Node22读取差异：`HOME_XIZONG_UNCLASSIFIED_DEPENDENCY:.../static-web/node_modules/marked/lib/marked.esm.js`（Static Web Politics QA run37260123219/job111605394488，Node22.23.3）。它是已在revision与公共快照中纳入的依赖，原子进程读取guard遗漏该子树，而非Source admission失败。
+
+最小兼容性修正只将已经校验/复制的`static-web/node_modules/marked`纳入子进程读取guard，不允许整个node_modules或外部私有路径。新增反例在固定复制树的loader尾部主动经同步readFileSync读取marked ESM，模拟Node22 loader路径；修正前实际复现同一拒绝，修正后完整cache反例/独立基线/HEAD/等长变化测试PASS。完整本地`npm run build`生成1015页、25.15秒完成。该兼容性修正仍需新准确head的CI回读；不以旧head失败或本地build替代当前CI成功，不改变P6/真实学习边界。
+
+## C01 既有备课与十节点对齐 2026-10-05
+
+本批只整理已有资产。main `ea90aa2ea771d44a0a3aab0a2baddbad2eb7fe7b` 的 C01 已固定十节点；PR #1151 head `7d9984fc5040979c0bcd976cc628e7d054f27136` 的章 JSON 仍留旧十二项链，brief 的旧压缩另合为八段。本节记录对这两处不一致及阶段/易混入口的有界修补；上述2026-10-04 C00/C01首课概括与审读结果继续是当时范围的历史证据，不用其概括覆盖当前十节点。
+
+- `ch01.json` 只将 `chapter_compression` 对齐main既有十节点、review prompt与stability rule；原Orientation、两NU、teaching beats、Source、projection notes、content support均不改。
+- `ch01.brief.md` 把旧讲解与补全段落定位到十节点，标出入章及01–04、05–07、08–10首次填充、原B补全、易混回合与同模型恢复。新增的是段落入口、范围和复用关系；不新增政治事实、不重写原讲义、不新增答案集。易混回合直接引用原完整解释，不重新编一套边界答案。
+- brief只替换旧首课路线概括和旧八段压缩；其余全部旧非空行保留，连续教学原文逐字保留，原覆盖去向、未决来源差异和既有Source/独立审读证据继续保留。关系顺序是原教学依赖与重建次序，不把相邻节点都当因果推导。可局部暂停或复习，不创造新NU、Runtime状态或已学记录。
+- 原22组 `content_support.active_precision` 整块字节保留。ID、题面、答案、标准、cue、Source、prerequisite、review_ref和reviewed_target_revision均不变；原准入表不重签。十节点表将这22个ID各映射一次，使用对象本身的完整内容，不从表再生成Memory。
+
+### 作者复核及可证伪范围
+
+本批完整读回旧/新章与brief，逐段核原讲解去向；以原覆盖表核对A/B段落和未决项保留，再核十节点压缩及22组依赖。main Learning §§0.5、2、3.1–3.2与Interaction §§1.1、3、7、Content Semantics §§3.1.1–3.3及两层Acceptance的补充integration边界用于本批约束。对原preparation-review只复核C00/C01正文、原22项签名段和相关消费者边界；不把取得整文件当成全文重新审定。
+
+本批没有新看乘风PDF或图像，也没有重做源事实审查。既有原页检查与独立内容审读仅沿用其已记载范围；原未决五项未获新准入。新增路由不改变答案，故没有以新章节索引为由重签或撤销成熟内容。
+
+本地内容/数据自测64项通过：包含来源文件blob对账、仅compression的JSON差异、教学正文逐字保留、10节点顺序/名称、段落锚点可恢复、22ID无遗漏无重复、逐对象不变，以及按已读消费者函数的字段规则离线重算22个原摘要并逐条匹配原review记录。此为内容与数据检查，未运行实际loader/catalog或浏览器。
+
+七个反例被相应检查拒绝：原PR十二项链、原brief八段压缩、交换06/07、删除K07段落入口、漏掉一个原ID、改答案但沿用旧签名、改章后仍保留旧projection blob。前两例就是本批修补前的实际不一致；其余为隔离文本/对象变异，不改正式内容或学习记录。作者还沿既有反例回看物质唯一特性/运动根本属性、器官/源泉、实践中介、规律/条件、AI教材范围及意识统一非等同，原完整解释均仍在对应节点可回到的段落里。
+
+### 必要依赖与未验证边界
+
+C01完整章blob随compression改变，PR原projection绑定的 `3d54fab3bcd5e312814ad334f2769ddd817ef6d3` 须在采纳时更新为本候选 `f3f2adead86f634969652d8476a92cf03014702c`。30个已有scope/field引用均可从旧/新JSON解析；29个值不变，仅 `chapter_compression.reconstruction_chain` 恢复十节点。selector、NU、surface mapping、transitions与原精记对象不需要因本次索引整理重造。另备的projection候选仅改 `source.blob_sha`，尚未落入仓库或执行实际消费者验证。
+
+本节截至作者交付仍为本地候选，独立反审待确认本批阶段映射/边界入口与正文保留；不是新一轮Source全面审查。未写GitHub、Current或Acceptance，未merge/deploy，未测实际Website/Memory表现、性能或真实掌握。旧first-round PASS及既有有界内容审读仍按原范围有效；本批不据此关闭新增integration claim。
+
+### 本批独立有界反审结果
+
+2026-10-05，独立审读者完整对比旧/新brief，核对main固定spine/准备package规则与Interaction，逐组检查22个ID的节点位置及决定条件是否仍能从原完整段落恢复。结论为 **PASS_BOUNDED**：未发现需要修复的内容缺陷，原知识正文、覆盖与五项Source限制、22组完整对象均未改变；无需改讲义或重签。
+
+审读者将自测脚本的文件写出重定向到内存后独立重放，64项检查和7个反例全部重现，与冻结的结果一致；递归JSON差异仅reconstruction chain、review prompt与stability rule三字段，projection差异仅source.blob_sha，两份patch与冻结文件差异逐字一致。本结论只覆盖现有资产的本地对齐与静态依赖；不包含新Source复核、实际loader/catalog/Website执行、Current采纳或真实学习验收。
+
+### 本机实际 consumer 补证（同批四文件保存范围）
+
+本机从 Library 指定候选包取回，大小92983字节、SHA256 `71a53a964bb48e614af2486f17d2f69687ee2ef768333c9341ef674cbe782b0d` 完全匹配；安全解包未执行包内脚本。fresh main 为 `ea90aa2ea771d44a0a3aab0a2baddbad2eb7fe7b`，原PR基线为 `7d9984fc5040979c0bcd976cc628e7d054f27136`。四个候选的旧/新Git blob逐一匹配交付清单；本段补证只追加到原review，不更改准入表或原签名。
+
+在两个全新Node进程分别消费旧文件与本批文件，原 `loadPoliticsChapterCurrent('marxism','ch01')` 的实际 `compression.chain` 从12项变为10项，逐字等于main固定spine；章JSON除三项compression字段外完整不变。实际 `resolvePoliticsPresentationRef` 解析30个原引用，29个完整值不变，仅reconstruction_chain恢复十节点。`loadPoliticsCompiledPresentation` 严格blob绑定通过，两NU完整输出（含surfacePlan、transitions、hierarchy）与旧输出deepEqual；其unit输出本来不承载chapter_geometries，十节点消费证据来自原Current runtime及chapter selector，不能冒称compiled unit产生了新十节点UI。本批projection只更新source.blob_sha，没有改selector或surface mapping。
+
+原 `extractPoliticsMemoryCandidates` 实际选出同一22项，逐对象完整deepEqual旧输出，每项 `politicsMemoryAdmissionVerified` 仍为true；`buildPoliticsMemoryCandidateCatalogCurrent` 的全部331对象及revision `politics-memory-66169567` 与旧输出完整相等。原 `validatePoliticsMemoryPlan` 接受仅引用这22个candidate_id/current revision的隔离内存计划，全部snapshot与旧计划逐对象相等；改答但沿用snapshot的反例被 `PLAN_SNAPSHOT_STALE` 拒绝。未将计划写入Control或排程。原 `buildPoliticsMemoryHistoryProfile` 读取既有18条隔离测试Recall快照，18条兼容、0条stale；不是新增Recall或真实学习证据。
+
+既有 `validate-politics-cognitive-projection-assets.mjs`、strict `audit-politics-explicit-surface-mapping.mjs`（151 PASS全部mapped，0 missing/errors）及 `validate-politics-repair-memory.mjs` 通过。brief显式本地锚点/引用均解析，JSON差异仅compression，git diff --check通过。本次未改UI/Runtime代码、Current、Source/题目truth、Memory对象或真实学习记录，未新做浏览器/性能/源页全面审查。该结果只补上本批实际内容与catalog消费证据；GitHub保存、准确head CI及远端readback须由后续实际结果报告，不能据本段推断已merge/deploy或P6/真实U验收。
+
+## C03 八节点备课定位草稿 2026-10-05
+
+本批只整理既有 `ch03.brief.md` 的阶段、原段/B补全与精记定位：以 PR #1151 `adb1e3194b2c1d601ebbc6e2992b2d22b97815f2` 的章 JSON 固定八节点为唯一索引，其他口语短述仅回指该索引。章 JSON 未改，23个原对象及其题面、答案、标准、cue、Source、admission和原审查签名字段逐字未变，不重新签审或生成对象。
+
+作者本地实跑：原 brief 两处压缩分别为6/7段，与原8节点不一致，检查确实失败；改后两处均逐字同序恢复原8节点，检查通过。47个显式锚点唯一、107处本地片段引用可解；23个原ID各一次且原索引/名称/完整题面匹配。第二飞跃题可定位原完整实施段，因素/阶段题可跨原段落顺序定位两类因素及两阶段。移除新增定位和锚点、还原两条压缩句后，逐字节恢复原 brief blob；原连续解释、B/C、覆盖证据、未决差异与既有复核声明保留。
+
+独立有界审读已通过：逐项对照23个原对象核查路由语义，并独立重放10项文本/定位检查，全部PASS。首稿准备阶段曾将因素分类排在第二飞跃前；独立审读指出后，已改为原连续正文的第一飞跃→第二飞跃→因素分类→认识循环，节点3的因素入口仅保留跨段辨析用途。原连续正文始终未改。
+
+以上只覆盖本地路由草稿的文本、阶段和对象定位；无新Source验收、实际consumer/网站执行、Current采纳、排程或真实U证据，不扩张原有审查结论。
+
+
+## C00、C02、C04–C08 固定索引收口 2026-10-05
+
+本批沿 main `69fb6c9929daef995dad1916177ed408a5f24196` 的 Politics Learning §§0.5、3.1、3.1.1、3.2、Interaction §1.1 与 Content Semantics §§3.1.1、3.2、3.3，对 PR #1151 `f32082ee71ed8e2e7ed07fb929fc8504ac337fe6` 的七份既有教师稿作窄路由修复。C00继续在 subject-model.md，C01/C03已保存的对齐不改；无新课程、Current、Contract、registry或验收账本。
+
+确认的缺口是各稿标为同模型压缩的短链没有绑定章JSON唯一重建索引。C00为5段对原6节点；C02前6/后7段对原6节点，前短线合并联系/发展而另列五范畴；C04虽均6段但交往形态替换原基本矛盾调整节点；C05前6/后8段对原9节点；C06前6/后8段对原9节点；C07前5/后7段对原6节点；C08前5/后4段对原6节点。已有实质讲解、首课次序、编码和易混诊断均成熟，不据此重新生成教学正文或统一加阶段表。
+
+七稿只新增原JSON的48个固定节点逐字同序定位、必要原段锚点和既有对象范围，并替换13处旧压缩首句为回到同一固定索引。C02五范畴保留为必要关系补全，C04交往/形态回原节点展开，C05危机保留跨节点补全，均不另增复习节点。C06区分重建索引与原正文金融/利润的局部先后，原连续段落不重排。C08六节点章内索引与原 subject_closure 的整科收束分开。整章重建按原序，局部精记仅回所涉节点和必要跨段条件，不要求每次重走全章。
+
+### 作者复核与局部自测
+
+作者本批连续读七份原教师稿及修后定位，核48个原节点、136个原对象的段落落点与跨段前提；未重新读取原PDF像素或重做全科Source审查。先前Source覆盖、作者三轮审读与独立内容反例仅沿用本文件已记录范围；各稿未决来源项继续有效。章JSON、C02 sidecar、原181项的ID、prompt、答案、标准、cue、Source、准入与签名字段均未写动。
+
+本地实跑显示原稿七章均不能按现固定索引恢复同一节点，修后48节点逐字同序；38个显式锚点唯一、61个本地片段链接可解。移除本批新增块/锚点并还原13句后，七份原稿逐字节复原；因此隐藏覆盖表、计数、Source/审查元数据和精记定位后，原实质连续解释及其条件没有被补出的目录取代。21个局部变异（换首节点、漏节点、断入口）均被对应检查拒绝。此为文本/路由证据，不把节点计数当教学或Source真值。
+
+直接调用该PR原group/sidecar转换、目标摘要、强签名准入和prompt冲突函数（只省去本地不可用的外部章loader imports，不替换被测函数），九章181项全部仍通过，ID唯一，无不同答案共用模糊题面。改答案沿旧签名、改为PENDING的反例均拒绝。此检查未执行完整catalog/enrichment/Website，不声称它代替实际消费者验收；已有完整消费者证据保留其原范围。
+
+### 独立连续性反审
+
+独立审读者以另存原稿对照修后全文，逐章检查固定节点、原段解释和136个目标映射，未使用作者生成器或变更manifest来决定通过。指出并已修复三处具体路由问题：局部精记不应被迫每次全链回看；C05总公式/生产二重性对象从其承接节点也须能回上一节总公式段；C06跨节点对象不限定仅在下方定位。修后均有界回读。独立检查重现七稿原文保留、节点/锚点/目标绑定，另9个反例均拒绝。
+
+结论为 **PASS_BOUNDED — 七稿固定索引与既有教学/精记定位**。与原C01/C03对齐及已有各章Source/内容审读结合，九章可提交现有内容流程作跨Chat prepared package的有界采纳；不以本地审查直接宣布已成为main Current。正式采纳需同一owner记录实际落地与读回，并明确可用/未决范围。Website完整catalog、计划/快照/reveal/return、main到实际网站与P6仍由对应实际消费者证据决定；旧base first-round PASS不变，真实学习位置和掌握未知，U UNTESTED，不生成学习记录。

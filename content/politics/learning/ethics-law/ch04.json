@@ -7,9 +7,19 @@
   "teaching_shape": "CONCEPT_BOUNDARY_NORMATIVE_JUDGMENT_IDENTITY_AND_SITUATIONAL_APPLICATION",
   "canonical_mainline": "CHENGFENG",
   "source_bindings": {
-    "region_ids": ["POL27-REGION-ETHICS-C04-S01", "POL27-REGION-ETHICS-C04-S02", "POL27-REGION-ETHICS-C04-S03"],
-    "natural_unit_ids": ["POL27-CF-ETHICS-C04-S01", "POL27-CF-ETHICS-C04-S02", "POL27-CF-ETHICS-C04-S03"],
-    "suyi_refs": ["POL27-SY-ETHICS-P132-B034"]
+    "region_ids": [
+      "POL27-REGION-ETHICS-C04-S01",
+      "POL27-REGION-ETHICS-C04-S02",
+      "POL27-REGION-ETHICS-C04-S03"
+    ],
+    "natural_unit_ids": [
+      "POL27-CF-ETHICS-C04-S01",
+      "POL27-CF-ETHICS-C04-S02",
+      "POL27-CF-ETHICS-C04-S03"
+    ],
+    "suyi_refs": [
+      "POL27-SY-ETHICS-P132-B034"
+    ]
   },
   "chapter_orientation": {
     "core_problem": "一个价值多元的社会为什么还需要共同价值尺度？",
@@ -47,45 +57,388 @@
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
     "active_precision": [
       {
+        "name": "价值观与核心价值观的定位",
         "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
-        "name": "社会主义核心价值观三层十二词",
-        "groups": [
-          {"role": "国家层面｜建设什么样的国家", "items": ["富强", "民主", "文明", "和谐"]},
-          {"role": "社会层面｜建设什么样的社会", "items": ["自由", "平等", "公正", "法治"]},
-          {"role": "公民层面｜培育什么样的公民", "items": ["爱国", "敬业", "诚信", "友善"]}
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K01-N01",
+          "POL27-CF-ETHICS-C04-K01-N02"
         ],
-        "source_refs": ["POL27-CF-ETHICS-C04-K02-N01", "POL27-CF-ETHICS-C04-K02-N02", "POL27-CF-ETHICS-C04-K02-N03"]
+        "prompt": "价值观的含义、三个特点是什么？核心价值观在什么范围中起主导作用，为什么不能扩大范围？",
+        "items": [
+          "价值观是主体对客体有无价值、价值大小的立场态度，是对价值及相关内容的基本观点看法",
+          "特点：反映特定时代精神、体现鲜明民族特色、蕴含特定阶级立场；阶级社会中的主导价值观反映统治阶级立场",
+          "核心价值观是一定社会形态和社会性质的集中体现，在社会思想观念体系中居主导地位，体现制度阶级属性、运行基本原则及发展基本方向",
+          "思想观念体系不等于整个上层建筑，不能把其主导范围扩大"
+        ],
+        "checking_criteria": [
+          "定义、时代/民族/阶级三特点完整，保留阶级社会语境",
+          "核心价值观主导地位必须限定思想观念体系，不能以重要替代范围",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "先说怎样判断价值，再看时代民族阶级，最后限定主导在哪个体系。",
+        "id": "polmem-9d14a724",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF109；节点 POL27-CF-ETHICS-C04-K01-N01, POL27-CF-ETHICS-C04-K01-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:df3f61987e2667303d3f6585a66e18f03985dddd84756d51462c0e60338c1016"
+        }
       },
       {
-        "natural_unit_id": "POL27-CF-ETHICS-C04-S02",
+        "name": "核心价值体系内容与价值观关系",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K01-N04",
+          "POL27-CF-ETHICS-C04-K01-N05"
+        ],
+        "prompt": "社会主义核心价值体系包括哪四项？核心价值观与体系是什么关系，其精神内核和内在一致性怎样解释？",
+        "items": [
+          "体系四内容：马克思主义指导思想、中国特色社会主义共同理想、以爱国主义为核心的民族精神和以改革创新为核心的时代精神、社会主义荣辱观",
+          "核心价值观是核心价值体系的精神内核，是高度凝练和集中表达；体现体系根本性质和基本特征，反映丰富内涵与实践要求",
+          "二者紧密联系、相互依存、相辅相成，内在方向一致；都体现社会主义意识形态的本质要求、制度在思想精神层面的质的规定性，都是建设现代化强国、实现第二个百年奋斗目标的价值引领"
+        ],
+        "checking_criteria": [
+          "四项完整，两精神合在第三项且两核心对应",
+          "不能交换价值观与体系名称；精神内核和内在一致性分别说明",
+          "不以同方向推出两者全部内容相等",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "体系装思想—理想—精神—荣辱；价值观凝练它，方向一致但范围不同。",
+        "id": "polmem-1cb17b91",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF109；节点 POL27-CF-ETHICS-C04-K01-N04, POL27-CF-ETHICS-C04-K01-N05",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:06a79285267aca4d00079b03c15b790413c3378a5fab77261dadb5c09c70cfce"
+        }
+      },
+      {
+        "name": "社会主义核心价值观三层十二词",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K02-N01",
+          "POL27-CF-ETHICS-C04-K02-N02",
+          "POL27-CF-ETHICS-C04-K02-N03"
+        ],
+        "prompt": "按国家、社会、公民三层写出核心价值观，每层回答什么问题？",
+        "items": [
+          "国家层面：富强、民主、文明、和谐，回答建设什么样的国家",
+          "社会层面：自由、平等、公正、法治，回答建设什么样的社会",
+          "公民层面：爱国、敬业、诚信、友善，回答培育什么样的公民"
+        ],
+        "checking_criteria": [
+          "十二词完整且不跨层；三问题逐层对应",
+          "三层关联不是先完成国家层再允许个人行动",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "国家目标—社会秩序—公民行为，每层四词，先定位再提取。",
+        "id": "polmem-26158996",
+        "admission": "CANDIDATE_ONLY",
+        "groups": [
+          {
+            "role": "国家层面｜建设什么样的国家",
+            "items": [
+              "富强",
+              "民主",
+              "文明",
+              "和谐"
+            ]
+          },
+          {
+            "role": "社会层面｜建设什么样的社会",
+            "items": [
+              "自由",
+              "平等",
+              "公正",
+              "法治"
+            ]
+          },
+          {
+            "role": "公民层面｜培育什么样的公民",
+            "items": [
+              "爱国",
+              "敬业",
+              "诚信",
+              "友善"
+            ]
+          }
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF110；节点 POL27-CF-ETHICS-C04-K02-N01, POL27-CF-ETHICS-C04-K02-N02, POL27-CF-ETHICS-C04-K02-N03",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:8e6a7e0a5c50e498704c9656cd8b1f36d52f4c26ca59bf5f29eeb8e95313f14e"
+        }
+      },
+      {
+        "name": "国家层四词角色",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K02-N01"
+        ],
+        "prompt": "国家层四词在源页各有什么准确定位？",
+        "items": [
+          "富强：促进社会进步、人的自由全面发展的物质基础，体现唯物史观生产力标准的根本要求",
+          "民主：社会主义民主，人民当家作主",
+          "文明：社会进步的重要标志，也是社会主义现代化国家的重要特征",
+          "和谐：中华文明的核心价值理念"
+        ],
+        "checking_criteria": [
+          "四词与定位对应，物质基础/重要标志/核心价值理念不能串词",
+          "民主保留人民当家作主语境；和谐不等于没有矛盾",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "物质基础—谁作主—进步标志—关系理念，四问找富强民主文明和谐。",
+        "id": "polmem-da780db9",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF110；节点 POL27-CF-ETHICS-C04-K02-N01",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:57c6542eb3810026eea72457fc90bfb73d17ff087786d48fdd17172fc40969d6"
+        }
+      },
+      {
+        "name": "社会层四词角色",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K02-N02"
+        ],
+        "prompt": "社会层四词各有什么定位，四项合起来是衡量什么的重要标志？",
+        "items": [
+          "自由：社会活力之源、社会主义价值理想",
+          "平等：人类追求的美好状态",
+          "公正：人类社会进步的标尺、社会主义制度的本质要求",
+          "法治：人类政治文明的重要成果、现代社会的主要特征",
+          "四项是衡量现代社会是否充满活力又和谐有序的重要标志"
+        ],
+        "checking_criteria": [
+          "四词各自角色与整体标志完整，不交换活力之源与进步标尺",
+          "自由不等于无规则，平等不等于条件能力完全相同",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "自由给活力，平等是状态，公正作标尺，法治成秩序条件。",
+        "id": "polmem-2e67eec1",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF110；节点 POL27-CF-ETHICS-C04-K02-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:2d448660ab092f1126bb739c3e990407f73d994103dd04a43fba689aa554d1bb"
+        }
+      },
+      {
+        "name": "公民层四词角色",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K02-N03"
+        ],
+        "prompt": "公民层四词各有什么基本定位，其适用是否仅限四个彼此分离的生活场景？",
+        "items": [
+          "爱国：最深层、最持久的情感，公民应遵循的最基本价值观念和道德准则，是中华民族优良传统",
+          "敬业：对待生产劳动和人类生存的一种根本价值态度",
+          "诚信：个人立身处世的基本价值规范、社会存续发展的重要价值基石",
+          "友善：维系良好人际关系和社会关系的基本准则，包括善待亲人、朋友、他人并与自然和谐相处",
+          "四词涵盖社会公德、职业道德、家庭美德、个人品德各方面，不能逐词封闭到单一场景"
+        ],
+        "checking_criteria": [
+          "四词定位完整，诚信两作用均有，友善对象不遗漏自然",
+          "不把四词机械分配给四个互斥生活领域",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "对祖国—对劳动—可信交往—友好相处，恢复准确角色后再跨场景运用。",
+        "id": "polmem-9043c29b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF110；节点 POL27-CF-ETHICS-C04-K02-N03",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:64a6f448f0651a5410191349b979a95e7033c67268b313b88c26e3e41d8d093f"
+        }
+      },
+      {
+        "name": "核心价值观作用与践行作用",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K03"
+        ],
+        "prompt": "核心价值观的三种重要作用是什么？培育践行又有什么作用，两者如何联系？",
+        "items": [
+          "坚持和发展中国特色社会主义的价值遵循",
+          "提高国家文化软实力的迫切要求，核心价值观是文化的内核",
+          "增进社会团结和谐的最大公约数",
+          "培育践行是整合社会意识、凝聚价值共识、解决化解社会矛盾的重大举措，是经济社会正确发展、实现民族复兴的价值支撑"
+        ],
+        "checking_criteria": [
+          "三重要作用逐项准确；培育践行的整合/共识/矛盾与价值支撑均恢复",
+          "精神价值作用不能讲成口号自动消除矛盾，也不能偷换为人类命运共同体行动指南",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "发展用遵循，文化用内核，团结用共识；践行让这些作用发生。",
+        "id": "polmem-9df66370",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF110；节点 POL27-CF-ETHICS-C04-K03",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S01 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:4e0e0cd82a94062a552c1c95e4079383c5bb1bd5ee6d6143189e87f4fd3d363c"
+        }
+      },
+      {
         "name": "社会主义核心价值观显著特征",
-        "items": ["先进性", "人民性", "真实性"],
-        "source_refs": ["POL27-CF-ETHICS-C04-K04", "POL27-CF-ETHICS-C04-K05", "POL27-CF-ETHICS-C04-K06"]
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K04",
+          "POL27-CF-ETHICS-C04-K05",
+          "POL27-CF-ETHICS-C04-K06"
+        ],
+        "prompt": "三项显著特征是什么？先进性体现在哪三方面，人民性何种根本地位，真实性怎样避免夸大？",
+        "items": [
+          "先进性",
+          "人民性",
+          "真实性",
+          "先进性：体现社会主义本质属性，扎根中华优秀传统文化土壤，吸纳世界文明有益成果",
+          "人民性是根本特性，人民立场是根本立场，尊重人民历史主体地位、体现以人民为中心的价值导向",
+          "真实性：原则与实践相一致，具有现实制度和实践基础；不是说现实已无矛盾或每一具体执行都无须检验"
+        ],
+        "checking_criteria": [
+          "三特征及各自说明对应；先进性三方面完整；根本特性/根本立场不交换",
+          "继承限优秀资源、吸收有益成果，真实性不等于无条件为任何现实结果背书",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "先进看方向与资源，人民看主体与利益，真实看原则与实践。",
+        "id": "polmem-beaccc1d",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF111；节点 POL27-CF-ETHICS-C04-K04, POL27-CF-ETHICS-C04-K05, POL27-CF-ETHICS-C04-K06",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S02 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:8302222f2e61412c6ce6741f25008b615487886cafd2fb2abde7c65fa7bf0949"
+        }
+      },
+      {
+        "name": "全人类共同价值的辨析范围",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S02",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K06-N02"
+        ],
+        "prompt": "本章对西方所谓普世价值的批评，能否推出不存在全人类共同价值？源文怎样说明后者？",
+        "items": [
+          "不能；源文的批评处在特定政治理论语境，不能扩为所有共同价值或所有普遍命题都错误",
+          "所主张的全人类共同价值倡导求同存异、和而不同，尊重文明多样性，尊重各国自主选择社会制度和发展道路的权利"
+        ],
+        "checking_criteria": [
+          "否定对象与承认共同价值两范围分开",
+          "共同价值的多样性和自主选择两限制保留，不把“普适性万能错项”升级为无条件答题规则",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "批评有特定对象，共同价值仍承认；共同不等于强求相同。",
+        "id": "polmem-5f25887e",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF111；节点 POL27-CF-ETHICS-C04-K06-N02",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S02 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:da46d34ca05fcd8577a1572b4cdd3ba2efe9b4c65aa77c56543861a10f207e02"
+        }
+      },
+      {
+        "name": "践行核心价值观四要求",
+        "natural_unit_id": "POL27-CF-ETHICS-C04-S03",
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K08"
+        ],
+        "prompt": "积极践行核心价值观的四项要求是什么，各解决什么问题？",
+        "items": [
+          "勤学：知识是树立核心价值观的重要基础",
+          "修德：加强道德修养、注重道德实践",
+          "明辨：明辨是非、善于判断选择，弘扬真善美、贬斥假恶丑",
+          "笃实：落实行动，道不可坐论、德不能空谈，从易处细处做起"
+        ],
+        "checking_criteria": [
+          "四项及各重心完整，不把学习或判断直接等同实际践行",
+          "允许反思改正，扣子比喻不意味着一次错误永远不能改变",
+          "题面未问的防误解说明只用于诊断回答中的明确错述，不因未主动补述而扣分；以题面所问成员、关系和条件为检索范围。"
+        ],
+        "memory_cue": "学以知—修成德—辨选择—落实做，四步相互支持。",
+        "id": "polmem-7519c6e3",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF112；节点 POL27-CF-ETHICS-C04-K08",
+          "review_ref": "content/politics/learning/ethics-law/teaching-candidate/preparation-review.md#p5-ethics-c04-c05-20261004",
+          "prerequisite": "已解释 POL27-CF-ETHICS-C04-S03 中本题全部成员、关系与所问条件；仅概览不解锁整组，不改变原默认Recall或provisional状态。",
+          "reviewed_target_revision": "sha256:3b3aea10bcad6baf9a4e3a3fd2f632e909d69c944dc270650be84c92cf1f638f"
+        }
       }
     ],
     "role_support": [
       {
         "natural_unit_id": "POL27-CF-ETHICS-C04-S01",
         "name": "核心价值观的重要作用",
-        "items": ["坚持和发展中国特色社会主义的价值遵循", "提高国家文化软实力的迫切要求", "增进社会团结和谐的最大公约数"],
-        "source_refs": ["POL27-CF-ETHICS-C04-K03-N01"]
+        "items": [
+          "坚持和发展中国特色社会主义的价值遵循",
+          "提高国家文化软实力的迫切要求",
+          "增进社会团结和谐的最大公约数"
+        ],
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K03-N01"
+        ]
       }
     ],
     "active_boundaries": [
       {
         "name": "核心价值观 vs 核心价值体系",
         "boundary": "核心价值观是高度凝练的核心价值表达，不等于社会主义核心价值体系的全部内容。",
-        "source_refs": ["POL27-CF-ETHICS-C04-K01", "POL27-CF-ETHICS-C04-K02"]
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K01",
+          "POL27-CF-ETHICS-C04-K02"
+        ]
       },
       {
         "name": "社会层四项",
         "boundary": "自由、平等、公正、法治是社会层面价值要求，苏一真题信号也强化了这组结构的辨认价值。",
-        "source_refs": ["POL27-CF-ETHICS-C04-K02-N02", "POL27-SY-ETHICS-P132-B034"]
+        "source_refs": [
+          "POL27-CF-ETHICS-C04-K02-N02",
+          "POL27-SY-ETHICS-P132-B034"
+        ]
       }
     ],
     "deferred_precision": [
-      "12 个词各自的长篇释义和例子继续在 Chengfeng 中学习；第一轮 backend 保证身份、分层和关键边界完整，不复制整张释义表。",
-      "C04-S03 为 canonical P2 provisional，不额外制造独立 Recall 清单。"
+      "原三层十二词groups结构保留给既有投影，新增items及准确题面供现有Memory读取；长篇例子不整体复制为逐字要求。",
+      "S03原canonical P2 provisional/default Recall inactive保持；本轮原Content只据PDF112实读，批准勤学修德明辨笃实四实践要求为FIRST_ROUND_EXACT Memory。整NU和其他未选范围未自动晋升，不排程。",
+      "原“普适性万能错项”不采纳为无条件规则；全人类共同价值的多样性与自主选择边界已在教学和精记中说明。"
     ]
   },
   "chapter_compression": {

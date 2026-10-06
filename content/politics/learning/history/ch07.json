@@ -75,5 +75,340 @@
     "timeline": ["争取和平民主", "全面内战", "战略防御", "战略进攻", "第二条战线", "民主党派政治选择变化", "战略决战", "新政协和新国家筹备"],
     "stage_shift": "抗战胜利后的和平期待 → 国民党发动内战 → 人民战争由防御转进攻 → 国统区政治危机加深 → 民主力量重新组合 → 军事和政治两条线共同汇入新中国建立",
     "review_prompt": "闭卷回答：为什么解放战争的胜利不能只解释成战场上的军事胜利，而必须同时看土地、群众、国统区危机、民主党派选择和新政权筹备？"
+  },
+  "content_support": {
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S01",
+        "name": "和平民主团结口号",
+        "items": [
+          "和平、民主、团结。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K02-N02"
+        ],
+        "prompt": "抗战胜利后，中共中央《对目前时局的宣言》提出的三项口号是什么？",
+        "checking_criteria": [
+          "三词齐，顺序非强制；不换成抗战/团结/进步。未问全文不扣。"
+        ],
+        "memory_cue": "教学场景：战后避免内战、政治安排与社会联合，对应和平民主团结。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K02-N02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF52；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K02-N02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-A相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:a3785e2488e363e36b36ea6de4fbb41ec602440d1b14b886ab24eef39ed397b4"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S01",
+        "name": "双十协定名称与方针",
+        "items": [
+          "《政府与中共代表会谈纪要》，即双十协定。",
+          "确认和平建国基本方针，同意长期合作、坚决避免内战。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K02-N03",
+          "POL27-CF-HISTORY-C07-K02-N03-I01",
+          "POL27-CF-HISTORY-C07-K02-N03-I02"
+        ],
+        "prompt": "1945年重庆谈判双方10月10日签署的文件正式名称是什么？确认什么基本方针及合作承诺？",
+        "checking_criteria": [
+          "正式名称、和平建国、长期合作避免内战齐；不能从协议写成实际上永无内战。题面给日期不机械要求复述。"
+        ],
+        "memory_cue": "教学分两层：文件叫什么，约定做什么；签署与落实分开。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K02-N03",
+          "POL27-CF-HISTORY-C07-K02-N03-I01",
+          "POL27-CF-HISTORY-C07-K02-N03-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF52；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K02-N03；POL27-CF-HISTORY-C07-K02-N03-I01；POL27-CF-HISTORY-C07-K02-N03-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-A相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:c0968a5cae6a72dfe435b30ad8507544dd2a01024e1f82d52da99e58504d0197"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S01",
+        "name": "重庆政协五协议",
+        "items": [
+          "政府组织案、国民大会案、和平建国纲领、宪法草案案、军事问题案。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K02-N04-I02"
+        ],
+        "prompt": "本章重庆政治协商会议达成了哪五项协议？",
+        "checking_criteria": [
+          "五项完整，案名允许保义简称但不能把国民大会和政府组织合并，不能改成新政协共同纲领；无顺序要求。"
+        ],
+        "memory_cue": "教学支点：政府怎样组、大会怎样开、和平建国方向、宪法草案、军事安排，展开五项名称。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K02-N04-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF52；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K02-N04-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-A相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:b80171538a46142cd1a59e65e218ba75a3ce5186370aa8fdff7ee995c68619f7"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S01",
+        "name": "解放区三中心工作",
+        "items": [
+          "练兵、减租、生产。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K02-N06"
+        ],
+        "prompt": "本章争取和平民主时期，中共中央指出解放区的三件中心工作是什么？",
+        "checking_criteria": [
+          "三项齐；减租不能换成未问的全面合作化或机械替为分地。历史阶段限定由题面给出。"
+        ],
+        "memory_cue": "教学联系：军事实力、农民利益、生活供给，恢复练兵减租生产。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K02-N06"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF53；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K02-N06。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-A相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:395e08b44adc8d032530bc6f4af67ade9276bc05e51235e939aacbc3baca38fb"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S01",
+        "name": "全面内战起点",
+        "items": [
+          "1946年6月26日，国民党军队进攻中原解放区。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K03-N01"
+        ],
+        "prompt": "本章全面内战爆发的日期和军事起点是什么？",
+        "checking_criteria": [
+          "年月日、发动方、地点/事件完整；不得把重庆谈判或南京占领当起点。"
+        ],
+        "memory_cue": "教学定位：1946年6月，进攻中原；仍须恢复26日与发动方。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K03-N01"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF53；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K03-N01。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-A相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:e3e96bbd59d89a37a49269a84698f3823a170eb58a29f39fded32e5e09ec31bf"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S03",
+        "name": "民主党派社会基础与性质",
+        "items": [
+          "民族资产阶级、城市小资产阶级，以及同这些阶级相联系的知识分子和其他爱国分子。",
+          "并非代表单一阶级，而是阶级联盟性质的政党。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K07-N01-I02",
+          "POL27-CF-HISTORY-C07-K07-N01-I03"
+        ],
+        "prompt": "按本章民主党派的历史形成语境，其主要社会基础包括哪些力量，政党性质怎样概括？",
+        "checking_criteria": [
+          "成员范围完整及联盟性质；不把民族资产阶级一类代替全部。不得当作当代所有党派成员实时分类。"
+        ],
+        "memory_cue": "教学分层：两类社会基础加相联系知识分子/爱国分子，再解释为什么称联盟而非单一。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K07-N01-I02",
+          "POL27-CF-HISTORY-C07-K07-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF55；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K07-N01-I02；POL27-CF-HISTORY-C07-K07-N01-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:4cde8e18575b3b8d1acb4549d47ff50bbf0c3559b246d5ee8f42dd90d20abcb5"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S03",
+        "name": "第三条道路三主张",
+        "items": [
+          "政治：英美式民主政治，不准地主官僚资本家操纵。",
+          "经济：改良的资本主义，不容官僚买办资本横行。",
+          "方法：和平改良。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K08-N01-I01",
+          "POL27-CF-HISTORY-C07-K08-N01-I02",
+          "POL27-CF-HISTORY-C07-K08-N01-I03"
+        ],
+        "prompt": "本章战后第三条道路在政治、经济、实现方法上分别主张什么？",
+        "checking_criteria": [
+          "三方面及前两项限制条件完整；不能说第三条就是国民党旧统治或共产党新民主主义。"
+        ],
+        "memory_cue": "教学支点：政体与限制、经济与限制、和平改良方法，三个对象逐项展开。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K08-N01-I01",
+          "POL27-CF-HISTORY-C07-K08-N01-I02",
+          "POL27-CF-HISTORY-C07-K08-N01-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF56；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K08-N01-I01；POL27-CF-HISTORY-C07-K08-N01-I02；POL27-CF-HISTORY-C07-K08-N01-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-C相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:66ce957e2915c93110964bb540eb44bf0c201e5691cc503849d1a7e6db8befc2"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S04",
+        "name": "主力摧毁与南京占领",
+        "items": [
+          "三大战役胜利：国民党赖以维持统治的主要军事力量基本上被摧毁。",
+          "占领南京：延续22年之久的国民党反动统治覆灭。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K09-N01-I02",
+          "POL27-CF-HISTORY-C07-K09-N02-I02"
+        ],
+        "prompt": "三大战役胜利与1949年4月23日占领南京，在本章分别标志什么？",
+        "checking_criteria": [
+          "两事件两对象准确；主要/基本不删成所有军队消失，不把三大战役本身等同南京已占领。"
+        ],
+        "memory_cue": "教学对照：先主力，后统治中心；军事基础与政权覆灭不挪帽子。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K09-N01-I02",
+          "POL27-CF-HISTORY-C07-K09-N02-I02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF56；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K09-N01-I02；POL27-CF-HISTORY-C07-K09-N02-I02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-D相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:42714768efc3b0828faeddf662867ab66c4ae5a0c228a2504af3137b21b384fa"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S04",
+        "name": "重心转移提出与标志",
+        "items": [
+          "七届二中全会提出工作重心由乡村转移到城市。",
+          "中央领导人、中央机关和人民解放军总部进驻北平香山，是实际转移标志。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K10-N01",
+          "POL27-CF-HISTORY-C07-K10-N01-I02",
+          "POL27-CF-HISTORY-C07-K10-N02"
+        ],
+        "prompt": "本章哪个会议提出工作重心由乡村转向城市？哪个实际行动标志革命重心从农村转向城市？",
+        "checking_criteria": [
+          "会议/实际动作准确分开，后一动作的三类主体和地点保留；不得两问都答全会。"
+        ],
+        "memory_cue": "教学支点：全会提出，进驻香山实现；提出与行动用不同证据。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K10-N01",
+          "POL27-CF-HISTORY-C07-K10-N01-I02",
+          "POL27-CF-HISTORY-C07-K10-N02"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF57；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K10-N01；POL27-CF-HISTORY-C07-K10-N01-I02；POL27-CF-HISTORY-C07-K10-N02。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-D相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:5423f3c139ec044c10bb7a7ae51c0665d86415d99a9151bb16d0d081e9179107"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S04",
+        "name": "共同纲领历史作用",
+        "items": [
+          "起临时宪法的作用。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K10-N03-I03"
+        ],
+        "prompt": "《中国人民政治协商会议共同纲领》在新中国成立初期的一定时期起什么宪制作用？",
+        "checking_criteria": [
+          "临时与作用两限定保留；不能把它说成1954年那部《中华人民共和国宪法》。不要求本题未问的全部条目。"
+        ],
+        "memory_cue": "教学对照：临时起作用，不能替换后来正式宪法的文本身份。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K10-N03-I03"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "POL27-CF/LOWER；POL27-CF，PDF57；c07.json blob 513be6336a330c8df14107527b94d33f10ccfbf0；ordered refs：POL27-CF-HISTORY-C07-K10-N03-I03。；本组仅有界已读文字支持，未声称新原图/红答案核验；",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md；本章H07-D相关连续解释，回上述固定spine相应节点。 先完成相应连续解释与原章固定spine回挂，再做无提示恢复；cue仅答后修复。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-exact-owner-integration-20261005",
+          "reviewed_target_revision": "sha256:8fd9dee4ebe61bcc00b19c7e07e3c7fd70f8972a048bbbf83276492058222653"
+        }
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C07-S04",
+        "name": "七届二中全会两个务必",
+        "items": [
+          "务必使同志们继续地保持谦虚、谨慎、不骄、不躁的作风。",
+          "务必使同志们继续地保持艰苦奋斗的作风。"
+        ],
+        "source_refs": [
+          "POL27-CF-HISTORY-C07-K10-N01-I04"
+        ],
+        "prompt": "毛泽东在党即将执政的七届二中全会提出的“两个务必”，完整内容是什么？",
+        "checking_criteria": [
+          "两项完整，第一项四个作风词与继续保持限定不漏；组间可换序，不能用二十大三个务必替换。题面已给场合，不要求未问年份、地点。"
+        ],
+        "memory_cue": "教学支点：继续保持两类作风，第一类谦虚谨慎不骄不躁，第二类艰苦奋斗；别同三个务必串组。 仅答后提示，提示后补正不算新无提示成功。",
+        "admission": "CANDIDATE_ONLY",
+        "inspected_refs": [
+          "POL27-CF-HISTORY-C07-K10-N01-I04"
+        ],
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "原Mac reader task 01a1071f-3c5a-7462-a3c1-d1c982d95001，turn 01a10d34-e299-739a-9b55-d4205cc87bc9；父任务2026-10-05 18:06 UTC收到完整有界JSON。 PDF SHA256 0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca，★27 / POL27-CF-LOWER; no additional cover/current-year verification。物理页57／印刷页56；实际模态T；文字行定位[3890,3891,3903,3907]；已读范围：七届二中全会场合标题与I04两个务必两句；不取工作重心子题。印刷页56来自文字source-page注记，未看PDF57像素。本作者实际读完整reader receipt，不冒称亲看原PDF；Source shard未改，完整支持含receipt所恢复的续行/行列。",
+          "prerequisite": "content/politics/learning/history/teaching-candidate/ch07.brief.md“H07-D”及2026-10-05 18:06有界Source补齐段；沿原章固定spine解释后再无提示检索。",
+          "review_ref": "content/politics/learning/history/teaching-candidate/preparation-review.md#history-source-delta-exact-20261005",
+          "reviewed_target_revision": "sha256:745fe6bee3c0fa67c23bfb8d4ef5315bc79f0531d8caeda07d76fd35415d1fff"
+        }
+      }
+    ]
   }
 }

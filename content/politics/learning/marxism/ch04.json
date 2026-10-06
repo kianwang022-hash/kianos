@@ -83,7 +83,7 @@
         {
           "label": "经济基础",
           "problem": "社会的经济制度基础从哪里来？",
-          "relation": "一定社会占统治地位的生产关系总和构成经济基础。不要把‘经济基础’直接等同于全部经济活动或生产力。"
+          "relation": "经济基础是一定发展阶段生产力所决定的生产关系总和，其性质由其中占支配地位的生产关系性质决定。总和范围与性质判定分开，不等同全部经济活动或生产力。"
         },
         {
           "label": "上层建筑",
@@ -99,7 +99,7 @@
       "major_boundaries": [
         "社会存在决定社会意识，不等于社会意识只是被动影子。",
         "生产力不等于生产关系；前者是改造自然的现实能力，后者是生产中的社会关系。",
-        "经济基础是占统治地位的生产关系总和，不是全部经济现象，也不是生产力。",
+        "经济基础是一定阶段生产力所决定的生产关系总和，其性质由占支配地位的关系决定；不是全部经济现象或生产力。",
         "经济基础决定上层建筑，但上层建筑具有反作用。",
         "最终决定力量、根本动力、重要动力不是同一个帽子。"
       ],
@@ -112,7 +112,7 @@
       "title": "第二节 社会历史发展的动力",
       "from_previous": "上一节搭出了社会基本结构，但有结构不等于会自动变化。现在要区分：什么是社会发展的根本动力，哪些又是在具体历史条件中推动变化的重要力量。",
       "why_now": "这一节是典型帽子高发区：根本动力、直接动力、重要动力、最终决定力量很容易互相替换。",
-      "core_problem": "社会历史为什么会变化，基本矛盾、阶级斗争、社会革命、改革和科学技术分别处在什么层级？",
+      "core_problem": "社会历史为什么会变化，基本矛盾、阶级斗争、社会革命、改革、科学技术和文化分别处在什么层级？",
       "teaching_beats": [
         {
           "label": "社会基本矛盾",
@@ -133,6 +133,11 @@
           "label": "科学技术",
           "problem": "科技为什么能深刻改变社会，却不能简单替代社会基本矛盾成为唯一解释？",
           "relation": "科学技术能够转化为现实生产力并深刻影响生产方式、生活方式和社会结构，是推动社会发展的重要力量，但不能把不同层级的动力帽子混在一起。"
+        },
+        {
+          "label": "文化",
+          "problem": "文化怎样提供重要精神力量，为什么不能替代物质基础成为决定力量？",
+          "relation": "文化提供思想指引、精神动力和凝聚力量，先进文化促进变革、生产与社会进步，也能激发创新；其作用经现实条件与人的实践实现，不是任意文化都必然积极。"
         }
       ],
       "major_boundaries": [
@@ -141,7 +146,7 @@
         "革命与改革都能推动社会发展，但作用方式和历史条件不同。",
         "科学技术是重要推动力量，不等于技术单独决定全部社会历史。"
       ],
-      "closure_cue": "用层级而不是列表恢复：最底层是什么 → 在阶级社会中怎样表现 → 革命和改革怎样改变结构 → 科技为什么重要但不能越级。",
+      "closure_cue": "用层级而不是列表恢复：最底层是什么 → 在阶级社会中怎样表现 → 革命和改革怎样改变结构 → 科技与文化为什么重要但不能越级。",
       "after_this": "知道历史为什么动以后，最后一个问题就是：究竟是谁在现实中创造和推动历史？"
     },
     {
@@ -181,9 +186,9 @@
     "reconstruction_chain": [
       "社会历史首先有物质生活基础：社会存在决定社会意识",
       "物质生产内部形成生产力与生产关系的矛盾运动",
-      "占统治地位的生产关系构成经济基础，并与上层建筑形成第二组基本矛盾",
+      "一定阶段的生产关系总和构成经济基础，其性质由占支配地位关系决定，并与上层建筑形成第二组基本矛盾",
       "两组基本矛盾推动社会结构不断调整和更替",
-      "在不同历史条件下，阶级斗争、革命、改革、科技等以不同方式推动社会发展",
+      "在不同历史条件下，阶级斗争、革命、改革、科技、文化等以不同方式推动社会发展",
       "所有这些规律最终通过现实人的实践发生作用，人民群众是历史的创造者，个人在具体条件中发挥作用"
     ],
     "major_boundaries": [
@@ -196,10 +201,768 @@
     "review_prompt": "闭卷恢复三层：社会靠什么结构运行？社会为什么发展？谁在现实中创造历史？能把这三层顺着讲清楚，就说明第四章不是一堆帽子。"
   },
   "projection_notes": {
-    "learner_default": "SHOW_ORIENTATION_THEN_CHENGFENG_CONTINUOUS_SOURCE",
+    "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
     "suyi_default": "HIDDEN_BACKGROUND_REFERENCE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
-    "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE",
+    "memory_default": "CHAT_ENCODING_THEN_AUTHORIZED_WEBSITE_RETRIEVAL",
     "astro_rule": "Prefer content-driven rendering; do not hard-code this chapter's political semantics in components."
+  },
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_precision": [
+      {
+        "name": "社会历史观基本问题与分野",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K01",
+          "POL27-CF-MARX-C04-K02",
+          "POL27-CF-MARX-C04-K09"
+        ],
+        "prompt": "社会历史观基本问题、唯物唯心史观根本分歧、二者分水岭分别是什么？唯心史观两缺陷在哪里？",
+        "items": [
+          "基本问题：社会存在与社会意识的关系",
+          "根本分歧：社会存在决定社会意识，还是社会意识决定社会存在",
+          "分水岭：历史创造者问题，群众创造还是少数英雄创造历史",
+          "唯心史观止于思想动机而未追问物质动因经济根源，只看个人而忽视群众历史作用"
+        ],
+        "checking_criteria": [
+          "三个提法对象准确，不能将一般哲学思维存在关系直接替代历史观问题",
+          "唯物史观不等于无人实践的命运自动机",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "问题问关系，分歧问谁决定，分水岭问谁创造。",
+        "id": "polmem-fe1e6a20",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF46–48、55；节点 POL27-CF-MARX-C04-K01, POL27-CF-MARX-C04-K02, POL27-CF-MARX-C04-K09",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:5122fbd5611a4c0086dcbb74253d265d999b69cd8f020a96a819f8032f1e0611"
+        }
+      },
+      {
+        "name": "社会存在三要素及作用",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K02-N01"
+        ],
+        "prompt": "社会存在包括哪三方面，作用地位怎样区别？物质生产方式由什么构成、为何是决定力量？",
+        "items": [
+          "社会存在是社会生活物质方面、社会实践和物质生活条件总和",
+          "自然地理环境与人口是必要条件和影响因素，可加速延缓发展，但不能脱离生产活动决定社会性质与形态更替",
+          "人口数量质量结构受生产状况社会制度制约，也影响发展；环境须通过现实生产生活发生作用，人可合理利用改造环境",
+          "物质生产方式是获取物质生活资料的生产活动方式，是生产力与生产关系统一；是人类社会及其他活动的基础和首要前提，决定社会结构性质面貌及发展更替"
+        ],
+        "checking_criteria": [
+          "三要素齐备，必要影响与决定力量不混，生产方式两个方面准确",
+          "不因非决定因素就忽视生态人口，也不把保护生态写成其他一切活动首要前提",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "环境与人口给条件，生产方式组织物质生活；决定与影响分层。",
+        "id": "polmem-c637e12c",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF46–47；节点 POL27-CF-MARX-C04-K02-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:835a77aca23d2d20da398c4a2eca85a40abec1c47b05c02c17a0db19b339483f"
+        }
+      },
+      {
+        "name": "社会意识分类与两个核心范围",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K02-N02"
+        ],
+        "prompt": "社会意识怎样定义，按主体、层次如何分类？社会意识形式内部怎样分，政治法律思想在哪个范围居核心？",
+        "items": [
+          "社会意识是社会生活精神方面，是社会存在的反映；按主体分个体意识、群体意识",
+          "按层次分社会心理与社会意识形式：前者自发不系统、以感性为主，后者自觉系统较稳定、以理性为主",
+          "意识形式分有阶级性的社会意识形态与非意识形态；前者含政治法律思想、道德哲学艺术宗教等，后者源列自然科学、语言学、心理学、数学",
+          "政治法律思想在观念意识形态范围居核心；不能与整个上层建筑的政治上层建筑主导地位混同"
+        ],
+        "checking_criteria": [
+          "主体/层次/形式内部是不同分类层，成员和核心范围准确",
+          "以感性理性为主不等于排他；非意识形态不代表科研无社会条件",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先谁的意识，再心理或系统形式，形式内部再分阶级属性。",
+        "id": "polmem-79380697",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF47；节点 POL27-CF-MARX-C04-K02-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:b275c891501a0c9475302ba9f0daf8727cf214d7d6b3fdd6e71aad9c3c5ee352"
+        }
+      },
+      {
+        "name": "社会存在意识关系与独立性",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K02"
+        ],
+        "prompt": "社会存在怎样决定意识，意识相对独立性三方面是什么，最突出表现是哪项？",
+        "items": [
+          "社会存在是意识内容的客观源泉，意识是物质生活及交往的反映；存在发展会或迟或早反映到意识，不是立即全部同步",
+          "相对独立性：发展不完全同步和不平衡；各种意识形式相互影响并历史继承；能动反作用",
+          "反作用是最突出表现：先进意识促进、落后意识阻碍，不能说只有先进意识才有反作用"
+        ],
+        "checking_criteria": [
+          "决定、三独立性及突出项完整，迟早与不同步保留",
+          "不以经济排名决定思想先进程度，也不将社会心理自发与所有意识形式自觉混成全称",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "源泉给内容，传承与交互给自身过程，反作用回到社会。",
+        "id": "polmem-d26fba4b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF47–48；节点 POL27-CF-MARX-C04-K02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:5358ca647a51722f309941eab48572ae1297d19f56d374cb6894e11ed0f41804"
+        }
+      },
+      {
+        "name": "人与自然的物质变换",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K02-N05"
+        ],
+        "prompt": "自在自然、人化自然怎样区分？人与自然关系通过什么实现，合理改造怎样兼顾限制与能动性？",
+        "items": [
+          "自在自然指尚未触及的人类活动之外自然，人化自然带有人活动印记；自然先于人，未被全部人化",
+          "生产实践进行人与自然物质变换，应合理调节，保护生态与利用条件结合",
+          "人可改变自然形态与作用条件，不能任意创造消灭规律或改变客观实在性；顺应自然不等于禁止任何改造"
+        ],
+        "checking_criteria": [
+          "两自然范围及物质变换准确，先在性与改造可能同时保留",
+          "不说人自然互为前提，也不说任何实践都必然破坏自然",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "自然先在，实践变换；能改形态条件，不能凭意志抹掉规律。",
+        "id": "polmem-9c595099",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF48–49；节点 POL27-CF-MARX-C04-K02-N05",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:cfbd1cbfe2fd8f863900b41990e041206e1c8bfdd5bff23799254155530cab7c"
+        }
+      },
+      {
+        "name": "生产力三要素与科技地位",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K03"
+        ],
+        "prompt": "生产力是什么、有何特性，三基本要素各是什么？生产资料、工具尺度、最活跃因素与科技地位怎样配对？",
+        "items": [
+          "生产力是人改造自然的现实程度和实际能力，表现人与自然关系，具有客观现实性和社会历史性",
+          "劳动资料是人与劳动对象间媒介，生产工具是其中最重要部分，是生产力水平客观尺度和区分经济时代客观依据",
+          "劳动对象是现实生产必要前提；自然物可为潜在对象，实际进入生产才是现实对象，也可经劳动创造新对象",
+          "劳动者是有经验技能能运用资料作用对象的人，是最活跃因素；资料与对象合称生产资料，结合劳动者才成现实生产力",
+          "科技是知识形态生产力、第一生产力，是先进生产力集中体现和主要标志，经渗入要素转为现实能力；在现代生产发展中日益成为决定性因素，但在社会历史发展层面是重要影响因素，不能用前一帽子替代后一范围；属生产力但非独立第四基本要素"
+        ],
+        "checking_criteria": [
+          "定义特性与三要素完整，资料/对象/劳动者和工具角色不混，科技需转化机制",
+          "生产力不是物量简单相加，科技不是唯一决定全部社会历史的因素",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "工具怎样做、对象做什么、劳动者谁来做；科技渗入三者成能力。",
+        "id": "polmem-a97d2f6c",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF49；节点 POL27-CF-MARX-C04-K03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:6817e8029b0b58ac4fec588c35092329959a241b391c4e349d228ea9e3ac80ca"
+        }
+      },
+      {
+        "name": "生产关系三项与所有制",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K03-N02"
+        ],
+        "prompt": "生产关系是什么，狭义三部分如何构成？所有制有什么地位，与区分经济时代的依据怎样区别？",
+        "items": [
+          "生产关系是物质生产中形成的不以意志转移的客观经济关系，是人与人的物质利益关系、最基本社会关系",
+          "狭义直接生产关系包括生产资料所有制关系、生产中人与人的关系、产品分配关系",
+          "所有制最基本且决定性，构成全部生产关系基础，是区分生产方式、判定社会经济结构性质的客观依据",
+          "区分社会经济时代的客观依据是生产工具，两种依据所问对象不同"
+        ],
+        "checking_criteria": [
+          "定义与狭义三部分、所有制地位准确",
+          "客观不等于不能经实践改革；源未完整列广义清单，不临时补造正式枚举",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "能力水平看工具，关系性质看所有制；生产中怎么相处与怎么分配随之展开。",
+        "id": "polmem-e892e6d9",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF49–50；节点 POL27-CF-MARX-C04-K03-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:18846dc6d8ae8db2febdb0a0153db28cbb30a2e65ae0145a20d71e194711521a"
+        }
+      },
+      {
+        "name": "生产力生产关系与第一规律",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K03-N03",
+          "POL27-CF-MARX-C04-K03-N04"
+        ],
+        "prompt": "生产力与生产关系各是生产的什么方面，谁决定谁，反作用怎样判断？第一基本规律与运动过程是什么？",
+        "items": [
+          "生产力是物质内容，生产关系是社会形式，二者构成生产方式",
+          "生产力状况决定关系性质，发展决定关系变革；关系适合时促进、不适合时阻碍，其反作用性质归根到底受生产力状况制约",
+          "第一规律：生产关系一定要适合生产力状况；过程为基本适合—基本不适合—新的基本适合，稳定与变革交替",
+          "判断关系优劣看促进还是阻碍生产力，不以标签或出现早晚决定"
+        ],
+        "checking_criteria": [
+          "内容形式、决定反作用方向、规律与过程准确",
+          "适合不是每刻完全一致，购买一台机器不自动生成某制度",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "能力提出要求，社会形式适应或阻碍，再经实践调整。",
+        "id": "polmem-cae0d0ec",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF50；节点 POL27-CF-MARX-C04-K03-N03, POL27-CF-MARX-C04-K03-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:22398a760bc8c44bd794b8881c3812f2b7515d29840a54675dd770d78acfe27a"
+        }
+      },
+      {
+        "name": "经济基础与经济体制",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K04"
+        ],
+        "prompt": "按当前Source，经济基础的范围是什么、性质由什么决定？经济体制与它有何区别？",
+        "items": [
+          "经济基础是一定阶段生产力所决定的生产关系总和",
+          "经济基础的性质由其中占支配地位的生产关系性质决定；总和范围与性质判定是两件事",
+          "经济体制是基本经济制度采取的组织和管理形式，是生产关系具体实现形式"
+        ],
+        "checking_criteria": [
+          "总和范围与支配关系决定性质分别恢复，体制是实现形式而非直接等同基础制度",
+          "经济基础不是生产力或全部经济活动",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先问总和包含什么，再问谁决定性质，最后问具体怎样组织管理。",
+        "id": "polmem-91221f4f",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF51；节点 POL27-CF-MARX-C04-K04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:8e7fb4e331b0506b28ceeb19a088472053a00c9107e4cbadb996ba58190fada8"
+        }
+      },
+      {
+        "name": "上层建筑两部分与国家",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K04"
+        ],
+        "prompt": "上层建筑包括哪两部分、各有什么核心或主导地位？两部分怎样作用，国家的历史性质如何说明？",
+        "items": [
+          "上层建筑是一定经济基础上的意识形态及相应制度组织设施",
+          "观念上层建筑含政治法律思想、道德艺术宗教哲学等，政治法律思想居核心",
+          "政治上层建筑含政治法律制度与国家机构、政党、军队、警察、法庭等组织设施；居整个上层建筑主导地位，国家政权是核心",
+          "思想指导政治结构建立，政治结构形成现实力量后影响制约思想",
+          "国家是历史范畴，是阶级矛盾不可调和的产物，实质是阶级统治工具的本课程判断"
+        ],
+        "checking_criteria": [
+          "两部分、两个核心及整体主导范围准确，国家不是自古必有或纯观念",
+          "社会意识含心理/非意识形态，上层建筑含物质制度设施，二者不完全重合",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "观念里的核心是政治法律思想，整个结构由政治上层主导，国家政权居其核心。",
+        "id": "polmem-9e8bdabc",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF51；节点 POL27-CF-MARX-C04-K04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:f3331b7931b7f47f6bcf2d077064bf4d46a8562876b6137139be5451e3a9ca38"
+        }
+      },
+      {
+        "name": "经济基础上层建筑与第二规律",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K04-N03",
+          "POL27-CF-MARX-C04-K04-N04"
+        ],
+        "prompt": "经济基础与上层建筑怎样决定和反作用？反作用是否进步怎样判断，第二基本规律是什么？",
+        "items": [
+          "经济基础决定上层建筑产生、性质与变革方向；各部分有相对独立性，不同时立即改变",
+          "上层建筑反作用集中在服务自身经济基础的形成巩固与统治地位",
+          "反作用性质看其服务的经济基础是否适合生产力，归根到底看是否有利生产力发展；为本基础服务不自动等于进步",
+          "第二规律：上层建筑一定要适合经济基础状况"
+        ],
+        "checking_criteria": [
+          "决定三方向、服务关系、最终判据与第二规律完整",
+          "不能讲上层建筑单独决定历史总趋势，不能把第二规律替成生产关系适应生产力",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "基础定结构，结构服务基础；再追问基础是否利于生产力。",
+        "id": "polmem-87098dcd",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF51–52；节点 POL27-CF-MARX-C04-K04-N03, POL27-CF-MARX-C04-K04-N04",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:703755cad64edda5ae8472d3f115eb79c23fac090fbb6ef2ca9590671ca30243"
+        }
+      },
+      {
+        "name": "交往的两类型与四作用",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K05-N01"
+        ],
+        "prompt": "交往怎样定义，两种类型是什么关系，与生产力相伴的四项作用是什么？",
+        "items": [
+          "交往是一定历史条件下现实个人群体阶级民族国家之间物质精神往来、相互作用联系，是实践的重要组成",
+          "物质交往是精神交往基础根源，精神交往是其产物并渗透其中",
+          "交往与生产力发展相伴，促进生产力发展、社会关系进步、文化发展传播、人的全面发展"
+        ],
+        "checking_criteria": [
+          "定义保留现实主体和条件，两类方向及四作用准确",
+          "四促进为课程机制，不能推出任何交往在任何条件下都必然有益",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "物质往来支撑精神往来，作用到能力、关系、文化、人。",
+        "id": "polmem-09324c78",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF52；节点 POL27-CF-MARX-C04-K05-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:a2ddf352ce45871a97d4de018f1ebe2e891a4a4fce612a8756110c060324e3e3"
+        }
+      },
+      {
+        "name": "世界历史与文明多样性",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K05-N02",
+          "POL27-CF-MARX-C04-K05-N03"
+        ],
+        "prompt": "世界历史形成发展的基础与基本特征是什么，怎样形成并反作用？文明怎样定义，其多样性有什么条件依据？",
+        "items": [
+          "世界历史基础是生产方式发展变革，基本特征是普遍交往；资本主义生产方式发展和全球扩张推动分散历史转为世界历史",
+          "世界联系又促进生产力与普遍交往、人的发展，为共产主义提供条件路径，不等于立即完成",
+          "文明是物质、精神、制度积极成果总和，反映社会进步程度",
+          "文明成长于特定自然环境、历史背景与民族传统，体现不同生产生活交往方式，具多样性"
+        ],
+        "checking_criteria": [
+          "基础与特征不可交换，形成与反作用分开；文明三类成果与多样条件准确",
+          "不推出此前无交往、当今各文明全同或无任何共同条件",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "生产方式为基础，普遍交往为特征；文明成果有共同维度和具体历史差异。",
+        "id": "polmem-cb13de9f",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF52–53；节点 POL27-CF-MARX-C04-K05-N02, POL27-CF-MARX-C04-K05-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:a67758093f551e1d54867fc3fb30b2ec6fd6222661d68b4f50b9dc06a4951119"
+        }
+      },
+      {
+        "name": "社会进步与人的三阶段",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K06-N01"
+        ],
+        "prompt": "社会进步表现在哪两方面、集中表现和根本尺度是什么？人的发展最根本是什么，源书三阶段怎样配对？",
+        "items": [
+          "两方面：社会形态由低到高更替、同一社会形态内部发展；集中表现为形态更替，根本尺度是生产力",
+          "人的发展含体力智力个性交往能力，最根本是自由程度提高，人的发展是社会进步重要标志",
+          "人的依赖关系占统治地位：前资本主义社会；以物依赖为基础的人的独立性：资本主义社会；自由个性：共产主义社会"
+        ],
+        "checking_criteria": [
+          "两面、集中表现、尺度与人的标志分层；三阶段与范围准确",
+          "第三阶段自由全面目标不等于此前人从无发展，也不把生产力尺度替代每个个体即时福祉判断",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "社会看形态内外发展，人看自由程度；依赖人—依赖物的独立—自由个性。",
+        "id": "polmem-6b909dae",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF53；节点 POL27-CF-MARX-C04-K06-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:0ebb87e2b41d8b6c5e3f6a1c8faaf6a84365d6b4808a8943092f170935b05e6e"
+        }
+      },
+      {
+        "name": "社会形态内涵与总体序列",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K06-N02",
+          "POL27-CF-MARX-C04-K06-N01"
+        ],
+        "prompt": "社会形态是什么、包括哪三方面，哪方面具有决定地位？源书总体五形态如何列，社会主义怎样定位？",
+        "items": [
+          "社会形态是同一定生产力阶段相适应的经济基础与上层建筑的具体历史统一，说明社会运动形式、阶段和质态",
+          "包括经济形态、政治形态、意识形态，经济形态居决定地位",
+          "总体序列：原始、奴隶、封建、资本主义、共产主义社会；社会主义是共产主义初级阶段，不另数为第六项"
+        ],
+        "checking_criteria": [
+          "基础上层统一、三方面与决定地位准确，五序列及社会主义位置完整",
+          "骨骼血肉只是比喻，形态不是单一政治制度名称的替换",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "经济基础连政治思想结构成形态；五序列之末含初级阶段。",
+        "id": "polmem-33f9aa37",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF53；节点 POL27-CF-MARX-C04-K06-N02, POL27-CF-MARX-C04-K06-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:18da2f66eb0c6d930381aa94b08d583be2a029f08df5ae695d8e72d40d86378b"
+        }
+      },
+      {
+        "name": "社会形态更替三组特征",
+        "natural_unit_id": "POL27-CF-MARX-C04-S01",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K06-N03"
+        ],
+        "prompt": "社会形态更替的三组统一关系是什么，纵横多样性、人的选择和自然历史过程怎样限定？",
+        "items": [
+          "统一性与多样性：纵向总体依次发展与某些民族有条件跨越，横向同类形态共同本质与民族特点并存",
+          "必然性与历史选择性：客观规律给基础范围可能空间，选择体现能动性，归根到底是群众选择，取决于根本利益愿望及把握规律程度",
+          "前进性与曲折性：总体前进，具体道路有反复停滞倒退",
+          "自然历史过程指客观有规律，不是无人参与；跨越受总体历史与现实生产力条件制约，不能以法令取消客观发展阶段"
+        ],
+        "checking_criteria": [
+          "三组完整，纵向/横向和选择条件准确，自然历史非自然界自发演变",
+          "知道规律可减轻转型痛苦，不代表愿望能跨越所有条件",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "总体有趋势，民族有路径，群众有选择，过程有曲折。",
+        "id": "polmem-94693d9d",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF53–54；节点 POL27-CF-MARX-C04-K06-N03",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S01 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:adab7f844b8aad85686e2ff804192d4bceeac3bc796223f0d177927e45b39ffb"
+        }
+      },
+      {
+        "name": "根本动力最终力量与主要矛盾",
+        "natural_unit_id": "POL27-CF-MARX-C04-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K07"
+        ],
+        "prompt": "社会基本矛盾是哪两对，根本动力、最基本动力因素、最终决定力量各怎样定位？社会主要矛盾与它是什么关系？",
+        "items": [
+          "社会基本矛盾：生产力与生产关系、经济基础与上层建筑，是社会历史发展的根本动力",
+          "生产力是基本矛盾运动中最基本的动力因素，是社会发展进步的最终决定力量",
+          "基本矛盾特别是生产力生产关系矛盾是一切历史冲突根源，决定其他社会矛盾存在发展，并通过多种表现解决方式影响形态变化",
+          "社会主要矛盾是基本矛盾在一定阶段的具体体现，起主导作用并可随条件转换；关系制度变革还须群众实践，不自发完成"
+        ],
+        "checking_criteria": [
+          "两对及三帽子对象准确，主要与基本不等同，变化与实践中介保留",
+          "生产力增长不是无人作用的制度自动替换",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "两对矛盾根本推动，生产力最终决定；阶段主要矛盾具体呈现。",
+        "id": "polmem-9fefa9ed",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF54–55；节点 POL27-CF-MARX-C04-K07",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:f275f89d079c9864821eb3df1b69b08da395ce048d17a35f2b7b2f6ab9cfc42b"
+        }
+      },
+      {
+        "name": "五种重要动力与阶级革命改革",
+        "natural_unit_id": "POL27-CF-MARX-C04-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K08"
+        ],
+        "prompt": "源书五种重要动力是什么？阶级按什么基础划分，阶级斗争、狭义革命和改革各有何范围地位？",
+        "items": [
+          "五重要动力：阶级斗争、社会革命、改革、科学技术、文化",
+          "阶级是经济和历史范畴，与特定生产关系联系、经济地位不同的集团，划分基础为生产资料占有关系差别",
+          "阶级斗争是基本矛盾在阶级社会的直接体现，是阶级社会发展的直接动力；不能推广到一切社会",
+          "狭义革命是阶级斗争最高形式，推翻旧统治以新制度替旧制度，是形态更替重要手段和决定性环节",
+          "改革在基本制度框架内调整不适应环节，是另一重要动力，不等同革命或必然温和小改"
+        ],
+        "checking_criteria": [
+          "五项完整，阶级基础及三作用范围准确",
+          "不把直接动力换成全部社会根本动力，也不将文化漏出五项",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "先列五条机制，再限定阶级社会与制度内外变革。",
+        "id": "polmem-8532617c",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF55；节点 POL27-CF-MARX-C04-K08",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:30738faf9641eb99b4a10b70b81d436cb74aabf70bf5e5f78b361d818052ea8e"
+        }
+      },
+      {
+        "name": "科技与文化动力的条件",
+        "natural_unit_id": "POL27-CF-MARX-C04-S02",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K08"
+        ],
+        "prompt": "科技对哪些方面有影响，正确运用的首要要求是什么？文化的三种作用是什么，如何避免科技或文化决定论？",
+        "items": [
+          "科技影响生产方式、生活方式、思维方式，增强改造自然能力；作用受社会制度及观念认识等主客观条件影响",
+          "正确运用科技首要有合理社会制度保障，科技是双刃剑，条件不当可产生不利后果或异己力量",
+          "文化提供思想指引、精神动力、凝聚力量；先进文化促进变革生产和社会进步，并激发创新",
+          "科技文化经生产能力、关系和人的实践发挥作用，不单独替代基本矛盾或物质基础决定全部历史"
+        ],
+        "checking_criteria": [
+          "科技三影响、制度首要及双刃条件完整；文化三作用准确，先进限定不漏",
+          "不能从一次发明推出立即制度变革或任意文化都积极",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "科技改变怎样生产生活思考，文化指引激励凝聚，两者都经现实条件作用。",
+        "id": "polmem-d0c2c1d9",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF55；节点 POL27-CF-MARX-C04-K08",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S02 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:145199fa4eed248587fc6ff3611c8952e0ec275c45f8978df240742c942d8a91"
+        }
+      },
+      {
+        "name": "考察历史创造者的四原则",
+        "natural_unit_id": "POL27-CF-MARX-C04-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K09-N02"
+        ],
+        "prompt": "唯物史观考察历史创造者采用哪四原则？现实人的本质与人历史关系的三个层次怎样表述？",
+        "items": [
+          "立足现实的人及其本质：人在一定社会关系中基于需要实践并有能动性，人的现实本质是一切社会关系总和，本质属性是社会属性并随关系发展",
+          "立足整体社会历史过程，不只孤立事件",
+          "从社会历史发展的必然性考察",
+          "从人与历史关系不同层次考察：人类、群体、个人三个层次"
+        ],
+        "checking_criteria": [
+          "四原则完整，现实关系本质与三个层次准确",
+          "社会属性不否认自然身体；历史是活动合力不等于每人都起推动作用",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "现实的人—整体过程—历史规律—三个层次，避免只盯英雄或抽象孤人。",
+        "id": "polmem-73d60c05",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF56；节点 POL27-CF-MARX-C04-K09-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:8be69e84e83c589b1e8e65627738e254f0c531a0779df67698e2ca460c2dd75d"
+        }
+      },
+      {
+        "name": "人民群众质量与三种创造作用",
+        "natural_unit_id": "POL27-CF-MARX-C04-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K10-N01"
+        ],
+        "prompt": "人民群众从质、量和稳定主体分别怎样界定？三种创造作用是什么，又受哪些条件制约？",
+        "items": [
+          "质：一切对社会历史发展起推动作用的人；量：社会人口绝大多数，是随历史变化的范畴",
+          "最稳定主体为从事物质资料生产的劳动群众及知识分子",
+          "创造社会物质财富、社会精神财富，是社会变革决定力量；也是实现自身利益的根本力量",
+          "受经济、政治、精神文化条件制约，其中经济条件是根本制约；在直接遇到、既定、继承的条件下创造历史"
+        ],
+        "checking_criteria": [
+          "质/量/稳定主体三维准确，三贡献及经济根本条件完整",
+          "不以无名或任意阶级标签自动认证推动作用，不把创造理解随心所欲",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "谁推动是质，占多数是量，稳定主体看劳动；创造财富和变革仍有历史条件。",
+        "id": "polmem-86afb84f",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF56–57；节点 POL27-CF-MARX-C04-K10-N01",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:aeb1f3dda60e7aa3f15c9378dea9c6100dd729b8ea25f073e65e16704bd5f67b"
+        }
+      },
+      {
+        "name": "群众观点与群众路线",
+        "natural_unit_id": "POL27-CF-MARX-C04-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K10-N02"
+        ],
+        "prompt": "四个群众观点与群众路线分别是什么？从群众中来到群众中去怎样承接认识实践循环？",
+        "items": [
+          "群众观点：人民群众自己解放自己、全心全意为人民服务、一切向人民群众负责、虚心向人民群众学习",
+          "群众路线：一切为了群众、一切依靠群众、从群众中来、到群众中去",
+          "从实践意见中归纳加工形成认识，再回群众实践行动和检验，不把任何即时意见无分析当真理"
+        ],
+        "checking_criteria": [
+          "四观点与四路线分别完整，服务/负责/学习不混",
+          "来去保留认识加工与实践检验，不能简单收集意见后原样照搬",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "观点问信谁为谁向谁负责向谁学；路线把为了依靠与实践往返接起来。",
+        "id": "polmem-3f0bda2b",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF57；节点 POL27-CF-MARX-C04-K10-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:50b5ebb905ec6372cbf48384130d2b7d0048d0fde7c18e6d062f4f562386a752"
+        }
+      },
+      {
+        "name": "历史人物作用及必然偶然",
+        "natural_unit_id": "POL27-CF-MARX-C04-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K11-N01",
+          "POL27-CF-MARX-C04-K11-N02"
+        ],
+        "prompt": "历史人物怎样定义、怎样区分作用性质？个人对具体事件与历史总趋势的作用边界是什么，必然偶然怎样统一？",
+        "items": [
+          "历史人物是重大历史事件主要倡导组织领导者或思想理论科学文化的重要代表，是中性类别；杰出人物推动，反动人物阻碍",
+          "个人受社会规律条件制约，可对具体事件结局产生决定影响，不能独自决定改变历史总进程总方向",
+          "时代任务对人物的需求体现必然性，由谁承担及性格智慧等体现偶然性；作用性质看是否符合发展规律和群众意愿"
+        ],
+        "checking_criteria": [
+          "定义、性质区分、事件/总体边界及必偶关系准确",
+          "出现合规律不自动等于行动必然合目的；普通无名者也须按群众质定义判断",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "时代提出任务，具体人物承担；能影响事件，不任意定总体方向。",
+        "id": "polmem-29f8ff84",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF57；节点 POL27-CF-MARX-C04-K11-N01, POL27-CF-MARX-C04-K11-N02",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:0b9bfea001c910fba9c3d8775528b9875173da1722244bd91588d0e559a4565c"
+        }
+      },
+      {
+        "name": "历史人物评价与政治组织关系",
+        "natural_unit_id": "POL27-CF-MARX-C04-S03",
+        "source_refs": [
+          "POL27-CF-MARX-C04-K11-N03",
+          "POL27-CF-MARX-C04-K11-N04",
+          "POL27-CF-MARX-C04-K11-N05"
+        ],
+        "prompt": "评价历史人物的两种方法是什么，怎样评价领袖贡献与局限？群众、阶级、政党、领袖在源中如何联系？",
+        "items": [
+          "历史分析：从特定背景和当时条件具体全面考察，不以今天条件水平要求前人",
+          "阶级分析：放回其阶级关系和实际作用，同一人在不同历史时期作用可不同",
+          "评价领袖既肯定历史贡献，也指出历史局限与失误，不把人神化或成功失败全归一人",
+          "源书的阶级政治组织关系：群众划分为阶级，阶级通常由政党领导，政党由领袖主持，四者相互依存，不能割裂"
+        ],
+        "checking_criteria": [
+          "两方法与贡献局限双面完整；组织链保留通常及其阶级政治语境",
+          "不推所有群体任何时代都具相同完整组织链，也不认领袖行动一定正确",
+          "题面未问的防误解说明只诊断实际回答中的明确错述，不因未主动补述扣分。"
+        ],
+        "memory_cue": "放回时代与关系看实际作用；组织关系相连，个人仍有局限。",
+        "id": "polmem-5b9d2a42",
+        "admission": "CANDIDATE_ONLY",
+        "admission_basis": {
+          "route": "FIRST_ROUND_EXACT",
+          "review_status": "REVIEWED",
+          "source_edition": "POL27-CF",
+          "source_locator": "乘风2027上册 PDF58；节点 POL27-CF-MARX-C04-K11-N03, POL27-CF-MARX-C04-K11-N04, POL27-CF-MARX-C04-K11-N05",
+          "review_ref": "content/politics/learning/marxism/teaching-candidate/preparation-review.md#p5-marx-c03-c04-20261004",
+          "prerequisite": "已解释 POL27-CF-MARX-C04-S03 中本题全部所问子项与条件；只有概览不解锁整个大单元，内容准入不自动建立学习计划。",
+          "reviewed_target_revision": "sha256:4fd54ebe43efdc762eb85739a3d335fa399cbc371089372dadc13948005ce7f1"
+        }
+      }
+    ],
+    "deferred_precision": [
+      "原经济基础短句已由本轮原Content按PDF51拆为生产关系总和与支配关系决定性质，同步原beat/boundary/compression；依赖投影须验证语义而非只换blob。",
+      "原S02摘要追加文化重要动力的尾部beat，保留前序和原NU，实际消费者仍待验证。",
+      "社会心理自发与原表所有社会意识自觉的范围冲突、以阶级或无名身份直接判群众、单一科技自动决定制度等过强命题未获准。原Source和题目不改。"
+    ]
   }
 }
