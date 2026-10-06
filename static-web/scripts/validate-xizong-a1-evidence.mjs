@@ -103,6 +103,7 @@ assert(unresolved.length > 0, 'no-unresolved-question-relation-for-a1-evidence-t
 assert(!blockGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-block-history');
 assert(!systemGuard.includes('localStorage.removeItem('), 'artifact-guard-must-not-delete-system-history');
 await import('./test-xizong-source-revision-transitive.mjs');
+await import('./test-xizong-post-chat-recall.mjs');
 
 console.log([
   'A1 Evidence contract PASS',
@@ -119,3 +120,4 @@ console.log([
   'Inbox=write-before-clear+cross-tab',
   'U=NOT_TESTED'
 ].join(' | '));
+

@@ -258,3 +258,4 @@ console.log(JSON.stringify({
 
 // Exact prepared answers must reach the same native Memory consumer.
 await import('./test-xizong-prepared-memory.mjs');
+await import('./test-xizong-prepared-memory-availability.mjs');

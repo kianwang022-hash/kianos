@@ -90,10 +90,12 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       if (root.inert || root.dataset.xizongStateBlocked === 'true') { stop(event); return; }
 
       const state = readBlockState(blockId);
+      const postChatRecall = root.dataset.postChatRecallAvailable === 'true'
+        && state?.recallEntryMode === 'POST_CHAT_RECALL';
       const counts = blockCounts(root, state);
       const visualBlocked = unresolvedVisualGroups(root, state);
       const missing = missingPrerequisites();
-      const advancing = Boolean(target.closest('[data-stage-target],[data-stage-next],[data-source-contact-done],[data-enter-group],[data-group-lecture-done],[data-kp-reveal],[data-rating],[data-block-recall-reveal],[data-block-recall-complete],[data-block-complete]'));
+      const advancing = Boolean(target.closest('[data-stage-target],[data-stage-next],[data-post-chat-recall],[data-source-contact-done],[data-enter-group],[data-group-lecture-done],[data-kp-reveal],[data-rating],[data-block-recall-reveal],[data-block-recall-complete],[data-block-complete]'));
       if (missing.length && advancing) {
         stop(event);
         setBlockStatus(root, `先完成前置 Block：${missing.map((row) => row.label || row.blockId).join(' / ')}；当前仍可看本块框架。`);
@@ -104,7 +106,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       if (stageTarget) {
         const requested = stageTarget.getAttribute('data-stage-target') || '';
 
-        if (requested === 'kp_recall' && counts.learned <= counts.recalled) {
+        if (requested === 'kp_recall' && counts.learned <= counts.recalled && !postChatRecall) {
           stop(event);
           setBlockStatus(root, '先完成当前学习节的原讲义连续学习，再进入本节 Recall');
           return;
@@ -138,8 +140,10 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
 
       const reveal = target.closest('[data-kp-reveal]');
       if (reveal) {
-        const kpId = reveal.closest('[data-kp-id]')?.getAttribute('data-kp-id') || '';
-        if (kpId && !state?.learned?.[kpId]) {
+        const card = reveal.closest('[data-kp-id]');
+        const kpId = card?.getAttribute('data-kp-id') || '';
+        const postChatReveal = postChatRecall && state?.stage === 'kp_recall' && card?.hidden === false;
+        if (kpId && !state?.learned?.[kpId] && !postChatReveal) {
           stop(event);
           setBlockStatus(root, '先完成这个 KP 所属学习节的正式原讲义接触，再 Reveal Core');
           return;
@@ -150,7 +154,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       if (rating) {
         const card = rating.closest('[data-kp-recall-card]');
         const kpId = card?.getAttribute('data-kp-id') || '';
-        if (!kpId || state?.stage !== 'kp_recall' || card?.hidden || card?.querySelector('[data-kp-answer]')?.hidden !== false || card?.dataset.ratingCommitted === 'true' || state?.learned?.[kpId] !== true) {
+        if (!kpId || state?.stage !== 'kp_recall' || card?.hidden || card?.querySelector('[data-kp-answer]')?.hidden !== false || card?.dataset.ratingCommitted === 'true' || (state?.learned?.[kpId] !== true && !postChatRecall)) {
           stop(event);
           setBlockStatus(root, '先完成对应原讲义接触并 Reveal 当前 Core，再记录本次 Recall');
           return;

@@ -1,10 +1,16 @@
 ---
 const { objectId = '', sourceHash = '' } = Astro.props;
+const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision&block=circulation-b01`;
 ---
 <span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
+<div hidden data-prepared-memory-action data-memory-href={memoryHref}>
+  <button type="button" data-open-prepared-memory title="只把已有精确答案加入可浏览的 Memory，不代表学完或接触过原讲义。">打开已准备的 Memory</button>
+  <span role="status" data-prepared-memory-status></span>
+</div>
 
 <script>
-  import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage, readXizongPersonalStorage } from '../lib/xizongMemoryModel.mjs';
+  import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage, readXizongPersonalStorage, makePreparedMemoryAvailable } from '../lib/xizongMemoryModel.mjs';
+  import { buildXizongPreparedMemoryAvailability } from '../lib/xizongMemoryRelease.mjs';
   import {
     releaseCompletedBlockToMemory,
     syncXizongPersonalMarks,
@@ -27,6 +33,38 @@ const { objectId = '', sourceHash = '' } = Astro.props;
   const sourceHash = bridgeNode?.getAttribute('data-source-hash') || '';
   let studyKey = '';
   try { studyKey = xizongStudyStorageKey(objectId); } catch {}
+
+  // Explicit Browse availability is independent of Source / KP / Block
+  // completion. Use the resolved payload, never learner ratings or URL claims.
+  if (learnerObject?.identity?.blockId === 'circulation-b01') {
+  const preparedAction = document.querySelector('[data-prepared-memory-action]');
+  const preparedButton = preparedAction?.querySelector('[data-open-prepared-memory]');
+  const preparedStatus = preparedAction?.querySelector('[data-prepared-memory-status]');
+  const preparedHost = root?.querySelector('.portedStudyShellActions');
+  if (preparedAction && preparedButton && preparedHost) {
+    try {
+      const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash });
+      preparedButton.textContent = `打开已准备的 Memory（${descriptor.precisionCards.length} 项）`;
+      preparedHost.append(preparedAction);
+      preparedAction.hidden = false;
+      preparedButton.addEventListener('click', () => {
+        try {
+          const current = readXizongMemoryStorage(localStorage);
+          const next = makePreparedMemoryAvailable(current,
+            buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash }));
+          const serialized = JSON.stringify(next);
+          if (serialized !== JSON.stringify(current)) localStorage.setItem(XIZONG_MEMORY_STORAGE_KEY, serialized);
+          // Never navigate on failed persistence. This action creates no study
+          // evidence, completion flags, attention or first-release receipt.
+          window.location.assign(preparedAction.getAttribute('data-memory-href'));
+        } catch (error) {
+          if (preparedStatus) preparedStatus.textContent = 'Memory 暂时无法安全打开，原记录保留。请先备份后恢复。';
+          console.error(error);
+        }
+      });
+    } catch (error) { console.error(error); }
+  }
+  }
 
   const attemptRelease = () => {
     if (!root || !learnerObject || !studyKey) return;

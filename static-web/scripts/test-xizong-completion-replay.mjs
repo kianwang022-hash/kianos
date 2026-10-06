@@ -169,11 +169,13 @@ const currentV6=fs.readFileSync(new URL('../src/components/XizongBlockV6.astro',
 assert.ok(!currentV6.includes('state.sourceContactDone = !sourcePerGroup'),'visiting legacy cannot manufacture contact from learned count');
 // Execute the actual first-mount routing prefix through its real persistence
 // boundary. Completion alone does not prove that Resume survives mounting.
-const routing=currentV6.slice(currentV6.indexOf('    const setStage ='),currentV6.indexOf('      stages.forEach',currentV6.indexOf('    const setStage =')))+'    };';
+const recallEntry=currentV6.match(/    const isPostChatRecall = [^\n]+;/)?.[0];
+assert.ok(recallEntry,'routing fixture includes the actual post-Chat navigation helper');
+const routing=recallEntry+'\n'+currentV6.slice(currentV6.indexOf('    const setStage ='),currentV6.indexOf('      stages.forEach',currentV6.indexOf('    const setStage =')))+'    };';
 function route(saved,requested='kp_recall',mode={}) {
  const state=reconcileXizongRevision(structuredClone(saved),learner.revisionWitness),writes=[];
  vm.runInNewContext(routing+';setStage(requested);',{
-  state,requested,root:{dataset:{}},historicalXizongSourceContinuation,
+  state,requested,root:{dataset:{}},historicalXizongSourceContinuation,postChatRecallAvailable:false,
   biochemistrySource:null,segmentedSourceUnits:false,integrationPrimary:false,
   naturalSourceUnits:false,sourcePerGroup:false,pendingTtsxIsReviewed:()=>false,
   save:()=>{writes.push(state.stage);return true;},...mode

@@ -96,8 +96,10 @@ const kps = block?.kpRecords || [];
       const kpId = card?.getAttribute('data-kp-id') || '';
       const rating = ratingButton.getAttribute('data-rating') || '';
       const currentStudy = readJson(stateKey, {});
+      const postChatRecall = root.dataset.postChatRecallAvailable === 'true'
+        && currentStudy?.recallEntryMode === 'POST_CHAT_RECALL';
       if (root.inert || root.dataset.xizongStateBlocked === 'true' || currentStudy?.stage !== 'kp_recall' || card?.hidden || card?.dataset.ratingCommitted === 'true') return;
-      if (!kpId || !['unknown', 'fuzzy', 'known', 'mastered'].includes(rating) || currentStudy?.learned?.[kpId] !== true || card?.querySelector('[data-kp-answer]')?.hidden !== false) return;
+      if (!kpId || !['unknown', 'fuzzy', 'known', 'mastered'].includes(rating) || (currentStudy?.learned?.[kpId] !== true && !postChatRecall) || card?.querySelector('[data-kp-answer]')?.hidden !== false) return;
       if (!appendRecall(kpId, rating, 'USER_RECALL_ATTEMPT')) {
         event.preventDefault(); event.stopImmediatePropagation();
       }
