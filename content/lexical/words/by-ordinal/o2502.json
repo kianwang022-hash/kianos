@@ -6,7 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:index:index-finger",
+        "pattern": "index finger",
+        "meaning_cn": "食指",
+        "definition_en": "the finger next to the thumb",
+        "source_sense_id": null,
+        "boundary": "Whole compound; not an alphabetical book index",
+        "direction": "R",
+        "level": "L1",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:a510fb14de77955662f7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:index:902882ce283f57f1:collocation:0"
+            ],
+            "meaning_cn": "食指",
+            "phrase": "index finger"
+          }
+        ]
+      }
+    ],
     "content_hash": "11b878d6f797fb64614edb09f10f9081f28f64fa04f6d4d5c285967f1326b2bd",
     "core_concept": {
       "core_clusters": [
@@ -45,15 +67,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a510fb14de77955662f7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:index:902882ce283f57f1:collocation:0"
-            ],
-            "meaning_cn": "食指",
-            "phrase": "index finger"
-          },
-          {
             "collocation_id": "collocation:dc80af0e82226b38aa04",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -71,7 +84,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:index:902882ce283f57f1",
-        "sense_label_en": "an alphabetical list of names, subjects, etc., with page numbers, usuall",
+        "sense_label_en": "an alphabetical list of names, subjects, etc., with page numbers, usually at the end of a book",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -97,14 +110,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "指数（显示价格、工资等变化的数字或比率）",
-        "definition_en": "a number or ratio that shows changes in prices, wages, etc.",
+        "definition_cn": "指数；数值指标",
+        "definition_en": "a number or measure showing a level or change, such as prices or body mass relative to height",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:index:1943843f3edc5d1b",
-        "sense_label_en": "a number or ratio that shows changes in prices, wages, etc.",
+        "sense_label_en": "a number or measure showing a level or change, such as prices or body mass relative to height",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -353,7 +366,7 @@
             "sense:index:9c91b264d0e75213:collocation:0"
           ],
           "meaning_cn": "按某指数调整",
-          "phrase": "index to + sth"
+          "phrase": "index sth to sth / be indexed to sth"
         },
         {
           "collocation_id": "collocation:1ecbf710fd32f71121e7",
@@ -362,20 +375,20 @@
             "sense:index:9c91b264d0e75213:collocation:1"
           ],
           "meaning_cn": "按通货膨胀调整",
-          "phrase": "index to inflation"
+          "phrase": "pensions indexed to inflation"
         }
       ],
       "confidence": "medium",
       "definition_cn": "按指数调整（工资、价格等）",
       "definition_en": "to adjust wages, prices, etc. according to an index",
-      "governing_pattern": "vi. + to",
+      "governing_pattern": "index wages/payments to prices; be indexed to inflation",
       "level": "L3",
       "needs_human_review": 0,
       "pos": "verb",
       "sense_id": "sense:index:9c91b264d0e75213",
       "sense_label_en": "to adjust wages, prices, etc. according to an index",
       "sort_order": 4,
-      "transitivity": "vi"
+      "transitivity": "vt"
     }
   ],
   "identity_refs": {
@@ -419,7 +432,6 @@
     "active_collocations": [
       "collocation:3944609294441f055a0b",
       "collocation:923e1ec183025a4cba13",
-      "collocation:a510fb14de77955662f7",
       "collocation:b3bf5baba1391e07fab7",
       "collocation:c1ae11bd76392be88adf",
       "collocation:dc80af0e82226b38aa04"
@@ -453,7 +465,9 @@
       {
         "id": "collocation:a510fb14de77955662f7",
         "source_row": 14010,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b3bf5baba1391e07fab7",

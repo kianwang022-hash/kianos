@@ -21,7 +21,7 @@
         }
       ],
       "core_meaning_cn": "表明；显示；指出、指示",
-      "core_meaning_en": "to show, suggest, point out, or indicate",
+      "core_meaning_en": "to show or suggest something through evidence, or point something out",
       "mental_model_cn": "evidence/data → 表明；gesture/choice → 指出/表示；medical “treatment is indicated” 专业义保留为 Reference。",
       "mental_model_en": ""
     },
@@ -70,7 +70,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:indicate:352fadc4e9e45918",
+        "source_sense_id": "sense:indicate:10f72093d79d5705",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -103,6 +103,16 @@
             "meaning_cn": "表明；显示",
             "meaning_en": "to suggest or show something through signs, data, or evidence",
             "phrase": "results indicate that"
+          },
+          {
+            "collocation_id": "collocation:6bfe0e77443a7c8c078c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:indicate:352fadc4e9e45918:collocation:0"
+            ],
+            "meaning_cn": "象征；意味着",
+            "meaning_en": "to be a sign that a condition exists",
+            "phrase": "indicate the presence of"
           }
         ],
         "confidence": "high",
@@ -171,50 +181,6 @@
         "sense_id": "sense:indicate:2e356eb1da415bf3",
         "sense_label_en": "state or point out",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6bfe0e77443a7c8c078c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:indicate:352fadc4e9e45918:collocation:0"
-            ],
-            "meaning_cn": "象征；意味着",
-            "meaning_en": "to be a sign that a condition exists",
-            "phrase": "indicate the presence of"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "象征；意味着",
-        "definition_en": "to be a sign that a condition exists",
-        "depth": "recognition_plus",
-        "domain_tag": "general",
-        "frequency_tag": "exam_core",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:indicate:352fadc4e9e45918",
-        "sense_label_en": "be a sign of",
-        "sort_order": 2,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -448,6 +414,54 @@
           "source": "ai_curated_mvp_v1"
         }
       ]
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6bfe0e77443a7c8c078c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:indicate:352fadc4e9e45918:collocation:0"
+          ],
+          "meaning_cn": "象征；意味着",
+          "meaning_en": "to be a sign that a condition exists",
+          "phrase": "indicate the presence of"
+        }
+      ],
+      "confidence": "high",
+      "definition_cn": "象征；意味着",
+      "definition_en": "to be a sign that a condition exists",
+      "depth": "recognition_plus",
+      "domain_tag": "general",
+      "frequency_tag": "exam_core",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:indicate:352fadc4e9e45918",
+      "sense_label_en": "be a sign of",
+      "sort_order": 2,
+      "source_evidence": [
+        {
+          "role": "local_evidence",
+          "source": "kaoyan"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_ecdict"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_oewn"
+        },
+        {
+          "role": "local_evidence",
+          "source": "ai_curated_mvp_v1"
+        }
+      ],
+      "stable_sense_id": "sense:indicate:352fadc4e9e45918",
+      "status": "merged",
+      "merged_into_sense_id": "sense:indicate:10f72093d79d5705",
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -468,8 +482,8 @@
       },
       {
         "sense_id": "sense:indicate:352fadc4e9e45918",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:indicate:10f72093d79d5705",
         "source_row": 6947,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
       },
@@ -531,7 +545,8 @@
       {
         "id": "collocation:6bfe0e77443a7c8c078c",
         "source_row": 9096,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "sense_id": "sense:indicate:10f72093d79d5705"
       },
       {
         "id": "collocation:e01138620e392092bb7d",
