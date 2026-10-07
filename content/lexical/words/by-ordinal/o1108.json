@@ -78,15 +78,6 @@
             ],
             "meaning_cn": "生活费用",
             "phrase": "cost of living"
-          },
-          {
-            "collocation_id": "collocation:42f0c532977b410fa05d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cost:138c53de72415f7d:collocation:1"
-            ],
-            "meaning_cn": "不惜一切代价",
-            "phrase": "at all costs"
           }
         ],
         "confidence": "medium",
@@ -105,12 +96,21 @@
         "collocations": [
           {
             "collocation_id": "collocation:c354ece842fd4be8c96d",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:cost:61f207b91a695c1b:collocation:0"
             ],
             "meaning_cn": "以……为代价",
             "phrase": "at the cost of"
+          },
+          {
+            "collocation_id": "collocation:42f0c532977b410fa05d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cost:138c53de72415f7d:collocation:1"
+            ],
+            "meaning_cn": "不惜一切代价",
+            "phrase": "at all costs"
           }
         ],
         "confidence": "medium",
@@ -140,7 +140,7 @@
         "confidence": "medium",
         "definition_cn": "花费（金钱）",
         "definition_en": "to have a price of",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sth costs (sb) an amount",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -164,7 +164,7 @@
         "confidence": "medium",
         "definition_cn": "使失去，使付出代价",
         "definition_en": "to cause someone to lose or suffer something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sth costs sb sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -395,8 +395,7 @@
       "collocation:42f0c532977b410fa05d",
       "collocation:628ecefe4a739e4b6f04",
       "collocation:a9b7efc7f7f8ba6908dd",
-      "collocation:b021fc59665130b6ab7a",
-      "collocation:c354ece842fd4be8c96d"
+      "collocation:b021fc59665130b6ab7a"
     ],
     "facts": [
       {
@@ -429,7 +428,9 @@
       {
         "id": "collocation:c354ece842fd4be8c96d",
         "source_row": 16526,
-        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [
