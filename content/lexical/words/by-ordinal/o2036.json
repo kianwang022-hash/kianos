@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:frame:frame-of-mind",
+        "pattern": "frame of mind / be in a ... frame of mind",
+        "meaning_cn": "心境；心态；某时的精神状态",
+        "definition_en": "the way a person thinks or feels about something at a particular time",
+        "boundary": "fixed mental-state phrase (e.g. a positive/right frame of mind); not physical frame or supporting structure",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only"
+      }
+    ],
     "content_hash": "f341fd2fd6fdcc7793a1d14df2dfdd0612819c9e9032040d5a25a59f98ee5278",
     "core_concept": {
       "core_clusters": [
@@ -29,11 +41,19 @@
             "sense:frame:1bb76d247fbb5d19",
             "sense:frame:e43743ae324053cf"
           ]
+        },
+        {
+          "label_cn": "栽赃诬陷（使人看似犯了罪）",
+          "label_en": "to make someone appear guilty of a crime by inventing false evidence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:frame:b12c48e74c142081"
+          ]
         }
       ],
-      "core_meaning_cn": "框架或帧",
-      "core_meaning_en": "a structure that surrounds or supports something, or a single image in a sequence",
-      "mental_model_cn": "框架或帧",
+      "core_meaning_cn": "框架、边框或画面一帧；装框或组织表达；另有“栽赃陷害”义",
+      "core_meaning_en": "a surrounding/supporting frame or film image; to frame or formulate something; separately, to falsely incriminate",
+      "mental_model_cn": "先分辨实体框架、影视画面帧与“组织/措辞”；frame sb for a crime 是“栽赃陷害”，frame of mind 是固定短语“心境”，不可按“结构/边框”直译。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -125,17 +145,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2df75d2887156a85937a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:frame:b70a5d51e5fa5010:collocation:0"
-            ],
-            "meaning_cn": "心境；心态",
-            "phrase": "frame of mind"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "结构；骨架",
         "definition_en": "a structure that supports or forms the basic shape of something",
@@ -195,6 +205,22 @@
         "sense_label_en": "to express something in a particular way",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "诬陷；栽赃（使无辜者看起来犯了罪）",
+        "definition_en": "to make an innocent person appear guilty of a crime by inventing false evidence",
+        "governing_pattern": "frame sb (for a crime/sth)",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "register": "informal",
+        "sense_id": "sense:frame:b12c48e74c142081",
+        "sense_label_en": "to falsely implicate an innocent person in a crime",
+        "sort_order": 6,
+        "transitivity": "vt",
+        "usage_note": "often passive: be framed for sth; not the “put in a frame” or “phrase an idea” meanings"
       }
     ],
     "verification_summary": {
@@ -385,6 +411,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
       },
       {
+        "sense_id": "sense:frame:b12c48e74c142081",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2036.json"
+      },
+      {
         "sense_id": "sense:frame:b70a5d51e5fa5010",
         "status": "active",
         "merged_into_sense_id": null,
@@ -400,7 +433,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:2df75d2887156a85937a",
       "collocation:8b76ff4f736a83ada267",
       "collocation:a374ae6e4227af4441d7",
       "collocation:ac81f3f31c54fd774177",
@@ -413,7 +445,9 @@
       {
         "id": "collocation:2df75d2887156a85937a",
         "source_row": 3890,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8b76ff4f736a83ada267",
