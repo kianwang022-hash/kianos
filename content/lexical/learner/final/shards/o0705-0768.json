@@ -7365,23 +7365,23 @@
     "ordinal": 748,
     "word": "challenge",
     "source_owner_path": "content/lexical/words/by-ordinal/o0748.json",
-    "source_fingerprint": "afd3ec4fbdd870556565feb242845f62071472bb61f7017dbecc0dc2b6433788",
+    "source_fingerprint": "730286efcb997d1a59960f02249147c52c84cbd062b423b0146141925d76fd0a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把能力、有效性或权威置于高要求的检验之下",
-      "decision_cn": "challenge 都在问“能不能站得住”：task tests ability；challenge a claim/authority tests validity；challenge sb to do tests willingness/ability through a direct dare or invitation.",
+      "summary_cn": "挑战/难题；也指对说法、合法性、有效性或权威的质疑",
+      "decision_cn": "task → 难题/挑战；a challenge to a claim/authority / legal challenge → 对真实性、权威或合法性的质疑；challenge sb to do → 向某人发起挑战；法律陪审员回避义另属专业 L3。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把能力、有效性或权威置于高要求的检验之下"
+        "target_label": "挑战/难题；也指对说法、合法性、有效性或权威的质疑"
       }
     },
     "senses": [
@@ -7428,8 +7428,34 @@
         }
       },
       {
-        "id": "sense:challenge:c84b8e9c223b5948",
+        "id": "sense:challenge:deb06e7ab9e2c874",
         "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "challenge to + sth",
+        "definition_cn": "质疑；异议；对真实性、合法性、有效性或权威的挑战",
+        "definition_en": "a statement or action that questions whether something is true, right, legal, valid, or authoritative",
+        "note": "includes ordinary legal challenge and challenge to authority; distinct from the specialist juror-challenge sense",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2e58d655b8543cb85438",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "legal challenge",
+            "meaning_cn": "正式异议；回避请求",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:challenge:deb06e7ab9e2c874",
+          "target_locator": "record.senses[1]",
+          "target_label": "质疑；异议；对真实性、合法性、有效性或权威的挑战"
+        }
+      },
+      {
+        "id": "sense:challenge:c84b8e9c223b5948",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "质疑；挑战",
@@ -7439,7 +7465,7 @@
         "usage": [
           {
             "id": "collocation:842f6f1a558038fb3c88",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "challenge a claim",
             "meaning_cn": "质疑；挑战",
             "kind": "usage_example",
@@ -7447,7 +7473,7 @@
           },
           {
             "id": "collocation:ae443e91d0aa73ffb221",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "challenge an assumption",
             "meaning_cn": "质疑；挑战",
             "kind": "usage_example",
@@ -7455,7 +7481,7 @@
           },
           {
             "id": "collocation:1f99b3b7d663ee86784e",
-            "source_locator": "record.senses[1].collocations[2]",
+            "source_locator": "record.senses[2].collocations[2]",
             "phrase": "challenge authority",
             "meaning_cn": "质疑；挑战",
             "kind": "usage_example",
@@ -7465,13 +7491,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:challenge:c84b8e9c223b5948",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "质疑；挑战"
         }
       },
       {
         "id": "sense:challenge:58e615d6b7695068",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "向……发起挑战",
@@ -7481,7 +7507,7 @@
         "usage": [
           {
             "id": "collocation:69c63f70671bd1fa5716",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "challenge someone to",
             "meaning_cn": "向……发起挑战",
             "kind": "usage_example",
@@ -7491,34 +7517,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:challenge:58e615d6b7695068",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "向……发起挑战"
         }
       },
       {
         "id": "sense:challenge:09a9f87089d95624",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "正式异议；回避请求",
-        "definition_en": "a formal objection in legal or procedural settings",
-        "note": "",
+        "definition_cn": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求",
+        "definition_en": "law: a formal objection to a prospective juror, juror qualification, or jury",
+        "note": "specialized jury-selection sense; distinct from ordinary a legal challenge / a challenge to authority",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2e58d655b8543cb85438",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "legal challenge",
-            "meaning_cn": "正式异议；回避请求",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:challenge:09a9f87089d95624",
-          "target_locator": "record.senses[3]",
-          "target_label": "正式异议；回避请求"
+          "target_locator": "record.senses[4]",
+          "target_label": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求"
         }
       }
     ],

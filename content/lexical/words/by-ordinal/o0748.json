@@ -19,12 +19,11 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "挑战；难题；正式异议；回避请求",
-          "label_en": "a difficult task or condition that tests ability; a formal objection in legal or procedural settings",
+          "label_cn": "挑战；难题",
+          "label_en": "a difficult task or condition that tests ability",
           "pos": "noun",
           "sense_ids": [
-            "sense:challenge:4cbb0fa790ed5a96",
-            "sense:challenge:09a9f87089d95624"
+            "sense:challenge:4cbb0fa790ed5a96"
           ]
         },
         {
@@ -35,12 +34,20 @@
             "sense:challenge:c84b8e9c223b5948",
             "sense:challenge:58e615d6b7695068"
           ]
+        },
+        {
+          "label_cn": "质疑；异议；对合法性、有效性或权威的挑战",
+          "label_en": "a questioning of truth, legality, validity, or authority",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:challenge:deb06e7ab9e2c874"
+          ]
         }
       ],
-      "core_meaning_cn": "把能力、有效性或权威置于高要求的检验之下",
-      "core_meaning_en": "put ability, validity, or authority to a demanding test",
-      "mental_model_cn": "challenge 都在问“能不能站得住”：task tests ability；challenge a claim/authority tests validity；challenge sb to do tests willingness/ability through a direct dare or invitation.",
-      "mental_model_en": "A challenge tests whether ability, a claim, authority, or a person can stand up to scrutiny or demand."
+      "core_meaning_cn": "挑战/难题；也指对说法、合法性、有效性或权威的质疑",
+      "core_meaning_en": "a demanding test; or a questioning of truth, legality, validity, or authority",
+      "mental_model_cn": "task → 难题/挑战；a challenge to a claim/authority / legal challenge → 对真实性、权威或合法性的质疑；challenge sb to do → 向某人发起挑战；法律陪审员回避义另属专业 L3。",
+      "mental_model_en": "Challenge can test ability, question truth/legality/authority, or invite someone to compete; jury challenge is a separate specialist legal branch."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -121,6 +128,32 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:2e58d655b8543cb85438",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:challenge:09a9f87089d95624:collocation:0"
+            ],
+            "meaning_cn": "正式异议；回避请求",
+            "meaning_en": "a formal objection in legal or procedural settings",
+            "phrase": "legal challenge"
+          }
+        ],
+        "confidence": "high",
+        "definition_cn": "质疑；异议；对真实性、合法性、有效性或权威的挑战",
+        "definition_en": "a statement or action that questions whether something is true, right, legal, valid, or authoritative",
+        "governing_pattern": "challenge to + sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:challenge:deb06e7ab9e2c874",
+        "sense_label_en": "a questioning of truth, validity, legality, or authority",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "includes ordinary legal challenge and challenge to authority; distinct from the specialist juror-challenge sense"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:842f6f1a558038fb3c88",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -162,7 +195,7 @@
         "pos": "verb",
         "sense_id": "sense:challenge:c84b8e9c223b5948",
         "sense_label_en": "question validity",
-        "sort_order": 1,
+        "sort_order": 2,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -206,7 +239,7 @@
         "pos": "verb",
         "sense_id": "sense:challenge:58e615d6b7695068",
         "sense_label_en": "invite competition",
-        "sort_order": 2,
+        "sort_order": 3,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -227,21 +260,10 @@
         ]
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2e58d655b8543cb85438",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:challenge:09a9f87089d95624:collocation:0"
-            ],
-            "meaning_cn": "正式异议；回避请求",
-            "meaning_en": "a formal objection in legal or procedural settings",
-            "phrase": "legal challenge"
-          }
-        ],
+        "collocations": [],
         "confidence": "high",
-        "definition_cn": "正式异议；回避请求",
-        "definition_en": "a formal objection in legal or procedural settings",
+        "definition_cn": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求",
+        "definition_en": "law: a formal objection to a prospective juror, juror qualification, or jury",
         "depth": "recognition_only",
         "domain_tag": "law",
         "frequency_tag": "specialized",
@@ -249,8 +271,8 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:challenge:09a9f87089d95624",
-        "sense_label_en": "formal objection",
-        "sort_order": 3,
+        "sense_label_en": "a formal legal objection to a prospective juror or jury",
+        "sort_order": 4,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -268,7 +290,8 @@
             "role": "local_evidence",
             "source": "ai_curated_mvp_v1"
           }
-        ]
+        ],
+        "usage_note": "specialized jury-selection sense; distinct from ordinary a legal challenge / a challenge to authority"
       }
     ],
     "verification_summary": {
@@ -736,6 +759,13 @@
         "merged_into_sense_id": null,
         "source_row": 2113,
         "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      },
+      {
+        "sense_id": "sense:challenge:deb06e7ab9e2c874",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o0748.json"
       }
     ],
     "active_collocations": [

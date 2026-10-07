@@ -7617,7 +7617,7 @@
     "ordinal": 2030,
     "word": "fox",
     "source_owner_path": "content/lexical/words/by-ordinal/o2030.json",
-    "source_fingerprint": "a9022d79043e1262c7bf5b68ed325094ba0ba512e875d60a01126ef190f861fa",
+    "source_fingerprint": "562ec3250daaf79b4efac8bae85edf1ee4056d22ce33edf7bdd96eea844451c7",
     "sense_lineage": [
       {
         "word_id": "word:fox",
@@ -7643,13 +7643,14 @@
     ],
     "recall_map": {
       "parts": [
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "狐狸；狡猾的人",
-      "decision_cn": "animal → 狐狸；person → 狡猾的人。书页/纸张生黄褐斑的专业义保留为 Reference。",
+      "decision_cn": "animal → 狐狸；person → 狡猾的人；英式非正式 be foxed (by sth) → 被难住/困惑（Expansion）；书页生黄褐斑仍是 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7705,6 +7706,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "狡猾的人"
         }
+      },
+      {
+        "id": "sense:fox:335a2892c65ba93c",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "fox sb / be foxed (by sth)",
+        "definition_cn": "使困惑；难倒；使摸不着头脑（尤英式非正式）",
+        "definition_en": "mainly British, informal: to puzzle, confuse, or baffle someone; often used in the passive be foxed",
+        "note": "be completely/utterly foxed; this is the puzzling meaning, not the deprecated deceive/trick branch",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fox:335a2892c65ba93c",
+          "target_locator": "record.senses[2]",
+          "target_label": "使困惑；难倒；使摸不着头脑（尤英式非正式）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7740,7 +7758,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:fox:be-foxed",
+        "sense_id": "sense:fox:335a2892c65ba93c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be foxed (by sth)",
+        "lines": [
+          {
+            "text": "被某事难住；感到困惑、摸不着头脑",
+            "lang": "cn"
+          },
+          {
+            "text": "mainly British informal puzzling sense; not fox = deceive and not paper foxing",
+            "lang": "en"
+          },
+          {
+            "text": "be unable to understand or solve something; be puzzled or baffled",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fox:be-foxed",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be foxed (by sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

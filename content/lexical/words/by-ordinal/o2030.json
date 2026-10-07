@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:fox:be-foxed",
+        "pattern": "be foxed (by sth)",
+        "meaning_cn": "被某事难住；感到困惑、摸不着头脑",
+        "definition_en": "be unable to understand or solve something; be puzzled or baffled",
+        "level": "L2",
+        "pos": "verb",
+        "direction": "R+P",
+        "sense_id": "sense:fox:335a2892c65ba93c",
+        "boundary": "mainly British informal puzzling sense; not fox = deceive and not paper foxing"
+      }
+    ],
     "content_hash": "e1b05428b03bcc99a9301deb6af192cd86735345acbc6b2876eb11f7262df216",
     "core_concept": {
       "core_clusters": [
@@ -22,8 +34,8 @@
       ],
       "core_meaning_cn": "狐狸；狡猾的人",
       "core_meaning_en": "a fox; figuratively, a cunning or sly person",
-      "mental_model_cn": "animal → 狐狸；person → 狡猾的人。书页/纸张生黄褐斑的专业义保留为 Reference。",
-      "mental_model_en": "Default to the animal fox; it can figuratively mean a sly person. Paper foxing is a lower-priority specialist sense."
+      "mental_model_cn": "animal → 狐狸；person → 狡猾的人；英式非正式 be foxed (by sth) → 被难住/困惑（Expansion）；书页生黄褐斑仍是 Reference。",
+      "mental_model_en": "Default noun senses are the animal and a sly person; mainly British informal be foxed means puzzled/baffled; paper foxing remains Reference."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,6 +82,22 @@
         "sense_label_en": "a cunning or sly person",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "使困惑；难倒；使摸不着头脑（尤英式非正式）",
+        "definition_en": "mainly British, informal: to puzzle, confuse, or baffle someone; often used in the passive be foxed",
+        "governing_pattern": "fox sb / be foxed (by sth)",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "register": "mainly British, informal",
+        "sense_id": "sense:fox:335a2892c65ba93c",
+        "sense_label_en": "to puzzle or baffle someone; often be foxed",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "be completely/utterly foxed; this is the puzzling meaning, not the deprecated deceive/trick branch"
       }
     ],
     "verification_summary": {
@@ -319,6 +347,13 @@
   ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:fox:335a2892c65ba93c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2030.json"
+      },
       {
         "sense_id": "sense:fox:4ab695341e485b06",
         "status": "active",
