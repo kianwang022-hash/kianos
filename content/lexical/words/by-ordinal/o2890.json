@@ -58,20 +58,11 @@
             "sense:lot:7f5050358cd757a4",
             "sense:lot:0293319562745da3"
           ]
-        },
-        {
-          "label_cn": "划分（土地）；抽签",
-          "label_en": "divide land into lots; draw lots",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:lot:03dc353e24a357c0",
-            "sense:lot:94bb86a89c605b15"
-          ]
         }
       ],
       "core_meaning_cn": "许多/大量；一批/一组；拍卖批次；地块；境遇",
       "core_meaning_en": "a large amount; a group/batch or auction lot; a parcel of land; one’s circumstances",
-      "mental_model_cn": "a lot of + noun → 许多；a lot（副词）→ 很/经常；one/another lot → 一批；auction lot → 拍品批次；the lot → 全部；US land → 地块。",
+      "mental_model_cn": "a lot of + noun → 许多；a lot（副词）→ 很/经常；one/another lot → 一批；auction lot → 一组拍品；the lot → 全部；US land → 地块。低价值“划分土地/抽签”动词义保留为 Reference，现代随机选择用 draw/cast lots 构式。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -161,54 +152,6 @@
         "sense_label_en": "one's fate or fortune",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2a8732c3e2e049f074de",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lot:03dc353e24a357c0:collocation:0"
-            ],
-            "meaning_cn": "划分土地",
-            "phrase": "lot the land"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "划分（土地）",
-        "definition_en": "divide into lots",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lot:03dc353e24a357c0",
-        "sense_label_en": "divide into lots",
-        "sort_order": 3,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5389b9ccbb4da929f54e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lot:94bb86a89c605b15:collocation:0"
-            ],
-            "meaning_cn": "为...抽签",
-            "phrase": "lot for"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "抽签",
-        "definition_en": "to draw lots",
-        "governing_pattern": "vi. + for",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lot:94bb86a89c605b15",
-        "sense_label_en": "to draw lots",
-        "sort_order": 4,
-        "transitivity": "vi"
       },
       {
         "collocations": [],
@@ -348,7 +291,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:2a8732c3e2e049f074de",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lot:03dc353e24a357c0:collocation:0"
+          ],
+          "meaning_cn": "划分土地",
+          "phrase": "lot the land"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "划分（土地）",
+      "definition_en": "divide into lots",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lot:03dc353e24a357c0",
+      "sense_label_en": "divide into lots",
+      "sort_order": 3,
+      "transitivity": "vt"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:5389b9ccbb4da929f54e",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:lot:94bb86a89c605b15:collocation:0"
+          ],
+          "meaning_cn": "为...抽签",
+          "phrase": "lot for"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "抽签",
+      "definition_en": "to draw lots",
+      "governing_pattern": "vi. + for",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lot:94bb86a89c605b15",
+      "sense_label_en": "to draw lots",
+      "sort_order": 4,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -360,7 +352,7 @@
       },
       {
         "sense_id": "sense:lot:03dc353e24a357c0",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8052,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -381,7 +373,7 @@
       },
       {
         "sense_id": "sense:lot:94bb86a89c605b15",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8055,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -402,9 +394,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:2a8732c3e2e049f074de",
       "collocation:358e43adee826baf59ec",
-      "collocation:5389b9ccbb4da929f54e",
       "collocation:5f0b7481437ea2e6c8b3",
       "collocation:ac142b4a091e208a7f64",
       "collocation:b08bc34d5b32ed3668c8"
@@ -414,7 +404,9 @@
       {
         "id": "collocation:2a8732c3e2e049f074de",
         "source_row": 3619,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:358e43adee826baf59ec",
@@ -424,7 +416,9 @@
       {
         "id": "collocation:5389b9ccbb4da929f54e",
         "source_row": 7036,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5f0b7481437ea2e6c8b3",

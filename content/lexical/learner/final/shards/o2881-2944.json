@@ -2107,18 +2107,46 @@
     "ordinal": 2890,
     "word": "lot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2890.json",
-    "source_fingerprint": "fe801a62ffca2c767d912cbca69dc57bce129e18506f20ef8fc63df3d93ae7ce",
-    "sense_lineage": [],
+    "source_fingerprint": "2c45e2af66ef0a6020f28807b8de5a6a30657b639c9e5b8f635637aa861f6ec7",
+    "sense_lineage": [
+      {
+        "word_id": "word:lot",
+        "target_kind": "sense",
+        "from_target_id": "sense:lot:03dc353e24a357c0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lot",
+        "target_kind": "sense",
+        "from_target_id": "sense:lot:94bb86a89c605b15",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lot",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2a8732c3e2e049f074de",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lot",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5389b9ccbb4da929f54e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "许多/大量；一批/一组；拍卖批次；地块；境遇",
-      "decision_cn": "a lot of + noun → 许多；a lot（副词）→ 很/经常；one/another lot → 一批；auction lot → 拍品批次；the lot → 全部；US land → 地块。",
+      "decision_cn": "a lot of + noun → 许多；a lot（副词）→ 很/经常；one/another lot → 一批；auction lot → 一组拍品；the lot → 全部；US land → 地块。低价值“划分土地/抽签”动词义保留为 Reference，现代随机选择用 draw/cast lots 构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2228,65 +2256,8 @@
         }
       },
       {
-        "id": "sense:lot:03dc353e24a357c0",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "划分（土地）",
-        "definition_en": "divide into lots",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2a8732c3e2e049f074de",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "lot the land",
-            "meaning_cn": "划分土地",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lot:03dc353e24a357c0",
-          "target_locator": "record.senses[3]",
-          "target_label": "划分（土地）"
-        }
-      },
-      {
-        "id": "sense:lot:94bb86a89c605b15",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "抽签",
-        "definition_en": "to draw lots",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5389b9ccbb4da929f54e",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "lot for",
-            "meaning_cn": "为...抽签",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5389b9ccbb4da929f54e",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "lot for"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lot:94bb86a89c605b15",
-          "target_locator": "record.senses[4]",
-          "target_label": "抽签"
-        }
-      },
-      {
         "id": "sense:lot:dd8dce95363c1308",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "one/another lot of + plural/uncountable noun",
         "definition_cn": "一批；一组（一起处理的人或物）",
@@ -2297,13 +2268,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lot:dd8dce95363c1308",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[3]",
           "target_label": "一批；一组（一起处理的人或物）"
         }
       },
       {
         "id": "sense:lot:c23bbfcf6b0c0d66",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "lot + number / auction lot",
         "definition_cn": "（拍卖中的）一件/一组拍品；拍卖批次",
@@ -2314,7 +2285,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lot:c23bbfcf6b0c0d66",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[4]",
           "target_label": "（拍卖中的）一件/一组拍品；拍卖批次"
         }
       }
@@ -2412,7 +2383,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:2a8732c3e2e049f074de",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lot:03dc353e24a357c0:collocation:0"
+              ],
+              "meaning_cn": "划分土地",
+              "phrase": "lot the land"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "划分（土地）",
+          "definition_en": "divide into lots",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lot:03dc353e24a357c0",
+          "sense_label_en": "divide into lots",
+          "sort_order": 3,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5389b9ccbb4da929f54e",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lot:94bb86a89c605b15:collocation:0"
+              ],
+              "meaning_cn": "为...抽签",
+              "phrase": "lot for"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "抽签",
+          "definition_en": "to draw lots",
+          "governing_pattern": "vi. + for",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lot:94bb86a89c605b15",
+          "sense_label_en": "to draw lots",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -3265,7 +3286,7 @@
     "ordinal": 2896,
     "word": "lover",
     "source_owner_path": "content/lexical/words/by-ordinal/o2896.json",
-    "source_fingerprint": "f117a139f8e6def0a08aeb70672e57ec90486b27562bde60c8b2bfcebea14095",
+    "source_fingerprint": "094dc2c5ff7659ebae6e8ac288f5a416b44123f7244569f7ddcd384fc1c6b552",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3274,13 +3295,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "爱人或爱好者",
-      "decision_cn": "",
+      "summary_cn": "情人、恋人；某事物的爱好者",
+      "decision_cn": "person/relationship → lover 指亲密或性关系中的情人/恋人，不等于“任何爱某人的人”；X lover → 某事物的爱好者，如 music lover。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "爱人或爱好者"
+        "target_label": "情人、恋人；某事物的爱好者"
       }
     },
     "senses": [
@@ -3289,9 +3310,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "爱人；情人",
-        "definition_en": "a person who loves someone or is loved by someone, often in a romantic relationship",
-        "note": "",
+        "definition_cn": "情人；恋人（有亲密/性关系的伴侣，常指并非夫妻）",
+        "definition_en": "a person with whom someone has a sexual or intimate romantic relationship, especially when the two are not married to each other",
+        "note": "lover does not simply mean any person who loves someone; it normally implies a romantic/sexual relationship",
         "identity_overlay": null,
         "usage": [
           {
@@ -3315,7 +3336,7 @@
           "target_kind": "sense",
           "target_id": "sense:lover:590d288dbce55b4b",
           "target_locator": "record.senses[0]",
-          "target_label": "爱人；情人"
+          "target_label": "情人；恋人（有亲密/性关系的伴侣，常指并非夫妻）"
         }
       },
       {

@@ -7006,7 +7006,7 @@
     "ordinal": 2856,
     "word": "litter",
     "source_owner_path": "content/lexical/words/by-ordinal/o2856.json",
-    "source_fingerprint": "20591ee10ca0a42b390942a0bd4602d2fe8f0623aff00aa6a082c5a55f32d732",
+    "source_fingerprint": "89bec0e31c0b96e05160f176890e080799330ce2024274a9379dcf664682adfc",
     "sense_lineage": [
       {
         "word_id": "word:litter",
@@ -7014,23 +7014,30 @@
         "from_target_id": "sense:litter:118cc66d8d335a25",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:litter",
+        "target_kind": "sense",
+        "from_target_id": "sense:litter:235ae626098a5727",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "1V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "垃圾；一窝幼崽；乱丢/散落",
-      "decision_cn": "",
+      "summary_cn": "垃圾；一窝幼崽；猫砂/宠物厕所填充物；乱丢或散落",
+      "decision_cn": "public place → litter 垃圾；animals → a litter of puppies/kittens 一窝幼崽；pet care → cat/pet litter 猫砂等填充物；verb → 乱丢/使散落。低价值“动物产仔”动词保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "垃圾；一窝幼崽；乱丢/散落"
+        "target_label": "垃圾；一窝幼崽；猫砂/宠物厕所填充物；乱丢或散落"
       }
     },
     "senses": [
@@ -7095,8 +7102,25 @@
         }
       },
       {
-        "id": "sense:litter:fdbfcad00d3953a9",
+        "id": "sense:litter:775ed5c851e26341",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（尤指猫砂盆里的）宠物厕所填充物；猫砂",
+        "definition_en": "absorbent material put in a tray or box for a pet, especially a cat, to urinate or defecate in",
+        "note": "ordinary modern pet-care sense; cat litter / pet litter",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:litter:775ed5c851e26341",
+          "target_locator": "record.senses[2]",
+          "target_label": "（尤指猫砂盆里的）宠物厕所填充物；猫砂"
+        }
+      },
+      {
+        "id": "sense:litter:fdbfcad00d3953a9",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "乱丢；弄乱",
@@ -7107,25 +7131,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:litter:fdbfcad00d3953a9",
-          "target_locator": "record.senses[2]",
-          "target_label": "乱丢；弄乱"
-        }
-      },
-      {
-        "id": "sense:litter:235ae626098a5727",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "产仔",
-        "definition_en": "to give birth to a litter of animals",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:litter:235ae626098a5727",
           "target_locator": "record.senses[3]",
-          "target_label": "产仔"
+          "target_label": "乱丢；弄乱"
         }
       }
     ],
@@ -7215,6 +7222,20 @@
           "source_row": 7937,
           "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "产仔",
+          "definition_en": "to give birth to a litter of animals",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:litter:235ae626098a5727",
+          "sense_label_en": "to give birth to a litter of animals",
+          "sort_order": 2,
+          "transitivity": "vi"
         }
       ]
     }
@@ -8464,23 +8485,23 @@
     "ordinal": 2861,
     "word": "living",
     "source_owner_path": "content/lexical/words/by-ordinal/o2861.json",
-    "source_fingerprint": "72b3dd2d32e0731c0d21661f377e1d4d3f3a25f97300c197d37eadce523490a7",
+    "source_fingerprint": "1b2851c8a96f61dc35f23356164b8443adfcd3e225daa6dcb888732cc6c954cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3A",
+        "4A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "活的；生计",
-      "decision_cn": "",
+      "summary_cn": "活着的；仍在延续/使用中的；生计",
+      "decision_cn": "living things/people → 活着的；living language/tradition/monument → 仍存在、延续或使用中的；make/do sth for a living → 谋生。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "活的；生计"
+        "target_label": "活着的；仍在延续/使用中的；生计"
       }
     },
     "senses": [
@@ -8511,8 +8532,25 @@
         }
       },
       {
-        "id": "sense:living:92c66173a2285c7b",
+        "id": "sense:living:92dfe2ecde2e3d14",
         "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "仍然存在的；仍在延续、使用或发挥作用的",
+        "definition_en": "still existing, continuing, or in active use",
+        "note": "living language / living tradition / living monument: continuing or still in active use, not literally biologically alive",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:living:92dfe2ecde2e3d14",
+          "target_locator": "record.senses[1]",
+          "target_label": "仍然存在的；仍在延续、使用或发挥作用的"
+        }
+      },
+      {
+        "id": "sense:living:92c66173a2285c7b",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "生计，谋生之道",
@@ -8522,14 +8560,14 @@
         "usage": [
           {
             "id": "collocation:82fe1d1c56044a9b6d50",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "make a living",
             "meaning_cn": "谋生",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:82fe1d1c56044a9b6d50",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "make a living"
             }
           }
@@ -8537,13 +8575,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:living:92c66173a2285c7b",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "生计，谋生之道"
         }
       },
       {
         "id": "sense:living:8999a3146b6153b4",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "逼真的，栩栩如生的",
@@ -8553,7 +8591,7 @@
         "usage": [
           {
             "id": "collocation:b6efc2c5b149b4cd7609",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "a living portrait",
             "meaning_cn": "一幅栩栩如生的画像",
             "kind": "usage_example",
@@ -8563,13 +8601,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:living:8999a3146b6153b4",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "逼真的，栩栩如生的"
         }
       },
       {
         "id": "sense:living:50b778e79ee652bf",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "（用于强调）十足的，完全的",
@@ -8579,7 +8617,7 @@
         "usage": [
           {
             "id": "collocation:a767f41900a81836e621",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a living hell",
             "meaning_cn": "人间地狱",
             "kind": "usage_example",
@@ -8589,7 +8627,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:living:50b778e79ee652bf",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "（用于强调）十足的，完全的"
         }
       }
@@ -10064,18 +10102,33 @@
     "ordinal": 2870,
     "word": "lock",
     "source_owner_path": "content/lexical/words/by-ordinal/o2870.json",
-    "source_fingerprint": "7ec13614070cb1a130fd28e573da232390f25106612b993fd061ae3d962e5020",
-    "sense_lineage": [],
+    "source_fingerprint": "141fb5b6f73d2ff7b14999c44d4e1dbeaa36ea2b029052654b41a453488f5055",
+    "sense_lineage": [
+      {
+        "word_id": "word:lock",
+        "target_kind": "sense",
+        "from_target_id": "sense:lock:8900e9149d1b5960",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lock",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a393937486d2d6adf1cc",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "锁；锁住",
-      "decision_cn": "",
+      "decision_cn": "device → 锁；hair → 一缕；canal → 船闸/水闸；verb → 锁上或卡住。航运专业动词 lock through（过船闸）保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10239,37 +10292,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "水闸；船闸"
         }
-      },
-      {
-        "id": "sense:lock:8900e9149d1b5960",
-        "source_locator": "record.senses[5]",
-        "pos": "verb",
-        "governing_pattern": "vi. + through",
-        "definition_cn": "过闸",
-        "definition_en": "to pass through a canal lock",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a393937486d2d6adf1cc",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "lock through",
-            "meaning_cn": "过闸",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a393937486d2d6adf1cc",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "lock through"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lock:8900e9149d1b5960",
-          "target_locator": "record.senses[5]",
-          "target_label": "过闸"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10310,7 +10332,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a393937486d2d6adf1cc",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lock:8900e9149d1b5960:collocation:0"
+              ],
+              "meaning_cn": "过闸",
+              "phrase": "lock through"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "过闸",
+          "definition_en": "to pass through a canal lock",
+          "governing_pattern": "vi. + through",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lock:8900e9149d1b5960",
+          "sense_label_en": "to pass through a canal lock",
+          "sort_order": 5,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {

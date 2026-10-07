@@ -21,19 +21,18 @@
           ]
         },
         {
-          "label_cn": "锁上；锁住；卡住；锁住；过闸",
-          "label_en": "to fasten something with a lock; to become fixed or unable to move; to pass through a canal lock",
+          "label_cn": "锁上；锁住；卡住",
+          "label_en": "to fasten something with a lock; to become fixed or unable to move",
           "pos": "verb",
           "sense_ids": [
             "sense:lock:da959cb434565aa4",
-            "sense:lock:60122057c2cb546a",
-            "sense:lock:8900e9149d1b5960"
+            "sense:lock:60122057c2cb546a"
           ]
         }
       ],
       "core_meaning_cn": "锁；锁住",
       "core_meaning_en": "to fasten or become fastened with a lock; a device for fastening",
-      "mental_model_cn": "锁；锁住",
+      "mental_model_cn": "device → 锁；hair → 一缕；canal → 船闸/水闸；verb → 锁上或卡住。航运专业动词 lock through（过船闸）保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -181,30 +180,6 @@
         "sense_label_en": "a section of a canal with gates at each end, used to raise or lower boat",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a393937486d2d6adf1cc",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lock:8900e9149d1b5960:collocation:0"
-            ],
-            "meaning_cn": "过闸",
-            "phrase": "lock through"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "过闸",
-        "definition_en": "to pass through a canal lock",
-        "governing_pattern": "vi. + through",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lock:8900e9149d1b5960",
-        "sense_label_en": "to pass through a canal lock",
-        "sort_order": 5,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -593,7 +568,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a393937486d2d6adf1cc",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:lock:8900e9149d1b5960:collocation:0"
+          ],
+          "meaning_cn": "过闸",
+          "phrase": "lock through"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "过闸",
+      "definition_en": "to pass through a canal lock",
+      "governing_pattern": "vi. + through",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lock:8900e9149d1b5960",
+      "sense_label_en": "to pass through a canal lock",
+      "sort_order": 5,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -612,7 +612,7 @@
       },
       {
         "sense_id": "sense:lock:8900e9149d1b5960",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7987,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
@@ -646,7 +646,6 @@
       "collocation:12a476864fd1a4dd296e",
       "collocation:19b183e97c711b374559",
       "collocation:a282f0e8e2c0291b38c9",
-      "collocation:a393937486d2d6adf1cc",
       "collocation:e53fef6bfa33f885bc10"
     ],
     "facts": [],
@@ -684,7 +683,9 @@
       {
         "id": "collocation:a393937486d2d6adf1cc",
         "source_row": 13890,
-        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e53fef6bfa33f885bc10",
