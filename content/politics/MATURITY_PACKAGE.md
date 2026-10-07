@@ -57,16 +57,15 @@ Politics-native control:
 ## Subject-native learning control
 
 ```text
-Current prepared chapter model / route
-→ Chat continuous teaching + same-model compression
-→ Chat encoding / first retrieval of reviewed exact targets
-→ authorized Website Memory retrieval + first-ready Xiao1000 verification
+Chengfeng source study + requested Chat clarification/compression
+→ selective encoding under the current Learning §6.1
+→ learner-selected Memory practice or optional Chat plan + Xiao1000 verification
 → Recall / Wrong / Uncertain evidence returns to Chat
 → adaptive practice / smallest causal or model repair / no extra action when justified
 → later Analysis / current-year / Mock work when its Source window opens
 ```
 
-Learning and admission remain owned by [Learning §3.1.1 / §6.1](LEARNING_CONTRACT.md). The reviewed proactive exact baseline does not require Wrong/Uncertain; first-contact questions alone do not create remedial debt. Source remains calibration/repair support, not a compulsory second course. Chat adapts today's selection, quantity and reappearance to actual evidence and prerequisites.
+Current learning roles and retention necessity are owned by [Learning §2 / §6.1](LEARNING_CONTRACT.md), not this summary or prior prepared inventories. A source-reviewed card is not automatically part of the Leg-informed baseline. The historical delivery acceptance remains limited to its tested path; new free-practice delivery and real learner effectiveness need their own evidence.
 
 Stable work must get cheaper. One Wrong does not create one Repair task. Recall labels are evidence, not mastery/priority scores. No D1/D3/D7 learner-facing cadence and no Politics-only second scheduler.
 

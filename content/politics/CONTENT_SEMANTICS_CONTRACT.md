@@ -119,7 +119,7 @@ Each precision object must declare its learning priority so Orientation does not
 ### `source_handoff`
 The stable cross-surface learning target already authorized by Logic.
 
-Under [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), Chat owns continuous teaching and Chengfeng retains Source ownership. This handoff points to original iPad / MarginNote images/text for necessary Source calibration, with:
+Under [Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), Chengfeng owns detailed-study and compression input; Chat offers clarification and compression. This handoff locates original text/images for source study or calibration, with:
 - source locator;
 - source owners;
 - a small `look_for` list.
@@ -175,7 +175,7 @@ The defaults and hard promotion/demotion guards are owned by `CONTENT_HIERARCHY_
 
 ### 3.1.1 Prepared chapter package realization
 
-Learning Contract §3.1.1 requires a reusable chapter teaching package before the chapter is called prepared for cross-Chat continuous learning.
+Learning Contract §3.1.1 governs optional prepared Chat teaching. Current source-compression and retention jobs follow §2 / §6.1; historical brief stage/C instructions do not override those jobs. Existing packages remain reusable support, not a mandatory course or a ready-made must-memorize syllabus.
 
 Realize that package through existing Content owners. The exact file split is flexible, but the following learner jobs must be inspectably owned rather than inferred at runtime:
 
@@ -209,7 +209,7 @@ A usable exact-retention object/group must resolve:
 - stable chapter/NU and content identity, the owning explanation/model relation, and inspected Source/edition provenance;
 - a specific retrieval prompt, authoritative answer and essential checking criteria: allowed paraphrase, complete membership, exact pairing, decisive qualifiers and any meaningful order;
 - a useful memory cue/grouping/contrast where needed, explicitly distinguishable from the authoritative answer and safe to withhold before retrieval;
-- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under the Learning Contract;
+- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under Learning §6.1; the existing review must distinguish source correctness from retention necessity and cite the exact Leg title/edition/passage for a new proactive baseline;
 - its existing candidate ID / consumer path, or a concrete unresolved mapping. Reuse, revise or retire duplicates against their original owner instead of hand-synchronizing parallel answers.
 
 These are semantic requirements, not permission to invent field names that no consumer reads. Reuse `precision_objects`, `content_support` groups, `statement`, `source_refs` and existing sidecar identities where they fit. A bounded additive extension for an explicit prompt/checking content is allowed only through this Content owner plus the resolved Runtime implementation owner, with loader → catalog → plan/evidence snapshot → renderer → return compatibility proved together. A new registry, new command/state family or cross-system architecture change remains OWNER_UNRESOLVED until Engineer resolves it through the existing architecture owners.
@@ -220,7 +220,7 @@ Catalog discovery, content admission and learner scheduling are distinct. A meta
 
 Implemented field mapping for the bounded Memory consumer: existing groups keep `name`/NU/`source_refs` as their legacy ID basis; an explicit stable `id` may be retained, and sidecars keep their existing `id`. `prompt`, `checking_criteria[]`, optional `memory_cue`, and optional `inspected_refs[]` augment existing group `items` / sidecar `statement`. Cue and checking content are revealed only after retrieval. `admission: CANDIDATE_ONLY` remains candidate Content, not learner debt.
 
-Selection requires `admission_basis` with `route`, `review_status: REVIEWED`, `source_edition`, `source_locator`, `review_ref`, `prerequisite`, and `reviewed_target_revision`. The loader checks an existing repo-relative Politics learning review path and unique explicit `<a id="anchor"></a>`; its bounded section must pair the exact target ID in the first cell and reviewed revision in the last cell of one unique audit-table row. Incomplete, duplicate or pending target rows fail closed. A current edition uses a `POL27-` Source identifier; historical LEG26 alone cannot authorize current fixed wording. This verifies the binding, not political Source truth. Missing/pending metadata excludes the target from selection without deleting historical events. No W/U is required for reviewed `FIRST_ROUND_EXACT`; individual/output route interpretation stays with the Learning owner.
+Selection requires `admission_basis` with `route`, `review_status: REVIEWED`, `source_edition`, `source_locator`, `review_ref`, `prerequisite`, and `reviewed_target_revision`. The loader checks an existing repo-relative Politics learning review path and unique explicit `<a id="anchor"></a>`; its bounded section must pair the exact target ID in the first cell and reviewed revision in the last cell of one unique audit-table row. Incomplete, duplicate or pending target rows fail closed. A current edition uses a `POL27-` Source identifier; historical LEG26 alone cannot authorize current fixed wording. This verifies source binding, not political truth or the Leg-informed recommended baseline. Missing/pending metadata excludes the target from selection without deleting historical events. New `FIRST_ROUND_EXACT` necessity follows Learning §6.1; existing CF-only reviewed cards may remain optional practice without being relabeled must-retain. No new retention judgment is inferred from a matching hash.
 
 `politicsMemoryReviewedTargetRevision(candidate)` computes `sha256:` plus SHA-256 of UTF-8 canonical JSON: recursively sorted object keys, preserved array order, trimmed text; normalized `id`, `subject`, `chapter_id`, `natural_unit_id`, `family`, `prompt`, `answer_items`, `checking_criteria`, `memory_cue`, sorted unique `source_refs`/`inspected_refs`, and admission `route`/edition/locator/prerequisite. Review status/ref/digest are excluded to avoid self-reference. Catalog revision includes the consumed fields; validated plans freeze candidate snapshots. Catalog-bound staged commands remain structurally staged until the actual consumer verifies the current catalog. Recall snapshots/return retain checking and admission provenance. History comparison excludes auxiliary cue and review-location changes, but includes the retrieval prompt, ownership, answer, criteria, Source scope and prerequisite semantics; a changed prompt makes old evidence history-only unless an explicit Content compatibility basis establishes identical retrieval meaning; legacy events remain stored and cannot be relabeled as having tested newly reviewed checking content. Admission-review changes never erase raw evidence or create a schedule.
 
@@ -232,13 +232,13 @@ Consumer regression must cover explicit prompt preservation, no ambiguous same-p
 
 ### 3.2.1 Learner quick-review view is a non-canonical projection
 
-A Kian-specific chapter quick-review view may be stored in the existing chapter teaching brief/support owner after real study produces and accepts it.
+A source-faithful quick-review view may be stored in the existing chapter brief/support owner after acceptance. Explicitly requested preparation may be a labeled draft without asserting real study.
 
 Its semantics are:
 
 \`\`\`text
-canonical chapter spine
-+ actually learned problem blocks
+actual Chengfeng text / required tables and images
++ valid existing model as a relationship/completeness check
 → Kian mainline sentences
 → non-answer-leaking expansion cues
 \`\`\`
@@ -252,8 +252,8 @@ Ownership check for anything omitted from that view:
 
 Reject:
 - expansion cues that enumerate the answer rather than cue retrieval;
-- chapter-end summaries that introduce a new framework not built during learning;
-- automatic generation of quick-review views for untouched chapters;
+- chapter-end summaries that replace source relationships with an invented framework;
+- unrequested mass generation or treating a commissioned draft as learner completion;
 - any Runtime/Website behavior that treats this personal view as learner progress, admission or scheduling truth.
 
 ---
@@ -289,7 +289,7 @@ If the canonical spine must change, update the original chapter/semantic owner a
 
 ### 3.3.1 Kian self-use quick-review realization
 
-A chapter brief may contain one lightweight **Kian self-use quick-review view** produced during real Chat learning.
+A chapter brief may contain one lightweight **Kian self-use quick-review view** derived from the requested Chengfeng scope, including external study. Learning §0.7 governs first cue answers versus clean retrieval; no mandatory Chat lesson is required.
 
 It is a reference projection over the canonical chapter model, not another semantic owner. It may:
 - group adjacent canonical nodes into fewer learner-facing lines;
@@ -325,7 +325,7 @@ Chapter-close editing of this view is assembly/reconciliation of lines already f
 
 Content semantics must remain source-grounded.
 
-- Source and teaching roles inherit [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain); Chengfeng retains canonical Source/NU authority and Chat owns continuous teaching.
+- Source and teaching roles inherit [Learning Contract §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain); Chengfeng retains canonical Source/NU authority and detailed-study primacy; Chat provides requested explanation and source-faithful compression.
 - Suyi may strengthen structure, relation, boundary, or repair without becoming a second course.
 - Suyi richness does not create new first-learning blocks by default.
 - OCR fragments must not be silently repaired into new claims when their meaning is uncertain.

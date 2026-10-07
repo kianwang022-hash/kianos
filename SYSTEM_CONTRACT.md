@@ -227,7 +227,7 @@ When another surface owns the cognitive action, KianOS may provide only the appr
 Examples:
 
 - Xizong continuous source study may remain iPad/MarginNote-primary under its own learning policy;
-- Politics continuous teaching is Chat-primary under its [Learning Contract](content/politics/LEARNING_CONTRACT.md): Chat consumes the Current prepared package; Source calibration stays available, and the Website executes authorized retrieval/verification and captures evidence;
+- Politics surface responsibilities are defined by its [Learning Contract §2](content/politics/LEARNING_CONTRACT.md#2-active-first-round-learning-chain); source study, Chat help/compression and Website retrieval/verification follow that owner rather than a shared hard-coded teaching default;
 - Writing composition stays in the writing workspace while semantic coaching may happen in Chat;
 - English task lexical failure may detour into Lexical and then return to the exact originating task.
 

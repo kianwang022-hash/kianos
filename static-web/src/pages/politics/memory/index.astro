@@ -8,22 +8,39 @@ const catalog = buildPoliticsMemoryCandidateCatalogCurrent();
 const base = import.meta.env.BASE_URL;
 ---
 
-<Base title="政治 · 今日记忆" active="politics" showLead={false}>
+<Base title="政治 · 精确记忆" active="politics" showLead={false}>
   <section class="politicsMemoryWorkspace" data-politics-memory-workspace>
     <script type="application/json" data-memory-catalog set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')} />
 
     <header class="politicsMemoryHead">
       <div>
         <p>政治 · 复习</p>
-        <h1>今日记忆</h1>
+        <h1>精确记忆</h1>
       </div>
-      <strong data-memory-progress>0</strong>
+      <div class="politicsMemoryHeadRight">
+        <button type="button" data-memory-free-open>自由复习</button>
+        <strong data-memory-progress>0</strong>
+      </div>
     </header>
+
+    <section class="politicsMemoryFree" data-memory-free hidden>
+      <div>
+        <span>自由复习</span>
+        <h2>直接刷已审核的 Memory</h2>
+        <p>选择科目、章节或全部，直接开始。无需当天计划。</p>
+        <p>卡片可用不等于全部必背；这里不是已经过腿姐筛选的必背清单。</p>
+      </div>
+      <div class="politicsMemoryFreeControls">
+        <label>科目<select data-memory-free-subject></select></label>
+        <label>章节<select data-memory-free-chapter></select></label>
+        <button type="button" data-memory-free-start>开始 · <span data-memory-free-count>0</span></button>
+      </div>
+    </section>
 
     <section class="politicsMemoryEmpty" data-memory-empty hidden>
       <div>
-        <h2>今天没有记忆任务</h2>
-        <p>继续总 Home 当前安排即可。</p>
+        <h2>今天没有计划任务</h2>
+        <p>可以直接点右上角「自由复习」刷现有 Memory。</p>
       </div>
       <a href={base}>回总 Home →</a>
     </section>

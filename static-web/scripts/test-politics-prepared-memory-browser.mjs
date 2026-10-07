@@ -30,7 +30,7 @@ try{
  await context.route('**/*',route=>{const u=new URL(route.request().url());return u.origin===BASE?route.continue():route.abort()});
  let page=await context.newPage();page.on('pageerror',e=>report.errors.push(String(e)));
  const start=performance.now();await page.goto(BASE+'/politics/memory/',{waitUntil:'domcontentloaded',timeout:90000});
- await page.locator('[data-memory-empty]').waitFor({state:'visible',timeout:60000});report.memoryReadyMs=Math.round(performance.now()-start);
+ await page.locator('[data-memory-free]').waitFor({state:'visible',timeout:60000});report.memoryReadyMs=Math.round(performance.now()-start);
  const day=await page.evaluate(()=>new Date().toLocaleDateString('en-CA'));
  const plan={schema:'kianos.politics.memory-plan.v1',plan_id:'isolated-c01-browser-closeout',study_day:day,generated_at:new Date().toISOString(),catalog_revision:catalog.revision,items:targets.map(x=>({candidate_id:x.id,reason:'Isolated synthetic handoff; no real learner evidence'}))};
  const applyStart=performance.now();
@@ -75,6 +75,53 @@ try{
  report.packet={today:memory.summary,nextDayRecall:later.summary.recall_count,retainedHistory:later.history_profile.summary.current_compatible_events};
  report.catalogRevision=catalog.revision;report.catalogTargets=catalog.candidates.length;report.C01Targets=targets.length;
  report.responses=Object.fromEntries(['FORGOT','FUZZY','STABLE'].map(k=>[k,events.filter(e=>e.response===k).length]));
+
+ // Reset only the disposable fixture's Memory entries, then exercise the actual
+ // Home entry and free-practice page without a plan or a real learner profile.
+ await page.evaluate(()=>{for(const key of Object.keys(localStorage)){if(key.startsWith('kianos-politics-memory-'))localStorage.removeItem(key)}});
+ await page.goto(BASE+'/politics/',{waitUntil:'domcontentloaded',timeout:90000});
+ const entry=page.getByRole('link',{name:'精确记忆 →',exact:true});
+ await entry.waitFor({state:'visible'});check(true,'permanent-Home-memory-entry-without-plan');
+ await page.screenshot({path:path.join(auditDir,'free-home.png'),fullPage:true});
+ await entry.click();await page.locator('[data-memory-free]').waitFor({state:'visible'});
+ check(await page.locator('[data-memory-free-count]').innerText()===String(catalog.candidates.length),'all-reviewed-cards-discoverable-without-plan');
+ const labels=await page.locator('[data-memory-free-subject] option').allTextContents();
+ check(labels.length===6,'all-five-subjects-and-all-scope');
+ check((await page.locator('[data-memory-free]').innerText()).includes('不是已经过腿姐筛选的必背清单'),'optional-access-not-must-memorize-list');
+ await page.setViewportSize({width:1440,height:900});
+ await page.screenshot({path:path.join(auditDir,'free-picker.png'),fullPage:true});
+ await page.selectOption('[data-memory-free-subject]','marxism');
+ const ch2=catalog.candidates.filter(c=>c.subject==='marxism' && /C02$/.test(c.chapter_id));
+ check(ch2.length>0,'chapter-two-exists-in-real-catalog');
+ await page.selectOption('[data-memory-free-chapter]',ch2[0].chapter_id);
+ check(await page.locator('[data-memory-free-count]').innerText()===String(ch2.length),'chapter-filter-preserves-owned-range');
+ await page.locator('[data-memory-free-start]').click();
+ await page.locator('[data-memory-prompt]').waitFor({state:'visible'});
+ for(let i=0;i<3;i++){
+  const target=ch2[i];check(await page.locator('[data-memory-prompt]').innerText()===target.prompt,'free-prompt-'+i+'-exact');
+  check(!await page.locator('[data-memory-answer]').isVisible()&&!await page.locator('[data-memory-controls]').isVisible(),'free-before-reveal-'+i+'-protected');
+  if(i===0){await page.keyboard.press('1');check((await readEvents()).length===0,'free-rating-before-reveal-does-not-record');await page.screenshot({path:path.join(auditDir,'free-prompt.png'),fullPage:true})}
+  await page.keyboard.press('Enter');
+  assert.deepEqual(await page.locator('[data-memory-answer-items] li').allTextContents(),target.answer_items);
+  if(i===0)await page.screenshot({path:path.join(auditDir,'free-answer.png'),fullPage:true});
+  await page.keyboard.press(String(i+1));
+  await page.waitForFunction(n=>JSON.parse(localStorage.getItem('kianos-politics-memory-evidence-v1')||'[]').length===n,i+1);
+ }
+ const freeEvents=await readEvents();
+ check(freeEvents.every(e=>e.plan_id.startsWith('manual:')),'free-events-distinct-from-planned-evidence');
+ check(await page.evaluate(()=>localStorage.getItem('kianos-politics-memory-plan-v1')===null),'free-practice-does-not-create-plan');
+ await page.reload({waitUntil:'domcontentloaded'});await page.locator('[data-memory-free]').waitFor({state:'visible'});
+ check((await readEvents()).length===3,'free-evidence-survives-reload');
+ await page.selectOption('[data-memory-free-subject]','all');
+ await page.locator('[data-memory-free-start]').click();
+ check((await page.locator('[data-memory-progress]').innerText()).endsWith('/ '+catalog.candidates.length),'all-scope-not-limited-by-day-plan-size');
+ check((await readEvents()).length===3,'starting-all-scope-does-not-fabricate-recall');
+ check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Mac-no-horizontal-overflow');
+ const freeSaved=await page.evaluate(()=>Object.fromEntries(Object.keys(localStorage).map(k=>[k,localStorage.getItem(k)])));
+ const freeState=new Map(Object.entries(freeSaved));
+ const freePacket=buildHomeDailyLearningPacket({...packetArgs,storage:{getItem:k=>freeState.get(k)??null,setItem:(k,v)=>freeState.set(k,v),removeItem:k=>freeState.delete(k)}}).packet.subjects.politics.evidence.memory;
+ check(freePacket.summary.recall_count===3 && freePacket.current_plan===null,'free-evidence-native-packet-without-fake-plan');
+ report.freePractice={chapterTwoTargets:ch2.length,allTargets:catalog.candidates.length,fixtureEvents:3,planCreated:false};
  report.learnerWrites=0;report.productionControlWrites=0;
  check(report.errors.length===0,'no-native-page-errors');
  report.status='PASS';

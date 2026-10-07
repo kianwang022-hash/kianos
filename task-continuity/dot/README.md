@@ -35,7 +35,7 @@
 最高验收只固定各科稳定的完整目的、期望效果与达标判断，继续由下列原 owner 承担；不把当前任务、进度、批次、状态或执行回执纳入目的定义：
 
 - 西综：[固定模型与学习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome) → [内容教学实现](../../content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。
-- 政治：[学习目的、固定重建骨架与预备教学包（§0、§0.5、§3.1）](../../content/politics/LEARNING_CONTRACT.md) → [内容语义与教学实现（§3.1.1、§3.3）](../../content/politics/CONTENT_SEMANTICS_CONTRACT.md) → [实际教学包](../../content/politics/learning/manifest.json)。
+- 政治：先按 [Learning §2 的当前学习分工与 §6.1 的精记筛选](../../content/politics/LEARNING_CONTRACT.md)确定任务，再读[内容实现](../../content/politics/CONTENT_SEMANTICS_CONTRACT.md)与[现有资产入口](../../content/politics/learning/manifest.json)。不得从历史教案的 C 清单直接扩充必背基线；内容生成范围仍以当前授权为准。
 - 两科继续按已确认分工消费这些 owner：GitHub 保存稳定知识与教学资产；Chat 围绕固定知识地图灵活教学；Website 通过共享科目模板承担 Recall / Memory、题目、状态与反馈。共同学习效果检查回到 [Learning Acceptance](../../LEARNING_ACCEPTANCE.md)，具体范围结论回到[西综 Acceptance](../../content/xizong/ACCEPTANCE.md) / [政治 Acceptance](../../content/politics/ACCEPTANCE.md)，不在这里复制标准。
 - Lexical 的最高验收直接采用[板块目的：Learning §0](../../content/lexical/LEARNING_CONTRACT.md)与[内容目的、模块生成及整合验收：Content §0A、§4A、§14](../../content/lexical/CONTENT_ASSET_CONTRACT.md)。Lexical 是英语的词汇模块，不代表全部英语；其他英语完整目的仍由原 Learning / Content owner 承担，不从本次词汇确认推定。
 

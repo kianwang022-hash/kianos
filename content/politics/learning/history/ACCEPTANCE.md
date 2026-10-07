@@ -65,7 +65,7 @@ Executed evidence:
 
 The shared Politics projection no longer renders Chengfeng continuous source text in Astro. History still retains its stage/timeline teaching projection, Xiao1000 verification, Wrong/Uncertain repair route, and Unit Return behavior.
 
-Current surface ownership follows [Learning — Surface roles](../../LEARNING_CONTRACT.md#surface-roles): Chat owns continuous first study and same-model compression; Chengfeng remains the Source basis, with original iPad/MarginNote images/text used when calibration is needed. The dated surface table and workflow receipts above prove their tested historical scope, not current iPad-first routing or complete Chat teaching acceptance.
+Current surface ownership follows [Learning — Surface roles](../../LEARNING_CONTRACT.md#surface-roles): current source-study and Chat-compression roles follow Learning §2; Chengfeng remains the Source basis, with original iPad/MarginNote images/text used when calibration is needed. The dated surface table and workflow receipts above prove their tested historical scope, not current iPad-first routing or complete Chat teaching acceptance.
 
 History has no real learner U evidence yet. The Marxism friction that triggered the shared fix is not copied into History as learner evidence.
 
