@@ -705,6 +705,7 @@ export function buildXizongProductionBlock(canonicalBlock) {
     logicGroups,
     kpRecords,
     sourceContact: semanticBlock.sourceContact,
+    learnerCapabilities: semanticBlock.learnerCapabilities,
     retrievalPoints: semanticBlock.retrievalPoints,
     ttsx: semanticBlock.ttsx,
     attention: semanticBlock.attention,

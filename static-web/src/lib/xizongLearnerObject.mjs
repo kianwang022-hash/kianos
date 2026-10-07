@@ -289,6 +289,18 @@ function buildGroupObject(block, group, kpObjects, learningCues, extensionAssets
   };
 }
 
+export function deriveXizongLearnerCapabilities(value = null) {
+  const capability = value || {};
+  return {
+    schema: 'kianos.xizong.learner_capabilities.v1',
+    postChatRecall: capability?.postChatRecall === true,
+    titleOnlyKps: capability?.titleOnlyKps === true,
+    sourceReturnClearsPostChatMode: capability?.sourceReturnClearsPostChatMode === true,
+    modelReadinessRequired: capability?.modelReadinessRequired === true,
+    independentReadinessGates: capability?.independentReadinessGates === true
+  };
+}
+
 export function buildXizongLearnerObject({
   block,
   learningCues = null,
@@ -338,6 +350,7 @@ export function buildXizongLearnerObject({
       cognitiveProjection: block?.cognitiveProjection || null
     },
     sourceContact: block?.sourceContact || null,
+    capabilities: deriveXizongLearnerCapabilities(block?.learnerCapabilities || null),
     blockPreentry: block?.blockPreentry || null,
     blockExtension: blockExtensions,
     logicGroups: groups,
@@ -416,7 +429,7 @@ export function presentXizongLearnerBlock(learnerObject) {
     systemId: identity.systemId, systemCanonicalId: identity.canonicalId, sourceHash: learnerObject.sourceHash,
     centerQuestion: framework.centerQuestion, firstPassFocus: framework.firstPassFocus,
     stopLine: framework.stopLine, recallSpine: framework.recallSpine, cognitiveProjection: framework.cognitiveProjection,
-    sourceContact: learnerObject.sourceContact, blockPreentry: learnerObject.blockPreentry,
+    sourceContact: learnerObject.sourceContact, blockPreentry: learnerObject.blockPreentry, learnerCapabilities: learnerObject.capabilities,
     logicGroups: learnerObject.logicGroups.map(group => ({
       ...group, groupId: group.identity.logicGroupId, label: group.identity.label,
       order: group.identity.order, kpCount: group.kpIds.length,

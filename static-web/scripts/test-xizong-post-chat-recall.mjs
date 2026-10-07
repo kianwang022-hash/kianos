@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import * as revision from '../src/lib/xizongContentRevision.mjs';
+import { loadXizongBlock } from '../src/lib/xizong.mjs';
+import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
 
 // Execute the shipped inline controller and evidence capture listener against a
 // small synthetic DOM/storage adapter. This is not browser, medical or learner U proof.
@@ -17,34 +19,25 @@ const controller = runtime.replace(/await import\(revisionRuntimeUrl\)/, '__revi
 const evidenceController = bridge.match(/<script>\n([\s\S]*?)<\/script>/)?.[1]
   .replace(/  import[^\n]+\n/, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
 assert.ok(evidenceController, 'execute the actual evidence bridge');
-// Evaluate the actual frontmatter predicate, rather than restating its scope.
-const referenceExpression = component.match(/const postChatReferenceBlock = ([\s\S]*?);/)?.[1];
-assert.ok(referenceExpression);
-const referenceFor = (systemId, slug, systemCanonicalId = ({ circulation:'A1', respiratory:'A2', urinary:'A3' })[systemId]) => vm.runInNewContext(referenceExpression, { bPostChatReferenceBlock: false, block: { systemId, slug, systemCanonicalId } });
-const availabilityExpression = component.match(/const postChatRecallAvailable = ([\s\S]*?);/)?.[1];
-assert.ok(availabilityExpression);
-const availableFor = (systemId = 'circulation', slug = 'b01', mode = 'NATURAL_SOURCE_UNIT', perGroup = false) =>
-  vm.runInNewContext(availabilityExpression, { bPostChatReferenceBlock: false, bPostChatSourceAvailable: false, postChatReferenceBlock: referenceFor(systemId, slug), sourceContactMode: mode, sourcePerGroup: perGroup });
-assert.equal(availableFor(), true);
-assert.equal(availableFor('circulation', 'b02'), true);
-for (const args of [['circulation', 'b13'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true], ['circulation', 'b02', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b02', 'NATURAL_SOURCE_UNIT', true]]) {
-  assert.equal(availableFor(...args), false, `scope:${args}`);
+// Product capability comes from the compiled learner object, not a System whitelist in the component.
+assert.doesNotMatch(component, /systemId === 'circulation'|systemId === 'respiratory'|systemId === 'urinary'|digestive-metabolic-endocrine-tumor/);
+const capabilityFor = (systemId, blockRef) => resolveXizongLearnerProjection(loadXizongBlock(systemId, blockRef)).learnerObject.capabilities;
+for (let n=1;n<=12;n++) {
+  const cap=capabilityFor('circulation',`b${String(n).padStart(2,'0')}`);
+  assert.equal(cap.postChatRecall,true); assert.equal(cap.titleOnlyKps,true);
 }
-assert.match(component, /data-post-chat-recall-available=\{postChatRecallAvailable \? 'true' : 'false'\}/);
-// The B1/B2 title-only presentation is independent of evidence and Source mode.
+for (let n=1;n<=12;n++) {
+  const cap=capabilityFor('respiratory',`r${String(n).padStart(2,'0')}`);
+  assert.equal(cap.postChatRecall,true); assert.equal(cap.titleOnlyKps,true);
+}
+for (let n=1;n<=14;n++) {
+  const cap=capabilityFor('urinary',`b${String(n).padStart(2,'0')}`);
+  assert.equal(cap.postChatRecall,true); assert.equal(cap.titleOnlyKps,true);
+}
 const titleOnlyExpression = component.match(/const titleOnlyKps = ([^\n]+);/)?.[1];
 assert.ok(titleOnlyExpression);
-const titleOnlyFor = (systemId, slug) => vm.runInNewContext(titleOnlyExpression, { postChatReferenceBlock: referenceFor(systemId, slug) });
-assert.equal(titleOnlyFor('circulation', 'b01'), true);
-assert.equal(titleOnlyFor('circulation', 'b02'), true);
-for(let n=3;n<=12;n++){ const slug=`b${String(n).padStart(2,'0')}`;assert.equal(availableFor('circulation',slug),true);assert.equal(titleOnlyFor('circulation',slug),true);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('circulation',slug,'NATURAL_SOURCE_UNIT',true),false);}
-assert.equal(titleOnlyFor('circulation', 'b13'), false);
-assert.equal(titleOnlyFor('respiratory', 'b01'), false);
-for(let n=1;n<=12;n++){const slug=`r${String(n).padStart(2,'0')}`;assert.equal(availableFor('respiratory',slug),true);assert.equal(titleOnlyFor('respiratory',slug),true);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('respiratory',slug,'NATURAL_SOURCE_UNIT',true),false);}
-assert.equal(availableFor('respiratory','r13'),false);assert.equal(titleOnlyFor('respiratory','r13'),false);
-for(let n=1;n<=14;n++){const slug=`b${String(n).padStart(2,'0')}`;assert.equal(availableFor('urinary',slug),true);assert.equal(titleOnlyFor('urinary',slug),true);assert.equal(availableFor('urinary',slug,'NATURAL_SOURCE_UNITS'),false);assert.equal(availableFor('urinary',slug,'NATURAL_SOURCE_UNIT',true),false);}
-for(const slug of ['b00','b15','b1','r01'])assert.equal(referenceFor('urinary',slug),false);
-for(const canonical of ['A1','A2','',null])assert.equal(referenceFor('urinary','b01',canonical),false);
+const titleOnlyFor = (value) => vm.runInNewContext(titleOnlyExpression, { learnerCapabilities: { titleOnlyKps:value } });
+assert.equal(titleOnlyFor(true), true); assert.equal(titleOnlyFor(false), false);
 assert.match(component, /data-kp-title-only=\{titleOnlyKps \? 'true' : 'false'\}/);
 assert.match(component, /<h3>\{titleOnlyKps \? kp.title : kp.displayId\}<\/h3>/);
 assert.match(component, /data-kp-recall-title>\{titleOnlyKps \? firstKp\?\.title : firstKp\?\.displayId\}/);
@@ -169,7 +162,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   const context = vm.createContext({ window, document, location: {hash:''}, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, HTMLDetailsElement: Element, Element, CustomEvent, __revision: revision,
     learnerWriterReady: Promise.resolve(), sourceContactCompatible: revision.sourceContactCompatible, revisionRequiresAction: revision.revisionRequiresAction, needsFreshKpRecall: revision.needsFreshKpRecall,
     groupPayload: groups, kpPayload, revisionRuntimeUrl: '', revisionWitness: witness,
-    sourcePerGroup: false, bPostChatReferenceBlock: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
+    sourcePerGroup: false, guardedPostChatBlock: false, sourceReturnClearsPostChatMode: false, modelReadinessRequired: false, hasIndependentReadinessGates: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
     naturalSourceUnits: false, integrationPrimary: false, integrationTargetedSourceReturns: false, integrationReleaseLogicGroupIds: [], segmentedSourceUnits: false,
     blockSourceDebtPayload: [], blockSourceConflictPayload: [], blockVisualDebtPayload: visual ? [groupIds[1]] : [], sourceSegmentPayload: [], biochemistrySourcePayload: null, ttsxPayload: ttsx });
   await vm.runInContext(controller, context);

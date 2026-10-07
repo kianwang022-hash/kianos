@@ -129,6 +129,26 @@ function flattenText(value) {
   return String(value || '');
 }
 
+function postChatRetrievalPolicy(learning) {
+  const row = learning?.surface_handoff_contract?.post_chat_retrieval || learning?.post_chat_retrieval || null;
+  if (row) {
+    const entryMode = String(row?.entry_mode || '');
+    if (entryMode !== 'POST_CHAT_RECALL') fail('POST_CHAT_RETRIEVAL_INVALID', String(learning?.system_id || ''));
+    return {
+      postChatRecall: true,
+      titleOnlyKps: true,
+      sourceReturnClearsPostChatMode: /returning to original Source leaves this navigation mode/i.test(String(row?.rule || '')),
+      compatibility: null
+    };
+  }
+  // Transitional compatibility for already-accepted A1/A2/A3 post-Chat retrieval.
+  // This is compiler metadata only: it must not mutate Content/Learning owners or learner revision witnesses.
+  if (['A1', 'A2', 'A3'].includes(String(learning?.canonical_id || ''))) {
+    return { postChatRecall: true, titleOnlyKps: true, sourceReturnClearsPostChatMode: false, compatibility: 'LEGACY_ACCEPTED_A_POST_CHAT' };
+  }
+  return { postChatRecall: false, titleOnlyKps: false, sourceReturnClearsPostChatMode: false, compatibility: null };
+}
+
 function sourceContactMode(learning) {
   const handoff = learning?.surface_handoff_contract || {};
   if (typeof handoff.source_contact_unit === 'string' && handoff.source_contact_unit.trim()) {
@@ -572,6 +592,7 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   const logicGroups = canonical ? canonical.logicGroups.map(({ start, end, kpIds, ...group }) => group)
     : normalizeAcceptedLogicGroups({ system: record.raw, blockId, blockSupport, kpCount });
   const sourceContact = normalizeSourceContact(learningOwner.raw, blockSupport, blockId, logicGroups);
+  const learnerCapabilities = postChatRetrievalPolicy(learningOwner.raw);
   if (learningOwner.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION') {
     const acceptedToStable = new Map(Object.entries(learningOwner.blockKeyMap || {}).map(([stableId, acceptedKey]) => [String(acceptedKey), String(stableId)]));
     sourceContact.hardReadinessBlockIds = (sourceContact.hardReadiness || []).map((ref) => acceptedToStable.get(String(ref)) || String(ref));
@@ -594,6 +615,7 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
     kpCount,
     logicGroups,
     sourceContact,
+    learnerCapabilities,
     retrievalPoints,
     ttsx: failClosedTtsx(),
     attention: normalizeAttention(blockSupport, cues, extensionRefs, sharedOrientation),
@@ -709,6 +731,11 @@ export function loadXizongSemanticSystem(systemId) {
   const sourceVisualOwner = loadSourceVisuals(record);
   const blocks = record.route.map((routeRow) => buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner));
   attachBRequiredModelReadiness(record, learningOwner, blocks);
+  for (const block of blocks) block.learnerCapabilities = {
+    ...block.learnerCapabilities,
+    modelReadinessRequired: Boolean(block.sourceContact?.requiredModelReadiness),
+    independentReadinessGates: Array.isArray(block.sourceContact?.independentReadinessGates) && block.sourceContact.independentReadinessGates.length > 0
+  };
 
   const kpCount = blocks.reduce((sum, block) => sum + block.kpCount, 0);
   const logicGroupCount = blocks.reduce((sum, block) => sum + block.logicGroups.length, 0);

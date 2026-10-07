@@ -175,7 +175,7 @@ const routing=recallEntry+'\n'+currentV6.slice(currentV6.indexOf('    const setS
 function route(saved,requested='kp_recall',mode={}) {
  const state=reconcileXizongRevision(structuredClone(saved),learner.revisionWitness),writes=[];
  vm.runInNewContext(routing+';setStage(requested);',{
-  state,requested,root:{dataset:{}},historicalXizongSourceContinuation,postChatRecallAvailable:false,bPostChatReferenceBlock:false,
+  state,requested,root:{dataset:{}},historicalXizongSourceContinuation,postChatRecallAvailable:false,guardedPostChatBlock:false,sourceReturnClearsPostChatMode:false,modelReadinessRequired:false,hasIndependentReadinessGates:false,
   biochemistrySource:null,segmentedSourceUnits:false,integrationPrimary:false,
   naturalSourceUnits:false,sourcePerGroup:false,pendingTtsxIsReviewed:()=>false,
   save:()=>{writes.push(state.stage);return true;},...mode
@@ -192,7 +192,7 @@ for(const requested of ['kp_recall','kp_learn','logic_group']) {
 assert.equal(route({...study,sourceContactDone:false,sourceContactEvidence:[]}).state.stage,'source_contact','known current missing Source still routes to Source');
 assert.equal(route({...legacy,completed:false}).state.stage,'source_contact','unfinished legacy cannot bypass Source');
 assert.equal(route(legacy,'source_contact',{sourcePerGroup:true}).state.stage,'kp_learn','whole-LG explicit Source return normalizes to its rendered panel');
-const bReturn=route({...legacy,recallEntryMode:'POST_CHAT_RECALL'},'source_contact',{bPostChatReferenceBlock:true,sourcePerGroup:true,modelReadiness:null,requiredModelsReady:()=>true,heldGatesFor:()=>[],currentGroup:()=>null,independentReadinessGates:[]});
+const bReturn=route({...legacy,recallEntryMode:'POST_CHAT_RECALL'},'source_contact',{guardedPostChatBlock:true,sourceReturnClearsPostChatMode:true,modelReadinessRequired:true,sourcePerGroup:true,modelReadiness:null,requiredModelsReady:()=>true,heldGatesFor:()=>[],currentGroup:()=>null,independentReadinessGates:[]});
 assert.equal(bReturn.state.stage,'kp_learn');assert.equal(bReturn.state.recallEntryMode,undefined,'B Source return clears only post-Chat navigation permission');
 assert.deepEqual(bReturn.state.ratings,legacy.ratings);assert.deepEqual(bReturn.state.learned,legacy.learned);
 const sourceView=route(legacy,'source_contact',{sourcePerGroup:true}).state;

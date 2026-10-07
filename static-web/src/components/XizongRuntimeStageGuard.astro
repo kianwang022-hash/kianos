@@ -95,8 +95,7 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       const postChatRecall = root.dataset.postChatRecallAvailable === 'true'
         && state?.recallEntryMode === 'POST_CHAT_RECALL';
       const modelRequirement = requiredModelReadiness;
-      const nativeB = root.dataset.studySystemId === 'digestive-metabolic-endocrine-tumor';
-      const modelReady = (!nativeB && !modelRequirement) || (modelRequirement?.targetBlockId === blockId
+      const modelReady = !modelRequirement || (modelRequirement?.targetBlockId === blockId
         && modelRequirement.confirmation === 'EXPLICIT_USER_CURRENT_TARGET_ONLY' && /^[a-f0-9]{64}$/.test(modelRequirement.witness || '')
         && Array.isArray(modelRequirement.requirements) && (modelRequirement.requirements.length === 0
           || (state.requiredModelContinuation?.targetBlockId === blockId
