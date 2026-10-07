@@ -32,7 +32,7 @@
       ],
       "core_meaning_cn": "躺；位于；说谎",
       "core_meaning_en": "to be in a horizontal position; to say something untrue",
-      "mental_model_cn": "躺；位于；说谎",
+      "mental_model_cn": "躺/位于：lie–lay–lain（lying）；说谎：lie–lied–lied（lying）。先靠语义选分支，再选过去式/过去分词。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -231,6 +231,57 @@
     "word_family": [],
     "word_id": "word:lie",
     "form_identity": {
+      "form_type": "sense_conditioned_inflection",
+      "spelling": "lie",
+      "identity_rule": "sense_selects_inflection",
+      "boundary": "lie = be horizontal/be located uses lie–lay–lain; lie = say something untrue is regular lie–lied–lied. Both use lying as the -ing form.",
+      "boundaries": [
+        {
+          "surface": "lay",
+          "condition": "past simple of lie = be horizontal / be located",
+          "note": "位置/躺卧义过去式是 lay，不是 lied"
+        },
+        {
+          "surface": "lain",
+          "condition": "past participle of lie = be horizontal / be located",
+          "note": "位置/躺卧义过去分词是 lain"
+        },
+        {
+          "surface": "lied",
+          "condition": "past and past participle of lie = say something untrue",
+          "note": "说谎义规则变化 lied–lied"
+        },
+        {
+          "surface": "lying",
+          "condition": "-ing form of both verb families",
+          "note": "两组动词现在分词都写 lying"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:lie:position",
+          "learner_key": "position/location: lie – lay – lain; lying",
+          "surface": "lie",
+          "pos": [
+            "verb"
+          ],
+          "sense_ids": [
+            "sense:lie:100b0ae6f6fb577f",
+            "sense:lie:9c752244eb605ff5"
+          ]
+        },
+        {
+          "variant_id": "form:lie:falsehood",
+          "learner_key": "say something untrue: lie – lied – lied; lying",
+          "surface": "lie",
+          "pos": [
+            "verb"
+          ],
+          "sense_ids": [
+            "sense:lie:98fc1f2faeaa5cd8"
+          ]
+        }
+      ],
       "headword_pronunciations": [
         {
           "ipa": "/laɪ̯/",

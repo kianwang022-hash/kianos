@@ -418,7 +418,7 @@
     "ordinal": 2820,
     "word": "license",
     "source_owner_path": "content/lexical/words/by-ordinal/o2820.json",
-    "source_fingerprint": "3063298dd8f19bede9e66159c936ea74f18315cfe2739dd795baa581ecae6d73",
+    "source_fingerprint": "74b321bc0e119718fa759f61df375ba6975c1809ac7f16be46908f09922d2ddf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -429,7 +429,7 @@
     },
     "word_feel": {
       "summary_cn": "许可，执照",
-      "decision_cn": "",
+      "decision_cn": "permission/document → 许可/执照；AmE 名词/动词均 license；BrE 名词通常 licence，动词常 license。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -626,7 +626,56 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "license",
+            "condition": "American English noun/verb",
+            "note": "美式名词、动词都写 license"
+          },
+          {
+            "surface": "licence",
+            "condition": "British English noun",
+            "note": "英式名词通常写 licence"
+          },
+          {
+            "surface": "license",
+            "condition": "British English verb",
+            "note": "英式动词常写 license；词典也记录 licence 变体"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "noun",
+              "verb"
+            ],
+            "reading": "AmE noun/verb: license",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "BrE noun: licence",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "BrE verb: license (also licence)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -636,7 +685,7 @@
     "ordinal": 2821,
     "word": "lick",
     "source_owner_path": "content/lexical/words/by-ordinal/o2821.json",
-    "source_fingerprint": "36d0d831a8e1c38fc2f198800b71752278bd3e3fb03d964e4b15f7ce339bc95d",
+    "source_fingerprint": "80340b91fae0813032d7e5009ce6c99f4cd364dcb43c261b6e02545fc359996d",
     "sense_lineage": [
       {
         "word_id": "word:lick",
@@ -656,18 +705,18 @@
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "舔；舔舐动作/少量",
-      "decision_cn": "",
+      "summary_cn": "舔；舔一下；a lick of 还可表示少量/薄薄一层",
+      "decision_cn": "verb → 舔；noun 可指“舔一下”；a lick of paint/sunscreen → 少量、薄薄一层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "舔；舔舐动作/少量"
+        "target_label": "舔；舔一下；a lick of 还可表示少量/薄薄一层"
       }
     },
     "senses": [
@@ -731,6 +780,23 @@
           "target_id": "sense:lick:e023ad616bca564a",
           "target_locator": "record.senses[1]",
           "target_label": "舔"
+        }
+      },
+      {
+        "id": "sense:lick:5d10d1c3d9f28d39",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a lick of + substance",
+        "definition_cn": "少量；薄薄一层（尤见 a lick of paint）",
+        "definition_en": "informal: a small amount or a thin layer of something, especially paint",
+        "note": "common pattern: a lick of paint",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lick:5d10d1c3d9f28d39",
+          "target_locator": "record.senses[2]",
+          "target_label": "少量；薄薄一层（尤见 a lick of paint）"
         }
       }
     ],
@@ -1060,7 +1126,7 @@
     "ordinal": 2823,
     "word": "lie",
     "source_owner_path": "content/lexical/words/by-ordinal/o2823.json",
-    "source_fingerprint": "b2081d7961934bae5e355fc18d5cbdfa5ed56f796d7a0c47b11a4fb1b944d209",
+    "source_fingerprint": "2fd9de2e8764bd1fc5ccbd33f99cc3d7d0bd2f5bbcf3df91f4616dae14af2635",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1071,7 +1137,7 @@
     },
     "word_feel": {
       "summary_cn": "躺；位于；说谎",
-      "decision_cn": "",
+      "decision_cn": "躺/位于：lie–lay–lain（lying）；说谎：lie–lied–lied（lying）。先靠语义选分支，再选过去式/过去分词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1348,7 +1414,53 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "lay",
+            "condition": "past simple of lie = be horizontal / be located",
+            "note": "位置/躺卧义过去式是 lay，不是 lied"
+          },
+          {
+            "surface": "lain",
+            "condition": "past participle of lie = be horizontal / be located",
+            "note": "位置/躺卧义过去分词是 lain"
+          },
+          {
+            "surface": "lied",
+            "condition": "past and past participle of lie = say something untrue",
+            "note": "说谎义规则变化 lied–lied"
+          },
+          {
+            "surface": "lying",
+            "condition": "-ing form of both verb families",
+            "note": "两组动词现在分词都写 lying"
+          }
+        ],
+        "variants": [
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "position/location: lie – lay – lain; lying",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "verb"
+            ],
+            "reading": "say something untrue: lie – lied – lied; lying",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -1358,22 +1470,22 @@
     "ordinal": 2824,
     "word": "life",
     "source_owner_path": "content/lexical/words/by-ordinal/o2824.json",
-    "source_fingerprint": "e25a7581a1ce260a4681ad2b372012d81f2ba4aabd4a6a4576e8bae4c9361249",
+    "source_fingerprint": "4bab50f78c0366c68ca528852a5798f54beb338fed981ee05d3c96fbbd93e699",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生命，生活",
-      "decision_cn": "",
+      "summary_cn": "生命、人生/生活；也可指设备或事物的使用寿命/有效期",
+      "decision_cn": "living beings → 生命/人生；plant/wild life → 生物；battery/useful/service life → 设备或事物可工作、存在或使用的期限。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生命，生活"
+        "target_label": "生命、人生/生活；也可指设备或事物的使用寿命/有效期"
       }
     },
     "senses": [
@@ -1477,6 +1589,23 @@
           "target_id": "sense:life:cd8fda4449e1560e",
           "target_locator": "record.senses[2]",
           "target_label": "生物，生命体"
+        }
+      },
+      {
+        "id": "sense:life:0e9fe1ab46e52549",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the life of sth / useful life / battery life",
+        "definition_cn": "（设备、产品、合同等的）寿命；有效/使用期限",
+        "definition_en": "the period during which a nonliving thing exists, works, or can be used",
+        "note": "common professional uses include battery life, useful life, service life, and the life of a loan/investment",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:life:0e9fe1ab46e52549",
+          "target_locator": "record.senses[3]",
+          "target_label": "（设备、产品、合同等的）寿命；有效/使用期限"
         }
       }
     ],
@@ -3025,23 +3154,44 @@
     "ordinal": 2833,
     "word": "limb",
     "source_owner_path": "content/lexical/words/by-ordinal/o2833.json",
-    "source_fingerprint": "542788509bb22528a63dcc6bfdcfdc21276d5d6481af0f8fceec62773b60f20c",
-    "sense_lineage": [],
+    "source_fingerprint": "ff4aa38bab538b36a3d3b75513ce8fe8402323f02c4a4aaa1b5d106cdcee2e61",
+    "sense_lineage": [
+      {
+        "word_id": "word:limb",
+        "target_kind": "sense",
+        "from_target_id": "sense:limb:7ee3ec547fc45d42",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:limb",
+        "target_kind": "sense",
+        "from_target_id": "sense:limb:9ea4337651625ff3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:limb",
+        "target_kind": "sense",
+        "from_target_id": "sense:limb:ce5150b0f72d509e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "肢体或枝干",
-      "decision_cn": "",
+      "summary_cn": "肢体；树的大枝",
+      "decision_cn": "body/anatomy → 肢体；tree → 大枝。天文“天体边缘”、弓臂和罕见动词义保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "肢体或枝干"
+        "target_label": "肢体；树的大枝"
       }
     },
     "senses": [
@@ -3114,57 +3264,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "树的大枝"
         }
-      },
-      {
-        "id": "sense:limb:7ee3ec547fc45d42",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "天体视圆面的边缘",
-        "definition_en": "the edge of the apparent disc of a celestial body",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:limb:7ee3ec547fc45d42",
-          "target_locator": "record.senses[2]",
-          "target_label": "天体视圆面的边缘"
-        }
-      },
-      {
-        "id": "sense:limb:ce5150b0f72d509e",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "弓臂",
-        "definition_en": "either of the two halves of a bow from handle to tip",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:limb:ce5150b0f72d509e",
-          "target_locator": "record.senses[3]",
-          "target_label": "弓臂"
-        }
-      },
-      {
-        "id": "sense:limb:9ea4337651625ff3",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "切断...的四肢",
-        "definition_en": "to cut off the limbs of",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:limb:9ea4337651625ff3",
-          "target_locator": "record.senses[4]",
-          "target_label": "切断...的四肢"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3203,7 +3302,51 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "天体视圆面的边缘",
+          "definition_en": "the edge of the apparent disc of a celestial body",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:limb:7ee3ec547fc45d42",
+          "sense_label_en": "the edge of the apparent disc of a celestial body",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "弓臂",
+          "definition_en": "either of the two halves of a bow from handle to tip",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:limb:ce5150b0f72d509e",
+          "sense_label_en": "either of the two halves of a bow from handle to tip",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "切断...的四肢",
+          "definition_en": "to cut off the limbs of",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:limb:9ea4337651625ff3",
+          "sense_label_en": "to cut off the limbs of",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -3911,23 +4054,23 @@
     "ordinal": 2838,
     "word": "line",
     "source_owner_path": "content/lexical/words/by-ordinal/o2838.json",
-    "source_fingerprint": "bfde854d231ba5f3259ace077eecffa9e90c2e54e1749f27c0184bb90ea54c8a",
+    "source_fingerprint": "8967b9d9a9d6ad8af1904c3cdf9e4a04a45e5c0cb1d0272718c3b51a44e5b8d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "5N"
+        "9N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "线；行；列",
-      "decision_cn": "",
+      "summary_cn": "线条/一行；队列；线路或边界；行业/产品线；思路/论证路线",
+      "decision_cn": "mark/text → 线条/一行；people → 队列；transport/phone → 线路；boundary → 界线；work/product → 行业/产品线；reasoning/thought → 思路、论证路线。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "线；行；列"
+        "target_label": "线条/一行；队列；线路或边界；行业/产品线；思路/论证路线"
       }
     },
     "senses": [
@@ -4094,6 +4237,74 @@
           "target_locator": "record.senses[5]",
           "target_label": "加衬里"
         }
+      },
+      {
+        "id": "sense:line:4c27c37c8197732e",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "a line of text / a line from a poem",
+        "definition_cn": "一行文字；诗/剧本中的一句",
+        "definition_en": "a row of words forming part of a text, poem, or script",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:line:4c27c37c8197732e",
+          "target_locator": "record.senses[6]",
+          "target_label": "一行文字；诗/剧本中的一句"
+        }
+      },
+      {
+        "id": "sense:line:f0ea78b2167563e5",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "line of work / line of business",
+        "definition_cn": "行业；工作/业务领域",
+        "definition_en": "a type or area of work, business, activity, or interest",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:line:f0ea78b2167563e5",
+          "target_locator": "record.senses[7]",
+          "target_label": "行业；工作/业务领域"
+        }
+      },
+      {
+        "id": "sense:line:7bb93a9f0ca595be",
+        "source_locator": "record.senses[8]",
+        "pos": "noun",
+        "governing_pattern": "product line / a new line of products",
+        "definition_cn": "产品线；一系列同类商品",
+        "definition_en": "a range or type of related products offered for sale",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:line:7bb93a9f0ca595be",
+          "target_locator": "record.senses[8]",
+          "target_label": "产品线；一系列同类商品"
+        }
+      },
+      {
+        "id": "sense:line:dede0b9e95d54f1f",
+        "source_locator": "record.senses[9]",
+        "pos": "noun",
+        "governing_pattern": "line of reasoning / thought / argument",
+        "definition_cn": "思路；推理/论证路线",
+        "definition_en": "a way or course of reasoning, thinking, or argument",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:line:dede0b9e95d54f1f",
+          "target_locator": "record.senses[9]",
+          "target_label": "思路；推理/论证路线"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4131,22 +4342,51 @@
     "ordinal": 2839,
     "word": "linear",
     "source_owner_path": "content/lexical/words/by-ordinal/o2839.json",
-    "source_fingerprint": "1335a58908c0f2b71341fe5d066eb32e0ec62d22cb34f7ccd3701f4c693ada69",
-    "sense_lineage": [],
+    "source_fingerprint": "bf6087d7776e3d65ee7f565a1e5ad9eca7243d6da315cd72e830f62253989bf5",
+    "sense_lineage": [
+      {
+        "word_id": "word:linear",
+        "target_kind": "sense",
+        "from_target_id": "sense:linear:6013da70542059c2",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:linear",
+        "target_kind": "sense",
+        "from_target_id": "sense:linear:adae34d3ae635872",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:linear",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:558e66cafeab82d678c1",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:linear",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8df1d25c4ec90b7311cf",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "线性的，直线的",
-      "decision_cn": "",
+      "summary_cn": "线性的；直线的；数学上一次的/线性关系",
+      "decision_cn": "general/geometry → 线状、直线的；math/data → 线性方程、函数、关系。植物叶形和长度向技术义留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "线性的，直线的"
+        "target_label": "线性的；直线的；数学上一次的/线性关系"
       }
     },
     "senses": [
@@ -4209,58 +4449,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "线性的（指方程）"
         }
-      },
-      {
-        "id": "sense:linear:adae34d3ae635872",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（叶形）长而窄的",
-        "definition_en": "(of a leaf shape) long and narrow",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:558e66cafeab82d678c1",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "linear leaf",
-            "meaning_cn": "线形叶",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:linear:adae34d3ae635872",
-          "target_locator": "record.senses[2]",
-          "target_label": "（叶形）长而窄的"
-        }
-      },
-      {
-        "id": "sense:linear:6013da70542059c2",
-        "source_locator": "record.senses[3]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "沿长度方向的",
-        "definition_en": "measured lengthwise",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8df1d25c4ec90b7311cf",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "linear dimension",
-            "meaning_cn": "线性尺寸",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:linear:6013da70542059c2",
-          "target_locator": "record.senses[3]",
-          "target_label": "沿长度方向的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4301,7 +4489,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:558e66cafeab82d678c1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:linear:adae34d3ae635872:collocation:0"
+              ],
+              "meaning_cn": "线形叶",
+              "phrase": "linear leaf"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（叶形）长而窄的",
+          "definition_en": "(of a leaf shape) long and narrow",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:linear:adae34d3ae635872",
+          "sense_label_en": "(of a leaf shape) long and narrow",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8df1d25c4ec90b7311cf",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:linear:6013da70542059c2:collocation:0"
+              ],
+              "meaning_cn": "线性尺寸",
+              "phrase": "linear dimension"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "沿长度方向的",
+          "definition_en": "measured lengthwise",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:linear:6013da70542059c2",
+          "sense_label_en": "measured lengthwise",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4584,22 +4822,44 @@
     "ordinal": 2842,
     "word": "linger",
     "source_owner_path": "content/lexical/words/by-ordinal/o2842.json",
-    "source_fingerprint": "19af88e192c2b13efd5fe6141c2eedd951020a6d3f7519c22b852c1d3615faef",
-    "sense_lineage": [],
+    "source_fingerprint": "3fc54a060a25ee2c50176c14dd7484442a36c4750bb491d23dd1d1b884fd8742",
+    "sense_lineage": [
+      {
+        "word_id": "word:linger",
+        "target_kind": "sense",
+        "from_target_id": "sense:linger:7039fb6532cd5a96",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:linger",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0a12d5f7ce8facf69b92",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:linger",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8d844e720c1fc400d1bd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逗留，徘徊",
-      "decision_cn": "",
+      "summary_cn": "逗留；迟迟不消失、持续存在",
+      "decision_cn": "person/place → 逗留；smell/effect/memory/illness → 迟迟不消失、持续。罕见及物 linger out time 留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逗留，徘徊"
+        "target_label": "逗留；迟迟不消失、持续存在"
       }
     },
     "senses": [
@@ -4624,19 +4884,6 @@
               "target_id": "collocation:9c36e7c817a16fa4dbf5",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "linger over + sth"
-            }
-          },
-          {
-            "id": "collocation:8d844e720c1fc400d1bd",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "linger on",
-            "meaning_cn": "继续存留，迟迟不消失",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8d844e720c1fc400d1bd",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "linger on"
             }
           }
         ],
@@ -4676,37 +4923,6 @@
           "target_id": "sense:linger:d84495cb971a5d60",
           "target_locator": "record.senses[1]",
           "target_label": "（疾病、习惯等）持续，缓慢消失"
-        }
-      },
-      {
-        "id": "sense:linger:7039fb6532cd5a96",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "消磨（时间）",
-        "definition_en": "to spend time slowly or idly (as in 'linger out')",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0a12d5f7ce8facf69b92",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "linger out + time",
-            "meaning_cn": "消磨时间",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0a12d5f7ce8facf69b92",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "linger out + time"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:linger:7039fb6532cd5a96",
-          "target_locator": "record.senses[2]",
-          "target_label": "消磨（时间）"
         }
       }
     ],
@@ -4748,7 +4964,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0a12d5f7ce8facf69b92",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:linger:7039fb6532cd5a96:collocation:0"
+              ],
+              "meaning_cn": "消磨时间",
+              "phrase": "linger out + time"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "消磨（时间）",
+          "definition_en": "to spend time slowly or idly (as in 'linger out')",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:linger:7039fb6532cd5a96",
+          "sense_label_en": "to spend time slowly or idly (as in 'linger out')",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5165,23 +5407,44 @@
     "ordinal": 2846,
     "word": "lip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2846.json",
-    "source_fingerprint": "fb63d46fc9f7bc510a4c367cf395c160d41bbd37f697a57635a9eb996e7cf833",
-    "sense_lineage": [],
+    "source_fingerprint": "d295eb758d1abdf90057e8a91a16b1bc075ad247e535cec431d0e962fd131fba",
+    "sense_lineage": [
+      {
+        "word_id": "word:lip",
+        "target_kind": "sense",
+        "from_target_id": "sense:lip:6a704cff75225d3b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lip",
+        "target_kind": "sense",
+        "from_target_id": "sense:lip:6fb6914a01ac517e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lip",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a0ccf0bcb13745edd091",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "嘴唇",
-      "decision_cn": "",
+      "summary_cn": "嘴唇；容器或开口的边缘",
+      "decision_cn": "mouth → 嘴唇；cup/crater/opening → 边缘/口沿。植物唇瓣与低频动词义保留在 Reference；lip service 作为独立高价值构式保留。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "嘴唇"
+        "target_label": "嘴唇；容器或开口的边缘"
       }
     },
     "senses": [
@@ -5226,49 +5489,6 @@
           "target_id": "sense:lip:f6948ce3fda5587b",
           "target_locator": "record.senses[1]",
           "target_label": "嘴唇"
-        }
-      },
-      {
-        "id": "sense:lip:6a704cff75225d3b",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（植物）唇瓣",
-        "definition_en": "either of the two parts of a bilabiate corolla or calyx",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lip:6a704cff75225d3b",
-          "target_locator": "record.senses[2]",
-          "target_label": "（植物）唇瓣"
-        }
-      },
-      {
-        "id": "sense:lip:6fb6914a01ac517e",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "以嘴唇碰；轻轻说出",
-        "definition_en": "to touch with the lips; to utter softly",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a0ccf0bcb13745edd091",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "lip a word",
-            "meaning_cn": "轻声说出一个词",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lip:6fb6914a01ac517e",
-          "target_locator": "record.senses[3]",
-          "target_label": "以嘴唇碰；轻轻说出"
         }
       }
     ],
@@ -5316,7 +5536,47 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（植物）唇瓣",
+          "definition_en": "either of the two parts of a bilabiate corolla or calyx",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lip:6a704cff75225d3b",
+          "sense_label_en": "either of the two parts of a bilabiate corolla or calyx",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a0ccf0bcb13745edd091",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lip:6fb6914a01ac517e:collocation:0"
+              ],
+              "meaning_cn": "轻声说出一个词",
+              "phrase": "lip a word"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "以嘴唇碰；轻轻说出",
+          "definition_en": "to touch with the lips; to utter softly",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lip:6fb6914a01ac517e",
+          "sense_label_en": "to touch with the lips; to utter softly",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {

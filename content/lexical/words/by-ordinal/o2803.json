@@ -13,14 +13,25 @@
         "level": "L2",
         "meaning_cn": "详细地；充分地（亦可指最终/经过很久）",
         "pattern": "at length"
+      },
+      {
+        "construction_id": "construction:length:great-lengths",
+        "pattern": "go to great/any lengths to do sth",
+        "meaning_cn": "竭尽全力、不惜一切办法做某事",
+        "definition_en": "try extremely hard or make great efforts to achieve something",
+        "level": "L1",
+        "pos": "phrase",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only",
+        "boundary": "idiom about effort, not physical distance or duration"
       }
     ],
     "content_hash": "151f7e67a042621cad04c1fa8a9436f5be1ff282843a586e964e072793bfd860",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "从一端到另一端的度量或范围",
-      "core_meaning_en": "the measurement or extent of something from end to end",
-      "mental_model_cn": "从一端到另一端的度量或范围",
+      "core_meaning_cn": "长度、时长；也可指“一段长材料”",
+      "core_meaning_en": "extent in space or time; also a long piece or section of material",
+      "mental_model_cn": "measurement/time → 长度/时长；a length of rope/cloth → 一段长材料；go to great lengths → 竭尽全力（习语）。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +75,20 @@
         "sense_id": "sense:length:a70d14ec1e16536e",
         "sense_label_en": "the extent of something from end to end or from beginning to end, including spatial length and duration",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "一段（长而窄的材料，如绳、布、管子）",
+        "definition_en": "a long piece or section of something such as rope, cloth, cable, or pipe",
+        "governing_pattern": "a length of + material/object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:length:0011b9cc27495e95",
+        "sense_label_en": "a long piece or section of something",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -132,31 +157,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:length:0011b9cc27495e95",
-      "status": "merged",
-      "merged_into_sense_id": "sense:length:a70d14ec1e16536e",
-      "pos": "noun",
-      "definition_cn": "长而窄的一段",
-      "definition_en": "a section of something that is long and narrow",
-      "semantic_key": "4c7334dda0e2edda30702cea4d2281fd4d4c19ff2435eb90bd9d6dd69390285f",
-      "semantic_key_history": [
-        "1c36483ced6cc37e25a7a74e02c523e1e7f117d9632bfcd2f24c1e53b1642cac"
-      ],
-      "legacy_aliases": [
-        "length:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "length:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7771,
-      "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:length:97b3b95b19b656a4",
       "status": "merged",
       "merged_into_sense_id": "sense:length:a70d14ec1e16536e",
@@ -186,8 +186,8 @@
     "senses": [
       {
         "sense_id": "sense:length:0011b9cc27495e95",
-        "status": "merged",
-        "merged_into_sense_id": "sense:length:a70d14ec1e16536e",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7771,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
       },
