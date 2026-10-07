@@ -2861,7 +2861,7 @@
     "ordinal": 2131,
     "word": "ghost",
     "source_owner_path": "content/lexical/words/by-ordinal/o2131.json",
-    "source_fingerprint": "685423f0f161706f2c7e5227ffbf450e68b82e8990d5dbc9c4c49a0157a329cd",
+    "source_fingerprint": "a3a28f84bd0cd6c60195058c73235de8f463050aa3931c37fe72990b5e7209fa",
     "sense_lineage": [
       {
         "word_id": "word:ghost",
@@ -2873,19 +2873,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "鬼；幽灵；一丝迹象；代笔",
-      "decision_cn": "spirit → 鬼/幽灵；a ghost of… → 一丝/一点；ghost a book/article → 代笔。低价值“鬼似地游荡”保留为 Reference。",
+      "summary_cn": "鬼、幽灵；一丝迹象；代笔；现代口语还可指突然断联",
+      "decision_cn": "spirit → 鬼/幽灵；a ghost of… → 一丝；ghost a book → 代笔；ghost someone / be ghosted → 突然断联。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鬼；幽灵；一丝迹象；代笔"
+        "target_label": "鬼、幽灵；一丝迹象；代笔；现代口语还可指突然断联"
       }
     },
     "senses": [
@@ -2974,6 +2974,23 @@
           "target_id": "sense:ghost:e4f27ec6c099562a",
           "target_locator": "record.senses[2]",
           "target_label": "代笔"
+        }
+      },
+      {
+        "id": "sense:ghost:e408da51e8dc42d2",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "ghost sb / be ghosted",
+        "definition_cn": "突然断联；无解释地停止与某人联系",
+        "definition_en": "informal: to suddenly stop all communication with someone, especially in a personal or romantic relationship, without explanation",
+        "note": "modern informal relationship/communication sense; do not confuse with ghostwrite",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ghost:e408da51e8dc42d2",
+          "target_locator": "record.senses[3]",
+          "target_label": "突然断联；无解释地停止与某人联系"
         }
       }
     ],
@@ -4818,7 +4835,7 @@
     "ordinal": 2143,
     "word": "glass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2143.json",
-    "source_fingerprint": "204bd86931c489ee55098d95c79cdb8e67d61996a9cda3c33eb68e2cdcbecd53",
+    "source_fingerprint": "4fb1fe8ecb5b6edd2ec0a83e7eae71f80d58fe8e96b02af823a126cdfcf7069a",
     "sense_lineage": [
       {
         "word_id": "word:glass",
@@ -4837,18 +4854,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "玻璃或玻璃杯",
-      "decision_cn": "material → 玻璃；container → 玻璃杯；collective → 玻璃器皿。低价值动词“装玻璃/使成玻璃状”保留为 Reference。",
+      "summary_cn": "玻璃、玻璃杯；复数 glasses 还可表示“眼镜”",
+      "decision_cn": "glass 单数/物质 → 玻璃或玻璃杯；glasses 作为词汇化复数 → 眼镜（a pair of glasses），不要按普通“多个玻璃杯”机械解析。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "玻璃或玻璃杯"
+        "target_label": "玻璃、玻璃杯；复数 glasses 还可表示“眼镜”"
       }
     },
     "senses": [
@@ -4945,6 +4962,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "玻璃器皿"
         }
+      },
+      {
+        "id": "sense:glass:f14c09e7cdfd127e",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "plural: glasses; one set: a pair of glasses",
+        "definition_cn": "眼镜（通常用复数 glasses）",
+        "definition_en": "glasses (plural): lenses in a frame worn in front of the eyes to improve or protect vision",
+        "note": "lexicalized plural: glasses are ...; one set = a pair of glasses. Do not interpret this as an ordinary singular *a glass meaning spectacles.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glass:f14c09e7cdfd127e",
+          "target_locator": "record.senses[3]",
+          "target_label": "眼镜（通常用复数 glasses）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4971,7 +5005,32 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "form:glass:ordinary",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "form:glasses:eyewear",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [],
       "senses": [
         {

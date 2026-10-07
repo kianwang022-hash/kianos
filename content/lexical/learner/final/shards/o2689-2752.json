@@ -2326,7 +2326,7 @@
     "ordinal": 2700,
     "word": "key",
     "source_owner_path": "content/lexical/words/by-ordinal/o2700.json",
-    "source_fingerprint": "40a4e776826a3ab7c0cff9dc48b149eb3ec1c219dd0223a2c11d7a6af27f3574",
+    "source_fingerprint": "dfa15c4629a2b9f158ff12a028c0b4aa55047b2888b30371d665f51d34415a45",
     "sense_lineage": [
       {
         "word_id": "word:key",
@@ -2345,19 +2345,20 @@
     ],
     "recall_map": {
       "parts": [
+        "1V",
         "1A",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "钥匙；关键",
-      "decision_cn": "object → 钥匙/按键；solution/importance → 关键；answer key → 答案；music → 调；adjective → 关键的。低价值“调音/锁上”动词义保留为 Reference。",
+      "summary_cn": "钥匙/按键；关键；音乐调；动词还可指“键入数据”",
+      "decision_cn": "object → 钥匙/按键；solution/importance → 关键；music → 调；key sth in / into a system → 键入、输入数据。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "钥匙；关键"
+        "target_label": "钥匙/按键；关键；音乐调；动词还可指“键入数据”"
       }
     },
     "senses": [
@@ -2507,6 +2508,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "关键的；极重要的"
         }
+      },
+      {
+        "id": "sense:key:1ea0ca8259c137c3",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "key sth in / key sth into sth",
+        "definition_cn": "键入；输入（数据、号码等）",
+        "definition_en": "to enter information into a computer, phone, or other device using a keyboard, touchscreen, or buttons",
+        "note": "computing verb: key the data in / key it into the system",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:key:1ea0ca8259c137c3",
+          "target_locator": "record.senses[6]",
+          "target_label": "键入；输入（数据、号码等）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2542,7 +2560,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:key:key-in-data",
+        "sense_id": "sense:key:1ea0ca8259c137c3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "key sth in / key sth into sth",
+        "lines": [
+          {
+            "text": "把数据、号码等键入/输入设备",
+            "lang": "cn"
+          },
+          {
+            "text": "computing/data-entry verb; not noun key = button/key or adjective key = important",
+            "lang": "en"
+          },
+          {
+            "text": "enter information into a computer, phone, or other device",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:key:key-in-data",
+          "target_locator": "record.constructions[0]",
+          "target_label": "key sth in / key sth into sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

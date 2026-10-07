@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:key:key-in-data",
+        "pattern": "key sth in / key sth into sth",
+        "meaning_cn": "把数据、号码等键入/输入设备",
+        "definition_en": "enter information into a computer, phone, or other device",
+        "level": "L2",
+        "pos": "verb",
+        "direction": "R+P",
+        "sense_id": "sense:key:1ea0ca8259c137c3",
+        "boundary": "computing/data-entry verb; not noun key = button/key or adjective key = important"
+      }
+    ],
     "content_hash": "4ba66ecfc3afbe0ed3679946cd3f4d893dca965b536196d242d36adcb4d9492f",
     "core_concept": {
       "core_clusters": [
@@ -29,11 +41,19 @@
           "sense_ids": [
             "sense:key:25406f861fe9573d"
           ]
+        },
+        {
+          "label_cn": "键入；输入数据",
+          "label_en": "to enter information into a device using a keyboard or touchscreen",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:key:1ea0ca8259c137c3"
+          ]
         }
       ],
-      "core_meaning_cn": "钥匙；关键",
-      "core_meaning_en": "a device or piece of information that opens or unlocks something",
-      "mental_model_cn": "object → 钥匙/按键；solution/importance → 关键；answer key → 答案；music → 调；adjective → 关键的。低价值“调音/锁上”动词义保留为 Reference。",
+      "core_meaning_cn": "钥匙/按键；关键；音乐调；动词还可指“键入数据”",
+      "core_meaning_en": "a key for a lock or keyboard; something crucial; a musical key; also to key data into a device",
+      "mental_model_cn": "object → 钥匙/按键；solution/importance → 关键；music → 调；key sth in / into a system → 键入、输入数据。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -194,6 +214,21 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "键入；输入（数据、号码等）",
+        "definition_en": "to enter information into a computer, phone, or other device using a keyboard, touchscreen, or buttons",
+        "governing_pattern": "key sth in / key sth into sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:key:1ea0ca8259c137c3",
+        "sense_label_en": "to enter information into a device using keys or a touchscreen",
+        "sort_order": 6,
+        "transitivity": "vt",
+        "usage_note": "computing verb: key the data in / key it into the system"
       }
     ],
     "verification_summary": {
@@ -738,6 +773,13 @@
   ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:key:1ea0ca8259c137c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2700.json"
+      },
       {
         "sense_id": "sense:key:1ed5500a2e455da1",
         "status": "reference",

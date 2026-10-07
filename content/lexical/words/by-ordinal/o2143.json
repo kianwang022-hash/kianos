@@ -19,11 +19,19 @@
             "sense:glass:be73dade7d205a48",
             "sense:glass:47f03b7bf10f5ea4"
           ]
+        },
+        {
+          "label_cn": "眼镜（复数 glasses）",
+          "label_en": "glasses: eyewear worn in front of the eyes",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:glass:f14c09e7cdfd127e"
+          ]
         }
       ],
-      "core_meaning_cn": "玻璃或玻璃杯",
-      "core_meaning_en": "a hard transparent material or a drinking container",
-      "mental_model_cn": "material → 玻璃；container → 玻璃杯；collective → 玻璃器皿。低价值动词“装玻璃/使成玻璃状”保留为 Reference。",
+      "core_meaning_cn": "玻璃、玻璃杯；复数 glasses 还可表示“眼镜”",
+      "core_meaning_en": "glass material or a drinking glass; lexicalized plural glasses also means eyewear",
+      "mental_model_cn": "glass 单数/物质 → 玻璃或玻璃杯；glasses 作为词汇化复数 → 眼镜（a pair of glasses），不要按普通“多个玻璃杯”机械解析。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -123,6 +131,21 @@
         "sense_label_en": "glassware collectively",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "眼镜（通常用复数 glasses）",
+        "definition_en": "glasses (plural): lenses in a frame worn in front of the eyes to improve or protect vision",
+        "governing_pattern": "plural: glasses; one set: a pair of glasses",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:glass:f14c09e7cdfd127e",
+        "sense_label_en": "glasses: eyewear worn to improve or protect vision",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "lexicalized plural: glasses are ...; one set = a pair of glasses. Do not interpret this as an ordinary singular *a glass meaning spectacles."
       }
     ],
     "verification_summary": {
@@ -144,6 +167,30 @@
     "word_family": [],
     "word_id": "word:glass",
     "form_identity": {
+      "form_type": "lexicalized_plural_boundary",
+      "spelling": "glass",
+      "identity_rule": "same_word_owner_plural_lexicalization",
+      "boundary": "ordinary glass = material/container; lexicalized plural glasses = spectacles/eyewear and normally takes plural agreement",
+      "variants": [
+        {
+          "variant_id": "form:glass:ordinary",
+          "surface": "glass",
+          "pos": [
+            "noun"
+          ],
+          "number": "mass_or_count_singular",
+          "role": "material, drinking container, or glassware"
+        },
+        {
+          "variant_id": "form:glasses:eyewear",
+          "surface": "glasses",
+          "pos": [
+            "noun"
+          ],
+          "number": "plural_lexicalized",
+          "role": "spectacles/eyewear; count one set as a pair of glasses"
+        }
+      ],
       "headword_pronunciations": [
         {
           "ipa": "/ɡlɑːs/",
@@ -289,6 +336,13 @@
         "merged_into_sense_id": null,
         "source_row": 5969,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      },
+      {
+        "sense_id": "sense:glass:f14c09e7cdfd127e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2143.json"
       }
     ],
     "active_collocations": [
