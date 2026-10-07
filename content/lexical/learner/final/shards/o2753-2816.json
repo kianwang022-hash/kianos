@@ -517,18 +517,33 @@
     "ordinal": 2755,
     "word": "late",
     "source_owner_path": "content/lexical/words/by-ordinal/o2755.json",
-    "source_fingerprint": "e5c1647f08d53872a6594a2f96db4eab8a71715be6cb676f7a8a2e4d68e75406",
-    "sense_lineage": [],
+    "source_fingerprint": "2184f273540fb5c6d542fc7b26752e6d5c358cd03bde1de483df444729ebc67c",
+    "sense_lineage": [
+      {
+        "word_id": "word:late",
+        "target_kind": "sense",
+        "from_target_id": "sense:late:13fa52be5d875e67",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:late",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bbe4b323d406971a9e83",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5A",
+        "4A",
         "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "迟；晚；最近；已故",
-      "decision_cn": "",
+      "decision_cn": "time → 迟/晚；recent → 最近的；the late sb → 已故的；late stage → 后期/晚期。死语言特定时期义（Late Latin）保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -659,34 +674,8 @@
         }
       },
       {
-        "id": "sense:late:13fa52be5d875e67",
-        "source_locator": "record.senses[4]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "后期的；晚期的（尤指死语言）",
-        "definition_en": "of a later stage in development, especially of dead languages",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:bbe4b323d406971a9e83",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "Late Latin",
-            "meaning_cn": "晚期拉丁语",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:late:13fa52be5d875e67",
-          "target_locator": "record.senses[4]",
-          "target_label": "后期的；晚期的（尤指死语言）"
-        }
-      },
-      {
         "id": "sense:late:37fafa1323d7597a",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "晚期的；后期的；接近末期的",
@@ -697,7 +686,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:late:37fafa1323d7597a",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "晚期的；后期的；接近末期的"
         }
       }
@@ -761,6 +750,32 @@
             }
           ],
           "source_locator": "record.word_family[1]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bbe4b323d406971a9e83",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:late:13fa52be5d875e67:collocation:0"
+              ],
+              "meaning_cn": "晚期拉丁语",
+              "phrase": "Late Latin"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "后期的；晚期的（尤指死语言）",
+          "definition_en": "of a later stage in development, especially of dead languages",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:late:13fa52be5d875e67",
+          "sense_label_en": "of a later stage in development, especially of dead languages",
+          "sort_order": 4,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -867,18 +882,25 @@
     "ordinal": 2757,
     "word": "latent",
     "source_owner_path": "content/lexical/words/by-ordinal/o2757.json",
-    "source_fingerprint": "1da01f92147f28b3df9bf18a4a2b29adbdf2e96a07ae25e614312bdf4b6263ba",
-    "sense_lineage": [],
+    "source_fingerprint": "c398c3848607f3a52c5f6b40587ff6a996964800b63f4067bd49d863ea098ba6",
+    "sense_lineage": [
+      {
+        "word_id": "word:latent",
+        "target_kind": "sense",
+        "from_target_id": "sense:latent:416fba91f8815305",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "潜在的，潜伏的",
-      "decision_cn": "",
+      "decision_cn": "potential/hidden → 潜在的、潜伏的；medicine → latent infection。指纹识别“潜伏指纹”专门名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -946,23 +968,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "（病理）潜伏的，隐性的"
         }
-      },
-      {
-        "id": "sense:latent:416fba91f8815305",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "隐约指纹",
-        "definition_en": "a latent fingerprint",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:latent:416fba91f8815305",
-          "target_locator": "record.senses[2]",
-          "target_label": "隐约指纹"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1001,7 +1006,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "隐约指纹",
+          "definition_en": "a latent fingerprint",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:latent:416fba91f8815305",
+          "sense_label_en": "a latent fingerprint",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1167,23 +1188,51 @@
     "ordinal": 2759,
     "word": "lateral",
     "source_owner_path": "content/lexical/words/by-ordinal/o2759.json",
-    "source_fingerprint": "4f77aecaa9612f74bef6665feb63a00c316f80c0a40e90a66ed4d52975b2e7f9",
-    "sense_lineage": [],
+    "source_fingerprint": "f64af3143052604ee1a8662a7765daa9f5a928b8c7c4b2d7874fd693b7bb24f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:lateral",
+        "target_kind": "sense",
+        "from_target_id": "sense:lateral:3fb4a2a90d205620",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lateral",
+        "target_kind": "sense",
+        "from_target_id": "sense:lateral:74bf31223a4f51fc",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lateral",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7a28c6888e30d52d8363",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lateral",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a2854b10f5b82b041dd1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "侧面的，从侧面的",
-      "decision_cn": "",
+      "summary_cn": "侧面的；横向的",
+      "decision_cn": "ordinary → 侧面的、侧向的（lateral movement/thinking）。解剖方位与专业“侧部/支线”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "侧面的，从侧面的"
+        "target_label": "侧面的；横向的"
       }
     },
     "senses": [
@@ -1220,58 +1269,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "位于侧面或向侧面延伸的"
         }
-      },
-      {
-        "id": "sense:lateral:3fb4a2a90d205620",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "偏离身体正中面和矢状面的",
-        "definition_en": "lying away from the median and sagittal plane of a body",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a2854b10f5b82b041dd1",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "lateral view",
-            "meaning_cn": "侧面观",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lateral:3fb4a2a90d205620",
-          "target_locator": "record.senses[1]",
-          "target_label": "偏离身体正中面和矢状面的"
-        }
-      },
-      {
-        "id": "sense:lateral:74bf31223a4f51fc",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "侧部，支线",
-        "definition_en": "a side part or branch",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7a28c6888e30d52d8363",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a lateral of a road",
-            "meaning_cn": "道路的支线",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lateral:74bf31223a4f51fc",
-          "target_locator": "record.senses[2]",
-          "target_label": "侧部，支线"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1299,7 +1296,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a2854b10f5b82b041dd1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lateral:3fb4a2a90d205620:collocation:0"
+              ],
+              "meaning_cn": "侧面观",
+              "phrase": "lateral view"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "偏离身体正中面和矢状面的",
+          "definition_en": "lying away from the median and sagittal plane of a body",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:lateral:3fb4a2a90d205620",
+          "sense_label_en": "lying away from the median and sagittal plane of a body",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7a28c6888e30d52d8363",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lateral:74bf31223a4f51fc:collocation:0"
+              ],
+              "meaning_cn": "道路的支线",
+              "phrase": "a lateral of a road"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "侧部，支线",
+          "definition_en": "a side part or branch",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lateral:74bf31223a4f51fc",
+          "sense_label_en": "a side part or branch",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -1964,18 +2011,40 @@
     "ordinal": 2763,
     "word": "laugh",
     "source_owner_path": "content/lexical/words/by-ordinal/o2763.json",
-    "source_fingerprint": "2cafedf68ea81726a9bf2172709d591581aefd147a957700c92fcddce5cee066",
-    "sense_lineage": [],
+    "source_fingerprint": "d8310246493fefafc0088d9f65ad10d41bc11c13eea10b8d8a674ebd5bbb4b44",
+    "sense_lineage": [
+      {
+        "word_id": "word:laugh",
+        "target_kind": "sense",
+        "from_target_id": "sense:laugh:151ff1025b0e54da",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:laugh",
+        "target_kind": "sense",
+        "from_target_id": "sense:laugh:482988e0c0745247",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:laugh",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:09288f4b47421777fab3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "1V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "笑",
-      "decision_cn": "",
+      "decision_cn": "verb/noun → 笑、笑声；laugh at → 嘲笑；laugh sth off → 一笑置之。少见“以笑表示”动词及表情名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2048,54 +2117,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "笑声"
         }
-      },
-      {
-        "id": "sense:laugh:151ff1025b0e54da",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "以笑表示",
-        "definition_en": "to express or show by laughing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:09288f4b47421777fab3",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "laugh one's approval",
-            "meaning_cn": "以笑表示赞同",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:09288f4b47421777fab3",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "laugh one's approval"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:laugh:151ff1025b0e54da",
-          "target_locator": "record.senses[2]",
-          "target_label": "以笑表示"
-        }
-      },
-      {
-        "id": "sense:laugh:482988e0c0745247",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "笑的表情",
-        "definition_en": "a facial expression characteristic of a person laughing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:laugh:482988e0c0745247",
-          "target_locator": "record.senses[3]",
-          "target_label": "笑的表情"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2131,12 +2152,78 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:laugh:laugh-off",
+        "source_locator": "record.constructions[0]",
+        "pattern": "laugh sth off / laugh off sth",
+        "lines": [
+          {
+            "text": "对…一笑置之；不把…当回事",
+            "lang": "cn"
+          },
+          {
+            "text": "dismiss-something-lightly phrasal verb; not literal act of laughing",
+            "lang": "en"
+          },
+          {
+            "text": "to treat a problem or criticism as unimportant by laughing or joking about it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:laugh:laugh-off",
+          "target_locator": "record.constructions[0]",
+          "target_label": "laugh sth off / laugh off sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:09288f4b47421777fab3",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:laugh:151ff1025b0e54da:collocation:0"
+              ],
+              "meaning_cn": "以笑表示赞同",
+              "phrase": "laugh one's approval"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "以笑表示",
+          "definition_en": "to express or show by laughing",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:laugh:151ff1025b0e54da",
+          "sense_label_en": "to express or show by laughing",
+          "sort_order": 1,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "笑的表情",
+          "definition_en": "a facial expression characteristic of a person laughing",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:laugh:482988e0c0745247",
+          "sense_label_en": "a facial expression characteristic of a person laughing",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2256,18 +2343,26 @@
     "ordinal": 2765,
     "word": "launch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2765.json",
-    "source_fingerprint": "ff7f4de4260eac4743cbda47f298507e74736c000d22d9ce89aea4994a37aa6d",
-    "sense_lineage": [],
+    "source_fingerprint": "cc3e3f1a5d91dca9f6d7099dd831529a585c09ab1db9bdcb488621a89f1e0121",
+    "sense_lineage": [
+      {
+        "word_id": "word:launch",
+        "target_kind": "sense",
+        "from_target_id": "sense:launch:708f8cab6e2e5387",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "(2+1)V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "发射；发起",
-      "decision_cn": "",
+      "decision_cn": "rocket/satellite → 发射；product/campaign → 推出、发起；noun → 发射/发布会。特定汽艇义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2353,23 +2448,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "发射；发起"
         }
-      },
-      {
-        "id": "sense:launch:708f8cab6e2e5387",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "汽艇",
-        "definition_en": "a motorboat with an open deck or half deck",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:launch:708f8cab6e2e5387",
-          "target_locator": "record.senses[3]",
-          "target_label": "汽艇"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2412,7 +2490,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "汽艇",
+          "definition_en": "a motorboat with an open deck or half deck",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:launch:708f8cab6e2e5387",
+          "sense_label_en": "a motorboat with an open deck or half deck",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2577,17 +2671,46 @@
     "ordinal": 2767,
     "word": "lavatory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2767.json",
-    "source_fingerprint": "19c1b8f899d40efb4110edb89d03fe1e0de1ced657891032753caa2c5c543c85",
-    "sense_lineage": [],
+    "source_fingerprint": "75288cd2adce65ffcc9cdf7967d5d90466ac5f444b046a86b6b7d04647e5d9a0",
+    "sense_lineage": [
+      {
+        "word_id": "word:lavatory",
+        "target_kind": "sense",
+        "from_target_id": "sense:lavatory:1476fbf5eb4d50f5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lavatory",
+        "target_kind": "sense",
+        "from_target_id": "sense:lavatory:e57fc4a26a9055e0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lavatory",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1772617319f8ea9ebb43",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lavatory",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ea96e27f173d523480fd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "厕所或洗手间",
-      "decision_cn": "",
+      "decision_cn": "modern standard → 厕所、卫生间（多英式/正式）。管道卫生器具“洗脸盆”与马桶本体的专业/较旧义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2620,58 +2743,6 @@
           "target_id": "sense:lavatory:7ad6ea37461358c1",
           "target_locator": "record.senses[0]",
           "target_label": "厕所，卫生间"
-        }
-      },
-      {
-        "id": "sense:lavatory:e57fc4a26a9055e0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "洗脸盆，洗手池",
-        "definition_en": "a bathroom sink that is permanently installed and connected to a water supply and drainpipe",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1772617319f8ea9ebb43",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "wash in the lavatory",
-            "meaning_cn": "在洗手池洗手",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lavatory:e57fc4a26a9055e0",
-          "target_locator": "record.senses[1]",
-          "target_label": "洗脸盆，洗手池"
-        }
-      },
-      {
-        "id": "sense:lavatory:1476fbf5eb4d50f5",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "抽水马桶",
-        "definition_en": "a toilet that is cleaned of waste by the flow of water through it",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ea96e27f173d523480fd",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "flush the lavatory",
-            "meaning_cn": "冲马桶",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lavatory:1476fbf5eb4d50f5",
-          "target_locator": "record.senses[2]",
-          "target_label": "抽水马桶"
         }
       }
     ],
@@ -2739,7 +2810,57 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1772617319f8ea9ebb43",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lavatory:e57fc4a26a9055e0:collocation:0"
+              ],
+              "meaning_cn": "在洗手池洗手",
+              "phrase": "wash in the lavatory"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "洗脸盆，洗手池",
+          "definition_en": "a bathroom sink that is permanently installed and connected to a water supply and drainpipe",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lavatory:e57fc4a26a9055e0",
+          "sense_label_en": "a bathroom sink that is permanently installed and connected to a water s",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ea96e27f173d523480fd",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lavatory:1476fbf5eb4d50f5:collocation:0"
+              ],
+              "meaning_cn": "冲马桶",
+              "phrase": "flush the lavatory"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "抽水马桶",
+          "definition_en": "a toilet that is cleaned of waste by the flow of water through it",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lavatory:1476fbf5eb4d50f5",
+          "sense_label_en": "a toilet that is cleaned of waste by the flow of water through it",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3256,19 +3377,33 @@
     "ordinal": 2772,
     "word": "lay",
     "source_owner_path": "content/lexical/words/by-ordinal/o2772.json",
-    "source_fingerprint": "d9f2979f46c50a8c05fc2fc0e380cdf5594b3dfbe92e757562624e81c200ad86",
-    "sense_lineage": [],
+    "source_fingerprint": "969032fb29e445066f431a3b6260aded541addef171efe36c0fb369b649ab379",
+    "sense_lineage": [
+      {
+        "word_id": "word:lay",
+        "target_kind": "sense",
+        "from_target_id": "sense:lay:e22ffe06404058e0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lay",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a0b44d32d2559d371c83",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V",
-        "1A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "放置",
-      "decision_cn": "",
+      "decision_cn": "verb → 放置/产卵/铺设；lay sth out → 布置/说明；the lay of the land → 地势或局面。罕见独立名词“位置/层”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3417,34 +3552,8 @@
         }
       },
       {
-        "id": "sense:lay:e22ffe06404058e0",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "位置；层",
-        "definition_en": "the position or arrangement of something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a0b44d32d2559d371c83",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "the lay of the land",
-            "meaning_cn": "地形；形势",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lay:e22ffe06404058e0",
-          "target_locator": "record.senses[4]",
-          "target_label": "位置；层"
-        }
-      },
-      {
         "id": "sense:lay:662d52ca035752b7",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "世俗的；外行的",
@@ -3454,7 +3563,7 @@
         "usage": [
           {
             "id": "collocation:9e98917cdc2d9d112b93",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a lay person",
             "meaning_cn": "外行人",
             "kind": "usage_example",
@@ -3464,7 +3573,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lay:662d52ca035752b7",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "世俗的；外行的"
         }
       }
@@ -3601,6 +3710,31 @@
           "target_locator": "record.constructions[4]",
           "target_label": "lay the groundwork/basis/foundation(s) for sth"
         }
+      },
+      {
+        "id": "construction:lay:lay-of-the-land",
+        "source_locator": "record.constructions[5]",
+        "pattern": "the lay of the land",
+        "lines": [
+          {
+            "text": "地形地势；（引申）事情的实际情况、形势",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed topography/situation phrase; standalone rare noun lay remains Reference",
+            "lang": "en"
+          },
+          {
+            "text": "the features of a place, or the current situation and how it works",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lay:lay-of-the-land",
+          "target_locator": "record.constructions[5]",
+          "target_label": "the lay of the land"
+        }
       }
     ],
     "reference": {
@@ -3625,7 +3759,33 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a0b44d32d2559d371c83",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lay:e22ffe06404058e0:collocation:0"
+              ],
+              "meaning_cn": "地形；形势",
+              "phrase": "the lay of the land"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "位置；层",
+          "definition_en": "the position or arrangement of something",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lay:e22ffe06404058e0",
+          "sense_label_en": "the position or arrangement of something",
+          "sort_order": 4,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4281,17 +4441,32 @@
     "ordinal": 2776,
     "word": "layout",
     "source_owner_path": "content/lexical/words/by-ordinal/o2776.json",
-    "source_fingerprint": "bbe7463dd58ee815c2eadcf85be341394166a406c6206602e126007d25cdb275",
-    "sense_lineage": [],
+    "source_fingerprint": "96d8adeee475cd9a2108ecaf91997030ba20f6f3e258f063ae7d5a5167d06e81",
+    "sense_lineage": [
+      {
+        "word_id": "word:layout",
+        "target_kind": "sense",
+        "from_target_id": "sense:layout:8821d992018059f5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:layout",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4afa5e96176dcd6301e7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "布局或设计",
-      "decision_cn": "",
+      "decision_cn": "a layout = 各部分的安排/布局（如 page layout）。重复、低增益的“规划/设计”名词分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4337,32 +4512,6 @@
           "target_id": "sense:layout:348d1eb295ad54dc",
           "target_locator": "record.senses[0]",
           "target_label": "布局；设计"
-        }
-      },
-      {
-        "id": "sense:layout:8821d992018059f5",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "规划；设计",
-        "definition_en": "the act of laying out or planning something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4afa5e96176dcd6301e7",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "layout plan",
-            "meaning_cn": "规划图",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:layout:8821d992018059f5",
-          "target_locator": "record.senses[1]",
-          "target_label": "规划；设计"
         }
       }
     ],
@@ -4415,7 +4564,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4afa5e96176dcd6301e7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:layout:8821d992018059f5:collocation:0"
+              ],
+              "meaning_cn": "规划图",
+              "phrase": "layout plan"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "规划；设计",
+          "definition_en": "the act of laying out or planning something",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:layout:8821d992018059f5",
+          "sense_label_en": "the act of laying out or planning something",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4424,18 +4599,32 @@
     "ordinal": 2777,
     "word": "lazy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2777.json",
-    "source_fingerprint": "e45b1cd0b4619d6367a8e2d56b338a9722fa0b58f6e892915a927136bc8b83a8",
-    "sense_lineage": [],
+    "source_fingerprint": "a4a10cfdf56bae51ca853a11bdcf47c4c1cfdde653151ae52ef92eeacb9b78d0",
+    "sense_lineage": [
+      {
+        "word_id": "word:lazy",
+        "target_kind": "sense",
+        "from_target_id": "sense:lazy:f5ca8e65d19b5067",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lazy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:831c6e9729f68dc08ba9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "懒惰的，缓慢的",
-      "decision_cn": "",
+      "decision_cn": "person → 懒惰；atmosphere → 慵懒/悠闲（lazy afternoon）。罕见动词“懒散”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4511,37 +4700,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "缓慢而轻松的；悠闲的；活动/用力很少的"
         }
-      },
-      {
-        "id": "sense:lazy:f5ca8e65d19b5067",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + about",
-        "definition_cn": "懒散，闲散",
-        "definition_en": "to laze; to be idle",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:831c6e9729f68dc08ba9",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "lazy about + sth",
-            "meaning_cn": "对…懒散",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:831c6e9729f68dc08ba9",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "lazy about + sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lazy:f5ca8e65d19b5067",
-          "target_locator": "record.senses[2]",
-          "target_label": "懒散，闲散"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4582,7 +4740,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:831c6e9729f68dc08ba9",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lazy:f5ca8e65d19b5067:collocation:0"
+              ],
+              "meaning_cn": "对…懒散",
+              "phrase": "lazy about + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "懒散，闲散",
+          "definition_en": "to laze; to be idle",
+          "governing_pattern": "vi. + about",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lazy:f5ca8e65d19b5067",
+          "sense_label_en": "to laze; to be idle",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -4591,7 +4775,7 @@
     "ordinal": 2778,
     "word": "lead",
     "source_owner_path": "content/lexical/words/by-ordinal/o2778.json",
-    "source_fingerprint": "a835ce080ac09ee81896bb31d5bb7ffe8aaede69ab75caf6e1584977f0c5e241",
+    "source_fingerprint": "2eaed9e98c92dcc58838a2361bcec5b7a7f9b2ab423793303ca58004b2f37178",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4603,7 +4787,7 @@
     },
     "word_feel": {
       "summary_cn": "领导；引导；铅",
-      "decision_cn": "",
+      "decision_cn": "verb /liːd/ → 引领、导致（lead to）；metal /lɛd/ → 铅；noun lead → 优势、线索、主角；adjective → 主要的。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5115,7 +5299,33 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:lead:lead-to",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lead to sth / lead to doing sth",
+        "lines": [
+          {
+            "text": "导致；引起（某种后果）",
+            "lang": "cn"
+          },
+          {
+            "text": "causal verb /liːd/; distinct from metal lead /lɛd/",
+            "lang": "en"
+          },
+          {
+            "text": "to cause or result in a particular outcome",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lead:lead-to",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lead to sth / lead to doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5451,18 +5661,47 @@
     "ordinal": 2781,
     "word": "leaf",
     "source_owner_path": "content/lexical/words/by-ordinal/o2781.json",
-    "source_fingerprint": "509b5ffcda10a81b5dfced6050e853fde5b50f8ccb1b9515443631d236cfd05b",
-    "sense_lineage": [],
+    "source_fingerprint": "f8abd0e949c0cda6733d257deb247c17b49f4aad34a1b8c3255f76981bb0f889",
+    "sense_lineage": [
+      {
+        "word_id": "word:leaf",
+        "target_kind": "sense",
+        "from_target_id": "sense:leaf:b905a41044cb561e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:leaf",
+        "target_kind": "sense",
+        "from_target_id": "sense:leaf:cdb740dd1d085d66",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:leaf",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:08a97d5f2cb9d1c1aa9e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:leaf",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:eba92bd433bec23e4e7c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "1V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "植物的叶子或纸张的一页",
-      "decision_cn": "",
+      "decision_cn": "plant → 叶子；book → 书页；leaf through → 快速翻阅。活动桌板/门扇和少见“长叶”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5532,34 +5771,8 @@
         }
       },
       {
-        "id": "sense:leaf:b905a41044cb561e",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "活动桌板，门扇",
-        "definition_en": "a hinged or detachable flat section, as of a table or door",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:08a97d5f2cb9d1c1aa9e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a table leaf",
-            "meaning_cn": "活动桌板",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:leaf:b905a41044cb561e",
-          "target_locator": "record.senses[2]",
-          "target_label": "活动桌板，门扇"
-        }
-      },
-      {
         "id": "sense:leaf:3e2c23a2133e55ac",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + through",
         "definition_cn": "翻阅，浏览",
@@ -5569,14 +5782,14 @@
         "usage": [
           {
             "id": "collocation:d5f0659132a2012eb046",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "leaf through + sth",
             "meaning_cn": "翻阅某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d5f0659132a2012eb046",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "leaf through + sth"
             }
           }
@@ -5584,34 +5797,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:leaf:3e2c23a2133e55ac",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "翻阅，浏览"
-        }
-      },
-      {
-        "id": "sense:leaf:cdb740dd1d085d66",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "长叶，生叶",
-        "definition_en": "to produce leaves",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:eba92bd433bec23e4e7c",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "The trees leaf in spring.",
-            "meaning_cn": "树在春天长叶。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:leaf:cdb740dd1d085d66",
-          "target_locator": "record.senses[4]",
-          "target_label": "长叶，生叶"
         }
       }
     ],
@@ -5635,12 +5822,88 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:leaf:leaf-through",
+        "source_locator": "record.constructions[0]",
+        "pattern": "leaf through sth",
+        "lines": [
+          {
+            "text": "快速翻阅；浏览（书/杂志）",
+            "lang": "cn"
+          },
+          {
+            "text": "browsing-pages verb; distinct from a plant leaf",
+            "lang": "en"
+          },
+          {
+            "text": "to turn the pages of a book or magazine quickly, reading only parts of it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:leaf:leaf-through",
+          "target_locator": "record.constructions[0]",
+          "target_label": "leaf through sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:08a97d5f2cb9d1c1aa9e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:leaf:b905a41044cb561e:collocation:0"
+              ],
+              "meaning_cn": "活动桌板",
+              "phrase": "a table leaf"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "活动桌板，门扇",
+          "definition_en": "a hinged or detachable flat section, as of a table or door",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:leaf:b905a41044cb561e",
+          "sense_label_en": "a hinged or detachable flat section, as of a table or door",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:eba92bd433bec23e4e7c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:leaf:cdb740dd1d085d66:collocation:0"
+              ],
+              "meaning_cn": "树在春天长叶。",
+              "phrase": "The trees leaf in spring."
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "长叶，生叶",
+          "definition_en": "to produce leaves",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:leaf:cdb740dd1d085d66",
+          "sense_label_en": "to produce leaves",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -5761,18 +6024,46 @@
     "ordinal": 2783,
     "word": "league",
     "source_owner_path": "content/lexical/words/by-ordinal/o2783.json",
-    "source_fingerprint": "bfb750a6ed4456729103a6242b5c186b1845a934c7c0ae4e2b19c1080e9eddeb",
-    "sense_lineage": [],
+    "source_fingerprint": "8d83a8e92e9fe741f9c44359de7a486d890430b6f2cb77343daf7151961fd544",
+    "sense_lineage": [
+      {
+        "word_id": "word:league",
+        "target_kind": "sense",
+        "from_target_id": "sense:league:194efe20801b55cb",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:league",
+        "target_kind": "sense",
+        "from_target_id": "sense:league:70d65526d9295c2d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:league",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:773e781ab82e2e743a27",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:league",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c2aca4137b5ccbeee152",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "联盟；联合",
-      "decision_cn": "",
+      "decision_cn": "sports → 联赛；organizations/states → 联盟。旧式动词“结盟”和历史长度单位“里格”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5845,62 +6136,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "联盟；同盟"
         }
-      },
-      {
-        "id": "sense:league:70d65526d9295c2d",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "结盟；加盟",
-        "definition_en": "unite to form a league",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:773e781ab82e2e743a27",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "leagued together",
-            "meaning_cn": "联合起来",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:c2aca4137b5ccbeee152",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "league with + sb/sth",
-            "meaning_cn": "与…结盟",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c2aca4137b5ccbeee152",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "league with + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:league:70d65526d9295c2d",
-          "target_locator": "record.senses[2]",
-          "target_label": "结盟；加盟"
-        }
-      },
-      {
-        "id": "sense:league:194efe20801b55cb",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "里格（旧长度单位）",
-        "definition_en": "an obsolete unit of distance of variable length (usually 3 miles)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:league:194efe20801b55cb",
-          "target_locator": "record.senses[3]",
-          "target_label": "里格（旧长度单位）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5926,7 +6161,56 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:773e781ab82e2e743a27",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:league:70d65526d9295c2d:collocation:1"
+              ],
+              "meaning_cn": "联合起来",
+              "phrase": "leagued together"
+            },
+            {
+              "collocation_id": "collocation:c2aca4137b5ccbeee152",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:league:70d65526d9295c2d:collocation:0"
+              ],
+              "meaning_cn": "与…结盟",
+              "phrase": "league with + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "结盟；加盟",
+          "definition_en": "unite to form a league",
+          "governing_pattern": "vi. + with",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:league:70d65526d9295c2d",
+          "sense_label_en": "unite to form a league",
+          "sort_order": 3,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "里格（旧长度单位）",
+          "definition_en": "an obsolete unit of distance of variable length (usually 3 miles)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:league:194efe20801b55cb",
+          "sense_label_en": "an obsolete unit of distance of variable length (usually 3 miles)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5935,26 +6219,40 @@
     "ordinal": 2784,
     "word": "leak",
     "source_owner_path": "content/lexical/words/by-ordinal/o2784.json",
-    "source_fingerprint": "1440a47d15e4aa168852832a7e5b8c9dc4716a28208385651a320db9ea13faf3",
+    "source_fingerprint": "e96e7fb33630283c73ec6d12121fdaf17993532001b8f859ddb1007730bc1c60",
     "sense_lineage": [
+      {
+        "word_id": "word:leak",
+        "target_kind": "sense",
+        "from_target_id": "sense:leak:e5b4da6ef54356be",
+        "status": "reference",
+        "to_target_id": null
+      },
       {
         "word_id": "word:leak",
         "target_kind": "sense",
         "from_target_id": "sense:leak:f1dffdd3b3405f19",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:leak",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f24946d79d7097eec32c",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "泄漏；漏洞；泄露信息",
-      "decision_cn": "",
+      "decision_cn": "liquid/gas → 漏；confidential information → 泄密；noun → 漏处/泄露。非正式“take a leak = 小便”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6055,39 +6353,8 @@
         }
       },
       {
-        "id": "sense:leak:e5b4da6ef54356be",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "小便（委婉语）",
-        "definition_en": "a euphemism for urination",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f24946d79d7097eec32c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "take a leak",
-            "meaning_cn": "小便",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f24946d79d7097eec32c",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "take a leak"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:leak:e5b4da6ef54356be",
-          "target_locator": "record.senses[3]",
-          "target_label": "小便（委婉语）"
-        }
-      },
-      {
         "id": "sense:leak:f0412aa1ea56538e",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object / leak sth to sb/the press",
         "definition_cn": "使渗漏；泄露（液体或信息）",
@@ -6097,14 +6364,14 @@
         "usage": [
           {
             "id": "collocation:07b08f4a1d77b508b3e9",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "leak information to the press",
             "meaning_cn": "向媒体泄露信息",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:07b08f4a1d77b508b3e9",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "leak information to the press"
             }
           }
@@ -6112,7 +6379,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:leak:f0412aa1ea56538e",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "使渗漏；泄露（液体或信息）"
         }
       }
@@ -6166,6 +6433,30 @@
           "source_row": 7710,
           "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f24946d79d7097eec32c",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:leak:e5b4da6ef54356be:collocation:0"
+              ],
+              "meaning_cn": "小便",
+              "phrase": "take a leak"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "小便（委婉语）",
+          "definition_en": "a euphemism for urination",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:leak:e5b4da6ef54356be",
+          "sense_label_en": "a euphemism for urination",
+          "sort_order": 3,
+          "transitivity": "nonverb"
         }
       ]
     }
@@ -6430,18 +6721,33 @@
     "ordinal": 2786,
     "word": "leap",
     "source_owner_path": "content/lexical/words/by-ordinal/o2786.json",
-    "source_fingerprint": "5ac3312ff96cf826874dfe07902f9b2cae2479d782e9002015dd6c923cea8e6f",
-    "sense_lineage": [],
+    "source_fingerprint": "305dd6d3019dd3101c5dd9dad7332b62a4ba3909404b6c6b45640446ff6f85c1",
+    "sense_lineage": [
+      {
+        "word_id": "word:leap",
+        "target_kind": "sense",
+        "from_target_id": "sense:leap:d6824e9578ad502c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:leap",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3d07f09a6d9dd175b2e1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "跳跃；突然移动",
-      "decision_cn": "",
+      "decision_cn": "literal → 跳跃；figurative → leap in prices = 激增；a leap of faith → 冒险相信。透明、低价值的“跃过距离”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6618,32 +6924,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "跃过；使跃过"
         }
-      },
-      {
-        "id": "sense:leap:d6824e9578ad502c",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "跃过的距离",
-        "definition_en": "the distance leaped (or to be leaped)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3d07f09a6d9dd175b2e1",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "a leap of 2 meters",
-            "meaning_cn": "两米的跳跃距离",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:leap:d6824e9578ad502c",
-          "target_locator": "record.senses[5]",
-          "target_label": "跃过的距离"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6715,7 +6995,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3d07f09a6d9dd175b2e1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:leap:d6824e9578ad502c:collocation:0"
+              ],
+              "meaning_cn": "两米的跳跃距离",
+              "phrase": "a leap of 2 meters"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "跃过的距离",
+          "definition_en": "the distance leaped (or to be leaped)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:leap:d6824e9578ad502c",
+          "sense_label_en": "the distance leaped (or to be leaped)",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -7432,18 +7738,33 @@
     "ordinal": 2791,
     "word": "leave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2791.json",
-    "source_fingerprint": "884de9c10617494cb8e4e6c3d54ea9641fb903f0a12f9b0f4a55c33806368727",
-    "sense_lineage": [],
+    "source_fingerprint": "4ecac2eb017af067095e5d974ea7b51d710b0d9b410ed892de40dccc59faaa5c",
+    "sense_lineage": [
+      {
+        "word_id": "word:leave",
+        "target_kind": "sense",
+        "from_target_id": "sense:leave:b0c3ae880aac54d3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:leave",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6008d5ab09edb3965fe3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "离开；许可",
-      "decision_cn": "",
+      "decision_cn": "verb → 离开、留下、使处于某状态；noun → 休假；be on leave → 在休假。法律“许可/准许”名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7573,34 +7894,8 @@
         }
       },
       {
-        "id": "sense:leave:b0c3ae880aac54d3",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "许可；准许",
-        "definition_en": "permission to do something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6008d5ab09edb3965fe3",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "leave to appeal",
-            "meaning_cn": "上诉许可",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:leave:b0c3ae880aac54d3",
-          "target_locator": "record.senses[3]",
-          "target_label": "许可；准许"
-        }
-      },
-      {
         "id": "sense:leave:bd933153c2545046",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "使处于；使留下（某种状态）",
@@ -7611,7 +7906,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:leave:bd933153c2545046",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "使处于；使留下（某种状态）"
         }
       }
@@ -7651,13 +7946,64 @@
           "target_locator": "record.constructions[0]",
           "target_label": "leave sb/sth + adj/doing/pp"
         }
+      },
+      {
+        "id": "construction:leave:on-leave",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be on leave / take leave",
+        "lines": [
+          {
+            "text": "在休假；请假中",
+            "lang": "cn"
+          },
+          {
+            "text": "time-off employment/official absence; distinct from formal legal leave = permission to act",
+            "lang": "en"
+          },
+          {
+            "text": "absent from work or duties with official permission",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:leave:on-leave",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be on leave / take leave"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6008d5ab09edb3965fe3",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:leave:b0c3ae880aac54d3:collocation:0"
+              ],
+              "meaning_cn": "上诉许可",
+              "phrase": "leave to appeal"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "许可；准许",
+          "definition_en": "permission to do something",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:leave:b0c3ae880aac54d3",
+          "sense_label_en": "permission to do something",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8307,7 +8653,7 @@
     "ordinal": 2794,
     "word": "leg",
     "source_owner_path": "content/lexical/words/by-ordinal/o2794.json",
-    "source_fingerprint": "c52054c91e52f33ad4ba154155291b214dcc363381e320d5470b0ebf97631fd2",
+    "source_fingerprint": "74bdc742431afe3e70376d2e6ab02a047f9a3de92c8c40fb6c0a081c5a1da0d5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8318,7 +8664,7 @@
     },
     "word_feel": {
       "summary_cn": "腿",
-      "decision_cn": "",
+      "decision_cn": "body → 腿；furniture → 支撑腿；journey → 行程一段；leg it → 赶快跑（英式非正式）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8401,8 +8747,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + it",
-        "definition_cn": "走，跑",
-        "definition_en": "to walk or run quickly",
+        "definition_cn": "快跑；赶快走（非正式，常用 leg it）",
+        "definition_en": "informal, especially British: to run or leave quickly, especially in the phrase leg it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8424,7 +8770,7 @@
           "target_kind": "sense",
           "target_id": "sense:leg:bda05d0a43bb582f",
           "target_locator": "record.senses[3]",
-          "target_label": "走，跑"
+          "target_label": "快跑；赶快走（非正式，常用 leg it）"
         }
       }
     ],
@@ -8506,6 +8852,31 @@
           "target_id": "construction:f45695879af68838daf3",
           "target_locator": "record.constructions[0]",
           "target_label": "break a leg!"
+        }
+      },
+      {
+        "id": "construction:leg:leg-it",
+        "source_locator": "record.constructions[1]",
+        "pattern": "leg it",
+        "lines": [
+          {
+            "text": "赶快跑；赶紧离开（英式非正式）",
+            "lang": "cn"
+          },
+          {
+            "text": "informal fixed verb phrase; not the body-part noun or journey segment",
+            "lang": "en"
+          },
+          {
+            "text": "to run away or leave quickly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:leg:leg-it",
+          "target_locator": "record.constructions[1]",
+          "target_label": "leg it"
         }
       }
     ],
@@ -8771,17 +9142,17 @@
     "ordinal": 2797,
     "word": "legend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2797.json",
-    "source_fingerprint": "54bf952f2fc50dc2f9155b5df44ee465d48fa5af0b6acd320d28ee132bd040bc",
+    "source_fingerprint": "cd5ade9718efd95b1f1bda563c30de38b5fdcd790b39d3d5e3c10ef97e48eb5a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "传说；图例；传奇人物",
-      "decision_cn": "",
+      "decision_cn": "traditional story → 传说；map/diagram → 图例；a living legend → 传奇人物、备受敬仰的人。保留现有真实身份 ID，不把人义混入传说故事义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8859,6 +9230,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "图例；说明"
         }
+      },
+      {
+        "id": "sense:legend:5f060f3be110e3dc",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "传奇人物；名人；备受敬仰的人",
+        "definition_en": "a very famous and admired person, especially one celebrated for lasting achievement",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:legend:5f060f3be110e3dc",
+          "target_locator": "record.senses[2]",
+          "target_label": "传奇人物；名人；备受敬仰的人"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8903,30 +9291,38 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:legend:living-legend",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a living legend",
+        "lines": [
+          {
+            "text": "在世传奇；仍在世且成就卓著、备受敬仰的人",
+            "lang": "cn"
+          },
+          {
+            "text": "admired-person sense of legend; not an old traditional legend story",
+            "lang": "en"
+          },
+          {
+            "text": "a living person who is famous and greatly admired for exceptional achievement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:legend:living-legend",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a living legend"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:legend:5f060f3be110e3dc",
-          "status": "active",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "传奇人物；名人；备受敬仰的人",
-          "definition_en": "a very famous and admired person, especially one celebrated for lasting achievement",
-          "semantic_key": "8f1b50436b211b6660ca69162722b9bd248d3605fdd35848d20247a03069e8fd",
-          "semantic_key_history": [],
-          "legacy_aliases": [],
-          "legacy_alias_history": [],
-          "updated_at": "2026-09-15T09:05:00Z",
-          "source_row": 7818,
-          "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -9067,18 +9463,33 @@
     "ordinal": 2799,
     "word": "legitimate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2799.json",
-    "source_fingerprint": "8ca10ed76ceececa9dd83485f71490ea826f6afa58be732335252be121e36c81",
-    "sense_lineage": [],
+    "source_fingerprint": "81177871fe04dc72e4c5c44cbbccdab28e95cb61e7c7e394efa34e9df07b48f2",
+    "sense_lineage": [
+      {
+        "word_id": "word:legitimate",
+        "target_kind": "sense",
+        "from_target_id": "sense:legitimate:77bce2c08ea25682",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:legitimate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c813a598a9c61fbc080b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "合法的；使合法",
-      "decision_cn": "",
+      "decision_cn": "ordinary → 合法的/合理正当的；verb → 使合法、证明正当。婚姻出身身份的旧式法律分类保留为 Reference，日常描述人时慎用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9169,40 +9580,6 @@
           "target_id": "sense:legitimate:a0e5d2c4b5e8590f",
           "target_locator": "record.senses[1]",
           "target_label": "使合法，使正当"
-        }
-      },
-      {
-        "id": "sense:legitimate:77bce2c08ea25682",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "婚生的",
-        "definition_en": "born of legally married parents",
-        "note": "",
-        "identity_overlay": {
-          "text": "pronunciation_by_part_of_speech",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "pronunciation_by_part_of_speech"
-          }
-        },
-        "usage": [
-          {
-            "id": "collocation:c813a598a9c61fbc080b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "legitimate offspring",
-            "meaning_cn": "婚生子女",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:legitimate:77bce2c08ea25682",
-          "target_locator": "record.senses[2]",
-          "target_label": "婚生的"
         }
       }
     ],
@@ -9362,10 +9739,6 @@
           0,
           1
         ],
-        "sense:legitimate:77bce2c08ea25682": [
-          0,
-          1
-        ],
         "sense:legitimate:a0e5d2c4b5e8590f": [
           2,
           3
@@ -9379,7 +9752,38 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c813a598a9c61fbc080b",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:legitimate:77bce2c08ea25682:collocation:0"
+              ],
+              "meaning_cn": "婚生子女",
+              "phrase": "legitimate offspring"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "旧式/法律用语：婚生的",
+          "definition_en": "dated/legal: born to parents who are legally married; may be stigmatizing outside legal or historical context",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "identity_type": "pronunciation_by_part_of_speech",
+            "pronunciation": "adjective /lɪˈdʒɪtəmət/",
+            "surface_lemma": "legitimate"
+          },
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:legitimate:77bce2c08ea25682",
+          "sense_label_en": "dated/legal: born to parents who are legally married; may be stigmatizing outside legal or historical context",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

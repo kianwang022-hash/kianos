@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:leaf:leaf-through",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "快速翻阅；浏览（书/杂志）",
+        "definition_en": "to turn the pages of a book or magazine quickly, reading only parts of it",
+        "pattern": "leaf through sth",
+        "source_sense_id": "sense:leaf:3e2c23a2133e55ac",
+        "boundary": "browsing-pages verb; distinct from a plant leaf"
+      }
+    ],
     "content_hash": "ccf80298ee1b4f84acf792b16f3694b0d9da7fd2569e37d8516745c0d69956be",
     "core_concept": {
       "core_clusters": [
@@ -16,8 +27,7 @@
           "pos": "noun",
           "sense_ids": [
             "sense:leaf:1f89158957725574",
-            "sense:leaf:753da39f45cb5ac3",
-            "sense:leaf:b905a41044cb561e"
+            "sense:leaf:753da39f45cb5ac3"
           ]
         },
         {
@@ -25,14 +35,13 @@
           "label_en": "to turn pages quickly, especially to scan or browse; to produce leaves",
           "pos": "verb",
           "sense_ids": [
-            "sense:leaf:3e2c23a2133e55ac",
-            "sense:leaf:cdb740dd1d085d66"
+            "sense:leaf:3e2c23a2133e55ac"
           ]
         }
       ],
       "core_meaning_cn": "植物的叶子或纸张的一页",
       "core_meaning_en": "a flat, usually green part of a plant, or a sheet of paper",
-      "mental_model_cn": "植物的叶子或纸张的一页",
+      "mental_model_cn": "plant → 叶子；book → 书页；leaf through → 快速翻阅。活动桌板/门扇和少见“长叶”动词保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,30 +112,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:08a97d5f2cb9d1c1aa9e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:leaf:b905a41044cb561e:collocation:0"
-            ],
-            "meaning_cn": "活动桌板",
-            "phrase": "a table leaf"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "活动桌板，门扇",
-        "definition_en": "a hinged or detachable flat section, as of a table or door",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:leaf:b905a41044cb561e",
-        "sense_label_en": "a hinged or detachable flat section, as of a table or door",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:d5f0659132a2012eb046",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -146,30 +131,6 @@
         "sense_id": "sense:leaf:3e2c23a2133e55ac",
         "sense_label_en": "to turn pages quickly, especially to scan or browse",
         "sort_order": 3,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:eba92bd433bec23e4e7c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:leaf:cdb740dd1d085d66:collocation:0"
-            ],
-            "meaning_cn": "树在春天长叶。",
-            "phrase": "The trees leaf in spring."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "长叶，生叶",
-        "definition_en": "to produce leaves",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:leaf:cdb740dd1d085d66",
-        "sense_label_en": "to produce leaves",
-        "sort_order": 4,
         "transitivity": "vi"
       }
     ],
@@ -282,7 +243,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:08a97d5f2cb9d1c1aa9e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:leaf:b905a41044cb561e:collocation:0"
+          ],
+          "meaning_cn": "活动桌板",
+          "phrase": "a table leaf"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "活动桌板，门扇",
+      "definition_en": "a hinged or detachable flat section, as of a table or door",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:leaf:b905a41044cb561e",
+      "sense_label_en": "a hinged or detachable flat section, as of a table or door",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:eba92bd433bec23e4e7c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:leaf:cdb740dd1d085d66:collocation:0"
+          ],
+          "meaning_cn": "树在春天长叶。",
+          "phrase": "The trees leaf in spring."
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "长叶，生叶",
+      "definition_en": "to produce leaves",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:leaf:cdb740dd1d085d66",
+      "sense_label_en": "to produce leaves",
+      "sort_order": 4,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -308,33 +318,33 @@
       },
       {
         "sense_id": "sense:leaf:b905a41044cb561e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7697,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
       },
       {
         "sense_id": "sense:leaf:cdb740dd1d085d66",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7698,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
       }
     ],
     "active_collocations": [
-      "collocation:08a97d5f2cb9d1c1aa9e",
       "collocation:1492a9113b6d948a106f",
       "collocation:360c0dea6f4eca468b66",
       "collocation:b701b4565f55035c0c15",
-      "collocation:d5f0659132a2012eb046",
-      "collocation:eba92bd433bec23e4e7c"
+      "collocation:d5f0659132a2012eb046"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:08a97d5f2cb9d1c1aa9e",
         "source_row": 726,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:1492a9113b6d948a106f",
@@ -359,7 +369,9 @@
       {
         "id": "collocation:eba92bd433bec23e4e7c",
         "source_row": 19957,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:laugh:laugh-off",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "对…一笑置之；不把…当回事",
+        "definition_en": "to treat a problem or criticism as unimportant by laughing or joking about it",
+        "pattern": "laugh sth off / laugh off sth",
+        "source_sense_id": "sense:laugh:d959090d510d52bc",
+        "boundary": "dismiss-something-lightly phrasal verb; not literal act of laughing"
+      }
+    ],
     "content_hash": "c116834a962291a70eda24bd5e12527cc94cd9760c094b0b7ef80f94d7ef8689",
     "core_concept": {
       "core_clusters": [
@@ -15,8 +26,7 @@
           "label_en": "produce laughter; to express or show by laughing",
           "pos": "verb",
           "sense_ids": [
-            "sense:laugh:d959090d510d52bc",
-            "sense:laugh:151ff1025b0e54da"
+            "sense:laugh:d959090d510d52bc"
           ]
         },
         {
@@ -24,14 +34,13 @@
           "label_en": "the sound of laughing; a facial expression characteristic of a person laughing",
           "pos": "noun",
           "sense_ids": [
-            "sense:laugh:a0f3a3f8e02b5586",
-            "sense:laugh:482988e0c0745247"
+            "sense:laugh:a0f3a3f8e02b5586"
           ]
         }
       ],
       "core_meaning_cn": "笑",
       "core_meaning_en": "to make sounds and movements of amusement",
-      "mental_model_cn": "笑",
+      "mental_model_cn": "verb/noun → 笑、笑声；laugh at → 嘲笑；laugh sth off → 一笑置之。少见“以笑表示”动词及表情名词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -97,44 +106,6 @@
         "sense_id": "sense:laugh:a0f3a3f8e02b5586",
         "sense_label_en": "the sound of laughing",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:09288f4b47421777fab3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:laugh:151ff1025b0e54da:collocation:0"
-            ],
-            "meaning_cn": "以笑表示赞同",
-            "phrase": "laugh one's approval"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "以笑表示",
-        "definition_en": "to express or show by laughing",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:laugh:151ff1025b0e54da",
-        "sense_label_en": "to express or show by laughing",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "笑的表情",
-        "definition_en": "a facial expression characteristic of a person laughing",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:laugh:482988e0c0745247",
-        "sense_label_en": "a facial expression characteristic of a person laughing",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -332,19 +303,58 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:09288f4b47421777fab3",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:laugh:151ff1025b0e54da:collocation:0"
+          ],
+          "meaning_cn": "以笑表示赞同",
+          "phrase": "laugh one's approval"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "以笑表示",
+      "definition_en": "to express or show by laughing",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:laugh:151ff1025b0e54da",
+      "sense_label_en": "to express or show by laughing",
+      "sort_order": 1,
+      "transitivity": "vt"
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "笑的表情",
+      "definition_en": "a facial expression characteristic of a person laughing",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:laugh:482988e0c0745247",
+      "sense_label_en": "a facial expression characteristic of a person laughing",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:laugh:151ff1025b0e54da",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7649,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
       },
       {
         "sense_id": "sense:laugh:482988e0c0745247",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7650,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
@@ -365,7 +375,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:09288f4b47421777fab3",
       "collocation:c3d0ae9aeaa1e2b80a6a",
       "collocation:cc0368d65883bbe0cc88",
       "collocation:daba27f6cd5de48d6fe3"
@@ -375,7 +384,9 @@
       {
         "id": "collocation:09288f4b47421777fab3",
         "source_row": 762,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c3d0ae9aeaa1e2b80a6a",

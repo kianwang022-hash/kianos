@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "厕所或洗手间",
       "core_meaning_en": "a room or fixture for washing or toileting",
-      "mental_model_cn": "厕所或洗手间",
+      "mental_model_cn": "modern standard → 厕所、卫生间（多英式/正式）。管道卫生器具“洗脸盆”与马桶本体的专业/较旧义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,54 +45,6 @@
         "sense_id": "sense:lavatory:7ad6ea37461358c1",
         "sense_label_en": "a room or building equipped with one or more toilets",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1772617319f8ea9ebb43",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lavatory:e57fc4a26a9055e0:collocation:0"
-            ],
-            "meaning_cn": "在洗手池洗手",
-            "phrase": "wash in the lavatory"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "洗脸盆，洗手池",
-        "definition_en": "a bathroom sink that is permanently installed and connected to a water supply and drainpipe",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:lavatory:e57fc4a26a9055e0",
-        "sense_label_en": "a bathroom sink that is permanently installed and connected to a water s",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ea96e27f173d523480fd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lavatory:1476fbf5eb4d50f5:collocation:0"
-            ],
-            "meaning_cn": "冲马桶",
-            "phrase": "flush the lavatory"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "抽水马桶",
-        "definition_en": "a toilet that is cleaned of waste by the flow of water through it",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:lavatory:1476fbf5eb4d50f5",
-        "sense_label_en": "a toilet that is cleaned of waste by the flow of water through it",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -396,12 +348,61 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:1772617319f8ea9ebb43",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lavatory:e57fc4a26a9055e0:collocation:0"
+          ],
+          "meaning_cn": "在洗手池洗手",
+          "phrase": "wash in the lavatory"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "洗脸盆，洗手池",
+      "definition_en": "a bathroom sink that is permanently installed and connected to a water supply and drainpipe",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:lavatory:e57fc4a26a9055e0",
+      "sense_label_en": "a bathroom sink that is permanently installed and connected to a water s",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ea96e27f173d523480fd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lavatory:1476fbf5eb4d50f5:collocation:0"
+          ],
+          "meaning_cn": "冲马桶",
+          "phrase": "flush the lavatory"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "抽水马桶",
+      "definition_en": "a toilet that is cleaned of waste by the flow of water through it",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:lavatory:1476fbf5eb4d50f5",
+      "sense_label_en": "a toilet that is cleaned of waste by the flow of water through it",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:lavatory:1476fbf5eb4d50f5",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7660,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
@@ -415,23 +416,23 @@
       },
       {
         "sense_id": "sense:lavatory:e57fc4a26a9055e0",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7662,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
       }
     ],
     "active_collocations": [
-      "collocation:1772617319f8ea9ebb43",
-      "collocation:4cda3d633560a10b076e",
-      "collocation:ea96e27f173d523480fd"
+      "collocation:4cda3d633560a10b076e"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:1772617319f8ea9ebb43",
         "source_row": 1940,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4cda3d633560a10b076e",
@@ -441,7 +442,9 @@
       {
         "id": "collocation:ea96e27f173d523480fd",
         "source_row": 19872,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
