@@ -3292,7 +3292,7 @@
     "ordinal": 1367,
     "word": "die",
     "source_owner_path": "content/lexical/words/by-ordinal/o1367.json",
-    "source_fingerprint": "c21eb64065469b7453aed387cde00768cf183aeee1c881759664d868dcdceb24",
+    "source_fingerprint": "478a65ee92783c3bac9d9c74085356b5997f0a8e4f45005d3e77b1055490ddc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3526,6 +3526,16 @@
             "surface": "dyeing",
             "condition": "-ing form of dye",
             "note": "belongs to dye, not die"
+          },
+          {
+            "surface": "die → dice",
+            "condition": "noun: gaming die",
+            "note": "游戏骰子的常用复数是dice。"
+          },
+          {
+            "surface": "die → dies",
+            "condition": "noun: manufacturing tool",
+            "note": "制造/冲压工具的常用复数是dies；不要套用骰子复数。"
           }
         ],
         "variants": [],
@@ -3545,7 +3555,7 @@
     "ordinal": 1368,
     "word": "diet",
     "source_owner_path": "content/lexical/words/by-ordinal/o1368.json",
-    "source_fingerprint": "94ec55f975838365d8b4d5d9a100b17920b2edbce31b5380a94942230c089d51",
+    "source_fingerprint": "178f5d021e91460f2fa3dd532e207a83af951e2f0b75fe3319aaf412bb528952",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3556,7 +3566,7 @@
     },
     "word_feel": {
       "summary_cn": "饮食；节食",
-      "decision_cn": "",
+      "decision_cn": "food/eating→日常饮食或规定食谱；diet（verb）→节食；the Diet→议会；a (steady) diet of内容/活动→持续接触的精神食粮，常有负面评价但非必然。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3711,7 +3721,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:diet:steady-diet-of-content",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a (steady) diet of + content/activity",
+        "lines": [
+          {
+            "text": "持续或习惯接触的内容/活动；精神食粮（常含过多或单一的负面评价，但非必然贬义）",
+            "lang": "cn"
+          },
+          {
+            "text": "content/activity宾语触发非食物读法，如a steady diet of adventure stories；不是普通diet of food共现。",
+            "lang": "cn"
+          },
+          {
+            "text": "a regular or continuous supply of content or activities, often viewed as excessive or monotonous, but not necessarily negatively",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:diet:steady-diet-of-content",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a (steady) diet of + content/activity"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5385,7 +5421,7 @@
     "ordinal": 1378,
     "word": "digital",
     "source_owner_path": "content/lexical/words/by-ordinal/o1378.json",
-    "source_fingerprint": "ab2d90e3f2b7a77bd035b2f683b994e387e468f18ef3daacb3d75b7461799a64",
+    "source_fingerprint": "d9fb6d7b4c5ced9e32a77461dccb84f5d7faec2e80e0134197abeb456cc2d304",
     "sense_lineage": [
       {
         "word_id": "word:digital",
@@ -5417,7 +5453,7 @@
     },
     "word_feel": {
       "summary_cn": "数字的；数字技术的",
-      "decision_cn": "主学习义是数字技术/数字信息；手指义保留为次要分支。",
+      "decision_cn": "技术/数据→数字编码；解剖的digital nerves可指手指或足趾神经；检查/操作语境也可指用手指进行，不是数码技术。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5441,13 +5477,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "digital technology/data",
             "meaning_cn": "数字技术/数据",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:28bc4c9766bfb55b9d5d",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "digital technology/data"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5462,8 +5493,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "手指的",
-        "definition_en": "relating to or performed with the fingers",
+        "definition_cn": "（解剖）指或趾的；用手指进行的",
+        "definition_en": "relating to the fingers or toes, or carried out with a finger",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5480,7 +5511,7 @@
           "target_kind": "sense",
           "target_id": "sense:digital:a0686dc13d735c1c",
           "target_locator": "record.senses[1]",
-          "target_label": "手指的"
+          "target_label": "（解剖）指或趾的；用手指进行的"
         }
       }
     ],

@@ -4,7 +4,7 @@ const { answer = null } = Astro.props;
 ---
 {answer && <VocabularyWordMarkup answer={answer} />}
 <script>
-  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId } from '../lib/lexicalEvidence.mjs';
+  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId, reconcileEvidenceIdentity } from '../lib/lexicalEvidence.mjs';
   import { DEFAULT_PRONUNCIATION, LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings } from '../lib/lexicalSettings.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
@@ -69,6 +69,8 @@ const { answer = null } = Astro.props;
     state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
 
     const previousTargets = { ...state.repairTargets };
+    let currentForm = null;
+    try { currentForm = JSON.parse(root.querySelector('[data-vocab-current-form]')?.textContent || 'null'); } catch {}
     let ledger = readLedger();
     let ledgerChanged = false;
     if (!readOnlyLookup) {
@@ -91,7 +93,11 @@ const { answer = null } = Astro.props;
         ledger = migrated.ledger;
         if (migrated.status === 'APPENDED' || migrated.status === 'CONFLICT_QUARANTINED') ledgerChanged = true;
       }
-      if (ledgerChanged) saveLedger(ledger);
+      // Legacy cache import can introduce an old Form event after the identity
+      // bridge ran. Apply the same current eligibility before projecting it.
+      const reconciled = reconcileEvidenceIdentity(ledger, [], [{ word_id: objectId, form: currentForm }]);
+      ledger = reconciled.ledger;
+      if (ledgerChanged || reconciled.statuses.length) saveLedger(ledger);
     }
     const activeTargets = compileRepairTargets(ledger).filter((target) => target.word_id === objectId);
     state.repairTargets = Object.fromEntries(activeTargets.map((target) => {

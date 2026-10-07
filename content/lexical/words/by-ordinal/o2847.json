@@ -11,12 +11,11 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "液体；流音（如l、r）",
-          "label_en": "a substance that flows freely and has a fixed volume but no fixed shape; a consonant sound like 'l' or 'r'",
+          "label_cn": "液体",
+          "label_en": "a substance that flows freely and has a fixed volume but no fixed shape",
           "pos": "noun",
           "sense_ids": [
-            "sense:liquid:df850e8ab1cb5c0a",
-            "sense:liquid:86e5952bc6015b21"
+            "sense:liquid:df850e8ab1cb5c0a"
           ]
         },
         {
@@ -32,7 +31,7 @@
       ],
       "core_meaning_cn": "液体或液态的",
       "core_meaning_en": "a state of matter that flows and has no fixed shape, or something in that state",
-      "mental_model_cn": "液体或液态的",
+      "mental_model_cn": "物质或物态→液体/液态；liquid assets（金融）→易于变现的资产；liquid eyes（文学）→清澈明亮的眼睛。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,15 +54,6 @@
             ],
             "meaning_cn": "多喝流质",
             "phrase": "drink plenty of liquids"
-          },
-          {
-            "collocation_id": "collocation:df0e2d1e12adef3a9d85",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:liquid:df850e8ab1cb5c0a:collocation:1"
-            ],
-            "meaning_cn": "液氮",
-            "phrase": "liquid nitrogen"
           }
         ],
         "confidence": "medium",
@@ -97,6 +87,15 @@
             ],
             "meaning_cn": "流质食物",
             "phrase": "liquid food"
+          },
+          {
+            "collocation_id": "collocation:df0e2d1e12adef3a9d85",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:liquid:df850e8ab1cb5c0a:collocation:1"
+            ],
+            "meaning_cn": "液氮",
+            "phrase": "liquid nitrogen"
           }
         ],
         "confidence": "medium",
@@ -133,31 +132,8 @@
         "sense_id": "sense:liquid:69ea23330ee75377",
         "sense_label_en": "clear and bright, like water",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:83b0e28ff3434369f07e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:liquid:86e5952bc6015b21:collocation:0"
-            ],
-            "meaning_cn": "流辅音",
-            "phrase": "liquid consonant"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "流音（如l、r）",
-        "definition_en": "a consonant sound like 'l' or 'r'",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:liquid:86e5952bc6015b21",
-        "sense_label_en": "a consonant sound like 'l' or 'r'",
-        "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "文学用法，常形容eyes清澈明亮。"
       },
       {
         "collocations": [],
@@ -187,7 +163,8 @@
             "source_operation_sha256": "4e5e7ad81ba7618534ddc54d0a066dbb21957b7f212b576d54ee1428b6c7bb10",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "usage_note": "金融/business：liquid assets指可迅速变为现金的资产，不是液态物质。"
       }
     ],
     "verification_summary": {
@@ -682,7 +659,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:83b0e28ff3434369f07e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:liquid:86e5952bc6015b21:collocation:0"
+          ],
+          "meaning_cn": "流辅音",
+          "phrase": "liquid consonant"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "流音（如l、r）",
+      "definition_en": "a consonant sound like 'l' or 'r'",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:liquid:86e5952bc6015b21",
+      "sense_label_en": "a consonant sound like 'l' or 'r'",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -701,7 +703,7 @@
       },
       {
         "sense_id": "sense:liquid:86e5952bc6015b21",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7917,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
@@ -722,7 +724,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:83b0e28ff3434369f07e",
       "collocation:b523e52605dafebb9834",
       "collocation:c25ae3d0f9f3482463cd",
       "collocation:c2e89ccea1487ef1710a",
@@ -734,7 +735,9 @@
       {
         "id": "collocation:83b0e28ff3434369f07e",
         "source_row": 11165,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b523e52605dafebb9834",

@@ -8,16 +8,22 @@
     if (!lexicalBrowserStateReadable()) return;
 
     const initialize = (root) => {
-      if (!(root instanceof HTMLElement) || root.dataset.vocabIdentityInitialized === 'true') return;
+      if (!(root instanceof HTMLElement)) return;
       root.dataset.vocabIdentityInitialized = 'true';
       const params = new URLSearchParams(location.search);
       if (params.get('mode') === 'lookup' || params.has('lookup') || params.get('from') === 'english') return;
       let lineage = [];
+      let form = null;
       try {
         lineage = JSON.parse(root.querySelector('[data-vocab-identity-lineage]')?.textContent || '[]');
+        form = JSON.parse(root.querySelector('[data-vocab-current-form]')?.textContent || 'null');
       } catch {}
-      if (!Array.isArray(lineage) || !lineage.length) return;
-      writeBrowserLexicalLedger(reconcileEvidenceIdentity(readBrowserLexicalLedger(), lineage).ledger);
+      if (!Array.isArray(lineage)) return;
+      if (!lineage.length && form?.disposition !== 'EXPLORE_ONLY') return;
+      const result = reconcileEvidenceIdentity(readBrowserLexicalLedger(), lineage, [{
+        word_id: root.getAttribute('data-vocab-object'), form
+      }]);
+      if (result.statuses.length) writeBrowserLexicalLedger(result.ledger);
     };
 
     const initializeCurrent = () => {
@@ -26,5 +32,6 @@
 
     initializeCurrent();
     window.addEventListener('kianos:vocabulary-root-ready', initializeCurrent);
+    window.addEventListener('kianos:lexical-evidence-changed', initializeCurrent);
   });
 </script>

@@ -2457,7 +2457,7 @@
     "ordinal": 2958,
     "word": "margin",
     "source_owner_path": "content/lexical/words/by-ordinal/o2958.json",
-    "source_fingerprint": "c2d6f7471cd6c87648128591c00112dd0ce7f639cccfbc892f45e6d43b840adc",
+    "source_fingerprint": "5b4609330bc5e8c6c484408d2f32400e1e86af2c2dadb0c65a4204eb960891b7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2467,7 +2467,7 @@
     },
     "word_feel": {
       "summary_cn": "边缘；差额；余地",
-      "decision_cn": "",
+      "decision_cn": "页边/边缘→位置；利润或胜负→差额；安全空间→余地；交易账户→保证金。a margin for/of error在预留空间语境→容错余量；a margin of error在民调/估计、±x%语境→估计的不确定范围，非允许犯错的次数/额度，也非绝对保证。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2542,7 +2542,7 @@
             "id": "collocation:b0641e2dcb3bd1d45dc6",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "a margin of error",
-            "meaning_cn": "误差幅度",
+            "meaning_cn": "可容许的误差余量；为失误预留的容错余地（allowance语境）",
             "kind": "usage_example",
             "repair": null
           }
@@ -5874,7 +5874,7 @@
     "ordinal": 2976,
     "word": "mat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2976.json",
-    "source_fingerprint": "2b544a7437868c64228135c7c01eabfa2054fb543550b70e224fc43e97e54ee0",
+    "source_fingerprint": "0f21bd0848ca975726119d0793823a086e15a828b15e03e62a0c7c0e221caa79",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5900,8 +5900,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "垫子，地垫，厚而平的垫子",
-        "definition_en": "a thick flat pad used as a floor covering",
+        "definition_cn": "垫子；铺在地面或其它表面、保护表面的平垫",
+        "definition_en": "a flat pad placed on a floor or another surface, often to cover or protect it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5923,7 +5923,7 @@
           "target_kind": "sense",
           "target_id": "sense:mat:2d23dedfef855bc3",
           "target_locator": "record.senses[0]",
-          "target_label": "垫子，地垫，厚而平的垫子"
+          "target_label": "垫子；铺在地面或其它表面、保护表面的平垫"
         }
       },
       {
@@ -5976,14 +5976,14 @@
         "governing_pattern": "",
         "definition_cn": "粗糙的，无光泽的",
         "definition_en": "having a dull or rough surface; not shiny",
-        "note": "",
+        "note": "哑光adj的拼写：通常AmE matte、BrE matt，mat也合法但较少见；只属不发亮的表面义，不是垫子noun的拼写变体。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a6844f7fb3525abb0393",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "mat finish",
-            "meaning_cn": "无光泽表面，哑光处理",
+            "meaning_cn": "哑光表面/处理；此adj通常写matte/matt，mat也合法",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6004,9 +6004,9 @@
         "id": "sense:mat:79201cb3335d5bdb",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "铺席于…上；使缠结；使无光泽",
-        "definition_en": "to cover with mats; to make something tangled or dull",
+        "governing_pattern": "I/T: hair/fibres mat (tangle); mat sth (cover, tangle, or dull)",
+        "definition_cn": "铺垫子；使缠结或自行缠结；使无光泽",
+        "definition_en": "to cover with mats; to make or become densely tangled; to give a dull surface",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6023,7 +6023,7 @@
           "target_kind": "sense",
           "target_id": "sense:mat:79201cb3335d5bdb",
           "target_locator": "record.senses[4]",
-          "target_label": "铺席于…上；使缠结；使无光泽"
+          "target_label": "铺垫子；使缠结或自行缠结；使无光泽"
         }
       },
       {
@@ -6265,7 +6265,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "哑光adjective：matte通常AmE，matt通常BrE；mat是合法但较少见的变体。仅此意义互通，不适用于垫子noun。",
+        "boundaries": [
+          {
+            "surface": "mat / matt / matte",
+            "condition": "adjective: not shiny",
+            "note": "matte通常AmE，matt通常BrE；mat较少见但合法，非垫子义变体。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "哑光adjective：matte通常AmE，matt通常BrE；mat是合法但较少见的变体。仅此意义互通，不适用于垫子noun。"
+        }
+      },
       "family": []
     }
   },
@@ -9459,7 +9475,7 @@
     "ordinal": 2994,
     "word": "meantime",
     "source_owner_path": "content/lexical/words/by-ordinal/o2994.json",
-    "source_fingerprint": "796f0b81c16b6de2ec2792919193d22ce8e18c7fcbd513b166fa8bcd7b06ef74",
+    "source_fingerprint": "16e784516d6f26357da3706a4314e089de509ab2b4d2dc9ac4cfe0328efe0788",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9564,7 +9580,7 @@
           "target_word": "meanwhile",
           "lines": [
             {
-              "text": "均可表与此同时；meanwhile更常用，in the meantime常作介词短语",
+              "text": "meanwhile常独立作副词，切换同时或期间的场景；meantime常见于in the meantime。两者有重叠，按语境和惯用形式选；meantime独立副词及in the meanwhile也有效，并非排他规则。",
               "lang": "cn"
             },
             {
@@ -9591,7 +9607,7 @@
     "ordinal": 2995,
     "word": "meanwhile",
     "source_owner_path": "content/lexical/words/by-ordinal/o2995.json",
-    "source_fingerprint": "150ecd20b4a79102a4b09a65c0d0c78de4648eb64805eeae3e60e99ab35eb73a",
+    "source_fingerprint": "2f890b5a8b3faead94adc5ac303283dcdd7968216ccb655ad6be715b8410f5e4",
     "sense_lineage": [
       {
         "word_id": "word:meanwhile",
@@ -9616,7 +9632,7 @@
     },
     "word_feel": {
       "summary_cn": "在间隔时间内或同时",
-      "decision_cn": "",
+      "decision_cn": "等待下一件事→在此期间；转到同时发生的另一场景→与此同时。两种语境都有效。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9631,7 +9647,7 @@
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "在此期间；与此同时",
-        "definition_en": "during the intervening time",
+        "definition_en": "during the intervening time, or at the same time in another situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9639,7 +9655,7 @@
             "id": "collocation:6360ba9341047d83130f",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in the meanwhile",
-            "meaning_cn": "在此期间；与此同时",
+            "meaning_cn": "在此期间；与此同时（介词短语，其中meanwhile作noun）",
             "kind": "usage_example",
             "repair": null
           },
@@ -9687,7 +9703,7 @@
           "target_word": "meantime",
           "lines": [
             {
-              "text": "均可表与此同时；meanwhile更常用，in the meantime常作介词短语",
+              "text": "meanwhile常独立作副词，切换同时或期间的场景；meantime常见于in the meantime。两者有重叠，按语境和惯用形式选；meantime独立副词及in the meanwhile也有效，并非排他规则。",
               "lang": "cn"
             },
             {
@@ -9979,22 +9995,22 @@
     "ordinal": 2997,
     "word": "meat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2997.json",
-    "source_fingerprint": "c12fbe671fbbd45933c21178bd79744751cc4c5f976be63aa3096e03750d83a5",
+    "source_fingerprint": "3d92580d0e680cec461bb1f2be7f86c0eb74030fe489ead52c542711c47024ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "肉",
-      "decision_cn": "",
+      "summary_cn": "肉；内容的实质或主要部分",
+      "decision_cn": "food/menu→肉；argument/report/content→实质或主要部分。the meat of与have little/more meat都能表达实质，不限于of词组。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "肉"
+        "target_label": "肉；内容的实质或主要部分"
       }
     },
     "senses": [
@@ -10003,9 +10019,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "肉，肉类",
-        "definition_en": "the flesh of animals (including fishes and birds and snails) used as food",
-        "note": "",
+        "definition_cn": "肉；供食用的动物肉",
+        "definition_en": "the flesh of animals used as food",
+        "note": "普通饮食分类常把meat与fish分列；crab meat等复合词仍有效，不能理解为meat绝不包括鱼类。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10021,7 +10037,24 @@
           "target_kind": "sense",
           "target_id": "sense:meat:79e9bd6dd6965b1e",
           "target_locator": "record.senses[0]",
-          "target_label": "肉，肉类"
+          "target_label": "肉；供食用的动物肉"
+        }
+      },
+      {
+        "id": "sense:meat:190da53c75dfb120",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "内容或论证的实质；主要部分",
+        "definition_en": "the substance or main part of an idea, argument, or piece of work",
+        "note": "argument/report/substance语境→实质或主要内容；可用the meat of sth，也可说have little/more meat。The report has little meat beyond slogans.（报告除口号外缺少实质内容。）",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meat:190da53c75dfb120",
+          "target_locator": "record.senses[1]",
+          "target_label": "内容或论证的实质；主要部分"
         }
       }
     ],
@@ -10048,6 +10081,7 @@
     "constructions": [
       {
         "id": "construction:b643c0b1d069de21d8ec",
+        "sense_id": "sense:meat:190da53c75dfb120",
         "source_locator": "record.constructions[0]",
         "pattern": "the meat and potatoes of sth",
         "lines": [

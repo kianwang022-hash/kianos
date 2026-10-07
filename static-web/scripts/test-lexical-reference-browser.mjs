@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { chromium } from 'playwright';
+const { chromium } = await import(process.env.PLAYWRIGHT_PACKAGE_MODULE || 'playwright');
 import { emptyLexicalLedger, appendEvidenceEvent, compileRepairTargets, LEXICAL_LEDGER_STORAGE_KEY } from '../src/lib/lexicalEvidence.mjs';
 const base = process.env.LEXICAL_REFERENCE_TEST_BASE;
 if (!base || process.env.KIANOS_ISOLATED_TEST_RUNTIME !== '1' || new URL(base).port === '4321') throw Error('REFERENCE_TEST_REQUIRES_ISOLATED_CANDIDATE');
@@ -50,6 +50,56 @@ try {
  await page.screenshot({fullPage:true,path:`${out}/bound-lookup.png`});
  await page.goto(base+'/vocabulary/');await page.locator('[data-lexical-home-ready="true"]').waitFor();
  check(compileRepairTargets(await read()).length===2,'home_consumer_does_not_restore_reference_debt');
+
+ // A second fresh context carries only synthetic prior Form and control events.
+ let formLedger=emptyLexicalLedger();
+ const formTargets=[
+  ['internalize',7826,'form_identity',null,'record.form_identity'],
+  ['humor',2405,'form_identity',null,'record.form_identity'],
+  ['import',2473,'form_identity',null,'record.form_identity'],
+  ['die',1367,'form_identity',null,'record.form_identity'],
+  ['mat',2976,'form_identity',null,'record.form_identity'],
+  ['diet',1368,'form_identity',null,'record.senses[3].lexical_identity_overlay'],
+  ['internalize',7826,'sense','sense:internalize:2772118fc8fe5d6d',null],
+  ['import',2473,'core',null,'record.core_concept']
+ ];
+ for(const [i,[word,ordinal,target_kind,target_id,target_locator]] of formTargets.entries()) formLedger=appendEvidenceEvent(formLedger,{event_id:'prior-form-browser-'+i,word_id:'word:'+word,ordinal,word,target_kind,target_id,target_locator,target_revision:target_id?null:'synthetic-prior-revision-'+ordinal,source:'depth_plus',outcome:'ADDED',observed_at:'2026-10-07T00:00:00.000Z'}).ledger;
+ const formEventBytes=JSON.stringify(formLedger.events);
+ const formContext=await browser.newContext({viewport:{width:1440,height:1000}});
+ await formContext.addInitScript(({ledger,key})=>{
+  if(!localStorage.getItem('__form_seed')) {localStorage.setItem(key,JSON.stringify(ledger));localStorage.setItem('__form_seed','1');}
+  window.__formCopies=[];
+  Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>window.__formCopies.push(text)},configurable:true});
+ },{ledger:formLedger,key:LEXICAL_LEDGER_STORAGE_KEY});
+ const formPage=await formContext.newPage();formPage.on('pageerror',e=>errors.push(e.message));
+ const formRead=()=>formPage.evaluate(key=>JSON.parse(localStorage.getItem(key)),LEXICAL_LEDGER_STORAGE_KEY);
+ const formOpen=async(o,mode)=>{await formPage.goto(`${base}/vocabulary/word/?o=${o}&mode=${mode}`);await formPage.locator(`[data-vocab-ordinal="${o}"][data-vocab-initialized="true"][data-vocab-evidence-initialized="true"]`).waitFor();await formPage.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));};
+ await formOpen(7826,'lookup');
+ check(JSON.stringify(await formRead())===JSON.stringify(formLedger),'prior_Form_Lookup_preserves_entire_ledger_before_any_Study');
+ await formPage.goto(base+'/vocabulary/');await formPage.locator('[data-lexical-home-ready="true"]').waitFor();
+ await formPage.waitForFunction(()=>document.querySelector('[data-lexical-repair-count]')?.textContent==='5');
+ const afterHome=await formRead();
+ check(compileRepairTargets(afterHome).length===5,'real_Home_retires_only_three_background_Form_debts');
+ check(JSON.stringify(afterHome.events)===formEventBytes,'real_Home_preserves_all_prior_Form_and_control_event_bytes');
+ await formPage.locator('[data-lexical-copy-return]').click();
+ await formPage.waitForFunction(()=>window.__formCopies.length===1);
+ const handoff=await formPage.evaluate(()=>JSON.parse(window.__formCopies[0].split('LEXICAL_CHAT_STATE_JSON\n')[1]));
+ check(handoff.repair.active_target_count===5 && handoff.today_evidence.length===8,'real_Home_handoff_exports_qualified_debt_and_unchanged_history');
+ for(const [ordinal,word] of [[7826,'internalize'],[2405,'humor'],[2473,'import']]) {
+  await formOpen(ordinal,'repair');
+  check(await formPage.locator('.lexicalFormSection').isHidden() && await formPage.locator('.lexicalFormSection [data-vocab-repair]').count()===0,word+'_real_Repair_has_no_background_Form_target');
+  check(!compileRepairTargets(await formRead()).some(t=>t.ordinal===ordinal&&t.target_locator==='record.form_identity'),word+'_real_Repair_does_not_resurrect_prior_Form_debt');
+  const frozenBytes=JSON.stringify(await formRead());
+  await formOpen(ordinal,'lookup');
+  check(await formPage.locator('.lexicalFormSection').isVisible() && JSON.stringify(await formRead())===frozenBytes,word+'_real_Lookup_retains_Form_and_preserves_entire_reconciled_ledger');
+ }
+ for(const ordinal of [1367,2976]) {
+  await formOpen(ordinal,'repair');
+  check(await formPage.locator('.lexicalFormSection [data-vocab-repair]').getAttribute('aria-pressed')==='true','valuable_Form_'+ordinal+'_remains_selected_and_executable');
+ }
+ check(compileRepairTargets(await formRead()).some(t=>t.ordinal===1368&&t.target_locator==='record.senses[3].lexical_identity_overlay'),'Diet_overlay_stays_executable_in_real_browser');
+ check(JSON.stringify((await formRead()).events)===formEventBytes,'entire_real_browser_Form_journey_preserves_historical_events');
+ await formContext.close();
  check(errors.length===0,'no_browser_errors');
  fs.writeFileSync(out+'/result.json',JSON.stringify({base,checks,errors,privateState:'synthetic isolated Candidate only'},null,2));
  console.log(`REFERENCE_BROWSER_PASS ${checks.length} ${out}`);

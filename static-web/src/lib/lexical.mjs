@@ -209,6 +209,10 @@ export function listLexicalWordSummaries() {
       relationCount,
       familyCount,
       hasForm,
+      form: reference.form ? {
+        disposition: reference.form.disposition || null,
+        repair: reference.form.repair || null
+      } : null,
       senseLineage: Array.isArray(object.sense_lineage) ? object.sense_lineage : []
     };
   });

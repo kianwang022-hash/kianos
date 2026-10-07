@@ -4611,11 +4611,26 @@
     "ordinal": 1500,
     "word": "dramatic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1500.json",
-    "source_fingerprint": "7e0f6d8ec30d7827f8c25f21fc55f448e027e79665c5fd549946d4410768771a",
-    "sense_lineage": [],
+    "source_fingerprint": "2d4f3ba44a7977262ea13c111f7dcafdd2fd436ecb1bbdf692760290de91e09c",
+    "sense_lineage": [
+      {
+        "word_id": "word:dramatic",
+        "target_kind": "sense",
+        "from_target_id": "sense:dramatic:0d497d2864075582",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dramatic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3af41aaf13d1418ae3e0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -4635,9 +4650,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "戏剧性的，激动人心的",
-        "definition_en": "sensational in appearance or thrilling in effect",
-        "note": "",
+        "definition_cn": "引人注目的；激动人心的；（变化）显著的、幅度大的",
+        "definition_en": "striking or exciting in appearance or effect; very noticeable or extreme, especially of a change",
+        "note": "dramatic increase/decrease/change/impact→显著或幅度大的变化，可为负面；不自动表示精彩或正向。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4661,7 +4676,7 @@
           "target_kind": "sense",
           "target_id": "sense:dramatic:1e8735bc1d42518e",
           "target_locator": "record.senses[0]",
-          "target_label": "戏剧性的，激动人心的"
+          "target_label": "引人注目的；激动人心的；（变化）显著的、幅度大的"
         }
       },
       {
@@ -4688,32 +4703,6 @@
           "target_id": "sense:dramatic:815463061c1c5afc",
           "target_locator": "record.senses[1]",
           "target_label": "戏剧的，剧本的"
-        }
-      },
-      {
-        "id": "sense:dramatic:0d497d2864075582",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "（嗓音）戏剧性的，有力的",
-        "definition_en": "used of a singer or singing voice that is marked by power and expressiveness and a histrionic or theatrical style",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3af41aaf13d1418ae3e0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a dramatic soprano",
-            "meaning_cn": "戏剧女高音",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dramatic:0d497d2864075582",
-          "target_locator": "record.senses[2]",
-          "target_label": "（嗓音）戏剧性的，有力的"
         }
       }
     ],
@@ -4764,7 +4753,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3af41aaf13d1418ae3e0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dramatic:0d497d2864075582:collocation:0"
+              ],
+              "meaning_cn": "戏剧女高音",
+              "phrase": "a dramatic soprano"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（嗓音）戏剧性的，有力的",
+          "definition_en": "used of a singer or singing voice that is marked by power and expressiveness and a histrionic or theatrical style",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:dramatic:0d497d2864075582",
+          "sense_label_en": "used of a singer or singing voice that is marked by power and expressive",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

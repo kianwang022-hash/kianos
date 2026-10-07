@@ -5585,18 +5585,33 @@
     "ordinal": 2847,
     "word": "liquid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2847.json",
-    "source_fingerprint": "14fd6948aab8aaaababc820acaa7fb5cce9e33006c5dfeebd739f35cf54d1641",
-    "sense_lineage": [],
+    "source_fingerprint": "9ddc073faccd3a07abe5e114544033bd1757fac959b7689e3c4f336742641f06",
+    "sense_lineage": [
+      {
+        "word_id": "word:liquid",
+        "target_kind": "sense",
+        "from_target_id": "sense:liquid:86e5952bc6015b21",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:liquid",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:83b0e28ff3434369f07e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "液体或液态的",
-      "decision_cn": "",
+      "decision_cn": "物质或物态→液体/液态；liquid assets（金融）→易于变现的资产；liquid eyes（文学）→清澈明亮的眼睛。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5620,14 +5635,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "drink plenty of liquids",
             "meaning_cn": "多喝流质",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:df0e2d1e12adef3a9d85",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "liquid nitrogen",
-            "meaning_cn": "液氮",
             "kind": "usage_example",
             "repair": null
           }
@@ -5664,6 +5671,14 @@
             "meaning_cn": "流质食物",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:df0e2d1e12adef3a9d85",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "liquid nitrogen",
+            "meaning_cn": "液氮",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5680,7 +5695,7 @@
         "governing_pattern": "",
         "definition_cn": "清澈的；明亮的",
         "definition_en": "clear and bright, like water",
-        "note": "",
+        "note": "文学用法，常形容eyes清澈明亮。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5700,45 +5715,19 @@
         }
       },
       {
-        "id": "sense:liquid:86e5952bc6015b21",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "流音（如l、r）",
-        "definition_en": "a consonant sound like 'l' or 'r'",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:83b0e28ff3434369f07e",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "liquid consonant",
-            "meaning_cn": "流辅音",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:liquid:86e5952bc6015b21",
-          "target_locator": "record.senses[3]",
-          "target_label": "流音（如l、r）"
-        }
-      },
-      {
         "id": "sense:liquid:7c4480339b63506d",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "流动性强的；易变现的",
         "definition_en": "available as cash or easily converted into cash",
-        "note": "",
+        "note": "金融/business：liquid assets指可迅速变为现金的资产，不是液态物质。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:liquid:7c4480339b63506d",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "流动性强的；易变现的"
         }
       }
@@ -5803,7 +5792,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:83b0e28ff3434369f07e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:liquid:86e5952bc6015b21:collocation:0"
+              ],
+              "meaning_cn": "流辅音",
+              "phrase": "liquid consonant"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "流音（如l、r）",
+          "definition_en": "a consonant sound like 'l' or 'r'",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:liquid:86e5952bc6015b21",
+          "sense_label_en": "a consonant sound like 'l' or 'r'",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {

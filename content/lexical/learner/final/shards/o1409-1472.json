@@ -1753,7 +1753,7 @@
     "ordinal": 1420,
     "word": "discriminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1420.json",
-    "source_fingerprint": "343f8a6ddf2d0591c26a7e9986995103cf1c5745698c6d5ef6e8cbb1ad15599b",
+    "source_fingerprint": "956dc113847f4fe572ade1142afdc52958777685cddcd3e118cf261704e89c20",
     "sense_lineage": [
       {
         "word_id": "word:discriminate",
@@ -1772,7 +1772,7 @@
     },
     "word_feel": {
       "summary_cn": "区分；辨别；歧视或差别对待",
-      "decision_cn": "区分；差别对待",
+      "decision_cn": "discriminate between事物→中性地辨别差异；discriminate against人或群体→不公平区别对待。及物辨别用法仍有效，不把所有discriminate都读成歧视。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1963,6 +1963,7 @@
     "constructions": [
       {
         "id": "construction:4a7ee3039e57a512cfb3",
+        "sense_id": "sense:discriminate:f258a0c18777a10c",
         "source_locator": "record.constructions[0]",
         "pattern": "discriminate against sb",
         "lines": [
@@ -5110,8 +5111,23 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "a98da5901de68a020b0cdf6ac1e153226761bc7797c5bf1dc2739f71d09fd454",
-    "sense_lineage": [],
+    "source_fingerprint": "2e18aebbd5582e24e3439d422a844813640cf429919b429e38b9aaaff1af5f95",
+    "sense_lineage": [
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:01ad80a6232bc19959c7",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7c6d5172eb944bf6525c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -5140,21 +5156,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7c6d5172eb944bf6525c",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "dissipate into + sth",
-            "meaning_cn": "消散成某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7c6d5172eb944bf6525c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "dissipate into + sth"
-            }
-          },
-          {
             "id": "collocation:5fa25cb76632aa9d1363",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "The fog dissipated in the morning sun.",
             "meaning_cn": "晨光中雾气消散了。",
             "kind": "usage_example",
@@ -5183,13 +5186,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "dissipate + sth",
             "meaning_cn": "驱散某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c0ca72cf03dcbe5a5f8e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dissipate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2a4c444d6cfafb7a2632",
@@ -5242,26 +5240,12 @@
         "id": "sense:dissipate:bdfc9c156d1a5e9e",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "vi.",
         "definition_cn": "放荡；沉溺于享乐",
         "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:01ad80a6232bc19959c7",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dissipate in + sth",
-            "meaning_cn": "沉溺于某事物（尤指享乐）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01ad80a6232bc19959c7",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "dissipate in + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dissipate:bdfc9c156d1a5e9e",
@@ -8370,7 +8354,7 @@
     "ordinal": 1456,
     "word": "diversion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1456.json",
-    "source_fingerprint": "bc4f736319c273d0b1d4d877393429365f19af9d842494093f5c8643289e1c0c",
+    "source_fingerprint": "80a7d2ee4d7c792065dd765ddb6535c0132c744d9dba45d69daaf74425425d31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8396,7 +8380,7 @@
         "governing_pattern": "",
         "definition_cn": "转移；转向",
         "definition_en": "a turning aside of one's course, attention, or concern",
-        "note": "",
+        "note": "create a diversion可指一般转移注意，不限军事；道路临时改道的diversion主要BrE，AmE通常detour。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8414,6 +8398,19 @@
             "meaning_cn": "交通改道",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1e123a6acbdba1589ee0",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "create a diversion",
+            "meaning_cn": "制造干扰以转移注意",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1e123a6acbdba1589ee0",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "create a diversion"
+            }
           }
         ],
         "repair": {
@@ -8458,21 +8455,7 @@
         "definition_en": "an attack meant to draw enemy forces away from the main point of attack",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1e123a6acbdba1589ee0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "create a diversion",
-            "meaning_cn": "制造牵制",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1e123a6acbdba1589ee0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "create a diversion"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:diversion:d4e4c4b8d988534d",
