@@ -3,28 +3,25 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import * as memory from '../src/lib/xizongMemoryModel.mjs';
 import * as release from '../src/lib/xizongMemoryRelease.mjs';
+import * as compiledMemory from '../src/lib/xizongCompiledMemoryRelease.mjs';
 import * as autoRelease from '../src/lib/xizongMemoryAutoRelease.mjs';
 import { preparedMemoryPresentationHtml } from '../src/lib/xizongMemoryPresentation.mjs';
+import { loadXizongBlock } from '../src/lib/xizong.mjs';
+import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjection.mjs';
+import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
 
 // The real shipped controllers run against a small synthetic DOM/storage
 // adapter. This proves state/control behavior, not Candidate or learner U.
 const index = JSON.parse(fs.readFileSync(new URL('../../content/xizong/knowledge/learner/a1-circulation-learning-cues.json', import.meta.url)));
 const clone = value => JSON.parse(JSON.stringify(value));
 function syntheticLearner(blockId, count) {
-  const admitted = index.precision_index.filter(row => row.anchor.block_id === blockId);
-  const kps = Array.from({ length: count }, (_, i) => {
-    const kpId = `${blockId}-kp${String(i + 1).padStart(2, '0')}`;
-    return { identity: { kpId, logicGroupId: 'synthetic-group', title: `Synthetic ${i + 1}` },
-      core: { html: '<p>Synthetic Core</p>' }, prompt: { canonical: 'Synthetic Prompt' },
-      precision: admitted.filter(row => row.anchor.kp_id === kpId).map(row => {
-        const answerHtml = `<section data-prepared-memory="${row.id}"><p>Synthetic exact answer</p><p>Scope</p><p>Aid</p></section>`;
-        return { id: row.id, anchor: clone(row.anchor), cue: row.cue, answerHtml,
-          raw: { ...clone(row), answer_html: answerHtml, prepared_memory_owner: 'content/xizong/knowledge/learner/shared-fields.json' } };
-      }) };
-  });
-  return { schema: release.XIZONG_LEARNER_OBJECT_SCHEMA, objectType: 'BLOCK',
-    sourceHash: 'synthetic-current', identity: { systemId: 'circulation', canonicalId: 'A1', blockId, blockLabel: blockId === 'circulation-b01' ? 'B1' : 'B2' },
-    kps, logicGroups: [{ identity: { logicGroupId: 'synthetic-group' }, kpIds: kps.map(k => k.identity.kpId), precision: [] }] };
+  const learner=clone(resolveXizongLearnerProjection(loadXizongBlock('circulation',blockId)).learnerObject);
+  assert.equal(learner.kps.length,count);
+  // Synthetic completion is scoped to the Memory engine, not real Source
+  // coverage. Content/admission now comes from the actual compiled object.
+  learner.sourceContact=null;
+  learner.revisionWitness=buildXizongRevisionWitness(learner);
+  return learner;
 }
 const learner = syntheticLearner('circulation-b01', 32), kps = learner.kps;
 const admitted = index.precision_index.filter(row => row.anchor.block_id === learner.identity.blockId);
@@ -70,6 +67,7 @@ check('later true completion still gets Core and first-pass handoff exactly once
 check('content revision uses existing history semantics without evidence replay', () => {
   const rated = memory.appendMemoryEvidence(first, { cardId: descriptor.precisionCards[0].id, rating: 'known' }, '2026-10-01T01:00:00Z');
   const changed = clone(descriptor); changed.precisionCards[0].answerHtml += '<p>Synthetic revised answer</p>';
+  changed.precisionCards[0].semanticRevision='synthetic-revised-answer';
   const next = memory.makePreparedMemoryAvailable(rated, changed, '2026-10-02T00:00:00Z');
   const card = next.cards[descriptor.precisionCards[0].id];
   assert.equal(card.contentHistory.length, 1); assert.equal(card.contentHistory[0].answerHtml, descriptor.precisionCards[0].answerHtml);
@@ -172,7 +170,8 @@ class Input extends Element {}
 const node = (parent, attrs) => { const child = new Element(attrs); parent.append(child); return child; };
 const inline = name => fs.readFileSync(new URL(`../src/components/${name}.astro`, import.meta.url), 'utf8')
   .match(/<script>\n([\s\S]*?)<\/script>/)[1].replace(/  import[\s\S]*?;\n/g, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
-const bridgeScript = inline('XizongMemoryReleaseBridge'), workspaceScript = inline('XizongMemoryWorkspace');
+const bridgeScript = inline('XizongMemoryReleaseBridge'), workspaceScript = inline('XizongMemoryWorkspace')
+  .replace("await import('../lib/xizongMemoryRelease.mjs')", 'legacyMemoryModule');
 async function harness({ payload = learner, saved, failSave = false, search = '', chat = null, workspace = false } = {}) {
   const document = new Element(), window = new Element(), navigations = [], writes = [];
   const values = new Map(saved === undefined ? [] : [[memory.XIZONG_MEMORY_STORAGE_KEY, typeof saved === 'string' ? saved : JSON.stringify(saved)]]);
@@ -182,7 +181,8 @@ async function harness({ payload = learner, saved, failSave = false, search = ''
   const context = { document, window, localStorage: storage, URLSearchParams, HTMLElement: Element, Element,
     HTMLInputElement: Input, HTMLTextAreaElement: Input, HTMLAnchorElement: Input,
     CustomEvent: class { constructor(type, opts) { this.type = type; this.detail = opts?.detail; } },
-    learnerWriterReady: Promise.resolve(), console: { error() {} }, ...memory, ...release, ...autoRelease, preparedMemoryPresentationHtml,
+    learnerWriterReady: Promise.resolve(), console: { error() {} }, compiledMemory, legacyMemoryModule:release,
+    isCompiledPreparedCard:compiledMemory.isXizongPreparedMemoryCard, ...memory, ...release, ...autoRelease, preparedMemoryPresentationHtml,
     XIZONG_SESSION_KEY: 'synthetic-session', studyDayAt: () => 'synthetic-day',
     validateXizongSessionInstruction: () => chat, resolveXizongSessionNext: () => ({ step: chat?.step }) };
   let root, button, status;
@@ -194,6 +194,7 @@ async function harness({ payload = learner, saved, failSave = false, search = ''
     const action = node(document, { 'data-prepared-memory-action': '', 'data-memory-href': '/xizong/memory/?view=precision' }); action.hidden = true;
     button = node(action, { 'data-open-prepared-memory': '' }); status = node(action, { 'data-prepared-memory-status': '' });
   } else {
+    node(document, { 'data-xizong-compiled-memory-context':'' }).textContent=JSON.stringify([{blockId:payload.identity.blockId,descriptor:compiledMemory.buildXizongPreparedMemoryAvailability(payload)}]);
     root = node(document, { 'data-xizong-memory-workspace': '' });
     for (const key of ['view-title', 'view-note', 'queue', 'card', 'marked-card', 'repair-card', 'empty', 'answer', 'reveal-gate', 'ratings', 'prompt-wrap', 'precision-cue', 'core-actions', 'reveal', 'precision-mode', 'summary-today', 'summary-core', 'summary-precision']) node(root, { [`data-memory-${key}`]: '' });
     for (const view of ['TODAY', 'CORE', 'PRECISION', 'MARKED', 'REPAIR']) node(root, { 'data-memory-view': view });
@@ -218,7 +219,7 @@ for (const [name, saved, failSave] of [['corruption', '{broken', false], ['unsup
 const browse = await harness({ workspace: true, saved: first, search: '?view=precision&block=circulation-b01' });
 assert.equal(browse.q('[data-memory-queue]').children.length, 13);
 assert.equal(browse.q('[data-memory-answer]').hidden, false);
-assert.match(browse.q('[data-memory-answer]').innerHTML, /Synthetic exact answer.*Scope.*Aid/);
+assert.ok(browse.q('[data-memory-answer]').innerHTML.includes(preparedMemoryPresentationHtml(descriptor.precisionCards[0].answerHtml)));
 assert.equal(browse.q('[data-memory-ratings]').hidden, true);
 browse.q('[data-memory-rating="known"]').click(); assert.equal(browse.state().evidence.length, 0, 'Browse cannot rate');
 browse.q('[data-precision-mode="RECALL"]').click();
@@ -251,7 +252,7 @@ const b2Browse = await harness({ workspace: true, saved: both, search: '?view=pr
 assert.equal(b2Browse.q('[data-memory-queue]').children.length, 12);
 assert.match(b2Browse.q('[data-memory-view-note]').textContent, /^B2 /);
 assert.equal(b2Browse.q('[data-memory-answer]').hidden, false);
-assert.match(b2Browse.q('[data-memory-answer]').innerHTML, /Synthetic exact answer.*Scope.*Aid/);
+assert.ok(b2Browse.q('[data-memory-answer]').innerHTML.includes(preparedMemoryPresentationHtml(b2Descriptor.precisionCards[0].answerHtml)));
 b2Browse.q('[data-memory-rating="known"]').click(); assert.equal(b2Browse.state().evidence.length, 0);
 b2Browse.q('[data-precision-mode="RECALL"]').click();
 assert.equal(b2Browse.q('[data-memory-answer]').hidden, true); assert.equal(b2Browse.q('[data-memory-ratings]').hidden, true);

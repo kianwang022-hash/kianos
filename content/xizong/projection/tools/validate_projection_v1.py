@@ -459,14 +459,19 @@ class Validator:
                     require(nonempty(value), 'OWNER', f'{bid}: canonical center question missing')
                     return value
                 return select_text(block['text'], {'type': 'LABELED_BLOCKQUOTE', 'label': '中心问题'})
-            if role == 'CANONICAL_MODEL':
+            if role in {'CANONICAL_MODEL', 'CANONICAL_MODEL_CHAIN', 'CANONICAL_MODEL_FORMULAS'}:
                 model = (block.get('knowledge') or {}).get('model') or {}
                 matches = re.findall(r'<!-- kianos:model ([^\n]+) -->\n([\s\S]*?)<!-- /kianos:model -->', block['text'])
                 require(model.get('status') == 'CURRENT' and model.get('derivation') == 'REVIEWED_DERIVATION'
                         and len(matches) == 1 and matches[0][0] == model.get('section'), 'OWNER', f'{bid}: canonical model missing/invalid')
                 ids = re.findall(r'\{\{kp:([^}]+)\}\}', matches[0][1])
                 require(ids == model.get('node_kp_ids') and set(ids).issubset(block['kp_ids']), 'OWNER', f'{bid}: canonical model bindings invalid')
-                return matches[0][1]
+                if role == 'CANONICAL_MODEL':
+                    return matches[0][1]
+                view = 'mechanism-spine' if role == 'CANONICAL_MODEL_CHAIN' else 'formula-language'
+                views = re.findall(r'<!-- kianos:model-view '+view+r' -->\n([\s\S]*?)<!-- /kianos:model-view -->', matches[0][1])
+                require(len(views) == 1 and nonempty(views[0]), 'OWNER', f'{bid}: model view missing/duplicate {view}')
+                return views[0]
             if role == 'CANONICAL_GUIDE':
                 return block['text']
             require(role is None, 'OWNER', f'unknown owner role {role}')

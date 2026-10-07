@@ -31,7 +31,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
   const learnerObject = parseJson(payloadNode?.textContent, null);
   const migrated = bridgeNode?.getAttribute('data-canonical-knowledge') === 'true';
   if (migrated && learnerObject?.semanticOwnership?.mode !== 'CANONICAL_BLOCK') throw new Error('CURRENT_XIZONG_COMPILED_OWNERSHIP_MISSING');
-  const memory = migrated ? compiledMemory : await import('../lib/xizongMemoryRelease.mjs');
+  const memory = compiledMemory;
   const { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } = memory;
 
   const objectId = bridgeNode?.getAttribute('data-object-id') || root?.getAttribute('data-study-object') || '';
@@ -41,14 +41,14 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
 
   // Explicit Browse availability is independent of Source / KP / Block
   // completion. Use the resolved payload, never learner ratings or URL claims.
-  if (supportsXizongPreparedMemoryBlock(migrated ? learnerObject : learnerObject?.identity?.blockId)) {
+  if (supportsXizongPreparedMemoryBlock(learnerObject)) {
   const preparedAction = document.querySelector('[data-prepared-memory-action]');
   const preparedButton = preparedAction?.querySelector('[data-open-prepared-memory]');
   const preparedStatus = preparedAction?.querySelector('[data-prepared-memory-status]');
   const preparedHost = root?.querySelector('.portedStudyShellActions');
   if (preparedAction && preparedButton && preparedHost) {
     try {
-      const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash, descriptorBuilder: memory.buildXizongMemoryReleaseDescriptorFromLearnerObject });
+      const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash });
       preparedButton.textContent = `打开已准备的 Memory（${descriptor.precisionCards.length} 项）`;
       preparedAction.setAttribute('data-memory-href', `${preparedAction.getAttribute('data-memory-href')}&block=${encodeURIComponent(descriptor.blockId)}`);
       preparedHost.append(preparedAction);
@@ -80,7 +80,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
       const studyState = parseJson(localStorage.getItem(studyKey), {});
       memoryState = readXizongMemoryStorage(localStorage);
       const personal = readXizongPersonalStorage(localStorage, objectId);
-      result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash, descriptorBuilder: memory.buildXizongMemoryReleaseDescriptorFromLearnerObject });
+      result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash });
       result.state = syncXizongPersonalMarks(result.state, learnerObject, personal, objectId);
     } catch (error) {
       console.error(error);

@@ -8,6 +8,11 @@ import { presentXizongLearnerBlock } from '../src/lib/xizongLearnerObject.mjs';
 import * as memory from '../src/lib/xizongCompiledMemoryRelease.mjs';
 import { createXizongReviewedRelationFreshnessResolver } from '../src/lib/xizongReviewedRelationFreshness.mjs';
 import { createXizongMemoryState, makePreparedMemoryAvailable, appendMemoryEvidence, todayMemoryQueue } from '../src/lib/xizongMemoryModel.mjs';
+import { reconcileXizongRevision, revisionRequiresAction } from '../src/lib/xizongContentRevision.mjs';
+import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
+import { releaseCompletedBlockToMemory, inspectXizongBlockCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as nativeDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
+import { releaseBlockMemory } from '../src/lib/xizongMemoryModel.mjs';
 const root = process.env.KIANOS_REPO_ROOT || path.resolve(new URL('../../', import.meta.url).pathname);
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex');
 const compile = () => resolveXizongLearnerProjection({systemId:'circulation',blockId:'circulation-b01'});
@@ -32,18 +37,66 @@ check('actual B1 owner and honest admission',()=>{
  assert.equal(learner.semanticOwnership.sourcePath,canonical.sourcePath);
 });
 check('same Core and semantic history witnesses after relocation',()=>{
- const {sourceHash,...witness}=learner.revisionWitness;assert.equal(hash(witness),golden.witness);
+ const {sourceHash,...witness}=buildXizongRevisionWitness({ ...learner, model:undefined });
+ // The previous golden lacked the authoritative model. Preserve its KP/LG/
+ // support history without freezing that incomplete Block witness as Current.
+ assert.equal(hash(witness),golden.witness);
+ assert.notEqual(learner.revisionWitness.block,witness.block);
  assert.equal(hash(canonical.kpRecords.map(c=>Object.fromEntries(['kpId','title','prompt','detailMarkdown','sourceLocator','outlineLocator'].map(k=>[k,c[k]])))),golden.core);
  assert.equal(hash(descriptor.precisionCards.map(c=>Object.fromEntries(['id','precisionCueId','kpId','answerHtml','semanticRevision'].map(k=>[k,c[k]])))),golden.cards);
 });
 check('adopted model and natural bindings preserved',()=>{
  const history=fs.readFileSync(path.join(root,'content/xizong/projection/a1-circulation/chat/b01-teaching.md'),'utf8').split('\n\n').slice(1).join('\n\n');
- const normalize=text=>text.replace(/\]\([^\n]+?\)/g,'](CANONICAL_REF)');
+ const normalize=text=>text.replace(/\]\([^\n]+?\)/g,'](CANONICAL_REF)')
+   .replace(/<!-- (?:kianos:model-view [a-z-]+|\/kianos:model-view) -->\n/g,'');
  assert.equal(normalize(learner.model.markdown),normalize(history));
  const ids=[...learner.model.markdown.matchAll(/<!-- b1:node (\{[^\n]+?\}) -->/g)].map(m=>JSON.parse(m[1]).kp_id);
  assert.deepEqual(ids,canonical.knowledge.model.node_kp_ids);assert.equal(ids.length,19);
  assert.match(learner.model.markdown,/微循环交换.*静脉回收与再次充盈/);
  assert.match(learner.model.markdown,/并行供养/);
+});
+check('real model relationship change requires Block review without erasing history',()=>{
+ const study={ sourceHash:learner.sourceHash,completed:true,blockRecallDone:true,
+   ratings:{'circulation-b01-kp27':'known'},learned:{'circulation-b01-kp27':true},
+   contentRevision:{witness:learner.revisionWitness} };
+ editFile(sourcePath,original.replace('主动脉分出冠脉 → ⑥供养心肌 → 维持下一搏','主动脉分出冠脉 → ⑥供养心肌 → 抑制下一搏'),()=>{
+  const changed=compile().learnerObject,state=reconcileXizongRevision(study,changed.revisionWitness);
+  assert.notEqual(changed.revisionWitness.block,learner.revisionWitness.block);
+  assert.equal(state.contentRevision.blockPending,true);assert.equal(revisionRequiresAction(state),true);
+  assert.equal(inspectXizongBlockCompletion(changed,state).reason,'CONTENT_REVALIDATION_REQUIRED');
+  assert.equal(state.completed,true);assert.equal(state.blockRecallDone,true);assert.deepEqual(state.ratings,study.ratings);
+  assert.deepEqual(changed.revisionWitness.kps,learner.revisionWitness.kps);
+ });
+});
+check('known model locator/presentation relocation preserves semantic witness',()=>{
+ const changed=structuredClone(learner);
+ changed.model.markdown=changed.model.markdown.replace(/"canonical_line":\d+/g,'"canonical_line":9999')
+  .replace(/<!-- b1:source \d+:\d+ -->/g,'<!-- b1:source 9000:9999 -->')
+  .replace(/\]\(#[^\s)]+\)/g,'](../Block.md?plain=1#L9999)').replace(/\*\*/g,'');
+ assert.equal(buildXizongRevisionWitness(changed).block,learner.revisionWitness.block);
+});
+check('single canonical cue edit is derived without a second semantic edit',()=>{
+ editKnowledge(k=>{k.exact_items[0].item.cue+='单点编辑检验';},()=>{
+  const changed=compile().learnerObject,d=memory.buildXizongPreparedMemoryAvailability(changed);
+  assert.match(d.precisionCards[0].cue,/单点编辑检验/);
+  assert.notEqual(changed.revisionWitness.kps[d.precisionCards[0].kpId],learner.revisionWitness.kps[d.precisionCards[0].kpId]);
+  assert.equal(d.precisionCards.length,13);
+ });
+});
+check('real unmigrated native objects refresh through default shared API without raw reads',()=>{
+ for(const [system,id] of [['circulation','b02'],['digestive-metabolic-endocrine-tumor','d06'],['digestive-metabolic-endocrine-tumor','m04'],['urinary','b05']]) {
+  const obj=resolveXizongLearnerProjection(loadXizongBlock(system,id)).learnerObject;
+  const expected=nativeDescriptor(obj),input=JSON.parse(JSON.stringify(obj));
+  const prior=releaseBlockMemory(createXizongMemoryState(),expected);
+  prior.releasedBlocks[obj.identity.blockId].sourceHash='historical-location';
+  const read=fs.readFileSync;
+  try { fs.readFileSync=()=>{throw new Error('RAW_OWNER_DENIED');};
+   const result=releaseCompletedBlockToMemory(prior,input,{});
+   assert.equal(result.refreshed,true);
+   assert.deepEqual(memory.buildXizongMemoryReleaseDescriptorFromLearnerObject(input),expected);
+   assert.deepEqual(result.state.evidence,prior.evidence);
+  } finally { fs.readFileSync=read; }
+ }
 });
 check('single Prompt edit updates the same natural model node',()=>{
  const kp=canonical.kpRecords[0];

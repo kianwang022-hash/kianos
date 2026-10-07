@@ -1,4 +1,4 @@
-import { resolveXizongKnowledgeView } from './xizong.mjs';
+import { resolveXizongKnowledgeView, resolveXizongCanonicalModelView } from './xizong.mjs';
 import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -526,6 +526,9 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
     if (binding.owner_type === 'BLOCK' && binding.role === 'CANONICAL_MODEL') {
       if (!canonicalBlock.knowledge?.model || !canonicalBlock.modelMarkdown) fail('CANONICAL_MODEL_MISSING', canonicalBlock.blockId);
       return canonicalBlock.modelMarkdown;
+    }
+    if (binding.owner_type === 'BLOCK' && ['CANONICAL_MODEL_CHAIN', 'CANONICAL_MODEL_FORMULAS'].includes(binding.role)) {
+      return resolveXizongCanonicalModelView(canonicalBlock, binding.role === 'CANONICAL_MODEL_CHAIN' ? 'mechanism-spine' : 'formula-language');
     }
     if (binding.owner_type === 'BLOCK' && binding.role === 'CANONICAL_GUIDE') {
       return {

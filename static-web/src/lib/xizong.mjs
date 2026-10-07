@@ -961,6 +961,18 @@ function loadBlock(systemId, blockSlugOrId) {
 
 // Exact, cardinality-checked views of the same canonical facts. These recipes
 // carry presentation operations, never another independently editable answer.
+export function resolveXizongCanonicalModelView(block, view) {
+  if (!['mechanism-spine', 'formula-language'].includes(view) || !block.knowledge?.model || !block.modelMarkdown) {
+    throw new Error(`CURRENT_XIZONG_MODEL_VIEW_INVALID:${block.blockId}:${view}`);
+  }
+  const matches = [...block.modelMarkdown.matchAll(new RegExp(`<!-- kianos:model-view ${view} -->\\n([\\s\\S]*?)<!-- /kianos:model-view -->`, 'g'))];
+  if (matches.length !== 1 || !matches[0][1].trim()) throw new Error(`CURRENT_XIZONG_MODEL_VIEW_MISSING_OR_DUPLICATE:${block.blockId}:${view}`);
+  // Only presentation conversion. Retain the full relationship text, formula
+  // explanations and qualifications from the same authoritative model.
+  const text = matches[0][1].trim().replace(/\*\*/g, '').replace(/^- /gm, '');
+  return `\`\`\`text\n${text}\n\`\`\``;
+}
+
 export function resolveXizongKnowledgeView(block, expression) {
   const fail = detail => { throw new Error(`CURRENT_XIZONG_KNOWLEDGE_VIEW_INVALID:${block?.blockId}:${detail}`); };
   function evaluate(expr, depth = 0) {
@@ -969,7 +981,7 @@ export function resolveXizongKnowledgeView(block, expression) {
     if (typeof expr.ref === 'string') {
       const spec = block.knowledge?.fragments?.[expr.ref];
       if (!spec || spec.cardinality !== 1 || !Number.isInteger(spec.capture_group)) fail(expr.ref);
-      const source = spec.kp_ordinal == null ? block.blockLearnMarkdown
+      const source = spec.kp_ordinal == null ? block.blockLearnMarkdown.replace(/<!-- (?:kianos:model-view [a-z-]+|\/kianos:model-view) -->\n?/g, '')
         : block.kpRecords.find(kp => kp.ordinal === spec.kp_ordinal)?.detailMarkdown;
       if (typeof source !== 'string') fail(`SOURCE:${expr.ref}`);
       const matches = [...source.matchAll(new RegExp(spec.pattern, [...new Set(`${spec.flags || ''}g`)].join('')))];

@@ -204,6 +204,21 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
   const admitted = learnerObject.preparedMemory;
   if (!admitted || admitted.blockId !== blockId || admitted.sourceHash !== learnerObject.sourceHash
     || !Array.isArray(admitted.items)) fail('COMPILED_ADMISSION_REQUIRED', blockId);
+  if (admitted.mode === 'CURRENT_NATIVE') {
+    if (learnerObject.semanticOwnership) fail('COMPILED_OWNER_MISMATCH');
+    if (new Set(admitted.items.map(row => row.id)).size !== admitted.items.length) fail('PREPARED_ADMISSION_INVALID', blockId);
+    precisionCards = admitted.items.map(expected => {
+      const cards = precisionCards.filter(card => card.precisionCueId === expected.id);
+      if (cards.length !== 1) fail('PREPARED_OWNER_AMBIGUOUS', expected.id);
+      const cues = [...[...kps.values()].flatMap(kp => array(kp.precision)), ...[...groups.values()].flatMap(group => array(group.precision))].filter(cue => cue.id === expected.id);
+      if (cues.length !== 1 || !equal(cues[0], expected.cue)) fail('PREPARED_OWNER_MISMATCH', expected.id);
+      const card = cards[0];
+      card.semanticRevision = card.kpId ? learnerObject.revisionWitness.kps[card.kpId] || '' : learnerObject.revisionWitness.groups[card.logicGroupId] || '';
+      if (!equal(card, expected.card)) fail('PREPARED_OWNER_MISMATCH', expected.id);
+      return card;
+    });
+    return finalizeDescriptor(meta, coreCards, precisionCards, options);
+  }
   const cueRows = [
     ...[...kps.values()].flatMap(kp => array(kp.precision).map(cue => ({ cue, kpId: kp.identity.kpId, logicGroupId: kp.identity.logicGroupId }))),
     ...[...groups.values()].flatMap(group => array(group.precision).map(cue => ({ cue, kpId: '', logicGroupId: group.identity.logicGroupId })))
@@ -248,13 +263,17 @@ function equal(a, b) {
   return keys.length === Object.keys(b).length && keys.every(key => Object.hasOwn(b, key) && equal(a[key], b[key]));
 }
 export function supportsXizongPreparedMemoryBlock(learnerObject) {
-  return Boolean(learnerObject?.preparedMemory?.items?.length);
+  const prepared = learnerObject?.preparedMemory;
+  return Boolean(prepared?.mode === 'CURRENT_NATIVE' ? prepared.availabilityCardIds?.length : prepared?.items?.length);
 }
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
   if (!supportsXizongPreparedMemoryBlock(learnerObject)) fail('PREPARED_BLOCK_UNSUPPORTED');
   if (options.sourceHash && options.sourceHash !== learnerObject.sourceHash) fail('PREPARED_SOURCE_STALE');
   const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject);
-  return { ...descriptor, coreCards: [], attentionSignals: [], promptOverrides: {}, markedFragments: [] };
+  const ids = learnerObject.preparedMemory.mode === 'CURRENT_NATIVE' ? learnerObject.preparedMemory.availabilityCardIds : descriptor.precisionCards.map(card => card.id);
+  if (!Array.isArray(ids) || new Set(ids).size !== ids.length
+    || ids.some(id => !descriptor.precisionCards.some(card => card.id === id && card.answerResolution === 'EXACT_CURRENT_OWNER'))) fail('PREPARED_ADMISSION_INVALID');
+  return { ...descriptor, coreCards: [], precisionCards:descriptor.precisionCards.filter(card => ids.includes(card.id)), attentionSignals: [], promptOverrides: {}, markedFragments: [] };
 }
 export function isXizongPreparedMemoryCard(card, currentDescriptor) {
   const expected = array(currentDescriptor?.precisionCards).filter(row => row.id === card?.id);

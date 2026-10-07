@@ -3,22 +3,36 @@ import vm from 'node:vm';
 import * as model from '../src/lib/xizongMemoryModel.mjs';
 import * as auto from '../src/lib/xizongMemoryAutoRelease.mjs';
 import * as release from '../src/lib/xizongMemoryRelease.mjs';
+import * as compiledMemory from '../src/lib/xizongCompiledMemoryRelease.mjs';
+import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
+import { createHash } from 'node:crypto';
 const base=new URL('../',import.meta.url);
 import assert from 'node:assert/strict';
 const fixture=fs.readFileSync(new URL('scripts/validate-xizong-memory-auto-release.mjs',base),'utf8');
 const learner=vm.runInNewContext(fixture.slice(fixture.indexOf('const learner ='),fixture.indexOf('assert(xizongStudyStorageKey'))+';({learner,validStudy})');
+// Compile the generic fixture once; the actual browser controller must consume
+// that object through its default API, without an injected legacy builder.
+learner.learner.sourceHash=createHash('sha256').update('fixture-source-v1').digest('hex');
+learner.learner.sourceContact=null;
+learner.learner.revisionWitness=buildXizongRevisionWitness(learner.learner);
+const fixtureDescriptor=release.buildXizongMemoryReleaseDescriptorFromLearnerObject(learner.learner);
+learner.learner.preparedMemory={mode:'CURRENT_NATIVE',blockId:learner.learner.identity.blockId,
+ sourceHash:learner.learner.sourceHash,identity:{...learner.learner.identity},availabilityCardIds:[],
+ items:fixtureDescriptor.precisionCards.map(card=>({id:card.precisionCueId,card,
+ cue:[...learner.learner.kps.flatMap(k=>k.precision||[]),...learner.learner.logicGroups.flatMap(g=>g.precision||[])].find(cue=>cue.id===card.precisionCueId)}))};
 export async function probe(bridgePath,raw=null,personal={kp:{'fixture-r01-kp01':{marks:[{surface:'CORE',text:'KP1 canonical Core',kind:'important',createdAt:'2026-09-30T00:00:00Z'}]}}},failWrite=false){
  const objectId='xizong:fixture-r01';
  const storage=new Map([[auto.xizongStudyStorageKey(objectId),JSON.stringify(learner.validStudy)],['kianos-xizong-personal-v1:'+objectId,JSON.stringify(personal)]]);
  if(raw!==null) storage.set(model.XIZONG_MEMORY_STORAGE_KEY,raw);
  const callbacks={};let writes=0;const errors=[];
- const sandbox={...model,...auto,...release,legacyMemoryFixture:release,learnerWriterReady:Promise.resolve(),document:{querySelector(s){return s.includes('v6-block')?{getAttribute:()=>objectId}:s.includes('learner-object')?{textContent:JSON.stringify(learner.learner)}:{getAttribute:k=>k==='data-object-id'?objectId:'fixture-source-v1'};}},localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>{if(failWrite)throw Error('QUOTA_FIXTURE');storage.set(k,v);writes++;}},window:{addEventListener:(name,cb)=>callbacks[name]=cb,dispatchEvent:()=>{}},CustomEvent:class{constructor(type,o){this.type=type;this.detail=o?.detail;}},console:{error:e=>errors.push(String(e)),warn:e=>errors.push(String(e))}};
+ const sandbox={...model,...auto,...release,compiledMemory,legacyMemoryFixture:release,learnerWriterReady:Promise.resolve(),document:{querySelector(s){return s.includes('v6-block')?{getAttribute:()=>objectId}:s.includes('learner-object')?{textContent:JSON.stringify(learner.learner)}:{getAttribute:k=>k==='data-object-id'?objectId:k==='data-canonical-knowledge'?'false':learner.learner.sourceHash};}},localStorage:{getItem:k=>storage.get(k)??null,setItem:(k,v)=>{if(failWrite)throw Error('QUOTA_FIXTURE');storage.set(k,v);writes++;}},window:{addEventListener:(name,cb)=>callbacks[name]=cb,dispatchEvent:()=>{}},CustomEvent:class{constructor(type,o){this.type=type;this.detail=o?.detail;}},console:{error:e=>errors.push(String(e)),warn:e=>errors.push(String(e))}};
  const source=fs.readFileSync(bridgePath,'utf8').split('<script>')[1].split('</script>')[0].replace(/import\s[\s\S]*?from\s+['"][^'"]+['"];?/g,'').replace("await import('../lib/xizongMemoryRelease.mjs')", 'await legacyMemoryFixture');
  vm.runInNewContext(source,sandbox);await Promise.resolve();await Promise.resolve();
  return {storage,callbacks,sandbox,get writes(){return writes},errors,marks:raw===storage.get(model.XIZONG_MEMORY_STORAGE_KEY)?null:JSON.parse(storage.get(model.XIZONG_MEMORY_STORAGE_KEY)||'null')?.marks};
 }
 const bridge=new URL('src/components/XizongMemoryReleaseBridge.astro',base);
 const first=await probe(bridge);
+assert.ok(first.storage.has(model.XIZONG_MEMORY_STORAGE_KEY),first.errors.join('\n'));
 let state=JSON.parse(first.storage.get(model.XIZONG_MEMORY_STORAGE_KEY));
 assert.equal(Object.keys(state.marks).length,1,'first completion imports personal mark');
 const [id]=Object.keys(state.marks); assert.equal(state.marks[id].personalKind,'important');

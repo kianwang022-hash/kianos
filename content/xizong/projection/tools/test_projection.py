@@ -77,8 +77,8 @@ def run_suite(root: Path = ROOT) -> dict:
         expected = set(manifest['coverage']['rich_calibration_blocks'])
         got = {a['block_id'] for p,a in assets.items() if a.get('block_id') in expected and report['results'][p]['status'] == 'PASS'}
         assert got == expected and len(got) == 7
-        assert all(len({o['geometry'] for o in a['objects']}) > 1 for a in assets.values() if a.get('block_id') in expected and a['block_id'] != 'circulation-b01')
-        model = assets[b1]['objects'][1]
+        assert all(len({o['geometry'] for o in a['objects']}) > 1 for a in assets.values() if a.get('block_id') in expected)
+        model = next(o for o in assets[b1]['objects'] if o['object_id'] == 'circulation-b01-framework')
         assert model['geometry'] == 'TEXT_STRUCTURE' and model['binding']['role'] == 'CANONICAL_MODEL'
         return {'calibration_pass':sorted(got)}
     check('seven_heterogeneous_calibration_assets',seven)

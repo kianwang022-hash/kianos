@@ -295,14 +295,14 @@ export function resolvePreparedMemoryCue(row, block, shared, { loadBlock = loadX
     const matches = (block.knowledge.exact_items || []).filter(value => value.item?.memory_id === row.id);
     if (matches.length !== 1) fail('CANONICAL_ITEM_MISSING_OR_DUPLICATE');
     const view = matches[0], kp = block.kpRecords.find(value => value.ordinal === view.kp_ordinal);
-    if (!kp || row.anchor?.kp_id !== kp.kpId || row.anchor?.block_id !== block.blockId
-      || row.cue !== view.item.cue) fail('CANONICAL_OWNER_MISMATCH');
+    if (!kp || row.anchor?.kp_id !== kp.kpId || row.anchor?.block_id !== block.blockId) fail('CANONICAL_OWNER_MISMATCH');
+    if (Object.hasOwn(row, 'cue')) fail('CANONICAL_PARALLEL_CUE_OWNER');
     const item = { ...view.item, answer: resolveXizongKnowledgeView(block, view.answer_view) };
     if (view.anchor_field === 'anchor') item.anchor = resolveXizongKnowledgeView(block, view.anchor_views[0]);
     else if (view.anchor_field === 'anchors') item.anchors = view.anchor_views.map(expr => resolveXizongKnowledgeView(block, expr));
     if (!item.answer.trim() || !view.legacy_reference) fail('CANONICAL_ITEM_INVALID');
     const legacyReference = { ...view.legacy_reference, kp_core_sha256: preparedMemoryDigest(kp.detailMarkdown), item_sha256: preparedMemoryDigest(item) };
-    return { ...renderPreparedMemoryCue(row, item, [], false), prepared_memory_owner: block.sourcePath,
+    return { ...renderPreparedMemoryCue({ ...row, cue:item.cue }, item, [], false), prepared_memory_owner: block.sourcePath,
       relocationProvenance: { owner: PREPARED_MEMORY_OWNER, reference: legacyReference } };
   }
 

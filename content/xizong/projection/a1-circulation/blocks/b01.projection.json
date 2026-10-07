@@ -8,7 +8,7 @@
       "id": "core",
       "kind": "MEDICAL_CORE",
       "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
-      "blob_sha": "f62485f0545499d6cd11448c0fd8e0e1f7fbfa22"
+      "blob_sha": "7db1d112d0ff166fe48823313fa0f20ccf4d17bb"
     },
     {
       "id": "learning",
@@ -80,6 +80,32 @@
       "answer_bearing": false
     },
     {
+      "object_id": "circulation-b01-mechanism-spine",
+      "role": "CHAIN",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "OWNER_REF",
+        "owner_type": "BLOCK",
+        "id": "circulation-b01",
+        "role": "CANONICAL_MODEL_CHAIN"
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b01-formula-language",
+      "role": "MAP",
+      "geometry": "FORMULA_STRIP",
+      "binding": {
+        "kind": "OWNER_REF",
+        "owner_type": "BLOCK",
+        "id": "circulation-b01",
+        "role": "CANONICAL_MODEL_FORMULAS"
+      },
+      "stage_role": "SECONDARY_STAGE",
+      "answer_bearing": true
+    },
+    {
       "object_id": "circulation-b01-framework",
       "role": "MAP",
       "geometry": "TEXT_STRUCTURE",
@@ -98,6 +124,8 @@
     "BLOCK_ORIENT": {
       "object_ids": [
         "circulation-b01-problem",
+        "circulation-b01-mechanism-spine",
+        "circulation-b01-formula-language",
         "circulation-b01-framework"
       ],
       "learning_support_keys": [
@@ -147,6 +175,8 @@
     "BLOCK_RECALL_REVEAL": {
       "object_ids": [
         "circulation-b01-problem",
+        "circulation-b01-mechanism-spine",
+        "circulation-b01-formula-language",
         "circulation-b01-framework"
       ],
       "learning_support_keys": [
@@ -156,6 +186,7 @@
     }
   },
   "calibration_notes": [
-    "The canonical Block owns the adopted continuous model and its natural KP bindings; Projection references it without a second model."
+    "The canonical Block owns the adopted continuous model and its natural KP bindings; Projection references it without a second model.",
+    "Mechanism chain and formula language are presentation views of that same canonical model; no historical model or copied medical text supplies them."
   ]
 }

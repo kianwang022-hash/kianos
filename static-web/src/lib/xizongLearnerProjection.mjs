@@ -4,6 +4,9 @@ import { isDeepStrictEqual } from 'node:util';
 import { createHash } from 'node:crypto';
 import { withXizongCompileContext, seedXizongCompile } from './xizongCompileContext.mjs';
 import { buildXizongRevisionWitness } from './xizongRevisionWitness.mjs';
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as buildNativeMemoryDescriptor,
+  buildXizongPreparedMemoryAvailability as buildNativeAvailability,
+  supportsXizongPreparedMemoryBlock as supportsNativeAvailability } from './xizongMemoryRelease.mjs';
 import { attachSourceVisualBundles as attachCanonicalVisualBundles } from './xizongSourceVisualAssets.mjs';
 import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
@@ -108,6 +111,19 @@ function compileLearnerProjection(canonicalBlock, {
     };
   }
   learnerObject.revisionWitness = buildXizongRevisionWitness(learnerObject);
+  if (!canonicalBlock.knowledge) {
+    // The current native admission edge is resolved once at composition time.
+    // Shared state consumers subsequently project this serialized object and
+    // cannot choose a different builder or open an admission index themselves.
+    const native = buildNativeMemoryDescriptor(learnerObject);
+    const availabilityCardIds=supportsNativeAvailability(block.blockId) && native.precisionCards.some(card => card.answerResolution === 'EXACT_CURRENT_OWNER')
+      ? buildNativeAvailability(learnerObject).precisionCards.map(card => card.id) : [];
+    learnerObject.preparedMemory = { mode:'CURRENT_NATIVE', blockId:block.blockId,
+      sourceHash:learnerObject.sourceHash, identity:{ ...learnerObject.identity },
+      items:native.precisionCards.map(card => ({ id:card.precisionCueId, card,
+        cue:structuredClone([...learnerObject.kps.flatMap(kp => kp.precision || []), ...learnerObject.logicGroups.flatMap(group => group.precision || [])].find(cue => cue.id === card.precisionCueId)) })),
+      availabilityCardIds };
+  }
   const report = validateXizongLearnerObject(learnerObject);
 
   return {

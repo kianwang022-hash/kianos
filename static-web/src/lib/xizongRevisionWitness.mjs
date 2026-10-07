@@ -42,6 +42,20 @@ function contactShape(contact, kps) {
   }).sort((a,b) => String(a.segmentId).localeCompare(String(b.segmentId)));
   return shape;
 }
+// The continuous model owns relationships as well as its KP positions. Only
+// known locator/presentation packaging is neutral; ordinary text, conditions,
+// arrows, formulas and stable KP identities remain significant.
+function modelMeaning(markdown) {
+  return String(markdown || '').replace(/\r\n/g, '\n')
+    .replace(/<!-- b1:(node|external) (\{[^\n]+?\}) -->/g, (_, kind, json) => {
+      const { canonical_line, ...identity } = JSON.parse(json);
+      return `<!-- b1:${kind} ${JSON.stringify(identity)} -->`;
+    })
+    .replace(/<!-- b1:source \d+:\d+ -->/g, '<!-- b1:source -->')
+    .replace(/<!-- (?:kianos:model-view [a-z-]+|\/kianos:model-view) -->\n?/g, '')
+    .replace(/\]\((?:#[^\s)]+|[^\s)]+\.md\?plain=1#L\d+)\)/g, '](KNOWLEDGE_REF)')
+    .replace(/<\/?details>|<\/?summary>/g, '');
+}
 export function buildXizongRevisionWitness(learner) {
   const kps = learner.kps || [], groups = learner.logicGroups || [];
   return { schema: 'kianos.xizong.content-revision-witness.v1', sourceHash: learner.sourceHash,
@@ -51,7 +65,8 @@ export function buildXizongRevisionWitness(learner) {
     groups: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, hash({ goal:g.goal, closure:g.closure, precision:support(g.precision), visual:support(g.visual), extension:support(g.extension), connection:support(g.connection), visualRequired:g.visualRequired, visualSourceState:g.visualSourceState })])),
     segmentOrder: (learner.sourceContact?.segments || []).map(row => String(row.segmentId || row.segment_id || row.sourceUnitId || '')),
     members: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, [...g.kpIds]])),
-    block: hash({ recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections) }),
+    block: hash({ recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections),
+      ...(learner.model ? { model:modelMeaning(learner.model.markdown) } : {}) }),
     contact: hash(contactShape(learner.sourceContact, kps)) };
 }
 

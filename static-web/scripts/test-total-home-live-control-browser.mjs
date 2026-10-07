@@ -6,7 +6,9 @@ import { chromium } from 'playwright';
 import { buildPoliticsMemoryCandidateCatalogCurrent } from '../src/lib/politicsMemoryCandidates.mjs';
 
 const PORT=4353;
-const BASE='http://127.0.0.1:'+PORT;
+const BASE=process.env.KIANOS_TEST_BASE || 'http://127.0.0.1:'+PORT;
+const scope=process.env.KIANOS_LIVE_CONTROL_SCOPE || 'ALL';
+if (!['ALL','XIZONG_CONTINUITY'].includes(scope)) throw new Error('LIVE_CONTROL_SCOPE_INVALID');
 const out=path.resolve(process.cwd(),'.qa/total-home-live-control');
 fs.mkdirSync(out,{recursive:true});
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-total-home-live-control-'));
@@ -18,7 +20,7 @@ async function ready(){
   }
   throw new Error('SERVER_NOT_READY');
 }
-const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(PORT)],{
+const server=process.env.KIANOS_TEST_BASE ? null : spawn('npm',['run','dev','--','--host','127.0.0.1','--port',String(PORT)],{
   cwd:process.cwd(),
   env:{
     ...process.env,
@@ -58,8 +60,9 @@ const saveCheckpoint=page=>page.evaluate(async()=>{
 });
 try{
   await ready();
-  browser=await chromium.launch({headless:true});
+  browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_EXECUTABLE_PATH ? {executablePath:process.env.PLAYWRIGHT_EXECUTABLE_PATH} : {})});
 
+  if (scope === 'ALL') {
   // Xizong: Home is already open when the shared control command arrives.
   {
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
@@ -282,6 +285,7 @@ try{
     await ctx.close();
   }
 
+  }
   // Xizong continuity: exact native KP -> Packet -> typed Return -> control receipt -> exact Resume.
   {
     const ctx=await browser.newContext({viewport:{width:1512,height:982},timezoneId:'Asia/Shanghai'});
@@ -390,6 +394,10 @@ try{
         pending,
         control,
         currentText:document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current')?.textContent?.trim()||'',
+        currentKpId:document.querySelector('.xv6KpLearnCompanion[data-kp-id]')?.getAttribute('data-kp-id')||'',
+        currentTitle:document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current span')?.textContent?.trim()||'',
+        currentStatus:document.querySelector('[data-study-group-rail] .xzLogicGroupKp.current em')?.textContent?.trim()||'',
+        canonicalTitle:JSON.parse(document.querySelector('[data-xizong-learner-object-payload]')?.textContent||'null')?.kps?.find(k=>k.identity.kpId===kpId)?.identity.title||'',
         commandMatches:control?.command_id===commandId
       };
     },{objectId:seeded.objectId,kpId:seeded.kpId,studyKey:seeded.studyKey,commandId:command.command_id});
@@ -402,7 +410,9 @@ try{
     check(after.repairTasks.length===1&&after.plans.length===0,'xizong_continuity_one_repair_migrated_and_inbox_cleared',JSON.stringify({repairTasks:after.repairTasks.length,plans:after.plans.length}));
     check(after.pending?.last_receipt?.status==='APPLIED'&&after.pending?.last_receipt?.repair_kp_ids?.[0]===seeded.kpId,'xizong_continuity_native_return_receipt');
     check(after.commandMatches,'xizong_continuity_control_receipt_still_matches');
-    check(/KP15/.test(after.currentText),'xizong_continuity_visible_resume_is_kp15',after.currentText);
+    check(after.currentKpId===seeded.kpId,'xizong_continuity_stable_resume_is_kp15',after.currentKpId);
+    check(after.canonicalTitle&&after.currentTitle===after.canonicalTitle&&after.currentStatus==='当前',
+      'xizong_continuity_visible_resume_has_current_canonical_title',after.currentText);
 
     const repeated=await page.evaluate(async({command,studyDay,now})=>{
       const mod=await import('/src/lib/privateControlRuntime.mjs');
@@ -424,7 +434,7 @@ try{
   report.completed_at=new Date().toISOString();
   fs.writeFileSync(path.join(out,'results.json'),JSON.stringify(report,null,2)+'\n');
   try{await browser?.close();}catch{}
-  try{process.kill(-server.pid,'SIGTERM');}catch{try{server.kill('SIGTERM');}catch{}}
+  if (server) { try{process.kill(-server.pid,'SIGTERM');}catch{try{server.kill('SIGTERM');}catch{}} }
   fs.rmSync(temp,{recursive:true,force:true});
 }
 console.log(JSON.stringify({status:report.status,checks:report.checks.length}));

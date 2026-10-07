@@ -4,14 +4,20 @@ import { resolveXizongLearnerProjection } from '../src/lib/xizongLearnerProjecti
 import { attachSourceVisualBundles } from '../src/lib/xizongSourceVisualAssets.mjs';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import { marked } from 'marked';
+import { projectKpCore } from '../src/lib/xizongProjection.mjs';
 import { createHash } from 'node:crypto';
 import { buildXizongRevisionWitness, buildXizongSystemRecallWitness } from '../src/lib/xizongRevisionWitness.mjs';
 import { reconcileXizongRevision, revisionStatus, revalidateXizongUnit, compatibleRevisionWitnesses } from '../src/lib/xizongContentRevision.mjs';
-import { releaseCompletedBlockToMemory, inspectXizongBlockCompletion, hasXizongSystemRecall } from '../src/lib/xizongMemoryAutoRelease.mjs';
+import { releaseCompletedBlockToMemory as releaseCompiledBlockToMemory, inspectXizongBlockCompletion, hasXizongSystemRecall } from '../src/lib/xizongMemoryAutoRelease.mjs';
 import { appendMemoryEvidence, xizongRetentionState } from '../src/lib/xizongMemoryModel.mjs';
 import { buildXizongStudyPacketFromStorage } from '../src/lib/xizongStudyPacket.mjs';
 import { buildXizongChatHandoff, validateXizongChatReturn } from '../src/lib/xizongChatReturn.mjs';
 import { captureXizongPrivateCheckpoint, prepareXizongPrivateCheckpointRestore } from '../src/lib/xizongPrivateCheckpoint.mjs';
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as buildSyntheticDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
+// Opaque v1/v2 fixtures exercise the state engine, not compiled Content identity.
+// The default public entrypoint is separately tested with native B2/D6/M4/A3B5.
+const releaseCompletedBlockToMemory=(memory,learner,study,options={})=>releaseCompiledBlockToMemory(memory,learner,study,{...options,descriptorBuilder:buildSyntheticDescriptor});
 class Storage { constructor(v={}) { this.map=new Map(Object.entries(v)); } get length(){return this.map.size} key(i){return [...this.map.keys()][i]??null} getItem(k){return this.map.get(k)??null} setItem(k,v){this.map.set(k,String(v))} removeItem(k){this.map.delete(k)} }
 const clone = x=>structuredClone(x);
 let count=0;
@@ -103,7 +109,7 @@ assert.deepEqual(legacyMemory.evidence.slice(0,-1),legacyEvidence);count++;
 // Exact real owner parity across Node requirements and Vite visual attachment.
 const actual=loadXizongBlock('circulation','b01');
 const native=resolveXizongLearnerProjection(actual).learnerObject;
-const rendered=resolveXizongLearnerProjection(actual,{attachVisualBundles:rows=>attachSourceVisualBundles(rows).map(row=>row.source_visual_bundle?({...row,source_visual_bundle:{...row.source_visual_bundle,assets:row.source_visual_bundle.assets.map(a=>({...a,src:'/emitted/'+a.sourceObjectId+'.webp',width:999}))}}):row),enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:'<p>rendered Core</p>'}))})}).learnerObject;
+const rendered=resolveXizongLearnerProjection(actual,{attachVisualBundles:rows=>attachSourceVisualBundles(rows).map(row=>row.source_visual_bundle?({...row,source_visual_bundle:{...row.source_visual_bundle,assets:row.source_visual_bundle.assets.map(a=>({...a,src:'/emitted/'+a.sourceObjectId+'.webp',width:999}))}}):row),enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:marked.parse(projectKpCore(k.detailMarkdown),{gfm:true})}))})}).learnerObject;
 check(compatibleRevisionWitnesses(native.revisionWitness,rendered.revisionWitness),'Node System/Home and rendered Block share medical/visual identity');
 const changedCrop=clone(native);const visualGroup=changedCrop.logicGroups.find(g=>g.visual.some(v=>v.sourceVisualBundle));visualGroup.visual.find(v=>v.sourceVisualBundle).sourceVisualBundle.assets[0].sourceCropSha256='changed-source-pixels';
 const cropWitness=buildXizongRevisionWitness(changedCrop);

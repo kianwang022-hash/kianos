@@ -151,7 +151,7 @@ function learnerGroupContext(group, kps) {
 }
 
 export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, options = {}) {
-  if (learnerObject?.semanticOwnership) return compiledMemory.buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, options);
+  if (learnerObject?.semanticOwnership || learnerObject?.preparedMemory?.mode === 'CURRENT_NATIVE') return compiledMemory.buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, options);
   if (learnerObject?.schema !== XIZONG_LEARNER_OBJECT_SCHEMA || learnerObject?.objectType !== 'BLOCK') {
     fail('LEARNER_OBJECT_SCHEMA_INVALID', text(learnerObject?.schema));
   }
@@ -321,7 +321,7 @@ export function supportsXizongPreparedMemoryBlock(blockId) {
 }
 
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
-  if (learnerObject?.semanticOwnership) return compiledMemory.buildXizongPreparedMemoryAvailability(learnerObject, options);
+  if (learnerObject?.semanticOwnership || learnerObject?.preparedMemory?.mode === 'CURRENT_NATIVE') return compiledMemory.buildXizongPreparedMemoryAvailability(learnerObject, options);
   const blockId = text(learnerObject?.identity?.blockId);
   assertNativePreparedIdentity(learnerObject?.identity);
   const native = isNativePreparedSystem(learnerObject?.identity);
@@ -499,4 +499,3 @@ export function buildXizongBlockMemoryReleaseDescriptor(block, learningCues = nu
   }
   return finalizeDescriptor(meta, coreCards, precisionCards, options);
 }
-
