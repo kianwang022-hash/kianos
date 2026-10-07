@@ -64,6 +64,21 @@ The browser test is repeatable from `static-web` against an already-running isol
 
 This establishes current-asset resolution and the tested C01 producer→browser→native-return path. It is **not** a fresh independent full-PDF review, full five-subject teaching/Source closure, a measured learner speed gain, proof that every future Chat will follow instructions, or real U/mastery. Those limitations do not reopen already-delivered reviewed-target Memory.
 
+## 2026-10-07 real-use first-contact pedagogy correction
+
+Kian's real first-chapter use exposed a bounded Learning/teaching-consumption defect: the Current fixed model and prepared content were correct, but Chat could consume the teacher brief as `node → definition → explanation → common error → next node`, producing a paraphrased lecture rather than rapid logical model construction. This is learner-friction evidence about **first-contact pedagogy**, not evidence that the ten-node reconstruction spine, Source content or reviewed exact targets were wrong.
+
+Earliest responsible repair:
+- Learning now states explicitly that the reconstruction spine is a stable review/index structure, **not automatically a first-lecture outline**;
+- first contact must use a chapter-level problem/tension whose unresolved consequences force the next concept to appear;
+- Interaction keeps node/K/NU/Memory metadata backstage during first teaching;
+- Content preparation rejects stage routes that are only numbered node batches without problem/dependency logic;
+- C01 now uses one core tension — reality is not arbitrarily determined by consciousness, yet consciousness can genuinely change reality — and crosses successive problem gates while mapping the result back to the unchanged ten-node spine.
+
+Preserved identities: C01's canonical ten-node compression, Source/NU ownership, substantive explanation pool, confusable pass and all22 reviewed exact-target IDs/prompts/answers/checking/cues are unchanged. The reviewed-target Website delivery remains accepted and is not reopened by this classroom repair.
+
+Current U statement: **real friction observed; scoped repair applied; fresh learner re-use still required to validate the repaired first-contact experience.** Do not convert this one report into mastery evidence or a broad Politics failure.
+
 ## 2026-09-13 Surface Ownership reacceptance
 
 ### Real U trigger
