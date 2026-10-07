@@ -1,3 +1,4 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -275,10 +276,14 @@ function normalizeMembership(group, systemGroup, detail) {
   fail('LOGIC_MEMBERSHIP_MISSING', detail);
 }
 
-export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount }) {
+export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount, knowledge = null }) {
   if (!Number.isInteger(kpCount) || kpCount < 1) fail('KP_COUNT_INVALID', blockId);
   const learningGroups = blockSupport?.logic_groups || {};
-  const systemGroups = systemLogicGroupMap(system, blockId);
+  const systemGroups = knowledge ? new Map() : systemLogicGroupMap(system, blockId);
+  if (blockSupport?.knowledge_owner && !knowledge) fail('CANONICAL_KNOWLEDGE_REQUIRED', blockId);
+  const canonicalGroups = knowledge ? new Map(knowledge.logic_groups.map(row => [row.groupId, row])) : null;
+  if (canonicalGroups && (canonicalGroups.size !== knowledge.logic_groups.length
+    || canonicalGroups.size !== Object.keys(learningGroups).length)) fail('CANONICAL_LOGIC_ID_INVALID', blockId);
   const learningIds = Object.keys(learningGroups);
   if (!learningIds.length) fail('LOGIC_GROUPS_MISSING', blockId);
 
@@ -294,7 +299,13 @@ export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kp
   const groups = order.map((groupId, index) => {
     const learning = learningGroups[groupId] || {};
     const systemGroup = systemGroups.get(groupId) || null;
-    const membership = normalizeMembership(learning, systemGroup, `${blockId}:${groupId}`);
+    const canonical = canonicalGroups?.get(groupId);
+    if (canonicalGroups && (!canonical || typeof canonical.label !== 'string' || !canonical.label.trim()
+      || !Array.isArray(canonical.kpOrdinals) || !canonical.kpOrdinals.length
+      || canonical.kpOrdinals.some(value => !Number.isInteger(value) || value < 1)
+      || new Set(canonical.kpOrdinals).size !== canonical.kpOrdinals.length)) fail('CANONICAL_LOGIC_INVALID', `${blockId}:${groupId}`);
+    const membership = canonical ? { mode: canonical.membershipMode, ordinals: [...canonical.kpOrdinals] }
+      : normalizeMembership(learning, systemGroup, `${blockId}:${groupId}`);
     for (const ordinal of membership.ordinals) {
       if (ordinal > kpCount) fail('LOGIC_MEMBER_OUT_OF_RANGE', `${blockId}:${groupId}:${ordinal}/${kpCount}`);
       if (seen.has(ordinal)) fail('LOGIC_MEMBER_OVERLAP', `${blockId}:kp${ordinal}:${seen.get(ordinal)}:${groupId}`);
@@ -306,7 +317,7 @@ export function normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kp
     return {
       groupId,
       order: index + 1,
-      label: String(learning?.label || systemGroup?.label || groupId),
+      label: canonical ? canonical.label : String(learning?.label || systemGroup?.label || groupId),
       membershipMode: membership.mode,
       kpOrdinals: membership.ordinals,
       kpCount: membership.ordinals.length,
@@ -393,7 +404,7 @@ export function hydrateAcceptedLearningOwner({ repoRoot, learningPath, learning 
   for (const shardPath of shardPaths) {
     const file = path.resolve(repoRoot, shardPath);
     if (!fs.existsSync(file)) fail('SHARD_MISSING', shardPath);
-    const text = fs.readFileSync(file, 'utf8');
+    const text = readXizongCompileFile(file, 'utf8');
     const shard = JSON.parse(text);
     if (shard?.system_id !== learning.system_id || shard?.canonical_id !== learning.canonical_id) {
       fail('SHARD_IDENTITY_MISMATCH', shardPath);

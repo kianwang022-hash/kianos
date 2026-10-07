@@ -1,3 +1,4 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -69,7 +70,7 @@ export function loadXizongPathways(system) {
     return null;
   }
 
-  const raw = JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
+  const raw = readXizongCompileJson(absolute(sourcePath));
   if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_APPROVED')) {
     throw new Error(`CURRENT_XIZONG_PATHWAYS_INVALID:${systemId}`);
   }
@@ -119,7 +120,7 @@ export function pathwaysForBlock(pathways, blockId) {
 // does not create a new learning obligation or infer a finer target.
 export function reviewedRetentionConnectionsForBlock(system, block, shared = null) {
   const sourcePath = `${LEARNER_ROOT}/shared-fields.json`;
-  const owner = shared || JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
+  const owner = shared || readXizongCompileJson(absolute(sourcePath));
   if (!String(owner?.authority || '').startsWith('CHAT_APPROVED')) return [];
   if (owner?.source_bindings?.[block.blockId] !== block.sourcePath) return [];
   const targets = new Map((system.blocks || []).map((row) => [row.blockId, row]));
@@ -181,7 +182,7 @@ export function loadReviewedRetentionConnections(shared = null) {
   if (!shared && BUILD_CACHE_ENABLED && reviewedRetentionCache) return reviewedRetentionCache;
   const ownerPath = absolute(`${LEARNER_ROOT}/shared-fields.json`);
   if (!shared && !fs.existsSync(ownerPath)) return [];
-  const owner = shared || JSON.parse(fs.readFileSync(ownerPath, 'utf8'));
+  const owner = shared || readXizongCompileJson(ownerPath);
   if (!String(owner?.authority || '').startsWith('CHAT_APPROVED')) return [];
   const fields = Object.entries(owner?.kp_fields || {}).filter(([, f]) =>
     Array.isArray(f?.retention_metadata?.connections) && f.retention_metadata.connections.length);

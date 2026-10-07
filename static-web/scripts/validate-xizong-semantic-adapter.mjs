@@ -261,7 +261,8 @@ for (const [name, mutate] of [
   assertStrict.throws(()=>resolveFixture(bad),/CURRENT_XIZONG_ACCEPTED_LEARNING_/,name);
 }
 
-// Exercise the actual independent loaders with a valid future Learning edit.
+// Exercise the actual independent loaders with a future Learning-order edit.
+// Migrated B1 membership stays with canonical Knowledge; Learning cannot replace it.
 // Only this child process sees the changed bytes; never edit real source/state.
 const editResult=JSON.parse(execFileSync(process.execPath,['--input-type=module','-e',`
   import fs from 'node:fs';
@@ -284,7 +285,7 @@ const editResult=JSON.parse(execFileSync(process.execPath,['--input-type=module'
 `],{encoding:'utf8',env:{...process.env,KIANOS_XIZONG_BUILD_CACHE:'0'}}));
 assertStrict.deepEqual(editResult.raw,editResult.semantic,'valid accepted edit cannot diverge by read path');
 assertStrict.equal(editResult.raw[0].id,'circulation-b01-lg07');
-assertStrict.deepEqual(editResult.raw.at(-1).members,[3,1,2]);
+assertStrict.deepEqual(editResult.raw.at(-1).members,[1,2,3]);
 assertStrict.deepEqual(editResult.canonicalOrder,Array.from({length:32},(_,i)=>i+1),'learner order never rewrites stable identity');
 
 // The adapter must not manufacture learner progress, official-question mapping,

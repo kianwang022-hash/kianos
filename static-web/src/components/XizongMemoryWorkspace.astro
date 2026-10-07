@@ -1,6 +1,8 @@
 ---
 const base = import.meta.env.BASE_URL;
+const { compiledContexts = [] } = Astro.props;
 ---
+<script type="application/json" data-xizong-compiled-memory-context set:html={JSON.stringify(compiledContexts).replaceAll('<', '\\u003c')} />
 <section class="xzMemory" data-xizong-memory-workspace>
   <header class="xzMemoryHeader">
     <div class="xzMemoryIdentity">
@@ -139,11 +141,11 @@ const base = import.meta.env.BASE_URL;
     resolveXizongSessionNext,
     validateXizongSessionInstruction
   } from '../lib/xizongSessionInstruction.mjs';
-  import { supportsXizongPreparedMemoryBlock, isXizongPreparedMemoryCard } from '../lib/xizongMemoryRelease.mjs';
+  import { isXizongPreparedMemoryCard as isCompiledPreparedCard } from '../lib/xizongCompiledMemoryRelease.mjs';
   import { preparedMemoryPresentationHtml } from '../lib/xizongMemoryPresentation.mjs';
   import { studyDayAt } from '../lib/studyTimer.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
+  void learnerWriterReady.then(async () => {
 
 
   const root = document.querySelector('[data-xizong-memory-workspace]');
@@ -164,6 +166,17 @@ const base = import.meta.env.BASE_URL;
     let chatCardIds = [];
     let chatRepairTaskId = '';
     const params = new URLSearchParams(window.location.search);
+    const contexts = JSON.parse(document.querySelector('[data-xizong-compiled-memory-context]')?.textContent || '[]');
+    const compiledContext = contexts.find(row => row.blockId === params.get('block'));
+    const legacyMemory = !compiledContext && params.get('view') === 'precision' && params.get('block')
+      ? await import('../lib/xizongMemoryRelease.mjs') : null;
+    const supportsXizongPreparedMemoryBlock = blockId => compiledContext
+      ? compiledContext.blockId === blockId && Boolean(compiledContext.descriptor?.precisionCards?.length)
+      : legacyMemory?.supportsXizongPreparedMemoryBlock(blockId) || false;
+    const isXizongPreparedMemoryCard = (card, blockId) => compiledContext
+      ? compiledContext.blockId === blockId && isCompiledPreparedCard(card, compiledContext.descriptor)
+      : legacyMemory?.isXizongPreparedMemoryCard(card, blockId) || false;
+
     const requestedSessionId = params.get('session') || '';
     const requestedStepId = params.get('step') || '';
     if (requestedSessionId && requestedStepId) {

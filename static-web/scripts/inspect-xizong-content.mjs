@@ -111,6 +111,7 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
         && data.blocks[key].stop_line === semanticBlock.learning?.stopLine)) stopLineOwners.add(file);
   }
   const supportOwner = (row, family) => {
+    if (family === 'precision' && learner.semanticOwnership) return learner.semanticOwnership.sourcePath;
     if (family === 'medicalvisual' || family === 'precision') return resolved.learningCues.sourcePath || null;
     if (family === 'extension') return row.raw?.manifestPath || extRefs.find(ref => ref.slotId === row.id)?.manifestPath || null;
     if (family === 'attention' && String(row.raw?.source || '').startsWith('BLOCK_PREENTRY_')) return canonical.sourcePath;
@@ -214,6 +215,7 @@ export function formatXizongInspection(report) {
       `    Timing: ${row.native.displayPolicy?.timing || 'native slot; no explicit override'}; answerBearing=${row.native.answerBearing === true}`
     ]);
   };
+  if (report.learnerObject.model?.markdown) lines.push('', '## Current canonical model', report.learnerObject.model.markdown);
   lines.push('Counts are owner attachments; KP zero does not mean Block/group absence.');
   for (const group of report.logicGroupTrace) {
     lines.push(`${group.identity.logicGroupId} · ${group.identity.label}`,

@@ -76,7 +76,7 @@
   },
   "block_fields": {
     "circulation-b01": {
-      "initial_orientation": {
+      "historical_initial_orientation": {
         "status": "APPROVED",
         "minimal_model": "压力差 → 瓣膜开闭 → 心室容积变化 → 每搏与每分钟输出\n→ 动脉压力与器官血流 → 静脉回心与再次充盈。\n微循环完成组织交换，冠脉维持心泵自身供血。",
         "review_basis": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md"
@@ -700,7 +700,7 @@
   "kp_fields": {
     "circulation-b01-kp001": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g01-cycle-sequence",
             "route": "KP_RECALL",
@@ -713,7 +713,7 @@
     },
     "circulation-b01-kp002": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g02-valve-pressure-gates",
             "route": "KP_RECALL",
@@ -731,7 +731,23 @@
     },
     "circulation-b01-kp003": {
       "retention_metadata": {
-        "memory_items": [
+        "visuals": [
+          {
+            "visual_id": "b01-v01-cycle-loop",
+            "role": "VISUAL_GATE",
+            "display": "ORIGINAL_IMAGE",
+            "asset_ref": "Block1_正常机械循环_v6_assets/01_心动周期压力容积环.png",
+            "source_pdf_page": 112
+          },
+          {
+            "visual_id": "b01-v02-cycle-table",
+            "role": "VISUAL_EXTENSION",
+            "display": "ORIGINAL_IMAGE",
+            "asset_ref": "Block1_正常机械循环_v6_assets/02_心动周期时相总表.png",
+            "source_pdf_page": 113
+          }
+        ],
+        "historical_memory_items": [
           {
             "memory_id": "b01-m01-cycle-time-extrema",
             "kind": "PRECISION_PAIRING",
@@ -778,28 +794,12 @@
             ],
             "priority": "NORMAL"
           }
-        ],
-        "visuals": [
-          {
-            "visual_id": "b01-v01-cycle-loop",
-            "role": "VISUAL_GATE",
-            "display": "ORIGINAL_IMAGE",
-            "asset_ref": "Block1_正常机械循环_v6_assets/01_心动周期压力容积环.png",
-            "source_pdf_page": 112
-          },
-          {
-            "visual_id": "b01-v02-cycle-table",
-            "role": "VISUAL_EXTENSION",
-            "display": "ORIGINAL_IMAGE",
-            "asset_ref": "Block1_正常机械循环_v6_assets/02_心动周期时相总表.png",
-            "source_pdf_page": 113
-          }
         ]
       }
     },
     "circulation-b01-kp004": {
       "retention_metadata": {
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m04-sv-normal",
             "kind": "PRECISION_VALUE",
@@ -818,7 +818,7 @@
     },
     "circulation-b01-kp005": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g03-preload-starling",
             "route": "KP_RECALL",
@@ -831,7 +831,7 @@
     },
     "circulation-b01-kp006": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g04-afterload-response",
             "route": "KP_RECALL",
@@ -851,7 +851,7 @@
     },
     "circulation-b01-kp007": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g05-contractility-boundary",
             "route": "KP_RECALL",
@@ -867,16 +867,7 @@
     },
     "circulation-b01-kp008": {
       "retention_metadata": {
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g06-fast-hr-filling",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "anchor": "心动周期尤其舒张期显著缩短 → 回心量↓ → EDV↓ → SV↓↓ → CO反而↓。",
-            "reason": "关键是理解过快心率如何损害充盈，而不是死记阈值。"
-          }
-        ],
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m05-co-normal",
             "kind": "PRECISION_VALUE",
@@ -904,12 +895,31 @@
             ],
             "priority": "NORMAL"
           }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g06-fast-hr-filling",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "anchor": "心动周期尤其舒张期显著缩短 → 回心量↓ → EDV↓ → SV↓↓ → CO反而↓。",
+            "reason": "关键是理解过快心率如何损害充盈，而不是死记阈值。"
+          }
         ]
       }
     },
     "circulation-b01-kp009": {
       "retention_metadata": {
-        "memory_items": [
+        "connections": [
+          {
+            "connection_id": "b01-c01-af-filling-to-b10",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：房颤与充盈 → B10",
+            "seed": "这里只保留‘有效心房收缩消失 + 快室率进一步缩短舒张期’这一机械接口；完整心律失常归 B10。",
+            "downstream_owner_id": "circulation-b10"
+          }
+        ],
+        "historical_memory_items": [
           {
             "memory_id": "b01-m07-filling-75-25",
             "kind": "PRECISION_PAIRING",
@@ -927,22 +937,12 @@
             ],
             "priority": "NORMAL"
           }
-        ],
-        "connections": [
-          {
-            "connection_id": "b01-c01-af-filling-to-b10",
-            "kind": "DEFERRED_SEED",
-            "display": "SUBTLE_INLINE",
-            "front": "//串联：房颤与充盈 → B10",
-            "seed": "这里只保留‘有效心房收缩消失 + 快室率进一步缩短舒张期’这一机械接口；完整心律失常归 B10。",
-            "downstream_owner_id": "circulation-b10"
-          }
         ]
       }
     },
     "circulation-b01-kp011": {
       "retention_metadata": {
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m08-rv-work",
             "kind": "PRECISION_RATIO",
@@ -961,7 +961,17 @@
     },
     "circulation-b01-kp012": {
       "retention_metadata": {
-        "memory_items": [
+        "connections": [
+          {
+            "connection_id": "b01-c02-ef-reserve-to-b11",
+            "kind": "DEFERRED_SEED",
+            "display": "SUBTLE_INLINE",
+            "front": "//串联：EF/心泵储备 → B11",
+            "seed": "B1 只建立机械评价；心衰分型、血流动力学和治疗归 B11。",
+            "downstream_owner_id": "circulation-b11"
+          }
+        ],
+        "historical_memory_items": [
           {
             "memory_id": "b01-m09-ef-normal",
             "kind": "PRECISION_VALUE",
@@ -975,16 +985,6 @@
               118
             ],
             "priority": "NORMAL"
-          }
-        ],
-        "connections": [
-          {
-            "connection_id": "b01-c02-ef-reserve-to-b11",
-            "kind": "DEFERRED_SEED",
-            "display": "SUBTLE_INLINE",
-            "front": "//串联：EF/心泵储备 → B11",
-            "seed": "B1 只建立机械评价；心衰分型、血流动力学和治疗归 B11。",
-            "downstream_owner_id": "circulation-b11"
           }
         ]
       }
@@ -1007,15 +1007,6 @@
     },
     "circulation-b01-kp014": {
       "retention_metadata": {
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g07-pv-four-changes",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "semantic_target": "PV 环四种基本变化：前负荷↑/后负荷↑/收缩能力↑/顺应性↓",
-            "reason": "四种图形变化必须通过图 + KP Recall 稳定，不拆成碎片 Memory。"
-          }
-        ],
         "visuals": [
           {
             "visual_id": "b01-v03-pv-curves",
@@ -1031,6 +1022,15 @@
             "decision": "NO_DEFAULT_PROMOTION",
             "reason": "Source 存在，但解码成本高于帮助；保留 Source provenance，不进入默认 Memory/Extension。",
             "source_pdf_page": 122
+          }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g07-pv-four-changes",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "semantic_target": "PV 环四种基本变化：前负荷↑/后负荷↑/收缩能力↑/顺应性↓",
+            "reason": "四种图形变化必须通过图 + KP Recall 稳定，不拆成碎片 Memory。"
           }
         ]
       }
@@ -1051,7 +1051,7 @@
     },
     "circulation-b01-kp017": {
       "retention_metadata": {
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m10-vein-capacitance",
             "kind": "PRECISION_VALUE",
@@ -1083,7 +1083,7 @@
     },
     "circulation-b01-kp019": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g08-arteriole-chain",
             "route": "KP_RECALL",
@@ -1096,7 +1096,14 @@
     },
     "circulation-b01-kp020": {
       "retention_metadata": {
-        "memory_items": [
+        "closed_not_memory": [
+          {
+            "item_id": "b01-close-bp-ideal",
+            "content": "SBP <120 / DBP <80",
+            "reason": "保留为本节生理参考；高血压诊断/分级完整 owner 在 B5，不作为 B1 独立 Memory。"
+          }
+        ],
+        "historical_memory_items": [
           {
             "memory_id": "b01-m12-pulse-pressure",
             "kind": "PRECISION_VALUE",
@@ -1110,19 +1117,12 @@
             ],
             "priority": "NORMAL"
           }
-        ],
-        "closed_not_memory": [
-          {
-            "item_id": "b01-close-bp-ideal",
-            "content": "SBP <120 / DBP <80",
-            "reason": "保留为本节生理参考；高血压诊断/分级完整 owner 在 B5，不作为 B1 独立 Memory。"
-          }
         ]
       }
     },
     "circulation-b01-kp021": {
       "retention_metadata": {
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m13-bp-peaks",
             "kind": "PRECISION_TIME",
@@ -1141,15 +1141,6 @@
     },
     "circulation-b01-kp022": {
       "retention_metadata": {
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g09-bp-five-factor-matrix",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "semantic_target": "动脉压 5 因素方向矩阵 + SBP/DBP/PP 主要反映对象",
-            "reason": "矩阵用于后续高血压、动脉硬化与循环变量反推；不拆成 Memory 碎卡。"
-          }
-        ],
         "visuals": [
           {
             "visual_id": "b01-v04-bp-matrix",
@@ -1171,21 +1162,21 @@
             "seed": "B1 只保留 P/Q/R/V 与弹性储器方向；高血压诊断、靶器官和动脉粥样硬化归 B5。",
             "downstream_owner_id": "circulation-b05"
           }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g09-bp-five-factor-matrix",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "semantic_target": "动脉压 5 因素方向矩阵 + SBP/DBP/PP 主要反映对象",
+            "reason": "矩阵用于后续高血压、动脉硬化与循环变量反推；不拆成 Memory 碎卡。"
+          }
         ]
       }
     },
     "circulation-b01-kp023": {
       "retention_metadata": {
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g10-cvp-meaning",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "anchor": "反映：右心射血能力与静脉回心血量之间的关系。",
-            "reason": "CVP 的意义比正常值更重要，后续容量/右心/休克都依赖该关系。"
-          }
-        ],
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m14-cvp-normal-physiology",
             "kind": "PRECISION_VALUE",
@@ -1204,6 +1195,15 @@
               "conflict": "Internal-medicine source annotation/original page states 4–12 mmHg.",
               "policy": "Keep physiology-scoped item; no cross-subject unified Memory item."
             }
+          }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g10-cvp-meaning",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "anchor": "反映：右心射血能力与静脉回心血量之间的关系。",
+            "reason": "CVP 的意义比正常值更重要，后续容量/右心/休克都依赖该关系。"
           }
         ]
       }
@@ -1277,15 +1277,6 @@
             "review_basis": "27精编生理合集【带导图】 PDF P128 / 生理学讲义_AI阅读版；当前 B1 与正式 target Block"
           }
         ],
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g11-venous-gradient",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "anchor": "总模型：外周静脉与右房/CVP之间的压力差越大，血越容易回到心脏。",
-            "reason": "13 个方向应尽量从压力梯度/抽吸端/送血端恢复，不把长名单拆成 Memory。"
-          }
-        ],
         "visuals": [
           {
             "visual_id": "b01-v05-venous-return-table",
@@ -1301,39 +1292,20 @@
             "content": "静脉回心 13 个方向因素完整名单",
             "reason": "主要由核心压力梯度 + 抽吸端/送血端逻辑恢复；保留 KP Recall 与总结表，不建立 13 张 Memory 碎卡。"
           }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g11-venous-gradient",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "anchor": "总模型：外周静脉与右房/CVP之间的压力差越大，血越容易回到心脏。",
+            "reason": "13 个方向应尽量从压力梯度/抽吸端/送血端恢复，不把长名单拆成 Memory。"
+          }
         ]
       }
     },
     "circulation-b01-kp025": {
       "retention_metadata": {
-        "gate_knowledge": [
-          {
-            "gate_id": "b01-g12-microcirculation-three-routes",
-            "route": "KP_RECALL",
-            "display": "BOLD",
-            "semantic_target": "三通路的功能差异与三个闸门",
-            "reason": "三通路是微循环空间模型，优先图 + KP Recall。"
-          }
-        ],
-        "memory_items": [
-          {
-            "memory_id": "b01-m15-microcirculation-distribution",
-            "kind": "LOW_COUPLING_PAIRING",
-            "memory_timing": "D",
-            "display": "DOTTED_UNDERLINE",
-            "cue": "三条微循环通路的典型分布？",
-            "answer": "迂回/营养通路：肠系膜；直捷通路：骨骼肌；动静脉短路：指趾、耳廓、唇鼻皮肤。",
-            "anchors": [
-              "多见于肠系膜。",
-              "多见于骨骼肌。",
-              "多见于指趾、耳廓、唇鼻皮肤；参与体温调节。"
-            ],
-            "source_pdf_pages": [
-              130
-            ],
-            "priority": "NORMAL"
-          }
-        ],
         "visuals": [
           {
             "visual_id": "b01-v06-microcirculation-routes",
@@ -1352,12 +1324,49 @@
             "seed": "这里只保留微循环分配与有效交换接口；不能把动静脉短路当成暖休克皮肤温暖的唯一机制。完整阻力、分布与灌注模型归 B12。",
             "downstream_owner_id": "circulation-b12"
           }
+        ],
+        "historical_memory_items": [
+          {
+            "memory_id": "b01-m15-microcirculation-distribution",
+            "kind": "LOW_COUPLING_PAIRING",
+            "memory_timing": "D",
+            "display": "DOTTED_UNDERLINE",
+            "cue": "三条微循环通路的典型分布？",
+            "answer": "迂回/营养通路：肠系膜；直捷通路：骨骼肌；动静脉短路：指趾、耳廓、唇鼻皮肤。",
+            "anchors": [
+              "多见于肠系膜。",
+              "多见于骨骼肌。",
+              "多见于指趾、耳廓、唇鼻皮肤；参与体温调节。"
+            ],
+            "source_pdf_pages": [
+              130
+            ],
+            "priority": "NORMAL"
+          }
+        ],
+        "historical_gate_knowledge": [
+          {
+            "gate_id": "b01-g12-microcirculation-three-routes",
+            "route": "KP_RECALL",
+            "display": "BOLD",
+            "semantic_target": "三通路的功能差异与三个闸门",
+            "reason": "三通路是微循环空间模型，优先图 + KP Recall。"
+          }
         ]
       }
     },
     "circulation-b01-kp026": {
       "retention_metadata": {
-        "memory_items": [
+        "visuals": [
+          {
+            "visual_id": "b01-v07-edema-forces",
+            "role": "VISUAL_EXTENSION",
+            "display": "ORIGINAL_IMAGE",
+            "asset_ref": "Block1_正常机械循环_v6_assets/07_组织液淋巴与水肿.png",
+            "source_pdf_page": 131
+          }
+        ],
+        "historical_memory_items": [
           {
             "memory_id": "b01-m16-lymph-volume",
             "kind": "PRECISION_VALUE",
@@ -1372,16 +1381,7 @@
             "priority": "LOW"
           }
         ],
-        "visuals": [
-          {
-            "visual_id": "b01-v07-edema-forces",
-            "role": "VISUAL_EXTENSION",
-            "display": "ORIGINAL_IMAGE",
-            "asset_ref": "Block1_正常机械循环_v6_assets/07_组织液淋巴与水肿.png",
-            "source_pdf_page": 131
-          }
-        ],
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g13-edema-four-entry",
             "route": "KP_RECALL",
@@ -1394,7 +1394,7 @@
     },
     "circulation-b01-kp027": {
       "retention_metadata": {
-        "gate_knowledge": [
+        "historical_gate_knowledge": [
           {
             "gate_id": "b01-g14-left-coronary-diastolic",
             "route": "KP_RECALL",
@@ -1426,7 +1426,7 @@
     },
     "circulation-b01-kp029": {
       "retention_metadata": {
-        "memory_items": [
+        "historical_memory_items": [
           {
             "memory_id": "b01-m17-coronary-mediators",
             "kind": "LOW_COUPLING_LIST",

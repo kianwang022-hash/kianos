@@ -2,7 +2,17 @@
 import Base from '../../../layouts/XizongBase.astro';
 import XizongMemoryWorkspace from '../../../components/XizongMemoryWorkspace.astro';
 import '../../../styles/xizong-memory-workspace.css';
+import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizong.mjs';
+import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjection.mjs';
+import { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } from '../../../lib/xizongCompiledMemoryRelease.mjs';
+// Generated from the same canonical compile boundary; no maintained admission list.
+const compiledContexts = listProjectableXizongSystems().flatMap(system => system.blocks.flatMap(ref => {
+  if (!system.learningSupport?.raw?.blocks?.[ref.blockId]?.knowledge_owner) return [];
+  const { learnerObject } = resolveXizongLearnerProjection(loadXizongBlock(system.systemId, ref.blockId));
+  return [{ blockId: ref.blockId, descriptor: supportsXizongPreparedMemoryBlock(learnerObject)
+    ? buildXizongPreparedMemoryAvailability(learnerObject) : null }];
+}));
 ---
 <Base title="西综 Memory" kicker="西医综合 · Memory" description="Core / Precision / Marked / Repair 的长期滚动复习工作区" active="xizong" showLead={false}>
-  <XizongMemoryWorkspace />
+  <XizongMemoryWorkspace compiledContexts={compiledContexts} />
 </Base>

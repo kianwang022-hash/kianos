@@ -1,3 +1,4 @@
+import * as compiledMemory from './xizongCompiledMemoryRelease.mjs';
 import nativePreparedCues from '../../../content/xizong/knowledge/learner/a2-respiratory-learning-cues.json' with { type: 'json' };
 import urinaryPreparedCues from '../../../content/xizong/knowledge/learner/a3-urinary-learning-cues.json' with { type: 'json' };
 import digestivePreparedCues from '../../../content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning-cues.json' with { type: 'json' };
@@ -150,6 +151,7 @@ function learnerGroupContext(group, kps) {
 }
 
 export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, options = {}) {
+  if (learnerObject?.semanticOwnership) return compiledMemory.buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, options);
   if (learnerObject?.schema !== XIZONG_LEARNER_OBJECT_SCHEMA || learnerObject?.objectType !== 'BLOCK') {
     fail('LEARNER_OBJECT_SCHEMA_INVALID', text(learnerObject?.schema));
   }
@@ -319,6 +321,7 @@ export function supportsXizongPreparedMemoryBlock(blockId) {
 }
 
 export function buildXizongPreparedMemoryAvailability(learnerObject, options = {}) {
+  if (learnerObject?.semanticOwnership) return compiledMemory.buildXizongPreparedMemoryAvailability(learnerObject, options);
   const blockId = text(learnerObject?.identity?.blockId);
   assertNativePreparedIdentity(learnerObject?.identity);
   const native = isNativePreparedSystem(learnerObject?.identity);

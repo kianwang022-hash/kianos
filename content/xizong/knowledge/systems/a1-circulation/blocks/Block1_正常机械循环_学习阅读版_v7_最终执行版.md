@@ -1,87 +1,2468 @@
-# Block 1｜正常机械循环 · 学习阅读版 v7｜最终执行版
+<!-- kianos:knowledge
+{
+  "block_id": "circulation-b01",
+  "logic_groups": [
+    {
+      "groupId": "circulation-b01-lg01",
+      "label": "心动周期：压力—瓣膜—容积",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg02",
+      "label": "搏出量、负荷与心输出量",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg03",
+      "label": "充盈、储备与泵功能评价",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg04",
+      "label": "PV环、功能曲线与瓣膜时相验证",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg05",
+      "label": "动脉压力、阻力与血管分工",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg06",
+      "label": "静脉回心与微循环交换",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        23,
+        24,
+        25,
+        26
+      ]
+    },
+    {
+      "groupId": "circulation-b01-lg07",
+      "label": "冠脉自供与氧供需接口",
+      "membershipMode": "SYSTEM_RANGE",
+      "kpOrdinals": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ]
+    }
+  ],
+  "fragments": {
+    "kp03.time": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*时间\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp03.aortic_pressure": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*主动脉压\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp03.left_ventricular_pressure": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*左室压\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp03.pressure_speed": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*室压变化速度\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp03.flow_extrema": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*血量\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp03.volume_extrema": {
+      "kp_ordinal": 3,
+      "pattern": "^- \\*\\*心室容积\\*\\*\\n((?:  - [^\\n]+(?:\\n|$)){2})",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp04.normal_value": {
+      "kp_ordinal": 4,
+      "pattern": "约 (\\*\\*[^*]+\\*\\*)。",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp08.normal_value": {
+      "kp_ordinal": 8,
+      "pattern": "约 (\\*\\*[^*]+\\*\\*)。",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp08.threshold": {
+      "kp_ordinal": 8,
+      "pattern": "^- \\*\\*HR (>[^*]+)\\*\\*",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp09.filling_parts": {
+      "kp_ordinal": 9,
+      "pattern": "^- \\*\\*心室充盈[^\\n]*\\n((?:  - [^\\n]+(?:\\n|$)){2})",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp11.relative_work": {
+      "kp_ordinal": 11,
+      "pattern": "\\*\\*(右室做功约为左室的 ([^*]+))\\*\\*",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp11.work_ratio": {
+      "kp_ordinal": 11,
+      "pattern": "\\*\\*右室做功约为左室的 ([^*]+)\\*\\*",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp12.normal_value": {
+      "kp_ordinal": 12,
+      "pattern": "正常约 (\\*\\*[^*]+\\*\\*)。",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp17.capacity": {
+      "kp_ordinal": 17,
+      "pattern": "^- \\*\\*容量血管\\*\\*：[^\\n]*容纳约 ([^ ]+) 血量。",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp17.pathology_map": {
+      "kp_ordinal": 17,
+      "pattern": "^- \\*\\*病理学“细动脉”\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp20.normal_value": {
+      "kp_ordinal": 20,
+      "pattern": "^- \\*\\*PP[^\\n]*正常约 ([^。]+)。",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp21.peaks": {
+      "kp_ordinal": 21,
+      "pattern": "^- \\*\\*两个高峰\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp21.rhythm": {
+      "kp_ordinal": 21,
+      "pattern": "^- \\*\\*昼夜节律\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp23.normal_value": {
+      "kp_ordinal": 23,
+      "pattern": "^- \\*\\*正常值\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route0.name": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*(迂回/营养通路)\\*\\*$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route0.distribution": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*迂回/营养通路\\*\\*\\n(?:  - [^\\n]+\\n)*?  - (多见于[^\\n]+)",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route1.name": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*(直捷通路)\\*\\*$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route1.distribution": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*直捷通路\\*\\*\\n(?:  - [^\\n]+\\n)*?  - (多见于[^\\n]+)",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route2.name": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*(动静脉短路)\\*\\*$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp25.route2.distribution": {
+      "kp_ordinal": 25,
+      "pattern": "^- \\*\\*动静脉短路\\*\\*\\n(?:  - [^\\n]+\\n)*?  - (多见于[^\\n]+)",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp26.lymph_volume": {
+      "kp_ordinal": 26,
+      "pattern": "^- \\*\\*淋巴液\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp29.metabolic_list": {
+      "kp_ordinal": 29,
+      "pattern": "^→ ([^\\n]+)↑\\n→ 冠脉",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp29.dilating_list": {
+      "kp_ordinal": 29,
+      "pattern": "^- \\*\\*舒张冠脉\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp29.overall_constricting_list": {
+      "kp_ordinal": 29,
+      "pattern": "^- \\*\\*总体/主要效应记作收缩冠脉\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp09.filling_part.0": {
+      "kp_ordinal": 9,
+      "pattern": "^  - (心室[^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp09.filling_part.1": {
+      "kp_ordinal": 9,
+      "pattern": "^  - (心房[^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp01.cycle_sequence": {
+      "kp_ordinal": 1,
+      "pattern": "^- \\*\\*左室\\ 7\\ 期\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp02.pressure_gate_children": {
+      "kp_ordinal": 2,
+      "pattern": "^- \\*\\*瓣膜压差规则[^\\n]*\\n((?:  - [^\\n]+(?:\\n|$)){4})",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp05.main_chain": {
+      "kp_ordinal": 5,
+      "pattern": "^- \\*\\*主链\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp06.instant_afterload_children": {
+      "kp_ordinal": 6,
+      "pattern": "^- \\*\\*后负荷突然↑的瞬间\\*\\*\\n((?:  - [^\\n]+(?:\\n|$)){7})",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp07.contractility.0": {
+      "kp_ordinal": 7,
+      "pattern": "^- \\*\\*心肌收缩能力/收缩性\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp07.contractility.1": {
+      "kp_ordinal": 7,
+      "pattern": "^- \\*\\*实际心肌收缩力\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp08.fast_hr_chain": {
+      "kp_ordinal": 8,
+      "pattern": "^- \\*\\*HR >[^*]+\\*\\* → ([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp19.arteriole_chain": {
+      "kp_ordinal": 19,
+      "pattern": "^7\\. ([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp23.meaning": {
+      "kp_ordinal": 23,
+      "pattern": "^- \\*\\*反映\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "kp24.gradient": {
+      "kp_ordinal": 24,
+      "pattern": "^- \\*\\*总模型\\*\\*：([^\\n]+)$",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    },
+    "block.mechanism_spine": {
+      "kp_ordinal": null,
+      "pattern": "<!-- b1:route:start -->\\n([\\s\\S]*?)\\n\\n## ①",
+      "flags": "m",
+      "capture_group": 1,
+      "cardinality": 1
+    }
+  },
+  "exact_items": [
+    {
+      "kp_ordinal": 3,
+      "item": {
+        "memory_id": "b01-m01-cycle-time-extrema",
+        "kind": "PRECISION_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "心动周期时间最短/最长？",
+        "source_pdf_pages": [
+          112,
+          113
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "from": {
+          "ref": "kp03.time"
+        },
+        "ops": [
+          {
+            "op": "strip_emphasis"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp03.time"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp003",
+        "collection": "memory_items",
+        "memory_id": "b01-m01-cycle-time-extrema"
+      }
+    },
+    {
+      "kp_ordinal": 3,
+      "item": {
+        "memory_id": "b01-m02-cycle-pressure-extrema",
+        "kind": "PRECISION_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "主动脉压与左室压的 min/max 分别落在哪个时相？",
+        "mnemonic": "快射-双双高潮",
+        "source_pdf_pages": [
+          112,
+          113,
+          122
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "主动脉压 "
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp03.aortic_pressure"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "regex_replace",
+                "pattern": "，即[^；。]+",
+                "replacement": "",
+                "flags": "g"
+              },
+              {
+                "op": "regex_replace",
+                "pattern": "；",
+                "replacement": "，",
+                "flags": "g"
+              },
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；左室压 "
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp03.left_ventricular_pressure"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "regex_replace",
+                "pattern": "；",
+                "replacement": "，",
+                "flags": "g"
+              }
+            ]
+          }
+        ]
+      },
+      "anchor_field": "anchors",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp03.aortic_pressure"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp03.left_ventricular_pressure"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp003",
+        "collection": "memory_items",
+        "memory_id": "b01-m02-cycle-pressure-extrema"
+      }
+    },
+    {
+      "kp_ordinal": 3,
+      "item": {
+        "memory_id": "b01-m03-cycle-flow-volume-extrema",
+        "kind": "PRECISION_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "室压升降最快、射血/充盈最多、心室容积 max/min？",
+        "source_pdf_pages": [
+          112,
+          113
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "from": {
+              "from": {
+                "ref": "kp03.pressure_speed"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "regex_replace",
+                "pattern": "上升最快",
+                "replacement": "升最快",
+                "flags": "g"
+              },
+              {
+                "op": "regex_replace",
+                "pattern": "下降最快",
+                "replacement": "降最快",
+                "flags": "g"
+              },
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；"
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp03.flow_extrema"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；容积 "
+          },
+          {
+            "from": {
+              "ref": "kp03.volume_extrema"
+            },
+            "ops": [
+              {
+                "op": "regex_replace",
+                "pattern": "(?m)^  - ",
+                "replacement": "",
+                "flags": "g"
+              },
+              {
+                "op": "regex_replace",
+                "pattern": " / ",
+                "replacement": "/",
+                "flags": "g"
+              },
+              {
+                "op": "regex_replace",
+                "pattern": "\\n",
+                "replacement": "",
+                "flags": "g"
+              },
+              {
+                "op": "regex_replace",
+                "pattern": "；min",
+                "replacement": "，min",
+                "flags": "g"
+              }
+            ]
+          }
+        ]
+      },
+      "anchor_field": null,
+      "anchor_views": []
+    },
+    {
+      "kp_ordinal": 4,
+      "item": {
+        "memory_id": "b01-m04-sv-normal",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常每搏输出量 SV？",
+        "source_pdf_pages": [
+          114
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp04.normal_value"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp04.normal_value"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp004",
+        "collection": "memory_items",
+        "memory_id": "b01-m04-sv-normal"
+      }
+    },
+    {
+      "kp_ordinal": 8,
+      "item": {
+        "memory_id": "b01-m05-co-normal",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常心输出量 CO？",
+        "source_pdf_pages": [
+          116
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp08.normal_value"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp08.normal_value"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp008",
+        "collection": "memory_items",
+        "memory_id": "b01-m05-co-normal"
+      }
+    },
+    {
+      "kp_ordinal": 8,
+      "item": {
+        "memory_id": "b01-m06-hr-overfast-anchor",
+        "kind": "PRECISION_THRESHOLD",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "Study 中心率快到约多少时，CO 可因充盈受损而反降？",
+        "answer_scope": "Study teaching anchor; mechanism is the Gate, threshold itself is deferred precision.",
+        "source_pdf_pages": [
+          117
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "ref": "kp08.threshold"
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "concat": [
+            {
+              "literal": "HR "
+            },
+            {
+              "ref": "kp08.threshold"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp008",
+        "collection": "memory_items",
+        "memory_id": "b01-m06-hr-overfast-anchor"
+      }
+    },
+    {
+      "kp_ordinal": 9,
+      "item": {
+        "memory_id": "b01-m07-filling-75-25",
+        "kind": "PRECISION_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "Study 中正常心室充盈两部分大致比例？",
+        "source_pdf_pages": [
+          117,
+          122
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "from": {
+          "ref": "kp09.filling_parts"
+        },
+        "ops": [
+          {
+            "op": "strip_emphasis"
+          },
+          {
+            "op": "regex_replace",
+            "pattern": "(?m)^  - ",
+            "replacement": "",
+            "flags": "g"
+          },
+          {
+            "op": "regex_replace",
+            "pattern": "\\n",
+            "replacement": "",
+            "flags": "g"
+          }
+        ]
+      },
+      "anchor_field": "anchors",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp09.filling_part.0"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            },
+            {
+              "op": "remove_suffix",
+              "value": "；"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp09.filling_part.1"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            },
+            {
+              "op": "remove_suffix",
+              "value": "。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kp_ordinal": 11,
+      "item": {
+        "memory_id": "b01-m08-rv-work",
+        "kind": "PRECISION_RATIO",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常右室做功约为左室多少？",
+        "source_pdf_pages": [
+          118
+        ],
+        "priority": "LOW"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp11.work_ratio"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "ref": "kp11.relative_work"
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp011",
+        "collection": "memory_items",
+        "memory_id": "b01-m08-rv-work"
+      }
+    },
+    {
+      "kp_ordinal": 12,
+      "item": {
+        "memory_id": "b01-m09-ef-normal",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常 EF？",
+        "source_pdf_pages": [
+          116,
+          118
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp12.normal_value"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "ref": "kp12.normal_value"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp012",
+        "collection": "memory_items",
+        "memory_id": "b01-m09-ef-normal"
+      }
+    },
+    {
+      "kp_ordinal": 17,
+      "item": {
+        "memory_id": "b01-m10-vein-capacitance",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "静脉容量血管约容纳全身多少血量？",
+        "source_pdf_pages": [
+          123
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp17.capacity"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "ref": "kp17.capacity"
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp017",
+        "collection": "memory_items",
+        "memory_id": "b01-m10-vein-capacitance"
+      }
+    },
+    {
+      "kp_ordinal": 17,
+      "item": {
+        "memory_id": "b01-m11-pathology-arteriole-map",
+        "kind": "LOW_COUPLING_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "病理学‘细动脉’在本节生理血管分工中对应什么？",
+        "source_pdf_pages": [
+          123
+        ],
+        "priority": "LOW"
+      },
+      "answer_view": {
+        "from": {
+          "from": {
+            "ref": "kp17.pathology_map"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        "ops": [
+          {
+            "op": "remove_prefix",
+            "value": "对应"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "concat": [
+            {
+              "literal": "病理学“细动脉”："
+            },
+            {
+              "from": {
+                "ref": "kp17.pathology_map"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kp_ordinal": 20,
+      "item": {
+        "memory_id": "b01-m12-pulse-pressure",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常脉压 PP？",
+        "source_pdf_pages": [
+          125
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "约 "
+          },
+          {
+            "from": {
+              "ref": "kp20.normal_value"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "ref": "kp20.normal_value"
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp020",
+        "collection": "memory_items",
+        "memory_id": "b01-m12-pulse-pressure"
+      }
+    },
+    {
+      "kp_ordinal": 21,
+      "item": {
+        "memory_id": "b01-m13-bp-peaks",
+        "kind": "PRECISION_TIME",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "Study 中动脉压昼夜节律两个高峰？由谁调节？",
+        "source_pdf_pages": [
+          125
+        ],
+        "priority": "LOW"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "from": {
+              "from": {
+                "ref": "kp21.peaks"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；"
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp21.rhythm"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "before",
+                "value": "调节"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "concat": [
+            {
+              "literal": "两个高峰："
+            },
+            {
+              "from": {
+                "ref": "kp21.peaks"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kp_ordinal": 23,
+      "item": {
+        "memory_id": "b01-m14-cvp-normal-physiology",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "按本节生理 Study，CVP 正常值？",
+        "answer_scope": "Physiology Study only. Do not unify across subjects until source conflict is adjudicated.",
+        "source_pdf_pages": [
+          126
+        ],
+        "priority": "NORMAL",
+        "source_conflict": {
+          "status": "FAIL_CLOSED",
+          "conflict": "Internal-medicine source annotation/original page states 4–12 mmHg.",
+          "policy": "Keep physiology-scoped item; no cross-subject unified Memory item."
+        }
+      },
+      "answer_view": {
+        "from": {
+          "ref": "kp23.normal_value"
+        },
+        "ops": [
+          {
+            "op": "strip_emphasis"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "from": {
+              "ref": "kp23.normal_value"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          "ops": [
+            {
+              "op": "remove_suffix",
+              "value": "。"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp023",
+        "collection": "memory_items",
+        "memory_id": "b01-m14-cvp-normal-physiology"
+      }
+    },
+    {
+      "kp_ordinal": 25,
+      "item": {
+        "memory_id": "b01-m15-microcirculation-distribution",
+        "kind": "LOW_COUPLING_PAIRING",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "三条微循环通路的典型分布？",
+        "source_pdf_pages": [
+          130
+        ],
+        "priority": "NORMAL"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "ref": "kp25.route0.name"
+          },
+          {
+            "literal": "："
+          },
+          {
+            "from": {
+              "ref": "kp25.route0.distribution"
+            },
+            "ops": [
+              {
+                "op": "remove_prefix",
+                "value": "多见于"
+              },
+              {
+                "op": "before",
+                "value": "；"
+              },
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；"
+          },
+          {
+            "ref": "kp25.route1.name"
+          },
+          {
+            "literal": "："
+          },
+          {
+            "from": {
+              "ref": "kp25.route1.distribution"
+            },
+            "ops": [
+              {
+                "op": "remove_prefix",
+                "value": "多见于"
+              },
+              {
+                "op": "before",
+                "value": "；"
+              },
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；"
+          },
+          {
+            "ref": "kp25.route2.name"
+          },
+          {
+            "literal": "："
+          },
+          {
+            "from": {
+              "ref": "kp25.route2.distribution"
+            },
+            "ops": [
+              {
+                "op": "remove_prefix",
+                "value": "多见于"
+              },
+              {
+                "op": "before",
+                "value": "；"
+              },
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "。"
+          }
+        ]
+      },
+      "anchor_field": "anchors",
+      "anchor_views": [
+        {
+          "ref": "kp25.route0.distribution"
+        },
+        {
+          "ref": "kp25.route1.distribution"
+        },
+        {
+          "ref": "kp25.route2.distribution"
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp025",
+        "collection": "memory_items",
+        "memory_id": "b01-m15-microcirculation-distribution"
+      }
+    },
+    {
+      "kp_ordinal": 26,
+      "item": {
+        "memory_id": "b01-m16-lymph-volume",
+        "kind": "PRECISION_VALUE",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "正常淋巴生成量约多少？",
+        "source_pdf_pages": [
+          131
+        ],
+        "priority": "LOW"
+      },
+      "answer_view": {
+        "from": {
+          "ref": "kp26.lymph_volume"
+        },
+        "ops": [
+          {
+            "op": "strip_emphasis"
+          }
+        ]
+      },
+      "anchor_field": "anchor",
+      "anchor_views": [
+        {
+          "from": {
+            "from": {
+              "ref": "kp26.lymph_volume"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          "ops": [
+            {
+              "op": "remove_prefix",
+              "value": "约 "
+            },
+            {
+              "op": "remove_suffix",
+              "value": "。"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp026",
+        "collection": "memory_items",
+        "memory_id": "b01-m16-lymph-volume"
+      }
+    },
+    {
+      "kp_ordinal": 29,
+      "item": {
+        "memory_id": "b01-m17-coronary-mediators",
+        "kind": "LOW_COUPLING_LIST",
+        "memory_timing": "D",
+        "display": "DOTTED_UNDERLINE",
+        "cue": "Study 中冠脉局部代谢/舒张因子与总体收缩因子？",
+        "source_pdf_pages": [
+          133,
+          137
+        ],
+        "priority": "LOW"
+      },
+      "answer_view": {
+        "concat": [
+          {
+            "literal": "局部代谢："
+          },
+          {
+            "ref": "kp29.metabolic_list"
+          },
+          {
+            "literal": "；舒张冠脉："
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp29.dilating_list"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "remove_suffix",
+                "value": "。"
+              }
+            ]
+          },
+          {
+            "literal": "；总体/主要效应记作收缩："
+          },
+          {
+            "from": {
+              "from": {
+                "ref": "kp29.overall_constricting_list"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            },
+            "ops": [
+              {
+                "op": "regex_replace",
+                "pattern": "迷走神经",
+                "replacement": "迷走",
+                "flags": "g"
+              }
+            ]
+          }
+        ]
+      },
+      "anchor_field": "anchors",
+      "anchor_views": [
+        {
+          "ref": "kp29.metabolic_list"
+        },
+        {
+          "from": {
+            "from": {
+              "ref": "kp29.dilating_list"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          "ops": [
+            {
+              "op": "remove_suffix",
+              "value": "。"
+            }
+          ]
+        },
+        {
+          "from": {
+            "from": {
+              "ref": "kp29.overall_constricting_list"
+            },
+            "ops": [
+              {
+                "op": "strip_emphasis"
+              }
+            ]
+          },
+          "ops": [
+            {
+              "op": "remove_suffix",
+              "value": "。"
+            }
+          ]
+        }
+      ],
+      "legacy_reference": {
+        "kp_field_key": "circulation-b01-kp029",
+        "collection": "memory_items",
+        "memory_id": "b01-m17-coronary-mediators"
+      }
+    }
+  ],
+  "gate_views": [
+    {
+      "gate_id": "b01-g01-cycle-sequence",
+      "kp_ordinal": 1,
+      "anchors": [
+        {
+          "from": {
+            "ref": "kp01.cycle_sequence"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g02-valve-pressure-gates",
+      "kp_ordinal": 2,
+      "anchors": [
+        {
+          "from": {
+            "ref": "kp02.pressure_gate_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 0
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp02.pressure_gate_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 1
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp02.pressure_gate_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 2
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp02.pressure_gate_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 3
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g03-preload-starling",
+      "kp_ordinal": 5,
+      "anchors": [
+        {
+          "from": {
+            "ref": "kp05.main_chain"
+          },
+          "ops": [
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g04-afterload-response",
+      "kp_ordinal": 6,
+      "anchors": [
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 1
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 2
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 3
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 4
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 5
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        },
+        {
+          "from": {
+            "ref": "kp06.instant_afterload_children"
+          },
+          "ops": [
+            {
+              "op": "line",
+              "index": 6
+            },
+            {
+              "op": "remove_prefix",
+              "value": "  - "
+            },
+            {
+              "op": "strip_emphasis"
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g05-contractility-boundary",
+      "kp_ordinal": 7,
+      "anchors": [
+        {
+          "concat": [
+            {
+              "literal": "心肌收缩能力/收缩性："
+            },
+            {
+              "from": {
+                "ref": "kp07.contractility.0"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "concat": [
+            {
+              "literal": "实际心肌收缩力："
+            },
+            {
+              "from": {
+                "ref": "kp07.contractility.1"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g06-fast-hr-filling",
+      "kp_ordinal": 8,
+      "anchors": [
+        {
+          "ref": "kp08.fast_hr_chain"
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g08-arteriole-chain",
+      "kp_ordinal": 19,
+      "anchors": [
+        {
+          "ref": "kp19.arteriole_chain"
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g10-cvp-meaning",
+      "kp_ordinal": 23,
+      "anchors": [
+        {
+          "concat": [
+            {
+              "literal": "反映："
+            },
+            {
+              "from": {
+                "ref": "kp23.meaning"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    },
+    {
+      "gate_id": "b01-g11-venous-gradient",
+      "kp_ordinal": 24,
+      "anchors": [
+        {
+          "concat": [
+            {
+              "literal": "总模型："
+            },
+            {
+              "from": {
+                "ref": "kp24.gradient"
+              },
+              "ops": [
+                {
+                  "op": "strip_emphasis"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "attention_joiner": "；",
+      "release_state": "ACTIVE"
+    }
+  ],
+  "inactive_gate_refs": [
+    "b01-g07-pv-four-changes",
+    "b01-g09-bp-five-factor-matrix",
+    "b01-g12-microcirculation-three-routes",
+    "b01-g13-edema-four-entry",
+    "b01-g14-left-coronary-diastolic"
+  ],
+  "orientation_view": {
+    "from": {
+      "ref": "block.mechanism_spine"
+    },
+    "ops": [
+      {
+        "op": "strip_emphasis"
+      }
+    ]
+  },
+  "model": {
+    "status": "CURRENT",
+    "derivation": "REVIEWED_DERIVATION",
+    "adopted_source_blob": "53a13365b9e0dcc24e9274043bf54a868af0d5ad",
+    "node_kp_ids": [
+      "circulation-b01-kp09",
+      "circulation-b01-kp01",
+      "circulation-b01-kp02",
+      "circulation-b01-kp04",
+      "circulation-b01-kp05",
+      "circulation-b01-kp06",
+      "circulation-b01-kp07",
+      "circulation-b01-kp08",
+      "circulation-b01-kp14",
+      "circulation-b01-kp22",
+      "circulation-b01-kp18",
+      "circulation-b01-kp19",
+      "circulation-b01-kp25",
+      "circulation-b01-kp26",
+      "circulation-b01-kp24",
+      "circulation-b01-kp23",
+      "circulation-b01-kp27",
+      "circulation-b01-kp28",
+      "circulation-b01-kp29"
+    ],
+    "core_dependencies": {
+      "circulation-b01-kp01": "c5e942a404e01ffd79facb08fb47c2cdadab9b101b72c58ffdb3c6998099dbc0",
+      "circulation-b01-kp02": "5d9bbc1bb2d6a43e2dc6ec9ead32e40b1bec89ec3522606bbd3463cbeb057b6e",
+      "circulation-b01-kp03": "a74058ed7ad54d8c35914dc64a5d36b3dcb701ed4a5b1404373ca8ecd11a2d79",
+      "circulation-b01-kp04": "e1df5252d42b59a1a2e65eab935b656f25fa27c20f98930f89b910a2973c055a",
+      "circulation-b01-kp05": "b5d15a9d9024f47b0d10b94f35650dab15e92a737d01593dc7bf1c7ea33c89aa",
+      "circulation-b01-kp06": "5a24242332096ef9dba8585ef9e3bd834b67adb4520879dc8a654f175353ad7e",
+      "circulation-b01-kp07": "510742504aff6eff727992f4bfe033ae71e3277bf714e480497ea5f6ae691e96",
+      "circulation-b01-kp08": "f847a5347e0c4ee4c17950a7ac6788fdcab333a314de8d38d884958b9acee105",
+      "circulation-b01-kp09": "421cb7b9bb3ead7b8fdc7a2d5064475fd43fb5e52e9672661be3f822447b31c3",
+      "circulation-b01-kp10": "ef3e58e8453e9607851cdafee7c7bea26b05ef332916e02ff7ac57331c4cb2d7",
+      "circulation-b01-kp11": "cfed3b40ca8b4dbdf97caed05cd8e605f1f1c16b45e9714e740410d987be8008",
+      "circulation-b01-kp12": "078fd4b56cad41a00b22785bf036bd68204d8e1b1e4cf93c900a72e8b996a53e",
+      "circulation-b01-kp13": "652eeeb5d25a61ab295d92730cdf78f8a22ace6878e18b021aedeacc13d3fe45",
+      "circulation-b01-kp14": "bae85cf8288cefff08b846ca2225d5e5eafb0a107f646959cd0ac772d423d503",
+      "circulation-b01-kp15": "d57ca1c518256b18265d391a298c23e82e1bb80ad8a69c7e3858cc79661ab208",
+      "circulation-b01-kp16": "191a820d7a507d590d49bdf69dd7d5bd91738849140d099962f1c6721eace180",
+      "circulation-b01-kp17": "f4d555c57cb110f50703f60edb75111406a310f275bb324193e0ac1fe7beb274",
+      "circulation-b01-kp18": "02b2c6ef56f9f3cd8b3f6559cc48f6b585bf4feca027231c5a3c9ba57886fe0c",
+      "circulation-b01-kp19": "6af0d9979e1cb719188c5c83dbd0ecaa3f2b269196ac3437dff8480da6f1a3c6",
+      "circulation-b01-kp20": "ff50f922c3d0a87fed00797f4185b5b084547448b5445ccd9292dddade14fed4",
+      "circulation-b01-kp21": "cb2942ed09790d3abc45487aeda8bb6980447cea0493316064569143d4365f14",
+      "circulation-b01-kp22": "a9730864c864c5f1dfab4c801936c021152ffd5cb58105f4d32b03f08528fc6c",
+      "circulation-b01-kp23": "922f3c405614f1d32a2c3204c65765bbc034a78bc289d48f174b4db72903b0d7",
+      "circulation-b01-kp24": "5bd43be9ff06efe4cb031279c50d804db60f9ec1766f4383500f1907c589da4a",
+      "circulation-b01-kp25": "8193e11e8309da4b751857b9d813214c0ab31dfbe22686a1865116cc0a5ab8ac",
+      "circulation-b01-kp26": "02e45bf3c6d3fe0751528d351c9af2e4ebbdbcb03e1b1a6c95ceab89bdb8e288",
+      "circulation-b01-kp27": "b3e3dfdfa0daa65ba73253a7a9014247535b843628cc8a2047817d8f0cd788b5",
+      "circulation-b01-kp28": "89baeded72b402ad0a73365dfe30c348717ecd54e87d6082ac2e2ff2ea2c1d90",
+      "circulation-b01-kp29": "b004dda2aa3195691a66f6e8ca5aa2e74d3449b8e364bdb93b3b55fabe9bea45",
+      "circulation-b01-kp30": "62c1e765b23f65d645eb0b9746088d04e6d64b637d6236cc8871034882ea61ef",
+      "circulation-b01-kp31": "91ad0aedb570977dadc31d6a2e5ef57a19e3da0cd04dfe75e9d1868ba194e3f2",
+      "circulation-b01-kp32": "80645afa9eab09bd1c2c9d3da2efbe25699e604b60c28aef1b5fa1d5133362e9"
+    },
+    "section": "adopted-model"
+  },
+  "center_question": "正常循环中，心脏怎样把压力差和容积变化转成每搏与每分钟泵血，血管又怎样把这些输出转成动脉压、静脉回流、组织交换和冠脉供血？"
+}
+-->
 
-> **中心问题**：正常循环中，心脏怎样把压力差和容积变化转成每搏与每分钟泵血，血管又怎样把这些输出转成动脉压、静脉回流、组织交换和冠脉供血？
+<!-- kianos:model adopted-model -->
+# B1｜一圈血怎样被推出、分配、回收，再供养心脏
 
-# 先建立脑内机械模型
+从充盈开始，沿同一机械变量路线走到回心；左右室分别应用泵模型，稳态输出接近。冠脉是主动脉发出的并行供养支路。节点上的〔完整 Prompt〕就是展开与回忆的入口。先顺着关系重建，卡住才展开原解释；标题可直达完整知识。当前仍是候选阅读稿，不表示已经学习或完成。
 
-整个 B1 先只留下这一条 Mechanism Spine：
+<!-- b1:route:start -->
+**主路：①充盈／周期 → ②SV／CO → ③动脉储器／阻力 → ④微循环交换 → ⑤静脉回收与再次充盈。**
+
+**并行供养：③主动脉分出冠脉 → ⑥供养心肌 → 维持下一搏。**
+
+## ① 回心进入心室：先装入，再按压差开门
+
+- {{kp:circulation-b01-kp09}}：主动舒张／弹性回缩＋顺应性＋房室压差支持充盈 → EDV；主动舒张≠被动顺应性，房颤丢房缩，快室率再丢舒张时间。 <!-- b1:node {"kp_id":"circulation-b01-kp09","canonical_line":243} -->
+- {{kp:circulation-b01-kp01}}：等容收缩 → 快速射血 → 减慢射血 → 等容舒张 → 快速充盈 → 减慢充盈 → 心房收缩，接回下一搏。 <!-- b1:node {"kp_id":"circulation-b01-kp01","canonical_line":86} -->
+- {{kp:circulation-b01-kp02}}：压差定开闭，两瓣均闭时容积不变；S1／S2定位关闭，S3／S4定位充盈。减慢射血后段可有惯性前流，不能把瞬时压差写成绝对流向。 <!-- b1:node {"kp_id":"circulation-b01-kp02","canonical_line":101} -->
+
+旁查：[周期极值与精确时点](#circulation-b01-kp03)<!-- b1:external {"kp_id":"circulation-b01-kp03","canonical_line":127} -->。
+
+<details>
+<summary>展开这一搏：压差、充盈、储备与评价的原解释</summary>
+
+<!-- b1:source 50:145 -->
+
+## 压差开门，容积才改变
+
+先把一搏跑顺，暂不讨论所有调节激素。这里最稳定的推理顺序是：心肌状态改变压力，压力关系决定瓣膜状态，瓣膜与血流共同决定容积变化。
 
 ```text
-压力差
-→ 瓣膜开闭
-→ 心室容积变化
-→ SV / CO
-→ 动脉压力与器官血流
-→ 静脉回心与再次充盈
-→ 微循环交换
-→ 冠脉维持泵自身供血
+舒张末充盈完成，EDV达到本搏最大
+             ↓
+心室开始收缩 → 室压超过房压 → 房室瓣关闭
+             ↓
+两瓣均闭 → 等容收缩：压上升，容积不变
+             ↓
+室压达到打开半月瓣的条件 → 射血开始
+             ↓
+快速射血 → 减慢射血 → 容积减少到ESV
+             ↓
+半月瓣关闭 → 两瓣均闭 → 等容舒张
+             ↓
+室压降到低于房压 → 房室瓣开放
+             ↓
+快速充盈 → 减慢充盈 → 心房收缩补充
+             ↓
+下一搏EDV
 ```
 
-四个公式是这条链的最小变量语言：
+### 1｜等容不是不工作，而是门还没开
+
+等容收缩时，肌肉已在产生张力和压力，只是出口尚未打开，血液还没有被明显排出。等容舒张时，肌肉已经放松、压力快速下降，但入口尚未打开，因此容积暂时也不变。
+
+所以“压力在变”和“容积在变”可以分开。它们在PV环中分别表现为近竖直的两段，而不是一张时间图里所有曲线同步上下。
+
+### 2｜瓣膜事件给整段过程定边界
+
+房室瓣关闭与S1对应，半月瓣关闭与S2对应；这两个声音帮助定位收缩与舒张交界。S3放在快速充盈，S4放在心房收缩末端，不能把四个心音全记成四扇瓣膜各自关一次。
+
+正常房室机械时序中，心房先于心室收缩，房室可以同时处在舒张阶段；不能把这个正常模式扩大成任何异常节律下都不可能出现房室收缩重叠。
+
+### 3｜压差规则有一个必须当场理解的动态边界
+
+瓣膜的开闭可用局部压差理解，但已经运动的血液具有动能。减慢射血后段，即使心室压略低于主动脉压，仍可短暂继续向前流。因此“射血时每一瞬间室压都一定高于动脉压”是过度简化。
+
+先有加速，才有随后惯性延续；这不是血液长期自发逆压力梯度运行。原图中三个压力的位置和血流方向要同时看，不能只背一个不等号。
+
+### 4｜极值从过程长出来
+
+两瓣闭时容积不变，因此EDV不仅是一个瞬间，也延续到等容收缩段；ESV同样延续到等容舒张段。压力最快上升、下降分别在两个等容阶段；血量最多的流入、流出阶段则分别是快速充盈、快速射血。
+
+精确时点与正常静息时长取同一 canonical B1 KP01「心动周期总览」和 KP03「心动周期极值 / 最值」的完整正文。先有这条机械路线，再记极值，数字就有地址。
+
+## 装得进去、还能加量、比例看起来正常，是三件事
+
+输出建立在充盈与排空条件上；现在先看心室怎样获得可用的起始容量与储备。静息时数字尚可，不等于心室装血轻松，也不等于运动时还有足够储备。
+
+CI用体表面积标准化CO，适合不同体型的比较。它与“射出比例”EF不同，也与“克服多大压力所做的功”不同。
 
 ```text
-SV = EDV − ESV
-CO = HR × SV
-MAP ≈ CO × TPR
-Q ≈ ΔP / R
+主动舒张＋弹性回缩＋被动顺应性＋房室压差
+                       ↓
+                  舒张期充盈
+                       ↓
+          EDV / SV / CO＋进一步增加的储备
+                       ↓
+          EF、CI、压力、超声分别观察不同侧面
 ```
 
-不要把它们当四个孤立公式。它们描述的是同一圈血：
+### 1｜放松得快，与容易被撑开，不是同一个性质
 
-```text
-一次心跳
-→ 压力差开关瓣膜
-→ 决定一次射多少
-→ HR把一次射血变成每分钟输出
-→ 血管阻力与弹性把输出变成动脉压和器官流量
-→ 静脉容量池把血送回来
-→ 微循环完成交换
-→ 冠脉给泵自身供血
-→ 再进入下一次心跳
-```
+胞质Ca²⁺回降、横桥解离等参与主动舒张，弹性回缩也可支持早期抽吸。顺应性则描述压力变化与容积变化的关系，偏被动充盈性质。
 
-# 总 Framework
+两者都能影响充盈，却不能互相替代。一个心室可以松弛变慢，也可以变硬，也可以同时存在两种问题。后面看到E/A变化和舒张压力升高，要先定位到哪一层。
 
-```text
-① 泵周期
-   压力差 → 瓣膜 → 心音 → 容积
-   [KP01–KP03]
-        ↓
-② 输出与负荷
-   SV → 前负荷 / 后负荷 / 收缩性
-   → CO / HR / 储备 / EF / PV环
-   [KP04–KP16]
-        ↓
-③ 动脉与压力
-   血管分工 → 阻力 / 微动脉
-   → SBP / DBP / PP / MAP
-   [KP17–KP22]
-        ↓
-④ 静脉回心
-   CVP ↔ 右心射血能力 / 静脉容量池
-   → 再次充盈
-   [KP23–KP24]
-        ↓
-⑤ 微循环交换
-   三通路 → 组织液 / 淋巴 / 水肿
-   [KP25–KP26]
-        ↓
-⑥ 冠脉自供
-   舒张期灌注 → 局部代谢调节
-   → 供氧 / 耗氧接口
-   [KP27–KP29]
-        ↓
-临床验证接口
-   心绞痛与抗心绞痛药只用来验证供需模型
-   完整冠心病归 B6
-   [KP30–KP32]
-```
+### 2｜房缩有贡献，但不是固定给每个人补四分之一
+
+课程用正常静息约75%与25%帮助分开早期舒张充盈和房缩贡献。它不是所有年龄、心率和顺应性背景的恒定比例。
+
+房颤丢掉有效房缩；若再伴快速室率，又丢失舒张时间。二者可以叠加，使某些患者充盈与输出下降更明显。先理解机械后果，再把节律诊断和治疗交B10，不能在B1用一条比例决定临床处理。
+
+### 3｜储备是“还能增加多少”
+
+心输出量可通过心率储备和SV储备增加；SV储备又来自进一步增加充盈与进一步增强排空。若静息时已经大量动用代偿，运动时可调用的余量就会减少。
+
+“腔已经很大”不等于“舒张储备很强”，它可能意味着相关余量已经耗用。也不能把所有类型心衰都套成同一幅扩张、低EF的图；这里先理解储备概念。
+
+### 4｜EF把输出放回起始容量，但不是整个心功能的通行证
+
+若EDV由120增到160 mL，SV仍为70 mL，EF由约58%降到约44%。这是演算示例：每搏量接近时，射出比例仍可不同。它说明单看SV会遗漏代偿性扩容。
+
+相反，EF保留并不能排除舒张问题或心衰。EF不是直接独立于负荷的收缩性测量，也不能替代症状、充盈压和结构证据。
+
+压力可借助导管测量，容积与功能通常借助超声评估。E/A＜1是早期松弛受损的典型基础模式，年龄、假性正常和限制性充盈可改变形态；不能只凭一个比值把所有舒张异常排除。
+
+左右心室在稳态下每分钟输出接近，但克服的压力不同，因此做功不同。“送相同体积”不等于“付出相同机械功”。
 
 ---
 
-## ① 泵周期：一次心跳怎么完成
+## 从一搏能射多少，到一分钟能送多少
+<!-- /b1:source -->
 
-> 心动周期 → 压力差 → 瓣膜 → 心音 → 容积
+</details>
+
+## ② 充盈与排空形成输出：EDV − ESV，再乘 HR
+
+- {{kp:circulation-b01-kp04}}：EDV − ESV＝SV；三种影响要分开： <!-- b1:node {"kp_id":"circulation-b01-kp04","canonical_line":150} -->
+  - {{kp:circulation-b01-kp05}}：一定范围内初长度增加 → 本搏输出增加；EDP近似EDV时保留顺应性条件。 <!-- b1:node {"kp_id":"circulation-b01-kp05","canonical_line":166} -->
+  - {{kp:circulation-b01-kp06}}：骤增先使当搏SV↓、ESV↑；后续回心未明显减少时，次搏EDV可↑并发生代偿。 <!-- b1:node {"kp_id":"circulation-b01-kp06","canonical_line":185} -->
+  - {{kp:circulation-b01-kp07}}：相近负荷下收缩性增强可使ESV↓；实际力同时受前负荷、后负荷、收缩性影响。 <!-- b1:node {"kp_id":"circulation-b01-kp07","canonical_line":210} -->
+- {{kp:circulation-b01-kp08}}：CO＝HR×SV；过快HR缩短充盈，SV可降到使CO反降。CI按体表面积比较，不是做功。 <!-- b1:node {"kp_id":"circulation-b01-kp08","canonical_line":228} -->
+- {{kp:circulation-b01-kp14}}：同一搏投到P–V轴：右EDV、左ESV、宽SV；前负荷改充盈端，后负荷与收缩性改排空，顺应性改舒张关系，均按单变量条件核验。 <!-- b1:node {"kp_id":"circulation-b01-kp14","canonical_line":329} -->
+
+输出的旁查量与检验，不是血流的新站：[储备](#circulation-b01-kp10)<!-- b1:external {"kp_id":"circulation-b01-kp10","canonical_line":263} -->、[EF](#circulation-b01-kp12)<!-- b1:external {"kp_id":"circulation-b01-kp12","canonical_line":297} -->、[做功](#circulation-b01-kp11)<!-- b1:external {"kp_id":"circulation-b01-kp11","canonical_line":282} -->、[压力／容积／超声](#circulation-b01-kp13)<!-- b1:external {"kp_id":"circulation-b01-kp13","canonical_line":313} -->；[三类曲线与顺应性](#circulation-b01-kp15)<!-- b1:external {"kp_id":"circulation-b01-kp15","canonical_line":348} -->、[四瓣膜时相／杂音](#circulation-b01-kp16)<!-- b1:external {"kp_id":"circulation-b01-kp16","canonical_line":366} -->。EF保留不排除舒张问题；曲线不能互换，疾病完整内容回原Block。
+
+<details>
+<summary>展开输出与图形：三因素、HR反转、PV变化与瓣膜验证</summary>
+
+<!-- b1:source 146:221 -->
+
+周期与充盈条件给出了EDV和ESV。现在先看它们之差，再看什么能改变这个差。不要先背三种负荷的定义，却不知道它们改变了容积环哪一端。
+
+```text
+充盈 / 回心 → EDV ─┐
+                   ├→ SV＝EDV－ESV → 乘HR → CO
+排空 / 出口 → ESV ─┘
+
+前负荷：收缩前的初长度 / 充盈条件
+后负荷：收缩时需克服的负担
+收缩性：在负荷相近时，心肌自身能产生怎样的收缩
+```
+
+### 1｜装得更多，与挤得更干净，是两条增加SV的路
+
+一定范围内，回心增加使收缩前初长度增加，心肌通过Frank–Starling机制提高本搏输出。这叫异长调节：主要改变了起始长度。
+
+增强收缩性则是另一条路：在相近起始条件下，心肌排空能力更强，ESV可减少，SV增加。它不是必须先把心室装得更大。
+
+因此“实际收缩力变强”不能直接等于“收缩性变强”。实际表现同时受前负荷、后负荷和内在收缩性影响。
+
+### 2｜出口突然更难推时，先看当前一搏，再看后来
+
+后负荷突然升高，心室需要更高压力才打开出口，等容收缩过程改变，缩短和排空受限，当前SV减少、ESV增加。
+
+若后续回心没有明显减少，残余更多加上新流入，次搏EDV可增加，再通过Frank–Starling补偿；还可能出现收缩能力方面的调节。这是“即时结果”和“之后代偿”，不能把后面的恢复直接覆盖最初的下降。
+
+```text
+后负荷突然↑ → 当搏射出减少 → ESV↑
+                     ↓ 还要看后续回心条件
+               次搏EDV可↑ → 异长代偿
+```
+
+前负荷用EDV、EDP作近似时必须保留顺应性背景。同样容积在硬的心室里压力更高，因此压力与容积不是天然同义词。
+
+### 3｜心率乘上去之前，搏出量可能已经变了
+
+CO＝HR×SV是恒等关系，不是“心率提高而SV永远固定”的保证。心率增加会缩短周期，尤其缩短可用于舒张充盈的时间；过快时SV下降足以盖过次数增加，CO反而降低。
+
+课程约180次/分用于正常条件下极快心率的方向示例，不是每个人一到某个数字才出现充盈问题。病变心室的条件可能更早受限。
+
+**关系压缩：先分EDV端与ESV端，再把HR的充盈代价放回乘法；增加一个变量不等于总输出必然同向。**
+
+## 用PV环和曲线检查前面的推理
+
+这里不是再加一种抽象记忆，而是把已经理解的周期和负荷投到坐标系。先认轴，再认边界和方向，最后才看整幅形状。
+
+```text
+横轴＝心室容积，纵轴＝心室压力
+         ↓
+右边界EDV，左边界ESV → 横向宽度＝SV
+         ↓
+右侧等容收缩向上 → 上方射血向左
+左侧等容舒张向下 → 下方充盈向右
+         ↓
+再改变一个条件，检查哪一端或哪条关系先变
+```
+
+### 四种改变保留四个不同原因
+
+- 前负荷增加：在其他条件近似不变时，EDV向右，输出可增加
+- 后负荷增加：压力负担升高，ESV可向右，环更高、更窄
+- 收缩性增强：收缩末期关系改变，ESV向左，输出可增加
+- 顺应性下降：舒张压力—容积关系左上移；相同充盈压下装得更少
+
+前负荷增加和收缩性增强都能使环变宽，但前者主要推动右边界，后者改变收缩末期关系并影响左边界。这就是图比“SV都增加”更有用的地方。
+
+不能把“向左上移”当通用咒语：心室功能曲线、ESPVR、舒张P—V曲线不是同一张图。顺应性下降是同容积压力更高 / 同压力容积更小，描述的是充盈关系，不是把整只PV环任意搬走。
+
+四瓣膜短接口也用同一时间轴定位：狭窄在本应开放的通行时段产生阻碍，关闭不全在本应关闭的时段出现反流。由此定位MS、MR、AS、AR的时期，再用对应原图记声音形态。MS的典型舒张末增强与有效房缩相关，不能把所有MS杂音全程画成单纯递增。
+
+完整瓣膜病因、重构与手术门槛回B7。
+
+
+
+# 动脉分配：把间断输出变成持续供血
+<!-- /b1:source -->
+
+</details>
+
+## ③ 血进入动脉：储能／回弹维持流动，阻力分配流量
+
+- {{kp:circulation-b01-kp22}}：收缩期大动脉扩张储能，舒张期回弹继续推动血流；CO与TPR共同影响MAP。MAP≈CO×TPR须右房压可忽略；五因素方向先固定其余条件。 <!-- b1:node {"kp_id":"circulation-b01-kp22","canonical_line":461} -->
+- {{kp:circulation-b01-kp18}}：局部Q≈ΔP/R；理想层流下R∝ηL/r⁴，口径是强旋钮，不能当真实全身的精确圆管算法。 <!-- b1:node {"kp_id":"circulation-b01-kp18","canonical_line":401} -->
+- {{kp:circulation-b01-kp19}}：在相应单因素条件下，收缩使阻力↑、局部流量↓，并联动毛细血管压与交换；全身血压与局部血流不是同一量。 <!-- b1:node {"kp_id":"circulation-b01-kp19","canonical_line":419} -->
+
+读数与背景旁查：[SBP／DBP／PP／MAP定义、公式与参考值](#circulation-b01-kp20)<!-- b1:external {"kp_id":"circulation-b01-kp20","canonical_line":435} -->、[年龄及昼夜变化](#circulation-b01-kp21)<!-- b1:external {"kp_id":"circulation-b01-kp21","canonical_line":448} -->；全网络的[七类血管分工](#circulation-b01-kp17)<!-- b1:external {"kp_id":"circulation-b01-kp17","canonical_line":383} -->横跨储能、分配、交换、回收，不另造七站。
+
+<details>
+<summary>展开动脉分配：弹性储器、黏度与五因素方向</summary>
+
+<!-- b1:source 222:257 -->
+
+## 泵间断射血，动脉为何能持续供血
+
+血离开心室后，不是直接把每搏输出均匀送到所有器官。大动脉先储能，小动脉再调阻力和分配，最后形成我们测到的不同压力指标。
+
+```text
+收缩期射血 → 大动脉扩张储能
+                  ↓
+舒张期心室不再射血，但大动脉回弹继续推动血流
+                  ↓
+小动脉 / 微动脉阻力 → 决定流出速度与分配
+                  ↓
+形成SBP、DBP、PP与整个周期的平均压力
+```
+
+### 1｜弹性储器与阻力配合，才解释舒张压
+
+若只看到心脏射血，就容易以为舒张期动脉血压应当立即归零。大动脉弹性和外周阻力让排出过程延续，舒张期仍有压力和前向流量。
+
+储器作用减弱时，同样射血可使收缩压更高，舒张期支持减少，脉压变宽。它与单纯TPR升高不同，不能都写成“血管不好所以所有血压一起升”。
+
+### 2｜局部阻力最重要的旋钮是口径
+
+理想层流模型中R与ηL/r⁴有关，半径变化影响很大。但人体血液和血管不完全符合刚性圆管条件，所以它是解释方向与敏感性的近似，不是拿一段真实血管直接精确算全身阻力的公式。
+
+HCT、切率、口径范围与温度都影响表观黏度。贫血可降低黏度，但心脏加输出还要考虑氧输送需要；不能把高排量状态仅归结为一个阻力数字。冬季血栓风险也不能只靠温度—黏度这一条链解释所有病例。
+
+### 3｜从一个输入推压强，必须先固定其他条件
+
+增加SV，收缩期输入更多，SBP升幅通常更突出；在生理可代偿范围内加快HR，舒张期外流时间减少，DBP可升得更多；TPR增加同样可使舒张期外流受限。储器作用减弱则让SBP、DBP可能反向变化。
+
+这是一张单因素实验矩阵，不是一份所有疾病的固定答案。极快心率已经减少SV时，不能还假定SV不变继续套表。
+
+年龄与昼夜属于背景条件。老年动脉硬化可出现SBP继续升而DBP下降、PP变宽，不应把“年龄越大，SBP和DBP都无限单调升高”冻结成模型。
+
+---
+<!-- /b1:source -->
+
+</details>
+
+## ④ 分配到微循环：流经不等于交换，组织液还要回收
+
+- {{kp:circulation-b01-kp25}}：微动脉分流 → 真毛细血管交换 → 微静脉回收；营养／直捷／动静脉短路功能不同，由三闸门调节，不能用总流量代替有效交换。 <!-- b1:node {"kp_id":"circulation-b01-kp25","canonical_line":555} -->
+- {{kp:circulation-b01-kp26}}：交换床连组织液与淋巴回收；静水压↑、血浆胶体渗透压↓、通透性↑或淋巴受阻均可进入水肿。经典四力有适用范围，组织水多不等于有效循环量多。 <!-- b1:node {"kp_id":"circulation-b01-kp26","canonical_line":588} -->
+
+<details>
+<summary>展开交换与回收：三通路、暖休克接口、水肿四入口</summary>
+
+<!-- b1:source 299:310 -->
+### 3｜有流量不等于交换充分
+
+迂回营养通路经过真毛细血管，适合交换；直捷通路偏快速回流；动静脉短路绕过正常交换床，参与体温等调节。总闸门、分闸门与后闸门决定了不同层面的流量、压力和交换条件。
+
+因此皮肤温暖、总流量尚可，不保证全身微循环交换均匀有效。暖休克只是后续接口，不把一个短路通道当成所有暖休克的唯一成因。
+
+### 4｜水肿是“进入组织的水”与“清除”不平衡
+
+经典滤过模型比较静水压与胶体渗透压；通透性决定屏障怎样工作，淋巴则把一部分水和蛋白回收。因此水肿可以从静水压升高、血浆胶体渗透压降低、通透性增加、淋巴受阻四个入口进入。
+
+同样是肿，可以分别来自上游淤血、蛋白不足、屏障漏或回收不畅。不要只看见“组织水多”就默认血管内有效容量也多。经典公式用于当前课程坐标，不替代所有组织、所有时间状态的完整微血管交换模型。
+
+<!-- /b1:source -->
+
+</details>
+
+## ⑤ 静脉把血送回：送血端与右心接受端一起看
+
+- {{kp:circulation-b01-kp24}}：外周静脉与右房的压差驱动回流 → 右心接受与再充盈；送血看容量／张力／分布／泵，接受看排空／松弛／顺应性／外压。自主吸气不等于正压通气，节律肌泵不等于持续压迫。 <!-- b1:node {"kp_id":"circulation-b01-kp24","canonical_line":521} -->
+- {{kp:circulation-b01-kp23}}：回心量与右心泵出共同决定CVP；右心泵出增强可使CVP↓而回流↑。CVP不是血容量计；大静脉塌陷等限制使回流不随右房压降低而无限增加。 <!-- b1:node {"kp_id":"circulation-b01-kp23","canonical_line":506} -->
+
+<details>
+<summary>展开回心：CVP合力、送血／接受十三因素与方向边界</summary>
+
+<!-- b1:source 258:298 -->
+
+# 回收与供养：让同一圈血闭合
+
+## 回心得到持续支持，交换才真正闭环
+
+动脉侧输出不能脱离静脉侧输入。回心与交换关系把血管回路合上，同时把“血流经过”与“组织完成交换”分开。
+
+```text
+外周静脉侧压力 / 容量条件
+                  ↓ 与右房压力形成梯度
+             静脉回流 → 心室充盈
+                  ↑
+       呼吸、肌肉泵、静脉张力、体位等影响
+
+微动脉分流 → 真毛细血管交换 → 微静脉回收
+                         ↕
+                 组织液 ↔ 淋巴回收
+```
+
+### 1｜CVP是两端合成结果，不是一支血容量计
+
+更多血向右心返回，可使CVP升高；右心排出受限，也能使CVP升高。两种情况下“压力高”的原因不同，不能直接推得相同补液决策。
+
+右心泵出增强可降低右房压力，增大外周静脉到右房的驱动差，回心随之增加。这里CVP下降并不意味着静脉回流一定减少。
+
+静脉回流还受回流通路阻力等因素影响；当胸内大静脉塌陷等限制出现，不能把“右房压力越低，回流无限增加”当定律。
+
+### 2｜把13项方向放进送血端与接受端
+
+血容量、静脉张力、体位和肌肉泵等主要改变送血条件；右心泵功能、舒张、心包压力和顺应性等影响接受条件。这样一张名单就被放到压差模型的两边。
+
+送血端先拆成三个旋钮：**血有多少、容量池有多大、血被留在哪个位置**。血容量或输液输入增加，在容纳空间近似不变时提高充盈；静脉收缩则不增加总血量，而是缩小容量池、动员已有的血。两种方式可以同样支持回心，起点却不同。
+
+再看分布和外力。直立转平卧，低位静脉因重力留下的血减少；走路时肌肉一挤一松，配合静脉瓣把血向近心端推；浸入深水，外部静水压力也会压缩低位容量池，让血向中央转移。它们共同改变的是“已有血怎样回去”，不是制造了新血。
+
+接受端则看**能否排空、能否放松、能否被充开**。右心及时泵出，右房积血和压力可下降；Ca²⁺回收加快帮助主动松弛；顺应性增加使相同压力下较容易装入血；心包外压下降减轻外部限制。心率若原来过快，适当减慢还可把充盈时间还回来。这些因素都支持接受回流，但彼此不是同一种“抽吸力”。
+
+微动脉舒张另占一个位置：它改变血通过外周通路的阻力。在驱动压近似维持的短时模型里，血更容易流向静脉端；若同时发生明显全身低压，就要重新比较驱动压和阻力，不能只记“舒张必增回心”。
+
+吸气促进右心回流的常见链条，默认自主呼吸等条件；正压通气的胸内压变化不能直接照搬。节律性肌肉收缩配合静脉瓣促进回流，持续强力压迫则可能阻碍回流。这些条件不是低频装饰，会改变答案方向。
+
+<!-- /b1:source -->
+
+</details>
+
+## ⑥ 同时，主动脉分出冠脉：供养泵，才能继续下一搏
+
+- {{kp:circulation-b01-kp27}}：左室收缩压迫壁内血管，左冠更依赖舒张期；有效灌注压近似主动脉舒张压−左室舒张末压。右冠并非只在收缩期灌注，时相受压力等条件影响。 <!-- b1:node {"kp_id":"circulation-b01-kp27","canonical_line":614} -->
+- {{kp:circulation-b01-kp28}}：供氧看灌注压／时间／阻力及携氧；HR过快既缩短舒张供血时间又可增耗氧，供需两端一起判。 <!-- b1:node {"kp_id":"circulation-b01-kp28","canonical_line":629} -->
+- {{kp:circulation-b01-kp29}}：心肌工作↑ → 耗氧↑ → 局部代谢舒张可盖过交感直接缩血管；局部受体作用与完整器官净效应分开。 <!-- b1:node {"kp_id":"circulation-b01-kp29","canonical_line":650} -->
+
+用同一供需模型做短验证：[心绞痛七场景](#circulation-b01-kp30)<!-- b1:external {"kp_id":"circulation-b01-kp30","canonical_line":693} -->、[β受体阻断剂](#circulation-b01-kp31)<!-- b1:external {"kp_id":"circulation-b01-kp31","canonical_line":706} -->、[硝酸酯](#circulation-b01-kp32)<!-- b1:external {"kp_id":"circulation-b01-kp32","canonical_line":718} -->。药物改变供需变量，不能由“扩血管”推出固定狭窄下必增总流量；完整诊疗回B6。
+
+<details>
+<summary>展开冠脉：时相、净调节、供需与药物短接口</summary>
+
+<!-- b1:source 311:355 -->
+## 泵要自己有氧，才能持续为全身工作
+
+现在把冠脉接回循环起点：心脏一边给全身射血，一边也需要自身灌注。心肌已有较高摄氧，需求增加时，增加冠脉流量非常重要。
+
+```text
+氧供端：灌注压＋可用灌注时间＋冠脉阻力＋血液携氧
+                            ↕
+耗氧端：心率＋收缩活动＋室壁张力 / 负荷
+                            ↓
+                    供需是否匹配
+```
+
+### 1｜左室最努力收缩时，自己的小血管反而被压
+
+左室收缩压迫壁内血管，因此左冠供血更依赖舒张期。以主动脉舒张压减左室舒张末压近似观察驱动差，可以同时看到两种供血不利条件：入口压力不足，或心室内压力过高。
+
+心率过快缩短舒张期，同时还可能提高需求；所以一个变化可以从供、需两端制造压力。不能只看心率乘CO的一面。
+
+右室通常受收缩期压迫较小，收缩期也能获得灌注；这不等于右冠只在收缩期有血流。右室压力或肥厚改变时，时相也会改变，不能把左、右冠画成两个绝对互斥时段。
+
+### 2｜交感兴奋时，局部代谢可以盖过直接缩血管
+
+交感增强心肌工作→耗氧增加→局部代谢舒张信号增加，净冠脉血流可上升。若只背冠脉α受体收缩，就会得出相反结论。
+
+同样，迷走降低心肌工作后的总体影响，与直接冠脉受体作用不是同一层。复习时先辨局部受体效应还是完整器官净效应，再用课程介质表补名字。
+
+### 3｜药物只用来验证供需变量
+
+β₁阻断降低心率与收缩活动，可减少耗氧，并增加舒张灌注时间；不要求所有有效药都必须同时阻断β₂。硝酸酯主要通过静脉侧减轻前负荷和壁张力，也有动脉及冠脉相关作用；严重固定狭窄时，不能简单认为扩血管就必然提高总冠脉流量。
+
+这些解释让药物有可理解的位置，不足以独立给出具体病人的用药选择。完整心绞痛、ACS与治疗方案交B6。
+
+### 整块交给B2的变量
+
+```text
+HR / 收缩性 → SV / CO
+回心 / CVP / EDV → 前负荷
+动脉压力 / 阻力 → 后负荷与器官流量
+微循环交换 / 淋巴 → 组织液与水肿
+冠脉供需 → 泵是否有能力继续工作
+```
+
+B2只需接着回答这些变量偏了以后谁感知、谁执行、谁调整容量。B1不是静态名词目录，而是一条可以逐处改变输入、再沿上下游推结果的机械模型。
+
+---
+<!-- /b1:source -->
+
+</details>
+
+<!-- b1:route:end -->
+
+## 合上解释，从起点重建到终点
+
+合上解释，按开头的①→⑤主路重建，再接回⑥冠脉供养；每到一处，用节点的完整 Prompt 恢复知识。最后改变一个输入，沿同一路线推结果并说出条件。
+
+[六条反事实链](#circulation-b01-reference-008b07e5898f)用于验证推理；[进入B2前十二问](#circulation-b01-reference-95ee19d753d5)与[B1→B2交接](#circulation-b01-reference-10d6daa47d47)把这些被调变量交给B2的传感器、控制器与效应器。
+
+## 精确记忆与原图：已有位置，不加入血流箭头
+
+- 正常值、极值、配对、名单与比较表按节点标题回完整 Core；推理即时需要的条件当场展开，其他细项再复习。
+- 已准入的13项由[现有 Precision 索引](#circulation-b01-reference-169d12f51036)及[已有准备答案／记忆辅助](#circulation-b01-reference-169d12f51036)消费；本页不新增卡片或改变学习状态。
+- 4项仍留原语境、未独立准入：[流量／容积极值](#circulation-b01-kp03)、[正常静息充盈比例及条件](#circulation-b01-kp09)、[病理细动脉对应](#circulation-b01-kp17)、[昼夜高峰](#circulation-b01-kp21)。
+- CVP Source差异保留：[生理4–12 cmH₂O与内科4–12 mmHg各自原语境](#circulation-b01-kp23)；不合并为跨学科统一值。
+- MedicalVisual：[全部十项原图要求](#circulation-b01-reference-ef45bb7d4e25)与[当前选择性图像定位](#circulation-b01-reference-169d12f51036)。当前推理依赖图形时就看原图；列出定位不等于已看。
+- 非正文项：[即时机制与延后精度类别](#circulation-b01-reference-ee248caba698)、[原资料、Primary和短接口范围](#circulation-b01-reference-b8da2d09bb5b)、[心肌／心包限制充盈接口](#circulation-b01-reference-169d12f51036)；来源核验保留于下方记录，未决项不补造答案。
+
+<details>
+<summary>原开篇与全圈图：查看原有模型背景</summary>
+
+<!-- b1:source 2:49 -->
+
+# B1｜一圈血怎样被推出、分配、回收，再供养心脏
+## 给 Chat 的建模教学稿 · 正式正文对齐版
+
+> 组织规则：[Lecture Replacement Contract](../../../knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。
+
+沿整块医学模型连续教学；LG 的 membership/order/goal/closure 只负责后台覆盖、检索与收口，不把讲解切成 LG01/LG02 的视觉或话术分段。先建立整章位置与机制，再在需要处放大子模型。第一次先让学习者能沿真实关系走，不先给满屏正常值。原图用于压力—容积、曲线与通路确实比文字更清楚的部分。当前样稿不要求用户回答问题；故障与反例直接演示推导。
+
+# 开 Block｜先给循环系统一副机械骨架
+
+B1要解决的不是“心脏有几个时期、血压有几个指标”，而是一个连续问题：心脏间断收缩，怎样使血液持续走完一圈，并让组织完成交换。
+
+这条路线有泵、有只允许合适方向通过的瓣膜、有储能和分流的血管，还有把血送回来的容量池。泵自己也需要供血，因此冠脉必须回接到同一个模型，而不是最后额外背一章。
+
+```text
+静脉把血送回来 → 心室得到充盈
+                         ↓
+                  心肌产生压力变化
+                         ↓
+                  压差控制瓣膜开闭
+                         ↓
+             一搏排出多少 → 每分钟排出多少
+                         ↓
+          大动脉储能 / 回弹＋小动脉阻力分配
+                         ↓
+             微循环：把流量转成有效交换
+                         ↓
+            静脉回收＋淋巴回收 → 再回心
+
+同时：主动脉发出的冠脉 → 供养正在工作的心肌
+                                  ↓
+                            保持下一搏的能力
+```
+
+第一遍只保留四个变量：压力P、流量Q、阻力R、容量V。随后四个公式都在描述这同一圈血：
+
+- SV＝EDV－ESV：装进来多少，收缩后剩多少
+- CO＝HR×SV：每次输出乘每分钟次数
+- MAP≈CO×TPR：全身压力的第一近似；右房压不能忽略时需保留压力差
+- Q≈ΔP/R：局部流量看两端压差和当地阻力
+
+不要把总血量、心室容积、每搏流量和每分钟流量当成同一个“血多了”。单位与位置先分清，后面的题就容易落位。
+
+模型从周期与充盈形成每搏输出，再沿动脉分配、微循环交换、静脉回收与冠脉供养闭合；PV环在周期与负荷改变处直接核验。
+
+---
+
+# 泵的一搏：周期、充盈、输出与图形核验
+<!-- /b1:source -->
+
+</details>
+
+
+<details>
+<summary>来源与候选记录：查看既有证据和未决边界</summary>
+
+<!-- b1:source 356:376 -->
+
+## 供Chat查阅的验证与来源附注
+
+- 分组来自当前A1 system.json：7LG、32KP。内容依据B1现行阅读版及生理Source112–119、121–126、128–133；原图检查范围另据验收记录，不以文件存在代替已看。
+- 本稿是正式正文的教学展开视图，不证明用户已学会；原题覆盖与Source口径按本页末尾准确范围。
+- EF保留不能排除HFpEF：[ACC对AHA/ACC/HFSA指南的官方说明](https://www.acc.org/About-ACC/Press-Releases/2022/04/01/15/22/ACC-AHA-HFSA-Issue-Heart-Failure-Guideline)。只用于当前机械判断边界，不提前给治疗方案。
+- 年龄趋势不能写成SBP/DBP终身均单调上升：[Framingham原始随访](https://pubmed.ncbi.nlm.nih.gov/9236450/)。
+- 右冠并非只有收缩期灌注，肺高压背景可减少其收缩期流量：[右冠流量原始研究](https://pubmed.ncbi.nlm.nih.gov/18065750/)。
+- 原课程对顺应性与主动舒张、MS杂音形态、年龄与右冠时相有简化；相关条件已经进入所绑定正式Core，本稿保留对应教学解释，不再沿用旧“待同步”状态。
+
+- MS完整杂音形态与舒张末增强：[MSD专业版](https://www.msdmanuals.com/professional/cardiovascular-disorders/valvular-disorders/mitral-stenosis)。回流在较低右房压下出现平台的经典实验：[Guyton等](https://journals.physiology.org/doi/abs/10.1152/ajplegacy.1957.189.3.609)。这两项用于限定推理，不外推为床旁治疗规则。
+
+## 本次对齐范围｜2026-10-03
+
+本稿沿用已有教学/复习模型，对照已发布正式正文与A1收尾的59个具体Source边界主题；不再把旧2/5/4/7无题目身份汇总当作当前待办。B1–B4共291条原题路由已有逐行依据，但路由完成不等于本稿自含全部细项答案，也不等于全部原图已重看。当前唯一精确Source符号未定项为B3 physiology-U012-row27（生理印刷P127/物理P142），其余已处理模型条件或有界保留的Source差异仍按原结论保留。
+
+教学和复习共用正式Block知识；此文件不另定医学真相、不生成学习记录、完成或复习债。绑定正文、Learning或来源条件变化时，先读最新正式owner并重新核对受影响内容，不能拿本稿覆盖当前规则。
+
+## 本次候选内容核对｜2026-10-04
+
+本次 Prompt 支持定位：正文的周期电影、负荷/充盈比较、PV 环、压力/回心/交换和冠脉供需是连续主线。未逐项展开的正常值/时点取 canonical KP01–04、KP08、KP10、KP12、KP20、KP23 对应表项；动脉压昼夜两高峰取 KP21；五因素方向矩阵取 KP22；送血/接受端十三项取 KP24；三通路结构/分布/开闭全比较取 KP25。这里是精确支持位置，不宣称正文已经自含这些全量表项。
+<!-- /b1:source -->
+
+</details>
+
+<!-- /kianos:model -->
+
+<!-- kianos:historical-opening
+"# Block 1｜正常机械循环 · 学习阅读版 v7｜最终执行版\n\n> **中心问题**：正常循环中，心脏怎样把压力差和容积变化转成每搏与每分钟泵血，血管又怎样把这些输出转成动脉压、静脉回流、组织交换和冠脉供血？\n\n# 先建立脑内机械模型\n\n整个 B1 先只留下这一条 Mechanism Spine：\n\n```text\n压力差\n→ 瓣膜开闭\n→ 心室容积变化\n→ SV / CO\n→ 动脉压力与器官血流\n→ 静脉回心与再次充盈\n→ 微循环交换\n→ 冠脉维持泵自身供血\n```\n\n四个公式是这条链的最小变量语言：\n\n```text\nSV = EDV − ESV\nCO = HR × SV\nMAP ≈ CO × TPR\nQ ≈ ΔP / R\n```\n\n不要把它们当四个孤立公式。它们描述的是同一圈血：\n\n```text\n一次心跳\n→ 压力差开关瓣膜\n→ 决定一次射多少\n→ HR把一次射血变成每分钟输出\n→ 血管阻力与弹性把输出变成动脉压和器官流量\n→ 静脉容量池把血送回来\n→ 微循环完成交换\n→ 冠脉给泵自身供血\n→ 再进入下一次心跳\n```\n\n# 总 Framework\n\n```text\n① 泵周期\n   压力差 → 瓣膜 → 心音 → 容积\n   [KP01–KP03]\n        ↓\n② 输出与负荷\n   SV → 前负荷 / 后负荷 / 收缩性\n   → CO / HR / 储备 / EF / PV环\n   [KP04–KP16]\n        ↓\n③ 动脉与压力\n   血管分工 → 阻力 / 微动脉\n   → SBP / DBP / PP / MAP\n   [KP17–KP22]\n        ↓\n④ 静脉回心\n   CVP ↔ 右心射血能力 / 静脉容量池\n   → 再次充盈\n   [KP23–KP24]\n        ↓\n⑤ 微循环交换\n   三通路 → 组织液 / 淋巴 / 水肿\n   [KP25–KP26]\n        ↓\n⑥ 冠脉自供\n   舒张期灌注 → 局部代谢调节\n   → 供氧 / 耗氧接口\n   [KP27–KP29]\n        ↓\n临床验证接口\n   心绞痛与抗心绞痛药只用来验证供需模型\n   完整冠心病归 B6\n   [KP30–KP32]\n```\n\n---\n\n## ① 泵周期：一次心跳怎么完成\n\n> 心动周期 → 压力差 → 瓣膜 → 心音 → 容积\n\n"
+-->
 
 ### KP01｜心动周期总览
 

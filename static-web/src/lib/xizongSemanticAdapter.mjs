@@ -1,6 +1,7 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
+import { loadXizongSystem, loadXizongBlock, resolveXizongKnowledgeView } from './xizong.mjs';
 import path from 'node:path';
 import { normalizeAcceptedLearningOwner, normalizeAcceptedLogicGroups, expandAcceptedOrdinalRange as expandRange, normalizeAcceptedBlockRoute as systemBlockRoute, hydrateAcceptedLearningOwner } from './xizongAcceptedLearningOwner.mjs';
 
@@ -23,11 +24,11 @@ function absolute(relativePath) {
 }
 
 function readText(relativePath) {
-  return fs.readFileSync(absolute(relativePath), 'utf8');
+  return readXizongCompileFile(absolute(relativePath), 'utf8');
 }
 
 function readJson(relativePath) {
-  return JSON.parse(readText(relativePath));
+  return readXizongCompileJson(absolute(relativePath));
 }
 
 function exists(relativePath) {
@@ -567,7 +568,9 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   const blockSupport = learningOwner.raw.blocks?.[blockId];
   if (!blockSupport) fail('BLOCK_LEARNING_SUPPORT_MISSING', blockId);
   const kpCount = kpCountForBlock(routeRow, blockSupport, blockSupport.logic_groups);
-  const logicGroups = normalizeAcceptedLogicGroups({ system: record.raw, blockId, blockSupport, kpCount });
+  const canonical = blockSupport.knowledge_owner ? loadXizongBlock(record.identity.systemId, blockId) : null;
+  const logicGroups = canonical ? canonical.logicGroups.map(({ start, end, kpIds, ...group }) => group)
+    : normalizeAcceptedLogicGroups({ system: record.raw, blockId, blockSupport, kpCount });
   const sourceContact = normalizeSourceContact(learningOwner.raw, blockSupport, blockId, logicGroups);
   if (learningOwner.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION') {
     const acceptedToStable = new Map(Object.entries(learningOwner.blockKeyMap || {}).map(([stableId, acceptedKey]) => [String(acceptedKey), String(stableId)]));
@@ -580,7 +583,9 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   const retrievalPoints = normalizeRetrieval(logicGroups, sourceContact);
   const cues = normalizeBlockCues(blockId, logicGroups, cueOwner, sourceVisualOwner);
   const extensionRefs = extensionRefsForBlock(blockId);
-  const sharedOrientation = sharedOrientationForBlock(blockId);
+  const sharedOrientation = canonical ? (canonical.knowledge.orientation_view
+    ? { minimalModel: resolveXizongKnowledgeView(canonical, canonical.knowledge.orientation_view), reviewBasis: canonical.sourcePath } : null)
+    : sharedOrientationForBlock(blockId);
 
   return {
     blockId,

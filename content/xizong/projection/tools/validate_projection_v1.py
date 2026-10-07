@@ -313,6 +313,14 @@ class Validator:
             require(str(s.get('semantic_authority', '')).startswith('CHAT_APPROVED'), 'OWNER', f'unapproved System authority {sid}')
             self.systems[sid] = {'path': source, 'value': s, 'canonical_id': cid}
             learning_sources = [x for x in a.get('sources', []) if x.get('kind') == 'LEARNING_SUPPORT']
+            if not learning_sources:
+                # A System asset may omit Learning while its Block assets bind
+                # that existing execution owner explicitly.
+                paths = {x['path'] for block_path in spec.get('blocks', [])
+                         for x in self.repo.json(PREFIX + block_path).get('sources', [])
+                         if x.get('kind') == 'LEARNING_SUPPORT'}
+                require(len(paths) <= 1, 'OWNER', f'{sid}: ambiguous Block Learning sources')
+                learning_sources = [{'path': next(iter(paths))}] if paths else []
             learning_base = None
             learning_blocks = {}
             if learning_sources:
@@ -385,8 +393,20 @@ class Validator:
                     kp_ids = [f'{bid}-kp{x:02}' for x in kps]
                 require(expected_kp > 0 and len(kps) == expected_kp and set(kps) == set(range(1, expected_kp+1)), 'OWNER', f'{bid}: KP identity/count/gap mismatch')
 
+                support = learning_blocks.get(bid) or {}
+                knowledge = None
+                if support.get('knowledge_owner'):
+                    require(support['knowledge_owner'] == path, 'OWNER', f'{bid}: canonical Knowledge path mismatch')
+                    matches = re.findall(r'<!-- kianos:knowledge\n([\s\S]*?)\n-->', text)
+                    require(len(matches) == 1, 'OWNER', f'{bid}: canonical Knowledge missing/duplicate')
+                    knowledge = json.loads(matches[0])
+                    require(knowledge.get('block_id') == bid, 'OWNER', f'{bid}: canonical Knowledge identity mismatch')
+                    groups = [{'id': g['groupId'], 'label': g['label'], 'kp_members': g['kpOrdinals']}
+                              for g in shape(knowledge.get('logic_groups'), list, f'{bid}.canonical_groups')]
                 system_groups = s.get('logic_index', {}).get(bid) if isinstance(s.get('logic_index'), dict) else None
-                if isinstance(system_groups, list) and system_groups:
+                if knowledge is not None:
+                    pass
+                elif isinstance(system_groups, list) and system_groups:
                     groups = system_groups
                 else:
                     support = learning_blocks.get(bid) or {}
@@ -420,7 +440,7 @@ class Validator:
                         coverage.extend(range(ran[0], ran[1]+1))
                 require(Counter(coverage) == Counter(kps), 'OWNER', f'{bid}: Logic Group overlap/gap')
                 require(bid not in self.blocks, 'OWNER', f'duplicate canonical Block {bid}')
-                self.blocks[bid] = {'system_id': sid, 'path': path, 'text': text, 'row': {**row, 'kp': expected_kp}, 'groups': groups, 'kp_ids': kp_ids}
+                self.blocks[bid] = {'system_id': sid, 'path': path, 'text': text, 'row': {**row, 'kp': expected_kp}, 'groups': groups, 'kp_ids': kp_ids, 'knowledge': knowledge}
 
     def owner_ref(self, asset: dict, binding: dict) -> Any:
         typ = binding.get('owner_type')
@@ -434,7 +454,19 @@ class Validator:
         if typ == 'BLOCK':
             role = binding.get('role')
             if role == 'CENTER_QUESTION':
+                if block.get('knowledge') is not None:
+                    value = block['knowledge'].get('center_question')
+                    require(nonempty(value), 'OWNER', f'{bid}: canonical center question missing')
+                    return value
                 return select_text(block['text'], {'type': 'LABELED_BLOCKQUOTE', 'label': '中心问题'})
+            if role == 'CANONICAL_MODEL':
+                model = (block.get('knowledge') or {}).get('model') or {}
+                matches = re.findall(r'<!-- kianos:model ([^\n]+) -->\n([\s\S]*?)<!-- /kianos:model -->', block['text'])
+                require(model.get('status') == 'CURRENT' and model.get('derivation') == 'REVIEWED_DERIVATION'
+                        and len(matches) == 1 and matches[0][0] == model.get('section'), 'OWNER', f'{bid}: canonical model missing/invalid')
+                ids = re.findall(r'\{\{kp:([^}]+)\}\}', matches[0][1])
+                require(ids == model.get('node_kp_ids') and set(ids).issubset(block['kp_ids']), 'OWNER', f'{bid}: canonical model bindings invalid')
+                return matches[0][1]
             if role == 'CANONICAL_GUIDE':
                 return block['text']
             require(role is None, 'OWNER', f'unknown owner role {role}')

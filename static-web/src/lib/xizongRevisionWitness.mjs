@@ -8,6 +8,14 @@ const hash = value => createHash('sha256').update(JSON.stringify(revisionStable(
 function support(value) {
   if (Array.isArray(value)) return value.map(support);
   if (!value || typeof value !== 'object') return value;
+  if (value.relocationProvenance) {
+    // Normalize only the precisely migrated cue's owner/reference packaging.
+    // Reference digests are derived from CURRENT Core and exact item, never frozen.
+    const { relocationProvenance, ...current } = value;
+    if (!relocationProvenance.owner || !relocationProvenance.reference) throw new Error('CURRENT_XIZONG_RELOCATION_PROVENANCE_INVALID');
+    return support({ ...current, prepared_memory_owner: relocationProvenance.owner,
+      prepared_memory_ref: relocationProvenance.reference });
+  }
   if (Array.isArray(value.assets) && 'sourceSha256' in value) {
     // Bind both the reviewed crop and the actual derived asset. A changed
     // derived image cannot be assumed to be only re-encoding. Ignore Vite's

@@ -40,7 +40,7 @@ A teaching asset must be refreshed when a relevant canonical/System/Learning pre
 
 ## 3｜What the teaching asset contains
 
-The teaching asset owns the **learner explanation/model**, for example:
+The teaching asset presents **explanation of the one canonical learner model**, for example:
 
 - the Block's central question;
 - the continuous causal/mechanical framework;
@@ -55,11 +55,11 @@ What it must **not** do is append or automatically render the canonical KP answe
 <a id="teaching-topology-annotations"></a>
 ### 3.1｜Pedagogical topology and annotations
 
-The teaching objects and their explicitly reviewed relations form the **pedagogical topology**. Establish that teaching model and its relations independently before attaching KP title + full formal Prompt annotations.
+Canonical Knowledge owns the stable model topology, reviewed relation directions and knowledge locations. Teaching expands or compresses that same model; establish the model before attaching KP title + full formal Prompt annotations.
 
-Canonical Block/Framework supplies medical truth, coverage, identity, Prompt and medical constraints; it does not own Lecture presentation order. Fresh reviewed teaching owns the teaching organization/topology and must preserve those canonical facts and constraints.
+Canonical Block/Framework supplies medical truth, model topology, knowledge locations, coverage, identity, Prompt and medical constraints. Teaching may adapt wording, examples, explanatory depth, presentation order and folding without changing that model or moving its knowledge to a competing topology. For a migrated Block, the accepted continuous model and its natural Prompt locations are preserved in the canonical owner; the old teaching artifact is presentation/history, never a fallback semantic authority. Unmigrated Blocks retain their current transitional owner until an atomic switch.
 
-KP bindings cannot create a teaching object/node, relation/edge or order. Do not infer medical edges from KP, LG or Markdown order. Reading headings are structural clues only: relations come from the teaching asset's explicit medical logic, and a heading does not automatically become a separate box.
+KP bindings cannot create a teaching object/node, relation/edge or order. Do not infer medical edges from KP, LG or Markdown order. Reading headings are structural clues only: relations come from the canonical model's explicit medical logic, and a heading does not automatically become a separate box.
 
 One teaching object may carry annotations for several KPs; one canonical KP may have lightweight references at several teaching locations. Unique canonical identity does not mean a unique teaching location; all such references resolve the same canonical owner.
 

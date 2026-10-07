@@ -1,6 +1,6 @@
 import { reconcileXizongRevision, revisionStatus } from './xizongContentRevision.mjs';
 import { inspectXizongBlockCompletion } from './xizongMemoryAutoRelease.mjs';
-import { XIZONG_LEARNER_OBJECT_SCHEMA } from './xizongMemoryRelease.mjs';
+import { XIZONG_LEARNER_OBJECT_SCHEMA } from './xizongCompiledMemoryRelease.mjs';
 import { isXizongQuestionAttemptCurrent } from './xizongQuestionAttempts.mjs';
 import {
   XIZONG_QUESTION_PREFERENCES_KEY,

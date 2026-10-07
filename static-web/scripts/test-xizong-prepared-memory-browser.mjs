@@ -22,6 +22,8 @@ const cards=releasedMemoryCards(fixture,'PRECISION');
 assert.equal(cards.length,13);
 const key='kianos-xizong-memory-v1';
 const checks=[], errors=[];
+const requestedBlocks = process.env.KIANOS_PREPARED_MEMORY_TEST_BLOCKS?.split(',');
+const includesBlock = slug => !requestedBlocks || requestedBlocks.includes(slug);
 const assertTitleOnlyKp=async(page,root,object,kpId)=>{
     const expected=object.kps.find(k=>k.identity.kpId===kpId);
     assert.ok(expected,'visible stable KP identity remains canonical');
@@ -43,12 +45,16 @@ const assertTitleOnlyKp=async(page,root,object,kpId)=>{
     assert.equal(await card.getAttribute('data-kp-id'),kpId);
   };
 const browser=await chromium.launch({headless:true,...(process.env.KIANOS_TEST_CHROME?{executablePath:process.env.KIANOS_TEST_CHROME}:{})});
+// This proves browser localStorage; checkpoint transport has its own tests.
+// Empty contexts must not restore another synthetic scenario's server snapshot.
+const localFixtureRoute = route => {
+  const url = new URL(route.request().url());
+  if (url.pathname === '/__kianos-private/checkpoint') return route.fulfill({status:404,contentType:'application/json',body:'{"status":"missing","checkpoint":null}'});
+  return url.origin === base.origin ? route.continue() : route.abort();
+};
 try {
   const context=await browser.newContext({viewport:{width:1440,height:960}});
-  await context.route('**/*', route => {
-    const url=new URL(route.request().url());
-    return url.origin===base.origin ? route.continue() : route.abort();
-  });
+  await context.route('**/*', localFixtureRoute);
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');
   fs.mkdirSync(out,{recursive:true});
@@ -70,6 +76,27 @@ try {
   const initial=await read(studyKey);
   assert.equal(await read(key),null);
   assert.deepEqual(claims(initial),{sourceContactDone:false,sourceContactEvidence:[],learned:{},completed:false,blockRecallDone:false});
+  const model=root.locator('[data-projection-object="circulation-b01-framework"]');
+  assert.equal((await model.innerHTML()).split('b1:node').length-1,19);
+  await page.waitForFunction(key=>Boolean(JSON.parse(localStorage.getItem(key)||'null')?.contentRevision?.witness),studyKey);
+  const referenceBefore=await read(studyKey);
+  for(const kpId of object.model.markdown.matchAll(/<!-- b1:node (\{[^\n]+\}) -->/g)) {
+    const id=JSON.parse(kpId[1]).kp_id, kp=object.kps.find(k=>k.identity.kpId===id);
+    const link=model.locator(`a[href="#${id}"]`).first();
+    assert.equal(await link.textContent(),`${kp.identity.title}〔${kp.prompt.canonical}〕`);
+    await link.click();
+    const reference=root.locator('[data-canonical-knowledge-reference]');
+    await page.waitForFunction(id=>document.getElementById(id)?.closest('[data-canonical-knowledge-reference]')?.open,id);
+    assert.equal(await reference.getAttribute('open'),'');
+    assert.equal(await reference.locator(`[id="${id}"]`).isVisible(),true);
+    assert.deepEqual(await read(studyKey),referenceBefore);
+  }
+  for(const href of await model.locator('a[href^="#"]').evaluateAll(links=>links.map(link=>link.getAttribute('href')))) {
+    assert.equal(await root.locator('[data-canonical-knowledge-reference]').locator(`[id="${href.slice(1)}"]`).count(),1);
+  }
+  await page.screenshot({path:path.join(out,'canonical-reference.png'),fullPage:true});
+  await root.locator('[data-canonical-knowledge-reference] > summary').click();
+  checks.push('19 natural full-Prompt nodes and every model side-reference reach the same canonical knowledge; navigation leaves study evidence byte-identical');
   await root.locator('[data-study-stage="block_learn"] [data-post-chat-recall]').click();
   await root.locator('[data-study-stage="kp_recall"]').waitFor({state:'visible'});
   const entry=await read(studyKey);
@@ -166,10 +193,23 @@ try {
   assert.deepEqual((await read(recallKey)).evidenceHistory,kpEvidence.evidenceHistory);
   assert.deepEqual(claims(await read(studyKey)),claims(initial));
   checks.push('reopening through the actual B1 action preserves existing Memory/KP evidence and does not consume full Block release');
+  {
+    const ctx=await browser.newContext();await ctx.route('**/*', localFixtureRoute);
+    await ctx.addInitScript(()=>{const save=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='kianos-xizong-memory-v1')throw Error('Declared B1 persistence failure');return save.call(this,k,v);};});
+    const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));
+    await p.goto(blockUrl,{waitUntil:'domcontentloaded'});await p.bringToFront();
+    await p.waitForFunction(key=>document.documentElement.dataset.learnerWriter==='active' && Boolean(JSON.parse(localStorage.getItem(key)||'null')?.contentRevision?.witness),studyKey);
+    const before=await p.evaluate(key=>localStorage.getItem(key),studyKey);
+    await p.locator('[data-open-prepared-memory]').click();
+    await p.waitForFunction(()=>document.querySelector('[data-prepared-memory-status]')?.textContent.includes('无法安全打开'));
+    assert.equal(p.url(),blockUrl);assert.equal(await p.evaluate(key=>localStorage.getItem(key),key),null);
+    assert.equal(await p.evaluate(key=>localStorage.getItem(key),studyKey),before);
+    checks.push('compiled B1 failed-save path preserves old storage and study evidence and refuses Memory navigation');await ctx.close();
+  }
 
   // B2 starts in a separate empty browser profile. Its native current owner has
   // no formal Block prerequisite: never seed B1 completion to make entry pass.
-  {
+  if (includesBlock('b02')) {
     const b2Object=resolveXizongLearnerProjection(loadXizongBlock('circulation','b02'),{
       enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:marked.parse(projectKpCore(k.detailMarkdown))}))})
     }).learnerObject;
@@ -179,7 +219,7 @@ try {
     assert.deepEqual(b2Object.sourceContact.hardReadinessBlockIds,[]);
     assert.deepEqual(b2Object.sourceContact.requiredPriorBlockIds,[]);
     const b2Context=await browser.newContext({viewport:{width:1440,height:960}});
-    await b2Context.route('**/*',route=>new URL(route.request().url()).origin===base.origin?route.continue():route.abort());
+    await b2Context.route('**/*', localFixtureRoute);
     const b2Page=await b2Context.newPage();b2Page.on('pageerror',e=>errors.push(e.message));
     const b2Ready=async()=>{
       await b2Page.bringToFront();
@@ -347,7 +387,7 @@ try {
 
     // A fresh isolated browser profile proves persistence fails before routing.
     const failContext=await browser.newContext();
-    await failContext.route('**/*',route=>new URL(route.request().url()).origin===base.origin?route.continue():route.abort());
+    await failContext.route('**/*', localFixtureRoute);
     await failContext.addInitScript(()=>{
       const write=Storage.prototype.setItem;
       Storage.prototype.setItem=function(key,value){if(key==='kianos-xizong-memory-v1')throw new Error('Declared Memory persistence-failure fixture');return write.call(this,key,value);};
@@ -375,14 +415,14 @@ try {
     {slug:'b11',id:'xpg_e817b36d446e7568',text:/HFpEF/,label:'complete owner with expected-absent M08'},
     {slug:'b12',id:'xpg_4004a850c58fd059',text:/活动性大出血/,label:'compound Hb/volume owner and additional safety Core'}
   ];
-  for(const scenario of cases){
+  for(const scenario of cases.filter(row => includesBlock(row.slug))){
     const blockId=`circulation-${scenario.slug}`;
     const blockObject=resolveXizongLearnerProjection(loadXizongBlock('circulation',scenario.slug),{
       enrichBlock:b=>({...b,kpRecords:b.kpRecords.map(k=>({...k,detailHtml:marked.parse(projectKpCore(k.detailMarkdown))}))})
     }).learnerObject;
     const expected=describe(blockObject);
     const ctx=await browser.newContext({viewport:{width:1440,height:960}});
-    await ctx.route('**/*',route=>new URL(route.request().url()).origin===base.origin?route.continue():route.abort());
+    await ctx.route('**/*', localFixtureRoute);
     const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));
     const ready=async()=>{await p.bringToFront();await p.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');};
     const url=new URL(`/xizong/circulation/${scenario.slug}/`,base).href;
@@ -497,8 +537,8 @@ try {
     await ctx.close();
   }
   // The compound path must stop before navigation if persistence fails.
-  {
-    const ctx=await browser.newContext();await ctx.route('**/*',r=>new URL(r.request().url()).origin===base.origin?r.continue():r.abort());
+  if (includesBlock('b12')) {
+    const ctx=await browser.newContext();await ctx.route('**/*', localFixtureRoute);
     await ctx.addInitScript(()=>{const save=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='kianos-xizong-memory-v1')throw Error('Declared batch persistence failure');return save.call(this,k,v);};});
     const p=await ctx.newPage();p.on('pageerror',e=>errors.push(e.message));const url=new URL('/xizong/circulation/b12/',base).href;
     await p.goto(url,{waitUntil:'domcontentloaded'});await p.bringToFront();await p.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active');
@@ -513,7 +553,7 @@ try {
   }
 
   assert.deepEqual(errors,[]);
-  const result={status:'PASS',base:base.href,scope:'native B1/B2 regressions plus coherent remaining-A1 representative post-Chat KP Recall and prepared Memory in an isolated built-site browser; synthetic evidence only, not real learner or Stable proof',checks};
+  const result={status:'PASS',base:base.href,blocks:requestedBlocks || ['b01','b02',...cases.map(row=>row.slug)],scope:'Actual local browser UI and localStorage in isolated contexts; private checkpoint transport excluded; synthetic evidence only, not real learner or Stable proof',checks};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
 } catch (error) {
   const out=path.resolve(process.env.KIANOS_PREPARED_MEMORY_TEST_OUTPUT || '/tmp/kianos-xizong-1113-browser-proof');
@@ -521,5 +561,3 @@ try {
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({status:'FAIL',base:base.href,checks,errors,error:String(error?.stack||error)},null,2));
   throw error;
 } finally {await browser.close();}
-
-

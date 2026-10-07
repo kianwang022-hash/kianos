@@ -77,7 +77,9 @@ def run_suite(root: Path = ROOT) -> dict:
         expected = set(manifest['coverage']['rich_calibration_blocks'])
         got = {a['block_id'] for p,a in assets.items() if a.get('block_id') in expected and report['results'][p]['status'] == 'PASS'}
         assert got == expected and len(got) == 7
-        assert all(len({o['geometry'] for o in a['objects']}) > 1 for a in assets.values() if a.get('block_id') in expected)
+        assert all(len({o['geometry'] for o in a['objects']}) > 1 for a in assets.values() if a.get('block_id') in expected and a['block_id'] != 'circulation-b01')
+        model = assets[b1]['objects'][1]
+        assert model['geometry'] == 'TEXT_STRUCTURE' and model['binding']['role'] == 'CANONICAL_MODEL'
         return {'calibration_pass':sorted(got)}
     check('seven_heterogeneous_calibration_assets',seven)
 
@@ -101,12 +103,12 @@ def run_suite(root: Path = ROOT) -> dict:
         ('missing_pin',b1,lambda a:a['sources'][0].pop('blob_sha'),'FRESHNESS'),
         ('invalid_pin',b1,lambda a:a['sources'][0].update(blob_sha='bad'),'FRESHNESS'),
         ('strict_hash_mismatch',b1,lambda a:a['sources'][0].update(blob_sha='0'*40),'STALE'),
-        ('strict_derived_cannot_downgrade_to_resolve',b1,lambda a:a['sources'][0].update(freshness='RESOLVE_BINDING'),'FRESHNESS'),
+        ('strict_derived_cannot_downgrade_to_resolve',b1,lambda a:(a['sources'][0].update(freshness='RESOLVE_BINDING'),a['objects'][1].update(binding={'kind':'DERIVED_FRAGMENT','source_id':'core','selector':{'type':'MARKDOWN_SECTION','anchor':'# 总 Framework'}})),'FRESHNESS'),
         ('wrong_source_path',b1,lambda a:a['sources'][0].update(path='../outside.md'),'PATH'),
         ('missing_binding_type_guard',b1,lambda a:a['learning_support']['recall_spine'].pop('value_type'),'TYPE'),
-        ('missing_source_id',b1,lambda a:a['objects'][1]['binding'].update(source_id='missing'),'SOURCE'),
-        ('selector_unknown',b1,lambda a:a['objects'][1]['binding']['selector'].update(type='SEMANTIC_SEARCH'),'SELECTOR'),
-        ('framework_anchor_fuzzy_typo',b1,lambda a:a['objects'][-1]['binding']['selector'].update(anchor='# 总 Framewor'),'SELECTOR'),
+        ('missing_source_id',b1,lambda a:a['objects'][1].update(binding={'kind':'FIELD_REF','source_id':'missing','selector':{'type':'MARKDOWN_SECTION','anchor':'# 总 Framework'},'value_type':'string'}),'SOURCE'),
+        ('selector_unknown',b1,lambda a:a['objects'][1].update(binding={'kind':'DERIVED_FRAGMENT','source_id':'core','selector':{'type':'SEMANTIC_SEARCH','anchor':'# 总 Framework'},'value_type':'string'}),'SELECTOR'),
+        ('framework_anchor_fuzzy_typo',b1,lambda a:a['objects'][1].update(binding={'kind':'DERIVED_FRAGMENT','source_id':'core','selector':{'type':'MARKDOWN_SECTION','anchor':'# 总 Framewor'},'value_type':'string'}),'SELECTOR'),
         ('remove_neutral_flag',b1,lambda a:a['views']['KP_RECALL_FRONT'].pop('protection'),'VISIBILITY'),
         ('remove_required_view',b1,lambda a:a['views'].pop('KP_RECALL_FRONT'),'VISIBILITY'),
         ('expose_recall_spine_via_support',b1,lambda a:a['views']['KP_RECALL_FRONT'].update(learning_support_keys=['recall_spine']),'VISIBILITY'),

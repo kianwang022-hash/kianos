@@ -1,8 +1,8 @@
 ---
-const { objectId = '', sourceHash = '' } = Astro.props;
+const { objectId = '', sourceHash = '', learnerObject = null } = Astro.props;
 const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
 ---
-<span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash}></span>
+<span hidden data-xizong-memory-release-bridge data-object-id={objectId} data-source-hash={sourceHash} data-canonical-knowledge={learnerObject?.semanticOwnership?.mode === 'CANONICAL_BLOCK' ? 'true' : 'false'}></span>
 <div hidden data-prepared-memory-action data-memory-href={memoryHref}>
   <button type="button" data-open-prepared-memory title="只把已有精确答案加入可浏览的 Memory，不代表学完或接触过原讲义。">打开已准备的 Memory</button>
   <span role="status" data-prepared-memory-status></span>
@@ -10,14 +10,14 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
 
 <script>
   import { XIZONG_MEMORY_STORAGE_KEY, readXizongMemoryStorage, readXizongPersonalStorage, makePreparedMemoryAvailable } from '../lib/xizongMemoryModel.mjs';
-  import { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } from '../lib/xizongMemoryRelease.mjs';
+  import * as compiledMemory from '../lib/xizongCompiledMemoryRelease.mjs';
   import {
     releaseCompletedBlockToMemory,
     syncXizongPersonalMarks,
     xizongStudyStorageKey
   } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  void learnerWriterReady.then(() => {
+  void learnerWriterReady.then(async () => {
 
 
   const root = document.querySelector('[data-xizong-v6-block]');
@@ -29,6 +29,11 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
   };
 
   const learnerObject = parseJson(payloadNode?.textContent, null);
+  const migrated = bridgeNode?.getAttribute('data-canonical-knowledge') === 'true';
+  if (migrated && learnerObject?.semanticOwnership?.mode !== 'CANONICAL_BLOCK') throw new Error('CURRENT_XIZONG_COMPILED_OWNERSHIP_MISSING');
+  const memory = migrated ? compiledMemory : await import('../lib/xizongMemoryRelease.mjs');
+  const { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } = memory;
+
   const objectId = bridgeNode?.getAttribute('data-object-id') || root?.getAttribute('data-study-object') || '';
   const sourceHash = bridgeNode?.getAttribute('data-source-hash') || '';
   let studyKey = '';
@@ -36,14 +41,14 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
 
   // Explicit Browse availability is independent of Source / KP / Block
   // completion. Use the resolved payload, never learner ratings or URL claims.
-  if (supportsXizongPreparedMemoryBlock(learnerObject?.identity?.blockId)) {
+  if (supportsXizongPreparedMemoryBlock(migrated ? learnerObject : learnerObject?.identity?.blockId)) {
   const preparedAction = document.querySelector('[data-prepared-memory-action]');
   const preparedButton = preparedAction?.querySelector('[data-open-prepared-memory]');
   const preparedStatus = preparedAction?.querySelector('[data-prepared-memory-status]');
   const preparedHost = root?.querySelector('.portedStudyShellActions');
   if (preparedAction && preparedButton && preparedHost) {
     try {
-      const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash });
+      const descriptor = buildXizongPreparedMemoryAvailability(learnerObject, { sourceHash, descriptorBuilder: memory.buildXizongMemoryReleaseDescriptorFromLearnerObject });
       preparedButton.textContent = `打开已准备的 Memory（${descriptor.precisionCards.length} 项）`;
       preparedAction.setAttribute('data-memory-href', `${preparedAction.getAttribute('data-memory-href')}&block=${encodeURIComponent(descriptor.blockId)}`);
       preparedHost.append(preparedAction);
@@ -75,7 +80,7 @@ const memoryHref = `${import.meta.env.BASE_URL}xizong/memory/?view=precision`;
       const studyState = parseJson(localStorage.getItem(studyKey), {});
       memoryState = readXizongMemoryStorage(localStorage);
       const personal = readXizongPersonalStorage(localStorage, objectId);
-      result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash });
+      result = releaseCompletedBlockToMemory(memoryState, learnerObject, studyState, { sourceHash, descriptorBuilder: memory.buildXizongMemoryReleaseDescriptorFromLearnerObject });
       result.state = syncXizongPersonalMarks(result.state, learnerObject, personal, objectId);
     } catch (error) {
       console.error(error);

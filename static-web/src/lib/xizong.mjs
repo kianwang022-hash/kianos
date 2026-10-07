@@ -1,3 +1,4 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import { readMetadataDeclaration, readCompoundLectureLocator } from './xizongKpMetadata.mjs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -31,11 +32,11 @@ function absolute(relativePath) {
 }
 
 function readText(relativePath) {
-  return fs.readFileSync(absolute(relativePath), 'utf8');
+  return readXizongCompileFile(absolute(relativePath), 'utf8');
 }
 
 function readJson(relativePath) {
-  return JSON.parse(readText(relativePath));
+  return readXizongCompileJson(absolute(relativePath));
 }
 
 function sha256(value) {
@@ -428,8 +429,8 @@ function parseKpsFromStableMarkers(markdown, blockId) {
   });
 }
 
-function normalizeLogicGroups(system, blockId, kpRecords, blockSupport = null) {
-  const accepted = normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount: kpRecords.length });
+function normalizeLogicGroups(system, blockId, kpRecords, blockSupport = null, knowledge = null) {
+  const accepted = normalizeAcceptedLogicGroups({ system, blockId, blockSupport, kpCount: kpRecords.length, knowledge });
   const byOrdinal = new Map(kpRecords.map(kp => [kp.ordinal, kp]));
   return accepted.map(group => {
     const kpIds = group.kpOrdinals.map(ordinal => {
@@ -835,14 +836,49 @@ export function loadXizongSystem(systemId) {
   return normalizedSystem(record);
 }
 
+// Optional atomic Knowledge ownership. A declared owner never falls back to
+// historical System/Learning/shared semantics when its canonical payload breaks.
+export function readXizongCanonicalKnowledge(markdown, blockId, declaredOwner = '') {
+  const matches = [...String(markdown).matchAll(/<!-- kianos:knowledge\n([\s\S]*?)\n-->/g)];
+  if (!declaredOwner && !matches.length) return null;
+  if (matches.length !== 1) throw new Error(`CURRENT_XIZONG_KNOWLEDGE_OWNER_MISSING_OR_DUPLICATE:${blockId}`);
+  let owner;
+  try { owner = JSON.parse(matches[0][1]); } catch { throw new Error(`CURRENT_XIZONG_KNOWLEDGE_OWNER_INVALID:${blockId}`); }
+  if (owner?.block_id !== blockId || !Array.isArray(owner.logic_groups) || !owner.logic_groups.length) {
+    throw new Error(`CURRENT_XIZONG_KNOWLEDGE_OWNER_IDENTITY_INVALID:${blockId}`);
+  }
+  const known = ['block_id', 'logic_groups', 'fragments', 'exact_items', 'gate_views', 'inactive_gate_refs', 'orientation_view', 'model', 'center_question'];
+  if (Object.keys(owner).some(key => !known.includes(key))) throw new Error(`CURRENT_XIZONG_KNOWLEDGE_FIELD_UNKNOWN:${blockId}`);
+  const ids = new Set();
+  for (const group of owner.logic_groups) {
+    if (Object.keys(group).some(key => !['groupId', 'label', 'membershipMode', 'kpOrdinals'].includes(key))
+      || !group.groupId || ids.has(group.groupId)) throw new Error(`CURRENT_XIZONG_KNOWLEDGE_GROUP_INVALID:${blockId}`);
+    ids.add(group.groupId);
+  }
+  const items = new Set();
+  for (const view of owner.exact_items || []) {
+    if (!view.item?.memory_id || items.has(view.item.memory_id) || Object.hasOwn(view.item, 'answer')
+      || Object.hasOwn(view.item, 'anchor') || Object.hasOwn(view.item, 'anchors')) throw new Error(`CURRENT_XIZONG_KNOWLEDGE_EXACT_ITEM_INVALID:${blockId}`);
+    items.add(view.item.memory_id);
+  }
+  return owner;
+}
+
 export function loadXizongBlock(systemId, blockSlugOrId) {
+  return memoXizongCompile(`block:${systemId}:${blockSlugOrId}`, () => loadBlock(systemId, blockSlugOrId));
+}
+function loadBlock(systemId, blockSlugOrId) {
   const cacheKey = `${systemId}:${blockSlugOrId}`;
   if (BUILD_CACHE_ENABLED && blockCache.has(cacheKey)) return blockCache.get(cacheKey);
   const system = loadXizongSystem(systemId);
   const blockMeta = system.blocks.find((block) => block.slug === blockSlugOrId || block.blockId === blockSlugOrId);
   if (!blockMeta) throw new Error(`CURRENT_XIZONG_BLOCK_NOT_FOUND:${systemId}:${blockSlugOrId}`);
 
-  const markdown = readText(blockMeta.sourcePath);
+  const sourceMarkdown = readText(blockMeta.sourcePath);
+  const markdown = sourceMarkdown
+    .replace(/<!-- kianos:knowledge\n[\s\S]*?\n-->\n\n/g, '')
+    .replace(/<!-- kianos:model [^\n]+ -->\n[\s\S]*?<!-- \/kianos:model -->\n\n/g, '')
+    .replace(/<!-- kianos:historical-opening\n[\s\S]*?\n-->\n\n/g, '');
   const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
   if (system.learningSupport && !blockSupport) {
     throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
@@ -861,9 +897,32 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     if (!kpOrdinalSet.has(ordinal)) throw new Error(`CURRENT_XIZONG_KP_IDENTITY_SET_MISMATCH:${blockMeta.blockId}:missing-${ordinal}`);
   }
 
-  const logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords, blockSupport);
+  if (blockSupport?.knowledge_owner && blockSupport.knowledge_owner !== blockMeta.sourcePath) {
+    throw new Error(`CURRENT_XIZONG_KNOWLEDGE_OWNER_PATH_MISMATCH:${blockMeta.blockId}`);
+  }
+  const knowledge = readXizongCanonicalKnowledge(sourceMarkdown, blockMeta.blockId, blockSupport?.knowledge_owner);
+  const logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords, blockSupport, knowledge);
 
-  const intro = blockOpeningOrientation(markdown);
+  const modelMatches = [...sourceMarkdown.matchAll(/<!-- kianos:model ([^\n]+) -->\n([\s\S]*?)<!-- \/kianos:model -->\n\n/g)];
+  let modelMarkdown = null;
+  if (knowledge?.model) {
+    const model = knowledge.model;
+    if (model.status !== 'CURRENT' || model.derivation !== 'REVIEWED_DERIVATION' || modelMatches.length !== 1
+      || modelMatches[0][1] !== model.section || !/^[a-f0-9]{40}$/.test(model.adopted_source_blob)) throw new Error(`CURRENT_XIZONG_MODEL_OWNER_INVALID:${blockMeta.blockId}`);
+    for (const kp of kpRecords) {
+      if (model.core_dependencies?.[kp.kpId] !== sha256(kp.detailMarkdown)) throw new Error(`CURRENT_XIZONG_MODEL_DERIVATION_STALE:${kp.kpId}`);
+    }
+    const used = [];
+    modelMarkdown = modelMatches[0][2].replace(/\{\{kp:([^}]+)\}\}/g, (_, id) => {
+      const kp = kpRecords.find(row => row.kpId === id);
+      if (!kp) throw new Error(`CURRENT_XIZONG_MODEL_KP_UNRESOLVED:${id}`);
+      used.push(id);
+      // Stable identity link: the model owns position, the KP owns its title/Prompt.
+      return `[${kp.title}〔${kp.prompt}〕](#${id})`;
+    });
+    if (JSON.stringify(used) !== JSON.stringify(model.node_kp_ids)) throw new Error(`CURRENT_XIZONG_MODEL_BINDINGS_INVALID:${blockMeta.blockId}`);
+  } else if (modelMatches.length) throw new Error(`CURRENT_XIZONG_MODEL_OWNER_MISSING:${blockMeta.blockId}`);
+  const intro = modelMarkdown == null ? blockOpeningOrientation(markdown) : { markdown: modelMarkdown };
   const visualGate = sectionByTitle(markdown, (title) => /原图门禁/.test(title));
   if (!intro) throw new Error(`CURRENT_XIZONG_BLOCK_LEARN_MISSING:${blockMeta.blockId}`);
 
@@ -875,8 +934,9 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     systemTitle: system.title,
     systemSourcePath: system.sourcePath,
     systemSourceHash: system.sourceHash,
-    centerQuestion: extractCenterQuestion(markdown),
+    centerQuestion: knowledge ? String(knowledge.center_question || '') : extractCenterQuestion(markdown),
     blockLearnMarkdown: intro.markdown,
+    ...(modelMarkdown == null ? {} : { modelMarkdown, knowledgeReferenceMarkdown: markdown }),
     visualGateMarkdown: visualGate?.markdown || '',
     firstPassFocus: String(blockSupport?.first_pass_focus || ''),
     stopLine: String(blockSupport?.stop_line || ''),
@@ -885,9 +945,10 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     learningSupportSourceHash: system.learningSupport?.sourceHash || '',
     logicGroups,
     kpRecords,
+    ...(knowledge ? { knowledge } : {}),
     sourceHash: system.learningSupport?.schemaFamily === 'TOP_LEVEL_LOGIC_GROUPS_WITH_CONTENT_REALIZATION'
       ? sha256(`${markdown}\n${JSON.stringify(blockSupport)}`)
-      : sha256(markdown)
+      : sha256(sourceMarkdown)
   };
   if (BUILD_CACHE_ENABLED) {
     blockCache.set(cacheKey, result);
@@ -896,4 +957,44 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     blockCache.set(`${systemId}:${blockMeta.slug}`, result);
   }
   return result;
+}
+
+// Exact, cardinality-checked views of the same canonical facts. These recipes
+// carry presentation operations, never another independently editable answer.
+export function resolveXizongKnowledgeView(block, expression) {
+  const fail = detail => { throw new Error(`CURRENT_XIZONG_KNOWLEDGE_VIEW_INVALID:${block?.blockId}:${detail}`); };
+  function evaluate(expr, depth = 0) {
+    if (!expr || typeof expr !== 'object' || depth > 32) fail('EXPRESSION');
+    if (typeof expr.literal === 'string') return expr.literal;
+    if (typeof expr.ref === 'string') {
+      const spec = block.knowledge?.fragments?.[expr.ref];
+      if (!spec || spec.cardinality !== 1 || !Number.isInteger(spec.capture_group)) fail(expr.ref);
+      const source = spec.kp_ordinal == null ? block.blockLearnMarkdown
+        : block.kpRecords.find(kp => kp.ordinal === spec.kp_ordinal)?.detailMarkdown;
+      if (typeof source !== 'string') fail(`SOURCE:${expr.ref}`);
+      const matches = [...source.matchAll(new RegExp(spec.pattern, [...new Set(`${spec.flags || ''}g`)].join('')))];
+      if (matches.length !== 1 || typeof matches[0][spec.capture_group] !== 'string') fail(`SELECTOR:${expr.ref}:${matches.length}`);
+      return matches[0][spec.capture_group];
+    }
+    if (Array.isArray(expr.concat)) return expr.concat.map(part => evaluate(part, depth + 1)).join('');
+    if (!expr.from || !Array.isArray(expr.ops)) fail('OPERATION');
+    let value = evaluate(expr.from, depth + 1);
+    for (const op of expr.ops) {
+      if (op.op === 'strip_emphasis') value = value.replaceAll('**', '');
+      else if (op.op === 'regex_replace') {
+        const multiline = op.pattern.startsWith('(?m)');
+        value = value.replace(new RegExp(multiline ? op.pattern.slice(4) : op.pattern,
+          [...new Set(`${op.flags || 'g'}${multiline ? 'm' : ''}`)].join('')), op.replacement);
+      } else if (op.op === 'remove_suffix') { if (value.endsWith(op.value)) value = value.slice(0, -op.value.length); }
+      else if (op.op === 'remove_prefix') { if (value.startsWith(op.value)) value = value.slice(op.value.length); }
+      else if (op.op === 'before') value = value.split(op.value)[0];
+      else if (op.op === 'line') { value = value.split(/\r?\n/)[op.index]; if (typeof value !== 'string') fail('LINE'); }
+      else if (op.op === 'lexical_alias') {
+        if (typeof op.source !== 'string' || typeof op.value !== 'string') fail('ALIAS');
+        if (value === op.source) value = op.value;
+      } else fail(`UNSUPPORTED:${op.op}`);
+    }
+    return value;
+  }
+  return evaluate(expression);
 }

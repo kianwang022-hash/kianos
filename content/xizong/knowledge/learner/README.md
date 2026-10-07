@@ -20,6 +20,16 @@ This README owns routing and freshness only.
 
 ## Chat-led Block reading entry
 
+For **migrated A1 / circulation-b01**, the normal Chat input is the same versioned learner object used by Website and Memory. Resolve it once with the existing read-only inspector:
+
+```sh
+node static-web/scripts/inspect-xizong-content.mjs circulation circulation-b01 --json
+```
+
+Use `learnerObject.model` for the adopted continuous model and natural full-Prompt bindings, `kps` for exact canonical knowledge, the resolved Precision/Visual/Connection slots for their actual content and timing, and `sourceContact` for execution/Source limits. `semanticOwnership.sourcePath` identifies the one editable canonical Block. A missing owner, stale reviewed derivation or invalid admission refuses the affected compile; do not repair it by assembling shared-fields, cue JSON, teaching prose or Acceptance comments in Chat. Acceptance remains audit/lifecycle evidence. The old teaching file remains history/presentation, not another current model input. Explanation depth, wording and folding may adapt without changing the model or knowledge locations.
+
+The following legacy read route applies **only to unmigrated Blocks**; it is not a fallback for B1.
+
 For continuation, resolve actual learner context first. First retain [Learning Contract §0 — highest learner-facing invariant](../../LEARNING_CONTRACT.md#learning-outcome). For a named System/Block lesson:
 
 1. Read [Learning Contract §2｜Ownership](../../LEARNING_CONTRACT.md) → [Knowledge manifest](../manifest.json) → full Current canonical Block and System, including explicit Framework, comparisons, Source locators, boundaries and MI-G/MI-D.
@@ -39,7 +49,7 @@ Only an exact teaching package accepted against [Learning Contract §0](../../LE
 
 ### Accepted B1 teaching basis
 
-For **A1 Circulation / circulation-b01 only**, the [exact B1 adoption receipt](../systems/a1-circulation/ACCEPTANCE.md#b1-teaching-adoption-20261006) admits [the B1 teaching/compressed-review model](../../projection/a1-circulation/chat/b01-teaching.md) as the stable normal Chat input under Learning Contract §0 and §13. Read the receipt and refresh the canonical/System/Learning owners above before using the same model for teaching or compressed reconstruction.
+For **A1 Circulation / circulation-b01 only**, use the migrated single-object entry above. The [exact B1 adoption receipt](../systems/a1-circulation/ACCEPTANCE.md#b1-teaching-adoption-20261006) admits [the B1 teaching/compressed-review model](../../projection/a1-circulation/chat/b01-teaching.md) as the adopted model basis under Learning Contract §0 and §13. Its preserved model is now canonical and compiled; this receipt explains adoption rather than supplying normal runtime content.
 
 This is the corrected `2ea5d4df25a98c60241d0233a9c04cac650ffa44` B1 view, explicitly adopted by Kian on 2026-10-06 and merged by [#1197](https://github.com/kianwang022-hash/kianos/pull/1197). Its saved `CANDIDATE_DERIVATION` header and candidate wording record the review-time artifact boundary; the current adoption state is owned by the exact Acceptance receipt. They remain byte-preserved with the tested teaching content and do not create medical authority. This routing exception admits no other Block or old review file.
 

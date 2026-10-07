@@ -8,13 +8,13 @@
       "id": "core",
       "kind": "MEDICAL_CORE",
       "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
-      "blob_sha": "68787c46d9d389157985bfa258ebff4cb97f4be7"
+      "blob_sha": "f62485f0545499d6cd11448c0fd8e0e1f7fbfa22"
     },
     {
       "id": "learning",
       "kind": "LEARNING_SUPPORT",
       "path": "content/xizong/knowledge/learner/a1-circulation-learning.json",
-      "blob_sha": "de71f997b53d51bc867715b69cdbe748ed9c7fc9"
+      "blob_sha": "5e460bfa917d70250bc19ca5c5bad83a299046d4"
     }
   ],
   "canonical_scope": {
@@ -71,63 +71,23 @@
       "role": "PROBLEM",
       "geometry": "TEXT_STRUCTURE",
       "binding": {
-        "kind": "DERIVED_FRAGMENT",
-        "source_id": "core",
-        "selector": {
-          "type": "LABELED_BLOCKQUOTE",
-          "label": "中心问题"
-        }
+        "kind": "OWNER_REF",
+        "owner_type": "BLOCK",
+        "id": "circulation-b01",
+        "role": "CENTER_QUESTION"
       },
       "stage_role": "PRIMARY_STAGE",
       "answer_bearing": false
     },
     {
-      "object_id": "circulation-b01-mechanism-spine",
-      "role": "CHAIN",
-      "geometry": "SEQUENCE",
-      "binding": {
-        "kind": "DERIVED_FRAGMENT",
-        "source_id": "core",
-        "selector": {
-          "type": "STRUCTURE_AFTER_ANCHOR",
-          "anchor": "整个 B1 先只留下这一条 Mechanism Spine：",
-          "structure_type": "CODE_BLOCK",
-          "occurrence": 1
-        }
-      },
-      "stage_role": "PRIMARY_STAGE",
-      "answer_bearing": true
-    },
-    {
-      "object_id": "circulation-b01-formula-language",
-      "role": "MAP",
-      "geometry": "FORMULA_STRIP",
-      "binding": {
-        "kind": "DERIVED_FRAGMENT",
-        "source_id": "core",
-        "selector": {
-          "type": "STRUCTURE_AFTER_ANCHOR",
-          "anchor": "四个公式是这条链的最小变量语言：",
-          "structure_type": "CODE_BLOCK",
-          "occurrence": 1
-        }
-      },
-      "stage_role": "SECONDARY_STAGE",
-      "answer_bearing": true
-    },
-    {
       "object_id": "circulation-b01-framework",
       "role": "MAP",
-      "geometry": "SEQUENCE",
+      "geometry": "TEXT_STRUCTURE",
       "binding": {
-        "kind": "DERIVED_FRAGMENT",
-        "source_id": "core",
-        "selector": {
-          "type": "STRUCTURE_AFTER_ANCHOR",
-          "anchor": "# 总 Framework",
-          "structure_type": "CODE_BLOCK",
-          "occurrence": 1
-        }
+        "kind": "OWNER_REF",
+        "owner_type": "BLOCK",
+        "id": "circulation-b01",
+        "role": "CANONICAL_MODEL"
       },
       "stage_role": "PRIMARY_STAGE",
       "answer_bearing": true
@@ -138,8 +98,6 @@
     "BLOCK_ORIENT": {
       "object_ids": [
         "circulation-b01-problem",
-        "circulation-b01-mechanism-spine",
-        "circulation-b01-formula-language",
         "circulation-b01-framework"
       ],
       "learning_support_keys": [
@@ -198,7 +156,6 @@
     }
   },
   "calibration_notes": [
-    "Tests Chain + FormulaStrip + Framework without copying canonical KP Core.",
-    "No A1-specific Visual/Precision sidecar is manufactured for symmetry."
+    "The canonical Block owns the adopted continuous model and its natural KP bindings; Projection references it without a second model."
   ]
 }

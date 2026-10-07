@@ -1,3 +1,4 @@
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as legacyFixtureDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
 // Generic owner-context fixtures deliberately have no real admitted System identity.
 import {
   appendMemoryEvidence,
@@ -9,7 +10,7 @@ import {
 import {
   inspectXizongBlockCompletion,
   inspectXizongSystemCompletion,
-  releaseCompletedBlockToMemory,
+  releaseCompletedBlockToMemory as releaseCompiledOrLegacyFixture,
   xizongStudyStorageKey
 } from '../src/lib/xizongMemoryAutoRelease.mjs';
 
@@ -213,3 +214,10 @@ console.log(JSON.stringify({
   first_pass_today: today.length,
   stale_signal_replay_blocked: true
 }, null, 2));
+
+// This file retains deliberate pre-compiler fixtures. Explicitly inject their
+// legacy adapter; production migrated consumers never import that raw owner path.
+function releaseCompletedBlockToMemory(state, learner, study, options = {}) {
+  return releaseCompiledOrLegacyFixture(state, learner, study,
+    { ...options, descriptorBuilder: legacyFixtureDescriptor });
+}
