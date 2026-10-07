@@ -165,7 +165,7 @@ Framework
 
 > **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
 
-## MI-G
+## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
 
 - 急性肾炎三个别名；
 - β溶血性链球菌感染后1–3周；
@@ -183,7 +183,7 @@ Framework
 - 慢性肾炎 >3个月、后期双肾对称缩小；
 - 慢性肾炎治疗目标是延缓恶化，不是消灭全部尿异常。
 
-## MI-D
+## 真正 residual：MI-D / Precision
 
 - 全部剂量、疗程与禁忌；
 - 各类继发疾病完整名单；
