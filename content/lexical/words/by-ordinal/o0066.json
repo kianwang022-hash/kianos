@@ -10,12 +10,17 @@
       {
         "pattern": "add A to B",
         "meaning_cn": "把 A 加到 B 上",
-        "construction_id": "construction:add:handoff-8b4ede2b75cfb079"
+        "construction_id": "construction:add:handoff-8b4ede2b75cfb079",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:8bec28812b6c683c42a1",
+          "reason": "The existing add sth to sth collocation carries the complete A-to-B addition skeleton."
+        }
       },
       {
         "pattern": "add (sth) up",
-        "meaning_cn": "把……加起来；（情况/解释）说得通",
-        "construction_id": "construction:bd40f68b07ef7124995d"
+        "meaning_cn": "add (sth) up：计算总数；a story/explanation adds up：说得通（不及物，常见否定）",
+        "construction_id": "construction:bd40f68b07ef7124995d",
+        "learning_note": "bills/costs add up：费用逐渐累计成大额，主语为费用、没有宾语；并非把某个解释加起来。"
       },
       {
         "pattern": "add up to sth",
@@ -81,19 +86,6 @@
             ],
             "meaning_cn": "增加困难",
             "phrase": "add to the difficulty"
-          },
-          {
-            "collocation_id": "collocation:2c9afc651a6a14c49aa3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:add:9187fb8196f45430:collocation:0"
-            ],
-            "meaning_cn": "增添，增加",
-            "phrase": "add to + sth",
-            "presentation_merge": {
-              "surviving_phrase": "add to + sth",
-              "surviving_source_sense_id": "sense:add:5a9d92edcbbf564b"
-            }
           }
         ],
         "confidence": "medium",
@@ -522,19 +514,27 @@
       }
     ],
     "active_collocations": [
-      "collocation:2c9afc651a6a14c49aa3",
       "collocation:8bec28812b6c683c42a1",
       "collocation:99288478b4bcca940fe4",
       "collocation:b46a2ddfa396b1f3dd33",
       "collocation:c51c3801b87c735fe794",
       "collocation:f54d24e1114a8b876558"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:add:handoff-8b4ede2b75cfb079",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:2c9afc651a6a14c49aa3",
         "source_row": 3778,
-        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json",
+        "status": "merged",
+        "merged_into_id": "collocation:b46a2ddfa396b1f3dd33"
       },
       {
         "id": "collocation:8bec28812b6c683c42a1",

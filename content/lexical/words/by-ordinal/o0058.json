@@ -18,12 +18,21 @@
       },
       {
         "construction_id": "construction:action:handoff-4420a3ef6005141c",
-        "pattern": "legal action",
-        "meaning_cn": "法律诉讼或法律行动",
-        "definition_en": "proceedings or measures under law",
+        "pattern": "legal action | bring/file an action (against sb)",
+        "meaning_cn": "法律行动或诉讼；a/an action 可指一宗诉讼",
+        "definition_en": "legal proceedings or measures; a countable action can be a lawsuit",
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:action:e4726e0701f73f11",
+        "pattern": "out of action",
+        "meaning_cn": "不能运作；因伤或故障不能参加活动",
+        "definition_en": "unable to work or take part because of injury or a fault",
+        "level": "L2",
+        "pos": "phrase",
+        "source": "https://www.oxfordlearnersdictionaries.com/definition/english/action_1"
       }
     ],
     "content_hash": "f924e54bfe05077299ec9ca47627df0495a9789d59d04ec66e889d01dc2eed58",
@@ -101,6 +110,18 @@
         "sense_label_en": "the operation, effect, or mechanism by which something works or acts",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:action:c9ce9c4a51015154",
+        "pos": "noun",
+        "definition_cn": "战斗，作战",
+        "definition_en": "fighting during a war",
+        "governing_pattern": "see action | be killed/missing in action",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "collocations": [],
+        "sort_order": 2,
+        "usage_note": "战争语境中指战斗/作战，不是一般“采取措施”。"
       }
     ],
     "verification_summary": {
@@ -427,31 +448,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:action:c9ce9c4a51015154",
-      "status": "merged",
-      "merged_into_sense_id": "sense:action:35715f8fe8d75892",
-      "pos": "noun",
-      "definition_cn": "战斗，作战",
-      "definition_en": "fighting during a war",
-      "semantic_key": "83a943bb938d04bf5b831592c6e3ccbe4775f8c6d1e212261fbb090dd0c44a9a",
-      "semantic_key_history": [
-        "05bf7c5f03c477c533ff459c7b305d2161c36098e87a0462a9aa47f0d8f4d7d9"
-      ],
-      "legacy_aliases": [
-        "action:l3:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "action:l3:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 158,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:action:f6033e36e30f5518",
       "status": "merged",
       "merged_into_sense_id": "sense:action:35715f8fe8d75892",
@@ -488,10 +484,11 @@
       },
       {
         "sense_id": "sense:action:c9ce9c4a51015154",
-        "status": "merged",
-        "merged_into_sense_id": "sense:action:35715f8fe8d75892",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 158,
-        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+        "previous_merged_into_sense_id": "sense:action:35715f8fe8d75892"
       },
       {
         "sense_id": "sense:action:dff3f124f9e65911",

@@ -12,14 +12,28 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "抽象概念/模型/思想",
-        "pattern": "abstract + concept/model/idea"
+        "pattern": "abstract + concept/model/idea",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:1a4336d484967ef2b583",
+          "reason": "Abstract concept/model/idea are ordinary adjective+noun examples, not a separate reusable Construction."
+        }
       },
       {
         "construction_id": "construction:19ab57ac7e31c4d9b202",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "论文/文章的摘要",
-        "pattern": "an abstract of/from a paper/article"
+        "pattern": "an abstract of a paper/article",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/abstract",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "Collins COBUILD noun entry explicitly supports an abstract of a document, article or speech; this does not approve freely replacing of with from"
+          }
+        ]
       },
       {
         "construction_id": "construction:19ab57ac7e31c4d9b203",
@@ -104,8 +118,8 @@
           }
         ],
         "confidence": "high",
-        "definition_cn": "抽象的；作为概念存在而非具体物体/实例的",
-        "definition_en": "existing as an idea, quality, or general concept rather than a concrete physical instance",
+        "definition_cn": "抽象的；作为概念而非具体实例的；（艺术）非具象的",
+        "definition_en": "existing as a concept rather than a concrete instance; in art, using forms and colours rather than representing recognizable people or things",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
@@ -114,7 +128,16 @@
         "sense_label_en": "conceptual rather than concrete",
         "sort_order": 0,
         "transitivity": "nonverb",
-        "usage_note": "As adjective/noun, stress is normally on the first syllable: AB-stract."
+        "usage_note": "As adjective/noun, stress is normally on the first syllable: AB-stract.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/abstract",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "abstract art is nonrepresentational, beyond conceptual vs concrete"
+          }
+        ]
       },
       {
         "collocations": [
@@ -154,7 +177,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:b4cb2e848b0a00a613f5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:abstract:d665d4c15aae5ea2:collocation:0"
             ],
@@ -467,7 +490,6 @@
       "collocation:2255bd40db066fe3d294",
       "collocation:9afd54b832c7df8283cf",
       "collocation:b04bed99ea544054dd47",
-      "collocation:b4cb2e848b0a00a613f5",
       "collocation:ef37fa184bd004463c42"
     ],
     "facts": [
@@ -475,6 +497,13 @@
         "id": "deep:word_family:abstract:98ca9a55a449911d",
         "source_row": 3,
         "source_path": "content/lexical/canonical/facts/shards/o0001-0032.json"
+      },
+      {
+        "id": "construction:19ab57ac7e31c4d9b201",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
       }
     ],
     "collocations": [
@@ -501,7 +530,10 @@
       {
         "id": "collocation:b4cb2e848b0a00a613f5",
         "source_row": 15322,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:ef37fa184bd004463c42",
