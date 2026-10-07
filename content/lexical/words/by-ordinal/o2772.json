@@ -74,6 +74,15 @@
         "module": "constructions",
         "pattern": "lay the groundwork/basis/foundation(s) for sth",
         "source_sense_id": null
+      },
+      {
+        "construction_id": "construction:lay:lay-of-the-land",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "地形地势；（引申）事情的实际情况、形势",
+        "definition_en": "the features of a place, or the current situation and how it works",
+        "pattern": "the lay of the land",
+        "boundary": "fixed topography/situation phrase; standalone rare noun lay remains Reference"
       }
     ],
     "content_hash": "bbb03afeedb006384c6434ff8606c797a9e68f8370ab36648152db3439b127be",
@@ -91,14 +100,6 @@
           ]
         },
         {
-          "label_cn": "位置；层",
-          "label_en": "the position or arrangement of something",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:lay:e22ffe06404058e0"
-          ]
-        },
-        {
           "label_cn": "世俗的；外行的",
           "label_en": "not belonging to the clergy; not professional",
           "pos": "adjective",
@@ -109,7 +110,7 @@
       ],
       "core_meaning_cn": "放置",
       "core_meaning_en": "to put something down or position it",
-      "mental_model_cn": "放置",
+      "mental_model_cn": "verb → 放置/产卵/铺设；lay sth out → 布置/说明；the lay of the land → 地势或局面。罕见独立名词“位置/层”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -232,30 +233,6 @@
         "sense_label_en": "to impose something as a duty, burden, or punishment",
         "sort_order": 3,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a0b44d32d2559d371c83",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lay:e22ffe06404058e0:collocation:0"
-            ],
-            "meaning_cn": "地形；形势",
-            "phrase": "the lay of the land"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "位置；层",
-        "definition_en": "the position or arrangement of something",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:lay:e22ffe06404058e0",
-        "sense_label_en": "the position or arrangement of something",
-        "sort_order": 4,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -919,7 +896,32 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a0b44d32d2559d371c83",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lay:e22ffe06404058e0:collocation:0"
+          ],
+          "meaning_cn": "地形；形势",
+          "phrase": "the lay of the land"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "位置；层",
+      "definition_en": "the position or arrangement of something",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:lay:e22ffe06404058e0",
+      "sense_label_en": "the position or arrangement of something",
+      "sort_order": 4,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -959,7 +961,7 @@
       },
       {
         "sense_id": "sense:lay:e22ffe06404058e0",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7674,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
@@ -971,7 +973,6 @@
       "collocation:725b56ce306c5a6608cd",
       "collocation:90f59ad17a4f58874eb4",
       "collocation:9e98917cdc2d9d112b93",
-      "collocation:a0b44d32d2559d371c83",
       "collocation:d30830f20e30fe132cd2"
     ],
     "facts": [
@@ -1020,7 +1021,9 @@
       {
         "id": "collocation:a0b44d32d2559d371c83",
         "source_row": 13662,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d30830f20e30fe132cd2",
