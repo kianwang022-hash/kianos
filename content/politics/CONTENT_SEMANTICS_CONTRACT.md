@@ -287,6 +287,26 @@ when Current chapter semantics have not changed.
 
 If the canonical spine must change, update the original chapter/semantic owner and reconcile dependent review prompts, Memory cues and Projection. Do not preserve both versions as two learner truths.
 
+### 3.3.1 Kian self-use quick-review realization
+
+A chapter brief may contain one lightweight **Kian self-use quick-review view** produced during real Chat learning.
+
+It is a reference projection over the canonical chapter model, not another semantic owner. It may:
+- group adjacent canonical nodes into fewer learner-facing lines;
+- use one short expansion cue per line;
+- include an even thinner keyword-only view.
+
+It must:
+- keep enough mapping to verify against the canonical spine;
+- preserve decisive relations and bridges;
+- avoid listing answer members inside the expansion cue;
+- route omitted content to existing teaching/support, reviewed Precision/Memory or explicit Source gap;
+- never imply that every omitted detail deserves Memory;
+- never create a separate Runtime/Website/plan/admission object.
+
+Chapter-close editing of this view is assembly/reconciliation of lines already formed during learning. A newly invented alternative summary at chapter close is invalid when it changes the learner's model rather than thinning the learned one.
+
+
 ---
 
 ## 4｜Evidence discipline
