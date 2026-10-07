@@ -106,8 +106,9 @@ def inspect(text):
     canonical = CANONICAL.read_text()
     expected = annotations(canonical)
     require(OLD_EXIT not in canonical and canonical.count(CURRENT_EXIT) == 1, 'stale exit premise')
-    require(blob(canonical.replace(CURRENT_EXIT, OLD_EXIT)) == CANONICAL_BASE_BLOB,
-            'unreviewed canonical change beyond exit alignment')
+    calibrated = re.sub(r'^# 同一模型上的自然节点〔完整 Prompt〕\n[\s\S]*?^---\n\n(?=^# ① 感知：谁先发现循环变量偏了$)', '', canonical, count=1, flags=re.M)
+    require(blob(calibrated.replace(CURRENT_EXIT, OLD_EXIT)) == CANONICAL_BASE_BLOB,
+            'unreviewed canonical change beyond exit alignment / natural Prompt calibration')
     chunks = sorted((int(m[1]), int(m[2]), m[3]) for m in SOURCE.finditer(text))
     require(bool(chunks), 'original explanation missing')
     next_line = 1
@@ -260,7 +261,7 @@ class B2SameModelTest(unittest.TestCase):
             'truncated_prompt': text.replace('感受器/刺激｜传入｜双向链｜夹闭｜6特点｜重调定｜长短期分工', '感受器/刺激｜传入', 1),
             'orphan_prompt': text[:first.start()]+first[0].replace('- [','[',1)+text[first.end():],
             'missing_external': text.replace(ext[0], '', 1),
-            'wrong_external': text.replace('plain=1#L345', 'plain=1#L346', 1),
+            'wrong_external': text[:ext.start()] + re.sub(r'#L\d+', '#L999999', ext[0], count=1) + text[ext.end():],
             'wrong_model_home': text[:first.start()]+text[first.end():]+'\n'+first[0],
             'flattened_renal_execution': text[:child.start()]+child[0].lstrip()+text[child.end():],
             'new_edge': text.replace('ECF与血容量 → 再查灌注', 'ECF与血容量 → GFR必升 → 再查灌注', 1),
