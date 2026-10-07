@@ -65,7 +65,7 @@
             "legacy_source_object_ids": [
               "sense:effect:832fe9868899563d:collocation:1"
             ],
-            "meaning_cn": "副作用",
+            "meaning_cn": "副作用；伴随主要作用出现的次生结果，常指不良影响",
             "phrase": "side effect"
           },
           {
@@ -118,7 +118,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5fb3753849b04a0cfef1",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:effect:dcd0cfb49bb25c09:collocation:0"
             ],
@@ -127,7 +127,7 @@
           },
           {
             "collocation_id": "collocation:ccdae13b373303c77a8b",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:effect:dcd0cfb49bb25c09:collocation:1"
             ],
@@ -145,30 +145,6 @@
         "sense_id": "sense:effect:dcd0cfb49bb25c09",
         "sense_label_en": "the state of being in operation or having legal validity",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3dbf59b88737030486be",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:effect:b10e490521e55ff5:collocation:0"
-            ],
-            "meaning_cn": "副作用",
-            "phrase": "side effect"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "副作用；非预期的次生结果",
-        "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:effect:b10e490521e55ff5",
-        "sense_label_en": "an unintended or secondary result of an action, especially an adverse effect",
-        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -354,6 +330,33 @@
       "source_row": 4407,
       "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3dbf59b88737030486be",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:effect:b10e490521e55ff5:collocation:0"
+          ],
+          "meaning_cn": "副作用",
+          "phrase": "side effect"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "副作用；非预期的次生结果",
+      "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:effect:b10e490521e55ff5",
+      "sense_label_en": "an unintended or secondary result of an action, especially an adverse effect",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:effect:832fe9868899563d"
     }
   ],
   "identity_refs": {
@@ -388,8 +391,8 @@
       },
       {
         "sense_id": "sense:effect:b10e490521e55ff5",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:effect:832fe9868899563d",
         "source_row": 4411,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
       },
@@ -403,7 +406,6 @@
     ],
     "active_collocations": [
       "collocation:18db738ae0dfd80ef61e",
-      "collocation:3dbf59b88737030486be",
       "collocation:5fb3753849b04a0cfef1",
       "collocation:8547a6ac58bd2f9324fe",
       "collocation:b118902e66bee06d6f02",
@@ -437,7 +439,9 @@
       {
         "id": "collocation:3dbf59b88737030486be",
         "source_row": 5219,
-        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json",
+        "status": "merged",
+        "merged_into_id": "collocation:18db738ae0dfd80ef61e"
       },
       {
         "id": "collocation:5fb3753849b04a0cfef1",

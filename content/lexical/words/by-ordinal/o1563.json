@@ -12,8 +12,8 @@
       "core_clusters": [],
       "core_meaning_cn": "与资源、生产和货币如何组织有关",
       "core_meaning_en": "relating to how resources, production, and money are organized",
-      "mental_model_cn": "economic 讲经济系统；economical 讲节省资源。",
-      "mental_model_en": "Economic describes the system of allocating resources; economical describes using them without waste."
+      "mental_model_cn": "economic 通常讲经济系统，也可表示划算、有经济可行性；economical 侧重节省资源。成本语境可能重叠。",
+      "mental_model_en": "Economic usually concerns the economy, but can also mean commercially viable; economical emphasizes avoiding waste, with some overlap in cost contexts."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -38,7 +38,7 @@
             "legacy_source_object_ids": [
               "sense:economic:e003c4a4aa5b51ab:collocation:0"
             ],
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济增长",
             "meaning_en": "connected with production, trade, income, or the use of resources",
             "phrase": "economic growth"
           },
@@ -48,7 +48,7 @@
             "legacy_source_object_ids": [
               "sense:economic:e003c4a4aa5b51ab:collocation:1"
             ],
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济不平等",
             "meaning_en": "connected with production, trade, income, or the use of resources",
             "phrase": "economic inequality"
           },
@@ -58,9 +58,19 @@
             "legacy_source_object_ids": [
               "sense:economic:e003c4a4aa5b51ab:collocation:2"
             ],
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济政策",
             "meaning_en": "connected with production, trade, income, or the use of resources",
             "phrase": "economic policy"
+          },
+          {
+            "collocation_id": "collocation:04feb678cd13f91d9d58",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:economic:aa7c4dba5d7558df:collocation:0"
+            ],
+            "meaning_cn": "资源配置方面的选择",
+            "meaning_en": "relating broadly to choices under limited resources",
+            "phrase": "economic choice"
           }
         ],
         "confidence": "high",
@@ -102,7 +112,7 @@
             "legacy_source_object_ids": [
               "sense:economic:3e8cb124bb105857:collocation:0"
             ],
-            "meaning_cn": "有经济效益的；划算可行的",
+            "meaning_cn": "运营起来有经济效益／划算",
             "meaning_en": "able to make enough benefit to justify its cost",
             "phrase": "economic to operate"
           },
@@ -112,7 +122,7 @@
             "legacy_source_object_ids": [
               "sense:economic:3e8cb124bb105857:collocation:1"
             ],
-            "meaning_cn": "有经济效益的；划算可行的",
+            "meaning_cn": "经济可行性",
             "meaning_en": "able to make enough benefit to justify its cost",
             "phrase": "economic viability"
           }
@@ -129,50 +139,6 @@
         "sense_id": "sense:economic:3e8cb124bb105857",
         "sense_label_en": "commercially viable",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:04feb678cd13f91d9d58",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:economic:aa7c4dba5d7558df:collocation:0"
-            ],
-            "meaning_cn": "资源配置方面的",
-            "meaning_en": "relating broadly to choices under limited resources",
-            "phrase": "economic choice"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "资源配置方面的",
-        "definition_en": "relating broadly to choices under limited resources",
-        "depth": "recognition_only",
-        "domain_tag": "economics",
-        "frequency_tag": "specialized",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:economic:aa7c4dba5d7558df",
-        "sense_label_en": "resource allocation",
-        "sort_order": 2,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -277,7 +243,55 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:04feb678cd13f91d9d58",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:economic:aa7c4dba5d7558df:collocation:0"
+          ],
+          "meaning_cn": "资源配置方面的选择",
+          "meaning_en": "relating broadly to choices under limited resources",
+          "phrase": "economic choice"
+        }
+      ],
+      "confidence": "high",
+      "definition_cn": "资源配置方面的",
+      "definition_en": "relating broadly to choices under limited resources",
+      "depth": "recognition_only",
+      "domain_tag": "economics",
+      "frequency_tag": "specialized",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:economic:aa7c4dba5d7558df",
+      "sense_label_en": "resource allocation",
+      "sort_order": 2,
+      "source_evidence": [
+        {
+          "role": "local_evidence",
+          "source": "kaoyan"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_ecdict"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_oewn"
+        },
+        {
+          "role": "local_evidence",
+          "source": "ai_curated_mvp_v1"
+        }
+      ],
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:economic:e003c4a4aa5b51ab"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -289,8 +303,8 @@
       },
       {
         "sense_id": "sense:economic:aa7c4dba5d7558df",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:economic:e003c4a4aa5b51ab",
         "source_row": 4377,
         "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json"
       },
@@ -326,7 +340,8 @@
       {
         "id": "collocation:04feb678cd13f91d9d58",
         "source_row": 402,
-        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json",
+        "sense_id": "sense:economic:e003c4a4aa5b51ab"
       },
       {
         "id": "collocation:23715ff8ea08745a2a62",

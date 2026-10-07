@@ -17,19 +17,11 @@
           "sense_ids": [
             "sense:earnest:dd4c86b9ce825896"
           ]
-        },
-        {
-          "label_cn": "定金，保证金",
-          "label_en": "something of value given by one person to another to bind a contract",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:earnest:85ffa92467ab5ba9"
-          ]
         }
       ],
-      "core_meaning_cn": "认真诚挚，或承诺的象征",
-      "core_meaning_en": "serious and sincere, or a token of commitment",
-      "mental_model_cn": "认真诚挚，或承诺的象征",
+      "core_meaning_cn": "认真、真诚而投入的",
+      "core_meaning_en": "serious and sincere",
+      "mental_model_cn": "主干是认真、真诚投入；合同定金的专门名词用法保留查阅。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,30 +63,6 @@
         "sense_id": "sense:earnest:dd4c86b9ce825896",
         "sense_label_en": "serious, sincere, and intent",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b352c1b37eb84a4b1d36",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:earnest:85ffa92467ab5ba9:collocation:0"
-            ],
-            "meaning_cn": "定金",
-            "phrase": "earnest money"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "定金，保证金",
-        "definition_en": "something of value given by one person to another to bind a contract",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:earnest:85ffa92467ab5ba9",
-        "sense_label_en": "something of value given by one person to another to bind a contract",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -420,12 +388,40 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b352c1b37eb84a4b1d36",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:earnest:85ffa92467ab5ba9:collocation:0"
+          ],
+          "meaning_cn": "定金",
+          "phrase": "earnest money"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "定金，保证金",
+      "definition_en": "something of value given by one person to another to bind a contract",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:earnest:85ffa92467ab5ba9",
+      "sense_label_en": "something of value given by one person to another to bind a contract",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:earnest:85ffa92467ab5ba9",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4333,
         "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json"
@@ -440,8 +436,7 @@
     ],
     "active_collocations": [
       "collocation:1dcc37f4dc7b0ce31e69",
-      "collocation:717ec20ea5a25a955728",
-      "collocation:b352c1b37eb84a4b1d36"
+      "collocation:717ec20ea5a25a955728"
     ],
     "facts": [],
     "collocations": [
@@ -458,7 +453,9 @@
       {
         "id": "collocation:b352c1b37eb84a4b1d36",
         "source_row": 15200,
-        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
