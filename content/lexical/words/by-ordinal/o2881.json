@@ -12,14 +12,20 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "调查；研究…",
-        "pattern": "look into sth"
+        "pattern": "look into sth",
+        "definition_en": "investigate or examine something in order to discover facts",
+        "boundary": "phrasal meaning = investigate; not literal visual looking",
+        "semantic_attachment": "construction_only"
       },
       {
         "construction_id": "construction:556635fdc28ef8e76de9",
         "direction": "R",
         "level": "L2",
         "meaning_cn": "指望；依靠…",
-        "pattern": "look to sb/sth for sth / to do sth"
+        "pattern": "look to sb/sth for sth / to do sth",
+        "definition_en": "rely on, expect help/guidance from, or direct attention to someone/something for a purpose",
+        "boundary": "look to = rely on/seek help, guidance, or a solution; not literal gaze",
+        "semantic_attachment": "construction_only"
       },
       {
         "construction_id": "construction:fa4c4dce677ef99627b0",
@@ -48,24 +54,34 @@
         "level": "L1",
         "meaning_cn": "看起来像；似乎",
         "pattern": "look like sb/sth / look like + clause"
+      },
+      {
+        "construction_id": "construction:look:in-eye-face",
+        "pattern": "look sb in the eye/face",
+        "meaning_cn": "直视某人；坦然、直接地面对某人",
+        "definition_en": "look directly at someone, often in a way that shows confidence, honesty, or lack of shame",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only",
+        "boundary": "idiomatic/direct-gaze pattern; not a separate general transitive look Sense"
       }
     ],
     "content_hash": "f27a943b0378ed3d0267ddbec2bebddc4ed9eb4bf44eb6cc7039326b1d05168a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "看；注视；显得；看起来；打量；注视",
-          "label_en": "perceive with attention; direct one's gaze towards; give a certain impression or have a certain outward aspect; to direct one's gaze towards (someone or something)",
+          "label_cn": "看；注视；显得；看起来",
+          "label_en": "to direct the eyes/attention; or to seem/appear",
           "pos": "verb",
           "sense_ids": [
             "sense:look:dfa0100c2c6850bf",
-            "sense:look:20c3443ed1b35a30",
-            "sense:look:93235c3fc0855994"
+            "sense:look:20c3443ed1b35a30"
           ]
         },
         {
           "label_cn": "看；一瞥；样子；外表",
-          "label_en": "the act of directing the eyes toward something and perceiving it visually; physical appearance",
+          "label_en": "a look/glance; physical appearance",
           "pos": "noun",
           "sense_ids": [
             "sense:look:e315784916b0530d",
@@ -73,9 +89,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "看；显得",
-      "core_meaning_en": "to direct one's eyes or to appear",
-      "mental_model_cn": "看；显得",
+      "core_meaning_cn": "看、注视；显得；一瞥或外表",
+      "core_meaning_en": "to direct your eyes/attention or appear; as a noun, a glance or appearance",
+      "mental_model_cn": "look at → 看；look + adj → 显得；noun look → 一看/外表；look for/after/into/to/forward to 等靠构式选义；look sb in the eye/face 是固定直视构式。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -211,30 +227,6 @@
         "sense_label_en": "physical appearance",
         "sort_order": 3,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:eb1dd60d3d53dcef2ec1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:look:93235c3fc0855994:collocation:0"
-            ],
-            "meaning_cn": "直视某人",
-            "phrase": "look someone in the eye"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "打量；注视",
-        "definition_en": "to direct one's gaze towards (someone or something)",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:look:93235c3fc0855994",
-        "sense_label_en": "to direct one's gaze towards (someone or something)",
-        "sort_order": 4,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -561,7 +553,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:eb1dd60d3d53dcef2ec1",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:look:93235c3fc0855994:collocation:0"
+          ],
+          "meaning_cn": "直视某人",
+          "phrase": "look someone in the eye"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "打量；注视",
+      "definition_en": "to direct one's gaze towards (someone or something)",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:look:93235c3fc0855994",
+      "sense_label_en": "to direct one's gaze towards (someone or something)",
+      "sort_order": 4,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -580,7 +597,7 @@
       },
       {
         "sense_id": "sense:look:93235c3fc0855994",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8022,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -607,8 +624,7 @@
       "collocation:78e7e5fea8bba5eb93a1",
       "collocation:994dc5c7a11c4e49f894",
       "collocation:9c0dfac13f22b9f91e3f",
-      "collocation:d2001fc86925aeaa40f9",
-      "collocation:eb1dd60d3d53dcef2ec1"
+      "collocation:d2001fc86925aeaa40f9"
     ],
     "facts": [],
     "collocations": [
@@ -650,7 +666,9 @@
       {
         "id": "collocation:eb1dd60d3d53dcef2ec1",
         "source_row": 19921,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

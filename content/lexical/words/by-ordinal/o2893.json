@@ -6,13 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:lounge:around-about",
+        "pattern": "lounge around/about (somewhere)",
+        "meaning_cn": "懒洋洋地闲待着；坐着/躺着放松，几乎什么也不做",
+        "definition_en": "spend time in a relaxed way, sitting or lying somewhere and doing very little",
+        "level": "L2",
+        "pos": "verb",
+        "direction": "R+P",
+        "sense_id": "sense:lounge:62c40bb1d8f4592f",
+        "boundary": "phrasal extension of lounge = sit/lie in a relaxed way; not a separate general verb Sense"
+      }
+    ],
     "content_hash": "a6c9c4bc31d7cd4c22344ccbccc9a30c6c2a5faa0495d672e3a7c145b1b0c4b5",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "休息室；候机厅；长沙发",
-          "label_en": "a room in a hotel, airport, etc. where people can sit and wait; a long comfortable seat for two or more people",
+          "label_en": "a lounge/waiting room; a long comfortable seat",
           "pos": "noun",
           "sense_ids": [
             "sense:lounge:b904b7f69302558f",
@@ -20,18 +32,17 @@
           ]
         },
         {
-          "label_cn": "懒洋洋地坐或躺；闲混；消磨时间",
-          "label_en": "to sit or lie in a relaxed way; to spend time doing nothing or relaxing",
+          "label_cn": "懒洋洋地坐或躺；放松",
+          "label_en": "to sit or lie in a relaxed way",
           "pos": "verb",
           "sense_ids": [
-            "sense:lounge:62c40bb1d8f4592f",
-            "sense:lounge:0f7e6c1e11c95a12"
+            "sense:lounge:62c40bb1d8f4592f"
           ]
         }
       ],
-      "core_meaning_cn": "休息室或懒散地休息",
-      "core_meaning_en": "a comfortable waiting area or to relax lazily",
-      "mental_model_cn": "休息室或懒散地休息",
+      "core_meaning_cn": "休息室；懒洋洋地坐/躺着放松",
+      "core_meaning_en": "a room for relaxing/waiting; or to sit/lie in a relaxed way",
+      "mental_model_cn": "place → lounge 休息室/候机厅；verb → 懒洋洋地坐/躺；lounge around/about → 闲待着、放松而几乎不做事。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,15 +89,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:c0e0ec9a8d46aeea3f5b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lounge:62c40bb1d8f4592f:collocation:0"
-            ],
-            "meaning_cn": "闲逛；无所事事",
-            "phrase": "lounge around"
-          },
-          {
             "collocation_id": "collocation:08061028eb3f4fab193d",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -131,30 +133,6 @@
         "sense_label_en": "a long comfortable seat for two or more people",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6df65b922089ce3802da",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lounge:0f7e6c1e11c95a12:collocation:0"
-            ],
-            "meaning_cn": "闲逛；无所事事",
-            "phrase": "lounge about"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "闲混；消磨时间",
-        "definition_en": "to spend time doing nothing or relaxing",
-        "governing_pattern": "vi. + (about/around)",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lounge:0f7e6c1e11c95a12",
-        "sense_label_en": "to spend time doing nothing or relaxing",
-        "sort_order": 3,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -277,12 +255,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6df65b922089ce3802da",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:lounge:0f7e6c1e11c95a12:collocation:0"
+          ],
+          "meaning_cn": "闲逛；无所事事",
+          "phrase": "lounge about"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "闲混；消磨时间",
+      "definition_en": "to spend time doing nothing or relaxing",
+      "governing_pattern": "vi. + (about/around)",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lounge:0f7e6c1e11c95a12",
+      "sense_label_en": "to spend time doing nothing or relaxing",
+      "sort_order": 3,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:lounge:0f7e6c1e11c95a12",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8061,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -312,8 +315,6 @@
     "active_collocations": [
       "collocation:08061028eb3f4fab193d",
       "collocation:5ec949936105df23166b",
-      "collocation:6df65b922089ce3802da",
-      "collocation:c0e0ec9a8d46aeea3f5b",
       "collocation:d0d15296c32972ba3857",
       "collocation:de72d3a9fbb53e72b52d"
     ],
@@ -332,12 +333,16 @@
       {
         "id": "collocation:6df65b922089ce3802da",
         "source_row": 9271,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c0e0ec9a8d46aeea3f5b",
         "source_row": 16300,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d0d15296c32972ba3857",
