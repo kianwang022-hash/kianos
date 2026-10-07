@@ -232,7 +232,12 @@ has(xizongLib, 'function blockOpeningOrientation(markdown)', 'generic-opening-fa
 has(xizongLib, "replace(/^---\\s*\\n[\\s\\S]*?\\n---\\s*\\n+/, '')", 'generic-opening-does-not-strip-frontmatter');
 has(xizongLib, 'const kpOrdinalSet = new Set(kpRecords.map((record) => record.ordinal));', 'stable-kp-identity-set-check-missing');
 lacks(xizongLib, /record\.ordinal\s*!==\s*index\s*\+\s*1/, 'loader-still-forces-numeric-kp-order');
-has(xizongLib, 'const intro = blockOpeningOrientation(markdown);', 'loader-bypasses-generic-opening');
+const migratedOpening=loadXizongBlock('circulation','b01');
+assert(migratedOpening.modelMarkdown&&migratedOpening.blockLearnMarkdown===migratedOpening.modelMarkdown,'migrated-opening-is-not-canonical-model');
+for (const [system,slug] of [['circulation','b02'],['respiratory','r02'],['urinary','b02']]) {
+  const block=loadXizongBlock(system,slug);
+  assert(!block.modelMarkdown&&block.blockLearnMarkdown.trim()&&!/^---/.test(block.blockLearnMarkdown),'generic-opening-fallback-missing:'+block.blockId);
+}
 
 lacks(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared-runtime-seeds-private-holdout');
 has(practiceUi, "let holdoutYears = data.allowHoldout ? [] : readJson(holdoutKey, []);", 'system-holdout-empty-by-default-with-explicit-chat-override-only');

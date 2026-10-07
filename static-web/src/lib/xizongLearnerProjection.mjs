@@ -1,4 +1,12 @@
+import { marked } from 'marked';
+import { projectBlockLearn, projectKpCore, projectVisualGate } from './xizongProjection.mjs';
+import { isDeepStrictEqual } from 'node:util';
+import { createHash } from 'node:crypto';
+import { withXizongCompileContext, seedXizongCompile } from './xizongCompileContext.mjs';
 import { buildXizongRevisionWitness } from './xizongRevisionWitness.mjs';
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as buildNativeMemoryDescriptor,
+  buildXizongPreparedMemoryAvailability as buildNativeAvailability,
+  supportsXizongPreparedMemoryBlock as supportsNativeAvailability } from './xizongMemoryRelease.mjs';
 import { attachSourceVisualBundles as attachCanonicalVisualBundles } from './xizongSourceVisualAssets.mjs';
 import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
 import { buildXizongProductionBlock } from './xizongProductionProjection.mjs';
@@ -22,7 +30,15 @@ function fail(code, detail = '') {
  * caller. The semantic resolver itself stays runnable in plain Node so Current
  * validation does not depend on `import.meta.glob`.
  */
-export function resolveXizongLearnerProjection(canonicalBlock, {
+export function resolveXizongLearnerProjection(canonicalBlock, options = {}) {
+  return withXizongCompileContext(() => {
+    if (!canonicalBlock?.kpRecords) canonicalBlock = loadXizongBlock(canonicalBlock?.systemId, canonicalBlock?.blockId);
+    seedXizongCompile(`block:${canonicalBlock?.systemId}:${canonicalBlock?.blockId}`, canonicalBlock);
+    seedXizongCompile(`block:${canonicalBlock?.systemId}:${canonicalBlock?.slug}`, canonicalBlock);
+    return compileLearnerProjection(canonicalBlock, options);
+  });
+}
+function compileLearnerProjection(canonicalBlock, {
   enrichBlock = null,
   attachVisualBundles = attachCanonicalVisualBundles
 } = {}) {
@@ -30,11 +46,25 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
 
   const system = loadXizongSystem(canonicalBlock.systemId);
   const productionBlock = buildXizongProductionBlock(canonicalBlock);
+  const productionSnapshot = structuredClone(productionBlock);
   const block = typeof enrichBlock === 'function' ? enrichBlock(productionBlock) : productionBlock;
 
   if (!block || block.blockId !== productionBlock.blockId || block.systemId !== productionBlock.systemId) {
     fail('ENRICHMENT_IDENTITY_DRIFT', canonicalBlock.blockId);
   }
+  const semanticFields = value => {
+    const { blockLearnHtml, visualGateHtml, ...semantic } = value;
+    return { ...semantic, kpRecords: (semantic.kpRecords || []).map(({ detailHtml, ...kp }) => kp) };
+  };
+  if (!isDeepStrictEqual(semanticFields(block), semanticFields(productionSnapshot))) fail('ENRICHMENT_SEMANTIC_DRIFT', canonicalBlock.blockId);
+  if (block.blockLearnHtml !== undefined && block.blockLearnHtml !== marked.parse(projectBlockLearn(productionSnapshot.blockLearnMarkdown), {gfm:true})) fail('ENRICHMENT_MODEL_HTML_DRIFT', canonicalBlock.blockId);
+  const visualHtml = productionSnapshot.visualGateMarkdown ? marked.parse(projectVisualGate(productionSnapshot.visualGateMarkdown), {gfm:true}) : '';
+  if (block.visualGateHtml !== undefined && block.visualGateHtml !== visualHtml) fail('ENRICHMENT_VISUAL_HTML_DRIFT', canonicalBlock.blockId);
+  for (const [index, kp] of (block.kpRecords || []).entries()) {
+    if (kp.detailHtml !== undefined && kp.detailHtml !== marked.parse(projectKpCore(productionSnapshot.kpRecords[index].detailMarkdown), {gfm:true})) fail('ENRICHMENT_CORE_HTML_DRIFT', kp.kpId);
+  }
+
+
 
   const cues = loadXizongLearningCues(system);
   const rawLearningCues = learningCuesForBlock(cues, block);
@@ -56,7 +86,44 @@ export function resolveXizongLearnerProjection(canonicalBlock, {
     extensionAssets,
     pathways
   });
+  if (canonicalBlock.knowledge) learnerObject.preparedMemory = {
+    blockId: block.blockId, sourceHash: learnerObject.sourceHash, identity: { ...learnerObject.identity },
+    semanticOwner: canonicalBlock.knowledge ? canonicalBlock.sourcePath : null,
+    items: (learningCues.precision || []).filter(row => row.prepared_memory_ref && row.answer_html).map(row => ({
+      id: row.id, cue: row.cue, anchor: structuredClone(row.anchor), prepared_memory_ref: structuredClone(row.prepared_memory_ref), answer_html: row.answer_html,
+      prepared_memory_owner: row.prepared_memory_owner
+    }))
+  };
+  if (canonicalBlock.knowledge) {
+    learnerObject.semanticOwnership = { sourcePath: canonicalBlock.sourcePath, mode: 'CANONICAL_BLOCK' };
+    if (canonicalBlock.modelMarkdown) learnerObject.model = { markdown: canonicalBlock.modelMarkdown, sourcePath: canonicalBlock.sourcePath };
+    learnerObject.presentation = {
+      objectId: block.objectId, slug: block.slug, systemTitle: block.systemTitle, sourcePath: block.sourcePath,
+      semanticAdapterSchema: block.semanticAdapterSchema, attention: block.attention, ttsx: block.ttsx,
+      blockLearnHtml: block.blockLearnHtml || '', visualGateHtml: block.visualGateHtml || '',
+      knowledgeReferenceHtml: marked.parse(canonicalBlock.knowledgeReferenceMarkdown.replace(/^(#{1,6}) (.+)$/gm, (_, hashes, title) => {
+        const kp = title.match(/^KP(\d+)｜/);
+        const id = kp ? `${block.blockId}-kp${kp[1].padStart(2,'0')}`
+          : `${block.blockId}-reference-${createHash('sha256').update(title).digest('hex').slice(0,12)}`;
+        const escaped = title.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        return `<h${hashes.length} id="${id}">${escaped}</h${hashes.length}>`;
+      }), {gfm:true})
+    };
+  }
   learnerObject.revisionWitness = buildXizongRevisionWitness(learnerObject);
+  if (!canonicalBlock.knowledge) {
+    // The current native admission edge is resolved once at composition time.
+    // Shared state consumers subsequently project this serialized object and
+    // cannot choose a different builder or open an admission index themselves.
+    const native = buildNativeMemoryDescriptor(learnerObject);
+    const availabilityCardIds=supportsNativeAvailability(block.blockId) && native.precisionCards.some(card => card.answerResolution === 'EXACT_CURRENT_OWNER')
+      ? buildNativeAvailability(learnerObject).precisionCards.map(card => card.id) : [];
+    learnerObject.preparedMemory = { mode:'CURRENT_NATIVE', blockId:block.blockId,
+      sourceHash:learnerObject.sourceHash, identity:{ ...learnerObject.identity },
+      items:native.precisionCards.map(card => ({ id:card.precisionCueId, card,
+        cue:structuredClone([...learnerObject.kps.flatMap(kp => kp.precision || []), ...learnerObject.logicGroups.flatMap(group => group.precision || [])].find(cue => cue.id === card.precisionCueId)) })),
+      availabilityCardIds };
+  }
   const report = validateXizongLearnerObject(learnerObject);
 
   return {

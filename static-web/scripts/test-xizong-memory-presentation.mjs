@@ -11,6 +11,7 @@ const { loadXizongBlock, loadXizongSystem } = await import('../src/lib/xizong.mj
 const { buildXizongProductionBlock } = await import('../src/lib/xizongProductionProjection.mjs');
 const { loadXizongLearningCues, learningCuesForBlock } = await import('../src/lib/xizongLearningCues.mjs');
 const { buildXizongLearnerObject } = await import('../src/lib/xizongLearnerObject.mjs');
+const { resolveXizongLearnerProjection } = await import('../src/lib/xizongLearnerProjection.mjs');
 const { buildXizongRevisionWitness } = await import('../src/lib/xizongRevisionWitness.mjs');
 const { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } = await import('../src/lib/xizongMemoryRelease.mjs');
 const { createXizongMemoryState, makePreparedMemoryAvailable, appendMemoryEvidence } = await import('../src/lib/xizongMemoryModel.mjs');
@@ -20,7 +21,8 @@ for (const [systemId, prefix, count] of [['circulation', 'b', 12], ['respiratory
   for (let n = 1; n <= count; n++) {
     const block = buildXizongProductionBlock(loadXizongBlock(systemId, `${prefix}${String(n).padStart(2, '0')}`));
     if (!supportsXizongPreparedMemoryBlock(block.blockId)) continue;
-    const object = buildXizongLearnerObject({ block, learningCues: learningCuesForBlock(cues, block) });
+    const object = block.knowledge ? resolveXizongLearnerProjection({systemId,blockId:block.blockId}).learnerObject
+      : buildXizongLearnerObject({ block, learningCues: learningCuesForBlock(cues, block) });
     object.revisionWitness = buildXizongRevisionWitness(object);
     const descriptor = buildXizongPreparedMemoryAvailability(object);
     const before = JSON.stringify(descriptor);

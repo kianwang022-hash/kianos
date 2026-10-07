@@ -1,8 +1,9 @@
 ---
 import revisionRuntimeUrl from '../lib/xizongContentRevision.mjs?url';
+import { presentXizongLearnerBlock } from '../lib/xizongLearnerObject.mjs';
 import XizongCognitiveProjectionStage from './XizongCognitiveProjectionStage.astro';
 
-const { block } = Astro.props;
+const block = Astro.props.learnerObject ? presentXizongLearnerBlock(Astro.props.learnerObject) : Astro.props.block;
 const base = import.meta.env.BASE_URL;
 const kps = block?.kpRecords || [];
 const groups = block?.logicGroups || [];
@@ -237,6 +238,10 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           </div>
           {attention.minimalModel && <div class="xv6MinimalModel"><span>先带着这个最小模型</span><p>{attention.minimalModel}</p></div>}
           <XizongCognitiveProjectionStage projection={block.cognitiveProjection} />
+          {block.knowledgeReferenceHtml && <details class="portedStudyArticle" data-canonical-knowledge-reference>
+            <summary>完整知识（按需查阅）</summary>
+            <div class="markdown" set:html={block.knowledgeReferenceHtml}></div>
+          </details>}
           {!block?.cognitiveProjection?.compiled && block.blockLearnHtml && (
             <article class="portedStudyArticle markdown xv6BlockOrientation" set:html={block.blockLearnHtml}></article>
           )}
@@ -489,6 +494,21 @@ window.__kianosLearnerWriterReady.then(async () => {
     const storageKey = `kianos-xizong-astro-v2:${objectId}`;
     const groups = groupPayload || [];
     const kpData = kpPayload || [];
+    // Reference navigation opens the same compiled knowledge. It never enters
+    // a learning stage or writes Source, Recall, rating or completion evidence.
+    const openKnowledgeReference = () => {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const reference = root.querySelector('[data-canonical-knowledge-reference]');
+      const target = document.getElementById(id);
+      if (!(reference instanceof HTMLDetailsElement) || !id || !target || !reference.contains(target)) return;
+      reference.open = true;
+      target.scrollIntoView({block:'start'});
+    };
+    window.addEventListener('hashchange', openKnowledgeReference);
+    root.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+      if (link.getAttribute('href') === location.hash) openKnowledgeReference();
+    }));
+    openKnowledgeReference();
     const ttsxData = Array.isArray(ttsxPayload) ? ttsxPayload : [];
     const kpRecallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const kpRailButtons = [...root.querySelectorAll('[data-kp-target]')];
@@ -1866,4 +1886,3 @@ window.__kianosLearnerWriterReady.then(async () => {
 
   });
 </script>
-

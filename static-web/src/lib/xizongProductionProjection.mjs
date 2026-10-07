@@ -1,3 +1,5 @@
+import { resolveXizongKnowledgeView, resolveXizongCanonicalModelView } from './xizong.mjs';
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -44,11 +46,11 @@ function exists(relativePath) {
 }
 
 function readText(relativePath) {
-  return fs.readFileSync(absolute(relativePath), 'utf8');
+  return readXizongCompileFile(absolute(relativePath), 'utf8');
 }
 
 function readJson(relativePath) {
-  return JSON.parse(readText(relativePath));
+  return readXizongCompileJson(absolute(relativePath));
 }
 
 function fail(code, detail = '') {
@@ -246,6 +248,19 @@ function appendExplicitAttention(rows, seen, {
 }
 
 function reviewedGateAttentionForBlock(canonicalBlock, kpRecords) {
+  if (canonicalBlock.knowledge) {
+    const rows = [], seen = new Set();
+    for (const gate of canonicalBlock.knowledge.gate_views || []) {
+      const kp = kpRecords.find(value => value.ordinal === gate.kp_ordinal);
+      if (!kp || gate.release_state !== 'ACTIVE') fail('CANONICAL_GATE_INVALID', gate.gate_id);
+      const anchors = gate.anchors.map(expr => cleanExplicitAttentionText(resolveXizongKnowledgeView(canonicalBlock, expr)));
+      if (!anchors.length || anchors.some(anchor => !cleanExplicitAttentionText(kp.detailMarkdown).includes(anchor))) fail('CANONICAL_GATE_STALE', gate.gate_id);
+      appendExplicitAttention(rows, seen, { kp, blockId: canonicalBlock.blockId, role: 'CURRENT_TAKEAWAY',
+        semanticRole: 'GATING_MEMORY', cue: anchors.join(gate.attention_joiner), sourcePath: canonicalBlock.sourcePath,
+        marker: 'SHARED_GATE_KNOWLEDGE' });
+    }
+    return rows;
+  }
   if (!exists(SHARED_FIELDS)) return [];
   const shared = readJson(SHARED_FIELDS);
   if (!String(shared?.authority || '').startsWith('CHAT_APPROVED')) return [];
@@ -508,6 +523,13 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
   if (binding.kind === 'OWNER_REF') {
     if (binding.owner_type === 'BLOCK' && binding.id !== canonicalBlock.blockId) fail('OWNER_ID_MISMATCH', String(binding.id));
     if (binding.owner_type === 'BLOCK' && binding.role === 'CENTER_QUESTION') return canonicalBlock.centerQuestion;
+    if (binding.owner_type === 'BLOCK' && binding.role === 'CANONICAL_MODEL') {
+      if (!canonicalBlock.knowledge?.model || !canonicalBlock.modelMarkdown) fail('CANONICAL_MODEL_MISSING', canonicalBlock.blockId);
+      return canonicalBlock.modelMarkdown;
+    }
+    if (binding.owner_type === 'BLOCK' && ['CANONICAL_MODEL_CHAIN', 'CANONICAL_MODEL_FORMULAS'].includes(binding.role)) {
+      return resolveXizongCanonicalModelView(canonicalBlock, binding.role === 'CANONICAL_MODEL_CHAIN' ? 'mechanism-spine' : 'formula-language');
+    }
     if (binding.owner_type === 'BLOCK' && binding.role === 'CANONICAL_GUIDE') {
       return {
         referenceOnly: true,
@@ -516,13 +538,13 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
       };
     }
     if (binding.owner_type === 'LOGIC_GROUP_SET') return semanticLogicMap(semanticBlock);
-    if (binding.owner_type === 'BLOCK') return { id: semanticBlock.blockId, label: semanticBlock.label, title: semanticBlock.title };
+    if (binding.owner_type === 'BLOCK' && !binding.role) return { id: semanticBlock.blockId, label: semanticBlock.label, title: semanticBlock.title };
     fail('OWNER_REF_UNSUPPORTED', `${binding.owner_type || ''}:${binding.role || ''}`);
   }
 
   const source = sources.get(binding.source_id);
   if (!source?.path || !exists(source.path)) fail('SOURCE_UNRESOLVED', String(binding.source_id || ''));
-  const sourceBytes = fs.readFileSync(absolute(source.path));
+  const sourceBytes = readXizongCompileFile(absolute(source.path));
   if (binding.kind === 'DERIVED_FRAGMENT' || source.kind === 'EXTERNAL_SOURCE_CONTRACT' || source.freshness === 'STRICT_BLOB') {
     const expected = source.blob_sha || source.baseline_blob_sha;
     const actual = crypto.createHash('sha1').update(`blob ${sourceBytes.length}\0`).update(sourceBytes).digest('hex');
@@ -545,7 +567,7 @@ function resolveBinding(asset, binding, canonicalBlock, semanticBlock) {
   }
 
   if (binding.kind === 'DERIVED_FRAGMENT') {
-    return resolveDerivedFragment(readText(source.path), binding.selector);
+    return resolveDerivedFragment(readText(source.path).replace(/<!-- kianos:knowledge\n[\s\S]*?\n-->\n\n/g, ''), binding.selector);
   }
 
   fail('BINDING_KIND_UNSUPPORTED', String(binding.kind || ''));

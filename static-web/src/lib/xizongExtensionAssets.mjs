@@ -1,3 +1,4 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -39,7 +40,7 @@ const assetUrls = (() => {
 
 const isObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 const isSha256 = (value) => /^[0-9a-f]{64}$/i.test(String(value || ''));
-const sha256File = (filePath) => crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+const sha256File = (filePath) => crypto.createHash('sha256').update(readXizongCompileFile(filePath)).digest('hex');
 
 function fail(code, detail = '') {
   throw new Error(`CURRENT_XIZONG_EXTENSION_${code}${detail ? `:${detail}` : ''}`);
@@ -292,30 +293,34 @@ function readCurrentManifests() {
     .map((fileName) => ({
       fileName,
       manifestPath: `${MANIFEST_ROOT}/${fileName}`,
-      raw: JSON.parse(fs.readFileSync(path.join(root, fileName), 'utf8'))
+      raw: readXizongCompileJson(path.join(root, fileName))
     }));
 }
 
-const currentValidation = validateExtensionManifests(readCurrentManifests());
-const currentAssets = Object.freeze(currentValidation.assets.map((asset) => {
-  const image = asset._validation.image;
-  const { _validation, ...clean } = asset;
-  return Object.freeze({
-    ...clean,
-    src: image?.resolved?.src || null,
-    asset_path: image?.assetPath || null
+let buildAssets = null;
+function currentAssets() {
+  if (process.env.KIANOS_XIZONG_BUILD_CACHE === '1' && buildAssets) return buildAssets;
+  const assets = memoXizongCompile('extension-assets', () => {
+    const validation = validateExtensionManifests(readCurrentManifests());
+    return Object.freeze(validation.assets.map(asset => {
+      const image = asset._validation.image;
+      const { _validation, ...clean } = asset;
+      return Object.freeze({ ...clean, src: image?.resolved?.src || null, asset_path: image?.assetPath || null });
+    }));
   });
-}));
+  if (process.env.KIANOS_XIZONG_BUILD_CACHE === '1') buildAssets = assets;
+  return assets;
+}
 
 export function allXizongExtensionAssets() {
-  return currentAssets;
+  return currentAssets();
 }
 
 export function extensionAssetsForBlock(block) {
   const blockId = String(block?.blockId || '');
-  return currentAssets.filter((asset) => asset.owner?.block_id === blockId);
+  return currentAssets().filter((asset) => asset.owner?.block_id === blockId);
 }
 
 export function extensionAssetsForCue(cueId) {
-  return currentAssets.filter((asset) => asset.cue_id === String(cueId || ''));
+  return currentAssets().filter((asset) => asset.cue_id === String(cueId || ''));
 }

@@ -54,10 +54,16 @@ export function reconcileXizongRevision(input = {}, current) {
   }
   const changed = current.kpOrder.filter(id => pendingKp[id]);
   const changedGroups = current.groupOrder.filter(id => pendingGroup[id]);
-  const blockChanged = progress && baselineKnown && previous.block !== current.block;
+  const modelBaselineMissing = progress && baselineKnown && !previous.blockModel
+    && current.blockModel?.schema === 'kianos.xizong.block-model-witness.v1'
+    && previous.block === current.blockModel.withoutModel;
+  // Adding model coverage to a previously nonmodel witness is an evidence gap,
+  // not proof of a medical edit and not retrospective model certification.
+  const blockChanged = progress && baselineKnown && previous.block !== current.block && !modelBaselineMissing;
   const sourceChanged = progress && baselineKnown && previous.contact !== current.contact;
   const transition = { from: previous?.sourceHash || oldHash || null, to: current.sourceHash,
-    classification: unknown ? 'UNCLASSIFIED_REVISION' : topology ? 'TOPOLOGY_CHANGE' : changed.length || changedGroups.length || blockChanged || sourceChanged ? 'LOCAL_SEMANTIC_CHANGE' : 'RETRIEVAL_OR_PRESENTATION_ONLY',
+    classification: unknown ? 'UNCLASSIFIED_REVISION' : topology ? 'TOPOLOGY_CHANGE' : changed.length || changedGroups.length || blockChanged || sourceChanged ? 'LOCAL_SEMANTIC_CHANGE' : modelBaselineMissing ? 'UNCLASSIFIED_REVISION' : 'RETRIEVAL_OR_PRESENTATION_ONLY',
+    ...(modelBaselineMissing ? {unwitnessedScopes:['BLOCK_MODEL'],reason:'MODEL_NOT_BOUND_BY_PRIOR_WITNESS'} : {}),
     impactedKpIds: changed, impactedGroupIds: changedGroups };
   state.contentRevision = { ...old, witness: current, pendingKp, pendingGroup,
     // Without the old topology, an index is not proof of a historical KP ID.
@@ -68,8 +74,8 @@ export function reconcileXizongRevision(input = {}, current) {
       kpIndex:state.kpIndex ?? null, groupIndex:state.groupIndex ?? null,
       sourceSegmentIndex:state.sourceSegmentIndex ?? null
     } : null),
-    blockPending: old.blockPending || blockChanged || unknown,
-    blockReason: blockChanged ? 'LOCAL_SEMANTIC_CHANGE' : old.blockReason || (unknown ? 'UNCLASSIFIED_REVISION' : null),
+    blockPending: old.blockPending || blockChanged || unknown || modelBaselineMissing,
+    blockReason: blockChanged ? 'LOCAL_SEMANTIC_CHANGE' : old.blockReason || (unknown || modelBaselineMissing ? 'UNCLASSIFIED_REVISION' : null),
     contactPending: old.contactPending || sourceChanged || unknown,
     contactReason: sourceChanged ? 'LOCAL_SEMANTIC_CHANGE' : old.contactReason || (unknown ? 'UNCLASSIFIED_REVISION' : null),
     history: [...ids(old.history), ...(progress && (previous || oldHash !== current.sourceHash) ? [transition] : [])],
@@ -95,7 +101,16 @@ export function revisionStatus(state = {}, currentSourceHash = '', witness = nul
   const groups = valid ? revision.witness.groupOrder.filter(id => revision.pendingGroup?.[id]) : [];
   const blocked = valid ? impacted.length > 0 || groups.length > 0 || revision.blockPending === true || revision.contactPending === true : s.sourceRevisionPending === true || !bound || bound !== current;
   const unknown = !valid || [...impacted.map(id => revision.pendingKp[id]), ...groups.map(id => revision.pendingGroup[id]), revision.blockPending && revision.blockReason, revision.contactPending && revision.contactReason].includes('UNCLASSIFIED_REVISION');
+  // Only the explicitly identified nonmodel→model coverage gap inherits lawful
+  // completion/continuation. Unclassified KP/Source baselines, actual changes,
+  // missing witnesses and every other blocked state retain their own hold.
+  const modelCoverageGapOnly = valid && revision.blockPending === true
+    && revision.blockReason === 'UNCLASSIFIED_REVISION' && !revision.contactPending
+    && impacted.length === 0 && groups.length === 0
+    && ids(revision.history).some(row => row?.reason === 'MODEL_NOT_BOUND_BY_PRIOR_WITNESS'
+      && same(row.unwitnessedScopes, ['BLOCK_MODEL']));
   return { status: blocked ? (unknown ? 'UNCLASSIFIED_REVISION' : 'REVALIDATION_REQUIRED') : 'CURRENT', blocked,
+    continuation_blocked: blocked && !modelCoverageGapOnly,
     current_source_hash: current, evidence_source_hash: bound || null, impacted_kp_ids: impacted, impacted_group_ids: groups,
     block_review_required: valid && revision.blockPending === true, contact_review_required: valid && revision.contactPending === true,
     baseline_known: !unknown,
@@ -139,8 +154,11 @@ export function revalidateXizongUnit(state, kind, id, at = new Date().toISOStrin
 // of claims survives; callers retain their normal stale/replay checks.
 export function compatibleRevisionWitnesses(before, after) {
   if (!before?.schema || before.schema !== after?.schema) return false;
-  const { sourceHash: a, ...left } = before;
-  const { sourceHash: b, ...right } = after;
+  // blockModel describes witness coverage. The authoritative Block digest
+  // must still match; adding this description to an already model-bound
+  // witness cannot by itself make an unchanged Return/checkpoint stale.
+  const { sourceHash: a, blockModel: ac, ...left } = before;
+  const { sourceHash: b, blockModel: bc, ...right } = after;
   return same(left, right);
 }
 

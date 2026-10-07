@@ -21,8 +21,9 @@ assert(a1b1.sourceContact.logicGroupIsAutomaticSourceChunk === false, `a1-b01:le
 assert(a1b1.logicGroups.length > 0, 'a1-b01:no-semantic-logic-groups');
 assert(a1b1.logicGroups.flatMap((group) => group.kpIds).length === a1b1.kpRecords.length, 'a1-b01:semantic-kp-coverage');
 assert(a1b1.cognitiveProjection.compiled === true, 'a1-b01:compiled-projection-not-consumed');
-assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.role === 'CHAIN'), 'a1-b01:rich-chain-not-renderable');
-assert(a1b1.cognitiveProjection.stageObjects.some((row) => row.geometry === 'FORMULA_STRIP'), 'a1-b01:formula-strip-not-renderable');
+const model = a1b1.cognitiveProjection.stageObjects.find((row) => row.objectId === 'circulation-b01-framework');
+assert(model?.geometry === 'TEXT_STRUCTURE' && model.html.includes('b1:node'), 'a1-b01:canonical-continuous-model-not-renderable');
+assert((model.html.match(/b1:node/g) || []).length === 19, 'a1-b01:natural-prompt-binding-count');
 assert(a1b1.cognitiveProjection.stageObjects.every((row) => row.html || row.items.length), 'a1-b01:empty-stage-object');
 
 const canonicalA1B2 = loadXizongBlock('circulation', 'b02');
@@ -68,7 +69,7 @@ const learnerProjectionLib = read('static-web/src/lib/xizongLearnerProjection.mj
 assert(page.includes('resolveXizongLearnerProjection'), 'page:bypasses-unified-learner-projection');
 assert(!page.includes('buildXizongProductionBlock'), 'page:reintroduced-direct-production-assembly');
 assert(learnerProjectionLib.includes('buildXizongProductionBlock'), 'learner-projection:bypasses-production-presenter');
-assert(page.includes('<XizongBlockV6 block={projection} />'), 'page:not-using-existing-v6-family');
+assert(page.includes('<XizongBlockV6 block={learnerObject.semanticOwnership ? null : projection} learnerObject='), 'page:not-using-existing-v6-family');
 assert(blockUi.includes('data-source-contact-mode'), 'renderer:source-contact-mode-not-declared');
 assert(blockUi.includes("data-study-stage=\"source_contact\""), 'renderer:no-natural-source-contact-stage');
 assert(blockUi.includes("if (sourcePerGroup) setStage('kp_learn')"), 'renderer:whole-lg-source-path-lost');

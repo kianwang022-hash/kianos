@@ -38,7 +38,7 @@ canonical medical / learner owner
 → UI renderer
 ```
 
-If two inputs disagree, the resolver must fail closed or preserve the higher-authority owner. It must not silently choose the field that is easiest to render.
+For a migrated Block, each semantic question has one declared canonical owner. Conflicting live semantic inputs are an error, not an authority-priority choice; missing or invalid canonical meaning fails closed without consulting a legacy answer. Distinct Learning execution, Source/Visual metadata and reviewed enrichment remain legitimate compile inputs. Unmigrated Blocks keep their current transitional resolution until their own atomic migration; this rule does not disable them.
 
 `主提示` remains instructional / retrieval scaffolding. It is not medical Core.
 

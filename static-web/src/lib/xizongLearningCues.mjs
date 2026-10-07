@@ -1,7 +1,8 @@
+import { readXizongCompileFile, readXizongCompileJson, memoXizongCompile } from './xizongCompileContext.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { loadXizongBlock } from './xizong.mjs';
+import { loadXizongBlock, resolveXizongKnowledgeView } from './xizong.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -16,6 +17,9 @@ function absolute(relativePath) {
 }
 
 export function loadXizongLearningCues(system) {
+  return memoXizongCompile(`cues:${system?.systemId}`, () => loadLearningCues(system));
+}
+function loadLearningCues(system) {
   const canonicalId = String(system?.canonicalId || '').toLowerCase();
   const systemId = String(system?.systemId || '');
   if (!canonicalId || !systemId) return null;
@@ -28,7 +32,7 @@ export function loadXizongLearningCues(system) {
     return null;
   }
 
-  const raw = JSON.parse(fs.readFileSync(absolute(sourcePath), 'utf8'));
+  const raw = readXizongCompileJson(absolute(sourcePath));
   if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_APPROVED')) {
     throw new Error(`CURRENT_XIZONG_LEARNING_CUES_INVALID:${systemId}`);
   }
@@ -185,7 +189,7 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
   if (block.systemId === 'digestive-metabolic-endocrine-tumor' && block.systemCanonicalId === 'B') {
     const learningPath = `${LEARNER_ROOT}/b-digestive-metabolic-endocrine-tumor-learning.json`;
     let learning;
-    try { learning = JSON.parse(fs.readFileSync(absolute(learningPath), 'utf8')); }
+    try { learning = JSON.parse(readXizongCompileFile(absolute(learningPath), 'utf8')); }
     catch { fail('NATIVE_B_LEARNING_MISSING_OR_INVALID'); }
     if (learning?.schema !== 'kianos.xizong.system_learning_support.v1'
       || learning.status !== 'CURRENT' || learning.authority !== 'CHAT_APPROVED_LEARNING_ACCEPTANCE'
@@ -220,7 +224,7 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
       const mapPath = `${LEARNER_ROOT}/biochemistry-27-source-map.json`;
       const contractPath = `${LEARNER_ROOT}/BIOCHEMISTRY_CONTRACT.md`;
       let mapBytes, contractBytes, map;
-      try { mapBytes = fs.readFileSync(absolute(mapPath)); contractBytes = fs.readFileSync(absolute(contractPath));
+      try { mapBytes = readXizongCompileFile(absolute(mapPath)); contractBytes = readXizongCompileFile(absolute(contractPath));
         map = JSON.parse(mapBytes.toString('utf8')); }
       catch { fail('NATIVE_B_SOURCE_CONTRACT_MISSING_OR_INVALID'); }
       const contract = contractBytes.toString('utf8');
@@ -252,7 +256,7 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
       && ['urinary-b05-kp19', 'urinary-b05-kp20'].includes(ref.kp_id))) {
     const sourcePath = `${LEARNER_ROOT}/a3-urinary-b05-external-source-contract.json`;
     let bytes, contract;
-    try { bytes = fs.readFileSync(absolute(sourcePath)); }
+    try { bytes = readXizongCompileFile(absolute(sourcePath)); }
     catch { fail('NATIVE_EXTERNAL_CONTRACT_MISSING'); }
     try { contract = JSON.parse(bytes.toString('utf8')); }
     catch { fail('NATIVE_EXTERNAL_CONTRACT_INVALID'); }
@@ -282,6 +286,26 @@ function resolveNativePreparedMemoryCue(row, block, shared, options) {
 
 export function resolvePreparedMemoryCue(row, block, shared, { loadBlock = loadXizongBlock } = {}) {
   const ref = row?.prepared_memory_ref;
+  if (block?.knowledge) {
+    if (!Object.hasOwn(row || {}, 'prepared_memory_ref')) return row;
+    const fail = nativeFailure(row);
+    if (!nativeShape(ref, ['collection', 'memory_id', 'source_path'])
+      || ref.collection !== 'canonical_exact_items' || ref.memory_id !== row.id
+      || ref.source_path !== block.sourcePath || row.answer_html || row.answerHtml) fail('CANONICAL_REFERENCE_INVALID');
+    const matches = (block.knowledge.exact_items || []).filter(value => value.item?.memory_id === row.id);
+    if (matches.length !== 1) fail('CANONICAL_ITEM_MISSING_OR_DUPLICATE');
+    const view = matches[0], kp = block.kpRecords.find(value => value.ordinal === view.kp_ordinal);
+    if (!kp || row.anchor?.kp_id !== kp.kpId || row.anchor?.block_id !== block.blockId) fail('CANONICAL_OWNER_MISMATCH');
+    if (Object.hasOwn(row, 'cue')) fail('CANONICAL_PARALLEL_CUE_OWNER');
+    const item = { ...view.item, answer: resolveXizongKnowledgeView(block, view.answer_view) };
+    if (view.anchor_field === 'anchor') item.anchor = resolveXizongKnowledgeView(block, view.anchor_views[0]);
+    else if (view.anchor_field === 'anchors') item.anchors = view.anchor_views.map(expr => resolveXizongKnowledgeView(block, expr));
+    if (!item.answer.trim() || !view.legacy_reference) fail('CANONICAL_ITEM_INVALID');
+    const legacyReference = { ...view.legacy_reference, kp_core_sha256: preparedMemoryDigest(kp.detailMarkdown), item_sha256: preparedMemoryDigest(item) };
+    return { ...renderPreparedMemoryCue({ ...row, cue:item.cue }, item, [], false), prepared_memory_owner: block.sourcePath,
+      relocationProvenance: { owner: PREPARED_MEMORY_OWNER, reference: legacyReference } };
+  }
+
   if (!Object.hasOwn(row || {}, 'prepared_memory_ref')) return row;
   const fail = code => { throw new Error(`CURRENT_XIZONG_PREPARED_MEMORY_${code}:${row?.id || ''}`); };
   const object = value => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -451,8 +475,8 @@ export function learningCuesForBlock(cues, block) {
   }
 
   const precision = (cues.precisionIndex || []).filter(row => row?.anchor?.block_id === block.blockId);
-  const shared = precision.some(row => row.prepared_memory_ref)
-    ? JSON.parse(fs.readFileSync(absolute(PREPARED_MEMORY_OWNER), 'utf8')) : null;
+  const shared = !block.knowledge && precision.some(row => row.prepared_memory_ref)
+    ? readXizongCompileJson(absolute(PREPARED_MEMORY_OWNER)) : null;
   return {
     sourcePath: cues.sourcePath,
     rules: cues.rules || {},

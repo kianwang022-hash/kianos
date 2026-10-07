@@ -142,6 +142,7 @@ async function createHarness(block, { saved, values: existing, props: overrides 
   completionInput.textContent = JSON.stringify({ blockId: block.blockId, blockIds: [], requiredModelReadiness: props.sourceContactPayload?.requiredModelReadiness || null, independentReadinessGates: props.sourceContactPayload?.independentReadinessGates || [], blockPrerequisites: prerequisite ? [{ blockId: 'missing', requirement: null }] : [],
     blockingVisualGroups: groupPayload.filter(group => group.visualRequired && /GAP/i.test(group.visualSourceState)).map(group => ({ ...group, reviewableFromOriginalSource: /GAP.*NOT_MOUNTED/i.test(group.visualSourceState) })), requirements: [] });
   const document = new Element(); document.append(root, evidenceBridge, evidenceKps, completionInput);
+  document.getElementById = () => null; // These stage fixtures have no knowledge deep link.
   document.createElement = () => new Element(); document.createTextNode = text => { const el = new Element(); el.textContent = text; return el; };
   const values = new Map(existing || []); if (saved) values.set(stateKey, JSON.stringify(saved));
   let failKey = failOnBoot ? stateKey : null;
@@ -151,7 +152,7 @@ async function createHarness(block, { saved, values: existing, props: overrides 
   const eventDispatch = window.dispatchEvent.bind(window);
   window.dispatchEvent = event => { dispatched.push(event); return eventDispatch(event); };
   class CustomEvent { constructor(type, options = {}) { this.type = type; this.detail = options.detail; } }
-  const context = vm.createContext({ ...props, window, document, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, Element, CustomEvent, __revision: revision,
+  const context = vm.createContext({ ...props, window, document, location:{hash:''}, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, HTMLDetailsElement: Element, Element, CustomEvent, __revision: revision,
     learnerWriterReady: Promise.resolve(), sourceContactCompatible: revision.sourceContactCompatible, revisionRequiresAction: revision.revisionRequiresAction, needsFreshKpRecall: revision.needsFreshKpRecall, inspectXizongBlockCompletion });
   await vm.runInContext(controller, context);
   await vm.runInContext(guardController, context);
