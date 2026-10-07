@@ -299,12 +299,29 @@ try {
   }
 
  }
- for (const relative of ['content/politics/ACCEPTANCE.md', 'content/politics/learning/marxism/ACCEPTANCE.md', 'content/politics/learning/ethics-law/ACCEPTANCE.md']) {
+ for (const relative of ['content/politics/ACCEPTANCE.md', ...['marxism', 'history', 'mao', 'xi', 'ethics-law'].map(subject => `content/politics/learning/${subject}/ACCEPTANCE.md`)]) {
   const text = read(relative);
   verify(text.includes('REVIEWED_TARGET_DELIVERY_ACCEPTED'), relative + ':landed-delivery-still-marked-pending');
   verify(!/\*\*bounded candidate evidence only\*\*|currently has bounded candidate evidence only/.test(text), relative + ':stale-candidate-only-claim');
   verify(/U\s+UNTESTED|real-learner-only/.test(text), relative + ':real-user-boundary-lost');
  }
+ // These subject owners formerly kept the closed P5/P6 delivery gate live.
+ // Check their current supplemental claim without upgrading the base PASS or
+ // treating dated Source/surface receipts as current teaching instructions.
+ for (const subject of ['history', 'mao', 'xi']) {
+  const relative = `content/politics/learning/${subject}/ACCEPTANCE.md`;
+  const text = read(relative);
+  const supplemental = text.split('## Current supplemental scope — reviewed-target delivery')[1]?.split('\n## ')[0] || '';
+  checkPreparationLinks(relative, supplemental);
+  verify(supplemental.includes('../../ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance'), relative + ':missing-bounded-lane-acceptance');
+  verify(!/REOPENED\s*\/\s*NOT YET ACCEPTED|under the existing parent[^\n]*P5\/P6|Close this supplemental claim only/.test(text), relative + ':obsolete-supplemental-delivery-gate');
+  verify(/Uninspected source text\/images\/tables/.test(supplemental) && /current-year-sensitive/.test(supplemental) && /whole-subject teaching completeness/.test(supplemental), relative + ':unreviewed-teaching-source-boundary-lost');
+  verify(/U UNTESTED \/ learner-only/.test(supplemental), relative + ':supplemental-real-user-boundary-lost');
+  verify(/Historical P5\/P6/.test(supplemental) && /not an active continuation queue/.test(supplemental), relative + ':historical-delivery-instructions-still-live');
+ }
+ const historyAcceptance = read('content/politics/learning/history/ACCEPTANCE.md');
+ verify(historyAcceptance.includes('Historical surface binding tested on 2026-09-13') && !historyAcceptance.includes('Current shared surface binding relevant to History'), 'history:old-ipad-first-binding-still-current');
+ verify(historyAcceptance.includes('LEARNING_CONTRACT.md#surface-roles') && /Chat owns continuous first study and same-model compression/.test(historyAcceptance), 'history:current-surface-owner-missing');
  const chapterPath = 'content/politics/learning/marxism/ch01.json';
  const chapter = JSON.parse(read(chapterPath));
  const briefPath = 'content/politics/learning/marxism/teaching-candidate/ch01.brief.md';
