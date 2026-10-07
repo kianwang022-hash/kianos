@@ -11,19 +11,11 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "十一",
-          "label_en": "the cardinal number that is the sum of ten and one",
+          "label_cn": "十一；十一个",
+          "label_en": "the number eleven, also used before a counted noun",
           "pos": "numeral",
           "sense_ids": [
             "sense:eleven:b9faaf8072645268"
-          ]
-        },
-        {
-          "label_cn": "十一个的",
-          "label_en": "being one more than ten",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:eleven:6f8cf97731a05971"
           ]
         }
       ],
@@ -50,22 +42,7 @@
             ],
             "meaning_cn": "十一点钟",
             "phrase": "eleven o'clock"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "十一",
-        "definition_en": "the cardinal number that is the sum of ten and one",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "numeral",
-        "sense_id": "sense:eleven:b9faaf8072645268",
-        "sense_label_en": "the cardinal number that is the sum of ten and one",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:b670f1a2d18cb4307799",
             "exam_value": "usage_example",
@@ -77,15 +54,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "十一个的",
-        "definition_en": "being one more than ten",
+        "definition_cn": "十一；十一个",
+        "definition_en": "the cardinal number that is the sum of ten and one",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:eleven:6f8cf97731a05971",
-        "sense_label_en": "being one more than ten",
-        "sort_order": 1,
+        "pos": "numeral",
+        "sense_id": "sense:eleven:b9faaf8072645268",
+        "sense_label_en": "the cardinal number that is the sum of ten and one",
+        "sort_order": 0,
         "transitivity": "nonverb"
       }
     ],
@@ -283,13 +260,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:b670f1a2d18cb4307799",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:eleven:6f8cf97731a05971:collocation:0"
+          ],
+          "meaning_cn": "十一个学生",
+          "phrase": "eleven students"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "十一个的",
+      "definition_en": "being one more than ten",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:eleven:6f8cf97731a05971",
+      "sense_label_en": "being one more than ten",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:eleven:b9faaf8072645268"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:eleven:6f8cf97731a05971",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:eleven:b9faaf8072645268",
         "source_row": 4481,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
       },
@@ -315,7 +320,8 @@
       {
         "id": "collocation:b670f1a2d18cb4307799",
         "source_row": 15472,
-        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json",
+        "sense_id": "sense:eleven:b9faaf8072645268"
       }
     ],
     "exam-mappings": [],
