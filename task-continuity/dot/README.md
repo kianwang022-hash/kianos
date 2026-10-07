@@ -11,7 +11,7 @@
    - 西综内容/映射/功能一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → 当前 PR/ref → exact owner
    - 三科运行闭环、跨科反馈及普通使用缺陷：[#1111](https://github.com/kianwang022-hash/kianos/issues/1111) → 当前具体缺陷/候选
    - 英语/词汇/政治的设计与内容：对应 domain `CURRENT.md`、manifest、Learning/Product owner
-   - Lexical 当前执行与质量门：[Lexical Current](../../content/lexical/CURRENT.md) → [#1166](https://github.com/kianwang022-hash/kianos/issues/1166)；此路径只定位动态任务，不定义最高验收目的
+   - Lexical 当前执行与质量门：[Lexical Current](../../content/lexical/CURRENT.md) → 其中明确的当前有界任务 anchor；若无活动任务则停止，不从历史恢复 Next。[#1166](https://github.com/kianwang022-hash/kianos/issues/1166) 仅为已退役审查证据。此路径只定位动态任务，不定义最高验收目的
    - 实际学习进度：native learner evidence/Packet/Resume；工程任务和内容存在不能代替个人进度
 5. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。接续、分批和上下文预算直接继承 [AGENTS](../../AGENTS.md) 与 [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md)，不在这里另立执行规程。
 
