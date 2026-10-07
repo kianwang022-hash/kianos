@@ -9,10 +9,29 @@
     "constructions": [],
     "content_hash": "4b921f55eb5695212e81f0ee402d668c4d6aecef9f2df2090a2f4bba64fedf98",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "制造；使得；进行",
-      "core_meaning_en": "to create, cause, or perform",
-      "mental_model_cn": "制造；使得；进行",
+      "core_clusters": [
+        {
+          "label_cn": "制造、使成为、迫使",
+          "label_en": "to create/produce, cause to become, or cause someone to do something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:make:7c6bec9d2b405fcc",
+            "sense:make:1114d3d671c45c06",
+            "sense:make:63f0cf40171e5444"
+          ]
+        },
+        {
+          "label_cn": "品牌；牌子；产品的制造商类型",
+          "label_en": "the brand or type of a product made by a particular company",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:make:40aba7a7d6a837e1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "制造；使成为；使某人做；产品的品牌/牌子",
+      "core_meaning_en": "to make or cause something; also the brand/type of a product",
+      "mental_model_cn": "verb make → 制造/使成为/使某人做；What make is the car? / make and model → 产品品牌、牌子；make for... 走向属于较低频动词分支。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -123,6 +142,21 @@
         "transitivity": "vt"
       },
       {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "品牌；牌子；型号所属的制造商",
+        "definition_en": "the make of a product: the brand or type made by a particular company",
+        "governing_pattern": "the make of sth / make and model",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:make:40aba7a7d6a837e1",
+        "sense_label_en": "the brand or type of a product made by a particular company",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "common with cars, machines, and products: What make is it? / make and model"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:a5a2a1b59be5760cc412",
@@ -152,7 +186,7 @@
         "pos": "verb",
         "sense_id": "sense:make:f30b0e6c8c8b560a",
         "sense_label_en": "to move or proceed in a direction",
-        "sort_order": 3,
+        "sort_order": 4,
         "transitivity": "vi"
       }
     ],
@@ -627,6 +661,13 @@
         "merged_into_sense_id": null,
         "source_row": 8173,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:make:40aba7a7d6a837e1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2936.json"
       },
       {
         "sense_id": "sense:make:63f0cf40171e5444",

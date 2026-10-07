@@ -11,27 +11,27 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "命令，指令；（选举赋予的）授权；委任统治地",
-          "label_en": "an official order or instruction; the authority to act that a government receives from an election; a territory administered by another power after World War I",
+          "label_cn": "官方命令/要求；选举赋予的授权",
+          "label_en": "an official order/requirement; or authority received from an election",
           "pos": "noun",
           "sense_ids": [
             "sense:mandate:ec141bfa2f0756d4",
-            "sense:mandate:57fe0ca6a43b5c9c",
-            "sense:mandate:519bd9c581e65a23"
+            "sense:mandate:57fe0ca6a43b5c9c"
           ]
         },
         {
-          "label_cn": "授权，委任",
-          "label_en": "to give someone the authority to do something",
+          "label_cn": "正式授权；正式要求/命令",
+          "label_en": "to formally authorize; or to officially require/order",
           "pos": "verb",
           "sense_ids": [
-            "sense:mandate:fad43fb2219e5af0"
+            "sense:mandate:fad43fb2219e5af0",
+            "sense:mandate:af8e67c6fb9a46ba"
           ]
         }
       ],
-      "core_meaning_cn": "官方命令或授权",
-      "core_meaning_en": "an official order or authorization to do something",
-      "mental_model_cn": "官方命令或授权",
+      "core_meaning_cn": "官方命令/要求或授权；动词可指正式授权，也可指强制规定",
+      "core_meaning_en": "an official order/requirement or authority; as a verb, to authorize or officially require",
+      "mental_model_cn": "noun mandate → 官方命令/要求，或选举赋予的授权；verb mandate → 语境可分“正式授权”与“正式要求/强制规定”；一战后委任统治地为历史 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -121,52 +121,46 @@
             ],
             "meaning_cn": "授权某人做某事",
             "phrase": "mandate sb to do sth"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "正式授权；委任",
+        "definition_en": "to formally give someone authority or permission to act",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:mandate:fad43fb2219e5af0",
+        "sense_label_en": "to formally give someone authority or permission to act",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "authorization sense; do not confuse with the common official-require/order sense"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:88d4241f48513982bcad",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:mandate:fad43fb2219e5af0:collocation:1"
             ],
-            "meaning_cn": "由法律授权",
-            "phrase": "be mandated by law"
+            "meaning_cn": "法律规定必须……；依法被要求",
+            "phrase": "be mandated by law",
+            "meaning_en": "be officially required by law"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "授权，委任",
-        "definition_en": "to give someone the authority to do something",
-        "governing_pattern": "vt. + object",
+        "confidence": "high",
+        "definition_cn": "正式要求；强制规定；命令（某人做某事或某事必须发生）",
+        "definition_en": "to officially require or order someone to do something, or require something to happen",
+        "governing_pattern": "mandate sb to do sth / mandate that ... / be mandated to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:mandate:fad43fb2219e5af0",
-        "sense_label_en": "to give someone the authority to do something",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e4a32ce472393278ec53",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:mandate:519bd9c581e65a23:collocation:0"
-            ],
-            "meaning_cn": "委任统治地",
-            "phrase": "mandate territory"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "委任统治地",
-        "definition_en": "a territory administered by another power after World War I",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:mandate:519bd9c581e65a23",
-        "sense_label_en": "a territory administered by another power after World War I",
+        "sense_id": "sense:mandate:af8e67c6fb9a46ba",
+        "sense_label_en": "to officially require or order something",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "vt",
+        "usage_note": "common in legal/government/business contexts; distinct from mandate = formally authorize"
       }
     ],
     "verification_summary": {
@@ -723,12 +717,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e4a32ce472393278ec53",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:mandate:519bd9c581e65a23:collocation:0"
+          ],
+          "meaning_cn": "委任统治地",
+          "phrase": "mandate territory"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "委任统治地",
+      "definition_en": "a territory administered by another power after World War I",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:mandate:519bd9c581e65a23",
+      "sense_label_en": "a territory administered by another power after World War I",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:mandate:519bd9c581e65a23",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8193,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -739,6 +758,13 @@
         "merged_into_sense_id": null,
         "source_row": 8194,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:mandate:af8e67c6fb9a46ba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2944.json"
       },
       {
         "sense_id": "sense:mandate:ec141bfa2f0756d4",
@@ -761,8 +787,7 @@
       "collocation:775eb415ac39ecca9aa1",
       "collocation:88d4241f48513982bcad",
       "collocation:aa08792b48ff5cc62b85",
-      "collocation:ca55423501c19dab2401",
-      "collocation:e4a32ce472393278ec53"
+      "collocation:ca55423501c19dab2401"
     ],
     "facts": [
       {
@@ -805,7 +830,9 @@
       {
         "id": "collocation:e4a32ce472393278ec53",
         "source_row": 19357,
-        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

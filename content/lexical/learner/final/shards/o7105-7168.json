@@ -3113,7 +3113,7 @@
     "ordinal": 7134,
     "word": "maneuver",
     "source_owner_path": "content/lexical/words/by-ordinal/o7134.json",
-    "source_fingerprint": "dd5fc1536609a952a0a69d3e88bffe33d52ca7c1dd96ea8cfbbacee1a29015a4",
+    "source_fingerprint": "ed9e659955999295d45885e3479af6364eadaa3da0d5615f9981b0e3ad74ae8e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3124,7 +3124,7 @@
     },
     "word_feel": {
       "summary_cn": "机动动作；巧妙而受控的移动或调整；策略性行动；为取得优势或目标采取的手段；演习, 调遣, 策略；巧妙移动、操纵或定位；运用策略谋划、操纵以达到目的",
-      "decision_cn": "",
+      "decision_cn": "maneuver 是通常美式拼写；manoeuvre 是通常英式拼写。两者同一词位：可指机动动作、策略行动/演习，也可作“操纵、设法”的动词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3242,8 +3242,47 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
-      "form": null,
+      "relations": [
+        {
+          "title": "maneuver ↔ manoeuvre",
+          "target_word": "manoeuvre",
+          "lines": [
+            {
+              "text": "manoeuvre is the usual BrE spelling; maneuver is the usual AmE spelling. Same lexeme across movement, strategic-action, military, and verb uses; preserve both frozen Main Word owners.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:236b51366ddcd1c8fcc1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "maneuver ↔ manoeuvre"
+          }
+        }
+      ],
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [],
+            "reading": "form:manoeuvre:bre",
+            "ipa": ""
+          },
+          {
+            "pos": [],
+            "reading": "form:maneuver:ame",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
