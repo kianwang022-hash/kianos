@@ -69,9 +69,9 @@ Never start from the old card catalog and work backwards. Never treat “precise
 
 ### Current checkpoint
 
-**Completed:** C00–C06 Chengfeng compression + current-year Leg27 retention review. C00 retained《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征. C01 retained哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性. C02 retained联系、发展、矛盾、量质变、辩证否定. C03 retained实践333/桥梁、实践对认识4作用、感性理性与两次飞跃、真理客观/一元及绝对/相对、实践唯一标准、价值4性与双尺度、认识/改造统一基础=实践. C04 retained社会存在/意识、生产力/生产关系、经济基础/上层建筑、两对社会基本矛盾、五种其他动力、人的本质/人民群众/历史人物边界. C05 retained商品二因素、劳动二重性/社会必要劳动时间/私人社会基本矛盾、货币与价值规律、劳动力商品、剩余价值与c/v/m、资本积累与相对过剩人口、循环周转/危机、工资利润/平均利润/生产价格、政治制度局限，并保留“5源泉”跨节点 residual. C06 retained生产集中/资本集中、垄断形成与竞争、垄断利润/价格、金融资本与国家垄断、全球化、战后与21世纪资本主义变化、历史进步/局限、替代趋势；并保留一组“垄断组织/国际组织身份配对” residual 候选. Old IDs/history remain intact; no mass card rewrite.
+**Completed:** C00–C07 Chengfeng compression + current-year Leg27 retention review. C00 retained《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征. C01 retained哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性. C02 retained联系、发展、矛盾、量质变、辩证否定. C03 retained实践333/桥梁、实践对认识4作用、感性理性与两次飞跃、真理客观/一元及绝对/相对、实践唯一标准、价值4性与双尺度、认识/改造统一基础=实践. C04 retained社会存在/意识、生产力/生产关系、经济基础/上层建筑、两对社会基本矛盾、五种其他动力、人的本质/人民群众/历史人物边界. C05 retained商品二因素、劳动二重性/社会必要劳动时间/私人社会基本矛盾、货币与价值规律、劳动力商品、剩余价值与c/v/m、资本积累与相对过剩人口、循环周转/危机、工资利润/平均利润/生产价格、政治制度局限，并保留“5源泉”跨节点 residual. C06 retained生产集中/资本集中、垄断形成与竞争、垄断利润/价格、金融资本与国家垄断、全球化、战后与21世纪资本主义变化、历史进步/局限、替代趋势，并保留一组“垄断组织/国际组织身份配对” residual 候选. C07 retained空想社会主义贡献/局限、两大基石与第一次飞跃、第一国际/巴黎公社/十月革命、苏俄探索与列宁建设5点、长期4原因/多样3原因/本国道路3要求；科学社会主义十项基本原则等整组留 Core. Old IDs/history remain intact; no mass card rewrite.
 
-**Next:** C07. Read actual Chengfeng C07 and corresponding Leg27 scientific-socialism range (p65 onward as naturally owned), then apply the fixed placement rule once. Do not reopen C00–C06 without new evidence.
+**Next:** C08. Read actual Chengfeng C08 and corresponding Leg27 communism/future-society/ideal range (p67–68 as naturally owned), then apply the fixed placement rule once. Do not reopen C00–C07 without new evidence.
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/marxism/ACCEPTANCE.md`.  
