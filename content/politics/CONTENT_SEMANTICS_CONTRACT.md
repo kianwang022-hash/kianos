@@ -230,6 +230,34 @@ Consumer regression must cover explicit prompt preservation, no ambiguous same-p
 
 ---
 
+### 3.2.1 Learner quick-review view is a non-canonical projection
+
+A Kian-specific chapter quick-review view may be stored in the existing chapter teaching brief/support owner after real study produces and accepts it.
+
+Its semantics are:
+
+\`\`\`text
+canonical chapter spine
++ actually learned problem blocks
+→ Kian mainline sentences
+→ non-answer-leaking expansion cues
+\`\`\`
+
+It is **not** another Content hierarchy, not a substitute for canonical chapter compression, and not a Memory source. A visual 6–10-line mainline may merge adjacent canonical nodes for fast human review when every merged line remains traceable back to the unchanged canonical spine.
+
+Ownership check for anything omitted from that view:
+- teaching/support owns explanatory detail;
+- reviewed Precision/Memory owns exact long-term retrieval;
+- Source owner/gap owns unresolved evidence.
+
+Reject:
+- expansion cues that enumerate the answer rather than cue retrieval;
+- chapter-end summaries that introduce a new framework not built during learning;
+- automatic generation of quick-review views for untouched chapters;
+- any Runtime/Website behavior that treats this personal view as learner progress, admission or scheduling truth.
+
+---
+
 ### 3.3 Fixed reconstruction spine realization
 
 Learning Contract §0.5 owns the stable-review rule. Content realizes it with the chapter's existing semantic assets; do **not** create a parallel framework registry merely to mark something “fixed”.
