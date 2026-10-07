@@ -68,6 +68,33 @@ Use the smallest routing question first:
 
 This is a semantic routing rule, not a quota. **Prompt length, Memory-card count, Precision count or symmetry across Blocks are not quality targets.** Do not start from the existing Memory inventory and back-solve the model or Prompt. Build the best model first, compress its naturally structured retrieval into Prompts, then let Memory receive the remaining exact residual. Moving a fact between Prompt and Memory must preserve its canonical meaning, identity/history where applicable, and must not manufacture new review debt.
 
+#### Anti-drift routing order for Prompt vs Memory
+
+The two decisions are related but **not inverse operations**:
+
+```text
+first:
+build / preserve the best medical model
+→ attach the full Prompt that the node should actively recover
+
+then, independently:
+ask whether any exact part still benefits from separate retrieval practice
+→ if yes, Memory / Precision may deliberately revisit that knowledge
+→ if no, do not create or retain a separate prepared Memory item merely for symmetry
+```
+
+Hard rules:
+
+- **Prompt coverage does not automatically revoke Memory admission.** A threshold, exact pairing, timing, fixed wording, low-structure list, drug/check detail or other exact item may remain valid Memory / Precision even when the same knowledge is named inside the node Prompt.
+- **Memory presence does not justify weakening the Prompt.** If structured knowledge belongs naturally to the model node, the Prompt must still carry it even when an exact residual card also exists.
+- The question for Memory is not “does this appear in Prompt?” but **“is independent exact recovery still a real learning difficulty that benefits from separate retrieval?”**
+- Existing reviewed Memory / Precision is **preserve-by-default during model/Prompt calibration**. Do not remove, demote, merge or regenerate it as a side effect of making the model better. Re-admission or retirement requires an explicit item-level content decision that proves the item is no longer independently useful, while preserving historical identity/state as required.
+- Never use “fewer Memory cards” as an optimization objective. A Block with zero cards and a Block with many cards can both be correct.
+- Conversely, never preserve a card merely because it already exists. When Memory itself is the explicit audit target, judge the item by the exact-residual criterion above, not by legacy count or symmetry.
+- A model/Prompt calibration task and a Memory-admission audit are **separate scopes**. Unless the task explicitly includes the latter, calibrating the model/Prompt must not mutate the reviewed Memory admission set.
+
+This precedence resolves any apparent tension with the later rule that Model and Memory may revisit the same knowledge: **semantic ownership stays with canonical Knowledge; Prompt controls model-internal retrieval; Memory controls optional independent exact retrieval. Overlap is legal when these retrieval jobs differ.**
+
 ### Complete coverage without distorting the model
 
 For the accepted Source scope, completeness is the **union** of:
