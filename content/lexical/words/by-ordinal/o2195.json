@@ -21,12 +21,11 @@
           ]
         },
         {
-          "label_cn": "擦伤；放牧；吃草",
-          "label_en": "a superficial abrasion; the act of grazing",
+          "label_cn": "擦伤",
+          "label_en": "a superficial skin injury",
           "pos": "noun",
           "sense_ids": [
-            "sense:graze:c9142569acfe5c5b",
-            "sense:graze:c58c16aa63f556fa"
+            "sense:graze:c9142569acfe5c5b"
           ]
         }
       ],
@@ -47,12 +46,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:f4bfc81966ed6b467d95",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:graze:abba8e481820515b:collocation:0"
             ],
-            "meaning_cn": "擦伤某物（如膝盖）",
-            "phrase": "graze + sth (e.g., one's knee)"
+            "meaning_cn": "擦伤膝盖",
+            "phrase": "graze one's knee"
           }
         ],
         "confidence": "medium",
@@ -80,16 +79,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（牛、羊等）吃草",
-        "definition_en": "to feed on growing grass",
-        "governing_pattern": "vi. + on",
+        "definition_cn": "（动物）吃草；放牧（牲畜）",
+        "definition_en": "for animals to eat growing grass, or for someone to let animals feed on grass",
+        "governing_pattern": "animals graze (on grass); graze cattle on land",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:graze:52a30db7c9af56ae",
-        "sense_label_en": "to feed on growing grass",
+        "sense_label_en": "for animals to eat growing grass, or for someone to let animals feed on grass",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -137,30 +136,6 @@
         "sense_id": "sense:graze:c9142569acfe5c5b",
         "sense_label_en": "a superficial abrasion",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9918ea985edc9efccafd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:graze:c58c16aa63f556fa:collocation:0"
-            ],
-            "meaning_cn": "牛群的放牧",
-            "phrase": "the graze of cattle"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "放牧；吃草",
-        "definition_en": "the act of grazing",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:graze:c58c16aa63f556fa",
-        "sense_label_en": "the act of grazing",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -478,7 +453,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9918ea985edc9efccafd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:graze:c58c16aa63f556fa:collocation:0"
+          ],
+          "meaning_cn": "轻擦表面的动作",
+          "phrase": "a graze against the surface"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "轻擦；擦过的动作",
+      "definition_en": "an act of touching or scraping lightly",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:graze:c58c16aa63f556fa",
+      "sense_label_en": "an act of touching or scraping lightly",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -504,7 +507,7 @@
       },
       {
         "sense_id": "sense:graze:c58c16aa63f556fa",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6121,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -520,8 +523,6 @@
     "active_collocations": [
       "collocation:85b1a40d603bd6f08755",
       "collocation:8c67f42d506e921ec403",
-      "collocation:9918ea985edc9efccafd",
-      "collocation:f4bfc81966ed6b467d95",
       "collocation:f56a35e738914d94385e"
     ],
     "facts": [],
@@ -539,12 +540,16 @@
       {
         "id": "collocation:9918ea985edc9efccafd",
         "source_row": 13038,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f4bfc81966ed6b467d95",
         "source_row": 20724,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f56a35e738914d94385e",
