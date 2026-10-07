@@ -28,6 +28,79 @@ Hard rule:
 
 It may describe semantic role, useful cognitive geometry and state visibility. It may not author a new mechanism, comparison, boundary, Source-contact segment, source locator, Question→Knowledge relation, treatment rule or learner evidence.
 
+### 1.1｜Convergence invariants — Truth uniqueness and consumer singularity
+
+The long-term Xizong path is:
+
+```text
+canonical System / Block Knowledge
++ distinct non-competing Source / Learning / Visual responsibilities
+→ one composition / compile boundary
+→ one learner-facing Block object
+→ shared Website / Memory / Recall consumers
+→ private learner state
+```
+
+This is **semantic convergence, not one giant file**. Independent responsibilities may keep separate owners, but no two editable owners may describe the same semantic fact.
+
+#### Truth uniqueness
+
+For a given Block, each stable semantic question must resolve to one authoritative owner:
+
+```text
+model topology
+LG identity / boundary / KP membership
+KP identity / title / full Prompt / Core
+exact model-external Knowledge item
+Source reference identity
+Visual reference identity
+```
+
+A transitional compatibility source may preserve historical bytes or a migration witness, but Current resolution must not choose between two competing meanings. If the same fact is editable in two places, the architecture is not converged.
+
+#### Consumer singularity
+
+Learner-facing product components must not reconcile semantic owners themselves.
+
+The normal rule is:
+
+```text
+owners
+→ semantic resolver / compiler
+→ Production Block / Learner Object
+→ Website components
+```
+
+A Website component may consume private Runtime state and user actions appropriate to that surface. It must not directly open `shared-fields`, `learning-cues`, Acceptance, candidate prose, teaching files or another semantic source to decide what the current chapter means.
+
+Likewise, one learner-facing resolver must resolve each enrichment responsibility once. Runtime fallback such as “try canonical, else Learning, else shared, else teaching” is forbidden.
+
+#### Source and Acceptance stay beside the trunk
+
+Source provenance may resolve through stable reference IDs to mutable page/hash/crop metadata. Changing a locator without changing medical meaning must not require copying that locator into every Block.
+
+Acceptance answers **why a revision is trusted**. It is audit evidence and lifecycle truth, never a normal content-composition dependency. History/candidate artifacts are likewise excluded from Current learner resolution.
+
+#### Knowledge and Memory boundary
+
+The learner object may materialize a derived exact answer so the shared Memory surface can Recall / Reveal it, but the answer semantics remain owned by Knowledge. Memory owns scheduling, availability, ratings, history and retention—not a second answer database.
+
+Legacy answer/admission adapters are temporary compatibility edges. Each needs an observable retirement condition; adding another adapter is not convergence.
+
+#### Architecture gates
+
+Two gates must hold before this convergence is considered complete:
+
+**Truth uniqueness**
+
+> Given a Block such as D8, model / LG / KP / Prompt / Core and each exact model-external item resolve to one authoritative semantic owner.
+
+**Consumer singularity**
+
+> Rendering and reviewing that Block uses one compiled learner-facing object; product components do not cross-file resolve competing chapter semantics.
+
+These gates test architecture. They do not claim medical correctness, Source completion, learner mastery or real-use effectiveness.
+
 ## 2｜Current compiled scope vs eligibility
 
 Compiled Projection and Current eligibility are different claims.
