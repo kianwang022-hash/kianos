@@ -157,7 +157,54 @@ This contract owns:
 
 `content/xizong/knowledge/learner/study-policy.json` may hold detailed machine-executable policy inside this constitution. It is not a second learning constitution.
 
-System-specific `*-learning.json` assets may refine learner order, Source-contact granularity, Logic Group goals and closure cues for that System. They may reorganize **when/how** medical objects are learned; they may not change **what** those medical objects mean.
+System-specific `*-learning.json` assets may refine learner order, Source-contact granularity, readiness, Logic Group goals and closure cues for that System. They may reorganize **when/how** medical objects are learned; they may not change **what** those medical objects mean.
+
+### Canonical Block ownership convergence
+
+The durable target is **one modifiable semantic owner per chapter fact**, not one physical file.
+
+For a converged Block, canonical Knowledge owns the stable medical model and the semantic identities needed to reconstruct it:
+
+- model topology and relation directions;
+- Logic Group identity, boundary and KP membership;
+- KP identity, title, full Prompt and Core;
+- exact model-external Knowledge items that must later be retrieved;
+- stable Source / Visual reference identities, without copying mutable locator metadata into a second owner.
+
+Learning owners may still own execution semantics such as order, readiness, Source-contact granularity, closure behavior and later-pass policy. They must not maintain a second live interpretation of model topology, LG membership, KP membership, Prompt or medical answer.
+
+Some already accepted Blocks still carry historical LG or exact-answer semantics in Learning/support owners. Those remain the transitional authority **until that Block is migrated atomically**; convergence must not create a period with two editable owners. The safe migration is:
+
+```text
+reconcile current semantic owner
+→ move the semantic fact to the canonical Block owner
+→ switch the compiler/resolver to that owner
+→ prove the real consumer
+→ mark the old field derived / historical / ignored
+→ only then retire compatibility data
+```
+
+### Knowledge owns answers; Memory owns retrieval
+
+Memory does not own an independent medical answer.
+
+```text
+Knowledge owns WHAT
+→ authoritative exact answer / qualification / semantic boundary / Source reference identity
+
+Memory owns WHEN + HOW TO RETRIEVE
+→ admission / queue / Recall / Reveal / rating / history / retention
+```
+
+A compiled learner object may carry an exact answer payload for the Website, but that payload must be derived from the current Knowledge owner and must not be independently editable as a second answer database.
+
+Existing `shared-fields.json` answer material is therefore migration debt, not the desired permanent semantic architecture. Unique reviewed content must be preserved by moving it to the responsible canonical Knowledge item before any legacy field is retired. Until migrated, existing identity/history/freshness rules remain in force; this target is not permission to rewrite learner evidence or bulk-regenerate cards.
+
+### Teaching artifacts are presentation, not truth
+
+A reviewed `*-teaching.md` may preserve useful explanation or a tested presentation, but it does not own another model, LG topology, KP membership, Prompt or medical answer. Chat teaching and later compression must be reproducible from the same canonical Knowledge model.
+
+Useful reviewed explanation may later be retained as an optional presentation fragment attached to the responsible semantic node. Historical or candidate teaching files must never become fallback authority merely because they are easier to read.
 
 ### Engineering / learner truth
 
