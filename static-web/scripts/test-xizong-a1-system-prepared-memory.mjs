@@ -1,3 +1,4 @@
+import { beforePromptCalibration, descriptorAtFrozenPackaging } from './xizong-calibration-test-support.mjs';
 import { buildXizongMemoryReleaseDescriptorFromLearnerObject as legacyFixtureDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
 // Frozen A1 batch proof. Pure native Core/semantic/cue/learner path; actual
 // full visual-bundle/browser consumption runs separately in existing CI.
@@ -29,8 +30,8 @@ check('unmigrated A1 support owners and B2 admissions retain their frozen values
   // Canonical Block packaging may change during model/Prompt calibration.
   // Prepared Memory freshness is enforced below by exact KP Core/item witnesses.
   for (const [path, sha] of frozenFiles) {
-    if (path.includes('/blocks/') || path.endsWith('/system.json') || path.endsWith('/a1-circulation-learning.json')) continue;
-    assert.equal(digest(fs.readFileSync(new URL(path, root),'utf8')), sha, path);
+    if (path.includes('/Block1_') || path.endsWith('/system.json') || path.endsWith('/a1-circulation-learning.json')) continue;
+    assert.equal(digest(beforePromptCalibration(fs.readFileSync(new URL(path, root),'utf8'))), sha, path);
   }
   const system=read('content/xizong/knowledge/systems/a1-circulation/system.json'); delete system.logic_index['circulation-b01'];
   assert.equal(digest(system),'3ffeb7ec89df073f7b0e98ccc919e4286339306fc8bc222508f9d4152f61ca3e');

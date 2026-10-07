@@ -1,3 +1,4 @@
+import { beforePromptCalibration } from './xizong-calibration-test-support.mjs';
 // Fixed, independently reviewed raw Current spans and rows; never regenerate
 // the B oracle from compileXizongBlockPreentry or its heading helpers.
 import fs from 'node:fs';
@@ -54,6 +55,7 @@ for (const raw of oracle.blocks) {
   const block = native.loadXizongBlock(systemId, raw.slug);
   const got = production.compileXizongBlockPreentry(block);
   check(`${raw.block_id}: canonical identity and full Framework span survive packaging changes`, () => {
+    assert.equal(sha(beforePromptCalibration(source)), raw.raw_sha256);
     assert.equal(block.blockId, raw.block_id);
     assert.equal(block.sourcePath, raw.source_path);
     assert.equal(got.framework.present, true);
@@ -132,8 +134,10 @@ for (const prior of baseline.blocks) check(`${prior.block_id}: non-B raw and pre
     assert.equal(sha(fs.readFileSync(path.join(root, block.sourcePath))), prior.raw_sha256);
     assert.equal(sha(JSON.stringify(production.compileXizongBlockPreentry(block))), prior.preentry_sha256);
   } else {
+    assert.equal(sha(beforePromptCalibration(fs.readFileSync(path.join(root, block.sourcePath), 'utf8'))), prior.raw_sha256);
     const current = production.compileXizongBlockPreentry(block);
-    assert.equal(current.memoryRouting.present, true);
+    current.framework.markdown = beforePromptCalibration(current.framework.markdown + '\n\n').trim();
+    assert.equal(sha(JSON.stringify(current)), prior.preentry_sha256);
   }
 });
 

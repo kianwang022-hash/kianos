@@ -332,7 +332,7 @@ BNP升高常表示壁负荷和代偿信号增强，不表示它是心衰的病�
 - [急性救援、慢性反噬与药物作用层级〔急救5系统｜慢性代价4轴｜药物断点9类｜机制层 vs 临床方案边界〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L788)：交感／RAAS／ADH短期救灌注；持续时耗氧、后负荷、潴留／淤血与重构可加重原病，反过来再触发代偿。ANP／BNP仍是反向自救；药物只挂机制断点。 <!-- b2:node {"kp_id":"circulation-b02-kp18","canonical_line":788} -->
 - [循环调节总算法：传感器—中枢—效应器—容量—局部修正〔首变量/感受器｜自主神经/效应器｜体液/肾容量｜局部修正｜急慢性｜闭环〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L817)：首变量 → 直接刺激／感受器 → 泵、阻力、静脉、肾 → 合看局部与水盐反馈 → 刺激解除则回落，持续则检验代价；合上解释仍沿这三路重建。 <!-- b2:node {"kp_id":"circulation-b02-kp19","canonical_line":817} -->
 
-时间层与失血全链旁查：[秒、分钟、小时、天各由谁接手及共同目标](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L134)<!-- b2:external {"kp_id":"circulation-b02-kp01","canonical_line":134} -->。是重叠的工作尺度，不是固定等待队列。[十二个闭卷出口](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L804)用同一模型逐问验证。
+时间层与失血全链旁查：[秒、分钟、小时、天各由谁接手及共同目标](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L134)<!-- b2:external {"kp_id":"circulation-b02-kp01","canonical_line":134} -->。是重叠的工作尺度，不是固定等待队列。[十二个闭卷出口](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L847)用同一模型逐问验证。
 
 <details>
 <summary>展开场景与时间：不同入口、急性收益、慢性反噬及最终算法</summary>
