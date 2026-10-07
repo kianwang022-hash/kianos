@@ -300,9 +300,12 @@ It must:
 - keep enough mapping to verify against the canonical spine;
 - preserve decisive relations and bridges;
 - avoid listing answer members inside the expansion cue;
+- keep the expansion cue semantically independent from Memory admission: the cue describes what Kian should try to reconstruct from the learned model, while Precision describes what must be retrieved exactly;
 - route omitted content to existing teaching/support, reviewed Precision/Memory or explicit Source gap;
 - never imply that every omitted detail deserves Memory;
 - never create a separate Runtime/Website/plan/admission object.
+
+Invalid realization: deriving the parenthetical expansion cue by enumerating only existing reviewed Precision/Memory objects, or treating absence of a Memory object as proof that a useful model-retrieval slot should be removed.
 
 Chapter-close editing of this view is assembly/reconciliation of lines already formed during learning. A newly invented alternative summary at chapter close is invalid when it changes the learner's model rather than thinning the learned one.
 
