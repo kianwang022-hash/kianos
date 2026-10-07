@@ -1646,8 +1646,16 @@
     "ordinal": 2954,
     "word": "map",
     "source_owner_path": "content/lexical/words/by-ordinal/o2954.json",
-    "source_fingerprint": "7779ba884f2fe582a6511b2593e8c5d9aec58a08a5721e285c729087f3ba9bae",
-    "sense_lineage": [],
+    "source_fingerprint": "3df87b2da303cca68730de21d6e2f054416b4cdfdaa07a93189d6a177577e47d",
+    "sense_lineage": [
+      {
+        "word_id": "word:map",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2ed913ea362c64599f6b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -1656,13 +1664,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "地图；绘制地图",
-      "decision_cn": "",
+      "summary_cn": "地图；绘制地图或图示",
+      "decision_cn": "literal map → 地图/绘图；map sth out → 详细规划、筹划（独立构式）；survey/gene mapping 等专业分支保留在 Expansion。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "地图；绘制地图"
+        "target_label": "地图；绘制地图或图示"
       }
     },
     "senses": [
@@ -1710,8 +1718,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "绘制…的地图；详细规划",
-        "definition_en": "make a map of; show or establish the features of details of",
+        "definition_cn": "绘制……的地图；把……表示在地图或图表上",
+        "definition_en": "to make a map or diagram of an area, system, or set of features",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1722,26 +1730,13 @@
             "meaning_cn": "绘制该地区的地图",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:2ed913ea362c64599f6b",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "map out + sth",
-            "meaning_cn": "详细规划；安排",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2ed913ea362c64599f6b",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "map out + sth"
-            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:map:76dfae55de125303",
           "target_locator": "record.senses[1]",
-          "target_label": "绘制…的地图；详细规划"
+          "target_label": "绘制……的地图；把……表示在地图或图表上"
         }
       },
       {
@@ -1818,7 +1813,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:map:map-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "map sth out / map out sth",
+        "lines": [
+          {
+            "text": "详细规划、筹划；把步骤或方案安排清楚",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative planning phrasal verb; not literal map-making",
+            "lang": "en"
+          },
+          {
+            "text": "to plan an activity, process, policy, or future course in detail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:map:map-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "map sth out / map out sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3462,7 +3483,7 @@
     "ordinal": 2963,
     "word": "market",
     "source_owner_path": "content/lexical/words/by-ordinal/o2963.json",
-    "source_fingerprint": "10fd27a3f4dc6735c021ffeabcdae65050c89286415c98eb9d9f2cd104bb8b45",
+    "source_fingerprint": "2dd5f9ea19b115715c0fb0a865ec33f13e6b17f8278f2586bfb35914c040b04e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3472,13 +3493,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "市场",
-      "decision_cn": "",
+      "summary_cn": "市场/交易体系；市场需求；推销营销",
+      "decision_cn": "place/trading system → market（集市、股票市场等）；buyers/demand → market for sth；verb → 推销/营销。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "市场"
+        "target_label": "市场/交易体系；市场需求；推销营销"
       }
     },
     "senses": [
@@ -3487,9 +3508,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "市场，集市",
-        "definition_en": "a place where people buy and sell goods",
-        "note": "",
+        "definition_cn": "市场；进行买卖或交易的场所、领域或体系",
+        "definition_en": "a place, area of business, or system in which goods, services, financial products, etc. are bought and sold",
+        "note": "covers a physical market and organized trading contexts such as the stock market; demand/buyer-group market remains a separate sense",
         "identity_overlay": null,
         "usage": [
           {
@@ -3513,7 +3534,7 @@
           "target_kind": "sense",
           "target_id": "sense:market:481c3b85d87c5311",
           "target_locator": "record.senses[0]",
-          "target_label": "市场，集市"
+          "target_label": "市场；进行买卖或交易的场所、领域或体系"
         }
       },
       {
@@ -3991,7 +4012,7 @@
     "ordinal": 2967,
     "word": "marvelous",
     "source_owner_path": "content/lexical/words/by-ordinal/o2967.json",
-    "source_fingerprint": "6d8fd0843b8f9b5ae3705348a5b3562f68244b56892ae09bdd0457040d723f2d",
+    "source_fingerprint": "3db6dfcd28e206a441baa0369884a15c8993825e8afcffb4b386222db9032c0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4001,7 +4022,7 @@
     },
     "word_feel": {
       "summary_cn": "了不起的；令人惊异的",
-      "decision_cn": "",
+      "decision_cn": "marvelous 是通常美式拼写；marvellous 是通常英式拼写；语义相同，两个冻结 Main Word owner 均保留。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4154,8 +4175,47 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
-      "form": null,
+      "relations": [
+        {
+          "title": "marvelous ↔ marvellous",
+          "target_word": "marvellous",
+          "lines": [
+            {
+              "text": "marvelous is the usual AmE spelling; marvellous is the usual BrE spelling. They are regional spellings of the same adjective; preserve both frozen Main Word owners.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:efb7cf410a72abc2a240",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "marvelous ↔ marvellous"
+          }
+        }
+      ],
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [],
+            "reading": "form:marvelous:ame",
+            "ipa": ""
+          },
+          {
+            "pos": [],
+            "reading": "form:marvellous:bre",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4449,7 +4509,7 @@
     "ordinal": 2970,
     "word": "mask",
     "source_owner_path": "content/lexical/words/by-ordinal/o2970.json",
-    "source_fingerprint": "851fb01e75cd3f7edafa60ea70f68d440b734249ff16eaa5abf83b497f825784",
+    "source_fingerprint": "992a58af4feb2a03626b997ffaf0ab1174c35841528be71194d555a1d111ec16",
     "sense_lineage": [
       {
         "word_id": "word:mask",
@@ -4461,19 +4521,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "遮盖物，掩饰",
-      "decision_cn": "",
+      "summary_cn": "面具/防护面罩；掩盖、遮蔽",
+      "decision_cn": "face covering → 面具/口罩；mask a smell/problem/effect → 掩盖、遮蔽；“给某物戴上/覆盖面具”的物理动词留在 Expansion。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "遮盖物，掩饰"
+        "target_label": "面具/防护面罩；掩盖、遮蔽"
       }
     },
     "senses": [
@@ -4567,6 +4627,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "戴在脸上的防护罩"
         }
+      },
+      {
+        "id": "sense:mask:9bb60421fb805d20",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "mask sth / mask sth with sth",
+        "definition_cn": "掩盖；遮蔽；使不易察觉",
+        "definition_en": "to conceal, hide, or prevent something from being seen, noticed, or recognized",
+        "note": "common figurative verb: mask a smell/problem/effect; distinct from physically putting a mask on something",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mask:9bb60421fb805d20",
+          "target_locator": "record.senses[3]",
+          "target_label": "掩盖；遮蔽；使不易察觉"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4610,31 +4687,6 @@
       "family": [],
       "senses": [
         {
-          "stable_sense_id": "sense:mask:9bb60421fb805d20",
-          "status": "active",
-          "merged_into_sense_id": null,
-          "pos": "verb",
-          "definition_cn": "掩饰；隐藏；使不易察觉",
-          "definition_en": "to conceal, hide, or prevent something from being noticed or recognized",
-          "semantic_key": "b36acf453ecf1836e2972b6ef2760f4b52fadfdd9d0543e3691ac9bf1b2e0ba4",
-          "semantic_key_history": [
-            "b1746a3d7fcd7448fab9054340ac0fc92ff5f304c021af320ccc535cf0e3a22c"
-          ],
-          "legacy_aliases": [
-            "mask:l1:5"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "mask:l1:5",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-15T09:40:00Z",
-          "source_row": 8273,
-          "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json",
-          "reference_only": true
-        },
-        {
           "stable_sense_id": "sense:mask:d96d40f4adec5e38",
           "status": "deprecated",
           "merged_into_sense_id": null,
@@ -4668,7 +4720,7 @@
     "ordinal": 2971,
     "word": "mass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2971.json",
-    "source_fingerprint": "66d3a00b7eb689af14663c26950b5de2c29b0c9aab9b82f50fce1fc2f5cf4e60",
+    "source_fingerprint": "9d167031d5a2247e3e1ad79dbc7a5710441e7a6e3e6d41715bc5be78a380fb4f",
     "sense_lineage": [
       {
         "word_id": "word:mass",
@@ -4687,13 +4739,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大量或许多某物",
-      "decision_cn": "",
+      "summary_cn": "大量/大众；物理质量；大规模的",
+      "decision_cn": "mass 大量/大众/物理质量/大规模；Mass（首字母大写）可指基督教弥撒，作为 Expansion 识别；mass troops 等动词义同样不是默认 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大量或许多某物"
+        "target_label": "大量/大众；物理质量；大规模的"
       }
     },
     "senses": [
@@ -4908,19 +4960,27 @@
         "definition_cn": "弥撒",
         "definition_en": "a Christian religious service, especially in the Roman Catholic tradition",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "capitalize Mass for the Christian religious service; ordinary mass meanings are lowercase",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[6].lexical_identity_overlay",
+            "target_label": "capitalize Mass for the Christian religious service; ordinary mass meanings are lowercase"
+          }
+        },
         "usage": [
           {
             "id": "collocation:ce4ae9146b6d37540f5e",
             "source_locator": "record.senses[6].collocations[0]",
-            "phrase": "attend mass",
+            "phrase": "attend Mass",
             "meaning_cn": "参加弥撒",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ce4ae9146b6d37540f5e",
               "target_locator": "record.senses[6].collocations[0]",
-              "target_label": "attend mass"
+              "target_label": "attend Mass"
             }
           }
         ],
@@ -5505,7 +5565,7 @@
     "ordinal": 2974,
     "word": "master",
     "source_owner_path": "content/lexical/words/by-ordinal/o2974.json",
-    "source_fingerprint": "c65f20becb6eaf3766ae7b030b8802b0a994e74d0607c39e3c25843dbc1c66a3",
+    "source_fingerprint": "b54c14b83518cf191cf0558894258b525f4d227db5b37358f24ec54365e0f9c0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5515,13 +5575,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "掌控或精通的人或行为",
-      "decision_cn": "",
+      "summary_cn": "主人/大师；精通、掌握",
+      "decision_cn": "master of sth → 主人/大师/高手；master a skill → 掌握；Master of Arts/Science 是学位称号；船长、母带等保留在 Expansion。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "掌控或精通的人或行为"
+        "target_label": "主人/大师；精通、掌握"
       }
     },
     "senses": [
@@ -5586,10 +5646,10 @@
         "id": "sense:master:0ecbd08b97335a7e",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "硕士",
-        "definition_en": "a person who holds a master's degree",
-        "note": "",
+        "governing_pattern": "Master of + field",
+        "definition_cn": "硕士学位/硕士（主要见于 Master of Arts/Science 等学位称号）",
+        "definition_en": "in degree titles such as Master of Arts or Master of Science: a postgraduate degree, or a person awarded that degree",
+        "note": "mainly in formal degree titles; ordinary bare master does not generally mean “a person with a master’s degree”",
         "identity_overlay": null,
         "usage": [
           {
@@ -5605,7 +5665,7 @@
           "target_kind": "sense",
           "target_id": "sense:master:0ecbd08b97335a7e",
           "target_locator": "record.senses[2]",
-          "target_label": "硕士"
+          "target_label": "硕士学位/硕士（主要见于 Master of Arts/Science 等学位称号）"
         }
       },
       {
@@ -6490,23 +6550,38 @@
     "ordinal": 2978,
     "word": "mate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2978.json",
-    "source_fingerprint": "8f7ca4e4532ea4662af2c01b46b97e6a113909d123d0c99f62bfc272a28adc9a",
-    "sense_lineage": [],
+    "source_fingerprint": "c67674d7ea830693752c01ba52a20a07e56bb20b34b3e475d6802a14f70ec02a",
+    "sense_lineage": [
+      {
+        "word_id": "word:mate",
+        "target_kind": "sense",
+        "from_target_id": "sense:mate:d971383149a95309",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:mate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:67ceb25fe24c3ef13332",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "配偶；配对",
-      "decision_cn": "",
+      "summary_cn": "配偶/伴侣；伙伴朋友；交配",
+      "decision_cn": "person → mate 可指伴侣/朋友；animals → 配偶、交配；ship → first mate 大副。南美饮品 mate/maté 发音不同且价值较低，保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "配偶；配对"
+        "target_label": "配偶/伴侣；伙伴朋友；交配"
       }
     },
     "senses": [
@@ -6652,32 +6727,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "交配；成配偶"
         }
-      },
-      {
-        "id": "sense:mate:d971383149a95309",
-        "source_locator": "record.senses[5]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "马黛茶（植物）",
-        "definition_en": "a South American holly used to make a tea-like drink",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:67ceb25fe24c3ef13332",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "mate tea",
-            "meaning_cn": "马黛茶",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:mate:d971383149a95309",
-          "target_locator": "record.senses[5]",
-          "target_label": "马黛茶（植物）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6703,7 +6752,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:67ceb25fe24c3ef13332",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:mate:d971383149a95309:collocation:0"
+              ],
+              "meaning_cn": "马黛茶",
+              "phrase": "mate tea"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "马黛茶（植物）",
+          "definition_en": "a South American holly used to make a tea-like drink",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:mate:d971383149a95309",
+          "sense_label_en": "a South American holly used to make a tea-like drink",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6712,7 +6787,7 @@
     "ordinal": 2979,
     "word": "material",
     "source_owner_path": "content/lexical/words/by-ordinal/o2979.json",
-    "source_fingerprint": "88e671a25e1b203302602cebddc0445a7b987b7328bcbf4c4a12e1e87685b859",
+    "source_fingerprint": "53c124ba745800409e8f4969d8affd51c038d2d76b1d20be48a238896501fa06",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6722,13 +6797,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用于制作或做某事的物质或信息",
-      "decision_cn": "",
+      "summary_cn": "材料/物质；资料素材；用品；实质性的",
+      "decision_cn": "physical substance → 材料；information → 素材资料；materials → 用具/材料；be X material → 具备成为某类人/胜任某角色的素质（Expansion）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用于制作或做某事的物质或信息"
+        "target_label": "材料/物质；资料素材；用品；实质性的"
       }
     },
     "senses": [
@@ -6873,9 +6948,9 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "被认为适合录取或就业的人",
-        "definition_en": "a person judged suitable for admission or employment",
-        "note": "",
+        "definition_cn": "被认为具有某种角色、机会或训练所需素质的人",
+        "definition_en": "a person considered to have the qualities needed for a particular role, opportunity, or type of training",
+        "note": "often in the pattern be + role/type + material: university material, officer material, Olympic material",
         "identity_overlay": null,
         "usage": [
           {
@@ -6891,7 +6966,7 @@
           "target_kind": "sense",
           "target_id": "sense:material:e47df036fe685f69",
           "target_locator": "record.senses[4]",
-          "target_label": "被认为适合录取或就业的人"
+          "target_label": "被认为具有某种角色、机会或训练所需素质的人"
         }
       },
       {
@@ -6962,7 +7037,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:material:x-material",
+        "sense_id": "sense:material:e47df036fe685f69",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be + role/type + material",
+        "lines": [
+          {
+            "text": "具备成为某类人/胜任某角色所需的素质",
+            "lang": "cn"
+          },
+          {
+            "text": "person-suitability pattern: university/officer/Olympic material; not physical material",
+            "lang": "en"
+          },
+          {
+            "text": "to have the qualities considered suitable for a particular role, opportunity, or level",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:material:x-material",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be + role/type + material"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7083,7 +7185,7 @@
     "ordinal": 2981,
     "word": "mathematics",
     "source_owner_path": "content/lexical/words/by-ordinal/o2981.json",
-    "source_fingerprint": "3075836efc77c876f13c76fe7df30a08a54b4a6f3c4b774b8f983fad2877514d",
+    "source_fingerprint": "0ed5e6ab6f201fe9994d970f6d686167441bedbcab2d23ec7500fa565f5023ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7093,7 +7195,7 @@
     },
     "word_feel": {
       "summary_cn": "数学",
-      "decision_cn": "",
+      "decision_cn": "mathematics 词尾有 -s，但作为学科名通常按单数：Mathematics is ...；不要因形式像复数而用 are。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7109,7 +7211,7 @@
         "governing_pattern": "",
         "definition_cn": "数学",
         "definition_en": "a science (or group of related sciences) dealing with the logic of quantity and shape and arrangement",
-        "note": "",
+        "note": "academic subject name: mathematics is ..., not *mathematics are",
         "identity_overlay": null,
         "usage": [
           {
@@ -7276,7 +7378,25 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "mathematics · singular agreement (mathematics is …)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -8459,17 +8579,32 @@
     "ordinal": 2990,
     "word": "meal",
     "source_owner_path": "content/lexical/words/by-ordinal/o2990.json",
-    "source_fingerprint": "d8c1da249b80f42ed558b6cf35344b2ae6abf506a739fad9ff8e38ce96c93bbc",
-    "sense_lineage": [],
+    "source_fingerprint": "5881b54e2ff5def1f7734c089e7aa864975e2bbcac744e0abec8912158a8e50a",
+    "sense_lineage": [
+      {
+        "word_id": "word:meal",
+        "target_kind": "sense",
+        "from_target_id": "sense:meal:ed48620941095c80",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:meal",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:898be1650d319359c799",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "一餐饭",
-      "decision_cn": "",
+      "decision_cn": "meal 默认是一顿饭/一次进餐；meal = 粗磨谷物/种子粉是真实但低优先级的 food-processing 用法，保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8545,32 +8680,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "一餐，一顿饭（指进餐时间）"
         }
-      },
-      {
-        "id": "sense:meal:ed48620941095c80",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "粗磨的粉（尤指谷物或豆类）",
-        "definition_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or pulse",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:898be1650d319359c799",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "corn meal",
-            "meaning_cn": "玉米粉",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:meal:ed48620941095c80",
-          "target_locator": "record.senses[2]",
-          "target_label": "粗磨的粉（尤指谷物或豆类）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8607,7 +8716,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:898be1650d319359c799",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:meal:ed48620941095c80:collocation:0"
+              ],
+              "meaning_cn": "玉米粉",
+              "phrase": "corn meal"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "粗磨的粉（尤指谷物或豆类）",
+          "definition_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or pulse",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:meal:ed48620941095c80",
+          "sense_label_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9077,7 +9212,7 @@
     "ordinal": 2993,
     "word": "means",
     "source_owner_path": "content/lexical/words/by-ordinal/o2993.json",
-    "source_fingerprint": "5724d6543ad1c60b43960c89d5d0c939b3bafa765816d76d76316b71f55a2bde",
+    "source_fingerprint": "9f357a383c785e5e8bacf19b67f2dfe451c0d6aa8cbff17d73693c9bbd187b8f",
     "sense_lineage": [
       {
         "word_id": "word:means",
@@ -9094,13 +9229,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "方法，手段；财力",
-      "decision_cn": "",
+      "summary_cn": "方法、手段；财力、资源",
+      "decision_cn": "method → a means / several means（单复数同形：a means is, several means are）；resources → within/beyond one’s means, have the means to do sth。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "方法，手段；财力"
+        "target_label": "方法、手段；财力、资源"
       }
     },
     "senses": [
@@ -9111,7 +9246,7 @@
         "governing_pattern": "",
         "definition_cn": "方法，手段",
         "definition_en": "how a result is obtained or an end is achieved",
-        "note": "",
+        "note": "count noun with invariant form: a/one means is ...; several/many means are ...",
         "identity_overlay": null,
         "usage": [
           {
@@ -9264,7 +9399,32 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "means · singular (a/one means is …)",
+            "ipa": ""
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "means · plural (several/many means are …)",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [],
       "senses": [
         {
@@ -10220,7 +10380,7 @@
     "ordinal": 3000,
     "word": "mechanism",
     "source_owner_path": "content/lexical/words/by-ordinal/o3000.json",
-    "source_fingerprint": "8061b68a6512507bd8074bba8b24d662a3dcbf396a9cc85a81dc8e787d7cd780",
+    "source_fingerprint": "46c0d6179264e1193e74453accca0cf73cf28e97bba90d70c7d726f5177b3b73",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10229,13 +10389,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "机制；机械装置",
-      "decision_cn": "",
+      "summary_cn": "机制、运作方式；机械装置",
+      "decision_cn": "abstract process → mechanism = 机制/运作方式；machine/device → 机械装置/机件组合；更窄的 technical/biological 分支保留在 Expansion。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "机制；机械装置"
+        "target_label": "机制、运作方式；机械装置"
       }
     },
     "senses": [
