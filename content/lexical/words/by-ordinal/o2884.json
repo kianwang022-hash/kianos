@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:loose:on-the-loose",
+        "pattern": "be/on the loose",
+        "meaning_cn": "（危险的人或动物）在逃、未受控制；四处自由活动",
+        "definition_en": "free and not controlled or confined, especially of a dangerous person or animal",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only",
+        "boundary": "idiom about being free/unconfined; not an independent noun meaning “freedom”"
+      }
+    ],
     "content_hash": "a6887569b087094c9eb08f93217062dad13770463207f1ceef7c5ee11da6c7f1",
     "core_concept": {
       "core_clusters": [
@@ -28,14 +40,6 @@
           ]
         },
         {
-          "label_cn": "放任，自由",
-          "label_en": "a state of freedom from restraint",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:loose:cc3c20d64ae35b05"
-          ]
-        },
-        {
           "label_cn": "松散地",
           "label_en": "in a loose manner",
           "pos": "adverb",
@@ -44,9 +48,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "松的，松散的",
-      "core_meaning_en": "not tight or free from restraint",
-      "mental_model_cn": "松的，松散的",
+      "core_meaning_cn": "松的、不紧的；松散的；放开/释放",
+      "core_meaning_en": "not tight or compact; as a verb, to release/set free",
+      "mental_model_cn": "fit/attachment → 松的；material → 松散；verb loose sth → 放开/释放；on the loose → 在逃/未受控制（固定习语）。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -139,30 +143,6 @@
         "sense_label_en": "to release or set free",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a945b031b3a1edbad76c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:loose:cc3c20d64ae35b05:collocation:0"
-            ],
-            "meaning_cn": "在逃，自由自在",
-            "phrase": "on the loose"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "放任，自由",
-        "definition_en": "a state of freedom from restraint",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:loose:cc3c20d64ae35b05",
-        "sense_label_en": "a state of freedom from restraint",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -708,7 +688,32 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a945b031b3a1edbad76c",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:loose:cc3c20d64ae35b05:collocation:0"
+          ],
+          "meaning_cn": "在逃，自由自在",
+          "phrase": "on the loose"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "放任，自由",
+      "definition_en": "a state of freedom from restraint",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:loose:cc3c20d64ae35b05",
+      "sense_label_en": "a state of freedom from restraint",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -727,7 +732,7 @@
       },
       {
         "sense_id": "sense:loose:cc3c20d64ae35b05",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8033,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -751,7 +756,6 @@
       "collocation:2ca079f0df0c4fef5541",
       "collocation:358e97c492df1b4153e3",
       "collocation:9870f961fc84cef34931",
-      "collocation:a945b031b3a1edbad76c",
       "collocation:c8100a8f3cb2edfd1453",
       "collocation:c9e4fae3a775a4fd886e"
     ],
@@ -775,7 +779,9 @@
       {
         "id": "collocation:a945b031b3a1edbad76c",
         "source_row": 14335,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c8100a8f3cb2edfd1453",

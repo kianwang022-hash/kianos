@@ -5,23 +5,38 @@
     "ordinal": 2881,
     "word": "look",
     "source_owner_path": "content/lexical/words/by-ordinal/o2881.json",
-    "source_fingerprint": "036e080fe801514a3f62a8a6e2f8e1521455ccd6614945f1365de2507d1b8f69",
-    "sense_lineage": [],
+    "source_fingerprint": "428d071fd51114c0f9acf5b648f8efc10f113699c5dc2b7bf546861cd1cec2b4",
+    "sense_lineage": [
+      {
+        "word_id": "word:look",
+        "target_kind": "sense",
+        "from_target_id": "sense:look:93235c3fc0855994",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:look",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:eb1dd60d3d53dcef2ec1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "看；显得",
-      "decision_cn": "",
+      "summary_cn": "看、注视；显得；一瞥或外表",
+      "decision_cn": "look at → 看；look + adj → 显得；noun look → 一看/外表；look for/after/into/to/forward to 等靠构式选义；look sb in the eye/face 是固定直视构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "看；显得"
+        "target_label": "看、注视；显得；一瞥或外表"
       }
     },
     "senses": [
@@ -167,37 +182,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "样子；外表"
         }
-      },
-      {
-        "id": "sense:look:93235c3fc0855994",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "打量；注视",
-        "definition_en": "to direct one's gaze towards (someone or something)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:eb1dd60d3d53dcef2ec1",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "look someone in the eye",
-            "meaning_cn": "直视某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:eb1dd60d3d53dcef2ec1",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "look someone in the eye"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:look:93235c3fc0855994",
-          "target_locator": "record.senses[4]",
-          "target_label": "打量；注视"
-        }
       }
     ],
     "pronunciation_support": {
@@ -240,6 +224,14 @@
           {
             "text": "调查；研究…",
             "lang": "cn"
+          },
+          {
+            "text": "phrasal meaning = investigate; not literal visual looking",
+            "lang": "en"
+          },
+          {
+            "text": "investigate or examine something in order to discover facts",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -257,6 +249,14 @@
           {
             "text": "指望；依靠…",
             "lang": "cn"
+          },
+          {
+            "text": "look to = rely on/seek help, guidance, or a solution; not literal gaze",
+            "lang": "en"
+          },
+          {
+            "text": "rely on, expect help/guidance from, or direct attention to someone/something for a purpose",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -333,13 +333,64 @@
           "target_locator": "record.constructions[5]",
           "target_label": "look like sb/sth / look like + clause"
         }
+      },
+      {
+        "id": "construction:look:in-eye-face",
+        "source_locator": "record.constructions[6]",
+        "pattern": "look sb in the eye/face",
+        "lines": [
+          {
+            "text": "直视某人；坦然、直接地面对某人",
+            "lang": "cn"
+          },
+          {
+            "text": "idiomatic/direct-gaze pattern; not a separate general transitive look Sense",
+            "lang": "en"
+          },
+          {
+            "text": "look directly at someone, often in a way that shows confidence, honesty, or lack of shame",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:look:in-eye-face",
+          "target_locator": "record.constructions[6]",
+          "target_label": "look sb in the eye/face"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:eb1dd60d3d53dcef2ec1",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:look:93235c3fc0855994:collocation:0"
+              ],
+              "meaning_cn": "直视某人",
+              "phrase": "look someone in the eye"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "打量；注视",
+          "definition_en": "to direct one's gaze towards (someone or something)",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:look:93235c3fc0855994",
+          "sense_label_en": "to direct one's gaze towards (someone or something)",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -348,7 +399,7 @@
     "ordinal": 2882,
     "word": "loom",
     "source_owner_path": "content/lexical/words/by-ordinal/o2882.json",
-    "source_fingerprint": "9f8a4bfaf703e4289d7d6d89531409279557911d524a447974230de026b90cb2",
+    "source_fingerprint": "37d402a1625f64c6d8392bb7fa361847c5e0ca01f8babe967d4ffd92d0feb7b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -358,13 +409,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "隐约出现，逼近",
-      "decision_cn": "",
+      "summary_cn": "隐约/赫然出现；令人担忧的事情逼近",
+      "decision_cn": "physical shape → 隐约/高大地出现；deadline/problem/crisis → 逼近、眼看要发生；loom large → 显得格外重要、突出或有威胁。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "隐约出现，逼近"
+        "target_label": "隐约/赫然出现；令人担忧的事情逼近"
       }
     },
     "senses": [
@@ -373,9 +424,9 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "隐约出现，赫然耸现",
-        "definition_en": "come into view indistinctly, often threateningly",
-        "note": "",
+        "definition_cn": "隐约出现、赫然耸现；（令人担忧的事）逼近、似乎即将发生",
+        "definition_en": "to appear as a large or unclear shape, or for a worrying event or problem to seem likely to happen soon",
+        "note": "physical: a shape looms ahead; figurative: a deadline/crisis/recession looms",
         "identity_overlay": null,
         "usage": [
           {
@@ -391,7 +442,7 @@
           "target_kind": "sense",
           "target_id": "sense:loom:6b8aafd0a6385b9a",
           "target_locator": "record.senses[0]",
-          "target_label": "隐约出现，赫然耸现"
+          "target_label": "隐约出现、赫然耸现；（令人担忧的事）逼近、似乎即将发生"
         }
       },
       {
@@ -664,25 +715,39 @@
     "ordinal": 2884,
     "word": "loose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2884.json",
-    "source_fingerprint": "f90843d4b00c24c5d016c356ffd84dfa7d849f092f0b1faa61ed894e6d679b06",
-    "sense_lineage": [],
+    "source_fingerprint": "2c1f3db6e7d58df303bba2d069fac8d747165c606bafc83567492be570ff3732",
+    "sense_lineage": [
+      {
+        "word_id": "word:loose",
+        "target_kind": "sense",
+        "from_target_id": "sense:loose:cc3c20d64ae35b05",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:loose",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a945b031b3a1edbad76c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
         "2A",
-        "1N",
         "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "松的，松散的",
-      "decision_cn": "",
+      "summary_cn": "松的、不紧的；松散的；放开/释放",
+      "decision_cn": "fit/attachment → 松的；material → 松散；verb loose sth → 放开/释放；on the loose → 在逃/未受控制（固定习语）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "松的，松散的"
+        "target_label": "松的、不紧的；松散的；放开/释放"
       }
     },
     "senses": [
@@ -778,39 +843,8 @@
         }
       },
       {
-        "id": "sense:loose:cc3c20d64ae35b05",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "放任，自由",
-        "definition_en": "a state of freedom from restraint",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a945b031b3a1edbad76c",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "on the loose",
-            "meaning_cn": "在逃，自由自在",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a945b031b3a1edbad76c",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "on the loose"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:loose:cc3c20d64ae35b05",
-          "target_locator": "record.senses[3]",
-          "target_label": "放任，自由"
-        }
-      },
-      {
         "id": "sense:loose:ed8ebf60ad76516a",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "松散地",
@@ -820,14 +854,14 @@
         "usage": [
           {
             "id": "collocation:c9e4fae3a775a4fd886e",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "hang loose",
             "meaning_cn": "放松，保持镇定",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c9e4fae3a775a4fd886e",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "hang loose"
             }
           }
@@ -835,7 +869,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:loose:ed8ebf60ad76516a",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "松散地"
         }
       }
@@ -1032,16 +1066,38 @@
         "sense:loose:e4607ad76192578c": [
           1,
           4
-        ],
-        "sense:loose:cc3c20d64ae35b05": [
-          2,
-          5
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:loose:on-the-loose",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/on the loose",
+        "lines": [
+          {
+            "text": "（危险的人或动物）在逃、未受控制；四处自由活动",
+            "lang": "cn"
+          },
+          {
+            "text": "idiom about being free/unconfined; not an independent noun meaning “freedom”",
+            "lang": "en"
+          },
+          {
+            "text": "free and not controlled or confined, especially of a dangerous person or animal",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:loose:on-the-loose",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/on the loose"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -1064,7 +1120,33 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a945b031b3a1edbad76c",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:loose:cc3c20d64ae35b05:collocation:0"
+              ],
+              "meaning_cn": "在逃，自由自在",
+              "phrase": "on the loose"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "放任，自由",
+          "definition_en": "a state of freedom from restraint",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:loose:cc3c20d64ae35b05",
+          "sense_label_en": "a state of freedom from restraint",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -2025,23 +2107,23 @@
     "ordinal": 2890,
     "word": "lot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2890.json",
-    "source_fingerprint": "996321886ebab9cc951373c5c40d829a0a0e7d928bf80af2098c8ebef6735c93",
+    "source_fingerprint": "fe801a62ffca2c767d912cbca69dc57bce129e18506f20ef8fc63df3d93ae7ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "许多；份额",
-      "decision_cn": "",
+      "summary_cn": "许多/大量；一批/一组；拍卖批次；地块；境遇",
+      "decision_cn": "a lot of + noun → 许多；a lot（副词）→ 很/经常；one/another lot → 一批；auction lot → 拍品批次；the lot → 全部；US land → 地块。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "许多；份额"
+        "target_label": "许多/大量；一批/一组；拍卖批次；地块；境遇"
       }
     },
     "senses": [
@@ -2201,6 +2283,40 @@
           "target_locator": "record.senses[4]",
           "target_label": "抽签"
         }
+      },
+      {
+        "id": "sense:lot:dd8dce95363c1308",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "one/another lot of + plural/uncountable noun",
+        "definition_cn": "一批；一组（一起处理的人或物）",
+        "definition_en": "a group or batch of people or things dealt with together",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lot:dd8dce95363c1308",
+          "target_locator": "record.senses[5]",
+          "target_label": "一批；一组（一起处理的人或物）"
+        }
+      },
+      {
+        "id": "sense:lot:c23bbfcf6b0c0d66",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "lot + number / auction lot",
+        "definition_cn": "（拍卖中的）一件/一组拍品；拍卖批次",
+        "definition_en": "an object or set of objects offered for sale as one unit at an auction",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lot:c23bbfcf6b0c0d66",
+          "target_locator": "record.senses[6]",
+          "target_label": "（拍卖中的）一件/一组拍品；拍卖批次"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2239,6 +2355,56 @@
           "target_id": "construction:52b7b8158e8007a7656b",
           "target_locator": "record.constructions[0]",
           "target_label": "draw/cast lots"
+        }
+      },
+      {
+        "id": "construction:lot:a-lot-adverb",
+        "source_locator": "record.constructions[1]",
+        "pattern": "a lot",
+        "lines": [
+          {
+            "text": "很；非常；经常（作副词，表示程度或频率）",
+            "lang": "cn"
+          },
+          {
+            "text": "adverbial a lot without a following noun; distinct from quantifier a lot of + noun",
+            "lang": "en"
+          },
+          {
+            "text": "informal: very much, to a great degree, or very often",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lot:a-lot-adverb",
+          "target_locator": "record.constructions[1]",
+          "target_label": "a lot"
+        }
+      },
+      {
+        "id": "construction:lot:the-lot",
+        "source_locator": "record.constructions[2]",
+        "pattern": "the lot / the whole lot",
+        "lines": [
+          {
+            "text": "全部；所有的人或东西",
+            "lang": "cn"
+          },
+          {
+            "text": "means all/everything, not a large amount",
+            "lang": "en"
+          },
+          {
+            "text": "informal: all of a group or amount; everything",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lot:the-lot",
+          "target_locator": "record.constructions[2]",
+          "target_label": "the lot / the whole lot"
         }
       }
     ],
@@ -2529,23 +2695,45 @@
     "ordinal": 2893,
     "word": "lounge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2893.json",
-    "source_fingerprint": "b21b41fff92bca3974ef65f18dd70922d142e8ddd7f1d8dfed022aa575c6082e",
-    "sense_lineage": [],
+    "source_fingerprint": "e1317d2269ec0628f6e2886d7f7a91ae7bd621a429cd25949ca62c1fa42bef27",
+    "sense_lineage": [
+      {
+        "word_id": "word:lounge",
+        "target_kind": "sense",
+        "from_target_id": "sense:lounge:0f7e6c1e11c95a12",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lounge",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6df65b922089ce3802da",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lounge",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c0e0ec9a8d46aeea3f5b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "休息室或懒散地休息",
-      "decision_cn": "",
+      "summary_cn": "休息室；懒洋洋地坐/躺着放松",
+      "decision_cn": "place → lounge 休息室/候机厅；verb → 懒洋洋地坐/躺；lounge around/about → 闲待着、放松而几乎不做事。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "休息室或懒散地休息"
+        "target_label": "休息室；懒洋洋地坐/躺着放松"
       }
     },
     "senses": [
@@ -2594,21 +2782,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c0e0ec9a8d46aeea3f5b",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "lounge around",
-            "meaning_cn": "闲逛；无所事事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c0e0ec9a8d46aeea3f5b",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "lounge around"
-            }
-          },
-          {
             "id": "collocation:08061028eb3f4fab193d",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "lounge on the sofa",
             "meaning_cn": "懒散地躺在沙发上",
             "kind": "usage_example",
@@ -2647,37 +2822,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "长沙发"
         }
-      },
-      {
-        "id": "sense:lounge:0f7e6c1e11c95a12",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + (about/around)",
-        "definition_cn": "闲混；消磨时间",
-        "definition_en": "to spend time doing nothing or relaxing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6df65b922089ce3802da",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "lounge about",
-            "meaning_cn": "闲逛；无所事事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6df65b922089ce3802da",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "lounge about"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lounge:0f7e6c1e11c95a12",
-          "target_locator": "record.senses[3]",
-          "target_label": "闲混；消磨时间"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2701,12 +2845,65 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:lounge:around-about",
+        "sense_id": "sense:lounge:62c40bb1d8f4592f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lounge around/about (somewhere)",
+        "lines": [
+          {
+            "text": "懒洋洋地闲待着；坐着/躺着放松，几乎什么也不做",
+            "lang": "cn"
+          },
+          {
+            "text": "phrasal extension of lounge = sit/lie in a relaxed way; not a separate general verb Sense",
+            "lang": "en"
+          },
+          {
+            "text": "spend time in a relaxed way, sitting or lying somewhere and doing very little",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lounge:around-about",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lounge around/about (somewhere)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6df65b922089ce3802da",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lounge:0f7e6c1e11c95a12:collocation:0"
+              ],
+              "meaning_cn": "闲逛；无所事事",
+              "phrase": "lounge about"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "闲混；消磨时间",
+          "definition_en": "to spend time doing nothing or relaxing",
+          "governing_pattern": "vi. + (about/around)",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lounge:0f7e6c1e11c95a12",
+          "sense_label_en": "to spend time doing nothing or relaxing",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -3203,11 +3400,18 @@
     "ordinal": 2897,
     "word": "low",
     "source_owner_path": "content/lexical/words/by-ordinal/o2897.json",
-    "source_fingerprint": "6fd4acd4664f2389c6d3ee5f78225628e57c955663b5015ec7a71bdf37e38ad9",
-    "sense_lineage": [],
+    "source_fingerprint": "6a95795cca47afa5633ad25e0ba4c8097a07322e086f15692d05be53551c1a9b",
+    "sense_lineage": [
+      {
+        "word_id": "word:low",
+        "target_kind": "sense",
+        "from_target_id": "sense:low:da6d966daf365f0c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2A",
         "1N",
         "1ADV"
@@ -3215,13 +3419,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "低",
-      "decision_cn": "",
+      "summary_cn": "低的/低水平的；情绪低落；低点",
+      "decision_cn": "position/amount → 低；mood → 情绪低落；noun a low → 低点；literary low = 牛发出低沉叫声保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "低"
+        "target_label": "低的/低水平的；情绪低落；低点"
       }
     },
     "senses": [
@@ -3343,23 +3547,6 @@
           "target_id": "sense:low:e24893d62d6b5001",
           "target_locator": "record.senses[3]",
           "target_label": "低；向下地"
-        }
-      },
-      {
-        "id": "sense:low:da6d966daf365f0c",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "牛叫",
-        "definition_en": "to make the sound of a cow",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:low:da6d966daf365f0c",
-          "target_locator": "record.senses[4]",
-          "target_label": "牛叫"
         }
       }
     ],
@@ -3638,10 +3825,6 @@
         "sense:low:e24893d62d6b5001": [
           2,
           5
-        ],
-        "sense:low:da6d966daf365f0c": [
-          3,
-          6
         ]
       },
       "has_scope": true
@@ -3652,7 +3835,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "牛叫",
+          "definition_en": "to make the sound of a cow",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:low:da6d966daf365f0c",
+          "sense_label_en": "to make the sound of a cow",
+          "sort_order": 4,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
