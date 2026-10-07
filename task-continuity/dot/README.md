@@ -5,15 +5,16 @@
 ## 当前从哪里接
 
 1. 读当前 `AGENTS.md`，先识别用户是在学习、使用、修改还是查看工程状态。
-2. dot 的当前阶段、执行边界和完成标准，以 [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 为准；[任务栏 #60](https://github.com/kianwang022-hash/kian-personal-os/issues/60) 只做跨项目薄指针。
-3. 按实际需求进入原责任范围，不把所有请求都先送去西综工程游标：
-   - 西综内容/映射/功能一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → exact owner
+2. **已有绑定任务时，直接恢复该 native Issue；不重新从跨项目目录挑任务。** 西综长期任务绑定 [#1113](https://github.com/kianwang022-hash/kianos/issues/1113)：先读其简明 Parent outcome / Current / Next / Blocker / acceptance，再跟随它指向的当前 PR 实际 head 和 exact owner。具体阶段、候选 ref、测试结果不复制到本索引。
+3. **没有绑定任务，或 Kian 明确要求跨项目调度时**，才读 [任务栏 #60](https://github.com/kianwang022-hash/kian-personal-os/issues/60) → [Personal #61](https://github.com/kianwang022-hash/kian-personal-os/issues/61) 或其他已指明的原任务。#60/#61 保留组合、范围和授权职责；其旧阶段摘要不替代已绑定 native Issue 的当前游标。
+4. 按实际需求进入原责任范围，不把所有请求都先送去西综工程游标：
+   - 西综内容/映射/功能一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → 当前 PR/ref → exact owner
    - 三科运行闭环、跨科反馈及普通使用缺陷：[#1111](https://github.com/kianwang022-hash/kianos/issues/1111) → 当前具体缺陷/候选
    - 英语/词汇/政治的设计与内容：对应 domain `CURRENT.md`、manifest、Learning/Product owner
    - 实际学习进度：native learner evidence/Packet/Resume；工程任务和内容存在不能代替个人进度
-4. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。
+5. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。接续、分批和上下文预算直接继承 [AGENTS](../../AGENTS.md) 与 [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md)，不在这里另立执行规程。
 
-当前已确认推进的是 #61 第一阶段：考研 GitHub 端规则、既有内容组织与功能消费者收口。dot 不操作用户本机、浏览器、真实学习记录或本地部署；需要本地工作的范围、输入和验收先写到已有任务，再由用户转交 Chat。PDF/医学内容质量升级及词库扩写目前不启动。后续阶段变更回 #61，本索引不维护独立授权或并行任务表。
+本索引不再保存“当前仍在 #61 第一阶段”等阶段快照。执行权限取原任务的最新明确授权及实际工具限制；本索引不授予本机、浏览器、合并、部署或真实学习记录权限，不绕过拒绝。旧阶段限制保留在其原日期证据中；有后续明确授权时回原 owner 核对，不能把旧快照自动当成永久限制，也不能把当前任务标签当成新增授权。没有活动执行或显式自动化，就不声称后台持续运行。
 
 ## 总目标与必须保留
 
@@ -26,13 +27,13 @@
 - 现行规则优先，缺理解不等于没有设定；合法历史、Source 差异及未消费的有效知识资产不当作垃圾删除。
 
 语义细节直接读原权威，不复制到这里：
-[学习合同](../../content/xizong/LEARNING_CONTRACT.md)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
+[学习合同 §0：固定模型与完整复习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
 
 ## 阅读与证据记录
 
 - [EXAM_UNDERSTANDING.md](EXAM_UNDERSTANDING.md)：跨科规则、内容与代码的分批阅读/追踪记录，包含精确路径、blob、全文或局部范围、修复及未验边界。
 - [XIZONG_UNDERSTANDING.md](XIZONG_UNDERSTANDING.md)：西综对象和内容阅读覆盖及历史检查依据。
-- 两份都是接续证据，不是第二份规范或自动执行队列。仅清点、READ、静态追踪、实际运行、视觉检查和真实 U 分开。
+- 两份都是按需读取的历史证据，不是默认恢复包、第二份规范或自动执行队列。仅清点、READ、静态追踪、实际运行、视觉检查和真实 U 分开。
 - 不把历史全文阅读称为最新医学复验；不把 DOM/CI/构建或截图数量称为全功能验收；GitHub候选、合并、实际页面生效分别说明。
 
 记录一次实质推进时，只保存：
@@ -43,6 +44,6 @@
 
 ## 旧检查点在哪里
 
-2026-09-30 的候选、旧四阶段执行计划、07:30交付目标、当时额度/本机任务安排和修复报告索引，保留于[整理前版本](https://github.com/kianwang022-hash/kianos/blob/9bb8311d1a5a02f8b2d9324a42978f330e1e6b81/task-continuity/dot/README.md)及原 Issue 回执。它们是历史证据，不能覆盖当前 #61/#1111/#1113。
+2026-09-30 的候选、旧四阶段执行计划、07:30交付目标、当时额度/本机任务安排和修复报告索引，保留于[整理前版本](https://github.com/kianwang022-hash/kianos/blob/9bb8311d1a5a02f8b2d9324a42978f330e1e6b81/task-continuity/dot/README.md)及原 Issue 回执。它们是历史证据，不能覆盖当前任务 owner 和后来明确采用的决定。
 
-本次缩短入口没有删除原知识、产品代码、学习记录或验收证据，也不把旧“未发布”描述继续当成当前任务。
+本次路由修正没有删除原知识、产品代码、学习记录或验收证据。旧“未发布”“尚待采用”和旧默认候选，不作为当前执行指令。
