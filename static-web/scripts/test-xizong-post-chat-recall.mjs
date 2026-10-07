@@ -20,11 +20,11 @@ assert.ok(evidenceController, 'execute the actual evidence bridge');
 // Evaluate the actual frontmatter predicate, rather than restating its scope.
 const referenceExpression = component.match(/const postChatReferenceBlock = ([\s\S]*?);/)?.[1];
 assert.ok(referenceExpression);
-const referenceFor = (systemId, slug, systemCanonicalId = ({ circulation:'A1', respiratory:'A2', urinary:'A3' })[systemId]) => vm.runInNewContext(referenceExpression, { block: { systemId, slug, systemCanonicalId } });
+const referenceFor = (systemId, slug, systemCanonicalId = ({ circulation:'A1', respiratory:'A2', urinary:'A3' })[systemId]) => vm.runInNewContext(referenceExpression, { bPostChatReferenceBlock: false, block: { systemId, slug, systemCanonicalId } });
 const availabilityExpression = component.match(/const postChatRecallAvailable = ([\s\S]*?);/)?.[1];
 assert.ok(availabilityExpression);
 const availableFor = (systemId = 'circulation', slug = 'b01', mode = 'NATURAL_SOURCE_UNIT', perGroup = false) =>
-  vm.runInNewContext(availabilityExpression, { postChatReferenceBlock: referenceFor(systemId, slug), sourceContactMode: mode, sourcePerGroup: perGroup });
+  vm.runInNewContext(availabilityExpression, { bPostChatReferenceBlock: false, bPostChatSourceAvailable: false, postChatReferenceBlock: referenceFor(systemId, slug), sourceContactMode: mode, sourcePerGroup: perGroup });
 assert.equal(availableFor(), true);
 assert.equal(availableFor('circulation', 'b02'), true);
 for (const args of [['circulation', 'b13'], ['respiratory', 'b01'], ['circulation', 'b01', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b01', 'NATURAL_SOURCE_UNIT', true], ['circulation', 'b02', 'NATURAL_SOURCE_UNITS'], ['circulation', 'b02', 'NATURAL_SOURCE_UNIT', true]]) {
@@ -59,7 +59,7 @@ assert.equal(vm.runInNewContext(titleExpression, { titleOnlyKps: false, kp: titl
 assert.equal(vm.runInNewContext(railExpression, { titleOnlyKps: true, item: titleKp, id: 'stable-kp01' }), '');
 assert.equal(vm.runInNewContext(railExpression, { titleOnlyKps: false, item: titleKp, id: 'stable-kp01' }), 'KP01');
 
-assert.equal((component.match(/postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆/g) || []).length, 2, 'fresh and saved Source-stage entry');
+assert.equal((component.match(/postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆/g) || []).length, 3, 'fresh and both native Source-stage entries');
 assert.match(component, /postChatRecallAvailable && <button type="button" data-stage-target="source_contact">回原讲义/);
 
 class Element {
@@ -168,7 +168,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   const context = vm.createContext({ window, document, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, Element, CustomEvent, __revision: revision,
     learnerWriterReady: Promise.resolve(), sourceContactCompatible: revision.sourceContactCompatible, revisionRequiresAction: revision.revisionRequiresAction, needsFreshKpRecall: revision.needsFreshKpRecall,
     groupPayload: groups, kpPayload, revisionRuntimeUrl: '', revisionWitness: witness,
-    sourcePerGroup: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
+    sourcePerGroup: false, bPostChatReferenceBlock: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
     naturalSourceUnits: false, integrationPrimary: false, integrationTargetedSourceReturns: false, integrationReleaseLogicGroupIds: [], segmentedSourceUnits: false,
     blockSourceDebtPayload: [], blockSourceConflictPayload: [], blockVisualDebtPayload: visual ? [groupIds[1]] : [], sourceSegmentPayload: [], biochemistrySourcePayload: null, ttsxPayload: ttsx });
   await vm.runInContext(controller, context);

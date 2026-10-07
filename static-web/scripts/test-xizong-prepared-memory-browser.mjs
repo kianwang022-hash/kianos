@@ -439,7 +439,29 @@ try {
       await p.locator('[data-memory-queue] button').nth(i).click();
       const actual=answer.locator(`[data-prepared-memory="${card.precisionCueId}"]`);assert.equal(await actual.count(),1);
       const expectedText=await p.evaluate(html=>{const t=document.createElement('template');t.innerHTML=html;return t.content.textContent.replace(/\s+/g,' ').trim();},card.answerHtml);
-      assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),expectedText);
+      const authoredTables = {'B10-M23': 4, 'B10-M32': 4, 'B11-M02': 4};
+      if (Object.hasOwn(authoredTables, card.precisionCueId)) {
+        // These three pre-existing answers contain explicit pipe-table syntax.
+        // Compare native authored cells and all exterior text, not punctuation
+        // that the view-only formatter intentionally turns into table markup.
+        const source = await p.evaluate(html => {
+          const t = document.createElement('template'); t.innerHTML = html;
+          const raw = t.content.querySelector('section > p').textContent;
+          const lines = raw.split(/\r?\n/), tableLines = lines.filter(line => line.trim().startsWith('|'));
+          const cells = line => line.trim().slice(1, -1).split('|').map(cell => cell.trim());
+          const header = cells(tableLines[0]), rows = tableLines.slice(2).map(cells);
+          return {header, rows, prose: lines.filter(line => line.trim() && !line.trim().startsWith('|')),
+            full: t.content.textContent.replace(tableLines.join('\n'), header.join('') + rows.flat().join('')).replace(/\s+/g, ' ').trim()};
+        }, card.answerHtml);
+        const body = actual.locator(':scope > [data-memory-prepared-answer]');
+        assert.equal(await body.locator('table').count(), 1);
+        assert.deepEqual(await body.locator('thead th').allTextContents(), source.header);
+        assert.deepEqual(await body.locator('tbody tr').evaluateAll(rows => rows.map(row => [...row.querySelectorAll('td')].map(cell => cell.textContent))), source.rows);
+        assert.equal(source.rows.length, authoredTables[card.precisionCueId]);
+        assert.deepEqual(await body.locator('p').allTextContents(), source.prose);
+        assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),source.full);
+        assert.equal(await body.locator('details').count(), 0, 'table answer and qualifications are not folded');
+      } else assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),expectedText);
     }
     const index=expectedCards.findIndex(c=>c.precisionCueId===scenario.id);assert.ok(index>=0,scenario.id);
     await p.locator('[data-memory-queue] button').nth(index).click();assert.match(await answer.textContent(),scenario.text);

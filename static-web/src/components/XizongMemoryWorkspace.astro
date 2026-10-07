@@ -244,11 +244,12 @@ const base = import.meta.env.BASE_URL;
 
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
     // Canonical owner titles can contain the very threshold being recalled.
-    // A2/A3 Recall uses the reviewed answer-free cue for every queue/header label;
+    // A2/A3/B Recall uses the reviewed answer-free cue for every queue/header label;
     // Browse retains the canonical title. No stored Content or identity changes.
     const nativePrecisionRecall = (item) => item.family === 'PRECISION'
       && ((item.systemId === 'respiratory' && item.canonicalId === 'A2')
-        || (item.systemId === 'urinary' && item.canonicalId === 'A3'))
+        || (item.systemId === 'urinary' && item.canonicalId === 'A3')
+        || (item.systemId === 'digestive-metabolic-endocrine-tumor' && item.canonicalId === 'B'))
       && !(view === 'PRECISION' && precisionMode === 'BROWSE');
     const cardLabel = (item) => nativePrecisionRecall(item) ? (item.cue || 'Precision Memory')
       : item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
@@ -404,7 +405,9 @@ const base = import.meta.env.BASE_URL;
       const note = viewNotes[view] || viewNotes.TODAY;
       const preparedBlockLabel = preparedBlockFilter
         ? Object.values(state.cards).find(item => item.blockId === preparedBlockFilter)?.blockLabel
-          || (/^respiratory-r(?:0[1-9]|1[0-2])$/.test(preparedBlockFilter)
+          || (/^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(preparedBlockFilter)
+            ? preparedBlockFilter
+            : /^respiratory-r(?:0[1-9]|1[0-2])$/.test(preparedBlockFilter)
             ? `R${Number(preparedBlockFilter.match(/-r(\d+)$/)[1])}`
             : `B${Number(preparedBlockFilter.match(/-b(\d+)$/)?.[1])}`)
         : '';

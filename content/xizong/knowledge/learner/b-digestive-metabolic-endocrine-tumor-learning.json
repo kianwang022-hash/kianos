@@ -72,7 +72,8 @@
       "logic_group": "AFTER_WHOLE_LG_LECTURE_CONTACT",
       "block": "AFTER_ALL_BLOCK_LGS_CLOSE",
       "psr": "NATURAL_CHECKPOINT_ONLY_AND_SKIPPABLE",
-      "system": "ONLY_AFTER_ALL_38_BLOCKS_ARE_ACTUALLY_LEARNED"
+      "system": "ONLY_AFTER_ALL_38_BLOCKS_ARE_ACTUALLY_LEARNED",
+      "execution_scope": "ORIGINAL_SOURCE_EXECUTION_LANE; post-Chat retrieval follows the parent Learning Contract §0 and the current-target readiness policy."
     },
     "context_visibility": {
       "always": [
@@ -108,6 +109,11 @@
       "rule": "first Recall instability or Weak/Uncertain evidence may be recorded without automatically stopping the mainline indefinitely",
       "connection_hook_memory": "Connection Hooks do not enter normal Memory before formal target-owner learning",
       "precision_rule": "important current-owner Precision may start memory on first pass, but Precision must not become a permanent always-visible panel"
+    },
+    "post_chat_retrieval": {
+      "entry_mode": "POST_CHAT_RECALL",
+      "parent_owner": "content/xizong/LEARNING_CONTRACT.md#learning-outcome",
+      "rule": "After Chat model learning, allow the existing KP retrieval surface under current-target cognitive readiness and independent gates. Entry is navigation only, does not import or manufacture Source/contact/learned/completion evidence, and returning to original Source leaves this navigation mode. D retains accepted whole-LG Source; M/G retains the single current global Biochemistry Source map."
     }
   },
   "cross_system_handoff": {
@@ -2774,6 +2780,19 @@
         ],
         "returns_to": [
           "D23 surgery/C-cell interface"
+        ],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "requires",
+            "source_text": "Tumor Gate for KP23–25",
+            "logic_group_ids": [
+              "b-d21-lg09"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
         ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：甲状腺激素合成、作用与反馈[THYROID_NORMAL_AXIS] → 甲亢定位、Graves与高代谢表现[HYPERTHYROID_MODEL] → 甲亢检查与病因定位[THYROID_EVIDENCE_MAP] → 甲亢药物、核素与手术选择[HYPERTHYROID_TREATMENT] → 甲状腺危象急救序列[THYROID_STORM_EMERGENCY] → 特殊甲亢与妊娠边界[SPECIAL_THYROID_BOUNDARY] → 甲减定位与替代[HYPOTHYROID_LOCALIZATION] → 甲状腺肿、结节与炎症[THYROID_MORPHOLOGY_DISCRIMINATION] → 四类甲状腺癌与处理[THYROID_TUMOR_GATE] → 甲状腺外科准备与术后安全[THYROID_SURGICAL_SAFETY] → 甲状舌管囊肿识别[NECK_REMNANT_RECOGNITION]。",
@@ -3226,7 +3245,25 @@
         ],
         "benefits_from": [],
         "reactivates": [],
-        "returns_to": []
+        "returns_to": [],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "requires",
+            "source_text": "Tumor Gate",
+            "logic_group_ids": [
+              "b-d11-lg01",
+              "b-d11-lg02",
+              "b-d11-lg03",
+              "b-d11-lg04",
+              "b-d11-lg05",
+              "b-d11-lg06"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
+        ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：共同肿瘤语言与消化道壁深度[COMMON_TUMOR_GATE_WALL] → 食管癌识别—证据—治疗[ESOPHAGEAL_CANCER] → 胃腺癌身份、形态与扩散[GASTRIC_IDENTITY_SPREAD] → 胃癌证据、分期与治疗目标[GASTRIC_EVIDENCE_STAGE_TREATMENT] → 胃淋巴瘤与GIST[NON_EPITHELIAL_COMPARE] → 上消化道肿瘤整合分流[INTEGRATED_TUMOR_DECISION]。",
       "learner_order": [
@@ -3583,6 +3620,23 @@
         ],
         "returns_to": [
           "D16–D18 liver metastasis interface"
+        ],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "requires",
+            "source_text": "Tumor Gate for KP1–13",
+            "logic_group_ids": [
+              "b-d15-lg01",
+              "b-d15-lg02",
+              "b-d15-lg03",
+              "b-d15-lg04",
+              "b-d15-lg05"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
         ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：结直肠癌共同入口、扩散与检查[CRC_ENTRY_EVIDENCE] → 结直肠围术期肠道准备边界[PERIOPERATIVE_PREP_BOUNDARY] → 左右结肠癌与切除决策[COLON_SIDE_SURGERY] → 直肠癌括约肌/距离与术式[RECTAL_SPHINCTER_DECISION] → 癌前通路与分子岛[PREMALIGNANT_MOLECULAR_ISLAND] → 齿状线坐标[DENTATE_LINE_COORDINATE] → 痔、肛裂、脓肿、肛瘘定位[ANORECTAL_DISCRIMINATION]。",
@@ -3903,6 +3957,22 @@
         "reactivates": [],
         "returns_to": [
           "D19 imaging discrimination"
+        ],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "requires",
+            "source_text": "Tumor Gate",
+            "logic_group_ids": [
+              "b-d18-lg01",
+              "b-d18-lg02",
+              "b-d18-lg03",
+              "b-d18-lg04"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
         ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：HCC病因、形态、扩散与临床[HCC_IDENTITY_SPREAD] → AFP、影像与确诊证据[HCC_EVIDENCE] → 可切除性、治疗层级与破裂急救[HCC_TREATMENT_EMERGENCY] → 肝占位影像比较[LIVER_LESION_IMAGING_COMPARE]。",
@@ -3978,6 +4048,20 @@
         ],
         "returns_to": [
           "D20"
+        ],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "reactivates",
+            "source_text": "Tumor Gate only for KP13 and KP17",
+            "logic_group_ids": [
+              "b-d19-lg04",
+              "b-d19-lg06"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
         ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：胆道基础管道、胆汁Recall与结石身份[BILIARY_FOUNDATION] → 影像—减压—T管程序[BILIARY_PROCEDURE_MAP] → 胆囊结石、炎症与息肉[GALLBLADDER_BENIGN_INFLAMMATORY] → 胆囊癌[GALLBLADDER_CANCER_TUMOR_GATE] → 肝内/肝外胆管结石与AOSC[BILE_DUCT_STONE_EMERGENCY] → 胆管癌[CHOLANGIOCARCINOMA_TUMOR_GATE] → 胆道出血[HEMOBILIA_EMERGENCY] → 蛔虫、闭锁、扩张与黄疸定位[RARE_CONGENITAL_LOCALIZATION] → 肝脓肿来源、证据、引流与鉴别[LIVER_ABSCESS]。",
@@ -4068,7 +4152,35 @@
           "cognitive_job": "HEMOBILIA_EMERGENCY",
           "goal": "把胆绞痛+黄疸+上消化道出血识别为胆道出血，并突出血管造影/栓塞优先。",
           "closure": "给出创伤/操作后消化道出血伴胆道症状，能识别hemobilia并选择介入定位止血，而非按普通PUD出血处理。",
-          "continuity_rationale": "KP18–KP18共同完成“胆道出血”这一HEMOBILIA_EMERGENCY任务。前一组“胆管癌”承担不同的CHOLANGIOCARCINOMA_TUMOR_GATE任务。后一组“蛔虫、闭锁、扩张与黄疸定位”切换到不同的RARE_CONGENITAL_LOCALIZATION任务。"
+          "continuity_rationale": "KP18–KP18共同完成“胆道出血”这一HEMOBILIA_EMERGENCY任务。前一组“胆管癌”承担不同的CHOLANGIOCARCINOMA_TUMOR_GATE任务。后一组“蛔虫、闭锁、扩张与黄疸定位”切换到不同的RARE_CONGENITAL_LOCALIZATION任务。",
+          "source_conflict": {
+            "status": "HOLD",
+            "kp_ids": [
+              "digestive-d19-kp18"
+            ],
+            "note": "HOLD：Current KP18标题/正文及LG07目标/闭环以血管造影、栓塞优先；候选KP18改为多数先保守、满足条件再升级，候选教案另加入创伤情境的介入限定。相关原Source解释与Core/Learning尚未共同核定。保留Current标题和完整Prompt仅用于定位原文，不构成对治疗顺序的再次采纳。本LG仅供带警示的Reference查看，不提供可评分的清洁答案，也不认领LG或Block正式闭合；D19其他独立LG继续遵守各自门禁。",
+            "source_refs": [
+              {
+                "role": "Current Core",
+                "url": "https://github.com/kianwang022-hash/kianos/blob/5be703d27ec319ec1786e05241ebb053ec38415a/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D19_胆汁黄疸胆石胆道感染与肝脓肿_学习阅读版_v1_最终执行版.md#L658-L679",
+                "sha256": "530612be0e3a880d73e7b9ecabd7da833ffa41722a14b806f7e0c707ad53cab4"
+              },
+              {
+                "role": "Accepted Learning closure",
+                "url": "https://github.com/kianwang022-hash/kianos/blob/5be703d27ec319ec1786e05241ebb053ec38415a/content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json#L4062-L4072"
+              },
+              {
+                "role": "Unadopted candidate Core",
+                "url": "https://github.com/kianwang022-hash/kianos/blob/ec17d7ee0cf9b445af9761809b38bdfa725c16d5/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/消化系统_D19_胆汁黄疸胆石胆道感染与肝脓肿_学习阅读版_v1_最终执行版.md#L692-L715",
+                "sha256": "da42afa75835dc77cf152e0a49b22b9a367a049caf5b95d96b3b7d5efb9dce43"
+              },
+              {
+                "role": "Unadopted candidate teaching, external-Source-qualified addition not accepted",
+                "url": "https://github.com/kianwang022-hash/kianos/blob/ec17d7ee0cf9b445af9761809b38bdfa725c16d5/content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/d19-teaching.md#L95-L100",
+                "sha256": "3252bc4ed9fa17b6d6abdfeda694c469b88fcf9489c309f34abd5e3282c62552"
+              }
+            ]
+          }
         },
         "b-d19-lg08": {
           "kp": [
@@ -4109,7 +4221,21 @@
         "reactivates": [
           "Tumor Gate for KP16–22"
         ],
-        "returns_to": []
+        "returns_to": [],
+        "independent_gates": [
+          {
+            "gate": "Tumor Gate",
+            "source_field": "reactivates",
+            "source_text": "Tumor Gate for KP16–22",
+            "logic_group_ids": [
+              "b-d20-lg05",
+              "b-d20-lg06"
+            ],
+            "criteria_owner": "system_route.tumor_gate",
+            "external_owner": "content/xizong/knowledge/overlays/o9-tumor-general/",
+            "scope_rule": "Only these existing tumor-bearing Logic Groups inherit the existing Tumor Gate. This scope binding neither changes its G1–G5/O9 criteria nor supplies learner evidence."
+          }
+        ]
       },
       "partition_rationale": "Phase 3按认知任务而非KP数量重审；最终顺序为：急性胰腺炎机制、病因与严重度[PANCREATITIS_MECHANISM] → 临床、局部集合与器官并发[PANCREATITIS_COMPLICATIONS] → 胰酶、影像与预后证据[PANCREATITIS_EVIDENCE] → 支持治疗、介入门槛与慢性胰腺炎[PANCREAS_TREATMENT_BOUNDARY] → 胰腺癌识别、可切除性与手术[PANCREATIC_CANCER_TUMOR_GATE] → 胰岛素瘤、胃泌素瘤与APUD[FUNCTIONAL_ISLET_TUMORS]。",
       "learner_order": [
@@ -4510,5 +4636,18 @@
       "G5"
     ],
     "rule": "This scoped contract specializes Biochemistry learning/content semantics under the parent Xizong Learning Contract; this machine owner executes it and must not fork it."
+  },
+  "readiness_execution_policy": {
+    "status": "CURRENT",
+    "authority": "USER_CONFIRMED_TARGET_MODEL_READINESS_2026_10_06",
+    "parent_owner": "content/xizong/LEARNING_CONTRACT.md#learning-outcome",
+    "required_model_owner": "blocks[block_id].readiness.requires",
+    "rule": "Hard prerequisites require the cognitive models needed by the current target, not completion of prerequisite Blocks on the Website. Display the actual required models before an explicit learner confirmation. Missing understanding returns to Chat for smallest-sufficient repair; opening Chat or a prerequisite page does not confirm understanding.",
+    "continuation": "EXPLICIT_USER_CURRENT_TARGET_ONLY",
+    "freshness": "Bind continuation to the exact target, current required-model definitions and referenced existing owners. A missing, stale or other-target confirmation does not authorize continuation.",
+    "evidence_boundary": "This confirmation only authorizes current-target study. It creates no Source, Learned, Complete, Mastery, Recall rating, Memory debt or evidence for any prerequisite owner. Prior history is preserved.",
+    "non_requirements": "benefits_from, ordinary reactivates, returns_to, assumed-baseline repair and JIT Prelude do not become formal Block-completion requirements or scheduled debt.",
+    "source_encounter_exception": "The M/G global Biochemistry lane may encounter current Source in teacher order before canonical prerequisites close; model confirmation governs local target retrieval, not permission to continue that Source lane.",
+    "independent_gates": "Explicit Source, Visual, reviewed TTSX, Tumor and formal completion gates remain authoritative. Current-target cognitive confirmation cannot satisfy them. The scoped Tumor rows below only identify existing dependent LGs; unavailable O9 model-availability evidence holds those scopes without inventing an O9 state or blocking non-tumor LGs."
   }
 }

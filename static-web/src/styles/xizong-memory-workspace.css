@@ -566,3 +566,25 @@ body#kianos-workspace.surfaceBody-xizong .xzMemoryContext dd {
   }
   body#kianos-workspace.surfaceBody-xizong .xzMemoryRatings>div:last-child { justify-content:flex-start; }
 }
+
+/* Explicit prepared-answer comparisons reuse the Memory surface. Only table
+   formatting changes; answer gating, ordinary Core and workspace geometry stay. */
+body#kianos-workspace.surfaceBody-xizong .xzMemoryAnswer [data-memory-answer-table] {
+  max-width:100%;
+  overflow-x:auto;
+  margin:0 0 14px;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryAnswer [data-memory-answer-table] table {
+  display:table;
+  width:100%;
+  max-width:100%;
+  border-collapse:collapse;
+  font:inherit;
+}
+body#kianos-workspace.surfaceBody-xizong .xzMemoryAnswer [data-memory-answer-table] :is(th,td) {
+  padding:8px 10px;
+  border-bottom:1px solid var(--xz-memory-line,var(--study-line,#d9e0dc));
+  text-align:left;
+  vertical-align:top;
+  overflow-wrap:anywhere;
+}

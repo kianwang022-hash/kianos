@@ -1,4 +1,6 @@
 import fs from 'node:fs';
+import crypto from 'node:crypto';
+import { loadXizongSystem, loadXizongBlock } from './xizong.mjs';
 import path from 'node:path';
 import { normalizeAcceptedLearningOwner, normalizeAcceptedLogicGroups, expandAcceptedOrdinalRange as expandRange, normalizeAcceptedBlockRoute as systemBlockRoute, hydrateAcceptedLearningOwner } from './xizongAcceptedLearningOwner.mjs';
 
@@ -145,6 +147,17 @@ function sourceContactMode(learning) {
 function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
   const handoff = learning?.surface_handoff_contract || {};
   const scoped = blockSupport?.source_contact || {};
+  const nativeB = learning?.system_id === 'digestive-metabolic-endocrine-tumor' && learning?.canonical_id === 'B';
+  if (nativeB) {
+    if (/^D(?:[1-9]|1[0-9]|2[0-3])$/.test(blockId)) {
+      if ((scoped.mode && scoped.mode !== 'WHOLE_LOGIC_GROUP') || sourceContactMode(learning) !== 'WHOLE_LOGIC_GROUP') {
+        fail('B_SOURCE_GEOMETRY_INVALID', blockId);
+      }
+    } else if (/^(?:M(?:[1-9]|10)|G[1-5])$/.test(blockId)) {
+      if (scoped.mode !== 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT'
+        || scoped.source_map_owner !== `${LEARNER_ROOT}/biochemistry-27-source-map.json`) fail('B_SOURCE_GEOMETRY_INVALID', blockId);
+    } else fail('B_BLOCK_IDENTITY_INVALID', blockId);
+  }
 
   if (['WHOLE_BLOCK_SOURCE', 'NATURAL_SOURCE_UNITS', 'INTEGRATION_PRIMARY'].includes(scoped.mode)) {
     const mode = scoped.mode;
@@ -227,6 +240,43 @@ function normalizeSourceContact(learning, blockSupport, blockId, logicGroups) {
     }
     const sourceLaneHash = String(sourceMap?.source?.sha256 || '').trim();
     if (!sourceLaneHash) fail('BIOCHEMISTRY_SOURCE_HASH_MISSING', blockId);
+    if (nativeB) {
+      if (!/^[a-f0-9]{64}$/.test(sourceLaneHash)) fail('BIOCHEMISTRY_SOURCE_HASH_INVALID', blockId);
+      const units = sourceMap.source_units;
+      if (!Array.isArray(units) || !units.length || new Set(units.map(unit => unit.id)).size !== units.length) {
+        fail('BIOCHEMISTRY_SOURCE_UNITS_INVALID', blockId);
+      }
+      const groupById = new Map(logicGroups.map(group => [group.groupId, group]));
+      const formed = new Set();
+      const closingUnits = [];
+      const primaryUnits = [];
+      for (const unit of units) {
+        if (!/^BIO27-S\d{2}$/.test(unit?.id || '') || !Array.isArray(unit?.canonical_content)) fail('BIOCHEMISTRY_SOURCE_UNIT_INVALID', blockId);
+        for (const row of unit.canonical_content.filter(row => row?.block === blockId)) {
+          const group = groupById.get(row?.logic_group);
+          const range = row?.kp_range;
+          if (!group || !Array.isArray(range) || range.length !== 2
+            || !range.every(Number.isInteger) || range[0] > range[1]) fail('BIOCHEMISTRY_SOURCE_BINDING_INVALID', `${blockId}:${unit.id}`);
+          const ordinals = expandRange(range, `${blockId}:${unit.id}`);
+          if (!ordinals.every(ordinal => group.kpOrdinals.includes(ordinal))) fail('BIOCHEMISTRY_SOURCE_BINDING_INVALID', `${blockId}:${unit.id}:${group.groupId}`);
+          const primary = ['PRIMARY_FORMATION', 'PRIMARY_COMPLETION'].includes(row.role);
+          if (!primary && !['SUPPORT', 'SUPPORT_AND_PRIME', 'SUPPORT_APPLICATION', 'SUPPORT_JIT', 'SUPPORT_RECAP'].includes(row.role)) {
+            fail('BIOCHEMISTRY_SOURCE_ROLE_INVALID', `${blockId}:${unit.id}`);
+          }
+          if (row.closes_block_source_contact === true && !primary) fail('BIOCHEMISTRY_SOURCE_CHECKPOINT_INVALID', `${blockId}:${unit.id}`);
+          if (primary) {
+            primaryUnits.push(unit.id);
+            ordinals.forEach(ordinal => formed.add(ordinal));
+            if (row.closes_block_source_contact === true) closingUnits.push(unit.id);
+          }
+        }
+      }
+      const expected = logicGroups.flatMap(group => group.kpOrdinals);
+      if (formed.size !== expected.length || expected.some(ordinal => !formed.has(ordinal))) fail('BIOCHEMISTRY_SOURCE_COVERAGE_INCOMPLETE', blockId);
+      const checkpoint = sourceMap.block_source_closure_checkpoints?.[blockId];
+      if (closingUnits.length !== 1 || checkpoint?.after_unit !== closingUnits[0]
+        || checkpoint.after_unit !== primaryUnits.at(-1)) fail('BIOCHEMISTRY_SOURCE_CHECKPOINT_INVALID', blockId);
+    }
 
     const segments = [];
     for (const unit of sourceMap.source_units || []) {
@@ -553,6 +603,99 @@ function buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVis
   };
 }
 
+function attachBRequiredModelReadiness(record, learningOwner, blocks) {
+  if (record.identity.systemId !== 'digestive-metabolic-endocrine-tumor' || record.identity.canonicalId !== 'B') return;
+  const learning = learningOwner.raw;
+  const policy = learning.readiness_execution_policy;
+  if (policy?.status !== 'CURRENT' || policy.authority !== 'USER_CONFIRMED_TARGET_MODEL_READINESS_2026_10_06' || policy.continuation !== 'EXPLICIT_USER_CURRENT_TARGET_ONLY'
+    || policy.required_model_owner !== 'blocks[block_id].readiness.requires') fail('B_READINESS_POLICY_INVALID');
+  // Resolve native files through the existing loader. The conservative byte
+  // witnesses invalidate navigation permission; they never certify Knowledge.
+  const canonical = loadXizongSystem(record.identity.systemId);
+  const native = new Map(canonical.blocks.map(block => [block.blockId, block]));
+  const digest = value => crypto.createHash('sha256').update(value).digest('hex');
+  const bytes = new Map(canonical.blocks.map(block => [block.blockId, digest(readText(block.sourcePath))]));
+  for (const block of blocks) {
+    const support = learning.blocks[block.blockId];
+    const readiness = support.readiness;
+    if (!Array.isArray(readiness?.requires) || readiness.requires.some(ref => typeof ref !== 'string' || !ref.trim())
+      || new Set(readiness.requires).size !== readiness.requires.length) fail('B_READINESS_REQUIRES_INVALID', block.blockId);
+    if (JSON.stringify(learning.system_route?.readiness?.[block.blockId]?.requires) !== JSON.stringify(readiness.requires)) {
+      fail('B_READINESS_OWNER_DRIFT', block.blockId);
+    }
+    const gates = Array.isArray(readiness.independent_gates) ? readiness.independent_gates : [];
+    const groupIds = new Set(block.logicGroups.map(group => group.groupId));
+    const gateRefs = new Set();
+    const independentGates = gates.map(gate => {
+      const refs = readiness[gate?.source_field];
+      const scope = gate?.logic_group_ids;
+      const ref = `${gate?.source_field}:${gate?.source_text}`;
+      if (gate?.gate !== 'Tumor Gate' || !['requires', 'reactivates'].includes(gate.source_field)
+        || !Array.isArray(refs) || !refs.includes(gate.source_text) || gateRefs.has(ref)
+        || gate.criteria_owner !== 'system_route.tumor_gate'
+        || gate.external_owner !== learning.cross_system_handoff?.formal_target_owners?.tumor_general
+        || !Array.isArray(scope) || !scope.length || new Set(scope).size !== scope.length
+        || scope.some(id => !groupIds.has(id))) fail('B_INDEPENDENT_GATE_BINDING_INVALID', block.blockId);
+      gateRefs.add(ref);
+      return {
+        label: gate.gate, sourceField: gate.source_field, sourceText: gate.source_text,
+        logicGroupIds: [...scope], criteriaOwner: `${learningOwner.sourcePath}#/system_route/tumor_gate`,
+        criteria: { ...learning.system_route.tumor_gate }, externalOwner: gate.external_owner,
+        // No accepted executable O9 model-availability binding exists. A user
+        // model confirmation cannot manufacture it or close this compound gate.
+        status: 'HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED'
+      };
+    });
+    for (const field of ['requires', 'reactivates']) {
+      for (const ref of readiness[field] || []) {
+        if ((ref === 'Tumor Gate' || String(ref).startsWith('Tumor Gate ')) && !gateRefs.has(`${field}:${ref}`)) {
+          fail('B_INDEPENDENT_GATE_UNBOUND', `${block.blockId}:${ref}`);
+        }
+      }
+    }
+    for (const group of block.logicGroups) {
+      const conflict = support.logic_groups?.[group.groupId]?.source_conflict;
+      if (conflict === undefined) continue;
+      const nativeBlock = loadXizongBlock(record.identity.systemId, block.blockId);
+      const members = group.kpOrdinals.map(ordinal => nativeBlock.kpRecords.find(kp => kp.ordinal === ordinal)?.kpId);
+      if (conflict?.status !== 'HOLD' || !conflict.note || !Array.isArray(conflict.source_refs) || !conflict.source_refs.length
+        || members.some(id => !id) || JSON.stringify(conflict.kp_ids) !== JSON.stringify(members)) {
+        fail('B_SOURCE_CONFLICT_BINDING_INVALID', `${block.blockId}:${group.groupId}`);
+      }
+      independentGates.push({ label: 'Source conflict', logicGroupIds: [group.groupId], kpIds: [...members],
+        status: 'HOLD_SOURCE_CONFLICT', note: conflict.note, sourceRefs: conflict.source_refs,
+        criteriaOwner: `${learningOwner.sourcePath}#/blocks/${block.blockId}/logic_groups/${group.groupId}/source_conflict` });
+    }
+    const requirements = readiness.requires.filter(ref => !gateRefs.has(`requires:${ref}`)).map(ref => {
+      const model = native.get(ref);
+      if (model) {
+        const modelSupport = learning.blocks[ref];
+        return { sourceText: ref, ownerPath: model.sourcePath, blockId: ref, label: `${ref} · ${model.title}`,
+          modelPrompt: String(modelSupport.first_pass_focus || ''),
+          modelScope: String(modelSupport.stop_line || ''),
+          sourceWitness: bytes.get(ref), learningWitness: digest(JSON.stringify(modelSupport)),
+          href: `/xizong/${record.identity.systemId}/${model.slug}/` };
+      }
+      if (/^[DMG]\d+$/i.test(ref)) fail('B_READINESS_MODEL_REF_INVALID', `${block.blockId}:${ref}`);
+      const routes = (learning.cross_system_handoff?.explicit_routes || []).filter(route => route.from === block.blockId);
+      return { sourceText: ref, ownerPath: learningOwner.sourcePath, blockId: null, label: ref, modelPrompt: ref,
+        // Preserve only the accepted System-level routing precision. These are
+        // model descriptions, not new finer owner/state/evidence identities.
+        externalOwners: routes.map(route => ({ ownerPath: route.target_owner, granularity: route.granularity, concept: route.concept,
+          sourceWitness: exists(`${route.target_owner}system.json`) ? digest(readText(`${route.target_owner}system.json`)) : null })) };
+    });
+    const witness = digest(JSON.stringify({ policy, target: block.blockId, targetSource: bytes.get(block.blockId),
+      readiness, targetModel: [support.first_pass_focus, support.stop_line, support.recall_spine], requirements,
+      handoff: learning.cross_system_handoff, tumor: learning.system_route.tumor_gate }));
+    block.sourceContact.requiredModelReadiness = {
+      ownerPath: learningOwner.sourcePath, targetBlockId: block.blockId, requirements,
+      witness, confirmation: 'EXPLICIT_USER_CURRENT_TARGET_ONLY',
+      sourceEncounterBeforeReadiness: block.sourceContact.mode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT'
+    };
+    block.sourceContact.independentReadinessGates = independentGates;
+  }
+}
+
 export function loadXizongSemanticSystem(systemId) {
   if (BUILD_CACHE_ENABLED && semanticSystemCache.has(systemId)) return semanticSystemCache.get(systemId);
   const record = findSystemRecord(systemId);
@@ -560,6 +703,7 @@ export function loadXizongSemanticSystem(systemId) {
   const cueOwner = loadLearningCues(record);
   const sourceVisualOwner = loadSourceVisuals(record);
   const blocks = record.route.map((routeRow) => buildSemanticBlock(record, learningOwner, routeRow, cueOwner, sourceVisualOwner));
+  attachBRequiredModelReadiness(record, learningOwner, blocks);
 
   const kpCount = blocks.reduce((sum, block) => sum + block.kpCount, 0);
   const logicGroupCount = blocks.reduce((sum, block) => sum + block.logicGroups.length, 0);

@@ -38,6 +38,29 @@ for (const [systemId, prefix, count] of [['circulation', 'b', 12], ['respiratory
   }
 }
 assert.equal(rows.length, 230);
+// B extends the same consumer: compare complete native answers, not rewritten
+// fixtures. Display adaptation must not change a descriptor or stored evidence.
+const bCues = loadXizongLearningCues(loadXizongSystem('digestive-metabolic-endocrine-tumor'));
+const bSystem = loadXizongSystem('digestive-metabolic-endocrine-tumor');
+for (const entry of bSystem.blocks) {
+  const block = buildXizongProductionBlock(loadXizongBlock(bSystem.systemId, entry.blockId));
+  const object = buildXizongLearnerObject({ block, learningCues: learningCuesForBlock(bCues, block) });
+  object.revisionWitness = buildXizongRevisionWitness(object);
+  if (!supportsXizongPreparedMemoryBlock(block.blockId)) continue;
+  const descriptor = buildXizongPreparedMemoryAvailability(object);
+  const original = JSON.stringify(descriptor);
+  const state = makePreparedMemoryAvailable(createXizongMemoryState(), descriptor, '2026-10-01');
+  const saved = JSON.stringify(state);
+  for (const card of descriptor.precisionCards) {
+    const presented = preparedMemoryPresentationHtml(card.answerHtml);
+    assert.equal(preparedMemoryPresentationHtml(presented), presented);
+    rows.push({ id: card.id, raw: card.answerHtml, presented });
+  }
+  assert.equal(JSON.stringify(descriptor), original);
+  assert.equal(JSON.stringify(state), saved);
+  assert.deepEqual(makePreparedMemoryAvailable(state, descriptor, '2026-10-02'), state);
+}
+assert.equal(rows.length, 272, 'all 230 prior A and 42 reviewed B cards');
 const oracle = JSON.parse(fs.readFileSync(new URL('./fixtures/a3-reviewed-memory-browser.json', import.meta.url), 'utf8'));
 const fixture = { rows, reviewed: oracle.rows };
 const out = process.env.KIANOS_QA_DIR || path.join(root, 'static-web/.qa');
@@ -48,7 +71,7 @@ fs.writeFileSync(fixturePath, JSON.stringify(fixture, null, 2) + '\n');
 // Independent HTML tree and closed-details reader, using only Python stdlib.
 // This is native HTML proof, not a browser/pixel or learner-effectiveness claim.
 const report = execFileSync('python3', ['-c', String.raw`
-import json, sys
+import json, sys, re
 from html.parser import HTMLParser
 class Node:
     def __init__(self, tag='', attrs=()): self.tag=tag; self.attrs=dict(attrs); self.children=[]
@@ -70,10 +93,47 @@ class Tree(HTMLParser):
 data=json.load(open(sys.argv[1])); reviewed={x['id']:x for x in data['reviewed']}; trees={}
 for row in data['rows']:
     before=Tree(row['raw']).root; after=Tree(row['presented']).root; name=row['id']; trees[name]=after
-    assert before.text()==after.text(), (name,'all raw text and order must be exact, including audit records')
     main=after.all(attr='data-memory-prepared-answer'); assert len(main)==1, name
-    raw=before.all('p')[0].text(); assert main[0].text()==raw, (name,'raw answer fidelity')
-    assert main[0].visible()==raw, (name,'conditions and risks visible after Reveal')
+    raw=before.all('p')[0].text()
+    tables=main[0].all('table')
+    if tables:
+        reviewed_tables={
+            'precision:B10-M23':(['类别','恢复要点'],4),
+            'precision:B10-M32':(['模式','起搏','感知','典型适合'],4),
+            'precision:B11-M02':(['分期','状态'],4),
+            'precision:b-d15-lg06-dentate-line':(['轴','齿状线以上','齿状线以下'],9),
+        }
+        assert name in reviewed_tables, (name,'no unreviewed table inference')
+        assert len(tables)==1 and len(tables[0].all('thead'))==1 and len(tables[0].all('tbody'))==1
+        rawlines=raw.splitlines(); tablelines=[x for x in rawlines if x.strip().startswith('|')]
+        cells=lambda line:[x.strip() for x in line.strip()[1:-1].split('|')]
+        expected_header=cells(tablelines[0]); expected_rows=[cells(x) for x in tablelines[2:]]
+        assert expected_header==reviewed_tables[name][0]
+        assert len(expected_rows)==reviewed_tables[name][1] and all(len(x)==len(expected_header) for x in expected_rows)
+        assert [x.text() for x in tables[0].all('th')]==expected_header
+        assert all(x.attrs.get('scope')=='col' for x in tables[0].all('th'))
+        actual=[[x.text() for x in tr.all('td')] for tr in tables[0].all('tbody')[0].all('tr')]
+        assert actual==expected_rows, (name,'every cell, column, condition and order retained')
+        prose=[x for x in rawlines if x and not x.strip().startswith('|')]
+        assert [p.text() for p in main[0].all('p')]==prose, (name,'outside-table prose exact and ordered')
+        if name=='precision:b-d15-lg06-dentate-line':
+            assert '必须回原图' in main[0].visible()
+            assert [x[0] for x in actual]==['外科分界','胚层','表面','动脉','静脉','淋巴','神经','癌','痔']
+            assert '直肠下/骶正中' in actual[3][1] and '髂内' in actual[5][1]
+        elif name=='precision:B10-M23':
+            assert [x[0] for x in actual]==['阵发性','持续性','长期持续/持久性','永久性']
+            assert '四类不必逐级必然演变' in main[0].visible()
+        elif name=='precision:B10-M32':
+            assert [x[0] for x in actual]==['VVI','AAI','VDD','DDD']
+            for qualifier in ['I为抑制','不能机械选AAI','模式切换需设备评估']:
+                assert qualifier in main[0].visible()
+        elif name=='precision:B11-M02':
+            assert [x[0] for x in actual]==['A','B','C','D']
+        assert all(x.visible()==x.text() for x in tables[0].all('th')+tables[0].all('td'))
+    else:
+        assert before.text()==after.text(), (name,'all raw text and order must be exact, including audit records')
+        assert main[0].text()==raw, (name,'raw answer fidelity')
+        assert main[0].visible()==raw, (name,'conditions and risks visible after Reveal')
     assert not main[0].all('details'), (name,'answer must not fold')
     for p in before.all('p')[1:]:
         label=p.all('strong')
@@ -99,7 +159,7 @@ b5=trees['precision:a3-b05-lg06-precision']; main=b5.all(attr='data-memory-prepa
 assert len(main.all('p'))==6, 'six authored diagnostic steps, not one wall of text'
 for text in ['生命支持优先于计算','1.5×HCO₃⁻+8±2','0.6–0.75','约55','急性HCO₃⁻约升1–2','慢性约升3–4','慢性约降4–5','明显低白蛋白先校正','delta是HAGMA条件下','不能脱离病程','不扩水NaKCa阈值']:
     assert text in b5.visible(), text
-print(json.dumps({'status':'PASS','native_cards':len(data['rows']),'b3_groups':[2,1,1,3],'b5_authored_steps':6,'proof':'Parsed native HTML; exact full text/order, raw answer, independent A3 oracle, visible conditions/aids and provenance-only disclosure. No browser or learner claim.'},ensure_ascii=False))
+print(json.dumps({'status':'PASS','native_cards':len(data['rows']),'b3_groups':[2,1,1,3],'b5_authored_steps':6,'table_cards':4,'proof':'Parsed native HTML; exact non-table text/order and authored table cells/order; raw answer and descriptor unchanged; independent A3 oracle and all visible conditions/aids retained. No browser or learner claim.'},ensure_ascii=False))
 `, fixturePath], { encoding: 'utf8' });
 
 for (const legacy of ['<p>ordinary Core</p>', '<section data-prepared-memory="future"><ul><li>already authored</li></ul></section>']) {
@@ -114,3 +174,35 @@ assert.match(workspace, /if \(item\.family === 'CORE'\) return item\.coreHtml/);
 assert.match(workspace, /if \(item\.answerHtml\) return preparedMemoryPresentationHtml\(item\.answerHtml\)/);
 assert.match(workspace, /if \(answer\) answer\.hidden = !revealed/);
 console.log(report.trim());
+
+
+{
+const wrap = value => `<section data-prepared-memory="synthetic"><p>${value}</p><p><strong>适用范围：</strong>keep</p></section>`;
+const unsupportedTables = [
+  '| A | B |\n| - | - |\n| x | y |',
+  '| A | B |\n| --- | --- |\n| x |',
+  '| A | B |\n| --- | --- |\n| x | y | z |',
+  '| A | B |\n| --- | --- |',
+  '| A | B |\n| --- | --- |\n| x\\|x | y |',
+  '| A | B |\n| --- | --- |\n| `x|x` | y |',
+  '| A | B |\n| --- | --- |\n| --- | --- |',
+  '| A |  |\n| --- | --- |\n| x | y |',
+  'A | B\n--- | ---\nx | y',
+  '```text\n| A | B |\n| --- | --- |\n| x | y |\n```',
+  '~~~\n| A | B |\n| --- | --- |\n| x | y |\n~~~',
+];
+for (const raw of unsupportedTables) {
+  const rendered = preparedMemoryPresentationHtml(wrap(raw));
+  assert(!rendered.includes('<table>'), raw);
+  assert.equal(rendered.replace(/<[^>]+>/g, ''), wrap(raw).replace(/<[^>]+>/g, ''));
+}
+const escaped = preparedMemoryPresentationHtml(wrap('| value | limit |\r\n| :--- | ---: |\r\n| &lt;script&gt; | &lt;120 &amp; ≥2 |\r\nqualification stays'));
+assert(escaped.includes('<th scope="col">value</th>'));
+assert(escaped.includes('<td>&lt;script&gt;</td>'));
+assert(escaped.includes('<td>&lt;120 &amp; ≥2</td>'));
+assert(!escaped.includes('<script>'));
+assert(escaped.includes('<p>qualification stays</p>'));
+assert.equal(preparedMemoryPresentationHtml(escaped), escaped);
+console.log('PASS authored-table bounds: rectangular cells only; malformed/ambiguous/code syntax stays text; escaped content and qualifications preserved');
+
+}

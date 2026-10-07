@@ -90,8 +90,11 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
   const supported = (block?.systemId === 'respiratory' && block?.systemCanonicalId === 'A2'
     && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(block?.blockId))
     || (block?.systemId === 'urinary' && block?.systemCanonicalId === 'A3'
-      && /^urinary-b(?:0[1-9]|1[0-4])$/.test(block?.blockId));
+      && /^urinary-b(?:0[1-9]|1[0-4])$/.test(block?.blockId))
+    || (block?.systemId === 'digestive-metabolic-endocrine-tumor' && block?.systemCanonicalId === 'B'
+      && /^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(block?.blockId));
   if (!supported) fail('NATIVE_SYSTEM_UNSUPPORTED');
+  if (block.systemCanonicalId === 'B' && !nativeShape(row, ['id', 'cue', 'anchor'], ['prepared_memory_ref'])) fail('NATIVE_CUE_SHAPE_INVALID');
   const anchor = row?.anchor;
   const kpOwned = nativeShape(anchor, ['block_id', 'kp_id']);
   const lgOwned = nativeShape(anchor, ['block_id', 'logic_group_id']);
@@ -130,6 +133,13 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
   if (!nativeEqual(extras, [...extras].sort())) fail('NATIVE_CORE_ORDER_INVALID');
   const blockIdentity = owner => {
     const fields = ['systemId', 'systemCanonicalId', 'blockId', 'sourcePath', 'systemSourcePath', 'learningSupportSourcePath'];
+    if (owner?.systemId === 'digestive-metabolic-endocrine-tumor' || owner?.systemCanonicalId === 'B') {
+      if (owner.systemId !== 'digestive-metabolic-endocrine-tumor' || owner.systemCanonicalId !== 'B'
+        || !/^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(owner.blockId)
+        || owner.slug !== `${owner.blockId[0].toLowerCase()}${owner.blockId.slice(1).padStart(2, '0')}`
+        || owner.objectId !== `xizong:${owner.blockId}`) fail('NATIVE_OWNER_IDENTITY_MISMATCH');
+      fields.push('slug', 'objectId');
+    }
     if (fields.some(key => !nativeString(owner?.[key]))) fail('NATIVE_OWNER_METADATA_MISSING');
     if (shared?.source_bindings?.[owner.blockId] !== owner.sourcePath) fail('SOURCE_BINDING_MISMATCH');
     return Object.fromEntries(fields.map(key => [key, owner[key]]));
@@ -168,6 +178,73 @@ export function preparedNativeCueWitness(row, block, item, shared, { loadBlock =
   }
   const snapshot = { ...blockIdentity(block), anchor, owner_kp_ids: ownerIds, dependency_owners: dependencyOwners,
     logic_group: groupWitness, block_qualifiers: blockQualifiers };
+  // B's accepted readiness and Source qualifications are real premises. Seal
+  // only the existing B Learning fields and, for biochemical contributors, the
+  // two existing complete Source owners. This extends the internal owner digest,
+  // not the serialized native-reference schema; resolution never re-signs it.
+  if (block.systemId === 'digestive-metabolic-endocrine-tumor' && block.systemCanonicalId === 'B') {
+    const learningPath = `${LEARNER_ROOT}/b-digestive-metabolic-endocrine-tumor-learning.json`;
+    let learning;
+    try { learning = JSON.parse(fs.readFileSync(absolute(learningPath), 'utf8')); }
+    catch { fail('NATIVE_B_LEARNING_MISSING_OR_INVALID'); }
+    if (learning?.schema !== 'kianos.xizong.system_learning_support.v1'
+      || learning.status !== 'CURRENT' || learning.authority !== 'CHAT_APPROVED_LEARNING_ACCEPTANCE'
+      || learning.system_id !== block.systemId || learning.canonical_id !== 'B'
+      || !nativeObject(learning.cross_system_handoff) || !nativeObject(learning.system_route?.tumor_gate)
+      || !nativeObject(learning.readiness_execution_policy)
+      || learning.readiness_execution_policy.status !== 'CURRENT'
+      || learning.readiness_execution_policy.authority !== 'USER_CONFIRMED_TARGET_MODEL_READINESS_2026_10_06') fail('NATIVE_B_LEARNING_INVALID');
+    const contributors = blockQualifiers.filter(owner => owner.systemId === block.systemId);
+    const readiness = contributors.map(owner => {
+      const accepted = learning.blocks?.[owner.blockId];
+      if (owner.learningSupportSourcePath !== learningPath || !nativeObject(accepted?.readiness)
+        || ['requires', 'benefits_from', 'reactivates', 'returns_to'].some(key => !Array.isArray(accepted.readiness[key]))) fail('NATIVE_B_READINESS_INVALID');
+      return { block_id: owner.blockId, readiness: accepted.readiness };
+    });
+    const requiredGroups = new Map();
+    for (const dependency of dependencyOwners.filter(owner => owner.systemId === block.systemId)) {
+      const group = learning.blocks?.[dependency.blockId]?.logic_groups?.[dependency.groupId];
+      if (!nativeObject(group)) fail('NATIVE_B_DEPENDENCY_GROUP_MISSING');
+      // No admitted B premise currently has an accepted source-conflict field.
+      // A new HOLD/unknown conflict requires independent review; an explicit
+      // authoring call must not be able to turn it into an exact answer.
+      if (Object.hasOwn(group, 'source_conflict')) fail('NATIVE_B_DEPENDENCY_SOURCE_CONFLICT');
+      requiredGroups.set(`${dependency.blockId}:${dependency.groupId}`, {
+        block_id: dependency.blockId, logic_group_id: dependency.groupId, source_conflict: null
+      });
+    }
+    snapshot.b_readiness = { source_path: learningPath, readiness,
+      required_core_group_conflicts: [...requiredGroups.values()],
+      execution_policy: learning.readiness_execution_policy, tumor_gate: learning.system_route.tumor_gate, cross_system_handoff: learning.cross_system_handoff };
+    if (contributors.some(owner => /^(?:M(?:[1-9]|10)|G[1-5])$/.test(owner.blockId))) {
+      const mapPath = `${LEARNER_ROOT}/biochemistry-27-source-map.json`;
+      const contractPath = `${LEARNER_ROOT}/BIOCHEMISTRY_CONTRACT.md`;
+      let mapBytes, contractBytes, map;
+      try { mapBytes = fs.readFileSync(absolute(mapPath)); contractBytes = fs.readFileSync(absolute(contractPath));
+        map = JSON.parse(mapBytes.toString('utf8')); }
+      catch { fail('NATIVE_B_SOURCE_CONTRACT_MISSING_OR_INVALID'); }
+      const contract = contractBytes.toString('utf8');
+      if (map?.schema !== 'kianos.xizong.biochemistry-source-map.v2'
+        || map.status !== 'CURRENT_27_SOURCE_ROUTING_REACCEPTED'
+        || !nativeString(map.source?.cycle) || !nativeString(map.source?.visible_name)
+        || !/^[a-f0-9]{64}$/.test(map.source?.sha256) || !Number.isInteger(map.source?.pages) || map.source.pages < 1
+        || !nativeString(map.source?.markdown_snapshot)
+        || map.authority_boundary?.learning_owner !== learningPath
+        || map.authority_boundary?.biochemistry_contract !== contractPath
+        || map.authority_boundary?.current_source_truth !== '27 follow-along Source'
+        || map.authority_boundary?.explanatory_substrate !== '26 refined Biochemistry Source / prior AI-readable reconstruction'
+        || !Array.isArray(map.source_units) || !map.source_units.length
+        || contributors.filter(owner => /^[MG]/.test(owner.blockId)).some(owner => map.authority_boundary?.canonical_hierarchy_owners?.[owner.blockId] !== owner.sourcePath)
+        || !contract.startsWith('# Xizong Biochemistry Learning & Content Contract\n')
+        || !contract.includes('Status: **CURRENT**')
+        || !contract.includes('Scope: **Biochemistry only — M1–M10 + G1–G5**')
+        || !contract.includes('`content/xizong/LEARNING_CONTRACT.md`')) fail('NATIVE_B_SOURCE_CONTRACT_INVALID');
+      snapshot.b_biochemistry_source_qualification = [
+        { source_path: mapPath, raw_sha256: createHash('sha256').update(mapBytes).digest('hex') },
+        { source_path: contractPath, raw_sha256: createHash('sha256').update(contractBytes).digest('hex') }
+      ];
+    }
+  }
   // B5's admitted diagnostic supplement depends on the complete existing scope
   // contract, even when its native Core has not changed. Never re-sign here.
   if (block.systemId === 'urinary' && block.systemCanonicalId === 'A3'

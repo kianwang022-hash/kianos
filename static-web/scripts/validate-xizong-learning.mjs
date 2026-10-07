@@ -36,13 +36,19 @@ function weakMemory(kpIds, recallRatings, memory = {}) {
 
 // Evaluate the actual runtime gate with bounded synthetic inputs, rather than
 // requiring an obsolete adjacency of three conditions or testing a second gate.
-const closeExpression = read('static-web/src/components/XizongBlockV6.astro')
-  .match(/const canComplete = \(\) => ([\s\S]*?);/)?.[1];
+const gateRuntime = read('static-web/src/components/XizongBlockV6.astro');
+const closeExpression = gateRuntime.match(/const canComplete = \(\) => ([\s\S]*?);/)?.[1];
 assert(Boolean(closeExpression), 'block-core-close-gate-missing');
-const closeScript = new vm.Script(`Boolean(${closeExpression})`);
+// Include the shipped B-only helper closure. A1 uses the real non-B branch;
+// do not replace requiredModelsReady with a stub that could conceal gate drift.
+const readinessScope = gateRuntime.match(/    const modelReadiness = [\s\S]*?(?=    const heldGatesFor =)/)?.[0];
+assert(readinessScope?.includes('const requiredModelsReady =')
+  && readinessScope.includes('const independentReadinessGates ='), 'block-readiness-helper-closure-missing');
+const closeScript = new vm.Script(`${readinessScope}\nBoolean(${closeExpression})`);
 function canCloseBlock({ totalKp, learned, ratings, blockRecallDone,
   sourceCovered = true, semanticRevisionPending = false, groupClosures = [true],
-  contentRevision = null }) {
+  contentRevision = null, bPostChatReferenceBlock = false, sourceContactPayload = {},
+  targetBlockId = 'fixture', requiredModelContinuation = null }) {
   // Exercise the current native revision predicate, not a stub of the removed
   // whole-Block sourceHash gate. The synthetic witness names only this fixture.
   const revision = contentRevision || {
@@ -51,7 +57,8 @@ function canCloseBlock({ totalKp, learned, ratings, blockRecallDone,
     pendingGroup: {}, blockPending: false, contactPending: false
   };
   return closeScript.runInNewContext({
-    totalKp, state: { blockRecallDone, contentRevision: revision },
+    totalKp, state: { blockRecallDone, contentRevision: revision, requiredModelContinuation },
+    bPostChatReferenceBlock, sourceContactPayload, root: { dataset: { studyBlockId: targetBlockId } },
     revisionRequiresAction, historicalXizongSourceContinuation,
     currentSourceContactCovered: () => sourceCovered,
     learnedCount: () => Object.values(learned).filter(Boolean).length,
@@ -264,6 +271,32 @@ for (let mask = 0; mask < 128; mask += 1) {
   });
   assert(actual === flags.every(Boolean), `block-core-close-gate:${mask}`);
 }
+// The same extracted predicate must retain its new safety terms independently.
+// These are bounded hypothetical inputs, not B owner or learner evidence.
+const otherwiseReady = {
+  totalKp: 2, learned: { a: true, b: true }, ratings: { a: 'known', b: 'known' }, blockRecallDone: true
+};
+const modelFixture = {
+  targetBlockId: 'fixture', confirmation: 'EXPLICIT_USER_CURRENT_TARGET_ONLY', witness: 'f'.repeat(64),
+  requirements: [{ sourceText: 'fixture-model', modelPrompt: 'synthetic required model' }]
+};
+const modelContinuation = {
+  targetBlockId: modelFixture.targetBlockId, requirementsWitness: modelFixture.witness,
+  confirmation: 'USER_CURRENT_TARGET_MODELS_UNDERSTOOD', confirmedAt: '2026-10-07T00:00:00.000Z'
+};
+const bGateFixture = {
+  ...otherwiseReady, bPostChatReferenceBlock: true,
+  sourceContactPayload: { requiredModelReadiness: modelFixture, independentReadinessGates: [] }
+};
+assert(!canCloseBlock(bGateFixture), 'block-close-with-required-models-unconfirmed');
+assert(canCloseBlock({ ...bGateFixture, requiredModelContinuation: modelContinuation }), 'block-close-confirmed-model-positive-control');
+assert(!canCloseBlock({ ...bGateFixture, requiredModelContinuation: modelContinuation,
+  sourceContactPayload: { ...bGateFixture.sourceContactPayload,
+    independentReadinessGates: [{ status: 'HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED', logicGroupIds: ['fixture-group'] }] }
+}), 'block-close-with-independent-readiness-hold');
+assert(!canCloseBlock({ ...bGateFixture, requiredModelContinuation: modelContinuation, sourceCovered: false }), 'confirmed-model-cannot-replace-source-coverage');
+assert(canCloseBlock({ ...bGateFixture, bPostChatReferenceBlock: false }), 'b-model-readiness-does-not-add-a1-completion-debt');
+
 // Known changes at each native scope must independently block completion.
 for (const [scope, delta] of [
   ['KP', { pendingKp: { a: 'LOCAL_SEMANTIC_CHANGE' } }],

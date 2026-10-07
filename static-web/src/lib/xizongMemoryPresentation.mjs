@@ -1,6 +1,7 @@
 // View-only adaptation of the escaped HTML emitted by renderPreparedMemoryCue.
 // Never feed this back into a descriptor, revision witness, or stored card.
-// Authored newlines and circled list markers are the only grouping boundaries;
+// Authored newlines, circled list markers and explicit rectangular pipe tables
+// supply grouping boundaries;
 // no medical content, sentence boundaries, or new answer structure is inferred.
 const circledItem = /(?=[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳])/u;
 
@@ -15,13 +16,71 @@ function answerLine(line) {
   return `<p>${line}</p>`;
 }
 
+// This consumes only already-escaped text from the existing prepared-answer
+// envelope. No Markdown evaluation, link expansion or medical grouping inference.
+function pipeCells(line) {
+  const text = line.trim();
+  if (!text.startsWith('|') || !text.endsWith('|') || /[\\`]/u.test(text)) return null;
+  const cells = text.slice(1, -1).split('|').map(cell => cell.trim());
+  return cells.length >= 2 ? cells : null;
+}
+
+function authoredPipeTable(lines, start) {
+  const header = pipeCells(lines[start]);
+  const separator = pipeCells(lines[start + 1] || '');
+  if (!header || !separator || header.length !== separator.length
+    || header.some(cell => !cell) || !separator.every(cell => /^:?-{3,}:?$/u.test(cell))) return null;
+  const rows = [];
+  let end = start + 2;
+  while (end < lines.length && lines[end].trim().startsWith('|')) {
+    const cells = pipeCells(lines[end]);
+    // A malformed/unsupported row leaves the whole authored table as text.
+    if (!cells || cells.length !== header.length || cells.every(cell => /^:?-{3,}:?$/u.test(cell))) return null;
+    rows.push(cells);
+    end++;
+  }
+  if (!rows.length) return null;
+  return { end, html: '<div data-memory-answer-table><table><thead><tr>'
+    + header.map(cell => `<th scope="col">${cell}</th>`).join('')
+    + '</tr></thead><tbody>'
+    + rows.map(row => '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>').join('')
+    + '</tbody></table></div>' };
+}
+
+function preparedAnswerBody(text) {
+  const parts = text.split(/(\r\n|\r|\n)/);
+  const lines = parts.filter((_, index) => index % 2 === 0);
+  const breaks = parts.filter((_, index) => index % 2 === 1);
+  let html = '';
+  let fence = null;
+  for (let i = 0; i < lines.length;) {
+    const boundary = lines[i].match(/^ {0,3}(`{3,}|~{3,})(.*)$/u);
+    if (boundary) {
+      if (!fence) fence = boundary[1];
+      else if (boundary[1][0] === fence[0] && boundary[1].length >= fence.length && !boundary[2].trim()) fence = null;
+      html += answerLine(lines[i]) + (breaks[i] || '');
+      i++;
+      continue;
+    }
+    const table = fence ? null : authoredPipeTable(lines, i);
+    if (table) {
+      html += table.html + (breaks[table.end - 1] || '');
+      i = table.end;
+    } else {
+      html += answerLine(lines[i]) + (breaks[i] || '');
+      i++;
+    }
+  }
+  return html;
+}
+
 export function preparedMemoryPresentationHtml(value) {
   const html = String(value || '');
   // Fail closed for legacy owner-context, already formatted answers, and any
   // future renderer shape. The matching body contains only escaped text.
   const answer = html.match(/^(<section data-prepared-memory="[^"]+">)<p>([^<]*)<\/p>/);
   if (!answer) return html;
-  const body = answer[2].split(/(\r\n|\r|\n)/).map((part, index) => index % 2 ? part : answerLine(part)).join('');
+  const body = preparedAnswerBody(answer[2]);
   const presented = answer[1] + `<div data-memory-prepared-answer>${body}</div>` + html.slice(answer[0].length);
   // These exact renderer labels own audit provenance only. In particular,
   // answer, scope, source-conflict policy and aids are never folded. Reuse the
