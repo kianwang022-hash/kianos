@@ -158,19 +158,42 @@ Politics learner-facing review has exactly **three layers**:
 
 Teacher explanation/support is **not a fourth learner layer**. It remains backstage content used to teach or repair understanding.
 
-#### Build compression at natural problem closure
+### Classroom priority override — teaching beats compression
 
-Do not wait until chapter end to invent a summary. After one **natural logic block** has been understood and closed:
+When first-study teaching and compression compete for attention, **teaching wins**.
+
+A good live class should optimize for:
+1. understanding the current problem;
+2. seeing why the next concept is necessary;
+3. preserving continuity of the reasoning chain.
+
+Compression, cue design, Precision routing, persistence and GitHub updates are secondary. They may happen only when they do not materially slow or fragment the lesson.
+
+If Chat notices itself thinking more about “what cue should I generate?” than “what does Kian still need to understand?”, it must drop the compression task and continue teaching.
+
+
+#### Build compression from learning, not instead of learning
+
+Live teaching has priority. Compression is a **review artifact derived from understanding**, not a required classroom ceremony.
+
+Default first-study behavior:
 
 ```text
 teach the problem normally
-→ close the relation/model for that block
-→ leave one review sentence
-→ leave one non-answer-leaking expansion cue
-→ continue teaching
+→ keep following the unresolved reasoning chain
+→ when a genuinely useful natural closure appears, optionally leave one short review sentence
+→ add an expansion cue only if it clearly reduces future reconstruction work
+→ otherwise keep teaching
 ```
 
-A natural logic block is a coherent problem closure, not each definition or micro-fact. Compression must not interrupt teaching every few minutes or turn learning into note maintenance.
+Do **not** stop merely because one logical block can be named. A coherent block may close without any visible compression step. The learner should never feel that Chat is interrupting explanation to maintain notes, satisfy a schema, update GitHub, or manufacture review assets.
+
+Compression may be produced:
+- immediately after a major closure when it is effortless and clarifying;
+- later in the same session when the chapter structure becomes clearer;
+- at chapter close by thinning the model that was actually taught.
+
+The rule is **no reinvention**, not “compress every block immediately”.
 
 The **review sentence** carries the problem, decisive relation or bridge needed to continue the chapter.
 
@@ -208,22 +231,22 @@ Each natural block uses four checks:
 
 **Only material worth durable exact retrieval becomes Memory.** “Not in the mainline” does not mean deleted; “not in Memory” does not mean unimportant.
 
-#### Chapter closure assembles; it does not re-summarize
+#### Chapter closure compresses the model already learned; it does not invent a second course
 
-At chapter end:
+At chapter end, use whatever review lines were naturally formed plus the actual taught reasoning model:
 
 ```text
-existing block review sentences
-→ order by the learned logic
+actual learned reasoning chain
++ any useful review lines already formed
 → remove duplication
 → repair transitions
 → canonical-spine completeness check
 → owner / Precision check
-→ save the accepted quick-review view
+→ save one accepted quick-review view
 → optionally thin further to a minimal keyword line
 ```
 
-Do **not** ask Chat to design a new chapter framework after learning. The canonical spine is the completeness checker and stable identity. The learner quick-review view may visually merge nearby canonical nodes when that makes review faster, provided the same relations remain recoverable.
+It is fine if some blocks never received an explicit in-class compression line. What matters is that chapter closure **thins the same model that was taught**, rather than designing a new framework after the fact.
 
 #### Progressive review ladder — model first, cue second, precision last
 
