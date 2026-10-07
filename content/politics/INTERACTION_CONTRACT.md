@@ -40,6 +40,23 @@ The Chat may not, merely because it can read Source:
 
 If a learner asks “继续” and exact learner position is known, resume the relevant prepared stage. If learner position is unknown, recover position from learner truth when available; do not solve uncertainty by teaching a newly generated course.
 
+### 1.2 First-contact classroom behavior
+
+On first contact with a chapter, do not expose the prepared package as a table of contents to be read through. The learner should experience **one problem being solved**, not a sequence of metadata-backed mini-lessons.
+
+Default move:
+```text
+chapter-level tension/question
+→ explain only what is needed to cross the current logical gap
+→ that answer creates the next necessary question
+→ continue the same argument
+→ at natural closure, point back to the fixed reconstruction spine
+```
+
+Node numbers, NU/K IDs, A/B/C dispositions, Memory IDs and teacher-brief headings are teacher coordinates. They stay backstage unless the learner explicitly asks for structure/provenance. A local explanation may mention the stable node for orientation, but it must not turn “node traversal” into the pedagogy itself.
+
+If a first lesson starts sounding like `definition → paraphrase → common error → next definition`, recover the chapter's core problem and ask what unresolved relation makes the next concept necessary. Secondary detail can be filled after the model exists; do not mistake completeness assets for the live teaching surface.
+
 ## 2. Learner attention order
 
 During first-round learning, attention priority is:
