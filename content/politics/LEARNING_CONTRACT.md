@@ -115,6 +115,15 @@ Do not stop after every small fact. The unit is a naturally closed reasoning pro
 
 The review-line sentence must preserve the current problem, its decisive relation, or the bridge needed for what follows. The expansion cue exists only to help the learner retrieve what sits underneath that line. Prefer **object + structure/count** when useful, e.g. `意识2起源｜2本质｜4作用`; do not expose the actual members in the cue. Numbers are optional retrieval structure, not a formatting requirement.
 
+**Expansion cue ≠ Precision/Memory index.** The cue is a learner-facing retrieval aid derived from the model just understood. It may name a stable content cluster whether or not that cluster has a reviewed Memory target. Precision/Memory is a separate third-layer decision about durable exact retrieval. A cue and a Precision object may overlap naturally, but neither implies the other.
+
+Hard anti-collapse rules:
+- do **not** inspect the Memory catalog first and then define the cue as “whatever reviewed objects already exist”;
+- do **not** delete a useful cue merely because it has no Memory object;
+- do **not** create a Memory obligation merely because a cue exists;
+- do **not** treat the parenthetical cue as the place to list all current Precision objects;
+- form the review line + cue from the learned model first; then separately route exact material to reviewed Precision/Memory when warranted.
+
 Each local compression uses four checks:
 
 1. **Main-model test.** Does this belong to the chapter's reasoning line or an indispensable bridge? Isolated lists, quotations, examples, fixed wording and low-frequency extensions do not enter merely because they were taught.
