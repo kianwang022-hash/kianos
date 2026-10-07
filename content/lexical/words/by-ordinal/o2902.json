@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:luck:luck-out",
+        "pattern": "luck out",
+        "meaning_cn": "走运；碰巧遇到好事",
+        "definition_en": "informal: to be very lucky or have something good happen by chance",
+        "level": "L2",
+        "pos": "verb",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only",
+        "boundary": "fixed phrasal verb; do not generalize ordinary bare luck as a productive verb"
+      }
+    ],
     "content_hash": "db93422fab4b2dc3e63558909c1046292c268482e2fa9967bf548ecb0295d6e5",
     "core_concept": {
       "core_clusters": [
@@ -18,19 +30,11 @@
             "sense:luck:a6759dab9f045e91",
             "sense:luck:72b5161bda065a36"
           ]
-        },
-        {
-          "label_cn": "靠运气成功",
-          "label_en": "to succeed by chance",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:luck:8a0d2b7ca1035274"
-          ]
         }
       ],
-      "core_meaning_cn": "运气，尤指好运",
-      "core_meaning_en": "chance or fortune, especially good",
-      "mental_model_cn": "运气，尤指好运",
+      "core_meaning_cn": "运气；幸运；好运",
+      "core_meaning_en": "chance or fortune, especially good fortune",
+      "mental_model_cn": "noun luck → 运气/好运；informal luck out → 走运、碰巧遇到好事。不要把 bare luck 当成普通高频动词使用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,30 +92,6 @@
         "sense_label_en": "success or good fortune",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:1ae5d8a47fea01d6fbc0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:luck:8a0d2b7ca1035274:collocation:0"
-            ],
-            "meaning_cn": "走运",
-            "phrase": "luck out"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "靠运气成功",
-        "definition_en": "to succeed by chance",
-        "governing_pattern": "vi. + into/out",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:luck:8a0d2b7ca1035274",
-        "sense_label_en": "to succeed by chance",
-        "sort_order": 2,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -223,7 +203,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:1ae5d8a47fea01d6fbc0",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:luck:8a0d2b7ca1035274:collocation:0"
+          ],
+          "meaning_cn": "走运",
+          "phrase": "luck out"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "靠运气成功",
+      "definition_en": "to succeed by chance",
+      "governing_pattern": "vi. + into/out",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:luck:8a0d2b7ca1035274",
+      "sense_label_en": "to succeed by chance",
+      "sort_order": 2,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -235,7 +240,7 @@
       },
       {
         "sense_id": "sense:luck:8a0d2b7ca1035274",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8087,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
@@ -249,7 +254,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:1ae5d8a47fea01d6fbc0",
       "collocation:5c461d403b8f43806109",
       "collocation:a61011101e8482be8ae0"
     ],
@@ -258,7 +262,9 @@
       {
         "id": "collocation:1ae5d8a47fea01d6fbc0",
         "source_row": 2217,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5c461d403b8f43806109",

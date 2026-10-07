@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "385864c1f098aaf6905a4ce246446757c3182cd1db3988a4d4017fc5d3510554",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "威严，庄严",
-      "core_meaning_en": "impressive dignity or grandeur",
-      "mental_model_cn": "威严，庄严",
+      "core_clusters": [
+        {
+          "label_cn": "雄伟；庄严；威严",
+          "label_en": "impressive grandeur or dignity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:majesty:9c63a68fce3d5f06"
+          ]
+        },
+        {
+          "label_cn": "Majesty：陛下（王室尊称）",
+          "label_en": "Majesty: a title used for a king or queen",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:majesty:2a62bdcdb6a6ac1b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "雄伟、庄严；Majesty 还可作王室尊称“陛下”",
+      "core_meaning_en": "impressive grandeur; also Majesty, the royal title for a king or queen",
+      "mental_model_cn": "the majesty of the mountains → 雄伟/庄严；His/Her/Your Majesty → 王室尊称“陛下”（title 用法首字母大写）。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,21 +72,29 @@
             "legacy_source_object_ids": [
               "sense:majesty:dae751be06c7553c:collocation:0"
             ],
-            "meaning_cn": "陛下（对国王的尊称）",
-            "phrase": "His Majesty"
+            "meaning_cn": "陛下（对国王或女王的尊称）",
+            "phrase": "His Majesty",
+            "meaning_en": "His Majesty / Her Majesty / Your Majesty"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "王权，威严",
-        "definition_en": "royal power or dignity",
-        "governing_pattern": "",
+        "confidence": "high",
+        "definition_cn": "陛下（称呼或提及国王、女王的尊称）",
+        "definition_en": "Majesty: a title used to address or refer to a king or queen",
+        "governing_pattern": "His/Her/Your Majesty",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:majesty:dae751be06c7553c",
-        "sense_label_en": "royal power or dignity",
+        "sense_id": "sense:majesty:2a62bdcdb6a6ac1b",
+        "sense_label_en": "a royal title used for a king or queen",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalized_title",
+          "surface_lemma": "Majesty",
+          "paired_form": "His/Her/Your Majesty",
+          "note": "capitalize Majesty when it is the royal title: His Majesty, Her Majesty, Your Majesty"
+        }
       }
     ],
     "verification_summary": {
@@ -197,9 +222,31 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "王权，威严",
+      "definition_en": "royal power or dignity",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:majesty:dae751be06c7553c",
+      "sense_label_en": "royal power or dignity",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:majesty:2a62bdcdb6a6ac1b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2933.json"
+      },
       {
         "sense_id": "sense:majesty:9c63a68fce3d5f06",
         "status": "active",
@@ -209,7 +256,7 @@
       },
       {
         "sense_id": "sense:majesty:dae751be06c7553c",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8165,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"

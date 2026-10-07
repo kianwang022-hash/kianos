@@ -4653,23 +4653,37 @@
     "ordinal": 2902,
     "word": "luck",
     "source_owner_path": "content/lexical/words/by-ordinal/o2902.json",
-    "source_fingerprint": "bf6a836658cead2fcf57e2cd027ec5fef57046d6ebff43989240728a3b494027",
-    "sense_lineage": [],
+    "source_fingerprint": "8b2b11f73a22f93716f7e55fb2c21a7535608598c4b06fb3d52afb481d06f897",
+    "sense_lineage": [
+      {
+        "word_id": "word:luck",
+        "target_kind": "sense",
+        "from_target_id": "sense:luck:8a0d2b7ca1035274",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:luck",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1ae5d8a47fea01d6fbc0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "运气，尤指好运",
-      "decision_cn": "",
+      "summary_cn": "运气；幸运；好运",
+      "decision_cn": "noun luck → 运气/好运；informal luck out → 走运、碰巧遇到好事。不要把 bare luck 当成普通高频动词使用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "运气，尤指好运"
+        "target_label": "运气；幸运；好运"
       }
     },
     "senses": [
@@ -4724,37 +4738,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "幸运；好运"
         }
-      },
-      {
-        "id": "sense:luck:8a0d2b7ca1035274",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vi. + into/out",
-        "definition_cn": "靠运气成功",
-        "definition_en": "to succeed by chance",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1ae5d8a47fea01d6fbc0",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "luck out",
-            "meaning_cn": "走运",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1ae5d8a47fea01d6fbc0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "luck out"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:luck:8a0d2b7ca1035274",
-          "target_locator": "record.senses[2]",
-          "target_label": "靠运气成功"
-        }
       }
     ],
     "pronunciation_support": {
@@ -4777,12 +4760,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:luck:luck-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "luck out",
+        "lines": [
+          {
+            "text": "走运；碰巧遇到好事",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed phrasal verb; do not generalize ordinary bare luck as a productive verb",
+            "lang": "en"
+          },
+          {
+            "text": "informal: to be very lucky or have something good happen by chance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:luck:luck-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "luck out"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1ae5d8a47fea01d6fbc0",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:luck:8a0d2b7ca1035274:collocation:0"
+              ],
+              "meaning_cn": "走运",
+              "phrase": "luck out"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "靠运气成功",
+          "definition_en": "to succeed by chance",
+          "governing_pattern": "vi. + into/out",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:luck:8a0d2b7ca1035274",
+          "sense_label_en": "to succeed by chance",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -4999,7 +5034,7 @@
     "ordinal": 2905,
     "word": "luggage",
     "source_owner_path": "content/lexical/words/by-ordinal/o2905.json",
-    "source_fingerprint": "7ef65a580aceb2456404b1ff6d1e8e1ee6505c8887288855de645878d6bc0133",
+    "source_fingerprint": "b3d0973ced109e25f31f658ee0f52c70ab1fcf6302fcc0fa74093d96bc25991b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5009,7 +5044,7 @@
     },
     "word_feel": {
       "summary_cn": "旅行时携带的箱包",
-      "decision_cn": "",
+      "decision_cn": "luggage 通常不可数：some/your luggage；一件行李说 a piece/item of luggage，不说 *a luggage / *luggages。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5024,9 +5059,17 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "行李",
-        "definition_en": "the bags, suitcases, etc. that you carry when traveling",
+        "definition_en": "the bags, suitcases, etc. that you carry when traveling; normally an uncountable noun",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "ordinary luggage is uncountable: some luggage / your luggage; use a piece/item of luggage for one unit, not *a luggage or *luggages",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "ordinary luggage is uncountable: some luggage / your luggage; use a piece/item of luggage for one unit, not *a luggage or *luggages"
+          }
+        },
         "usage": [
           {
             "id": "collocation:8cc846d628ad24f97bd4",
@@ -5994,7 +6037,7 @@
     "ordinal": 2912,
     "word": "luxury",
     "source_owner_path": "content/lexical/words/by-ordinal/o2912.json",
-    "source_fingerprint": "bb690bacdca5faf8d06c41c9b958825f5cf3d901ea83c7e60bbe6d9f0a2eca48",
+    "source_fingerprint": "e73649349b13dd1710229daccbab908b0f67757e69269f87c644d984420db976",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6005,7 +6048,7 @@
     },
     "word_feel": {
       "summary_cn": "奢侈",
-      "decision_cn": "",
+      "decision_cn": "expensive comfort/items → 奢华/奢侈品；have the luxury of time/choice/doing sth → 享有平时难得的便利、时间或机会。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6134,7 +6177,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:luxury:luxury-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "have/enjoy/afford the luxury of sth/doing sth",
+        "lines": [
+          {
+            "text": "拥有/享有平时难得的便利、时间或机会",
+            "lang": "cn"
+          },
+          {
+            "text": "often figurative: the luxury of time/choice/doing sth; not necessarily an expensive physical luxury",
+            "lang": "en"
+          },
+          {
+            "text": "to have or be able to enjoy an unusual advantage, opportunity, comfort, or amount of time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:luxury:luxury-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "have/enjoy/afford the luxury of sth/doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6148,7 +6217,7 @@
     "ordinal": 2913,
     "word": "lyric",
     "source_owner_path": "content/lexical/words/by-ordinal/o2913.json",
-    "source_fingerprint": "ec1c7e0d33a8a8d6a43454e1d082465e3c8c40bf14132b8338100480daf262c6",
+    "source_fingerprint": "060c4c04764e3350f624b75b7852c68415ca337347940ce455b01c7a455807e7",
     "sense_lineage": [
       {
         "word_id": "word:lyric",
@@ -6166,13 +6235,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "歌词或抒情诗",
-      "decision_cn": "",
+      "summary_cn": "歌词（通常 lyrics）；抒情诗；抒情的",
+      "decision_cn": "song words → 通常用复数 lyrics；a lyric → 可指一首短抒情诗/一行歌词；lyric poetry → 抒情诗。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "歌词或抒情诗"
+        "target_label": "歌词（通常 lyrics）；抒情诗；抒情的"
       }
     },
     "senses": [
@@ -6181,16 +6250,24 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "歌词",
-        "definition_en": "the words of a popular song or musical-comedy number",
+        "definition_cn": "歌词（通常用复数 lyrics）",
+        "definition_en": "lyrics (usually plural): the words of a song, especially a pop song",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "for the words of a song, ordinary usage is plural lyrics: the lyrics of/to a song; singular lyric is more natural for one line or for the poem sense",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[0].lexical_identity_overlay",
+            "target_label": "for the words of a song, ordinary usage is plural lyrics: the lyrics of/to a song; singular lyric is more natural for one line or for the poem sense"
+          }
+        },
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lyric:c89b8c3b3b6f522d",
           "target_locator": "record.senses[0]",
-          "target_label": "歌词"
+          "target_label": "歌词（通常用复数 lyrics）"
         }
       },
       {
@@ -6773,17 +6850,25 @@
     "ordinal": 2917,
     "word": "madam",
     "source_owner_path": "content/lexical/words/by-ordinal/o2917.json",
-    "source_fingerprint": "f48fc6590e3670c043fed5e989f561d0b81e7e59a996f68fec7d71443729f758",
-    "sense_lineage": [],
+    "source_fingerprint": "45dca7a3b23f48554182f1242c86a90d0e38b44d42fa272982027e65ac442e75",
+    "sense_lineage": [
+      {
+        "word_id": "word:madam",
+        "target_kind": "sense",
+        "from_target_id": "sense:madam:47d182ef924453a7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "对女性的礼貌称呼",
-      "decision_cn": "",
+      "decision_cn": "Madam/madam → 对女性的正式或礼貌称呼、职位称谓；“妓院女老板”是真实但低频的特定义，保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6793,25 +6878,8 @@
     },
     "senses": [
       {
-        "id": "sense:madam:47d182ef924453a7",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "妓院女老板",
-        "definition_en": "a woman who manages a brothel",
-        "note": "rare brothel-manager sense; low-frequency and register-marked.",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:madam:47d182ef924453a7",
-          "target_locator": "record.senses[0]",
-          "target_label": "妓院女老板"
-        }
-      },
-      {
         "id": "sense:madam:3d6b2f6a4f4a5fce",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "女士；夫人",
@@ -6822,7 +6890,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:madam:3d6b2f6a4f4a5fce",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "女士；夫人"
         }
       }
@@ -6863,7 +6931,24 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "妓院女老板",
+          "definition_en": "a woman who manages a brothel",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:madam:47d182ef924453a7",
+          "sense_label_en": "a woman who manages a brothel",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "usage_note": "rare brothel-manager sense; low-frequency and register-marked."
+        }
+      ]
     }
   },
   {
@@ -6984,23 +7069,23 @@
     "ordinal": 2919,
     "word": "magic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2919.json",
-    "source_fingerprint": "b1cc4e231ee01179569fdca1dc5f4598b0a0d29462cdd3214d5451b68090a7b3",
+    "source_fingerprint": "4c71e5024435350a821ea50008f4a3beb0418bf87ce9a3329193bad53d1bb0fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "超自然的力量或运用这种力量的艺术",
-      "decision_cn": "",
+      "summary_cn": "魔法；舞台魔术；神奇魅力；有魔力的",
+      "decision_cn": "witchcraft/black magic → 超自然魔法；do/perform magic → 舞台魔术；the magic of music/cinema → 独特魅力或神奇效果；magic wand/trick → magic 作定语。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "超自然的力量或运用这种力量的艺术"
+        "target_label": "魔法；舞台魔术；神奇魅力；有魔力的"
       }
     },
     "senses": [
@@ -7015,16 +7100,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f75c9e877d1c47b49f7b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "perform magic",
-            "meaning_cn": "表演魔术",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:273df23124a78d8ac2e2",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "black magic",
             "meaning_cn": "黑魔法",
             "kind": "usage_example",
@@ -7039,8 +7116,51 @@
         }
       },
       {
-        "id": "sense:magic:aa87e7b94e2f5006",
+        "id": "sense:magic:cd39e5c75c948979",
         "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "魔术；以戏法制造“不可能”效果的表演技巧",
+        "definition_en": "the skill of performing tricks to entertain people by making impossible things seem to happen",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f75c9e877d1c47b49f7b",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "perform magic",
+            "meaning_cn": "表演魔术",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:magic:cd39e5c75c948979",
+          "target_locator": "record.senses[1]",
+          "target_label": "魔术；以戏法制造“不可能”效果的表演技巧"
+        }
+      },
+      {
+        "id": "sense:magic:d45c7364fea361a3",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "魅力；神奇效果；令人着迷的特殊品质",
+        "definition_en": "a special, exciting, or delightful quality that makes a person, place, experience, or performance seem exceptional",
+        "note": "often in the magic of sth; figurative, not supernatural power",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:magic:d45c7364fea361a3",
+          "target_locator": "record.senses[2]",
+          "target_label": "魅力；神奇效果；令人着迷的特殊品质"
+        }
+      },
+      {
+        "id": "sense:magic:aa87e7b94e2f5006",
+        "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "魔术的，有魔力的，不可思议的",
@@ -7050,7 +7170,7 @@
         "usage": [
           {
             "id": "collocation:219819a7c86740efa51f",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "magic trick",
             "meaning_cn": "魔术戏法",
             "kind": "usage_example",
@@ -7058,7 +7178,7 @@
           },
           {
             "id": "collocation:619cd3af98ac12b930ac",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "magic wand",
             "meaning_cn": "魔杖",
             "kind": "usage_example",
@@ -7068,7 +7188,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:magic:aa87e7b94e2f5006",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[3]",
           "target_label": "魔术的，有魔力的，不可思议的"
         }
       }
@@ -7372,7 +7492,7 @@
     "ordinal": 2922,
     "word": "magnetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2922.json",
-    "source_fingerprint": "9ab4e49d78b7e2e33c2fecfbc492ca3d1c62f7eae889b8864a6dc3c648106ab6",
+    "source_fingerprint": "67de75b3a7aa8d993d5379c7c90a398d2bb68a9b8ff8c58283e39cfd9aa66949",
     "sense_lineage": [
       {
         "word_id": "word:magnetic",
@@ -7398,18 +7518,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有磁性的",
-      "decision_cn": "",
+      "summary_cn": "磁的；也可比喻为极具吸引力、魅力的",
+      "decision_cn": "physics → magnetic field/force 磁的；personality/appeal → magnetic = 极具魅力、很有吸引力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有磁性的"
+        "target_label": "磁的；也可比喻为极具吸引力、魅力的"
       }
     },
     "senses": [
@@ -7450,6 +7570,23 @@
           "target_id": "sense:magnetic:8223284c86d05905",
           "target_locator": "record.senses[0]",
           "target_label": "磁的，磁性的"
+        }
+      },
+      {
+        "id": "sense:magnetic:c7dc4021073ac915",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "有强烈吸引力的；极具魅力的",
+        "definition_en": "powerfully attractive, compelling, or charismatic",
+        "note": "figurative: a magnetic personality / magnetic appeal; not physical magnetism",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:magnetic:c7dc4021073ac915",
+          "target_locator": "record.senses[1]",
+          "target_label": "有强烈吸引力的；极具魅力的"
         }
       }
     ],
@@ -7564,22 +7701,6 @@
           ],
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 8134,
-          "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-          "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:magnetic:c7dc4021073ac915",
-          "status": "active",
-          "merged_into_sense_id": null,
-          "pos": "adjective",
-          "definition_cn": "有强烈吸引力的；有魅力的",
-          "definition_en": "powerfully attractive, compelling, or charismatic",
-          "semantic_key": "a483944d3c5027e902a9fbcd30cc713bcd5dd6a07c08d278af90da454148dbf2",
-          "semantic_key_history": [],
-          "legacy_aliases": [],
-          "legacy_alias_history": [],
-          "updated_at": "2026-09-15T09:40:00Z",
-          "source_row": 8197,
           "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
           "reference_only": true
         }
@@ -8133,23 +8254,51 @@
     "ordinal": 2927,
     "word": "maiden",
     "source_owner_path": "content/lexical/words/by-ordinal/o2927.json",
-    "source_fingerprint": "85004de5ad9d40b9b21095309054cea9e4cf3fd26f0b076d533ed3e793bc9233",
-    "sense_lineage": [],
+    "source_fingerprint": "f31132c45fe09ed02a61655b84b5ae500deab20d39b384e6a5128be45527fa54",
+    "sense_lineage": [
+      {
+        "word_id": "word:maiden",
+        "target_kind": "sense",
+        "from_target_id": "sense:maiden:57252cf8969a52d0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:maiden",
+        "target_kind": "sense",
+        "from_target_id": "sense:maiden:7eb7bbac62c95fe4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:maiden",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:14fd935448bbf1387051",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:maiden",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:855139c45c637e635440",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
-        "2N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "少女；首次的",
-      "decision_cn": "",
+      "summary_cn": "首次的；初次的",
+      "decision_cn": "maiden voyage/flight/speech → 首次的、初次的；文学“少女/未婚女子”和板球 maiden over 保留为 Lookup Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "少女；首次的"
+        "target_label": "首次的；初次的"
       }
     },
     "senses": [
@@ -8168,63 +8317,6 @@
           "target_id": "sense:maiden:b1f9e917fab15690",
           "target_locator": "record.senses[0]",
           "target_label": "初次的；首次的"
-        }
-      },
-      {
-        "id": "sense:maiden:57252cf8969a52d0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "少女；未婚女子；处女",
-        "definition_en": "a young unmarried woman, especially a virgin",
-        "note": "Young unmarried woman/virgin use is literary or old-fashioned.",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:14fd935448bbf1387051",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a maiden lady",
-            "meaning_cn": "未婚女子",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:maiden:57252cf8969a52d0",
-          "target_locator": "record.senses[1]",
-          "target_label": "少女；未婚女子；处女"
-        }
-      },
-      {
-        "id": "sense:maiden:7eb7bbac62c95fe4",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（板球）未得分的一轮",
-        "definition_en": "in cricket, an over in which no runs are scored",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:855139c45c637e635440",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "maiden over",
-            "meaning_cn": "未得分的一轮",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:855139c45c637e635440",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "maiden over"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:maiden:7eb7bbac62c95fe4",
-          "target_locator": "record.senses[2]",
-          "target_label": "（板球）未得分的一轮"
         }
       }
     ],
@@ -8272,7 +8364,59 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:14fd935448bbf1387051",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:maiden:57252cf8969a52d0:collocation:0"
+              ],
+              "meaning_cn": "未婚女子",
+              "phrase": "a maiden lady"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "少女；未婚女子；处女",
+          "definition_en": "a young unmarried woman, especially a virgin",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "register": "literary/old-fashioned",
+          "sense_id": "sense:maiden:57252cf8969a52d0",
+          "sense_label_en": "a young unmarried woman, especially a virgin",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "usage_note": "Young unmarried woman/virgin use is literary or old-fashioned."
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:855139c45c637e635440",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:maiden:7eb7bbac62c95fe4:collocation:0"
+              ],
+              "meaning_cn": "未得分的一轮",
+              "phrase": "maiden over"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（板球）未得分的一轮",
+          "definition_en": "in cricket, an over in which no runs are scored",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:maiden:7eb7bbac62c95fe4",
+          "sense_label_en": "in cricket, an over in which no runs are scored",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9115,8 +9259,16 @@
     "ordinal": 2933,
     "word": "majesty",
     "source_owner_path": "content/lexical/words/by-ordinal/o2933.json",
-    "source_fingerprint": "008672ae3c56e341e53db00ea3b1cafd2adaba9a0974331875ea952a84f672f8",
-    "sense_lineage": [],
+    "source_fingerprint": "b9168998d5a065bcd130c284c9c93b3ffa457f30077a5272c2ad90b536cea639",
+    "sense_lineage": [
+      {
+        "word_id": "word:majesty",
+        "target_kind": "sense",
+        "from_target_id": "sense:majesty:dae751be06c7553c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -9124,13 +9276,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "威严，庄严",
-      "decision_cn": "",
+      "summary_cn": "雄伟、庄严；Majesty 还可作王室尊称“陛下”",
+      "decision_cn": "the majesty of the mountains → 雄伟/庄严；His/Her/Your Majesty → 王室尊称“陛下”（title 用法首字母大写）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "威严，庄严"
+        "target_label": "雄伟、庄严；Majesty 还可作王室尊称“陛下”"
       }
     },
     "senses": [
@@ -9161,20 +9313,28 @@
         }
       },
       {
-        "id": "sense:majesty:dae751be06c7553c",
+        "id": "sense:majesty:2a62bdcdb6a6ac1b",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "王权，威严",
-        "definition_en": "royal power or dignity",
+        "governing_pattern": "His/Her/Your Majesty",
+        "definition_cn": "陛下（称呼或提及国王、女王的尊称）",
+        "definition_en": "Majesty: a title used to address or refer to a king or queen",
         "note": "",
-        "identity_overlay": null,
+        "identity_overlay": {
+          "text": "capitalize Majesty when it is the royal title: His Majesty, Her Majesty, Your Majesty",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "capitalize Majesty when it is the royal title: His Majesty, Her Majesty, Your Majesty"
+          }
+        },
         "usage": [
           {
             "id": "collocation:f3e8275a14a8e2b47155",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "His Majesty",
-            "meaning_cn": "陛下（对国王的尊称）",
+            "meaning_cn": "陛下（对国王或女王的尊称）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9186,9 +9346,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:majesty:dae751be06c7553c",
+          "target_id": "sense:majesty:2a62bdcdb6a6ac1b",
           "target_locator": "record.senses[1]",
-          "target_label": "王权，威严"
+          "target_label": "陛下（称呼或提及国王、女王的尊称）"
         }
       }
     ],
@@ -9229,7 +9389,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "王权，威严",
+          "definition_en": "royal power or dignity",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:majesty:dae751be06c7553c",
+          "sense_label_en": "royal power or dignity",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -9604,22 +9780,23 @@
     "ordinal": 2936,
     "word": "make",
     "source_owner_path": "content/lexical/words/by-ordinal/o2936.json",
-    "source_fingerprint": "84543f39b87964a3e2fccb825e1da22df583240ff4fca0e9c2110ce0a279287e",
+    "source_fingerprint": "5796b5a0e3838e8b5f8470b1a3672b6d656b7a5a0747e8f3a38df059ea5c9f2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4V"
+        "4V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "制造；使得；进行",
-      "decision_cn": "",
+      "summary_cn": "制造；使成为；使某人做；产品的品牌/牌子",
+      "decision_cn": "verb make → 制造/使成为/使某人做；What make is the car? / make and model → 产品品牌、牌子；make for... 走向属于较低频动词分支。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "制造；使得；进行"
+        "target_label": "制造；使成为；使某人做；产品的品牌/牌子"
       }
     },
     "senses": [
@@ -9741,8 +9918,25 @@
         }
       },
       {
-        "id": "sense:make:f30b0e6c8c8b560a",
+        "id": "sense:make:40aba7a7d6a837e1",
         "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the make of sth / make and model",
+        "definition_cn": "品牌；牌子；型号所属的制造商",
+        "definition_en": "the make of a product: the brand or type made by a particular company",
+        "note": "common with cars, machines, and products: What make is it? / make and model",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:make:40aba7a7d6a837e1",
+          "target_locator": "record.senses[3]",
+          "target_label": "品牌；牌子；型号所属的制造商"
+        }
+      },
+      {
+        "id": "sense:make:f30b0e6c8c8b560a",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vi. + for",
         "definition_cn": "走向；前进",
@@ -9752,20 +9946,20 @@
         "usage": [
           {
             "id": "collocation:a5a2a1b59be5760cc412",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "make for + sth",
             "meaning_cn": "朝...前进",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a5a2a1b59be5760cc412",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "make for + sth"
             }
           },
           {
             "id": "collocation:a9bedd1d562434ecc2a3",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[4].collocations[1]",
             "phrase": "make for the exit",
             "meaning_cn": "朝出口走去",
             "kind": "usage_example",
@@ -9775,7 +9969,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:make:f30b0e6c8c8b560a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "走向；前进"
         }
       }
@@ -10594,7 +10788,7 @@
     "ordinal": 2943,
     "word": "manager",
     "source_owner_path": "content/lexical/words/by-ordinal/o2943.json",
-    "source_fingerprint": "352ac6ae0c99c00a6d7409393276619812c79b9990f578db9b23f5362643d9f6",
+    "source_fingerprint": "b35a799cbf3e41aebc9e1c90cbd12c1f24f022e3d8446777fb173d81aef3ca95",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10603,13 +10797,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "管理者",
-      "decision_cn": "",
+      "summary_cn": "经理；管理者；负责人",
+      "decision_cn": "business/department/project/store → manager = 负责组织、管理的人；sports manager 和 software manager 是领域化分支。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "管理者"
+        "target_label": "经理；管理者；负责人"
       }
     },
     "senses": [
@@ -10618,8 +10812,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "经理；管理人员",
-        "definition_en": "someone who controls resources and expenditures",
+        "definition_cn": "经理；管理者；负责人",
+        "definition_en": "a person responsible for managing or organizing a company, organization, department, store, project, activity, or similar operation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10644,7 +10838,7 @@
           "target_kind": "sense",
           "target_id": "sense:manager:20c387c8d94e5e7a",
           "target_locator": "record.senses[0]",
-          "target_label": "经理；管理人员"
+          "target_label": "经理；管理者；负责人"
         }
       },
       {
@@ -10766,23 +10960,38 @@
     "ordinal": 2944,
     "word": "mandate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2944.json",
-    "source_fingerprint": "138fd630c3bee75854d9880b4d0a272bb07d1d75853c85fbe2c90964cacccd78",
-    "sense_lineage": [],
+    "source_fingerprint": "c457e9af44c394eeacfe8d341ef8e54e2dad2212cceb3f7e575c223f76ccb6a6",
+    "sense_lineage": [
+      {
+        "word_id": "word:mandate",
+        "target_kind": "sense",
+        "from_target_id": "sense:mandate:519bd9c581e65a23",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:mandate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e4a32ce472393278ec53",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "官方命令或授权",
-      "decision_cn": "",
+      "summary_cn": "官方命令/要求或授权；动词可指正式授权，也可指强制规定",
+      "decision_cn": "noun mandate → 官方命令/要求，或选举赋予的授权；verb mandate → 语境可分“正式授权”与“正式要求/强制规定”；一战后委任统治地为历史 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "官方命令或授权"
+        "target_label": "官方命令/要求或授权；动词可指正式授权，也可指强制规定"
       }
     },
     "senses": [
@@ -10864,9 +11073,9 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "授权，委任",
-        "definition_en": "to give someone the authority to do something",
-        "note": "",
+        "definition_cn": "正式授权；委任",
+        "definition_en": "to formally give someone authority or permission to act",
+        "note": "authorization sense; do not confuse with the common official-require/order sense",
         "identity_overlay": null,
         "usage": [
           {
@@ -10881,47 +11090,39 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "mandate sb to do sth"
             }
-          },
-          {
-            "id": "collocation:88d4241f48513982bcad",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "be mandated by law",
-            "meaning_cn": "由法律授权",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mandate:fad43fb2219e5af0",
           "target_locator": "record.senses[2]",
-          "target_label": "授权，委任"
+          "target_label": "正式授权；委任"
         }
       },
       {
-        "id": "sense:mandate:519bd9c581e65a23",
+        "id": "sense:mandate:af8e67c6fb9a46ba",
         "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "委任统治地",
-        "definition_en": "a territory administered by another power after World War I",
-        "note": "",
+        "pos": "verb",
+        "governing_pattern": "mandate sb to do sth / mandate that ... / be mandated to do sth",
+        "definition_cn": "正式要求；强制规定；命令（某人做某事或某事必须发生）",
+        "definition_en": "to officially require or order someone to do something, or require something to happen",
+        "note": "common in legal/government/business contexts; distinct from mandate = formally authorize",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:e4a32ce472393278ec53",
+            "id": "collocation:88d4241f48513982bcad",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "mandate territory",
-            "meaning_cn": "委任统治地",
+            "phrase": "be mandated by law",
+            "meaning_cn": "法律规定必须……；依法被要求",
             "kind": "usage_example",
             "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:mandate:519bd9c581e65a23",
+          "target_id": "sense:mandate:af8e67c6fb9a46ba",
           "target_locator": "record.senses[3]",
-          "target_label": "委任统治地"
+          "target_label": "正式要求；强制规定；命令（某人做某事或某事必须发生）"
         }
       }
     ],
@@ -11137,12 +11338,6 @@
         }
       ],
       "sense_readings": {
-        "sense:mandate:519bd9c581e65a23": [
-          0,
-          1,
-          2,
-          3
-        ],
         "sense:mandate:57fe0ca6a43b5c9c": [
           0,
           1,
@@ -11168,7 +11363,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e4a32ce472393278ec53",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:mandate:519bd9c581e65a23:collocation:0"
+              ],
+              "meaning_cn": "委任统治地",
+              "phrase": "mandate territory"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "委任统治地",
+          "definition_en": "a territory administered by another power after World War I",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:mandate:519bd9c581e65a23",
+          "sense_label_en": "a territory administered by another power after World War I",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   }
 ]

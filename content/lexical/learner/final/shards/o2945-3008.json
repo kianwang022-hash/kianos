@@ -5,24 +5,39 @@
     "ordinal": 2945,
     "word": "manifest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2945.json",
-    "source_fingerprint": "8f035105792dc256f3ec44135d961ec597a4d6e489f9604ef3c244d2914ebd03",
-    "sense_lineage": [],
+    "source_fingerprint": "21f6b593547e5986b112761315d2e15067d1c69297d5a6dd285712cc278c066e",
+    "sense_lineage": [
+      {
+        "word_id": "word:manifest",
+        "target_kind": "sense",
+        "from_target_id": "sense:manifest:100e113ad7195b4a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:manifest",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:603068793ff9c6c8f727",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "显示，表明；载货单",
-      "decision_cn": "",
+      "summary_cn": "显示、表明；显然的；货物/乘客清单",
+      "decision_cn": "manifest sth / manifest itself → 显示、显现；manifest adjective → 显然的；cargo/passenger manifest → 清单。把货物“列入舱单”的专业动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "显示，表明；载货单"
+        "target_label": "显示、表明；显然的；货物/乘客清单"
       }
     },
     "senses": [
@@ -181,32 +196,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "显示，出现"
         }
-      },
-      {
-        "id": "sense:manifest:100e113ad7195b4a",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "把...列入载货单",
-        "definition_en": "to record in a ship's manifest",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:603068793ff9c6c8f727",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "manifest cargo",
-            "meaning_cn": "把货物列入载货单",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:manifest:100e113ad7195b4a",
-          "target_locator": "record.senses[4]",
-          "target_label": "把...列入载货单"
-        }
       }
     ],
     "pronunciation_support": {
@@ -249,7 +238,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:603068793ff9c6c8f727",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:manifest:100e113ad7195b4a:collocation:0"
+              ],
+              "meaning_cn": "把货物列入载货单",
+              "phrase": "manifest cargo"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "把...列入载货单",
+          "definition_en": "to record in a ship's manifest",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:manifest:100e113ad7195b4a",
+          "sense_label_en": "to record in a ship's manifest",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -710,7 +725,7 @@
     "ordinal": 2949,
     "word": "manoeuvre",
     "source_owner_path": "content/lexical/words/by-ordinal/o2949.json",
-    "source_fingerprint": "f3452fd51560fb87d4189b6f82aeb207e5faebe092f076e0852453aa53915de0",
+    "source_fingerprint": "bc6d560ebe64fcf26674c8330dbcec547b5742b33f70e16d37af4cd6f78c8b9c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -721,7 +736,7 @@
     },
     "word_feel": {
       "summary_cn": "策略或机动动作",
-      "decision_cn": "",
+      "decision_cn": "manoeuvre 是通常英式拼写；maneuver 是通常美式拼写。两者同一词位：可指机动动作、策略行动/演习，也可作“操纵、设法”的动词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -928,8 +943,47 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
-      "form": null,
+      "relations": [
+        {
+          "title": "manoeuvre ↔ maneuver",
+          "target_word": "maneuver",
+          "lines": [
+            {
+              "text": "manoeuvre is the usual BrE spelling; maneuver is the usual AmE spelling. Same lexeme across movement, strategic-action, military, and verb uses; preserve both frozen Main Word owners.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:236b51366ddcd1c8fcc1",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "manoeuvre ↔ maneuver"
+          }
+        }
+      ],
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [],
+            "reading": "form:manoeuvre:bre",
+            "ipa": ""
+          },
+          {
+            "pos": [],
+            "reading": "form:maneuver:ame",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
