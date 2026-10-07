@@ -11,13 +11,13 @@ It does not own political Source Truth, teaching content, Politics learning/inte
 
 ---
 
-## 2026-10-05 supplemental model→memory integration scope
+## Current supplemental scope — reviewed-target delivery
 
-The S/K/L/P/R/E PASS and content-closure evidence below remain accepted for the previously tested base first-round path. They do not accept the newer Chat model → exact-memory encoding → reviewed target → Website retrieval → Recall/question evidence → Chat adaptive-review capability.
+**REVIEWED_TARGET_DELIVERY_ACCEPTED** for the History targets within the [lane's bounded delivery acceptance](../../ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance). The lane references [#1151's final main/served/remote receipt](https://github.com/kianwang022-hash/kianos/pull/1151#issuecomment-6010085983), together with its preceding exact-candidate browser and native-relay/fresh-reader proof. This closes the reviewed-target Memory delivery, not whole-subject teaching completeness.
 
-For this added capability, History is **REOPENED / NOT YET ACCEPTED** under the existing parent `content/politics/CURRENT.md` P5/P6. Prepared prose, candidate presence, old content review, build/CI and isolated browser evidence are not main-to-actual-Website delivery. Uninspected source text/images/tables and current-year-sensitive exact targets remain item-scoped; they are not silently covered by the older PASS.
+The S/K/L/P/R/E PASS and content-closure evidence below remain accepted for the previously tested base first-round path. Current teaching consumes the [existing subject model and preparation](teaching-candidate/subject-model.md), owning chapter JSON / brief and [bounded preparation review](teaching-candidate/preparation-review.md), under [Learning §3.1.1](../../LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates). Prepared prose, directory names, base PASS, build/CI or a working catalog alone do not admit unreviewed chapter content. Uninspected source text/images/tables and current-year-sensitive exact targets remain item-scoped; full Source and annual-material acceptance are not granted by this delivery. Real learning effectiveness remains **U UNTESTED / learner-only**; synthetic proof and self-rated STABLE do not imply mastery.
 
-Earlier “no engineering stage / next real learner use” statements apply to the accepted base path only. Close this supplemental claim only for artifacts actually landed on main and verified at their real consumer, with the lane's performance and evidence boundaries satisfied. Real learning effectiveness remains **U UNTESTED / learner-only**.
+Historical P5/P6 and the 2026-10-05 supplemental reopening describe the pre-delivery stage, not an active continuation queue. Ordinary learning is next; reopen only a concrete affected claim under [Politics Current](../../CURRENT.md), preserving all unresolved teaching/Source limits rather than restarting completed delivery.
 
 ## Gate status
 
@@ -43,7 +43,7 @@ Do not promote this to learner-validated.
 
 Politics' shared Learning/Interaction contract was corrected after real Marxism learner use exposed the missing distinction between Source ownership and Surface ownership. Because History uses the same Politics chapter projection/runtime shell, its affected L/P/R/E dependency was re-walked rather than assuming an old PASS automatically survived the shared contract change.
 
-Current shared surface binding relevant to History:
+Historical surface binding tested on 2026-09-13 (evidence, not current teaching instructions):
 
 ```text
 Chengfeng continuous study  iPad / MarginNote original lecture surface
@@ -64,6 +64,8 @@ Executed evidence:
 - `Build Astro` → **PASS**
 
 The shared Politics projection no longer renders Chengfeng continuous source text in Astro. History still retains its stage/timeline teaching projection, Xiao1000 verification, Wrong/Uncertain repair route, and Unit Return behavior.
+
+Current surface ownership follows [Learning — Surface roles](../../LEARNING_CONTRACT.md#surface-roles): Chat owns continuous first study and same-model compression; Chengfeng remains the Source basis, with original iPad/MarginNote images/text used when calibration is needed. The dated surface table and workflow receipts above prove their tested historical scope, not current iPad-first routing or complete Chat teaching acceptance.
 
 History has no real learner U evidence yet. The Marxism friction that triggered the shared fix is not copied into History as learner evidence.
 
