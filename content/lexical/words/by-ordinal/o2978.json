@@ -17,8 +17,7 @@
           "sense_ids": [
             "sense:mate:b675e5e1eef95fa3",
             "sense:mate:77a8f9f7d5d451c7",
-            "sense:mate:17b7ae3f5a155161",
-            "sense:mate:d971383149a95309"
+            "sense:mate:17b7ae3f5a155161"
           ]
         },
         {
@@ -31,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "配偶；配对",
-      "core_meaning_en": "a partner or companion; to pair or join together",
-      "mental_model_cn": "配偶；配对",
+      "core_meaning_cn": "配偶/伴侣；伙伴朋友；交配",
+      "core_meaning_en": "a partner or companion; or to pair/mate for breeding",
+      "mental_model_cn": "person → mate 可指伴侣/朋友；animals → 配偶、交配；ship → first mate 大副。南美饮品 mate/maté 发音不同且价值较低，保留在 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -172,30 +171,6 @@
         "sense_label_en": "to come together as a pair for breeding",
         "sort_order": 5,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:67ceb25fe24c3ef13332",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:mate:d971383149a95309:collocation:0"
-            ],
-            "meaning_cn": "马黛茶",
-            "phrase": "mate tea"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "马黛茶（植物）",
-        "definition_en": "a South American holly used to make a tea-like drink",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:mate:d971383149a95309",
-        "sense_label_en": "a South American holly used to make a tea-like drink",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -423,7 +398,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:67ceb25fe24c3ef13332",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:mate:d971383149a95309:collocation:0"
+          ],
+          "meaning_cn": "马黛茶",
+          "phrase": "mate tea"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "马黛茶（植物）",
+      "definition_en": "a South American holly used to make a tea-like drink",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:mate:d971383149a95309",
+      "sense_label_en": "a South American holly used to make a tea-like drink",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -463,7 +463,7 @@
       },
       {
         "sense_id": "sense:mate:d971383149a95309",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8311,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
@@ -472,7 +472,6 @@
     "active_collocations": [
       "collocation:485e994a3abf51fa014f",
       "collocation:4e9faff5fb479d6a732f",
-      "collocation:67ceb25fe24c3ef13332",
       "collocation:a1c659f8a73a2fd862df",
       "collocation:aabc3046d04f353f0ee5",
       "collocation:b25f21d380bdbc03b485",
@@ -493,7 +492,9 @@
       {
         "id": "collocation:67ceb25fe24c3ef13332",
         "source_row": 8761,
-        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a1c659f8a73a2fd862df",

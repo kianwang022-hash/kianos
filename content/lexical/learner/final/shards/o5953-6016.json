@@ -740,7 +740,7 @@
     "ordinal": 5960,
     "word": "marvellous",
     "source_owner_path": "content/lexical/words/by-ordinal/o5960.json",
-    "source_fingerprint": "4ed67c9f339d4c918739ee4d463af8bdce63410aec6ca4a53ab972254c64e631",
+    "source_fingerprint": "8ba415e87c9ca06ef07b2dfc48d26edef014eef3c2225f05735d767be92f7965",
     "sense_lineage": [
       {
         "word_id": "word:marvellous",
@@ -758,7 +758,7 @@
     },
     "word_feel": {
       "summary_cn": "极好的；了不起的",
-      "decision_cn": "",
+      "decision_cn": "marvelous 是通常美式拼写；marvellous 是通常英式拼写；语义相同，两个冻结 Main Word owner 均保留。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -868,8 +868,47 @@
     "constructions": [],
     "reference": {
       "confusables": [],
-      "relations": [],
-      "form": null,
+      "relations": [
+        {
+          "title": "marvellous ↔ marvelous",
+          "target_word": "marvelous",
+          "lines": [
+            {
+              "text": "marvelous is the usual AmE spelling; marvellous is the usual BrE spelling. They are regional spellings of the same adjective; preserve both frozen Main Word owners.",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:efb7cf410a72abc2a240",
+            "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "marvellous ↔ marvelous"
+          }
+        }
+      ],
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [],
+            "reading": "form:marvelous:ame",
+            "ipa": ""
+          },
+          {
+            "pos": [],
+            "reading": "form:marvellous:bre",
+            "ipa": ""
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [],
       "senses": [
         {

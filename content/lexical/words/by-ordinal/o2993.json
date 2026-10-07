@@ -12,16 +12,17 @@
       "core_clusters": [
         {
           "label_cn": "方法/手段；财力/资源",
-          "label_en": "a method/way; financial resources",
+          "label_en": "a method or way; or financial resources",
           "pos": "noun",
           "sense_ids": [
+            "sense:means:0817822a7b0d5f84",
             "sense:means:e3041c7f06915845"
           ]
         }
       ],
-      "core_meaning_cn": "方法，手段；财力",
-      "core_meaning_en": "a method or way of doing something; resources",
-      "mental_model_cn": "方法，手段；财力",
+      "core_meaning_cn": "方法、手段；财力、资源",
+      "core_meaning_en": "a method/way; or available money/resources",
+      "mental_model_cn": "method → a means / several means（单复数同形：a means is, several means are）；resources → within/beyond one’s means, have the means to do sth。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,7 +73,8 @@
         "sense_id": "sense:means:0817822a7b0d5f84",
         "sense_label_en": "how a result is obtained or an end is achieved",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "count noun with invariant form: a/one means is ...; several/many means are ..."
       },
       {
         "collocations": [
@@ -145,6 +147,32 @@
     "word_family": [],
     "word_id": "word:means",
     "form_identity": {
+      "form_type": "invariant_number_identity",
+      "spelling": "means",
+      "identity_rule": "same_surface_singular_and_plural_count_noun",
+      "boundary": "means has the same form in singular and plural: a/one means is ...; several/many means are ...",
+      "variants": [
+        {
+          "variant_id": "form:means:singular",
+          "surface": "means",
+          "pos": [
+            "noun"
+          ],
+          "number": "singular_count",
+          "role": "one method/way; takes singular agreement",
+          "learner_key": "means · singular (a/one means is …)"
+        },
+        {
+          "variant_id": "form:means:plural",
+          "surface": "means",
+          "pos": [
+            "noun"
+          ],
+          "number": "plural_count",
+          "role": "more than one method/way; takes plural agreement",
+          "learner_key": "means · plural (several/many means are …)"
+        }
+      ],
       "headword_pronunciations": [
         {
           "ipa": "/minz/",

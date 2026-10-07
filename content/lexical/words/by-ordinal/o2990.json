@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "一餐饭",
       "core_meaning_en": "food eaten at one occasion",
-      "mental_model_cn": "一餐饭",
+      "mental_model_cn": "meal 默认是一顿饭/一次进餐；meal = 粗磨谷物/种子粉是真实但低优先级的 food-processing 用法，保留在 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -87,30 +87,6 @@
         "sense_id": "sense:meal:1687fe8f38a25821",
         "sense_label_en": "any of the occasions for eating food that occur by custom or habit at mo",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:898be1650d319359c799",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:meal:ed48620941095c80:collocation:0"
-            ],
-            "meaning_cn": "玉米粉",
-            "phrase": "corn meal"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "粗磨的粉（尤指谷物或豆类）",
-        "definition_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or pulse",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:meal:ed48620941095c80",
-        "sense_label_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -297,7 +273,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:898be1650d319359c799",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:meal:ed48620941095c80:collocation:0"
+          ],
+          "meaning_cn": "玉米粉",
+          "phrase": "corn meal"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "粗磨的粉（尤指谷物或豆类）",
+      "definition_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or pulse",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:meal:ed48620941095c80",
+      "sense_label_en": "coarsely ground foodstuff; especially seeds of various cereal grasses or",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -309,7 +310,7 @@
       },
       {
         "sense_id": "sense:meal:ed48620941095c80",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8339,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
@@ -325,7 +326,6 @@
     "active_collocations": [
       "collocation:242f87285535dd0fdc01",
       "collocation:2b5ed143cb1bd1948c9a",
-      "collocation:898be1650d319359c799",
       "collocation:c45793b5c22b3eb94d05",
       "collocation:c6f32ae8c59201ef56f0"
     ],
@@ -344,7 +344,9 @@
       {
         "id": "collocation:898be1650d319359c799",
         "source_row": 11666,
-        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c45793b5c22b3eb94d05",

@@ -11,36 +11,27 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "大量；众多；群众；民众；质量（物理）；弥撒",
-          "label_en": "a large amount or number of something; the ordinary people in society; the amount of matter in an object or substance; a Christian religious service, especially in the Roman Catholic tradition",
+          "label_cn": "大量；众多；群众/民众；物理质量",
+          "label_en": "a large amount/number; ordinary people; or physical mass",
           "pos": "noun",
           "sense_ids": [
             "sense:mass:b8f366b9115b543c",
             "sense:mass:2417853e70b95223",
-            "sense:mass:70cf2a73bdff5662",
-            "sense:mass:682dd399580b569f"
+            "sense:mass:70cf2a73bdff5662"
           ]
         },
         {
-          "label_cn": "大规模的；群众的",
+          "label_cn": "大规模的；群众性的",
           "label_en": "involving or affecting a large number of people",
           "pos": "adjective",
           "sense_ids": [
             "sense:mass:28a7fca3062d5a54"
           ]
-        },
-        {
-          "label_cn": "（使）大量聚集；（使）集结",
-          "label_en": "to bring together or come together in large numbers",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:mass:0b958603d8485650"
-          ]
         }
       ],
-      "core_meaning_cn": "大量或许多某物",
-      "core_meaning_en": "a large amount or number of something",
-      "mental_model_cn": "大量或许多某物",
+      "core_meaning_cn": "大量/大众；物理质量；大规模的",
+      "core_meaning_en": "a large amount or the public; physical mass; or large-scale",
+      "mental_model_cn": "mass 大量/大众/物理质量/大规模；Mass（首字母大写）可指基督教弥撒，作为 Expansion 识别；mass troops 等动词义同样不是默认 Core。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -240,7 +231,7 @@
               "sense:mass:70cf2a73bdff5662:collocation:1"
             ],
             "meaning_cn": "参加弥撒",
-            "phrase": "attend mass"
+            "phrase": "attend Mass"
           }
         ],
         "confidence": "high",
@@ -253,7 +244,12 @@
         "sense_id": "sense:mass:682dd399580b569f",
         "sense_label_en": "a Christian religious service, especially in the Roman Catholic tradition",
         "sort_order": 7,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "canonical_surface": "Mass",
+          "identity_type": "case_sensitive_sense",
+          "note": "capitalize Mass for the Christian religious service; ordinary mass meanings are lowercase"
+        }
       }
     ],
     "verification_summary": {
