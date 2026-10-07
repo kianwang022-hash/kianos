@@ -66,3 +66,7 @@ A shard migration is admissible only when `source-shard-audit.json` proves:
 - no added learning semantics.
 
 Until runtime/audit consumers are cut over and parity remains green, the monoliths stay recovery authority. After cutover they may remain archival/recovery inputs, but they must not be treated as a competing learner-runtime owner.
+
+## 2027 Leg retention Source
+
+The designated retention source is 2027 腿姐《冲刺背诵手册》上册 / 下册. Its [Source binding and page-anchored Markdown candidates](current/leg27/README.md) remain subject to the [fidelity report](current/leg27/QUALITY_REPORT.md). Current ingestion is BLOCKED for a complete faithful-transcription claim; UNCLEAR and unresolved table/figure candidates fail closed for exact use. This task does not ingest the auxiliary selftest or change retention admissions.
