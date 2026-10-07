@@ -1155,7 +1155,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
     observedBlocks += 1;
     system.runtime_observed_blocks += 1;
     const revision = xizongStudySourceRevisionStatus(state, row?.packetMeta?.sourceHash, row?.packetMeta?.revisionWitness);
-    if (revision.blocked) {
+    if (revision.continuation_blocked ?? revision.blocked) {
       sourceRevisionBlocked.push({
         system_id: systemId,
         canonical_id: canonicalId,
@@ -1189,7 +1189,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
       identity: { blockId },
       kps: kpRows.map((kp) => ({ identity: { kpId: kp.kpId } }))
     }, state);
-    if (completion.complete && !revision.blocked) {
+    if (completion.complete && !(revision.continuation_blocked ?? revision.blocked)) {
       completedBlockIds.push(blockId);
       completedBlockRows.push({
         system_id: systemId,
@@ -1203,6 +1203,7 @@ export function buildXizongForecastProgress(storage, packetIndex = [], {
         block_recall_done: state.blockRecallDone === true,
         block_recall_completed_at: String(state.blockRecallCompletedAt || '') || null,
         completed_at: String(state.completedAt || '') || null,
+        current_claim: revision.current_claim,
         study_day: studyDayFromIso(state.completedAt),
         timer_minutes_to_completion: routeKey && state.completedAt
           ? timerMinutesForDetail(storage, routeKey, { endAt: state.completedAt })
@@ -1493,7 +1494,7 @@ export function buildXizongStudyPacketFromStorage({
     current: {
       object_id: objectId,
       source_revision_status: sourceRevision.status,
-      source_revision_blocked: sourceRevision.blocked,
+      source_revision_blocked: sourceRevision.continuation_blocked ?? sourceRevision.blocked,
       revision_review: sourceRevision,
       revision_witness: packetMeta.revisionWitness || null,
       evidence_source_hash: sourceRevision.evidence_source_hash,
@@ -1537,7 +1538,7 @@ export function buildXizongStudyPacketFromStorage({
       recall_ratings: clone(study.ratings || {}),
       block_recall_done: Boolean(study.blockRecallDone),
       block_complete: Boolean(study.completed),
-      current_block_complete: Boolean(study.completed) && !sourceRevision.blocked,
+      current_block_complete: Boolean(study.completed) && !(sourceRevision.continuation_blocked ?? sourceRevision.blocked),
       system_recall: clone(systemRecall)
     },
     summary: {

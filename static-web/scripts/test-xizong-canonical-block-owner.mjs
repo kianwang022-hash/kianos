@@ -13,6 +13,8 @@ import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs
 import { releaseCompletedBlockToMemory, inspectXizongBlockCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
 import { buildXizongMemoryReleaseDescriptorFromLearnerObject as nativeDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
 import { releaseBlockMemory } from '../src/lib/xizongMemoryModel.mjs';
+import { buildXizongStudyPacketFromStorage, buildXizongForecastProgress } from '../src/lib/xizongStudyPacket.mjs';
+import { buildXizongChatHandoff, writeXizongChatHandoff, applyXizongChatReturn, XIZONG_CHAT_RETURN_SCHEMA } from '../src/lib/xizongChatReturn.mjs';
 const root = process.env.KIANOS_REPO_ROOT || path.resolve(new URL('../../', import.meta.url).pathname);
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex');
 const compile = () => resolveXizongLearnerProjection({systemId:'circulation',blockId:'circulation-b01'});
@@ -78,10 +80,39 @@ check('old nonmodel witness creates an honest model evidence gap without new wor
  const after=makePreparedMemoryAvailable(before,descriptor);assert.equal(todayMemoryQueue(before).length,0);assert.equal(todayMemoryQueue(after).length,0);
  assert.deepEqual(after.evidence,before.evidence);assert.deepEqual(after.releasedBlocks,before.releasedBlocks);
  assert.equal(Object.values(after.cards).reduce((n,c)=>n+(c.contentHistory?.length||0),0),0);
+ // Exercise the actual Packet/forecast/Return consumers with isolated storage.
+ const values=new Map([['kianos-xizong-astro-v2:xizong:circulation-b01',JSON.stringify(study)]]);
+ const storage={getItem:key=>values.get(key)??null,setItem:(key,value)=>values.set(key,String(value)),removeItem:key=>values.delete(key),key:i=>[...values.keys()][i]??null,get length(){return values.size}};
+ const kpRows=learner.kps.map(k=>({kpId:k.identity.kpId,groupId:k.identity.logicGroupId,title:k.identity.title,prompt:k.prompt.canonical}));
+ const packetMeta={objectId:'xizong:circulation-b01',systemId:'circulation',canonicalId:'A1',blockId:'circulation-b01',sourceHash:learner.sourceHash,revisionWitness:learner.revisionWitness};
+ const packet=buildXizongStudyPacketFromStorage({storage,packetMeta,kpRows});
+ assert.equal(packet.current.revision_review.current_claim,'UNKNOWN');assert.equal(packet.current.revision_review.blocked,true);
+ assert.equal(packet.current.source_revision_blocked,false);assert.equal(packet.learning_state.current_block_complete,true);
+ const forecast=buildXizongForecastProgress(storage,[{systemId:'circulation',blockId:'circulation-b01',packetMeta,kpRows}]);
+ assert.deepEqual(forecast.runtime_evidence.completed_block_ids,['circulation-b01']);
+ assert.equal(forecast.runtime_evidence.source_revision_blocked_count,0);
+ const studyBytes=storage.getItem('kianos-xizong-astro-v2:xizong:circulation-b01');
+ const handoff=buildXizongChatHandoff(packet,{returnHref:'/xizong/circulation/b01/',makeId:()=> 'fresh-model-gap'});writeXizongChatHandoff(storage,handoff);
+ const response={schema:XIZONG_CHAT_RETURN_SCHEMA,return_id:'model-gap-return',handoff_id:handoff.handoff_id,origin:handoff.origin,resume:handoff.resume,decision:'NO_ACTION',repairs:[]};
+ assert.equal(applyXizongChatReturn(storage,response,{currentPacket:packet}).status,'applied');
+ assert.equal(applyXizongChatReturn(storage,response,{currentPacket:packet}).status,'already_applied');
+ assert.equal(storage.getItem('kianos-xizong-astro-v2:xizong:circulation-b01'),studyBytes);
+ const oldPacket=buildXizongStudyPacketFromStorage({storage,packetMeta:{...packetMeta,revisionWitness:prior},kpRows});
+ const oldHandoff=buildXizongChatHandoff(oldPacket,{returnHref:'/xizong/circulation/b01/',makeId:()=> 'old-unbound-model'});writeXizongChatHandoff(storage,oldHandoff);
+ assert.throws(()=>applyXizongChatReturn(storage,{...response,return_id:'stale-model-return',handoff_id:oldHandoff.handoff_id,origin:oldHandoff.origin,resume:oldHandoff.resume},{currentPacket:packet}),/CURRENT_OBJECT_CHANGED/);
+
  // A proven change to a field the old witness DID cover is still actionable.
  const known=structuredClone(learner);known.framework.stopLine+='semantic change';
  const changed=reconcileXizongRevision(study,buildXizongRevisionWitness(known));
  assert.equal(changed.contentRevision.blockReason,'LOCAL_SEMANTIC_CHANGE');assert.equal(revisionRequiresAction(changed),true);
+ for(const mutate of [l=>l.framework.stopLine+='meaning change',l=>l.kps[0].core.markdown+='meaning change',l=>l.sourceContact.mode+='source change',l=>l.model.markdown=l.model.markdown.replace('维持下一搏','抑制下一搏')]){
+  const l=structuredClone(learner);mutate(l);const w=buildXizongRevisionWitness(l);
+  const knownStudy={...study,contentRevision:{witness:learner.revisionWitness}};
+  storage.setItem('kianos-xizong-astro-v2:xizong:circulation-b01',JSON.stringify(knownStudy));
+  const rejected=buildXizongStudyPacketFromStorage({storage,packetMeta:{...packetMeta,revisionWitness:w},kpRows});
+  assert.equal(rejected.current.source_revision_blocked,true);assert.equal(rejected.learning_state.current_block_complete,false);
+ }
+
 });
 check('real model relationship change requires Block review without erasing history',()=>{
  const study={ sourceHash:learner.sourceHash,completed:true,blockRecallDone:true,

@@ -101,7 +101,16 @@ export function revisionStatus(state = {}, currentSourceHash = '', witness = nul
   const groups = valid ? revision.witness.groupOrder.filter(id => revision.pendingGroup?.[id]) : [];
   const blocked = valid ? impacted.length > 0 || groups.length > 0 || revision.blockPending === true || revision.contactPending === true : s.sourceRevisionPending === true || !bound || bound !== current;
   const unknown = !valid || [...impacted.map(id => revision.pendingKp[id]), ...groups.map(id => revision.pendingGroup[id]), revision.blockPending && revision.blockReason, revision.contactPending && revision.contactReason].includes('UNCLASSIFIED_REVISION');
+  // Only the explicitly identified nonmodel→model coverage gap inherits lawful
+  // completion/continuation. Unclassified KP/Source baselines, actual changes,
+  // missing witnesses and every other blocked state retain their own hold.
+  const modelCoverageGapOnly = valid && revision.blockPending === true
+    && revision.blockReason === 'UNCLASSIFIED_REVISION' && !revision.contactPending
+    && impacted.length === 0 && groups.length === 0
+    && ids(revision.history).some(row => row?.reason === 'MODEL_NOT_BOUND_BY_PRIOR_WITNESS'
+      && same(row.unwitnessedScopes, ['BLOCK_MODEL']));
   return { status: blocked ? (unknown ? 'UNCLASSIFIED_REVISION' : 'REVALIDATION_REQUIRED') : 'CURRENT', blocked,
+    continuation_blocked: blocked && !modelCoverageGapOnly,
     current_source_hash: current, evidence_source_hash: bound || null, impacted_kp_ids: impacted, impacted_group_ids: groups,
     block_review_required: valid && revision.blockPending === true, contact_review_required: valid && revision.contactPending === true,
     baseline_known: !unknown,
