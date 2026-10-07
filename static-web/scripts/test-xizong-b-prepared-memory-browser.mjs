@@ -72,7 +72,18 @@ try {
   const object=JSON.parse(await page.locator('[data-xizong-learner-object-payload]').textContent());objects.set(id,object);assert.equal(object.identity.systemId,system);assert.equal(object.identity.canonicalId,'B');assert.equal(object.identity.blockId,id);
   const actual=[...object.kps,...object.logicGroups].flatMap(owner=>(owner.precision||[]).map(cue=>({owner,cue})));assert.deepEqual(actual.filter(x=>x.cue.raw?.prepared_memory_ref).map(x=>x.cue.id).sort(),rows.map(r=>r.id).sort());
   assert.deepEqual(claims(await read(page,studyKey(id))),emptyClaims);assert.equal(await read(page,memoryKey),null);
-  if(!rows.length){assert.equal(await page.locator('[data-open-prepared-memory]').count(),0);checks.push(`${id}: native zero-admission Block has no prepared-memory entry`);await context.close();continue;}
+  if(!rows.length){
+   assert.throws(()=>describe(object),/PREPARED_BLOCK_UNSUPPORTED/,'zero admission cannot construct a prepared descriptor');
+   // The shared bridge keeps a hidden unwired action template in every Block.
+   // Zero admission means no visible/accessibility entry and no usable action.
+   assert.equal(await page.locator('[data-open-prepared-memory]:visible').count(),0);
+   assert.equal(await page.locator('[data-prepared-memory-action]:visible').count(),0);
+   assert.ok(!(await page.locator('body').ariaSnapshot()).includes('打开已准备的 Memory'));
+   const before=await raw(page,studyKey(id));
+   for(const button of await page.locator('[data-open-prepared-memory]').all())await button.dispatchEvent('click');
+   assert.equal(page.url(),blockUrl(id));assert.equal(await raw(page,studyKey(id)),before);assert.equal(await read(page,memoryKey),null,'hidden template cannot admit unprepared content');
+   checks.push(`${id}: native zero-admission Block exposes no visible/ARIA prepared entry; hidden unwired template cannot navigate or create state`);await context.close();continue;
+  }
   const descriptor=describe(object);cardsByBlock.set(id,selectMemoryView(makePreparedMemoryAvailable(createXizongMemoryState(),descriptor),'PRECISION').items);assert.deepEqual(descriptor.precisionCards.map(c=>c.id).sort(),rows.map(r=>'precision:'+r.id).sort());
   for(const row of rows){const match=actual.filter(x=>x.cue.id===row.id);assert.equal(match.length,1);assert.deepEqual(match[0].cue.anchor,row.anchor);assert.deepEqual(match[0].cue.raw.prepared_memory_ref.owner_kp_ids,row.owner_kp_ids);if(row.owner_kind==='LG')assert.deepEqual(match[0].owner.kpIds,row.owner_kp_ids);}
   const beforeStudy=await raw(page,studyKey(id));await openPrepared(page,id);const available=await read(page,memoryKey);
