@@ -9,9 +9,9 @@
     "constructions": [
       {
         "construction_id": "construction:air:handoff-9cf40c95d3a8f16e",
-        "pattern": "air a program/interview; on the air",
-        "meaning_cn": "播出节目/访谈；正在播出",
-        "definition_en": "broadcast a program or be broadcast",
+        "pattern": "on the air / be on the air",
+        "meaning_cn": "正在广播或播出",
+        "definition_en": "being broadcast on radio or television",
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
@@ -21,8 +21,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "空气；天空；空中；气氛；神态；（古代哲学中的）气，风",
-          "label_en": "the mixture of gases that we breathe; the space above the ground; the sky; a distinctive quality or atmosphere surrounding a person or thing; one of the four elements in ancient philosophy",
+          "label_cn": "空气；天空；空中；气氛；神态",
+          "label_en": "the mixture of gases that we breathe; the space above the ground or sky; a distinctive quality or atmosphere surrounding a person or thing",
           "pos": "noun",
           "sense_ids": [
             "sense:air:8f65fa6fdc0258a9",
@@ -182,7 +182,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:f113b80921996b6e10f1",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:air:7833f4c5d5ae5b56:collocation:0"
             ],
@@ -216,15 +216,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "播出；广播",
-        "definition_en": "to broadcast a program, interview, or other material on radio, television, or media",
-        "governing_pattern": "",
+        "definition_en": "to broadcast material, or for a program to be broadcast",
+        "governing_pattern": "vt. + program/material; vi. (program airs)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:air:122212a40e38a5fa",
-        "sense_label_en": "to broadcast a program, interview, or other material on radio, television, or media",
+        "sense_label_en": "to broadcast material, or for a program to be broadcast",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/air",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "Existing broadcast meaning includes active intransitive program airs, not only passive or transitive syntax."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -459,7 +468,6 @@
       "collocation:6d8cd75bfe75c678976e",
       "collocation:77bcac5d2c1cc4438249",
       "collocation:ead3fdd354474dc8f741",
-      "collocation:f113b80921996b6e10f1",
       "collocation:fe192c7f5df5c8d298ca"
     ],
     "facts": [],
@@ -497,7 +505,10 @@
       {
         "id": "collocation:f113b80921996b6e10f1",
         "source_row": 20421,
-        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       },
       {
         "id": "collocation:fe192c7f5df5c8d298ca",

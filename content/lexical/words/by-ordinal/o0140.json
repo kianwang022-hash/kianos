@@ -139,7 +139,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:cfb5a014959e8b81cdeb",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:alien:3b0b69720f558a68:collocation:retro-o0025-o0224"
             ],
@@ -812,10 +812,16 @@
     "active_collocations": [
       "collocation:4e01d80fedc72de02244",
       "collocation:c865660826ed42842c2b",
-      "collocation:cfb5a014959e8b81cdeb",
       "collocation:d3814a0b02a74a685f64"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:alien:handoff-9c7dd79a2b64f1a6",
+        "target_kind": "construction",
+        "status": "reference",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:4e01d80fedc72de02244",
@@ -830,7 +836,10 @@
       {
         "id": "collocation:cfb5a014959e8b81cdeb",
         "source_row": 21615,
-        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       },
       {
         "id": "collocation:d3814a0b02a74a685f64",
