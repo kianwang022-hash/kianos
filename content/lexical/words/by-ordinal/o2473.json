@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:import:of-import",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "重要的/不重要的；具有某种意义（正式）",
+        "definition_en": "a formal expression of the importance or significance of something",
+        "pattern": "of great/little/no import",
+        "source_sense_id": "sense:import:5dd9febfadcf5954",
+        "boundary": "formal noun = significance or meaning; not trade imports, and not the rare verb import = matter"
+      }
+    ],
     "content_hash": "de15d518f84da571fef225b499bf8336da078b8340569c2d6eb601d25b983440",
     "core_concept": {
       "core_clusters": [
@@ -20,8 +31,8 @@
           ]
         },
         {
-          "label_cn": "进口商品；进口货；含义；重要性",
-          "label_en": "imported goods/services; the meaning or significance of something",
+          "label_cn": "进口商品；进口货",
+          "label_en": "goods or services brought in from another country",
           "pos": "noun",
           "sense_ids": [
             "sense:import:c557e55d59865d39"
@@ -30,7 +41,7 @@
       ],
       "core_meaning_cn": "进口；进口品；导入数据",
       "core_meaning_en": "to bring goods in from abroad; imported goods; to import data",
-      "mental_model_cn": "trade → 进口/进口货；computing → 导入数据。正式旧式“含义/重要性”及“有重要性”义保留为 Reference。",
+      "mental_model_cn": "CORE → 贸易的进口/进口货；计算机导入数据。EXPANSION（正式书面语）→ the import of a statement = 言论的深意，of little/no/great import = 不重要/重要；这种名词义仍在使用。罕见动词 import = 有关系/有重要性保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -153,6 +164,30 @@
         "sense_label_en": "to transfer electronic data into a database or document",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:97b7b8b8d62dce4cf38e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:import:5dd9febfadcf5954:collocation:0"
+            ],
+            "meaning_cn": "某事的含义/重要性",
+            "phrase": "the import of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（正式语）重要性；含义、深意",
+        "definition_en": "(formal) importance or significance; the meaning of something, especially if not immediately clear",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:import:5dd9febfadcf5954",
+        "sense_label_en": "(formal) importance or significance; the meaning of something, especially if not immediately clear",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -753,30 +788,6 @@
     {
       "collocations": [
         {
-          "collocation_id": "collocation:97b7b8b8d62dce4cf38e",
-          "exam_value": "fixed_pattern",
-          "legacy_source_object_ids": [
-            "sense:import:5dd9febfadcf5954:collocation:0"
-          ],
-          "meaning_cn": "某事的含义/重要性",
-          "phrase": "the import of + sth"
-        }
-      ],
-      "confidence": "medium",
-      "definition_cn": "含义；重要性",
-      "definition_en": "the meaning or significance of something",
-      "governing_pattern": "",
-      "level": "L2",
-      "needs_human_review": 0,
-      "pos": "noun",
-      "sense_id": "sense:import:5dd9febfadcf5954",
-      "sense_label_en": "the meaning or significance of something",
-      "sort_order": 3,
-      "transitivity": "nonverb"
-    },
-    {
-      "collocations": [
-        {
           "collocation_id": "collocation:c98ec97cd7ee17db4849",
           "exam_value": "fixed_pattern",
           "legacy_source_object_ids": [
@@ -810,7 +821,7 @@
       },
       {
         "sense_id": "sense:import:5dd9febfadcf5954",
-        "status": "reference",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6866,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
@@ -843,7 +854,8 @@
       "collocation:2ac859ae0d6dcef0527c",
       "collocation:a5cfbb7817ccb094ae2f",
       "collocation:b683dd8b9f15327691eb",
-      "collocation:ef3dd8139fec8ec9b202"
+      "collocation:ef3dd8139fec8ec9b202",
+      "collocation:97b7b8b8d62dce4cf38e"
     ],
     "facts": [],
     "collocations": [
@@ -866,7 +878,7 @@
         "id": "collocation:97b7b8b8d62dce4cf38e",
         "source_row": 12914,
         "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
-        "status": "reference",
+        "status": "active",
         "merged_into_id": null
       },
       {

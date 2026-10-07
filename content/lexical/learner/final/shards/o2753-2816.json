@@ -1188,7 +1188,7 @@
     "ordinal": 2759,
     "word": "lateral",
     "source_owner_path": "content/lexical/words/by-ordinal/o2759.json",
-    "source_fingerprint": "f64af3143052604ee1a8662a7765daa9f5a928b8c7c4b2d7874fd693b7bb24f5",
+    "source_fingerprint": "d88a8549729b20c45d330438af1f49050dab5b3fbbb30f66a887803dc410a6e9",
     "sense_lineage": [
       {
         "word_id": "word:lateral",
@@ -2011,7 +2011,7 @@
     "ordinal": 2763,
     "word": "laugh",
     "source_owner_path": "content/lexical/words/by-ordinal/o2763.json",
-    "source_fingerprint": "d8310246493fefafc0088d9f65ad10d41bc11c13eea10b8d8a674ebd5bbb4b44",
+    "source_fingerprint": "70f9ae753dd7294784806c0346f185433dedbf9e93746635ff3e002545b55e2e",
     "sense_lineage": [
       {
         "word_id": "word:laugh",
@@ -2343,7 +2343,7 @@
     "ordinal": 2765,
     "word": "launch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2765.json",
-    "source_fingerprint": "cc3e3f1a5d91dca9f6d7099dd831529a585c09ab1db9bdcb488621a89f1e0121",
+    "source_fingerprint": "fbba5506374e933e99d30f63a6679220f4b56728807b2a714265851d486a4f47",
     "sense_lineage": [
       {
         "word_id": "word:launch",
@@ -5661,7 +5661,7 @@
     "ordinal": 2781,
     "word": "leaf",
     "source_owner_path": "content/lexical/words/by-ordinal/o2781.json",
-    "source_fingerprint": "f8abd0e949c0cda6733d257deb247c17b49f4aad34a1b8c3255f76981bb0f889",
+    "source_fingerprint": "5fe992ec74a33ad44d7e600f5cb42f76c5be5bca1c943e15aee35549c0aca375",
     "sense_lineage": [
       {
         "word_id": "word:leaf",
@@ -6024,7 +6024,7 @@
     "ordinal": 2783,
     "word": "league",
     "source_owner_path": "content/lexical/words/by-ordinal/o2783.json",
-    "source_fingerprint": "8d83a8e92e9fe741f9c44359de7a486d890430b6f2cb77343daf7151961fd544",
+    "source_fingerprint": "411955deb9b9ba42c31e4a7a44afee90c6a4bd245893dd5addaedc74182adc45",
     "sense_lineage": [
       {
         "word_id": "word:league",
@@ -6721,7 +6721,7 @@
     "ordinal": 2786,
     "word": "leap",
     "source_owner_path": "content/lexical/words/by-ordinal/o2786.json",
-    "source_fingerprint": "305dd6d3019dd3101c5dd9dad7332b62a4ba3909404b6c6b45640446ff6f85c1",
+    "source_fingerprint": "0c6dba53dcd15b17fdcd380591549535177828a11071dea4487d2bd05d9c342d",
     "sense_lineage": [
       {
         "word_id": "word:leap",
@@ -7738,38 +7738,23 @@
     "ordinal": 2791,
     "word": "leave",
     "source_owner_path": "content/lexical/words/by-ordinal/o2791.json",
-    "source_fingerprint": "4ecac2eb017af067095e5d974ea7b51d710b0d9b410ed892de40dccc59faaa5c",
-    "sense_lineage": [
-      {
-        "word_id": "word:leave",
-        "target_kind": "sense",
-        "from_target_id": "sense:leave:b0c3ae880aac54d3",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:leave",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:6008d5ab09edb3965fe3",
-        "status": "reference",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "3c89ca990e9fc326f0a624e2c58fab277084fecb8d12d86b7c814a823e14e12d",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "离开；许可",
-      "decision_cn": "verb → 离开、留下、使处于某状态；noun → 休假；be on leave → 在休假。法律“许可/准许”名词义保留为 Reference。",
+      "summary_cn": "离开；留下；休假",
+      "decision_cn": "CORE → 离开、留下/使处于某状态；noun on leave → 休假。EXPANSION（正式/法律）→ leave = 许可/准许，leave to appeal = 上诉许可，without leave = 未经许可；不是过时义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "离开；许可"
+        "target_label": "离开；留下；休假"
       }
     },
     "senses": [
@@ -7894,8 +7879,34 @@
         }
       },
       {
-        "id": "sense:leave:bd933153c2545046",
+        "id": "sense:leave:b0c3ae880aac54d3",
         "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（正式语，尤见法律/机构语境）许可；准许",
+        "definition_en": "(formal, especially law or official contexts) permission to do something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6008d5ab09edb3965fe3",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "leave to appeal",
+            "meaning_cn": "上诉许可",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:leave:b0c3ae880aac54d3",
+          "target_locator": "record.senses[3]",
+          "target_label": "（正式语，尤见法律/机构语境）许可；准许"
+        }
+      },
+      {
+        "id": "sense:leave:bd933153c2545046",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "使处于；使留下（某种状态）",
@@ -7906,7 +7917,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:leave:bd933153c2545046",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "使处于；使留下（某种状态）"
         }
       }
@@ -7971,39 +7982,38 @@
           "target_locator": "record.constructions[1]",
           "target_label": "be on leave / take leave"
         }
+      },
+      {
+        "id": "construction:leave:leave-to-appeal",
+        "source_locator": "record.constructions[2]",
+        "pattern": "grant/be granted/seek leave to appeal",
+        "lines": [
+          {
+            "text": "获得/授予上诉许可（法律用语）",
+            "lang": "cn"
+          },
+          {
+            "text": "formal legal leave = permission, not paid/unpaid leave from work",
+            "lang": "en"
+          },
+          {
+            "text": "formal permission given by a court to challenge a legal decision",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:leave:leave-to-appeal",
+          "target_locator": "record.constructions[2]",
+          "target_label": "grant/be granted/seek leave to appeal"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "collocations": [
-            {
-              "collocation_id": "collocation:6008d5ab09edb3965fe3",
-              "exam_value": "usage_example",
-              "legacy_source_object_ids": [
-                "sense:leave:b0c3ae880aac54d3:collocation:0"
-              ],
-              "meaning_cn": "上诉许可",
-              "phrase": "leave to appeal"
-            }
-          ],
-          "confidence": "medium",
-          "definition_cn": "许可；准许",
-          "definition_en": "permission to do something",
-          "governing_pattern": "",
-          "level": "L3",
-          "needs_human_review": 0,
-          "pos": "noun",
-          "sense_id": "sense:leave:b0c3ae880aac54d3",
-          "sense_label_en": "permission to do something",
-          "sort_order": 3,
-          "transitivity": "nonverb"
-        }
-      ]
+      "family": []
     }
   },
   {

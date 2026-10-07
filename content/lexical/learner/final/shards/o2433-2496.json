@@ -6106,26 +6106,12 @@
     "ordinal": 2473,
     "word": "import",
     "source_owner_path": "content/lexical/words/by-ordinal/o2473.json",
-    "source_fingerprint": "a2ee8f89faf59c1ca4331b015ad6f3c80ced09b73f42a890395d3640b12c487b",
+    "source_fingerprint": "f7ab658a1cc8a7e61a6bc47dc007dee5d9a5a0efdfbcf5df2f563caed966c46d",
     "sense_lineage": [
       {
         "word_id": "word:import",
         "target_kind": "sense",
-        "from_target_id": "sense:import:5dd9febfadcf5954",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:import",
-        "target_kind": "sense",
         "from_target_id": "sense:import:e495faf518c059cf",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:import",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:97b7b8b8d62dce4cf38e",
         "status": "reference",
         "to_target_id": null
       },
@@ -6140,13 +6126,13 @@
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "进口；进口品；导入数据",
-      "decision_cn": "trade → 进口/进口货；computing → 导入数据。正式旧式“含义/重要性”及“有重要性”义保留为 Reference。",
+      "decision_cn": "CORE → 贸易的进口/进口货；计算机导入数据。EXPANSION（正式书面语）→ the import of a statement = 言论的深意，of little/no/great import = 不重要/重要；这种名词义仍在使用。罕见动词 import = 有关系/有重要性保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6286,6 +6272,37 @@
           "target_id": "sense:import:83dd6840f252538a",
           "target_locator": "record.senses[2]",
           "target_label": "（计算机）导入；引入"
+        }
+      },
+      {
+        "id": "sense:import:5dd9febfadcf5954",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（正式语）重要性；含义、深意",
+        "definition_en": "(formal) importance or significance; the meaning of something, especially if not immediately clear",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:97b7b8b8d62dce4cf38e",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "the import of + sth",
+            "meaning_cn": "某事的含义/重要性",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:97b7b8b8d62dce4cf38e",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "the import of + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:import:5dd9febfadcf5954",
+          "target_locator": "record.senses[3]",
+          "target_label": "（正式语）重要性；含义、深意"
         }
       }
     ],
@@ -6558,12 +6575,42 @@
         "sense:import:2aea7b0ca1245c41": [
           1,
           4
+        ],
+        "sense:import:5dd9febfadcf5954": [
+          2,
+          5
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:import:of-import",
+        "source_locator": "record.constructions[0]",
+        "pattern": "of great/little/no import",
+        "lines": [
+          {
+            "text": "重要的/不重要的；具有某种意义（正式）",
+            "lang": "cn"
+          },
+          {
+            "text": "formal noun = significance or meaning; not trade imports, and not the rare verb import = matter",
+            "lang": "en"
+          },
+          {
+            "text": "a formal expression of the importance or significance of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:import:of-import",
+          "target_locator": "record.constructions[0]",
+          "target_label": "of great/little/no import"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6591,30 +6638,6 @@
       },
       "family": [],
       "senses": [
-        {
-          "collocations": [
-            {
-              "collocation_id": "collocation:97b7b8b8d62dce4cf38e",
-              "exam_value": "fixed_pattern",
-              "legacy_source_object_ids": [
-                "sense:import:5dd9febfadcf5954:collocation:0"
-              ],
-              "meaning_cn": "某事的含义/重要性",
-              "phrase": "the import of + sth"
-            }
-          ],
-          "confidence": "medium",
-          "definition_cn": "含义；重要性",
-          "definition_en": "the meaning or significance of something",
-          "governing_pattern": "",
-          "level": "L2",
-          "needs_human_review": 0,
-          "pos": "noun",
-          "sense_id": "sense:import:5dd9febfadcf5954",
-          "sense_label_en": "the meaning or significance of something",
-          "sort_order": 3,
-          "transitivity": "nonverb"
-        },
         {
           "collocations": [
             {
