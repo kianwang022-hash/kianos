@@ -40,20 +40,26 @@ Concretely:
 
 **Normal learning must not read `static-web/**`, inspector output, revision witnesses, CI, PR/Issue discussion or Acceptance prose to reconstruct the lesson.** Those are engineering/audit/lifecycle concerns. Website Projection is verified against the same content, but engineering artifacts are never learning inputs.
 
-The following legacy read route applies **only to unmigrated Blocks**; it is not a fallback for B1.
+For every normal Chat-led Block, use the same **content-only, smallest-needed** route:
 
-For continuation, resolve actual learner context first. First retain [Learning Contract §0 — highest learner-facing invariant](../../LEARNING_CONTRACT.md#learning-outcome). For a named System/Block lesson:
+```text
+Current System model
+→ exact target Block Learning slice
+→ accepted fixed teaching/model basis when one exists
+→ exact canonical KP Core only at the model node currently being taught
+→ exact Memory / Precision / MedicalVisual / Source support only when that node needs it
+```
 
-1. Read [Learning Contract §2｜Ownership](../../LEARNING_CONTRACT.md) → [Knowledge manifest](../manifest.json) → full Current canonical Block and System, including explicit Framework, comparisons, Source locators, boundaries and MI-G/MI-D.
-2. Resolve the exact System owner first, then its accepted Learning path; the manifest does not directly map every System to a Learning file. The existing native inspector reports `basis.owners.learning` and `basis.owners.learningShards` from the shared resolver (`static-web/src/lib/xizong.mjs` / `xizongSemanticAdapter.mjs`); read those actual owner files and selectors, not a guessed filename. For A1 this is `a1-circulation-learning.json#/blocks/<block_id>/logic_groups`, checked against `system.json#/logic_index/<block_id>`. The exact System Learning membership/order/goal/closure wins over stale `shared-fields.json#/logic_groups` metadata; System and Learning must agree rather than stitching incompatible lists. [Learning Contract §2｜Ownership](../../LEARNING_CONTRACT.md) owns System-specific refinement; [Projection Contract §2｜Current compiled scope vs eligibility](../../projection/PROJECTION_CONTRACT.md) documents the existing normalization of C explicit `kp_members` and D/E/F top-level `logic_groups`/`system_route` plus Content `block_realization`. Read the actual Learning owner’s learning-mode scope as well: native derived `sourceContact` (including `normalFirstPass`) describes original-Lecture contact execution, not the default teaching order for every Chat-led first pass. Inspect medical figures/Source needed for the current step now; existing formal Source-contact/closure requirements are not satisfied by Chat explanation.
-3. Read `shared-fields.json#/kp_fields/<kp_id>/retention_metadata` in full using the actual stable `kp_id` from the canonical/identity resolver, not a displayed short ordinal, including owned `gate_knowledge`, `source_memory_items`, Connections and reserve items when present; retain their anchors, routes and provenance. Also resolve `block_fields/<block_id>` and relevant `system_fields/<system_id>`. Exact Memory/evidence interpretation routes to [Learning Contract §8｜Memory and attention](../../LEARNING_CONTRACT.md); support presence is not private admission or due evidence.
-4. Read the exact System `*-learning-cues.json` `precision_index` and `visual_bindings`, matching the actual `visual_bindings[].anchor.block_id` / `logic_group_id` and any other fields actually owned by the binding, plus Source locators; follow the actual MedicalVisual asset/source rather than only the cue label. Resolve Current `*-extensions.json#/assets` by actual `owner.block_id` / `owner.logic_group_id`; use `owner.kp_id` only if that field actually exists, and never discard LG-level support for lacking a KP field, under [Extension Asset Contract](../../EXTENSION_ASSET_CONTRACT.md). Resolve `retention_metadata.connections` and any referenced canonical/System Connection owner under [Learning Contract §1｜Formal Boundary / Connection adoption](../../LEARNING_CONTRACT.md). Do not omit exact retention because the model summary already mentions its topic; absent support remains absent.
+Rules:
 
-Only Website tasks read Website owners. Teaching principles inherit the Learning Contract; old ProductBrief product descriptions do not override it. This router does not define teaching order or evidence semantics.
+1. **System context first, but bounded.** Read the Current System owner far enough to know the mother model, the target Block's responsibility, upstream/downstream interfaces and any genuine cross-Block dependency. Do not preload unrelated Blocks.
+2. **Then the target Block route.** Read only that Block's current Learning selector for focus, LG continuity, readiness/Source boundary and closure. LG is an internal continuity/retrieval unit, not a sequence of separate lessons.
+3. **Use the accepted fixed teaching/model basis.** It drives the continuous explanation and same-model compression. KP identity does not create teaching order; title〔full Prompt〕 stays at the natural model node.
+4. **Fetch detail on demand.** When teaching reaches a node, read only the owning canonical KP Core and any reasoning-changing precision needed now. Model-external exact Memory/Precision and MedicalVisual are resolved only when relevant; do not preload every retained support row for the whole Block.
+5. **Keep engineering out of learning.** Normal Chat must not read `static-web/**`, inspector/debug output, revision witnesses, CI, PR/Issue discussion, Acceptance prose, migration receipts or archived candidate metadata to reconstruct the lesson. Those may prove publication or implementation, but they do not teach the medicine.
+6. **No raw multi-owner assembly in Chat.** If a current support item is routed through legacy `shared-fields`, cue indexes, extensions or pathway owners, follow only the exact referenced item when needed. Do not bulk-read those files and decide which meaning wins. A missing/ambiguous Current owner stays unresolved rather than being repaired from history.
 
-For Lecture output, read canonical Block/Framework as medical constraints and resolve the accepted teaching input under [Learning Contract §13｜Fresh-Chat / non-drift](../../LEARNING_CONTRACT.md#13fresh-chat--non-drift-rule); apply [Lecture Replacement Contract §3.1](./LECTURE_REPLACEMENT_CONTRACT.md#teaching-topology-annotations).
-
-Then route the requested output to the organization/composition owner above. `static-web/scripts/inspect-xizong-content.mjs` is the existing optional read-only native composition inspector.
+Only Website implementation/debug tasks read Website/engineering owners. The Website compiles the same accepted content into learner-facing Recall/Memory/state surfaces; it is not a second curriculum.
 
 ## Teaching basis resolution
 
