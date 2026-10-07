@@ -277,7 +277,7 @@ Preserve Chengfeng Natural Unit identity, boundaries and source hierarchy. Exist
 - **Chengfeng:** detailed-study and compression basis. Read the actual requested text and necessary tables/images; preserve its organization and terminology. Source nodes/locators locate evidence but do not replace missing full text.
 - **Existing model / teacher preparation:** backstage relationship, omission and boundary checks; reusable support for requested explanation. Prepared prose is not the compression mother text and old exact inventories are not the retention decision.
 - **Suyi:** optional structural/reference support, never a second required course or silent replacement of Chengfeng framing.
-- **Designated Leg retention source:** Kian currently names **腿姐《核心考案》**. Resolve the exact file/title/edition and inspect the relevant passage before claiming its priorities or wording. Do not silently substitute《背诵手册》or infer an edition from a teacher's name. Selection follows §6.1; neither a union nor a mechanical intersection of two books is a retention syllabus.
+- **Designated Leg retention source:** Kian currently designates **2027 腿姐《冲刺背诵手册》** as the retention source for deciding what is worth active recall and at what depth. Use the actually inspected current-year upper/lower volume passage; do not substitute a different teacher/book or infer priorities from title alone. The 2027《背练结合自测本》 may support Recall/self-test design and salience cross-checking, but does not replace the retention-source judgment. Selection follows §6.1; neither a union nor a mechanical intersection of books is a retention syllabus.
 - **Xiao1000:** original questions/answers and transfer/error evidence, not the source of chapter order or an automatic card generator.
 
 ### Surface roles
@@ -486,7 +486,7 @@ The learner should see **what to do and why**, not scheduler internals.
 
 `NO SOURCE SUPPORT → NO MEMORY ADMISSION`
 
-The default long-term retention baseline, including model-bound memory as well as independent fragments, is selected from the **actually inspected, learner-designated Leg source**, reconciled with Chengfeng-owned knowledge. Kian names《核心考案》; exact title, edition and passage must be resolved, not silently replaced by《背诵手册》or model memory. Presence/emphasis in a book is a selection input, not proof every sentence needs verbatim recall.
+The default long-term retention baseline, including model-bound memory as well as independent fragments, is selected from the **actually inspected 2027 腿姐《冲刺背诵手册》 passage**, reconciled with Chengfeng-owned knowledge. The current-year source is available and is the designated retention source; the 2027《背练结合自测本》 is auxiliary Recall/self-test evidence, not a substitute baseline. Presence/emphasis in a book is a selection input, not proof every sentence needs verbatim recall.
 
 For each proposed group, the existing Content/review owner must justify what exam job exact retention protects and the needed depth: recognition, conceptual paraphrase, complete membership, exact pairing, or genuinely required fixed wording. Preserve meaningful grouping and explain the first answer. Do not require unaided enumeration/recitation where source use only needs recognition or option discrimination. Use original prompts, answers, checking criteria and useful memory aids; no forced mnemonics.
 
