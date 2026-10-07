@@ -69,9 +69,9 @@ Never start from the old card catalog and work backwards. Never treat “precise
 
 ### Current checkpoint
 
-**Completed:** C00–C03 Chengfeng compression + current-year Leg27 retention review. C00 retained《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征. C01 retained哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性. C02 retained联系、发展、矛盾、量质变、辩证否定. C03 retained实践333/桥梁、实践对认识4作用、感性理性与两次飞跃、真理客观/一元及绝对/相对、实践唯一标准、价值4性与双尺度、认识/改造统一基础=实践. Across C01–C03, no broad parallel residual-Memory set has been justified; old IDs/history remain optional/reference until a real individual gap or output need requires exact independent practice.
+**Completed:** C00–C04 Chengfeng compression + current-year Leg27 retention review. C00 retained《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征. C01 retained哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性. C02 retained联系、发展、矛盾、量质变、辩证否定. C03 retained实践333/桥梁、实践对认识4作用、感性理性与两次飞跃、真理客观/一元及绝对/相对、实践唯一标准、价值4性与双尺度、认识/改造统一基础=实践. C04 retained社会存在/意识、生产力/生产关系、经济基础/上层建筑、两对社会基本矛盾、五种其他动力、人的本质/人民群众/历史人物边界. Across C01–C04, no broad parallel residual-Memory set has been justified; old IDs/history remain optional/reference until a real individual gap or output need requires exact independent practice.
 
-**Next:** C04. Read actual Chengfeng C04 and corresponding Leg27 historical-materialism range (社会存在/社会意识、生产力生产关系、经济基础上层建筑、社会形态、科技/人民群众 as naturally owned), then apply the fixed placement rule once. Do not reopen C00–C03 without new evidence.
+**Next:** C05. Read actual Chengfeng C05 and corresponding Leg27 commodity/labor/value/money/value-law range, then apply the fixed placement rule once. Do not reopen C00–C04 without new evidence.
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/marxism/ACCEPTANCE.md`.  
