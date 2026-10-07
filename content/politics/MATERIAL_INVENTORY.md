@@ -182,7 +182,7 @@ Forbidden:
 
 | Family | Status now | Required role when available | What is already prepared |
 | --- | --- | --- | --- |
-| 2027 腿姐《冲刺背诵手册》上册 / 下册 | AVAILABLE_PDF / MD_CANDIDATE / FIDELITY_BLOCKED / INSPECT_BY_SCOPE | retention necessity + recall depth for model-bound prompts and residual Memory; later Analysis EXACT where applicable | [2027 Source entry](source/current/leg27/README.md); 234 / 87 PDF pages; Markdown candidates retain page anchors and UNCLEAR; [quality report](source/current/leg27/QUALITY_REPORT.md) blocks a complete fidelity claim. Inspect the exact original passage and resolve relevant UNCLEAR before admitting retention. No chapter or existing Memory pool is automatically Leg-filtered. |
+| 2027 腿姐《冲刺背诵手册》上册 / 下册 | AVAILABLE / MD_INGESTED / PASS_WITH_UNCLEAR / INSPECT_BY_SCOPE | retention necessity + recall depth for model-bound prompts and residual Memory; later Analysis EXACT where applicable | [2027 Source entry](source/current/leg27/README.md); 234 / 87 PDF pages, complete page anchors and visual review; [quality report](source/current/leg27/QUALITY_REPORT.md) lists remaining localized UNCLEAR. Resolve relevant original fields before exact use. No chapter or existing Memory pool is automatically Leg-filtered. |
 | 2027《背练结合自测本》 | AVAILABLE_AUXILIARY | Recall/self-test and salience cross-check only | 30-day task/self-test structure available; does not replace retention-source judgment |
 | 2027 current affairs / 形势与政策 | SOURCE_PENDING | current facts/policy cues; Objective/Analysis overlays | strict high-freshness ingestion rules |
 | Xiao8 | SOURCE_PENDING | fresh current-year Objective transfer; mixed timing; selected Analysis/Mock evidence | clean-attempt / answer-separation / v2 rules |

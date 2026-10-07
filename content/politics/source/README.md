@@ -69,4 +69,4 @@ Until runtime/audit consumers are cut over and parity remains green, the monolit
 
 ## 2027 Leg retention Source
 
-The designated retention source is 2027 腿姐《冲刺背诵手册》上册 / 下册. Its [Source binding and page-anchored Markdown candidates](current/leg27/README.md) remain subject to the [fidelity report](current/leg27/QUALITY_REPORT.md). Current ingestion is BLOCKED for a complete faithful-transcription claim; UNCLEAR and unresolved table/figure candidates fail closed for exact use. This task does not ingest the auxiliary selftest or change retention admissions.
+The designated retention source is 2027 腿姐《冲刺背诵手册》上册 / 下册. Its [Source binding and page-anchored Markdown](current/leg27/README.md) is AVAILABLE / MD_INGESTED / INSPECT_BY_SCOPE, with [fidelity PASS_WITH_UNCLEAR](current/leg27/QUALITY_REPORT.md). The two books retain all 234 / 87 PDF-page anchors after visual review; remaining localized UNCLEAR fields fail closed for exact use. This task does not ingest the auxiliary selftest or change retention admissions.

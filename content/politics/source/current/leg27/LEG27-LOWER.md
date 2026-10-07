@@ -8,17 +8,19 @@
 
 ## PDF p001
 
-### 2027 考研政治
+2027 考研政治
+
+金榜时代 GUSTIME
 
 考研政治系列 · 锁定全考点 ④
 
-### 冲刺背诵手册 下册
+冲刺背诵手册 下册
 
 会议文献人物专项突破
 
 核心词干扰项专项总结
 
-大题答案素材模版总结
+大题答案素材模板总结
 
 时政整理更新到考前
 
@@ -26,51 +28,33 @@
 
 一本已经划好重点的背诵手册（阅卷人亲自带学带背）
 
-中国农业出版社 / CHINA AGRICULTURE PRESS
-
 [QR / promotional block omitted]
 
+中国农业出版社 CHINA AGRICULTURE PRESS
 
 <!-- PDF_PAGE: 002 -->
 
 ## PDF p002
 
-[figure transcription, PDF p2; 表格扫描坐标候选，合并单元格用 rowspan/colspan 表示]
+### 考研冲刺 倒计时60天
 
-[UNCLEAR_PAGE: PDF p2，扫描表格存在断线，自动恢复的部分行列/合并关系尚未完成可靠视觉核对]
-
-<table>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td colspan="2">[UNCLEAR: PDF p2 OCR L1] 考研冲刺</td><td></td><td></td><td colspan="2"></td><td></td><td>60</td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td>[UNCLEAR: PDF p2 OCR L2] 倒•计⋯时⋯</td><td></td><td colspan="2"></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-</table>
-
-[figure transcription, PDF p2; 表格扫描坐标候选，合并单元格用 rowspan/colspan 表示]
-
-[UNCLEAR_PAGE: PDF p2，扫描表格存在断线，自动恢复的部分行列/合并关系尚未完成可靠视觉核对]
+[figure transcription, PDF p2]
 
 <table>
-<tr><td>[UNCLEAR: PDF p2 OCR L4] 10月19日 一</td><td colspan="2"></td><td colspan="3"></td><td></td><td colspan="3">[UNCLEAR: PDF p2 OCR L5] 10月20日周二10月21日周三10月22日周四</td><td colspan="3"></td><td colspan="3"></td><td colspan="5">[UNCLEAR: PDF p2 OCR L6] 10月23日圓五10月24日四六 10月25日周日</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td colspan="4">带背DAY1</td><td colspan="3">带背DAY2<br>倒计时60天</td><td colspan="4">带背DAY3</td><td colspan="3">带背DAY4</td><td colspan="3">带背DAY5</td><td colspan="6">带背DAY6</td><td></td><td></td><td>带背DAY7</td><td></td><td></td></tr>
-<tr><td>[UNCLEAR: PDF p2 OCR L15] 10月26日周一</td><td colspan="2"></td><td></td><td colspan="2">[UNCLEAR: PDF p2 OCR L16] 10月27日周二10月28日周三</td><td></td><td></td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L17] 10月29日周四</td><td colspan="2"></td><td></td><td colspan="2">[UNCLEAR: PDF p2 OCR L18] 10月30日周五10月31日周六</td><td></td><td></td><td colspan="2"></td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L26] 11月1日周日</td><td></td><td></td></tr>
-<tr><td colspan="4">带背DAY8</td><td colspan="3">带背DAY9</td><td colspan="4">带背DAY10</td><td colspan="3">带背DAY11</td><td colspan="3">带背DAY12<br>倒计时50天</td><td colspan="6">带背DAY13</td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L27] 带背DAY14</td><td></td><td></td></tr>
-<tr><td>[UNCLEAR: PDF p2 OCR L28] 11月2日周</td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L30] 11月3日周二</td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L32] 11月4日周三</td><td></td><td>[UNCLEAR: PDF p2 OCR L34] 11月5日岡四</td><td></td><td>[UNCLEAR: PDF p2 OCR L36] 11月6日周五</td><td></td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L37] 11月7日周六 11月8日回日</td><td colspan="6"></td></tr>
-<tr><td>带背DAY15</td><td colspan="2"></td><td colspan="3">带背DAY16</td><td colspan="4">带背DAY17</td><td colspan="3">带背DAY18</td><td colspan="3">带背DAY19</td><td colspan="6">带背DAY20</td><td></td><td></td><td>带背DAY21</td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L41] 11月9日周 11月10日周二11月11日周目11月12日周四11月13日周五11月14日周六11月15日周日</td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td colspan="2"></td></tr>
-<tr><td colspan="4">带背DAY22<br>倒计时40天</td><td colspan="3">带背DAY23</td><td colspan="4">带背DAY24</td><td colspan="3"></td><td colspan="3"></td><td colspan="6">带背DAY25 带背DAY26 带背DAY27 带背DAY28</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L47] 11月16日周 11月17日周 11月18日周三11月19日周四 11月20日周五11月21日周六11月22日 日</td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td colspan="4">带背DAY29</td><td colspan="3">带背DAY30</td><td colspan="4"></td><td colspan="3">[UNCLEAR: PDF p2 OCR L50] 倒计时30天</td><td colspan="3"></td><td colspan="6"></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L51] 11月23日周 11月24日周 11月25日周三 11月26日周四 11月27日周五11月28日周六11月29日周日</td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td colspan="4"></td><td colspan="3"></td><td colspan="4"></td><td colspan="3"></td><td colspan="3"></td><td colspan="6"></td><td></td><td></td><td>倒计时20天</td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L53] 11月30日 12月1日周二12月2日周三12月3日周四 12月4日周五 12月5日周六12月6日「加</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td colspan="4"></td><td colspan="3"></td><td colspan="4"></td><td colspan="3"></td><td colspan="3"></td><td colspan="6"></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>[UNCLEAR: PDF p2 OCR L54] 12月7日周</td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="2">[UNCLEAR: PDF p2 OCR L55] 12月8日周 12月9日周三 12月10日周四 12月11日周五12月12日周六12月13</td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td>[UNCLEAR: PDF p2 OCR L67] 回</td></tr>
-<tr><td colspan="4"></td><td colspan="3"></td><td colspan="4">倒计时10天</td><td colspan="3"></td><td colspan="3"></td><td colspan="6"></td><td></td><td>[UNCLEAR: PDF p2 OCR L57] 例i</td><td></td><td></td><td></td></tr>
-<tr><td></td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td>[UNCLEAR: PDF p2 OCR L58] 12月14日 12月15日圓 12月16日周三12月17日周四 12月18日圓五12月19日周六12月</td><td colspan="2"></td><td></td><td colspan="2"></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td colspan="4">倒计时5天</td><td colspan="3">倒计时4天</td><td colspan="4">倒计时3天</td><td colspan="3">[UNCLEAR: PDF p2 OCR L62] 例计时2天</td><td colspan="3">倒计时1天</td><td colspan="6">[UNCLEAR: PDF p2 OCR L64] 陪你<br>[UNCLEAR: PDF p2 OCR L65] 上岸</td><td></td><td>[UNCLEAR: PDF p2 OCR L66] 考卧</td><td></td><td></td><td></td></tr>
+<tr><td>10月19日周一<br>带背DAY1</td><td>10月20日周二<br>带背DAY2<br>倒计时60天</td><td>10月21日周三<br>带背DAY3</td><td>10月22日周四<br>带背DAY4</td><td>10月23日周五<br>带背DAY5</td><td>10月24日周六<br>带背DAY6</td><td>10月25日周日<br>带背DAY7</td></tr>
+<tr><td>10月26日周一<br>带背DAY8</td><td>10月27日周二<br>带背DAY9</td><td>10月28日周三<br>带背DAY10</td><td>10月29日周四<br>带背DAY11</td><td>10月30日周五<br>带背DAY12<br>倒计时50天</td><td>10月31日周六<br>带背DAY13</td><td>11月1日周日<br>带背DAY14</td></tr>
+<tr><td>11月2日周一<br>带背DAY15</td><td>11月3日周二<br>带背DAY16</td><td>11月4日周三<br>带背DAY17</td><td>11月5日周四<br>带背DAY18</td><td>11月6日周五<br>带背DAY19</td><td>11月7日周六<br>带背DAY20</td><td>11月8日周日<br>带背DAY21</td></tr>
+<tr><td>11月9日周一<br>带背DAY22<br>倒计时40天</td><td>11月10日周二<br>带背DAY23</td><td>11月11日周三<br>带背DAY24</td><td>11月12日周四<br>带背DAY25</td><td>11月13日周五<br>带背DAY26</td><td>11月14日周六<br>带背DAY27</td><td>11月15日周日<br>带背DAY28</td></tr>
+<tr><td>11月16日周一<br>带背DAY29</td><td>11月17日周二<br>带背DAY30</td><td>11月18日周三</td><td>11月19日周四<br>倒计时30天</td><td>11月20日周五</td><td>11月21日周六</td><td>11月22日周日</td></tr>
+<tr><td>11月23日周一</td><td>11月24日周二</td><td>11月25日周三</td><td>11月26日周四</td><td>11月27日周五</td><td>11月28日周六</td><td>11月29日周日<br>倒计时20天</td></tr>
+<tr><td>11月30日周一</td><td>12月1日周二</td><td>12月2日周三</td><td>12月3日周四</td><td>12月4日周五</td><td>12月5日周六</td><td>12月6日[UNCLEAR: PDF p2，第七行周日格的星期标签部分缺损]</td></tr>
+<tr><td>12月7日周一</td><td>12月8日周二</td><td>12月9日周三<br>倒计时10天</td><td>12月10日周四</td><td>12月11日周五</td><td>12月12日周六</td><td>[UNCLEAR: PDF p2，第八行右端日期被白色缺损遮挡，可见“12月1…日”与末尾“日”]<br>[UNCLEAR: PDF p2，第八行右端倒计时字样缺损，可见“倒计…”]</td></tr>
+<tr><td>12月14日周一<br>倒计时5天</td><td>12月15日周二<br>倒计时4天</td><td>12月16日周三<br>倒计时3天</td><td>12月17日周四<br>倒计时2天</td><td>12月18日周五<br>倒计时1天</td><td>12月19日周六<br>陪你上岸</td><td>[UNCLEAR: PDF p2，第九行右端日期缺损，可见“12月…周日”]<br>考研成功</td></tr>
 </table>
+
+[blank notes area omitted]
+
+[QR / promotional block omitted]
 
 <!-- PDF_PAGE: 003 -->
 
@@ -488,9 +472,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ①第一次明确提出了“马克思主义的中国化”这个命题。
 
-[UNCLEAR: PDF p9 OCR L31] 正 週一部分还有　｜　◎
-
-[UNCLEAR: PDF p9 OCR L33] 6sm　｜　[UNCLEAR: PDF p9 OCR L34] U）　｜　[UNCLEAR: PDF p9 OCR L35] 小町
 
 <!-- PDF_PAGE: 010 -->
 
@@ -557,8 +538,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 ⑤标志着党在政治上思想上组织上走向成熟。
 
 ⑥它为建立新民主主义的新中国制定了正确路线方针政策，确立了毛泽东同志
-
-[UNCLEAR: PDF p10 OCR L33] 0小同
 
 <!-- PDF_PAGE: 011 -->
 
@@ -692,7 +671,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ①邓小平同志发表《坚持四项基本原则》的讲话。
 
-[UNCLEAR: PDF p12 OCR L48] 0小別
+
 
 [QR / promotional block omitted]
 
@@ -762,7 +741,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 出的一个历史性决策。
 
-[UNCLEAR: PDF p13 OCR L34] •lodholallndladoladlodlothodl,laolslaldlsl：
 
 <!-- PDF_PAGE: 014 -->
 
@@ -828,7 +806,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 想束缚
 
-[UNCLEAR: PDF p14 OCR L32] •losholoolooasy,sloooolodhol.otodonoohooode
 
 <!-- PDF_PAGE: 015 -->
 
@@ -896,8 +873,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 案》的决议，把邓小平理论确立为党的指导思想并写进党章。
 
-[UNCLEAR: PDF p15 OCR L36] 0小B
-
 <!-- PDF_PAGE: 016 -->
 
 ## PDF p016
@@ -957,8 +932,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 济学说。其共同特点，就是具有比较强烈的反对外国侵略、追求中国独立富
 
 强的爱国思想，以及具有一定程度反对封建专制的民主思想。
-
-[UNCLEAR: PDF p16 OCR L37] 距萬葷握第一部分还有 ◎ •lolndloolololodlog oelololooBolodtol,dBoe
 
 [QR / promotional block omitted]
 
@@ -1029,8 +1002,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 8.李大钊
 
 ①率先在中国大地上举起马克思主义旗帜。
-
-[UNCLEAR: PDF p17 OCR L34] 距离章握第一部分还有
 
 <!-- PDF_PAGE: 018 -->
 
@@ -1149,9 +1120,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ②系统地解决了党的政治路线上的问题。　｜　[框内注] 瓦窑堡会议后阐述会议精神的报告
 
-[UNCLEAR: PDF p19 OCR L35] •hlalalelelallaleullelaludea.
-
-[UNCLEAR: PDF p19 OCR L38] 4小　｜　[UNCLEAR: PDF p19 OCR L40] 0小的
 
 <!-- PDF_PAGE: 020 -->
 
@@ -1219,9 +1187,8 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 述了新民主主义的政治、经济和文化。
 
-[UNCLEAR: PDF p20 OCR L33] lollaalall la lala l ：lal ala lolanlu:la
 
-[UNCLEAR: PDF p20 OCR L34] -の
+
 
 <!-- PDF_PAGE: 021 -->
 
@@ -1289,9 +1256,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ③社会主义社会的矛盾反映在政治上可以划分为敌我矛盾和人民内部矛盾，这
 
-[UNCLEAR: PDF p21 OCR L33] 距高握第一部分还有 O　｜　[UNCLEAR: PDF p21 OCR L34] dlonloolooholodloolaololadodl !blotlochslio）
-
-[UNCLEAR: PDF p21 OCR L37] 0小的
 
 <!-- PDF_PAGE: 022 -->
 
@@ -1359,7 +1323,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 代中央领导集体的核心，“三个代表”重要思想的主要创立者。他领导推动社
 
-[UNCLEAR: PDF p22 OCR L33] •lodoalootodbodlod.dh.l.
 
 <!-- PDF_PAGE: 023 -->
 
@@ -1421,7 +1384,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ②由于缺乏经验，这个土地法关于没收一切土地归苏维埃政府所有、禁止土地
 
-[UNCLEAR: PDF p23 OCR L32] •odldlodlodododlodlosloolooldg ldoo.
 
 <!-- PDF_PAGE: 024 -->
 
@@ -1487,7 +1449,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 制度压迫下的亿万农民群众，将自己的力量汇入民主革命的洪流。全国土地
 
-[UNCLEAR: PDF p24 OCR L32] •lolnalaalnolanloBaolololoolooloolaeianleoair
 
 <!-- PDF_PAGE: 025 -->
 
@@ -1551,7 +1512,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 民和土地的关系，最大的政策就是必须坚持和完善农村基本经营制度。
 
-[UNCLEAR: PDF p25 OCR L32] •louhodlosfholosloolodlaolodloolodlaoldgl！
 
 <!-- PDF_PAGE: 026 -->
 
@@ -1609,7 +1569,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 ①新文化运动所提倡的资产阶级民主主义，并不能为人们提供一种有效的思想
 
-[UNCLEAR: PDF p26 OCR L38] •lenlooloaloe loaooloaloolaalaelea ooloolnolanloi
+
 
 [QR / promotional block omitted]
 
@@ -1743,7 +1703,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 史性的转折作了思想理论准备。
 
-[UNCLEAR: PDF p28 OCR L30] D　｜　[UNCLEAR: PDF p28 OCR L31] aloaloaloalaolonlaaloaleolaaloolaindlaalooonaala
+　｜　
 
 <!-- PDF_PAGE: 029 -->
 
@@ -1869,9 +1829,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 扫码看腿姐讲技巧
 
-[UNCLEAR: PDF p31 OCR L35] 匝愿拿固蹢二圆分还
-
-[UNCLEAR: PDF p31 OCR L38] C01
+[UNCLEAR: PDF p31 OCR L38，源扫描页脚小字模糊] C01
 
 [QR / promotional block omitted]
 
@@ -1937,7 +1895,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 •科学技术是先进生产力的集中体现和主要标志
 
-[UNCLEAR: PDF p32 OCR L31] 距离 握第二部分还有　｜　[UNCLEAR: PDF p32 OCR L32] •onlo ooolodoloolosbolosloslooooloofoolodliolrohol：
 
 <!-- PDF_PAGE: 033 -->
 
@@ -2003,7 +1960,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 •推动实现高质量发展的制度基础（保障）：社会主义基本经济制度
 
-28　｜　[UNCLEAR: PDF p33 OCR L32] 距离掌握第二部分还有　｜　[UNCLEAR: PDF p33 OCR L33] •loaloolaalolalaololoola:loolo:loolanlaalaololoololalnla
+28　｜　距离掌握第二部分还有　｜　
 
 <!-- PDF_PAGE: 034 -->
 
@@ -2067,7 +2024,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 （11）矛盾存在于一切事物中，存在于一切事物发展过程的始终。
 
-[UNCLEAR: PDF p34 OCR L31] 距离掌握第二部分还有 ◎ dloldladlolo!lalalooalodlaalooloalodoo.oadlooledlulo　｜　29
+距离掌握第二部分还有〔页脚进度条〕　｜　29
 
 <!-- PDF_PAGE: 035 -->
 
@@ -2135,7 +2092,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 （39）在商品经济条件下，交换是解决私人劳动和社会劳动矛盾的唯一途径。
 
-[UNCLEAR: PDF p35 OCR L33] 距离掌握第二部分还有 ◎ •Iotliololluolo%ododliolodloloslnloolholoofodioliol.o！
+距离掌握第二部分还有〔页脚进度条〕
 
 <!-- PDF_PAGE: 036 -->
 
@@ -2242,7 +2199,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 订正：事物的发展呈现出波浪式前进或螺旋式上升的态势。
 
 
-
 <!-- PDF_PAGE: 038 -->
 
 ## PDF p038
@@ -2298,7 +2254,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 订正：每种文明都会从其他文明中汲取养分，同时也给其他文明以不同
 
 程度的影响。
-
 
 
 <!-- PDF_PAGE: 039 -->
@@ -2418,7 +2373,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 （35）直观、机械反映×
 
 订正：意识、认识的反映是能动的。
-
 
 
 <!-- PDF_PAGE: 041 -->
@@ -2658,7 +2612,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 促进，具有复合性（二重性）。
 
 
-
 <!-- PDF_PAGE: 045 -->
 
 ## PDF p045
@@ -2719,7 +2672,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 9.推动经济高质量发展的关键力量：现代化产业体系。
 
-[UNCLEAR: PDF p45 OCR L31] •.oloolodoolootoolodolollaolootosodbodlodool. tobodote
 
 <!-- PDF_PAGE: 046 -->
 
@@ -2787,7 +2739,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 6. 新经济政策标志着：列宁正在找一条符合俄国情况的建设社会主义的道路。
 
-[UNCLEAR: PDF p46 OCR L33] •odlolodoolododoolodolloolodooloalaosladld ofooloalale
 
 <!-- PDF_PAGE: 047 -->
 
@@ -2857,7 +2808,7 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 和划分势力范围，以此为标志和起点，帝国主义列强掀起了瓜分中国
 
-[UNCLEAR: PDF p47 OCR L34] 距离掌握第二部分还有 ◎ dloloolodlldlodoolodlodoohodlodoolodlodl.doodg!ooooodle
+距离掌握第二部分还有〔页脚进度条〕
 
 <!-- PDF_PAGE: 048 -->
 
@@ -2927,7 +2878,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 33. 中国人民政治协商会议第一届全体会议召开：
 
-[UNCLEAR: PDF p48 OCR L34] alallalalaloalaolalalaalaleelolologelal
 
 <!-- PDF_PAGE: 049 -->
 
@@ -3061,9 +3011,6 @@ T提出党的基本策略任务是建立广泛的抗日民族统一战线。中�
 
 的重要里程碑，打出了新中国的国威和人民军队的军威：抗美援朝战争。
 
-[UNCLEAR: PDF p50 OCR L32] anlaleolalaieeobolaulaly
-
-[UNCLEAR: PDF p50 OCR L37] 2小
 
 <!-- PDF_PAGE: 051 -->
 
@@ -3122,7 +3069,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 原书掌握进度条：10小时 / 8小时 / 6小时 / 4小时 / 2小时 / 0小时。
 
 印刷页码：46
-
 
 <!-- PDF_PAGE: 052 -->
 
@@ -3238,7 +3184,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 一反三应用、推广
 
-[UNCLEAR: PDF p53 OCR L33] ololodlolododloolodooladtolodoslodlode
 
 <!-- PDF_PAGE: 054 -->
 
@@ -3302,7 +3247,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 统一。
 
-[UNCLEAR: PDF p54 OCR L31] •loglnolalalalaloloolaloolaalalalollnl
 
 <!-- PDF_PAGE: 055 -->
 
@@ -3366,10 +3310,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 系范畴。原因是在事物的普遍联系中，引起某种现象的现象。结果是在事
 
-[UNCLEAR: PDF p55 OCR L31] 距禹單握第三部分还有 ◎ 止以•lofloloodlullasloaladlaofonl.sfol:oio..
-
-[UNCLEAR: PDF p55 OCR L34] 2小附　｜　0小
-
 <!-- PDF_PAGE: 056 -->
 
 ## PDF p056
@@ -3427,7 +3367,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 通过一定的现象表现自己的存在。不表现为现象的本质和不表现本质的现
 
 象都是不存在的。所以我们要通过现象发现事物的本质。
-
 
 
 <!-- PDF_PAGE: 057 -->
@@ -3493,7 +3432,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 是一个波浪式前进和螺旋式上开的过程。所以我们要坚持认识与实践具体
 
 的、历史的统一，不断推进认识的深化。
-
 
 
 <!-- PDF_PAGE: 058 -->
@@ -3623,7 +3561,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 的需要和利益为根本。真理和价值统一于人类的实践活动之中。任何成功
 
 
-
 <!-- PDF_PAGE: 060 -->
 
 ## PDF p060
@@ -3751,7 +3688,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 会性。在社会历史发展过程中，人民群众起着决定性的作用。人民群众是
 
 
-
 <!-- PDF_PAGE: 062 -->
 
 ## PDF p062
@@ -3817,7 +3753,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 动力价值的那部分价值，它是雇佣工人剩余劳动的凝结，体现了资本家与
 
 雇佣工人之间剥削与被剥削的关系。资本主义生产的直接目的和决定性动
-
 
 
 <!-- PDF_PAGE: 063 -->
@@ -3996,7 +3931,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 现代化的强劲动力，党的领导凝聚建设中国式现代化的磅礴力量，
 
-◎
 
 <!-- PDF_PAGE: 066 -->
 
@@ -4057,7 +3991,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 全感更加充实、更有保障、更可持续；就是坚持相信和依靠人民群众、尊
 
 重群众的历史首创精神，从群众中汲取无穷的智慧和力量。
-
 
 
 <!-- PDF_PAGE: 067 -->
@@ -4125,7 +4058,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 质量的新供给，满足人民群众日益增长的美好生活需要。
 
 
-
 <!-- PDF_PAGE: 068 -->
 
 ## PDF p068
@@ -4185,7 +4117,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 国式现代化的内在要求，是推动高质量发展的强大动力，是推动经济全球
 
 化的大国担当，是构建人类命运共同体的重要举措。
-
 
 
 <!-- PDF_PAGE: 069 -->
@@ -4252,7 +4183,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 地位、坚持我国社会主义制度的重要保证。非公有制经济是稳定经济的重
 
-[UNCLEAR: PDF p69 OCR L33] alolooloaleolaoloollsluuauhelmlnnb
 
 <!-- PDF_PAGE: 070 -->
 
@@ -4318,7 +4248,6 @@ m=p=一轮生产后资本家挣的钱、增殖的部分。
 
 坚强基石。中国特色社会主义伟大实践是我们坚定文化自信的现实基础。
 
-[UNCLEAR: PDF p70 OCR L32] •lalaalaalooaloaloloolenolalnlanlelainoin
 
 <!-- PDF_PAGE: 071 -->
 
@@ -4382,8 +4311,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 不能割裂两者的关系。
 
-[UNCLEAR: PDF p71 OCR L33] 6小町　｜　[UNCLEAR: PDF p71 OCR L34] 4小们
-
 <!-- PDF_PAGE: 072 -->
 
 ## PDF p072
@@ -4441,7 +4368,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 使得中国的知识分子对西方的资本主义方案产生怀疑与失望。十月革命爆
 
 发后，马克思主义作为一种救国的主义和信仲开始传人中国，给予中国人
-
 
 
 <!-- PDF_PAGE: 073 -->
@@ -4507,7 +4433,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 反映了全党全军全国各族人民共同心愿，是党在新时代取得的重大政治成
 
 
-
 <!-- PDF_PAGE: 074 -->
 
 ## PDF p074
@@ -4569,7 +4494,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 主义制度的创新和发展提供了重要前提，实现了中华民族由近代不断衰落
 
 到根本扭转命运、持续走向繁荣富强的伟大飞跃，为实现中华民族伟大复
-
 
 
 <!-- PDF_PAGE: 075 -->
@@ -4706,15 +4630,15 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 ## PDF p077
 
-[UNCLEAR: PDF p77 OCR L2] 考研政治•冲诵手册
+考研政治·冲刺背诵手册下册
 
-[UNCLEAR: PDF p77 OCR L3] 进步潮流的闸门，據动了反动统治秩序的根基，在中华大地上建立起亚
+进步潮流的闸门，撼动了反动统治秩序的根基，在中华大地上建立起亚
 
 洲第一个共和制国家，以巨大的震撼力和深刻的影响力推动了中国社会
 
 变革，为实现中华民族伟大复兴探索了道路。
 
-辛亥革命之后，中国人民和中国先进分子继续探寻救困救民道路。
+辛亥革命之后，中国人民和中国先进分子继续探寻救国救民道路。
 
 在中国人民和中华民族的伟大觉醒中，在马克思列宁主义同中国工人运
 
@@ -4730,7 +4654,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 纲领，并同孙中山先生领导的中国国民党携手合作，帮助国民党完成改组，
 
-[UNCLEAR: PDF p77 OCR L14] 建立最广泛的革命统一战线，掀起轰轰烈烈的大革命，给北洋军阀反动统治
+建立最广泛的革命统一战线，掀起轰轰烈烈的大革命，给北洋军阀反动统治
 
 以沉重打击。
 
@@ -4742,7 +4666,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 主义革命和社会主义建设的伟大成就。
 
-[UNCLEAR: PDF p77 OCR L20] 3. 民族意识觉醒与文化探索
+3. 民族意识觉醒与文化探索
 
 （1）以维新运动为起点，资产阶级新文化开始打破封建文化独占文化阵地的
 
@@ -4776,9 +4700,9 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 真理、追求进步的伟大觉醒，是自鸦片战争以来第一次全面觉醒。
 
-（+）中国共产党成立之后，不断将马克思主义同中华优秀传统文化相结合，
+（4）中国共产党成立之后，不断将马克思主义同中华优秀传统文化相结合，
 
-[UNCLEAR: PDF p78 OCR L4] 根据不同时期的历史任务毛、邓、习，不断深化对文化问题和文化建设
+根据不同时期的历史任务毛、邓、习，不断深化对文化问题和文化建设
 
 的规律性认识，走出了一条中国文化建设的新道路。
 
@@ -4788,7 +4712,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 治，沉重打击了帝国主义在华势力。中国共产党在大革命中起着独特的、
 
-[UNCLEAR: PDF p78 OCR L9] 不可替代的作用。没有中国共产党，就不会有这场大革命。
+不可替代的作用。没有中国共产党，就不会有这场大革命。
 
 （2）但是大革命没有完成反帝反封建的民主革命任务，没有结束半殖民地半
 
@@ -4796,7 +4720,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 泛的革命统一战线，巩固工农联盟，坚持武装斗争，坚持党的领导，并
 
-[UNCLEAR: PDF p78 OCR L13] 不断加强党的建设，将马克思主义普遍原理同中国革命具体实践结合。
+不断加强党的建设，将马克思主义普遍原理同中国革命具体实践结合。
 
 （3）八七会议是大革命失败到土地革命兴起的转折。从八七会议开始，中国
 
@@ -4808,15 +4732,15 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 （1） 抗战胜利的意义
 
-中国角度：中国人民抗日战争的伟大胜利，是中华民族从近代以来陷人
+中国角度：中国人民抗日战争的伟大胜利，是中华民族从近代以来陷入
 
 深重危机走向伟大复兴的历史转折点。这一伟大胜利，粉碎了日本军国
 
-[UNCLEAR: PDF p78 OCR L21] 主义殖民奴役中国的图谋，洗刷了近代以来抗击外来侵略屡战屡败的民
+主义殖民奴役中国的图谋，洗刷了近代以来抗击外来侵略屡战屡败的民
 
-[UNCLEAR: PDF p78 OCR L22] 族耻辱，坚定了中国人民追求民族独立、自由、解放的意志，开启了古
+族耻辱，坚定了中国人民追求民族独立、自由、解放的意志，开启了古
 
-[UNCLEAR: PDF p78 OCR L23] 老中国凤凰涅槃、浴火重生的历史新征程。
+老中国凤凰涅槃、浴火重生的历史新征程。
 
 （2）世界意义
 
@@ -4830,27 +4754,26 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 主要兵力，以巨大民族牺牲支撑起了世界反法西斯战争的东方主战场，
 
-[UNCLEAR: PDF p78 OCR L30] 配合了欧洲战场和太平洋战场的战咯行动，为世界反法西斯战争胜利作
+配合了欧洲战场和太平洋战场的战略行动，为世界反法西斯战争胜利作
 
-[UNCLEAR: PDF p78 OCR L32] •loldatlolaidolholcldally uclutodol.
 
 <!-- PDF_PAGE: 079 -->
 
 ## PDF p079
 
-[UNCLEAR: PDF p79 OCR L2] 考研政治•冲刺背诵手册下册
+考研政治·冲刺背诵手册下册
 
-出了重要贡献。这一伟大胜利，宣告了世界反法西斯战争的完全胜利.
+出了重要贡献。这一伟大胜利，宣告了世界反法西斯战争的完全胜利，
 
 重新确立了中国在世界上的大国地位，使中国人民赢得了世界爱好和平
 
-[UNCLEAR: PDF p79 OCR L5] 人民的尊徹
+人民的尊敬
 
-[UNCLEAR: PDF p79 OCR L6] （3） 中国共产党的中流砥柱作用与抗日战争伟大胜利
+（3） 中国共产党的中流砥柱作用与抗日战争伟大胜利
 
-[UNCLEAR: PDF p79 OCR L7] 中国产生了共产党，这是开天辟地的大事变，中国革命的而貌从此
+中国产生了共产党，这是开天辟地的大事变，中国革命的面貌从此
 
-[UNCLEAR: PDF p79 OCR L8] 换然一新。应运而生的中国共产党，成为挽狂溯于既倒、扶大厦之将
+焕然一新。应运而生的中国共产党，成为挽狂澜于既倒、扶大厦之将倾
 
 的关键力量，中国人民开始从精神上由被动转为主动。
 
@@ -4880,9 +4803,9 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 胜利提供了强大精神支柱和动力源泉。
 
-[UNCLEAR: PDF p79 OCR L39] Wm
+[UNCLEAR: PDF p79 OCR L39，扫描右缘露出相邻页的裁切字形，无法确认；不是本页正文]
 
-（4） 抗战胜利的原因 倾向选择
+（4）抗战胜利的原因 [框内注] 倾向选择
 
 第一，以爱国主义为核心的民族精神是中国人民抗日战争胜利的决定性因素。
 
@@ -4894,7 +4817,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 人民、国际组织以及各种反法西斯力量的同情和支持也是分不开的。
 
-6. 长征胜利 周年纪念
+6. 长征胜利 [框内注] 周年纪念
 
 （1）遵义会议的转折意义
 
@@ -4902,15 +4825,12 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 以毛泽东同志为主要代表的马克思主义正确路线在党中央的领导地位，
 
-[UNCLEAR: PDF p79 OCR L34] •lalaolalaolaleoloaleoloalaolaalaalyalenfal
-
-[UNCLEAR: PDF p79 OCR L38] O小W
 
 <!-- PDF_PAGE: 080 -->
 
 ## PDF p080
 
-[UNCLEAR: PDF p80 OCR L1] 第03部分 分析题核心背诵总结
+### 第03部分 分析题核心背诵总结
 
 开始形成以毛泽东同志为核心的党的第一代中央领导集体，开启了中国
 
@@ -4924,7 +4844,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 的新局面就开始了。
 
-2）长征胜利的意义：我们党领导红军，以非凡的智慧和大无畏的英雄气概，
+[UNCLEAR: PDF p80 OCR L8，原图左侧编号裁切] 2）长征胜利的意义：我们党领导红军，以非凡的智慧和大无畏的英雄气概，
 
 战胜千难万险，付出巨大牺牲，胜利完成震撼世界、彪炳史册的长征，
 
@@ -4936,11 +4856,11 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 共产党为实现民族独立、人民解放而斗争的新的伟大进军。
 
-3）长征铸就了伟大的长征精神。一代人有一代人的使命，每一代人都要走
+[UNCLEAR: PDF p80 OCR L14，原图左侧编号裁切] 3）长征铸就了伟大的长征精神。一代人有一代人的使命，每一代人都要走
 
 好自己的长征路。新时代的长征路，直接通向“两个一百年”奋斗目标，
 
-直接通向实现中华民族的伟大复兴。面对前进道路上可以预料和难以预
+[UNCLEAR: PDF p80 OCR L16，原图左侧序号裁切] 3）长征铸就了伟大的长征精神。一代人有一代人的使命，每一代人都要走
 
 料的国内外重大风险挑战，奋力走好新时代长征路，必须大力弘扬伟大
 
@@ -4948,9 +4868,9 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 代长征精神。
 
-[UNCLEAR: PDF p80 OCR L20] ：五）万能答案
+[UNCLEAR: PDF p80 OCR L20，原图左侧括号裁切] 五）万能答案
 
-[UNCLEAR: PDF p80 OCR L21] 畎：在全面建设社会主义现代化国家的新征程上，我们必须继续弘扬xx精神
+[UNCLEAR: PDF p80 OCR L21，原图左侧标签裁切] 默：在全面建设社会主义现代化国家的新征程上，我们必须继续弘扬xx精神
 
 （与题干相应的革命精神），坚持中国特色社会主义道路不动摇，继续推
 
@@ -4964,7 +4884,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 团结奋斗。
 
-[UNCLEAR: PDF p80 OCR L29] •loilaalaalaolaalool.nlaoloola　｜　[UNCLEAR: PDF p80 OCR L32] areledd
+　｜　
 
 <!-- PDF_PAGE: 081 -->
 
@@ -5024,7 +4944,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 的信念，而勇于实践、艰苦奋斗是实现理想的根本途径。
 
-[UNCLEAR: PDF p81 OCR L30] •lnalooloaleoloalnoloolaoloalaaloaloelotgelel：：.
 
 <!-- PDF_PAGE: 082 -->
 
@@ -5090,7 +5009,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 斗精神，锤炼奋斗品质、激发奋斗热情、增强奋斗本领，做肯奋斗的新时
 
-◎　｜　[UNCLEAR: PDF p82 OCR L33] •lonlalaaleolaloloololonBaoloiaoanyiaial.
+　｜　
 
 <!-- PDF_PAGE: 083 -->
 
@@ -5154,9 +5073,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 作用，进一步推动全社会形成见贤思齐、崇尚英雄、争做先锋的良好氛
 
-[UNCLEAR: PDF p83 OCR L32] •loalaelaalelealelanlooleaoolooorleolol :lmai
-
-0小
 
 <!-- PDF_PAGE: 084 -->
 
@@ -5222,7 +5138,7 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 会主义核心价值观落细落小落实。坚持勤学、修德、明辨、笃实，在激扬
 
-[UNCLEAR: PDF p84 OCR L32] •lalealoeleoloalo　｜　[UNCLEAR: PDF p84 OCR L33] alooloaloalaolaolandoodngiands
+　｜　
 
 <!-- PDF_PAGE: 085 -->
 
@@ -5286,7 +5202,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 德润人心。法律是底线的道德，也是道德的保障。推动法治和德治的相互
 
-[UNCLEAR: PDF p85 OCR L32] •lolaolooloolaloaloaleololnoloaloolonooloe
 
 <!-- PDF_PAGE: 086 -->
 
@@ -5350,7 +5265,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 维护党和人民共同意志的权威；捍卫宪法尊严，就是捍卫党和人民共同意
 
-[UNCLEAR: PDF p86 OCR L31] •loelooladleoloolooleeDooloo Booloiasalaola
 
 <!-- PDF_PAGE: 087 -->
 
@@ -5402,6 +5316,6 @@ B去否定和取代A，两者都统一于全面建设社会主义现代化强国
 
 升自己的法治素养。
 
-[UNCLEAR: PDF p87 OCR L38] •laal　｜　[UNCLEAR: PDF p87 OCR L42] dlaloaloalealeo lealn laalaalaalaadoalr，
+　｜　
 
 [QR / promotional block omitted]
