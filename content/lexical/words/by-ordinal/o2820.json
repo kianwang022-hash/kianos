@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "许可，执照",
       "core_meaning_en": "official permission or a document giving permission",
-      "mental_model_cn": "许可，执照",
+      "mental_model_cn": "permission/document → 许可/执照；AmE 名词/动词均 license；BrE 名词通常 licence，动词常 license。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -171,6 +171,54 @@
     "word_family": [],
     "word_id": "word:license",
     "form_identity": {
+      "form_type": "regional_pos_spelling_boundary",
+      "spelling": "license",
+      "identity_rule": "region_and_pos_select_spelling",
+      "boundary": "AmE uses license for noun and verb. BrE normally uses licence for the noun; the verb is commonly license, with licence also recorded as a UK variant.",
+      "boundaries": [
+        {
+          "surface": "license",
+          "condition": "American English noun/verb",
+          "note": "美式名词、动词都写 license"
+        },
+        {
+          "surface": "licence",
+          "condition": "British English noun",
+          "note": "英式名词通常写 licence"
+        },
+        {
+          "surface": "license",
+          "condition": "British English verb",
+          "note": "英式动词常写 license；词典也记录 licence 变体"
+        }
+      ],
+      "variants": [
+        {
+          "variant_id": "form:license:ame",
+          "learner_key": "AmE noun/verb: license",
+          "surface": "license",
+          "pos": [
+            "noun",
+            "verb"
+          ]
+        },
+        {
+          "variant_id": "form:licence:bre-noun",
+          "learner_key": "BrE noun: licence",
+          "surface": "licence",
+          "pos": [
+            "noun"
+          ]
+        },
+        {
+          "variant_id": "form:license:bre-verb",
+          "learner_key": "BrE verb: license (also licence)",
+          "surface": "license",
+          "pos": [
+            "verb"
+          ]
+        }
+      ],
       "headword_pronunciations": [
         {
           "ipa": "/ˈlaɪ.səns/",

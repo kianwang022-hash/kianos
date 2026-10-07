@@ -10136,17 +10136,17 @@
     "ordinal": 2802,
     "word": "lend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2802.json",
-    "source_fingerprint": "56170db45f75651bf19fe904aaa63272b51a5bf1fa911d771e630286fd6903e5",
+    "source_fingerprint": "30a3d8f1b9d7f769a0f0eecfbd30b993eb523d9da177146225a5e1e4d6dd1810",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "借出；增添/赋予；适合",
-      "decision_cn": "",
+      "decision_cn": "lend sth to sb → 暂借；lend sth a quality/support → 增添/赋予；sth lends itself to sth/doing →（正式）适合某用途、处理或改编。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10232,6 +10232,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "增添，赋予"
         }
+      },
+      {
+        "id": "sense:lend:68f6526a57c65bda",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "lend itself to sth/doing sth",
+        "definition_cn": "适合；易于用于、改编或接受某种处理",
+        "definition_en": "formal: to be suitable for a particular use, treatment, interpretation, or adaptation",
+        "note": "normally reflexive: sth lends itself to sth/doing sth",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lend:68f6526a57c65bda",
+          "target_locator": "record.senses[2]",
+          "target_label": "适合；易于用于、改编或接受某种处理"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10258,6 +10275,7 @@
     "constructions": [
       {
         "id": "construction:55369ae7d854b855b942",
+        "sense_id": "sense:lend:68f6526a57c65bda",
         "source_locator": "record.constructions[0]",
         "pattern": "lend itself to sth/doing sth",
         "lines": [
@@ -10278,32 +10296,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:lend:68f6526a57c65bda",
-          "status": "active",
-          "merged_into_sense_id": null,
-          "pos": "verb",
-          "definition_cn": "适合；易于用于或接受某种处理",
-          "definition_en": "to be suitable for something or open to a particular use, interpretation, or treatment",
-          "semantic_key": "e87b12dade871bf5b43d63c30164c252990b7df4b56e4614cccdd8d20b9b123f",
-          "semantic_key_history": [],
-          "legacy_aliases": [
-            "lend:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "lend:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-15T09:05:00Z",
-          "source_row": 7769,
-          "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -10312,15 +10305,8 @@
     "ordinal": 2803,
     "word": "length",
     "source_owner_path": "content/lexical/words/by-ordinal/o2803.json",
-    "source_fingerprint": "1f054afd28749269733fb605ae4138228827fce113972d808298a869eb9cbfe3",
+    "source_fingerprint": "839e2a757c0bd499ad5ff738f4a33d32b3999ad3db09d2b24161ab510dd1a910",
     "sense_lineage": [
-      {
-        "word_id": "word:length",
-        "target_kind": "sense",
-        "from_target_id": "sense:length:0011b9cc27495e95",
-        "status": "merged",
-        "to_target_id": "sense:length:a70d14ec1e16536e"
-      },
       {
         "word_id": "word:length",
         "target_kind": "sense",
@@ -10331,18 +10317,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "从一端到另一端的度量或范围",
-      "decision_cn": "",
+      "summary_cn": "长度、时长；也可指“一段长材料”",
+      "decision_cn": "measurement/time → 长度/时长；a length of rope/cloth → 一段长材料；go to great lengths → 竭尽全力（习语）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "从一端到另一端的度量或范围"
+        "target_label": "长度、时长；也可指“一段长材料”"
       }
     },
     "senses": [
@@ -10384,6 +10370,23 @@
           "target_locator": "record.senses[0]",
           "target_label": "长度；（时间的）持续长度/时长"
         }
+      },
+      {
+        "id": "sense:length:0011b9cc27495e95",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a length of + material/object",
+        "definition_cn": "一段（长而窄的材料，如绳、布、管子）",
+        "definition_en": "a long piece or section of something such as rope, cloth, cable, or pipe",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:length:0011b9cc27495e95",
+          "target_locator": "record.senses[1]",
+          "target_label": "一段（长而窄的材料，如绳、布、管子）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10421,6 +10424,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "at length"
         }
+      },
+      {
+        "id": "construction:length:great-lengths",
+        "source_locator": "record.constructions[1]",
+        "pattern": "go to great/any lengths to do sth",
+        "lines": [
+          {
+            "text": "竭尽全力、不惜一切办法做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "idiom about effort, not physical distance or duration",
+            "lang": "en"
+          },
+          {
+            "text": "try extremely hard or make great efforts to achieve something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:length:great-lengths",
+          "target_locator": "record.constructions[1]",
+          "target_label": "go to great/any lengths to do sth"
+        }
       }
     ],
     "reference": {
@@ -10429,31 +10457,6 @@
       "form": null,
       "family": [],
       "senses": [
-        {
-          "stable_sense_id": "sense:length:0011b9cc27495e95",
-          "status": "merged",
-          "merged_into_sense_id": "sense:length:a70d14ec1e16536e",
-          "pos": "noun",
-          "definition_cn": "长而窄的一段",
-          "definition_en": "a section of something that is long and narrow",
-          "semantic_key": "4c7334dda0e2edda30702cea4d2281fd4d4c19ff2435eb90bd9d6dd69390285f",
-          "semantic_key_history": [
-            "1c36483ced6cc37e25a7a74e02c523e1e7f117d9632bfcd2f24c1e53b1642cac"
-          ],
-          "legacy_aliases": [
-            "length:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "length:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 7771,
-          "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json",
-          "reference_only": true
-        },
         {
           "stable_sense_id": "sense:length:97b3b95b19b656a4",
           "status": "merged",
@@ -10488,12 +10491,20 @@
     "ordinal": 2804,
     "word": "lens",
     "source_owner_path": "content/lexical/words/by-ordinal/o2804.json",
-    "source_fingerprint": "f486c981b5c533d7b75d86b7dc85fa70736b5a5bbcac7fcdc7c2e76ac3f5d0fc",
-    "sense_lineage": [],
+    "source_fingerprint": "f5baa28b32bab86b9d3ae680d928f2a03b2886216113d22836531b1655d7935a",
+    "sense_lineage": [
+      {
+        "word_id": "word:lens",
+        "target_kind": "sense",
+        "from_target_id": "sense:lens:8d86bbdecb2951af",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -10584,25 +10595,8 @@
         }
       },
       {
-        "id": "sense:lens:8d86bbdecb2951af",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "扁豆属植物",
-        "definition_en": "a genus of plants including lentils",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lens:8d86bbdecb2951af",
-          "target_locator": "record.senses[2]",
-          "target_label": "扁豆属植物"
-        }
-      },
-      {
         "id": "sense:lens:5c70777a4291595e",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "视角；理解或观察事物的框架",
@@ -10613,13 +10607,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lens:5c70777a4291595e",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "视角；理解或观察事物的框架"
         }
       },
       {
         "id": "sense:lens:169f813c28b45713",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "拍摄；摄影",
@@ -10630,7 +10624,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lens:169f813c28b45713",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "拍摄；摄影"
         }
       }
@@ -10689,7 +10683,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "扁豆属植物",
+          "definition_en": "a genus of plants including lentils",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lens:8d86bbdecb2951af",
+          "sense_label_en": "a genus of plants including lentils",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -11553,7 +11563,7 @@
     "ordinal": 2810,
     "word": "level",
     "source_owner_path": "content/lexical/words/by-ordinal/o2810.json",
-    "source_fingerprint": "fc3deae46c784a86e652ca77570c3daad783dd2e00e92d540b7c770c8fe6a740",
+    "source_fingerprint": "9f870b21e37108087a362128d2d3b7d71ecf3d1dc60330c3f9030b53ddf9f017",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11565,7 +11575,7 @@
     },
     "word_feel": {
       "summary_cn": "水平，高度；平坦",
-      "decision_cn": "",
+      "decision_cn": "height/amount → 水平、层次；surface → 平坦；level sth → 弄平/夷平；level with sb（口语）→ 对某人说实话。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11780,7 +11790,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:level:level-with-sb",
+        "source_locator": "record.constructions[0]",
+        "pattern": "level with sb",
+        "lines": [
+          {
+            "text": "对某人说实话；坦白相告",
+            "lang": "cn"
+          },
+          {
+            "text": "honesty phrasal verb; distinct from be level with sth = be at the same height/equal",
+            "lang": "en"
+          },
+          {
+            "text": "informal: tell someone the truth, especially when it may be unpleasant",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:level:level-with-sb",
+          "target_locator": "record.constructions[0]",
+          "target_label": "level with sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

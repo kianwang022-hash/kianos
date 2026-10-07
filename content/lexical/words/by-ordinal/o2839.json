@@ -10,9 +10,9 @@
     "content_hash": "a22be0d5b35444852bb1e2f6e1e3d54c90e0c0c002e79e0af3fad7097ca6128e",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "线性的，直线的",
-      "core_meaning_en": "of or relating to a line; involving a single dimension",
-      "mental_model_cn": "线性的，直线的",
+      "core_meaning_cn": "线性的；直线的；数学上一次的/线性关系",
+      "core_meaning_en": "linear or line-like; in mathematics, involving first-degree/linear relationships",
+      "mental_model_cn": "general/geometry → 线状、直线的；math/data → 线性方程、函数、关系。植物叶形和长度向技术义留在 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,54 +78,6 @@
         "sense_id": "sense:linear:a81a116fdd195c8b",
         "sense_label_en": "designating or involving an equation whose terms are of the first degree",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:558e66cafeab82d678c1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:linear:adae34d3ae635872:collocation:0"
-            ],
-            "meaning_cn": "线形叶",
-            "phrase": "linear leaf"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（叶形）长而窄的",
-        "definition_en": "(of a leaf shape) long and narrow",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:linear:adae34d3ae635872",
-        "sense_label_en": "(of a leaf shape) long and narrow",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8df1d25c4ec90b7311cf",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:linear:6013da70542059c2:collocation:0"
-            ],
-            "meaning_cn": "线性尺寸",
-            "phrase": "linear dimension"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "沿长度方向的",
-        "definition_en": "measured lengthwise",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:linear:6013da70542059c2",
-        "sense_label_en": "measured lengthwise",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -323,7 +275,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:558e66cafeab82d678c1",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:linear:adae34d3ae635872:collocation:0"
+          ],
+          "meaning_cn": "线形叶",
+          "phrase": "linear leaf"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（叶形）长而窄的",
+      "definition_en": "(of a leaf shape) long and narrow",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:linear:adae34d3ae635872",
+      "sense_label_en": "(of a leaf shape) long and narrow",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:8df1d25c4ec90b7311cf",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:linear:6013da70542059c2:collocation:0"
+          ],
+          "meaning_cn": "线性尺寸",
+          "phrase": "linear dimension"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "沿长度方向的",
+      "definition_en": "measured lengthwise",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:linear:6013da70542059c2",
+      "sense_label_en": "measured lengthwise",
+      "sort_order": 3,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -335,7 +336,7 @@
       },
       {
         "sense_id": "sense:linear:6013da70542059c2",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7892,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
@@ -349,7 +350,7 @@
       },
       {
         "sense_id": "sense:linear:adae34d3ae635872",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7894,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
@@ -358,8 +359,6 @@
     "active_collocations": [
       "collocation:33fea3999b92fffa0e12",
       "collocation:452123067efd75d3ac01",
-      "collocation:558e66cafeab82d678c1",
-      "collocation:8df1d25c4ec90b7311cf",
       "collocation:cc6d29b1f7be5e3435c1"
     ],
     "facts": [],
@@ -377,12 +376,16 @@
       {
         "id": "collocation:558e66cafeab82d678c1",
         "source_row": 7212,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8df1d25c4ec90b7311cf",
         "source_row": 12040,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:cc6d29b1f7be5e3435c1",

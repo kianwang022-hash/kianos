@@ -10,9 +10,9 @@
     "content_hash": "1ae80628791fb54cf271c6a39ac4f2bd13ff991581dd8b5212a39065357e3651",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "逗留，徘徊",
-      "core_meaning_en": "to stay or remain longer than expected",
-      "mental_model_cn": "逗留，徘徊",
+      "core_meaning_cn": "逗留；迟迟不消失、持续存在",
+      "core_meaning_en": "to stay longer than necessary; or to continue to exist/fade only slowly",
+      "mental_model_cn": "person/place → 逗留；smell/effect/memory/illness → 迟迟不消失、持续。罕见及物 linger out time 留在 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,15 +33,6 @@
             ],
             "meaning_cn": "在某事上拖延，慢慢做",
             "phrase": "linger over + sth"
-          },
-          {
-            "collocation_id": "collocation:8d844e720c1fc400d1bd",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:linger:9d52b1541d4c523d:collocation:1"
-            ],
-            "meaning_cn": "继续存留，迟迟不消失",
-            "phrase": "linger on"
           }
         ],
         "confidence": "medium",
@@ -79,30 +70,6 @@
         "sense_label_en": "to continue to exist for a long time, often gradually fading",
         "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0a12d5f7ce8facf69b92",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:linger:7039fb6532cd5a96:collocation:0"
-            ],
-            "meaning_cn": "消磨时间",
-            "phrase": "linger out + time"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "消磨（时间）",
-        "definition_en": "to spend time slowly or idly (as in 'linger out')",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:linger:7039fb6532cd5a96",
-        "sense_label_en": "to spend time slowly or idly (as in 'linger out')",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -235,12 +202,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:0a12d5f7ce8facf69b92",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:linger:7039fb6532cd5a96:collocation:0"
+          ],
+          "meaning_cn": "消磨时间",
+          "phrase": "linger out + time"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "消磨（时间）",
+      "definition_en": "to spend time slowly or idly (as in 'linger out')",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:linger:7039fb6532cd5a96",
+      "sense_label_en": "to spend time slowly or idly (as in 'linger out')",
+      "sort_order": 2,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:linger:7039fb6532cd5a96",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7900,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
@@ -261,9 +253,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:0a12d5f7ce8facf69b92",
       "collocation:138e7f1dd84f5e28fd18",
-      "collocation:8d844e720c1fc400d1bd",
       "collocation:9c36e7c817a16fa4dbf5"
     ],
     "facts": [],
@@ -271,7 +261,9 @@
       {
         "id": "collocation:0a12d5f7ce8facf69b92",
         "source_row": 836,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:138e7f1dd84f5e28fd18",
@@ -281,7 +273,9 @@
       {
         "id": "collocation:8d844e720c1fc400d1bd",
         "source_row": 11999,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9c36e7c817a16fa4dbf5",
