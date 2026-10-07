@@ -144,6 +144,72 @@ Hard rules:
 First-teaching acceptance test: hide all node numbers, formal section titles, Source IDs and Memory labels. If the remaining explanation cannot still be read as one coherent problem-solving argument in which each concept is motivated by the previous unresolved question, the first-teaching route is not prepared, even if coverage is complete.
 
 
+### 0.7 Three-layer learner compression — build it while learning
+
+Politics learner-facing review has exactly **three layers**:
+
+1. **Chapter mainline** — a small number of review sentences that preserve why the chapter moves from one problem to the next.
+2. **Expansion cues** — short, non-answer-leaking retrieval keys attached to a mainline sentence. Prefer object + structure/count when that structure genuinely helps retrieval; numbers are optional, never a formatting quota.
+3. **Precision / Memory** — only content that the model cannot reliably reconstruct yet the exam requires to be identified or produced with high precision.
+
+Teacher explanation/support is **not a fourth learner layer**. It remains backstage content used to teach or repair understanding.
+
+#### Build compression at natural problem closure
+
+Do not wait until chapter end to invent a summary. After one **natural logic block** has been understood and closed:
+
+\`\`\`text
+teach the problem normally
+→ close the relation/model for that block
+→ leave one review sentence
+→ leave one non-answer-leaking expansion cue
+→ continue teaching
+\`\`\`
+
+A natural logic block is a coherent problem closure, not each definition or micro-fact. Compression must not interrupt teaching every few minutes or turn learning into note maintenance.
+
+The review sentence should carry the current problem, relation or bridge. The expansion cue should only remind the learner which retrieval slots exist; it must not list the members that the learner is supposed to retrieve. Example shape: \`意识2起源｜2本质｜4作用\`, not the actual members of those groups.
+
+#### Chapter closure assembles; it does not re-summarize
+
+At chapter end:
+
+\`\`\`text
+existing block review sentences
+→ order by the learned logic
+→ remove duplication
+→ repair transitions
+→ check against canonical reconstruction spine
+→ verify removed exact content still has an owner
+→ save the accepted quick-review line
+→ optionally thin further to a minimal keyword line
+\`\`\`
+
+Do **not** ask Chat to design a new chapter framework after learning. The canonical spine is the completeness checker and stable identity; the learner quick-review line may visually merge nearby canonical nodes when that makes review faster, provided it remains traceable to the same spine and is explicitly non-canonical.
+
+#### Every removed item keeps an owner, but not every item becomes Memory
+
+When content is omitted from the learner mainline/cue:
+
+- reasoning/explanation detail → remains in teaching/support;
+- exam-required exact retrieval → reviewed Precision / Memory;
+- unsupported or unresolved claim → Source gap / exact Source owner.
+
+“No longer shown in the mainline” does not mean deleted. “Not in Memory” does not mean unimportant. The system must not create memorization debt merely to prove that every taught detail still exists somewhere.
+
+#### Personal quick-review view
+
+After Kian and Chat have actually learned a chapter and accepted its quick-review wording, that view may be stored **inside the chapter's existing teaching brief/support owner** as a clearly marked Kian self-review view. It is a lightweight durable note, not a new schema, registry, Runtime surface or canonical model.
+
+It must not:
+- change the canonical reconstruction spine;
+- create another Website/Memory consumer;
+- affect learner progress, scheduling or admission;
+- be pre-generated for every chapter merely for completeness.
+
+Its purpose is only to make Kian's future manual review cheaper. If later real use finds a better wording, update the same small view rather than adding another summary layer.
+
+
 ## 1. Product model
 
 Politics follows the repository-wide causal chain:
