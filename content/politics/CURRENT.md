@@ -36,9 +36,9 @@ Do not resume from an old PR SHA, historical comment, retired cross-task queue s
 Build one coherent Politics learning loop:
 
 ```text
-Chat builds the understanding model
-→ same-model compression + exact encoding / rehearsal
-→ Website retrieves only reviewed Current targets
+Chengfeng detailed study + requested Chat clarification
+→ source-faithful compression + selectively justified encoding
+→ Website retrieves learner-selected reviewed targets or an optional Chat plan
 → Recall / question evidence returns to Chat
 → smallest justified review / repair
 ```
@@ -47,9 +47,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** the reviewed-target Memory set and its original producer/runtime/client are landed and delivered. Exact-candidate plan → Recall → reveal → self-rating/save → reload/reopen Resume → native Packet proof and formal served/catalog/remote readback are recorded in #1151. Synthetic proof is not real learning or mastery; Source, teaching-package and subject Acceptance boundaries remain with their exact owners.
+**Current:** bounded 2026-10-07 repair on `politics-free-memory` is implemented and Candidate-verified; see [the scoped acceptance](ACCEPTANCE.md#2026-10-07-source-first-policy-and-self-selected-memory--bounded-repair). Current learning/retention meaning is in Learning §2 / §6.1, not a copied course here. #1151 retains its original plan-driven delivery scope. No chapter regeneration, Leg baseline reclassification or real learner-state mutation was performed.
 
-**Next:** ordinary Politics learning uses actual learner/Resume evidence and the relevant prepared package under Learning / Interaction; it does not resume this closed delivery task. Reopen bounded engineering only for a concrete defect, authoritative Source change or explicit new scope. Remaining teaching/Source limitations stay item-scoped and do not undo the delivered reviewed-target chain.
+**Next:** verify the bounded rule repair and actual free-practice page, then publish/read back the accepted result. Resolve the exact designated Leg source before any new baseline claim. Content regeneration is not automatically authorized by this repair; any subsequent sample remains a separate explicit source-grounded task.
 
 **Blocker rule:** any remaining or new blocker lives with its exact task/native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
 

@@ -123,6 +123,8 @@ Therefore model-rated Analysis may guide diagnosis now, but precise score-path n
 
 ### LEG26 memory/output baseline
 
+The currently named retention reference is 腿姐《核心考案》; its exact title/edition must be resolved under Learning §6.1. This historical《背诵手册》inventory does not establish that identity or current alignment. Do not silently substitute the two works or claim the named source is absent merely because repository binding is missing.
+
 Metadata retained:
 
 - 2026 upper volume: 237 PDF pages;

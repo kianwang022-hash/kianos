@@ -40,7 +40,7 @@ Suyi being useful does not make Suyi a second learner course.
 
 ### `H1_ORIENTATION_CORE`
 
-The smallest content needed to know **what this Natural Unit is solving and what structural relation to hold while entering the Current prepared Chat lesson**.
+The smallest content needed to know **what this Natural Unit is solving and what structural relation to hold while entering the requested Chengfeng study or Chat clarification**.
 
 Typical content:
 - current `Problem`;
@@ -56,7 +56,7 @@ Content the learner should normally **carry out of first learning**.
 Typical content:
 - decisive `Boundary`;
 - scarce `Anchor`;
-- Current-selected `FIRST_ROUND_EXACT`;
+- `FIRST_ROUND_EXACT` selected under the current Learning §6.1 necessity filter, not merely every old source-reviewed card;
 - a short relation needed to prevent a predictable first-round misunderstanding.
 
 H2 may be available during Orientation when necessary, but must not automatically compete with H1.
@@ -114,7 +114,7 @@ Explicit Content-owned overrides are allowed only for real semantic exceptions.
 | `relation_chains` used only as secondary reasoning | `H3_SUPPORTING_UNDERSTANDING` |
 | `boundaries` | `H2_FIRST_ROUND_CARRY` unless explicitly repair-only |
 | `anchors` | `H2_FIRST_ROUND_CARRY` |
-| precision `FIRST_ROUND_EXACT` | `H2_FIRST_ROUND_CARRY` |
+| precision `FIRST_ROUND_EXACT` justified by current Learning §6.1 | `H2_FIRST_ROUND_CARRY` |
 | precision `PRECISION_NOT_ORIENTATION` | `H4_ON_DEMAND` |
 | precision `LATER_PRECISION` | `H4_ON_DEMAND` |
 | precision `REFERENCE_OR_QUESTION_TRIGGERED` | `H5_REPAIR_REFERENCE` |
@@ -162,7 +162,7 @@ They require a learner-facing reason in the bounded content audit when they mate
 
 Hard guards:
 - `problem` cannot be demoted below H1;
-- `FIRST_ROUND_EXACT` cannot be demoted below H2 without changing its upstream learning priority;
+- current-baseline `FIRST_ROUND_EXACT` keeps H2; old CF-only reviewed artifacts are optional practice pending necessity reconciliation under Learning §6.1, not automatically a new must-memorize baseline;
 - `REFERENCE_ONLY` / `REPAIR_ONLY` cannot be promoted into H1–H3 merely for visual richness;
 - provenance / engineering ids cannot be promoted into H1–H4;
 - an override cannot request a component, layout, diagram, color, or size.
@@ -181,9 +181,9 @@ Default visible attention:
 H3/H4/H5 do not become first-screen content merely because they exist.
 
 ### `EXTERNAL_LEARN`
-This retained native state identifier does not choose the primary teaching surface or prove Runtime migration; [Interaction](INTERACTION_CONTRACT.md#31-politics-cognitive-state-model) owns its interpretation. During Chat-primary teaching, Astro remains companion-only:
+This retained native state identifier does not choose the primary teaching surface or prove Runtime migration; [Interaction](INTERACTION_CONTRACT.md#31-politics-cognitive-state-model) owns its interpretation. During Chengfeng-led study or requested Chat clarification, Astro remains companion-only:
 - compact H1 problem / structural anchor;
-- Chengfeng locator + `look_for` only when calibration is needed;
+- Chengfeng locator + `look_for` for the selected source study or calibration;
 - a decisive H2 boundary only when materially useful.
 
 ### `RETURN / CLOSE`
@@ -228,7 +228,7 @@ Politics Content Hierarchy is acceptable for broad consumption when:
 1. all 151 `PASS` Natural Units resolve to a deterministic hierarchy without UI inference;
 2. the 9 `REFERENCE_ONLY` owners do not become teaching hierarchy;
 3. every PASS Unit has an H1 `Problem` and a valid Chengfeng handoff when Current owns one;
-4. Current-selected `first_round_exact` resolves only to H2;
+4. current-baseline `first_round_exact` resolves to H2, while source-reviewed availability alone does not establish baseline necessity;
 5. secondary reasoning does not silently rise to H1 merely because its field name contains `Map`, `Chain`, `Timeline`, or similar;
 6. source evidence, engineering ids and raw backend keys remain H5/non-default;
 7. subject-specific cognition remains intact;

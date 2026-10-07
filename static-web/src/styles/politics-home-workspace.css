@@ -127,7 +127,12 @@ body#kianos-workspace.surfaceBody-politics .politicsRecentCard h2{
   font-weight:630;
 }
 
-body#kianos-workspace.surfaceBody-politics .politicsTodayCard>header>a,
+body#kianos-workspace.surfaceBody-politics .politicsTodayLinks{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+body#kianos-workspace.surfaceBody-politics .politicsTodayLinks>a,
 body#kianos-workspace.surfaceBody-politics .politicsRecentCard>header>a{
   color:#4b6859;
   font-size:15px;

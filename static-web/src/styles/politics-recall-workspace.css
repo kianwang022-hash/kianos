@@ -229,3 +229,127 @@
   .politicsMemoryResponses{grid-template-columns:1fr}
   .politicsMemoryEmpty,.politicsMemoryStale,.politicsMemoryComplete{align-items:flex-start;flex-direction:column}
 }
+
+.politicsMemoryHeadRight{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding-bottom:2px;
+}
+.politicsMemoryHeadRight>button{
+  padding:8px 11px;
+  border:1px solid rgba(33,76,62,.22);
+  border-radius:8px;
+  background:#fff;
+  color:#345d4d;
+  font:inherit;
+  font-size:14px;
+  font-weight:650;
+  cursor:pointer;
+}
+.politicsMemoryHeadRight>button:hover{
+  background:#f3f7f4;
+}
+.politicsMemoryHeadRight>strong{
+  min-width:54px;
+  text-align:right;
+  font-size:18px;
+  line-height:1.4;
+  font-weight:650;
+  color:#62776f;
+  font-variant-numeric:tabular-nums;
+}
+.politicsMemoryFree{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:34px;
+  align-items:end;
+  margin-top:28px;
+  padding:24px 26px;
+  border:1px solid rgba(33,76,62,.16);
+  border-radius:12px;
+  background:#f7faf8;
+}
+.politicsMemoryFree>div:first-child>span{
+  display:block;
+  margin-bottom:4px;
+  color:#60766e;
+  font-size:14px;
+  font-weight:650;
+}
+.politicsMemoryFree h2{
+  margin:0;
+  font-size:22px;
+  line-height:1.4;
+  font-weight:650;
+}
+.politicsMemoryFree p{
+  margin:6px 0 0;
+  color:#65766f;
+  font-size:14px;
+  line-height:1.55;
+}
+.politicsMemoryFreeControls{
+  display:flex;
+  align-items:end;
+  gap:9px;
+}
+.politicsMemoryFreeControls label{
+  display:grid;
+  gap:5px;
+  color:#667970;
+  font-size:12px;
+  font-weight:650;
+}
+.politicsMemoryFreeControls select{
+  min-width:150px;
+  height:40px;
+  padding:0 30px 0 10px;
+  border:1px solid rgba(33,76,62,.2);
+  border-radius:8px;
+  background:#fff;
+  color:#263d34;
+  font:inherit;
+  font-size:14px;
+}
+.politicsMemoryFreeControls>button{
+  height:40px;
+  padding:0 14px;
+  border:1px solid #426d5b;
+  border-radius:8px;
+  background:#426d5b;
+  color:#fff;
+  font:inherit;
+  font-size:14px;
+  font-weight:650;
+  cursor:pointer;
+}
+.politicsMemoryFreeControls>button:hover{
+  background:#365d4d;
+}
+@media(max-width:900px){
+  .politicsMemoryFree{
+    grid-template-columns:1fr;
+    align-items:start;
+  }
+  .politicsMemoryFreeControls{
+    flex-wrap:wrap;
+  }
+}
+@media(max-width:620px){
+  .politicsMemoryHead{
+    align-items:flex-start;
+  }
+  .politicsMemoryHeadRight{
+    display:grid;
+    justify-items:end;
+  }
+  .politicsMemoryFreeControls{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .politicsMemoryFreeControls select,
+  .politicsMemoryFreeControls>button{
+    width:100%;
+  }
+}

@@ -1,5 +1,6 @@
 import {
   POLITICS_MEMORY_PLAN_KEY,
+  recordPoliticsMemoryFreeResponse,
   recordPoliticsMemoryResponse,
   resolvePoliticsMemoryResume
 } from './politicsMemoryRuntime.mjs';
@@ -14,6 +15,14 @@ const responseKeys = {
   '1': 'FORGOT',
   '2': 'FUZZY',
   '3': 'STABLE'
+};
+
+const subjectLabels = {
+  marxism: '马原',
+  history: '史纲',
+  mao: '毛中特',
+  xi: '习思想',
+  'ethics-law': '思法'
 };
 
 export function initPoliticsMemoryWorkspace(root, { storage = localStorage, studyDay = null } = {}) {
@@ -36,17 +45,31 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   const stale = $('[data-memory-stale]');
   const complete = $('[data-memory-complete]');
   const card = $('[data-memory-card]');
+  const freePanel = $('[data-memory-free]');
+  const freeOpen = $('[data-memory-free-open]');
+  const freeSubject = $('[data-memory-free-subject]');
+  const freeChapter = $('[data-memory-free-chapter]');
+  const freeStart = $('[data-memory-free-start]');
+  const freeCount = $('[data-memory-free-count]');
 
   let revealed = false;
   let active = null;
   let renderedPlanBytes = null;
+  let mode = 'plan';
+  let freeCandidates = [];
+  let freeIndex = 0;
+  let freeSessionId = null;
+
   const localStudyDay = () => studyDay || new Date().toLocaleDateString('en-CA');
+  const candidates = Array.isArray(catalog?.candidates)
+    ? catalog.candidates.filter((candidate) => candidate?.admission_verified === true)
+    : [];
 
   const setHidden = (node, value) => {
     if (node instanceof HTMLElement) node.hidden = value;
   };
 
-  const render = () => {
+  const hideAllStates = () => {
     revealed = false;
     setHidden(answer, true);
     setHidden(controls, true);
@@ -55,7 +78,165 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
     setHidden(stale, true);
     setHidden(complete, true);
     setHidden(card, true);
+    setHidden(freePanel, true);
     if (status) status.textContent = '';
+  };
+
+  const renderCandidate = ({ candidate, index, total, item = null, plan = null, free = false }) => {
+    active = {
+      status: 'ACTIVE',
+      candidate,
+      index,
+      total,
+      item,
+      plan,
+      free
+    };
+    setHidden(card, false);
+    if (progress) progress.textContent = `${index + 1} / ${total}`;
+    if (prompt) prompt.textContent = candidate.prompt || '回忆这一项';
+    if (answerItems) {
+      answerItems.replaceChildren(...(candidate.answer_items || []).map((itemText) => {
+        const li = document.createElement('li');
+        li.textContent = itemText;
+        return li;
+      }));
+    }
+    const checking = $('[data-memory-checking]');
+    if (checking) checking.textContent = (candidate.checking_criteria || []).join('；');
+    const cue = $('[data-memory-cue]');
+    if (cue) {
+      cue.textContent = candidate.memory_cue || '';
+      cue.hidden = !candidate.memory_cue;
+    }
+    const reason = $('[data-memory-reason]');
+    const reasonLabel = reason?.previousElementSibling;
+    if (reasonLabel) reasonLabel.textContent = free ? '本次范围' : '今天为什么背';
+    const fallback = root.querySelector('.politicsMemoryReasonFallback');
+    if (reason) {
+      const freeReason = free
+        ? `自由复习 · ${subjectLabels[candidate.subject] || candidate.subject || '政治'} · ${candidate.chapter_title || candidate.chapter_id || ''}`
+        : item?.reason || '';
+      reason.textContent = freeReason;
+      reason.hidden = !freeReason;
+      if (fallback instanceof HTMLElement) fallback.hidden = Boolean(freeReason);
+    }
+    setHidden(reveal, false);
+    reveal?.focus({ preventScroll: true });
+  };
+
+  const filteredFreeCandidates = () => {
+    const subject = freeSubject?.value || 'all';
+    const chapter = freeChapter?.value || 'all';
+    return candidates.filter((candidate) =>
+      (subject === 'all' || candidate.subject === subject)
+      && (chapter === 'all' || candidate.chapter_id === chapter)
+    );
+  };
+
+  const updateFreeCount = () => {
+    if (freeCount) freeCount.textContent = String(filteredFreeCandidates().length);
+  };
+
+  const fillChapterOptions = () => {
+    if (!(freeChapter instanceof HTMLSelectElement)) return;
+    const subject = freeSubject?.value || 'all';
+    const rows = subject === 'all'
+      ? []
+      : candidates.filter((candidate) => candidate.subject === subject);
+    const seen = new Map();
+    for (const row of rows) {
+      if (!row.chapter_id || seen.has(row.chapter_id)) continue;
+      seen.set(row.chapter_id, row.chapter_title || row.chapter_id);
+    }
+    freeChapter.replaceChildren();
+    const all = document.createElement('option');
+    all.value = 'all';
+    all.textContent = subject === 'all' ? '全部章节' : `全部章节 · ${rows.length} 项`;
+    freeChapter.append(all);
+    for (const [chapterId, chapterTitle] of seen) {
+      const option = document.createElement('option');
+      option.value = chapterId;
+      const count = rows.filter((row) => row.chapter_id === chapterId).length;
+      option.textContent = `${chapterTitle} · ${count}`;
+      freeChapter.append(option);
+    }
+    updateFreeCount();
+  };
+
+  const fillFreeOptions = () => {
+    if (!(freeSubject instanceof HTMLSelectElement)) return;
+    if (!freeSubject.options.length) {
+      const all = document.createElement('option');
+      all.value = 'all';
+      all.textContent = `全部政治 · ${candidates.length}`;
+      freeSubject.append(all);
+      const subjects = [...new Set(candidates.map((candidate) => candidate.subject).filter(Boolean))];
+      for (const subject of subjects) {
+        const option = document.createElement('option');
+        option.value = subject;
+        option.textContent = `${subjectLabels[subject] || subject} · ${candidates.filter((row) => row.subject === subject).length}`;
+        freeSubject.append(option);
+      }
+    }
+    fillChapterOptions();
+  };
+
+  const showFreePicker = () => {
+    mode = 'free-picker';
+    active = null;
+    hideAllStates();
+    fillFreeOptions();
+    setHidden(freePanel, false);
+    if (freeOpen) {
+      const hasPlan = Boolean(storage.getItem(POLITICS_MEMORY_PLAN_KEY));
+      freeOpen.textContent = hasPlan ? '返回今日任务' : '自主选练';
+      freeOpen.disabled = !hasPlan;
+    }
+    if (progress) progress.textContent = String(candidates.length);
+  };
+
+  const renderFreeCandidate = () => {
+    hideAllStates();
+    if (freeIndex >= freeCandidates.length) {
+      mode = 'free-complete';
+      active = { status: 'COMPLETE', free: true };
+      setHidden(complete, false);
+      const title = complete?.querySelector('h2');
+      const copy = complete?.querySelector('p');
+      if (title) title.textContent = '这一组自由复习完成了';
+      if (copy) copy.textContent = '回忆结果已经记录。可以继续换科目或章节刷。';
+      if (freeOpen) { freeOpen.disabled = false; freeOpen.textContent = '换一组'; }
+      if (progress) progress.textContent = String(freeCandidates.length);
+      return;
+    }
+    if (freeOpen) { freeOpen.disabled = false; freeOpen.textContent = '换一组'; }
+    renderCandidate({
+      candidate: freeCandidates[freeIndex],
+      index: freeIndex,
+      total: freeCandidates.length,
+      free: true
+    });
+  };
+
+  const startFree = () => {
+    freeCandidates = filteredFreeCandidates();
+    if (!freeCandidates.length) {
+      if (status) status.textContent = '这个范围暂时没有已审核的 Memory。';
+      return;
+    }
+    mode = 'free-active';
+    freeIndex = 0;
+    freeSessionId = crypto?.randomUUID
+      ? crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+    renderFreeCandidate();
+  };
+
+  const renderPlan = () => {
+    mode = 'plan';
+    hideAllStates();
+    if (freeOpen) { freeOpen.disabled = false; freeOpen.textContent = '自由复习'; }
 
     let next;
     try {
@@ -70,19 +251,23 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
     active = next;
 
     if (!next) {
-      setHidden(empty, false);
-      if (progress) progress.textContent = '0';
+      showFreePicker();
       return;
     }
 
     if (next.status === 'STALE') {
       setHidden(stale, false);
-      if (status) status.textContent = '当前计划与最新政治内容不一致；没有替换成其他卡。回 Chat 重新生成今天的计划。';
+      if (status) status.textContent = '当前计划与最新政治内容不一致；你仍可使用「自由复习」刷当前已审核 Memory。';
+      if (progress) progress.textContent = '—';
       return;
     }
 
     if (next.status === 'COMPLETE') {
-      if (Number(next.total || 0) === 0) setHidden(empty, false);
+      const title = complete?.querySelector('h2');
+      const copy = complete?.querySelector('p');
+      if (title) title.textContent = '这一组完成了';
+      if (copy) copy.textContent = '回忆结果已经记录。可以选择自由复习，或回到原安排。';
+      if (Number(next.total || 0) === 0) showFreePicker();
       else setHidden(complete, false);
       if (progress) progress.textContent = String(next.total || 0);
       return;
@@ -90,29 +275,14 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
 
     if (next.status !== 'ACTIVE') return;
 
-    setHidden(card, false);
-    if (progress) progress.textContent = `${next.index + 1} / ${next.total}`;
-    if (prompt) prompt.textContent = next.candidate.prompt || '回忆这一项';
-    if (answerItems) {
-      answerItems.replaceChildren(...(next.candidate.answer_items || []).map((item) => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        return li;
-      }));
-    }
-    const checking = $('[data-memory-checking]');
-    if (checking) checking.textContent = (next.candidate.checking_criteria || []).join('；');
-    const cue = $('[data-memory-cue]');
-    if (cue) { cue.textContent = next.candidate.memory_cue || ''; cue.hidden = !next.candidate.memory_cue; }
-    const reason = $('[data-memory-reason]');
-    if (reason) {
-      reason.textContent = next.item.reason || '';
-      reason.hidden = !next.item.reason;
-      const fallback = root.querySelector('.politicsMemoryReasonFallback');
-      if (fallback instanceof HTMLElement) fallback.hidden = Boolean(next.item.reason);
-    }
-    setHidden(reveal, false);
-    reveal?.focus({ preventScroll: true });
+    renderCandidate({
+      candidate: next.candidate,
+      index: next.index,
+      total: next.total,
+      item: next.item,
+      plan: next.plan,
+      free: false
+    });
   };
 
   const showAnswer = () => {
@@ -127,14 +297,27 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   const respond = (value) => {
     if (!revealed || active?.status !== 'ACTIVE') return;
     try {
-      recordPoliticsMemoryResponse(storage, catalog, {
-        plan_id: active.plan.plan_id,
-        candidate_id: active.candidate.id,
-        response: value,
-        observed_at: new Date().toISOString()
-      }, { expectedDay: localStudyDay() });
-      if (status) status.textContent = '已记录：' + (responseLabels[value] || value);
-      render();
+      if (active.free) {
+        recordPoliticsMemoryFreeResponse(storage, catalog, {
+          session_id: freeSessionId,
+          candidate_id: active.candidate.id,
+          response: value,
+          study_day: localStudyDay(),
+          observed_at: new Date().toISOString()
+        });
+        if (status) status.textContent = '已记录：' + (responseLabels[value] || value);
+        freeIndex += 1;
+        renderFreeCandidate();
+      } else {
+        recordPoliticsMemoryResponse(storage, catalog, {
+          plan_id: active.plan.plan_id,
+          candidate_id: active.candidate.id,
+          response: value,
+          observed_at: new Date().toISOString()
+        }, { expectedDay: localStudyDay() });
+        if (status) status.textContent = '已记录：' + (responseLabels[value] || value);
+        renderPlan();
+      }
     } catch (error) {
       if (status) status.textContent = '没有记录：' + String(error?.message || error);
     }
@@ -144,6 +327,15 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   root.querySelectorAll('[data-memory-response]').forEach((button) => {
     button.addEventListener('click', () => respond(button.getAttribute('data-memory-response')));
   });
+
+  freeOpen?.addEventListener('click', () => {
+    if (mode === 'plan') showFreePicker();
+    else if (mode === 'free-picker') renderPlan();
+    else showFreePicker();
+  });
+  freeSubject?.addEventListener('change', fillChapterOptions);
+  freeChapter?.addEventListener('change', updateFreeCount);
+  freeStart?.addEventListener('click', startFree);
 
   window.addEventListener('keydown', (event) => {
     if (event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
@@ -164,14 +356,20 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   });
 
   window.addEventListener('kianos:politics-memory-plan-updated', () => {
-    // Same-tab Control writes do not emit the browser storage event. Read the
-    // validated native plan; a receipt replay must not hide a revealed answer.
-    try { if (storage.getItem(POLITICS_MEMORY_PLAN_KEY) !== renderedPlanBytes) render(); }
-    catch { render(); }
+    if (mode !== 'plan' && mode !== 'free-picker') return;
+    try {
+      if (storage.getItem(POLITICS_MEMORY_PLAN_KEY) !== renderedPlanBytes) renderPlan();
+    } catch {
+      renderPlan();
+    }
   });
   window.addEventListener('storage', (event) => {
-    if (event.key === POLITICS_MEMORY_PLAN_KEY) render();
+    if (event.key === POLITICS_MEMORY_PLAN_KEY && mode === 'plan') renderPlan();
   });
-  window.addEventListener('focus', render);
-  render();
+  window.addEventListener('focus', () => {
+    if (mode === 'plan') renderPlan();
+  });
+
+  fillFreeOptions();
+  renderPlan();
 }

@@ -174,6 +174,52 @@ export function recordPoliticsMemoryResponse(storage, catalog, {
   return row;
 }
 
+export function recordPoliticsMemoryFreeResponse(storage, catalog, {
+  session_id,
+  candidate_id,
+  response,
+  study_day,
+  observed_at = new Date().toISOString()
+} = {}) {
+  if (!storage?.getItem || !storage?.setItem) fail('STORAGE_UNAVAILABLE');
+  const sessionId = clean(session_id, 120);
+  const candidateId = clean(candidate_id, 220);
+  const value = clean(response, 20).toUpperCase();
+  const studyDay = clean(study_day, 20);
+  if (!sessionId) fail('FREE_SESSION_REQUIRED');
+  if (!validDay(studyDay)) fail('FREE_DAY_INVALID');
+  if (!RESPONSES.has(value)) fail('RESPONSE_INVALID');
+  if (!observed_at || Number.isNaN(Date.parse(observed_at))) fail('RESPONSE_TIME_INVALID');
+
+  const byId = catalogMap(catalog);
+  const catalogRevision = clean(catalog?.revision, 200);
+  if (!catalogRevision) fail('CATALOG_REVISION_REQUIRED');
+  const candidate = byId.get(candidateId);
+  if (!candidate) fail('RESPONSE_CANDIDATE_STALE', candidateId);
+  if (candidate.admission_verified !== true) fail('RESPONSE_CANDIDATE_NOT_REVIEWED', candidateId);
+
+  const evidence = readEvidence(storage);
+  // Reuse the legacy evidence field as a manual practice-batch identity.
+  // No scheduled plan, admission or future work is created by this writer.
+  const planId = 'manual:' + sessionId;
+  const eventId = planId + ':' + candidateId;
+  if (evidence.some((row) => row?.event_id === eventId)) fail('RESPONSE_ALREADY_RECORDED', candidateId);
+
+  const row = {
+    schema: 'kianos.politics.memory-recall-event.v1',
+    event_id: eventId,
+    plan_id: planId,
+    study_day: studyDay,
+    candidate_id: candidateId,
+    catalog_revision: catalogRevision,
+    candidate_snapshot: normalizeCandidateSnapshot(candidate),
+    response: value,
+    observed_at: new Date(observed_at).toISOString()
+  };
+  storage.setItem(POLITICS_MEMORY_EVIDENCE_KEY, JSON.stringify([...evidence, row]));
+  return row;
+}
+
 export function resolvePoliticsMemoryResume(storage, catalog, {
   expectedDay = null
 } = {}) {
@@ -532,7 +578,7 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
 
   return {
     schema: POLITICS_MEMORY_PROFILE_SCHEMA,
-    semantics: 'CURRENT_BOUND_HISTORY_SUMMARY; CHAT_OWNS_SCHEDULING; NO_FIXED_CADENCE; NOT_MASTERY',
+    semantics: 'CURRENT_BOUND_HISTORY_SUMMARY; CHAT_OWNS_SCHEDULING; SELF_SELECTED_FREE_PRACTICE; NO_FIXED_CADENCE; NOT_MASTERY',
     current_catalog_revision: currentRevision,
     summary: {
       catalog_candidate_count: byId.size,
@@ -563,7 +609,7 @@ export function buildPoliticsMemoryHistoryProfile(evidenceInput, catalog, {
       'OLD_CATALOG_EVIDENCE_IS_REUSED_ONLY_WHEN_THE_CANDIDATE_SNAPSHOT_STILL_MATCHES_CURRENT',
       'STALE_OR_CHANGED_EVIDENCE_NEVER_AUTO_SELECTS_A_CURRENT_MEMORY_TASK',
       'STABLE_IS_EVIDENCE_NOT_MASTERY',
-      'CHAT_SELECTS_TODAY_MEMORY_ITEMS'
+      'LEARNER_SELECTS_FREE_PRACTICE_OR_REQUESTS_CHAT_PLAN'
     ]
   };
 }

@@ -60,6 +60,16 @@ The original C01 ten-node/22-target producer→plan→in-memory Recall→Daily P
 
 Only this receipt, the Maturity summary and the existing test changed. No chapter/model/answer/Source/admission payload, production Runtime, actual plan or learner record was changed. No new browser/deployment claim is made: unchanged Website behavior reuses the existing bounded delivery and C01 browser evidence. Current engineering returns to ordinary learning and targeted maintenance; current per-asset Source gaps, wider shared-return/durability scope, future admitted materials and real U/timed-output calibration remain separate, not silently completed.
 
+## 2026-10-07 source-first policy and self-selected Memory — bounded repair
+
+Learning §2 / §6.1 now own Chengfeng-led detailed study, source-faithful compression and Leg-informed retention necessity. Interaction, Content Semantics/Hierarchy, manifest, shared System reference, Maturity and Dot entry consume those owners. The prior teacher package remains support; its C inventories and source-review hashes are not a new must-memorize syllabus. The exact named Leg title/edition still needs resolution before claiming a newly filtered baseline; no chapter or card answer was regenerated in this repair.
+
+The existing `validate-politics-repair-memory.mjs` passed its routing/consumer checks and added source-first policy regressions plus manual-practice evidence tests. History-profile and Chat-return regressions passed unchanged. Source-reviewed cards retain their IDs, answers and pending-source exclusion. Voluntary practice uses the existing Recall evidence field with a `manual:` batch identity, never an invented day plan, and does not complete/overwrite a planned attempt.
+
+`test-politics-prepared-memory-browser.mjs` passed 168 assertions against isolated Candidate 4322 on Mac Chrome. It covered the permanent Politics Home entry, five-subject/all-scope discovery, Chapter 2 selection, reveal-before-rating, all three ratings, preserved free-practice history after reload, native Packet return without a fake plan, and the existing 22-target planned C01 reload/reopen path. The served catalog matched the current producer (473 source-reviewed cards; 26 in the tested Chapter 2 scope). Actual Home/picker/prompt/answer screenshots were inspected at Mac landscape sizes; Memory is classified under Review. Synthetic browser actions stayed in Candidate, not Kian's real profile or production control/relay.
+
+**Boundary:** this proves the named policy/functional candidate scope, not Leg necessity of every existing card, a new course's content quality, real learning or mastery. Formal main/served readback is separate from Candidate proof. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
+
 ## Permanent boundaries
 
 - Drafts, historical material and model memory do not become current-year Source.

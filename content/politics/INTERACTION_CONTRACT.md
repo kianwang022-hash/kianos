@@ -15,41 +15,29 @@ The shared presentation grammar decides how approved cognition is represented. T
 
 ## 0. Kian-visible teaching default — no setup prompt required
 
-This is the normal learner-facing contract for Politics Chat. Kian should not need to carry a long prompt between Chats.
+The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain): **Chengfeng detailed study; Chat clarification, compression and selective memory encoding.** Do not make Kian repeat this choice or reopen a full Chat course.
 
 ### Minimal commands
 
-- `继续学习` / `继续` — recover the current Politics learner position and continue the next unfinished prepared teaching stage.
-- `开始马原` / `开始史纲` / `开始毛中特` / `开始习思想` / `开始思法` — select that subject, recover its Current learner position, and enter the earliest legitimate unfinished chapter/stage; **this does not reset progress**.
-- `重新开始马原` / corresponding `重新开始…` — explicitly restart the learner-facing teaching route from that subject's beginning for the current learning run. Preserve prior attempts/Recall as historical evidence; do not delete or reinterpret them as never having happened.
-- A normal question during learning — answer it at the current model location, then return to the active teaching line unless Kian changes topic.
-- `复习这一章` — use the same canonical reconstruction spine, progressively thinned; do not invent a new summary framework.
-
-Kian is never required to paste a teaching prompt, teacher brief, Source list, GitHub path, stage ID or Memory inventory in order to learn.
+- `继续学习` / `继续`: continue the actual active source-review, clarification or compression task. Use real reported/native position only when continuity matters; do not automatically start the next teacher-brief stage.
+- `开始马原` / another subject: select the subject without resetting evidence; give the requested orientation/source-review help, not an unsolicited full lecture.
+- `重新开始…`: restart the requested learner-facing route without deleting prior evidence.
+- A specific question: answer from the requested source range and return to that task.
+- `复习这一章` / `压缩这一章`: produce the source-faithful mainline + cues under Learning §0.7, not another first lesson.
 
 ### What Chat does automatically on `继续学习`
 
 ```text
-recover current Politics learner/Resume truth
-→ resolve subject + chapter + prepared stage
-→ read only the needed subject model + chapter Current/brief
-→ continue the unfinished problem-driven explanation
-→ use Source / precision / confusable assets backstage as needed
-→ stop at a natural cognitive breakpoint
+current requested action and source
+→ latest reliable learner position only if needed
+→ actual source passage / accepted review view
+→ existing model and support only for necessary checks
+→ do the requested explanation or compression
 ```
 
-**Hot-path read budget:** ordinary learning should stop reading as soon as the next coherent teaching segment is safely determined. Normally this means only:
-1. the needed Politics learner/Resume slice;
-2. this §0 interaction default;
-3. the current subject model **only for the total-model/current-chapter position needed now**;
-4. the current chapter brief **only for the active problem-stage, its necessary explanation/boundaries and immediate next step**;
-5. the canonical chapter JSON / Source / precision object only when the active teaching step actually depends on an exact identity, condition, wording or admission boundary.
+For a self-contained source question, do not read learner state or the whole repository. For fresh continuity, reconcile the narrow native Resume with reported source-study position and the existing daily synthesis; missing Website evidence is not zero learning. Do not ask for context that these sources already resolve.
 
-Do not preload the full Learning Contract, Acceptance/Maturity, manifest, all chapters, all precision targets or the whole teacher brief merely because they exist. More reading is justified only by the current lesson's unresolved dependency.
-
-Do not narrate this loading/routing work to the learner unless it materially affects the lesson.
-
-If exact position is available from Current learner truth, resume it directly. If the packet is stale or incomplete, use the narrowest reliable fallback allowed by the Personal Politics role / daily-subject recovery contract. Missing transport must not be treated as zero progress. Ask Kian where they stopped only when the remaining ambiguity would materially risk repeating or skipping content and cannot be resolved from current evidence.
+For compression, read actual source text and necessary tables/images, not just source-node headings. For retention selection, resolve the exact designated Leg title/edition and inspected scope under Learning §6.1. Do not preload all chapters, inventories or QA. Do not narrate this routing work unless a genuine limitation affects the answer.
 
 ### What the live lesson should feel like
 
@@ -87,30 +75,17 @@ A good lesson is therefore **stable in cognition, flexible in teaching**.
 
 ### Inline compression during learning
 
-Do not create compression on a timer or after every small fact. When one coherent problem block genuinely closes, leave only:
+Compression behavior is owned once by [Learning §0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning). During a requested explanation it is optional; during a requested source review it is the deliverable.
 
-\`\`\`text
-one review sentence
-(one expansion cue)
-\`\`\`
+Keep the mainline high-density and the cue short. On first reading, explain the cue's complete supported structure in the adjacent body; later the miniature cue omits answer members. A reading answer is not a clean Recall success. Do not create a Memory target merely because a cue exists.
 
-Then continue the lesson.
-
-The cue is a retrieval key, not an answer preview. It may use a count only when the count is a real stable structure that helps Kian retrieve the members. Do not force every cue into numbered form for visual symmetry.
-
-At chapter end, assemble the already-familiar review sentences/cues, then use the canonical spine only to check omissions, duplicate ownership and broken bridges. Do not surprise Kian with a newly invented “chapter summary.”
-
-Learner-facing review stays three-layer:
-\`mainline → expansion cue → Precision/Memory\`.
-Detailed teacher explanation/support remains backstage.
-
-If Kian accepts the final chapter quick-review wording, save that small view in the existing chapter teaching brief/support owner. This save is content continuity only: no Runtime write, no Memory plan, no mastery inference and no Website feature is implied.
+Preserve the accepted simple reading presentation rather than adding tools: compact chapter logic/cues with continuous review content. No repeated reveal clicks, quizzes, source-QA panels or Memory inventories unless requested. An HTML save is not a website deployment or memory-plan application.
 
 ## 1. Shared learner loop
 
 The shared first-round loop is:
 
-`Total model → progressive Chat explanation → same-model compression → Chat encoding / exact rehearsal → authorized Website Memory retrieval; first-ready Xiao1000 Workbench → prebuilt backside + Evidence → continue; learner-triggered Review and Recall return → Chat diagnosis / adaptive review, including no extra action`
+`Chengfeng detailed study → requested clarification + source-faithful compression → Leg-informed selective encoding → learner-selected Website Memory practice (optional Chat plan); Xiao1000 → evidence → smallest justified repair`
 
 Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Memory. This Interaction contract follows them; it does not establish a second teaching or admission owner.
 
@@ -118,25 +93,13 @@ Only this top-level cognitive loop is shared across subjects. Internal teaching 
 
 ### 1.1 Fresh-Chat teaching continuity
 
-When the owning chapter has a Current prepared package under Learning Contract §3.1.1, every fresh Chat uses it as the teaching-semantic starting point. Conversation history is not required to recreate the course.
+Recover the action, not just a chapter cursor. A teacher brief is backstage support for clarification, source coverage and an explicitly requested lesson; it is not the default prose mother text for source compression. Existing valid model relationships and exact identities remain stable. Do not force raw source into a conflicting brief or silently correct the source from general knowledge.
 
-The Chat may:
-- change wording, analogy and explanation depth;
-- pause or resume inside a prepared stage;
-- answer a learner question locally and then return to the fixed model.
-
-The Chat may not, merely because it can read Source:
-- invent a different chapter framework;
-- reshuffle the chapter into a new fill sequence;
-- replace the prepared confusion pass with an unrelated ad-hoc list;
-- make a new compression chain;
-- create an alternative precision/Memory syllabus.
-
-If a learner asks “继续” and exact learner position is known, resume the relevant prepared stage. If learner position is unknown, recover position from learner truth when available; do not solve uncertainty by teaching a newly generated course.
+A source-based review follows the learner's stated studied scope without requiring a new teaching pass. Explicitly commissioned draft preparation is not learner progress. Existing precision cards are optional artifacts until their current retention role is justified under Learning §6.1.
 
 ### 1.2 First-contact classroom behavior
 
-On first contact with a chapter, do not expose the prepared package as a table of contents to be read through. The learner should experience **one problem being solved**, not a sequence of metadata-backed mini-lessons.
+When Kian explicitly requests Chat teaching, do not expose the prepared package as a table of contents to be read through. The learner should experience **one problem being solved**, not a sequence of metadata-backed mini-lessons.
 
 Default move:
 ```text
@@ -153,7 +116,7 @@ If a first lesson starts sounding like `definition → paraphrase → common err
 
 ### 1.3 Compression stays backstage until it helps
 
-The classroom default is **continue the explanation**.
+During an explicitly requested lesson, continue the explanation. For a compression/review request, deliver the source-faithful review directly; do not turn the following optional classroom guidance into a gate.
 
 Do not visibly produce a review sentence, expansion cue, Memory mapping, or GitHub note after every coherent block merely because the block has closed. A natural closure is permission to compress, not an obligation.
 
@@ -181,7 +144,7 @@ The quick-review wording remains Kian's self-use asset. It can be refined and st
 During first-round learning, attention priority is:
 
 1. current cognitive question / Natural Unit position;
-2. current source-grounded **Chat continuous explanation**;
+2. the requested Chengfeng source-study, clarification or compression task;
 3. necessary conditions/boundaries in that explanation, with original Chengfeng images/text for calibration when needed;
 4. Chat-assisted encoding and exact rehearsal when approved targets become timely, without exposing the entire precision inventory at first entry;
 5. Xiao1000 verification in Astro/KianOS web after the relevant whole-item prerequisites are learned;
@@ -202,7 +165,7 @@ Show only:
 - the Chengfeng Source locator when calibration is needed.
 
 ### During Chat teaching
-Chat is primary; Chengfeng remains Source basis, not a parallel course.
+Chat leads only the explanation Kian requested; Chengfeng remains the detailed-study and compression basis. This is help within one course, not a replacement course.
 
 Astro may keep the current Natural Unit, learning question, checkpoint, relation anchor, boundary, absorbed Suyi framework object, or source locator visible when useful, but it must **not** render Chengfeng as a competing continuous lecture reader.
 
@@ -218,7 +181,7 @@ After the relevant model is understood, Chat follows Learning Contract §3.2: id
 
 Use a small natural group rather than a wall of lists or mechanically isolated words. Start with a clear unaided prompt; optional help follows an attempt. A mnemonic is optional and must not replace the approved answer. First rehearsal is a teaching action, not an invented Website event or a mastery declaration.
 
-The Website executes the selected Current catalog items under the existing Memory plan: prompt → learner retrieval → reveal answer/checking content → `FORGOT / FUZZY / STABLE` self-report → continue. Do not pre-reveal answer-bearing hints in a clean Recall or Xiao1000 task. Fields not consumed by the existing loader/renderer are not implemented merely because an author added them to a file.
+The Website executes learner-selected source-reviewed items or an optional existing Memory plan: prompt → learner retrieval → reveal answer/checking content → `FORGOT / FUZZY / STABLE` self-report → continue. Do not pre-reveal answer-bearing hints in a clean Recall or Xiao1000 task. Fields not consumed by the existing loader/renderer are not implemented merely because an author added them to a file.
 
 ### Verification
 Open the currently relevant Xiao1000 questions in the Astro/KianOS web question surface only after the owning content is learned.
@@ -263,7 +226,7 @@ REVIEW BATCH → CHAT DIAGNOSIS → optional targeted follow-up
 
 Later phases may add `REVIEW`, `PRECISION`, and `MOCK / TRANSFER` states when the applicable contract makes them learner-relevant.
 
-The existing Website Source subflow supports Source calibration only in this learning model. Its old primary-learning copy has not been migrated by this rule change. Native identifiers and Runtime implementation remain unchanged; the conceptual Chat teaching stages must not be read as implemented Website states.
+The existing Website Source subflow remains a companion to external Chengfeng study. These identifiers do not establish what Kian has studied or prove a website migration; actual product delivery needs its own evidence.
 
 #### `ORIENT`
 Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
@@ -274,7 +237,7 @@ Primary Politics semantic objects:
 - `Handoff / Locator` to Chengfeng.
 
 #### `EXTERNAL_LEARN`
-Native Website Source subflow: consult the owning Chengfeng images/text when calibration is needed. Continuous explanation belongs to Chat under the Learning Contract; `EXTERNAL_LEARN` is not a new Chat Runtime state.
+Native Website Source subflow: point to the owning Chengfeng materials for detailed study or calibration. Chat explains on request; `EXTERNAL_LEARN` is not evidence that source study occurred.
 
 Astro is companion-only. It may preserve:
 - current `Problem`;
@@ -283,7 +246,7 @@ Astro is companion-only. It may preserve:
 - source locator;
 - return/checkpoint action.
 
-It remains a companion to Chat teaching; original Source calibration remains available when necessary.
+It remains a companion to the learner-selected source study and requested Chat help.
 
 #### `RETURN / CLOSE`
 Native return/closure cue, used only when useful. Chat separately compresses the same taught model at natural closure; this responsibility does not rename or implement a Runtime state.
@@ -444,7 +407,7 @@ Xiao1000 validates learning; it does not organize learning.
 
 First-round Politics should be understanding-led, not memory-count-led.
 
-Admission and target scope inherit Learning Contract §6.1: proactive source-approved baseline, individual gaps and later output requirements are independent routes. Understanding-led does not mean error-only Memory. Chat owns memory encoding, useful first rehearsal, plan selection and subsequent interpretation; the Website owns planned retrieval and native evidence capture.
+Admission and recommended burden inherit Learning §6.1: Leg-informed baseline, justified individual gaps and later output requirements. Kian may freely choose currently source-reviewed cards without a day plan; optional access does not make the entire catalog recommended recitation. Chat helps select/encode only when useful or requested, and the Website records actual retrieval. Never claim a Leg-filtered baseline without reading the exact designated source.
 
 Use the same Content identity through teaching, compression, exact answer and repair. A conceptual failure reopens the smallest model relation; a wording/list/pairing failure receives focused encoding and retrieval; a transfer failure receives an application task. Correct performance stays cheap, without automatically deleting the approved baseline. Do not mistake “I recognize the revealed answer” for unaided retrieval or `STABLE` for machine-verified mastery.
 
@@ -460,7 +423,7 @@ The runtime may remember the learner's most recently opened Politics chapter / N
 
 This is personal session position, not shared Current and not a semantic owner.
 
-Continue must not imply that the learner resumes by reading duplicated Chengfeng text in Astro. When Chat teaching is next, use the actual available Chat resume/coverage evidence; an external locator supports Source calibration only. Existing website position alone must not be relabeled as Chat completion or resume evidence.
+Continue must use the actual action and source-study/report evidence. An external locator can resume Chengfeng study; the Website need not duplicate the handout. Native page position is neither source completion nor Chat teaching completion.
 
 ### Return / Handoff
 
@@ -504,7 +467,7 @@ Useful Politics primitives may implement approved semantic roles such as:
 
 The primitive/component is downstream of the semantic role. Do not make content conform to a generic card schema merely because the component exists.
 
-`continuous source reader` is **not** an approved first-round Politics primitive for Chengfeng. A shared component may still exist for another domain or reference use, but Politics must not use it to create a second continuous course alongside Chat.
+`continuous source reader` is **not** an approved first-round Politics primitive for Chengfeng. A shared component may still exist for another domain or reference use, but Politics must not use it to create a second required course. An explicitly requested quick-review HTML is permitted as a source-faithful projection, not another source owner.
 
 If a better explanation, relation, boundary, hierarchy, or stage story can live in Current content, update the content owner instead of hard-coding it in Astro.
 
@@ -512,11 +475,12 @@ If a better explanation, relation, boundary, hierarchy, or stage story can live 
 
 A Politics learner experience is good when:
 - the learner knows what they are trying to understand or do now without scanning the whole page;
-- Chat remains the single continuous teaching mainline with Chengfeng Source basis;
-- original iPad/MarginNote images/text support necessary Source calibration;
+- detailed study and compression are grounded in the requested Chengfeng text and required images;
+- Chat explains or compresses the requested scope without a compulsory replacement course;
 - useful Suyi cognition has been absorbed/accounted for without creating a second Suyi course;
-- Astro shows only useful orientation/framework/checkpoint/planned-retrieval/verification/repair/return structure;
-- Chat can recover the first-lesson route, exact targets, encoding aids and checking criteria from the owning content without reconstructing a second course;
+- Astro keeps self-selected Memory reachable without a Chat plan and preserves optional planned retrieval, verification and return;
+- the first reading explains each cue answer; later cue miniatures support recall without leaking members;
+- source-reviewed availability is not confused with Leg-informed retention necessity or must-recite wording;
 - approved proactive precision can be delivered without a fabricated Wrong event, while unsupported/pending targets remain excluded;
 - new teacher wording and the corresponding Website answer agree after Source reconciliation;
 - the Mac landscape workspace uses space to make relations/discrimination clearer rather than simply adding widgets;

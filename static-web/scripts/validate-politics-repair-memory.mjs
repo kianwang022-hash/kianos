@@ -175,7 +175,7 @@ try {
  const sideChapter={subject:'MARX',chapter_id:'fixture-chapter',memoryProjection:{schema:'kianos.politics.memory_projection.v1',units:{'fixture-nu':{title:'generic unit',candidates:[side]}}}};
  side.admission_basis.reviewed_target_revision=revision(extract(sideChapter,{...opts,selectableOnly:false})[0]);
  fs.appendFileSync(path.join(fixtureRoot,rel),'\n<a id="side"></a>\n'+'|'+side.id+'|fixture reviewed|'+side.admission_basis.reviewed_target_revision+'|\n');
- const sideApproved=extract(sideChapter,opts)[0];assert.equal(sideApproved.prompt,side.prompt);assert.ok(sideApproved.admission_verified,'independent Current-source review does not require inspected handbook');
+ const sideApproved=extract(sideChapter,opts)[0];assert.equal(sideApproved.prompt,side.prompt);assert.ok(sideApproved.admission_verified,'legacy source-reviewed availability remains compatible; not proof of current baseline necessity');
  group.prompt='clearer question';assert.equal(extract(chapter,{...opts,selectableOnly:false})[0].id,approved.id);assert.equal(extract(chapter,opts).length,0);group.prompt=approved.prompt;
  group.id=approved.id;group.natural_unit_id='fixed-nu';group.source_refs=['fixed-source'];
  assert.equal(extract(chapter,{...opts,selectableOnly:false})[0].id,approved.id);
@@ -237,7 +237,7 @@ try {
  const manifest = JSON.parse(read('content/politics/learning/manifest.json'));
  let checks = 0;
  const verify = (condition, message) => { checks += 1; if (!condition) fail('prepared-handoff:' + message); };
- verify(manifest.source_roles.chengfeng.role === 'FIRST_ROUND_SOURCE_BASIS_WITH_CALIBRATION', 'source-role-must-not-route-Chat-back-to-old-continuous-reader');
+ verify(manifest.source_roles.chengfeng.role === 'DETAILED_STUDY_AND_COMPRESSION_SOURCE', 'source-role-must-preserve-requested-Chengfeng-basis');
  // Route integrity is deliberately narrower than teaching or Source acceptance.
  // Resolve actual chapter/model owners and local links without prescribing one
  // teaching shape to every subject or treating the catalog as coverage proof.
@@ -321,7 +321,7 @@ try {
  }
  const historyAcceptance = read('content/politics/learning/history/ACCEPTANCE.md');
  verify(historyAcceptance.includes('Historical surface binding tested on 2026-09-13') && !historyAcceptance.includes('Current shared surface binding relevant to History'), 'history:old-ipad-first-binding-still-current');
- verify(historyAcceptance.includes('LEARNING_CONTRACT.md#surface-roles') && /Chat owns continuous first study and same-model compression/.test(historyAcceptance), 'history:current-surface-owner-missing');
+ verify(historyAcceptance.includes('LEARNING_CONTRACT.md#surface-roles') && /current source-study and Chat-compression roles follow Learning §2/.test(historyAcceptance), 'history:current-surface-owner-missing');
  const chapterPath = 'content/politics/learning/marxism/ch01.json';
  const chapter = JSON.parse(read(chapterPath));
  const briefPath = 'content/politics/learning/marxism/teaching-candidate/ch01.brief.md';
@@ -408,4 +408,51 @@ try {
  assert.equal(nextDay.summary.recall_count,0);assert.equal(nextDay.current_plan,null);
  assert.equal(nextDay.history_profile.summary.current_compatible_events,rawTargets.length);
  console.log('POLITICS_PREPARED_HANDOFF_' + (process.exitCode ? 'FAIL' : 'PASS'), JSON.stringify({checks, routedSubjects:Object.keys(manifest.subjects).length, routedChapters, localPreparationLinks, chapter:chapter.chapter_id, modelNodes:spine.length, exactTargets:rawTargets.length, catalogTargets:catalog.candidates.length, syntheticEvents:events.length, learnerWrites:0}));
+}
+
+// Bounded 2026-10-07 regression: source-first-and-selective-retention policy,
+// plus voluntary practice through the existing evidence writer. No real state.
+{
+ const readRule = name => fs.readFileSync(path.join(repoRoot, name), 'utf8');
+ const learning = readRule('content/politics/LEARNING_CONTRACT.md');
+ const interaction = readRule('content/politics/INTERACTION_CONTRACT.md');
+ const semantics = readRule('content/politics/CONTENT_SEMANTICS_CONTRACT.md');
+ const system = readRule('SYSTEM_CONTRACT.md');
+ const { politicsNavigation } = await import('../src/lib/sharedNavigation.mjs');
+ assert.deepEqual(politicsNavigation().filter(row=>row.matchPath.test('politics/memory/')).map(row=>row.key),['review'],'Memory is a review route, not a lesson');
+ assert.ok(learning.includes('Chengfeng detailed study') && learning.includes('not replacement mother text'));
+ assert.ok(learning.includes('腿姐《核心考案》') && learning.includes('Do not silently substitute《背诵手册》'));
+ assert.ok(learning.includes('Source correctness and memory necessity are different judgments'));
+ assert.ok(learning.includes('A Chengfeng-only author choice is **not a substitute**'));
+ assert.ok(learning.includes('recognition') && learning.includes('complete membership') && learning.includes('genuinely required fixed wording'));
+ assert.ok(learning.includes('optional practice/reference') && learning.includes('No mass deletion'));
+ assert.ok(learning.includes('first reading occurrence') && learning.includes('Only a **clean retrieval task**'));
+ for (const rule of [learning, interaction, system]) {
+  assert.ok(!/Chat is the single continuous teaching mainline|Chat remains the single continuous teaching mainline|Politics continuous teaching is Chat-primary/.test(rule));
+ }
+ assert.ok(semantics.includes('not political truth or the Leg-informed recommended baseline'));
+ const {buildPoliticsMemoryCandidateCatalogCurrent} = await import('../src/lib/politicsMemoryCandidates.mjs');
+ const m = await import('../src/lib/politicsMemoryRuntime.mjs');
+ const catalog=buildPoliticsMemoryCandidateCatalogCurrent(), candidate=catalog.candidates[0];
+ const state=new Map(), storage={getItem:k=>state.get(k)??null,setItem:(k,v)=>state.set(k,v),removeItem:k=>state.delete(k)};
+ const day='2026-10-07', time='2026-10-07T10:00:00Z';
+ const input={session_id:'isolated-free-regression',candidate_id:candidate.id,response:'FUZZY',study_day:day,observed_at:time};
+ const row=m.recordPoliticsMemoryFreeResponse(storage,catalog,input);
+ assert.equal(storage.getItem(m.POLITICS_MEMORY_PLAN_KEY),null,'free practice must not create a day plan');
+ assert.equal(row.plan_id,'manual:isolated-free-regression','legacy plan_id field is a manual practice-batch identity, not a fabricated schedule');
+ assert.equal(row.candidate_snapshot.prompt,candidate.prompt);
+ assert.deepEqual(row.candidate_snapshot.answer_items,candidate.answer_items);
+ assert.throws(()=>m.recordPoliticsMemoryFreeResponse(storage,catalog,input),/ALREADY_RECORDED/);
+ assert.throws(()=>m.recordPoliticsMemoryFreeResponse(storage,catalog,{...input,candidate_id:'missing'}),/CANDIDATE_STALE/);
+ assert.throws(()=>m.recordPoliticsMemoryFreeResponse(storage,{...catalog,candidates:[{...candidate,admission_verified:false}]},{...input,session_id:'unreviewed'}),/NOT_REVIEWED/);
+ const daily=m.politicsMemoryDailyEvidence(storage,{day,catalog,now:Date.parse(time)});
+ assert.equal(daily.current_plan,null);assert.equal(daily.summary.recall_count,1);
+ assert.equal(daily.history_profile.summary.current_compatible_events,1);
+ const plan={schema:m.POLITICS_MEMORY_PLAN_SCHEMA,plan_id:'isolated-existing-plan',study_day:day,generated_at:time,catalog_revision:catalog.revision,items:[{candidate_id:candidate.id}]};
+ m.applyPoliticsMemoryPlan(storage,catalog,plan,{expectedDay:day,now:Date.parse(time)});
+ const before=storage.getItem(m.POLITICS_MEMORY_PLAN_KEY);
+ m.recordPoliticsMemoryFreeResponse(storage,catalog,{...input,session_id:'another-free-round'});
+ assert.equal(storage.getItem(m.POLITICS_MEMORY_PLAN_KEY),before,'manual practice must not overwrite an existing Chat plan');
+ assert.equal(m.resolvePoliticsMemoryResume(storage,catalog,{expectedDay:day}).status,'ACTIVE','manual practice must not complete a planned attempt');
+ console.log('POLITICS_SOURCE_FIRST_AND_FREE_PRACTICE_PASS',JSON.stringify({catalogTargets:catalog.candidates.length,learnerWrites:0,scope:'rule routing and existing evidence semantics, not Leg content selection or learner efficacy'}));
 }

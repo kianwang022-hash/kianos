@@ -20,7 +20,10 @@ const catalog = embedCatalog ? politicsProductCatalog(base) : null;
         <span class="politicsHomeEyebrow">今天</span>
         <h2 id="politics-today-title">今日记录</h2>
       </div>
-      <a href={`${base}politics/review/`} data-politics-review-entry>复习 →</a>
+      <nav class="politicsTodayLinks" aria-label="政治复习入口">
+        <a href={`${base}politics/review/`} data-politics-review-entry>复习 →</a>
+        <a href={`${base}politics/memory/`}>精确记忆 →</a>
+      </nav>
     </header>
 
     <div class="politicsTodayMetrics">
