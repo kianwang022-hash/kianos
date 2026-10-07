@@ -14,6 +14,8 @@
    - 实际学习进度：native learner evidence/Packet/Resume；工程任务和内容存在不能代替个人进度
 5. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。接续、分批和上下文预算直接继承 [AGENTS](../../AGENTS.md) 与 [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md)，不在这里另立执行规程。
 
+本次由 dot 保持上位目的、范围与验收；执行和独立复核按既有 [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md) 交给有限任务，结果回到原 owner 对照目的检查，不以执行者自报或工程通过代替内容验收。活动执行归属与当前阶段始终回读原 Current / Issue；保留其他 Chat 的并行工作，不把本索引当成接管或恢复执行的授权。
+
 本索引不再保存“当前仍在 #61 第一阶段”等阶段快照。执行权限取原任务的最新明确授权及实际工具限制；本索引不授予本机、浏览器、合并、部署或真实学习记录权限，不绕过拒绝。旧阶段限制保留在其原日期证据中；有后续明确授权时回原 owner 核对，不能把旧快照自动当成永久限制，也不能把当前任务标签当成新增授权。没有活动执行或显式自动化，就不声称后台持续运行。
 
 ## 总目标与必须保留
@@ -28,6 +30,15 @@
 
 语义细节直接读原权威，不复制到这里：
 [学习合同 §0：固定模型与完整复习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
+
+本次已确认的科目目的与验收，继续由原 owner 承担：
+
+- 西综：[固定模型与学习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome) → [内容教学实现](../../content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。
+- 政治：[学习目的、固定重建骨架与预备教学包（§0、§0.5、§3.1）](../../content/politics/LEARNING_CONTRACT.md) → [内容语义与教学实现（§3.1.1、§3.3）](../../content/politics/CONTENT_SEMANTICS_CONTRACT.md) → [实际教学包](../../content/politics/learning/manifest.json)。
+- 两科继续按已确认分工消费这些 owner：GitHub 保存稳定知识与教学资产；Chat 围绕固定知识地图灵活教学；Website 通过共享科目模板承担 Recall / Memory、题目、状态与反馈。共同学习效果检查回到 [Learning Acceptance](../../LEARNING_ACCEPTANCE.md)，具体范围结论回到[西综 Acceptance](../../content/xizong/ACCEPTANCE.md) / [政治 Acceptance](../../content/politics/ACCEPTANCE.md)，不在这里复制标准。
+- Lexical 的总控验收直接采用[板块目的：Learning §0](../../content/lexical/LEARNING_CONTRACT.md)与[内容目的、模块生成及整合验收：Content §0A、§4A、§14](../../content/lexical/CONTENT_ASSET_CONTRACT.md)。[Lexical Current](../../content/lexical/CURRENT.md) → [#1166](https://github.com/kianwang022-hash/kianos/issues/1166)只定位当前执行与质量门；批次完成、合并及工程测试不能替代上述目的验收。Lexical 是英语的词汇模块，不代表全部英语；其他英语目标仍回到[English Current](../../content/english/CURRENT.md)指向的原 owner，不从本次词汇确认推定。
+
+目的与语义规则回原 Learning / Content 合同；具体资产回 canonical owner / manifest；操作、记录与反馈回原 Runtime；验收回原 Acceptance 及其实际消费者证据。历史回执与候选只证明其注明范围和版本，不取得当前权威。这里固定完整目的的采用关系与查找路径，不复制目的正文、不建立第二 owner。
 
 ## 阅读与证据记录
 
