@@ -8561,23 +8561,31 @@
     "ordinal": 2036,
     "word": "frame",
     "source_owner_path": "content/lexical/words/by-ordinal/o2036.json",
-    "source_fingerprint": "eceb07540640839680037507d1ba12103b06f5bbc9c315e8b3ce6e5557f21d50",
-    "sense_lineage": [],
+    "source_fingerprint": "c6092652d30d5977a5fea5c8ee9b09121c9d490a89343ba88695fdcafcea5db7",
+    "sense_lineage": [
+      {
+        "word_id": "word:frame",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2df75d2887156a85937a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "框架或帧",
-      "decision_cn": "",
+      "summary_cn": "框架、边框或画面一帧；装框或组织表达；另有“栽赃陷害”义",
+      "decision_cn": "先分辨实体框架、影视画面帧与“组织/措辞”；frame sb for a crime 是“栽赃陷害”，frame of mind 是固定短语“心境”，不可按“结构/边框”直译。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "框架或帧"
+        "target_label": "框架、边框或画面一帧；装框或组织表达；另有“栽赃陷害”义"
       }
     },
     "senses": [
@@ -8680,21 +8688,7 @@
         "definition_en": "a structure that supports or forms the basic shape of something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2df75d2887156a85937a",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "frame of mind",
-            "meaning_cn": "心境；心态",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2df75d2887156a85937a",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "frame of mind"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:frame:b70a5d51e5fa5010",
@@ -8753,6 +8747,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "表达；措辞"
         }
+      },
+      {
+        "id": "sense:frame:b12c48e74c142081",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "frame sb (for a crime/sth)",
+        "definition_cn": "诬陷；栽赃（使无辜者看起来犯了罪）",
+        "definition_en": "to make an innocent person appear guilty of a crime by inventing false evidence",
+        "note": "often passive: be framed for sth; not the “put in a frame” or “phrase an idea” meanings",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:frame:b12c48e74c142081",
+          "target_locator": "record.senses[6]",
+          "target_label": "诬陷；栽赃（使无辜者看起来犯了罪）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8784,7 +8795,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:frame:frame-of-mind",
+        "source_locator": "record.constructions[0]",
+        "pattern": "frame of mind / be in a ... frame of mind",
+        "lines": [
+          {
+            "text": "心境；心态；某时的精神状态",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed mental-state phrase (e.g. a positive/right frame of mind); not physical frame or supporting structure",
+            "lang": "en"
+          },
+          {
+            "text": "the way a person thinks or feels about something at a particular time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:frame:frame-of-mind",
+          "target_locator": "record.constructions[0]",
+          "target_label": "frame of mind / be in a ... frame of mind"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
