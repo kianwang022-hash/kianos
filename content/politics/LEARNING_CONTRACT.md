@@ -106,6 +106,43 @@ Shorter text alone is not compression. A beautiful framework that creates an ext
 
 The learner-facing realization of this principle is owned once by §0.7 **Three-layer learner compression**. §0.4 defines why compression exists; §0.7 defines how it is built, checked and reviewed. Do not maintain a second competing copy of the same rules here.
 
+### 0.4.2 Content is the finished learning product — Chat and Website are consumers
+
+Politics **Content is the canonical learner product**, not a staging format for Chat, a mirror of a teacher brief, or a shape chosen for Website convenience.
+
+For an accepted scope, the existing Content owners must already determine the learner-facing cognition:
+
+- where the chapter / Natural Unit sits in the subject model;
+- the canonical main model / relation topology and decisive boundaries;
+- the Core explanation needed to understand those relations;
+- the node **main prompts** that compress selected model-bound memory under §0.7;
+- the residual Precision / Memory that is worth exact retrieval but does not belong in those prompts;
+- the owning Source identity, applicable scope and unresolved gaps.
+
+These jobs may live across the existing chapter JSON, subject model, brief/support and precision owners. This rule does **not** require one giant file, a new schema or a new registry. It requires that the semantic result be complete upstream of its consumers.
+
+Authority direction:
+
+```text
+Source Truth
+→ Learning / Content judgment
+→ canonical Politics Content
+   ├─ model + relations
+   ├─ Core / boundaries
+   ├─ node main prompts
+   ├─ residual Precision / Memory
+   └─ Source scope / gaps
+→ consumers
+   ├─ Chat: explain, question, compress, repair
+   └─ Website: present, retrieve, record evidence
+```
+
+Chat may change wording, pacing, examples and questioning. Website may change layout, interaction and retrieval mechanics. **Neither consumer may invent a durable alternative model, decide what belongs in a node prompt, promote a detail into long-term Memory, or force Content to change its learning semantics because of a renderer/runtime limitation.**
+
+If valid Content cannot be represented by a consumer, fix or limit that consumer; do not distort the Content to fit it. If the Content itself is wrong or incomplete, repair the original Content owner once and let both consumers inherit the correction.
+
+Content completion and learning quality are therefore judged independently from Website delivery. A Website PASS cannot make incomplete Content complete, and a Content correction does not require duplicating the same semantic edit in Chat prose or frontend literals.
+
 ### 0.5 Fixed reconstruction spine — stable learner index
 
 Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**

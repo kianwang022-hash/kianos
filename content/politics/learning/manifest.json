@@ -2,7 +2,7 @@
   "schema": "kianos.politics.learning.manifest.v1",
   "status": "CURRENT_ACTIVE",
   "owner_path": "content/politics/learning/",
-  "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
+  "authority": "CANONICAL_POLITICS_LEARNING_CONTENT",
   "contract": "content/politics/LEARNING_CONTRACT.md",
   "source_roles": {
     "chengfeng": {
@@ -22,14 +22,15 @@
     }
   },
   "rules": [
+    "Canonical Politics Content is the upstream learning product; Chat and Website consume it and do not redefine its model, node main prompts, Core, residual Memory, or Source boundaries.",
     "Detailed study and compression use the actual Chengfeng source under Learning §2; existing teacher preparation checks relationships/omissions and is not the compression mother text.",
-    "Do not let Xiao1000 determine first-round unit order.",
+    "Select what is worth active retrieval before placing it: model-bound structured memory goes to node main prompts; only worthwhile residual exact material goes to Precision/Memory.",
+    "Do not let Xiao1000 determine first-round unit order or automatically generate Memory.",
     "Do not expose Suyi as a second learner mainline by default.",
     "Preserve canonical Natural Unit identities and source bindings.",
-    "Prefer content changes over hard-coded Astro political semantics.",
+    "A consumer limitation does not authorize changing Content semantics; repair/limit the consumer or repair the original Content owner if Content itself is wrong.",
     "Keep learner interaction low-friction and progressively disclosed.",
     "Share only the top-level learning loop across Politics subjects; subject-level teaching shape may differ substantially.",
-    "Content quality and batch progress take priority over frequent status reporting; interrupt the learner only for real semantic decisions.",
     "Retention necessity and exact Leg title/edition resolution follow Learning §6.1; source-reviewed catalog availability is not a must-memorize baseline."
   ],
   "subjects": {

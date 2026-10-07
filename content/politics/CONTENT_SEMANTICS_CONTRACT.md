@@ -23,30 +23,54 @@ Core rule:
 
 ## 1｜Why this layer exists
 
-Politics chapter JSON historically contained good teaching prose such as `core_problem`, `teaching_beats`, and `closure_cue`, but those fields alone leave too much interpretation to the UI.
+Politics chapter JSON historically contained good teaching prose such as `core_problem`, `teaching_beats`, and `closure_cue`, but those fields alone leave too much interpretation to whichever consumer happens to read them.
 
-That creates a dangerous shortcut:
-
-```text
-teaching prose
-→ generic cards / sections
-→ page
-```
-
-The Content Semantics layer makes important cognitive shape explicit before UI work begins.
-
-The intended chain is:
+That creates two dangerous shortcuts:
 
 ```text
-Learning Logic
-→ Current teaching content
-→ learning_semantics
-→ Content Hierarchy
-→ Presentation grammar
-→ Astro implementation
+teaching prose → Chat reconstructs a course again
+teaching prose → generic Website cards / sections → page
 ```
 
-`learning_semantics` and its learner-attention priority are therefore **Content**, not UI.
+Both are wrong when they cause the consumer to decide the learner's model, memory split or attention structure.
+
+The Content Semantics layer makes the cognitive product explicit **before both Chat and Website consume it**.
+
+The intended authority chain is:
+
+```text
+Source Truth
+→ Learning / Content judgment
+→ canonical Politics Content
+   ├─ subject / chapter position
+   ├─ main model + relations
+   ├─ node main prompts
+   ├─ Core / boundaries
+   ├─ residual Precision / Memory
+   └─ Source scope / gaps
+→ consumer adaptation
+   ├─ Chat explanation / questioning / repair
+   └─ Website projection / Recall / evidence
+```
+
+`learning_semantics`, chapter compression, accepted main prompts and their learner-attention priority are therefore **Content**, not UI and not runtime Chat inventions.
+
+### 1.1 Content product completeness
+
+A Politics chapter / Natural Unit is semantically complete for a reported scope only when a fresh consumer can recover the following **without inventing missing learning decisions**:
+
+1. **Position and problem** — where this content sits and what problem it solves.
+2. **Canonical model** — stable nodes plus meaningful relation / order / hierarchy and decisive conditions.
+3. **Node main prompts** — the selected model-bound structured memory that should be actively recovered with each node. Prompt wording may be compact, but its membership and required depth are Content decisions under Learning §§0.7/6.1.
+4. **Core / boundary content** — the explanation and distinctions needed to understand and discriminate, including material that is important but not an active memorization target.
+5. **Residual Precision / Memory** — only selected exact material that is better practiced independently than carried by a model node.
+6. **Source boundary** — owning Source, inspected scope and unresolved or timing-sensitive limitations.
+
+These jobs may be realized through existing chapter JSON, `learning_semantics`, subject/chapter support and precision owners. Do not create a duplicate “Chat version” or “Website version” of the same semantics.
+
+A consumer may expose only the subset appropriate to the current action, but hidden detail remains owned upstream. UI layout, reveal behavior, local storage, scheduling, compiler metadata, hashes and migration witnesses do not become part of Content completeness merely because a downstream system needs them.
+
+**Prompt and Memory are not two independent inventories.** Learning §0.7 first decides which knowledge is worth active retrieval, then Content places naturally model-bound groups in node prompts and keeps only the residual exact items in Precision / Memory. Existing Website card availability cannot reverse this decision.
 
 ---
 

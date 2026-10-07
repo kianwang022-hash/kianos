@@ -17,6 +17,8 @@ The shared presentation grammar decides how approved cognition is represented. T
 
 The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain): **Chengfeng detailed study; Chat clarification, compression and selective memory encoding.** Do not make Kian repeat this choice or reopen a full Chat course.
 
+**Content authority:** Chat consumes canonical Politics Content; it does not own a parallel durable version of the chapter. It may rephrase, expand, question or locally repair the accepted model, Core and prompts, but it must not reconstruct a new model/prompt/Memory split from a teacher brief, old conversation or current Website shape. If canonical Content is missing or defective, use the best source-grounded local explanation for the current need and repair or state the exact Content limitation rather than silently creating another course.
+
 ### Minimal commands
 
 - `继续学习` / `继续`: continue the actual active source-review, clarification or compression task. Use real reported/native position only when continuity matters; do not automatically start the next teacher-brief stage.
@@ -65,7 +67,8 @@ Chat is free to vary wording, analogy, pacing, examples, questioning style, chun
 
 Chat must preserve:
 - the Current subject total model and chapter reconstruction spine;
-- the prepared problem/dependency route and decisive relations;
+- Content-owned node main prompts and the model-bound versus residual-Memory split;
+- the prepared problem/dependency route and decisive relations when Chat teaching is requested;
 - Source-supported conditions and boundaries;
 - reviewed exact-target identity/answer/checking semantics;
 - actual learner position and evidence boundaries.
