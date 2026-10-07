@@ -69,9 +69,9 @@ Never start from the old card catalog and work backwards. Never treat “precise
 
 ### Current checkpoint
 
-**Completed:** C00/C01 Chengfeng compression + current-year Leg27 retention review. C00 retained model-bound prompts for《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征; other lists stay Core/reference or route to later chapters. C01 retained model-bound prompts for哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性; no broad parallel residual-Memory set was justified.
+**Completed:** C00–C02 Chengfeng compression + current-year Leg27 retention review. C00 retained model-bound prompts for《共产党宣言》标志、3组成、同时革命论↔一国胜利论、4特征. C01 retained哲学派别、物质关键定位、动静时空、意识、规律、AI、物质统一性. C02 retained联系、发展、矛盾、量质变、辩证否定 as model-bound prompt groups; system/五范畴/辩证思维方法 remain Core, and no broad parallel residual-Memory set was justified. Old card IDs/history remain intact as optional/reference until individually needed.
 
-**Next:** C02. Read actual Chengfeng C02 and corresponding Leg27 topics, then apply the fixed placement rule once. Do not reopen C00/C01 without new evidence.
+**Next:** C03. Read actual Chengfeng C03 and corresponding Leg27 认识论/实践/真理价值范围, then apply the same placement rule once. Do not reopen C00–C02 without new evidence.
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/marxism/ACCEPTANCE.md`.  
