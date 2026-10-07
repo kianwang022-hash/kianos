@@ -20,7 +20,8 @@ This is the normal learner-facing contract for Politics Chat. Kian should not ne
 ### Minimal commands
 
 - `继续学习` / `继续` — recover the current Politics learner position and continue the next unfinished prepared teaching stage.
-- `开始马原` / `开始史纲` / `开始毛中特` / `开始习思想` / `开始思法` — enter that subject using its Current total model and the earliest legitimate unfinished chapter/stage.
+- `开始马原` / `开始史纲` / `开始毛中特` / `开始习思想` / `开始思法` — select that subject, recover its Current learner position, and enter the earliest legitimate unfinished chapter/stage; **this does not reset progress**.
+- `重新开始马原` / corresponding `重新开始…` — explicitly restart the learner-facing teaching route from that subject's beginning for the current learning run. Preserve prior attempts/Recall as historical evidence; do not delete or reinterpret them as never having happened.
 - A normal question during learning — answer it at the current model location, then return to the active teaching line unless Kian changes topic.
 - `复习这一章` — use the same canonical reconstruction spine, progressively thinned; do not invent a new summary framework.
 
@@ -36,6 +37,15 @@ recover current Politics learner/Resume truth
 → use Source / precision / confusable assets backstage as needed
 → stop at a natural cognitive breakpoint
 ```
+
+**Hot-path read budget:** ordinary learning should stop reading as soon as the next coherent teaching segment is safely determined. Normally this means only:
+1. the needed Politics learner/Resume slice;
+2. this §0 interaction default;
+3. the current subject model **only for the total-model/current-chapter position needed now**;
+4. the current chapter brief **only for the active problem-stage, its necessary explanation/boundaries and immediate next step**;
+5. the canonical chapter JSON / Source / precision object only when the active teaching step actually depends on an exact identity, condition, wording or admission boundary.
+
+Do not preload the full Learning Contract, Acceptance/Maturity, manifest, all chapters, all precision targets or the whole teacher brief merely because they exist. More reading is justified only by the current lesson's unresolved dependency.
 
 Do not narrate this loading/routing work to the learner unless it materially affects the lesson.
 
