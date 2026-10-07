@@ -6,7 +6,7 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 
 ## Current work status
 
-**No active full-catalog semantic-review campaign.** The delivered [purpose trial below](#bounded-purpose-trial-20261007) is closed. Current authorized work is the [bounded 80-word content delivery](#bounded-content-delivery-20261007) below. [#1166 — retired batched audit](https://github.com/kianwang022-hash/kianos/issues/1166) was withdrawn at Kian's request on 2026-10-07 because the campaign had drifted. It is a historical receipt, not a live work cursor or an automatic Next.
+**No active full-catalog semantic-review campaign.** The delivered [purpose trial below](#bounded-purpose-trial-20261007) is closed. Current authorized work is the [bounded content delivery](#bounded-content-delivery-20261007) below. [#1166 — retired batched audit](https://github.com/kianwang022-hash/kianos/issues/1166) was withdrawn at Kian's request on 2026-10-07 because the campaign had drifted. It is a historical receipt, not a live work cursor or an automatic Next.
 
 Its delivered changes, unmerged candidate PR dispositions and unresolved quality-gate evidence remain in #1166. Retirement is not full-scope completion or semantic acceptance of all 7,946 Main Words. Do not resume B061 or reconstruct an active campaign from historical batch comments, PRs or prior Chats.
 
@@ -87,6 +87,6 @@ Exact semantic, pronunciation, audit and projection rules stay in their existing
 
 A future bounded task must check current owner/write-set overlap and preserve other active writers. An overlapping writer blocks only the exact shared owner/write-set; unrelated Lexical, English or Website work remains independent.
 
-Only the explicitly bounded trial above is active; no full-catalog campaign is implied. A retired Issue, merged or withdrawn PR, closed calibration task or historical batch document is not a second Next. Any later scope requires an explicit current decision rather than automatic continuation of #1166.
+Only the explicitly authorized o0001–o1000 content scope above is active; the delivered purpose trial remains closed and no full-catalog campaign is implied. A retired Issue, merged or withdrawn PR, closed calibration task or historical batch document is not a second Next. Any scope beyond o1000 requires an explicit current decision rather than automatic continuation of #1166.
 
 Historical campaigns and delivery evidence remain in Git history / their exact owners and stay outside normal continuation.
