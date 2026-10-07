@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:kin:next-of-kin",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "最近的亲属；紧急联系人中的近亲",
+        "definition_en": "the person or people most closely related to someone, especially for official or emergency purposes",
+        "pattern": "next of kin",
+        "source_sense_id": "sense:kin:47285f5ca80d5d38",
+        "boundary": "legal/emergency family relationship phrase; different from general next = following"
+      }
+    ],
     "content_hash": "3f95f02cffe622a781cd182988f14487d3aad3dee0e5934521ec895903584dfb",
     "core_concept": {
       "core_clusters": [
@@ -17,19 +28,11 @@
           "sense_ids": [
             "sense:kin:47285f5ca80d5d38"
           ]
-        },
-        {
-          "label_cn": "有亲属关系的；同类的",
-          "label_en": "related by blood or marriage",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:kin:11935c434bba594f"
-          ]
         }
       ],
       "core_meaning_cn": "家人和亲属",
       "core_meaning_en": "one's family and relatives",
-      "mental_model_cn": "家人和亲属",
+      "mental_model_cn": "kin → 家人/亲属；next of kin → 最近亲属。形容词“有亲属关系的”低价值义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,30 +74,6 @@
         "sense_id": "sense:kin:47285f5ca80d5d38",
         "sense_label_en": "one's family and relatives",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:80448f67a8973e38ed9d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:kin:11935c434bba594f:collocation:0"
-            ],
-            "meaning_cn": "亲属关系",
-            "phrase": "kin relationship"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "有亲属关系的；同类的",
-        "definition_en": "related by blood or marriage",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:kin:11935c434bba594f",
-        "sense_label_en": "related by blood or marriage",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -822,12 +801,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:80448f67a8973e38ed9d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:kin:11935c434bba594f:collocation:0"
+          ],
+          "meaning_cn": "亲属关系",
+          "phrase": "kin relationship"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "有亲属关系的；同类的",
+      "definition_en": "related by blood or marriage",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:kin:11935c434bba594f",
+      "sense_label_en": "related by blood or marriage",
+      "sort_order": 1,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:kin:11935c434bba594f",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7484,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
@@ -841,7 +845,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:80448f67a8973e38ed9d",
       "collocation:83e283fbafd805f1b5c9",
       "collocation:9b19a3c6d665ff57fa9b"
     ],
@@ -850,7 +853,9 @@
       {
         "id": "collocation:80448f67a8973e38ed9d",
         "source_row": 10857,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:83e283fbafd805f1b5c9",

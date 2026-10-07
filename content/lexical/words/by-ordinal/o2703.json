@@ -55,6 +55,16 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
+      },
+      {
+        "construction_id": "construction:kid:just-kidding",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "只是开玩笑；我逗你的",
+        "definition_en": "used to explain that something you just said was a joke",
+        "pattern": "(I’m) just kidding",
+        "source_sense_id": "sense:kid:b807a128912b5ad9",
+        "boundary": "casual clarification that the previous remark was a joke; no kidding expresses a different stance and is not included"
       }
     ],
     "content_hash": "b584e506fa3cad03c8e3fcbe15e1eb2e0fc9a9c74f5a8804a696f14084243edd",
@@ -70,14 +80,6 @@
           ]
         },
         {
-          "label_cn": "小山羊皮制的",
-          "label_en": "made from the skin of a young goat",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:kid:e6d457697cac50a5"
-          ]
-        },
-        {
           "label_cn": "开玩笑；戏弄",
           "label_en": "to joke or tease playfully",
           "pos": "verb",
@@ -88,7 +90,7 @@
       ],
       "core_meaning_cn": "小孩；小山羊；开玩笑",
       "core_meaning_en": "a child or young goat; also to tease or joke",
-      "mental_model_cn": "小孩；小山羊；开玩笑",
+      "mental_model_cn": "noun → 小孩（也指小山羊）；verb → 开玩笑/戏弄；just kidding → 只是开玩笑。小山羊皮形容词义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -157,30 +159,6 @@
         "sense_id": "sense:kid:124eeb75550b5c51",
         "sense_label_en": "a young goat",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c4968c7ae2fd6b69491e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:kid:e6d457697cac50a5:collocation:0"
-            ],
-            "meaning_cn": "小山羊皮革",
-            "phrase": "kid leather"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "小山羊皮制的",
-        "definition_en": "made from the skin of a young goat",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:kid:e6d457697cac50a5",
-        "sense_label_en": "made from the skin of a young goat",
-        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -828,7 +806,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:c4968c7ae2fd6b69491e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:kid:e6d457697cac50a5:collocation:0"
+          ],
+          "meaning_cn": "小山羊皮革",
+          "phrase": "kid leather"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "小山羊皮制的",
+      "definition_en": "made from the skin of a young goat",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:kid:e6d457697cac50a5",
+      "sense_label_en": "made from the skin of a young goat",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -861,7 +864,7 @@
       },
       {
         "sense_id": "sense:kid:e6d457697cac50a5",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7475,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
@@ -870,8 +873,7 @@
     "active_collocations": [
       "collocation:5a921dd679a5ac63cb61",
       "collocation:78b8c8a4767ba2cae15d",
-      "collocation:9448c7f137802ba7f06e",
-      "collocation:c4968c7ae2fd6b69491e"
+      "collocation:9448c7f137802ba7f06e"
     ],
     "facts": [
       {
@@ -914,7 +916,9 @@
       {
         "id": "collocation:c4968c7ae2fd6b69491e",
         "source_row": 16646,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
