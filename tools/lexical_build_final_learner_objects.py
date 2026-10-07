@@ -273,6 +273,13 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
     family_decisions = word_decision.get("word_family") or {}
     word_feel_decision = word_decision.get("word_feel") or {}
+    form_decision = word_decision.get("form_identity") or {}
+    form_disposition = form_decision.get("disposition")
+    if form_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+        raise RuntimeError(f"FINAL_LEARNER_FORM_DISPOSITION_INVALID:{word_id}:{form_disposition}")
+    form_object = compile_form(record.get("form_identity"))
+    if form_object and form_disposition == "EXPLORE_ONLY":
+        form_object.update(disposition="EXPLORE_ONLY", repair=None)
 
     core = record.get("core_concept") or {}
     summary_cn = str(core.get("core_meaning_cn") or core.get("mental_model_cn") or "").strip()
@@ -484,6 +491,8 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
 
     reference_senses = clone(owner.get("reference_senses") or [])
     fingerprint_inputs = {"record": record, "relation_paths": relation_paths}
+    if form_disposition is not None:
+        fingerprint_inputs["form_identity_decision"] = clone(form_decision)
     if reference_senses:
         fingerprint_inputs["reference_senses"] = reference_senses
     sense_lineage = []
@@ -547,7 +556,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         "reference": {
             "confusables": confusables,
             "relations": relations,
-            "form": compile_form(record.get("form_identity")),
+            "form": form_object,
             "family": family,
             **({"senses": reference_senses} if reference_senses else {}),
         },

@@ -15,7 +15,8 @@
         "definition_en": "a formal expression of the importance or significance of something",
         "pattern": "of great/little/no import",
         "source_sense_id": "sense:import:5dd9febfadcf5954",
-        "boundary": "formal noun = significance or meaning; not trade imports, and not the rare verb import = matter"
+        "boundary": "formal noun = significance or meaning; not trade imports, and not the rare verb import = matter",
+        "sense_id": "sense:import:5dd9febfadcf5954"
       }
     ],
     "content_hash": "de15d518f84da571fef225b499bf8336da078b8340569c2d6eb601d25b983440",
@@ -31,17 +32,18 @@
           ]
         },
         {
-          "label_cn": "进口商品；进口货",
-          "label_en": "goods or services brought in from another country",
+          "label_cn": "进口商品；进口行为",
+          "label_en": "imported goods; the act or process of importing goods",
           "pos": "noun",
           "sense_ids": [
-            "sense:import:c557e55d59865d39"
+            "sense:import:c557e55d59865d39",
+            "sense:import:97d200f09eab3d43"
           ]
         }
       ],
-      "core_meaning_cn": "进口；进口品；导入数据",
-      "core_meaning_en": "to bring goods in from abroad; imported goods; to import data",
-      "mental_model_cn": "CORE → 贸易的进口/进口货；计算机导入数据。EXPANSION（正式书面语）→ the import of a statement = 言论的深意，of little/no/great import = 不重要/重要；这种名词义仍在使用。罕见动词 import = 有关系/有重要性保留为 Reference。",
+      "core_meaning_cn": "进口行为；进口品；导入数据",
+      "core_meaning_en": "the act of importing goods; imported goods; to import data",
+      "mental_model_cn": "贸易：the import of goods→进口行为；an import/imports→进口品。计算机→导入数据。正式语境：the import of a statement→言论的含义；of little/no/great import→不重要/重要。罕见动词重要性义仍为Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -102,15 +104,6 @@
             ],
             "meaning_cn": "进出口",
             "phrase": "imports and exports"
-          },
-          {
-            "collocation_id": "collocation:a5cfbb7817ccb094ae2f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:import:c557e55d59865d39:collocation:1"
-            ],
-            "meaning_cn": "某物的进口",
-            "phrase": "the import of + sth"
           }
         ],
         "confidence": "medium",
@@ -188,6 +181,40 @@
         "sense_label_en": "(formal) importance or significance; the meaning of something, especially if not immediately clear",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:import:97d200f09eab3d43",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "definition_cn": "进口行为或过程",
+        "definition_en": "the act or process of bringing goods into a country from abroad",
+        "sense_label_en": "the act or process of bringing goods into a country from abroad",
+        "governing_pattern": "",
+        "usage_note": "the import of goods / restrictions on import→进口行为；an import / imports on sale→进口品；the import of a statement / of no import→正式的意义或重要性。The import of medicines stopped, but existing imports remained on sale.（药品进口停止了，但已进口的药品仍在销售。）",
+        "collocations": [
+          {
+            "collocation_id": "collocation:a5cfbb7817ccb094ae2f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:import:c557e55d59865d39:collocation:1"
+            ],
+            "meaning_cn": "某物的进口",
+            "phrase": "the import of + sth"
+          }
+        ],
+        "sort_order": 4,
+        "level": "L2",
+        "needs_human_review": 0,
+        "confidence": "high",
+        "source_evidence": [
+          {
+            "evidence_id": "evidence:lexical-purpose:import:importation:20261007",
+            "evidence_status": "source_checked",
+            "source_type": "authoritative_learner_dictionary",
+            "source_path": "https://www.merriam-webster.com/dictionary/import",
+            "source_locator": "noun: importation"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -846,6 +873,12 @@
         "merged_into_sense_id": null,
         "source_row": 6869,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
+      },
+      {
+        "sense_id": "sense:import:97d200f09eab3d43",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o2473.json"
       }
     ],
     "active_collocations": [
@@ -884,7 +917,8 @@
       {
         "id": "collocation:a5cfbb7817ccb094ae2f",
         "source_row": 14076,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "sense_id": "sense:import:97d200f09eab3d43"
       },
       {
         "id": "collocation:b683dd8b9f15327691eb",

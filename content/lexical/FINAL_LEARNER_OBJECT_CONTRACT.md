@@ -109,6 +109,10 @@ The canonical materializer `tools/lexical_build_final_learner_objects.py` may ex
 
 Sense-local fields may also carry explicit, stable-ID-bound default-Depth dispositions when another surviving learner object already owns the same learner job. Current field-level decisions include `sense_usage_notes` and `sense_governing_patterns`. A governing pattern may be `EXPLORE_ONLY` only when the same reusable skeleton remains directly available in a surviving learner object, normally a Word-owned Construction. A broader selector or argument pattern must stay in the Sense when the surviving Construction is narrower.
 
+An explicit `words[word_id].form_identity.disposition: EXPLORE_ONLY` keeps the complete existing Final `reference.form` boundaries/variants available in Lookup, with `disposition: EXPLORE_ONLY` and `repair: null`. The consumer hides only that marked Form in default Depth, emits no Form `+` or target row, and excludes it from default Reference rail weight; a rail containing only background Form remains Lookup-only. The existing mode switch handles visibility. Canonical Form/overlays, complete IPA, applicability, locale and sources remain unchanged; independent `pronunciation_support` is unaffected. This explicit decision enters the corresponding source fingerprint. Absence preserves existing Form output; no text or Form-type inference is permitted.
+
+The bounded 2026-10-07 purpose trial applies this transport only to `word:humor` and `word:import`, plus the existing EXPLORE_ONLY overlay mechanism for humor `sense:humor:619268be4f125c6a` and import `sense:import:2aea7b0ca1245c41` / `sense:import:c557e55d59865d39`. Ordinary background admission follows Content §4A.J; die conditional plurals, Diet capitalization and mat meaning-conditioned variants retain their own useful eligibility. This is a finite projection choice, not a catalog rule or a new learner-state migration.
+
 For structured `form_identity.variants`, the default Depth mapping is fixed rather than heuristic:
 
 ```text

@@ -16,7 +16,7 @@ class ReferenceProjectionTest(unittest.TestCase):
         return b.compile_word(owner, b.load(b.DECISIONS))
 
     def test_demoted_truth_and_child_ids_are_complete_but_not_active(self):
-        for n, sid, cid in [(545, 'sense:bore:30b1817c4fac5d13', 'collocation:3cf52dfbaa3f68349a27'), (695, 'sense:carriage:7479005566ec5ecc', 'collocation:5c3b7d1ebdbe39aae0e6')]:
+        for n, sid, cid in [(545, 'sense:bore:30b1817c4fac5d13', 'collocation:3cf52dfbaa3f68349a27'), (695, 'sense:carriage:7479005566ec5ecc', 'collocation:5c3b7d1ebdbe39aae0e6'), (2847, 'sense:liquid:86e5952bc6015b21', 'collocation:83b0e28ff3434369f07e'), (1500, 'sense:dramatic:0d497d2864075582', 'collocation:3af41aaf13d1418ae3e0')]:
             owner = self.owner(n)
             final = self.compile(owner)
             self.assertNotIn(sid, [s['id'] for s in final['senses']])
@@ -27,6 +27,35 @@ class ReferenceProjectionTest(unittest.TestCase):
             self.assertEqual(lineage[cid]['target_kind'], 'collocation')
             self.assertIsNone(lineage[cid]['to_target_id'])
             self.assertNotIn(cid, owner['identity_refs']['active_collocations'])
+
+    def test_explicit_background_form_keeps_lookup_truth_and_ipa(self):
+        decisions = b.load(b.DECISIONS)
+        for n, overlays in [(2405, ['sense:humor:619268be4f125c6a']), (2473, ['sense:import:2aea7b0ca1245c41', 'sense:import:c557e55d59865d39'])]:
+            owner = self.owner(n)
+            canonical = copy.deepcopy(owner)
+            final = b.compile_word(owner, decisions)
+            preserve = copy.deepcopy(decisions)
+            preserve['words'][owner['word_id']].pop('form_identity')
+            preserve['words'][owner['word_id']].pop('sense_identity_overlays')
+            ordinary = b.compile_word(owner, preserve)
+            form = final['reference']['form']
+            self.assertEqual(form['disposition'], 'EXPLORE_ONLY')
+            self.assertIsNone(form['repair'])
+            for field in ('boundary', 'boundaries', 'variants'):
+                self.assertEqual(form[field], ordinary['reference']['form'][field])
+            self.assertEqual(final['pronunciation_support'], ordinary['pronunciation_support'])
+            self.assertNotEqual(final['source_fingerprint'], ordinary['source_fingerprint'])
+            self.assertEqual(owner, canonical)
+            for sid in overlays:
+                self.assertIsNone(next(s for s in final['senses'] if s['id'] == sid)['identity_overlay'])
+                self.assertIsNotNone(next(s for s in ordinary['senses'] if s['id'] == sid)['identity_overlay'])
+        for n in (1367, 2976):
+            final = self.compile(self.owner(n))
+            self.assertIsNotNone(final['reference']['form']['repair'])
+            self.assertNotIn('disposition', final['reference']['form'])
+        diet = self.compile(self.owner(1368))
+        institution = next(s for s in diet['senses'] if s['id'] == 'sense:diet:3154a8051e2f505a')
+        self.assertIsNotNone(institution['identity_overlay']['repair'])
 
     def test_reference_only_edits_change_existing_fingerprint(self):
         owner = self.owner(545)

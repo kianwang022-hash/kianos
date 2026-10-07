@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "垫子，地垫，厚而平的垫子；画框衬边，图片的衬边或背景；体操垫，运动垫；丛，缠结的一团",
-          "label_en": "a thick flat pad used as a floor covering; a border or background for a picture; a piece of thick padding used in gymnastics; a mass that is densely tangled or interwoven",
+          "label_cn": "垫子；铺在地面或其它表面的平垫；画框衬边，图片的衬边或背景；体操垫，运动垫；丛，缠结的一团",
+          "label_en": "a flat pad placed on a floor or another surface; a border or background for a picture; a piece of thick padding used in gymnastics; a mass that is densely tangled or interwoven",
           "pos": "noun",
           "sense_ids": [
             "sense:mat:2d23dedfef855bc3",
@@ -30,8 +30,8 @@
           ]
         },
         {
-          "label_cn": "铺席于…上；使缠结；使无光泽",
-          "label_en": "to cover with mats; to make something tangled or dull",
+          "label_cn": "铺垫子；使缠结或自行缠结；使无光泽",
+          "label_en": "to cover with mats; to make or become densely tangled; to give a dull surface",
           "pos": "verb",
           "sense_ids": [
             "sense:mat:79201cb3335d5bdb"
@@ -64,14 +64,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "垫子，地垫，厚而平的垫子",
-        "definition_en": "a thick flat pad used as a floor covering",
+        "definition_cn": "垫子；铺在地面或其它表面、保护表面的平垫",
+        "definition_en": "a flat pad placed on a floor or another surface, often to cover or protect it",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mat:2d23dedfef855bc3",
-        "sense_label_en": "a thick flat pad used as a floor covering",
+        "sense_label_en": "a flat pad placed on a floor or another surface, often to cover or protect it",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -121,7 +121,7 @@
             "legacy_source_object_ids": [
               "sense:mat:bbaab56fb1fe5670:collocation:0"
             ],
-            "meaning_cn": "无光泽表面，哑光处理",
+            "meaning_cn": "哑光表面/处理；此adj通常写matte/matt，mat也合法",
             "phrase": "mat finish"
           }
         ],
@@ -135,7 +135,8 @@
         "sense_id": "sense:mat:bbaab56fb1fe5670",
         "sense_label_en": "having a dull or rough surface; not shiny",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "哑光adj的拼写：通常AmE matte、BrE matt，mat也合法但较少见；只属不发亮的表面义，不是垫子noun的拼写变体。"
       },
       {
         "collocations": [
@@ -150,16 +151,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "铺席于…上；使缠结；使无光泽",
-        "definition_en": "to cover with mats; to make something tangled or dull",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "铺垫子；使缠结或自行缠结；使无光泽",
+        "definition_en": "to cover with mats; to make or become densely tangled; to give a dull surface",
+        "governing_pattern": "I/T: hair/fibres mat (tangle); mat sth (cover, tangle, or dull)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mat:79201cb3335d5bdb",
-        "sense_label_en": "to cover with mats; to make something tangled or dull",
+        "sense_label_en": "to cover with mats; to make or become densely tangled; to give a dull surface",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -718,6 +719,17 @@
               ]
             }
           ]
+        }
+      ],
+      "form_type": "meaning_conditioned_spelling_identity",
+      "identity_rule": "same_adjectival_lexeme_spelling_variant",
+      "spelling": "mat",
+      "boundary": "哑光adjective：matte通常AmE，matt通常BrE；mat是合法但较少见的变体。仅此意义互通，不适用于垫子noun。",
+      "boundaries": [
+        {
+          "surface": "mat / matt / matte",
+          "condition": "adjective: not shiny",
+          "note": "matte通常AmE，matt通常BrE；mat较少见但合法，非垫子义变体。"
         }
       ]
     }

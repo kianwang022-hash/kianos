@@ -11,6 +11,7 @@ const referenceSenses = Array.isArray(reference.senses) ? reference.senses : [];
 const confusables = Array.isArray(reference.confusables) ? reference.confusables : [];
 const semanticRelations = Array.isArray(reference.relations) ? reference.relations : [];
 const form = reference.form && typeof reference.form === 'object' ? reference.form : null;
+const lookupOnlyForm = form?.disposition === 'EXPLORE_ONLY';
 const family = Array.isArray(reference.family) ? reference.family : [];
 const recallMap = card.recall_map && typeof card.recall_map === 'object' ? card.recall_map : {};
 const recallParts = Array.isArray(recallMap.parts) ? recallMap.parts : [];
@@ -19,10 +20,10 @@ const recallDensity = String(recallMap.density || 'light');
 const referenceModuleCount = [
   confusables.length > 0,
   semanticRelations.length > 0,
-  Boolean(form),
+  Boolean(form) && !lookupOnlyForm,
   family.length > 0
 ].filter(Boolean).length;
-const hasReferenceRail = referenceModuleCount > 0;
+const hasReferenceRail = referenceModuleCount > 0 || Boolean(form);
 const referenceWeight = referenceModuleCount >= 3 ? 'rich' : referenceModuleCount === 1 ? 'light' : 'standard';
 
 const posCode = (value = '') => {
@@ -108,7 +109,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
         )}
       </header>
 
-      <div class="portedVocabBody" data-vocab-body data-has-reference={hasReferenceRail ? 'true' : 'false'} data-reference-weight={referenceWeight}>
+      <div class="portedVocabBody" data-vocab-body data-has-reference={referenceModuleCount > 0 ? 'true' : 'false'} data-reference-weight={referenceWeight}>
         <main class="portedVocabMeaningColumn">
           <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense) => {
@@ -261,7 +262,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
         </main>
 
         {hasReferenceRail && (
-          <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference">
+          <aside class="portedVocabEvidenceColumn" aria-label="Cross-sense lexical reference" data-vocab-lookup-only={referenceModuleCount === 0 ? true : undefined} hidden={referenceModuleCount === 0}>
             {confusables.length > 0 && (
               <section class="lexicalExpansionSection lexicalRelationSection">
                 <header><span>易混辨析</span><small>Confusable</small></header>
@@ -333,7 +334,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
             )}
 
             {form && (
-              <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row>
+              <section class="lexicalExpansionSection lexicalFormSection" data-vocab-target-row={!lookupOnlyForm ? true : undefined} data-vocab-lookup-only={lookupOnlyForm ? true : undefined} hidden={lookupOnlyForm}>
                 <header><span>词形 / 发音</span><small>Form / Pronunciation</small></header>
                 {form.boundary && <p class="lexicalFormBoundary">{form.boundary}</p>}
                 {Array.isArray(form.boundaries) && form.boundaries.length > 0 && (
@@ -361,7 +362,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                     ))}
                   </div>
                 )}
-                <button
+                {!lookupOnlyForm && <button
                   type="button"
                   data-vocab-repair
                   data-target-kind={repair(form.repair).target_kind || 'form_identity'}
@@ -369,7 +370,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                   data-target-locator={repair(form.repair).target_locator || 'record.form_identity'}
                   data-target-label={repair(form.repair).target_label || card.word}
                   aria-pressed="false"
-                >+</button>
+                >+</button>}
               </section>
             )}
 

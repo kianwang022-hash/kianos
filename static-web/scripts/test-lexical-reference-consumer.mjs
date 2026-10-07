@@ -39,6 +39,29 @@ const markup = await transform(fs.readFileSync('src/components/VocabularyWordMar
 let markupCode = markup.code.replaceAll('astro/runtime/server/index.js', runtimeUrl).replaceAll('./LexicalPronunciation.astro', moduleUrl(pronunciationCode));
 const component = (await import(moduleUrl(markupCode))).default;
 const container = await experimental_AstroContainer.create();
+const trialWords = JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'../tools');import lexical_build_final_learner_objects as b;print(json.dumps([b.compile_word(b.load(b.WORDS/f'o{n:04}.json'),b.load(b.DECISIONS)) for n in [2405,2473,1367,1368,2976,2847,1500]]))`], { encoding: 'utf8' }));
+for (const word of trialWords) {
+  const html = await container.renderToString(component, {props:{answer:{objectId:word.word_id,ordinal:word.ordinal,record:word,sourceHash:word.source_fingerprint,senseLineage:word.sense_lineage}}});
+  if ([2405,2473].includes(word.ordinal)) {
+    const form = html.match(/<section[^>]*lexicalFormSection[\s\S]*?<\/section>/)?.[0] || '';
+    check(form.includes('data-vocab-lookup-only') && /<section[^>]*\bhidden\b/.test(form), word.word+'_background_form_uses_existing_lookup_mode');
+    check(!form.includes('data-vocab-repair') && !form.includes('data-vocab-target-row'), word.word+'_background_form_has_no_default_repair');
+    check(form.includes(word.ordinal === 2405 ? 'humour' : word.reference.form.boundaries[0].note), word.word+'_lookup_retains_spelling_or_full_stress_ipa');
+  } else if ([1367,2976].includes(word.ordinal)) {
+    const form = html.match(/<section[^>]*lexicalFormSection[\s\S]*?<\/section>/)?.[0] || '';
+    check(form.includes('data-vocab-repair') && !form.includes('data-vocab-lookup-only'), word.word+'_useful_form_remains_default');
+  } else if (word.ordinal === 1368) {
+    check(html.includes('lowercase diet is food/eating plan') && html.includes('data-target-locator="record.senses[3].lexical_identity_overlay"'), 'Diet_capitalization_overlay_keeps_existing_repair');
+  } else {
+    const ref = html.match(/<section[^>]*aria-label="Reference-only senses"[\s\S]*?<\/section>/)?.[0] || '';
+    check(ref.includes(word.reference.senses[0].sense_id) && !ref.includes('data-vocab-repair'), word.word+'_reference_truth_and_no_plus');
+  }
+}
+const importOnly = structuredClone(trialWords.find(word => word.ordinal === 2473));
+importOnly.reference.confusables = []; importOnly.reference.relations = []; importOnly.reference.family = [];
+const onlyHtml = await container.renderToString(component, {props:{answer:{objectId:importOnly.word_id,ordinal:importOnly.ordinal,record:importOnly,sourceHash:importOnly.source_fingerprint,senseLineage:importOnly.sense_lineage}}});
+check(/<aside[^>]*data-vocab-lookup-only[^>]*\bhidden\b/.test(onlyHtml), 'background_only_rail_is_hidden_in_default_and_retained_for_lookup');
+check(onlyHtml.includes('data-has-reference="false"'), 'background_only_rail_leaves_no_default_empty_column');
 for (const word of words) {
   const html = await container.renderToString(component, {props:{answer:{objectId:word.word_id,ordinal:word.ordinal,record:word,sourceHash:word.source_fingerprint,senseLineage:word.sense_lineage}}});
   if (word.reference.senses?.length) {
