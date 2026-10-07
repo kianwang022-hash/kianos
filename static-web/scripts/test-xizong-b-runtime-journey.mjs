@@ -179,6 +179,59 @@ async function biochemistrySourceLaneJourney(page) {
       && row?.lane_source_hash === lane.sourceHash
   ), 'm2_keeps_exact_s01_source_witness');
 
+  // BIO27-S01 forms the local Source material; it does not confirm that the
+  // learner understands M2's required model. Exercise the actual user control,
+  // without seeding M1 completion or manufacturing any prerequisite evidence.
+  const m2Learner = JSON.parse((await page.locator('[data-xizong-learner-object-payload]').textContent()) || 'null');
+  const requiredModels = m2Learner?.sourceContact?.requiredModelReadiness;
+  check(requiredModels?.targetBlockId === 'M2' && requiredModels?.requirements?.length > 0,
+    'm2_has_current_target_required_models');
+  const modelPanel = root.locator('[data-required-model-readiness]');
+  check(await modelPanel.isVisible(), 'm2_displays_required_models_before_confirmation');
+  const displayedModels = await modelPanel.locator('[data-required-model-list]').textContent() || '';
+  check(requiredModels.requirements.every((row) => displayedModels.includes(row.modelPrompt)),
+    'm2_confirmation_uses_actual_required_model_prompts');
+  await root.locator('[data-stage-next="logic_group"]').click();
+  await page.waitForTimeout(80);
+  check(await visibleStage(root) === 'block_learn',
+    'formed_m2_source_does_not_replace_required_model_confirmation');
+
+  const prerequisiteKeys = requiredModels.requirements.filter((row) => row.blockId)
+    .map((row) => `kianos-xizong-astro-v2:xizong:${row.blockId}`);
+  const readModelConfirmationBoundary = () => page.evaluate(({ studyKey, prerequisiteKeys, ledgerKey }) => {
+    const study = JSON.parse(localStorage.getItem(studyKey) || 'null');
+    const { requiredModelContinuation, ...unchangedStudy } = study || {};
+    const recall = JSON.parse(localStorage.getItem('kianos-xizong-memory-review-v2:xizong:M2') || 'null');
+    return {
+      requiredModelContinuation: requiredModelContinuation || null,
+      unchangedStudy,
+      prerequisiteStates: prerequisiteKeys.map((key) => [key, localStorage.getItem(key)]),
+      sourceLedger: localStorage.getItem(ledgerKey),
+      recallHistory: recall?.evidenceHistory || []
+    };
+  }, { studyKey: m2Key, prerequisiteKeys, ledgerKey });
+  const beforeModelConfirmation = await readModelConfirmationBoundary();
+  check(beforeModelConfirmation.requiredModelContinuation === null,
+    'm2_missing_confirmation_remains_unconfirmed_after_source_navigation');
+  check(beforeModelConfirmation.prerequisiteStates.every(([, state]) => state === null),
+    'm2_journey_has_no_seeded_prerequisite_completion');
+  await modelPanel.locator('[data-required-model-confirm]').click();
+  await page.waitForFunction(({ key, witness }) => {
+    const confirmation = JSON.parse(localStorage.getItem(key) || 'null')?.requiredModelContinuation;
+    return confirmation?.targetBlockId === 'M2'
+      && confirmation?.requirementsWitness === witness
+      && confirmation?.confirmation === 'USER_CURRENT_TARGET_MODELS_UNDERSTOOD';
+  }, { key: m2Key, witness: requiredModels.witness });
+  const afterModelConfirmation = await readModelConfirmationBoundary();
+  check(Number.isFinite(Date.parse(afterModelConfirmation.requiredModelContinuation.confirmedAt)),
+    'm2_explicit_user_confirmation_persists_current_target_permission');
+  check(await modelPanel.isHidden(), 'm2_confirmed_model_prompt_leaves_normal_recall_surface');
+  check(JSON.stringify(afterModelConfirmation.unchangedStudy) === JSON.stringify(beforeModelConfirmation.unchangedStudy)
+      && JSON.stringify(afterModelConfirmation.prerequisiteStates) === JSON.stringify(beforeModelConfirmation.prerequisiteStates)
+      && afterModelConfirmation.sourceLedger === beforeModelConfirmation.sourceLedger
+      && JSON.stringify(afterModelConfirmation.recallHistory) === JSON.stringify(beforeModelConfirmation.recallHistory),
+    'm2_model_confirmation_changes_only_current_target_permission');
+
   await root.locator('[data-stage-next="logic_group"]').click();
   await page.waitForTimeout(80);
   check(await visibleStage(root) === 'kp_recall',
@@ -322,6 +375,79 @@ async function systemRecallToPracticeJourney(page) {
   }, completed);
   await page.reload({ waitUntil: 'domcontentloaded' });
   const recallEntry = page.locator('[data-xizong-system-recall-entry]');
+  await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+  const currentCompletion = await page.evaluate(() => {
+    const input = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+    return {
+      requirements: input.requirements || [],
+      states: Object.fromEntries((input.blockIds || []).map((id) => [id,
+        JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:xizong:${id}`) || 'null')]))
+    };
+  });
+  const heldRequirements = currentCompletion.requirements.filter((requirement) =>
+    (requirement.sourceContact?.independentReadinessGates || []).some((gate) =>
+      ['HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED', 'HOLD_SOURCE_CONFLICT'].includes(gate.status))
+  );
+  check(heldRequirements.length === 6, 'b_current_owner_retains_six_independent_block_holds', String(heldRequirements.length));
+  if (heldRequirements.length) {
+    // These are intentionally old synthetic completion records, not proof of
+    // current O9 availability or resolution of D19's Source conflict. A positive
+    // full-System fixture cannot be manufactured by stripping accepted gates.
+    const expectedHeldScopes = {
+      D11: ['b-d11-lg01','b-d11-lg02','b-d11-lg03','b-d11-lg04','b-d11-lg05','b-d11-lg06'],
+      D15: ['b-d15-lg01','b-d15-lg02','b-d15-lg03','b-d15-lg04','b-d15-lg05'],
+      D18: ['b-d18-lg01','b-d18-lg02','b-d18-lg03','b-d18-lg04'],
+      D19: ['b-d19-lg04','b-d19-lg06','b-d19-lg07'],
+      D20: ['b-d20-lg05','b-d20-lg06'],
+      D21: ['b-d21-lg09']
+    };
+    check(JSON.stringify(heldRequirements.map((row) => row.identity.blockId).sort())
+        === JSON.stringify(Object.keys(expectedHeldScopes).sort()),
+      'current_b_has_exact_six_independently_held_blocks');
+    for (const requirement of currentCompletion.requirements) {
+      const id = requirement.identity.blockId;
+      const before = JSON.stringify(currentCompletion.states[id]);
+      const completion = inspectXizongBlockCompletion(requirement, currentCompletion.states[id]);
+      check(JSON.stringify(currentCompletion.states[id]) === before
+          && before === JSON.stringify(completed[id]),
+        'current_gate_inspection_preserves_exact_historical_block_record', id);
+      if (Object.hasOwn(expectedHeldScopes, id)) {
+        check(completion.complete === false && completion.reason === 'INDEPENDENT_READINESS_UNRESOLVED',
+          'historical_completion_does_not_waive_current_independent_gate', id);
+        check(JSON.stringify([...completion.heldLogicGroupIds].sort()) === JSON.stringify([...expectedHeldScopes[id]].sort()),
+          'independent_hold_remains_exact_lg_scope', id);
+      } else check(completion.complete === true,
+        'unrelated_historical_block_not_expanded_into_independent_hold', id);
+    }
+    check(await recallEntry.isHidden(), 'unresolved_current_gates_keep_system_recall_entry_locked');
+    await page.goto(`${BASE}/xizong/${SYSTEM_ID}/recall/`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
+    const recall = page.locator(`[data-xizong-system-exit="${SYSTEM_ID}"]`);
+    await page.locator('[data-xizong-system-recall-lock]').waitFor({ state: 'visible' });
+    check(await recall.isHidden(), 'direct_b_system_recall_route_preserves_current_gate');
+    check(await recall.locator('[data-practice-handoff]').isHidden(), 'held_system_does_not_release_practice_handoff');
+    const systemRecallKey = `kianos:xizong:system-recall:${SYSTEM_ID}:v1`;
+    const priorSystemRecall = await page.evaluate((key) => localStorage.getItem(key), systemRecallKey);
+    // Explicit adversary, not a visible user journey: hidden controls cannot
+    // turn old completion flags into a new System Recall or practice release.
+    for (const selector of ['[data-start-recall]', '[data-reveal-recall]', '[data-complete-recall]']) {
+      check(await recall.locator(selector).count() === 1, 'held_system_adversary_control_is_mounted', selector);
+      await recall.locator(selector).dispatchEvent('click');
+    }
+    check(await page.evaluate((key) => localStorage.getItem(key), systemRecallKey) === priorSystemRecall,
+      'hidden_system_controls_create_no_new_recall_evidence_while_held');
+    check(await recall.locator('[data-practice-handoff]').isHidden(), 'held_system_cannot_gain_practice_handoff_by_hidden_dispatch');
+    report.current_independent_gate_scenario = { status: 'PASS', held_scopes: expectedHeldScopes, preserved_historical_records: 38 };
+    report.blocked_scenarios = [
+      { name: 'all_38_completed_blocks_release_system_recall', status: 'BLOCKED',
+        reason: 'Current accepted Tumor/O9 and D19 Source-conflict gates are unresolved. No valid current-owner positive completion fixture exists; historical flags cannot supply those missing facts.',
+        held_scopes: expectedHeldScopes },
+      { name: 'system_recall_to_practice_and_wu_repair', status: 'NOT_TESTED',
+        reason: 'The prerequisite current System Recall cannot legally release the practice handoff. Original positive/practice/Repair assertions remain below and are not counted as passed.',
+        known_independent_prior_failure: 'b_biochemistry_repair_missing_axis_fails_closed' }
+    ];
+    return;
+  }
   try {
     await page.waitForFunction(() => document.documentElement.dataset.learnerWriter === 'active', null, { timeout: 20000 });
     await recallEntry.waitFor({ state: 'visible', timeout: 20000 });
@@ -744,10 +870,15 @@ try {
   await systemRecallToPracticeJourney(page);
 
   report.finished_at = new Date().toISOString();
-  report.status = 'PASS';
-  report.boundary = 'Engineering P/R/E proof only. Seeded completion states prove gating/identity compatibility, not Kian learner U; question attempts are synthetic browser actions against Current Question Truth.';
+  report.executed_checks_status = 'PASS';
+  report.status = report.blocked_scenarios?.length ? 'BLOCKED' : 'PASS';
+  report.boundary = report.blocked_scenarios?.length
+    ? 'Executed engineering checks passed for D whole-LG, M/G global Source with explicit target-model confirmation, and current independent gate enforcement. Full B System Recall is BLOCKED and downstream practice/WU Repair is NOT_TESTED; their original assertions are not passes. Historical fixtures are negative controls, never current O9/Source-conflict evidence or learner U.'
+    : 'Engineering P/R/E proof only. Seeded completion states prove gating/identity compatibility, not Kian learner U; question attempts are synthetic browser actions against Current Question Truth.';
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-  console.log(`XIZONG_B_RUNTIME_EVIDENCE_JOURNEY_PASS | checks=${report.checks.length}`);
+  console.log(report.blocked_scenarios?.length
+    ? `XIZONG_B_RUNTIME_CURRENT_GATES_PASS | checks=${report.checks.length} | system_recall_positive=BLOCKED | downstream_practice=NOT_TESTED`
+    : `XIZONG_B_RUNTIME_EVIDENCE_JOURNEY_PASS | checks=${report.checks.length}`);
   await context.close();
 } catch (error) {
   report.finished_at = new Date().toISOString();

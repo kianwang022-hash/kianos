@@ -818,15 +818,15 @@
           "reviewed_against": {
             "B:D21": {
               "path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
-              "semantic_sha256": "dcfd28be65d0515d9b4bac120449481cff0aeb212b8f3bccedcd4cd975f19297"
+              "semantic_sha256": "626d41dde7d694001692fd1ee14cd8752577801e3e5eb83a6f5a070772aed33c"
             },
             "B:D11": {
               "path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
-              "semantic_sha256": "18ce80a601bb2b2d39a0361cbf48e501c88c6f8ffe66a05bbb5ae43b3d5f80a9"
+              "semantic_sha256": "8e931be4029b87b0a7fde510d6c04398ae48113f3e9e3f2a8c84808051bbfd49"
             },
             "B:D19": {
               "path": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
-              "semantic_sha256": "be5446f551edaf164c7dad7bfdad206bf0054204d47aeb77cd4409c18eec086d"
+              "semantic_sha256": "2e10102f0792aa6bd45ad0c57cd84366a54f11bb8bbbafcadd130557755c9b2a"
             },
             "D:O11": {
               "path": "content/xizong/knowledge/learner/d-neuro-sensory-motor-orthopedics-learning.json",
@@ -845,7 +845,7 @@
               "semantic_sha256": "5b79132c9df3aaafc1fa222a95f448b2d42c8e0d7f58e03da6f3e2763a5e996e"
             }
           },
-          "receipt_sha256": "086bc3428f45f1430145e265528b5e4033ee674f564d58768366de320020f9dc"
+          "receipt_sha256": "589b9e25b140811c2868f1cad376c600986662204c76bb85a787f6d0e8030bc0"
         },
         "downstream_review": {
           "mode": "REVIEWED_DERIVATION",
@@ -854,7 +854,7 @@
             "reviewed_learning_bindings"
           ],
           "freshness": "TARGETED_Q_X_EVIDENCE_RECONCILIATION",
-          "receipt_sha256": "f08f8b6db67300ede5e2cb30db4fad00bc43af7290f8fe12a0169d84326b8a08"
+          "receipt_sha256": "ee67b3037c2ce9323d7eb11cdc30ad988912e2ed94747b14668856ed452bbcb6"
         },
         "source_visuals": {
           "mode": "DERIVED_PROJECTION",
@@ -862,6 +862,14 @@
           "stored_receipt": false
         }
       }
+    },
+    "dependency_reconciliation_2026_10_07": {
+      "scope": "B:D11/B:D19/B:D21 Learning gate propagation only",
+      "basis": "Approved current-target cognitive readiness preserves independent gates; reviewed B Learning sha256:7f3a7a4d2723fbd59673c4e069bc351ce61965e767de8e8115355526e7117f80.",
+      "learning_delta": "The only changed Surgery Learning target fields are existing Tumor Gate scope bindings at D11 LG01-LG06, D21 LG09/KP23-KP25 and D19 LG04/KP13 + LG06/KP17, plus D19 LG07/KP18 Source-conflict HOLD. Removing exactly these additions reproduces all three previously reviewed target hashes; the other four Learning targets are identical.",
+      "preserved_basis": "All pre-existing B Learning fields, raw readiness.requires, LG/KP identity, membership/order, goal/closure, tumor criteria, Source identity/map and all 52 bound canonical medical owners are unchanged. Top-level readiness policy is not part of these per-Block witness inputs.",
+      "dependent_hold": "D19 KP18/LG07 remains HOLD for warning-labelled Reference only; no clean scored answer or formal LG/Block closure is accepted. This reconciliation does not resolve the Source conflict, adopt candidate Core/Prompt/teaching or expand the prior receipt's acceptance.",
+      "downstream_boundary": "Only the three exact Learning witnesses and their two required aggregate dependency hashes advance. Existing Q/X relation/explanation witnesses and historical learner evidence are not renewed or rewritten. No new Source/PDF pixel or medical acceptance is claimed; any material unreviewed change still fails the unchanged freshness validator."
     },
     "dependency_reconciliation_2026_10_02": {
       "reviewed_at": "2026-10-02",

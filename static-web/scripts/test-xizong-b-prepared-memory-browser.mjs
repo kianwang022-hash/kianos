@@ -28,17 +28,20 @@ const report={status:'RUNNING',ci_commit:execFileSync('git',['rev-parse','HEAD']
 let browser,lastPage;
 try {
  const {buildXizongPreparedMemoryAvailability:describe}=await import('../src/lib/xizongMemoryRelease.mjs');
- const {createXizongMemoryState,makePreparedMemoryAvailable}=await import('../src/lib/xizongMemoryModel.mjs');
+ const {createXizongMemoryState,makePreparedMemoryAvailable,selectMemoryView}=await import('../src/lib/xizongMemoryModel.mjs');
  const {chromium}=await import('playwright');browser=await chromium.launch({headless:true});
  const newContext=async()=>{const context=await browser.newContext({viewport:{width:1440,height:960}});await context.route('**/*',route=>new URL(route.request().url()).origin===base.origin?route.continue():route.abort());context.on('page',page=>page.on('pageerror',error=>errors.push(error.message)));return context};
  const newPage=async context=>{lastPage=await context.newPage();return lastPage};
  const ready=async page=>{await page.bringToFront();await page.waitForFunction(()=>document.documentElement.dataset.learnerWriter==='active',{}, {timeout:30000})};
  const blockReady=async(page,id)=>{await ready(page);await page.waitForFunction(key=>Boolean(JSON.parse(localStorage.getItem(key)||'null')?.contentRevision?.witness?.block),studyKey(id))};
  const openPrepared=async(page,id)=>{await page.locator('[data-open-prepared-memory]').click();await page.waitForURL(url=>url.pathname.endsWith('/xizong/memory/')&&url.searchParams.get('block')===id&&url.searchParams.get('view')==='precision');await ready(page);await page.waitForFunction(n=>document.querySelector('[data-memory-queue]')?.querySelectorAll('button').length===n,byBlock.get(id).length)};
- const choose=async(page,id,cueId)=>{const cards=cardsByBlock.get(id),n=cards.findIndex(card=>card.precisionCueId===cueId);assert.ok(n>=0);await page.locator('[data-memory-queue] button').nth(n).click();return cards[n]};
+ // Admission/index order is not display order: the existing native Memory
+ // consumer sorts by canonical/Block/KP identity. Resolve the requested stable
+ // cue through that consumer and verify the selected DOM identity explicitly.
+ const choose=async(page,id,cueId)=>{const cards=cardsByBlock.get(id),n=cards.findIndex(card=>card.precisionCueId===cueId);assert.ok(n>=0);await page.locator('[data-memory-queue] button').nth(n).click();await page.waitForFunction(cueId=>document.querySelector('[data-memory-answer] [data-prepared-memory]')?.getAttribute('data-prepared-memory')===cueId,cueId);return cards[n]};
  const assertAnswer=async(page,row)=>{
   const answer=page.locator(`[data-memory-answer] [data-prepared-memory="${row.id}"]`),body=answer.locator(':scope > [data-memory-prepared-answer]');
-  assert.equal(await answer.count(),1);assert.equal(await answer.isVisible(),true);assert.equal(await body.count(),1);
+  assert.equal(await answer.count(),1,`${row.id}: exact native answer identity must be selected`);assert.equal(await answer.isVisible(),true);assert.equal(await body.count(),1);
   assert.equal(await body.textContent(),row.item.answer,`${row.id}: full exact answer and original authored boundaries`);
   assert.equal(await body.locator('details').count(),0);
   const view=await answer.evaluate(root=>({hidden:[...root.querySelectorAll('p')].filter(p=>/^(?:适用范围：|来源差异：|处理边界：|助记（不能代替答案）：)/u.test(p.textContent||'')).filter(p=>!p.getClientRects().length).map(p=>p.textContent),visible:root.innerText,full:root.textContent,open:root.querySelectorAll('[data-memory-provenance][open]').length}));
@@ -70,7 +73,7 @@ try {
   const actual=[...object.kps,...object.logicGroups].flatMap(owner=>(owner.precision||[]).map(cue=>({owner,cue})));assert.deepEqual(actual.filter(x=>x.cue.raw?.prepared_memory_ref).map(x=>x.cue.id).sort(),rows.map(r=>r.id).sort());
   assert.deepEqual(claims(await read(page,studyKey(id))),emptyClaims);assert.equal(await read(page,memoryKey),null);
   if(!rows.length){assert.equal(await page.locator('[data-open-prepared-memory]').count(),0);checks.push(`${id}: native zero-admission Block has no prepared-memory entry`);await context.close();continue;}
-  const descriptor=describe(object);cardsByBlock.set(id,descriptor.precisionCards);assert.deepEqual(descriptor.precisionCards.map(c=>c.id).sort(),rows.map(r=>'precision:'+r.id).sort());
+  const descriptor=describe(object);cardsByBlock.set(id,selectMemoryView(makePreparedMemoryAvailable(createXizongMemoryState(),descriptor),'PRECISION').items);assert.deepEqual(descriptor.precisionCards.map(c=>c.id).sort(),rows.map(r=>'precision:'+r.id).sort());
   for(const row of rows){const match=actual.filter(x=>x.cue.id===row.id);assert.equal(match.length,1);assert.deepEqual(match[0].cue.anchor,row.anchor);assert.deepEqual(match[0].cue.raw.prepared_memory_ref.owner_kp_ids,row.owner_kp_ids);if(row.owner_kind==='LG')assert.deepEqual(match[0].owner.kpIds,row.owner_kp_ids);}
   const beforeStudy=await raw(page,studyKey(id));await openPrepared(page,id);const available=await read(page,memoryKey);
   assert.equal(await raw(page,studyKey(id)),beforeStudy);assert.equal(Object.keys(available.cards).length,rows.length);for(const key of ['releasedBlocks','attention','marks','promptOverrides'])assert.deepEqual(available[key],{});for(const key of ['evidence','repairTasks'])assert.deepEqual(available[key],[]);assert.equal(normalized(await page.locator('[data-memory-summary-core]').textContent()),'0');assert.equal(normalized(await page.locator('[data-memory-summary-today]').textContent()),'0');
