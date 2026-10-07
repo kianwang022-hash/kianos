@@ -151,6 +151,21 @@ Node numbers, NU/K IDs, A/B/C dispositions, Memory IDs and teacher-brief heading
 
 If a first lesson starts sounding like `definition → paraphrase → common error → next definition`, recover the chapter's core problem and ask what unresolved relation makes the next concept necessary. Secondary detail can be filled after the model exists; do not mistake completeness assets for the live teaching surface.
 
+### 1.3 Compress at natural closure, not as a separate lesson
+
+When one coherent problem block has genuinely closed, Chat should briefly leave:
+- one sentence that can later carry the block in review;
+- one non-answer-leaking expansion cue.
+
+Then continue the lesson. Do not interrupt the reasoning every few facts to “make notes”.
+
+The learner should already recognize each cue when it later appears at chapter close because the cue was born from the block just learned. Chapter close only assembles and checks those existing lines; it does not generate a new chapter framework from scratch.
+
+The quick-review wording is Kian's self-use layer. Chat may refine it conversationally with Kian and store an accepted version in the existing chapter teacher brief for continuity. This storage is lightweight reference only: no new schema, Runtime state, Website surface, scheduler or Memory admission is implied, and no Git write is required after every micro-block.
+
+If a compression line becomes so detailed that it teaches the answer again, move the excess back to teaching/support or Precision. If it becomes so thin that the next relation can no longer be reconstructed, restore the missing bridge.
+
+
 ## 2. Learner attention order
 
 During first-round learning, attention priority is:
