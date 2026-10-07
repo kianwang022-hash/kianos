@@ -56,7 +56,8 @@ Content the learner should normally **carry out of first learning**.
 Typical content:
 - decisive `Boundary`;
 - scarce `Anchor`;
-- `FIRST_ROUND_EXACT` selected under the current Learning §6.1 necessity filter, not merely every old source-reviewed card;
+- **node main prompts** selected under Learning §§0.7/6.1: structured memory worth carrying with the model, not every branch or old card title;
+- `FIRST_ROUND_EXACT` residuals selected under the current Learning §6.1 necessity filter, not merely every old source-reviewed card;
 - a short relation needed to prevent a predictable first-round misunderstanding.
 
 H2 may be available during Orientation when necessary, but must not automatically compete with H1.
@@ -114,7 +115,8 @@ Explicit Content-owned overrides are allowed only for real semantic exceptions.
 | `relation_chains` used only as secondary reasoning | `H3_SUPPORTING_UNDERSTANDING` |
 | `boundaries` | `H2_FIRST_ROUND_CARRY` unless explicitly repair-only |
 | `anchors` | `H2_FIRST_ROUND_CARRY` |
-| precision `FIRST_ROUND_EXACT` justified by current Learning §6.1 | `H2_FIRST_ROUND_CARRY` |
+| content-owned node main prompt selected under Learning §§0.7/6.1 | `H2_FIRST_ROUND_CARRY` |
+| residual precision `FIRST_ROUND_EXACT` justified by current Learning §6.1 | `H2_FIRST_ROUND_CARRY` |
 | precision `PRECISION_NOT_ORIENTATION` | `H4_ON_DEMAND` |
 | precision `LATER_PRECISION` | `H4_ON_DEMAND` |
 | precision `REFERENCE_OR_QUESTION_TRIGGERED` | `H5_REPAIR_REFERENCE` |
