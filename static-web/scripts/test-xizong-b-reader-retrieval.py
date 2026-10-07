@@ -94,6 +94,12 @@ def main():
  for row in rows:
   o=next(r for r in fixture['readers'] if r['path']==row['path']);t=body(row['html']);snap=snapshot(t,o['keys']);err=binding_errors(t,o['keys']);check(row['path']+' native Current identity/title/Prompt unchanged',row['keys']==o['keys']);check(row['path']+' own-node visible full Current keys',not err,err)
   for part in ['full_text_sha256','closed_text_sha256','regions','details','links']:check(row['path']+' reviewed complete '+part,snap[part]==o['expected'][part])
+  if o['block'] in {'D16','D17','D18','D19','D20'}:
+   check(row['path']+' adopted status is not a local preparation claim','仅为本地准备' not in t.text())
+   # Each original bound expansion keeps its explicit image-review limit.
+   provenance=[n for n in t.all() if 'provenance' in classes(n)]
+   check(row['path']+' original image-review qualifications retained',len(provenance)==len(o['keys']) and all('原页图像未复核' in n.text() for n in provenance))
+
   ids={n.attrs.get('id') for n in t.all() if n.attrs.get('id')}
   for link in snap['links']:
    href=unquote(link['href']);u=urlparse(href)
