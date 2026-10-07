@@ -139,7 +139,9 @@ try {
   await page.locator('[data-precision-mode="RECALL"]').click();
   assert.equal(await answer.isVisible(),false);
   assert.equal(await page.locator('[data-memory-ratings]').isVisible(),false);
-  checks.push('Recall hides answer and mnemonic together before Reveal');
+  assert.equal((await page.locator('[data-memory-card-title]').textContent()).trim(),cards[idx].cue,'A1 shares the answer-free Precision Recall label rule');
+  assert.equal((await page.locator('[data-memory-queue] button').nth(idx).locator('span').textContent()).trim(),cards[idx].cue);
+  checks.push('Recall hides answer and mnemonic together before Reveal and uses the same cue-only label across A/B');
   await page.locator('[data-memory-reveal]').click();
   assert.equal(await answer.isVisible(),true);assert.match(await answer.textContent(),/快射-双双高潮/);
   assert.equal(await page.locator('[data-memory-ratings]').isVisible(),true);
@@ -439,19 +441,26 @@ try {
       await p.locator('[data-memory-queue] button').nth(i).click();
       const actual=answer.locator(`[data-prepared-memory="${card.precisionCueId}"]`);assert.equal(await actual.count(),1);
       const expectedText=await p.evaluate(html=>{const t=document.createElement('template');t.innerHTML=html;return t.content.textContent.replace(/\s+/g,' ').trim();},card.answerHtml);
-      const authoredTables = {'B10-M23': 4, 'B10-M32': 4, 'B11-M02': 4};
+      const authoredTables = {'B10-M23': 4, 'B10-M32': 4, 'B11-M02': 4, 'xpg_b85cb6960f8b0b25': 4, 'xpg_03f70b43216a1f2e': 4};
       if (Object.hasOwn(authoredTables, card.precisionCueId)) {
-        // These three pre-existing answers contain explicit pipe-table syntax.
-        // Compare native authored cells and all exterior text, not punctuation
-        // that the view-only formatter intentionally turns into table markup.
+        // Explicit authored tables may start at a line boundary or immediately
+        // after a colon-terminated label. Compare real cells plus all exterior
+        // prose; pipe punctuation itself is presentation syntax, not content.
         const source = await p.evaluate(html => {
           const t = document.createElement('template'); t.innerHTML = html;
           const raw = t.content.querySelector('section > p').textContent;
-          const lines = raw.split(/\r?\n/), tableLines = lines.filter(line => line.trim().startsWith('|'));
+          const lines = raw.split(/\r?\n/), first = lines.findIndex(line => line.includes('|'));
+          const starts = lines[first].trim().startsWith('|'), at = starts ? -1 : lines[first].indexOf('|');
+          const prefix = starts ? '' : lines[first].slice(0, at);
+          const tableLines = starts
+            ? lines.slice(first).filter(line => line.trim().startsWith('|'))
+            : [lines[first].slice(at), ...lines.slice(first + 1).filter(line => line.trim().startsWith('|'))];
           const cells = line => line.trim().slice(1, -1).split('|').map(cell => cell.trim());
           const header = cells(tableLines[0]), rows = tableLines.slice(2).map(cells);
-          return {header, rows, prose: lines.filter(line => line.trim() && !line.trim().startsWith('|')),
-            full: t.content.textContent.replace(tableLines.join('\n'), header.join('') + rows.flat().join('')).replace(/\s+/g, ' ').trim()};
+          const before = lines.slice(0, first).filter(line => line.trim());
+          if (prefix) before.push(prefix);
+          const after = lines.slice(first + tableLines.length).filter(line => line.trim() && !line.trim().startsWith('|'));
+          return {header, rows, prose:[...before, ...after]};
         }, card.answerHtml);
         const body = actual.locator(':scope > [data-memory-prepared-answer]');
         assert.equal(await body.locator('table').count(), 1);
@@ -459,7 +468,6 @@ try {
         assert.deepEqual(await body.locator('tbody tr').evaluateAll(rows => rows.map(row => [...row.querySelectorAll('td')].map(cell => cell.textContent))), source.rows);
         assert.equal(source.rows.length, authoredTables[card.precisionCueId]);
         assert.deepEqual(await body.locator('p').allTextContents(), source.prose);
-        assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),source.full);
         assert.equal(await body.locator('details').count(), 0, 'table answer and qualifications are not folded');
       } else assert.equal((await actual.textContent()).replace(/\s+/g,' ').trim(),expectedText);
     }

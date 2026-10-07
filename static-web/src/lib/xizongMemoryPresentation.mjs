@@ -25,8 +25,8 @@ function pipeCells(line) {
   return cells.length >= 2 ? cells : null;
 }
 
-function authoredPipeTable(lines, start) {
-  const header = pipeCells(lines[start]);
+function authoredPipeTable(lines, start, headerLine = lines[start]) {
+  const header = pipeCells(headerLine);
   const separator = pipeCells(lines[start + 1] || '');
   if (!header || !separator || header.length !== separator.length
     || header.some(cell => !cell) || !separator.every(cell => /^:?-{3,}:?$/u.test(cell))) return null;
@@ -62,8 +62,21 @@ function preparedAnswerBody(text) {
       i++;
       continue;
     }
-    const table = fence ? null : authoredPipeTable(lines, i);
+    let prefix = '';
+    let table = fence ? null : authoredPipeTable(lines, i);
+    if (!table && !fence) {
+      const pipe = lines[i].indexOf('|');
+      const possiblePrefix = pipe > 0 ? lines[i].slice(0, pipe) : '';
+      // Some reviewed answers introduce an explicit authored table with a
+      // short label on the same line. Recognize only a colon-terminated prefix
+      // plus an otherwise valid rectangular table; malformed cases stay text.
+      if (pipe > 0 && /[：:]\s*$/u.test(possiblePrefix)) {
+        table = authoredPipeTable(lines, i, lines[i].slice(pipe));
+        if (table) prefix = possiblePrefix;
+      }
+    }
     if (table) {
+      if (prefix) html += answerLine(prefix);
       html += table.html + (breaks[table.end - 1] || '');
       i = table.end;
     } else {

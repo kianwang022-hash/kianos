@@ -46,7 +46,7 @@ const base = import.meta.env.BASE_URL;
       <section class="xzMemoryEmpty" data-memory-empty>
         <span>Memory 还没有已释放内容</span>
         <h2>先学，不制造假复习。</h2>
-        <p>已准备并审定的 A1 / A2 / A3 Precision 可从 Block 单独打开；Core 仍在真实 Block Complete 后进入长期库。可浏览不代表学完，也不等于今天必须复习。</p>
+        <p>已准备并审定的 A1 / A2 / A3 / B Precision 可从 Block 单独打开；Core 仍在真实 Block Complete 后进入长期库。可浏览不代表学完，也不等于今天必须复习。</p>
       </section>
 
       <article class="xzMemoryCard" data-memory-card hidden>
@@ -243,18 +243,16 @@ const base = import.meta.env.BASE_URL;
     };
 
     const selectedItem = () => currentItems[Math.max(0, Math.min(currentItems.length - 1, index))] || null;
-    // Canonical owner titles can contain the very threshold being recalled.
-    // A2/A3/B Recall uses the reviewed answer-free cue for every queue/header label;
-    // Browse retains the canonical title. No stored Content or identity changes.
-    const nativePrecisionRecall = (item) => item.family === 'PRECISION'
-      && ((item.systemId === 'respiratory' && item.canonicalId === 'A2')
-        || (item.systemId === 'urinary' && item.canonicalId === 'A3')
-        || (item.systemId === 'digestive-metabolic-endocrine-tumor' && item.canonicalId === 'B'))
+    // Precision Recall is one shared surface across A/B. Canonical owner titles
+    // may contain the exact value being recalled, so every Precision Recall
+    // front uses the reviewed answer-free cue. Browse may retain owner titles.
+    // This changes presentation only; stored Content/identity/evidence is untouched.
+    const precisionRecall = (item) => item.family === 'PRECISION'
       && !(view === 'PRECISION' && precisionMode === 'BROWSE');
-    const cardLabel = (item) => nativePrecisionRecall(item) ? (item.cue || 'Precision Memory')
+    const cardLabel = (item) => precisionRecall(item) ? (item.cue || item.title || 'Precision Memory')
       : item.family === 'PRECISION' ? (item.title || item.cue || item.id) : `${item.displayId || item.kpId || ''}${item.title ? `｜${item.title}` : ''}`;
     const cardContext = (item) => [item.canonicalId, item.blockLabel,
-      ...(nativePrecisionRecall(item) ? [] : [item.groupLabel])].filter(Boolean).join(' · ');
+      ...(precisionRecall(item) ? [] : [item.groupLabel])].filter(Boolean).join(' · ');
     const repairPriorityLabel = (value) => ({ high:'高优先', medium:'中优先', low:'低优先', normal:'专项' }[String(value || '').toLowerCase()] || '专项');
     const repairOriginLabel = (value) => String(value || '') === 'SYSTEM_WU_CHAT_RETURN' ? '真题 W/U · Chat' : '专项修补';
 
