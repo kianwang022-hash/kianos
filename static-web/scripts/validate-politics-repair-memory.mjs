@@ -330,13 +330,25 @@ try {
   for (const id of ids) { verify(rawById.has(id), 'orphan-retrieval-reference:' + id); attached.push(id); }
  }
  verify(new Set(attached).size === attached.length && attached.length === rawTargets.length, 'exact-target-map-missing-or-duplicated');
- for (const label of ['首次填充01–04', '首次填充05–07', '首次填充08–10', '理解后补全', '易混与同模型恢复']) {
-  verify(brief.includes('|' + label + '|'), 'stable-prepared-stage-missing:' + label);
- }
+ const firstRouteLabels = [
+  '入章定位',
+  '现实为什么不能由意识任意决定',
+  '一个客观世界怎样变化却仍可被认识',
+  '人为什么没有站到物质世界外面',
+  '派生的意识为什么能改变现实却不能随心所欲',
+  '用AI压力测试并收束世界统一性',
+  '理解后补全',
+  '易混与同模型恢复'
+ ];
+ for (const label of firstRouteLabels) verify(brief.includes('|' + label + '|'), 'stable-prepared-stage-missing:' + label);
  const stageText=brief.split('### 从下一段直接续讲')[1]?.split('### 原22组精记的交接')[0] || '';
- const stageRows=stageText.split('\n').filter(line=>/^\|(?:入章定位|首次填充|理解后补全|易混与同模型恢复)/.test(line)).map(line=>line.slice(1,-1).split('|'));
- verify(JSON.stringify(stageRows.map(row=>row[0]))===JSON.stringify(['入章定位','首次填充01–04','首次填充05–07','首次填充08–10','理解后补全','易混与同模型恢复']),'prepared-stage-order-drift');
- for (let i=0;i<3;i++) verify(stageRows[i]?.at(-1)===stageRows[i+1]?.[0],'fresh-reader-next-stage-drift:'+i);
+ const stageRows=stageText.split('\n').filter(line=>firstRouteLabels.some(label=>line.startsWith('|' + label + '|'))).map(line=>line.slice(1,-1).split('|'));
+ verify(JSON.stringify(stageRows.map(row=>row[0]))===JSON.stringify(firstRouteLabels),'prepared-stage-order-drift');
+ verify(stageRows.every(row=>String(row[1]||'').trim().length>12 && String(row.at(-1)||'').trim().length>4),'problem-stage-missing-question-or-next');
+ verify(stageText.includes('首轮主问题：如果现实世界不由人的意识任意决定，为什么人的意识又真的能够改变现实？'),'chapter-core-tension-missing');
+ verify(brief.includes('后台定位/覆盖表，不是首课目录'),'spine-must-be-backstage-index');
+ verify(!brief.includes('首课按上表01–04、05–07、08–10三段依次填入'),'node-batch-recital-still-present');
+ verify(!brief.includes('|首次填充01–04|') && !brief.includes('|首次填充05–07|') && !brief.includes('|首次填充08–10|'),'node-number-stage-route-still-present');
  verify(brief.includes('## 易混与边界的独立回合') && anchors.includes('c01-boundary-pass'), 'prepared-confusable-pass-missing');
  const catalog = buildCatalog();
  const catalogById = new Map(catalog.candidates.map(x => [x.id, x]));
