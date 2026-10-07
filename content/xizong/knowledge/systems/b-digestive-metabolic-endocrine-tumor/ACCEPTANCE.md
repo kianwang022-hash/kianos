@@ -115,6 +115,8 @@ Known unrelated regression assertions remain with their existing owners: A2 `rev
 
 ### Exact admitted teaching inputs
 
+**Metadata-only reader successor, 2026-10-07:** D16–D20 remove only the 99 present-tense “仅为本地准备；” clauses. Each explicit “原页图像未复核” qualification, original Source link, medical/HOLD boundary, complete Prompt, model node and closed expansion state is preserved. The five current blobs below supersede only reader status prose; the [original adopted inputs](https://github.com/kianwang022-hash/kianos/blob/ebd6d3a72382c2b6f8c1a93be7ee1abdc30c7d21/content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md#exact-admitted-teaching-inputs) and tested product/runtime proof above remain historical evidence. No new medical, Source, browser, served-version or learner-state acceptance is claimed.
+
 The following blobs are the stable teaching basis for this bounded adoption. They remain derived from canonical medical/Source owners, not replacement authority. Future justified changes return to the existing owner and preserve this acceptance boundary.
 
 | Reader | Native KP | Exact adopted reader blob |
@@ -134,11 +136,11 @@ The following blobs are the stable teaching basis for this bounded adoption. The
 | [D13](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d13-teaching.md) | 16 | `dde23e01dd6abc38ba46e4860ef8b4689a3e9e79` |
 | [D14](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d14-teaching.md) | 28 | `fa757957d2829d3db59f5b77d741d74f824baf64` |
 | [D15](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d15-teaching.md) | 19 | `d47a5ad231ec47576a80a8915dfc40569097b19b` |
-| [D16](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d16-teaching.md) | 12 | `a859a21fa36d19c45b30d164628bc5b6506388a5` |
-| [D17](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d17-teaching.md) | 24 | `b464f4340d415f8e18d3ced5d062c147911c742d` |
-| [D18](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d18-teaching.md) | 15 | `38e344c22a12124695ac9ea98a3b35101bae1ad0` |
-| [D19](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d19-teaching.md) | 26 | `93b04aa9e13d0d1da9e61dc4044a5f554b80a4a8` |
-| [D20](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d20-teaching.md) | 22 | `1e7e450272231544cdb5eb296bf0305c56aa7a2e` |
+| [D16](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d16-teaching.md) | 12 | `5b9a21719ae83b9d5995401c8e648032b4aa0354` |
+| [D17](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d17-teaching.md) | 24 | `ddc086c4a23de8f5a4f825cbaefa25c6f4712b3d` |
+| [D18](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d18-teaching.md) | 15 | `0214eb2e45aa3ad6714a47d68917be938419df80` |
+| [D19](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d19-teaching.md) | 26 | `19142de877729003140dd16ed8183813dff1261c` |
+| [D20](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d20-teaching.md) | 22 | `2afb12ba433771a54765ba88764122405c47db90` |
 | [D21](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d21-teaching.md) | 29 | `30dcf6715200f7f5280314c79872606b11a5cfda` |
 | [D22](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d22-teaching.md) | 15 | `ec54c914597475aebdb600440202d9eeacd40210` |
 | [D23](../../../projection/b-digestive-metabolic-endocrine-tumor/chat/d23-teaching.md) | 12 | `088629bff7d37a7bdcce23cedaff61709e8eda49` |

@@ -12,6 +12,15 @@ let checks = 0;
 const check = (ok,label) => { assert.ok(ok,label); checks++; };
 const b1 = await inspectXizongContent({systemId:'circulation',blockRef:'b01'});
 check(b1.summary.kpCount===32 && b1.summary.logicGroupCount===7,'native B1 topology');
+const shared = JSON.parse(fs.readFileSync(path.join(repo,b1.basis.owners.sharedFields),'utf8'));
+check(!Object.hasOwn(shared,'logic_groups'),'shared support cannot advertise a second obsolete LG structure');
+const systemOwner = JSON.parse(fs.readFileSync(path.join(repo,b1.basis.owners.knowledge),'utf8'));
+const learningOwner = JSON.parse(fs.readFileSync(path.join(repo,b1.basis.owners.learning),'utf8'));
+const currentGroups = systemOwner.logic_index['circulation-b01'];
+check(currentGroups.find(g=>g.id==='circulation-b01-lg05')?.label==='动脉压力、阻力与血管分工','LG05 remains the current vascular owner, not the retired valve group');
+check(JSON.stringify(Object.keys(learningOwner.blocks['circulation-b01'].logic_groups).sort())===JSON.stringify(currentGroups.map(g=>g.id).sort()),'System and Learning agree on current LG identities');
+check(JSON.stringify(b1.logicGroupTrace.map(g=>g.identity.logicGroupId))===JSON.stringify(currentGroups.map(g=>g.id)),'inspector uses exact current System order');
+
 check(b1.trace.length===32,'whole Block inspection');
 check(b1.summary.medicalVisualKpCount===6 && b1.summary.medicalVisualGroupCount===3,'KP and LG MedicalVisual both retained');
 check(b1.canonicalBlock.blockLearnMarkdown && b1.learnerObject.blockPreentry,'full Block content not reduced to KP table');
