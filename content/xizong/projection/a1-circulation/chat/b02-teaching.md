@@ -1,4 +1,4 @@
-<!-- kianos:reviewed-reading-view {"status":"CANDIDATE_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b02","view":"teaching","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md","canonical_blob":"619ab37d6f63a5f56e48636ff1eb55391ee9bab0","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b02","rule_path":"content/xizong/LEARNING_CONTRACT.md","original_m0_sha256":"f56061ec1ee8cb0b2a1e2e6322387a72df1e2e047cdb405ea7c5c7e8e3645c08","freshness":"Read current canonical and Learning owners; a changed relevant premise requires bounded review. This view never overrides newer owners.","learning_value_sha256":"7950aa7fa211f29dbb4ad5cc62563b03bd8cf338446f0a8b788d0ff04d28acd8","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","system_selector":"/logic_index/circulation-b02","system_value_sha256":"1a019e88cee6eead324275e6dff85c7eb5857bc612b8170f556cb7bde30f4a18","dependency_value_serialization":"UTF-8 JSON, keys sorted, compact separators, Unicode preserved","prior_reviewed_at":"2026-10-03","candidate_review":"2026-10-06: compact same-model candidate; original explanation retained byte-for-byte. Only canonical exit wording aligned to current KP02/KP13. No new Source-image contact, medical/Human acceptance or release.","inherited_teaching_blob":"e2d78d4dfc7f88880a04fc11fb51a88c9f2a4d14"} -->
+<!-- kianos:reviewed-reading-view {"status":"CANDIDATE_DERIVATION","medical_authority":false,"system_id":"circulation","block_id":"circulation-b02","view":"teaching","canonical_path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md","canonical_blob":"2210c56a018d4913e7519795f53842e82539b9f6","learning_path":"content/xizong/knowledge/learner/a1-circulation-learning.json","learning_selector":"/blocks/circulation-b02","rule_path":"content/xizong/LEARNING_CONTRACT.md","original_m0_sha256":"f56061ec1ee8cb0b2a1e2e6322387a72df1e2e047cdb405ea7c5c7e8e3645c08","freshness":"Read current canonical and Learning owners; a changed relevant premise requires bounded review. This view never overrides newer owners.","learning_value_sha256":"7950aa7fa211f29dbb4ad5cc62563b03bd8cf338446f0a8b788d0ff04d28acd8","system_path":"content/xizong/knowledge/systems/a1-circulation/system.json","system_selector":"/logic_index/circulation-b02","system_value_sha256":"1a019e88cee6eead324275e6dff85c7eb5857bc612b8170f556cb7bde30f4a18","dependency_value_serialization":"UTF-8 JSON, keys sorted, compact separators, Unicode preserved","prior_reviewed_at":"2026-10-03","candidate_review":"2026-10-08: revalidated after canonical natural-node/full-Prompt calibration; same-model candidate and inherited explanation unchanged. No new medical, Memory, Source-image, Human or release acceptance.","inherited_teaching_blob":"e2d78d4dfc7f88880a04fc11fb51a88c9f2a4d14"} -->
 
 # B2｜循环变量偏了，身体怎样把灌注救回来
 
@@ -13,9 +13,9 @@
 
 ## ① 全身反馈：读到什么，怎样改变现有泵与管路
 
-- [压力感受器与窦弓反射：血压的快速双向缓冲器〔感受器/刺激｜传入｜双向链｜夹闭｜6特点｜重调定｜长短期分工〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L168)：动脉壁牵张↑ → 传入↑ → 交感↓／迷走↑ → 压力回落；低压反向。重调定改变工作点与敏感性，不等于长期作用为零。 <!-- b2:node {"kp_id":"circulation-b02-kp02","canonical_line":168} -->
-- [外周化学感受性反射、脑缺血反应与库欣反应〔颈动脉体vs主动脉体｜刺激3｜呼吸→循环参与门槛｜血流重分配｜脑缺血链｜库欣链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L213)：低氧／高CO₂／高H⁺先促呼吸，危急低灌注时参与升压与保心脑；脑缺血或颅压↑经脑灌注受威胁进入。约80 mmHg仅是课程情境锚点。 <!-- b2:node {"kp_id":"circulation-b02-kp03","canonical_line":213} -->
-- [心肺容量感受性反射与心交感传入反射〔反射2类：位置/刺激/输出/任务｜容量感受器3称｜容量↑神经＋激素｜心交感急性/慢性链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L254)：中央充盈牵张↑ → 容量卸载；心室扩张／缺血的交感传入则增强交感。两种输入分开，持续缺血可沿耗氧形成反噬。 <!-- b2:node {"kp_id":"circulation-b02-kp04","canonical_line":254} -->
+- [压力感受器与窦弓反射：血压的快速双向缓冲器〔感受器/刺激｜传入｜双向链｜夹闭｜6特点｜重调定｜长短期分工〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L211)：动脉壁牵张↑ → 传入↑ → 交感↓／迷走↑ → 压力回落；低压反向。重调定改变工作点与敏感性，不等于长期作用为零。 <!-- b2:node {"kp_id":"circulation-b02-kp02","canonical_line":211} -->
+- [外周化学感受性反射、脑缺血反应与库欣反应〔颈动脉体vs主动脉体｜刺激3｜呼吸→循环参与门槛｜血流重分配｜脑缺血链｜库欣链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L256)：低氧／高CO₂／高H⁺先促呼吸，危急低灌注时参与升压与保心脑；脑缺血或颅压↑经脑灌注受威胁进入。约80 mmHg仅是课程情境锚点。 <!-- b2:node {"kp_id":"circulation-b02-kp03","canonical_line":256} -->
+- [心肺容量感受性反射与心交感传入反射〔反射2类：位置/刺激/输出/任务｜容量感受器3称｜容量↑神经＋激素｜心交感急性/慢性链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L297)：中央充盈牵张↑ → 容量卸载；心室扩张／缺血的交感传入则增强交感。两种输入分开，持续缺血可沿耗氧形成反噬。 <!-- b2:node {"kp_id":"circulation-b02-kp04","canonical_line":297} -->
 
 <details>
 <summary>展开感知：牵张、化学、容量与缺血各自怎样进入</summary>
@@ -86,10 +86,10 @@
 
 </details>
 
-- [自主神经总输出：把“交感 / 迷走”翻译成 B1 变量〔交感5出口：受体→变量｜迷走主区/左右差｜CO-TPR-回心-MAP｜直接效应≠反射总体〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L312)：交感分别改HR／收缩性、微动脉阻力、静脉容量和肾素；迷走主要改室上心率／传导。夹静脉利用现有血量，夹微动脉保压不等于局部流量↑。 <!-- b2:node {"kp_id":"circulation-b02-kp05","canonical_line":312} -->
-  - [儿茶酚胺：把交感应急命令放大到全身〔髓质比例｜NA/Adr身份/受体｜剂量/部位｜直接与整体心率｜翻转条件｜嗜铬细胞瘤｜合成/释放〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L399)：髓质放大应急信号；NA直接β₁作用与升压后的反射性HR↓可并存。Adr方向合看部位、剂量、反射完整性；受体强弱符号不是普适定律。 <!-- b2:node {"kp_id":"circulation-b02-kp07","canonical_line":399} -->
+- [自主神经总输出：把“交感 / 迷走”翻译成 B1 变量〔交感5出口：受体→变量｜迷走主区/左右差｜CO-TPR-回心-MAP｜直接效应≠反射总体〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L355)：交感分别改HR／收缩性、微动脉阻力、静脉容量和肾素；迷走主要改室上心率／传导。夹静脉利用现有血量，夹微动脉保压不等于局部流量↑。 <!-- b2:node {"kp_id":"circulation-b02-kp05","canonical_line":355} -->
+  - [儿茶酚胺：把交感应急命令放大到全身〔髓质比例｜NA/Adr身份/受体｜剂量/部位｜直接与整体心率｜翻转条件｜嗜铬细胞瘤｜合成/释放〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L442)：髓质放大应急信号；NA直接β₁作用与升压后的反射性HR↓可并存。Adr方向合看部位、剂量、反射完整性；受体强弱符号不是普适定律。 <!-- b2:node {"kp_id":"circulation-b02-kp07","canonical_line":442} -->
 
-神经分布旁查：[四类血管神经纤维、紧张性与轴突反射](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L345)<!-- b2:external {"kp_id":"circulation-b02-kp06","canonical_line":345} -->。交感胆碱能舒血管保留课程／物种与实验条件，不能当作人体运动充血的必需或唯一机制。
+神经分布旁查：[四类血管神经纤维、紧张性与轴突反射](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L388)<!-- b2:external {"kp_id":"circulation-b02-kp06","canonical_line":388} -->。交感胆碱能舒血管保留课程／物种与实验条件，不能当作人体运动充血的必需或唯一机制。
 
 <details>
 <summary>展开执行：强泵、夹管、挤静脉及直接效应与整机结果</summary>
@@ -165,10 +165,10 @@ Adr也要同时看剂量与血管部位。β₂作用明显的血管床，在低
 
 ## ② 灌注分配：全身命令怎样与局部需要合成
 
-- [全身命令与局部需求怎样协调〔交感分布2梯度｜心脑血流｜肌血流条件｜总闸vs分闸｜全身vs局部〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L676)：全身保压与重分配 ＋ 局部代谢 → 实际器官血流；活动肌可局部舒张占优。微动脉偏总闸，前括约肌偏局部；真毛细血管无平滑肌。 <!-- b2:node {"kp_id":"circulation-b02-kp16","canonical_line":676} -->
-  - [内皮素 vs NO / PGI₂ / EDHF〔ET作用/释放｜NO刺激/信号｜PG家族方向｜EDHF｜切应力｜NO/PGI₂非扩管作用〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L627)：内皮促缩ET与促舒NO／PGI₂／EDHF共同修正局部阻力；NO走sGC–cGMP–PKG，EDHF走超极化。PG家族方向不同，“最强”保留课程条件。 <!-- b2:node {"kp_id":"circulation-b02-kp14","canonical_line":627} -->
+- [全身命令与局部需求怎样协调〔交感分布2梯度｜心脑血流｜肌血流条件｜总闸vs分闸｜全身vs局部〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L719)：全身保压与重分配 ＋ 局部代谢 → 实际器官血流；活动肌可局部舒张占优。微动脉偏总闸，前括约肌偏局部；真毛细血管无平滑肌。 <!-- b2:node {"kp_id":"circulation-b02-kp16","canonical_line":719} -->
+  - [内皮素 vs NO / PGI₂ / EDHF〔ET作用/释放｜NO刺激/信号｜PG家族方向｜EDHF｜切应力｜NO/PGI₂非扩管作用〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L670)：内皮促缩ET与促舒NO／PGI₂／EDHF共同修正局部阻力；NO走sGC–cGMP–PKG，EDHF走超极化。PG家族方向不同，“最强”保留课程条件。 <!-- b2:node {"kp_id":"circulation-b02-kp14","canonical_line":670} -->
 
-局部介质旁查：[缓激肽受体作用轴、ADM／CGRP身份及其他介质](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L663)<!-- b2:external {"kp_id":"circulation-b02-kp15","canonical_line":663} -->；炎症疼痛与内皮舒张是不同轴，CGRP接回轴突局部分支。完整名单、来源和药物断点回原知识，不新增一条全身控制链。
+局部介质旁查：[缓激肽受体作用轴、ADM／CGRP身份及其他介质](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L706)<!-- b2:external {"kp_id":"circulation-b02-kp15","canonical_line":706} -->；炎症疼痛与内皮舒张是不同轴，CGRP接回轴突局部分支。完整名单、来源和药物断点回原知识，不新增一条全身控制链。
 
 <details>
 <summary>展开分配：内皮、代谢与器官选择性怎样同时成立</summary>
@@ -217,12 +217,12 @@ PG家族不能整体等同于舒张。课程把PGI₂、PGE₂与PGF₂α的主�
 
 ## ③ 容量与时间：水盐反馈闭合，再用场景检验代价
 
-- [肾素释放与 RAAS 主链：三个报警入口不能混〔肾素3称｜3入口/感受器｜化学调节/条件｜血管vs分泌｜RAAS链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L434)：肾灌注压↓、致密斑NaCl↓、肾交感β₁↑三入口促肾素；血管紧张素原—肾素→AngⅠ—ACE→AngⅡ；低盐摄入不等于血钠必低，NO—肾素净效应按通路与实验条件。 <!-- b2:node {"kp_id":"circulation-b02-kp08","canonical_line":434} -->
-  - [AngⅡ / AngⅢ：夹管、强化、释放、喝水和重构〔ⅡvsⅢ强度｜重构1/减弱2/收缩2/加强3/释放3｜GCvs醛固酮｜肾内浓度/系膜/小管〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L464)：AngⅡ连起动静脉收缩、交感强化、口渴、醛固酮与ADH，并负反馈肾素；肾内方向依浓度／作用位置，不能推出GFR必升。Ⅱ／Ⅲ的“最强”按原课程比较轴恢复。 <!-- b2:node {"kp_id":"circulation-b02-kp09","canonical_line":464} -->
-    - [醛固酮：留的是钠，水只是跟着钠走〔性质/来源/靶细胞｜核受体/ENaC/泵｜Na水K方向｜释放主次｜允许作用｜ACTH/GC｜原醛vsLiddle〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L500)：核受体 → ENaC／泵等表达与转运↑ → 保Na、排K；水潴留依整体水盐处理，不是直接打开水通道。 <!-- b2:node {"kp_id":"circulation-b02-kp10","canonical_line":500} -->
-- [ADH / VP / AVP：直接管水，关键是 V₂—AQP2〔称谓/性质｜合成/储放｜V₂/V₁｜AQP2/尿素｜释放↑↓/主刺激｜DI/SIADH〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L530)：以晶体渗透压为主，并读容量／压力 → V₂–cAMP–PKA–AQP2 → 水通透性↑，重吸收仍需渗透梯度；高浓度V₁另管血管，单一AVP≠垂体后叶素制剂。 <!-- b2:node {"kp_id":"circulation-b02-kp11","canonical_line":530} -->
-- [ANP / BNP：容量过多时，心脏主动“卸货”〔ANPvsBNP来源/刺激｜入球-系膜-Kf-GFR｜小管Na水｜抑制系统｜血管/重构｜BNP因果位置〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L564)：心房／心室壁负荷↑ → 利钠肽 → 滤过、小管与抑制保钠保水系统共同卸载；BNP是报警／反向代偿，不能当作心衰病因或成功证明。 <!-- b2:node {"kp_id":"circulation-b02-kp12","canonical_line":564} -->
-- [肾—体液长期调压：最终工作点由 ECF 量决定〔长短期分工｜压力利钠/利尿｜Na水/ECF/回心/CO/MAP｜RAAS/ADH/ANP〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L595)：持续压力↑ → 排Na水↑ → ECF／血容量↓ → 回心与CO趋↓ → 压力回落；受肾功能、摄入、激素、血管阻力限制。与窦弓相互联系，ECF不是唯一开关。 <!-- b2:node {"kp_id":"circulation-b02-kp13","canonical_line":595} -->
+- [肾素释放与 RAAS 主链：三个报警入口不能混〔肾素3称｜3入口/感受器｜化学调节/条件｜血管vs分泌｜RAAS链〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L477)：肾灌注压↓、致密斑NaCl↓、肾交感β₁↑三入口促肾素；血管紧张素原—肾素→AngⅠ—ACE→AngⅡ；低盐摄入不等于血钠必低，NO—肾素净效应按通路与实验条件。 <!-- b2:node {"kp_id":"circulation-b02-kp08","canonical_line":477} -->
+  - [AngⅡ / AngⅢ：夹管、强化、释放、喝水和重构〔ⅡvsⅢ强度｜重构1/减弱2/收缩2/加强3/释放3｜GCvs醛固酮｜肾内浓度/系膜/小管〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L507)：AngⅡ连起动静脉收缩、交感强化、口渴、醛固酮与ADH，并负反馈肾素；肾内方向依浓度／作用位置，不能推出GFR必升。Ⅱ／Ⅲ的“最强”按原课程比较轴恢复。 <!-- b2:node {"kp_id":"circulation-b02-kp09","canonical_line":507} -->
+    - [醛固酮：留的是钠，水只是跟着钠走〔性质/来源/靶细胞｜核受体/ENaC/泵｜Na水K方向｜释放主次｜允许作用｜ACTH/GC｜原醛vsLiddle〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L543)：核受体 → ENaC／泵等表达与转运↑ → 保Na、排K；水潴留依整体水盐处理，不是直接打开水通道。 <!-- b2:node {"kp_id":"circulation-b02-kp10","canonical_line":543} -->
+- [ADH / VP / AVP：直接管水，关键是 V₂—AQP2〔称谓/性质｜合成/储放｜V₂/V₁｜AQP2/尿素｜释放↑↓/主刺激｜DI/SIADH〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L573)：以晶体渗透压为主，并读容量／压力 → V₂–cAMP–PKA–AQP2 → 水通透性↑，重吸收仍需渗透梯度；高浓度V₁另管血管，单一AVP≠垂体后叶素制剂。 <!-- b2:node {"kp_id":"circulation-b02-kp11","canonical_line":573} -->
+- [ANP / BNP：容量过多时，心脏主动“卸货”〔ANPvsBNP来源/刺激｜入球-系膜-Kf-GFR｜小管Na水｜抑制系统｜血管/重构｜BNP因果位置〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L607)：心房／心室壁负荷↑ → 利钠肽 → 滤过、小管与抑制保钠保水系统共同卸载；BNP是报警／反向代偿，不能当作心衰病因或成功证明。 <!-- b2:node {"kp_id":"circulation-b02-kp12","canonical_line":607} -->
+- [肾—体液长期调压：最终工作点由 ECF 量决定〔长短期分工｜压力利钠/利尿｜Na水/ECF/回心/CO/MAP｜RAAS/ADH/ANP〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L638)：持续压力↑ → 排Na水↑ → ECF／血容量↓ → 回心与CO趋↓ → 压力回落；受肾功能、摄入、激素、血管阻力限制。与窦弓相互联系，ECF不是唯一开关。 <!-- b2:node {"kp_id":"circulation-b02-kp13","canonical_line":638} -->
 
 <details>
 <summary>展开容量：肾素三入口、AngⅡ、醛固酮、ADH与反向卸载</summary>
@@ -328,11 +328,11 @@ BNP升高常表示壁负荷和代偿信号增强，不表示它是心衰的病�
 
 ### 把同一路线跑进场景，回到刺激是否解除
 
-- [体位、失血、容量过多与水状态变化〔场景5：首变量→传感器→神经→RAAS/ADH/ANP→尿量/回心〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L700)：站立先重分布，失血真丢总量；等渗负荷先增容量，清水先降渗透压，失水相对多才可能渗透压↑。按首变量选支路，短暂站立不强行接数天容量恢复。 <!-- b2:node {"kp_id":"circulation-b02-kp17","canonical_line":700} -->
-- [急性救援、慢性反噬与药物作用层级〔急救5系统｜慢性代价4轴｜药物断点9类｜机制层 vs 临床方案边界〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L745)：交感／RAAS／ADH短期救灌注；持续时耗氧、后负荷、潴留／淤血与重构可加重原病，反过来再触发代偿。ANP／BNP仍是反向自救；药物只挂机制断点。 <!-- b2:node {"kp_id":"circulation-b02-kp18","canonical_line":745} -->
-- [循环调节总算法：传感器—中枢—效应器—容量—局部修正〔首变量/感受器｜自主神经/效应器｜体液/肾容量｜局部修正｜急慢性｜闭环〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L774)：首变量 → 直接刺激／感受器 → 泵、阻力、静脉、肾 → 合看局部与水盐反馈 → 刺激解除则回落，持续则检验代价；合上解释仍沿这三路重建。 <!-- b2:node {"kp_id":"circulation-b02-kp19","canonical_line":774} -->
+- [体位、失血、容量过多与水状态变化〔场景5：首变量→传感器→神经→RAAS/ADH/ANP→尿量/回心〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L743)：站立先重分布，失血真丢总量；等渗负荷先增容量，清水先降渗透压，失水相对多才可能渗透压↑。按首变量选支路，短暂站立不强行接数天容量恢复。 <!-- b2:node {"kp_id":"circulation-b02-kp17","canonical_line":743} -->
+- [急性救援、慢性反噬与药物作用层级〔急救5系统｜慢性代价4轴｜药物断点9类｜机制层 vs 临床方案边界〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L788)：交感／RAAS／ADH短期救灌注；持续时耗氧、后负荷、潴留／淤血与重构可加重原病，反过来再触发代偿。ANP／BNP仍是反向自救；药物只挂机制断点。 <!-- b2:node {"kp_id":"circulation-b02-kp18","canonical_line":788} -->
+- [循环调节总算法：传感器—中枢—效应器—容量—局部修正〔首变量/感受器｜自主神经/效应器｜体液/肾容量｜局部修正｜急慢性｜闭环〕](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L817)：首变量 → 直接刺激／感受器 → 泵、阻力、静脉、肾 → 合看局部与水盐反馈 → 刺激解除则回落，持续则检验代价；合上解释仍沿这三路重建。 <!-- b2:node {"kp_id":"circulation-b02-kp19","canonical_line":817} -->
 
-时间层与失血全链旁查：[秒、分钟、小时、天各由谁接手及共同目标](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L91)<!-- b2:external {"kp_id":"circulation-b02-kp01","canonical_line":91} -->。是重叠的工作尺度，不是固定等待队列。[十二个闭卷出口](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L804)用同一模型逐问验证。
+时间层与失血全链旁查：[秒、分钟、小时、天各由谁接手及共同目标](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L134)<!-- b2:external {"kp_id":"circulation-b02-kp01","canonical_line":134} -->。是重叠的工作尺度，不是固定等待队列。[十二个闭卷出口](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L804)用同一模型逐问验证。
 
 <details>
 <summary>展开场景与时间：不同入口、急性收益、慢性反噬及最终算法</summary>
