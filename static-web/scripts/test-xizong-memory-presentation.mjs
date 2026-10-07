@@ -102,10 +102,19 @@ for row in data['rows']:
             'precision:B10-M32':(['模式','起搏','感知','典型适合'],4),
             'precision:B11-M02':(['分期','状态'],4),
             'precision:b-d15-lg06-dentate-line':(['轴','齿状线以上','齿状线以下'],9),
+            'precision:xpg_b85cb6960f8b0b25':(['药组','主要限制与阈值'],4),
+            'precision:xpg_03f70b43216a1f2e':(['CVP','BP','按本节 Study 推断','处理方向'],4),
         }
         assert name in reviewed_tables, (name,'no unreviewed table inference')
         assert len(tables)==1 and len(tables[0].all('thead'))==1 and len(tables[0].all('tbody'))==1
-        rawlines=raw.splitlines(); tablelines=[x for x in rawlines if x.strip().startswith('|')]
+        rawlines=raw.splitlines()
+        first=next(i for i,x in enumerate(rawlines) if '|' in x)
+        prefix=''
+        if rawlines[first].lstrip().startswith('|'):
+            tablelines=[x for x in rawlines[first:] if x.strip().startswith('|')]
+        else:
+            at=rawlines[first].index('|'); prefix=rawlines[first][:at]
+            tablelines=[rawlines[first][at:]]+[x for x in rawlines[first+1:] if x.strip().startswith('|')]
         cells=lambda line:[x.strip() for x in line.strip()[1:-1].split('|')]
         expected_header=cells(tablelines[0]); expected_rows=[cells(x) for x in tablelines[2:]]
         assert expected_header==reviewed_tables[name][0]
@@ -114,7 +123,8 @@ for row in data['rows']:
         assert all(x.attrs.get('scope')=='col' for x in tables[0].all('th'))
         actual=[[x.text() for x in tr.all('td')] for tr in tables[0].all('tbody')[0].all('tr')]
         assert actual==expected_rows, (name,'every cell, column, condition and order retained')
-        prose=[x for x in rawlines if x and not x.strip().startswith('|')]
+        prose=([prefix] if prefix else [])+[x for j,x in enumerate(rawlines) if x and j<first and x!=prefix]
+        prose += [x for x in rawlines[first+len(tablelines):] if x and not x.strip().startswith('|')]
         assert [p.text() for p in main[0].all('p')]==prose, (name,'outside-table prose exact and ordered')
         if name=='precision:b-d15-lg06-dentate-line':
             assert '必须回原图' in main[0].visible()
@@ -129,6 +139,12 @@ for row in data['rows']:
                 assert qualifier in main[0].visible()
         elif name=='precision:B11-M02':
             assert [x[0] for x in actual]==['A','B','C','D']
+        elif name=='precision:xpg_b85cb6960f8b0b25':
+            assert [x[0] for x in actual]==['ACEI/ARB/ARNI一般安全','MRA','SGLT2i','sGC刺激剂维立西呱']
+            assert '风险核对，不替代具体制剂说明书' in main[0].visible()
+        elif name=='precision:xpg_03f70b43216a1f2e':
+            assert [x[0] for x in actual]==['低','低','高','高']
+            assert '补液试验' in main[0].visible() and '不能盲目补液' in main[0].visible()
         assert all(x.visible()==x.text() for x in tables[0].all('th')+tables[0].all('td'))
     else:
         assert before.text()==after.text(), (name,'all raw text and order must be exact, including audit records')
@@ -159,7 +175,7 @@ b5=trees['precision:a3-b05-lg06-precision']; main=b5.all(attr='data-memory-prepa
 assert len(main.all('p'))==6, 'six authored diagnostic steps, not one wall of text'
 for text in ['生命支持优先于计算','1.5×HCO₃⁻+8±2','0.6–0.75','约55','急性HCO₃⁻约升1–2','慢性约升3–4','慢性约降4–5','明显低白蛋白先校正','delta是HAGMA条件下','不能脱离病程','不扩水NaKCa阈值']:
     assert text in b5.visible(), text
-print(json.dumps({'status':'PASS','native_cards':len(data['rows']),'b3_groups':[2,1,1,3],'b5_authored_steps':6,'table_cards':4,'proof':'Parsed native HTML; exact non-table text/order and authored table cells/order; raw answer and descriptor unchanged; independent A3 oracle and all visible conditions/aids retained. No browser or learner claim.'},ensure_ascii=False))
+print(json.dumps({'status':'PASS','native_cards':len(data['rows']),'b3_groups':[2,1,1,3],'b5_authored_steps':6,'table_cards':6,'proof':'Parsed native HTML; exact non-table text/order and authored table cells/order; raw answer and descriptor unchanged; independent A3 oracle and all visible conditions/aids retained. No browser or learner claim.'},ensure_ascii=False))
 `, fixturePath], { encoding: 'utf8' });
 
 for (const legacy of ['<p>ordinary Core</p>', '<section data-prepared-memory="future"><ul><li>already authored</li></ul></section>']) {
@@ -173,6 +189,8 @@ const workspace = fs.readFileSync(path.join(root, 'static-web/src/components/Xiz
 assert.match(workspace, /if \(item\.family === 'CORE'\) return item\.coreHtml/);
 assert.match(workspace, /if \(item\.answerHtml\) return preparedMemoryPresentationHtml\(item\.answerHtml\)/);
 assert.match(workspace, /if \(answer\) answer\.hidden = !revealed/);
+assert.match(workspace, /const precisionRecall = \(item\) => item\.family === 'PRECISION'/);
+assert.doesNotMatch(workspace, /nativePrecisionRecall|A2\/A3\/B Recall uses/);
 console.log(report.trim());
 
 
@@ -196,6 +214,15 @@ for (const raw of unsupportedTables) {
   assert(!rendered.includes('<table>'), raw);
   assert.equal(rendered.replace(/<[^>]+>/g, ''), wrap(raw).replace(/<[^>]+>/g, ''));
 }
+const prefixed = preparedMemoryPresentationHtml(wrap('风险核对：| class | threshold |\n| --- | --- |\n| A | &lt;5 |\n| B | ≥5 |\nqualification stays'));
+assert(prefixed.includes('<p>风险核对：</p>'));
+assert(prefixed.includes('<table>'));
+assert(prefixed.includes('<th scope="col">class</th>'));
+assert(prefixed.includes('<td>&lt;5</td>'));
+assert.equal(preparedMemoryPresentationHtml(prefixed), prefixed);
+const malformedPrefixed = preparedMemoryPresentationHtml(wrap('风险核对 | A | B |\n| --- | --- |\n| x | y |'));
+assert(!malformedPrefixed.includes('<table>'));
+
 const escaped = preparedMemoryPresentationHtml(wrap('| value | limit |\r\n| :--- | ---: |\r\n| &lt;script&gt; | &lt;120 &amp; ≥2 |\r\nqualification stays'));
 assert(escaped.includes('<th scope="col">value</th>'));
 assert(escaped.includes('<td>&lt;script&gt;</td>'));
