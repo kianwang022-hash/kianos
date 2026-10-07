@@ -188,7 +188,7 @@ B1、B2解释怎样维持压力和灌注，B4解释完整内皮怎样保持血�
 <!-- b5:source 77:85 -->
 ## 来源、支持与未决边界（不作为教学分段）
 
-本稿是连续教案候选，医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
+本稿采用范围以<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-remaining-teaching-adoption-20261006">本块教学采用记录</a>为准；医学依据为 `content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md`，教学组织依 LR §3.1；KP title/full Prompt 仅淡标定位，隐藏定位后模型仍独立。未从 Core 自动拼接正文，未生成学习/Recall/Source-contact记录，也未取得新的医学/Human验收。
 
 Source范围：内科Lecture P309–315；病理Lecture P39–47；Outline U115–U117及对应高血压/AS题。Source数字以canonical印刷/物理页说明为准。
 

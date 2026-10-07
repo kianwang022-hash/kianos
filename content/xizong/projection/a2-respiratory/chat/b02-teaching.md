@@ -4,7 +4,7 @@
 
 沿同一条路走：肺泡气体 → 呼吸膜 → 匹配的肺血流 → Hb装载 → 组织卸氧。CO₂反向返回，控制器在旁路调节通气。先分通气、换气、携氧与利用，不能让正常PaO₂掩盖Hb/氧含量失败。
 
-这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；本准备稿不代表已学习、Source已接触或Memory已准入。
+这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；阅读本页不产生已学习、Source接触或Memory入队记录；教学采用和Prepared准入分别依<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>与<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>。
 
 <a id="r02-model-01"></a>
 ## 跨膜：有梯度，还要有可用面积与距离
@@ -176,7 +176,7 @@ CO课程亲和约氧250倍，占Hb使可结合氧减少，又让余下位点更�
 <a id="r02-source-and-completeness"></a>
 ## 精确记忆与原图：在对应节点回看
 
-- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块现有2条Precision身份保持原KP/LG范围，准备答案仅为待审提案，未进入真实Memory。
+- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块原有Precision身份保持原KP/LG范围，当前准入、完整答案与保留项回<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>及其现有答案owner；原生解析成功的已准入项可用于网站复习，HOLD项不补造。
 - 推理依赖图形时在该步核对原图；页码和已有图像位置不等于本轮读过像素。未提供的原图仍为Source门禁，不能因选定图片少就删掉。
 
 <details>
@@ -217,6 +217,8 @@ Source范围：生理AI阅读版及27精编生理合集【带导图】PDF186–2
 
 原题“换气主要PCO₂”和曲线上段“PaCO₂≥60”保留原题身份，机制/目标仍按Current PaO₂。旧Exit把CO静脉氧写固定下降，须回Current“不固定”的限定。旧5%CO₂不得变成氧疗指令。
 
-[Framework、即时机制、原始Memory路由及Block Exit](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。具体非KP逐项处置随本地审查清单交付。
+[Framework、即时机制、原始Memory路由及Block Exit](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。非KP逐项去向沿下列实际Current段落与现有支持owner回查；Core/Source入口不等于独立Memory准入。
+
+<p>本章结构与精确项目：<a href="../../../knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md#L56">1｜总 Framework</a>；<a href="../../../knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md#L128">MI-G｜第一轮必须即时掌握</a>；<a href="../../../knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md#L147">MI-D｜卡片化，不阻塞主线</a>。本章原有Precision身份：<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json#L89">a2-r02-kp03-precision</a>；<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json#L123">a2-r02-lg04-precision</a>。各项准入由索引与原生freshness决定，来源缺口与原有HOLD保留。</p>
 
 </details>

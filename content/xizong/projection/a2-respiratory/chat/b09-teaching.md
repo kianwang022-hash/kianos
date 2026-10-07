@@ -4,7 +4,7 @@
 
 <h1>肺血管：时间尺度决定右室怎样承受后负荷</h1>
 
-<p class="scope">本地待审教学稿 · 同一模型的短读与展开；无医学／原图／学习完成验收。</p>
+<p class="scope">同一模型的短读与展开；教学采用见<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>，原图与真实学习证据仍分别保留。</p>
 
 <p>R2的肺血流语言在这里接住R3/R7/R8的慢性肺病：PVR升高增加右室后负荷，慢升给右室肥厚的时间，急升则先扩张。按急慢、血压与右心证据分流，再决定处理上游肺病还是抗凝／再灌注；共同呼衰支持交给R12。</p>
 
@@ -94,7 +94,7 @@
 
 <details class="references"><summary>来源、精确复习与原图去向</summary>
 
-<p>完整Current Core可由每个知识标题直达。以下Memory身份仍是现有提示范围，prepared答案为本地待审提案；此稿不会生成学习证据、到期任务或自动完成。</p>
+<p>完整Current Core可由每个知识标题直达。以下Memory身份的当前准入与答案解析以<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>及其现有答案owner为准；此稿不会生成学习证据、到期任务或自动完成。</p>
 
 
 

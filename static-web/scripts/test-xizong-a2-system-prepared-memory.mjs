@@ -3037,51 +3037,51 @@ export const oracle={
   "readers": [
     {
       "block_id": "respiratory-r01",
-      "sha256": "df59723c1e3da352c5a012a9ae0a69e5288eeb2c654c29cec99ddd89d67fe6c3"
+      "sha256": "e3bb7ac85c60daeb557faa1ade6a21be7bfa330250f44f7fc7b2286aef600f6b"
     },
     {
       "block_id": "respiratory-r02",
-      "sha256": "9000d9a650fe39164ad83e253b2304991baa328b9856ef70c8efa95388502e5a"
+      "sha256": "44cc9060590401de7a1956a11e3340b1b3bea1329d3f7f784f9ea0c387455039"
     },
     {
       "block_id": "respiratory-r03",
-      "sha256": "4553c3ce05cbfc7c65105a112af51a64b55baf34488cec15683bd7e5c1ed29ac"
+      "sha256": "6eebc7d7a0e550dd964be45ec49a0c730493d98a7a5aba2b533da59e85452852"
     },
     {
       "block_id": "respiratory-r04",
-      "sha256": "58b87099898412a550fc3854d25c6e9547ecbe99b277cb76a5754c4ef85c8f9f"
+      "sha256": "4cd5aea7586ae6489d9a5d98b155b41f6f19b68e1afd29756688fd54a5d0401c"
     },
     {
       "block_id": "respiratory-r05",
-      "sha256": "12226d4978b4e6c713697fbbe5e9df3612105aeac2774169203895927b1e88b4"
+      "sha256": "9afd4b0103348a83abd0683a1a0bcc12a73fd4f68619d8dc1df8a50a59ea9ac3"
     },
     {
       "block_id": "respiratory-r06",
-      "sha256": "14c244bfda469d1dc0ef1d82374eacde57d568fc3aa539be4c6798243a02bd6b"
+      "sha256": "8082d2df952d570019b8a4c208e9313f05431d023259ca394e9a194c15a76c89"
     },
     {
       "block_id": "respiratory-r07",
-      "sha256": "9e4aec9e32d553c6265035297101349a0c78601a02c3cab86da3b76569202152"
+      "sha256": "2dc2efd9a7550ce5f0caac6a28ae2cea75ec6973219571fe756dc7cb911bded2"
     },
     {
       "block_id": "respiratory-r08",
-      "sha256": "d9430aa249fb40aeb82d88af2e30c835ef6b812d2f68a111a15e1cf0b312c31f"
+      "sha256": "81e4f2b0a8eabf07022757108defd29e7848b313c588ee604f3e636bb35b6c4a"
     },
     {
       "block_id": "respiratory-r09",
-      "sha256": "f74f71452adf1d93653e83c963d9b65bfada77d7350276f6992abcd00c439265"
+      "sha256": "0c09aa35afc7c600ae21e3de1d4531cc90e3363cf63f27f6d0548e6479bdbca0"
     },
     {
       "block_id": "respiratory-r10",
-      "sha256": "5dfbeb1048a55a6f39a2a51f558408c2600b4e10a8aba59d283ba64b9944e602"
+      "sha256": "16037b467715bd5080a0d8c4714e18efabdef1177474ae0ad6c9ab6a2b934e8b"
     },
     {
       "block_id": "respiratory-r11",
-      "sha256": "8388bd12ca9ab30654d945140de3690b764a6ecf15c0bb757ee0c67cf2ce9e1e"
+      "sha256": "8c45503962fc313aa1c1a16f0a8cef9a3c6b1a9f3125280aa56cc9439063977b"
     },
     {
       "block_id": "respiratory-r12",
-      "sha256": "7c5e4cbbad29946e8ca742a30297a8cfac38fe4c1be1339eda2b19722d985c84"
+      "sha256": "cc7cb79e8a131f6923ee4a88ea73fbb7d7beca0e916bbd360553b159bfa9b4cb"
     }
   ],
   "manifest": [

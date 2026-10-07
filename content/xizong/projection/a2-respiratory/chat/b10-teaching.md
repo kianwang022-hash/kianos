@@ -4,7 +4,7 @@
 
 <h1>胸膜与胸壁：占了什么、压有多高、风箱还能否工作</h1>
 
-<p class="scope">本地待审教学稿 · 同一模型的短读与展开；无医学／原图／学习完成验收。</p>
+<p class="scope">同一模型的短读与展开；教学采用见<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>，原图与真实学习证据仍分别保留。</p>
 
 <p>R1的胸膜负压把肺与胸壁耦联。液／血／脓占位压肺，气体破坏负压；持续高压再阻回心，血胸另丢循环容量。胸壁失稳则让风箱本身失效。先判内容物、压力、纵隔、胸壁与血流动力学，再选减压、封闭、引流或支持。</p>
 
@@ -94,7 +94,7 @@
 
 <details class="references"><summary>来源、精确复习与原图去向</summary>
 
-<p>完整Current Core可由每个知识标题直达。以下Memory身份仍是现有提示范围，prepared答案为本地待审提案；此稿不会生成学习证据、到期任务或自动完成。</p>
+<p>完整Current Core可由每个知识标题直达。以下Memory身份的当前准入与答案解析以<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>及其现有答案owner为准；此稿不会生成学习证据、到期任务或自动完成。</p>
 
 
 

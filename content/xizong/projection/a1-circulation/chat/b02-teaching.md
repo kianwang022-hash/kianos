@@ -2,7 +2,7 @@
 
 # B2｜循环变量偏了，身体怎样把灌注救回来
 
-从第一偏离变量出发，先找感知与执行，再合看局部分配和水盐容量，最后判断刺激是否解除。节点上的〔完整 Prompt〕用于恢复同一模型；卡住时原地展开解释，标题可回完整知识。当前是候选阅读稿，不表示已学、已看原图或正式采用。
+从第一偏离变量出发，先找感知与执行，再合看局部分配和水盐容量，最后判断刺激是否解除。节点上的〔完整 Prompt〕用于恢复同一模型；卡住时原地展开解释，标题可回完整知识。采用范围以<a href="../../../knowledge/systems/a1-circulation/ACCEPTANCE.md#b2-teaching-adoption-20261006">本块教学采用记录</a>为准；阅读不表示已学或已看原图。
 
 <!-- b2:route:start -->
 全身反馈：压力／气体化学／中央充盈变化 → 相应感知与整合 → 自主神经 → 心脏、微动脉、静脉和肾素入口。
@@ -398,7 +398,7 @@ BNP升高常表示壁负荷和代偿信号增强，不表示它是心衰的病�
 ## 精确项、原图与临床接口：回到已有位置
 
 - [即时机制与延后精度的既有分工](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L836)：数字、配对、名单、命名与比较表均可从相应节点回完整Core；推理当前需要的条件就在当前步恢复。
-- [B2既有准备项与处置](../../../knowledge/learner/shared-fields.json?plain=1#L1427)保留17项记忆准备、8项留Core／Source或后置处置、6条既有连接；[现有Precision索引](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L1)本候选接入12项准备答案与已有记忆辅助，仍保留5项：神经分布待补人体／物种限定；肾素细胞别名、缓激肽受体配对、ADM名称辨别、课程最强舒／缩血管配对留Core／Source。本页不把候选卡片等同正式采用或学习完成。
+- [B2既有准备项与处置](../../../knowledge/learner/shared-fields.json?plain=1#L1427)保留17项记忆准备、8项留Core／Source或后置处置、6条既有连接；[现有Precision索引](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L1)本候选接入12项准备答案与已有记忆辅助，仍保留5项：神经分布待补人体／物种限定；肾素细胞别名、缓激肽受体配对、ADM名称辨别、课程最强舒／缩血管配对留Core／Source。本页不把Prepared内容可用等同个人已入队或学习完成。
 - [正式Source范围与71题归属](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L825)：P153–168、P280–284及U013；机制桥梁不迁移泌尿所有权。[七个现有POST_REVEAL图像提示](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L39)与[原图门禁清单](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L846)继续有效。
 - [保留的原图与Extension要求](../../../knowledge/learner/shared-fields.json?plain=1#L1427)共12项（9门禁、3扩展）；其中P154反射曲线、P280肾执行仍需原Source门禁，不冒充已渲染或本轮已看。当前推理依赖图形时就看原图，不等后置扫读。
 - 临床短接口保留在原Core／连接：[窦按摩→B10](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L209)、[嗜铬细胞瘤／CCB](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L428)、[原醛vsLiddle](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L521)、[DI／SIADH](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L560)、[药物断点及B5／B11阈值边界](../../../knowledge/systems/a1-circulation/blocks/Block2_循环调节与容量控制_学习阅读版_v4_最终执行版.md?plain=1#L766)；休克完整诊疗回既有B12连接。这里不生成处方或完整疾病课程。

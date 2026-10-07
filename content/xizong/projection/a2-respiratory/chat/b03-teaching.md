@@ -4,7 +4,7 @@
 
 在相应表型中，两条结构链可汇合：慢支让小气道黏、窄、硬；肺气肿拆掉肺腺泡回缩框架。呼气流速受限 → 排空不充分/过度充气 → 做功增加，同时出现区域VA/Q异常。诊断证据、当前危险与稳定期管理各回答不同问题。
 
-这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；本准备稿不代表已学习、Source已接触或Memory已准入。
+这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；阅读本页不产生已学习、Source接触或Memory入队记录；教学采用和Prepared准入分别依<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>与<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>。
 
 <a id="r03-model-01"></a>
 ## 入口：症状提示，持续受限才提供功能身份
@@ -197,7 +197,7 @@ CO₂潴留形成呼酸时先改善排气和病因，不用碱把通气问题藏
 <a id="r03-source-and-completeness"></a>
 ## 精确记忆与原图：在对应节点回看
 
-- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块现有2条Precision身份保持原KP/LG范围，准备答案仅为待审提案，未进入真实Memory。
+- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块原有Precision身份保持原KP/LG范围，当前准入、完整答案与保留项回<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json">当前Precision索引</a>及其现有答案owner；原生解析成功的已准入项可用于网站复习，HOLD项不补造。
 - 推理依赖图形时在该步核对原图；页码和已有图像位置不等于本轮读过像素。未提供的原图仍为Source门禁，不能因选定图片少就删掉。
 
 <details>
@@ -242,6 +242,8 @@ Source范围：病理PDF54–64；内科PDF1–11；病理U001慢支8+气肿10�
 
 课程GOLD肺功能级与ABE不是同一分组；课程/2026版边界保留。旧Exit第11问的“先动态后静态”不覆盖Current表型/测量条件。完整抗菌药/剂量未在Current提供，保持Source/HOLD。
 
-[Framework、即时机制、原始Memory路由及Block Exit](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。具体非KP逐项处置随本地审查清单交付。
+[Framework、即时机制、原始Memory路由及Block Exit](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。非KP逐项去向沿下列实际Current段落与现有支持owner回查；Core/Source入口不等于独立Memory准入。
+
+<p>本章结构与精确项目：<a href="../../../knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md#L59">1｜总 Framework</a>；<a href="../../../knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md#L143">MI-G｜会阻断后续推理，第一轮必须即时掌握</a>；<a href="../../../knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md#L162">MI-D｜精确记忆，定位后进入 MarginNote 卡片流</a>。本章原有Precision身份：<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json#L189">a2-r03-lg03-precision</a>；<a href="../../../knowledge/learner/a2-respiratory-learning-cues.json#L267">a2-r03-lg05-precision</a>。各项准入由索引与原生freshness决定，来源缺口与原有HOLD保留。</p>
 
 </details>

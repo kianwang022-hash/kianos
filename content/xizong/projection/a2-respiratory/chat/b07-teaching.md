@@ -219,7 +219,7 @@ PPD → 感染/免疫反应线索
 <details id="source-and-scope">
 <summary>来源与阅读边界</summary>
 
-这是一份冻结Current的教学准备稿。展开沿同一模型补解释，不生成学习、Recall、Source接触或完成记录。精确医疗答案仍由当前Core负责。
+本稿采用范围以<a href="../../../knowledge/systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006">本块教学采用记录</a>为准。展开沿同一模型补解释，不生成学习、Recall、Source接触或完成记录。精确医疗答案仍由当前Core负责。
 
 [当前完整Core与原讲义范围](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md)；[已接受Learning范围](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-learning.json)；[现有视觉目录](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-source-visuals.json)。
 

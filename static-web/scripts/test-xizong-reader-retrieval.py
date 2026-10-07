@@ -76,6 +76,26 @@ for row in rows:
      ids=re.findall(r'\bid=["\']([^"\']+)', '\n'.join(lines));heads=[re.sub(r'[^\w\-\s]','',re.sub(r'^#+\s*','',l).lower()).replace(' ','-') for l in lines if re.match(r'^#+ ',l)]
      check(row['path']+' anchor '+path+'#'+f,f in ids or f in heads)
   elif not u.scheme and not u.netloc:check(row['path']+' local path '+href,(root/row['path']).parent.joinpath(unquote(u.path)).is_file())
+# Accepted-reader status is a reference to its existing owner, never a competing snapshot.
+# Candidate metadata comments and dated source/medical holds remain untouched.
+stale_entry_phrases = [
+ '当前仍是候选阅读稿', '当前是候选阅读稿', '本页仍为候选',
+ '候选学习稿。', '内容候选</p>', '本稿是连续教案候选',
+ '本地待审教学稿', 'prepared答案为本地待审提案',
+ '准备答案仅为待审提案，未进入真实Memory', '具体非KP逐项处置随本地审查清单交付',
+]
+for family in ['a1-circulation', 'a2-respiratory', 'a3-urinary']:
+ for path in sorted((root/'content/xizong/projection'/family/'chat').glob('b??-teaching.md')):
+  text=re.sub(r'<!--[\s\S]*?-->', '', path.read_text())
+  for phrase in stale_entry_phrases:check(str(path.relative_to(root))+' no stale current-stage claim '+phrase,phrase not in text)
+for n in range(1,5):
+ row=next(x for x in rows if x['path'].endswith('/a2-respiratory/chat/b%02d-teaching.md'%n))
+ check(row['path']+' actual cue owner', 'a2-respiratory-learning-cues.json#L' in row['html'])
+ check(row['path']+' no nonexistent local accounting owner', '本地审查清单交付' not in row['html'])
+# Negative examples target obsolete delivery prose, not genuine Source/clinical HOLD.
+check('stale Memory claim is rejected', any(p in '准备答案仅为待审提案，未进入真实Memory。' for p in stale_entry_phrases))
+check('genuine Source HOLD retained', not any(p in 'Current <120；候选≤120不采用；原图未核、PPD阈值缺失保持HOLD。' for p in stale_entry_phrases))
+
 # Tree adversaries: a nested summary cannot escape an outer closed body; same-line tags stay closed.
 for markup,expected in [('<details><summary><span data-kp="a">A</span></summary><span data-kp="b">B</span></details>',{'a'}),('<details><summary>A</summary><details><summary><span data-kp="b">B</span></summary></details></details>',set()),('<details open><summary>A</summary><details><summary><span data-kp="b">B</span></summary><span data-kp="c">C</span></details></details>',{'b'})]:
  t=Tree();t.feed(markup);check('closed-details HTML tree adversary '+markup,{kp(n) for n in t.root.all() if kp(n) and n.visible()}==expected)
