@@ -68,7 +68,11 @@ The existing `validate-politics-repair-memory.mjs` passed its routing/consumer c
 
 `test-politics-prepared-memory-browser.mjs` passed 168 assertions against isolated Candidate 4322 on Mac Chrome. It covered the permanent Politics Home entry, five-subject/all-scope discovery, Chapter 2 selection, reveal-before-rating, all three ratings, preserved free-practice history after reload, native Packet return without a fake plan, and the existing 22-target planned C01 reload/reopen path. The served catalog matched the current producer (473 source-reviewed cards; 26 in the tested Chapter 2 scope). Actual Home/picker/prompt/answer screenshots were inspected at Mac landscape sizes; Memory is classified under Review. Synthetic browser actions stayed in Candidate, not Kian's real profile or production control/relay.
 
-**Boundary:** this proves the named policy/functional candidate scope, not Leg necessity of every existing card, a new course's content quality, real learning or mastery. Formal main/served readback is separate from Candidate proof. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
+**Formal delivery readback:** #1249 merged as `7a190dcda36905a6d0d154841d98940ede01bbe5`. At 2026-10-07 22:39 +08:00, the actual Stable 4321 status reported `synced` at that same SHA; HTTP GET of `/politics/` and `/politics/memory/` both returned 200 and contained the permanent entry and free-practice controls. The native Personal Politics role was also updated/read back to route to the current learning owners, without creating a parallel policy. The task branch was retired. This is delivered functionality, not just repository presence.
+
+Politics Runtime QA, Functional First Journey, Xi/Ethics acceptance, maturity, private control and authority checks passed. Two unrelated Xizong checks still reported `wrong_auto_flips_to_back`; the identical failure was confirmed on pre-PR main runs 37571161905 / 37607921414. The failing Xizong code/tests were untouched and not weakened; exact CI reconciliation is recorded in #1249. This receipt does not call all-repository CI green.
+
+**Boundary:** this proves the named source-first rule/entry repair and self-selected practice path. It does not prove Leg necessity of every existing card, a regenerated course's quality, real learning or mastery. Existing cards have not been re-filtered against the unresolved named Leg source. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
 
 ## Permanent boundaries
 
