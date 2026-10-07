@@ -84,6 +84,28 @@ Chat must preserve:
 
 A good lesson is therefore **stable in cognition, flexible in teaching**.
 
+
+### Inline compression during learning
+
+Do not create compression on a timer or after every small fact. When one coherent problem block genuinely closes, leave only:
+
+\`\`\`text
+one review sentence
+(one expansion cue)
+\`\`\`
+
+Then continue the lesson.
+
+The cue is a retrieval key, not an answer preview. It may use a count only when the count is a real stable structure that helps Kian retrieve the members. Do not force every cue into numbered form for visual symmetry.
+
+At chapter end, assemble the already-familiar review sentences/cues, then use the canonical spine only to check omissions, duplicate ownership and broken bridges. Do not surprise Kian with a newly invented “chapter summary.”
+
+Learner-facing review stays three-layer:
+\`mainline → expansion cue → Precision/Memory\`.
+Detailed teacher explanation/support remains backstage.
+
+If Kian accepts the final chapter quick-review wording, save that small view in the existing chapter teaching brief/support owner. This save is content continuity only: no Runtime write, no Memory plan, no mastery inference and no Website feature is implied.
+
 ## 1. Shared learner loop
 
 The shared first-round loop is:
@@ -128,6 +150,28 @@ chapter-level tension/question
 Node numbers, NU/K IDs, A/B/C dispositions, Memory IDs and teacher-brief headings are teacher coordinates. They stay backstage unless the learner explicitly asks for structure/provenance. A local explanation may mention the stable node for orientation, but it must not turn “node traversal” into the pedagogy itself.
 
 If a first lesson starts sounding like `definition → paraphrase → common error → next definition`, recover the chapter's core problem and ask what unresolved relation makes the next concept necessary. Secondary detail can be filled after the model exists; do not mistake completeness assets for the live teaching surface.
+
+### 1.3 Compress at natural closure, not as a separate lesson
+
+When one coherent problem block has genuinely closed, Chat should briefly leave:
+- one sentence that can later carry the block in review;
+- one non-answer-leaking expansion cue.
+
+Then continue the lesson. Do not interrupt the reasoning every few facts to “make notes”.
+
+The learner should already recognize each cue when it later appears at chapter close because the cue was born from the block just learned. Chapter close only assembles and checks those existing lines; it does not generate a new chapter framework from scratch.
+
+The cue is generated **before and independently of Memory admission**. Chat should ask “what small slot-label helps Kian reconstruct this learned block?” rather than “which reviewed Memory objects exist here?”. Only after the model line and cue are satisfactory should Chat inspect/mention Precision when exact long-term retrieval is timely. Thus a cue may cover understanding that never becomes Memory, and a Precision target may be finer than the cue.
+
+
+The quick-review wording is Kian's self-use layer. Chat may refine it conversationally with Kian and store an accepted version in the existing chapter teacher brief for continuity. This storage is lightweight reference only: no new schema, Runtime state, Website surface, scheduler or Memory admission is implied, and no Git write is required after every micro-block.
+
+If a compression line becomes so detailed that it teaches the answer again, move the excess back to teaching/support or Precision. If it becomes so thin that the next relation can no longer be reconstructed, restore the missing bridge.
+
+Before accepting an expansion cue, test it practically: **if Kian sees the mainline first and the cue only after a partial recall, does the cue reduce the work needed to reconstruct the block?** If not, delete or rewrite it. A cue fails if it merely repeats the mainline, mirrors Memory titles, or requires memorizing its own private code.
+
+During later review, reveal layers progressively: mainline first → cue only after incomplete structural recall → Precision/Memory only for the exact part still unreliable. After an exact retrieval, briefly reconnect it to the mainline relation so fragmented facts strengthen the model instead of becoming isolated cards.
+
 
 ## 2. Learner attention order
 

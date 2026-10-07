@@ -13,6 +13,7 @@ import os
 import re
 import unittest
 from urllib.parse import unquote, urlsplit
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[4]
 TEACHING = ROOT / 'content/xizong/projection/a1-circulation/chat/b01-teaching.md'
@@ -20,6 +21,10 @@ CANONICAL = ROOT / 'content/xizong/knowledge/systems/a1-circulation/blocks/Block
 SHARED = ROOT / 'content/xizong/knowledge/learner/shared-fields.json'
 CUES = ROOT / 'content/xizong/knowledge/learner/a1-circulation-learning-cues.json'
 BASE_BLOB = '3cd348b092ae30010694d26018740e3f36f9bfaf'
+# The retired teaching artifact keeps its original physical locators. Verify
+# those against its declared historical blob, never the current packaged file.
+HISTORICAL_META = json.loads(re.search(r'<!-- kianos:reviewed-reading-view (\{[^\n]+\}) -->', TEACHING.read_text())[1])
+HISTORICAL_CANONICAL = subprocess.check_output(['git', 'cat-file', 'blob', HISTORICAL_META['canonical_blob']], cwd=ROOT, text=True)
 SOURCE = re.compile(r'<!-- b1:source (\d+):(\d+) -->\n(.*?)<!-- /b1:source -->', re.S)
 NODE = re.compile(r'^( *)- \[([^\n]+)\]\(([^\n]+)\)：(.+) <!-- b1:node (\{[^}\n]+\}) -->$', re.M)
 EXTERNAL = re.compile(r'\[([^\n\]]+)\]\(([^\n)]+)\)<!-- b1:external (\{[^}\n]+\}) -->')
@@ -116,13 +121,14 @@ def check_destination(url, line=None):
     require(path in [CANONICAL, SHARED, CUES], 'new duplicate/external owner')
     anchor = re.fullmatch(r'L(\d+)', parsed.fragment)
     require(path.is_file() and anchor is not None, 'missing external destination')
-    require(0 < int(anchor[1]) <= len(path.read_text().splitlines()), 'broken destination')
+    target = HISTORICAL_CANONICAL if path == CANONICAL else path.read_text()
+    require(0 < int(anchor[1]) <= len(target.splitlines()), 'broken destination')
     if line is not None:
         require(path == CANONICAL and int(anchor[1]) == line, 'canonical locator drift')
 
 
 def inspect(text):
-    expected = canonical_annotations(CANONICAL.read_text())
+    expected = canonical_annotations(HISTORICAL_CANONICAL)
     chunks = sorted((int(m[1]), int(m[2]), m[3]) for m in SOURCE.finditer(text))
     require(bool(chunks), 'archival explanation missing')
     next_line = 2
@@ -189,16 +195,15 @@ def inspect(text):
         if len(paragraph) > 45 and not paragraph.startswith(('<!--','```')):
             require(paragraph not in visible, 'original article paragraph reintroduced in default')
     require(not re.search(r'\b(?:KP|LG)\d+', plain(visible)), 'default ID skeleton exposed')
-    cues = json.loads(CUES.read_text()); shared = json.loads(SHARED.read_text())
+    cues = json.loads(CUES.read_text())
+    knowledge = json.loads(re.search(r'<!-- kianos:knowledge\n([\s\S]*?)\n-->', CANONICAL.read_text())[1])
     admitted = {item['id'] for item in cues['precision_index']
                 if item.get('anchor', {}).get('block_id') == 'circulation-b01'}
-    all_memory = {item['memory_id'] for key,field in shared['kp_fields'].items()
-                  if key.startswith('circulation-b01-')
-                  for item in field.get('retention_metadata',{}).get('memory_items',[])}
+    all_memory = {view['item']['memory_id'] for view in knowledge['exact_items']}
     retained = {'b01-m03-cycle-flow-volume-extrema','b01-m07-filling-75-25',
                 'b01-m11-pathology-arteriole-map','b01-m13-bp-peaks'}
     require(len(admitted) == 13 and all_memory-admitted == retained, 'prepared/retained state changed')
-    cvp = shared['kp_fields']['circulation-b01-kp023']['retention_metadata']['memory_items'][0]
+    cvp = next(view['item'] for view in knowledge['exact_items'] if view['kp_ordinal'] == 23)
     require(cvp['source_conflict']['status'] == 'FAIL_CLOSED', 'CVP Source conflict silently resolved')
     for token in ['现有 Precision 索引','已有准备答案／记忆辅助','4项仍留原语境、未独立准入',
                   '流量／容积极值','正常静息充盈比例及条件','病理细动脉对应','昼夜高峰',
@@ -245,8 +250,26 @@ class RenderedReader(HTMLParser):
 
 
 class B1SameModelTest(unittest.TestCase):
-    def test_current_candidate(self):
+    def test_historical_candidate_provenance(self):
         print(json.dumps(inspect(TEACHING.read_text()), ensure_ascii=False, sort_keys=True))
+
+    def test_current_canonical_model_bindings(self):
+        text = CANONICAL.read_text()
+        knowledge = json.loads(re.search(r'<!-- kianos:knowledge\n([\s\S]*?)\n-->', text)[1])
+        model = re.search(r'<!-- kianos:model '+knowledge['model']['section']+r' -->\n([\s\S]*?)<!-- /kianos:model -->', text)[1]
+        expected = canonical_annotations(text)
+        ids = re.findall(r'\{\{kp:([^}]+)\}\}', model)
+        self.assertEqual(ids, knowledge['model']['node_kp_ids'])
+        self.assertEqual(len(ids), 19)
+        for kp in ids:
+            self.assertIn(kp, expected)
+        expanded = re.sub(r'\{\{kp:([^}]+)\}\}', lambda m:'['+expected[m[1]][0]+'](#'+m[1]+')', model)
+        for kp in ids:
+            self.assertIn('['+expected[kp][0]+'](#'+kp+')', expanded)
+        for edge in SPINE:
+            self.assertIn(edge, expanded)
+        for view in ['mechanism-spine', 'formula-language']:
+            self.assertEqual(len(re.findall(r'<!-- kianos:model-view '+view+r' -->\n([\s\S]*?)<!-- /kianos:model-view -->', model)), 1)
 
     def test_actual_reader_order_includes_all_additions(self):
         visible = default_markdown(TEACHING.read_text())
@@ -290,4 +313,3 @@ class B1SameModelTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

@@ -102,6 +102,10 @@ A Politics compression asset is valuable only when it removes future learner wor
 
 Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.
 
+#### 0.4.1 Incremental learner compression
+
+The learner-facing realization of this principle is owned once by §0.7 **Three-layer learner compression**. §0.4 defines why compression exists; §0.7 defines how it is built, checked and reviewed. Do not maintain a second competing copy of the same rules here.
+
 ### 0.5 Fixed reconstruction spine — stable learner index
 
 Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**
@@ -125,7 +129,7 @@ Hard anti-drift rules:
 
 Subject shape remains local: Marxism normally freezes a reasoning/relation chain; History a stage/causal movie; Mao a historical problem→theory response→position chain; Xi a stable hierarchy/role map; Ethics-Law a stable concept/normative/application scaffold. “Fixed” means stable cognition for that chapter, not one universal Politics template.
 
-Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to lay down the same canonical spine without rebuilding a new index.
+Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to recover the same canonical relations without rebuilding a new index. A Kian self-use quick-review view may visually group adjacent canonical nodes or use fewer learner-facing lines when the mapping remains clear; the canonical spine then acts as the completeness validator, not a demand that the personal review display copy its node count or wording.
 
 ### 0.6 First teaching is problem-driven — the spine is not a lecture outline
 
@@ -143,6 +147,124 @@ Hard rules:
 
 First-teaching acceptance test: hide all node numbers, formal section titles, Source IDs and Memory labels. If the remaining explanation cannot still be read as one coherent problem-solving argument in which each concept is motivated by the previous unresolved question, the first-teaching route is not prepared, even if coverage is complete.
 
+
+### 0.7 Three-layer learner compression — build it while learning
+
+Politics learner-facing review has exactly **three layers**:
+
+1. **Chapter mainline** — a small number of review sentences that preserve why the chapter moves from one problem to the next.
+2. **Expansion cues** — short, non-answer-leaking reconstruction keys attached to a mainline sentence.
+3. **Precision / Memory** — only content that the model cannot reliably reconstruct yet the exam requires to be identified or produced with high precision.
+
+Teacher explanation/support is **not a fourth learner layer**. It remains backstage content used to teach or repair understanding.
+
+#### Build compression at natural problem closure
+
+Do not wait until chapter end to invent a summary. After one **natural logic block** has been understood and closed:
+
+```text
+teach the problem normally
+→ close the relation/model for that block
+→ leave one review sentence
+→ leave one non-answer-leaking expansion cue
+→ continue teaching
+```
+
+A natural logic block is a coherent problem closure, not each definition or micro-fact. Compression must not interrupt teaching every few minutes or turn learning into note maintenance.
+
+The **review sentence** carries the problem, decisive relation or bridge needed to continue the chapter.
+
+The **expansion cue** helps Kian reconstruct the internal structure underneath that sentence. Prefer object + structure/count only when that structure genuinely helps retrieval, e.g. `意识2起源｜2本质｜4作用`. Numbers are optional; they are never a formatting quota.
+
+**Expansion cue ≠ Precision/Memory index.** Form the mainline + cue from the learned model first; only afterwards decide which exact material deserves Precision/Memory. A cue may exist without a Memory target, and a Memory target may be finer than the cue.
+
+A useful expansion cue must pass four checks:
+
+- **reconstruction value** — after learning, seeing it should help Kian recover the internal structure of the block without rereading teaching prose;
+- **non-redundancy** — it adds a useful retrieval slot not already obvious from the mainline; do not add `1定义` merely for symmetry when the sentence already reliably restores that definition;
+- **non-leakage** — it names the slot/shape, not the answer members;
+- **stability** — it still makes sense on later review without depending on temporary classroom wording or requiring a separate codebook.
+
+Hard anti-collapse rules:
+
+- do not inspect the Memory catalog first and define the cue from “whatever reviewed cards already exist”;
+- do not delete a useful cue because no Memory object exists;
+- do not create Memory debt because a cue exists;
+- do not use the parenthetical cue as a list of all Precision objects;
+- do not invent arbitrary counts or private shorthand merely to make the cue look compact;
+- if real use shows a cue is cryptic, redundant or useless, revise that same cue rather than adding another summary layer.
+
+#### Four local compression checks
+
+Each natural block uses four checks:
+
+1. **Main-model test.** Does the review sentence carry the current core problem, a decisive relation, or an indispensable bridge? Lists, examples, fixed wording and low-frequency extensions do not enter merely because they were taught.
+2. **Cue-utility test.** Does the cue actually reduce the work needed to reconstruct the learned block? If the mainline already restores something reliably, the cue need not repeat it.
+3. **Model-completeness test.** Local compression must preserve needed relation/direction. At chapter close, compare the assembled lines with the canonical reconstruction spine so no core node, bridge or direction disappears.
+4. **Owner test.** Anything omitted from the learner-facing model still has an owner:
+   - reasoning/support detail → teaching/support;
+   - exam-required exact retrieval → reviewed Precision/Memory;
+   - unsupported/unresolved meaning → Source gap.
+
+**Only material worth durable exact retrieval becomes Memory.** “Not in the mainline” does not mean deleted; “not in Memory” does not mean unimportant.
+
+#### Chapter closure assembles; it does not re-summarize
+
+At chapter end:
+
+```text
+existing block review sentences
+→ order by the learned logic
+→ remove duplication
+→ repair transitions
+→ canonical-spine completeness check
+→ owner / Precision check
+→ save the accepted quick-review view
+→ optionally thin further to a minimal keyword line
+```
+
+Do **not** ask Chat to design a new chapter framework after learning. The canonical spine is the completeness checker and stable identity. The learner quick-review view may visually merge nearby canonical nodes when that makes review faster, provided the same relations remain recoverable.
+
+#### Progressive review ladder — model first, cue second, precision last
+
+Use the three layers progressively rather than showing them as one dense page:
+
+```text
+mainline only
+→ Kian reconstructs the relation and explains why the step follows
+→ if breadth/internal structure is incomplete, reveal the expansion cue
+→ Kian reconstructs the missing slots
+→ if an exam-required exact member/pairing/wording is still unreliable, retrieve the owning Precision/Memory item
+→ relink that exact fragment to its mainline home
+→ continue
+```
+
+This separates three failures:
+
+- cannot explain why the step follows → model/teaching repair;
+- understands the relation but forgets internal branches → cue-assisted reconstruction;
+- understands and locates the content but cannot reproduce required exactness → Precision/Memory.
+
+Do not send a model failure straight to rote Memory, and do not reopen full teaching prose for a small exact-retrieval lapse.
+
+#### Fragment integration
+
+Exact fragments remain attached backstage to the canonical content/node they refine. The quick-review view does not enumerate every Memory item.
+
+A fragmented fact is well integrated only when Kian can say **which mainline relation it belongs under**. If an exact item has no obvious conceptual home, repair the model/cue mapping rather than creating another learner-facing layer.
+
+#### Personal quick-review view
+
+After Kian and Chat have actually learned a chapter and accepted its quick-review wording, that view may be stored **inside the chapter's existing teaching brief/support owner** as a clearly marked Kian self-review view.
+
+It is a lightweight durable note, not a new schema, registry, Runtime surface or canonical model. It must not:
+
+- change the canonical reconstruction spine;
+- create another Website/Memory consumer;
+- affect learner progress, scheduling or admission;
+- be pre-generated for every chapter merely for completeness.
+
+Its purpose is only to make future manual review cheaper. If real use finds a better wording, update the same small view rather than adding another summary layer.
 
 ## 1. Product model
 

@@ -1,3 +1,4 @@
+import { buildXizongMemoryReleaseDescriptorFromLearnerObject as legacyFixtureDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
 // Current Content -> existing cue resolver -> learner object -> Memory.
 // All state below is isolated synthetic data; never read/write browser storage.
 import assert from 'node:assert/strict';
@@ -13,7 +14,7 @@ import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs
 import { resolveXizongLearnerAssetRepresentation as representation } from '../src/lib/xizongRepresentationGate.mjs';
 import { buildXizongMemoryReleaseDescriptorFromLearnerObject as describe, buildXizongPreparedMemoryAvailability } from '../src/lib/xizongMemoryRelease.mjs';
 import { createXizongMemoryState, releaseBlockMemory, makePreparedMemoryAvailable, appendMemoryEvidence, setPersonalPrompt, memorySummary } from '../src/lib/xizongMemoryModel.mjs';
-import { releaseCompletedBlockToMemory } from '../src/lib/xizongMemoryAutoRelease.mjs';
+import { releaseCompletedBlockToMemory as releaseCompiledOrLegacyFixture } from '../src/lib/xizongMemoryAutoRelease.mjs';
 
 const shared = JSON.parse(fs.readFileSync(new URL('../../content/xizong/knowledge/learner/shared-fields.json', import.meta.url)));
 const canonical = loadXizongBlock('circulation', 'b01');
@@ -47,16 +48,19 @@ check('all exact answer/aid payloads are protected before KP and Block Reveal', 
     assert.equal(representation(cue, {stage:'KP_RECALL_REVEALED'}).visible, true);
   }
 });
-const sample = bound[1], ref = sample.prepared_memory_ref;
+// Legacy owner negatives still apply to unmigrated B2. B1 canonical-owner
+// negatives are exercised by test-xizong-canonical-block-owner.mjs.
+const legacyCanonical = loadXizongBlock('circulation', 'b02');
+const sample = cues.precisionIndex.find(row => row.anchor.block_id === legacyCanonical.blockId && row.prepared_memory_ref), ref = sample.prepared_memory_ref;
 const testFailure = (name, mutate, expected) => check(name, () => {
-  const row = structuredClone(sample), block = structuredClone(canonical), input = structuredClone(shared);
+  const row = structuredClone(sample), block = structuredClone(legacyCanonical), input = structuredClone(shared);
   mutate(row, block, input);
   assert.throws(() => resolvePreparedMemoryCue(row, block, input), expected);
 });
 testFailure('unapproved owner rejected', (_r,_b,s) => s.authority = 'UNREVIEWED', /OWNER_UNAPPROVED/);
 testFailure('wrong Source owner rejected', (_r,b,s) => s.source_bindings[b.blockId] = 'another-owner.md', /SOURCE_BINDING_MISMATCH/);
 testFailure('wrong KP anchor rejected', r => r.anchor.kp_id = 'not-a-kp', /KP_OWNER_MISMATCH/);
-testFailure('cross-KP memory field rejected', r => r.prepared_memory_ref.kp_field_key = 'circulation-b01-kp029', /FIELD_OWNER_MISMATCH/);
+testFailure('cross-KP memory field rejected', r => r.prepared_memory_ref.kp_field_key = 'circulation-b02-kp029', /FIELD_OWNER_MISMATCH/);
 testFailure('unknown collection rejected', r => r.prepared_memory_ref.collection = 'unreviewed', /COLLECTION_UNSUPPORTED/);
 testFailure('different memory identity rejected', r => r.prepared_memory_ref.memory_id = 'other', /IDENTITY_MISMATCH/);
 testFailure('missing item rejected', (_r,_b,s) => s.kp_fields[ref.kp_field_key].retention_metadata[ref.collection] = [], /ITEM_MISSING_OR_DUPLICATE/);
@@ -80,7 +84,7 @@ check('prepared text is escaped, not executable markup', () => {
   const item=input.kp_fields[ref.kp_field_key].retention_metadata[ref.collection].find(x=>x.memory_id===row.id);
   item.answer='<script>synthetic()</script>'; item.mnemonic='<img src=x onerror=synthetic()>';
   row.prepared_memory_ref.item_sha256=preparedMemoryDigest(item);
-  const html=resolvePreparedMemoryCue(row,canonical,input).answer_html;
+  const html=resolvePreparedMemoryCue(row,legacyCanonical,input).answer_html;
   assert.ok(!html.includes('<script>')); assert.ok(!html.includes('<img'));
   assert.ok(html.includes('&lt;script&gt;'));
 });
@@ -216,3 +220,10 @@ for (const [name, mutate, expected] of [
 });
 
 console.log(JSON.stringify({status:'PASS',boundary:'native Current content + pure synthetic state; no real learner writes',checks},null,2));
+
+// This file retains deliberate pre-compiler fixtures. Explicitly inject their
+// legacy adapter; production migrated consumers never import that raw owner path.
+function releaseCompletedBlockToMemory(state, learner, study, options = {}) {
+  return releaseCompiledOrLegacyFixture(state, learner, study,
+    { ...options, descriptorBuilder: legacyFixtureDescriptor });
+}

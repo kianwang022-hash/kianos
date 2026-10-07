@@ -19,6 +19,7 @@ import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizo
 import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestionCrosswalk.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjection.mjs';
+import { presentXizongLearnerBlock } from '../../../lib/xizongLearnerObject.mjs';
 import { attachSourceVisualBundles } from '../../../lib/xizongSourceVisualAssets.mjs';
 import '../../../styles/xizong-block-workspace.css';
 
@@ -30,14 +31,12 @@ export function getStaticPaths() {
 }
 
 const { systemId, blockSlug } = Astro.props;
-const canonicalBlock = loadXizongBlock(systemId, blockSlug);
-const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
-const resolved = resolveXizongLearnerProjection(canonicalBlock, {
+const resolved = resolveXizongLearnerProjection({ systemId, blockId: blockSlug }, {
   attachVisualBundles: attachSourceVisualBundles,
   enrichBlock: (productionBlock) => ({
     ...productionBlock,
-    blockLearnHtml: marked.parse(projectBlockLearn(canonicalBlock.blockLearnMarkdown), { gfm: true }),
-    visualGateHtml: canonicalBlock.visualGateMarkdown ? marked.parse(projectVisualGate(canonicalBlock.visualGateMarkdown), { gfm: true }) : '',
+    blockLearnHtml: marked.parse(projectBlockLearn(productionBlock.blockLearnMarkdown), { gfm: true }),
+    visualGateHtml: productionBlock.visualGateMarkdown ? marked.parse(projectVisualGate(productionBlock.visualGateMarkdown), { gfm: true }) : '',
     kpRecords: productionBlock.kpRecords.map((kp) => ({
       ...kp,
       detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true })
@@ -45,7 +44,9 @@ const resolved = resolveXizongLearnerProjection(canonicalBlock, {
   })
 });
 const { system, learnerObject } = resolved;
-const projection = {
+const canonicalBlock = resolved.block;
+const crosswalk = loadXizongQuestionCrosswalkForBlock(canonicalBlock);
+const projection = learnerObject.semanticOwnership ? presentXizongLearnerBlock(learnerObject) : {
   ...resolved.block,
   pathways: resolved.pathways,
   learningCues: resolved.learningCues,
@@ -55,7 +56,7 @@ const block = projection;
 ---
 <Base title={`${canonicalBlock.label} · ${canonicalBlock.title}`} kicker={`西医综合 · ${canonicalBlock.systemCanonicalId} · ${canonicalBlock.label}`} description={canonicalBlock.centerQuestion} sourcePath={canonicalBlock.sourcePath} sourceHash={canonicalBlock.sourceHash} objectId={canonicalBlock.objectId} active="xizong">
   <XizongLastLocation system={system} block={canonicalBlock} />
-  <XizongBlockV6 block={projection} />
+  <XizongBlockV6 block={learnerObject.semanticOwnership ? null : projection} learnerObject={learnerObject.semanticOwnership ? learnerObject : null} />
   <XizongLearnerObjectBridge learnerObject={learnerObject} />
   <XizongKpLearnInteraction />
   <XizongBlockWorkspaceShell />

@@ -1,3 +1,4 @@
+import { readXizongCompileFile } from './xizongCompileContext.mjs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,7 +28,7 @@ export function createXizongReviewedRelationFreshnessResolver({ repoRoot }) {
     const result = {
       status: 'CURRENT',
       path: rel,
-      blob: gitBlobSha(fs.readFileSync(absolute))
+      blob: gitBlobSha(readXizongCompileFile(absolute))
     };
     ownerCache.set(rel, result);
     return result;

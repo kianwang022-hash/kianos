@@ -230,6 +230,34 @@ Consumer regression must cover explicit prompt preservation, no ambiguous same-p
 
 ---
 
+### 3.2.1 Learner quick-review view is a non-canonical projection
+
+A Kian-specific chapter quick-review view may be stored in the existing chapter teaching brief/support owner after real study produces and accepts it.
+
+Its semantics are:
+
+\`\`\`text
+canonical chapter spine
++ actually learned problem blocks
+→ Kian mainline sentences
+→ non-answer-leaking expansion cues
+\`\`\`
+
+It is **not** another Content hierarchy, not a substitute for canonical chapter compression, and not a Memory source. A visual 6–10-line mainline may merge adjacent canonical nodes for fast human review when every merged line remains traceable back to the unchanged canonical spine.
+
+Ownership check for anything omitted from that view:
+- teaching/support owns explanatory detail;
+- reviewed Precision/Memory owns exact long-term retrieval;
+- Source owner/gap owns unresolved evidence.
+
+Reject:
+- expansion cues that enumerate the answer rather than cue retrieval;
+- chapter-end summaries that introduce a new framework not built during learning;
+- automatic generation of quick-review views for untouched chapters;
+- any Runtime/Website behavior that treats this personal view as learner progress, admission or scheduling truth.
+
+---
+
 ### 3.3 Fixed reconstruction spine realization
 
 Learning Contract §0.5 owns the stable-review rule. Content realizes it with the chapter's existing semantic assets; do **not** create a parallel framework registry merely to mark something “fixed”.
@@ -258,6 +286,38 @@ review 1: chain A
 when Current chapter semantics have not changed.
 
 If the canonical spine must change, update the original chapter/semantic owner and reconcile dependent review prompts, Memory cues and Projection. Do not preserve both versions as two learner truths.
+
+### 3.3.1 Kian self-use quick-review realization
+
+A chapter brief may contain one lightweight **Kian self-use quick-review view** produced during real Chat learning.
+
+It is a reference projection over the canonical chapter model, not another semantic owner. It may:
+- group adjacent canonical nodes into fewer learner-facing lines;
+- use one short expansion cue per line;
+- include an even thinner keyword-only view.
+
+It must:
+- keep enough mapping to verify against the canonical spine;
+- preserve decisive relations and bridges;
+- avoid listing answer members inside the expansion cue;
+- keep the expansion cue semantically independent from Memory admission: the cue describes what Kian should try to reconstruct from the learned model, while Precision describes what must be retrieved exactly;
+- route omitted content to existing teaching/support, reviewed Precision/Memory or explicit Source gap;
+- never imply that every omitted detail deserves Memory;
+- never create a separate Runtime/Website/plan/admission object.
+
+Invalid realization: deriving the parenthetical expansion cue by enumerating only existing reviewed Precision/Memory objects, or treating absence of a Memory object as proof that a useful model-retrieval slot should be removed.
+
+A stored quick-review cue is acceptable only when it has **incremental retrieval value** over its mainline sentence. Reject cues that:
+- merely repeat words already explicit in the sentence;
+- encode shorthand that requires separate memorization before it helps;
+- list detailed members and therefore leak the answer;
+- exist only because a Precision object happens to have that title;
+- have no stable conceptual home in the canonical chapter model.
+
+Precision objects may be more granular than the quick-review cue. Their job is exactness, not to define the learner-facing compression topology.
+
+Chapter-close editing of this view is assembly/reconciliation of lines already formed during learning. A newly invented alternative summary at chapter close is invalid when it changes the learner's model rather than thinning the learned one.
+
 
 ---
 

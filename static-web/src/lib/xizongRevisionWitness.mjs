@@ -8,6 +8,14 @@ const hash = value => createHash('sha256').update(JSON.stringify(revisionStable(
 function support(value) {
   if (Array.isArray(value)) return value.map(support);
   if (!value || typeof value !== 'object') return value;
+  if (value.relocationProvenance) {
+    // Normalize only the precisely migrated cue's owner/reference packaging.
+    // Reference digests are derived from CURRENT Core and exact item, never frozen.
+    const { relocationProvenance, ...current } = value;
+    if (!relocationProvenance.owner || !relocationProvenance.reference) throw new Error('CURRENT_XIZONG_RELOCATION_PROVENANCE_INVALID');
+    return support({ ...current, prepared_memory_owner: relocationProvenance.owner,
+      prepared_memory_ref: relocationProvenance.reference });
+  }
   if (Array.isArray(value.assets) && 'sourceSha256' in value) {
     // Bind both the reviewed crop and the actual derived asset. A changed
     // derived image cannot be assumed to be only re-encoding. Ignore Vite's
@@ -34,8 +42,23 @@ function contactShape(contact, kps) {
   }).sort((a,b) => String(a.segmentId).localeCompare(String(b.segmentId)));
   return shape;
 }
+// The continuous model owns relationships as well as its KP positions. Only
+// known locator/presentation packaging is neutral; ordinary text, conditions,
+// arrows, formulas and stable KP identities remain significant.
+function modelMeaning(markdown) {
+  return String(markdown || '').replace(/\r\n/g, '\n')
+    .replace(/<!-- b1:(node|external) (\{[^\n]+?\}) -->/g, (_, kind, json) => {
+      const { canonical_line, ...identity } = JSON.parse(json);
+      return `<!-- b1:${kind} ${JSON.stringify(identity)} -->`;
+    })
+    .replace(/<!-- b1:source \d+:\d+ -->/g, '<!-- b1:source -->')
+    .replace(/<!-- (?:kianos:model-view [a-z-]+|\/kianos:model-view) -->\n?/g, '')
+    .replace(/\]\((?:#[^\s)]+|[^\s)]+\.md\?plain=1#L\d+)\)/g, '](KNOWLEDGE_REF)')
+    .replace(/<\/?details>|<\/?summary>/g, '');
+}
 export function buildXizongRevisionWitness(learner) {
   const kps = learner.kps || [], groups = learner.logicGroups || [];
+  const blockMeaning={recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections)};
   return { schema: 'kianos.xizong.content-revision-witness.v1', sourceHash: learner.sourceHash,
     kpOrder: kps.map(k => k.identity.kpId), groupOrder: groups.map(g => g.identity.logicGroupId),
     kps: Object.fromEntries(kps.map(k => [k.identity.kpId, hash({ core: stripRevisionKpMetadata(k.core?.markdown), precision: support(k.precision), visual: support(k.visual), extension: support(k.extension), connection: support(k.connection), attention: support(k.attention) })])),
@@ -43,7 +66,12 @@ export function buildXizongRevisionWitness(learner) {
     groups: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, hash({ goal:g.goal, closure:g.closure, precision:support(g.precision), visual:support(g.visual), extension:support(g.extension), connection:support(g.connection), visualRequired:g.visualRequired, visualSourceState:g.visualSourceState })])),
     segmentOrder: (learner.sourceContact?.segments || []).map(row => String(row.segmentId || row.segment_id || row.sourceUnitId || '')),
     members: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, [...g.kpIds]])),
-    block: hash({ recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections) }),
+    block: hash({ ...blockMeaning, ...(learner.model ? { model:modelMeaning(learner.model.markdown) } : {}) }),
+    // Coverage is derived from the current object, not an equivalence certificate
+    // for old learner evidence. An old digest of only these nonmodel fields
+    // cannot attest whether that learner reconstructed this continuous model.
+    ...(learner.model ? {blockModel:{schema:'kianos.xizong.block-model-witness.v1',
+      model:hash(modelMeaning(learner.model.markdown)),withoutModel:hash(blockMeaning)}} : {}),
     contact: hash(contactShape(learner.sourceContact, kps)) };
 }
 

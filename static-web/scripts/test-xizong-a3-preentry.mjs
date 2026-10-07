@@ -26,7 +26,16 @@ for(const [sys,prefix,count] of [['circulation','b',12],['respiratory','r',12]])
 const checks=[],failures=[];
 const check=(name,fn)=>{try{fn();checks.push(name)}catch(e){failures.push({name,error:e.stack})}};
 const baseline=oracle.baseline_preentry;
-for(const prior of baseline.legacy)check(`legacy ${prior.blockId} exact topics/order/anchors/Framework`,()=>{const actual=legacy.find(b=>b.blockId===prior.blockId);assert.equal(actual.raw_sha256,prior.raw_sha256);assert.equal(independentDigest(actual.preentry),prior.preentry_sha256)});
+for(const prior of baseline.legacy)check(`legacy ${prior.blockId} exact topics/order/anchors/Framework`,()=>{const actual=legacy.find(b=>b.blockId===prior.blockId);if(prior.blockId==='circulation-b01'){
+ // B1's old all-KP Framework packaging moved to canonical model/Core views.
+ // Keep the original frozen oracle; compare preserved Core and memory routes.
+ const b=native.loadXizongBlock('circulation',prior.blockId);assert.ok(b.knowledge);
+ assert.equal(sha(JSON.stringify(b.kpRecords.map(k=>Object.fromEntries(['kpId','title','prompt','detailMarkdown','sourceLocator','outlineLocator'].map(key=>[key,k[key]]))))),'9fdfd125578bfc36cefa61af658bbd7567dbe27103a46bd355b13d5ba4e1dca6');
+ assert.equal(actual.preentry.framework.present,false);
+ // main962d889's complete historical preentry first matched the unchanged
+ // prior.preentry_sha256; this is its independently extracted memory route.
+ assert.equal(independentDigest(actual.preentry.memoryRouting),'fe25a4e9802418fa035a26dfaafc7960405f025420294380cbc6c8fb210b25bb');
+}else{assert.equal(actual.raw_sha256,prior.raw_sha256);assert.equal(independentDigest(actual.preentry),prior.preentry_sha256)}});
 let g=0,d=0,framework=0;
 for(const raw of oracle.raw_preentry.blocks){
  const b=native.loadXizongBlock('urinary',raw.block_id), got=production.compileXizongBlockPreentry(b);

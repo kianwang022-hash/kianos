@@ -15,14 +15,45 @@
       "stop_line": "疾病只用来校准正常机械方向；完整高血压、冠心病、瓣膜病、心衰等留到各自后续 Block。",
       "recall_spine": "压力差/瓣膜 → 容积/SV/CO → 前后负荷/收缩性 → 动脉压/阻力 → 静脉回心/微循环 → 冠脉自供",
       "logic_groups": {
-        "circulation-b01-lg01": {"goal": "把一次心动周期学成压力差驱动瓣膜、心音和容积变化的连续电影。", "closure": "闭卷按时相恢复瓣膜开闭、压力关系、心音和心室容积极值，不靠孤立表格。"},
-        "circulation-b01-lg02": {"goal": "用前负荷、后负荷、收缩性和心率解释 SV 与 CO 怎样改变。", "closure": "给一个负荷或心率变化，能沿 EDV/ESV/SV/CO 推出直接后果与代偿方向。"},
-        "circulation-b01-lg03": {"goal": "把心室充盈、泵储备、做功、EF 和检查指标放回同一个泵功能模型。", "closure": "能区分充盈、射血比例、输出与做功各自证明什么，并解释房颤或心功能下降为何改变它们。"},
-        "circulation-b01-lg04": {"goal": "用 PV 环和功能曲线把负荷、收缩性、顺应性的方向可视化，再用瓣膜时相做短验证。", "closure": "看到前/后负荷、收缩性或顺应性变化时，能预测 PV 环/曲线方向；不在这里提前展开瓣膜疾病。"},
-        "circulation-b01-lg05": {"goal": "理解不同血管段怎样把心输出转成阻力、动脉压和器官血流。", "closure": "能从 Q≈ΔP/R 与 MAP≈CO×TPR 解释阻力、顺应性和血压各层变化，而不把压力和流量混为一件事。"},
-        "circulation-b01-lg06": {"goal": "把静脉容量池、回心与微循环交换接回主循环。", "closure": "能说明静脉容量/压力怎样影响回心，并沿 Starling 力与淋巴方向解释组织液变化。"},
-        "circulation-b01-lg07": {"goal": "理解冠脉怎样给泵自身供血，并建立心肌氧供—耗氧最小接口。", "closure": "能解释舒张期冠灌注、供氧和耗氧的主要决定因素；冠心病诊疗细节明确留到 B6。"}
-      }
+        "circulation-b01-lg01": {
+          "goal": "把一次心动周期学成压力差驱动瓣膜、心音和容积变化的连续电影。",
+          "closure": "闭卷按时相恢复瓣膜开闭、压力关系、心音和心室容积极值，不靠孤立表格。"
+        },
+        "circulation-b01-lg02": {
+          "goal": "用前负荷、后负荷、收缩性和心率解释 SV 与 CO 怎样改变。",
+          "closure": "给一个负荷或心率变化，能沿 EDV/ESV/SV/CO 推出直接后果与代偿方向。"
+        },
+        "circulation-b01-lg03": {
+          "goal": "把心室充盈、泵储备、做功、EF 和检查指标放回同一个泵功能模型。",
+          "closure": "能区分充盈、射血比例、输出与做功各自证明什么，并解释房颤或心功能下降为何改变它们。"
+        },
+        "circulation-b01-lg04": {
+          "goal": "用 PV 环和功能曲线把负荷、收缩性、顺应性的方向可视化，再用瓣膜时相做短验证。",
+          "closure": "看到前/后负荷、收缩性或顺应性变化时，能预测 PV 环/曲线方向；不在这里提前展开瓣膜疾病。"
+        },
+        "circulation-b01-lg05": {
+          "goal": "理解不同血管段怎样把心输出转成阻力、动脉压和器官血流。",
+          "closure": "能从 Q≈ΔP/R 与 MAP≈CO×TPR 解释阻力、顺应性和血压各层变化，而不把压力和流量混为一件事。"
+        },
+        "circulation-b01-lg06": {
+          "goal": "把静脉容量池、回心与微循环交换接回主循环。",
+          "closure": "能说明静脉容量/压力怎样影响回心，并沿 Starling 力与淋巴方向解释组织液变化。"
+        },
+        "circulation-b01-lg07": {
+          "goal": "理解冠脉怎样给泵自身供血，并建立心肌氧供—耗氧最小接口。",
+          "closure": "能解释舒张期冠灌注、供氧和耗氧的主要决定因素；冠心病诊疗细节明确留到 B6。"
+        }
+      },
+      "knowledge_owner": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
+      "learner_order": [
+        "circulation-b01-lg01",
+        "circulation-b01-lg02",
+        "circulation-b01-lg03",
+        "circulation-b01-lg04",
+        "circulation-b01-lg05",
+        "circulation-b01-lg06",
+        "circulation-b01-lg07"
+      ]
     },
     "circulation-b02": {
       "first_pass_focus": "只学循环变量偏离后谁感知、谁快速执行、谁长期重建容量、局部组织怎样修正，以及同一代偿为什么短期救命长期反噬。",

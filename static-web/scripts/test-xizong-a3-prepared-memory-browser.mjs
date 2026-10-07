@@ -51,11 +51,11 @@ const report = { status: 'RUNNING', started_at: new Date().toISOString(), base: 
 let browser, lastPage;
 try {
   const { marked } = await import('marked');
-  const { loadXizongBlock, loadXizongSystem } = await import('../src/lib/xizong.mjs');
+  const { loadXizongBlock, loadXizongSystem, resolveXizongKnowledgeView } = await import('../src/lib/xizong.mjs');
   const { resolveXizongLearnerProjection } = await import('../src/lib/xizongLearnerProjection.mjs');
   const { projectKpCore } = await import('../src/lib/xizongProjection.mjs');
   const { buildXizongProductionBlock } = await import('../src/lib/xizongProductionProjection.mjs');
-  const { loadXizongLearningCues, learningCuesForBlock } = await import('../src/lib/xizongLearningCues.mjs');
+  const { loadXizongLearningCues, learningCuesForBlock, preparedMemoryDigest } = await import('../src/lib/xizongLearningCues.mjs');
   const { buildXizongLearnerObject } = await import('../src/lib/xizongLearnerObject.mjs');
   const { buildXizongRevisionWitness } = await import('../src/lib/xizongRevisionWitness.mjs');
   const { buildXizongPreparedMemoryAvailability: describe,
@@ -81,13 +81,55 @@ try {
     assert.equal(sha(row.mnemonic), row.mnemonic_sha256, `${row.id}: independent aid seal`);
   }
   const shared = JSON.parse(fs.readFileSync(repoFile('content/xizong/knowledge/learner/shared-fields.json'), 'utf8'));
+  // Compare the original frozen values after inverting only B1's explicit
+  // archival field renames. Current canonical answer equality is sealed below.
+  const historicalShared = clone(shared);
+  const orientation = historicalShared.block_fields['circulation-b01'];
+  assert.ok(!Object.hasOwn(orientation, 'initial_orientation'));
+  orientation.initial_orientation = orientation.historical_initial_orientation;
+  delete orientation.historical_initial_orientation;
+  for (let n = 1; n <= 32; n++) {
+    const fields = historicalShared.kp_fields[`circulation-b01-kp${String(n).padStart(3, '0')}`]?.retention_metadata;
+    if (!fields) continue;
+    for (const key of ['memory_items', 'gate_knowledge']) if (Object.hasOwn(fields, `historical_${key}`)) {
+      assert.ok(!Object.hasOwn(fields, key));
+      fields[key] = fields[`historical_${key}`]; delete fields[`historical_${key}`];
+    }
+  }
   for (const [collection, entries] of Object.entries(oracle.protected_shared_entries)) {
     for (const [key, hash] of Object.entries(entries)) {
-      assert.equal(sha(JSON.stringify(stable(shared[collection]?.[key]))), hash, `${collection}/${key}: frozen pre-A3 owner changed`);
+      assert.equal(sha(JSON.stringify(stable(historicalShared[collection]?.[key]))), hash, `${collection}/${key}: frozen pre-A3 owner changed`);
     }
   }
   for (const [canonical, baseline] of Object.entries(oracle.regression)) {
-    assert.equal(sha(fs.readFileSync(repoFile(baseline.cue_index_path))), baseline.cue_index_sha256, `${canonical}: prior complete cue owner unchanged`);
+    let indexBytes = fs.readFileSync(repoFile(baseline.cue_index_path));
+    if (canonical === 'A1') {
+      const index = JSON.parse(indexBytes), b1 = loadXizongBlock('circulation', 'circulation-b01');
+      const relocated = index.precision_index.filter(row => row.prepared_memory_ref?.collection === 'canonical_exact_items');
+      assert.equal(relocated.length, 13);
+      for (const row of relocated) {
+        assert.equal(row.anchor.block_id, b1.blockId);
+        assert.equal(row.prepared_memory_ref.source_path, b1.sourcePath);
+        assert.ok(!Object.hasOwn(row, 'cue'));
+        const fieldKey = `circulation-b01-kp${row.anchor.kp_id.slice(-2).padStart(3, '0')}`;
+        const item = historicalShared.kp_fields[fieldKey].retention_metadata.memory_items.find(item => item.memory_id === row.prepared_memory_ref.memory_id);
+        const exact = b1.knowledge.exact_items.find(value => value.item.memory_id === item.memory_id);
+        const resolved = { ...exact.item, answer: resolveXizongKnowledgeView(b1, exact.answer_view) };
+        if (exact.anchor_field === 'anchor') resolved.anchor = resolveXizongKnowledgeView(b1, exact.anchor_views[0]);
+        else if (exact.anchor_field === 'anchors') resolved.anchors = exact.anchor_views.map(view => resolveXizongKnowledgeView(b1, view));
+        assert.deepEqual(resolved, item);
+        assert.equal(exact.kp_ordinal, Number(row.anchor.kp_id.slice(-2)));
+        // Restore the original insertion order as well as its frozen values.
+        const restored = { id: row.id, anchor: row.anchor, cue: item.cue,
+          ...Object.fromEntries(Object.entries(row).filter(([key]) => !['id', 'anchor', 'cue', 'prepared_memory_ref'].includes(key))),
+          prepared_memory_ref: { kp_field_key: fieldKey, collection: 'memory_items', memory_id: item.memory_id,
+            kp_core_sha256: preparedMemoryDigest(b1.kpRecords.find(kp => kp.kpId === row.anchor.kp_id).detailMarkdown),
+            item_sha256: preparedMemoryDigest(item) } };
+        index.precision_index[index.precision_index.indexOf(row)] = restored;
+      }
+      indexBytes = JSON.stringify(index, null, 2) + '\n';
+    }
+    assert.equal(sha(indexBytes), baseline.cue_index_sha256, `${canonical}: prior complete cue owner unchanged after exact B1 relocation inverse`);
     const actual = [];
     const system = loadXizongSystem(baseline.system_id), learningCues = loadXizongLearningCues(system);
     for (let n = 1; n <= 12; n++) {
@@ -96,16 +138,23 @@ try {
       // the independent pre-edit baseline; enriched HTML is tested separately
       // by the preserved A1/A2 actual browser journeys.
       const block = buildXizongProductionBlock(loadXizongBlock(baseline.system_id, slug));
-      const object = buildXizongLearnerObject({ block, learningCues: learningCuesForBlock(learningCues, block) });
+      const migratedB1 = block.blockId === 'circulation-b01';
+      const object = migratedB1 ? resolveXizongLearnerProjection({ systemId: baseline.system_id, blockId: block.blockId }).learnerObject
+        : buildXizongLearnerObject({ block, learningCues: learningCuesForBlock(learningCues, block) });
       object.revisionWitness = buildXizongRevisionWitness(object);
       const descriptor = supportsXizongPreparedMemoryBlock(block.blockId) ? describe(object) : null;
-      assert.equal(sha(JSON.stringify(stable(descriptor))), baseline.descriptor_sha256_by_block[block.blockId], `${canonical}/${slug}: full frozen native descriptor byte-value regression`);
+      if (migratedB1) {
+        assert.equal(descriptor.precisionCards.length, 13);
+        assert.equal(sha(JSON.stringify(descriptor.precisionCards.map(card => Object.fromEntries(
+          ['id', 'precisionCueId', 'kpId', 'answerHtml', 'semanticRevision'].map(key => [key, card[key]]))))),
+        '0af414c1310ec3e53c91d2eb3dce3804d76a4d02dc2d3b2cd107413e598f9144', 'B1: independent frozen card semantics after canonical relocation');
+      } else assert.equal(sha(JSON.stringify(stable(descriptor))), baseline.descriptor_sha256_by_block[block.blockId], `${canonical}/${slug}: full frozen native descriptor byte-value regression`);
       if (descriptor) actual.push(...descriptor.precisionCards.map(card => card.precisionCueId));
     }
     assert.deepEqual(actual.sort(), [...baseline.admitted_ids].sort(), `${canonical}: exact previous descriptor identities`);
     assert.equal(actual.length, canonical === 'A1' ? 176 : 26);
   }
-  checks.push('independent 28-answer/aid seals; all previous shared entries and complete A1/A2 cue-index bytes preserved; all 24 full native descriptor values and exact 176 A1 + 26 A2 identities');
+  checks.push('independent 28-answer/aid seals; previous shared entries and complete A1/A2 cue-index bytes preserved after exact B1 archive/relocation inverse; 23 full native descriptor values plus frozen B1 card semantics and exact 176 A1 + 26 A2 identities');
 
   const projections = new Map(), cardsBySlug = new Map();
   const assertPreentry = (object, slug) => {

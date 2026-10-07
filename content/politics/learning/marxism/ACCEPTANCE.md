@@ -64,6 +64,21 @@ The browser test is repeatable from `static-web` against an already-running isol
 
 This establishes current-asset resolution and the tested C01 producer→browser→native-return path. It is **not** a fresh independent full-PDF review, full five-subject teaching/Source closure, a measured learner speed gain, proof that every future Chat will follow instructions, or real U/mastery. Those limitations do not reopen already-delivered reviewed-target Memory.
 
+## 2026-10-07 real-use three-layer compression correction
+
+A subsequent real-learning interaction exposed a narrower compression defect after the first-contact repair. Chat correctly avoided inventing new Memory debt, but then over-corrected by treating the second learner-facing layer — the expansion cue — as if it must be derived only from already-reviewed Precision/Memory objects. That collapses the intended three layers into two.
+
+Correct semantics:
+- main review line = the learned model relation/bridge;
+- expansion cue = a non-answer-leaking retrieval scaffold for the model just understood, whether or not the underlying cluster has a Memory target;
+- Precision/Memory = a separate exact-retrieval layer, admitted only when durable precise recall is justified.
+
+The presence of a Memory object does not create a cue, and the absence of a Memory object does not invalidate a useful cue. A cue may overlap with a reviewed exact target, but it is not a catalog/index projection.
+
+The Learning, Interaction and Content contracts were repaired at the earliest responsible layer to make this independence explicit and to reject Memory-derived cue generation. No C02 Source, canonical spine, exact answer, Memory candidate, Runtime or learner record changed. The current C02 K01 reviewed exact objects remain valid; their existence may support later Precision work but must not determine the learner-facing cue by itself.
+
+Current U statement: **real layer-collapse friction observed; rule-level repair applied; subsequent natural-block compression should be checked in ordinary learning.**
+
 ## 2026-10-07 real-use first-contact pedagogy correction
 
 Kian's real first-chapter use exposed a bounded Learning/teaching-consumption defect: the Current fixed model and prepared content were correct, but Chat could consume the teacher brief as `node → definition → explanation → common error → next node`, producing a paraphrased lecture rather than rapid logical model construction. This is learner-friction evidence about **first-contact pedagogy**, not evidence that the ten-node reconstruction spine, Source content or reviewed exact targets were wrong.

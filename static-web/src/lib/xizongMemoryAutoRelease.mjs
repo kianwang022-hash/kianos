@@ -8,7 +8,7 @@ import {
 import {
   XIZONG_LEARNER_OBJECT_SCHEMA,
   buildXizongMemoryReleaseDescriptorFromLearnerObject
-} from './xizongMemoryRelease.mjs';
+} from './xizongCompiledMemoryRelease.mjs';
 
 export const XIZONG_MEMORY_AUTO_RELEASE_SCHEMA = 'kianos.xizong.memory_auto_release.v1';
 export const XIZONG_BLOCK_STUDY_STORAGE_PREFIX = 'kianos-xizong-astro-v2:';
@@ -171,7 +171,7 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
   // semantic witness decide whether admitted evidence requires revalidation.
   if (previousRelease && ((currentSourceHash && previousRelease.sourceHash !== currentSourceHash)
     || JSON.stringify(previousRelease.revisionWitness || null) !== JSON.stringify(learnerObject.revisionWitness || null))) {
-    const refreshDescriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, {
+    const refreshDescriptor = (options.descriptorBuilder || buildXizongMemoryReleaseDescriptorFromLearnerObject)(learnerObject, {
       sourceHash: currentSourceHash
     });
     const state = releaseBlockMemory(memory, refreshDescriptor, options?.refreshedAt || options?.releasedAt || null);
@@ -213,7 +213,7 @@ export function releaseCompletedBlockToMemory(memoryStateInput, learnerObject, s
     };
   }
 
-  const descriptor = buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObject, {
+  const descriptor = (options.descriptorBuilder || buildXizongMemoryReleaseDescriptorFromLearnerObject)(learnerObject, {
     sourceHash: currentSourceHash,
     recallRatings: studyState?.ratings || {},
     promptOverrides: options?.promptOverrides || {},

@@ -269,6 +269,7 @@ function buildGroupObject(block, group, kpObjects, learningCues, extensionAssets
     visualRequired: group?.visualRequired === true,
     visualSourceState: text(group?.visualSourceState),
     kpIds,
+    ...(block.knowledge ? { membershipMode: group.membershipMode, kpOrdinals: [...(group.kpOrdinals || [])] } : {}),
     precision,
     visual,
     extension,
@@ -398,5 +399,36 @@ export function validateXizongLearnerObject(object) {
     kpVisualCount: object.kps.reduce((sum, kp) => sum + kp.visual.length, 0),
     kpPrecisionCount: object.kps.reduce((sum, kp) => sum + kp.precision.length, 0),
     extensionCount: object.blockExtension.length + object.logicGroups.reduce((sum, group) => sum + group.extension.length, 0) + object.kps.reduce((sum, kp) => sum + kp.extension.length, 0)
+  };
+}
+
+// Pure compatibility view for existing Website components. All semantic fields
+// come from this version of the learner object; this function reads no owners.
+export function presentXizongLearnerBlock(learnerObject) {
+  if (learnerObject?.semanticOwnership?.mode !== 'CANONICAL_BLOCK' || !learnerObject.presentation) {
+    throw new Error('CURRENT_XIZONG_COMPILED_PRESENTATION_REQUIRED');
+  }
+  const identity = learnerObject.identity, framework = learnerObject.framework;
+  return {
+    ...learnerObject.presentation,
+    learnerObject,
+    blockId: identity.blockId, label: identity.blockLabel, title: identity.title,
+    systemId: identity.systemId, systemCanonicalId: identity.canonicalId, sourceHash: learnerObject.sourceHash,
+    centerQuestion: framework.centerQuestion, firstPassFocus: framework.firstPassFocus,
+    stopLine: framework.stopLine, recallSpine: framework.recallSpine, cognitiveProjection: framework.cognitiveProjection,
+    sourceContact: learnerObject.sourceContact, blockPreentry: learnerObject.blockPreentry,
+    logicGroups: learnerObject.logicGroups.map(group => ({
+      ...group, groupId: group.identity.logicGroupId, label: group.identity.label,
+      order: group.identity.order, kpCount: group.kpIds.length,
+      start: Math.min(...group.kpOrdinals), end: Math.max(...group.kpOrdinals)
+    })),
+    kpRecords: learnerObject.kps.map(kp => ({
+      ...kp.identity, prompt: kp.prompt.canonical, detailMarkdown: kp.core.markdown, detailHtml: kp.core.html,
+      groupId: kp.identity.logicGroupId, sourceLocator: kp.source.locator, outlineLocator: kp.outline.locator
+    })),
+    learningCues: {
+      precision: [...learnerObject.kps, ...learnerObject.logicGroups].flatMap(owner => owner.precision.map(cue => cue.raw || cue)),
+      visuals: [...learnerObject.kps, ...learnerObject.logicGroups].flatMap(owner => owner.visual.map(cue => cue.raw || cue))
+    }
   };
 }
