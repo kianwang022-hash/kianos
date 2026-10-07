@@ -23,6 +23,16 @@
         "pattern": "be on leave / take leave",
         "source_sense_id": "sense:leave:273e746f476b5dd3",
         "boundary": "time-off employment/official absence; distinct from formal legal leave = permission to act"
+      },
+      {
+        "construction_id": "construction:leave:leave-to-appeal",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "获得/授予上诉许可（法律用语）",
+        "definition_en": "formal permission given by a court to challenge a legal decision",
+        "pattern": "grant/be granted/seek leave to appeal",
+        "source_sense_id": "sense:leave:b0c3ae880aac54d3",
+        "boundary": "formal legal leave = permission, not paid/unpaid leave from work"
       }
     ],
     "content_hash": "4260260bea73daafe45190a7cb1879fef17e37563056dc3621026da7e5611371",
@@ -39,17 +49,17 @@
           ]
         },
         {
-          "label_cn": "休假；假期；许可；准许",
-          "label_en": "a period of time away from work or duty; permission to do something",
+          "label_cn": "休假；假期",
+          "label_en": "a period of time away from work or duty",
           "pos": "noun",
           "sense_ids": [
             "sense:leave:273e746f476b5dd3"
           ]
         }
       ],
-      "core_meaning_cn": "离开；许可",
-      "core_meaning_en": "to go away from a place or person; permission to be absent",
-      "mental_model_cn": "verb → 离开、留下、使处于某状态；noun → 休假；be on leave → 在休假。法律“许可/准许”名词义保留为 Reference。",
+      "core_meaning_cn": "离开；留下；休假",
+      "core_meaning_en": "to go away; leave something; an authorized absence from work or duty",
+      "mental_model_cn": "CORE → 离开、留下/使处于某状态；noun on leave → 休假。EXPANSION（正式/法律）→ leave = 许可/准许，leave to appeal = 上诉许可，without leave = 未经许可；不是过时义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -175,6 +185,30 @@
         "sense_id": "sense:leave:273e746f476b5dd3",
         "sense_label_en": "a period of time away from work or duty",
         "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6008d5ab09edb3965fe3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:leave:b0c3ae880aac54d3:collocation:0"
+            ],
+            "meaning_cn": "上诉许可",
+            "phrase": "leave to appeal"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（正式语，尤见法律/机构语境）许可；准许",
+        "definition_en": "(formal, especially law or official contexts) permission to do something",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:leave:b0c3ae880aac54d3",
+        "sense_label_en": "(formal, especially law or official contexts) permission to do something",
+        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -371,32 +405,7 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "collocations": [
-        {
-          "collocation_id": "collocation:6008d5ab09edb3965fe3",
-          "exam_value": "usage_example",
-          "legacy_source_object_ids": [
-            "sense:leave:b0c3ae880aac54d3:collocation:0"
-          ],
-          "meaning_cn": "上诉许可",
-          "phrase": "leave to appeal"
-        }
-      ],
-      "confidence": "medium",
-      "definition_cn": "许可；准许",
-      "definition_en": "permission to do something",
-      "governing_pattern": "",
-      "level": "L3",
-      "needs_human_review": 0,
-      "pos": "noun",
-      "sense_id": "sense:leave:b0c3ae880aac54d3",
-      "sense_label_en": "permission to do something",
-      "sort_order": 3,
-      "transitivity": "nonverb"
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -408,7 +417,7 @@
       },
       {
         "sense_id": "sense:leave:b0c3ae880aac54d3",
-        "status": "reference",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7735,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
@@ -442,7 +451,8 @@
       "collocation:6fe270dc9ce09a6f97b9",
       "collocation:9ce66a6899dbee5ba51d",
       "collocation:cb110acf257cb70e35e7",
-      "collocation:de2f4f223150462a9bde"
+      "collocation:de2f4f223150462a9bde",
+      "collocation:6008d5ab09edb3965fe3"
     ],
     "facts": [],
     "collocations": [
@@ -465,7 +475,7 @@
         "id": "collocation:6008d5ab09edb3965fe3",
         "source_row": 8072,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json",
-        "status": "reference",
+        "status": "active",
         "merged_into_id": null
       },
       {

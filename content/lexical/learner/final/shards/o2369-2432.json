@@ -5674,40 +5674,18 @@
     "ordinal": 2405,
     "word": "humor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2405.json",
-    "source_fingerprint": "3b7c53982b9c3e9b1df0efa8f91e5e1a520004e5b446518cf7c8ccc26843f0e7",
-    "sense_lineage": [
-      {
-        "word_id": "word:humor",
-        "target_kind": "sense",
-        "from_target_id": "sense:humor:f3d23c8d9ee659bd",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:humor",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:1e93f84e185b7bfd6fd8",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:humor",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:6891be999685d06ee6d4",
-        "status": "reference",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "a7f9ccb40b5b2b791d2f5a99344213b22bd0efc9bfaa200ef8fb39d3fa786569",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "幽默；迁就",
-      "decision_cn": "noun → 幽默；verb humor sb → 迁就某人；humor me → “先听我说完/迁就我一下”。旧式“心情、情绪”义保留为 Reference。",
+      "decision_cn": "CORE → 幽默；verb humor sb → 迁就某人；humor me → 先听我说完。EXPANSION（正式书面语）→ in a good/bad humor = 心情好/不好；这个 mood 义并非废弃。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5759,8 +5737,42 @@
         }
       },
       {
-        "id": "sense:humor:aff50c652cd354a2",
+        "id": "sense:humor:f3d23c8d9ee659bd",
         "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "心情；情绪",
+        "definition_en": "a mood or state of mind",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:1e93f84e185b7bfd6fd8",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "in a good humor",
+            "meaning_cn": "心情好",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:6891be999685d06ee6d4",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "in a bad humor",
+            "meaning_cn": "心情不好",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:humor:f3d23c8d9ee659bd",
+          "target_locator": "record.senses[1]",
+          "target_label": "心情；情绪"
+        }
+      },
+      {
+        "id": "sense:humor:aff50c652cd354a2",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "迎合；迁就",
@@ -5770,14 +5782,14 @@
         "usage": [
           {
             "id": "collocation:30cad9cdf75c71d28e1c",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "humor sb",
             "meaning_cn": "迁就某人",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:30cad9cdf75c71d28e1c",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "humor sb"
             }
           }
@@ -5785,7 +5797,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:humor:aff50c652cd354a2",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "迎合；迁就"
         }
       }
@@ -5875,42 +5887,7 @@
           "target_label": "humor is the usual American spelling; humour is the usual British spelling."
         }
       },
-      "family": [],
-      "senses": [
-        {
-          "collocations": [
-            {
-              "collocation_id": "collocation:1e93f84e185b7bfd6fd8",
-              "exam_value": "usage_example",
-              "legacy_source_object_ids": [
-                "sense:humor:f3d23c8d9ee659bd:collocation:0"
-              ],
-              "meaning_cn": "心情好",
-              "phrase": "in a good humor"
-            },
-            {
-              "collocation_id": "collocation:6891be999685d06ee6d4",
-              "exam_value": "usage_example",
-              "legacy_source_object_ids": [
-                "sense:humor:f3d23c8d9ee659bd:collocation:1"
-              ],
-              "meaning_cn": "心情不好",
-              "phrase": "in a bad humor"
-            }
-          ],
-          "confidence": "medium",
-          "definition_cn": "心情；情绪",
-          "definition_en": "a mood or state of mind",
-          "governing_pattern": "",
-          "level": "L2",
-          "needs_human_review": 0,
-          "pos": "noun",
-          "sense_id": "sense:humor:f3d23c8d9ee659bd",
-          "sense_label_en": "a mood or state of mind",
-          "sort_order": 1,
-          "transitivity": "nonverb"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -7374,32 +7351,18 @@
     "ordinal": 2415,
     "word": "husband",
     "source_owner_path": "content/lexical/words/by-ordinal/o2415.json",
-    "source_fingerprint": "d85f7d3b1482c180cfc7de5b3c459661f1f3c3efd4b2214ff100907c81c7edc8",
-    "sense_lineage": [
-      {
-        "word_id": "word:husband",
-        "target_kind": "sense",
-        "from_target_id": "sense:husband:080a19ec9a11554b",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:husband",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:242373a9ec6a61d4f78a",
-        "status": "reference",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "ade1cc0dc1066619047367547914c32262574eb6d7b9e2e26d918d9d26fc064e",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "丈夫",
-      "decision_cn": "现代默认 → 丈夫。正式/少见“节约并谨慎管理资源”动词义保留为 Reference。",
+      "decision_cn": "CORE → 丈夫。EXPANSION（正式书面语）→ husband resources/strength = 谨慎使用、节约资源/体力；这是仍在使用的及物动词，不是废弃义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7441,6 +7404,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "丈夫"
         }
+      },
+      {
+        "id": "sense:husband:080a19ec9a11554b",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt. + object",
+        "definition_cn": "节约使用；节俭管理",
+        "definition_en": "to use something carefully so that you do not waste it",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:242373a9ec6a61d4f78a",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "husband resources",
+            "meaning_cn": "节约资源",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:husband:080a19ec9a11554b",
+          "target_locator": "record.senses[1]",
+          "target_label": "节约使用；节俭管理"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7480,33 +7469,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "collocations": [
-            {
-              "collocation_id": "collocation:242373a9ec6a61d4f78a",
-              "exam_value": "usage_example",
-              "legacy_source_object_ids": [
-                "sense:husband:080a19ec9a11554b:collocation:0"
-              ],
-              "meaning_cn": "节约资源",
-              "phrase": "husband resources"
-            }
-          ],
-          "confidence": "medium",
-          "definition_cn": "节约使用；节俭管理",
-          "definition_en": "to use something carefully so that you do not waste it",
-          "governing_pattern": "vt. + object",
-          "level": "L2",
-          "needs_human_review": 0,
-          "pos": "verb",
-          "sense_id": "sense:husband:080a19ec9a11554b",
-          "sense_label_en": "to use something carefully so that you do not waste it",
-          "sort_order": 1,
-          "transitivity": "vt"
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -7515,7 +7478,7 @@
     "ordinal": 2416,
     "word": "hut",
     "source_owner_path": "content/lexical/words/by-ordinal/o2416.json",
-    "source_fingerprint": "f9d0ecb5dd81a1995ff68f3e2fea4ddee6c3d870847c29f1ce3ad6700f1cd989",
+    "source_fingerprint": "adab8fe9fbe79614f2454017af3848f777d9bb13aefbd76afb4b1c524523c16c",
     "sense_lineage": [
       {
         "word_id": "word:hut",
@@ -8553,7 +8516,7 @@
     "ordinal": 2424,
     "word": "ice",
     "source_owner_path": "content/lexical/words/by-ordinal/o2424.json",
-    "source_fingerprint": "942c939282b83be13dc7d6b88e6bf60a2995c9b185ceb0272ba888a32a31c145",
+    "source_fingerprint": "861c0f866cf2805547ce21a957b2d12aae952cc520a57a5d9d8a4ae75a6aa825",
     "sense_lineage": [
       {
         "word_id": "word:ice",
@@ -8875,32 +8838,17 @@
     "ordinal": 2425,
     "word": "icon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2425.json",
-    "source_fingerprint": "4efbb9ef18e8946ed0946eb057446e921121cf2c79d7926a43440f452db90828",
-    "sense_lineage": [
-      {
-        "word_id": "word:icon",
-        "target_kind": "sense",
-        "from_target_id": "sense:icon:875ac272bff95e91",
-        "status": "reference",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:icon",
-        "target_kind": "collocation",
-        "from_target_id": "collocation:ef8045c76be02c6cc67e",
-        "status": "reference",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "95051bf1127aa95dfc8e3dc841ce8f4e072ca4f7e8ed873c6fa155a79581e7b6",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "图标；偶像",
-      "decision_cn": "digital → 图标；culture/person → 偶像、代表性象征。宗教艺术“圣像”义保留为 Reference。",
+      "decision_cn": "CORE → 数字界面图标；文化名人/象征。EXPANSION（宗教与艺术阅读）→ icon/ikon = 圣像、宗教画像（尤其东正教传统）；与偶像和软件图标区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8968,6 +8916,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "偶像；象征"
         }
+      },
+      {
+        "id": "sense:icon:875ac272bff95e91",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "圣像",
+        "definition_en": "a religious painting, typically of a saint or holy figure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ef8045c76be02c6cc67e",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a Byzantine icon",
+            "meaning_cn": "拜占庭圣像",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:icon:875ac272bff95e91",
+          "target_locator": "record.senses[2]",
+          "target_label": "圣像"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9021,33 +8995,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "collocations": [
-            {
-              "collocation_id": "collocation:ef8045c76be02c6cc67e",
-              "exam_value": "usage_example",
-              "legacy_source_object_ids": [
-                "sense:icon:875ac272bff95e91:collocation:0"
-              ],
-              "meaning_cn": "拜占庭圣像",
-              "phrase": "a Byzantine icon"
-            }
-          ],
-          "confidence": "medium",
-          "definition_cn": "圣像",
-          "definition_en": "a religious painting, typically of a saint or holy figure",
-          "governing_pattern": "",
-          "level": "L3",
-          "needs_human_review": 0,
-          "pos": "noun",
-          "sense_id": "sense:icon:875ac272bff95e91",
-          "sense_label_en": "a religious painting, typically of a saint or holy figure",
-          "sort_order": 2,
-          "transitivity": "nonverb"
-        }
-      ]
+      "family": []
     }
   },
   {
