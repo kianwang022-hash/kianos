@@ -103,7 +103,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:flush:84525dbc28045612",
-        "sense_label_en": "to become red in the face, especially because of heat, embarrassment, or",
+        "sense_label_en": "to become red in the face, especially because of heat, embarrassment, or anger",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -111,18 +111,18 @@
         "collocations": [
           {
             "collocation_id": "collocation:9fcceb3fa4b6c8f1f48a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:flush:e2015caff6135fc1:collocation:0"
             ],
-            "meaning_cn": "因某物而涌流",
-            "phrase": "flush with + sth"
+            "meaning_cn": "水迅速流过管道",
+            "phrase": "water flushing through a pipe"
           }
         ],
         "confidence": "medium",
         "definition_cn": "奔涌，涌流",
         "definition_en": "to flow suddenly and freely",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "flush through/from a place",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -139,7 +139,7 @@
             "legacy_source_object_ids": [
               "sense:flush:bfad9ec12f1f5666:collocation:0"
             ],
-            "meaning_cn": "一阵愤怒",
+            "meaning_cn": "因愤怒泛起的红晕",
             "phrase": "a flush of anger"
           }
         ],
@@ -177,30 +177,6 @@
         "sense_id": "sense:flush:0e6b2ab1264455b2",
         "sense_label_en": "exactly level or even with another surface",
         "sort_order": 4,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6c93c90d8711ca514193",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:flush:7a4ac28fa75e5e28:collocation:0"
-            ],
-            "meaning_cn": "同花大顺",
-            "phrase": "a royal flush"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "同花（牌）",
-        "definition_en": "a hand of cards all of the same suit",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:flush:7a4ac28fa75e5e28",
-        "sense_label_en": "a hand of cards all of the same suit",
-        "sort_order": 5,
         "transitivity": "nonverb"
       }
     ],
@@ -508,7 +484,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6c93c90d8711ca514193",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:flush:7a4ac28fa75e5e28:collocation:0"
+          ],
+          "meaning_cn": "同花大顺",
+          "phrase": "a royal flush"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "同花（牌）",
+      "definition_en": "a hand of cards all of the same suit",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:flush:7a4ac28fa75e5e28",
+      "sense_label_en": "a hand of cards all of the same suit",
+      "sort_order": 5,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:flush:7a4ac28fa75e5e28",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true,
+      "usage_note": "牌类中特定同花牌型的名称，保留真实含义及 royal flush 例子供查阅；不默认增加考试词汇记忆负担。"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -520,7 +526,7 @@
       },
       {
         "sense_id": "sense:flush:7a4ac28fa75e5e28",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 5476,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
@@ -556,9 +562,7 @@
     ],
     "active_collocations": [
       "collocation:65577f1351b01d874c79",
-      "collocation:6c93c90d8711ca514193",
       "collocation:9a91f301f1b75fc3eac5",
-      "collocation:9fcceb3fa4b6c8f1f48a",
       "collocation:bbd6a7dcec04470b7450",
       "collocation:c7fbdb9aeb355042fdc8",
       "collocation:eb909189336ba36e2b1e"
@@ -573,7 +577,9 @@
       {
         "id": "collocation:6c93c90d8711ca514193",
         "source_row": 9150,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9a91f301f1b75fc3eac5",
@@ -583,7 +589,9 @@
       {
         "id": "collocation:9fcceb3fa4b6c8f1f48a",
         "source_row": 13591,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:bbd6a7dcec04470b7450",

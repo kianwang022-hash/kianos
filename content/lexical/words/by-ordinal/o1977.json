@@ -19,11 +19,12 @@
           ]
         },
         {
-          "label_cn": "集中注意力；聚焦",
-          "label_en": "to focus or concentrate",
+          "label_cn": "集中注意力；调焦使图像清晰",
+          "label_en": "concentrate attention; adjust an optical image for clarity",
           "pos": "verb",
           "sense_ids": [
-            "sense:focus:dea89f4a4f285aee"
+            "sense:focus:dea89f4a4f285aee",
+            "sense:focus:ee78d13b13905a0d"
           ]
         },
         {
@@ -111,6 +112,38 @@
         "sense_label_en": "maximum clarity or distinctness of an image or idea",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "stable_sense_id": "sense:focus:ee78d13b13905a0d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "pos": "verb",
+        "definition_cn": "（使）对准焦点；调焦使图像清晰",
+        "definition_en": "to adjust a camera, lens or one's eyes to make an image clear, or to become focused",
+        "semantic_key": "9dbfbbc8e58ec339f2a72e67365f6cfa9c42302ce16e477a37f4550cb004f75d",
+        "semantic_key_history": [
+          "5ae380f168369b64edfa60e55b98f0f7fdb97aa7818b6718ec2e7a06d64bbacd"
+        ],
+        "legacy_aliases": [
+          "focus:l2:3"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "focus:l2:3",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 5494,
+        "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json",
+        "reference_only": false,
+        "sense_id": "sense:focus:ee78d13b13905a0d",
+        "sense_label_en": "adjust or achieve a clear optical image",
+        "transitivity": "I/T",
+        "governing_pattern": "focus a camera/lens; the camera focuses; focus on sth",
+        "level": "L2",
+        "sort_order": 3,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -247,31 +280,6 @@
       "source_row": 5491,
       "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:focus:ee78d13b13905a0d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "调节焦距使清晰",
-      "definition_en": "to adjust (an optical system) to produce a clear image",
-      "semantic_key": "9dbfbbc8e58ec339f2a72e67365f6cfa9c42302ce16e477a37f4550cb004f75d",
-      "semantic_key_history": [
-        "5ae380f168369b64edfa60e55b98f0f7fdb97aa7818b6718ec2e7a06d64bbacd"
-      ],
-      "legacy_aliases": [
-        "focus:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "focus:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5494,
-      "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -306,7 +314,7 @@
       },
       {
         "sense_id": "sense:focus:ee78d13b13905a0d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5494,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"

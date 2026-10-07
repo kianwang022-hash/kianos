@@ -11,7 +11,7 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "飞行；航班；逃走；一段楼梯；飞行编队",
+          "label_cn": "飞行；航程；航班；逃走；一段楼梯；飞行编队",
           "label_en": "flight/air journey; escape; a flight of stairs; a flight formation",
           "pos": "noun",
           "sense_ids": [
@@ -56,17 +56,26 @@
             ],
             "meaning_cn": "空乘人员",
             "phrase": "flight attendant"
+          },
+          {
+            "collocation_id": "collocation:cbdc61a40df5fffcca6e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:flight:c1e8ce45b8975449:collocation:0"
+            ],
+            "meaning_cn": "在飞行中",
+            "phrase": "in flight"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "飞行；航班",
-        "definition_en": "an instance of traveling by air",
+        "definition_cn": "飞行；航程；航班",
+        "definition_en": "the act of flying or a journey through the air, especially by aircraft",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:flight:e812597353955eb2",
-        "sense_label_en": "an instance of traveling by air",
+        "sense_label_en": "the act of flying or a journey through the air, especially by aircraft",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -119,17 +128,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cbdc61a40df5fffcca6e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:flight:c1e8ce45b8975449:collocation:0"
-            ],
-            "meaning_cn": "在飞行中",
-            "phrase": "in flight"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "飞行编队",
         "definition_en": "a formation of aircraft in flight",
@@ -150,35 +149,21 @@
             "legacy_source_object_ids": [
               "sense:flight:f6ba19ad9c9a5a95:collocation:0"
             ],
-            "meaning_cn": "鸟类迁徙",
+            "meaning_cn": "鸟类飞行（迁徙须由语境确定）",
             "phrase": "bird flight"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "迁徙",
-        "definition_en": "the act of migrating (of birds)",
+        "definition_cn": "鸟类的飞行；迁飞",
+        "definition_en": "the flight of birds, including migratory flight",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:flight:f6ba19ad9c9a5a95",
-        "sense_label_en": "the act of migrating (of birds)",
+        "sense_label_en": "the flight of birds, including migratory flight",
         "sort_order": 4,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "迁徙",
-        "definition_en": "to migrate (of birds)",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:flight:f2fb9fe4b07b58b0",
-        "sense_label_en": "to migrate (of birds)",
-        "sort_order": 5,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -335,7 +320,27 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "（鸟）成群飞行",
+      "definition_en": "to fly in a flock, especially of wild birds",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:flight:f2fb9fe4b07b58b0",
+      "sense_label_en": "to fly in a flock, especially of wild birds",
+      "sort_order": 5,
+      "transitivity": "vi",
+      "stable_sense_id": "sense:flight:f2fb9fe4b07b58b0",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true,
+      "usage_note": "专门鸟类活动动词，不把普通 flight 名词或 fly 动词的学习需求扩成独立默认项；保留查阅。"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -368,7 +373,7 @@
       },
       {
         "sense_id": "sense:flight:f2fb9fe4b07b58b0",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 5431,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
@@ -424,7 +429,8 @@
       {
         "id": "collocation:cbdc61a40df5fffcca6e",
         "source_row": 17221,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "sense_id": "sense:flight:e812597353955eb2"
       }
     ],
     "exam-mappings": [],

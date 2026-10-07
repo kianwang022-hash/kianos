@@ -31,7 +31,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:e31d0ddc785d431e19d4",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:follow:9b3c89af4e115251:collocation:0"
             ],
@@ -51,14 +51,14 @@
         "confidence": "medium",
         "definition_cn": "跟随，跟着",
         "definition_en": "to go or come after someone or something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "follow (sb/sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:follow:9b3c89af4e115251",
         "sense_label_en": "to go or come after someone or something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -113,15 +113,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:8bb36a037cdcf951d18e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:follow:5d54e6861e695b88:collocation:0"
-            ],
-            "meaning_cn": "由某事物引起",
-            "phrase": "follow from + sth"
-          },
-          {
             "collocation_id": "collocation:c0eff8494af9921b1090",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -134,17 +125,27 @@
         "confidence": "medium",
         "definition_cn": "接着，随后发生",
         "definition_en": "to come after in time or order",
-        "governing_pattern": "",
+        "governing_pattern": "A follows B; B is followed by A",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:follow:5d54e6861e695b88",
         "sense_label_en": "to come after in time or order",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:8bb36a037cdcf951d18e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:follow:5d54e6861e695b88:collocation:0"
+            ],
+            "meaning_cn": "由某事物引起",
+            "phrase": "follow from + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "由此产生；随之而来；合乎逻辑地推出",
         "definition_en": "to happen or be true as a result or logical consequence of something",
@@ -330,15 +331,15 @@
       "collocation:8bb36a037cdcf951d18e",
       "collocation:a969ffbbab80e9bd60ce",
       "collocation:c0eff8494af9921b1090",
-      "collocation:d61da3a8af2a1ced20a1",
-      "collocation:e31d0ddc785d431e19d4"
+      "collocation:d61da3a8af2a1ced20a1"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:8bb36a037cdcf951d18e",
         "source_row": 11844,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "sense_id": "sense:follow:05dc9c8f19d0551e"
       },
       {
         "id": "collocation:a969ffbbab80e9bd60ce",
@@ -358,7 +359,9 @@
       {
         "id": "collocation:e31d0ddc785d431e19d4",
         "source_row": 19218,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
