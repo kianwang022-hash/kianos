@@ -5111,8 +5111,23 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "0c91ce7af97d3108f18847866cf1eed980e263408336514133291e86c3d29057",
-    "sense_lineage": [],
+    "source_fingerprint": "2e18aebbd5582e24e3439d422a844813640cf429919b429e38b9aaaff1af5f95",
+    "sense_lineage": [
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:01ad80a6232bc19959c7",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dissipate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7c6d5172eb944bf6525c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -5141,21 +5156,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7c6d5172eb944bf6525c",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "dissipate into + sth",
-            "meaning_cn": "消散成某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7c6d5172eb944bf6525c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "dissipate into + sth"
-            }
-          },
-          {
             "id": "collocation:5fa25cb76632aa9d1363",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "The fog dissipated in the morning sun.",
             "meaning_cn": "晨光中雾气消散了。",
             "kind": "usage_example",
@@ -5238,26 +5240,12 @@
         "id": "sense:dissipate:bdfc9c156d1a5e9e",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "vi.",
         "definition_cn": "放荡；沉溺于享乐",
         "definition_en": "to live a life of pleasure, especially with respect to alcoholic consumption",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:01ad80a6232bc19959c7",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dissipate in + sth",
-            "meaning_cn": "沉溺于某事物（尤指享乐）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01ad80a6232bc19959c7",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "dissipate in + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dissipate:bdfc9c156d1a5e9e",
