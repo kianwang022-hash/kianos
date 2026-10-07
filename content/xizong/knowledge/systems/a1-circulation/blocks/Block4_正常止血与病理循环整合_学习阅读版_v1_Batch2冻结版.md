@@ -766,13 +766,11 @@ Virchow 三要素：内皮损伤、血流异常（淤滞 / 湍流）、高凝。
 
 一期 / 二期；黏附 / 聚集 / 释放 / 收缩 / 吸附；GPIb / GPIIb/IIIa；vWF / 纤维蛋白原；外 / 内 / 共同途径；启动 / 放大；凝血酶 / 纤维蛋白；AT / PC / TFPI；t-PA / u-PA；FDP / D-dimer；BT / PT / APTT / TT；抗板 / 抗凝 / 溶栓；动脉 / 静脉血栓；血栓 / 栓子 / 栓塞 / 梗死。
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 正常止血三个过程；vWF–GPIb黏附、GPIIb/IIIa–纤维蛋白原聚集；`1→1a→n1a`；凝血酶原酶 `10a-5a-Ca²⁺-PL`；TF启动、FⅩ汇合；凝血酶主要作用 / 正反馈；VitK组 `2、7、9、10`；AT / PC / TFPI；t-PA / u-PA；BT / PT / APTT / TT；抗板 / 抗凝 / 溶栓；Virchow与病理循环链。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 全部因子编号 / 别名 / 来源；所有正反馈支链和辅因子组合；血友病细节；抗凝靶点清单；纤溶抑制物；药物全表；实验室阈值；STEMI / NSTEMI时间窗与禁忌；库存血细节；血栓形态 / 梗死类型低频特殊。
 

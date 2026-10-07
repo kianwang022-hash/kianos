@@ -864,9 +864,7 @@ VVI可破坏房室同步，引起起搏器综合征；心功能差者需谨慎�
 
 ## Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G｜本轮必须即时掌握
 
 1. 稳定性优先于节律命名；
 2. 快 / 慢、宽 / 窄、规则 / 不规则、房室关系；
@@ -884,7 +882,7 @@ VVI可破坏房室同步，引起起搏器综合征；心功能差者需谨慎�
 14. VVI / AAI / VDD / DDD基本身份；
 15. ICD与普通起搏器的区别。
 
-### 真正 residual：MI-D / Precision
+### MI-D｜进入 MarginNote 3
 
 - ECG全部精确时限、电压；
 - 各类心律失常全部心率区间；

@@ -852,9 +852,7 @@ Lecture 完成后，闭卷完成：
 
 # 8｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 8.1 MI-G｜第一轮必须即时掌握
 
 1. 交感 / RAAS / ADH / ANP读取变量和第一肾端作用；
 2. 低浓 AngⅡ偏出球、高浓可入球 + 系膜；
@@ -873,7 +871,7 @@ Lecture 完成后，闭卷完成：
 15. 浓缩失败三层定位；
 16. 水利尿 vs 渗透性利尿。
 
-## 真正 residual：MI-D / Precision
+## 8.2 MI-D｜进入 MarginNote 3
 
 - 肾素 Source-specific 低频促 / 抑名单（不作为第一轮因果主链）；
 - ANP完整刺激名单；

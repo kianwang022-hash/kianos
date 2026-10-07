@@ -807,13 +807,11 @@ PR、QT、导联轴与异常 ECG 诊断不在本节静默补齐，归 B10。
 
 快 / 慢反应；工作 / 自律；心室肌 / 窦房结 / 浦肯野；INa / If；ICa-L / ICa-T；IK / IK1 / IK-ACh；APD / ERP；有效 / 相对不应 / 超常；兴奋 / 传导 / 自律 / 收缩；主动异位 / 被动逸搏；电活动 / ECG / 机械射血。
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 快慢反应看0期；工作自律看4期；心室肌0–4期；窦房结4期与ICa-L 0期；浦肯野最快 / 房室结最慢；长ERP防完全强直；严重高钾去极化阻滞；AP / ECG / 机械不等价；ACh / CA效应必须先判细胞类型。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 全部精确膜电位、通道阻断剂、ⅠA/ⅠB/ⅠC/Ⅲ/Ⅳ药物配对、长QT基因、If / ICa-T / ICa-L激活电位、固有频率数字、左右交感 / 迷走、E-4031特殊、心肌 vs 骨骼肌表格细节。
 

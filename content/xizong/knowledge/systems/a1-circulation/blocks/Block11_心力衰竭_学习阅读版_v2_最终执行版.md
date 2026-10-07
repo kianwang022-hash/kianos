@@ -871,9 +871,7 @@ PV环感性：舒张期压力—容积关系上移 / 左移，EDV可不大，LVE
 
 ## Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G｜本轮必须即时掌握
 
 1. HFrEF / HFmrEF / HFpEF / HFimpEF；
 2. A–D分期、NYHA与Killip边界；
@@ -892,7 +890,7 @@ PV环感性：舒张期压力—容积关系上移 / 左移，EDV可不大，LVE
 15. CRT改善同步，ICD防恶性节律；
 16. HFpEF常以充盈压 / 舒张功能异常为核心，但不能机械等同于“只有舒张异常”。
 
-### 真正 residual：MI-D / Precision
+### MI-D｜进入 MarginNote 3
 
 - LVEF、PCWP、CI、BNP / NT-proBNP全部精确阈值；
 - NYHA / 6MWT全部数字；

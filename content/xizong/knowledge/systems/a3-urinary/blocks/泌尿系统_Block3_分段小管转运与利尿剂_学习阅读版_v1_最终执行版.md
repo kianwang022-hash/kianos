@@ -964,9 +964,7 @@ Lecture 完成后，不看正文完成以下重建：
 
 # 8｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 8.1 MI-G｜第一轮必须即时掌握
 
 1. 滤过、重吸收、分泌、排泄四方向；
 2. 顶端膜与基底侧膜；
@@ -984,7 +982,7 @@ Lecture 完成后，不看正文完成以下重建：
 14. 利尿剂段位—靶点—主要K方向；
 15. 原醛 vs Liddle 的药物靶点边界。
 
-## 真正 residual：MI-D / Precision
+## 8.2 MI-D｜进入 MarginNote 3
 
 - 近端前 / 后半精确比例；
 - 原尿180 L/d、水重吸收99%；

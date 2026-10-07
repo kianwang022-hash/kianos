@@ -165,9 +165,7 @@ F｜标准化疗
 ---
 ## 2｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G｜第一轮必须即时掌握
 
 1. 传染源以排菌的空洞性肺结核为主，飞沫传播最常见；
 2. 感染结核杆菌不等于已经发生结核病；
@@ -190,7 +188,7 @@ F｜标准化疗
 19. 初治 `2HRZE/4HR`；复治涂阳先药敏；RR/MDR首选短程9–12个月；
 20. 其他器官结核的“来源—好发—特征”病理身份。
 
-### 真正 residual：MI-D / Precision
+### MI-D｜进入 MarginNote 3 卡片流
 
 - 体温分度与五类热型；
 - PPD假阴性完整名单；

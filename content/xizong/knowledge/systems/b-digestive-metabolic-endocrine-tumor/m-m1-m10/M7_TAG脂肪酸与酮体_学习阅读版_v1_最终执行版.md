@@ -779,9 +779,7 @@ current Source 必需脂肪酸集合
 
 ## 4｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G
 
 - TAG两条合成入口；
 - 肝 vs 脂肪/肌的甘油激酶差异；
@@ -799,7 +797,7 @@ current Source 必需脂肪酸集合
 - 糖不足—脂解—β氧化—酮体—酸中毒链；
 - 当前 Study三类必需脂肪酸与PG/LT/TXA₂接口。
 
-### 真正 residual：MI-D / Precision
+### MI-D
 
 - ACC全部激活 / 抑制剂；
 - ACP与所有脂肪酸合成酶步骤；

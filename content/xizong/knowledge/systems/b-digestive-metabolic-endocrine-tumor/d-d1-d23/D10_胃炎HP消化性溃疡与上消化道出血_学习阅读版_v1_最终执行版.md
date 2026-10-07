@@ -894,9 +894,7 @@ GU可癌变、从边缘开始；DU不癌变。腹痛失去规律、体重下降�
 
 ## 4｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G
 
 - 急性糜烂出血三病因与机制；
 - 萎缩性胃炎形态；
@@ -912,7 +910,7 @@ GU可癌变、从边缘开始；DU不癌变。腹痛失去规律、体重下降�
 - Billroth I/II主区别；
 - 输入/输出袢基本定位。
 
-### 真正 residual：MI-D / Precision
+### MI-D
 
 - 肠化完整亚型与细胞名单；
 - HP抗生素完整池；

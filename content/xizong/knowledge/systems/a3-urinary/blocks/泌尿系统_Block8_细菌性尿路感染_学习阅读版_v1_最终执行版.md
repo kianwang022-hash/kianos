@@ -873,9 +873,7 @@ Lecture完成后闭卷完成：
 
 # 15｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 15.1 MI-G｜第一轮必须即时掌握
 
 - 上行感染最常见；女性多；E.coli多；
 - 变形杆菌—结石、金葡菌—血源、铜绿—器械；
@@ -894,7 +892,7 @@ Lecture完成后闭卷完成：
 - 慢性肾盂肾炎：瘢痕/不对称 + 小管浓缩 / 分泌先受损；
 - 尿道综合征“无普通真性细菌尿”。
 
-## 真正 residual：MI-D / Precision
+## 15.2 MI-D｜进入 MarginNote 3
 
 - WBC>5/HP、RBC>3/HP、蛋白尿>0.15g/d；
 - 10^5 CFU/mL及Study三种“真性细菌尿”阈值；

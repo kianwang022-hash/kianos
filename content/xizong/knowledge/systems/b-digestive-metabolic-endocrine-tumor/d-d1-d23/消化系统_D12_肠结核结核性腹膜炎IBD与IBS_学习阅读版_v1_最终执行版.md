@@ -793,9 +793,7 @@ CTE/MRE 还可用于肛周脓肿手术后的疾病评估。
 
 # 11｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G｜第一轮必须即时掌握
 
 1. 肠结核：回盲部、环形横行溃疡、干酪肉芽肿、跳跃征、结肠镜；
 2. 结核性腹膜炎：腹腔内结核直接蔓延、柔韧感、渗出性腹水、ADA、腹腔镜；
@@ -804,7 +802,7 @@ CTE/MRE 还可用于肛周脓肿手术后的疾病评估。
 5. 5-ASA—激素—免疫抑制—生物制剂的诱导/维持角色；
 6. IBS：内脏高敏、排便相关、无脓血、检查用于排除器质性病变。
 
-## 真正 residual：MI-D / Precision
+## MI-D｜允许卡片化后置
 
 - TB 腹水全部阈值与分型细节；
 - UC 轻/中/重全部中间档数字；

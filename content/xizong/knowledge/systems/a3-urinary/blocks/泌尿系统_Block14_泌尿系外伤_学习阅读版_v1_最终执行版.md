@@ -663,9 +663,7 @@ Lecture-attached Questions 支持：
 
 # 9｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 9.1 MI-G｜第一轮必须即时掌握
 
 - 血流动力学稳定性是泌尿外伤第一决策门；
 - 会阴骑跨伤 → 前尿道球部；骨盆骨折 → PFUI / 后尿道方向；
@@ -679,7 +677,7 @@ Lecture-attached Questions 支持：
 - 持续不稳定且肾出血：探查；
 - 血尿与损伤程度不相关。
 
-## 真正 residual：MI-D / Precision
+## 9.2 MI-D｜进入 MarginNote 3
 
 - 尿生殖膈以上 / 以下的精确空间；
 - 前尿道外渗四个区域；

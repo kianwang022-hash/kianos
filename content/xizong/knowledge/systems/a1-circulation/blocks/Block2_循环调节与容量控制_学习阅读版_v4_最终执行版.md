@@ -878,13 +878,11 @@ ECF / 血容量↑ → 平均充盈压、回心、CVP↑
 
 ## Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G
 
 四类反射；窦弓双向 / 重调定；危急化学 / 脑缺血反应；交感五出口；四类血管神经；α₁/β₁/β₂与NA/Adr；肾素三入口；AngⅡ / AngⅢ；醛固酮；ADH V₂-AQP2；ANP / BNP；肾—体液长期调压；NO / EDHF；全身命令与局部代谢；急性救援 vs 慢性反噬。
 
-### 真正 residual：MI-D / Precision
+### MI-D
 
 压力感受器精确解剖 / 门槛、全部肾素化学因子、AngⅡ“1233”逐字名单、VP禁用、CA合成调节、低频介质来源、“最强舒 / 缩血管物质”、药名与肌酐/K⁺/BNP阈值、疾病短接口完整诊疗。
 

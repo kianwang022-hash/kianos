@@ -1034,9 +1034,7 @@ Lecture完成后闭卷完成：
 
 # 9｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；现有 B5 Precision 只保留公式、阈值、安全条件等 exact residual。
-
-## 9.1 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 9.1 MI-G｜第一轮必须即时掌握
 
 1. 容量与张力不是同一变量；
 2. 三类脱水的丢水 / 丢钠关系；
@@ -1057,7 +1055,7 @@ Lecture完成后闭卷完成：
 17. 代谢性酸中毒要算AG；低白蛋白时校正AG；
 18. HAGMA用delta分析筛第二个代谢过程。
 
-## 9.2 真正 residual：MI-D / Precision
+## 9.2 MI-D｜进入 MarginNote 3
 
 - 血Na⁺、渗透压、K⁺、Ca²⁺全部阈值；
 - 低渗性脱水三级数字；

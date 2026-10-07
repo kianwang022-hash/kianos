@@ -961,13 +961,11 @@ U126为编辑性混合页：前10题冠心病，页尾4题心衰；KP37只做交
 
 CCS / ACS；稳定 / 不稳定 / 变异；固定狭窄 / 破裂 / 痉挛；供氧少 / 需氧多；UA / NSTEMI / STEMI；缺血 / 损伤 / 坏死；ST压低 / 抬高 / 病理Q；抗板 / 抗凝 / 溶栓 / PCI；症状 / 预后；Killip / Forrester；乳头肌功能不全 / 断裂；游离壁 / 室间隔；室壁瘤 / Dressler；LV / RV MI；MI / 夹层。
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 供需变量；HR双重不利；固定狭窄 vs 斑块事件；稳定胸痛；症状 vs 预后；UA vs NSTEMI看坏死；NSTEMI vs STEMI再灌注边界；STEMI持续胸痛；病理时间轴；cTn / CK-MB / 肌红蛋白角色；ECG三层；前壁室性 / 下壁缓慢接口；新杂音 + 肺水肿警惕机械并发症；游离壁→压塞 / PEA；尽快再灌注；RV MI维持前负荷；夹层禁误溶栓；急性左衰看湿 / 冷；U126心衰只作预览。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 冠心病危险因素 / 脂蛋白；抗心绞痛药完整表；稳定型全部药物 / HR / LDL目标；CCS分级；UA危险标准 / PCI时间；ACS比较细节；STEMI特殊体征；病理时间轴精确点；标志物精确升峰降；ECG四期；导联—心壁—冠脉全配对；Killip / Forrester阈值；破裂 / Dressler具体时间；再灌注精确时间窗 / 负荷量 / 禁忌 / 再通标准；PCI / CABG；AMI药物顺序冲突；心衰数字。
 

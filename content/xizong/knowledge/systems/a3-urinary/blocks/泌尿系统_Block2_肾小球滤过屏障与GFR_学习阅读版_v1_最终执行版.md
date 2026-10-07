@@ -1167,8 +1167,6 @@ NSAID
 
 # 12｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
 ## 12.1 Mechanism Spine
 
 ```text
@@ -1182,7 +1180,7 @@ NSAID
 → 共同决定GFR
 ```
 
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 12.2 MI-G｜必须即时掌握
 
 1. 滤过膜三层；
 2. 基膜机械屏障最强（Study 口径）；
@@ -1201,7 +1199,7 @@ NSAID
 15. 强交感减少尿量的四条路径；
 16. “筛网漏”与“滤得少”两类问题的区分。
 
-## 真正 residual：MI-D / Precision
+## 12.3 MI-D｜进入 MarginNote 3
 
 - GFR 125 mL/min、180 L/day；
 - 入球端 45 / 25 / 10 mmHg 与有效滤过压 10 mmHg；

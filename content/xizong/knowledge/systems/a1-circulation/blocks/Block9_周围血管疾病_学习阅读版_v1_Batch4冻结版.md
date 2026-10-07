@@ -448,13 +448,11 @@ Recall：B1压力 / 流量 / 阻力 / 回心；B4 Virchow / 血栓 / 栓塞；B5
 
 边界：PE完整诊疗→呼吸；休克→B12；完整药物 / 介入 / 旁路术式→Study / MI-D。
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 动脉下游缺血 / 静脉上游淤血；Raynaud三相；急性栓塞左心来源 / 5P；急阻断 > 慢性狭窄；慢性缺血四期；AS闭塞 vs TAO；静脉曲张逆流；DVT Virchow；DVT活动须结合有效抗凝、循环稳定与症状评估，避免按摩/剧烈活动；DVT最严重后果PE；深浅交通关系；Perthes阳性禁处理浅静脉；五试验定位；急性肢体缺血 / 股青肿危险门槛。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 ABI全部数字；Rutherford距离；Raynaud药物 / 继发病；Fogarty / PTA / 旁路 / 溶栓具体指征；AS闭塞 / TAO低频差别；DVT三型细节；五试验操作；抗板 / 抗凝 / 扩管 / 溶栓方案；静脉曲张术式 / 硬化剂。
 

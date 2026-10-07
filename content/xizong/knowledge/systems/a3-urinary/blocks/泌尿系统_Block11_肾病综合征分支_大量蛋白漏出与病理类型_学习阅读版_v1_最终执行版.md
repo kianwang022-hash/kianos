@@ -191,9 +191,7 @@ E｜病因层
 
 # 2｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 - 四联及两个必备阈值；
 - 水肿与高脂形成机制；
@@ -212,7 +210,7 @@ E｜病因层
 - FSGS：局灶 + 节段 + 硬化是损伤模式，可有不同病因背景；
 - 足突融合三类只是共同超微证据。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 - 全部剂量、疗程和复治方案；
 - 免疫抑制剂完整药名；

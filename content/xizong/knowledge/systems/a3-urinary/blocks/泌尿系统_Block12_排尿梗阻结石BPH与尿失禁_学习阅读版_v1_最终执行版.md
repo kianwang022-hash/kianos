@@ -780,9 +780,7 @@ BPH 的时相：
 
 # 7｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G｜第一轮必须即时掌握
 
 - 正常排尿最小链及逼尿肌 / 括约肌方向；
 - 梗阻 → 残余尿 → 感染 / 结石 → 上游压力 → GFR↓；
@@ -795,7 +793,7 @@ BPH 的时相：
 - 结石最终方案看位置 + 大小 + 成分/密度 + 解剖/患者因素；
 - 四类尿失禁的故障层与典型场景。
 
-## 真正 residual：MI-D / Precision
+## MI-D｜允许卡片化后置
 
 - P263–264 膀胱压力和容量数字；
 - BPH 全部术式、EEP ≥80 mL；

@@ -1074,9 +1074,7 @@ U137 第11–15题保留原始 source unit、题号与 `outline_*` 身份，但�
 
 ## Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G｜本轮必须即时掌握
 
 1. 休克本质是组织低灌注，不等于低血压；
 2. 低容量 / 心源 / 分布 / 阻塞四层；
@@ -1097,7 +1095,7 @@ U137 第11–15题保留原始 source unit、题号与 `outline_*` 身份，但�
 17. VF / pVT的无脉搏可电击路径；PEA / 心静止仅作为Guide-level不可电击接口；
 18. 同步复律 vs 非同步除颤的层级区别。
 
-### 真正 residual：MI-D / Precision
+### MI-D｜进入 MarginNote 3
 
 - 轻 / 中 / 重度休克全部失血量、脉率、BP数字；
 - 休克指数阈值；

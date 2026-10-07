@@ -1226,8 +1226,6 @@ GFR / RPF
 
 # 9｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
 ## 9.1 Mechanism Spine｜第一轮必须闭卷恢复
 
 ```text
@@ -1247,7 +1245,7 @@ GFR / RPF
 → RBF / GFR相对稳定或失代偿
 ```
 
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 9.2 MI-G｜会阻断 B2–B14，必须即时掌握
 
 1. 肾单位 = 肾小体 + 肾小管；不含集合管；
 2. 滤过、重吸收、分泌、排泄四个方向；
@@ -1266,7 +1264,7 @@ GFR / RPF
 15. 双肾动脉狭窄依赖出球收缩维持 GFR；
 16. 排尿反射基本中枢在骶髓并受高级控制。
 
-## 真正 residual：MI-D / Precision
+## 9.3 MI-D｜归位后进入 MarginNote 3
 
 - 肾血流量约 1200 mL/min；
 - 皮质 / 近髓肾单位全部比例与尺寸；

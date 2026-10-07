@@ -525,9 +525,7 @@ Heller食管下段贲门肌层切开术解除LES阻力，但同时削弱抗反�
 
 ## 4｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G
 
 - GERD定义；RE vs NERD；
 - 屏障—清除—黏膜抵抗三层模型；
@@ -539,7 +537,7 @@ Heller食管下段贲门肌层切开术解除LES阻力，但同时削弱抗反�
 - 贲门失弛缓机制—鸟嘴征—Heller—术后GERD；
 - 间歇 vs 进行性吞咽困难。
 
-### 真正 residual：MI-D / Precision
+### MI-D
 
 - 全部促LES松弛激素与药物名单；
 - LA A–D精确阈值；

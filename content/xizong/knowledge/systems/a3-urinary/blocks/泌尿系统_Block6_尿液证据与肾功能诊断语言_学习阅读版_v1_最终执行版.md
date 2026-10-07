@@ -702,9 +702,7 @@ Lecture完成后闭卷完成：
 
 # 8｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 8.1 MI-G｜第一轮必须即时掌握
 
 1. 蛋白尿五类机制；
 2. 肾小球性 vs 肾小管性 vs 溢出性；
@@ -720,7 +718,7 @@ Lecture完成后闭卷完成：
 12. 无痛全程肉眼血尿的恶性警报；
 13. 证据—位置—功能—病因四层算法。
 
-## 真正 residual：MI-D / Precision
+## 8.2 MI-D｜进入 MarginNote 3
 
 - 蛋白尿0.15 g/d；
 - 尿白蛋白排泄量30–300 mg/d，不能用总尿蛋白替代；

@@ -1024,9 +1024,7 @@ Lecture完成后闭卷完成：
 
 # 12｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## 12.1 MI-G｜第一轮必须即时掌握
 
 - AKI肾前 / 肾性 / 肾后三分；
 - 肾前性 vs ATN 的机制与核心指标方向；
@@ -1046,7 +1044,7 @@ Lecture完成后闭卷完成：
 - IHD / CRRT / PD均是KRT modality，按患者 / 场景 / 资源选择；
 - 透析失衡综合征。
 
-## 真正 residual：MI-D / Precision
+## 12.2 MI-D｜进入 MarginNote 3
 
 - 肾前 vs ATN 全部数值；
 - AKI Scr精确阈值与单位；

@@ -606,9 +606,7 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 
 # 3｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 - 原癌基因 vs 抑癌基因；
 - 激活四路：突变、扩增、易位/融合、获强启动子/增强子；
@@ -622,7 +620,7 @@ MI-D缺陷配对：NER→着色性干皮病/毛发低硫营养不良/Cockayne；
 - 突变类型；
 - BER、NER、错配、双链断裂、SOS修复。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 - 全部原癌基因及肿瘤配对；
 - 受体 / 激酶 / 转录因子完整名单；

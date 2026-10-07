@@ -694,13 +694,11 @@ Recall：B1收缩性 / 顺应性 / EF / 充盈 / 前后负荷；B3电活动；B2
 
 HCM按肥厚型梗阻性心肌病展开；DCM/HCM超声为首选 / 金标准接口；病毒性心肌炎金标准心内膜心肌活检；积液首选超声、性质 / 病因以穿刺为金标准；主动脉夹层列穿刺绝对禁忌；RCM vs 缩窄的奇脉等按当前Study保留。
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D 才是 exact residual。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 四故障层；HCM非对称肥厚 + 舒张障碍 + 可SAM动态堵；HCM杂音随前负荷 / 收缩性变化；DCM弥漫弱 / EF低 / 多腔大；RCM双房大 / 心室不一定大；RCM vs 缩窄位置；心肌炎1–3周前驱；心包摩擦；积液增多可使痛 / 摩擦消失；积液 vs 压塞；速度比单纯量更重要；Beck / 奇脉；超声 / 穿刺职责；夹层禁穿刺；积液 vs DCM；内衣 / 外套 / 液体三联鉴别。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 HCM基因 / 猝死阈值 / LGE / 药物；HCM/DCM ICD指征；DCM病因 / 基因；RCM病因；心肌炎病毒 / 活检 / CMR；心包炎病因 / 积液性质；Ewart / Kussmaul低频细节；穿刺操作；ECG / 超声精确参数。
 

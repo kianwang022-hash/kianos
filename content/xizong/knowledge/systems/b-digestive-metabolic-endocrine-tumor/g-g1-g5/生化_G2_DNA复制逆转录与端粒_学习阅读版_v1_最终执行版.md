@@ -500,9 +500,7 @@ RNA
 
 # 3｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 - 半保留、双向、半不连续、高保真；
 - 前导 / 后随链与引物；
@@ -514,7 +512,7 @@ RNA
 - 逆转录三活性；
 - 复制 vs 转录总表。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 - 原核 / 真核引物和冈崎片段精确长度；
 - DNApol α/β/γ/δ/ε 的全部分工；

@@ -655,9 +655,7 @@ I / III / IV 泵 H⁺
 
 ## 4｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-### 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+### MI-G
 
 - 糖酵解三段、3个关键酶、净2 ATP；
 - 乳酸分支回收 NAD⁺；
@@ -670,7 +668,7 @@ I / III / IV 泵 H⁺
 - F₀ / F₁；P/O；30 / 32；
 - 抑制 vs 解偶联的方向。
 
-### 真正 residual：MI-D / Precision
+### MI-D
 
 - 糖酵解全部中间物口诀；
 - TCA每步酶、全部抑制剂；

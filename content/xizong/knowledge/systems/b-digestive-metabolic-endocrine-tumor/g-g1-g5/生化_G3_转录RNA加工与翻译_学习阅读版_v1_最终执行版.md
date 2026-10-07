@@ -646,9 +646,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 
 # 3｜Memory Routing
 
-> **最新版分工**：旧 MI-G 只作模型 / Prompt 覆盖核对，不代表独立 Memory admission；MI-D / Precision 是精确 residual lane。已审定 Memory admission 本轮不重审。
-
-## 模型 / Prompt 已承载（旧 MI-G 覆盖清单）
+## MI-G
 
 - 模板链 / 编码链 / RNA方向；
 - 原核RNApol亚基与-35/-10启动子；
@@ -661,7 +659,7 @@ EF-Ts是EF-Tu的调节亚基；当前Source明确IF2、EF-Tu、RF3为GTPase。EF
 - ATP/GTP能量账；
 - 翻译后加工、折叠与SRP靶向。
 
-## 真正 residual：MI-D / Precision
+## MI-D
 
 - 全部转录因子 / 翻译因子缩写；
 - 各核酸酶与mRNA降解通路全名；
