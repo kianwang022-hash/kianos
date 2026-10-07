@@ -20,13 +20,25 @@ This README owns routing and freshness only.
 
 ## Chat-led Block reading entry
 
-For **migrated A1 / circulation-b01**, the normal Chat input is the same versioned learner object used by Website and Memory. Resolve it once with the existing read-only inspector:
+For **A1 / circulation-b01 normal learning**, stay on the content side. A fresh Chat needs only the smallest content basis that preserves B1's position inside A1 and the fixed Block model:
 
-```sh
-node static-web/scripts/inspect-xizong-content.mjs circulation circulation-b01 --json
+```text
+A1 system.json
+→ A1 Learning owner, circulation-b01 selector
+→ accepted B1 teaching/model input
+→ exact canonical B1 KP Core only when the current model node needs it
+→ exact Memory/MedicalVisual support only when that node needs it
 ```
 
-Use `learnerObject.model` for the adopted continuous model and natural full-Prompt bindings, `kps` for exact canonical knowledge, the resolved Precision/Visual/Connection slots for their actual content and timing, and `sourceContact` for execution/Source limits. `semanticOwnership.sourcePath` identifies the one editable canonical Block. A missing owner, stale reviewed derivation or invalid admission refuses the affected compile; do not repair it by assembling shared-fields, cue JSON, teaching prose or Acceptance comments in Chat. Acceptance remains audit/lifecycle evidence. The old teaching file remains history/presentation, not another current model input. Explanation depth, wording and folding may adapt without changing the model or knowledge locations.
+Concretely:
+
+- `../systems/a1-circulation/system.json` supplies the A1 mother model, main flow and B1's System role;
+- `a1-circulation-learning.json#/blocks/circulation-b01` supplies B1's current focus, seven-LG route and closure semantics;
+- `../../projection/a1-circulation/chat/b01-teaching.md` supplies the accepted fixed-model teaching/compressed-review presentation;
+- `../systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md` remains the canonical B1/KP medical owner and is read on demand for exact Core;
+- the exact cue/MedicalVisual owner is read only when the current model node actually needs model-external memory or imagery.
+
+**Normal learning must not read `static-web/**`, inspector output, revision witnesses, CI, PR/Issue discussion or Acceptance prose to reconstruct the lesson.** Those are engineering/audit/lifecycle concerns. Website Projection is verified against the same content, but engineering artifacts are never learning inputs.
 
 The following legacy read route applies **only to unmigrated Blocks**; it is not a fallback for B1.
 
