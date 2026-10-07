@@ -161,6 +161,9 @@ Then continue the lesson. Do not interrupt the reasoning every few facts to “m
 
 The learner should already recognize each cue when it later appears at chapter close because the cue was born from the block just learned. Chapter close only assembles and checks those existing lines; it does not generate a new chapter framework from scratch.
 
+The cue is generated **before and independently of Memory admission**. Chat should ask “what small slot-label helps Kian reconstruct this learned block?” rather than “which reviewed Memory objects exist here?”. Only after the model line and cue are satisfactory should Chat inspect/mention Precision when exact long-term retrieval is timely. Thus a cue may cover understanding that never becomes Memory, and a Precision target may be finer than the cue.
+
+
 The quick-review wording is Kian's self-use layer. Chat may refine it conversationally with Kian and store an accepted version in the existing chapter teacher brief for continuity. This storage is lightweight reference only: no new schema, Runtime state, Website surface, scheduler or Memory admission is implied, and no Git write is required after every micro-block.
 
 If a compression line becomes so detailed that it teaches the answer again, move the excess back to teaching/support or Precision. If it becomes so thin that the next relation can no longer be reconstructed, restore the missing bridge.
