@@ -37,6 +37,37 @@ Establish the model first. At the matching semantic node attach the canonical kn
 
 Default learner display hides KP numbers. A Prompt may include recall slots that are not causal arrows: they belong to the knowledge topic at that node. Attaching it must not create, remove or reorder medical relationships. Do not alternate disconnected model/KP/Precision cards or put the KP list in a parallel column. Hide the annotations and the model must remain intelligible and unchanged.
 
+### Model carries structured memory; Prompt compresses it; Memory is residual
+
+The stable model is not an explanation-only skeleton. Its natural semantic nodes are the primary scaffold for **structured active memory**. Knowledge that naturally belongs to one model node and should later be actively recovered with that node belongs in the node's **full Prompt**, even when it includes names, members, classifications, comparisons, conditions, ordered steps or other material that must be remembered. The Prompt is therefore a model-internal memory compressor, not merely a directory or an index to Core.
+
+Keep the roles distinct:
+
+```text
+model / node
+= understanding structure + address for large structured memory
+
+title〔full Prompt〕
+= what should be actively reconstructed at that natural node
+
+Core / explanation
+= why / how / mechanism / examples / counterfactuals / explanatory depth
+
+Memory / Precision
+= indispensable exact residual that the model cannot naturally carry or reliably cue
+```
+
+Use the smallest routing question first:
+
+> **Can this knowledge be naturally attached to a model node so that the node itself helps Kian recover it?**
+
+- **Yes, and it is worth active retrieval:** keep it in that node's full Prompt rather than exporting it merely because it is a list or a memorization task.
+- **No, or independent exact recovery is the real difficulty:** route it to Memory / Precision when it is important enough to revisit. Typical examples include isolated numbers, dates/timings, exact pairings, low-structure exceptions, easily swapped fixed wording, and residual list members that do not gain useful structure from the model.
+- **It mainly supports understanding and does not need deliberate member-by-member retrieval:** keep it in Core / explanation without inflating the Prompt.
+- **It depends materially on an image, waveform, spatial relation or morphology:** preserve the MedicalVisual / Source route rather than forcing it into Prompt or Memory text.
+
+This is a semantic routing rule, not a quota. **Prompt length, Memory-card count, Precision count or symmetry across Blocks are not quality targets.** Do not start from the existing Memory inventory and back-solve the model or Prompt. Build the best model first, compress its naturally structured retrieval into Prompts, then let Memory receive the remaining exact residual. Moving a fact between Prompt and Memory must preserve its canonical meaning, identity/history where applicable, and must not manufacture new review debt.
+
 ### Complete coverage without distorting the model
 
 For the accepted Source scope, completeness is the **union** of:
