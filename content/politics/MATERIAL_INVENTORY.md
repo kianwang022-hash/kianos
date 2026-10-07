@@ -123,7 +123,7 @@ Therefore model-rated Analysis may guide diagnosis now, but precise score-path n
 
 ### LEG26 memory/output baseline
 
-The current designated retention source is **2027 腿姐《冲刺背诵手册》** under Learning §6.1. This LEG26 inventory remains historical-only and cannot authorize current-year wording or retention priority. The 2027《背练结合自测本》 is an auxiliary Recall/self-test source, not the baseline selector.
+The current designated retention source is **2027 腿姐《冲刺背诵手册》上册 / 下册** under Learning §6.1. This LEG26 inventory remains historical-only and cannot authorize current-year wording or retention priority. The 2027《背练结合自测本》 is an auxiliary Recall/self-test source, not the baseline selector.
 
 Metadata retained:
 
@@ -182,7 +182,7 @@ Forbidden:
 
 | Family | Status now | Required role when available | What is already prepared |
 | --- | --- | --- | --- |
-| 2027 腿姐《冲刺背诵手册》 | AVAILABLE / INSPECT_REQUIRED_BY_SCOPE | retention necessity + recall depth for model-bound prompts and residual Memory; later Analysis EXACT where applicable | current-year upper/lower volumes available; inspect the exact subject/chapter passage before admitting retention |
+| 2027 腿姐《冲刺背诵手册》上册 / 下册 | AVAILABLE / MD_INGESTED / PASS_WITH_UNCLEAR / INSPECT_BY_SCOPE | retention necessity + recall depth for model-bound prompts and residual Memory; later Analysis EXACT where applicable | [2027 Source entry](source/current/leg27/README.md); 234 / 87 PDF pages, complete page anchors and visual review; [quality report](source/current/leg27/QUALITY_REPORT.md) lists remaining localized UNCLEAR. Resolve relevant original fields before exact use. No chapter or existing Memory pool is automatically Leg-filtered. |
 | 2027《背练结合自测本》 | AVAILABLE_AUXILIARY | Recall/self-test and salience cross-check only | 30-day task/self-test structure available; does not replace retention-source judgment |
 | 2027 current affairs / 形势与政策 | SOURCE_PENDING | current facts/policy cues; Objective/Analysis overlays | strict high-freshness ingestion rules |
 | Xiao8 | SOURCE_PENDING | fresh current-year Objective transfer; mixed timing; selected Analysis/Mock evidence | clean-attempt / answer-separation / v2 rules |
