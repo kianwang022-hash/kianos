@@ -10,8 +10,8 @@
     "content_hash": "efb7825513394deea27e74c1f5d2f570b3464938837585da32ab93480ab8e056",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "学习",
-      "core_meaning_en": "to acquire knowledge or skill",
+      "core_meaning_cn": "学习、学会；得知、获悉",
+      "core_meaning_en": "to acquire knowledge or skills; to find out information",
       "mental_model_cn": "学习",
       "mental_model_en": ""
     },
@@ -42,19 +42,28 @@
             ],
             "meaning_cn": "从错误中学习",
             "phrase": "learn from mistakes"
+          },
+          {
+            "collocation_id": "collocation:fd95537c0ce4db5b693e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:learn:2a4bfe01456d5e39:collocation:0"
+            ],
+            "meaning_cn": "学英语",
+            "phrase": "learn English"
           }
         ],
         "confidence": "medium",
         "definition_cn": "学习，学会",
         "definition_en": "gain knowledge or skills",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "learn sth; learn to do sth; learn from/about sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:learn:73c5de6b798e58b5",
         "sense_label_en": "gain knowledge or skills",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -79,39 +88,15 @@
         ],
         "confidence": "medium",
         "definition_cn": "得知，获悉",
-        "definition_en": "get to know or become aware of, usually accidentally",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to find out or become aware of information",
+        "governing_pattern": "learn sth/that...; learn of/about sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:learn:09a35c99b3c251e0",
-        "sense_label_en": "get to know or become aware of, usually accidentally",
+        "sense_label_en": "to find out or become aware of information",
         "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:fd95537c0ce4db5b693e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:learn:2a4bfe01456d5e39:collocation:0"
-            ],
-            "meaning_cn": "学英语",
-            "phrase": "learn English"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "学习（某学科）",
-        "definition_en": "be a student of a certain subject",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:learn:2a4bfe01456d5e39",
-        "sense_label_en": "be a student of a certain subject",
-        "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -308,7 +293,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:fd95537c0ce4db5b693e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:learn:2a4bfe01456d5e39:collocation:0"
+          ],
+          "meaning_cn": "学英语",
+          "phrase": "learn English"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "学习（某学科）",
+      "definition_en": "be a student of a certain subject",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:learn:2a4bfe01456d5e39",
+      "sense_label_en": "be a student of a certain subject",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "status": "merged",
+      "merged_into_sense_id": "sense:learn:73c5de6b798e58b5",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -320,8 +333,8 @@
       },
       {
         "sense_id": "sense:learn:2a4bfe01456d5e39",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:learn:73c5de6b798e58b5",
         "source_row": 7722,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
       },
@@ -365,7 +378,8 @@
       {
         "id": "collocation:fd95537c0ce4db5b693e",
         "source_row": 21450,
-        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json",
+        "sense_id": "sense:learn:73c5de6b798e58b5"
       }
     ],
     "exam-mappings": [

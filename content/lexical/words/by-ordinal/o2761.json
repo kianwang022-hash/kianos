@@ -32,7 +32,7 @@
               "sense:latitude:b0765de6f13a535c:collocation:0"
             ],
             "meaning_cn": "在北纬40度",
-            "phrase": "at a latitude of 40 degrees"
+            "phrase": "at a latitude of 40 degrees north"
           }
         ],
         "confidence": "medium",
@@ -66,22 +66,7 @@
             ],
             "meaning_cn": "决策上的自由度",
             "phrase": "latitude in decision-making"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "自由；自由度",
-        "definition_en": "freedom from normal restraints or restrictions",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:latitude:ef669c9a6be55f28",
-        "sense_label_en": "freedom from normal restraints or restrictions",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:6f322a858192ff995e35",
             "exam_value": "usage_example",
@@ -93,15 +78,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "范围；余地",
-        "definition_en": "scope for action or thought",
+        "definition_cn": "行动或思考的自由度；自主决定的余地",
+        "definition_en": "freedom or room to act, think, or decide without tight restrictions",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:latitude:b015617d08455131",
-        "sense_label_en": "scope for action or thought",
-        "sort_order": 2,
+        "sense_id": "sense:latitude:ef669c9a6be55f28",
+        "sense_label_en": "freedom or room to act, think, or decide without tight restrictions",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -235,13 +220,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6f322a858192ff995e35",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:latitude:b015617d08455131:collocation:0"
+          ],
+          "meaning_cn": "广泛的余地",
+          "phrase": "wide latitude"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "范围；余地",
+      "definition_en": "scope for action or thought",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:latitude:b015617d08455131",
+      "sense_label_en": "scope for action or thought",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "status": "merged",
+      "merged_into_sense_id": "sense:latitude:ef669c9a6be55f28",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:latitude:b015617d08455131",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:latitude:ef669c9a6be55f28",
         "source_row": 7644,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
       },
@@ -271,7 +284,8 @@
       {
         "id": "collocation:6f322a858192ff995e35",
         "source_row": 9389,
-        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
+        "sense_id": "sense:latitude:ef669c9a6be55f28"
       },
       {
         "id": "collocation:91f9cadc17d2800d7d40",
