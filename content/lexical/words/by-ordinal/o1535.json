@@ -21,17 +21,17 @@
         },
         {
           "label_cn": "拂去灰尘；撒（粉末）于",
-          "label_en": "remove the dust from; rub the dust over a surface so as to blur the outlines of a shape",
+          "label_en": "remove dust from a surface; sprinkle a surface with powder",
           "pos": "verb",
           "sense_ids": [
             "sense:dust:a0338eb47be155d8",
-            "sense:dust:f6e4c4bd25615eff"
+            "sense:dust:452190ccbdcd6b3c"
           ]
         }
       ],
-      "core_meaning_cn": "灰尘或拂去灰尘",
-      "core_meaning_en": "fine dry particles or to remove such particles",
-      "mental_model_cn": "灰尘或拂去灰尘",
+      "core_meaning_cn": "灰尘；拂去灰尘，或撒上薄层粉末",
+      "core_meaning_en": "fine dry particles; remove dust or sprinkle powder",
+      "mental_model_cn": "动词有相反方向：dust furniture 是去灰；dust a cake with sugar 是撒上糖粉。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,7 +62,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:dust:a296564318c357b6",
-        "sense_label_en": "fine powdery material such as dry earth or pollen that can be blown abou",
+        "sense_label_en": "fine dry particles that collect on surfaces or float in air",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -70,7 +70,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:20b4ca726496069ce4d0",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:dust:a0338eb47be155d8:collocation:0"
             ],
@@ -90,14 +90,14 @@
         "confidence": "medium",
         "definition_cn": "拂去灰尘",
         "definition_en": "remove the dust from",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dust; dust sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dust:a0338eb47be155d8",
         "sense_label_en": "remove the dust from",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -126,6 +126,15 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:c6af45b352ffcc3ebc83",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dust:452190ccbdcd6b3c:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "在蛋糕上撒糖粉",
+            "phrase": "dust a cake with sugar"
+          },
+          {
             "collocation_id": "collocation:e9ca6ae9c1c9f366fdff",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -142,30 +151,6 @@
             ],
             "meaning_cn": "在蛋糕上撒糖",
             "phrase": "dust the cake with sugar"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "撒（粉末）于",
-        "definition_en": "rub the dust over a surface so as to blur the outlines of a shape",
-        "governing_pattern": "vt. + object + with/over + sth",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:dust:f6e4c4bd25615eff",
-        "sense_label_en": "rub the dust over a surface so as to blur the outlines of a shape",
-        "sort_order": 3,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c6af45b352ffcc3ebc83",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:dust:452190ccbdcd6b3c:collocation:handoff-o1375-o1624"
-            ],
-            "meaning_cn": "在蛋糕上撒糖粉",
-            "phrase": "dust a cake with sugar"
           }
         ],
         "confidence": "medium",
@@ -593,7 +578,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e9ca6ae9c1c9f366fdff",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:dust:f6e4c4bd25615eff:collocation:0"
+          ],
+          "meaning_cn": "在某物上撒某物",
+          "phrase": "dust + sth + with + sth"
+        },
+        {
+          "collocation_id": "collocation:a28e3995d8f23d8d6105",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:dust:f6e4c4bd25615eff:collocation:1"
+          ],
+          "meaning_cn": "在蛋糕上撒糖",
+          "phrase": "dust the cake with sugar"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "撒（粉末）于",
+      "definition_en": "to sprinkle or lightly cover something with powder",
+      "governing_pattern": "vt. + object + with/over + sth",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:dust:f6e4c4bd25615eff",
+      "sense_label_en": "to sprinkle or lightly cover something with powder",
+      "sort_order": 3,
+      "transitivity": "vt",
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:dust:452190ccbdcd6b3c"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -619,8 +641,8 @@
       },
       {
         "sense_id": "sense:dust:f6e4c4bd25615eff",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:dust:452190ccbdcd6b3c",
         "source_row": 4298,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
@@ -635,10 +657,8 @@
     "active_collocations": [
       "collocation:07b723b65dc34686a418",
       "collocation:0e8bf2009478977f81ff",
-      "collocation:20b4ca726496069ce4d0",
       "collocation:39831b153e84dc93238d",
       "collocation:a28e3995d8f23d8d6105",
-      "collocation:c6af45b352ffcc3ebc83",
       "collocation:e9ca6ae9c1c9f366fdff"
     ],
     "facts": [],
@@ -656,7 +676,9 @@
       {
         "id": "collocation:20b4ca726496069ce4d0",
         "source_row": 2701,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:39831b153e84dc93238d",
@@ -666,17 +688,21 @@
       {
         "id": "collocation:a28e3995d8f23d8d6105",
         "source_row": 13797,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "sense_id": "sense:dust:452190ccbdcd6b3c"
       },
       {
         "id": "collocation:e9ca6ae9c1c9f366fdff",
         "source_row": 19807,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "sense_id": "sense:dust:452190ccbdcd6b3c"
       },
       {
         "id": "collocation:c6af45b352ffcc3ebc83",
         "source_row": 21616,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -69,20 +69,20 @@
         "confidence": "medium",
         "definition_cn": "钻孔",
         "definition_en": "to make a hole with a drill",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "drill a hole; drill into/through sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:drill:227dd2bc6e755cc2",
         "sense_label_en": "to make a hole with a drill",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
           {
             "collocation_id": "collocation:cc575460c7587ac39eac",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:drill:13e11e9d1379537b:collocation:handoff-o1375-o1624"
             ],
@@ -167,20 +167,6 @@
         "sense_label_en": "to train someone by repetition",
         "sort_order": 3,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "条播机",
-        "definition_en": "a machine for sowing seeds in rows",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:drill:8117f2f480b956a8",
-        "sense_label_en": "a machine for sowing seeds in rows",
-        "sort_order": 4,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -914,7 +900,25 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "条播机",
+      "definition_en": "a machine for sowing seeds in rows",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:drill:8117f2f480b956a8",
+      "sense_label_en": "a machine for sowing seeds in rows",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -947,7 +951,7 @@
       },
       {
         "sense_id": "sense:drill:8117f2f480b956a8",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4205,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -959,8 +963,7 @@
       "collocation:2b48d74e2896a0322926",
       "collocation:2f525bf01ec8cc6d5d6b",
       "collocation:9857da510252c28c767e",
-      "collocation:a74dcf8f716aae59e7f9",
-      "collocation:cc575460c7587ac39eac"
+      "collocation:a74dcf8f716aae59e7f9"
     ],
     "facts": [
       {
@@ -1013,7 +1016,9 @@
       {
         "id": "collocation:cc575460c7587ac39eac",
         "source_row": 21617,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
