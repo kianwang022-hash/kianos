@@ -127,6 +127,23 @@ Subject shape remains local: Marxism normally freezes a reasoning/relation chain
 
 Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to lay down the same canonical spine without rebuilding a new index.
 
+### 0.6 First teaching is problem-driven — the spine is not a lecture outline
+
+The canonical reconstruction spine is the learner's stable **review/index structure**. It does **not** automatically define the sentence-by-sentence or node-by-node order of first teaching.
+
+For first contact, Chat must prefer a **problem-driven dependency route**: start from one chapter-level tension/question, then let each unresolved consequence force the next concept to appear. A concept should enter because the current model cannot proceed without it, not because the next spine node exists.
+
+Hard rules:
+- do not announce and teach the chapter as `node 01 → definition → errors → node 02 → definition → errors` merely because the reconstruction spine is numbered;
+- a prepared first lesson should remain intelligible and continuous if node numbers, Source IDs and section headings are hidden;
+- every new concept in the first lesson should answer “why must this appear **now**?” in the current reasoning chain;
+- necessary definitions/conditions are taught at the moment the reasoning needs them; secondary lists, quotations, classifications and exact wording are filled later into the already-built model unless they are required to understand the next step;
+- after a problem-driven segment closes, map what was learned back to the canonical spine. The route may cross or revisit nearby nodes, but closure/review must recover the same accepted nodes and relations;
+- the teacher brief is a preparation/completeness asset, not a script to read aloud. It prevents omission; it does not determine prose rhythm or force Source-order exposition.
+
+First-teaching acceptance test: hide all node numbers, formal section titles, Source IDs and Memory labels. If the remaining explanation cannot still be read as one coherent problem-solving argument in which each concept is motivated by the previous unresolved question, the first-teaching route is not prepared, even if coverage is complete.
+
+
 ## 1. Product model
 
 Politics follows the repository-wide causal chain:
@@ -237,7 +254,7 @@ For a chapter to be called **prepared for continuous Chat learning**, its existi
 The package must provide, for the chapter's actually admitted scope:
 
 1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
-2. **Progressive first-learning route.** A reviewed teaching sequence that says how the chapter is unfolded after the mother model. It may use several natural teaching batches such as model establishment → first substantive fill → later/heavier fill, but the batches are pedagogical stages, not new canonical units. Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the spine nodes/content range it owns, and its intended next stage/closure. A fresh Chat must be able to resume the same route without re-cutting a long teacher text into new batches.
+2. **Progressive first-learning route.** A reviewed **problem-driven dependency route** under §0.6 that says how the chapter is unfolded after orientation. It may use several natural teaching batches, but a batch is defined by the problem it resolves and the next question it creates—not by “read the next N spine nodes.” Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the fixed-spine nodes/content range it ultimately fills, and its intended next problem/closure. A fresh Chat must be able to resume the same argument without re-cutting a long teacher text or reciting the reconstruction index as a lecture outline.
 3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
 4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
 5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
