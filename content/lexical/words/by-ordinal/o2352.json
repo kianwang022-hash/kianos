@@ -35,7 +35,18 @@
         "definition_en": "to contact, find, or obtain someone or something",
         "pattern": "get hold of sb/sth",
         "source_sense_id": "sense:hold:641d6d1bdc02546a",
-        "boundary": "fixed get-hold-of pattern; not simply physical control"
+        "boundary": "fixed get-hold-of pattern; not simply physical control",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:8e440b1dcdadb0f4c8bf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hold:641d6d1bdc02546a:collocation:0"
+            ],
+            "meaning_cn": "找到，联系上",
+            "phrase": "get hold of + sth"
+          }
+        ]
       }
     ],
     "content_hash": "bfd686162a20db4cf926d88aefaf41070c8808f8397d90b7f44683aecf8216e2",
@@ -132,33 +143,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "保持，维持",
-        "definition_en": "to keep something in a particular state or position",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "保持／维持（某种状态或位置）",
+        "definition_en": "to stay, or keep something, in a particular state or position",
+        "governing_pattern": "hold still; hold sth steady/in place",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hold:6d3ca3f715e852de",
-        "sense_label_en": "to keep something in a particular state or position",
+        "sense_label_en": "to stay, or keep something, in a particular state or position",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:46ca00cda5654d4931a6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hold:4ae3c687140e5e96:collocation:0"
-            ],
-            "meaning_cn": "坚持，遵守",
-            "phrase": "hold to + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "有效，适用",
         "definition_en": "to remain valid or true",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "hold; hold true; hold for sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -168,17 +169,7 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8e440b1dcdadb0f4c8bf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hold:641d6d1bdc02546a:collocation:0"
-            ],
-            "meaning_cn": "找到，联系上",
-            "phrase": "get hold of + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "控制，掌握",
         "definition_en": "power or control over someone or something",
@@ -218,10 +209,21 @@
             "source_operation_sha256": "af6d59612cc6869bd157d79367df81d499ec02333caba1dd6030b2ca5f9cf668",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:46ca00cda5654d4931a6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hold:4ae3c687140e5e96:collocation:0"
+            ],
+            "meaning_cn": "坚持，遵守",
+            "phrase": "hold to + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "持有（观点、信念）",
         "definition_en": "to have or maintain an opinion, belief, or view",
@@ -247,7 +249,9 @@
             "source_operation_sha256": "c6be062a5888789ac90ba67e62c6852a9b0cceae5c6ecc73e41035ba5797970a",
             "verification_status": "auditor_verified"
           }
-        ]
+        ],
+        "transitivity": "vt/vi",
+        "governing_pattern": "hold a view/belief; hold that ...; hold to a belief/principle"
       }
     ],
     "verification_summary": {
@@ -588,7 +592,6 @@
       "collocation:46ca00cda5654d4931a6",
       "collocation:555d3e2ee57c16b8b095",
       "collocation:5a9e865a36e11e01a5c5",
-      "collocation:8e440b1dcdadb0f4c8bf",
       "collocation:c7a73422fdd9ed03b86a"
     ],
     "facts": [],
@@ -596,7 +599,8 @@
       {
         "id": "collocation:46ca00cda5654d4931a6",
         "source_row": 5975,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "sense_id": "sense:hold:fd14a14e226a5940"
       },
       {
         "id": "collocation:555d3e2ee57c16b8b095",
@@ -611,7 +615,9 @@
       {
         "id": "collocation:8e440b1dcdadb0f4c8bf",
         "source_row": 12065,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c7a73422fdd9ed03b86a",
