@@ -20,7 +20,7 @@
         },
         {
           "label_cn": "姿势",
-          "label_en": "a theatrical pose created for effect",
+          "label_en": "a position or posture of the body, sometimes adopted for effect",
           "pos": "noun",
           "sense_ids": [
             "sense:attitude:26ee83a413115c8a"
@@ -54,15 +54,16 @@
         ],
         "confidence": "medium",
         "definition_cn": "姿势，姿态",
-        "definition_en": "a theatrical pose created for effect",
+        "definition_en": "a position or posture of the body, sometimes adopted for effect",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:attitude:26ee83a413115c8a",
-        "sense_label_en": "a theatrical pose created for effect",
+        "sense_label_en": "a position or posture of the body, sometimes adopted for effect",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "note": "身体姿态义用于正式或文学语境。"
       },
       {
         "collocations": [
@@ -307,6 +308,29 @@
       "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
       "sort_order": 1,
       "transitivity": "nonverb"
+    },
+    {
+      "sense_id": "sense:attitude:20261007-defiant",
+      "pos": "noun",
+      "definition_cn": "（口语）傲慢、抗拒或不客气的态度",
+      "definition_en": "a defiant, arrogant, or hostile manner",
+      "sense_label_en": "a defiant, arrogant, or hostile manner",
+      "governing_pattern": "have an attitude; give sb attitude",
+      "level": "L2",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "confidence": "high",
+      "needs_human_review": 0,
+      "collocations": [
+        {
+          "collocation_id": "collocation:attitude:20261007-give",
+          "phrase": "give sb attitude",
+          "meaning_cn": "对某人摆出不客气或抗拒的态度",
+          "exam_value": "fixed_pattern"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
     }
   ],
   "identity_refs": {
@@ -331,6 +355,11 @@
         "merged_into_sense_id": null,
         "source_row": 842,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:attitude:20261007-defiant",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -365,6 +394,12 @@
         "id": "collocation:777515541729fa3b01f9",
         "source_row": 5,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:attitude:20261007-give",
+        "sense_id": "sense:attitude:20261007-defiant",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

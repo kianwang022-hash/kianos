@@ -227,6 +227,47 @@
       "source_row": 816,
       "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
       "reference_only": true
+    },
+    {
+      "sense_id": "sense:atmosphere:20261007-pressure-unit",
+      "pos": "noun",
+      "definition_cn": "大气压（压力单位）",
+      "definition_en": "a unit of pressure based on standard atmospheric pressure at sea level",
+      "sense_label_en": "unit of pressure",
+      "governing_pattern": "a number + atmosphere(s)",
+      "transitivity": "nonverb",
+      "level": "L2",
+      "sort_order": 2,
+      "confidence": "high",
+      "needs_human_review": 0,
+      "note": "数值 + atmospheres 是压力大小，不是多个气氛或气体层。",
+      "collocations": [
+        {
+          "collocation_id": "collocation:atmosphere:20261007-two-atmospheres",
+          "phrase": "a pressure of two atmospheres",
+          "meaning_cn": "两个大气压的压力",
+          "exam_value": "usage_example"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
+    },
+    {
+      "sense_id": "sense:atmosphere:20261007-local-air",
+      "pos": "noun",
+      "definition_cn": "某处的空气",
+      "definition_en": "the air in a particular place",
+      "note": "stuffy/smoky + room context indicates physical air, rather than social mood.",
+      "collocations": [
+        {
+          "collocation_id": "collocation:atmosphere:20261007-local-air",
+          "phrase": "a stuffy atmosphere",
+          "meaning_cn": "闷热不流通的空气",
+          "exam_value": "usage_example"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
     }
   ],
   "identity_refs": {
@@ -258,6 +299,16 @@
         "merged_into_sense_id": "sense:atmosphere:a205b0256dc5591b",
         "source_row": 816,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:atmosphere:20261007-pressure-unit",
+        "status": "reference",
+        "merged_into_sense_id": null
+      },
+      {
+        "sense_id": "sense:atmosphere:20261007-local-air",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -266,7 +317,15 @@
       "collocation:ed2e10bf0972266f86dd",
       "collocation:f1ee8ac81fdc3e73a217"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:atmosphere:handoff-93e4f07fb43577ec",
+        "target_kind": "construction",
+        "status": "reference",
+        "merged_into_id": null,
+        "reason": "Reviewed duplicate juxtaposition of existing Sense/collocation jobs; payload retained in Lookup, no separate default task."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:9dc5e6014918044606d6",
@@ -292,6 +351,18 @@
         "id": "collocation:f1ee8ac81fdc3e73a217",
         "source_row": 20502,
         "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      },
+      {
+        "id": "collocation:atmosphere:20261007-two-atmospheres",
+        "sense_id": "sense:atmosphere:20261007-pressure-unit",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:atmosphere:20261007-local-air",
+        "sense_id": "sense:atmosphere:20261007-local-air",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [

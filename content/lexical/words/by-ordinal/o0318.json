@@ -24,6 +24,58 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:at:20261007-at-all",
+        "pattern": "at all",
+        "meaning_cn": "否定或疑问等语境中强调丝毫、任何程度；not ... at all 表示一点也不",
+        "definition_en": "in any way or to any degree, often emphasizing a negative or question",
+        "direction": "R",
+        "level": "L1",
+        "pos": "phrase",
+        "learning_note": "把整个短语作为词汇单位识别；不能从地点/时间介词 at 或普通 all/once 直译得到。",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/at%20all",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "phrase meaning and contextual interpretation"
+          },
+          {
+            "source_type": "exam_preparation",
+            "source_url": "https://cet4.koolearn.com/20150206/789949.html",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_search_checked",
+            "supports": "specific phrase taught in CET preparation; no measured exam frequency or Production claim"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:at:20261007-at-once",
+        "pattern": "at once",
+        "meaning_cn": "要求立即执行时表示立刻；多个事件一起发生时表示同时",
+        "definition_en": "immediately, or at the same time, depending on context",
+        "direction": "R",
+        "level": "L1",
+        "pos": "phrase",
+        "learning_note": "把整个短语作为词汇单位识别；不能从地点/时间介词 at 或普通 all/once 直译得到。",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/at%20once",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "phrase meaning and contextual interpretation"
+          },
+          {
+            "source_type": "exam_preparation",
+            "source_url": "https://cet6.koolearn.com/20220214/852193.html",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_search_checked",
+            "supports": "specific phrase taught in CET preparation; no measured exam frequency or Production claim"
+          }
+        ]
       }
     ],
     "content_hash": "383db5ab0ba9ff5ac97c4abbe41caf7a566afd48f96b239af98f35864ccc059a",
@@ -818,7 +870,30 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "sense_id": "sense:at:20261007-at-all",
+      "pos": "phrase",
+      "definition_cn": "常用于否定、疑问或条件语境加强“丝毫、究竟、在任何程度上”的意思；not ... at all → 一点也不……",
+      "definition_en": "in any way or to any extent, often emphasizing a negative, question, or condition",
+      "governing_pattern": "at all",
+      "level": "L1",
+      "note": "常用于否定、疑问或条件语境加强“丝毫、究竟、在任何程度上”的意思；not ... at all → 一点也不……",
+      "reference_only": true,
+      "status": "reference_only"
+    },
+    {
+      "sense_id": "sense:at:20261007-at-once",
+      "pos": "phrase",
+      "definition_cn": "动作要求立即执行时 → 立刻；多个事件一起发生时 → 同时；at once A and B → 既A又B",
+      "definition_en": "immediately, simultaneously, or both A and B depending on context",
+      "governing_pattern": "at once; at once A and B",
+      "level": "L1",
+      "note": "动作要求立即执行时 → 立刻；多个事件一起发生时 → 同时；at once A and B → 既A又B",
+      "reference_only": true,
+      "status": "reference_only"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -841,6 +916,16 @@
         "merged_into_sense_id": null,
         "source_row": 811,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:at:20261007-at-all",
+        "status": "reference",
+        "merged_into_sense_id": null
+      },
+      {
+        "sense_id": "sense:at:20261007-at-once",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -856,6 +941,18 @@
         "id": "deep:constructions:at:c3b05e90e0c4f94e",
         "source_row": 129,
         "source_path": "content/lexical/canonical/facts/shards/o0289-0320.json"
+      },
+      {
+        "id": "construction:at:20261007-at-all",
+        "target_kind": "construction",
+        "status": "active",
+        "merged_into_id": null
+      },
+      {
+        "id": "construction:at:20261007-at-once",
+        "target_kind": "construction",
+        "status": "active",
+        "merged_into_id": null
       }
     ],
     "collocations": [

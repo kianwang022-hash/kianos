@@ -29,8 +29,8 @@
           ]
         },
         {
-          "label_cn": "攻击；进攻",
-          "label_en": "an act of attacking",
+          "label_cn": "武力攻击或言辞抨击",
+          "label_en": "an attack with force or strong criticism",
           "pos": "noun",
           "sense_ids": [
             "sense:attack:17cb676a64c557df"
@@ -38,7 +38,7 @@
         },
         {
           "label_cn": "猛烈批评；抨击",
-          "label_en": "strong criticism",
+          "label_en": "to criticize strongly",
           "pos": "verb",
           "sense_ids": [
             "sense:attack:6bad7fafc8d77979"
@@ -86,14 +86,14 @@
         "confidence": "medium",
         "definition_cn": "攻击；进攻",
         "definition_en": "take aggressive action against",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "attack (sb/sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:attack:b2f86d36ea7556c5",
         "sense_label_en": "take aggressive action against",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -105,17 +105,26 @@
             ],
             "meaning_cn": "发动进攻",
             "phrase": "launch an attack"
+          },
+          {
+            "collocation_id": "collocation:bc298c867d85820a9970",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "对政策/论点的猛烈抨击",
+            "phrase": "an attack on a policy/argument"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "攻击；进攻",
-        "definition_en": "an act of attacking",
+        "definition_cn": "攻击；进攻；（言语、文字的）抨击",
+        "definition_en": "an act of attacking with force or criticizing strongly",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:attack:17cb676a64c557df",
-        "sense_label_en": "an act of attacking",
+        "sense_label_en": "an act of attacking with force or criticizing strongly",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -129,26 +138,17 @@
             ],
             "meaning_cn": "猛烈批评政策/论点",
             "phrase": "attack a policy/argument"
-          },
-          {
-            "collocation_id": "collocation:bc298c867d85820a9970",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
-            ],
-            "meaning_cn": "对政策/论点的猛烈抨击",
-            "phrase": "an attack on a policy/argument"
           }
         ],
         "confidence": "medium",
         "definition_cn": "猛烈批评；抨击",
-        "definition_en": "to criticize strongly, or a strong verbal/written criticism",
-        "governing_pattern": "",
+        "definition_en": "to criticize someone or something strongly",
+        "governing_pattern": "attack sb/sth (for sth)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:attack:6bad7fafc8d77979",
-        "sense_label_en": "to criticize strongly, or a strong verbal/written criticism",
+        "sense_label_en": "to criticize someone or something strongly",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -341,7 +341,31 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "sense_id": "sense:attack:20261007-set-to-work",
+      "pos": "verb",
+      "definition_cn": "积极着手；大力处理（问题、任务等）",
+      "definition_en": "to begin working vigorously on a problem or task",
+      "sense_label_en": "to begin working vigorously on a problem or task",
+      "governing_pattern": "attack a problem/task",
+      "level": "L2",
+      "sort_order": 4,
+      "transitivity": "vt",
+      "confidence": "high",
+      "needs_human_review": 0,
+      "collocations": [
+        {
+          "collocation_id": "collocation:attack:20261007-problem",
+          "phrase": "attack a problem",
+          "meaning_cn": "着手解决问题",
+          "exam_value": "usage_example"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -371,6 +395,11 @@
         "merged_into_sense_id": null,
         "source_row": 824,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:attack:20261007-set-to-work",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -385,6 +414,13 @@
         "id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
         "source_row": 135,
         "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json"
+      },
+      {
+        "id": "construction:attack:handoff-929dcdbb7ae53162",
+        "target_kind": "construction",
+        "status": "reference",
+        "merged_into_id": null,
+        "reason": "Reviewed duplicate juxtaposition of existing Sense/collocation jobs; payload retained in Lookup, no separate default task."
       }
     ],
     "collocations": [
@@ -412,6 +448,12 @@
         "id": "collocation:e691aee1f9df6fcf7c41",
         "source_row": 21221,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:attack:20261007-problem",
+        "sense_id": "sense:attack:20261007-set-to-work",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

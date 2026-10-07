@@ -96,14 +96,14 @@
         "confidence": "high",
         "definition_cn": "把 A 与 B 联系起来",
         "definition_en": "link A with B in thought or fact",
-        "governing_pattern": "",
+        "governing_pattern": "associate A with B; be associated with B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:associate:8597335726c65975",
         "sense_label_en": "associate A with B",
         "sort_order": 0,
-        "transitivity": "vi",
+        "transitivity": "vt",
         "collocations": []
       },
       {
@@ -157,7 +157,7 @@
       "form_type": "same_spelling_pos_conditioned_pronunciation",
       "spelling": "associate",
       "identity_rule": "part_of_speech_selects_final_syllable",
-      "boundary": "The verb associate ends in /-eɪt/; the noun associate ends in /-ət/.",
+      "boundary": "The verb normally ends in /-eɪt/; the noun and adjective normally end in /-ət/.",
       "boundaries": [
         {
           "surface": "associate",
@@ -166,8 +166,8 @@
         },
         {
           "surface": "associate",
-          "condition": "noun",
-          "note": "名词词尾读 /-ət/，表示同事/伙伴"
+          "condition": "noun/adjective",
+          "note": "名词和形容词词尾通常读 /-ət/：同事/伙伴；副职或准会员身份"
         }
       ],
       "variants": [
@@ -190,17 +190,19 @@
         {
           "variant_id": "form:associate:noun-uk",
           "pos": [
-            "noun"
+            "noun",
+            "adjective"
           ],
-          "learner_key": "noun · UK",
+          "learner_key": "noun/adjective · UK",
           "ipa": "/əˈsəʊ.ʃi.ət/"
         },
         {
           "variant_id": "form:associate:noun-us",
           "pos": [
-            "noun"
+            "noun",
+            "adjective"
           ],
-          "learner_key": "noun · US",
+          "learner_key": "noun/adjective · US",
           "ipa": "/əˈsoʊ.ʃi.ət/"
         }
       ],
@@ -265,6 +267,35 @@
       "source_row": 19517,
       "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
       "reference_only": true
+    },
+    {
+      "sense_id": "sense:associate:20261007-adjective-status",
+      "pos": "adjective",
+      "definition_cn": "（职位、级别）副的；（会员身份）非正式的、准的",
+      "definition_en": "sharing a role or responsibility, often with a secondary rank or less than full membership",
+      "governing_pattern": "before a role or membership noun",
+      "level": "L2",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "confidence": "high",
+      "needs_human_review": 0,
+      "sense_label_en": "secondary rank or associate membership",
+      "collocations": [
+        {
+          "collocation_id": "collocation:associate:20261007-professor",
+          "phrase": "associate professor",
+          "meaning_cn": "副教授",
+          "exam_value": "fixed_pattern"
+        },
+        {
+          "collocation_id": "collocation:associate:20261007-member",
+          "phrase": "associate member",
+          "meaning_cn": "准会员；非正式会员",
+          "exam_value": "fixed_pattern"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
     }
   ],
   "identity_refs": {
@@ -310,6 +341,11 @@
         "merged_into_sense_id": "sense:associate:aaad4a8f591d5300",
         "source_row": 19517,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [],
@@ -345,6 +381,18 @@
         "id": "collocation:edcd81b45ba7942028b0",
         "source_row": 20152,
         "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      },
+      {
+        "id": "collocation:associate:20261007-professor",
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:associate:20261007-member",
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
