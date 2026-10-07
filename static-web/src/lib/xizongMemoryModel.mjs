@@ -137,9 +137,12 @@ function validateDescriptor(descriptor) {
 const nativePreparedIdentity = value => (value?.systemId === 'respiratory' && value?.canonicalId === 'A2'
   && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(value?.blockId))
   || (value?.systemId === 'urinary' && value?.canonicalId === 'A3'
-    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(value?.blockId));
-const claimsNativePrepared = value => ['respiratory', 'urinary'].includes(value?.systemId)
-  || ['A2', 'A3'].includes(value?.canonicalId) || /^(?:respiratory|urinary)-/.test(value?.blockId);
+    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(value?.blockId))
+  || (value?.systemId === 'digestive-metabolic-endocrine-tumor' && value?.canonicalId === 'B'
+    && /^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(value?.blockId));
+const claimsNativePrepared = value => ['respiratory', 'urinary', 'digestive-metabolic-endocrine-tumor'].includes(value?.systemId)
+  || ['A2', 'A3', 'B'].includes(value?.canonicalId) || /^(?:respiratory|urinary)-/.test(value?.blockId)
+  || /^[DMG]\d+$/i.test(value?.blockId);
 
 function memoryRevision(previous, card, stamp) {
   if (!previous) return { contentChangedAt:null, revisionReview:null };
@@ -247,7 +250,7 @@ export function makePreparedMemoryAvailable(stateInput, descriptor, availableAt 
     const previous = cards[card.id];
     if (previous && (previous.family !== 'PRECISION' || previous.blockId !== card.blockId || previous.kpId !== card.kpId
       || (native && (previous.systemId !== card.systemId || previous.canonicalId !== card.canonicalId
-        || (!card.kpId && previous.logicGroupId !== card.logicGroupId))))) {
+        || ((!card.kpId || card.canonicalId === 'B') && previous.logicGroupId !== card.logicGroupId))))) {
       fail('PREPARED_CARD_OWNER_CHANGED', card.id);
     }
     cards[card.id] = {

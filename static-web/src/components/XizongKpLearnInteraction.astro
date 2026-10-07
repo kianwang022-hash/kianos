@@ -27,6 +27,8 @@
       const personalKey = `kianos-xizong-personal-v1:${objectId}`;
       const kpById = new Map((learner.kps || []).map((kp) => [kp?.identity?.kpId, kp]));
       const groupById = new Map((learner.logicGroups || []).map((group) => [group?.identity?.logicGroupId, group]));
+      const heldSourceGroups = new Set((learner.sourceContact?.independentReadinessGates || [])
+        .filter(gate => gate.status === 'HOLD_SOURCE_CONFLICT').flatMap(gate => gate.logicGroupIds));
 
       const parse = (value, fallback = null) => {
         try { return JSON.parse(value || 'null') ?? fallback; } catch { return fallback; }
@@ -247,6 +249,7 @@
         const groupId = kp?.identity?.logicGroupId || fallbackGroup?.identity?.logicGroupId || '';
         const group = groupById.get(groupId) || fallbackGroup;
         if (!group) return;
+        const sourceReference = heldSourceGroups.has(groupId);
         const groupIndex = (learner.logicGroups || []).findIndex((row) => row?.identity?.logicGroupId === groupId);
         const button = root.querySelector(`[data-group-target="${groupIndex}"]`);
         if (!(button instanceof HTMLElement)) return;
@@ -258,14 +261,14 @@
         if (group.goal) {
           const goal = document.createElement('p');
           goal.className = 'xzLogicGroupGoal';
-          goal.innerHTML = `<b>这一节解决</b><span></span>`;
+          goal.innerHTML = `<b>${sourceReference ? 'Current 参考目标 · HOLD' : '这一节解决'}</b><span></span>`;
           goal.querySelector('span').textContent = group.goal;
           detail.append(goal);
         }
         if (group.closure) {
           const closure = document.createElement('p');
           closure.className = 'xzLogicGroupClosure';
-          closure.innerHTML = `<b>学完能做到</b><span></span>`;
+          closure.innerHTML = `<b>${sourceReference ? 'Current 参考闭环 · HOLD，不认领完成' : '学完能做到'}</b><span></span>`;
           closure.querySelector('span').textContent = group.closure;
           detail.append(closure);
         }
@@ -277,8 +280,8 @@
           const row = document.createElement('div');
           row.className = 'xzLogicGroupKp';
           row.classList.toggle('current', id === cardKpId);
-          row.classList.toggle('learned', Boolean(study.learned?.[id]));
-          row.classList.toggle('recalled', Boolean(study.ratings?.[id]));
+          row.classList.toggle('learned', !sourceReference && Boolean(study.learned?.[id]));
+          row.classList.toggle('recalled', !sourceReference && Boolean(study.ratings?.[id]));
 
           const code = document.createElement('b');
           code.textContent = titleOnlyKps ? '' : item?.identity?.displayId || id;
@@ -291,9 +294,9 @@
 
           const state = document.createElement('em');
           state.textContent = study.ratings?.[id]
-            ? '已回忆'
+            ? (sourceReference ? '历史回忆' : '已回忆')
             : study.learned?.[id]
-              ? '已学'
+              ? (sourceReference ? '历史接触' : '已学')
               : id === cardKpId
                 ? '当前'
                 : '';

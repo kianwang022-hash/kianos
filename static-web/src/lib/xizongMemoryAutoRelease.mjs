@@ -55,6 +55,12 @@ export function inspectXizongBlockCompletion(learnerObject, studyStateInput) {
     return { complete:false, reason:'CONTENT_REVALIDATION_REQUIRED', blockId, kpIds:ids };
   }
   if (study.schema && study.schema !== 'kianos.xizong.block-state.v2') return { complete: false, reason: 'UNSUPPORTED_STUDY_SCHEMA', blockId, kpIds: ids };
+  const heldIndependentGates = array(learnerObject?.sourceContact?.independentReadinessGates)
+    .filter(gate => ['HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED', 'HOLD_SOURCE_CONFLICT'].includes(gate?.status));
+  if (heldIndependentGates.length) {
+    return { complete: false, reason: 'INDEPENDENT_READINESS_UNRESOLVED', blockId, kpIds: ids,
+      heldLogicGroupIds: [...new Set(heldIndependentGates.flatMap(gate => array(gate.logicGroupIds)))] };
+  }
   if (study.completed !== true) return { complete: false, reason: 'BLOCK_NOT_CONFIRMED', blockId, kpIds: ids };
   if (study.blockRecallDone !== true) return { complete: false, reason: 'BLOCK_RECALL_MISSING', blockId, kpIds: ids };
   const learned = study.learned && typeof study.learned === 'object' ? study.learned : {};

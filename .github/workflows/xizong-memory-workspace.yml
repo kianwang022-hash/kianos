@@ -39,6 +39,20 @@ on:
       - 'content/xizong/knowledge/learner/a3-urinary-*.json'
       - 'content/xizong/knowledge/systems/a3-urinary/**'
       - 'content/xizong/projection/a3-urinary/chat/**'
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-*.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md'
+      - 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/**'
+      - 'content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/**'
+      - 'static-web/scripts/test-xizong-b-*.mjs'
+      - 'static-web/scripts/test-xizong-b-*.py'
+      - 'static-web/scripts/xizong-b-*.mjs'
+      - 'static-web/scripts/author-xizong-b-prepared-memory.mjs'
+      - 'static-web/scripts/fixtures/b-*.json'
+      - 'static-web/scripts/fixtures/xizong-b-*.json'
+      - 'static-web/src/lib/xizongSemanticAdapter.mjs'
+      - 'static-web/src/components/XizongRuntimeStageGuard.astro'
       - 'static-web/src/lib/xizongLearningCues.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
@@ -82,6 +96,20 @@ on:
       - 'content/xizong/knowledge/learner/a3-urinary-*.json'
       - 'content/xizong/knowledge/systems/a3-urinary/**'
       - 'content/xizong/projection/a3-urinary/chat/**'
+      - 'content/xizong/LEARNING_CONTRACT.md'
+      - 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-*.json'
+      - 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      - 'content/xizong/knowledge/learner/BIOCHEMISTRY_CONTRACT.md'
+      - 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/**'
+      - 'content/xizong/projection/b-digestive-metabolic-endocrine-tumor/chat/**'
+      - 'static-web/scripts/test-xizong-b-*.mjs'
+      - 'static-web/scripts/test-xizong-b-*.py'
+      - 'static-web/scripts/xizong-b-*.mjs'
+      - 'static-web/scripts/author-xizong-b-prepared-memory.mjs'
+      - 'static-web/scripts/fixtures/b-*.json'
+      - 'static-web/scripts/fixtures/xizong-b-*.json'
+      - 'static-web/src/lib/xizongSemanticAdapter.mjs'
+      - 'static-web/src/components/XizongRuntimeStageGuard.astro'
       - 'static-web/src/lib/xizongLearningCues.mjs'
       - 'static-web/src/lib/xizongProductionProjection.mjs'
       - 'static-web/src/components/XizongBlockV6.astro'
@@ -103,6 +131,8 @@ jobs:
     steps:
       - name: Checkout PR head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -123,6 +153,20 @@ jobs:
         run: node scripts/test-xizong-a2-system-prepared-memory.mjs
       - name: Validate coherent A3 native owners and independent legacy snapshots
         run: node scripts/test-xizong-a3-system-prepared-memory.mjs
+      - name: Validate coherent B native owners, selective admission and freshness
+        run: node scripts/test-xizong-b-system-prepared-memory.mjs
+      - name: Validate B fresh-process Core and Source premise mutations
+        run: python3 scripts/test-xizong-b-native-raw-mutations.py
+      - name: Validate B raw pre-entry and all other Systems unchanged
+        run: node scripts/test-xizong-b-preentry.mjs
+      - name: Validate B complete reviewed reader DOM and actual owner destinations
+        run: python3 scripts/test-xizong-b-reader-retrieval.py
+      - name: Validate B exact Source geometry and final closure mutations
+        run: node scripts/test-xizong-b-post-chat-source.mjs
+      - name: Validate explicit target-model continuation and scoped holds
+        run: node scripts/test-xizong-b-readiness.mjs
+      - name: Validate B whole-LG and global Source post-Chat controller paths
+        run: node scripts/test-xizong-b-post-chat-recall.mjs
       - name: Validate same-model reader retrieval and exact owner destinations
         run: python3 scripts/test-xizong-reader-retrieval.py
       - name: Validate prepared Memory grouping and provenance disclosure
@@ -155,6 +199,13 @@ jobs:
             static-web/.qa/xizong-a3-system-prepared-memory.json
             static-web/.qa/xizong-a3-preentry.json
             static-web/.qa/xizong-a3-raw-owner-mutations.json
+            static-web/.qa/xizong-b-system-prepared-memory.json
+            static-web/.qa/xizong-b-preentry.json
+            static-web/.qa/xizong-b-reader-retrieval.json
+            static-web/.qa/xizong-b-post-chat-recall.json
+            static-web/.qa/xizong-b-native-raw-mutations.json
+            static-web/.qa/xizong-b-post-chat-source.json
+            static-web/.qa/xizong-b-readiness.json
             static-web/.qa/xizong-memory-workspace-browser.json
             static-web/.qa/xizong-memory-workspace.png
             static-web/.qa/xizong-memory-auto-release-browser.json

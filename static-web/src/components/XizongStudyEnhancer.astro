@@ -24,6 +24,7 @@ const packetMeta = {
   revisionWitness: block?.learnerObject?.revisionWitness,
   sourceContactMode: String(block?.sourceContact?.mode || ''),
   sourcePerGroup: block?.sourceContact?.logicGroupIsAutomaticSourceChunk === true,
+  ...(block?.sourceContact?.requiredModelReadiness ? { requiredModelReadiness: block.sourceContact.requiredModelReadiness } : {}),
   reserveItems,
   questionSemanticRevisions
 };
@@ -133,7 +134,8 @@ const packetMeta = {
     const returnButton = dock.querySelector('[data-import-chat-return]');
     const packetStatus = dock.querySelector('[data-study-packet-status]');
 
-    const buildStudyPacket = () => buildXizongStudyPacketFromStorage({
+    const buildStudyPacket = () => {
+      const packet = buildXizongStudyPacketFromStorage({
       storage: localStorage,
       packetMeta: { ...packetMeta, objectId },
       questionSemanticRevisions: packetMeta.questionSemanticRevisions || {},
@@ -141,7 +143,18 @@ const packetMeta = {
       currentStage: currentStage(),
       currentIndex: currentIndex(),
       studyState: readStudy()
-    });
+      });
+      const readiness = packetMeta.requiredModelReadiness;
+      if (readiness?.targetBlockId === packetMeta.blockId && readiness.requirements?.length) {
+        packet.request_to_chat = [
+          `当前目标是 ${packetMeta.blockId} · ${packetMeta.blockTitle}。请先核对下列真正需要的认知模型，只对缺失部分做 smallest-sufficient repair。`,
+          ...readiness.requirements.map(row => `${row.label}：${row.modelPrompt}（既有 owner：${row.ownerPath}）`),
+          '这次模型补齐只帮助当前目标继续，不要求前置 Block 网页通关，不创建新的 Repair/Memory 队列。不要推定我已经理解，不要写入前置 Source/Learned/Complete/Mastery；补齐后由我回原页面显式确认。独立 Source/Visual/Tumor 等门禁继续按其 owner 执行。',
+          ...(Array.isArray(packet.request_to_chat) ? packet.request_to_chat : [])
+        ];
+      }
+      return packet;
+    };
 
     // One subject-owned packet builder serves both copy and the visible download control.
     root.addEventListener('kianos:xizong-request-study-packet', (event) => {

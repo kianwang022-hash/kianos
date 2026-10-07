@@ -27,13 +27,39 @@ const blockSourceConflict = Array.isArray(sourceContact.blockSourceConflict) ? s
 const blockVisualDebt = Array.isArray(sourceContact.blockVisualDebt) ? sourceContact.blockVisualDebt : [];
 const sourceContactMode = String(sourceContact.mode || 'NATURAL_SOURCE_UNIT');
 const sourcePerGroup = sourceContact.logicGroupIsAutomaticSourceChunk === true;
-const postChatReferenceBlock = (block?.systemId === 'circulation' && /^b(?:0[1-9]|1[0-2])$/.test(block?.slug))
+const requiredModelReadiness = sourceContact.requiredModelReadiness || null;
+const bPostChatReferenceBlock = block?.systemId === 'digestive-metabolic-endocrine-tumor'
+  && block?.systemCanonicalId === 'B'
+  && /^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(block?.blockId)
+  && block?.slug === `${block.blockId[0].toLowerCase()}${block.blockId.slice(1).padStart(2, '0')}`;
+const postChatReferenceBlock = bPostChatReferenceBlock || (block?.systemId === 'circulation' && /^b(?:0[1-9]|1[0-2])$/.test(block?.slug))
   || (block?.systemId === 'respiratory' && /^r(?:0[1-9]|1[0-2])$/.test(block?.slug))
   || (block?.systemId === 'urinary' && block?.systemCanonicalId === 'A3' && /^b(?:0[1-9]|1[0-4])$/.test(block?.slug));
 const titleOnlyKps = postChatReferenceBlock;
-// Reviewed A1/A2/A3 reference slices only. This opens retrieval; it never certifies Chat or Source study.
-const postChatRecallAvailable = postChatReferenceBlock
-  && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
+// Only the accepted native geometry is eligible. B keeps whole-LG D Source
+// and the existing global M/G lane; opening Recall certifies neither one.
+const bPostChatSourceAvailable = bPostChatReferenceBlock && groups.length > 0 && kps.length > 0
+  && (block.blockId.startsWith('D')
+    ? sourceContactMode === 'WHOLE_LOGIC_GROUP' && sourcePerGroup
+      && sourceContact.segments?.length === groups.length
+      && groups.every((group, index) => {
+        const segment = sourceContact.segments[index];
+        return segment?.segmentId === `source:${group.groupId}`
+          && segment.kind === 'LOGIC_GROUP_SOURCE_CONTACT'
+          && JSON.stringify(segment.logicGroupIds) === JSON.stringify([group.groupId])
+          && JSON.stringify(segment.kpOrdinals) === JSON.stringify(group.kpOrdinals);
+      })
+    : sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT' && !sourcePerGroup
+      && sourceContact.sourceMapOwner === 'content/xizong/knowledge/learner/biochemistry-27-source-map.json'
+      && /^[a-f0-9]{64}$/.test(sourceContact.sourceLaneHash || '')
+      && sourceContact.segments?.length > 0
+      && sourceContact.segments.every((segment) => segment.kind === 'GLOBAL_BIOCHEMISTRY_SOURCE_UNIT'
+        && segment.segmentId === `bio27:${segment.sourceUnitId}`
+        && segment.logicGroupIds?.length > 0 && segment.logicGroupIds.every(id => groups.some(group => group.groupId === id))
+        && segment.kpOrdinals?.length > 0 && segment.kpOrdinals.every(ordinal => kps.some(kp => kp.ordinal === ordinal)))
+      && sourceContact.segments.some(segment => segment.sourceUnitId === sourceContact.closureUnit && segment.closesBlockSourceContact));
+const postChatRecallAvailable = bPostChatReferenceBlock ? Boolean(bPostChatSourceAvailable)
+  : postChatReferenceBlock && sourceContactMode === 'NATURAL_SOURCE_UNIT' && !sourcePerGroup;
 const globalBiochemistrySource = sourceContactMode === 'CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT';
 const naturalSourceUnits = sourceContactMode === 'NATURAL_SOURCE_UNITS';
 const integrationPrimary = sourceContactMode === 'INTEGRATION_PRIMARY';
@@ -172,6 +198,37 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
     </aside>
 
     <main class="portedStudyMain" id="canonical-content">
+      {bPostChatReferenceBlock && requiredModelReadiness?.requirements?.length > 0 && (
+        <section class="portedStudyArticle" data-required-model-readiness>
+          <h3>继续本块前，先确认所需模型</h3>
+          <p>下面是当前目标真正需要的模型。缺失的部分先在 Chat 做最小补齐，再由你确认已理解。</p>
+          <ul data-required-model-list>{requiredModelReadiness.requirements.map(requirement => (
+            <li><strong>{requirement.label}</strong><p>{requirement.modelPrompt}</p></li>
+          ))}</ul>
+          <p>这次确认只允许当前 Block 继续，不会把前置内容记为已接触原讲义、已学完或已掌握。</p>
+          <button type="button" class="portedPrimaryAction" data-required-model-confirm>这些所需模型我已理解，允许当前 Block 继续</button>
+          <button type="button" data-required-model-repair>复制所需模型给 Chat，补齐缺口</button>
+          <span data-required-model-repair-status role="status"></span>
+        </section>
+      )}
+      {bPostChatReferenceBlock && <p role="status" data-independent-readiness-hold hidden></p>}
+      {bPostChatReferenceBlock && (sourceContact.independentReadinessGates || []).filter(gate => gate.status === 'HOLD_SOURCE_CONFLICT').map(gate => (
+        <section data-held-source-reference data-held-group={gate.logicGroupIds[0]} hidden>
+          <p role="alert">{gate.note}</p>
+          {kps.filter(kp => gate.kpIds.includes(kp.kpId)).map(kp => (
+            <div>
+              <p data-held-reference-prompt>{kp.prompt}</p>
+              <details data-held-current-reference>
+                <summary>Current 原文（仅供参考，治疗顺序待核验）：{kp.title}</summary>
+                <div class="markdown" set:html={kp.detailHtml}></div>
+              </details>
+            </div>
+          ))}
+          <ul>{gate.sourceRefs.map(ref => <li><a href={ref.url}>{ref.role}</a></li>)}</ul>
+        </section>
+      ))}
+
+
       <section data-study-panel="learn">
         <section data-study-stage="block_learn">
           <div class="portedStudyLead xv6BlockFocus">
@@ -286,7 +343,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
           <b data-logic-counter>01 / {groups.length}</b>
           <h3 data-logic-title>{firstGroup?.label}</h3>
           <p class="xv6LogicGoal" data-logic-goal>{firstGroup?.goal || '先回答这一节共同在解决什么问题。'}</p>
-          {firstGroup?.closure && <div class="xv6LogicTarget"><span>这一节闭合时，你应该能</span><p data-logic-closure>{firstGroup.closure}</p></div>}
+          {firstGroup?.closure && <div class="xv6LogicTarget"><span data-logic-closure-label>这一节闭合时，你应该能</span><p data-logic-closure>{firstGroup.closure}</p></div>}
           <button type="button" class="portedPrimaryAction" data-enter-group>{sourcePerGroup ? '去讲义连续学习这一节' : '开始这一节回忆'}</button>
         </section>
 
@@ -304,7 +361,9 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
               <summary>回来后要回忆的 KP 路标</summary>
               <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
             </details>
-            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成</button></footer>
+            <footer><span>原图、表格、例子和讲义配套题仍留在 MarginNote；KP Learn 同步提供 Prompt、Core 和当前支持。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节已完成</button>
+              {postChatRecallAvailable && <button type="button" data-post-chat-recall>Chat 后开始 KP 回忆</button>}
+            </footer>
           </section>
         )}
 
@@ -401,6 +460,7 @@ const ttsxCheckpoints = (Array.isArray(ttsx.checkpoints) ? ttsx.checkpoints : []
   revisionRuntimeUrl,
   revisionWitness: block.learnerObject?.revisionWitness,
   sourcePerGroup,
+  bPostChatReferenceBlock,
   postChatRecallAvailable,
   sourceContactPayload: sourceContact,
   sourceContactMode,
@@ -484,6 +544,21 @@ window.__kianosLearnerWriterReady.then(async () => {
     // Foreign/unknown values cannot release Recall or manufacture contact.
     if (!postChatRecallAvailable || state.recallEntryMode !== 'POST_CHAT_RECALL') delete state.recallEntryMode;
     const isPostChatRecall = () => postChatRecallAvailable && state.recallEntryMode === 'POST_CHAT_RECALL';
+    const modelReadiness = bPostChatReferenceBlock ? sourceContactPayload?.requiredModelReadiness : null;
+    const modelReadinessValid = !bPostChatReferenceBlock || (modelReadiness?.targetBlockId === root.dataset.studyBlockId
+      && modelReadiness?.confirmation === 'EXPLICIT_USER_CURRENT_TARGET_ONLY'
+      && /^[a-f0-9]{64}$/.test(modelReadiness?.witness || '') && Array.isArray(modelReadiness?.requirements));
+    const requiredModelsReady = () => !bPostChatReferenceBlock || (modelReadinessValid
+      && (modelReadiness.requirements.length === 0 || (state.requiredModelContinuation?.targetBlockId === modelReadiness.targetBlockId
+        && state.requiredModelContinuation?.requirementsWitness === modelReadiness.witness
+        && state.requiredModelContinuation?.confirmation === 'USER_CURRENT_TARGET_MODELS_UNDERSTOOD'
+        && typeof state.requiredModelContinuation?.confirmedAt === 'string' && Number.isFinite(Date.parse(state.requiredModelContinuation.confirmedAt)))));
+    const independentReadinessGates = bPostChatReferenceBlock && Array.isArray(sourceContactPayload?.independentReadinessGates)
+      ? sourceContactPayload.independentReadinessGates : [];
+    const heldGatesFor = group => independentReadinessGates.filter(gate => ['HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED', 'HOLD_SOURCE_CONFLICT'].includes(gate.status)
+      && gate.logicGroupIds.includes(String(group?.groupId || '')));
+    const requiredModelPanel = root.querySelector('[data-required-model-readiness]');
+
 
     // Bind a fresh empty state before Source adapters form their first evidence.
     if (!state.contentRevision) state = reconcileXizongRevision(state, revisionWitness);
@@ -707,6 +782,7 @@ window.__kianosLearnerWriterReady.then(async () => {
     const groupClosureSatisfied = (group) => {
       const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
       return ids.length > 0
+        && heldGatesFor(group).length === 0
         && ids.every((id) => state.learned?.[id] === true && Boolean(state.ratings?.[id]) && !needsFreshKpRecall(state, id))
         && (currentGroupClaim(state, group.groupId) || state.contentRevision?.pendingGroup?.[group.groupId] === 'UNCLASSIFIED_REVISION')
         && !groupHasBlockingVisualGap(group);
@@ -715,10 +791,10 @@ window.__kianosLearnerWriterReady.then(async () => {
     const firstBlockingVisualGroupIndex = () => groups.findIndex((group) => groupHasBlockingVisualGap(group));
     // Existing Recall surface also verifies changed LG closure tasks. Pending
     // group claims must not deadlock the action that can verify those claims.
-    const blockRecallReady = () => groups.length > 0 && groups.every((group) =>
+    const blockRecallReady = () => requiredModelsReady() && independentReadinessGates.length === 0 && groups.length > 0 && groups.every((group) =>
       (group.kpIds || []).every(id => state.learned?.[id] === true && Boolean(state.ratings?.[id]) && !needsFreshKpRecall(state, id))
       && !groupHasBlockingVisualGap(group));
-    const canComplete = () => totalKp > 0
+    const canComplete = () => requiredModelsReady() && independentReadinessGates.length === 0 && totalKp > 0
       && !revisionRequiresAction(state)
       && (currentSourceContactCovered() || historicalXizongSourceContinuation(state))
       && learnedCount() >= totalKp
@@ -982,9 +1058,11 @@ window.__kianosLearnerWriterReady.then(async () => {
     const syncGroupStage = () => {
       const group = currentGroup();
       const groupItems = groupKps(group);
+      const sourceReference = heldGatesFor(group).some(gate => gate.status === 'HOLD_SOURCE_CONFLICT');
+      root.querySelector('[data-logic-closure-label]')?.replaceChildren(document.createTextNode(sourceReference ? 'Current 参考闭环 · HOLD，不认领完成' : '这一节闭合时，你应该能'));
       root.querySelector('[data-logic-counter]')?.replaceChildren(document.createTextNode(`${String(state.groupIndex + 1).padStart(2, '0')} / ${groups.length}`));
       root.querySelector('[data-logic-title]')?.replaceChildren(document.createTextNode(group?.label || '学习节'));
-      root.querySelector('[data-logic-goal]')?.replaceChildren(document.createTextNode(group?.goal || '先回答这一节共同在解决什么问题。'));
+      root.querySelector('[data-logic-goal]')?.replaceChildren(document.createTextNode(`${sourceReference ? 'Current 参考目标 · HOLD：' : ''}${group?.goal || '先回答这一节共同在解决什么问题。'}`));
       root.querySelector('[data-logic-closure]')?.replaceChildren(document.createTextNode(group?.closure || '学完后能自己恢复这一节的核心关系。'));
       root.querySelector('[data-group-lecture-title]')?.replaceChildren(document.createTextNode(group?.label || '当前学习节'));
       root.querySelector('[data-group-lecture-counter]')?.replaceChildren(document.createTextNode(`学习节 ${state.groupIndex + 1}/${groups.length}`));
@@ -1002,6 +1080,17 @@ window.__kianosLearnerWriterReady.then(async () => {
 
     const syncState = () => {
       if (root.dataset.xizongStateBlocked === 'true') return;
+      if (requiredModelPanel) requiredModelPanel.hidden = requiredModelsReady();
+      const held = heldGatesFor(currentGroup());
+      const heldNotice = root.querySelector('[data-independent-readiness-hold]');
+      if (heldNotice) {
+        heldNotice.hidden = held.length === 0;
+        heldNotice.textContent = held.some(gate => gate.status === 'HOLD_SOURCE_CONFLICT')
+          ? '当前学习节有尚未核定的 Source 冲突，仅可带警示查看 Current 原文；不能评分或认领正式闭合。其他独立学习节可继续。'
+          : held.length ? '当前学习节的 Tumor Gate 尚不能验证：G1–G5 分子模型与 O9 病理肿瘤总论仍按原要求执行。所需 O9 可用性证据尚未绑定；可继续本块其他未受此门禁约束的学习节。' : '';
+      }
+
+      root.querySelectorAll('[data-held-source-reference]').forEach(node => { node.hidden = node.getAttribute('data-held-group') !== currentGroup()?.groupId; });
       const shortcutHint = root.querySelector('[data-block-keyboard-hint]');
       if (shortcutHint) shortcutHint.textContent = state.stage === 'kp_recall' ? 'Space 核对答案 · 1–4 记录回忆并继续 · ← → 切换' : '← → 切换伴读 · 原讲义段学完后一次确认';
       kpRailButtons.forEach((button, index) => {
@@ -1009,9 +1098,10 @@ window.__kianosLearnerWriterReady.then(async () => {
         const small = button.querySelector('[data-kp-state]');
         const rating = state.ratings?.[kpId];
         const learned = Boolean(state.learned?.[kpId]);
-        if (small) small.textContent = rating || (learned ? '已接触' : '—');
+        const sourceReference = independentReadinessGates.some(gate => gate.status === 'HOLD_SOURCE_CONFLICT' && gate.kpIds.includes(kpId));
+        if (small) small.textContent = sourceReference ? (rating ? `历史 ${rating}` : learned ? '历史接触' : 'HOLD') : rating || (learned ? '已接触' : '—');
         button.classList.toggle('active', index === state.kpIndex);
-        button.classList.toggle('done', learned && Boolean(rating));
+        button.classList.toggle('done', !sourceReference && learned && Boolean(rating));
       });
       const revision = revisionStatus(state, currentSourceHash);
       root.dataset.xizongSourceRevision = revision.status;
@@ -1044,7 +1134,7 @@ window.__kianosLearnerWriterReady.then(async () => {
         if (state.stage === 'source_contact') statusLabel.textContent = '原讲义连续学习 · 等待回来确认';
         else if (state.stage === 'kp_recall') statusLabel.textContent = groupHasBlockingVisualGap(group) && !groupHasUnrecalled(group)
           ? `原图门禁未闭合 · ${group?.label || '当前学习节'}`
-          : `本节回忆 · ${groupKps(group).filter((kp) => Boolean(state.ratings?.[kp.kpId])).length}/${groupKps(group).length}`;
+          : `${isPostChatRecall() ? 'Chat 后检索（Source 另计）' : '本节回忆'} · ${groupKps(group).filter((kp) => Boolean(state.ratings?.[kp.kpId])).length}/${groupKps(group).length}`;
         else if (state.stage === 'block_recall') statusLabel.textContent = state.completed
           ? '本块第一轮已完成'
           : (visualGaps.length ? `整块回忆 · 原图门禁未闭合 ${visualGaps.map((row) => row.label || '当前学习节').join(' / ')}` : '整块回忆');
@@ -1101,7 +1191,7 @@ window.__kianosLearnerWriterReady.then(async () => {
       if (sourceRevisionMigrated && validStages.includes(state.stage) && state.stage !== 'block_complete') return;
       if (!validStages.includes(state.stage)) state.stage = 'block_learn';
       if (state.stage === 'block_complete') state.stage = 'block_recall';
-      if (isPostChatRecall() && ['logic_group', 'kp_learn'].includes(state.stage)) state.stage = 'kp_recall';
+      if (isPostChatRecall() && (state.stage === 'logic_group' || (state.stage === 'kp_learn' && !sourcePerGroup))) state.stage = 'kp_recall';
       const visualBlockedIndex = firstBlockingVisualGroupIndex();
       if (visualBlockedIndex >= 0) {
         // Keep historical completion; visual readiness gates current actions.
@@ -1189,6 +1279,8 @@ window.__kianosLearnerWriterReady.then(async () => {
     const setStage = (requested) => {
       if (root.dataset.xizongStateBlocked === 'true') return;
       let stage = requested || 'block_learn';
+      // A deliberate B Source return leaves the retrieval-only navigation lane.
+      if (bPostChatReferenceBlock && ['source_contact', 'kp_learn'].includes(stage)) delete state.recallEntryMode;
       // Historical UNKNOWN completion permits continuation without inventing
       // Source evidence or rewriting the learner's saved Recall position.
       if (historicalXizongSourceContinuation(state) || isPostChatRecall()) {
@@ -1245,6 +1337,12 @@ window.__kianosLearnerWriterReady.then(async () => {
         state.pendingTtsx = null;
         stage = 'kp_recall';
       }
+      if (bPostChatReferenceBlock) {
+        const sourceEncounter = modelReadiness?.sourceEncounterBeforeReadiness === true && stage === 'source_contact';
+        if (!requiredModelsReady() && stage !== 'block_learn' && !sourceEncounter) stage = 'block_learn';
+        else if (heldGatesFor(currentGroup()).length && stage !== 'block_learn') stage = 'logic_group';
+        else if (stage === 'block_recall' && independentReadinessGates.length) stage = 'logic_group';
+      }
       state.stage = stage;
       if (!save()) return;
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
@@ -1264,8 +1362,29 @@ window.__kianosLearnerWriterReady.then(async () => {
       if (name === 'learn') setStage(state.stage || 'block_learn');
     };
     tabButtons.forEach((button) => button.addEventListener('click', () => switchTab(button.dataset.studyTab || 'learn')));
+    root.querySelector('[data-required-model-repair]')?.addEventListener('click', () => {
+      const status = root.querySelector('[data-required-model-repair-status]');
+      if (!bPostChatReferenceBlock || !modelReadinessValid || root.inert || root.dataset.xizongStateBlocked === 'true') return;
+      const packetButton = document.querySelector('[data-copy-study-packet]');
+      if (packetButton) {
+        packetButton.click();
+        if (status) status.textContent = '已交给现有学习包复制入口；请查看复制结果后粘贴到 Chat。补齐后仍由你回来确认。';
+      } else if (status) status.textContent = '当前学习包复制入口尚未就绪；可先把上面的所需模型发给 Chat，补齐后再确认。';
+    });
+    root.querySelector('[data-required-model-confirm]')?.addEventListener('click', () => {
+      if (!bPostChatReferenceBlock || !modelReadinessValid || !modelReadiness.requirements.length
+        || !requiredModelPanel || requiredModelPanel.hidden || !root.querySelector('[data-required-model-list]')
+        || root.dataset.xizongStateBlocked === 'true' || root.inert) return;
+      state.requiredModelContinuation = {
+        targetBlockId: modelReadiness.targetBlockId, requirementsWitness: modelReadiness.witness,
+        confirmation: 'USER_CURRENT_TARGET_MODELS_UNDERSTOOD', confirmedAt: new Date().toISOString()
+      };
+      if (!save()) return;
+      syncState();
+      if (statusLabel) statusLabel.textContent = '所需模型确认已保存；可继续当前 Block，原讲义与其他门禁仍单独记录。';
+    });
     root.querySelectorAll('[data-post-chat-recall]').forEach((button) => button.addEventListener('click', () => {
-      if (!postChatRecallAvailable || root.dataset.xizongStateBlocked === 'true' || root.inert) return;
+      if (!postChatRecallAvailable || !requiredModelsReady() || root.dataset.xizongStateBlocked === 'true' || root.inert) return;
       state.recallEntryMode = 'POST_CHAT_RECALL';
       // Keep the current KP/LG/Resume. Only an actual revealed rating writes evidence.
       setStage('kp_recall');
@@ -1579,6 +1698,7 @@ window.__kianosLearnerWriterReady.then(async () => {
     });
 
     root.addEventListener('kianos:xizong-kp-learned', (event) => {
+      if (bPostChatReferenceBlock && (!requiredModelsReady() || heldGatesFor(currentGroup()).length || !['kp_learn', 'source_contact'].includes(state.stage))) return;
       const kpId = event instanceof CustomEvent ? String(event.detail?.kpId || '') : '';
       if (!kpId) return;
       const index = indexForKpId(kpId);

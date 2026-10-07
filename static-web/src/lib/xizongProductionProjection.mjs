@@ -77,11 +77,31 @@ function jsonPointer(value, pointer) {
   return current;
 }
 
-function markdownHeadings(text) {
+function markdownHeadings(text, { commonMarkFences = false } = {}) {
   const lines = String(text).split('\n');
   const headings = [];
   let fence = null;
   lines.forEach((line, index) => {
+    // B pre-entry follows CommonMark's fenced-code grammar. In particular,
+    // an info-string line inside a fence cannot close it (raw G5), and a tab
+    // reaches column four rather than counting as one indentation character.
+    // Keep the accepted non-B selector behavior unchanged.
+    if (commonMarkFences) {
+      const sourceLine = line.replace(/\r$/, '');
+      const delimiter = sourceLine.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+      if (fence) {
+        if (delimiter && delimiter[1][0] === fence[0] && delimiter[1].length >= fence.length
+          && /^[ \t]*$/.test(delimiter[2])) fence = null;
+        return;
+      }
+      if (delimiter && (delimiter[1][0] === '~' || !delimiter[2].includes('`'))) {
+        fence = delimiter[1];
+        return;
+      }
+      const match = sourceLine.match(/^ {0,3}(#{1,6})[ \t]+(.+?)[ \t]*$/);
+      if (match) headings.push({ index, level: match[1].length, title: match[2].replace(/[ \t]+#+$/, '').trim() });
+      return;
+    }
     const fenceMatch = line.match(/^\s{0,3}(`{3,}|~{3,})/);
     if (fenceMatch) {
       const token = fenceMatch[1];
@@ -389,7 +409,8 @@ function explicitPreentrySection(document, token, ownerPath, parent = null, ownB
   const parentEnd = parent
     ? headings.find(row => row.index > parent.index && row.level <= parent.level)?.index ?? lines.length
     : lines.length;
-  const matches = headings.filter(row => preentryHeadingMatches(row, token, document.normalizePipes)
+  const tokens = Array.isArray(token) ? token : [token];
+  const matches = headings.filter(row => tokens.some(value => preentryHeadingMatches(row, value, document.normalizePipes))
     && (!parent || (row.index > parent.index && row.index < parentEnd && row.level === parent.level + 1)));
   // Missing and ambiguous are distinct: ambiguity never licenses global fallback.
   if (matches.length !== 1) return { count: matches.length, section: null, heading: null };
@@ -421,26 +442,42 @@ function explicitPreentrySection(document, token, ownerPath, parent = null, ownB
 
 export function compileXizongBlockPreentry(canonicalBlock) {
   const ownerPath = String(canonicalBlock?.sourcePath || '');
-  if (!ownerPath || !exists(ownerPath)) {
+  const claimsB = canonicalBlock?.systemId === 'digestive-metabolic-endocrine-tumor' || canonicalBlock?.systemCanonicalId === 'B';
+  const b = canonicalBlock?.systemId === 'digestive-metabolic-endocrine-tumor' && canonicalBlock?.systemCanonicalId === 'B'
+    && /^(?:D(?:[1-9]|1\d|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(String(canonicalBlock?.blockId || ''));
+  if (!ownerPath || !exists(ownerPath) || (claimsB && !b)) {
     return {
       framework: { present: false, ownerPath: ownerPath || null, anchor: null, items: [], markdown: '' },
       memoryRouting: { present: false, ownerPath: ownerPath || null, anchor: null, miG: [], miD: [], miGAnchor: null, miDAnchor: null }
     };
   }
   const a3 = canonicalBlock?.systemId === 'urinary' || canonicalBlock?.systemCanonicalId === 'A3';
-  const document = { ...markdownHeadings(readText(ownerPath)), normalizePipes: a3 };
-  const framework = explicitPreentrySection(document, '总 Framework', ownerPath).section;
+  const document = { ...markdownHeadings(readText(ownerPath), { commonMarkFences: b }), normalizePipes: a3 || b };
+  // Count both exact B forms together: a second candidate is ambiguity, not a
+  // fallback. Pipe qualification never admits Framework Reconstruction.
+  const framework = explicitPreentrySection(document, b ? ['总 Framework', 'Framework'] : '总 Framework', ownerPath).section;
   const visibleParent = explicitPreentrySection(document, 'Memory Routing', ownerPath);
   // Existing A1/A2 presentation remains byte-value stable; normalized parents
   // still bound selection so inline sections cannot capture their children.
-  const scopedSystem = a3 || ['circulation', 'respiratory'].includes(canonicalBlock?.systemId);
+  const scopedSystem = a3 || b || ['circulation', 'respiratory'].includes(canonicalBlock?.systemId);
   const parent = scopedSystem ? explicitPreentrySection({ ...document, normalizePipes: true }, 'Memory Routing', ownerPath) : visibleParent;
-  const scoped = scopedSystem && parent.count === 1 && (!a3 || parent.heading.level === 1);
-  const fallback = !scopedSystem || (parent.count === 0 && !a3);
+  const bParentLevel = /^(?:D(?:[1-9]|10|11)|M(?:[1-9]|10))$/.test(String(canonicalBlock?.blockId || '')) ? 2 : 1;
+  const scoped = scopedSystem && parent.count === 1 && (!a3 || parent.heading.level === 1)
+    && (!b || parent.heading.level === bParentLevel);
+  const fallback = !scopedSystem || (parent.count === 0 && !a3 && !b);
   const memoryRouting = scoped || !scopedSystem ? visibleParent.section : null;
-  const child = token => scoped
-    ? explicitPreentrySection(document, token, ownerPath, parent.heading, true).section
-    : fallback ? explicitPreentrySection(document, token, ownerPath).section : null;
+  const child = token => {
+    if (scoped) return explicitPreentrySection(document, token, ownerPath, parent.heading, true).section;
+    // D8 alone owns the reviewed numbered level-2 parentless layout. Missing
+    // parents elsewhere, ambiguous parents, and generic inline MI never do.
+    if (b && canonicalBlock.blockId === 'D8' && parent.count === 0) {
+      const result = explicitPreentrySection(document, token, ownerPath, null, true);
+      const number = token === 'MI-G' ? '3' : '4';
+      return result.heading?.level === 2 && new RegExp(`^${number}\\s*[|｜]\\s*${token}(?:[|｜]|$)`).test(result.heading.title)
+        ? result.section : null;
+    }
+    return fallback ? explicitPreentrySection(document, token, ownerPath).section : null;
+  };
   const miG = child('MI-G'), miD = child('MI-D');
   return {
     framework: framework || { present: false, ownerPath, anchor: null, items: [], markdown: '' },

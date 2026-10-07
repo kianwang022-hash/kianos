@@ -1,5 +1,6 @@
 import nativePreparedCues from '../../../content/xizong/knowledge/learner/a2-respiratory-learning-cues.json' with { type: 'json' };
 import urinaryPreparedCues from '../../../content/xizong/knowledge/learner/a3-urinary-learning-cues.json' with { type: 'json' };
+import digestivePreparedCues from '../../../content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning-cues.json' with { type: 'json' };
 import preparedCues from '../../../content/xizong/knowledge/learner/a1-circulation-learning-cues.json' with { type: 'json' };
 
 export const XIZONG_MEMORY_RELEASE_SCHEMA = 'kianos.xizong.memory_release.v1';
@@ -211,7 +212,7 @@ export function buildXizongMemoryReleaseDescriptorFromLearnerObject(learnerObjec
 // The selective index remains the only admission owner. Exact answer / aid
 // freshness is checked by resolvePreparedMemoryCue before the learner object is
 // built; this consumer additionally rejects stale references or ambiguous owners.
-// Only the reviewed A1/A2/A3 slices may use explicit card-only availability.
+// Only the reviewed A1/A2/A3/B slices may use explicit card-only availability.
 // The IDs, owners and witnesses remain in the existing index, never a second list.
 // Strict structural equality survives JSON serialization without discarding
 // nested member/Core witnesses. Object key order is irrelevant; arrays are ordered.
@@ -226,7 +227,9 @@ function strictPreparedReferenceEqual(left, right) {
     && strictPreparedReferenceEqual(left[key], right[key]));
 }
 
+const nativeBBlock = blockId => /^(?:D(?:[1-9]|1[0-9]|2[0-3])|M(?:[1-9]|10)|G[1-5])$/.test(blockId);
 function nativePreparedIndex(blockId) {
+  if (nativeBBlock(blockId)) return digestivePreparedCues;
   if (/^respiratory-r(?:0[1-9]|1[0-2])$/.test(blockId)) return nativePreparedCues;
   if (/^urinary-b(?:0[1-9]|1[0-4])$/.test(blockId)) return urinaryPreparedCues;
   return null;
@@ -234,10 +237,12 @@ function nativePreparedIndex(blockId) {
 const isNativePreparedSystem = meta => (meta?.systemId === 'respiratory' && meta?.canonicalId === 'A2'
   && /^respiratory-r(?:0[1-9]|1[0-2])$/.test(meta?.blockId))
   || (meta?.systemId === 'urinary' && meta?.canonicalId === 'A3'
-    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(meta?.blockId));
+    && /^urinary-b(?:0[1-9]|1[0-4])$/.test(meta?.blockId))
+  || (meta?.systemId === 'digestive-metabolic-endocrine-tumor' && meta?.canonicalId === 'B'
+    && nativeBBlock(meta?.blockId));
 function assertNativePreparedIdentity(meta) {
-  const claimed = ['respiratory', 'urinary'].includes(meta?.systemId) || ['A2', 'A3'].includes(meta?.canonicalId)
-    || /^(?:respiratory|urinary)-/.test(meta?.blockId);
+  const claimed = ['respiratory', 'urinary', 'digestive-metabolic-endocrine-tumor'].includes(meta?.systemId) || ['A2', 'A3', 'B'].includes(meta?.canonicalId)
+    || /^(?:respiratory|urinary)-/.test(meta?.blockId) || /^[DMG]\d+$/i.test(meta?.blockId);
   if (claimed && !isNativePreparedSystem(meta)) fail('PREPARED_OWNER_MISMATCH', meta?.blockId);
 }
 const hasPreparedRef = row => Object.hasOwn(row || {}, 'prepared_memory_ref');
@@ -246,10 +251,10 @@ const objectShape = (value, keys) => Boolean(value) && typeof value === 'object'
 function nativeAdmissionRows(blockId) {
   const index = nativePreparedIndex(blockId);
   if (!index) return [];
-  const urinary = index === urinaryPreparedCues;
+  const urinary = index === urinaryPreparedCues, digestive = index === digestivePreparedCues;
   if (index.status !== 'CURRENT' || !index.authority?.startsWith('CHAT_APPROVED')
-    || index.system_id !== (urinary ? 'urinary' : 'respiratory')
-    || index.canonical_id !== (urinary ? 'A3' : 'A2')) fail('PREPARED_INDEX_UNREVIEWED', blockId);
+    || index.system_id !== (digestive ? 'digestive-metabolic-endocrine-tumor' : urinary ? 'urinary' : 'respiratory')
+    || index.canonical_id !== (digestive ? 'B' : urinary ? 'A3' : 'A2')) fail('PREPARED_INDEX_UNREVIEWED', blockId);
   const rows = array(index.precision_index).filter(row => row.anchor?.block_id === blockId);
   if (new Set(rows.map(row => row.id)).size !== rows.length) fail('PREPARED_ADMISSION_INVALID', blockId);
   const admitted = rows.filter(hasPreparedRef);

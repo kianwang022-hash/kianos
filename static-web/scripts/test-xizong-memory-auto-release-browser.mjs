@@ -49,6 +49,7 @@ try {
   await import('./test-xizong-prepared-memory-browser.mjs');
   await import('./test-xizong-a2-prepared-memory-browser.mjs');
   await import('./test-xizong-a3-prepared-memory-browser.mjs');
+  await import('./test-xizong-b-prepared-memory-browser.mjs');
   browser = await chromium.launch({ headless: true, executablePath:process.env.KIANOS_TEST_CHROME });
   const context = await browser.newContext({ viewport: { width: 1512, height: 982 } });
   const page = await context.newPage();

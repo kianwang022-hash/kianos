@@ -1,0 +1,645 @@
+{
+  "claim": "Exact-current pre-change negative: raw readiness.requires was silently empty in derived guard arrays",
+  "systemId": "digestive-metabolic-endocrine-tumor",
+  "blocks": [
+    {
+      "blockId": "D1",
+      "requires": [],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d01-lg01",
+        "b-d01-lg02",
+        "b-d01-lg03"
+      ]
+    },
+    {
+      "blockId": "D2",
+      "requires": [
+        "D1"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d02-lg01",
+        "b-d02-lg02",
+        "b-d02-lg03",
+        "b-d02-lg04"
+      ]
+    },
+    {
+      "blockId": "D3",
+      "requires": [
+        "D2"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d03-lg01",
+        "b-d03-lg02",
+        "b-d03-lg03",
+        "b-d03-lg04"
+      ]
+    },
+    {
+      "blockId": "D4",
+      "requires": [
+        "D3"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d04-lg01",
+        "b-d04-lg02",
+        "b-d04-lg03"
+      ]
+    },
+    {
+      "blockId": "D5",
+      "requires": [
+        "D4",
+        "M2",
+        "M4",
+        "M7",
+        "M8"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d05-lg01",
+        "b-d05-lg02",
+        "b-d05-lg03",
+        "b-d05-lg04"
+      ]
+    },
+    {
+      "blockId": "D6",
+      "requires": [
+        "P0 signal-transduction language"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d06-lg01",
+        "b-d06-lg02",
+        "b-d06-lg03",
+        "b-d06-lg04",
+        "b-d06-lg05",
+        "b-d06-lg06"
+      ]
+    },
+    {
+      "blockId": "D7",
+      "requires": [
+        "D5",
+        "D6",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d07-lg01",
+        "b-d07-lg02",
+        "b-d07-lg03",
+        "b-d07-lg04"
+      ]
+    },
+    {
+      "blockId": "D8",
+      "requires": [
+        "D7"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d08-lg01",
+        "b-d08-lg02",
+        "b-d08-lg03",
+        "b-d08-lg04",
+        "b-d08-lg05"
+      ]
+    },
+    {
+      "blockId": "D9",
+      "requires": [
+        "D2"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d09-lg01",
+        "b-d09-lg02",
+        "b-d09-lg03",
+        "b-d09-lg04"
+      ]
+    },
+    {
+      "blockId": "D10",
+      "requires": [
+        "D2",
+        "D9"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d10-lg01",
+        "b-d10-lg02",
+        "b-d10-lg03",
+        "b-d10-lg04",
+        "b-d10-lg05",
+        "b-d10-lg06"
+      ]
+    },
+    {
+      "blockId": "D11",
+      "requires": [
+        "D9",
+        "D10",
+        "Tumor Gate"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d11-lg01",
+        "b-d11-lg02",
+        "b-d11-lg03",
+        "b-d11-lg04",
+        "b-d11-lg05",
+        "b-d11-lg06"
+      ]
+    },
+    {
+      "blockId": "D12",
+      "requires": [
+        "Respiratory R7 TB common model for TB-specific path"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d12-lg01",
+        "b-d12-lg02",
+        "b-d12-lg03",
+        "b-d12-lg04",
+        "b-d12-lg05",
+        "b-d12-lg06"
+      ]
+    },
+    {
+      "blockId": "D13",
+      "requires": [
+        "external inflammation/shock interfaces"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d13-lg01",
+        "b-d13-lg02",
+        "b-d13-lg03",
+        "b-d13-lg04"
+      ]
+    },
+    {
+      "blockId": "D14",
+      "requires": [],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d14-lg01",
+        "b-d14-lg02",
+        "b-d14-lg03",
+        "b-d14-lg04",
+        "b-d14-lg05",
+        "b-d14-lg06"
+      ]
+    },
+    {
+      "blockId": "D15",
+      "requires": [
+        "Tumor Gate for KP1–13"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d15-lg01",
+        "b-d15-lg02",
+        "b-d15-lg03",
+        "b-d15-lg04",
+        "b-d15-lg05",
+        "b-d15-lg06",
+        "b-d15-lg07"
+      ]
+    },
+    {
+      "blockId": "D16",
+      "requires": [
+        "external pathology injury/inflammation gate"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d16-lg01",
+        "b-d16-lg02",
+        "b-d16-lg03"
+      ]
+    },
+    {
+      "blockId": "D17",
+      "requires": [
+        "D16",
+        "M8",
+        "M10",
+        "external repair/fibrosis",
+        "external portal-pressure interface"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d17-lg01",
+        "b-d17-lg02",
+        "b-d17-lg03",
+        "b-d17-lg04",
+        "b-d17-lg05"
+      ]
+    },
+    {
+      "blockId": "D18",
+      "requires": [
+        "D16",
+        "D17",
+        "Tumor Gate"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d18-lg01",
+        "b-d18-lg02",
+        "b-d18-lg03",
+        "b-d18-lg04"
+      ]
+    },
+    {
+      "blockId": "D19",
+      "requires": [
+        "D3",
+        "M6",
+        "M10",
+        "D17"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d19-lg01",
+        "b-d19-lg02",
+        "b-d19-lg03",
+        "b-d19-lg04",
+        "b-d19-lg05",
+        "b-d19-lg06",
+        "b-d19-lg07",
+        "b-d19-lg08",
+        "b-d19-lg09"
+      ]
+    },
+    {
+      "blockId": "D20",
+      "requires": [
+        "D3",
+        "M1",
+        "M7",
+        "D19"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d20-lg01",
+        "b-d20-lg02",
+        "b-d20-lg03",
+        "b-d20-lg04",
+        "b-d20-lg05",
+        "b-d20-lg06"
+      ]
+    },
+    {
+      "blockId": "D21",
+      "requires": [
+        "D6",
+        "Tumor Gate for KP23–25"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d21-lg01",
+        "b-d21-lg02",
+        "b-d21-lg03",
+        "b-d21-lg04",
+        "b-d21-lg05",
+        "b-d21-lg06",
+        "b-d21-lg07",
+        "b-d21-lg08",
+        "b-d21-lg09",
+        "b-d21-lg10",
+        "b-d21-lg11"
+      ]
+    },
+    {
+      "blockId": "D22",
+      "requires": [
+        "D6"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d22-lg01",
+        "b-d22-lg02",
+        "b-d22-lg03",
+        "b-d22-lg04",
+        "b-d22-lg05"
+      ]
+    },
+    {
+      "blockId": "D23",
+      "requires": [
+        "D6"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "WHOLE_LOGIC_GROUP",
+      "groups": [
+        "b-d23-lg01",
+        "b-d23-lg02",
+        "b-d23-lg03"
+      ]
+    },
+    {
+      "blockId": "M1",
+      "requires": [],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m01-lg01",
+        "b-m01-lg02",
+        "b-m01-lg03",
+        "b-m01-lg04",
+        "b-m01-lg05"
+      ]
+    },
+    {
+      "blockId": "M2",
+      "requires": [
+        "M1"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m02-lg01",
+        "b-m02-lg02",
+        "b-m02-lg03"
+      ]
+    },
+    {
+      "blockId": "M3",
+      "requires": [
+        "M2"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m03-lg01",
+        "b-m03-lg02"
+      ]
+    },
+    {
+      "blockId": "M4",
+      "requires": [
+        "M2"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m04-lg01",
+        "b-m04-lg02",
+        "b-m04-lg03"
+      ]
+    },
+    {
+      "blockId": "M5",
+      "requires": [
+        "M1"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m05-lg01",
+        "b-m05-lg02",
+        "b-m05-lg03"
+      ]
+    },
+    {
+      "blockId": "M6",
+      "requires": [
+        "M1",
+        "M2",
+        "M5"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m06-lg01",
+        "b-m06-lg02",
+        "b-m06-lg03"
+      ]
+    },
+    {
+      "blockId": "M7",
+      "requires": [
+        "M2",
+        "M3",
+        "M4",
+        "M6"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m07-lg01",
+        "b-m07-lg02",
+        "b-m07-lg03",
+        "b-m07-lg04"
+      ]
+    },
+    {
+      "blockId": "M8",
+      "requires": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M7"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m08-lg01",
+        "b-m08-lg02",
+        "b-m08-lg03",
+        "b-m08-lg04",
+        "b-m08-lg05"
+      ]
+    },
+    {
+      "blockId": "M9",
+      "requires": [
+        "M1",
+        "M3",
+        "M8"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m09-lg01",
+        "b-m09-lg02",
+        "b-m09-lg03"
+      ]
+    },
+    {
+      "blockId": "M10",
+      "requires": [
+        "M1",
+        "M2",
+        "M3",
+        "M6",
+        "M8"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-m10-lg01",
+        "b-m10-lg02",
+        "b-m10-lg03"
+      ]
+    },
+    {
+      "blockId": "G1",
+      "requires": [
+        "M1",
+        "M9"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-g01-lg01",
+        "b-g01-lg02",
+        "b-g01-lg03",
+        "b-g01-lg04"
+      ]
+    },
+    {
+      "blockId": "G2",
+      "requires": [
+        "G1",
+        "M1"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-g02-lg01",
+        "b-g02-lg02",
+        "b-g02-lg03"
+      ]
+    },
+    {
+      "blockId": "G3",
+      "requires": [
+        "G1",
+        "G2",
+        "M1",
+        "M8"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-g03-lg01",
+        "b-g03-lg02",
+        "b-g03-lg03",
+        "b-g03-lg04",
+        "b-g03-lg05"
+      ]
+    },
+    {
+      "blockId": "G4",
+      "requires": [
+        "G1",
+        "G3"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-g04-lg01",
+        "b-g04-lg02",
+        "b-g04-lg03"
+      ]
+    },
+    {
+      "blockId": "G5",
+      "requires": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "M9"
+      ],
+      "hardReadinessBlockIds": [],
+      "requiredPriorBlockIds": [],
+      "mode": "CONSUME_GLOBAL_BIOCHEMISTRY_SOURCE_MAP_CURRENT",
+      "groups": [
+        "b-g05-lg01",
+        "b-g05-lg02",
+        "b-g05-lg03"
+      ]
+    }
+  ],
+  "basis": "Parent materialized hash-verified fresh main 9b70223a",
+  "adapter_sha256": "c965212aa712ddb65719c54f38ef572ca3392bf6d0310ff602df82cce52555a5",
+  "observed_nonempty_raw_requires_blocks": 35,
+  "observation_boundary": "Frozen pre-change native semantic load output; not a replay of old code against new owners."
+}

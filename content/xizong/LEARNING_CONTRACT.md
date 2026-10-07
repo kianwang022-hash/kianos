@@ -68,6 +68,12 @@ Chat establishes the coherent Block model quickly
 
 Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation. A broad Lecture sweep may be later; source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
 
+### Cognitive readiness authorizes the current target
+
+A hard prerequisite constrains the cognitive model genuinely required by the target, not the prerequisite Block’s Website completion state. Show the current target’s actual required models and obtain an explicit learner confirmation that they are understood; missing understanding is repaired in Chat at the smallest sufficient scope. That confirmation authorizes only the current target to continue and must remain bound to its current requirements. Opening a link, a Chat explanation, or another Block’s completion cannot manufacture this confirmation.
+
+This continuation permission creates no prerequisite-owner Source, Learned, Complete, Mastery, Recall or scheduled Memory debt. Keep existing history intact. Explicit Source, Visual, reviewed TTSX, Tumor and formal-completion requirements remain governed by their own owners and cannot be waived by cognitive-readiness confirmation; unresolved requirements hold only their genuinely dependent scope.
+
 Acceptance must demonstrate a whole representative Block end to end: stable model, full in-model Prompt bindings, accounted model-external material, useful memory preparation and the actual Website retrieval path. A locally elegant LG, a file count, an engineering green check or a candidate inventory cannot stand in for this outcome. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
 
 ---

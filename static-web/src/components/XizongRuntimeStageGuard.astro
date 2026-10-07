@@ -20,18 +20,20 @@ const blockingVisualGroups = (block?.logicGroups || [])
     visualSourceState: String(group.visualSourceState || ''),
     reviewableFromOriginalSource: /GAP.*NOT_MOUNTED/i.test(String(group.visualSourceState || ''))
   }));
+const requiredModelReadiness = block?.sourceContact?.requiredModelReadiness || null;
+const independentReadinessGates = block?.sourceContact?.independentReadinessGates || [];
 const requirements = block ? [] : loadXizongSystemCompletionRequirements(system);
 ---
 <span data-xizong-runtime-stage-guard hidden></span>
 
-<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, blockingVisualGroups, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
+<script type="application/json" data-xizong-completion-input set:html={JSON.stringify({ blockId, blockIds, blockPrerequisites, requiredModelReadiness, independentReadinessGates, blockingVisualGroups, requirements }).replace(/</g, String.fromCharCode(92) + 'u003c')}></script>
 <script>
   import { sourceContactCompatible, revisionRequiresAction, needsFreshKpRecall } from '../lib/xizongContentRevision.mjs';
   import { inspectXizongSystemCompletion, inspectXizongBlockCompletion } from '../lib/xizongMemoryAutoRelease.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
-  const { blockId, blockIds, blockPrerequisites = [], blockingVisualGroups = [], requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
+  const { blockId, blockIds, blockPrerequisites = [], requiredModelReadiness = null, independentReadinessGates = [], blockingVisualGroups = [], requirements } = JSON.parse(document.querySelector('[data-xizong-completion-input]')?.textContent || '{}');
   const readBlockState = (id) => {
     if (!id) return {};
     try {
@@ -92,6 +94,40 @@ const requirements = block ? [] : loadXizongSystemCompletionRequirements(system)
       const state = readBlockState(blockId);
       const postChatRecall = root.dataset.postChatRecallAvailable === 'true'
         && state?.recallEntryMode === 'POST_CHAT_RECALL';
+      const modelRequirement = requiredModelReadiness;
+      const nativeB = root.dataset.studySystemId === 'digestive-metabolic-endocrine-tumor';
+      const modelReady = (!nativeB && !modelRequirement) || (modelRequirement?.targetBlockId === blockId
+        && modelRequirement.confirmation === 'EXPLICIT_USER_CURRENT_TARGET_ONLY' && /^[a-f0-9]{64}$/.test(modelRequirement.witness || '')
+        && Array.isArray(modelRequirement.requirements) && (modelRequirement.requirements.length === 0
+          || (state.requiredModelContinuation?.targetBlockId === blockId
+            && state.requiredModelContinuation?.requirementsWitness === modelRequirement.witness
+            && state.requiredModelContinuation?.confirmation === 'USER_CURRENT_TARGET_MODELS_UNDERSTOOD'
+            && typeof state.requiredModelContinuation?.confirmedAt === 'string'
+            && Number.isFinite(Date.parse(state.requiredModelContinuation.confirmedAt)))));
+      const requestedStage = target.closest('[data-stage-target]')?.getAttribute('data-stage-target')
+        || target.closest('[data-stage-next]')?.getAttribute('data-stage-next') || '';
+      const sourceEncounter = modelRequirement?.sourceEncounterBeforeReadiness === true
+        && ['source_contact', 'logic_group'].includes(requestedStage);
+      const modelAdvancing = Boolean(target.closest('[data-stage-target],[data-stage-next],[data-post-chat-recall],[data-source-contact-done],[data-enter-group],[data-group-lecture-done],[data-kp-reveal],[data-rating],[data-ttsx-done],[data-block-recall-reveal],[data-block-recall-complete],[data-block-complete]'))
+        && requestedStage !== 'block_learn';
+      if (!modelReady && modelAdvancing && !sourceEncounter) {
+        stop(event);
+        const panel = root.querySelector('[data-required-model-readiness]');
+        if (panel) panel.hidden = false;
+        setBlockStatus(root, '先核对本块真正需要的模型；缺失部分在 Chat 最小补齐后，由你确认允许当前目标继续。');
+        return;
+      }
+      const aggregateAction = ['block_recall', 'block_complete'].includes(requestedStage)
+        || Boolean(target.closest('[data-block-recall-reveal],[data-block-recall-complete],[data-block-complete]'));
+      const held = independentReadinessGates.filter(gate => ['HOLD_EXTERNAL_EVIDENCE_BINDING_REQUIRED', 'HOLD_SOURCE_CONFLICT'].includes(gate.status)
+        && (aggregateAction || gate.logicGroupIds.includes(state.resumeGroupId)));
+      if (held.length && modelAdvancing) {
+        stop(event);
+        setBlockStatus(root, held.some(gate => gate.status === 'HOLD_SOURCE_CONFLICT')
+          ? '当前学习节的 Source 冲突尚未核定；仅可查看带警示的 Current 参考原文，不能评分或认领闭合。'
+          : '当前学习节的独立 Tumor Gate 尚不能验证；所需模型确认不能代替 O9 可用性证据。其他未受此门禁约束的学习节仍可继续。');
+        return;
+      }
       const counts = blockCounts(root, state);
       const visualBlocked = unresolvedVisualGroups(root, state);
       const missing = missingPrerequisites();
