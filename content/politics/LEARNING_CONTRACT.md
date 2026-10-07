@@ -102,6 +102,55 @@ A Politics compression asset is valuable only when it removes future learner wor
 
 Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.
 
+#### 0.4.1 Incremental learner compression — build while learning, assemble at chapter close
+
+Politics chapter compression is produced **during learning**, not reinvented after the chapter.
+
+After one **natural logical block** closes — meaning one coherent problem/relation has actually been understood — Chat may leave exactly two learner-facing artifacts before continuing:
+
+> **one review-line sentence**  
+> (**one non-answer-leaking expansion cue**)
+
+Do not stop after every small fact. The unit is a naturally closed reasoning problem, not a knowledge-point quota.
+
+The review-line sentence must preserve the current problem, its decisive relation, or the bridge needed for what follows. The expansion cue exists only to help the learner retrieve what sits underneath that line. Prefer **object + structure/count** when useful, e.g. `意识2起源｜2本质｜4作用`; do not expose the actual members in the cue. Numbers are optional retrieval structure, not a formatting requirement.
+
+Each local compression uses four checks:
+
+1. **Main-model test.** Does this belong to the chapter's reasoning line or an indispensable bridge? Isolated lists, quotations, examples, fixed wording and low-frequency extensions do not enter merely because they were taught.
+2. **Cue-leakage test.** The cue opens retrieval slots; it must not become an answer directory.
+3. **Model-completeness test.** Local compression must preserve the needed relation/direction. At chapter close, compare the assembled lines against the canonical reconstruction spine so no core node, bridge or direction disappears.
+4. **Owner test.** Anything omitted from the learner-facing model must still have an owner:
+   - understanding/support detail → existing teaching/support;
+   - exam-required exact retrieval → reviewed Precision/Memory;
+   - unsupported/unresolved meaning → Source gap.
+   “Not in the main model” does not mean “unimportant”, and “not in Memory” does not mean “deleted”.
+
+**Only material worth durable exact retrieval becomes Memory.** Do not convert every removed teaching detail into memorization debt.
+
+At chapter close, do **not** ask Chat to invent a fresh summary. Instead:
+
+```text
+existing local review lines
+→ order by the learned reasoning route
+→ remove duplication
+→ repair transitions
+→ canonical-spine completeness check
+→ owner/Precision check
+→ chapter quick-review line
+→ thinner keyword view
+```
+
+The learner-facing review surface has only three layers:
+1. chapter main line — why one step leads to the next;
+2. expansion cues — retrieval slots under each line;
+3. Precision/Memory — exact content that cannot be reliably reconstructed but must be retrieved accurately.
+
+Teaching/support remains teacher-backend material, not a fourth learner review layer.
+
+Compression therefore means: **fewer future operations needed to reconstruct the chapter**, not merely fewer words.
+
+
 ### 0.5 Fixed reconstruction spine — stable learner index
 
 Politics inherits one compression principle from the mature Xizong model without importing its System/LG/KP hierarchy: **later review becomes thinner around the same model; it does not generate a new model each time.**
@@ -125,7 +174,7 @@ Hard anti-drift rules:
 
 Subject shape remains local: Marxism normally freezes a reasoning/relation chain; History a stage/causal movie; Mao a historical problem→theory response→position chain; Xi a stable hierarchy/role map; Ethics-Law a stable concept/normative/application scaffold. “Fixed” means stable cognition for that chapter, not one universal Politics template.
 
-Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to lay down the same canonical spine without rebuilding a new index.
+Acceptance test: two legitimate reviews of the same unchanged chapter may differ in detail density, but the learner must be able to recover the same canonical relations without rebuilding a new index. A Kian self-use quick-review view may visually group adjacent canonical nodes or use fewer learner-facing lines when the mapping remains clear; the canonical spine then acts as the completeness validator, not a demand that the personal review display copy its node count or wording.
 
 ### 0.6 First teaching is problem-driven — the spine is not a lecture outline
 
