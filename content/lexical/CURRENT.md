@@ -4,40 +4,21 @@ Role: **Lexical backend engineering Work Cursor + scope router**
 
 Learner-facing Vocabulary / Lexical belongs under **English**. This file owns only current Lexical BUILD / CONTROL routing. It does not own semantic truth, learner progress, Acceptance Truth, pronunciation truth, runtime truth, or historical evidence.
 
-## Active semantic-review anchor
+## Current work status
 
-[**#1166 — Lexical batched audit: learner-facing semantic quality**](https://github.com/kianwang022-hash/kianos/issues/1166) is the **only live Lexical semantic-review cursor**.
+**No active full-catalog semantic-review campaign.** [#1166 — retired batched audit](https://github.com/kianwang022-hash/kianos/issues/1166) was withdrawn at Kian's request on 2026-10-07 because the campaign had drifted. It is a historical receipt, not a live work cursor or an automatic Next.
 
-It owns only its current:
+Its delivered changes, unmerged candidate PR dispositions and unresolved quality-gate evidence remain in #1166. Retirement is not full-scope completion or semantic acceptance of all 7,946 Main Words. Do not resume B061 or reconstruct an active campaign from historical batch comments, PRs or prior Chats.
 
-```text
-Parent outcome
-→ active batch / exact cursor
-→ Next
-→ item-scoped Blockers
-→ acceptance / stop
-```
-
-Fresh semantic-review continuation:
-
-```text
-main@HEAD
-→ AGENTS.md
-→ this CURRENT
-→ #1166
-→ exact current Word / Relation / Form owner
-→ Final / consumer owner only when affected
-```
-
-Do not recover #1166 progress from old PRs, retired semantic-review/audit files, prior Chats or closed Issues.
+Canonical purpose remains [Learning §0](LEARNING_CONTRACT.md#0purpose) and [Content §0A / §4A / §14](CONTENT_ASSET_CONTRACT.md): fast, correct, transferable lexical access; Exam-first, not Exam-only; preserve useful Depth. New evidence-backed, bounded maintenance starts from the exact current Word / Relation / Form owner under those rules.
 
 ## Route by need
 
 | Need | Read next |
 | --- | --- |
 | Ordinary Vocabulary study / where Kian actually stopped | English learner path + native private learner/runtime evidence; bypass this engineering cursor |
-| Active batched learner-value semantic review | #1166 → exact Word / Relation / Form owner |
-| One concrete Word/Form/Relation defect outside the current batch | exact Natural Owner; reconcile with #1166 only if its write-set overlaps |
+| Retired batched-review evidence / unresolved findings | #1166 as history only; no automatic continuation |
+| One concrete Word/Form/Relation defect | exact Natural Owner under current Learning / Content rules; check actual concurrent write-set |
 | Content rules / learning semantics | `CONTENT_ASSET_CONTRACT.md` / `LEARNING_CONTRACT.md` |
 | Materialization / derived Final mechanics | `CONTENT_EXECUTION.md` → exact active tool |
 | Derived learner object | `learner/final/` + `FINAL_LEARNER_OBJECT_CONTRACT.md` |
@@ -76,8 +57,8 @@ Exact semantic, pronunciation, audit and projection rules stay in their existing
 
 ## Concurrency / stop
 
-#1166 may proceed batch by batch under its own accepted scope. An overlapping writer blocks only the exact shared owner/write-set; unrelated Lexical, English or Website work remains independent.
+A future bounded task must check current owner/write-set overlap and preserve other active writers. An overlapping writer blocks only the exact shared owner/write-set; unrelated Lexical, English or Website work remains independent.
 
-When #1166 closes or is replaced, update this pointer once. Do not leave the retired Issue, a merged PR, a closed calibration task or a historical batch document as a second Next.
+No active campaign is implied by this router. A retired Issue, merged or withdrawn PR, closed calibration task or historical batch document is not a second Next. Reactivation requires an explicit current scope rather than automatic continuation of #1166.
 
 Historical campaigns and delivery evidence remain in Git history / their exact owners and stay outside normal continuation.
