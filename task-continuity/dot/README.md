@@ -11,6 +11,7 @@
    - 西综内容/映射/功能一致性：`content/xizong/CURRENT.md` → [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) → 当前 PR/ref → exact owner
    - 三科运行闭环、跨科反馈及普通使用缺陷：[#1111](https://github.com/kianwang022-hash/kianos/issues/1111) → 当前具体缺陷/候选
    - 英语/词汇/政治的设计与内容：对应 domain `CURRENT.md`、manifest、Learning/Product owner
+   - Lexical 当前执行与质量门：[Lexical Current](../../content/lexical/CURRENT.md) → [#1166](https://github.com/kianwang022-hash/kianos/issues/1166)；此路径只定位动态任务，不定义最高验收目的
    - 实际学习进度：native learner evidence/Packet/Resume；工程任务和内容存在不能代替个人进度
 5. 仅读必要原文件与实际消费者；已有文件/证据版本未变时复用，不从旧任务摘要推测最新状态。接续、分批和上下文预算直接继承 [AGENTS](../../AGENTS.md) 与 [Project Management](../../PROJECT_MANAGEMENT_CONTRACT.md)，不在这里另立执行规程。
 
@@ -31,16 +32,18 @@
 语义细节直接读原权威，不复制到这里：
 [学习合同 §0：固定模型与完整复习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome)、[学习策略](../../content/xizong/knowledge/learner/study-policy.json)、[内容组合](../../content/xizong/LEARNER_OBJECT_CONTRACT.md)、[页面职责](../../static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md)、[权威继承](../../AUTHORITY_INHERITANCE_CONTRACT.md)。
 
-本次已确认的科目目的与验收，继续由原 owner 承担：
+最高验收只固定各科稳定的完整目的、期望效果与达标判断，继续由下列原 owner 承担；不把当前任务、进度、批次、状态或执行回执纳入目的定义：
 
 - 西综：[固定模型与学习结果](../../content/xizong/LEARNING_CONTRACT.md#learning-outcome) → [内容教学实现](../../content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md)。
 - 政治：[学习目的、固定重建骨架与预备教学包（§0、§0.5、§3.1）](../../content/politics/LEARNING_CONTRACT.md) → [内容语义与教学实现（§3.1.1、§3.3）](../../content/politics/CONTENT_SEMANTICS_CONTRACT.md) → [实际教学包](../../content/politics/learning/manifest.json)。
 - 两科继续按已确认分工消费这些 owner：GitHub 保存稳定知识与教学资产；Chat 围绕固定知识地图灵活教学；Website 通过共享科目模板承担 Recall / Memory、题目、状态与反馈。共同学习效果检查回到 [Learning Acceptance](../../LEARNING_ACCEPTANCE.md)，具体范围结论回到[西综 Acceptance](../../content/xizong/ACCEPTANCE.md) / [政治 Acceptance](../../content/politics/ACCEPTANCE.md)，不在这里复制标准。
-- Lexical 的总控验收直接采用[板块目的：Learning §0](../../content/lexical/LEARNING_CONTRACT.md)与[内容目的、模块生成及整合验收：Content §0A、§4A、§14](../../content/lexical/CONTENT_ASSET_CONTRACT.md)。[Lexical Current](../../content/lexical/CURRENT.md) → [#1166](https://github.com/kianwang022-hash/kianos/issues/1166)只定位当前执行与质量门；批次完成、合并及工程测试不能替代上述目的验收。Lexical 是英语的词汇模块，不代表全部英语；其他英语目标仍回到[English Current](../../content/english/CURRENT.md)指向的原 owner，不从本次词汇确认推定。
+- Lexical 的最高验收直接采用[板块目的：Learning §0](../../content/lexical/LEARNING_CONTRACT.md)与[内容目的、模块生成及整合验收：Content §0A、§4A、§14](../../content/lexical/CONTENT_ASSET_CONTRACT.md)。Lexical 是英语的词汇模块，不代表全部英语；其他英语完整目的仍由原 Learning / Content owner 承担，不从本次词汇确认推定。
 
 目的与语义规则回原 Learning / Content 合同；具体资产回 canonical owner / manifest；操作、记录与反馈回原 Runtime；验收回原 Acceptance 及其实际消费者证据。历史回执与候选只证明其注明范围和版本，不取得当前权威。这里固定完整目的的采用关系与查找路径，不复制目的正文、不建立第二 owner。
 
 ## 阅读与证据记录
+
+动态 Current / Issue 和验证回执与上述稳定目的分开；批次完成、合并及工程测试只提供各自范围的证据，不能代替目的达标判断。
 
 - [EXAM_UNDERSTANDING.md](EXAM_UNDERSTANDING.md)：跨科规则、内容与代码的分批阅读/追踪记录，包含精确路径、blob、全文或局部范围、修复及未验边界。
 - [XIZONG_UNDERSTANDING.md](XIZONG_UNDERSTANDING.md)：西综对象和内容阅读覆盖及历史检查依据。
