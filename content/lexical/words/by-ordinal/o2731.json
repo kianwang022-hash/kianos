@@ -25,14 +25,13 @@
           "pos": "verb",
           "sense_ids": [
             "sense:lace:fa9bf6e51d4157e6",
-            "sense:lace:b1dadb7b68c0563b",
             "sense:lace:b1da3e15a468ef40"
           ]
         }
       ],
       "core_meaning_cn": "带子或花边",
       "core_meaning_en": "a cord or fabric with openwork",
-      "mental_model_cn": "带子或花边",
+      "mental_model_cn": "cord → 鞋带/系带；fabric → 花边；verb → lace up 系紧、be laced with 掺有/夹杂。重复的少见不及物“系带”分支保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,30 +113,6 @@
         "sense_label_en": "to fasten or draw together with a lace",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:4ca186b08993c648acc1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lace:b1dadb7b68c0563b:collocation:0"
-            ],
-            "meaning_cn": "系上带子",
-            "phrase": "lace up"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "系带子",
-        "definition_en": "to be fastened with a lace",
-        "governing_pattern": "vi. + up",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lace:b1dadb7b68c0563b",
-        "sense_label_en": "to be fastened with a lace",
-        "sort_order": 3,
-        "transitivity": "vi"
       },
       {
         "collocations": [
@@ -361,7 +336,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:4ca186b08993c648acc1",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:lace:b1dadb7b68c0563b:collocation:0"
+          ],
+          "meaning_cn": "系上带子",
+          "phrase": "lace up"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "系带子",
+      "definition_en": "to be fastened with a lace",
+      "governing_pattern": "vi. + up",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lace:b1dadb7b68c0563b",
+      "sense_label_en": "to be fastened with a lace",
+      "sort_order": 3,
+      "transitivity": "vi"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -380,7 +380,7 @@
       },
       {
         "sense_id": "sense:lace:b1dadb7b68c0563b",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7556,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
@@ -403,7 +403,6 @@
     "active_collocations": [
       "collocation:210d9c9d3043f8f1d6a2",
       "collocation:457909da26c02ecddcc9",
-      "collocation:4ca186b08993c648acc1",
       "collocation:590fa22118c5f30589bd",
       "collocation:6d7b5c136ecc5e6c5e69",
       "collocation:bce4ea9a9845e6361fc7"
@@ -418,7 +417,9 @@
       {
         "id": "collocation:4ca186b08993c648acc1",
         "source_row": 6457,
-        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:590fa22118c5f30589bd",

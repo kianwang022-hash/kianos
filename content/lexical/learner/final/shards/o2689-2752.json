@@ -2670,7 +2670,7 @@
     "ordinal": 2702,
     "word": "kick",
     "source_owner_path": "content/lexical/words/by-ordinal/o2702.json",
-    "source_fingerprint": "5cd1f6f587c095f9b4a9b392f4dd8dab9c3681adfe7ac35d98ee8b0ac867b801",
+    "source_fingerprint": "564e43c8b09eeec59c4c3f41b1a6760869de0eca850d715b35af756027d26ff4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2681,7 +2681,7 @@
     },
     "word_feel": {
       "summary_cn": "用脚踢",
-      "decision_cn": "",
+      "decision_cn": "literal → 踢/一脚；kick off → 开始；get a kick out of → 从…得到乐趣。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2854,6 +2854,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "kick off / kick sth off"
         }
+      },
+      {
+        "id": "construction:kick:get-a-kick-out-of",
+        "source_locator": "record.constructions[1]",
+        "pattern": "get a kick out of sth/doing sth",
+        "lines": [
+          {
+            "text": "从…中获得乐趣或刺激",
+            "lang": "cn"
+          },
+          {
+            "text": "informal pleasure/excitement idiom, not physical kicking",
+            "lang": "en"
+          },
+          {
+            "text": "to enjoy something very much or find it exciting",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:kick:get-a-kick-out-of",
+          "target_locator": "record.constructions[1]",
+          "target_label": "get a kick out of sth/doing sth"
+        }
       }
     ],
     "reference": {
@@ -2869,19 +2894,33 @@
     "ordinal": 2703,
     "word": "kid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2703.json",
-    "source_fingerprint": "781e08256fc78ff9c02bc3d65133b6a773f2eab1aa53f3b39498f6af6204a99f",
-    "sense_lineage": [],
+    "source_fingerprint": "e486252cace04e9cba8f365ab8cdce80772e2bdb69b8d546c5dcde4c5efe2146",
+    "sense_lineage": [
+      {
+        "word_id": "word:kid",
+        "target_kind": "sense",
+        "from_target_id": "sense:kid:e6d457697cac50a5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kid",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c4968c7ae2fd6b69491e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "1A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "小孩；小山羊；开玩笑",
-      "decision_cn": "",
+      "decision_cn": "noun → 小孩（也指小山羊）；verb → 开玩笑/戏弄；just kidding → 只是开玩笑。小山羊皮形容词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2951,34 +2990,8 @@
         }
       },
       {
-        "id": "sense:kid:e6d457697cac50a5",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "小山羊皮制的",
-        "definition_en": "made from the skin of a young goat",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c4968c7ae2fd6b69491e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "kid leather",
-            "meaning_cn": "小山羊皮革",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kid:e6d457697cac50a5",
-          "target_locator": "record.senses[2]",
-          "target_label": "小山羊皮制的"
-        }
-      },
-      {
         "id": "sense:kid:b807a128912b5ad9",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "开玩笑；戏弄",
@@ -2989,13 +3002,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kid:b807a128912b5ad9",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "开玩笑；戏弄"
         }
       },
       {
         "id": "sense:kid:33d61a8f5b555ccb",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "哄骗；欺骗",
@@ -3006,7 +3019,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kid:33d61a8f5b555ccb",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "哄骗；欺骗"
         }
       }
@@ -3095,13 +3108,64 @@
           "target_locator": "record.constructions[0]",
           "target_label": "kid sb into doing sth"
         }
+      },
+      {
+        "id": "construction:kid:just-kidding",
+        "source_locator": "record.constructions[1]",
+        "pattern": "(I’m) just kidding / no kidding",
+        "lines": [
+          {
+            "text": "只是开玩笑；我逗你的",
+            "lang": "cn"
+          },
+          {
+            "text": "conversational joke formula; distinct from kid noun = child or baby goat",
+            "lang": "en"
+          },
+          {
+            "text": "used to explain that something you just said was a joke",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:kid:just-kidding",
+          "target_locator": "record.constructions[1]",
+          "target_label": "(I’m) just kidding / no kidding"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:c4968c7ae2fd6b69491e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:kid:e6d457697cac50a5:collocation:0"
+              ],
+              "meaning_cn": "小山羊皮革",
+              "phrase": "kid leather"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "小山羊皮制的",
+          "definition_en": "made from the skin of a young goat",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:kid:e6d457697cac50a5",
+          "sense_label_en": "made from the skin of a young goat",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -3773,18 +3837,32 @@
     "ordinal": 2709,
     "word": "kin",
     "source_owner_path": "content/lexical/words/by-ordinal/o2709.json",
-    "source_fingerprint": "6635e9b521e3c5f635b06c58c1bd06f2416e510d7074efc0068fd3fa5e030d6e",
-    "sense_lineage": [],
+    "source_fingerprint": "29c674517957044487b31f0e05acc2901bbc7f69e4ef1e4e972d12516e7ac6f4",
+    "sense_lineage": [
+      {
+        "word_id": "word:kin",
+        "target_kind": "sense",
+        "from_target_id": "sense:kin:11935c434bba594f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kin",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:80448f67a8973e38ed9d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "家人和亲属",
-      "decision_cn": "",
+      "decision_cn": "kin → 家人/亲属；next of kin → 最近亲属。形容词“有亲属关系的”低价值义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3836,32 +3914,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "亲属；家族"
         }
-      },
-      {
-        "id": "sense:kin:11935c434bba594f",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有亲属关系的；同类的",
-        "definition_en": "related by blood or marriage",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:80448f67a8973e38ed9d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "kin relationship",
-            "meaning_cn": "亲属关系",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kin:11935c434bba594f",
-          "target_locator": "record.senses[1]",
-          "target_label": "有亲属关系的；同类的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -3895,12 +3947,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:kin:next-of-kin",
+        "source_locator": "record.constructions[0]",
+        "pattern": "next of kin",
+        "lines": [
+          {
+            "text": "最近的亲属；紧急联系人中的近亲",
+            "lang": "cn"
+          },
+          {
+            "text": "legal/emergency family relationship phrase; different from general next = following",
+            "lang": "en"
+          },
+          {
+            "text": "the person or people most closely related to someone, especially for official or emergency purposes",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:kin:next-of-kin",
+          "target_locator": "record.constructions[0]",
+          "target_label": "next of kin"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:80448f67a8973e38ed9d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:kin:11935c434bba594f:collocation:0"
+              ],
+              "meaning_cn": "亲属关系",
+              "phrase": "kin relationship"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "有亲属关系的；同类的",
+          "definition_en": "related by blood or marriage",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:kin:11935c434bba594f",
+          "sense_label_en": "related by blood or marriage",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4995,17 +5099,32 @@
     "ordinal": 2716,
     "word": "kit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2716.json",
-    "source_fingerprint": "1297050d495cad72ebe47864e5a065c1dc241c9c74077f7093a9e2b797645c1b",
-    "sense_lineage": [],
+    "source_fingerprint": "181193b6f7a8e56483b0e6a3a38fe86b4eb3b67f4b8f3939720d5098322d9d5a",
+    "sense_lineage": [
+      {
+        "word_id": "word:kit",
+        "target_kind": "sense",
+        "from_target_id": "sense:kit:986bb43bcb5f53fc",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kit",
+        "target_kind": "sense",
+        "from_target_id": "sense:kit:b9691bbf03ae5d12",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "成套工具或装备",
-      "decision_cn": "",
+      "decision_cn": "first-aid kit / tool kit → 一套专门用途的用品或装备。可透明推断的容器义及动物幼崽专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5059,40 +5178,6 @@
           "target_id": "sense:kit:ee037ce69409565a",
           "target_locator": "record.senses[0]",
           "target_label": "成套工具，装备"
-        }
-      },
-      {
-        "id": "sense:kit:b9691bbf03ae5d12",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "工具箱，容器",
-        "definition_en": "a case for containing a set of articles",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kit:b9691bbf03ae5d12",
-          "target_locator": "record.senses[1]",
-          "target_label": "工具箱，容器"
-        }
-      },
-      {
-        "id": "sense:kit:986bb43bcb5f53fc",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "幼兽（如小狐狸等）",
-        "definition_en": "young of various fur-bearing animals",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kit:986bb43bcb5f53fc",
-          "target_locator": "record.senses[2]",
-          "target_label": "幼兽（如小狐狸等）"
         }
       }
     ],
@@ -5156,7 +5241,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "工具箱，容器",
+          "definition_en": "a case for containing a set of articles",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kit:b9691bbf03ae5d12",
+          "sense_label_en": "a case for containing a set of articles",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "幼兽（如小狐狸等）",
+          "definition_en": "young of various fur-bearing animals",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kit:986bb43bcb5f53fc",
+          "sense_label_en": "young of various fur-bearing animals",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -5278,46 +5393,57 @@
     "ordinal": 2718,
     "word": "kite",
     "source_owner_path": "content/lexical/words/by-ordinal/o2718.json",
-    "source_fingerprint": "1b27c583177bdde3e2a48afbea3e065ee598d0fcb281d1ab0cdb779ef402ac2c",
-    "sense_lineage": [],
+    "source_fingerprint": "0b662311a8aed18dc842a7d954e83fc7eb7a273f949e33b6bc1e73ed67122732",
+    "sense_lineage": [
+      {
+        "word_id": "word:kite",
+        "target_kind": "sense",
+        "from_target_id": "sense:kite:19d001a2be8d5e78",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kite",
+        "target_kind": "sense",
+        "from_target_id": "sense:kite:3339d5e01b77519d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kite",
+        "target_kind": "sense",
+        "from_target_id": "sense:kite:6f5c43d1e05f5660",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kite",
+        "target_kind": "sense",
+        "from_target_id": "sense:kite:925b92e6f7595029",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "4N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "风筝",
-      "decision_cn": "",
+      "summary_cn": "风筝；鸢（一种猛禽)",
+      "decision_cn": "ordinary → 风筝；nature → 鸢（一种猛禽）。旧式支票诈骗名词及低价值动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "风筝"
+        "target_label": "风筝；鸢（一种猛禽)"
       }
     },
     "senses": [
       {
-        "id": "sense:kite:925b92e6f7595029",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "空头支票（涂改面额的支票）",
-        "definition_en": "a bank check that has been fraudulently altered to increase its face value",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kite:925b92e6f7595029",
-          "target_locator": "record.senses[0]",
-          "target_label": "空头支票（涂改面额的支票）"
-        }
-      },
-      {
         "id": "sense:kite:3803e0e8e0265fd9",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "风筝",
@@ -5328,30 +5454,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kite:3803e0e8e0265fd9",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "风筝"
         }
       },
       {
-        "id": "sense:kite:19d001a2be8d5e78",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "空头支票（利用浮差的支票）",
-        "definition_en": "a bank check drawn on insufficient funds at another bank to take advantage of the float",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kite:19d001a2be8d5e78",
-          "target_locator": "record.senses[2]",
-          "target_label": "空头支票（利用浮差的支票）"
-        }
-      },
-      {
         "id": "sense:kite:4b22e10b648953b2",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鸢（一种鹰）",
@@ -5362,42 +5471,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kite:4b22e10b648953b2",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "鸢（一种鹰）"
-        }
-      },
-      {
-        "id": "sense:kite:6f5c43d1e05f5660",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "像风筝一样飞；使用空头支票",
-        "definition_en": "to fly or move like a kite; to use kites (fraudulent checks)",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kite:6f5c43d1e05f5660",
-          "target_locator": "record.senses[4]",
-          "target_label": "像风筝一样飞；使用空头支票"
-        }
-      },
-      {
-        "id": "sense:kite:3339d5e01b77519d",
-        "source_locator": "record.senses[5]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使上升；骗钱",
-        "definition_en": "to cause to rise; to obtain money by using fraudulent checks",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kite:3339d5e01b77519d",
-          "target_locator": "record.senses[5]",
-          "target_label": "使上升；骗钱"
         }
       }
     ],
@@ -5461,7 +5536,65 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "空头支票（涂改面额的支票）",
+          "definition_en": "a bank check that has been fraudulently altered to increase its face value",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kite:925b92e6f7595029",
+          "sense_label_en": "a bank check that has been fraudulently altered to increase its face val",
+          "sort_order": 0,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "空头支票（利用浮差的支票）",
+          "definition_en": "a bank check drawn on insufficient funds at another bank to take advantage of the float",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:kite:19d001a2be8d5e78",
+          "sense_label_en": "a bank check drawn on insufficient funds at another bank to take advanta",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "像风筝一样飞；使用空头支票",
+          "definition_en": "to fly or move like a kite; to use kites (fraudulent checks)",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:kite:6f5c43d1e05f5660",
+          "sense_label_en": "to fly or move like a kite; to use kites (fraudulent checks)",
+          "sort_order": 3,
+          "transitivity": "vi"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使上升；骗钱",
+          "definition_en": "to cause to rise; to obtain money by using fraudulent checks",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:kite:3339d5e01b77519d",
+          "sense_label_en": "to cause to rise; to obtain money by using fraudulent checks",
+          "sort_order": 4,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -5470,18 +5603,33 @@
     "ordinal": 2719,
     "word": "knee",
     "source_owner_path": "content/lexical/words/by-ordinal/o2719.json",
-    "source_fingerprint": "fc5b65415e9507a844af08c2be107348ff28f08b734f7abca002b1c5bccbbabf",
-    "sense_lineage": [],
+    "source_fingerprint": "d9f966aa761441e3cd0002af76e8c9f30659899de29ff7af167b266ad4370272",
+    "sense_lineage": [
+      {
+        "word_id": "word:knee",
+        "target_kind": "sense",
+        "from_target_id": "sense:knee:412fe85ad4ba5c9f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:knee",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:79a5cbd4356b7c754e7e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "膝盖",
-      "decision_cn": "",
+      "decision_cn": "body → 膝盖；verb → 用膝盖顶碰。裤子的膝部（普通透明转喻）保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5530,34 +5678,8 @@
         }
       },
       {
-        "id": "sense:knee:412fe85ad4ba5c9f",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "裤子的膝部",
-        "definition_en": "the part of a trouser leg covering the knee",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:79a5cbd4356b7c754e7e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "trouser knee",
-            "meaning_cn": "裤子的膝部",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:knee:412fe85ad4ba5c9f",
-          "target_locator": "record.senses[1]",
-          "target_label": "裤子的膝部"
-        }
-      },
-      {
         "id": "sense:knee:89740a5ee03d5923",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "用膝盖碰",
@@ -5567,14 +5689,14 @@
         "usage": [
           {
             "id": "collocation:b216b49823380eaae050",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "knee sb in the groin",
             "meaning_cn": "用膝盖顶某人的腹股沟",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b216b49823380eaae050",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "knee sb in the groin"
             }
           }
@@ -5582,7 +5704,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:knee:89740a5ee03d5923",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "用膝盖碰"
         }
       }
@@ -5636,7 +5758,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:79a5cbd4356b7c754e7e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:knee:412fe85ad4ba5c9f:collocation:0"
+              ],
+              "meaning_cn": "裤子的膝部",
+              "phrase": "trouser knee"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "裤子的膝部",
+          "definition_en": "the part of a trouser leg covering the knee",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:knee:412fe85ad4ba5c9f",
+          "sense_label_en": "the part of a trouser leg covering the knee",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -6018,18 +6166,32 @@
     "ordinal": 2723,
     "word": "knob",
     "source_owner_path": "content/lexical/words/by-ordinal/o2723.json",
-    "source_fingerprint": "084999c36f00fb46ee938bee18a335c513f254d924574d048329bd8e212e239b",
-    "sense_lineage": [],
+    "source_fingerprint": "faf1a6b7e52695edbcfaf8e40a010331461606abc729a2ab9d737f2e8431a1bd",
+    "sense_lineage": [
+      {
+        "word_id": "word:knob",
+        "target_kind": "sense",
+        "from_target_id": "sense:knob:63b01672d4b45ec5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:knob",
+        "target_kind": "sense",
+        "from_target_id": "sense:knob:9b23bd106adc5cdc",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "球形把手或突出物",
-      "decision_cn": "",
+      "decision_cn": "doorknob / control knob → 门把手、旋钮；shape → 球形突出物。少见动词“使带凸起/鼓起”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6088,40 +6250,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "球形突出物；瘤"
         }
-      },
-      {
-        "id": "sense:knob:9b23bd106adc5cdc",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使有球形突出物",
-        "definition_en": "to furnish with knobs; to make knobby",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:knob:9b23bd106adc5cdc",
-          "target_locator": "record.senses[2]",
-          "target_label": "使有球形突出物"
-        }
-      },
-      {
-        "id": "sense:knob:63b01672d4b45ec5",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "鼓起",
-        "definition_en": "to bulge or swell out",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:knob:63b01672d4b45ec5",
-          "target_locator": "record.senses[3]",
-          "target_label": "鼓起"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6149,7 +6277,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "使有球形突出物",
+          "definition_en": "to furnish with knobs; to make knobby",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:knob:9b23bd106adc5cdc",
+          "sense_label_en": "to furnish with knobs; to make knobby",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "鼓起",
+          "definition_en": "to bulge or swell out",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:knob:63b01672d4b45ec5",
+          "sense_label_en": "to bulge or swell out",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -6158,7 +6316,7 @@
     "ordinal": 2724,
     "word": "knock",
     "source_owner_path": "content/lexical/words/by-ordinal/o2724.json",
-    "source_fingerprint": "9e703b38b39b0b4715961ed1651dabb6569357962fda93b258add4b3134bec29",
+    "source_fingerprint": "6230b30d4b4148022bd68c3f7033d5bf82c0b04b9270c71d3ae7b7790a2d3073",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6169,7 +6327,7 @@
     },
     "word_feel": {
       "summary_cn": "敲击；敲打",
-      "decision_cn": "",
+      "decision_cn": "knock at/on → 敲门；knock sth → 撞击/敲打；knock sb out → 击昏/淘汰；noun → 敲击或打击。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6362,7 +6520,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:knock:knock-out",
+        "source_locator": "record.constructions[0]",
+        "pattern": "knock sb out / knock out sb",
+        "lines": [
+          {
+            "text": "把某人击昏；淘汰某人（比赛）",
+            "lang": "cn"
+          },
+          {
+            "text": "physical knock-out and competition elimination; not knocking at a door",
+            "lang": "en"
+          },
+          {
+            "text": "to make someone unconscious by hitting them, or eliminate someone from a competition",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:knock:knock-out",
+          "target_locator": "record.constructions[0]",
+          "target_label": "knock sb out / knock out sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6631,7 +6815,7 @@
     "ordinal": 2726,
     "word": "know",
     "source_owner_path": "content/lexical/words/by-ordinal/o2726.json",
-    "source_fingerprint": "665781bc6fc6c63685e69c234bed04ef01f7afa7bd3f169cc075b02811b9e73b",
+    "source_fingerprint": "7e8ee7cdee7e8db2ac654fe2b4b513950001592d9a9d2151d2de89c1fe4611ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6641,7 +6825,7 @@
     },
     "word_feel": {
       "summary_cn": "知道；了解",
-      "decision_cn": "",
+      "decision_cn": "know sth → 知道；know sb → 认识；know how to → 会做；as far as I know → 据我所知。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6806,7 +6990,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:know:as-far-as-i-know",
+        "source_locator": "record.constructions[0]",
+        "pattern": "as far as I know",
+        "lines": [
+          {
+            "text": "据我所知（表示信息可能不完整）",
+            "lang": "cn"
+          },
+          {
+            "text": "qualified-knowledge discourse marker, not an assertion of certainty",
+            "lang": "en"
+          },
+          {
+            "text": "used when saying what you believe to be true based on the information you have",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:know:as-far-as-i-know",
+          "target_locator": "record.constructions[0]",
+          "target_label": "as far as I know"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7530,18 +7740,33 @@
     "ordinal": 2731,
     "word": "lace",
     "source_owner_path": "content/lexical/words/by-ordinal/o2731.json",
-    "source_fingerprint": "a43fa96371159fb86da0c4a9862a65916cc0a3c34da9d4cde2392de6abcfb0e7",
-    "sense_lineage": [],
+    "source_fingerprint": "e48f8f21a67bec2e5185facae0eca7fecc54d6bd4093df808e0f34020811739a",
+    "sense_lineage": [
+      {
+        "word_id": "word:lace",
+        "target_kind": "sense",
+        "from_target_id": "sense:lace:b1dadb7b68c0563b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lace",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4ca186b08993c648acc1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "带子或花边",
-      "decision_cn": "",
+      "decision_cn": "cord → 鞋带/系带；fabric → 花边；verb → lace up 系紧、be laced with 掺有/夹杂。重复的少见不及物“系带”分支保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7634,39 +7859,8 @@
         }
       },
       {
-        "id": "sense:lace:b1dadb7b68c0563b",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + up",
-        "definition_cn": "系带子",
-        "definition_en": "to be fastened with a lace",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4ca186b08993c648acc1",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "lace up",
-            "meaning_cn": "系上带子",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4ca186b08993c648acc1",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "lace up"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lace:b1dadb7b68c0563b",
-          "target_locator": "record.senses[3]",
-          "target_label": "系带子"
-        }
-      },
-      {
         "id": "sense:lace:b1da3e15a468ef40",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "lace sth with sth; be laced with sth",
         "definition_cn": "掺入；给……加入；使夹杂/充满",
@@ -7676,27 +7870,27 @@
         "usage": [
           {
             "id": "collocation:bce4ea9a9845e6361fc7",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "lace sth with sth",
             "meaning_cn": "给某物掺入/加入某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:bce4ea9a9845e6361fc7",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "lace sth with sth"
             }
           },
           {
             "id": "collocation:210d9c9d3043f8f1d6a2",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "be laced with sth",
             "meaning_cn": "夹杂/充满某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:210d9c9d3043f8f1d6a2",
-              "target_locator": "record.senses[4].collocations[1]",
+              "target_locator": "record.senses[3].collocations[1]",
               "target_label": "be laced with sth"
             }
           }
@@ -7704,7 +7898,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lace:b1da3e15a468ef40",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "掺入；给……加入；使夹杂/充满"
         }
       }
@@ -7735,7 +7929,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:4ca186b08993c648acc1",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lace:b1dadb7b68c0563b:collocation:0"
+              ],
+              "meaning_cn": "系上带子",
+              "phrase": "lace up"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "系带子",
+          "definition_en": "to be fastened with a lace",
+          "governing_pattern": "vi. + up",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lace:b1dadb7b68c0563b",
+          "sense_label_en": "to be fastened with a lace",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -8259,18 +8479,33 @@
     "ordinal": 2736,
     "word": "lag",
     "source_owner_path": "content/lexical/words/by-ordinal/o2736.json",
-    "source_fingerprint": "9a6d8dea87433a1fbfea377813a798c8054ad70a0e9cedbda894bdf5af6203cd",
-    "sense_lineage": [],
+    "source_fingerprint": "1008af1095d032974b8e11c27637f9b51f01a0fed2ee3019e769b1b9f553a3e3",
+    "sense_lineage": [
+      {
+        "word_id": "word:lag",
+        "target_kind": "sense",
+        "from_target_id": "sense:lag:ebdef7df4fa95213",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lag",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dd7013fb432758119681",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "落后；滞后",
-      "decision_cn": "",
+      "decision_cn": "time/progress → 落后/滞后；a lag between → 时间差。工程“给…包隔热层”专门义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8325,32 +8560,6 @@
           "target_id": "sense:lag:66f43bbd865052fd",
           "target_locator": "record.senses[1]",
           "target_label": "延迟；时间间隔；滞后"
-        }
-      },
-      {
-        "id": "sense:lag:ebdef7df4fa95213",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给……加防护套（隔热层）",
-        "definition_en": "to cover something with insulating material to prevent heat loss",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dd7013fb432758119681",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "lag a pipe",
-            "meaning_cn": "给管道加保温层",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lag:ebdef7df4fa95213",
-          "target_locator": "record.senses[2]",
-          "target_label": "给……加防护套（隔热层）"
         }
       }
     ],
@@ -8415,7 +8624,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:dd7013fb432758119681",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lag:ebdef7df4fa95213:collocation:0"
+              ],
+              "meaning_cn": "给管道加保温层",
+              "phrase": "lag a pipe"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给……加防护套（隔热层）",
+          "definition_en": "to cover something with insulating material to prevent heat loss",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lag:ebdef7df4fa95213",
+          "sense_label_en": "to cover something with insulating material to prevent heat loss",
+          "sort_order": 1,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -8513,18 +8748,25 @@
     "ordinal": 2738,
     "word": "lamb",
     "source_owner_path": "content/lexical/words/by-ordinal/o2738.json",
-    "source_fingerprint": "b77983cda4948708e258d69e10b405bfaa555672316a1c376bd63c6338b57d30",
-    "sense_lineage": [],
+    "source_fingerprint": "2a05b63179cd89cfded62fa3248c842ed020b76faae7af89a3cc5d90e92e9337",
+    "sense_lineage": [
+      {
+        "word_id": "word:lamb",
+        "target_kind": "sense",
+        "from_target_id": "sense:lamb:1d79c42fd8e358ce",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "小羊",
-      "decision_cn": "",
+      "decision_cn": "animal → 小羊/羔羊；food → 羊羔肉；person → 温顺/无辜的人。农牧业“产羊羔”动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8568,25 +8810,8 @@
         }
       },
       {
-        "id": "sense:lamb:1d79c42fd8e358ce",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "产羊羔",
-        "definition_en": "(of a ewe) to give birth to a lamb",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lamb:1d79c42fd8e358ce",
-          "target_locator": "record.senses[2]",
-          "target_label": "产羊羔"
-        }
-      },
-      {
         "id": "sense:lamb:c9805e4b90d019b2",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "羊羔肉；小羊肉",
@@ -8596,7 +8821,7 @@
         "usage": [
           {
             "id": "collocation:b3feeed91d544704efa8",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "lamb chops",
             "meaning_cn": "羊排",
             "kind": "usage_example",
@@ -8604,7 +8829,7 @@
           },
           {
             "id": "collocation:6e59d7331153d92464a7",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "roast lamb",
             "meaning_cn": "烤羊肉",
             "kind": "usage_example",
@@ -8614,7 +8839,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lamb:c9805e4b90d019b2",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "羊羔肉；小羊肉"
         }
       }
@@ -8645,7 +8870,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "产羊羔",
+          "definition_en": "(of a ewe) to give birth to a lamb",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lamb:1d79c42fd8e358ce",
+          "sense_label_en": "(of a ewe) to give birth to a lamb",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -8654,55 +8895,57 @@
     "ordinal": 2739,
     "word": "lame",
     "source_owner_path": "content/lexical/words/by-ordinal/o2739.json",
-    "source_fingerprint": "fd3208b28024f2b9255487533ecc371f57ffe38ae9726f6b747f57c5fae164e6",
-    "sense_lineage": [],
+    "source_fingerprint": "8cec4213da5ec7338a92b182cd2fad280d6e86a652deb1cb41f7434b79c7688f",
+    "sense_lineage": [
+      {
+        "word_id": "word:lame",
+        "target_kind": "sense",
+        "from_target_id": "sense:lame:0e4e4255363f5d7c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lame",
+        "target_kind": "sense",
+        "from_target_id": "sense:lame:b22b0f615e9b5a49",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lame",
+        "target_kind": "sense",
+        "from_target_id": "sense:lame:b6f3936dab21504d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lame",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6523974169484ee8dbe5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2A",
-        "1N"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "跛的；站不住脚的/无说服力的",
-      "decision_cn": "",
+      "summary_cn": "跛的；无说服力的",
+      "decision_cn": "physical → 跛足的（描述人时注意尊重语境）；figurative → lame excuse = 蹩脚的/站不住脚的借口。金属线织物及旧式动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "跛的；站不住脚的/无说服力的"
+        "target_label": "跛的；无说服力的"
       }
     },
     "senses": [
       {
-        "id": "sense:lame:0e4e4255363f5d7c",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "金属薄板（织物）",
-        "definition_en": "a fabric interwoven with threads of metal",
-        "note": "This metallic-fabric meaning belongs to the distinct accented identity lamé, not ordinary adjective lame.",
-        "identity_overlay": {
-          "text": "accented_spelling_identity",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "accented_spelling_identity"
-          }
-        },
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lame:0e4e4255363f5d7c",
-          "target_locator": "record.senses[0]",
-          "target_label": "金属薄板（织物）"
-        }
-      },
-      {
         "id": "sense:lame:3d24d1be8dfa5e9a",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "跛足的；瘸的",
@@ -8713,44 +8956,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lame:3d24d1be8dfa5e9a",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "跛足的；瘸的"
         }
       },
       {
-        "id": "sense:lame:b6f3936dab21504d",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使成残废，使无用",
-        "definition_en": "make someone or something lame",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6523974169484ee8dbe5",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "lame + sb/sth",
-            "meaning_cn": "使…跛，使…无用",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6523974169484ee8dbe5",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "lame + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lame:b6f3936dab21504d",
-          "target_locator": "record.senses[2]",
-          "target_label": "使成残废，使无用"
-        }
-      },
-      {
         "id": "sense:lame:6b5ca4fb24bb591a",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "站不住脚的；无说服力的",
@@ -8761,25 +8973,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:lame:6b5ca4fb24bb591a",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[1]",
           "target_label": "站不住脚的；无说服力的"
-        }
-      },
-      {
-        "id": "sense:lame:b22b0f615e9b5a49",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "变跛",
-        "definition_en": "become lame",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lame:b22b0f615e9b5a49",
-          "target_locator": "record.senses[4]",
-          "target_label": "变跛"
         }
       }
     ],
@@ -8816,12 +9011,6 @@
         ],
         "sense:lame:6b5ca4fb24bb591a": [
           0
-        ],
-        "sense:lame:b22b0f615e9b5a49": [
-          0
-        ],
-        "sense:lame:b6f3936dab21504d": [
-          0
         ]
       },
       "has_scope": true
@@ -8832,7 +9021,68 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "金属薄板（织物）",
+          "definition_en": "a fabric interwoven with threads of metal",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "identity_type": "accented_spelling_identity",
+            "paired_form": "lame",
+            "pronunciation": "lamé has a distinct accented spelling and pronunciation; metallic-thread fabric",
+            "surface_lemma": "lamé"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lame:0e4e4255363f5d7c",
+          "sense_label_en": "a fabric interwoven with threads of metal",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "usage_note": "This metallic-fabric meaning belongs to the distinct accented identity lamé, not ordinary adjective lame."
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6523974169484ee8dbe5",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:lame:b6f3936dab21504d:collocation:0"
+              ],
+              "meaning_cn": "使…跛，使…无用",
+              "phrase": "lame + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使成残废，使无用",
+          "definition_en": "make someone or something lame",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lame:b6f3936dab21504d",
+          "sense_label_en": "make someone or something lame",
+          "sort_order": 1,
+          "transitivity": "vt"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "变跛",
+          "definition_en": "become lame",
+          "governing_pattern": "vi.",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lame:b22b0f615e9b5a49",
+          "sense_label_en": "become lame",
+          "sort_order": 2,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -9332,18 +9582,26 @@
     "ordinal": 2743,
     "word": "landscape",
     "source_owner_path": "content/lexical/words/by-ordinal/o2743.json",
-    "source_fingerprint": "cab830fbe07e7e9fcb596d4ac4b0acbd1dcc2114de5cd6a96cdc11aee38433c5",
-    "sense_lineage": [],
+    "source_fingerprint": "4731cb2530ef3182ce9e208d1ecb2936996b25be4ba95e6fc4b263a34124752f",
+    "sense_lineage": [
+      {
+        "word_id": "word:landscape",
+        "target_kind": "sense",
+        "from_target_id": "sense:landscape:4e082902c5645316",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "风景；景观",
-      "decision_cn": "",
+      "decision_cn": "scenery → 风景；art → 风景画；figurative → 领域/局面（political landscape）；verb landscape a garden → 美化景观。少见不及物职业动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9439,25 +9697,8 @@
         }
       },
       {
-        "id": "sense:landscape:4e082902c5645316",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "从事景观美化",
-        "definition_en": "to work as a landscape gardener",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:landscape:4e082902c5645316",
-          "target_locator": "record.senses[3]",
-          "target_label": "从事景观美化"
-        }
-      },
-      {
         "id": "sense:landscape:71018b9ed7805db1",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "格局；局面；整体环境",
@@ -9468,7 +9709,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:landscape:71018b9ed7805db1",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "格局；局面；整体环境"
         }
       }
@@ -9498,7 +9739,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "从事景观美化",
+          "definition_en": "to work as a landscape gardener",
+          "governing_pattern": "vi.",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:landscape:4e082902c5645316",
+          "sense_label_en": "to work as a landscape gardener",
+          "sort_order": 3,
+          "transitivity": "vi"
+        }
+      ]
     }
   },
   {
@@ -9747,18 +10004,32 @@
     "ordinal": 2746,
     "word": "lantern",
     "source_owner_path": "content/lexical/words/by-ordinal/o2746.json",
-    "source_fingerprint": "1b9945f5e73d0becb351d579c030bf045bbc1b6a28e8fbbc121c622de3d34c38",
-    "sense_lineage": [],
+    "source_fingerprint": "c4c728a95bd366df902309889d63c46a28151d9e2921b06174b8395181096b9b",
+    "sense_lineage": [
+      {
+        "word_id": "word:lantern",
+        "target_kind": "sense",
+        "from_target_id": "sense:lantern:6b3f252263a051f4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lantern",
+        "target_kind": "sense",
+        "from_target_id": "sense:lantern:770e5e7e2f03576f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "灯笼；提灯",
-      "decision_cn": "",
+      "decision_cn": "everyday → 灯笼/提灯；航标灯及“给…装灯”动词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9800,40 +10071,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "灯笼；提灯"
         }
-      },
-      {
-        "id": "sense:lantern:770e5e7e2f03576f",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "航标灯",
-        "definition_en": "a light used as a signal, e.g., in a lighthouse",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lantern:770e5e7e2f03576f",
-          "target_locator": "record.senses[1]",
-          "target_label": "航标灯"
-        }
-      },
-      {
-        "id": "sense:lantern:6b3f252263a051f4",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装上提灯",
-        "definition_en": "to equip with a lantern",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lantern:6b3f252263a051f4",
-          "target_locator": "record.senses[2]",
-          "target_label": "装上提灯"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9861,7 +10098,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "航标灯",
+          "definition_en": "a light used as a signal, e.g., in a lighthouse",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:lantern:770e5e7e2f03576f",
+          "sense_label_en": "a light used as a signal, e.g., in a lighthouse",
+          "sort_order": 1,
+          "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "装上提灯",
+          "definition_en": "to equip with a lantern",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lantern:6b3f252263a051f4",
+          "sense_label_en": "to equip with a lantern",
+          "sort_order": 2,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -10051,18 +10318,33 @@
     "ordinal": 2748,
     "word": "lapse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2748.json",
-    "source_fingerprint": "fb46a80d6b4c08c14d599898926e966fa3344a4af1217a9a0287fd8d08ced1a2",
-    "sense_lineage": [],
+    "source_fingerprint": "51d5dcbb9a1363a38a695b8f495c3c920a2b460d724629e252beadb1d7e5267b",
+    "sense_lineage": [
+      {
+        "word_id": "word:lapse",
+        "target_kind": "sense",
+        "from_target_id": "sense:lapse:f71e755cf65b52b9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lapse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3f6272bd9a5626b7b828",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "短暂失误或衰退，或时间的流逝",
-      "decision_cn": "",
+      "decision_cn": "noun lapse in memory/judgment → 一时失误；verb lapse into → 陷入某状态；contract lapse → 失效。少见及物“使失效”义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10252,32 +10534,6 @@
           "target_locator": "record.senses[4]",
           "target_label": "失效；终止"
         }
-      },
-      {
-        "id": "sense:lapse:f71e755cf65b52b9",
-        "source_locator": "record.senses[5]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使失效",
-        "definition_en": "to cause something to become no longer valid",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3f6272bd9a5626b7b828",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "lapse a policy",
-            "meaning_cn": "使保单失效",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:lapse:f71e755cf65b52b9",
-          "target_locator": "record.senses[5]",
-          "target_label": "使失效"
-        }
       }
     ],
     "pronunciation_support": {
@@ -10301,12 +10557,64 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:lapse:lapse-into",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lapse into sth (e.g. silence, bad habits)",
+        "lines": [
+          {
+            "text": "逐渐陷入；重新回到（往往不好的状态）",
+            "lang": "cn"
+          },
+          {
+            "text": "state-change pattern; distinct from a lapse of memory or an agreement lapsing",
+            "lang": "en"
+          },
+          {
+            "text": "to gradually fall into a particular state or condition",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lapse:lapse-into",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lapse into sth (e.g. silence, bad habits)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3f6272bd9a5626b7b828",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:lapse:f71e755cf65b52b9:collocation:0"
+              ],
+              "meaning_cn": "使保单失效",
+              "phrase": "lapse a policy"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使失效",
+          "definition_en": "to cause something to become no longer valid",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:lapse:f71e755cf65b52b9",
+          "sense_label_en": "to cause something to become no longer valid",
+          "sort_order": 5,
+          "transitivity": "vt"
+        }
+      ]
     }
   },
   {
@@ -10408,18 +10716,32 @@
     "ordinal": 2750,
     "word": "large",
     "source_owner_path": "content/lexical/words/by-ordinal/o2750.json",
-    "source_fingerprint": "c88e9a34acebd0f4b40c3bda3ecd022b75bc84325086fcffa52804a6565b7e1b",
-    "sense_lineage": [],
+    "source_fingerprint": "7e76a7b31359a8da3f3456d8bd8e3548886d662a63f52eba325b5fb0bfc10e8a",
+    "sense_lineage": [
+      {
+        "word_id": "word:large",
+        "target_kind": "sense",
+        "from_target_id": "sense:large:694d370e6ca45730",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:large",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d2827665f20b48b4f923",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1ADV"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "大的",
-      "decision_cn": "",
+      "decision_cn": "size/quantity → 大；importance → 重要的；public at large → 公众总体；criminal at large → 仍在逃。低频副词“夸大地”保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10486,32 +10808,6 @@
           "target_id": "sense:large:8dbd78a6721e520f",
           "target_locator": "record.senses[1]",
           "target_label": "重要的；有影响力的"
-        }
-      },
-      {
-        "id": "sense:large:694d370e6ca45730",
-        "source_locator": "record.senses[2]",
-        "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "大大地；夸大地",
-        "definition_en": "in a large manner",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d2827665f20b48b4f923",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "talk large",
-            "meaning_cn": "说大话",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:large:694d370e6ca45730",
-          "target_locator": "record.senses[2]",
-          "target_label": "大大地；夸大地"
         }
       }
     ],
@@ -10598,6 +10894,32 @@
             }
           ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d2827665f20b48b4f923",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:large:694d370e6ca45730:collocation:0"
+              ],
+              "meaning_cn": "说大话",
+              "phrase": "talk large"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "大大地；夸大地",
+          "definition_en": "in a large manner",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adverb",
+          "sense_id": "sense:large:694d370e6ca45730",
+          "sense_label_en": "in a large manner",
+          "sort_order": 2,
+          "transitivity": "nonverb"
         }
       ]
     }

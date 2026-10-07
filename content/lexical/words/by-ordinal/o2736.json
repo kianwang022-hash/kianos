@@ -30,14 +30,13 @@
           "label_en": "to move or develop more slowly than others; to cover something with insulating material to prevent heat loss",
           "pos": "verb",
           "sense_ids": [
-            "sense:lag:d88d51becf51590c",
-            "sense:lag:ebdef7df4fa95213"
+            "sense:lag:d88d51becf51590c"
           ]
         }
       ],
       "core_meaning_cn": "落后；滞后",
       "core_meaning_en": "to fall behind or a delay",
-      "mental_model_cn": "落后；滞后",
+      "mental_model_cn": "time/progress → 落后/滞后；a lag between → 时间差。工程“给…包隔热层”专门义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -85,30 +84,6 @@
         "sense_label_en": "a delay or period of time between two events",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:dd7013fb432758119681",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lag:ebdef7df4fa95213:collocation:0"
-            ],
-            "meaning_cn": "给管道加保温层",
-            "phrase": "lag a pipe"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "给……加防护套（隔热层）",
-        "definition_en": "to cover something with insulating material to prevent heat loss",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lag:ebdef7df4fa95213",
-        "sense_label_en": "to cover something with insulating material to prevent heat loss",
-        "sort_order": 1,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -265,7 +240,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:dd7013fb432758119681",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lag:ebdef7df4fa95213:collocation:0"
+          ],
+          "meaning_cn": "给管道加保温层",
+          "phrase": "lag a pipe"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "给……加防护套（隔热层）",
+      "definition_en": "to cover something with insulating material to prevent heat loss",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lag:ebdef7df4fa95213",
+      "sense_label_en": "to cover something with insulating material to prevent heat loss",
+      "sort_order": 1,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -284,15 +284,14 @@
       },
       {
         "sense_id": "sense:lag:ebdef7df4fa95213",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7568,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
       }
     ],
     "active_collocations": [
-      "collocation:8e952275a9455137d4fe",
-      "collocation:dd7013fb432758119681"
+      "collocation:8e952275a9455137d4fe"
     ],
     "facts": [],
     "collocations": [
@@ -309,7 +308,9 @@
       {
         "id": "collocation:dd7013fb432758119681",
         "source_row": 18743,
-        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

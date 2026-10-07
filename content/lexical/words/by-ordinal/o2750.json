@@ -33,19 +33,11 @@
             "sense:large:f15ada364c10559e",
             "sense:large:8dbd78a6721e520f"
           ]
-        },
-        {
-          "label_cn": "大大地；夸大地",
-          "label_en": "in a large manner",
-          "pos": "adverb",
-          "sense_ids": [
-            "sense:large:694d370e6ca45730"
-          ]
         }
       ],
       "core_meaning_cn": "大的",
       "core_meaning_en": "of considerable size or extent",
-      "mental_model_cn": "大的",
+      "mental_model_cn": "size/quantity → 大；importance → 重要的；public at large → 公众总体；criminal at large → 仍在逃。低频副词“夸大地”保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,30 +106,6 @@
         "sense_id": "sense:large:8dbd78a6721e520f",
         "sense_label_en": "fairly important or influential",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d2827665f20b48b4f923",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:large:694d370e6ca45730:collocation:0"
-            ],
-            "meaning_cn": "说大话",
-            "phrase": "talk large"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "大大地；夸大地",
-        "definition_en": "in a large manner",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "sense_id": "sense:large:694d370e6ca45730",
-        "sense_label_en": "in a large manner",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -442,12 +410,37 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d2827665f20b48b4f923",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:large:694d370e6ca45730:collocation:0"
+          ],
+          "meaning_cn": "说大话",
+          "phrase": "talk large"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "大大地；夸大地",
+      "definition_en": "in a large manner",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adverb",
+      "sense_id": "sense:large:694d370e6ca45730",
+      "sense_label_en": "in a large manner",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:large:694d370e6ca45730",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7609,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
@@ -470,8 +463,7 @@
     "active_collocations": [
       "collocation:45a2921ebb13f208bb19",
       "collocation:6f06126ab9ca273d4959",
-      "collocation:b84619b56f328ad8fd2f",
-      "collocation:d2827665f20b48b4f923"
+      "collocation:b84619b56f328ad8fd2f"
     ],
     "facts": [
       {
@@ -499,7 +491,9 @@
       {
         "id": "collocation:d2827665f20b48b4f923",
         "source_row": 17785,
-        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

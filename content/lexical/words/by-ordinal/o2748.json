@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:lapse:lapse-into",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "逐渐陷入；重新回到（往往不好的状态）",
+        "definition_en": "to gradually fall into a particular state or condition",
+        "pattern": "lapse into sth (e.g. silence, bad habits)",
+        "source_sense_id": "sense:lapse:42ca1c6ff40a5f35",
+        "boundary": "state-change pattern; distinct from a lapse of memory or an agreement lapsing"
+      }
+    ],
     "content_hash": "bf8b8809a97123dd5cf23f00a07651f65660ddc498be9e6765d5272d804c947f",
     "core_concept": {
       "core_clusters": [
@@ -26,14 +37,13 @@
           "sense_ids": [
             "sense:lapse:42ca1c6ff40a5f35",
             "sense:lapse:174c9394e7b65cac",
-            "sense:lapse:c01fc59c5b025c09",
-            "sense:lapse:f71e755cf65b52b9"
+            "sense:lapse:c01fc59c5b025c09"
           ]
         }
       ],
       "core_meaning_cn": "短暂失误或衰退，或时间的流逝",
       "core_meaning_en": "a temporary failure or decline, or the passage of time",
-      "mental_model_cn": "短暂失误或衰退，或时间的流逝",
+      "mental_model_cn": "noun lapse in memory/judgment → 一时失误；verb lapse into → 陷入某状态；contract lapse → 失效。少见及物“使失效”义保留为 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -199,30 +209,6 @@
         "sense_label_en": "to come to an end or become no longer valid, especially after a period o",
         "sort_order": 4,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3f6272bd9a5626b7b828",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lapse:f71e755cf65b52b9:collocation:0"
-            ],
-            "meaning_cn": "使保单失效",
-            "phrase": "lapse a policy"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使失效",
-        "definition_en": "to cause something to become no longer valid",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:lapse:f71e755cf65b52b9",
-        "sense_label_en": "to cause something to become no longer valid",
-        "sort_order": 5,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -413,7 +399,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3f6272bd9a5626b7b828",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:lapse:f71e755cf65b52b9:collocation:0"
+          ],
+          "meaning_cn": "使保单失效",
+          "phrase": "lapse a policy"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "使失效",
+      "definition_en": "to cause something to become no longer valid",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:lapse:f71e755cf65b52b9",
+      "sense_label_en": "to cause something to become no longer valid",
+      "sort_order": 5,
+      "transitivity": "vt"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -453,7 +464,7 @@
       },
       {
         "sense_id": "sense:lapse:f71e755cf65b52b9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 7607,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
@@ -464,7 +475,6 @@
       "collocation:0992516fbceccc3d126a",
       "collocation:315fa502f1443dac8a4d",
       "collocation:3d63bfd91d655e85ebec",
-      "collocation:3f6272bd9a5626b7b828",
       "collocation:4cc6d8d9fe4e3f306520",
       "collocation:67c6a79ebbb55e3b4173",
       "collocation:9025bd2678b8a97eb27a",
@@ -491,7 +501,9 @@
       {
         "id": "collocation:3f6272bd9a5626b7b828",
         "source_row": 5371,
-        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4cc6d8d9fe4e3f306520",
