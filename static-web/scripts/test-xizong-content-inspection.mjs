@@ -101,5 +101,21 @@ check(b1.blockTrace.supports.find(s=>s.native.raw?.source==='ATTENTION_STOP_LINE
 const missingBlock=structuredClone(targetBlock);missingBlock.blockTrace.supports.pop();
 assert.throws(()=>assertInspectionSupportCoverage(missingBlock));checks++;
 
+// Normal learning consumes the rules and Current content, not this audit report.
+const learningRoute = fs.readFileSync(path.join(repo, 'content/xizong/knowledge/learner/README.md'), 'utf8');
+const b1Route = learningRoute.split('### Accepted B1 teaching basis')[1]?.split('### Accepted B2 teaching basis')[0] || '';
+const entryRoute = learningRoute.split('## Chat-led Block reading entry')[1]?.split('## Teaching basis resolution')[0] || '';
+check(entryRoute.includes('§0, §4') && entryRoute.includes('§5 and §13') && entryRoute.includes('Lecture Replacement Contract'), 'normal entry restores the existing teaching/interaction rules');
+check(!/node\s+.*inspect-xizong-content/.test(learningRoute), 'normal entry has no executable inspection prerequisite');
+check(b1Route.includes('kianos:model adopted-model') && b1Route.includes('Block1_正常机械循环_学习阅读版_v7_最终执行版.md'), 'B1 reads its current canonical model section');
+check(!/\]\([^\n)]*b01-teaching\.md/.test(b1Route), 'B1 does not route back to a preserved historical teaching file');
+check(b1Route.includes('mission') && b1Route.includes('mental_model') && b1Route.includes('cross_block_bridges') && b1Route.includes('blocks.circulation-b01'), 'normal B1 preserves System position and local learning purpose');
+check(b1Route.includes('开 Block｜先给循环系统一副机械骨架') && b1Route.includes('folded review layout is not first-learning order'), 'first learning restores the adopted opening before local detail');
+check(b1.learnerObject.model.markdown.includes('开 Block｜先给循环系统一副机械骨架') && b1.learnerObject.model.markdown.includes('并行供养'), 'referenced opening and parallel branch exist in the live model');
+check(entryRoute.includes('“继续”') && entryRoute.includes('“有教案吗／没有设定吗”') && entryRoute.includes('not asking Kian to restate'), 'continuation and settings questions consume existing context');
+check(b1Route.includes('side-reference KPs') && b1Route.includes('not all replaced') && b1Route.includes('原图门禁'), 'review does not equate Precision-card count with full Block coverage');
+const routerLinks = [...learningRoute.matchAll(/\]\(([^)]+)\)/g)].map(m => m[1]).filter(url => !/^[a-z]+:/i.test(url));
+check(routerLinks.every(url => fs.existsSync(path.resolve(repo, 'content/xizong/knowledge/learner', decodeURI(url.split('#')[0])))), 'every local content-routing target exists');
+
 check(status()===before,'inspection did not mutate repository');
 console.log(`PASS ${checks} Xizong content-inspection checks; native B1/B6 + B/D1 + A2/R1/R3; 7 Content and 7 scope-corruption cases, no browser/learner-state writes.`);
