@@ -99,6 +99,17 @@ def main():
    href=unquote(link['href']);u=urlparse(href)
    if href.startswith('#'):check(row['path']+' internal anchor '+href,href[1:] in ids);continue
    if not u.scheme:check(row['path']+' no unpublished local promise '+href,False);continue
+   # Only these existing admission/answer owners are live entry references.
+   # Original medical/Source destinations remain pinned below without exception.
+   current_entries = {
+    'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md',
+    'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning-cues.json',
+    'content/xizong/knowledge/learner/shared-fields.json'}
+   current_prefix='/kianwang022-hash/kianos/blob/main/'
+   if u.netloc=='github.com' and u.path.startswith(current_prefix):
+    target=u.path[len(current_prefix):]
+    check(row['path']+' exact existing current entry '+href,target in current_entries and not u.fragment and (root/target).is_file())
+    continue
    parts=u.path.split('/');ok=u.netloc=='github.com' and len(parts)>5 and parts[1:3]==['kianwang022-hash','kianos'] and parts[3] in ['blob','tree'] and parts[4]==fixture['source_ref'];check(row['path']+' pinned repository destination '+href,ok)
    if not ok:continue
    target='/'.join(parts[5:]).rstrip('/');proof=fixture['published_targets'].get(target);check(row['path']+' verified owner '+target,proof is not None)

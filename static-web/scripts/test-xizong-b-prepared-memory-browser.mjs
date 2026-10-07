@@ -42,7 +42,17 @@ try {
  const assertAnswer=async(page,row)=>{
   const answer=page.locator(`[data-memory-answer] [data-prepared-memory="${row.id}"]`),body=answer.locator(':scope > [data-memory-prepared-answer]');
   assert.equal(await answer.count(),1,`${row.id}: exact native answer identity must be selected`);assert.equal(await answer.isVisible(),true);assert.equal(await body.count(),1);
-  assert.equal(await body.textContent(),row.item.answer,`${row.id}: full exact answer and original authored boundaries`);
+  if (row.id === 'b-d15-lg06-dentate-line') {
+   // Authored table punctuation becomes cells; every original value and the
+   // explicit original-visual obligation must survive in the actual surface.
+   const lines = row.item.answer.split(/\r?\n/), tableLines = lines.filter(line => line.trim().startsWith('|'));
+   const cells = line => line.trim().slice(1, -1).split('|').map(cell => cell.trim());
+   assert.deepEqual(await body.locator('thead th').allTextContents(), cells(tableLines[0]));
+   assert.deepEqual(await body.locator('tbody tr').evaluateAll(rows => rows.map(row => [...row.querySelectorAll('td')].map(cell => cell.textContent))), tableLines.slice(2).map(cells));
+   assert.equal(await body.locator('tbody tr').count(), 9);
+   assert.deepEqual(await body.locator('p').allTextContents(), lines.filter(line => line.trim() && !line.trim().startsWith('|')));
+   assert.match(await body.innerText(), /必须回原图/);
+  } else assert.equal(await body.textContent(),row.item.answer,`${row.id}: full exact answer and original authored boundaries`);
   assert.equal(await body.locator('details').count(),0);
   const view=await answer.evaluate(root=>({hidden:[...root.querySelectorAll('p')].filter(p=>/^(?:适用范围：|来源差异：|处理边界：|助记（不能代替答案）：)/u.test(p.textContent||'')).filter(p=>!p.getClientRects().length).map(p=>p.textContent),visible:root.innerText,full:root.textContent,open:root.querySelectorAll('[data-memory-provenance][open]').length}));
   assert.deepEqual(view.hidden,[],`${row.id}: all scope, conditions and aid readable after Reveal`);assert.equal(view.open,0);
@@ -135,7 +145,13 @@ try {
  const history=async(page,id)=>(await read(page,reviewKey(id)))?.evidenceHistory||[];
  const waitStage=async(page,id,stage)=>{
   await page.waitForFunction(({key,stage})=>JSON.parse(localStorage.getItem(key)||'null')?.stage===stage,{key:studyKey(id),stage});
-  assert.equal(await page.locator(`[data-study-stage="${stage}"]`).isVisible(),true);
+  if (stage === 'logic_group') {
+   // This compatibility state uses the current independent-hold surface.
+   // The old standalone orientation panel is intentionally CSS-retired.
+   assert.equal(await page.locator('[data-study-stage="logic_group"]').isVisible(), false);
+   assert.equal(await page.locator('[data-independent-readiness-hold]').isVisible(), true);
+   assert.equal(await page.locator('[data-xizong-v6-block]').evaluate(root => root.getXizongStudyPosition().stage), stage);
+  } else assert.equal(await page.locator(`[data-study-stage="${stage}"]`).isVisible(),true);
  };
  const noInventedClaims=async(page,id)=>{
   assert.deepEqual(claims(await read(page,studyKey(id))),emptyClaims,`${id}: navigation/Recall does not create Source, learned, TTSX or completion`);
@@ -340,7 +356,7 @@ try {
   const before=await raw(page,studyKey(id));await reference.locator('summary').click();
   assert.equal(normalized(await reference.locator('.markdown').textContent()),normalized(await page.evaluate(html=>new DOMParser().parseFromString(html,'text/html').body.textContent,kp.core.html)),'held reference preserves unchanged Current Core with an explicit warning');
   assert.equal(await raw(page,studyKey(id)),before,'opening reference does not grant evidence');
-  const heldCard=page.locator(`[data-kp-recall-card][data-kp-id="${heldId}"]`);await heldCard.locator('[data-kp-reveal]').dispatchEvent('click');await heldCard.locator('[data-rating="known"]').dispatchEvent('click');await page.locator('[data-enter-group]').click();await waitStage(page,id,'logic_group');
+  const heldCard=page.locator(`[data-kp-recall-card][data-kp-id="${heldId}"]`);await heldCard.locator('[data-kp-reveal]').dispatchEvent('click');await heldCard.locator('[data-rating="known"]').dispatchEvent('click');await page.locator('[data-enter-group]').dispatchEvent('click');await waitStage(page,id,'logic_group');
   assert.equal(await heldCard.locator('[data-kp-answer]').isVisible(),false);assert.deepEqual(await read(page,reviewKey(id)),evidence);assert.equal(await page.locator(`[data-group-target="${groupIndex}"]`).evaluate(node=>node.classList.contains('done')),false);
   const {inspectXizongBlockCompletion}=await import('../src/lib/xizongMemoryAutoRelease.mjs');const completion=inspectXizongBlockCompletion(object,await read(page,studyKey(id)));assert.equal(completion.complete,false);assert.equal(completion.reason,'INDEPENDENT_READINESS_UNRESOLVED');assert.ok(completion.heldLogicGroupIds.includes(gate.logicGroupIds[0]));
   await page.screenshot({path:path.join(out,'D19-lg07-medical-hold-current-reference.png'),fullPage:true});await noInventedClaims(page,id);
