@@ -82,6 +82,12 @@ try {
   }
   const shared = JSON.parse(fs.readFileSync(repoFile('content/xizong/knowledge/learner/shared-fields.json'), 'utf8'));
   for (const [collection, entries] of Object.entries(oracle.protected_shared_entries)) {
+    // The frozen fixture keeps the original LG hashes as history. This unused
+    // structural table is retired; every other protected entry remains sealed.
+    if (collection === 'logic_groups') {
+      assert.equal(Object.hasOwn(shared, collection), false, 'retired shared LG structure must remain absent');
+      continue;
+    }
     for (const [key, hash] of Object.entries(entries)) {
       assert.equal(sha(JSON.stringify(stable(shared[collection]?.[key]))), hash, `${collection}/${key}: frozen pre-A3 owner changed`);
     }
@@ -105,7 +111,7 @@ try {
     assert.deepEqual(actual.sort(), [...baseline.admitted_ids].sort(), `${canonical}: exact previous descriptor identities`);
     assert.equal(actual.length, canonical === 'A1' ? 176 : 26);
   }
-  checks.push('independent 28-answer/aid seals; all previous shared entries and complete A1/A2 cue-index bytes preserved; all 24 full native descriptor values and exact 176 A1 + 26 A2 identities');
+  checks.push('independent 28-answer/aid seals; all active previous shared entries preserved, obsolete LG table absent, complete A1/A2 cue-index bytes preserved; all 24 full native descriptor values and exact 176 A1 + 26 A2 identities');
 
   const projections = new Map(), cardsBySlug = new Map();
   const assertPreentry = (object, slug) => {
