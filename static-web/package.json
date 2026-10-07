@@ -60,6 +60,8 @@
     "codex:hygiene": "node scripts/codex-local-hygiene.mjs",
     "codex:hygiene:apply": "node scripts/codex-local-hygiene.mjs --apply",
     "test:codex-hygiene": "node scripts/test-codex-local-hygiene.mjs",
+    "task:workspace": "node scripts/codex-local-hygiene.mjs --workspace",
+    "test:task-workspace": "node scripts/test-codex-local-hygiene.mjs --workspace-only",
     "codex:watcher": "node scripts/codex-issue-watcher.mjs --json",
     "codex:watcher:dry": "node scripts/codex-issue-watcher.mjs --dry-run --json",
     "codex:watcher:install": "bash scripts/install-codex-issue-watcher-macos.sh",

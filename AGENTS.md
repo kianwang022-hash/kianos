@@ -185,6 +185,8 @@ Do not ask Kian to paste the Issue body, previous Chat discussion, PR diff or ex
 Detailed task dispatch, GitHub Issue/Codex execution, Remote usage, batching, cursor atomicity, context budget and reporting discipline live in
 [PROJECT_MANAGEMENT_CONTRACT.md](PROJECT_MANAGEMENT_CONTRACT.md), not here.
 
+Task disk lifecycle: reuse the bound checkout; when isolation is necessary use `npm --prefix static-web run task:workspace -- --branch <task-branch> --path <absolute-path> --sparse <needed-directory>` (repeat `--sparse`, or explicitly choose `--full`). After accepted merge, run scoped local hygiene from a retained checkout; temporary whole-source snapshots belong in a task-owned `try/finally` lifetime. Details and safety boundaries live in [Project Management](PROJECT_MANAGEMENT_CONTRACT.md#local-task-disk-lifecycle).
+
 Branch retirement lives in [BRANCH_LIFECYCLE.md](BRANCH_LIFECYCLE.md).
 Concurrent-main validity lives in [SEMANTIC_BASE_VALIDITY.md](SEMANTIC_BASE_VALIDITY.md).
 

@@ -534,14 +534,14 @@ Codex execution lifecycle:
 fresh pickup / rebind
 → read main@HEAD + AGENTS.md + relevant program/domain Current + exact owner
 → compress the active basis; consecutive same-task slices reuse it
-→ create temporary codex/issue<N>-<slug> branch/worktree
+→ reuse the bound task checkout, or allocate through task:workspace with disk/count checks
 → execute only the bounded write-set
 → update result + exact cursor atomically when durable state changes
 → open PR with machine/browser proof and "Closes #N"
 → merge only when current owner / Human Gate permits
 → verify accepted result on fresh main@HEAD
 → remote Branch Hygiene retires merged branch
-→ local hygiene retires safe local codex branch/worktree
+→ run scoped local hygiene from a retained checkout to retire the accepted task branch/worktree
 → compact receipt
 ```
 
@@ -564,11 +564,32 @@ deviation / remaining blocker (only if any)
 
 No long implementation diary is required.
 
-Local cleanup command after accepted merge:
+#### Local task disk lifecycle
 
-`npm --prefix static-web run codex:hygiene:apply`
+A GitHub merge does not remove files on the Mac. The worker completing the merge owns local retirement in the same session. Remote Branch Hygiene only retires remote refs. This lifecycle runs during authorized task execution; it does not enable a scheduler or background model loop.
 
-It may delete only local branches matching `codex/issue<digits>-*` when the remote branch is already gone, the exact Issue is `CLOSED/COMPLETED`, an exact-head PR for that branch is merged, and any attached worktree is clean. The local tip must either already be contained in `origin/main` or exactly match the merged PR head (safe squash-merge case). Everything else is skipped fail-closed.
+**Before allocating:** reuse the bound task's checkout without resetting its changes. If isolation is necessary, use the existing repository as the shared Git owner:
+
+```sh
+npm --prefix static-web run task:workspace -- --branch codex/issue<N>-<slug> --path /absolute/task/path --sparse static-web/scripts
+```
+
+Repeat `--sparse` for required directories; root and ancestor files remain available. Use `--full` only when the actual consumer needs the whole checkout. The command returns an existing worktree for that branch unchanged; otherwise it preserves at least **15 GiB** after estimated checkout size and allows at most **16 registered worktrees** including the primary checkout. `--min-free-gib` and `--max-worktrees` are explicit operator overrides, not automatic retry fallbacks. Limits refuse allocation and return the reason; do not bypass them with `git clone`, `git archive` or manual `git worktree add`. Check actual dependency/build headroom before installing additional tools. The parent directory must already exist and use its canonical absolute path. No dependencies or build are installed automatically.
+
+**During work:** do not create a full source copy for each word/block or each review iteration. Prefer `git show`, diffs and sparse checkout for a bounded audit. If a validator requires a temporary source snapshot, own it in `try/finally`, keep only the necessary final proof and remove the disposable snapshot before finishing. Unregistered directories and independent clones are never automatically deleted based on name/age. Failed workspace initialization remains locked for inspection.
+
+**After accepted merge:** leave the task directory and run from a retained checkout sharing the same Git object store:
+
+```sh
+npm --prefix static-web run codex:hygiene -- --branch <completed-task-branch>
+npm --prefix static-web run codex:hygiene:apply -- --branch <completed-task-branch>
+```
+
+All branch prefixes are eligible only when the remote branch is gone, no open PR exists, and the local head exactly matches a merged PR into `main`. `codex/issue<N>-*` and historical `codex/issue-<N>-*` additionally require the exact Issue to be `CLOSED/COMPLETED`. Reused branch names, different heads, failed GitHub/remote reads and open tasks remain protected.
+
+The primary/calling checkout, locked worktrees, Codex-managed worktrees under `$CODEX_HOME/worktrees` (or `CODEX_WORKTREE_ROOT`), and Current releases are protected. Use `git worktree lock` for long-lived checkouts and repeat `--protect /absolute/path` for any other retained workspace; custom app-managed roots must be supplied as `CODEX_WORKTREE_ROOT` and retired through the app. Dirty/untracked files, unknown ignored data and open process handles prevent cleanup. Only known dependency/build caches are disposable; independent QA evidence is retained. Removal never forces a worktree. Detached releases and arbitrary source directories are outside automatic branch hygiene.
+
+A completion receipt reports remaining worktree purpose or successful retirement and measured free-space change. If safety checks cannot prove retirement, state the reason and keep the files. Do not report a Trash move as recovered disk capacity.
 
 #### Low-cost local trigger + Codex executor
 
