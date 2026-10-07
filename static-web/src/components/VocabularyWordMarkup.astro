@@ -51,6 +51,10 @@ const posCode = (value = '') => {
 
 const repair = (value) => value && typeof value === 'object' ? value : {};
 const lineagePayload = JSON.stringify(Array.isArray(answer.senseLineage) ? answer.senseLineage : []).replace(/</g, '\\u003c');
+const formPayload = JSON.stringify(form ? {
+  disposition: form.disposition || null,
+  repair: form.repair || null
+} : null).replace(/</g, '\\u003c');
 
 const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.identity_overlay === 'object'
   ? sense.identity_overlay
@@ -58,6 +62,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 ---
 <section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-mode="study" data-vocab-revealed="false" data-vocab-word={card.word} data-vocab-object={answer.objectId} data-vocab-ordinal={answer.ordinal} data-vocab-source-hash={answer.sourceHash}>
   <script type="application/json" data-vocab-identity-lineage set:html={lineagePayload}></script>
+  <script type="application/json" data-vocab-current-form set:html={formPayload}></script>
   <header class="portedVocabPreviewBar" aria-hidden="true">
     <a href="/">‹ Vocabulary</a>
     <div><span>Study · Depth</span><b>{card.word}</b><small data-vocab-state-label>Ready</small></div>

@@ -87,7 +87,7 @@ function lineageKey(wordId, kind, targetId) {
   return `${wordId}|${kind}|id:${targetId}`;
 }
 
-export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = []) {
+export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = [], currentForms = []) {
   const ledger = normalizeLexicalLedger(ledgerInput);
   const statuses = [];
   for (const raw of Array.isArray(lineageEntries) ? lineageEntries : []) {
@@ -143,6 +143,31 @@ export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = []) {
     }
     ledger.identity_lineage[fromKey] = resolution;
     statuses.push(resolution.resolution === 'REMAP' ? 'LINEAGE_REMAP_REGISTERED' : 'LINEAGE_FROZEN_REGISTERED');
+  }
+  // A locator is revision-bound evidence, not a stable Sense/child identity.
+  // Only an explicit current background Form decision can stop its old debt;
+  // absence, a changed fingerprint, and other Form locators prove nothing.
+  const backgroundWords = new Set((Array.isArray(currentForms) ? currentForms : [])
+    .filter(row => row?.form?.disposition === 'EXPLORE_ONLY' && row.form.repair === null)
+    .map(row => String(row.word_id || row.objectId || '')).filter(Boolean));
+  for (const event of ledger.events) {
+    if (!backgroundWords.has(String(event.word_id || ''))
+      || event.target_kind !== 'form_identity' || event.target_id
+      || event.target_locator !== 'record.form_identity') continue;
+    const key = lexicalTargetKey(event);
+    if (!key || ledger.identity_lineage[key]?.resolution === 'FROZEN') continue;
+    ledger.identity_lineage[key] = {
+      resolution: 'FROZEN',
+      source: 'content/lexical/learner/final',
+      word_id: event.word_id,
+      target_kind: event.target_kind,
+      from_target_locator: event.target_locator,
+      from_target_revision: event.target_revision,
+      to_target_id: null,
+      target_key: null,
+      reason: 'NO_EXPLICIT_CURRENT_SUCCESSOR'
+    };
+    statuses.push('LINEAGE_FROZEN_REGISTERED');
   }
   return { ledger, statuses };
 }

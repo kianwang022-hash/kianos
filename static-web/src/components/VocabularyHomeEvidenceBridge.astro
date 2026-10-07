@@ -67,7 +67,8 @@ const base = import.meta.env.BASE_URL;
     };
     const readLedger = () => reconcileEvidenceIdentity(
       readBrowserLexicalLedger(),
-      lineage
+      lineage,
+      rows
     ).ledger;
 
     const currentPacket = () => {
@@ -139,9 +140,16 @@ const base = import.meta.env.BASE_URL;
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
     };
     const rawLedger = readBrowserLexicalLedger();
-    const reconciled = reconcileEvidenceIdentity(rawLedger, lineage).ledger;
+    const reconciled = reconcileEvidenceIdentity(rawLedger, lineage, rows).ledger;
     if(!(new URLSearchParams(location.search).has('lookup')||new URLSearchParams(location.search).get('from')==='english'))writeBrowserLexicalLedger(reconciled);
-    const readLedger = () => readBrowserLexicalLedger();
+    const readLedger = () => {
+      const result = reconcileEvidenceIdentity(readBrowserLexicalLedger(), lineage, rows);
+      if (result.statuses.length
+        && !(new URLSearchParams(location.search).has('lookup') || new URLSearchParams(location.search).get('from') === 'english')) {
+        writeBrowserLexicalLedger(result.ledger);
+      }
+      return result.ledger;
+    };
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const eventLocalDay = (iso) => {
       const date = new Date(iso);

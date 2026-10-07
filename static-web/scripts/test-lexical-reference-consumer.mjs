@@ -5,7 +5,9 @@ import { pathToFileURL } from 'node:url';
 import vm from 'node:vm';
 import { transform } from '@astrojs/compiler';
 import { experimental_AstroContainer } from 'astro/container';
-import { appendEvidenceEvent, emptyLexicalLedger, compileRepairTargets, reconcileEvidenceIdentity } from '../src/lib/lexicalEvidence.mjs';
+import { appendEvidenceEvent, emptyLexicalLedger, compileRepairTargets, reconcileEvidenceIdentity, legacyEventId } from '../src/lib/lexicalEvidence.mjs';
+import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
+import { buildLexicalChatStatePacket } from '../src/lib/lexicalChatState.mjs';
 
 // Compile only the three current owners; no catalog build/server/browser or private state.
 const words = JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'../tools');import lexical_build_final_learner_objects as b;print(json.dumps([b.compile_word(b.load(b.WORDS/f'o{n:04}.json'),b.load(b.DECISIONS)) for n in [545,555,695,2]]))`], { encoding: 'utf8' }));
@@ -82,7 +84,7 @@ for (const word of words) {
 }
 
 // Execute the actual adapters with synthetic DOM/storage, not mirrored mode logic.
-async function runAdapters(mode, selectedWord = words[0], seedLedger = ledger) {
+async function runAdapters(mode, selectedWord = words[0], seedLedger = ledger, legacyTargets = null) {
   let currentLedger = seedLedger, writes = 0;
   const store = new Map([['kianos-vocabulary-last-ordinal','7000']]);
   class Element {
@@ -92,10 +94,14 @@ async function runAdapters(mode, selectedWord = words[0], seedLedger = ledger) {
   }
   const root = new Element(), lookup = new Element(), front = new Element(), details = new Element();
   const word = selectedWord;
+  if (legacyTargets) store.set('kianos-vocabulary-astro-v2:'+word.word_id,JSON.stringify({revealed:true,repairTargets:legacyTargets}));
   root.getAttribute = key => ({'data-vocab-object':word.word_id,'data-vocab-word':word.word,'data-vocab-ordinal':word.ordinal,'data-vocab-source-hash':word.source_fingerprint}[key] || '');
-  root.querySelector = key => key === '[data-vocab-identity-lineage]' ? {textContent:JSON.stringify(word.sense_lineage)} : key === '[data-vocab-front]' ? front : key === '[data-vocab-details]' ? details : null;
+  const rendered = await container.renderToString(component, {props:{answer:{objectId:word.word_id,ordinal:word.ordinal,record:word,sourceHash:word.source_fingerprint,senseLineage:word.sense_lineage}}});
+  const formTransport = rendered.match(/<script[^>]*data-vocab-current-form[^>]*>([\s\S]*?)<\/script>/)?.[1];
+  check(formTransport !== undefined, word.word+'_actual_markup_carries_current_form_qualification');
+  root.querySelector = key => key === '[data-vocab-identity-lineage]' ? {textContent:JSON.stringify(word.sense_lineage)} : key === '[data-vocab-current-form]' ? {textContent:formTransport} : key === '[data-vocab-front]' ? front : key === '[data-vocab-details]' ? details : null;
   root.querySelectorAll = key => key === '[data-vocab-lookup-only]' ? [lookup] : [];
-  const context = vm.createContext({HTMLElement:Element,HTMLTextAreaElement:Element,URLSearchParams,location:{search:'?mode='+mode},document:{querySelectorAll:()=>[root],addEventListener(){},removeEventListener(){}},window:{addEventListener(){},removeEventListener(){}},localStorage:{getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)},learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>currentLedger,writeBrowserLexicalLedger:value=>{currentLedger=value;writes++;},compileRepairTargets,appendEvidenceEvent,reconcileEvidenceIdentity,DEFAULT_PRONUNCIATION:'en-US',LEXICAL_SETTINGS_STORAGE_KEY:'settings',normalizeLexicalSettings:value=>({default_pronunciation:'en-US',...value}),requestAnimationFrame:fn=>fn()});
+  const context = vm.createContext({HTMLElement:Element,HTMLTextAreaElement:Element,URLSearchParams,location:{search:'?mode='+mode},document:{querySelectorAll:()=>[root],addEventListener(){},removeEventListener(){}},window:{addEventListener(){},removeEventListener(){}},localStorage:{getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)},learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>currentLedger,writeBrowserLexicalLedger:value=>{currentLedger=value;writes++;},compileRepairTargets,appendEvidenceEvent,reconcileEvidenceIdentity,legacyEventId,DEFAULT_PRONUNCIATION:'en-US',LEXICAL_SETTINGS_STORAGE_KEY:'settings',normalizeLexicalSettings:value=>({default_pronunciation:'en-US',...value}),requestAnimationFrame:fn=>fn()});
   for (const file of ['VocabularyIdentityLineageBridge.astro','VocabularyWordRuntime.astro']) {
     const source = fs.readFileSync('src/components/'+file,'utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace(/^\s*import[\s\S]*?;/gm,'');
     vm.runInContext(source,context);await new Promise(resolve=>setImmediate(resolve));
@@ -120,3 +126,49 @@ check(compileRepairTargets(withdrawnStudy.currentLedger).length === 0,'dissipate
 check(JSON.stringify(withdrawnStudy.currentLedger.events) === withdrawnEventBytes,'dissipate_withdrawal_preserves_existing_learning_events');
 const withdrawnLookup = await runAdapters('lookup',dissipate,withdrawnLedger);
 check(withdrawnLookup.writes === 0 && JSON.stringify(withdrawnLookup.currentLedger) === JSON.stringify(withdrawnLedger),'withdrawn_lookup_keeps_existing_record_bytes_immutable');
+
+// The current projection may withdraw a Form's learning eligibility without
+// deleting its previous revision-bound evidence or guessing a new target.
+const currentRows = listLexicalWordSummaries().filter(row => [2405,2473,7826,1367,2976,1368].includes(row.ordinal));
+const priorByOrdinal = new Map();
+for (const shard of ['o2369-2432','o2433-2496','o7809-7872','o1345-1408','o2945-3008']) {
+  for (const word of JSON.parse(execFileSync('git',['show',`27bf2735bb7a26bbe4b3f889821096708f076778:content/lexical/learner/final/shards/${shard}.json`],{encoding:'utf8'}))) priorByOrdinal.set(word.ordinal,word);
+}
+let formLedger = emptyLexicalLedger();
+for (const ordinal of [2405,2473,7826,1367,2976]) {
+  const word = priorByOrdinal.get(ordinal);
+  formLedger = appendEvidenceEvent(formLedger,{event_id:'form-eligibility-'+ordinal,word_id:word.word_id,ordinal,word:word.word,target_kind:'form_identity',target_id:null,target_locator:'record.form_identity',target_revision:word.source_fingerprint,source:'depth_plus',outcome:'ADDED',observed_at:'2026-10-07T00:00:00.000Z'}).ledger;
+}
+for (const [word_id,ordinal,target_kind,target_id,target_locator] of [
+  ['word:internalize',7826,'sense','sense:internalize:2772118fc8fe5d6d',null],
+  ['word:diet',1368,'form_identity',null,'record.senses[3].lexical_identity_overlay'],
+  ['word:import',2473,'core',null,'record.core_concept']
+]) formLedger = appendEvidenceEvent(formLedger,{event_id:'qualified-control-'+ordinal,word_id,ordinal,target_kind,target_id,target_locator,target_revision:target_id?null:priorByOrdinal.get(ordinal).source_fingerprint,source:'depth_plus',outcome:'ADDED',observed_at:'2026-10-07T00:01:00.000Z'}).ledger;
+const formEventsBefore = JSON.stringify(formLedger.events);
+const qualified = reconcileEvidenceIdentity(formLedger,[],currentRows).ledger;
+const remaining = compileRepairTargets(qualified);
+check(remaining.length === 5 && remaining.filter(t=>t.target_locator==='record.form_identity').every(t=>[1367,2976].includes(t.ordinal)), 'current_Form_qualification_stops_three_old_background_debts_and_keeps_valuable_Forms');
+check(remaining.some(t=>t.word_id==='word:internalize'&&t.target_kind==='sense') && remaining.some(t=>t.word_id==='word:import'&&t.target_kind==='core') && remaining.some(t=>t.word_id==='word:diet'), 'Sense_Core_and_Diet_overlay_controls_stay_active');
+check(JSON.stringify(qualified.events) === formEventsBefore && JSON.stringify(formLedger.events) === formEventsBefore, 'current_Form_qualification_never_changes_source_or_historical_events');
+check(JSON.stringify(reconcileEvidenceIdentity(qualified,[],currentRows).ledger) === JSON.stringify(qualified), 'background_Form_freeze_is_idempotent');
+check(compileRepairTargets(reconcileEvidenceIdentity(formLedger,[],[]).ledger).length===8, 'missing_current_Form_evidence_does_not_guess_retirement');
+const packet = buildLexicalChatStatePacket({ledger:qualified,now:'2026-10-07T00:02:00.000Z'});
+check(packet.repair.active_target_count===5 && packet.today_evidence.length===8, 'Chat_handoff_stops_actionable_background_Form_debt_but_retains_historical_evidence');
+for (const ordinal of [2405,2473,7826]) {
+  const word = trialWords.find(w=>w.ordinal===ordinal);
+  const actualStudy = await runAdapters('study',word,formLedger);
+  check(!compileRepairTargets(actualStudy.currentLedger).some(t=>t.ordinal===ordinal&&t.target_locator==='record.form_identity'), word.word+'_production_Study_bridge_stops_prior_Form_debt');
+  check(JSON.stringify(actualStudy.currentLedger.events)===formEventsBefore,word.word+'_production_Study_preserves_all_event_bytes');
+  const actualLookup = await runAdapters('lookup',word,formLedger);
+  check(actualLookup.writes===0 && JSON.stringify(actualLookup.currentLedger)===JSON.stringify(formLedger),word.word+'_Lookup_does_not_persist_Form_reconciliation');
+  const legacy = {'form_identity:record.form_identity':{target_kind:'form_identity',target_locator:'record.form_identity',target_revision:priorByOrdinal.get(ordinal).source_fingerprint,source:'depth_plus',observed_at:'2026-10-06T00:00:00.000Z'}};
+  const imported = await runAdapters('study',word,emptyLexicalLedger(),legacy);
+  check(imported.currentLedger.events.length===1 && compileRepairTargets(imported.currentLedger).length===0,word.word+'_legacy_cache_event_survives_without_recreating_executable_Form_debt');
+}
+const originalForm = formLedger.events.find(event=>event.ordinal===7826&&event.target_locator==='record.form_identity');
+const withOlderRevision = appendEvidenceEvent(qualified,{...originalForm,event_id:'another-prior-form-revision',target_revision:'another-prior-revision',observed_at:'2026-10-06T00:00:00.000Z'}).ledger;
+const olderQualified = reconcileEvidenceIdentity(withOlderRevision,[],currentRows).ledger;
+check(compileRepairTargets(olderQualified).length===5 && JSON.stringify(olderQualified.events)===JSON.stringify(withOlderRevision.events),'every_prior_Form_revision_freezes_without_event_rewriting');
+const attemptedReactivation = appendEvidenceEvent(olderQualified,{...originalForm,event_id:'old-form-reactivation',outcome:'REACTIVATED',observed_at:'2026-10-07T00:03:00.000Z'}).ledger;
+check(compileRepairTargets(attemptedReactivation).length===5,'later_old_Form_event_cannot_recreate_an_executable_debt');
+console.log('PASS current Form eligibility: prior debt frozen through production adapters; valuable targets and history preserved');
