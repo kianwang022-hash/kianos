@@ -152,52 +152,61 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 ### 0.7 Three-layer learner compression — build it while learning
 
-The review has three cognitive jobs, not three compulsory screens:
+**主模型帮助理解并承载成组记忆；主提示压缩模型内部值得记的内容；Memory 承接其余值得独立滚动的精确碎片。** 这是同一份经筛选学习内容的分工，不是“理解一套、再背整套卡库”。
 
-1. **Chapter mainline:** high-density relations and decisive option distinctions that let Kian rapidly recover the chapter.
-2. **Expansion cues:** short retrieval keys attached to that same mainline, not an answer list or a new codebook.
-3. **Precision / Memory:** only justified durable exact retrieval under §6.1, not all details omitted from the mainline.
+1. **Chapter mainline / 主模型：**保留乘风的核心问题、关系、层级、必要条件和判断边界。它既让人理解整章，也为需要保留的知识提供稳定的记忆位置。
+2. **Main prompts / 主提示（原 expansion cues）：**将已经判断值得记、且能自然依附于模型节点共同回忆的内容压成短提示。它不是所有分支的目录，不是 Chat 新增的理解问题，也不是网站卡片清单。
+3. **Precision / Memory：**经同一必要性筛选后，不适合随主模型高效恢复、适合独立精确练习的剩余内容。零碎、精确或被主线省略，本身均不等于值得背。
 
-Detailed support stays backstage. The model is built by actual learning, including Kian's own Chengfeng study; it does not have to be taught again by Chat before it can be compressed.
+详细解释、例子和查阅材料仍留原讲义/既有 support，不成为第四套必学材料。理解可以来自 Kian 自己学习乘风，不要求先听一遍 Chat 教学。
 
 ### Classroom priority override — teaching beats compression
 
-During a requested explanation, solve the actual confusion first. During a requested compression, deliver the compression rather than reopen a full lesson. No cue-design, persistence or checkpoint ceremony may interrupt the learner's chosen action.
+请求解释时先解决疑问；请求压缩时直接提供压缩，不重新授完整课程。内容筛选、主提示设计和保存不得变成逐段仪式。
 
 #### Build compression from learning, not instead of learning
 
-For a source-compression request, inspect the actual Chengfeng passage and necessary tables/images. Preserve its chapter/section/exam-point meanings, terminology, hierarchy, decisive conditions and scope. Use existing models to check relationships and teacher support to check omissions or flag conflicts; neither replaces the requested source as the prose basis. A truncated source-node heading is not the full passage.
+先读实际乘风正文及必要图表，建立或复用有来源的主模型；再按 §6.1 判断哪些知识值得保留、需要何种准确度；最后才决定记忆放在哪里：
 
-Retain what later review needs for understanding and judgment. Remove repeated explanation, illustrative examples, teacher instructions and Source QA from the learner view. Material may remain in source/support without becoming Memory. Do not silently fill missing source content, change its framing or reconcile it with another teacher; label a necessary correction/comparison separately.
+```text
+乘风主模型 + 经来源/考试用途核定的记忆需求
+→ 能自然挂入模型，并随节点一起恢复：节点主提示
+→ 值得精记但随模型恢复成本高：独立 Precision / Memory
+→ 只需理解、识别或查阅：正文 / 原讲义 / support，不强制主提示或背卡
+```
 
-For each cue, its first reading occurrence must have a clear answer or named structure in the adjacent substantive explanation. Counts must match an actual stable source grouping; no invented enumerations, arbitrary shorthand or answerless prompts. After that first exposure, the compact cue remains non-answer-leaking for self-recall.
+**先判断值不值得记，再判断能不能随模型记。** 腿姐材料的必要性筛选同时约束模型内记忆和模型外碎片；不能只筛网站 Memory，却把所有乘风列表换个名字塞进主提示。具体指定材料、版本及现有条目过渡规则由 §6.1 单独拥有。
 
-**Expansion cue ≠ Memory index.** Derive the mainline/cues from the source-backed model before selecting retention targets. A cue can exist without a Memory card; neither the catalog nor its count defines the model or how much to memorize.
+保留乘风术语、知识组织、决定性关系和范围。既有模型用于关系/覆盖校验，教案用于后台查漏和有据纠偏，均不替代乘风正文。删除重复讲解、例子堆积、教师话术和 Source QA；不以短为由删掉推理必要条件，不将说明用的比喻/临时归纳变成额外记忆对象。
+
+主提示的短措辞可以由 Chat 压缩；其成员、分类、数量、关系必须能回到实际来源。第一次阅读时，邻近正文要给出对应的完整答案及关系；以后缩影只留不泄露答案的提示。不得编造“3原则/5作用”或需要另背码本的暗号。识别/判断即可的点，不因写成带数字提示就升级为闭卷列全或逐字背诵。
+
+**Expansion cue ≠ Memory index.** 主提示是模型内记忆的压缩入口，不是与记忆任务无关的泛泛索引，也不由现成卡库倒推。无对应网站卡不妨碍经筛选的知识挂入模型；有对应网站卡也不要求两边常规重复刷。纯理解关系保留在正文，不为格式对称强造主提示。
 
 #### Four local compression checks
 
-1. Does the mainline preserve the chapter problem, decisive relations, hierarchy and necessary bridges?
-2. Does each cue reduce recall effort, with a source-supported first explanation/answer and no private codebook?
-3. Does compression preserve source coverage and the valid existing model without replacing relations by a flat list or turning every arrow into causality?
-4. Does omitted material have its existing destination: source/support for understanding or recognition, selected Precision for warranted exactness, Source gap for uncertainty? Omission alone never creates Memory debt.
+1. **模型：**去掉主提示以后，主线仍能重建整章的问题、关系、条件和方向吗？
+2. **提示：**每个提示指向来源支持、确有保留价值的模型内知识吗？首次答案是否明确、数量真实、回忆深度适当？
+3. **分工：**模型内成组记忆与独立精记合起来覆盖经筛选的保留目标吗？是否漏掉必要目标，或把同一组无理由安排两遍？
+4. **去向：**未入两种记忆路径的内容是否仍在原讲义/support或明确 Source gap？不得把所有删项转成记忆债。
 
 #### Chapter closure compresses the model already learned; it does not invent a second course
 
-Use the learner's actual source-study scope and any accepted review wording, remove repetition and check the same model. An explicit request may commission a sample or a wider draft before learner completion; label it prepared material, not evidence of study or an accepted personal model. Do not mass-regenerate chapters or overwrite accepted wording without an actual request or defect.
+沿实际学习范围及已接受措辞去重、核对、变薄，不换一套知识地图。用户明确委托时可先做小样或较大范围草稿；草稿不等于已经学过、已经接受或已筛出必背内容。不无授权批量重生全科。
 
 #### Progressive review ladder — model first, cue second, precision last
 
-Read the mainline, reconstruct it, use cues for missing branches, and use the owning answer/Memory for a justified exact lapse. This is an attention sequence, not a requirement for repeated clicks. A reading page may show mainline, cue and its first answer together. Only a **clean retrieval task** withholds the answer, checking criteria and answer-bearing aid until reveal; reading an answer is not unaided success.
+沿主线恢复关系，走到节点时用主提示主动恢复该组记忆，再以独立 Memory 补齐另一部分需精确提取的内容。这是注意顺序，不是反复点击/折叠的要求。阅读正文可同时解释提示和答案；只有 clean Recall/做题时才在作答前隐藏答案、核对标准和泄露答案的助记。
 
-A model failure calls for local explanation, a forgotten branch for a cue, and an exact error for focused retrieval. Do not reteach a chapter for one forgotten name or send a model failure to rote cards.
+模型不懂就局部解释；模型内成员忘了就沿节点修补；孤立精确错误才用针对性练习。模型内某点有真实反复混淆时，可复用其既有身份作临时独立加练，但不默认复制成第二套常规任务。
 
 #### Fragment integration
 
-Each retained fragment keeps its existing chapter/NU/model home. The quick-review page need not enumerate the entire catalog, and a passed recall does not prove understanding or mastery.
+两种记忆路径复用原 chapter/NU/Content 身份。独立碎片仍保留概念归属，但“有归属”不等于必须塞入主提示；选择的是最省回忆成本的承载方式。不得把新的分工变成新 schema、registry、卡库或自动排程。
 
 #### Personal quick-review view
 
-Store accepted source-faithful quick-review wording inside the existing chapter brief/support owner when persistence is authorized/useful. This is a lightweight projection, not a new source, schema, registry or mandatory course. Update that same view on correction. Neither a generated HTML nor a content save admits cards, schedules work or changes learner progress.
+接受后的源本压缩保存在既有章节 brief/support 中同一位置；修改该视图而非另建版本体系。旧卡、原答案和 Recall 历史不因重分流被删除。内容写入不等于网站已更新、计划已执行或学习已完成。
 
 ## 1. Product model
 
@@ -218,7 +227,7 @@ The current default is Chengfeng-led detailed study with Chat clarification, com
 
 ## 2. Active first-round learning chain
 
-Current learner choice (2026-10-07): **Chengfeng detailed study → Chat clarification / source-faithful chapter compression → selective Leg-informed Memory; Xiao1000 verification and local repair alongside this path.**
+Current learner choice (2026-10-07): **Chengfeng detailed study → source-faithful model + selectively retained model-bound main prompts, complemented by residual Precision / Memory; Xiao1000 verification and local repair alongside this path.** The division is owned by §0.7 and the necessity filter by §6.1.
 
 Kian learns the detailed content from Chengfeng lectures/handout. Chat primarily answers a specific confusion and produces a high-density review of that source: main relationships, decisive exam distinctions and expansion cues. Do not replace that request with a second Chat course or summarize the teacher brief as though it were the handout. Chat teaching remains available when explicitly requested.
 
@@ -436,11 +445,11 @@ The learner should see **what to do and why**, not scheduler internals.
 
 ### 6.1 Memory admission: proactive precision with source-bounded scope
 
-**Source correctness and memory necessity are different judgments.** A precise date, complete list, book table, useful cue or previously reviewed card is not, by itself, a reason to spend future review time.
+**Source correctness and memory necessity are different judgments.** This necessity filter applies to BOTH model-bound main-prompt content and standalone Precision / Memory. A precise date, complete list, book table, useful cue or previously reviewed card is not, by itself, a reason to spend future review time. After necessity and required accuracy are justified, §0.7 assigns the content to the model or to residual independent practice; putting a list in a prompt must not bypass this filter.
 
 `NO SOURCE SUPPORT → NO MEMORY ADMISSION`
 
-The default long-term baseline is selected from the **actually inspected, learner-designated Leg source**, reconciled with Chengfeng-owned knowledge. Kian names《核心考案》; exact title, edition and passage must be resolved, not silently replaced by《背诵手册》or model memory. Presence/emphasis in a book is a selection input, not proof every sentence needs verbatim recall.
+The default long-term retention baseline, including model-bound memory as well as independent fragments, is selected from the **actually inspected, learner-designated Leg source**, reconciled with Chengfeng-owned knowledge. Kian names《核心考案》; exact title, edition and passage must be resolved, not silently replaced by《背诵手册》or model memory. Presence/emphasis in a book is a selection input, not proof every sentence needs verbatim recall.
 
 For each proposed group, the existing Content/review owner must justify what exam job exact retention protects and the needed depth: recognition, conceptual paraphrase, complete membership, exact pairing, or genuinely required fixed wording. Preserve meaningful grouping and explain the first answer. Do not require unaided enumeration/recitation where source use only needs recognition or option discrimination. Use original prompts, answers, checking criteria and useful memory aids; no forced mnemonics.
 
@@ -452,7 +461,7 @@ Three routes remain, with the first deliberately narrowed:
 
 Use existing review/provenance and card owners to record the relevant Leg title/edition/pages, Chengfeng support, retention rationale, required accuracy and unresolved differences. Do not add another registry or second answer set. A historical Leg edition may inform stable target selection when its exact role and current corroboration are recorded; it cannot alone authorize current-year wording, law or facts. A source mismatch is item-scoped, not a reason to stop unrelated compression.
 
-If the designated source is missing/uninspected, **do not invent the baseline or declare it Leg-filtered**. Continue source compression and leave retention selection pending. Resolve available Project/Library/source records before asking Kian to resend a known file. Do not assume that a missing repository binding proves a file does not exist elsewhere.
+If the designated source is missing/uninspected, **do not invent the baseline or declare it Leg-filtered**. Continue source-model compression; label any worked encoding/main-prompt or fragment-disposition example as provisional, not a recommended must-retain syllabus. Leave necessity selection pending. Resolve available Project/Library/source records before asking Kian to resend a known file. Do not assume that a missing repository binding proves a file does not exist elsewhere.
 
 Existing source-reviewed CF-only cards and their histories are preserved as **optional practice/reference**, not retroactively renamed Leg-selected must-memorize content. Reconcile their necessity in the original owners before recommending them as the new routine baseline. No mass deletion, relabeling of historical evidence or compulsory regeneration follows from this policy change.
 

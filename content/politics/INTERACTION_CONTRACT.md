@@ -77,7 +77,7 @@ A good lesson is therefore **stable in cognition, flexible in teaching**.
 
 Compression behavior is owned once by [Learning §0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning). During a requested explanation it is optional; during a requested source review it is the deliverable.
 
-Keep the mainline high-density and the cue short. On first reading, explain the cue's complete supported structure in the adjacent body; later the miniature cue omits answer members. A reading answer is not a clean Recall success. Do not create a Memory target merely because a cue exists.
+Keep the mainline high-density. Main prompts compress worthwhile model-bound memory, not every explanatory branch: first apply Learning §6.1 to both memory destinations, then place naturally grouped content on its model node and residual exact fragments in Memory under §0.7. On first reading, explain the full supported answer in adjacent prose; later the miniature prompt omits answer members. Pure explanation stays in the mainline without forced prompts. Do not turn a count into an unsupported recitation requirement or duplicate model memory as routine cards.
 
 Preserve the accepted simple reading presentation rather than adding tools: compact chapter logic/cues with continuous review content. No repeated reveal clicks, quizzes, source-QA panels or Memory inventories unless requested. An HTML save is not a website deployment or memory-plan application.
 
@@ -85,7 +85,7 @@ Preserve the accepted simple reading presentation rather than adding tools: comp
 
 The shared first-round loop is:
 
-`Chengfeng detailed study → requested clarification + source-faithful compression → Leg-informed selective encoding → learner-selected Website Memory practice (optional Chat plan); Xiao1000 → evidence → smallest justified repair`
+`Chengfeng detailed study → source-faithful model → Leg-informed necessity/accuracy selection → model-bound main prompts + complementary fragment Memory; Xiao1000 / Recall → smallest justified repair`
 
 Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Memory. This Interaction contract follows them; it does not establish a second teaching or admission owner.
 

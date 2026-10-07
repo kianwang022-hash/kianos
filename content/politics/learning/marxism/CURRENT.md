@@ -7,7 +7,10 @@ This file does not own Marxism Source/Content/Learning semantics, Acceptance Tru
 
 ## Work Cursor
 
-**Active local engineering task:** none unless current Acceptance or the Politics parent reopens a concrete path.  
+**Current content task:** Kian-authorized source-faithful compression with model-bound memory/main prompts and complementary precise fragments, under Learning §0.7 / §6.1. Only content is in scope; no Website/Runtime/build work.
+**Completed this slice:** [C00 source-review draft and one worked main-prompt example](teaching-candidate/subject-model.md#c00-source-review), based on directly inspected Chengfeng PDF6–9. Existing source/model/card identities and learner history were not changed.
+**Next / source limit:** resolve the exact designated Leg《核心考案》file/edition and relevant C00 passage, then judge necessity/accuracy and revise the same draft. The found LEG26《背诵手册》is not silently substituted. Until resolved, neither candidate prompts nor candidate fragments are declared a recommended memorization baseline. No automatic background continuation.
+**Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/marxism/ACCEPTANCE.md`.  
 **Learner / execution evidence:** private native Runtime only.
 

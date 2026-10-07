@@ -209,7 +209,7 @@ A usable exact-retention object/group must resolve:
 - stable chapter/NU and content identity, the owning explanation/model relation, and inspected Source/edition provenance;
 - a specific retrieval prompt, authoritative answer and essential checking criteria: allowed paraphrase, complete membership, exact pairing, decisive qualifiers and any meaningful order;
 - a useful memory cue/grouping/contrast where needed, explicitly distinguishable from the authoritative answer and safe to withhold before retrieval;
-- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under Learning §6.1; the existing review must distinguish source correctness from retention necessity and cite the exact Leg title/edition/passage for a new proactive baseline;
+- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under Learning §6.1; the existing review distinguishes source correctness, retention necessity/accuracy, and model-bound versus independent-fragment placement under §0.7, citing the exact Leg passage for either new proactive baseline route;
 - its existing candidate ID / consumer path, or a concrete unresolved mapping. Reuse, revise or retire duplicates against their original owner instead of hand-synchronizing parallel answers.
 
 These are semantic requirements, not permission to invent field names that no consumer reads. Reuse `precision_objects`, `content_support` groups, `statement`, `source_refs` and existing sidecar identities where they fit. A bounded additive extension for an explicit prompt/checking content is allowed only through this Content owner plus the resolved Runtime implementation owner, with loader → catalog → plan/evidence snapshot → renderer → return compatibility proved together. A new registry, new command/state family or cross-system architecture change remains OWNER_UNRESOLVED until Engineer resolves it through the existing architecture owners.
@@ -232,29 +232,25 @@ Consumer regression must cover explicit prompt preservation, no ambiguous same-p
 
 ### 3.2.1 Learner quick-review view is a non-canonical projection
 
-A source-faithful quick-review view may be stored in the existing chapter brief/support owner after acceptance. Explicitly requested preparation may be a labeled draft without asserting real study.
+A source-faithful review lives in the existing chapter brief/support owner. Explicitly requested preparation may be a labeled draft without asserting real study, final retention selection or learner acceptance.
 
-Its semantics are:
+Learning §0.7 owns the cognitive division; §6.1 owns necessity for **both** memory destinations:
 
-\`\`\`text
-actual Chengfeng text / required tables and images
-+ valid existing model as a relationship/completeness check
-→ Kian mainline sentences
-→ non-answer-leaking expansion cues
-\`\`\`
+```text
+actual Chengfeng text / necessary tables and images → source-faithful main model
+inspected designated Leg support + appropriate exam/learner need → selected retention scope and accuracy
+same selected scope → model-bound main prompts + complementary independent fragments
+```
 
-It is **not** another Content hierarchy, not a substitute for canonical chapter compression, and not a Memory source. A visual 6–10-line mainline may merge adjacent canonical nodes for fast human review when every merged line remains traceable back to the unchanged canonical spine.
+Main prompts are compact retrieval handles for selected content remembered through the model. They are not a generic index of everything explained. Necessary conceptual relationships remain prose even without a prompt. An exact fragment may still have a conceptual parent while being cheaper to practice separately.
 
-Ownership check for anything omitted from that view:
-- teaching/support owns explanatory detail;
-- reviewed Precision/Memory owns exact long-term retrieval;
-- Source owner/gap owns unresolved evidence.
+Reuse the existing chapter/NU/content identities and substantive answers. A working draft may use one small disposition table in this same owner to show source, necessity status, first-answer location, proposed model/fragment destination and existing ID if known; do not create a new schema, registry or second catalog. Unresolved Leg support stays pending, not invented certainty.
 
-Reject:
-- expansion cues that enumerate the answer rather than cue retrieval;
-- chapter-end summaries that replace source relationships with an invented framework;
-- unrequested mass generation or treating a commissioned draft as learner completion;
-- any Runtime/Website behavior that treats this personal view as learner progress, admission or scheduling truth.
+Accept only when every main prompt has a source-supported answer explained at first encounter; its count/members and required accuracy are justified. Hide members in the miniature prompt, not in first-reading prose. Check that model memory plus residual Memory covers the justified retention scope without default duplicate practice. Do not infer a memory obligation from a prompt or from an existing card.
+
+Omitted understanding/recognition/reference material stays in source/support; uncertainties stay in Source gaps. Reconcile recommended use in existing owners; preserve optional cards and history without claiming they have been re-filtered. No Runtime/Website/plan/schema change is implied by this content projection.
+
+Reject a replacement framework, arbitrary enumeration, answerless cue, generic branch index mislabeled as memory, unselected lists smuggled into main prompts, unrequested whole-course generation, and using prepared content as learner or admission evidence.
 
 ---
 
@@ -274,7 +270,7 @@ A later review may project:
 full spine + explanation
 → same spine with shorter node meanings
 → same spine with hidden nodes / retrieval prompts
-→ same spine with exact Memory targets attached
+→ same spine with selected model-bound main prompts, complemented by separately retrievable exact fragments
 ```
 
 It may not project:
@@ -289,34 +285,7 @@ If the canonical spine must change, update the original chapter/semantic owner a
 
 ### 3.3.1 Kian self-use quick-review realization
 
-A chapter brief may contain one lightweight **Kian self-use quick-review view** derived from the requested Chengfeng scope, including external study. Learning §0.7 governs first cue answers versus clean retrieval; no mandatory Chat lesson is required.
-
-It is a reference projection over the canonical chapter model, not another semantic owner. It may:
-- group adjacent canonical nodes into fewer learner-facing lines;
-- use one short expansion cue per line;
-- include an even thinner keyword-only view.
-
-It must:
-- keep enough mapping to verify against the canonical spine;
-- preserve decisive relations and bridges;
-- avoid listing answer members inside the expansion cue;
-- keep the expansion cue semantically independent from Memory admission: the cue describes what Kian should try to reconstruct from the learned model, while Precision describes what must be retrieved exactly;
-- route omitted content to existing teaching/support, reviewed Precision/Memory or explicit Source gap;
-- never imply that every omitted detail deserves Memory;
-- never create a separate Runtime/Website/plan/admission object.
-
-Invalid realization: deriving the parenthetical expansion cue by enumerating only existing reviewed Precision/Memory objects, or treating absence of a Memory object as proof that a useful model-retrieval slot should be removed.
-
-A stored quick-review cue is acceptable only when it has **incremental retrieval value** over its mainline sentence. Reject cues that:
-- merely repeat words already explicit in the sentence;
-- encode shorthand that requires separate memorization before it helps;
-- list detailed members and therefore leak the answer;
-- exist only because a Precision object happens to have that title;
-- have no stable conceptual home in the canonical chapter model.
-
-Precision objects may be more granular than the quick-review cue. Their job is exactness, not to define the learner-facing compression topology.
-
-Chapter-close editing of this view is assembly/reconciliation of lines already formed during learning. A newly invented alternative summary at chapter close is invalid when it changes the learner's model rather than thinning the learned one.
+Use §3.2.1 for the existing chapter view and Learning §0.7 for the model-memory / fragment-memory division. Keep original model identities and valid relationships; grouping is presentation, not a new knowledge map. Update the same accepted view rather than maintain a second prompt specification here.
 
 
 ---
