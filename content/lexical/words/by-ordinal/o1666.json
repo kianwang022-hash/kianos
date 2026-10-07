@@ -36,19 +36,28 @@
             ],
             "meaning_cn": "询问某事",
             "phrase": "enquire about + sth"
+          },
+          {
+            "collocation_id": "collocation:05a183d8938ff42b12a9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:enquire:0bddf9d10645549d:collocation:0"
+            ],
+            "meaning_cn": "询问是否...",
+            "phrase": "enquire + whether-clause"
           }
         ],
         "confidence": "medium",
         "definition_cn": "询问",
         "definition_en": "to ask for information",
-        "governing_pattern": "vi. + about",
+        "governing_pattern": "enquire about sth; enquire whether/what/how...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:enquire:18d4f5b1cd035ffe",
         "sense_label_en": "to ask for information",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -73,30 +82,6 @@
         "sense_label_en": "to conduct an investigation",
         "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:05a183d8938ff42b12a9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:enquire:0bddf9d10645549d:collocation:0"
-            ],
-            "meaning_cn": "询问是否...",
-            "phrase": "enquire + whether-clause"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "想知道",
-        "definition_en": "to want to know something",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:enquire:0bddf9d10645549d",
-        "sense_label_en": "to want to know something",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -236,13 +221,41 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:05a183d8938ff42b12a9",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:enquire:0bddf9d10645549d:collocation:0"
+          ],
+          "meaning_cn": "询问是否...",
+          "phrase": "enquire + whether-clause"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "询问；探问是否……",
+      "definition_en": "to ask for information, including by asking whether something is the case",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:enquire:0bddf9d10645549d",
+      "sense_label_en": "to ask for information, including by asking whether something is the case",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:enquire:18d4f5b1cd035ffe"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:enquire:0bddf9d10645549d",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:enquire:18d4f5b1cd035ffe",
         "source_row": 4613,
         "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
       },
@@ -277,7 +290,8 @@
       {
         "id": "collocation:05a183d8938ff42b12a9",
         "source_row": 456,
-        "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json",
+        "sense_id": "sense:enquire:18d4f5b1cd035ffe"
       },
       {
         "id": "collocation:161fc5f475edfee34cc7",
