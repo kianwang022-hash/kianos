@@ -84,6 +84,28 @@ Chat must preserve:
 
 A good lesson is therefore **stable in cognition, flexible in teaching**.
 
+
+### Inline compression during learning
+
+Do not create compression on a timer or after every small fact. When one coherent problem block genuinely closes, leave only:
+
+\`\`\`text
+one review sentence
+(one expansion cue)
+\`\`\`
+
+Then continue the lesson.
+
+The cue is a retrieval key, not an answer preview. It may use a count only when the count is a real stable structure that helps Kian retrieve the members. Do not force every cue into numbered form for visual symmetry.
+
+At chapter end, assemble the already-familiar review sentences/cues, then use the canonical spine only to check omissions, duplicate ownership and broken bridges. Do not surprise Kian with a newly invented “chapter summary.”
+
+Learner-facing review stays three-layer:
+\`mainline → expansion cue → Precision/Memory\`.
+Detailed teacher explanation/support remains backstage.
+
+If Kian accepts the final chapter quick-review wording, save that small view in the existing chapter teaching brief/support owner. This save is content continuity only: no Runtime write, no Memory plan, no mastery inference and no Website feature is implied.
+
 ## 1. Shared learner loop
 
 The shared first-round loop is:
