@@ -58,6 +58,7 @@ function modelMeaning(markdown) {
 }
 export function buildXizongRevisionWitness(learner) {
   const kps = learner.kps || [], groups = learner.logicGroups || [];
+  const blockMeaning={recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections)};
   return { schema: 'kianos.xizong.content-revision-witness.v1', sourceHash: learner.sourceHash,
     kpOrder: kps.map(k => k.identity.kpId), groupOrder: groups.map(g => g.identity.logicGroupId),
     kps: Object.fromEntries(kps.map(k => [k.identity.kpId, hash({ core: stripRevisionKpMetadata(k.core?.markdown), precision: support(k.precision), visual: support(k.visual), extension: support(k.extension), connection: support(k.connection), attention: support(k.attention) })])),
@@ -65,8 +66,12 @@ export function buildXizongRevisionWitness(learner) {
     groups: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, hash({ goal:g.goal, closure:g.closure, precision:support(g.precision), visual:support(g.visual), extension:support(g.extension), connection:support(g.connection), visualRequired:g.visualRequired, visualSourceState:g.visualSourceState })])),
     segmentOrder: (learner.sourceContact?.segments || []).map(row => String(row.segmentId || row.segment_id || row.sourceUnitId || '')),
     members: Object.fromEntries(groups.map(g => [g.identity.logicGroupId, [...g.kpIds]])),
-    block: hash({ recallSpine:learner.framework?.recallSpine, stopLine:learner.framework?.stopLine, extension:support(learner.blockExtension), connections:support(learner.slots?.blockConnections),
-      ...(learner.model ? { model:modelMeaning(learner.model.markdown) } : {}) }),
+    block: hash({ ...blockMeaning, ...(learner.model ? { model:modelMeaning(learner.model.markdown) } : {}) }),
+    // Coverage is derived from the current object, not an equivalence certificate
+    // for old learner evidence. An old digest of only these nonmodel fields
+    // cannot attest whether that learner reconstructed this continuous model.
+    ...(learner.model ? {blockModel:{schema:'kianos.xizong.block-model-witness.v1',
+      model:hash(modelMeaning(learner.model.markdown)),withoutModel:hash(blockMeaning)}} : {}),
     contact: hash(contactShape(learner.sourceContact, kps)) };
 }
 

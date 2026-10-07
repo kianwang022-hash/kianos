@@ -8,7 +8,7 @@ import { presentXizongLearnerBlock } from '../src/lib/xizongLearnerObject.mjs';
 import * as memory from '../src/lib/xizongCompiledMemoryRelease.mjs';
 import { createXizongReviewedRelationFreshnessResolver } from '../src/lib/xizongReviewedRelationFreshness.mjs';
 import { createXizongMemoryState, makePreparedMemoryAvailable, appendMemoryEvidence, todayMemoryQueue } from '../src/lib/xizongMemoryModel.mjs';
-import { reconcileXizongRevision, revisionRequiresAction } from '../src/lib/xizongContentRevision.mjs';
+import { reconcileXizongRevision, revisionRequiresAction, revisionStatus, compatibleRevisionWitnesses } from '../src/lib/xizongContentRevision.mjs';
 import { buildXizongRevisionWitness } from '../src/lib/xizongRevisionWitness.mjs';
 import { releaseCompletedBlockToMemory, inspectXizongBlockCompletion } from '../src/lib/xizongMemoryAutoRelease.mjs';
 import { buildXizongMemoryReleaseDescriptorFromLearnerObject as nativeDescriptor } from '../src/lib/xizongMemoryRelease.mjs';
@@ -54,6 +54,34 @@ check('adopted model and natural bindings preserved',()=>{
  assert.deepEqual(ids,canonical.knowledge.model.node_kp_ids);assert.equal(ids.length,19);
  assert.match(learner.model.markdown,/微循环交换.*静脉回收与再次充盈/);
  assert.match(learner.model.markdown,/并行供养/);
+});
+check('old nonmodel witness creates an honest model evidence gap without new work',()=>{
+ const prior=buildXizongRevisionWitness({...learner,model:undefined});
+ const {sourceHash,...oldSemantic}=prior;assert.equal(hash(oldSemantic),golden.witness);
+ assert.equal(prior.block,learner.revisionWitness.blockModel.withoutModel);
+ assert.equal(compatibleRevisionWitnesses(prior,learner.revisionWitness),false);
+ const alreadyBound=structuredClone(learner.revisionWitness);delete alreadyBound.blockModel;
+ assert.equal(compatibleRevisionWitnesses(alreadyBound,learner.revisionWitness),true);
+ const study={sourceHash:prior.sourceHash,completed:true,blockRecallDone:true,
+  learned:Object.fromEntries(learner.kps.map(k=>[k.identity.kpId,true])),
+  ratings:Object.fromEntries(learner.kps.map(k=>[k.identity.kpId,'known'])),contentRevision:{witness:prior}};
+ const state=reconcileXizongRevision(study,learner.revisionWitness),r=state.contentRevision;
+ assert.equal(r.classification,'UNCLASSIFIED_REVISION');assert.equal(r.blockReason,'UNCLASSIFIED_REVISION');
+ assert.deepEqual(r.history.at(-1).unwitnessedScopes,['BLOCK_MODEL']);
+ assert.equal(r.history.at(-1).reason,'MODEL_NOT_BOUND_BY_PRIOR_WITNESS');
+ assert.equal(r.blockPending,true);assert.equal(revisionRequiresAction(state),false);
+ assert.equal(revisionStatus(state,learner.sourceHash).current_claim,'UNKNOWN');
+ assert.deepEqual(r.pendingKp,{});assert.deepEqual(r.pendingGroup,{});assert.equal(r.contactPending,false);
+ assert.equal(state.completed,true);assert.equal(state.blockRecallDone,true);assert.deepEqual(state.learned,study.learned);assert.deepEqual(state.ratings,study.ratings);
+ assert.notEqual(inspectXizongBlockCompletion(learner,state).reason,'CONTENT_REVALIDATION_REQUIRED');
+ const before=makePreparedMemoryAvailable(createXizongMemoryState(),{...descriptor,revisionWitness:prior});
+ const after=makePreparedMemoryAvailable(before,descriptor);assert.equal(todayMemoryQueue(before).length,0);assert.equal(todayMemoryQueue(after).length,0);
+ assert.deepEqual(after.evidence,before.evidence);assert.deepEqual(after.releasedBlocks,before.releasedBlocks);
+ assert.equal(Object.values(after.cards).reduce((n,c)=>n+(c.contentHistory?.length||0),0),0);
+ // A proven change to a field the old witness DID cover is still actionable.
+ const known=structuredClone(learner);known.framework.stopLine+='semantic change';
+ const changed=reconcileXizongRevision(study,buildXizongRevisionWitness(known));
+ assert.equal(changed.contentRevision.blockReason,'LOCAL_SEMANTIC_CHANGE');assert.equal(revisionRequiresAction(changed),true);
 });
 check('real model relationship change requires Block review without erasing history',()=>{
  const study={ sourceHash:learner.sourceHash,completed:true,blockRecallDone:true,
