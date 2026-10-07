@@ -123,7 +123,7 @@ Therefore model-rated Analysis may guide diagnosis now, but precise score-path n
 
 ### LEG26 memory/output baseline
 
-The currently named retention reference is 腿姐《核心考案》; its exact title/edition must be resolved under Learning §6.1. This historical《背诵手册》inventory does not establish that identity or current alignment. Do not silently substitute the two works or claim the named source is absent merely because repository binding is missing.
+The current designated retention source is **2027 腿姐《冲刺背诵手册》** under Learning §6.1. This LEG26 inventory remains historical-only and cannot authorize current-year wording or retention priority. The 2027《背练结合自测本》 is an auxiliary Recall/self-test source, not the baseline selector.
 
 Metadata retained:
 
@@ -182,7 +182,8 @@ Forbidden:
 
 | Family | Status now | Required role when available | What is already prepared |
 | --- | --- | --- | --- |
-| 2027 memory / sprint handbook | SOURCE_PENDING | exact Memory admission; Analysis EXACT; compression | legacy baseline + delta/fidelity/supersession rules |
+| 2027 腿姐《冲刺背诵手册》 | AVAILABLE / INSPECT_REQUIRED_BY_SCOPE | retention necessity + recall depth for model-bound prompts and residual Memory; later Analysis EXACT where applicable | current-year upper/lower volumes available; inspect the exact subject/chapter passage before admitting retention |
+| 2027《背练结合自测本》 | AVAILABLE_AUXILIARY | Recall/self-test and salience cross-check only | 30-day task/self-test structure available; does not replace retention-source judgment |
 | 2027 current affairs / 形势与政策 | SOURCE_PENDING | current facts/policy cues; Objective/Analysis overlays | strict high-freshness ingestion rules |
 | Xiao8 | SOURCE_PENDING | fresh current-year Objective transfer; mixed timing; selected Analysis/Mock evidence | clean-attempt / answer-separation / v2 rules |
 | Xiao4 | SOURCE_PENDING | final current-year output/exact Memory; final compression/execution | final-queue / late-arrival / correction rules |
