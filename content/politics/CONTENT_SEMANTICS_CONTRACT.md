@@ -307,6 +307,15 @@ It must:
 
 Invalid realization: deriving the parenthetical expansion cue by enumerating only existing reviewed Precision/Memory objects, or treating absence of a Memory object as proof that a useful model-retrieval slot should be removed.
 
+A stored quick-review cue is acceptable only when it has **incremental retrieval value** over its mainline sentence. Reject cues that:
+- merely repeat words already explicit in the sentence;
+- encode shorthand that requires separate memorization before it helps;
+- list detailed members and therefore leak the answer;
+- exist only because a Precision object happens to have that title;
+- have no stable conceptual home in the canonical chapter model.
+
+Precision objects may be more granular than the quick-review cue. Their job is exactness, not to define the learner-facing compression topology.
+
 Chapter-close editing of this view is assembly/reconciliation of lines already formed during learning. A newly invented alternative summary at chapter close is invalid when it changes the learner's model rather than thinning the learned one.
 
 
