@@ -168,6 +168,10 @@ The quick-review wording is Kian's self-use layer. Chat may refine it conversati
 
 If a compression line becomes so detailed that it teaches the answer again, move the excess back to teaching/support or Precision. If it becomes so thin that the next relation can no longer be reconstructed, restore the missing bridge.
 
+Before accepting an expansion cue, test it practically: **if Kian sees the mainline first and the cue only after a partial recall, does the cue reduce the work needed to reconstruct the block?** If not, delete or rewrite it. A cue fails if it merely repeats the mainline, mirrors Memory titles, or requires memorizing its own private code.
+
+During later review, reveal layers progressively: mainline first → cue only after incomplete structural recall → Precision/Memory only for the exact part still unreliable. After an exact retrieval, briefly reconnect it to the mainline relation so fragmented facts strengthen the model instead of becoming isolated cards.
+
 
 ## 2. Learner attention order
 
