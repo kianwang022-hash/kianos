@@ -4,8 +4,8 @@
 
 | 原文件 | 角色 | PDF 页数 | Markdown | fidelity | UNCLEAR 页数/页码 |
 | --- | --- | ---: | --- | --- | --- |
-| 冲刺背诵手册上册.pdf | DESIGNATED_RETENTION_SOURCE | 234 | [LEG27-UPPER.md](LEG27-UPPER.md) | BLOCKED / OCR_CANDIDATE | 228 页：2–5, 9–12, 14, 16–234 |
-| 冲刺背诵手册下册.pdf | DESIGNATED_RETENTION_SOURCE | 87 | [LEG27-LOWER.md](LEG27-LOWER.md) | BLOCKED / OCR_CANDIDATE | 85 页：2–50, 52–87 |
+| 冲刺背诵手册上册.pdf | DESIGNATED_RETENTION_SOURCE | 234 | [LEG27-UPPER.md](LEG27-UPPER.md) | BLOCKED / OCR_CANDIDATE | 126 页：41–48, 52–98, 107, 118–121, 125–126, 128–134, 138–144, 156, 158–169, 172–182, 186–196, 203–208, 212–213, 216–217, 219, 221, 225–226, 229 |
+| 冲刺背诵手册下册.pdf | DESIGNATED_RETENTION_SOURCE | 87 | [LEG27-LOWER.md](LEG27-LOWER.md) | BLOCKED / OCR_CANDIDATE | 46 页：2, 9–10, 12–17, 19–26, 28, 31–35, 45–48, 50, 53–55, 60, 69–71, 77–87 |
 
 上下册共同构成当前腿姐 designated retention source。其用途是按**实际检查过的原 PDF 范围**判断 retention necessity 和 recognition / conceptual paraphrase / complete membership / exact pairing / genuinely fixed wording 的深度；再区分模型内主提示与模型外高精度 residual / Memory / Precision。
 
