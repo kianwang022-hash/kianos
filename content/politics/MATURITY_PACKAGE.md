@@ -1,6 +1,6 @@
 # Politics Maturity Package
 
-Status: **ACCEPTED BASELINE · MODEL→MEMORY INTEGRATION REOPENED**
+Status: **ACCEPTED BASELINE · REVIEWED-TARGET MEMORY DELIVERY ACCEPTED · WHOLE-EXAM READINESS PARTIAL**
 Upstream acceptance bar: `EXAM_SUBJECT_MATURITY_STANDARD.md`
 Final independent audit: `MATURITY_FRESH_INDEPENDENT_AUDIT.md`
 
@@ -8,7 +8,9 @@ This is the practical Politics whole-cycle maturity package. It summarizes accep
 
 ## Truth boundary — accepted Layer A baseline
 
-The sealed maturity result below remains evidence for its tested baseline. The accepted prepared-package / model→Memory extension in [Learning §3.1.1–§3.2](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) has a separate open delivery/acceptance boundary, routed only by [Politics Current](CURRENT.md). This summary does not mark that integration, Website delivery or real learner mastery PASS.
+The sealed maturity result below remains evidence for its tested baseline. The later reviewed-target Memory delivery is accepted within the [current lane Acceptance](ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance), which owns its scope and actual main/Website/return evidence. This summary references that owner rather than continuing the retired delivery task or copying its receipts.
+
+Prepared teaching follows [Learning §3.1.1–§3.2](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) through the [existing learning manifest](learning/manifest.json). An available chapter/model route and a delivered reviewed Memory set do not establish complete five-subject teaching, all Source/image/table/annual wording, wider shared-return/durability acceptance or real learner mastery. Those claims retain their exact owners and per-asset limits.
 
 ```text
 SYSTEM_LOGIC_ACCEPTED = YES
@@ -22,7 +24,7 @@ This five-field split is the compact Layer-A acceptance surface required by the 
 
 Evidence reuse is valid for that baseline because the sealed v6 Fresh Independent / Anti-Anchored audit tested the Politics maturity system within its recorded scope rather than merely a local integration slice. It explicitly attacked Source fidelity, stale Chat Plan basis, false Secure/Unstable, reused Analysis material, Future Source supersession, transport replay/conflict, Fresh Chat, no-Website operation, attention-cost closure and the stop rule. The later Ultra standard adds no unproven Politics-specific system-logic requirement that changes the current decision boundary.
 
-The baseline's remaining calibration unknowns are gates, not hidden defects; they do not close the separate model→Memory integration:
+The baseline's remaining calibration unknowns are gates, not hidden defects; they neither reopen the accepted reviewed-target delivery nor grant broader content coverage:
 - Kian-specific throughput / retention / transfer / score calibration → Real-U;
 - current-year exact wording / current affairs / Xiao8/Xiao4 → authoritative Source arrival + fidelity admission;
 - final timed physical/paper execution → authentic-modality / Mock evidence.
@@ -32,7 +34,7 @@ The final anti-anchored v6 audit passed the sealed candidate. Broad Politics mat
 
 ## Score path
 
-Canonical cross-subject target remains Politics 70+ under the shared Exam Orchestrator.
+Canonical cross-subject target remains Politics 70+ under the shared Exam Orchestrator. The score/time/retention-cost objective and engineering stop decision are owned by [Learning §0–§0.3](LEARNING_CONTRACT.md#0-exam-objective-function--the-reason-this-lane-exists), not by file counts or a completion percentage.
 
 Politics-native control:
 - protect floor: 70;
@@ -108,7 +110,7 @@ Website does not choose Politics priority, Memory burden, cross-subject allocati
 
 ## Final independent acceptance
 
-`MATURITY_FRESH_INDEPENDENT_AUDIT.md` is the durable final result for the sealed baseline, not the reopened integrated extension.
+`MATURITY_FRESH_INDEPENDENT_AUDIT.md` is the durable final result for the sealed baseline. The subsequent reviewed-target delivery is separately accepted by the lane Acceptance linked above; neither result upgrades unrelated Source or learner claims.
 
 - SYSTEM_LOGIC_ACCEPTED: **YES**
 - KIAN_SPECIFIC_CALIBRATED: **NO**
@@ -118,11 +120,13 @@ The audit attacked false Secure, false Unstable, stale Chat Plan basis, source-f
 
 ## Remaining work
 
-- Complete the already-open prepared-package / model→Memory integration through the existing [Current delivery owner](CURRENT.md), with its own exact acceptance and actual consumer proof.
-- real Kian study → throughput/error/retention/transfer recalibration;
-- current-year Source arrival → bounded delta ingestion;
-- authentic timed/paper execution;
-- concrete learner-visible/source/content defects.
+- Ordinary Kian study → throughput/error/retention/transfer calibration and the smallest repair justified by actual use.
+- Existing per-asset teaching/Source gaps → inspect the exact available material and repair only dependent content; unavailable current material is not automatically a future-year source. Admitted independent content remains usable.
+- Authoritative current-year Source arrival → bounded delta ingestion, including later recitation/Analysis material when admitted.
+- Authentic timed/paper execution → final-output and score calibration.
+- Wider structured diagnosis-return or cross-device/profile-loss durability → only the existing shared/native owner, when that capability is actually requested or a concrete failure makes it necessary; its unproven scope stays in [lane Acceptance](ACCEPTANCE.md).
+
+There is no remaining broad Politics construction task implied by this summary. The reviewed-target delivery must not be repeated as unfinished work. Full teaching/Source readiness and learner performance are not declared complete merely to close engineering.
 
 ## Stop rule
 
@@ -131,7 +135,7 @@ Do not restart broad Politics maturity architecture. A real defect reopens only 
 
 ## Layer A Ultra-Maturity evidence map
 
-This map preserves the sealed baseline evidence; it does not extend those claims to the reopened teaching/Memory integration.
+This map preserves the sealed baseline evidence. It neither substitutes for the later bounded Memory delivery acceptance nor extends either result to full teaching/Source or learner readiness.
 
 | Ultra gate | Baseline evidence | Status |
 | --- | --- | --- |

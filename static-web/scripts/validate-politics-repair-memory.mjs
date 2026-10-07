@@ -238,6 +238,32 @@ try {
  let checks = 0;
  const verify = (condition, message) => { checks += 1; if (!condition) fail('prepared-handoff:' + message); };
  verify(manifest.source_roles.chengfeng.role === 'FIRST_ROUND_SOURCE_BASIS_WITH_CALIBRATION', 'source-role-must-not-route-Chat-back-to-old-continuous-reader');
+ // Route integrity is deliberately narrower than teaching or Source acceptance.
+ // Resolve actual chapter/model owners and local links without prescribing one
+ // teaching shape to every subject or treating the catalog as coverage proof.
+ let routedChapters = 0, localPreparationLinks = 0;
+ const learningRootPath = path.resolve(repoRoot, 'content/politics/learning');
+ const inLearning = p => path.resolve(p).startsWith(learningRootPath + path.sep);
+ const safeText = relative => {
+  const p = path.resolve(repoRoot, relative);
+  return inLearning(p) && fs.existsSync(p) && fs.statSync(p).isFile()
+   ? fs.readFileSync(p, 'utf8') : null;
+ };
+ const checkPreparationLinks = (relative, text) => {
+  for (const [, href] of text.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
+   if (/^[a-z][a-z\d+.-]*:/i.test(href) || href.startsWith('#')) continue;
+   const file = href.split('#')[0];
+   if (!file) continue;
+   const target = path.resolve(repoRoot, path.dirname(relative), file);
+   localPreparationLinks += 1;
+   verify(target.startsWith(path.resolve(repoRoot) + path.sep) && fs.existsSync(target), relative + ':broken-local-preparation-link:' + href);
+  }
+ };
+ const maturity = read('content/politics/MATURITY_PACKAGE.md');
+ verify(maturity.includes('ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance'), 'maturity-must-reference-current-delivery-acceptance');
+ verify(!/MODEL→MEMORY INTEGRATION REOPENED|Complete the already-open prepared-package|separate open delivery\/acceptance boundary/.test(maturity), 'maturity-still-reopens-delivered-memory');
+ verify(/REAL-U GATED/.test(maturity) && /PARTIAL \/ SOURCE GATED/.test(maturity) && /authentic timed/i.test(maturity), 'maturity-must-preserve-learning-source-and-modality-gates');
+
  for (const [subject, entry] of Object.entries(manifest.subjects)) {
   const prepared = entry.teaching_preparation;
   verify(Boolean(prepared?.subject_model && prepared?.chapter_directory), subject + ':prepared-owner-entry-missing');
@@ -247,6 +273,31 @@ try {
    verify(resolved.startsWith(path.resolve(repoRoot, 'content/politics/learning') + path.sep) && fs.existsSync(resolved), subject + ':invalid-preparation-reference:' + relative);
   }
   verify(prepared.scope === 'PER_ASSET_REVIEW_AND_SOURCE_LIMITS', subject + ':entry-must-not-grant-whole-subject-admission');
+  const modelText = safeText(prepared.subject_model);
+  verify(Boolean(modelText?.trim()), subject + ':empty-subject-model');
+  if (modelText) checkPreparationLinks(prepared.subject_model, modelText);
+  for (const relative of entry.current_assets || []) {
+   const chapterText = safeText(relative);
+   verify(Boolean(chapterText), subject + ':missing-current-chapter:' + relative);
+   if (!chapterText) continue;
+   const ownedChapter = JSON.parse(chapterText);
+   verify(Boolean(ownedChapter.chapter_id), subject + ':missing-chapter-identity:' + relative);
+   const compression = ownedChapter.chapter_compression || {};
+   verify(Object.entries(compression).some(([key, value]) => key !== 'review_prompt' && key !== 'stability_rule' && value && JSON.stringify(value).length > 2), subject + ':missing-owned-reconstruction:' + relative);
+   const name = path.basename(relative, '.json');
+   let briefPath = path.posix.join(prepared.chapter_directory, name + '.brief.md');
+   let text = safeText(briefPath);
+   // Existing Marxism C00 is prepared inside subject-model.md, not a missing
+   // ch00 brief. Require its explicit owner link and section before using it.
+   if (!text && name === 'ch00' && modelText?.includes('](../ch00.json)') && modelText.includes('c00-fixed-spine')) {
+    briefPath = prepared.subject_model; text = modelText;
+   }
+   verify(Boolean(text?.trim()), subject + ':missing-chapter-preparation:' + relative);
+   if (!text) continue;
+   routedChapters += 1;
+   checkPreparationLinks(briefPath, text);
+  }
+
  }
  for (const relative of ['content/politics/ACCEPTANCE.md', 'content/politics/learning/marxism/ACCEPTANCE.md', 'content/politics/learning/ethics-law/ACCEPTANCE.md']) {
   const text = read(relative);
@@ -327,5 +378,5 @@ try {
  const nextDay=makePacket({...packetArgs,day:'2026-10-08',now:now+86400000}).packet.subjects.politics.evidence.memory;
  assert.equal(nextDay.summary.recall_count,0);assert.equal(nextDay.current_plan,null);
  assert.equal(nextDay.history_profile.summary.current_compatible_events,rawTargets.length);
- console.log('POLITICS_PREPARED_HANDOFF_' + (process.exitCode ? 'FAIL' : 'PASS'), JSON.stringify({checks, chapter:chapter.chapter_id, modelNodes:spine.length, exactTargets:rawTargets.length, catalogTargets:catalog.candidates.length, syntheticEvents:events.length, learnerWrites:0}));
+ console.log('POLITICS_PREPARED_HANDOFF_' + (process.exitCode ? 'FAIL' : 'PASS'), JSON.stringify({checks, routedSubjects:Object.keys(manifest.subjects).length, routedChapters, localPreparationLinks, chapter:chapter.chapter_id, modelNodes:spine.length, exactTargets:rawTargets.length, catalogTargets:catalog.candidates.length, syntheticEvents:events.length, learnerWrites:0}));
 }

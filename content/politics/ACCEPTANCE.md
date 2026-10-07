@@ -50,6 +50,16 @@ Claim boundaries:
 
 The current work route is [Politics Current](CURRENT.md). Historical P1–P6 instructions are evidence, not an active continuation queue. Reopen only a concrete affected claim; do not restart completed delivery or mark the whole exam complete.
 
+### 2026-10-07 maturity summary and five-subject entry closeout
+
+This is a bounded follow-up to the delivery acceptance above, not a new full-course or learner acceptance. Baseline `ebf80912eeadc101b2cfc4428d4c1f526e7227b7` still had a stale Maturity summary reopening completed Memory delivery. The summary now references this Acceptance instead of carrying its own open delivery task. The score/time/retention-cost goal remains owned by Learning §0; no new course, scheduler or learner obligation was added.
+
+The existing `validate-politics-repair-memory.mjs` now also resolves every manifest-listed chapter to its existing prepared asset and owned reconstruction, checks local preparation links, and rejects the obsolete Maturity state. The bounded run passed 487 checks, covering five subject entries, 53 chapter routes and 47 local file references. Marxism C00 resolves to its explicitly linked section in the original subject model; no duplicate ch00 brief was created. No missing chapter-preparation file or broken checked local link was found. This proves entry integrity, not that every Source item or every six-part package is semantically complete. Representative actual routes in History C09, Mao C07, Xi C12 and Ethics C02 were read alongside the previously audited C01 route; their per-asset Source/review limits remain in place.
+
+The original C01 ten-node/22-target producer→plan→in-memory Recall→Daily Packet checks and the 473-target catalog passed unchanged, as did `validate-politics-memory-history-profile.mjs`, `test-politics-chat-return.mjs` and `audit-politics-coverage.mjs`. The coverage check preserves its existing admitted-scope boundary; unlinked/withheld questions are not promoted. Before repair the new maturity checks failed. Three disposable mutations—missing History preparation directory, reintroduced obsolete delivery status, and a broken Xi lesson link—were rejected; restored files passed again.
+
+Only this receipt, the Maturity summary and the existing test changed. No chapter/model/answer/Source/admission payload, production Runtime, actual plan or learner record was changed. No new browser/deployment claim is made: unchanged Website behavior reuses the existing bounded delivery and C01 browser evidence. Current engineering returns to ordinary learning and targeted maintenance; current per-asset Source gaps, wider shared-return/durability scope, future admitted materials and real U/timed-output calibration remain separate, not silently completed.
+
 ## Permanent boundaries
 
 - Drafts, historical material and model memory do not become current-year Source.
