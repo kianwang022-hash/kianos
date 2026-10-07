@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:idle:idle-away",
+        "pattern": "idle away time / idle time away",
+        "meaning_cn": "虚度时间；把时间闲混过去",
+        "definition_en": "to spend time doing little or nothing useful",
+        "direction": "R+P",
+        "level": "L2",
+        "boundary": "separable transitive phrasal construction; bare idle may be intransitive",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:e0a2b6a1fd1cc20ef798",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:idle:c8878fdac1705203:collocation:0"
+            ],
+            "meaning_cn": "虚度光阴",
+            "phrase": "idle away + time"
+          }
+        ]
+      }
+    ],
     "content_hash": "55939b2b7c7c448509ec85bdfa731458408e7a32365a2aa3f3bc5167950a4a45",
     "core_concept": {
       "core_clusters": [
@@ -20,8 +41,8 @@
           ]
         },
         {
-          "label_cn": "无所事事，闲混；（发动机）空转",
-          "label_en": "to spend time doing nothing; to be idle; (of an engine) to run slowly without doing work",
+          "label_cn": "无所事事；（使发动机）空转",
+          "label_en": "spend time doing nothing; for an engine to idle or to make it idle",
           "pos": "verb",
           "sense_ids": [
             "sense:idle:c8878fdac1705203",
@@ -29,9 +50,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "不活动，空闲；虚度",
-      "core_meaning_en": "not working or active; to spend time doing nothing",
-      "mental_model_cn": "不活动，空闲；虚度",
+      "core_meaning_cn": "闲置／懒散；无所事事或虚度；发动机空转",
+      "core_meaning_en": "inactive or lazy; do nothing or waste time; run an engine without driving a load",
+      "mental_model_cn": "闲置／懒散；无所事事或虚度；发动机空转",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -76,21 +97,11 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e0a2b6a1fd1cc20ef798",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:idle:c8878fdac1705203:collocation:0"
-            ],
-            "meaning_cn": "虚度光阴",
-            "phrase": "idle away + time"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "无所事事，闲混",
         "definition_en": "to spend time doing nothing; to be idle",
-        "governing_pattern": "vi.",
+        "governing_pattern": "idle; idle about/around",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -112,16 +123,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（发动机）空转",
-        "definition_en": "(of an engine) to run slowly without doing work",
-        "governing_pattern": "vi.",
+        "definition_cn": "（使发动机）空转",
+        "definition_en": "for an engine to run while not driving a load, or to make an engine do this",
+        "governing_pattern": "an engine idles; idle an engine",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:idle:ed994425629f5903",
-        "sense_label_en": "(of an engine) to run slowly without doing work",
+        "sense_label_en": "for an engine to run while not driving a load, or to make an engine do this",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -434,8 +445,7 @@
       "collocation:003118061cb92828ff5c",
       "collocation:39e5aaa504e310274690",
       "collocation:8cd421be42e21c2aea95",
-      "collocation:a76a7b723f285f24c754",
-      "collocation:e0a2b6a1fd1cc20ef798"
+      "collocation:a76a7b723f285f24c754"
     ],
     "facts": [],
     "collocations": [
@@ -462,7 +472,9 @@
       {
         "id": "collocation:e0a2b6a1fd1cc20ef798",
         "source_row": 18996,
-        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

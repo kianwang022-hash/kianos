@@ -15,7 +15,18 @@
         "definition_en": "a large number in the hundreds",
         "pattern": "hundreds of + plural noun",
         "source_sense_id": "sense:hundred:39021f31c4c658fb",
-        "boundary": "plural approximate quantity; not exact one hundred"
+        "boundary": "plural approximate quantity; not exact one hundred",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:66377930bef3714fb5df",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hundred:39021f31c4c658fb:collocation:0"
+            ],
+            "meaning_cn": "数以百计的",
+            "phrase": "hundreds of + sth"
+          }
+        ]
       }
     ],
     "content_hash": "e73aed8f4aa6110a666c71b00760e0331b24c6fa2771972a68a5cd125774a18e",
@@ -54,15 +65,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:66377930bef3714fb5df",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hundred:39021f31c4c658fb:collocation:0"
-            ],
-            "meaning_cn": "数以百计的",
-            "phrase": "hundreds of + sth"
-          },
-          {
             "collocation_id": "collocation:c91085984ff6578f95f6",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -75,7 +77,7 @@
         "confidence": "medium",
         "definition_cn": "百；百个一组",
         "definition_en": "the number 100; a group of 100 things",
-        "governing_pattern": "",
+        "governing_pattern": "a hundred; plural hundreds; hundreds of + plural noun",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -94,22 +96,7 @@
             ],
             "meaning_cn": "一百",
             "phrase": "one hundred"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "百（数字）",
-        "definition_en": "the cardinal number 100",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "numeral",
-        "sense_id": "sense:hundred:41eefe82125a5292",
-        "sense_label_en": "the cardinal number 100",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:6c868320ee4a43955f62",
             "exam_value": "usage_example",
@@ -121,15 +108,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一百的；许多的",
-        "definition_en": "amounting to 100; many",
-        "governing_pattern": "",
-        "level": "L3",
+        "definition_cn": "一百；（夸张）许多",
+        "definition_en": "the number 100, sometimes used hyperbolically for a large number",
+        "governing_pattern": "two hundred people (no s); a hundred times can be hyperbolic",
+        "level": "L2",
         "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:hundred:dda60fd1e92458fb",
-        "sense_label_en": "amounting to 100; many",
-        "sort_order": 2,
+        "pos": "numeral",
+        "sense_id": "sense:hundred:41eefe82125a5292",
+        "sense_label_en": "the number 100, sometimes used hyperbolically for a large number",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -315,7 +302,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6c868320ee4a43955f62",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hundred:dda60fd1e92458fb:collocation:0"
+          ],
+          "meaning_cn": "一百次；许多次",
+          "phrase": "a hundred times"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "一百的；许多的",
+      "definition_en": "amounting to 100; many",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:hundred:dda60fd1e92458fb",
+      "sense_label_en": "amounting to 100; many",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:hundred:dda60fd1e92458fb",
+      "status": "merged",
+      "merged_into_sense_id": "sense:hundred:41eefe82125a5292",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -334,14 +350,13 @@
       },
       {
         "sense_id": "sense:hundred:dda60fd1e92458fb",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:hundred:41eefe82125a5292",
         "source_row": 6711,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
       }
     ],
     "active_collocations": [
-      "collocation:66377930bef3714fb5df",
       "collocation:6c868320ee4a43955f62",
       "collocation:bf7240e16d0990fc381f",
       "collocation:c91085984ff6578f95f6"
@@ -351,12 +366,15 @@
       {
         "id": "collocation:66377930bef3714fb5df",
         "source_row": 8619,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6c868320ee4a43955f62",
         "source_row": 9142,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "sense_id": "sense:hundred:41eefe82125a5292"
       },
       {
         "id": "collocation:bf7240e16d0990fc381f",
