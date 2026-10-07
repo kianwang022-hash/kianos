@@ -9467,7 +9467,7 @@
     "ordinal": 2866,
     "word": "local",
     "source_owner_path": "content/lexical/words/by-ordinal/o2866.json",
-    "source_fingerprint": "614c4f00d0280fc9d791f47eb88068330b83b260997e1e035a62a3074e81ece7",
+    "source_fingerprint": "d44ac3066f955a80469a0961cbbe6ac11be08356303eb318d9e9bc47121c23a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9477,13 +9477,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "与特定地方或区域相关",
-      "decision_cn": "",
+      "summary_cn": "当地的、本地的；局部的；当地居民",
+      "decision_cn": "place/community → 当地的、本地的；medicine/body → 局部的；a local / the locals → 当地居民。美式交通 a local（每站停的车）保留为较低层 Expansion，不进入 Core。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "与特定地方或区域相关"
+        "target_label": "当地的、本地的；局部的；当地居民"
       }
     },
     "senses": [
@@ -10527,7 +10527,7 @@
     "ordinal": 2873,
     "word": "lodge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2873.json",
-    "source_fingerprint": "e95219127da115cc8639fc3be831a00917947e6dd69b13d8d5aef6627630ca33",
+    "source_fingerprint": "1af5e1c4cc90f44790838405c9cda0761b89c3534a914a91e8b936ed736773fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10537,13 +10537,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "小屋；临时住宿或放置",
-      "decision_cn": "",
+      "summary_cn": "小屋/临时住所；寄宿；正式提出投诉、索赔、上诉等",
+      "decision_cn": "place → lodge 小屋/住所；stay → 寄宿；lodge sth with/in → 存放；official/legal object → lodge a complaint/claim/appeal = 正式提出、提交。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小屋；临时住宿或放置"
+        "target_label": "小屋/临时住所；寄宿；正式提出投诉、索赔、上诉等"
       }
     },
     "senses": [
@@ -10694,9 +10694,9 @@
         "id": "sense:lodge:69b9e12960a1561c",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "提出（投诉等）",
-        "definition_en": "to formally make a complaint or statement",
+        "governing_pattern": "lodge + claim/complaint/protest/appeal/objection (+ with/against ...)",
+        "definition_cn": "正式提出、提交（投诉、索赔、抗议、上诉、异议等）",
+        "definition_en": "to formally submit a claim, complaint, protest, appeal, objection, or similar official document or statement",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10718,7 +10718,7 @@
           "target_kind": "sense",
           "target_id": "sense:lodge:69b9e12960a1561c",
           "target_locator": "record.senses[5]",
-          "target_label": "提出（投诉等）"
+          "target_label": "正式提出、提交（投诉、索赔、抗议、上诉、异议等）"
         }
       }
     ],
@@ -10755,7 +10755,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:lodge:official-submission",
+        "sense_id": "sense:lodge:69b9e12960a1561c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "lodge a claim/complaint/protest/appeal/objection",
+        "lines": [
+          {
+            "text": "正式提出或提交索赔、投诉、抗议、上诉、异议等",
+            "lang": "cn"
+          },
+          {
+            "text": "official/formal submission; distinct from lodge = stay temporarily or put/store something somewhere",
+            "lang": "en"
+          },
+          {
+            "text": "formally submit an official claim, complaint, protest, appeal, or objection",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:lodge:official-submission",
+          "target_locator": "record.constructions[0]",
+          "target_label": "lodge a claim/complaint/protest/appeal/objection"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10914,23 +10941,31 @@
     "ordinal": 2875,
     "word": "log",
     "source_owner_path": "content/lexical/words/by-ordinal/o2875.json",
-    "source_fingerprint": "2315433dda87bd21c0b90c2d61a4327d7318e27b728782e61cbaa4fc591482ba",
-    "sense_lineage": [],
+    "source_fingerprint": "f8382fe758769f750d814d96c8804a3ad8eb337b498617c2cf3ac6fee72d75a1",
+    "sense_lineage": [
+      {
+        "word_id": "word:log",
+        "target_kind": "sense",
+        "from_target_id": "sense:log:b89982c8008c523c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "记录或木头",
-      "decision_cn": "",
+      "summary_cn": "圆木；日志/记录；记录数据",
+      "decision_cn": "wood → 原木；record → 日志/记录；verb log data/events → 记录；log in/out → 登录/登出。航海测速计的旧/专业义保留在 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "记录或木头"
+        "target_label": "圆木；日志/记录；记录数据"
       }
     },
     "senses": [
@@ -11000,25 +11035,8 @@
         }
       },
       {
-        "id": "sense:log:b89982c8008c523c",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "计程仪",
-        "definition_en": "a device for measuring a ship's speed",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:log:b89982c8008c523c",
-          "target_locator": "record.senses[2]",
-          "target_label": "计程仪"
-        }
-      },
-      {
         "id": "sense:log:f9f8253c097559ec",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "伐木",
@@ -11028,7 +11046,7 @@
         "usage": [
           {
             "id": "collocation:b9c03754566b7284d338",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "log the forest",
             "meaning_cn": "砍伐森林",
             "kind": "usage_example",
@@ -11038,13 +11056,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:log:f9f8253c097559ec",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "伐木"
         }
       },
       {
         "id": "sense:log:ee7ffa977f83560a",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "记录",
@@ -11054,7 +11072,7 @@
         "usage": [
           {
             "id": "collocation:1592bc6b52cbf5dde6a7",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "log the data",
             "meaning_cn": "记录数据",
             "kind": "usage_example",
@@ -11064,7 +11082,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:log:ee7ffa977f83560a",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "记录"
         }
       }
@@ -11133,7 +11151,23 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "计程仪",
+          "definition_en": "a device for measuring a ship's speed",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:log:b89982c8008c523c",
+          "sense_label_en": "a device for measuring a ship's speed",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -11570,7 +11604,7 @@
     "ordinal": 2879,
     "word": "long",
     "source_owner_path": "content/lexical/words/by-ordinal/o2879.json",
-    "source_fingerprint": "312b1a4962fde435827c46efef3aed5dc03b283889e9e355d1759ddbf06b1fb7",
+    "source_fingerprint": "88d0b870896159ece82ec9ae406c7941ae5c7526a1b210c6f2f016715161d09d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11581,13 +11615,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "长的；渴望",
-      "decision_cn": "",
+      "summary_cn": "长的；长时间地；正式用语 long for/to do 表示渴望",
+      "decision_cn": "adjective → 长/长久；adverb（how long / wait long / long ago）→ 很久、长时间；verb long for sth / long to do sth →（正式）渴望；as/so long as → 只要。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "长的；渴望"
+        "target_label": "长的；长时间地；正式用语 long for/to do 表示渴望"
       }
     },
     "senses": [
@@ -11685,14 +11719,14 @@
           {
             "id": "collocation:6ef94539b8d6ab069b3f",
             "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "long to do + sth",
+            "phrase": "long to do sth",
             "meaning_cn": "渴望做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:6ef94539b8d6ab069b3f",
               "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "long to do + sth"
+              "target_label": "long to do sth"
             }
           }
         ],
@@ -11709,7 +11743,7 @@
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "长久地，长期地",
-        "definition_en": "for a long time",
+        "definition_en": "for a long time; for a great amount of time",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11769,7 +11803,11 @@
             "lang": "cn"
           },
           {
-            "text": "conditional provided that; distinct from literal duration use",
+            "text": "conditional provided that; distinct from literal duration/length",
+            "lang": "en"
+          },
+          {
+            "text": "provided that; on the condition that",
             "lang": "en"
           }
         ],
