@@ -180,7 +180,7 @@ Learning Contract §3.1.1 requires a reusable chapter teaching package before th
 Realize that package through existing Content owners. The exact file split is flexible, but the following learner jobs must be inspectably owned rather than inferred at runtime:
 
 - canonical subject total model plus the chapter reconstruction spine / mother model and their explicit chapter-within-subject relation;
-- stable progressive teaching stages or batches, each with a recoverable identity, owned spine/content range and next/closure relation;
+- stable progressive teaching stages or batches, each with a recoverable identity, **problem/tension being resolved**, owned spine/content range and next-question/closure relation; the stage route is a teaching argument over the fixed spine, not a second framework or a numbered-spine recital;
 - substantive explanation attached to those stages;
 - deliberate confusable/boundary teaching pass;
 - same-model compression;
@@ -194,6 +194,7 @@ The Content review must reject:
 - subject total model missing or a chapter unable to state where it sits in that model;
 - fixed chapter spine present but no reusable substantive teaching content;
 - full prose present but no stable teaching-stage routing, leaving each Chat to choose a new fill order;
+- a “prepared route” whose stage identity is merely “nodes 01–04 / 05–07 / 08–10” with no chapter-level problem/dependency logic, so first teaching degenerates into reading the reconstruction spine;
 - “易混/边界” recoverable only by rereading raw questions rather than prepared Content;
 - compression that introduces a new framework;
 - precision lists that are not attached to the same model;
