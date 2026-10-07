@@ -156,6 +156,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   completionInput.textContent = JSON.stringify({ blockId, blockIds: [], blockPrerequisites: prerequisite ? [{ blockId: 'missing', requirement: null }] : [],
     blockingVisualGroups: visual ? [{ groupId: groupIds[1], label: 'Synthetic visual', reviewableFromOriginalSource: true }] : [], requirements: [] });
   const document = new Element(); document.append(root, evidenceBridge, evidenceKps, completionInput);
+  document.getElementById = () => null; // No knowledge deep link in these synthetic stage fixtures.
   document.createElement = () => new Element(); document.createTextNode = text => { const el = new Element(); el.textContent = text; return el; };
   const values = new Map(saved ? [[stateKey, JSON.stringify(saved)]] : []);
   let failKey = null;
@@ -165,7 +166,7 @@ async function createHarness({ saved, available = true, ttsx = [], visual = fals
   window.dispatchEvent = event => { dispatched.push(event); return true; };
   class CustomEvent { constructor(type, options = {}) { this.type = type; this.detail = options.detail; } }
   const groups = clone(groupPayload); if (visual) { groups[1].visualRequired = true; groups[1].visualSourceState = 'GAP_NOT_MOUNTED'; }
-  const context = vm.createContext({ window, document, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, Element, CustomEvent, __revision: revision,
+  const context = vm.createContext({ window, document, location: {hash:''}, localStorage: storage, sessionStorage: { getItem: () => null, setItem: () => {} }, HTMLElement: Element, HTMLDetailsElement: Element, Element, CustomEvent, __revision: revision,
     learnerWriterReady: Promise.resolve(), sourceContactCompatible: revision.sourceContactCompatible, revisionRequiresAction: revision.revisionRequiresAction, needsFreshKpRecall: revision.needsFreshKpRecall,
     groupPayload: groups, kpPayload, revisionRuntimeUrl: '', revisionWitness: witness,
     sourcePerGroup: false, bPostChatReferenceBlock: false, postChatRecallAvailable: available, sourceContactMode: 'NATURAL_SOURCE_UNIT', sourceContactPayload: { mode: 'NATURAL_SOURCE_UNIT', logicGroupIsAutomaticSourceChunk: false },
