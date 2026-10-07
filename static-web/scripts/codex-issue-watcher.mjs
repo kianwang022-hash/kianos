@@ -324,7 +324,7 @@ async function main() {
       'Repository: ' + repoFullName + '. Issue #' + issue.number + ': ' + issue.title,
       '--- ISSUE BODY ---', issue.body, '--- END ISSUE BODY ---',
       'This is the dedicated executor checkout. Re-read current main, AGENTS.md, static-web/CURRENT.md and the exact issue owner before writes; do not overwrite concurrent work.',
-      'Use an isolated codex/issue' + issue.number + '-* task worktree. Preserve any existing unique work. Respect STOP and Human-Gate boundaries.',
+      'Reuse the bound codex/issue' + issue.number + '-* worktree; if none exists allocate through npm --prefix static-web run task:workspace with --branch, --path and bounded --sparse (or justified --full). Respect disk/count limits; do not bypass them with clone/archive/worktree add. Preserve unique work and STOP/Human-Gate boundaries.',
       'Do not auto-merge, deploy, mutate learner state, rearm a task or escalate models. At most this one task; stop on quota, source, permission, timeout or conflict.',
       'Return PR_READY only for your exact open PR head against main; this is not accepted completion. Otherwise return BLOCKED with an allowed reason.',
       'Final response must match the supplied JSON schema: schema=' + resultSchema + ', issue=' + issue.number + ', run_id=' + claim.run_id + ', task_digest=' + digest + '.',

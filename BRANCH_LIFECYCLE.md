@@ -55,6 +55,8 @@ On pushes to `main` it may retire only:
 
 Every other non-main branch survives automatically.
 
+Remote deletion does not remove a local checkout. The completing worker must also run the scoped local hygiene command from a retained checkout, following [Local task disk lifecycle](PROJECT_MANAGEMENT_CONTRACT.md#local-task-disk-lifecycle). Local deletion requires the exact merged head, retired remote branch, no open PR and a safe inactive worktree; Codex Issue branches keep their additional completed-Issue check.
+
 This keeps automation stateless: current GitHub facts decide, not a historical list of branch names.
 
 ## Standing authorization
