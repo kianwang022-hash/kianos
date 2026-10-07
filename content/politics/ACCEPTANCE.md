@@ -1,6 +1,6 @@
 # Politics Acceptance
 
-Status: **CURRENT — BASE FIRST-ROUND ACCEPTED · MODEL→MEMORY INTEGRATION REOPENED · WHOLE-EXAM CLOSURE PARTIAL**  
+Status: **CURRENT — BASE FIRST-ROUND ACCEPTED · REVIEWED-TARGET MEMORY DELIVERY ACCEPTED · WHOLE-EXAM CLOSURE PARTIAL**
 Role: lane-wide Politics integration Acceptance Truth  
 Standard: `LEARNING_ACCEPTANCE.md`  
 Work cursor: `content/politics/CURRENT.md`
@@ -34,31 +34,21 @@ Politics-wide whole-exam readiness is **not closed**. Later current-year Source,
 | Whole-exam readiness | **PARTIAL / NOT YET CLOSED** |
 | Learner U | **NOT GRANTED BY THIS FILE**; real private learner evidence remains separate |
 
-## Reopened supplemental integration claim — 2026-10-05
+## Reviewed-target Memory delivery — bounded acceptance
 
-The previously accepted first-round Source / teaching / Workbench / Wrong-Uncertain boundaries remain valid within their tested scope. A newer learner-facing capability is now explicitly under construction:
+**REVIEWED_TARGET_DELIVERY_ACCEPTED.** The 2026-10-05 supplemental delivery gate is closed for the specifically reviewed target set and its original producer / admission / plan / snapshot / Memory / evidence consumers. The earlier base first-round acceptance remains valid in its original scope.
 
-```text
-Chat coherent model
-→ same-model compression
-→ Chat-assisted exact-memory encoding/rehearsal
-→ reviewed Current Memory target
-→ Website retrieval
-→ Recall/question evidence
-→ Chat adaptive review
-```
+Evidence owner: [PR #1151 final formal-served and remote-readback receipt](https://github.com/kianwang022-hash/kianos/pull/1151#issuecomment-6010085983), together with its preceding exact-candidate browser and native-relay/fresh-reader proof. That receipt confirms accepted main and served content/catalog agreement, exact plan → retrieval → reveal → all three self-ratings/save → reload/reopen Resume → native Packet return. It is not inferred merely from merge status. Later documentation-only edits do not invalidate unchanged delivered product semantics.
 
-This is a **new integration claim**, not a retroactive invalidation of the accepted base path. Its canonical work cursor is `content/politics/CURRENT.md` P1–P6.
+Claim boundaries:
 
-Current acceptance for this added claim:
+- The reviewed-target Website delivery is **accepted within the recorded scope**; it is no longer candidate-only or awaiting main adoption.
+- Current teaching uses the prepared package in the [Learning contract](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates). The [existing learning manifest](learning/manifest.json) resolves subject models and chapter preparation. A path under `teaching-candidate` is a historical directory name, not an automatic acceptance or rejection decision; inspect the actual asset's current review and Source limits.
+- Complete five-subject teaching-package coverage, all Source/image/table/annual wording and wider structured diagnosis-return/durability claims are **not granted by this delivery**. Main presence, legacy content_closure PASS and a working Memory catalog cannot upgrade an unreviewed or source-limited object.
+- Known former cold-export optimization was excluded from #1151. Reuse only the final receipt's measured usability scope; no all-route performance claim or inherited three-second promise is made.
+- Real learner effectiveness remains **U UNTESTED / real-learner-only**. Synthetic events, self-rated STABLE and successful delivery do not imply mastery, real study or automatic review debt.
 
-- Learning semantics / content requirements: **CURRENT and reviewed as rules**;
-- representative Ethics-Law C06 + Marxism C02 content/consumer evidence on PR #1151: **bounded candidate evidence only**;
-- five-subject precision coverage: **NOT YET VERIFIED**;
-- main-to-actual-Website delivery for the integrated loop: **NOT YET ACCEPTED**;
-- learner effectiveness/mastery: **U remains real-learner-only**.
-
-Do not use the older lane-wide “first-round accepted” wording to close this newer precision-memory integration. P6 must explicitly reconcile this Acceptance owner after the actual accepted artifacts land on main and the real consumer is verified. Known user-visible performance observations on the affected path are part of product acceptance when they materially violate the low-friction learning contract; a functionally correct but materially unusable cold path is not an end-to-end PASS.
+The current work route is [Politics Current](CURRENT.md). Historical P1–P6 instructions are evidence, not an active continuation queue. Reopen only a concrete affected claim; do not restart completed delivery or mark the whole exam complete.
 
 ## Permanent boundaries
 

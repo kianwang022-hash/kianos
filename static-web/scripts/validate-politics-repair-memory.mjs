@@ -227,3 +227,105 @@ try {
  assert.equal(profile([legacy],actualCatalog,{currentDay:day}).summary.stale_or_changed_events,1,'legacy raw recall does not gain newly reviewed criteria');
  console.log('PASS reviewed producer→catalog→snapshot→Recall; pending excluded, stable ID, local semantic staleness');
 } finally {fs.rmSync(fixtureRoot,{recursive:true,force:true});}
+
+// Current teaching entry → same-model C01 reconstruction → existing Memory consumer.
+// This is a bounded content/consumer regression test, not learner evidence or a
+// proof that every chapter/source has passed semantic or real-user acceptance.
+{
+ const { buildPoliticsMemoryCandidateCatalogCurrent: buildCatalog } = await import('../src/lib/politicsMemoryCandidates.mjs');
+ const read = relative => fs.readFileSync(path.join(repoRoot, relative), 'utf8');
+ const manifest = JSON.parse(read('content/politics/learning/manifest.json'));
+ let checks = 0;
+ const verify = (condition, message) => { checks += 1; if (!condition) fail('prepared-handoff:' + message); };
+ verify(manifest.source_roles.chengfeng.role === 'FIRST_ROUND_SOURCE_BASIS_WITH_CALIBRATION', 'source-role-must-not-route-Chat-back-to-old-continuous-reader');
+ for (const [subject, entry] of Object.entries(manifest.subjects)) {
+  const prepared = entry.teaching_preparation;
+  verify(Boolean(prepared?.subject_model && prepared?.chapter_directory), subject + ':prepared-owner-entry-missing');
+  if (!prepared) continue;
+  for (const relative of [prepared.subject_model, prepared.chapter_directory]) {
+   const resolved = path.resolve(repoRoot, relative);
+   verify(resolved.startsWith(path.resolve(repoRoot, 'content/politics/learning') + path.sep) && fs.existsSync(resolved), subject + ':invalid-preparation-reference:' + relative);
+  }
+  verify(prepared.scope === 'PER_ASSET_REVIEW_AND_SOURCE_LIMITS', subject + ':entry-must-not-grant-whole-subject-admission');
+ }
+ for (const relative of ['content/politics/ACCEPTANCE.md', 'content/politics/learning/marxism/ACCEPTANCE.md', 'content/politics/learning/ethics-law/ACCEPTANCE.md']) {
+  const text = read(relative);
+  verify(text.includes('REVIEWED_TARGET_DELIVERY_ACCEPTED'), relative + ':landed-delivery-still-marked-pending');
+  verify(!/\*\*bounded candidate evidence only\*\*|currently has bounded candidate evidence only/.test(text), relative + ':stale-candidate-only-claim');
+  verify(/U\s+UNTESTED|real-learner-only/.test(text), relative + ':real-user-boundary-lost');
+ }
+ const chapterPath = 'content/politics/learning/marxism/ch01.json';
+ const chapter = JSON.parse(read(chapterPath));
+ const briefPath = 'content/politics/learning/marxism/teaching-candidate/ch01.brief.md';
+ const brief = read(briefPath);
+ const spine = chapter.chapter_compression.reconstruction_chain;
+ const section = brief.split('## 同一模型压缩与下一章桥接')[1]?.split('\n## ')[0] || '';
+ const recovered = [...section.matchAll(/^- (\d{2} .+)$/gm)].map(m => m[1].trim());
+ verify(JSON.stringify(recovered) === JSON.stringify(spine), 'brief-reconstruction-differs-from-canonical-model');
+ const anchors = [...brief.matchAll(/<a id="([^"]+)"><\/a>/g)].map(m => m[1]);
+ verify(new Set(anchors).size === anchors.length, 'duplicate-content-anchor');
+ const mapText = brief.split('|固定节点|')[1]?.split('<a id="c01-prepared-stages">')[0] || '';
+ const rows = mapText.split('\n').filter(line => /^\|\d{2} /.test(line));
+ verify(rows.length === spine.length, 'model-node-routing-incomplete');
+ const rawTargets = chapter.content_support.active_precision;
+ const rawById = new Map(rawTargets.map(x => [x.id, x]));
+ const attached = [];
+ for (const row of rows) {
+  const [label] = row.slice(1).split('|');
+  verify(spine.some(node => node.startsWith(label.trim() + '｜')), 'renamed-model-node:' + label);
+  for (const match of row.matchAll(/\]\(#([^)]+)\)/g)) verify(anchors.includes(match[1]), 'broken-explanation-link:' + match[1]);
+  const ids = [...row.matchAll(/`(polmem-[a-z0-9]+)`/g)].map(m => m[1]);
+  verify(ids.length > 0, 'node-has-no-owned-retrieval-reference:' + label);
+  for (const id of ids) { verify(rawById.has(id), 'orphan-retrieval-reference:' + id); attached.push(id); }
+ }
+ verify(new Set(attached).size === attached.length && attached.length === rawTargets.length, 'exact-target-map-missing-or-duplicated');
+ for (const label of ['首次填充01–04', '首次填充05–07', '首次填充08–10', '理解后补全', '易混与同模型恢复']) {
+  verify(brief.includes('|' + label + '|'), 'stable-prepared-stage-missing:' + label);
+ }
+ const stageText=brief.split('### 从下一段直接续讲')[1]?.split('### 原22组精记的交接')[0] || '';
+ const stageRows=stageText.split('\n').filter(line=>/^\|(?:入章定位|首次填充|理解后补全|易混与同模型恢复)/.test(line)).map(line=>line.slice(1,-1).split('|'));
+ verify(JSON.stringify(stageRows.map(row=>row[0]))===JSON.stringify(['入章定位','首次填充01–04','首次填充05–07','首次填充08–10','理解后补全','易混与同模型恢复']),'prepared-stage-order-drift');
+ for (let i=0;i<3;i++) verify(stageRows[i]?.at(-1)===stageRows[i+1]?.[0],'fresh-reader-next-stage-drift:'+i);
+ verify(brief.includes('## 易混与边界的独立回合') && anchors.includes('c01-boundary-pass'), 'prepared-confusable-pass-missing');
+ const catalog = buildCatalog();
+ const catalogById = new Map(catalog.candidates.map(x => [x.id, x]));
+ for (const target of rawTargets) {
+  const selected = catalogById.get(target.id);
+  verify(Boolean(selected?.admission_verified), 'reviewed-C01-target-not-consumed:' + target.id);
+  if (!selected) continue;
+  verify(selected.prompt === target.prompt, 'authored-prompt-lost:' + target.id);
+  verify(JSON.stringify(selected.answer_items) === JSON.stringify(target.items), 'exact-answer-lost:' + target.id);
+  verify(JSON.stringify(selected.checking_criteria) === JSON.stringify(target.checking_criteria), 'checking-lost:' + target.id);
+  verify(selected.memory_cue === target.memory_cue, 'encoding-cue-lost:' + target.id);
+ }
+ // An entrypoint is not admission. Pending source content stays unselectable.
+ verify(catalog.candidates.every(x => x.admission_verified === true && x.admission_basis?.review_status === 'REVIEWED'), 'pending-target-promoted-by-entrypoint');
+ const data = new Map();
+ const storage = { getItem: k => data.get(k) ?? null, setItem: (k,v) => data.set(k,v), removeItem: k => data.delete(k) };
+ const day = '2026-10-07', now = Date.parse(day + 'T08:00:00Z');
+ const plan = { schema: 'kianos.politics.memory-plan.v1', plan_id: 'isolated-c01-prepared-handoff', study_day: day, generated_at: new Date(now).toISOString(), catalog_revision: catalog.revision, items: rawTargets.map(x => ({candidate_id:x.id, reason:'Synthetic reviewed-content handoff; not Kian evidence'})) };
+ assert.equal(resume(storage,catalog,{expectedDay:day}), null);
+ assert.equal(apply(storage,catalog,plan,{expectedDay:day,now}).status,'applied');
+ const events=[];
+ for (let i=0; i<rawTargets.length; i++) {
+  const active=resume(storage,catalog,{expectedDay:day});
+  assert.equal(active.status,'ACTIVE'); assert.equal(active.candidate.id,rawTargets[i].id);
+  events.push(respond(storage,catalog,{plan_id:plan.plan_id,candidate_id:rawTargets[i].id,response:['FORGOT','FUZZY','STABLE'][i%3],observed_at:new Date(now+i*1000).toISOString()},{expectedDay:day}));
+  // The next read is the same persisted-state resume after a fresh consumer.
+ }
+ assert.equal(resume(storage,catalog,{expectedDay:day}).status,'COMPLETE');
+ assert.equal(profile(events,catalog,{currentDay:day}).summary.current_compatible_events,rawTargets.length);
+ assert.equal(resume(storage,catalog,{expectedDay:'2026-10-08'}).status,'STALE');
+ const { buildHomeDailyLearningPacket: makePacket } = await import('../src/lib/dailyLearningPacketRuntime.mjs');
+ const { buildPoliticsPracticeCatalogCurrent: practiceCatalog } = await import('../src/lib/politicsPractice.mjs');
+ const packetArgs={storage,day,now,politicsCatalog:practiceCatalog('/'),politicsMemoryCatalog:catalog};
+ const result=makePacket(packetArgs),packet=result.packet,returned=packet.subjects.politics.evidence.memory;
+ assert.equal(result.coverage.politics,'attached');assert.deepEqual(result.warnings,[]);
+ assert.equal(packet.schema,'kianos.daily-learning-packet.v1');
+ assert.equal(returned.summary.recall_count,rawTargets.length);
+ assert.equal(returned.history_profile.summary.current_compatible_events,rawTargets.length);
+ const nextDay=makePacket({...packetArgs,day:'2026-10-08',now:now+86400000}).packet.subjects.politics.evidence.memory;
+ assert.equal(nextDay.summary.recall_count,0);assert.equal(nextDay.current_plan,null);
+ assert.equal(nextDay.history_profile.summary.current_compatible_events,rawTargets.length);
+ console.log('POLITICS_PREPARED_HANDOFF_' + (process.exitCode ? 'FAIL' : 'PASS'), JSON.stringify({checks, chapter:chapter.chapter_id, modelNodes:spine.length, exactTargets:rawTargets.length, catalogTargets:catalog.candidates.length, syntheticEvents:events.length, learnerWrites:0}));
+}

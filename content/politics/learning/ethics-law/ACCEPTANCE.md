@@ -29,11 +29,13 @@ Allowed conclusion:
 
 ---
 
-## 2026-10-05 supplemental model→memory integration reopen
+## Current supplemental scope — reviewed-target delivery
 
-The S/K/L/P/R/E PASS below remains valid for the previously accepted Ethics-Law first-round path. It does **not** accept the newer Chat-assisted encoding → reviewed precision target → Website Memory retrieval → Recall-return capability now active under `content/politics/CURRENT.md`.
+**REVIEWED_TARGET_DELIVERY_ACCEPTED** for the Ethics-Law targets within the [lane's bounded delivery acceptance](../../ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance). The lane references #1151's final main/served/remote receipt; this is no longer a candidate-only delivery waiting for P6.
 
-Ethics-Law C06 and later chapter batches may provide bounded candidate/consumer evidence on PR #1151, but the integrated capability remains **REOPENED / NOT YET ACCEPTED** until P6 lands accepted artifacts on main and verifies the actual consumer. Therefore “next legitimate work is real learner use” applies only to the previously accepted base path, not to this active supplemental build.
+Teaching uses the [existing subject model and preparation](teaching-candidate/subject-model.md), owning chapter JSON / brief and [bounded preparation review](teaching-candidate/preparation-review.md). The historical directory name does not automatically admit every assertion. Preserve all pending/current-law/Source limits; working retrieval does not certify all legal wording or whole-subject teaching completeness.
+
+The base-path S/K/L/P/R/E evidence below remains bounded as before. Real learner effectiveness remains **U UNTESTED**; no test or self-rating manufactures mastery.
 
 ## Accepted upstream｜S/K/L/P
 
@@ -183,7 +185,7 @@ This does **not** mean:
 
 Later transfer evidence may strengthen or challenge earlier evidence but must append rather than overwrite first-attempt truth.
 
-For the previously accepted base path, the next learner-evidence source is real learner use. Separately, the supplemental model→memory integration is actively reopened under the canonical Politics Current until P6 closes it. Reopen other claims only at the earliest responsible owner when concrete source change, question evidence, or real learner friction appears.
+For the previously accepted base path, the next learner-evidence source is real learner use. Separately, the reviewed-target Memory delivery is closed in the scoped lane acceptance above; unresolved content/Source or wider integration claims are not silently upgraded. Reopen other claims only at the earliest responsible owner when concrete source change, question evidence, or real learner friction appears.
 
 ---
 

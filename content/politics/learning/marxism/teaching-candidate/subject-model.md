@@ -1,6 +1,9 @@
-# 马原总模型教师备课候选
+# 马原总模型教师备课稿
 
-本稿供 Chat 老师连续讲解使用。依据 main 801394f71 的 ch00–08 既有 orientation、teaching beats、compression 和 ch08 subject_closure 派生；乘风保持 Source 主线。它是备课候选，不替代 Source，不改变正式单元、题目答案、学习记录、Memory 或 Acceptance。完整覆盖先于讲解次序，讲解次序先于压缩。
+当前使用范围：本资产已随 #1151 落入 main；沿既有备课复核所审范围供 Chat 复用。`teaching-candidate` 目录名及文末日期记录是历史定位，不能单独判定当前采纳状态；交付范围见[马原 Acceptance](../ACCEPTANCE.md#current-supplemental-scope--reviewed-target-delivery)。来源未决项仍有效，不把本稿、已审精记或测试结果当作全科完整覆盖、真实学习或掌握证明。
+
+
+本稿供 Chat 老师连续讲解使用。依据 main 801394f71 的 ch00–08 既有 orientation、teaching beats、compression 和 ch08 subject_closure 派生；乘风保持 Source 主线。它是有界备课资产，不替代 Source，不改变正式单元、题目答案、学习记录、Memory 或 Acceptance。完整覆盖先于讲解次序，讲解次序先于压缩。
 
 <a id="c00-fixed-spine"></a>
 

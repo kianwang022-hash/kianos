@@ -27,25 +27,42 @@ U  UNTESTED   ← current surface path still requires real learner use
 
 Allowed conclusion:
 
-> **Marxism is module-ready for learner test under the corrected Surface Ownership contract: S/K/L/P/R/E are accepted. Marxism C00 now has the accepted Mac-landscape Cognitive Workspace reference implementation, but the current Mac Astro + iPad/MarginNote Chengfeng path remains U UNTESTED until Kian uses it.**
+> **The previously tested Marxism base path remains accepted within its original scope. Current first learning follows the Politics Chat-led prepared-package contract; the reviewed-target Memory delivery below is accepted. Real learner effectiveness remains U UNTESTED. Historical iPad-first surface receipts do not override the current Learning contract.**
 
 Do not promote this to learner-validated and do not infer that Kian has studied Marxism from repository state.
 
 ---
 
-## 2026-10-05 supplemental model→memory integration reopen
+## Current supplemental scope — reviewed-target delivery
 
-The whole-subject S/K/L/P/R/E PASS above remains valid for the previously accepted first-round path. It does **not** accept the newer integrated precision-memory capability now active under `content/politics/CURRENT.md`.
+**REVIEWED_TARGET_DELIVERY_ACCEPTED** for the Marxism targets within the [lane's bounded delivery acceptance](../../ACCEPTANCE.md#reviewed-target-memory-delivery--bounded-acceptance). The lane references #1151's actual main/served/remote proof; this subject does not duplicate a delivery ledger or continue the old candidate-only gate.
 
-For the added capability, Marxism currently has bounded candidate evidence only: C02 is the representative proved slice, while additional chapter targets and consumer batches may exist on the active PR/local execution path but are not lane-wide Current Acceptance until P6 lands and verifies them on main. No older “ready for learner test” statement may be read as five-subject or whole-Marxism acceptance of Chat-assisted encoding → Website retrieval → Recall return.
+Current teaching entry: [learning manifest](../manifest.json) → [subject teaching/model](teaching-candidate/subject-model.md) → the relevant existing chapter JSON and brief. C01's fixed ten-node model, prepared stages, substantive explanation / supplement, confusable pass and original exact-target references are reusable within the [existing preparation review](teaching-candidate/preparation-review.md)'s inspected scope. Do not rebuild a different course from raw Source or infer a pupil's current stage from these assets.
 
-Current supplemental verdict:
+Unresolved Source statements and other chapters' per-asset review limits remain in their original owners. The following dated base-surface receipts preserve prior evidence; they do not prescribe an iPad-first course in place of current Chat teaching.
 
 ```text
 base first-round Marxism path       ACCEPTED within prior scope
-integrated precision-memory loop    REOPENED / NOT YET ACCEPTED
+reviewed-target Memory delivery     ACCEPTED within lane receipt scope
+complete Source / teaching coverage ONLY as supported by exact asset review
 real learner effectiveness          U UNTESTED
 ```
+
+### 2026-10-07 bounded fresh-entry and C01 replay
+
+This repair was verified from main baseline `aeb0b769dd1d706bf945a64076ecc40ceda05d17` in a separate temporary worktree. The existing manifest now resolves subject preparation without guessing filenames and identifies Chengfeng as Source/calibration, not the obsolete continuous teaching surface. Lane/subject delivery claims reference the already-earned #1151 final receipt. No chapter JSON, Source, question, exact answer, reviewed-target signature or production Runtime/client was changed.
+
+Executed checks:
+
+- `node scripts/validate-politics-repair-memory.mjs`: original producer/admission/replay/staleness tests plus **220** bounded entry/model/stage/target checks pass. C01's same ten-node spine, ordered prepared stages/next relation, original explanation links and all22 original exact-target prompts/answers/checking/cues resolve through Current. All473 reviewed catalog entries remain unchanged in meaning.
+- `node scripts/test-politics-prepared-memory-browser.mjs`: **148** checks pass on the original Candidate4322 Memory page using a fresh isolated Chrome context. SSR catalog is compared to the independent Current producer. All22 C01 items preserve exact authored prompt/answer/checking/cue, no pre-reveal rating/write, all three self-ratings, mid-group reload and new-page reopen. This is native plan application in isolated browser storage, not a new claim that a production Control command was sent.
+- The browser-created fixture state reaches the original Home Daily Packet builder:22 current-day events (8 FORGOT /7 FUZZY /7 STABLE); next-day current recall=0 and current_plan=null, with22 compatible historical events retained. No production relay or learner/control write occurred.
+- Existing `validate-politics-memory-history-profile.mjs`, `test-politics-chat-return.mjs` and `audit-politics-coverage.mjs` pass. Original coverage/return boundaries remain unchanged.
+- The pre-fix run reproduced obsolete source routing / absent prepared-entry pointers / stale candidate-only Acceptance. Two additional mutations (rename a canonical compression node; break its explanation link) are rejected. A whitespace-sensitive U assertion and a test-side Packet-wrapper assumption were corrected against actual owners; neither was a product defect or reason to weaken Runtime guards.
+
+The browser test is repeatable from `static-web` against an already-running isolated Candidate; it refuses Stable4321. Standard Playwright may be used, or `KIANOS_PLAYWRIGHT_MODULE` and `KIANOS_BROWSER_CHANNEL` may select an installed local test runtime. Test artifacts stay in a temporary audit directory; no private pupil state is required.
+
+This establishes current-asset resolution and the tested C01 producer→browser→native-return path. It is **not** a fresh independent full-PDF review, full five-subject teaching/Source closure, a measured learner speed gain, proof that every future Chat will follow instructions, or real U/mastery. Those limitations do not reopen already-delivered reviewed-target Memory.
 
 ## 2026-09-13 Surface Ownership reacceptance
 

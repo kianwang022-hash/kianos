@@ -16,6 +16,7 @@ The retired wrong-surface implementation and prior repair history remain Accepta
 ## Route by need
 
 - Politics Learning / interaction / surface ownership → parent Politics contracts
+- Marxism prepared teaching → [existing learning manifest](../manifest.json) → [subject model / C00 preparation](teaching-candidate/subject-model.md) → existing `chNN.json` and `teaching-candidate/chNN.brief.md`. C01 uses [its fixed-stage brief](teaching-candidate/ch01.brief.md); exact prompts/answers remain in the original chapter Content. Per-asset review/Source limits apply; do not infer adoption from a filename.
 - Marxism Content / Source → exact Marxism assets
 - Acceptance and current real-U boundary → `ACCEPTANCE.md`
 - Runtime / C00 presentation → exact `static-web/` owner
