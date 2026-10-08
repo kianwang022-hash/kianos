@@ -16,14 +16,14 @@ Current canonical medical truth
         │    → Website/Projection may render canonical Core according to its own contracts
         │
         └─ Lecture-replacement teaching lane
-             reviewed teaching model / framework
-             + canonical KP title〔full formal Prompt〕 as semantic locator
+             presentation of the one canonical medical model
+             + canonical KP title〔full formal Prompt〕 for structured active recall at its natural node
              → does NOT auto-expand or mirror canonical KP Core
 ```
 
 Hard rule:
 
-> **Teaching Map body comes from the reviewed teaching model. KP identity is an annotation/locator, not an instruction to inject the KP Core.**
+> **Teaching Map body presents the one canonical medical model with its reviewed explanations. KP identity locates the canonical owner; the full Prompt helps Kian actively reconstruct the structured knowledge at that model node. Neither is an instruction to mechanically append the KP Core.**
 
 The two lanes share the same Current canonical System/Block/KP identities and medical assets, including reviewed Prompt/Core and provenance. Neither lane establishes another medical truth or consumes the other derivation as a mutable answer source.
 
@@ -63,7 +63,11 @@ KP bindings cannot create a teaching object/node, relation/edge or order. Do not
 
 One teaching object may carry annotations for several KPs; one canonical KP may have lightweight references at several teaching locations. Unique canonical identity does not mean a unique teaching location; all such references resolve the same canonical owner.
 
-Hide every KP annotation: the medical model, necessary explanations, explicit relations, conditions and continuous reading must remain complete and unchanged. Annotations locate coverage and identity; they do not supply missing teaching structure or answers.
+Hide every KP annotation: the medical model, necessary explanations, explicit relations, conditions and continuous reading must remain complete and unchanged. Restore the full Prompts: they must cue structured active reconstruction at those same natural nodes, as required by Learning Contract §0. Identity/navigation is a supporting role, not a substitute for that retrieval function.
+
+The main model must make the Block's medical logic easier to understand and later recover, rather than turn the Lecture into an equally heavy diagram or long prose summary. Keep load-bearing relations and conditions visible; place supporting explanations at the matching node for expansion when needed. A small explanatory bridge may clarify the medical logic, but must remain medically and Source-grounded; it does not authorize unsupported relations or extra memorization merely to complete the display.
+
+The model position, canonical title, full Prompt and expanded knowledge must refer to the same concept or explicitly scoped branch group. A Prompt covering several branches belongs to their common scope, not to a neighboring node or an ambiguous paragraph-ending label.
 
 ## 4｜KP annotation rule
 
@@ -77,15 +81,10 @@ A teaching package must preserve the full canonical title/Prompt binding at the 
 This annotation means:
 
 - which stable canonical KP this part of the teaching model covers;
-- which formal retrieval slots must remain represented;
+- which complete structured knowledge Kian should actively recover at this model node through its formal retrieval slots;
 - where provenance/navigation can resolve the canonical identity.
 
-It does **not** mean:
-
-```text
-知识标题〔Prompt〕
-→ canonical Core full answer
-```
+It does **not** mean automatically pasting the full canonical Core after each annotation. That prohibition prevents a KP-answer catalogue from replacing the model; it does not prohibit teaching or checking the corresponding knowledge in depth when needed. Expand the explanation at the same semantic location, then return to the same compressed model.
 
 Default learner-facing rendering hides KP numbers. ID/owner/provenance may be available on hover/focus/inspection, but the teaching model is read as medicine, not as KP-number order.
 
@@ -137,9 +136,13 @@ Reject a Lecture-replacement output if any of the following occurs:
 - canonical Core is auto-injected after each KP Prompt;
 - KP/LG/document order becomes the medical skeleton;
 - teaching framework is replaced by a list/card collection of KPs;
+- full Prompts function only as directory/coverage labels, or their titles, retrieval scope and expanded knowledge point to different model positions;
+- the purported compressed view still requires Kian to reread long explanations and extract the main medical model again;
 - Website Runtime/Recall/Memory/Evidence semantics are added to the teaching artifact;
 - a cross-System topic creates parallel medical truth.
 
 The acceptance question is:
 
-> **Can Kian learn the Block from the reviewed teaching model, while the attached KP title/full Prompt only tells him where that teaching maps back to stable KianOS knowledge?**
+> **Can Kian first understand the continuous medical model, then quickly reconstruct the Block from that same compressed model and the full Prompts at its natural nodes, with exact-memory and Source/Visual boundaries preserved?**
+
+Judge the actual reading and reconstruction path, not the number of annotations, a rigid diagram format or how short the file becomes. Later System-level reconstruction follows the existing System model and real cross-Block interfaces; it must not concatenate full Block explanations into a second oversized course.
