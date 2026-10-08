@@ -7,7 +7,7 @@ This file does not own Xi Source/Content/Learning semantics, Acceptance Truth or
 
 ## Work Cursor
 
-**当前显式内容反审（2026-10-08）：新思想C00–C17，内部第6批C15–C17完成原位修复与内容复核，保存/readback另凭实际回执。** 下一内部范围整科连续合成推演、最后复核及STOP；只读MD、保留原模型/Source绑定/retention，局部来源排除不猜填。各批记录在原章节教师附录，整科完成才在C17统一收口；真实学习UNKNOWN，无自动化/跨科任务。
+**2026-10-08：新思想C00–C17内容反审已收口，STOP。** 18章原owner修复、一次连续合成新学习Chat、局部Source排除及六批保存证据见原C17教师附录的`xi-learner-audit-final-20261008`。最终保存与全文readback以实际交付回执为准；真实学习与保持UNKNOWN。下一建议为真实C00→C02学习验证，未经显式指令不自动启动。
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/xi/ACCEPTANCE.md`.  
