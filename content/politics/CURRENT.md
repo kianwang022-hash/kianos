@@ -14,22 +14,7 @@ Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTR
 
 ## Completed bounded Memory delivery
 
-[**PR #1151 — model teaching, precision rehearsal and Website integration**](https://github.com/kianwang022-hash/kianos/pull/1151) is **merged, with bounded Memory delivery verified**. It is delivery evidence, not a live engineering task or a second semantic owner.
-
-The PR's final receipts own exact prepared scope, code/catalog identities, candidate proof and formal served/remote readback. Do not copy those SHAs/counts/checkpoints into this cursor. This closure does not declare full five-subject teaching, Source acceptance or learner U/mastery complete.
-
-For a concrete follow-on BUILD / CONTROL task:
-
-```text
-main@HEAD
-→ AGENTS.md
-→ this CURRENT
-→ exact Politics Content / Learning / consumer owner affected
-→ #1151 delivery evidence only when relevant
-→ Acceptance only when the claim crosses readiness
-```
-
-Do not resume from an old PR SHA, historical comment, retired cross-task queue snapshot or pre-thinning Current.
+[PR #1151](https://github.com/kianwang022-hash/kianos/pull/1151)的有限Memory交付已合并；精确范围与交付证据留在该PR及原owner。它不是当前任务，不证明53章内容、Source或真实学习效果全量通过。旧PR、评论和队列只按需查证，不提供Next。
 
 ## Parent outcome
 
@@ -47,7 +32,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Full Politics Content closure task — 2026-10-08
 
-**状态：首批马原C00–C02内容修正已保存本PR，当前C03–C05候选待集成审查。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
+本任务及当前规则修正仍在[草稿PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289)分支 `dot/politics-content-closure-rules-20261008`，不冒充main已采用。唯一当前断点见下方Current / Next；此前五章抽查只是诊断。
 
 ### 目的和范围
 
@@ -93,15 +78,13 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** Marxism C00–C02 minimal content repairs are saved and read back in this draft PR at ac41f38bb9668b80d1cde0df7de04c83fd9e44e3; not merged. C00 unchanged; C01/C02 stale mandatory-recall wording corrected, with 62 original precision objects preserved. Prior matched full-source receipts were reused; this round did not independently reopen the complete PDF. The active batch is C03–C05, whose local candidates await integration review.
+**Current：** 马原C00–C05内容候选已保存于本草稿PR，最近保存版本 `32532cb7960aa660cdf1fba68d2e0908eea7c086`；未合并。C06–C08候选已备份，待总控内容审查。对应PR和章节原owner保留精确修正及证据；本轮复用范围、版本匹配的既有全源证据，不声称重新完整核读PDF或图像。
 
-**Next:** review the C03–C05 minimal candidate differences, save and read back accepted changes, then continue the stated chapter scope in order. Ordinary learning still bypasses this cursor. Do not resume #1151 or an old subject production queue.
+**Next：** 总控审查已备份的C06–C08候选，保存并回读接受的最小变化，再按53章既定范围继续；不因旧入口重做已完成批次。
 
-**Existing delivered basis:** the source-first learning rules remain closed/delivered, and the designated retention source is now explicitly bound to **2027 腿姐《冲刺背诵手册》上册 / 下册** under Learning §2 / §6.1 and the current Source owner. Marxism has completed its C00–C08 Chengfeng compression + current-year Leg27 retention review and old-card recommendation-role reconciliation in its [subject Current](learning/marxism/CURRENT.md). This parent cursor does not copy subject counts or infer equivalent review completion for History / Mao / Xi / Ethics-Law.
+**规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
 **Blocker rule:** any remaining or new blocker lives with its exact task/native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
-
-The historical P1–P6 labels remain useful package names inside #1151 evidence. Their detailed checklists and receipts belong there and in the exact owners, not in this Work Cursor.
 
 ## Must preserve
 
@@ -135,7 +118,7 @@ Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact nati
 
 ## Stop / reopen
 
-The bounded #1151 Memory delivery is closed. Its technical delivery proof does not promote unresolved content/Source claims or learner acceptance. The separately authorized content closure task above is active for its bounded content scope; its state and bounded next step are governed by Current / Next, not by the historical delivery closure.
+本轮53章内容任务依上方完成边界收口；当前断点只由Current / Next维护。#1151的技术交付不代替本轮内容、Source或真实学习验收。
 
 After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
 
