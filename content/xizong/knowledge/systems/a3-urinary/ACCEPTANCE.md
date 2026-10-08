@@ -435,3 +435,432 @@ This file.
 ### Learner Truth
 
 Private learner/browser/conversation evidence only. No engineering gate in this file means Kian has begun A3.
+
+
+<a id="a3-b06-b07-deep-model-quality-20261008"></a>
+## A3 B6–B7 deep model quality — 2026-10-08
+
+**Scope:** #1113, B6 16 KP + B7 20 KP only. Parent outcome remains A1/A2/A3/B full deep calibration → same quality C/D/E/F. This receipt does not adopt B8–B10, Browser/Stable/Source-contact or actual learner mastery. Base main `85a7fe646bf8a355089bd7ecad4c573edcc9e360`.
+
+Existing AGENTS §4 / Project Management persistent-context and anti-stall rules were applied as execution discipline; no Rule, Contract, registry or owner was added. Restore the bound Issue once, retain Parent → two-Block owner → acceptance/stop, batch owner/source/Truth extraction, make a bounded content bundle and validate the real dependents. Current canonical §1A now supplies both models to the existing Chat router; historical teaching files remain byte-identical presentation/provenance.
+
+### Medical decisions and continuity
+
+- B6: blood continues via efferent/peritubular circulation while filtrate enters the tubule; reabsorption/secretion bridge these flows. Protein/RBC/WBC/casts/function are parallel evidence with formation conditions, not a KP-directory causal chain. Cell presence does not guarantee casts; function can remain normal with urine or unilateral abnormalities.
+- B7: perfusion, intrinsic renal injury and obstruction share possible GFR decline but not identical tubular physiology. ATN stages/recovery are conditional; urine output increase does not prove normal filtration or complete recovery. Chronic clearance, EPO, VitD and cardiovascular/neurologic consequences are parallel. CKD phosphate retention and reduced VitD activation have separate inputs into secondary PTH; high/low turnover and defective mineralization are conditional branches, not mandatory temporal stages.
+- All 36 original canonical titles/full Prompts, identity, Source/Outline/group labels remain exact. Removing all annotations leaves the reviewed relation prose readable. B6 all 16 Core records unchanged; B7 only KP02/KP04/KP05/KP11 detailMarkdown changes below. No title or Prompt changed. Other bytes outside §1–§1A and these four Core spans remain protected by the existing inspection oracle.
+- Five existing Learning strings change only recall-spine and related two group goals/one closure. Same 257 KP/75 LG memberships, order and stable identities. Five existing prepared-Memory qualifier witnesses change; every Core ref, ordered dependency, complete answer, mnemonic, Source, admission and private state remain exact. The shared-fields owner is byte-identical. All 14 existing per-Block projection files really reference the one changed Learning file, so only their existing version witness is synchronized. System owner and Source/Visual/HOLD files remain byte-identical.
+
+### Original Source and professional cross-check
+
+Original canonical Source is `source-snapshots/27/内科学讲义_AI阅读版_27精编_UnifiedSource_v2.md`, SHA-bound SOURCE_REF_V2. **Printed P151/P152/P153 correspond to physical PDF185/186/187**, not physical151/152/153. P151 gives renal/prerenal/postrenal mechanisms, the source initiation statement and typical electrolyte table; P152 gives filtration-before-tubular recovery; P153 gives low-calcitriol/low-Ca/PTH and the distinct adynamic/osteomalacia branches. Original Source is never rewritten, and no new PDF pixel/contact evidence is claimed. Relevant original source excerpts:
+
+````text
+（1）肾前性（最常见） ：大失血、液体丢失过多、肝硬化、心衰、机械通气等→有效循环血量↓→肾灌注不足→肾
+小球毛细血管血压↓
+（2）肾性（急性肾小管坏死 ATN、间质性肾炎等） ：肾缺血、肾中毒（如氨基糖苷类抗生素/鱼胆/蘑菇/血红蛋白/
+肌红蛋白/轻链蛋白） 、原尿外漏和肾小管阻塞
+（3）肾后性：尿路结石、前列腺增生、盆腔肿瘤（如晚期宫颈癌直接蔓延侵犯膀胱） 、神经源性膀胱（尿潴留）
+等→尿路梗阻→肾小囊囊内压↑
+（二）肾前性 AKI VSATN
+（三）分期
+（1）起始期：没有明显的肾实质损伤
+（2）少尿/进展/维持期
+①尿量＜400ml/d 为少尿、尿量＜100ml/d 为无尿。但部分患者尿量≥400ml/d（非少尿型 AKI） 、是病情较轻的表现
+②水电解质紊乱和酸中毒：高钾、高镁、高磷、低钙、低钠、低氯、水中毒、代谢性酸中毒
+（三高三低两中毒：贾玲美高、那概率低、爱吃醋，口诀仅记忆）
+③主要死因：高钾血症、水中毒
+④纠酸时注意防止游离钙降低所致手足抽搐
+
+《诊断学》 ：贫血血红蛋白男 Hb＜120、女 Hb＜110、孕妇 Hb＜100。轻度＞90、中度 60-90、重度 30-59、极重度
+贫血＜30g/L（血分三六九等）
+急性肾炎 多无贫血，也可轻度贫血
+急进性肾炎 多有贫血，常为中度及以上
+慢性肾炎 早期隐匿，后期多有贫血、常为轻中度贫血
+急性肾衰 多有轻度贫血（病程短）
+慢性肾衰 多有轻中度贫血
+肾病综合征 可有可无贫血
+-152-
+肾小管上皮细胞再生、修复→细胞幼稚重吸收水功能不发达→重吸收水↓浓缩功能↓
+肾皮质血流丰富→肾小球滤过功能最先恢复
+血肌酐>265不能使用ACEI/ARB
+2天
+
+5.肾性骨营养不良
+（1）高转化性骨病（最常见）
+①肾衰→骨化三醇/钙三醇(1,25)(OH)2VitD3↓→低钙→PTH 过高（长时间低血钙继发甲状旁腺功能亢进）
+②大剂量 PTH 主要使破骨细胞活动增强：骨质疏松、易骨折、骨骼囊样缺损、纤维囊性骨炎
+（2）低转化性骨病（软-不良）
+①骨再生不良：患者长期过量用骨化三醇、钙剂、透析液钙含量偏高→PTH 相对偏低（小剂量 PTH 主要使成骨细
+胞活动增强）你搞的；成骨因子不足
+②骨软化症：骨化三醇不足、铝中毒→骨组织钙化障碍→未钙化的骨组织过分堆积→脊柱、骨盆变形
+（3）混合性骨病
+可能可能最可能：慢性肾炎（我国最常见） 、糖尿病肾病（欧美最常见）等病史，间断水肿、蛋白尿、高血压、贫
+
+````
+
+Cross-check: [Merck Manual AKI, reviewed February 2026](https://www.merckmanuals.com/professional/genitourinary-disorders/acute-kidney-injury/acute-kidney-injury-aki?ruleredirectid=382), Etiology and Symptoms/Signs, distinguishes intrinsic compartments, injury and variable urine-output/recovery. [KDIGO 2017 CKD-MBD guideline](https://kdigo.org/wp-content/uploads/2017/02/2017-KDIGO-CKD-MBD-GL-Update.pdf), chapter4.2 rationale printed33, explains separate mineral/VitD inputs into secondary PTH; its3.2/4.1 separate turnover and mineral assessment. These are limited professional checks of the four corrections, not a new Source owner, treatment update or claim of a separate independent agent review.
+
+### Complete original/current Core review
+
+#### B7 KP02 — title / full Prompt / Source retained
+
+Before complete resolved Core:
+
+````markdown
+### A｜肾前性｜最常见
+
+```text
+大失血 / 液体丢失过多 / 肝硬化 / 心衰 / 机械通气等
+→ 有效循环血量或肾灌注↓
+→ 肾小球毛细血管压↓
+→ GFR↓
+```
+
+关键：**第一故障在肾脏之前的灌注。**早期肾实质仍有保Na、浓缩尿的能力。
+
+### B｜肾性 / 肾实质性
+
+Study代表：
+
+- 急性肾小管坏死 ATN；
+- 间质性肾炎等。
+
+机制入口：
+
+- 肾缺血；
+- 肾毒物：氨基糖苷、鱼胆、蘑菇、Hb、肌红蛋白、轻链蛋白等；
+- 原尿外漏；
+- 肾小管阻塞。
+
+关键：**肾组织本身已经损伤**，尤其小管处理能力丢失。
+
+### C｜肾后性
+
+```text
+结石 / BPH / 盆腔肿瘤 / 神经源性膀胱尿潴留等
+→ 尿路梗阻
+→ 肾小囊囊内压↑
+→ 有效滤过压↓
+→ GFR↓
+```
+
+明显总肾功能下降常涉及双侧梗阻、孤立功能肾受阻或对侧肾功能已受损；单侧结石可伤患肾，但另一肾正常时血肌酐未必升高，不能把任何单侧梗阻都直接等同整体肾衰。
+
+//串联：这里只建立“压力顶回滤过器”的机制。结石、BPH、肾积水、尿潴留和解除梗阻优先级在 K12 完整学习。
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp03" -->
+````
+
+After complete resolved Core:
+
+````markdown
+### A｜肾前性｜最常见
+
+```text
+大失血 / 液体丢失过多 / 肝硬化 / 心衰 / 机械通气等
+→ 有效循环血量或肾灌注↓
+→ 肾小球毛细血管压↓
+→ GFR↓
+```
+
+关键：**第一故障在肾脏之前的灌注。**早期肾实质仍有保Na、浓缩尿的能力。
+
+### B｜肾性 / 肾实质性
+
+Study代表：
+
+- 急性肾小管坏死 ATN；
+- 间质性肾炎等。
+
+机制入口：
+
+- 肾缺血；
+- 肾毒物：氨基糖苷、鱼胆、蘑菇、Hb、肌红蛋白、轻链蛋白等；
+- 原尿外漏；
+- 肾小管阻塞。
+
+关键：**肾组织本身已经损伤**。上述缺血/肾毒物、原尿外漏和小管阻塞主要描述ATN入口，不是所有肾性AKI共有的机制；肾小球、血管和间质病变也可造成肾性AKI，保Na/浓缩能力随受累部位而异。
+
+### C｜肾后性
+
+```text
+结石 / BPH / 盆腔肿瘤 / 神经源性膀胱尿潴留等
+→ 尿路梗阻
+→ 肾小囊囊内压↑
+→ 有效滤过压↓
+→ GFR↓
+```
+
+明显总肾功能下降常涉及双侧梗阻、孤立功能肾受阻或对侧肾功能已受损；单侧结石可伤患肾，但另一肾正常时血肌酐未必升高，不能把任何单侧梗阻都直接等同整体肾衰。
+
+//串联：这里只建立“压力顶回滤过器”的机制。结石、BPH、肾积水、尿潴留和解除梗阻优先级在 K12 完整学习。
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp03" -->
+````
+
+#### B7 KP04 — title / full Prompt / Source retained
+
+Before complete resolved Core:
+
+````markdown
+### 起始期
+
+- Study：尚无明显肾实质损伤。
+
+### 少尿 / 进展 / 维持期
+
+尿量：
+
+- <400 mL/d：少尿；
+- <100 mL/d：无尿；
+- 部分 AKI 可 ≥400 mL/d，为非少尿型，Study认为一般病情较轻。
+
+核心紊乱：
+
+```text
+3高：K+ / Mg2+ / P ↑
+3低：Ca2+ / Na+ / Cl- ↓
+2中毒：水中毒 + 代谢性酸中毒
+```
+
+这是讲义对少尿期常见组合的记忆表，不是AKI诊断必须同时满足的八项：电解质实际方向还受病因、输入、丢失和治疗影响，非少尿型也不能仅凭尿量判定无危险。
+
+机制主轴：
+
+```text
+肾排泄失败
+→ K/Mg/P/H+/水排出↓
+→ 高K、高Mg、高P、酸中毒、水中毒
+
+肾小管1α-羟化酶功能↓
+→ 钙三醇↓
+→ 低Ca
+
+水潴留造成稀释
+→ 低Na、低Cl
+```
+
+**主要死因：高钾血症、水中毒。**
+
+（特殊：酸中毒环境中游离 Ca²⁺比例相对较高，低钙时未必马上抽搐；纠正酸中毒后游离 Ca²⁺下降，反而可能出现手足抽搐。只保留 Study 机制，不扩展额外酸碱公式。）
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp05" -->
+````
+
+After complete resolved Core:
+
+````markdown
+### 起始期
+
+- 原Study：尚无明显肾实质损伤。
+- Current边界：这是讲义阶段的概括；缺血/毒性小管损伤在起始阶段即可发生，不能据此排除实质损伤，也不把ATN分期推广为所有AKI的必经过程。
+
+### 少尿 / 进展 / 维持期
+
+尿量：
+
+- <400 mL/d：少尿；
+- <100 mL/d：无尿；
+- 部分 AKI 可 ≥400 mL/d，为非少尿型，Study认为一般病情较轻。
+
+核心紊乱：
+
+```text
+3高：K+ / Mg2+ / P ↑
+3低：Ca2+ / Na+ / Cl- ↓
+2中毒：水中毒 + 代谢性酸中毒
+```
+
+这是讲义对少尿期常见组合的记忆表，不是AKI诊断必须同时满足的八项：电解质实际方向还受病因、输入、丢失和治疗影响，非少尿型也不能仅凭尿量判定无危险。
+
+机制主轴：
+
+```text
+肾排泄失败
+→ K/Mg/P/H+/水排出↓
+→ 高K、高Mg、高P、酸中毒、水中毒
+
+肾小管1α-羟化酶功能↓
+→ 钙三醇↓
+→ 低Ca
+
+水潴留造成稀释
+→ 低Na、低Cl
+```
+
+**主要死因：高钾血症、水中毒。**
+
+（特殊：酸中毒环境中游离 Ca²⁺比例相对较高，低钙时未必马上抽搐；纠正酸中毒后游离 Ca²⁺下降，反而可能出现手足抽搐。只保留 Study 机制，不扩展额外酸碱公式。）
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp05" -->
+````
+
+#### B7 KP05 — title / full Prompt / Source retained
+
+Before complete resolved Core:
+
+````markdown
+恢复期不是“尿一多就安全”。
+
+```text
+肾皮质滤过功能先恢复
+→ GFR可先接近正常
+
+但再生中的肾小管上皮仍幼稚
+→ 重吸收水、浓缩功能恢复较慢
+→ 多尿
+```
+
+因此危险从：
+
+```text
+少尿期：高K + 水中毒
+```
+
+切换成：
+
+```text
+多尿期：低K + 感染
+```
+
+这就是 AKI 时间轴最需要主动回忆的“危险换挡”。
+
+---
+````
+
+After complete resolved Core:
+
+````markdown
+恢复期不是“尿一多就安全”。本段描述可恢复的小管损伤常见过程，不要求所有AKI都先少尿再多尿，也不保证每例完全恢复。
+
+```text
+肾皮质滤过功能先恢复
+→ 滤过可先改善；GFR未必已正常
+
+但再生中的肾小管上皮仍幼稚
+→ 重吸收水、浓缩功能恢复较慢
+→ 多尿
+```
+
+因此危险从：
+
+```text
+少尿期：高K + 水中毒
+```
+
+切换成：
+
+```text
+多尿期：低K + 感染
+```
+
+这就是 AKI 时间轴最需要主动回忆的“危险换挡”。
+
+---
+````
+
+#### B7 KP11 — title / full Prompt / Source retained
+
+Before complete resolved Core:
+
+````markdown
+Study链：
+
+```text
+肾衰
+→ 1α-羟化酶 / 钙三醇生成↓
+→ 低钙 + 高磷等信号
+→ 长期继发PTH↑
+→ 高转化性骨病
+```
+
+讲义将高转化性列作最常见肾性骨病；实际比例受CKD阶段和治疗影响，不强推所有人群。这里的继发性PTH升高是低钙/高磷/活性维生素D不足等反馈驱动，与甲状旁腺自身自主病变的原发性亢进区别，不类比成“原醛”。持续高PTH促进骨重塑和骨吸收，表现：
+
+- 骨质疏松；
+- 易骨折；
+- 骨骼囊样缺损；
+- 纤维囊性骨炎。
+
+//串联：完整 PTH—VitD—Ca/P 调节轴仍归后续内分泌；K7只掌握 CKD 为什么触发这条轴。
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp12" -->
+````
+
+After complete resolved Core:
+
+````markdown
+Study原链为“肾衰→钙三醇↓→低钙→PTH过高”；以下把同一CKD背景下的排磷与VitD活化分为并行入口，不把高磷归因于钙三醇下降：
+
+```text
+肾衰
+├─ 1α-羟化酶 / 钙三醇生成↓ → 肠钙吸收↓ → 可低钙
+└─ 排磷能力↓ → 磷潴留（血磷可随阶段变化）
+
+活性VitD不足、低钙与磷负荷等共同促进继发PTH↑
+→ 持续过高PTH促进骨重塑/吸收
+→ 高转化性骨病
+```
+
+讲义将高转化性列作最常见肾性骨病；实际比例受CKD阶段和治疗影响，不强推所有人群。这里的继发性PTH升高是低钙/高磷/活性维生素D不足等反馈驱动，与甲状旁腺自身自主病变的原发性亢进区别，不类比成“原醛”。持续高PTH促进骨重塑和骨吸收，表现：
+
+- 骨质疏松；
+- 易骨折；
+- 骨骼囊样缺损；
+- 纤维囊性骨炎。
+
+//串联：完整 PTH—VitD—Ca/P 调节轴仍归后续内分泌；K7只掌握 CKD 为什么触发这条轴。
+
+---
+
+<!-- kianos:kp id="urinary-b07-kp12" -->
+````
+
+### Original relations — actual item review, no mechanical re-signing
+
+24 original relations; 4 original effective Knowledge blobs and 20 original Truth blobs read successfully, including existing revalidated witnesses. All 24 current Truth objects equal their original full objects. Each stem, every option, official answer and original mapping was checked; official Truth/answers/Explanations and primary/supporting/Block routes are untouched. 18 version witnesses update after medical review; 6 complete original relation rows remain stale, including all original review/provenance fields. An Explanation does not fill a canonical Knowledge gap.
+
+| Original question | Decision | Original effective Knowledge | Original Truth | Medical basis / unresolved boundary |
+|---|---|---|---|---|
+| xizong-official-2013-n103 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `45dd15b4e56d0fa5a2668f55bd4e266096f330c3` | C：慢性肾损害伴贫血，EPO生成减少→红系不足；原Block路由保留，当前KP10完整机制仍支持，正常血小板不改变贫血原因。 |
+| xizong-official-2013-n104 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `45dd15b4e56d0fa5a2668f55bd4e266096f330c3` | B：血小板192正常而牙龈/皮下出血，尿毒症血小板功能降低；KP10与贫血机制并列，原Block路由保留。 |
+| xizong-official-2025-n157 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `c0521ad8d0053f4bc4947dd69d0b21899842044b` | ABD：当前KP08糖耐量/胰岛素抵抗接口、KP10 EPO不足、KP11活性VitD不足和继发PTH升高共同支持；PTH不足不是未经治疗CKD的典型方向，保留组合Block路由。 |
+| xizong-official-2025-n053 | REVIEWED_CURRENT | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `1e8a101e96a3f69f8adf54a73fa0a6c5b13c269e` | B：重复孤立镜下血尿、功能/B超正常，KP08相差显微镜判断RBC形态以定位；不能从正常影像跳过尿液证据。 |
+| xizong-official-2023-n082 | REVIEWED_CURRENT | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `13d87c23393d9499dca4ff113f5945d2f89525af` | D：感染后蛋白尿+血尿，相差显微镜查变形RBC支持肾小球来源；Cr正常不排除屏障损伤，保留原Block定位。 |
+| xizong-official-2015-n172 | HOLD | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `aed0afefe341ef3affe14fc68bb4a8d258635ad6` | 正式ABCD包括骨硬化；当前KP11–12覆盖高转化/骨再生不良/骨软化，未建立骨硬化正向知识。原Explanation并非canonical Knowledge替代，整行保留旧stale。 |
+| xizong-official-2012-n172 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `43b01be3068e940ff74c20a816c8b37141446dfd` | AB：ATN浓缩/保Na失败；KP03典型比重<1.012、渗透压<250支持所给更低比重/低渗尿方向；C低尿Na与D低RFI偏肾前。不新增300阈值，不把八指标升级为必要条件。 |
+| xizong-official-2008-n172 | REVIEWED_CURRENT | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `be0d154cdf7da07b79676e2fff8701c36b1b5d75` | ABC：大量蛋白、RBC管型、异形RBC支持肾小球来源；KP08为非对称/较小容积，拒绝D对称曲线；证据可并行出现。 |
+| xizong-official-2008-n070 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `0f2b5f78d32f43bac283e84238fab549854ee75a` | B：缺血性ATN回收Na下降，尿Na>20；浓缩/比重及BUN/Cr高均偏肾前条件，保留KP03与干扰边界。 |
+| xizong-official-2007-n171 | HOLD | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `5703a8fed33fb1ebf2cb0e952c8d4501d5c51976` | 正式A为历史贝那普利禁用；KP15保留旧Scr禁忌但ACEI/ARB都列其中，不能独立重现A与B唯一选择；Current亦拒绝绝对Scr禁忌。整行保留，不改答案。 |
+| xizong-official-2007-n073 | REVIEWED_CURRENT | `a36195ccefeb7d1f3371ce7022d91c1a5786a5f6` | `f2bac2ff9afb53dd9970beaa2c0d302d027d4809` | B：KP03选择性肾小球性蛋白尿以白蛋白为主；轻链/β2-MG是小管或溢出入口，T-H来自小管组织，不替换映射。 |
+| xizong-official-2007-n120 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `44f2879a768649c3a7072ae5dfdfa7511a1a5ebb` | C：KP10肾性贫血为CKD系统线索，KP09尿毒症心包接口；JVD/水肿/腹水可见一般心包积液，组合上下文支持原关联，不扩大为贫血单独诊断尿毒症。 |
+| xizong-official-2007-n146 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `ad6ea9bd9f6e03038bd8723b5030b4f23a9c87c9` | AB：小管尚可的肾前低灌注保Na/水，尿比重>1.018、BUN/Cr>20（mg/dL同口径）；FENa/RFI应<1，C/D属相反方向。 |
+| xizong-official-2007-n149 | HOLD | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `ad6ea9bd9f6e03038bd8723b5030b4f23a9c87c9` | 正式BC还需排除红色尿即血尿、程度与病重成正比。KP07覆盖阈值但未完整承载这两个排除依据；不借解释层填canonical缺口，整行保留。 |
+| xizong-official-2009-n172 | REVIEWED_CURRENT | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `ed1ec2e314d58dd9d50f89146c68da8e95c6e597` | AB：KP02发热功能性及体位性一过性蛋白尿；分泌性IgA与组织性T-H是产生路径，不能当生理触发分类。 |
+| xizong-official-2009-n070 | REVIEWED_CURRENT | `f5604f40d2a57542035d16baab11f56e34e82d50` | `ffdc84c8bf85e655c2fe5475d823d3044a4c672d` | B：慢性肾衰病史/贫血/夜尿/出血+昏迷，KP09尿毒症脑病与总体功能证据支持血Cr优先；既往已愈甲肝不替代当下病程证据。 |
+| xizong-official-2009-n105 | HOLD | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `2768659f409257dc11100514e412cd660d151568` | 无eGFR的Scr601不能严谨推出现代G4；原Explanation明确历史K/DOQI错配，Current KP14不能重現官方D。整行保留旧见证，不把历史冲突续签成Current。 |
+| xizong-official-2009-n106 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `2768659f409257dc11100514e412cd660d151568` | C：原Truth Scr601落在讲义旧肾衰竭期辅助带，KP14保留<442/<707等四档历史口径；仅作旧阶段识别，不推出现代G stage。原BUN250文本及正式答案均不改。 |
+| xizong-official-2009-n107 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `2768659f409257dc11100514e412cd660d151568` | A：严重慢性排泄不足的保留方向为Mg/P等升高，水潴留可稀释Na，KP11钙三醇/磷支接低Ca；KP04排泄变量与KP08/11跨Block正文合读支持原Block级映射，不把所有CKD强制八项同时具备。 |
+| xizong-official-2010-n078 | HOLD | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `02603e380cf9cc89ee211a437ccdb81e8b9500e8` | 异型输血后无尿2天官方选透析，但KP17 Current强调内环境/器官/综合评估，原题未提供这些门槛；不能从无尿天数独立证明自动透析，整行保留。 |
+| xizong-official-2020-n157 | REVIEWED_CURRENT | `f5604f40d2a57542035d16baab11f56e34e82d50` | `4272600c86d9da0cec01716aea971b49d1e04645` | ACD：KP17难治/危及生命高K、尿毒症脑病、利尿无效肺水肿支持救急KRT；孤立pH7.25不自动构成门槛，原Source数值pH<7.2与Current综合判断并存。 |
+| xizong-official-2011-n070 | REVIEWED_CURRENT | `5c85bebc1f4567cd1640e662bff96e5c4951c241` | `8fd502ea9040d1872ab318a3331d9d7c25d03d75` | C：孤立镜下血尿、尿蛋白/功能/超声正常，仍先用相差显微镜判来源；没有大量蛋白不排除肾小球来源，保留原Block定位。 |
+| xizong-official-2016-n069 | REVIEWED_CURRENT | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `34eb4eed4f46d6d7468fc108ffacd43354d7b02d` | A：ATN小管回收尿素/Na较肾前差，BUN/Cr比低；尿Na并非低，K并非典型低，中度贫血不是ATN维持期区别指标。 |
+| xizong-official-2005-n076 | HOLD | `23d1f2c9f601889e11c9bd0724134774fc4ef28c` | `ca90e073097f7acbe73b0efc53c6c5366654521a` | 官方450–707旧阈值与Current Source Precision的442/707不完全一致；不将近似数值机械视为精确重审通过，整行保留。 |
+
+### Verification and delivery boundary
+
+Original frozen fixtures, goldens and independent answers are not re-signed. The existing calibration-test support records exact current model/Core spans and reverses only the named Learning/group/witness deltas for comparison against the original oracle. The existing content-inspection test additionally checks all 36 native records, the four exact Core deltas, exact full-Prompt placement and bare-model counterexamples.
+
+Local: A3 prepared Memory 229 PASS; A3 preentry89 PASS; semantic adapter159 Blocks, owner-loading40 and native metadata/dual-loader36 PASS; Projection Current PASS. Content-inspection288 PASS; actual production question resolver18 accepted/6 fail-closed; Crosswalk validation PASS. Remote CI/merge/readback are recorded in the PR and #1113 receipt when verified. Until that evidence exists, this is a candidate, not a completed main delivery. Browser/Stable/Source-contact/real learner validation NOT_CLAIMED.
+
+Next after this batch: B8–B10 (61 KP), preserving original Source/Visual/HOLD and each original relation. Do not expand into B11–B14 or other systems during this two-Block delivery.
