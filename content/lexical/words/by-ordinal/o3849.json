@@ -77,30 +77,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:fbf39f71c23c973f7079",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:protocol:e7853be80998563f:collocation:0"
-            ],
-            "meaning_cn": "拟定条约草案",
-            "phrase": "protocol a treaty"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "拟定（草案或协议）",
-        "definition_en": "draw up a protocol or formal document",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:protocol:e7853be80998563f",
-        "sense_label_en": "draw up a protocol or formal document",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:bffdf3e0d22ebf721956",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -419,7 +395,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:fbf39f71c23c973f7079",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:protocol:e7853be80998563f:collocation:0"
+          ],
+          "meaning_cn": "拟定条约草案",
+          "phrase": "protocol a treaty"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "拟定（草案或协议）",
+      "definition_en": "draw up a protocol or formal document",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:protocol:e7853be80998563f",
+      "sense_label_en": "draw up a protocol or formal document",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:protocol:e7853be80998563f",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Dictionary-valid protocol-drafting verb (Collins protocol); a narrow documentary use without an evidenced additional default exam/general-press learner job. Keep full body/identity in Lookup; noun protocol remains active."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -445,7 +450,7 @@
       },
       {
         "sense_id": "sense:protocol:e7853be80998563f",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10708,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
@@ -454,8 +459,7 @@
     "active_collocations": [
       "collocation:318d248e00b8859d068d",
       "collocation:5215bf5d8c0b680810d8",
-      "collocation:bffdf3e0d22ebf721956",
-      "collocation:fbf39f71c23c973f7079"
+      "collocation:bffdf3e0d22ebf721956"
     ],
     "facts": [],
     "collocations": [
@@ -487,7 +491,9 @@
       {
         "id": "collocation:fbf39f71c23c973f7079",
         "source_row": 21317,
-        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

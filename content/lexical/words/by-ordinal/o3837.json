@@ -12,25 +12,39 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "提议做…；提议…",
-        "pattern": "propose doing sth / propose that + clause"
-      },
-      {
-        "boundary": "propose doing sth",
-        "construction_id": "construction:2f86eae9b178bb16f651",
-        "definition_en": "to suggest doing something",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "提议做某事",
-        "pattern": "propose doing sth",
-        "source_sense_id": "sense:propose:7fb845ce74115c26"
+        "pattern": "propose doing sth / propose that + clause",
+        "source_sense_id": "sense:propose:7fb845ce74115c26",
+        "definition_en": "to suggest an action or put forward a proposal expressed as a clause",
+        "boundary": "propose doing suggests an action; propose to do can instead express the speaker's intention.",
+        "source_evidence_objects": [
+          {
+            "boundary": "propose doing sth",
+            "construction_id": "construction:2f86eae9b178bb16f651",
+            "definition_en": "to suggest doing something",
+            "direction": "R+P",
+            "level": "L1",
+            "meaning_cn": "提议做某事",
+            "pattern": "propose doing sth",
+            "source_sense_id": "sense:propose:7fb845ce74115c26"
+          },
+          {
+            "collocation_id": "collocation:4f40aa51746f50875c62",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:propose:7fb845ce74115c26:collocation:0"
+            ],
+            "meaning_cn": "建议……",
+            "phrase": "propose + that-clause"
+          }
+        ]
       }
     ],
     "content_hash": "8939145402d908b947d76e9a107ca9e3befde892d3e5d64c91c4b2bb8a77dd6a",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "建议，提议",
-      "core_meaning_en": "to suggest or put forward",
-      "mental_model_cn": "建议，提议",
+      "core_meaning_cn": "提议；打算；求婚",
+      "core_meaning_en": "suggest; intend; ask someone to marry",
+      "mental_model_cn": "propose doing/that 看建议；propose to do 看打算；propose to someone 看求婚。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -49,15 +63,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:4f40aa51746f50875c62",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:propose:7fb845ce74115c26:collocation:0"
-            ],
-            "meaning_cn": "建议……",
-            "phrase": "propose + that-clause"
-          },
           {
             "collocation_id": "collocation:8fea5054146130998a0c",
             "exam_value": "usage_example",
@@ -360,7 +365,6 @@
     ],
     "active_collocations": [
       "collocation:00e606fd231d92354e93",
-      "collocation:4f40aa51746f50875c62",
       "collocation:58ef08a233c44d55e50a",
       "collocation:8fea5054146130998a0c"
     ],
@@ -374,6 +378,12 @@
         "id": "deep:constructions:propose:8250f8fc7a89cf40",
         "source_row": 932,
         "source_path": "content/lexical/canonical/facts/shards/o3809-3840.json"
+      },
+      {
+        "id": "construction:2f86eae9b178bb16f651",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
       }
     ],
     "collocations": [
@@ -385,7 +395,9 @@
       {
         "id": "collocation:4f40aa51746f50875c62",
         "source_row": 6692,
-        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:58ef08a233c44d55e50a",
