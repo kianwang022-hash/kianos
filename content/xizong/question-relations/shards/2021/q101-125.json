@@ -108,13 +108,17 @@
       "question_truth_path": "content/xizong/questions/shards/2021/q101-125.json",
       "question_truth_blob_sha": "90447f56fb8142643097419f91f9322f2ca68dc7",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: reduced 2,3-DPG left-shifts the O2 dissociation curve, increasing Hb affinity but impairing tissue unloading. R2 KP08 explicitly owns curve-shift factors and consequences."
+      "basis": "KP08 2,3-DPG减少导致左移、亲和增加并妨碍卸氧，支持D；不会像CO同时占据可结合位点。新库存代谢边界不改变该方向。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r02-kp08"
   },
@@ -128,13 +132,17 @@
       "question_truth_path": "content/xizong/questions/shards/2021/q101-125.json",
       "question_truth_blob_sha": "90447f56fb8142643097419f91f9322f2ca68dc7",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: CO both occupies Hb binding sites and left-shifts remaining Hb, reducing oxygen carrying capacity and tissue unloading. R2 KP10 explicitly owns the CO oxygen-transport failure."
+      "basis": "KP10直接说明CO既占据尚未结合O2的位点，又使其余位点更难卸氧，支持A；当前PvO2条件化及救治警示均保留，不用低浓度加CO2作常规操作。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r02-kp10"
   },

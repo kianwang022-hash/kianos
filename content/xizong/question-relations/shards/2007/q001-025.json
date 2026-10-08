@@ -137,12 +137,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q001-025.json",
       "question_truth_blob_sha": "1ad9ca4e23d5dff4be5f94e8cb80e9d2c2dd79cd",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R2 KP08 oxygen-dissociation-curve rule: lower pH/higher H+, higher PCO2, higher temperature and higher 2,3-DPG shift the curve right, increase P50 and facilitate tissue O2 unloading.",
-      "old_mapping_inherited": false
+      "basis": "KP08当前pH降低/H+增加使曲线右移、P50升高并易卸氧，支持B；储存红细胞仍有代谢的新增边界不影响该酸度效应。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -156,12 +160,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q001-025.json",
       "question_truth_blob_sha": "1ad9ca4e23d5dff4be5f94e8cb80e9d2c2dd79cd",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R2 KP01 diffusion-coefficient model: diffusion coefficient is proportional to solubility divided by the square root of molecular weight, and CO2 diffuses far faster than O2 mainly because its solubility is much greater.",
-      "old_mapping_inherited": false
+      "basis": "KP01明确扩散系数与溶解度/分子量平方根相关，CO2高溶解度解释其较O2更快，支持D；新补Fick面积/厚度不把分子量更大或分压差更大误当主要理由。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

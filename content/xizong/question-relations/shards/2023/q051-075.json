@@ -316,13 +316,17 @@
       "question_truth_path": "content/xizong/questions/shards/2023/q051-075.json",
       "question_truth_blob_sha": "57786c8506ee114878a33380208c41d9514e9d2c",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: severe AECOPD gas exchange failure is driven mainly by inadequate alveolar ventilation, V/Q mismatch, dead-space increase and air trapping; isolated diffusion limitation is not the main mechanism. R3 owns the COPD physiology model; relation stays Block-level."
+      "basis": "PaCO2 78提示有效通气/排CO2失败；KP09的动态未排空/PEEPi与KP11的低VA、高V/Q无效腔链，及单纯扩散首先影响O2的区别，支持D作为原题排除轴。新文强调低氧常由区域V/Q失调，不能把“弥散不是高碳酸主因”写成它不影响氧合，也不能仅因RV/FRC升高便认定PEEPi。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   }
 ]

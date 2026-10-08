@@ -272,13 +272,17 @@
       "question_truth_path": "content/xizong/questions/shards/2025/q026-050.json",
       "question_truth_blob_sha": "23e479f2c6b8d44bff16f66fda236e70274ba070",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: Current R3 explicitly freezes post-bronchodilator FEV1/FVC <70% as the diagnostic evidence of persistent airflow limitation in COPD; the owning statement has no stable embedded KP id, so Block-level is used."
+      "basis": "KP06/13/14支扩剂后FEV1/FVC<0.7证明持续/不完全可逆气流受限，支持B；新文明确COPD与哮喘可并存或同样有持续受限，不能以一次舒张试验绝对二分。保留Block，不再声称当前缺稳定KP标记。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

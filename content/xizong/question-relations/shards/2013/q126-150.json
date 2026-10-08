@@ -295,12 +295,16 @@
       "question_truth_path": "content/xizong/questions/shards/2013/q126-150.json",
       "question_truth_blob_sha": "f382dacf9da7df8784604ed3ff77eb05b4210f0d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Respiratory R3 KP13 explicitly owns reduced post-bronchodilator FEV1/FVC as the COPD diagnostic obstruction axis. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "basis": "正式题型为B型共享选项的单项配对，不按多选误判。KP13/10将FEV1/FVC降低作为持续阻塞定性、FEV1%pred作为严重度、RV/TLC作为潴气，支持A这一特征性主轴；不称C/D在COPD中永不出现，也不以低比值脱离临床背景单独确诊。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

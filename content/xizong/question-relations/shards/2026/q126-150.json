@@ -215,13 +215,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q126-150.json",
       "question_truth_blob_sha": "43a57570edb31c187590a8e438d6f9f970c2b2c9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current R2 jointly owns oxygen saturation as Hb occupancy, high-altitude hypoxemia, and PCO2-driven right shift/affinity loss; this safely distinguishes A/B from anemia and alkalemia."
+      "basis": "KP05饱和度是Hb占据比例，KP01/07/11高原低氧与KP08高PCO2右移分别支持AB；单纯缺铁性贫血主要减少Hb/含量，pH升高趋左移，不由载体减少自动推出饱和度降低。新增CO异常Hb与饱和度定义边界继续保留。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

@@ -207,3 +207,331 @@ export function assertReviewedA1Preentry(block, current, source) {
   assert.equal(framework.markdown, authored, block.blockId + ': complete current authored Framework');
   return true;
 }
+
+// A2 R2/R3 model review (2026-10-08), based on original 4ad inputs.
+// Original A3/B source, descriptor and preentry goldens were first reproduced
+// independently. Five Learning fields and five existing Memory owner witnesses
+// really changed; tests assert the CURRENT values and revisions separately.
+// No answer/admission/Core is re-signed and no runtime witness is normalized.
+const a2ReviewedSources = {
+  "respiratory-r02": {
+    "originalCanonicalGitBlob": "a83808a1e3bf3a6c1d777f873bf27e4250f9dcb0",
+    "originalPackagingSha256": "cc0b0d1f3df7ee8d8cd8009d61c966995407589c89ec1b45c9f6614f9f787c1b",
+    "reviewedCurrentSourceSha256": "7b797f14db04ef71bd76ee27e4ca182a0491418b39ec33257ef194fafbd080c3",
+    "originalProtectedSourceSha256": "a13ccf3448e78a7fa8ca1d7cf819a187f27645f14325fb7e8d4b3dd65b5a875c"
+  },
+  "respiratory-r03": {
+    "originalCanonicalGitBlob": "5496f8e1769cdf061a582d2f2f4ef325a23bb40d",
+    "originalPackagingSha256": "332800f4955c96167b019a3f811ea9f59fa3215ac4f5b5246c59c84b34a28b32",
+    "reviewedCurrentSourceSha256": "6d05f676b86054597f6d6a4be46e687c8150bcce555124b682e92bb35a31a07b",
+    "originalProtectedSourceSha256": "7366ba10eadd5241197e5be96a453b4ae357c272bbb520f461660067b65fa0a7"
+  }
+};
+
+const a2ReviewedSynchronizedLines = {
+  "respiratory-r02": [
+    [
+      "14. PaO₂ / PaCO₂ 对呼吸中枢既有间接兴奋，也有高水平直接抑制；",
+      "14. PaO₂降低 / PaCO₂升高可经化学感受反射间接兴奋呼吸；严重低氧或过高CO₂可直接抑制呼吸中枢；"
+    ],
+    [
+      "12. CO 中毒为什么 PaO₂正常、氧含量下降、PvO₂下降？",
+      "12. CO 中毒为什么 PaO₂可正常、氧含量下降，而 PvO₂不能固定写成下降？"
+    ]
+  ],
+  "respiratory-r03": [
+    [
+      "11. 为什么先动态顺应性下降，后静态顺应性升高？",
+      "11. 小气道阻力和通气不均、肺气肿分别怎样影响动态与静态顺应性？为什么不能把它们当作所有 COPD 的固定先后阶段？"
+    ]
+  ]
+};
+
+const a2ReviewedLearningChanges = [
+  {
+    "path": "blocks/respiratory-r02/first_pass_focus",
+    "before": "从肺泡气体跨膜开始，一路追到 VA/Q、Hb 运输和呼吸控制，建立‘氧为什么低、CO₂ 为什么高/低’的共同语言。",
+    "after": "把肺泡通气与肺血流的并行匹配、跨膜弥散、双向气体运输和通气反馈接入同一模型，解释氧为什么低、CO₂为什么高或低。"
+  },
+  {
+    "path": "blocks/respiratory-r02/recall_spine",
+    "before": "跨膜 → VA/Q → O₂/CO₂运输 → Hb装卸氧 → 呼吸控制",
+    "after": "VA与Q并行匹配 + 分压差/膜条件 → 肺血交换；O₂随Hb到组织，CO₂反向回肺；血气/H⁺ → 外周/中枢反馈 → 有效肺泡通气 → 血气"
+  },
+  {
+    "path": "blocks/respiratory-r02/logic_groups/respiratory-r02-lg01/closure",
+    "before": "能从呼吸膜改变预测弥散方向，并知道‘通气正常’不等于‘跨膜正常’。",
+    "after": "能依分压差判断扩散方向、依膜厚度和有效面积变化预测弥散通量，并知道“通气正常”不等于“跨膜正常”。"
+  },
+  {
+    "path": "blocks/respiratory-r03/first_pass_focus",
+    "before": "把慢支和肺气肿放回同一条 COPD 机制链：结构损伤怎样变成持续气流受限、过度充气和换气失败。",
+    "after": "把气道损伤与肺实质破坏放入同一COPD模型，分清并行底物、呼气受限、过度充气和气体交换失败的条件。"
+  },
+  {
+    "path": "blocks/respiratory-r03/recall_spine",
+    "before": "气道损伤 + 肺泡弹性破坏 → 持续气流受限 → 过度充气/换气失败 → 分期治疗",
+    "after": "气道损伤 / 肺实质破坏 → 呼气受限（呼气时间不足可加重气体潴留）；区域VA/Q、弥散面积及整体有效肺泡通气分别解释血气 → 按当前稳定 / 急性加重处理对应故障"
+  }
+];
+
+const a2ReviewedOwnerChanges = [
+  {
+    "id": "a2-r01-kp02-precision",
+    "before": "e7cdcf0334724d0d243f226ba5b189e2851284dc903970afc4368a61e982ccda",
+    "after": "d7cf40907e048e83fb5ae7e832bc49d1359e599b2a5116eab5346267d9cb1521"
+  },
+  {
+    "id": "a2-r02-kp03-precision",
+    "before": "e63984f172c18f0412e2188cea467f5157984ee1df2edcc79e4ecd62be7d691e",
+    "after": "69c47a5b9e0315cdbfcbae8184d558a97eefa8101ab8f315fbde55d84738d967"
+  },
+  {
+    "id": "a2-r02-lg04-precision",
+    "before": "b37c78187cbb6cd4f16959acde74c4a91a888de747d2d486bc278a02bd6cf9b0",
+    "after": "228f99ef37dae57e4597e6525fb4492e4d222ef97ba21d4e37be9fa4e19cbb78"
+  },
+  {
+    "id": "a2-r03-lg03-precision",
+    "before": "89abdbcf0bd4a9990d5c525fffe0610a6a0ce6d0c0c860816f0c87ff77eabaff",
+    "after": "4b6789dcb75a1e821fe01b18a2eb1978f8311e487190e374c2395b14dbf8084d"
+  },
+  {
+    "id": "a2-r03-lg05-precision",
+    "before": "7480eaa3a89dd7d4ee7d62bd6b6b17509b99a3df56b5a4915c98da5b242ee93b",
+    "after": "cbbfecff0a2aa6df06f89c316d38b93a1535e474d83a34e878ce5edfff6ecb1d"
+  }
+];
+
+const a2ReviewedDescriptorChanges = {
+  "respiratory-r01": [
+    {
+      "path": "revisionWitness/kps/respiratory-r01-kp02",
+      "before": "325b23dd7684b9785a2606c3bfb67ac0069d31a3f570f51c660322672039d9b4",
+      "after": "3c56f31568f2d278a7b0ddcf44fd8d1b0259b4a56595441361db671ecb50ead3"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "325b23dd7684b9785a2606c3bfb67ac0069d31a3f570f51c660322672039d9b4",
+      "after": "3c56f31568f2d278a7b0ddcf44fd8d1b0259b4a56595441361db671ecb50ead3"
+    }
+  ],
+  "respiratory-r02": [
+    {
+      "path": "revisionWitness/kps/respiratory-r02-kp03",
+      "before": "56b0bb2f7b0a951bd55714a61559a20c713b691e1db34aea2214427d58536ccc",
+      "after": "f8aee8032e83a21eecab23d94284cb3968715679bb8faa39f80816c9584ffc53"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r02-lg01",
+      "before": "7b9893233b9f9a864f603e78fef2bcb725949d2a1c80c0b9ede31593ad64cf00",
+      "after": "a4206fc7bc78353ba5d492428d5823d41aa9bf5fe31a49d4ef07011c8bfa449e"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r02-lg04",
+      "before": "9435642702b1378b0ac75b04b5e255fcc47f21da346fba72a6de18a8a31ff405",
+      "after": "c016b784fcc500331c37c23cdf3cd294ceddb6c491605bbbf23d5592aef06208"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "fcb3c7477d93656e4079d811a613f6b73624ec73d4bd8e7e55c9b565d70939fc",
+      "after": "1cd608a60e9880ded011d5e71954fbf90623ea5dcaeebd56631bf9f106501371"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "56b0bb2f7b0a951bd55714a61559a20c713b691e1db34aea2214427d58536ccc",
+      "after": "f8aee8032e83a21eecab23d94284cb3968715679bb8faa39f80816c9584ffc53"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "9435642702b1378b0ac75b04b5e255fcc47f21da346fba72a6de18a8a31ff405",
+      "after": "c016b784fcc500331c37c23cdf3cd294ceddb6c491605bbbf23d5592aef06208"
+    }
+  ],
+  "respiratory-r03": [
+    {
+      "path": "revisionWitness/groups/respiratory-r03-lg03",
+      "before": "b2c22e0d81918ae1543601b890fe49e16ff9d25e7315eba5189f8aa379e5c79c",
+      "after": "40a0b626403498aea6334d5225237ed1beb2bbeb12b64899dde0e5d0f0707308"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r03-lg05",
+      "before": "3bcc3d9713f99113ada78d483bb6d54b892118a53e2d1b0035ed033e574d579b",
+      "after": "41c1a001abec68a053de781a0609080e782cb6778cff89b46adbd73e9c220364"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "6aa690c02d1667c9056e2e84dd2d9a8895c58e32ae21ddfb2e21ba265db702fa",
+      "after": "275a5146ad36f5160fc9b3c9d66d312c255bd1f8842cf963bdd0de157ce59a1d"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "b2c22e0d81918ae1543601b890fe49e16ff9d25e7315eba5189f8aa379e5c79c",
+      "after": "40a0b626403498aea6334d5225237ed1beb2bbeb12b64899dde0e5d0f0707308"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "3bcc3d9713f99113ada78d483bb6d54b892118a53e2d1b0035ed033e574d579b",
+      "after": "41c1a001abec68a053de781a0609080e782cb6778cff89b46adbd73e9c220364"
+    }
+  ]
+};
+
+const a2ReviewedPreentry = {
+  "respiratory-r02": {
+    "originalKpRecordsSha256": "28b427cb329e51b7af153e0f8a944976fe5b7d25b07a0291b2cb81468866b227",
+    "originalPreentrySha256": "e40af0376d38ec7bfeb70fe0b30f2d9ae55842ebef92a324224acab0d511e4a3",
+    "originalStablePreentrySha256": "f078243db781f64ccb0df2a20569243076e1474ba60cdc1e0e4b74fa785e3296",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/13",
+        "before": "PaO₂ / PaCO₂ 对呼吸中枢既有间接兴奋，也有高水平直接抑制；",
+        "after": "PaO₂降低 / PaCO₂升高可经化学感受反射间接兴奋呼吸；严重低氧或过高CO₂可直接抑制呼吸中枢；"
+      }
+    ]
+  },
+  "respiratory-r03": {
+    "originalKpRecordsSha256": "a13479d221fb8b117ec6fa0cba817964d0382815f8300fb91a0e9f0f7399cf17",
+    "originalPreentrySha256": "417831688ac9b49d758a982f2afd3f8eed9dc7b43c8f6e1304bb4682ea143916",
+    "originalStablePreentrySha256": "1fce42d379a51897341608e0c211212c84a10fc9b63958f7fb5c2ea2974908f9",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "nonFrameworkChanges": []
+  }
+};
+
+const a2TestSha = value => createHash('sha256').update(value).digest('hex');
+const a2TestStable = value => Array.isArray(value) ? value.map(a2TestStable)
+  : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, a2TestStable(value[key])])) : value;
+const a2TestDigest = value => a2TestSha(JSON.stringify(a2TestStable(value)));
+
+function a2ReplaceOnce(text, before, after) {
+  assert.equal(text.split(before).length - 1, 1, 'unique explicitly reviewed A2 value');
+  return text.replace(before, after);
+}
+
+function a2ProtectedSource(source, blockId) {
+  let text = source;
+  for (const prefix of ['> **文件性质**：', '> **中心问题**：']) {
+    const lines = text.split('\n').filter(line => line.startsWith(prefix));
+    assert.equal(lines.length, 1, blockId + ': unique existing model description');
+    text = text.replace(lines[0], prefix + 'REVIEWED_MODEL_DESCRIPTION');
+  }
+  const model = /^## 0｜这个 Block 到底解决什么\n[\s\S]*?(?=^## 2｜Memory Routing\n)/gm;
+  assert.equal([...text.matchAll(model)].length, 1, blockId + ': exact model/Framework span');
+  text = text.replace(model, 'REVIEWED_MODEL_FRAMEWORK_AND_ANNOTATIONS\n');
+  // Three independently read, explicitly approved repairs outside the main
+  // model. The current wording is required before making a comparison copy.
+  for (const [before, after] of a2ReviewedSynchronizedLines[blockId]) text = a2ReplaceOnce(text, after, before);
+  if (blockId === 'respiratory-r02') {
+    const exitModel = /B1 \+ B2 现在共同提供呼吸系统的正常语言：\n\n```text\n[\s\S]*?\n```/g;
+    assert.equal([...text.matchAll(exitModel)].length, 1, 'R2: same model in existing exit');
+    text = text.replace(exitModel, 'B1 + B2 现在共同提供呼吸系统的正常语言：\n\nREVIEWED_SAME_MODEL_EXIT');
+  }
+  return text;
+}
+
+export function assertReviewedA2Source(source, blockId, originalCanonicalGitBlob = null) {
+  const reviewed = a2ReviewedSources[blockId];
+  if (!reviewed) return false;
+  if (originalCanonicalGitBlob) assert.equal(originalCanonicalGitBlob, reviewed.originalCanonicalGitBlob);
+  assert.equal(a2TestSha(source), reviewed.reviewedCurrentSourceSha256, blockId + ': exact separately reviewed model and synchronized lines');
+  assert.equal(a2TestSha(a2ProtectedSource(source, blockId)), reviewed.originalProtectedSourceSha256,
+    blockId + ': original complete nonmodel content, Source, Core and Memory');
+  return true;
+}
+
+// These return historical comparison bytes only. They require each exact
+// current reviewed value and preserve every other byte for the ORIGINAL golden.
+export function a2LearningBeforeModelReview(source) {
+  const learning = JSON.parse(source);
+  let historical = source;
+  for (const change of a2ReviewedLearningChanges) {
+    const actual = change.path.split('/').reduce((owner, key) => owner?.[key], learning);
+    assert.equal(actual, change.after, change.path + ': actual reviewed Learning meaning');
+    assert.notEqual(change.after, change.before);
+    historical = a2ReplaceOnce(historical, JSON.stringify(change.after), JSON.stringify(change.before));
+  }
+  return historical;
+}
+
+export function a2CuesBeforeOwnerReview(source) {
+  const index = JSON.parse(source);
+  let historical = source;
+  for (const change of a2ReviewedOwnerChanges) {
+    const rows = index.precision_index.filter(row => row.id === change.id);
+    assert.equal(rows.length, 1, change.id + ': existing admission only');
+    assert.equal(rows[0].prepared_memory_ref.owner_sha256, change.after, change.id + ': current reviewed dependency witness');
+    assert.notEqual(change.after, change.before);
+    historical = a2ReplaceOnce(historical, JSON.stringify(change.after), JSON.stringify(change.before));
+  }
+  return historical;
+}
+
+export function assertPreparedDescriptorAfterModelReview(descriptor, source, originalDigest) {
+  if (!descriptor) { assert.equal(a2TestDigest(null), originalDigest); return; }
+  const comparison = descriptorAtFrozenPackaging(descriptor, source);
+  const changes = a2ReviewedDescriptorChanges[descriptor.blockId];
+  if (changes) {
+    assert.equal(descriptor.systemId, 'respiratory');
+    assert.equal(descriptor.canonicalId, 'A2');
+    assert.equal(descriptor.sourceHash, a2TestSha(source));
+    assert.equal(descriptor.revisionWitness.sourceHash, descriptor.sourceHash);
+    for (const change of changes) {
+      const keys = change.path.split('/');
+      const actual = keys.reduce((owner, key) => owner?.[key], descriptor);
+      // These are real current Learning/Block/LG/KP/card revisions. An old or
+      // arbitrary revision is rejected, never silently treated as equivalent.
+      assert.equal(actual, change.after, descriptor.blockId + '/' + change.path);
+      assert.notEqual(actual, change.before, 'approved semantic revision must remain changed');
+      const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
+      parent[keys.at(-1)] = change.before;
+    }
+    const reviewed = a2ReviewedSources[descriptor.blockId];
+    if (reviewed) {
+      assertReviewedA2Source(source, descriptor.blockId);
+      comparison.sourceHash = reviewed.originalPackagingSha256;
+      comparison.revisionWitness.sourceHash = reviewed.originalPackagingSha256;
+    }
+  }
+  // The old independent digest still protects every answer, context, identity,
+  // owner, Source field and every semantic field outside the exact changes.
+  // Neither the actual descriptor nor any runtime/learner state is rewritten.
+  assert.equal(a2TestDigest(comparison), originalDigest, descriptor.blockId + ': original descriptor outside explicitly reviewed deltas');
+}
+
+export function assertReviewedA2Preentry(block, current, source) {
+  const reviewed = block.systemId === 'respiratory' && a2ReviewedPreentry[block.blockId];
+  if (!reviewed) return false;
+  assertReviewedA2Source(source, block.blockId);
+  assert.equal(a2TestSha(JSON.stringify(block.kpRecords)), reviewed.originalKpRecordsSha256,
+    block.blockId + ': complete original native KP records');
+  // This existing preentry consumer has no Framework recovery for R2/R3 in
+  // either old or current output. Do not invent a new model-consumption claim.
+  assert.deepEqual(current.framework, reviewed.originalFrameworkMeta);
+  const comparison = structuredClone(current);
+  for (const change of reviewed.nonFrameworkChanges) {
+    const keys = change.path.split('/');
+    const actual = keys.reduce((owner, key) => owner?.[key], current);
+    assert.equal(actual, change.after, block.blockId + ': actual reviewed MI-G14');
+    const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
+    parent[keys.at(-1)] = change.before;
+  }
+  // Both unrelated original A3 and B raw/preentry baselines were reproduced
+  // from the original 4ad inputs before extracting these unchanged values.
+  assert.equal(a2TestSha(JSON.stringify(comparison)), reviewed.originalPreentrySha256);
+  assert.equal(a2TestDigest(comparison), reviewed.originalStablePreentrySha256);
+  return true;
+}

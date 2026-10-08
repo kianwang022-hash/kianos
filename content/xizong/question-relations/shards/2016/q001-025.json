@@ -102,16 +102,16 @@
       "question_truth_blob_sha": "14c1ac8647f069a64f81c6fede8e38ced82b884d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
-      "knowledge_revalidated_blob_sha": "dd732d218bdc0ec7e713d2075bfec3a9230497d8"
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
       "basis": "Independent SECOND_PASS solve: Emphysema destroys elastic recoil and promotes expiratory small-airway collapse, producing expiratory dyspnea; R3 KP03 explicitly owns this mechanism.",
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP03弹性结构破坏→回缩不足→小气道提前关闭→残气增加→呼气困难链完整保留；其他COPD表型条件修订不影响题目肺气肿B。"
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness dd732d218bdc0ec7e713d2075bfec3a9230497d8 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment."
     },
     "primary_kp_id": "respiratory-r03-kp03"
   },
@@ -125,13 +125,17 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q001-025.json",
       "question_truth_blob_sha": "14c1ac8647f069a64f81c6fede8e38ced82b884d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: CO lowers O2 content and impairs Hb loading/unloading while arterial dissolved PO2 may remain normal; R2 KP10 explicitly owns this PaO2-versus-content distinction."
+      "basis": "KP10保留CO占据Hb并使余位点左移，降低携氧及卸氧，而通气/换气尚正常时溶解氧分压可正常，支持B为错误概括；不宣称所有CO病例PaO2恒正常或PvO2恒下降，正常普通SpO2也不排除。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r02-kp10"
   },
@@ -145,13 +149,17 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q001-025.json",
       "question_truth_blob_sha": "14c1ac8647f069a64f81c6fede8e38ced82b884d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: Peripheral chemoreceptors respond to low PaO2 and H+/CO2-related intracellular signaling rather than three simple independent O2/CO2/H+ receptors; R2 KP13 explicitly owns this transduction boundary."
+      "basis": "KP13当前保留课程CO2通过细胞内H+转导、而非把O2/CO2/H+都当三个各自独立受体的边界，支持D；新回看R1/A1不改变这个转导判别，不把课程简图升级为全部分子传感机制。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r02-kp13"
   },

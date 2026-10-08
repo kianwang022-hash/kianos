@@ -99,15 +99,15 @@
       "question_truth_blob_sha": "4f01134036166984ca21cb4933d1a0e099ecdc8e",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
-      "knowledge_revalidated_blob_sha": "11a5edc53b5bc03f4fe58fb7202dd5ebf5722dd8"
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Exact question semantics independently matched canonical R2 KP03 ventilation-perfusion ratio semantics.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "Parent Chat independently re-read the full Question Truth/options, original adopted relation roles and complete Current respiratory-r02-kp03 Core before PRESERVE. For this question the correct answer remains E: VA/Q is alveolar ventilation per minute divided by pulmonary blood flow per minute, whole-lung average about 0.84, higher at the apex; high mismatch increases dead-space-like ventilation and low mismatch produces shunt-like change. Exact target Core SHA256 is unchanged (56e66830afc610369b4bbdfacdfda8bd1e97c457608231eab9b471d7f1fc9cfe); owned support, no supporting/bridge roles and Question Truth blob are unchanged. New Prompt retains formula/normal value, apex/base and both mismatch directions. Other R2 CO/oxygen-therapy corrections do not change this decision axis. This updates only the current Knowledge revision witness after bounded semantic review; the original knowledge_blob_sha and review.basis remain historical evidence."
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 11a5edc53b5bc03f4fe58fb7202dd5ebf5722dd8 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment."
     }
   },
   {
@@ -121,12 +121,16 @@
       "question_truth_path": "content/xizong/questions/shards/2005/q001-025.json",
       "question_truth_blob_sha": "4f01134036166984ca21cb4933d1a0e099ecdc8e",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact question semantics independently matched canonical R2 KP08 oxygen-dissociation right-shift rule.",
-      "old_mapping_inherited": false
+      "basis": "KP08当前仍以2,3-DPG增加→P50增加/右移/易卸氧为主规则，红细胞糖酵解与DPG的代谢联系支持本题A的回看方向。新文纠正库存血“糖酵解停止”过度绝对化，不改变DPG右移轴，不能继续复制该旧绝对句。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
