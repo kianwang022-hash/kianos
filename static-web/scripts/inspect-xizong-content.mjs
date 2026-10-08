@@ -198,6 +198,105 @@ export async function inspectXizongContent({ systemId, blockRef, kpId = null }) 
   return report;
 }
 
+// Content-only, read-only model frame. Uses the same native canonical inputs as
+// the inspector; never constructs a new medical relation or answer owner.
+export function formatXizongModelFrame(report) {
+  const block = report?.canonicalBlock;
+  if (!block || !Array.isArray(block.kpRecords)) throw new Error('XIZONG_MODEL_FRAME_MISSING_CANONICAL_BLOCK');
+  const failFrame = detail => { throw new Error(`XIZONG_MODEL_FRAME_${detail}:${block.blockId}`); };
+  const kpById = new Map(block.kpRecords.map(kp => [kp.kpId, kp]));
+  const expected = new Set(kpById.keys());
+  const header = `# ${block.systemCanonicalId || block.systemId} → ${block.blockId} · ${block.title || report.summary.identity.title}`;
+  if (block.modelMarkdown) {
+    // Consume the model the native resolver already derived; do not redraw it.
+    const matches = [...block.modelMarkdown.matchAll(/<!-- b1:route:start -->([\s\S]*?)<!-- b1:route:end -->/g)];
+    if (matches.length !== 1) failFrame('REVIEWED_ROUTE_MISSING_OR_AMBIGUOUS');
+    let route = matches[0][1];
+    const direct = new Set();
+    for (const match of route.matchAll(/\[([^\[\]\n]+)〔([^〕\n]+)〕\]\(#([^)]+)\)/g)) {
+      const kp = kpById.get(match[3]);
+      if (!kp || match[1] !== kp.title || match[2] !== kp.prompt || direct.has(match[3])) {
+        failFrame(`DIRECT_PROMPT_IDENTITY:${match[3]}`);
+      }
+      direct.add(match[3]);
+    }
+    const side = new Set();
+    route = route.replace(/\[([^\]\n]+)\]\(#([^)]+)\)<!-- b1:external (\{[^\n}]+\}) -->/g, (original, label, id, identity) => {
+      const kp = kpById.get(id);
+      let metadata;
+      try { metadata = JSON.parse(identity); } catch { failFrame(`SIDE_REF_METADATA:${id}`); }
+      if (!kp || metadata.kp_id !== id || direct.has(id) || side.has(id)) failFrame(`SIDE_REF_IDENTITY:${id}`);
+      side.add(id);
+      // Same pre-existing side location, but show the exact current title and Prompt.
+      return `[${kp.title}〔${kp.prompt}〕](#${id})<!-- b1:external ${identity} -->`;
+    });
+    const missing = [...expected].filter(id => !direct.has(id) && !side.has(id));
+    if (missing.length || direct.size + side.size !== expected.size) failFrame(`UNACCOUNTED_KPS:${missing.join(',')}`);
+    let foldDepth = 0;
+    const visible = [];
+    for (const line of route.split('\n')) {
+      if (/^\s*<details(?:\s[^>]*)?>\s*$/.test(line)) { foldDepth++; continue; }
+      if (/^\s*<\/details>\s*$/.test(line)) {
+        if (--foldDepth < 0) failFrame('UNBALANCED_DETAILS');
+        continue;
+      }
+      if (foldDepth === 0) visible.push(line);
+    }
+    if (foldDepth !== 0) failFrame('UNBALANCED_DETAILS');
+    const clean = visible.join('\n')
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/\[([^\]\n]+)\]\(#[^)]+\)/g, '$1')
+      .replace(/\*\*/g, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+    for (const kp of block.kpRecords) {
+      if (!clean.includes(`${kp.title}〔${kp.prompt}〕`)) failFrame(`VISIBLE_PROMPT_MISSING:${kp.kpId}`);
+    }
+    return `${header}\n\n${clean}`;
+  }
+  const raw = fs.readFileSync(path.join(repoRoot, block.sourcePath), 'utf8');
+  const markers = [...raw.matchAll(/^#{2,3}\s+[^\n]*同一模型上的自然节点〔完整 Prompt〕[^\n]*$/gm)];
+  if (markers.length !== 1) failFrame('CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS');
+  const after = raw.slice(markers[0].index + markers[0][0].length);
+  const open = after.indexOf('```text\n');
+  if (open < 0 || open > 1500) failFrame('NATURAL_MODEL_TEXT_FENCE_MISSING');
+  const end = after.indexOf('\n```', open + '```text\n'.length);
+  if (end < 0) failFrame('NATURAL_MODEL_TEXT_FENCE_UNCLOSED');
+  const source = after.slice(open + '```text\n'.length, end);
+  const normalize = value => String(value).trim().replace(/[。．]\s*$/, '');
+  const seen = new Set();
+  const derived = source.split('\n').map(line => {
+    const at = line.indexOf('〔');
+    if (at < 0) return line;
+    const close = line.indexOf('〕', at + 1);
+    if (close < 0 || line.indexOf('〔', at + 1) >= 0 || line.indexOf('〕', close + 1) >= 0) {
+      failFrame('MALFORMED_ANNOTATION');
+    }
+    const prompt = normalize(line.slice(at + 1, close));
+    // Exact canonical suffix, allowing only an authored label prefix or terminal period.
+    // No KP-number/order match, fuzzy/semantic match, or inferred topology.
+    const candidates = block.kpRecords.filter(kp => prompt && normalize(kp.prompt).endsWith(prompt));
+    if (candidates.length !== 1) failFrame(`UNRESOLVED_OR_AMBIGUOUS_PROMPT:${prompt}`);
+    const kp = candidates[0];
+    if (seen.has(kp.kpId)) failFrame(`DUPLICATED_BINDING:${kp.kpId}`);
+    seen.add(kp.kpId);
+    const front = line.slice(0, at);
+    const structuralPrefix = front.match(/^[\s│├└─]*/u)?.[0] || '';
+    if (!front.slice(structuralPrefix.length).trim()) failFrame(`MISSING_NODE_LABEL:${kp.kpId}`);
+    return `${structuralPrefix}${kp.title}〔${kp.prompt}〕${line.slice(close + 1)}`;
+  }).join('\n');
+  const missing = [...expected].filter(id => !seen.has(id));
+  if (missing.length || seen.size !== expected.size) failFrame(`UNACCOUNTED_KPS:${missing.join(',')}`);
+  const topology = text => text.split('\n').map(line => {
+    const at = line.indexOf('〔');
+    if (at < 0) return line;
+    const close = line.indexOf('〕', at + 1);
+    return (line.match(/^[\s│├└─]*/u)?.[0] || '') + line.slice(close + 1);
+  }).join('\n');
+  if (topology(source) !== topology(derived)) failFrame('MODEL_TOPOLOGY_DRIFT');
+  return `${header}\n\n${derived}`;
+}
+
 export function formatXizongInspection(report) {
   const lines = [`# ${report.summary.identity.blockId} · ${report.summary.identity.title}`,
     `Basis: ${report.basis.head}`, `Content: ${report.basis.owners.canonicalContent}`,
@@ -247,14 +346,15 @@ const invoked = process.argv[1] && fs.realpathSync(process.argv[1]) === fs.realp
 if (invoked) {
   const args = process.argv.slice(2);
   const json = args.includes('--json');
-  const positional = args.filter(arg => arg !== '--json');
-  if (positional.some(arg => arg.startsWith('--')) || positional.length < 2 || positional.length > 3) {
-    console.error('Usage: node scripts/inspect-xizong-content.mjs <system-id> <block-id-or-slug> [exact-kp-id] [--json]');
+  const model = args.includes('--model');
+  const positional = args.filter(arg => arg !== '--json' && arg !== '--model');
+  if (positional.some(arg => arg.startsWith('--')) || positional.length < 2 || positional.length > (model ? 2 : 3) || (model && json)) {
+    console.error('Usage: node scripts/inspect-xizong-content.mjs <system-id> <block-id-or-slug> [exact-kp-id] [--json | --model]');
     process.exitCode = 2;
   } else {
     try {
       const report = await inspectXizongContent({systemId:positional[0],blockRef:positional[1],kpId:positional[2] || null});
-      console.log(json ? JSON.stringify(report,null,2) : formatXizongInspection(report));
+      console.log(model ? formatXizongModelFrame(report) : json ? JSON.stringify(report,null,2) : formatXizongInspection(report));
     } catch (error) { console.error(String(error?.stack || error)); process.exitCode = 1; }
   }
 }
