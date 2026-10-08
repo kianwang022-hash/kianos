@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "nominate sb for/as sth 提名某人",
+        "boundary": "for an award commonly introduces candidacy; as/to can occur with proposing or appointing. Context, not the preposition alone, determines whether the person was appointed.",
         "codex_reviewed": false,
-        "definition_cn": "提名（为候选人）",
-        "definition_en": "propose as a candidate for some honor",
+        "definition_cn": "提名候选人；或正式指定／任命",
+        "definition_en": "to propose someone as a candidate, or in another use formally choose someone for a role",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -35,7 +35,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:nominate:9e4562a9c52c5dbc",
+        "source_sense_id": null,
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -43,7 +43,28 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:dfd2a007ca5e2999f8ce",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nominate:9e4562a9c52c5dbc:collocation:0"
+            ],
+            "meaning_cn": "提名某人获得某奖项/职位",
+            "phrase": "nominate sb for + sth"
+          },
+          {
+            "collocation_id": "collocation:fdaeaa7f34ff7bc80c2c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nominate:9e4562a9c52c5dbc:collocation:1"
+            ],
+            "meaning_cn": "任命某人为某职",
+            "phrase": "nominate sb as + sth"
+          }
+        ]
       }
     ],
     "content_hash": "5b7344b2c73ca6d493ca65e39ce741207ce8f34cd3a6ac96fbae440fecb1e894",
@@ -66,35 +87,16 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:dfd2a007ca5e2999f8ce",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:nominate:9e4562a9c52c5dbc:collocation:0"
-            ],
-            "meaning_cn": "提名某人获得某奖项/职位",
-            "phrase": "nominate sb for + sth"
-          },
-          {
-            "collocation_id": "collocation:fdaeaa7f34ff7bc80c2c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:nominate:9e4562a9c52c5dbc:collocation:1"
-            ],
-            "meaning_cn": "任命某人为某职",
-            "phrase": "nominate sb as + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "提名（为候选人）",
-        "definition_en": "propose as a candidate for some honor",
+        "definition_cn": "提名（为职位、选举或奖项的候选人）",
+        "definition_en": "to formally propose someone as a candidate for a position, election, or award",
         "governing_pattern": "vt. + sb (for/as sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:nominate:9e4562a9c52c5dbc",
-        "sense_label_en": "propose as a candidate for some honor",
+        "sense_label_en": "to formally propose someone as a candidate for a position, election, or award",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -111,14 +113,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "任命，指定",
-        "definition_en": "put forward; nominate for appointment to an office or for an honor or position",
-        "governing_pattern": "vt. + sb (to sth)",
+        "definition_cn": "任命；指定",
+        "definition_en": "to formally choose or appoint someone to a job, role, or task",
+        "governing_pattern": "nominate sb to/as a role; nominate sb to do sth（任命义须看语境）",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:nominate:4617ae19a2d653d0",
-        "sense_label_en": "put forward; nominate for appointment to an office or for an honor or po",
+        "sense_label_en": "to formally choose or appoint someone to a job, role, or task",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -540,9 +542,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:c47e61a0d2bdea9ddcee",
-      "collocation:dfd2a007ca5e2999f8ce",
-      "collocation:fdaeaa7f34ff7bc80c2c"
+      "collocation:c47e61a0d2bdea9ddcee"
     ],
     "facts": [
       {
@@ -560,12 +560,16 @@
       {
         "id": "collocation:dfd2a007ca5e2999f8ce",
         "source_row": 18937,
-        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fdaeaa7f34ff7bc80c2c",
         "source_row": 21459,
-        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
