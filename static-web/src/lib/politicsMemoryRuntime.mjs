@@ -27,6 +27,18 @@ function catalogMap(catalog) {
     .map((row) => [String(row?.id || ''), row]).filter(([id]) => id));
 }
 
+const MARXISM_BASELINE_RESIDUAL_ROLES = new Set([
+  'LEG27_RESIDUAL_RECOMMENDED',
+  'LEG27_MAIN_PROMPT_WITH_RESIDUAL_COMPONENT'
+]);
+
+export function politicsMemoryCandidateRecommendedByContent(candidate) {
+  const subject = clean(candidate?.subject, 80);
+  if (subject !== 'marxism') return true;
+  const role = clean(candidate?.handbook_alignment, 120);
+  return MARXISM_BASELINE_RESIDUAL_ROLES.has(role);
+}
+
 export function validatePoliticsMemoryPlan(input, catalog, {
   expectedDay = null,
   now = Date.now()
@@ -452,6 +464,34 @@ function candidateSnapshotMatchesCurrent(snapshot, candidate) {
     return JSON.stringify(legacy(snapshot)) === JSON.stringify(legacy(candidate));
   }
   return JSON.stringify(semantic(snapshot)) === JSON.stringify(semantic(candidate));
+}
+
+export function politicsMemoryRecommendedCandidateIds(storage, catalog) {
+  const byId = catalogMap(catalog);
+  const recommended = new Set();
+
+  for (const candidate of byId.values()) {
+    if (candidate?.admission_verified === true && politicsMemoryCandidateRecommendedByContent(candidate)) {
+      recommended.add(candidate.id);
+    }
+  }
+
+  const latest = new Map();
+  for (const row of readEvidence(storage)) {
+    const id = clean(row?.candidate_id, 220);
+    const candidate = byId.get(id);
+    if (!candidate || candidate?.admission_verified !== true) continue;
+    if (!candidateSnapshotMatchesCurrent(row?.candidate_snapshot, candidate)) continue;
+    const prior = latest.get(id);
+    if (!prior || String(row?.observed_at || '').localeCompare(String(prior?.observed_at || '')) >= 0) {
+      latest.set(id, row);
+    }
+  }
+
+  for (const [id, row] of latest.entries()) {
+    if (row?.response === 'FORGOT' || row?.response === 'FUZZY') recommended.add(id);
+  }
+  return recommended;
 }
 
 function studyDayDistance(currentDay, priorDay) {
