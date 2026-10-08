@@ -244,12 +244,16 @@
       "question_truth_path": "content/xizong/questions/shards/2011/q001-025.json",
       "question_truth_blob_sha": "093dd19ccbfff3b20a19d27258c0a6e583a76a64",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d"
+      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d",
+      "knowledge_revalidated_blob_sha": "04f41f6332797c9159494562076476b6b792383c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Final unified owner review: Current Block urinary-b02 is the smallest safe owner for '影响肾小球滤过率的Starling力'. Block-level relation retained rather than guessing a narrower KP.",
-      "old_mapping_inherited": false
+      "basis": "正式答案D保留。Current整B2的KP04/09明确胶渗压降低使净滤压升高，KP10同时明确RPF增加也可支持GFR升高，故正式A并非绝对错误。现有Explanation source_conflict_note已明确该旧单选不严格；原Block owner实际拥有这两个决定轴，可以保留当前映射，不能称旧答案排他性或该冲突已消除。历史新增平衡模型条件与这一方向判断一致。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 506517513ea20cd4e7f918422210526bc6baf73d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -262,12 +266,16 @@
       "question_truth_path": "content/xizong/questions/shards/2011/q001-025.json",
       "question_truth_blob_sha": "093dd19ccbfff3b20a19d27258c0a6e583a76a64",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56"
+      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Final unified owner review: Current Block urinary-b03 is the smallest safe owner for '髓袢升支粗段的稀释功能'. Block-level relation retained rather than guessing a narrower KP.",
-      "old_mapping_inherited": false
+      "basis": "正式答案C。整B3当前KP15明确TAL不透水、KP18明确NKCC2强力吸NaCl，两项合读得到管液稀释；近端KP03等渗，集合管KP12水通透另受ADH，不能仅凭吸盐名称选段。整块历史的分段补充、球管平衡条件与A/B闰细胞区分不移除这条机制。维持原Block-level。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness e981cc58b9f0871892c71a1e063fb6861bfa2b56 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

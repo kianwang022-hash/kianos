@@ -49,12 +49,16 @@
       "question_truth_path": "content/xizong/questions/shards/2006/q001-025.json",
       "question_truth_blob_sha": "a2674da231994ece90e656720fc0238395e290a5",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927"
+      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927",
+      "knowledge_revalidated_blob_sha": "e4e4e7227b91b3a0b20ae36d7f3dd785752e02b7"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact question semantics matched urinary B1 KP08: FF = GFR/RPF and the Current Study example is about 19%, i.e. approximately 20% for the official option set.",
-      "old_mapping_inherited": false
+      "basis": "正式答案 B（20%）。原 Primary KP08 仍明确 FF=GFR/RPF，课程示例约19%对应本题20%的数量级；历史增加的HCT定义和疾病比值条件不改变本题生理比例。保留原KP08。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4175cc1fde0309ab0061e10a61f380d6cef20927 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -285,12 +289,16 @@
       "question_truth_path": "content/xizong/questions/shards/2006/q001-025.json",
       "question_truth_blob_sha": "a2674da231994ece90e656720fc0238395e290a5",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927"
+      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927",
+      "knowledge_revalidated_blob_sha": "e4e4e7227b91b3a0b20ae36d7f3dd785752e02b7"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B1 KP07 clearance fingerprint: a freely filtered substance with no tubular reabsorption or secretion has excretion equal to filtration, so its clearance equals GFR; inulin is the canonical example.",
-      "old_mapping_inherited": false
+      "basis": "正式答案 D。KP07 菊粉段明确自由滤过、不重吸收也不分泌时，排泄量等于滤过量、清除率等于GFR；题目考理想标志物条件。历史新增蛋白结合、净处理及Tm边界均保留，不倒推C=GFR必然两过程均无。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4175cc1fde0309ab0061e10a61f380d6cef20927 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

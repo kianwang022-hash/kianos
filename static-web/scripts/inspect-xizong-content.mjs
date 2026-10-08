@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { marked } from 'marked';
 
 // Read-only developer/Chat view of the existing native resolver, not another
 // content parser, learner store, IR, or browser-state inspection mechanism.
@@ -255,16 +256,41 @@ export function formatXizongModelFrame(report) {
     return `${header}\n\n${clean}`;
   }
   const raw = fs.readFileSync(path.join(repoRoot, block.sourcePath), 'utf8');
-  // Canonical Blocks use different Markdown heading depths (A1 includes h1).
-  // Heading depth is presentation, not a reason to reject the owned model.
-  const markers = [...raw.matchAll(/^#{1,6}\s+[^\n]*同一模型上的自然节点〔完整 Prompt〕[^\n]*$/gm)];
+  // Locate the authored Markdown section, not a heading-looking line inside
+  // code, a quote or HTML. Token raw bytes must reconstruct the exact owner;
+  // parsing is used only for boundaries, never to rewrite medical content.
+  let offset = 0;
+  const located = marked.lexer(raw, { gfm: true }).map(token => {
+    const start = offset;
+    if (raw.slice(start, start + token.raw.length) !== token.raw) failFrame('MARKDOWN_SOURCE_NOT_LOSSLESS');
+    offset += token.raw.length;
+    return { token, start, end: offset };
+  });
+  if (offset !== raw.length) failFrame('MARKDOWN_SOURCE_NOT_LOSSLESS');
+  const markers = located.filter(({token}) => token.type === 'heading'
+    && token.text.includes('同一模型上的自然节点〔完整 Prompt〕'));
   if (markers.length !== 1) failFrame('CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS');
-  const after = raw.slice(markers[0].index + markers[0][0].length);
-  const open = after.indexOf('```text\n');
-  if (open < 0 || open > 1500) failFrame('NATURAL_MODEL_TEXT_FENCE_MISSING');
-  const end = after.indexOf('\n```', open + '```text\n'.length);
-  if (end < 0) failFrame('NATURAL_MODEL_TEXT_FENCE_UNCLOSED');
-  const source = after.slice(open + '```text\n'.length, end);
+  const marker = markers[0];
+  const end = located.find(row => row.start >= marker.end && row.token.type === 'heading'
+    && row.token.depth <= marker.token.depth)?.start ?? raw.length;
+  const section = located.filter(row => row.start >= marker.end && row.start < end);
+  const code = section.filter(row => row.token.type === 'code');
+  let source;
+  const prose = code.length === 0;
+  if (prose) {
+    source = raw.slice(marker.end, end).trim();
+  } else {
+    if (code.length !== 1) failFrame('NATURAL_MODEL_TEXT_FENCE_AMBIGUOUS');
+    const fenced = code[0].token.raw;
+    const open = fenced.match(/^ {0,3}(`{3,}|~{3,})text[ \t]*\n/);
+    if (!open || code[0].token.lang !== 'text') failFrame('NATURAL_MODEL_TEXT_FENCE_MISSING');
+    const close = [...fenced.matchAll(/^ {0,3}(`{3,}|~{3,})[ \t]*(?=\n|$)/gm)]
+      .find(match => match.index >= open[0].length && match[1][0] === open[1][0] && match[1].length >= open[1].length);
+    if (!close || fenced.slice(close.index + close[0].length).trim()) failFrame('NATURAL_MODEL_TEXT_FENCE_UNCLOSED');
+    // Exclude only the opening/closing fences, exactly as for the existing
+    // A1/A2 text models; retain every byte inside the authored model.
+    source = fenced.slice(open[0].length, close.index).replace(/\n$/, '');
+  }
   if (source.includes('〈') || source.includes('〉')) {
     // Explicit inline annotations are already complete Current text. Validate
     // exact title + Prompt identity and preserve every medical relation byte.
@@ -283,6 +309,9 @@ export function formatXizongModelFrame(report) {
     if (missing.length || covered.size !== expected.size) failFrame(`UNACCOUNTED_KPS:${missing.join(',')}`);
     return `${header}\n\n${source}`;
   }
+  // New prose models require explicit complete Current annotations. The old
+  // suffix/label matcher below remains confined to its legacy fenced trees.
+  if (prose) failFrame('PROSE_COMPLETE_INLINE_ANNOTATIONS_REQUIRED');
   const normalize = value => String(value).trim().replace(/[。．]\s*$/, '');
   const seen = new Set();
   const derived = source.split('\n').map(line => {

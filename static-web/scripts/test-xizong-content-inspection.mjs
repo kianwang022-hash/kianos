@@ -169,6 +169,79 @@ check(reviewedRespiratoryKps===221,'R2–R12 models retain all 221 canonical KPs
 const r2Cli=spawnSync(process.execPath,[cli,'respiratory','r02','--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
 check(r2Cli.status===0 && r2Cli.stdout.includes('肺泡通气VA持续更新肺泡气，肺血流Q同时带来静脉血'),'actual R2 model CLI preserves the parallel entry without a browser');
 
+// A3 B1–B5 author their complete model as Markdown prose. This bounded raw
+// oracle follows these five reviewed owners' explicit next Chapter 2 boundary;
+// it is independent of the formatter's Markdown token selection.
+const urinaryModels=[];
+for (const [ref,count] of [['b01',15],['b02',14],['b03',19],['b04',19],['b05',20]]) {
+  const current=await inspectXizongContent({systemId:'urinary',blockRef:ref});
+  const raw=fs.readFileSync(path.join(repo,current.canonicalBlock.sourcePath),'utf8');
+  const marker=raw.match(/^#{1,2} 1A｜同一模型上的自然节点〔完整 Prompt〕$/m);
+  const end=raw.indexOf('\n# 2｜',marker.index+marker[0].length);
+  check(end>marker.index,`${ref}: reviewed prose has its explicit following canonical section`);
+  const authored=raw.slice(marker.index+marker[0].length,end).trim();
+  const rendered=formatXizongModelFrame(current);
+  check(rendered.endsWith(authored),`${ref}: formatter preserves the complete authored prose byte for byte`);
+  const annotations=[...authored.matchAll(/〈([^〈〉\n]*?〔[^〔〕\n]+〕)〉/g)].map(m=>m[1]);
+  const expected=current.canonicalBlock.kpRecords.map(k=>k.title+'〔'+k.prompt+'〕');
+  check(expected.length===count && annotations.length===count && expected.every(text=>annotations.filter(a=>a===text).length===1),`${ref}: every original full title/Prompt stays at its authored prose node`);
+  check(!/[〈〉〔〕]/.test(authored.replace(/〈[^〈〉\n]*?〔[^〔〕\n]+〕〉/g,'')),`${ref}: all prose annotations can be hidden without fragments`);
+  const actualCli=spawnSync(process.execPath,[cli,'urinary',ref,'--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
+  check(actualCli.status===0 && actualCli.stdout.trim()===rendered,`${ref}: true model CLI returns the same current prose from outside the repo`);
+  urinaryModels.push({current,raw,marker,end,authored,count});
+}
+check(urinaryModels.reduce((n,x)=>n+x.count,0)===87,'all five A3 stage-one models retain all 87 full Prompt bindings');
+
+// Damaged source is supplied only to this synchronous read-only formatter
+// invocation. No canonical, Projection, fixture or learner file is written;
+// the exact-path read substitution is always restored, including on failure.
+function formatModelSourceFixture(report,source) {
+  const owner=path.resolve(repo,report.canonicalBlock.sourcePath);
+  const originalRead=fs.readFileSync;
+  fs.readFileSync=function(file,options) {
+    if (typeof file==='string' && path.resolve(file)===owner) {
+      const encoding=typeof options==='string' ? options : options?.encoding;
+      return encoding ? Buffer.from(source).toString(encoding) : Buffer.from(source);
+    }
+    return originalRead.call(fs,file,options);
+  };
+  try {return formatXizongModelFrame(report);}
+  finally {fs.readFileSync=originalRead;}
+}
+const proseCase=urinaryModels[0];
+const proseHeader=proseCase.marker[0];
+const beforeProse=proseCase.raw.slice(0,proseCase.marker.index);
+const afterProse=proseCase.raw.slice(proseCase.end);
+const proseFixture=(body,tail=afterProse)=>beforeProse+proseHeader+'\n\n'+body+'\n'+tail;
+const firstProseKp=proseCase.current.canonicalBlock.kpRecords[0];
+const firstProseAnnotation=`〈${firstProseKp.title}〔${firstProseKp.prompt}〕〉`;
+const missingProse=proseCase.authored.replace(firstProseAnnotation,'');
+for (const [label,raw,pattern] of [
+  ['missing model heading',proseCase.raw.replace(proseHeader,''),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['duplicate real model heading',proseCase.raw.replace(proseHeader,proseHeader+'\n\n'+proseHeader),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['quoted pseudo heading',proseCase.raw.replace(proseHeader,'> '+proseHeader),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['indented-code pseudo heading',proseCase.raw.replace(proseHeader,'    '+proseHeader),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['HTML-comment pseudo heading',proseCase.raw.replace(proseHeader,'<!--\n'+proseHeader+'\n-->'),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['fenced-code pseudo heading',proseCase.raw.replace(proseHeader,'```text\n'+proseHeader+'\n```'),/CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS/],
+  ['missing KP',proseFixture(missingProse),/UNACCOUNTED_KPS/],
+  ['shortened title',proseFixture(proseCase.authored.replace(firstProseAnnotation,`〈短标题〔${firstProseKp.prompt}〕〉`)),/INLINE_TITLE_PROMPT_NOT_EXACT/],
+  ['changed complete Prompt',proseFixture(proseCase.authored.replace(firstProseAnnotation,`〈${firstProseKp.title}〔${firstProseKp.prompt} changed〕〉`)),/INLINE_TITLE_PROMPT_NOT_EXACT/],
+  ['broken inline bracket',proseFixture(proseCase.authored.replace(firstProseAnnotation,firstProseAnnotation.slice(0,-1))),/MALFORMED_INLINE_ANNOTATION/],
+  ['legacy unbracketed prose',proseFixture(proseCase.authored.replace(/[〈〉]/g,'')),/PROSE_COMPLETE_INLINE_ANNOTATIONS_REQUIRED/],
+  ['a later Core fence cannot supply the missing model',proseFixture(missingProse,'\n# 2｜后续 Core\n\n```text\n'+proseCase.authored+'\n```\n'),/UNACCOUNTED_KPS/],
+  ['unclosed model fence cannot become prose',proseFixture('```text\n'+proseCase.authored,''),/NATURAL_MODEL_TEXT_FENCE_UNCLOSED/],
+  ['short closing fence remains unclosed',proseFixture('````text\n'+proseCase.authored+'\n```',''),/NATURAL_MODEL_TEXT_FENCE_UNCLOSED/],
+  ['wrong fence kind cannot become prose',proseFixture('```js\n'+proseCase.authored+'\n```'),/NATURAL_MODEL_TEXT_FENCE_MISSING/],
+  ['multiple model fences are ambiguous',proseFixture('```text\n'+proseCase.authored+'\n```\n\n```text\nextra\n```'),/NATURAL_MODEL_TEXT_FENCE_AMBIGUOUS/]
+]) {
+  assert.throws(()=>formatModelSourceFixture(proseCase.current,raw),pattern,label);checks++;
+}
+const nestedHeadingBody='# A heading inside code is text\n'+proseCase.authored;
+check(formatModelSourceFixture(proseCase.current,proseFixture('```text\n'+nestedHeadingBody+'\n```')).endsWith(nestedHeadingBody),'a heading inside the one closed model fence does not truncate its body');
+const proseDuplicateIdentity=structuredClone(proseCase.current);
+proseDuplicateIdentity.canonicalBlock.kpRecords.push(structuredClone(firstProseKp));
+assert.throws(()=>formatXizongModelFrame(proseDuplicateIdentity),/INLINE_TITLE_PROMPT_NOT_EXACT/);checks++;
+
 check(Array.isArray(respiratory.logicGroupTrace),'group support trace exists');
 const lg4=respiratory.logicGroupTrace.find(g=>g.identity.logicGroupId==='respiratory-r01-lg04');
 check(lg4.supports.some(s=>s.id==='a2-r01-obstruction-to-r03'&&s.family==='connection'),'R1 reviewed LG relation is inspectable');
@@ -232,4 +305,4 @@ const routerLinks = [...learningRoute.matchAll(/\]\(([^)]+)\)/g)].map(m => m[1])
 check(routerLinks.every(url => fs.existsSync(path.resolve(repo, 'content/xizong/knowledge/learner', decodeURI(url.split('#')[0])))), 'every local content-routing target exists');
 
 check(status()===before,'inspection did not mutate repository');
-console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R12; exact models and negative identity/scope cases, no browser/learner-state writes.`);
+console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R12 + A3/B1–B5; exact fenced/prose models and negative source/identity/scope cases, no browser/learner-state writes.`);
