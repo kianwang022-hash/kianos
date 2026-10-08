@@ -7,7 +7,7 @@ This file does not own Xi Source/Content/Learning semantics, Acceptance Truth or
 
 ## Work Cursor
 
-**当前显式内容反审（2026-10-08）：新思想C00–C17，内部第5批C12–C14完成原位修复与内容复核，保存/readback另凭实际回执。** 下一内部范围C15–C17及整科收口；只读MD、保留原模型/Source绑定/retention，局部来源排除不猜填。各批记录在原章节教师附录，整科完成才在C17统一收口；真实学习UNKNOWN，无自动化/跨科任务。
+**当前显式内容反审（2026-10-08）：新思想C00–C17，内部第6批C15–C17完成原位修复与内容复核，保存/readback另凭实际回执。** 下一内部范围整科连续合成推演、最后复核及STOP；只读MD、保留原模型/Source绑定/retention，局部来源排除不猜填。各批记录在原章节教师附录，整科完成才在C17统一收口；真实学习UNKNOWN，无自动化/跨科任务。
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/xi/ACCEPTANCE.md`.  
