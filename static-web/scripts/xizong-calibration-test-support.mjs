@@ -2653,3 +2653,168 @@ export function assertReviewedA3Preentry(block, current, source) {
   assert.equal(framework.markdown, authored, block.blockId + ': complete current authored Framework');
   return true;
 }
+
+// #1113 B6–B7: exact reviewed deltas; original independent oracles stay frozen.
+Object.assign(a3ReviewedSources, {
+  "urinary-b06": {
+    "originalCanonicalGitBlob": "c070f278beaae3b42acdf6f9b44004b6e4a2838c",
+    "originalProtectedSourceSha256": "683687b71e2387d526e7e011b446a7758fad05873480d5ffb74e917746f55175",
+    "reviewedCurrentSourceSha256": "cddce8f579b952c52c8e819ae896a95133598586781986f87159c3d381e86631",
+    "reviewedSpans": [
+      {
+        "start": 1742,
+        "end": 4278,
+        "label": "continuous model with all original titles and Prompts",
+        "sha256": "a485f30e4b3064d4c738215ee5b3a0d18e09f88aeebec95f428c2bb7f460118f",
+        "marker": "\n<A3-B06-REVIEWED-MODEL>\n"
+      }
+    ]
+  },
+  "urinary-b07": {
+    "originalCanonicalGitBlob": "83a5a51eabe73fd79e21ab87201e367307755173",
+    "originalProtectedSourceSha256": "c6d403c6128a6692d1bbeb6bbe9ab6898565d8d624dc4bb5fd5d6ae2afd5ef79",
+    "reviewedCurrentSourceSha256": "b31ad8dc0a996169094cfd623ca91e1955f7a9e3fc782ec928e5cb1059a3a4d6",
+    "reviewedSpans": [
+      {
+        "start": 1839,
+        "end": 5123,
+        "label": "continuous model with all original titles and Prompts",
+        "sha256": "5e00f593522c849ff975d537f7b4b3d61551be42a657bd524b10dad42b9b8114",
+        "marker": "\n<A3-B07-REVIEWED-MODEL>\n"
+      },
+      {
+        "start": 6597,
+        "end": 7288,
+        "label": "full native KP02 body with narrow medical correction",
+        "sha256": "1e6639df0049ab5038f6871d13519d18e9e4715e7c54fee2f07d8033cb913aa2",
+        "marker": "\n<A3-B07-REVIEWED-CORE-KP02>\n"
+      },
+      {
+        "start": 8081,
+        "end": 8778,
+        "label": "full native KP04 body with narrow medical correction",
+        "sha256": "7a26db04f9fe6466468685db6d655c63fe6cd7118994d85318f2adb45570b80f",
+        "marker": "\n<A3-B07-REVIEWED-CORE-KP04>\n"
+      },
+      {
+        "start": 8820,
+        "end": 9187,
+        "label": "full native KP05 body with narrow medical correction",
+        "sha256": "dbc26a0a0f9c628bd5c5cc1d0f8b10cda3cceb16bd28a91c1df70ee72847a898",
+        "marker": "\n<A3-B07-REVIEWED-CORE-KP05>\n"
+      },
+      {
+        "start": 11611,
+        "end": 12152,
+        "label": "full native KP11 body with narrow medical correction",
+        "sha256": "754b4b6157e62aba8ac572c321aa15239729963704524127c48c93d9e0db4c37",
+        "marker": "\n<A3-B07-REVIEWED-CORE-KP11>\n"
+      }
+    ]
+  }
+});
+a3ReviewedLearningChanges.push(...[
+  {
+    "path": "blocks/urinary-b06/recall_spine",
+    "before": "蛋白尿机制 → 血尿来源 → 脓尿/管型 → 总/分肾功能 → 尿三杯 → 分支",
+    "after": "血与滤液分流、跨管壁回收/分泌形成终尿；漏、回收失败、超载及尿路加入从不同入口产生证据；细胞入小管并聚合基质才形成管型；尿成分与总/分侧功能并行读取，再按问题定位并进入疾病分支。"
+  },
+  {
+    "path": "blocks/urinary-b07/recall_spine",
+    "before": "急慢 → 肾前/性/后 → 肾前vsATN → AKI时间轴 → CKD系统失败 → 分期/保护 → KRT",
+    "after": "时间背景与第一故障层共同定位；灌注、实质和梗阻可汇到GFR下降但小管能力不同；小管损伤仅在可恢复时出现滤过/回收不同步；CKD清除与内分泌后果并行，排磷/VitD分叉接骨病；观察和干预反馈，危急时评估KRT。"
+  },
+  {
+    "path": "blocks/urinary-b07/logic_groups/urinary-b07-lg02/goal",
+    "before": "掌握少尿/恢复期危险换挡、诊断标准和GFR/活检边界。",
+    "after": "区分病因与相位，掌握小管损伤有条件恢复及少尿/多尿风险，结合诊断标准和GFR/活检边界。"
+  },
+  {
+    "path": "blocks/urinary-b07/logic_groups/urinary-b07-lg02/closure",
+    "before": "能从当前相位判断高K水中毒或低K感染风险并选择确认层。",
+    "after": "不把少尿→多尿当所有AKI必经过程；结合当前输出/功能判断高K容量危险或恢复期水盐丢失，并选择确认层。"
+  },
+  {
+    "path": "blocks/urinary-b07/logic_groups/urinary-b07-lg04/goal",
+    "before": "从VitD/PTH骨病到小肾例外和正式GFR分期。",
+    "after": "把排磷下降与VitD活化减少分开，共同接继发PTH；区分高转化、骨再生不良与矿化障碍，另用病程/小肾例外和GFR评估。"
+  }
+]);
+Object.assign(a3ReviewedGroupChanges, {
+  "urinary-b07": [
+    {
+      "path": "1/goal",
+      "before": "掌握少尿/恢复期危险换挡、诊断标准和GFR/活检边界。",
+      "after": "区分病因与相位，掌握小管损伤有条件恢复及少尿/多尿风险，结合诊断标准和GFR/活检边界。"
+    },
+    {
+      "path": "1/closure",
+      "before": "能从当前相位判断高K水中毒或低K感染风险并选择确认层。",
+      "after": "不把少尿→多尿当所有AKI必经过程；结合当前输出/功能判断高K容量危险或恢复期水盐丢失，并选择确认层。"
+    },
+    {
+      "path": "3/goal",
+      "before": "从VitD/PTH骨病到小肾例外和正式GFR分期。",
+      "after": "把排磷下降与VitD活化减少分开，共同接继发PTH；区分高转化、骨再生不良与矿化障碍，另用病程/小肾例外和GFR评估。"
+    }
+  ]
+});
+a3ReviewedOwnerChanges.push(...[
+  {
+    "id": "a3-b06-lg01-precision",
+    "before": "2c68b4bf03affa4bbd5ff8c9aefef362af69efe9451e3895ca5839b6f2b5ad20",
+    "after": "c62c8677fcc377496e5d2d1c3e0f659957f631d59f1acb74695d07df34528953"
+  },
+  {
+    "id": "a3-b06-kp07-precision",
+    "before": "f88b399b1419d182a7b51a3ec6447e29ccb2a204f2045780134be0d70eca5893",
+    "after": "190ac05037d463752576ebcee3b0b74dee88f9f1d554b8d01126f09e5a3e8563"
+  },
+  {
+    "id": "a3-b07-kp06-precision",
+    "before": "9c59ef728708944e7bd7e45cb0b08869e086e0fddbaa3f5c494b1aee8bb1e505",
+    "after": "77f14389c39df8f9c2578a7da00f1decdb5be412205b02aaea4acfc28a2ca634"
+  },
+  {
+    "id": "a3-b07-kp14-precision",
+    "before": "da1db57d9f57245a28a75058d4d463cab83ea2ac2462e37ed976db2fc86e120e",
+    "after": "1454043eedabbe4ab5bc69e09d992e6039e09eb01b6221cf543ec3dfacea44a2"
+  },
+  {
+    "id": "a3-b07-kp15-precision",
+    "before": "7df3cafef42d487c3c0a4d1376237f80c2b2f333061fcef93be9e929653bd7c0",
+    "after": "f9aa6a59efdeb6a9a0b2acc57213c2a79e87ba4cd9aa3216d18ab875fb855927"
+  }
+]);
+
+export const a3B0607NativeReview = {
+  "urinary-b06": {
+    "originalNativeRecordsSha256": "becee03d07b12875b219c447eb5aac26924acb9d10244e65f6079495cad4f4fc",
+    "coreChanges": []
+  },
+  "urinary-b07": {
+    "originalNativeRecordsSha256": "31db90a4ff291f1ce3e8ab6bd2b44b3c63ac6a273f6d08f0581953c254a15358",
+    "coreChanges": [
+      {
+        "ordinal": 2,
+        "before": "### A｜肾前性｜最常见\n\n```text\n大失血 / 液体丢失过多 / 肝硬化 / 心衰 / 机械通气等\n→ 有效循环血量或肾灌注↓\n→ 肾小球毛细血管压↓\n→ GFR↓\n```\n\n关键：**第一故障在肾脏之前的灌注。**早期肾实质仍有保Na、浓缩尿的能力。\n\n### B｜肾性 / 肾实质性\n\nStudy代表：\n\n- 急性肾小管坏死 ATN；\n- 间质性肾炎等。\n\n机制入口：\n\n- 肾缺血；\n- 肾毒物：氨基糖苷、鱼胆、蘑菇、Hb、肌红蛋白、轻链蛋白等；\n- 原尿外漏；\n- 肾小管阻塞。\n\n关键：**肾组织本身已经损伤**，尤其小管处理能力丢失。\n\n### C｜肾后性\n\n```text\n结石 / BPH / 盆腔肿瘤 / 神经源性膀胱尿潴留等\n→ 尿路梗阻\n→ 肾小囊囊内压↑\n→ 有效滤过压↓\n→ GFR↓\n```\n\n明显总肾功能下降常涉及双侧梗阻、孤立功能肾受阻或对侧肾功能已受损；单侧结石可伤患肾，但另一肾正常时血肌酐未必升高，不能把任何单侧梗阻都直接等同整体肾衰。\n\n//串联：这里只建立“压力顶回滤过器”的机制。结石、BPH、肾积水、尿潴留和解除梗阻优先级在 K12 完整学习。\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp03\" -->",
+        "after": "### A｜肾前性｜最常见\n\n```text\n大失血 / 液体丢失过多 / 肝硬化 / 心衰 / 机械通气等\n→ 有效循环血量或肾灌注↓\n→ 肾小球毛细血管压↓\n→ GFR↓\n```\n\n关键：**第一故障在肾脏之前的灌注。**早期肾实质仍有保Na、浓缩尿的能力。\n\n### B｜肾性 / 肾实质性\n\nStudy代表：\n\n- 急性肾小管坏死 ATN；\n- 间质性肾炎等。\n\n机制入口：\n\n- 肾缺血；\n- 肾毒物：氨基糖苷、鱼胆、蘑菇、Hb、肌红蛋白、轻链蛋白等；\n- 原尿外漏；\n- 肾小管阻塞。\n\n关键：**肾组织本身已经损伤**。上述缺血/肾毒物、原尿外漏和小管阻塞主要描述ATN入口，不是所有肾性AKI共有的机制；肾小球、血管和间质病变也可造成肾性AKI，保Na/浓缩能力随受累部位而异。\n\n### C｜肾后性\n\n```text\n结石 / BPH / 盆腔肿瘤 / 神经源性膀胱尿潴留等\n→ 尿路梗阻\n→ 肾小囊囊内压↑\n→ 有效滤过压↓\n→ GFR↓\n```\n\n明显总肾功能下降常涉及双侧梗阻、孤立功能肾受阻或对侧肾功能已受损；单侧结石可伤患肾，但另一肾正常时血肌酐未必升高，不能把任何单侧梗阻都直接等同整体肾衰。\n\n//串联：这里只建立“压力顶回滤过器”的机制。结石、BPH、肾积水、尿潴留和解除梗阻优先级在 K12 完整学习。\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp03\" -->"
+      },
+      {
+        "ordinal": 4,
+        "before": "### 起始期\n\n- Study：尚无明显肾实质损伤。\n\n### 少尿 / 进展 / 维持期\n\n尿量：\n\n- <400 mL/d：少尿；\n- <100 mL/d：无尿；\n- 部分 AKI 可 ≥400 mL/d，为非少尿型，Study认为一般病情较轻。\n\n核心紊乱：\n\n```text\n3高：K+ / Mg2+ / P ↑\n3低：Ca2+ / Na+ / Cl- ↓\n2中毒：水中毒 + 代谢性酸中毒\n```\n\n这是讲义对少尿期常见组合的记忆表，不是AKI诊断必须同时满足的八项：电解质实际方向还受病因、输入、丢失和治疗影响，非少尿型也不能仅凭尿量判定无危险。\n\n机制主轴：\n\n```text\n肾排泄失败\n→ K/Mg/P/H+/水排出↓\n→ 高K、高Mg、高P、酸中毒、水中毒\n\n肾小管1α-羟化酶功能↓\n→ 钙三醇↓\n→ 低Ca\n\n水潴留造成稀释\n→ 低Na、低Cl\n```\n\n**主要死因：高钾血症、水中毒。**\n\n（特殊：酸中毒环境中游离 Ca²⁺比例相对较高，低钙时未必马上抽搐；纠正酸中毒后游离 Ca²⁺下降，反而可能出现手足抽搐。只保留 Study 机制，不扩展额外酸碱公式。）\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp05\" -->",
+        "after": "### 起始期\n\n- 原Study：尚无明显肾实质损伤。\n- Current边界：这是讲义阶段的概括；缺血/毒性小管损伤在起始阶段即可发生，不能据此排除实质损伤，也不把ATN分期推广为所有AKI的必经过程。\n\n### 少尿 / 进展 / 维持期\n\n尿量：\n\n- <400 mL/d：少尿；\n- <100 mL/d：无尿；\n- 部分 AKI 可 ≥400 mL/d，为非少尿型，Study认为一般病情较轻。\n\n核心紊乱：\n\n```text\n3高：K+ / Mg2+ / P ↑\n3低：Ca2+ / Na+ / Cl- ↓\n2中毒：水中毒 + 代谢性酸中毒\n```\n\n这是讲义对少尿期常见组合的记忆表，不是AKI诊断必须同时满足的八项：电解质实际方向还受病因、输入、丢失和治疗影响，非少尿型也不能仅凭尿量判定无危险。\n\n机制主轴：\n\n```text\n肾排泄失败\n→ K/Mg/P/H+/水排出↓\n→ 高K、高Mg、高P、酸中毒、水中毒\n\n肾小管1α-羟化酶功能↓\n→ 钙三醇↓\n→ 低Ca\n\n水潴留造成稀释\n→ 低Na、低Cl\n```\n\n**主要死因：高钾血症、水中毒。**\n\n（特殊：酸中毒环境中游离 Ca²⁺比例相对较高，低钙时未必马上抽搐；纠正酸中毒后游离 Ca²⁺下降，反而可能出现手足抽搐。只保留 Study 机制，不扩展额外酸碱公式。）\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp05\" -->"
+      },
+      {
+        "ordinal": 5,
+        "before": "恢复期不是“尿一多就安全”。\n\n```text\n肾皮质滤过功能先恢复\n→ GFR可先接近正常\n\n但再生中的肾小管上皮仍幼稚\n→ 重吸收水、浓缩功能恢复较慢\n→ 多尿\n```\n\n因此危险从：\n\n```text\n少尿期：高K + 水中毒\n```\n\n切换成：\n\n```text\n多尿期：低K + 感染\n```\n\n这就是 AKI 时间轴最需要主动回忆的“危险换挡”。\n\n---",
+        "after": "恢复期不是“尿一多就安全”。本段描述可恢复的小管损伤常见过程，不要求所有AKI都先少尿再多尿，也不保证每例完全恢复。\n\n```text\n肾皮质滤过功能先恢复\n→ 滤过可先改善；GFR未必已正常\n\n但再生中的肾小管上皮仍幼稚\n→ 重吸收水、浓缩功能恢复较慢\n→ 多尿\n```\n\n因此危险从：\n\n```text\n少尿期：高K + 水中毒\n```\n\n切换成：\n\n```text\n多尿期：低K + 感染\n```\n\n这就是 AKI 时间轴最需要主动回忆的“危险换挡”。\n\n---"
+      },
+      {
+        "ordinal": 11,
+        "before": "Study链：\n\n```text\n肾衰\n→ 1α-羟化酶 / 钙三醇生成↓\n→ 低钙 + 高磷等信号\n→ 长期继发PTH↑\n→ 高转化性骨病\n```\n\n讲义将高转化性列作最常见肾性骨病；实际比例受CKD阶段和治疗影响，不强推所有人群。这里的继发性PTH升高是低钙/高磷/活性维生素D不足等反馈驱动，与甲状旁腺自身自主病变的原发性亢进区别，不类比成“原醛”。持续高PTH促进骨重塑和骨吸收，表现：\n\n- 骨质疏松；\n- 易骨折；\n- 骨骼囊样缺损；\n- 纤维囊性骨炎。\n\n//串联：完整 PTH—VitD—Ca/P 调节轴仍归后续内分泌；K7只掌握 CKD 为什么触发这条轴。\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp12\" -->",
+        "after": "Study原链为“肾衰→钙三醇↓→低钙→PTH过高”；以下把同一CKD背景下的排磷与VitD活化分为并行入口，不把高磷归因于钙三醇下降：\n\n```text\n肾衰\n├─ 1α-羟化酶 / 钙三醇生成↓ → 肠钙吸收↓ → 可低钙\n└─ 排磷能力↓ → 磷潴留（血磷可随阶段变化）\n\n活性VitD不足、低钙与磷负荷等共同促进继发PTH↑\n→ 持续过高PTH促进骨重塑/吸收\n→ 高转化性骨病\n```\n\n讲义将高转化性列作最常见肾性骨病；实际比例受CKD阶段和治疗影响，不强推所有人群。这里的继发性PTH升高是低钙/高磷/活性维生素D不足等反馈驱动，与甲状旁腺自身自主病变的原发性亢进区别，不类比成“原醛”。持续高PTH促进骨重塑和骨吸收，表现：\n\n- 骨质疏松；\n- 易骨折；\n- 骨骼囊样缺损；\n- 纤维囊性骨炎。\n\n//串联：完整 PTH—VitD—Ca/P 调节轴仍归后续内分泌；K7只掌握 CKD 为什么触发这条轴。\n\n---\n\n<!-- kianos:kp id=\"urinary-b07-kp12\" -->"
+      }
+    ]
+  }
+};

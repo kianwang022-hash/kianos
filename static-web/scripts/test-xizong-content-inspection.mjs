@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -304,5 +305,29 @@ check(b1Route.includes('side-reference KPs') && b1Route.includes('not all replac
 const routerLinks = [...learningRoute.matchAll(/\]\(([^)]+)\)/g)].map(m => m[1]).filter(url => !/^[a-z]+:/i.test(url));
 check(routerLinks.every(url => fs.existsSync(path.resolve(repo, 'content/xizong/knowledge/learner', decodeURI(url.split('#')[0])))), 'every local content-routing target exists');
 
+// B6–B7 protect every original native field and the complete exact Core deltas.
+const { a3B0607NativeReview } = await import('./xizong-calibration-test-support.mjs');
+for (const ref of ['b06','b07']) {
+  const report = await inspectXizongContent({systemId:'urinary', blockRef:ref});
+  const frame = formatXizongModelFrame(report);
+  const review = a3B0607NativeReview[report.canonicalBlock.blockId];
+  const records = structuredClone(report.canonicalBlock.kpRecords);
+  for (const change of review.coreChanges) {
+    const kp = records[change.ordinal-1];
+    assert.equal(kp.detailMarkdown,change.after);checks++;
+    kp.detailMarkdown=change.before;
+  }
+  check(createHash('sha256').update(JSON.stringify(records)).digest('hex')===review.originalNativeRecordsSha256,ref+': all original native fields outside four exact Core corrections');
+  for (const kp of report.canonicalBlock.kpRecords) check(frame.split(kp.title+'〔'+kp.prompt+'〕').length===2,ref+': exact title/full Prompt once');
+  const bare = frame.replace(/〈[^〈〉]*〔[^〕]*〕〉/g,'');
+  check(!bare.includes('〔'),ref+': all Prompt annotations removable');
+  if(ref==='b06') {
+    check(bare.includes('血由入球进入肾小球')&&bare.includes('小管重吸收把管液中的物质送回血侧')&&bare.includes('没有必经先后'),'B6 bare model blood/filtrate/parallel evidence');
+    check(bare.includes('才形成细胞管型')&&bare.includes('不保证有管型')&&bare.includes('成分与功能是并行读数'),'B6 bare model conditional casts and independent function');
+  } else {
+    check(bare.includes('不能把所有肾性AKI都当ATN')&&bare.includes('若小管损伤的病因解除并有恢复能力')&&bare.includes('多尿也不证明滤过已正常'),'B7 bare model conditional injury/recovery');
+    check(bare.includes('高磷不能写成钙三醇减少的直接结果')&&bare.includes('不是同一变量')&&bare.includes('不同风险入口'),'B7 bare model parallel CKD-MBD and KRT consequences');
+  }
+}
 check(status()===before,'inspection did not mutate repository');
-console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R12 + A3/B1–B5; exact fenced/prose models and negative source/identity/scope cases, no browser/learner-state writes.`);
+console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R12 + A3/B1–B7; exact fenced/prose models and negative source/identity/scope cases, no browser/learner-state writes.`);

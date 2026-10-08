@@ -435,3 +435,27 @@ This file.
 ### Learner Truth
 
 Private learner/browser/conversation evidence only. No engineering gate in this file means Kian has begun A3.
+
+
+<a id="a3-b06-b07-deep-model-quality-20261008"></a>
+## 2026-10-08｜A3 B6–B7 Content-first 连续模型与原 Prompt 内容验收
+
+**范围与阶段：** [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) 当前以 **Content 先行**；本批仅 B6、B7，随后 B8–B10→B11–B12→B13–B14→B→C/D/E/F。A1/A2/A3 B1–B5 已有接受结果不重复生产。Website/Runtime/浏览器/整链 Memory consumer 属后续集成阶段，不作为本批医学内容的前置条件。本批不做新 Memory admission 或系统性 Question→KP 逐题审核。
+
+### 与原 canonical 的实际内容变化
+
+- B6 **16 KP**：连续模型建立入球→肾小球→出球/管周血液路径，与滤液经肾小管成尿两路，重吸收/分泌跨路；屏障漏、近端回收失败、溢出负荷、下游细胞加入与管型形成是不同入口，尿成分/总体清除/侧别功能为并行证据。原16 KP Core、完整正式标题/Prompt及 Source 均未改变。
+- B7 **20 KP**：在时间背景上区分肾前/肾实质/肾后致 GFR 下降的不同机制；ATN 及小管功能恢复有条件，不把全部 AKI 强排少尿→多尿三阶段或认定尿量增加即 GFR 正常；CKD 清除、EPO、VitD与心血管后果并行；排磷减少与维生素D活化不足分别输入 CKD-MBD/PTH；KRT 按实际内环境危险评估。
+- **B7 原 Core 医学最小修正仅 KP02、KP04、KP05、KP11**：KP02 不把全部肾性 AKI 等于 ATN；KP04 明确损伤可在初期出现；KP05 将再生/多尿限定于有恢复能力的小管损伤并保留不完全恢复可能；KP11 从磷排泄与钙三醇减少的两个来源解释 PTH、骨转换和矿化的条件分支。所有其他 native Core 及完整原 title〔Prompt〕不变。完整逐行改动可查本批 PR diff，避免在 Acceptance 复制第二份医学 Core。
+- 内容核对：**36 个**原KP身份、原标题和完整正式 Prompt 与合并前 main 逐项相同；每项在当前 §1A 自然节点 **恰好一次**。遮住注释，B6 血/滤液分流、多个证据/观察轴，B7 第一故障、条件恢复、平行 CKD 后果与风险回馈仍能连贯读出；不是用 KP 列表生成医学因果关系。已有 Learning 只修改 B6/B7 recall spine 与 B7 LG02、LG04 的明确关系/闭合语句，无成员重排。
+
+### 知识边界、Source 与既有 Memory
+
+- 原讲义 Source 为 `source-snapshots/27/内科学讲义_AI阅读版_27精编_UnifiedSource_v2.md`，印刷 P151–P153 对应原 PDF 物理 P185–P187。医学交叉限于 [Merck Manual: AKI](https://www.merckmanuals.com/professional/genitourinary-disorders/acute-kidney-injury/acute-kidney-injury-aki)（AKI 病因/尿量/恢复）及 [KDIGO CKD-MBD 2017](https://kdigo.org/wp-content/uploads/2017/02/2017-KDIGO-CKD-MBD-GL-Update.pdf)（P/VitD/PTH、骨转换/矿化），不扩写治疗指南或重定义教材 Source。
+- 原五项 B6/B7 prepared Memory/Precision 的完整答案、助记、admission、ID、顺序、Core refs、Source 和私人历史保持；只同步现有 `owner_sha256` 依赖见证。原 `shared-fields.json` 不动。所有原 Source、MedicalVisual、真实 HOLD 保留；讲义旧教学文件仅保留 provenance，不变成第二模型。派生 A3 projection 仅跟随同一个已变 Learning owner 更新其既有版本见证。
+- **真题不在此次 Content 写入范围**。曾在候选中产生的17个 Question relation/shard/manifest 变动已从 PR #1283 全部撤回；本次不签 Question 重审/批量 witness、不改变正式题干答案与 KP targets，已有 stale/HOLD 继续交回 Question owner。
+
+### 能证明什么、不能证明什么
+
+原候选的内容检查记录为 **288** 项 PASS；A3 prepared Memory与 preentry 的既有独立检查有已完成记录，但后续完整 CI 曾在旧 B6 prepared descriptor golden 的 revision 比较处失败；其余全站构建被独立 Politics source revision mismatch 阻断。该 descriptor 比较不等于答案丢失，**不记为 PASS**。在 Website 阶段需按真实消费者重新核对受影响的原修订，不以删测试或重写卡片规避；浏览器、Stable、Source PDF 新像素接触与 Kian 真人学习仍未验收。本批内容质量不从这些未验证项外推。提交合并和 main readback 以实际 PR 回执为准，不提前声明。
+

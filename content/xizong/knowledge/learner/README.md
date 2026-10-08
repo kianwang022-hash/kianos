@@ -81,6 +81,8 @@ Retained [A2 teaching explanations](../../projection/a2-respiratory/chat/) provi
 
 ### Accepted A3 Urinary teaching basis
 
+For **urinary-b06 and urinary-b07**, the canonical Block §1A owns the continuous model and natural full-Prompt locations. Teaching expands this same model using its Core and Source; the earlier b06/b07 teaching inputs retain presentation/provenance only. B6 separates blood/filtrate flow, parallel urine evidence and function; B7 separates AKI causes, conditional tubular recovery and parallel CKD outputs/CKD-MBD inputs. This switches only B6–B7.
+
 For **urinary-b01 through urinary-b14**, select the matching file from [A3 teaching inputs](../../projection/a3-urinary/chat/), its canonical Block and current Learning slice. [Adoption evidence](../systems/a3-urinary/ACCEPTANCE.md#a3-teaching-adoption-20261006) is audit-only. Preserve B5's diagnostic-only external-source boundary and `<120` versus unadopted `≤120`, B10's visual task/asset mismatch, and all current item holds. Use exact [A3 cues](./a3-urinary-learning-cues.json); do not drop MI-G/MI-D or promote a source-only item into a card.
 
 ### Accepted B fixed-model teaching and prepared retrieval
