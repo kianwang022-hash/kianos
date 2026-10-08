@@ -255,7 +255,9 @@ export function formatXizongModelFrame(report) {
     return `${header}\n\n${clean}`;
   }
   const raw = fs.readFileSync(path.join(repoRoot, block.sourcePath), 'utf8');
-  const markers = [...raw.matchAll(/^#{2,3}\s+[^\n]*同一模型上的自然节点〔完整 Prompt〕[^\n]*$/gm)];
+  // Canonical Blocks use different Markdown heading depths (A1 includes h1).
+  // Heading depth is presentation, not a reason to reject the owned model.
+  const markers = [...raw.matchAll(/^#{1,6}\s+[^\n]*同一模型上的自然节点〔完整 Prompt〕[^\n]*$/gm)];
   if (markers.length !== 1) failFrame('CURRENT_NATURAL_MODEL_MISSING_OR_AMBIGUOUS');
   const after = raw.slice(markers[0].index + markers[0][0].length);
   const open = after.indexOf('```text\n');

@@ -9,6 +9,56 @@ This file owns current S/K/L/P/R/E/U readiness claims for A1 Circulation. It doe
 
 ---
 
+<a id="a1-deep-model-quality-20261008"></a>
+## 2026-10-08｜A1 deep model review and Current teaching entry
+
+**Status: ACCEPTED for the bounded model and native-consumer scope below.** Kian explicitly directed the quality work to start with A1 and continue. This batch applies the existing [Learning Contract §0 and §13](../../../LEARNING_CONTRACT.md) and [Lecture Replacement Contract](../../learner/LECTURE_REPLACEMENT_CONTRACT.md) to all twelve Blocks. It does not create a replacement quality standard. The earlier all-A/B Prompt calibration established coverage; the medical relations in A1 have now been read, repaired where necessary, and independently cross-reviewed against the Current System, all 312 canonical KP records and their existing support boundaries.
+
+### Reviewed model and concrete corrections
+
+| Block | Result | Medical relationship retained or repaired |
+|---|---|---|
+| B1 · normal mechanics | PASS; whole file unchanged | Filling → SV/CO → arterial reservoir/resistance → exchange → venous return, with coronary supply in parallel. Its existing 19 direct bindings and 13 side references remain in their accepted positions. |
+| B2 · regulation and volume | Repaired; cross-review PASS | Neural/global feedback, renal-capacity control and local perfusion act in parallel; time scale describes their response, with chronic compensation cost returning to the same variables. |
+| B3 · electrical activity and ECG | Repaired; cross-review PASS | Pacing and conduction produce electrical activity; ECG observes it, while Ca²⁺ coupling produces mechanical contraction. ECG is not the causal step that triggers contraction. |
+| B4 · hemostasis and thrombosis | Repaired; cross-review PASS | Platelet and coagulation reactions cooperate, anticoagulant limits act from the beginning, and fibrinolysis has separate activation/execution. In-situ obstruction, embolization and repair branch; infarction requires the relevant perfusion failure. |
+| B5 · hypertension and atherosclerosis | Repaired; cross-review PASS | Pressure/remodeling and intimal plaque are distinct connected processes. Pump and vascular loads act in parallel; renal perfusion feeds back. Measurement and treatment observe or change these processes. |
+| B6 · coronary disease and MI | Repaired; cross-review PASS | Oxygen supply/demand unifies fixed narrowing, acute plaque events and spasm. Reversibility/necrosis separates outcomes; biomarkers are evidence, and electrical, pump and structural complications are parallel consequences. |
+| B7 · rheumatic disease, IE and valves | Repaired; cross-review PASS | Rheumatic and infectious injury are separate upstream routes. MS/MR/AS/AR branch by valve, phase, flow and load; acute severe regurgitation can be dangerous before chamber enlargement. |
+| B8 · myocardium and pericardium | Repaired; cross-review PASS | Weak pumping, restricted filling, dynamic outflow obstruction and an external pericardial constraint are parallel faults. Evidence and treatment return to the corresponding fault and its conditions. |
+| B9 · peripheral vessels | Repaired; cross-review PASS | Arterial disease impairs downstream supply; venous disease raises pressure upstream of the lesion. Acute/chronic arterial and deep/superficial venous routes retain their own mechanisms and danger gates. |
+| B10 · arrhythmia | Repaired; cross-review PASS | Effective pulse and stability precede rhythm naming. Mechanism, ECG observation and action are distinct; pre-excited AF, polymorphic VT, anticoagulation and acquired high-grade AV block retain their conditions. |
+| B11 · heart failure | Repaired; cross-review PASS | Pump/filling failure produces forward hypoperfusion and/or backward congestion, with compensation/remodeling feedback. EF is an observed classification; acute unloading remains constrained by perfusion and chronic therapies keep their outcome boundaries. |
+| B12 · shock and arrest | Repaired; cross-review PASS | The effective-pulse gate precedes shock work-up. Arrest recognition retains all three conditions; CPR and shockable/nonshockable routing precede detailed diagnosis. Four shock mechanisms run in parallel and interventions return to their causal fault. |
+
+Review included the actual text with **all title〔full Prompt〕 annotations hidden**, then the complete annotations in their authored positions. Top-level openings and Frameworks were reconciled with that same model. Prompt counts are coverage observations, not a topology rule or a substitute for reading the medical relations. No all-KP-inline requirement is inferred from this batch.
+
+### Current entry and preserved owners
+
+The [normal Chat router](../../learner/README.md#accepted-b2-teaching-basis) now selects each Current canonical B2–B12 `同一模型上的自然节点〔完整 Prompt〕` for teaching and compressed review, after the System position and existing target Learning purpose/boundaries. Current Core expands those nodes. B1 retains its adopted canonical-model route.
+
+The older `projection/a1-circulation/chat/b02-teaching.md` through `b12-teaching.md` remain unchanged explanatory references at matching nodes, checked against Current facts and conditions. This receipt supersedes their earlier status as the model-selection input. Historical source-only details retain their existing destinations: for example B6 Dressler and thrombolytic-class details remain at B06-M27/B06-M25, B7 AS-area detail at the existing xpg owner, and source-specific AS prognostic numbers at B07-M30. Retention alone does not grant prepared-Memory admission.
+
+Against semantic base `c7a75268077dacbcd44aae5e9d39bfcd874c6c08`, separate native loads compare **every field of all 312 KP records exactly equal**, including ID/title/formal Prompt/Core, Source/Outline locators and authored diagnostics. B1 is byte-identical. Existing System, Learning, cue admission, shared fields, historical teaching, Memory answers/IDs, original-media assets and learner state are unchanged. The canonical-file packaging expectations in the existing native regression follow the accepted model edits; protected Memory/item/Core witnesses, historical teaching hashes and negative cases remain intact.
+
+All **176** existing prepared admissions survive: **13 / 12 / 8 / 18 / 19 / 14 / 17 / 16 / 16 / 17 / 14 / 12** across B1–B12. No item was admitted, demoted or deleted because its Prompt overlaps a model node. Source-only and held rows remain at their original owners.
+
+### Actual native-consumer evidence
+
+- [Content inspection regression](../../../../../static-web/scripts/test-xizong-content-inspection.mjs): **147 PASS**, including all twelve native A1 consumers, exact authored model output, original full Prompts, annotation removal, deliberate invalid-identity cases and an actual CLI run outside the repository. The consumer now accepts the existing h1 model headings used by B11/B12.
+- [A1 prepared-Memory regression](../../../../../static-web/scripts/test-xizong-a1-system-prepared-memory.mjs): **39 PASS**, all 312 KPs and 176 admitted cards, full current-owner answer qualifiers, held/partial rows, compound membership, cross-KP safety dependencies and synthetic history/private-state preservation.
+- Projection asset validation and all **95/95 mutation/control cases PASS** across the existing 167 assets; native semantic adapter, production Projection and Current Projection reconciliation also pass. The three strict medical-source witnesses for B7/B10/B11 follow the reviewed canonical revisions. B7's three obsolete display selectors now read the unchanged KP42 algorithm, KP18 comparison table and KP04 acute/chronic mechanism directly; object IDs, roles and geometry remain unchanged.
+- B2–B12's **320 reviewed question rows in 129 shards** retain identical mappings, answers and review semantics. All 218 primary/supporting KP references resolve to unchanged Core; 132 deliberate Block-level routes remain Block-level. Only their knowledge-revision witness and derived shard manifest are refreshed.
+
+- B1's 44 pre-existing stale question witnesses were separately re-reviewed against unchanged official question objects and Current B1 Core. **43 routes are revalidated** with explicit current reasons: 24 retain their original KP Primary and 19 retain their original Block-level route; the existing supporting KP on 2018-n138 is preserved. This is actual question re-review, not a claim that historical and Current B1 Core are equal. The 2008-n006 work/afterload reason and 2022-n005 valve-closure reason now respect the Current Core qualifications.
+- **2013-n059 remains stale**: the formal answer to the pulse-pressure disease comparison is unchanged, but Current B1's single-variable pulse-pressure matrix and B7's time-dependent MR mechanism do not safely establish the exclusion claimed by this question. B7's explicit AR pulse-pressure mechanism cannot be transferred to MR. Two reviewers agreed to keep the existing unresolved route without a new witness or guessed target. This one A1 question needs its own Source-backed medical review.
+
+### Remaining evidence boundaries
+
+The model review does not close B3's Purkinje sign/inequality conflict, B5's source-specific SMC receptor difference, B8's friction-rub breathing-phase conflict, B9's Buerger wording ambiguity, B10's PSVT frequency HOLD or B12's Source pulse-rate inconsistency. PEA/asystole retains its existing Guide-level integration boundary. Original PDF/image gates remain in force; no fresh original-media inspection, served-site observation or new browser journey is asserted by these native checks. Earlier browser receipts retain only their originally tested revisions and scope. **Learner U remains UNTESTED.**
+
+---
+
 <a id="b1-teaching-adoption-20261006"></a>
 ## 2026-10-06｜B1 teaching basis and post-Chat retrieval adoption
 
