@@ -263,6 +263,24 @@ export function formatXizongModelFrame(report) {
   const end = after.indexOf('\n```', open + '```text\n'.length);
   if (end < 0) failFrame('NATURAL_MODEL_TEXT_FENCE_UNCLOSED');
   const source = after.slice(open + '```text\n'.length, end);
+  if (source.includes('〈') || source.includes('〉')) {
+    // Explicit inline annotations are already complete Current text. Validate
+    // exact title + Prompt identity and preserve every medical relation byte.
+    // Repeated references to one canonical KP are legal; they do not add nodes
+    // or new learner identities. Legacy unbracketed trees keep their old path.
+    const annotations = [...source.matchAll(/〈([^〈〉\n]*?)〔([^〔〕\n]+)〕〉/g)];
+    if (annotations.length !== (source.match(/〈/g) || []).length
+      || annotations.length !== (source.match(/〉/g) || []).length) failFrame('MALFORMED_INLINE_ANNOTATION');
+    const covered = new Set();
+    for (const annotation of annotations) {
+      const matches = block.kpRecords.filter(kp => kp.title === annotation[1] && kp.prompt === annotation[2]);
+      if (matches.length !== 1) failFrame('INLINE_TITLE_PROMPT_NOT_EXACT');
+      covered.add(matches[0].kpId);
+    }
+    const missing = [...expected].filter(id => !covered.has(id));
+    if (missing.length || covered.size !== expected.size) failFrame(`UNACCOUNTED_KPS:${missing.join(',')}`);
+    return `${header}\n\n${source}`;
+  }
   const normalize = value => String(value).trim().replace(/[。．]\s*$/, '');
   const seen = new Set();
   const derived = source.split('\n').map(line => {

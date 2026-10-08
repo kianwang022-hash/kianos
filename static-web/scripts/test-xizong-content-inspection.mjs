@@ -83,7 +83,31 @@ assert.throws(()=>formatXizongModelFrame(tamperedR1),/XIZONG_MODEL_FRAME_/);chec
 const d8=await inspectXizongContent({systemId:'digestive-metabolic-endocrine-tumor',blockRef:'D8'});
 const modelD8=formatXizongModelFrame(d8);
 check(d8.canonicalBlock.kpRecords.every(k => modelD8.includes(k.title+'〔'+k.prompt+'〕')),'B D8 natural model resolves all exact full Prompts without inferring order');
-check(modelD8.includes('急性危象') && modelD8.includes('慢性高糖把损伤落到器官'),'D8 retains original branches');
+const rawD8=fs.readFileSync(path.join(repo,d8.canonicalBlock.sourcePath),'utf8');
+const authoredD8=rawD8.match(/同一模型上的自然节点〔完整 Prompt〕[\s\S]*?```text\n([\s\S]*?)\n```/)[1];
+check(modelD8.endsWith(authoredD8),'D8 frame copies the authored medical model without deleting labels or moving relations');
+check((authoredD8.match(/〈/g)||[]).length===25,'D8 retains all canonical annotations, not a selective example');
+const unannotatedD8=authoredD8.replace(/〈[^〈〉\n]*?〔[^〔〕\n]+〕〉/g,'');
+check(!unannotatedD8.includes('〔') && !unannotatedD8.includes('KP'),'removing annotations leaves medicine, not a KP checklist');
+for (const relation of [
+  'β细胞受到破坏 → 分泌来源不足 → 胰岛素绝对缺乏',
+  '→ β细胞增加分泌代偿',
+  '→ 渗透性利尿 → 多尿、失水 → 口渴、多饮',
+  '草酰乙酸不足、TCA 入口受限',
+  'DKA / HHS 在这里是对照分支',
+  '明显低钾优先补钾',
+  '不能拿 C肽替代糖尿病的血糖诊断标准',
+  '回到④读证据、回到⑤调整'
+]) check(unannotatedD8.includes(relation),'D8 annotation-free mechanism/condition remains: '+relation);
+check(unannotatedD8.includes('不以“曾经发生急性危象”为前提'),'D8 does not turn acute crisis into a prerequisite for chronic damage');
+check(unannotatedD8.includes('原图缺口不因这张图而关闭'),'Source/Visual gaps are not silently accepted');
+const d8BadTitle=structuredClone(d8);d8BadTitle.canonicalBlock.kpRecords[0].title+=' wrong';
+assert.throws(()=>formatXizongModelFrame(d8BadTitle),/INLINE_TITLE_PROMPT_NOT_EXACT/);checks++;
+const d8BadPrompt=structuredClone(d8);d8BadPrompt.canonicalBlock.kpRecords[0].prompt+=' wrong';
+assert.throws(()=>formatXizongModelFrame(d8BadPrompt),/INLINE_TITLE_PROMPT_NOT_EXACT/);checks++;
+const d8Ambiguous=structuredClone(d8);d8Ambiguous.canonicalBlock.kpRecords.push(structuredClone(d8Ambiguous.canonicalBlock.kpRecords[0]));
+assert.throws(()=>formatXizongModelFrame(d8Ambiguous),/INLINE_TITLE_PROMPT_NOT_EXACT/);checks++;
+
 check(Array.isArray(respiratory.logicGroupTrace),'group support trace exists');
 const lg4=respiratory.logicGroupTrace.find(g=>g.identity.logicGroupId==='respiratory-r01-lg04');
 check(lg4.supports.some(s=>s.id==='a2-r01-obstruction-to-r03'&&s.family==='connection'),'R1 reviewed LG relation is inspectable');
