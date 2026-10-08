@@ -505,3 +505,23 @@ Private learner/browser/conversation evidence only. No engineering gate in this 
 
 **未解 Source/Visual 与验收边界：** B11 四项原图要求（并发症、MCD/膜性、MPGN/FSGS、病理总表）`REQUIRED_ORIGINAL_SOURCE_REVIEW` 原封不动；B12 外科 PDF P133–P141、术式/位置原图 `REQUIRED_ORIGINAL_PDF_REVIEW` 原封不动。旧教材具体激素剂量、抗凝阈值、CCB/80mL、0.6/2cm 等数字、结石与术式矩阵仍是 Source-specific Precision 而非现代无条件临床决策。**此次 Content 文本验收不是新增原 PDF 像素验收，亦非 Website/browser/Stable/真实学习 U 或全部 CI PASS。** 最终分支合并状态取实际 PR/main 回读，不从本段推断交付。
 
+
+
+<a id="a3-b13-b14-content-model-quality-20261008"></a>
+## 2026-10-08｜A3 B13–B14 Content-first 连续模型与完整原 Prompt 内容验收
+
+**本批起点：** 根据 [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) 最新 Parent/Current/Next、`LEARNING_CONTRACT.md §0` 和原 A3 B13/B14 canonical/现有 Learning/Memory 恢复后执行。原任务目标仍是先逐批完成全部医学 Content 的连续模型与完整原标题〔正式 Prompt〕，随后才统一检验 Website/Runtime/Memory consumer。本批只更正 B13、B14 现有 Framework 的串行目录式表述，不修改各自 Core、KP、Question/Memory/Source/Visual/私人数据，也不新设 Contract 或单独审查官方题关系。
+
+### 内容关系与完整 Prompt
+
+- **B13 肾结核与泌尿系统肿瘤，18/18 个原 KP 完整标题〔正式 Prompt〕精确一次。** 将结核血播→肾组织肉芽肿/慢性空洞→输尿管瘢痕狭窄和膀胱挛缩作为一条有条件的疾病机制，区别于肾实质、肾盂输尿管、膀胱和前列腺不同位置肿瘤的出血/梗阻/局部扩展。无痛血尿、尿三杯、血块与器官体征只是提示/粗定位；微生物学与器官相关影像/内镜/病理有不同任务，分期与功能决定个体化干预，不把不同器官肿瘤强排自然顺序。膀胱 **Ta≠Tis，T1不侵肌层而T2侵肌层**继续明确，检查旧“首选/最佳”表留原精确 owner。裸模型不依赖 KP 标签也可连续讲解。
+- **B14 泌尿外伤，14/14 个原 KP 完整标题〔正式 Prompt〕精确一次。** 血流动力学及合并致命伤始终先于精细尿路分类。前/后尿道、膀胱腹膜内外、肾脏外伤从不同机制/筋膜空间产生不同血/尿外渗；尿道口滴血触发谨慎的 RUG/安全引流而非反复盲目插管；无并发条件的腹膜外膀胱钝伤可持续导尿，腹膜内钝伤多修补；肾外伤稳定时 CT/非手术或选择性栓塞，持续不稳定优先止血/探查，严重度不能由血尿量单轴推出。治疗与再评估反馈，不将四类损伤写成患者会依次经历的四期。
+
+两份 Block 只变更 `# 1` 旧串行目录/Framework 和 `# 1A` 原模型注释的呈现与相关关系，`# 0` 及更早、`# 2` 和之后的全部现存 Markdown/Core/Source/Outline/身份/KP 原文未更改。**32 个完整原 KP title/Prompt 均精准复制到自然节点一次**，不因 Prompt 排列创造医学因果，也无遗漏。原 B13/B14 每个模型去掉标题〔Prompt〕后，病因、空间、并发与条件判断仍完整。System 和其它 A3 Block 文件不在本批 write-set；A3 14/14 的有限模型内容质量收口不等于整个 A3 System 最终 Source/Visual/U 闸门都关闭。
+
+### 已审精确 Memory、Source/Visual 与不能声称的验收
+
+- 原 A3 reviewed Memory 仅两项相关：B13 `a3-b13-kp12-precision` (Ta/Tis/T1及肌层分界) 与 B14 `a3-b14-lg02-precision` (前后尿道、筋膜/外渗空间)。两份身份、答案/助记、已有 Core references、Admission、Source 证据与私人学习历史均未改变。关联 A3 native Cue/Shared fields unchanged，模型外精确知识继续由原 owner 提供，不借模型自然绑定重做卡片。
+- B13 外科 `27精编` 当前**物理 PDF P128–P132**与历史 source-local `IMAGE_PAGES/p0129–p0133` 已由原 owner 区分：四项 MedicalVisual 原图待核，不将 SOURCE_ROUTE_VERIFIED 等同 PIXEL_REVIEW_PASS。B14 外科**物理 PDF P135–P141**、source-local P136–P139、前/后尿道与膀胱、肾外伤空间图的 `MANDATORY_SOURCE_LOCAL_VISUAL_REVIEW_PIXEL_AUDIT_NOT_CLAIMED` 保留；无源图像素接触/完成声明。旧 RUG partial/complete 判别、旧腹膜外一律手术、休克固定肾手术等压缩法不能变成通用现代流程。
+- **内容验收/停止条件：** 原 KP/Prompt 字节与身份均保持，模型医学关系独立可读，全部原 Core 与真实 HOLD/Source/Visual 保留；仅对当前原模型缺陷做最小修改，没有打开题目 mapping、Website 或 Memory 再准入。内容完成只证明当前限定模型内容，不等同 Browser/Stable、Memory 历史/Reveal、原 PDF pixel audit、Source-contact/真人学习 U 或原 CI 问题全部 PASS。实际 PR 合并和 main readback 必须单独确认。
+
