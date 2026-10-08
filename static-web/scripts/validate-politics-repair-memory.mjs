@@ -421,12 +421,12 @@ try {
  const { politicsNavigation } = await import('../src/lib/sharedNavigation.mjs');
  assert.deepEqual(politicsNavigation().filter(row=>row.matchPath.test('politics/memory/')).map(row=>row.key),['review'],'Memory is a review route, not a lesson');
  assert.ok(learning.includes('Chengfeng detailed study') && learning.includes('not replacement mother text'));
- assert.ok(learning.includes('腿姐《核心考案》') && learning.includes('Do not silently substitute《背诵手册》'));
+ assert.ok(learning.includes('2027 腿姐《冲刺背诵手册》') && learning.includes('retention source'));
  assert.ok(learning.includes('Source correctness and memory necessity are different judgments'));
  assert.ok(learning.includes('A Chengfeng-only author choice is **not a substitute**'));
  assert.ok(learning.includes('recognition') && learning.includes('complete membership') && learning.includes('genuinely required fixed wording'));
  assert.ok(learning.includes('optional practice/reference') && learning.includes('No mass deletion'));
- assert.ok(learning.includes('first reading occurrence') && learning.includes('Only a **clean retrieval task**'));
+ assert.ok(learning.includes('Content is the finished learning product') && learning.includes('residual Precision / Memory'));
  for (const rule of [learning, interaction, system]) {
   assert.ok(!/Chat is the single continuous teaching mainline|Chat remains the single continuous teaching mainline|Politics continuous teaching is Chat-primary/.test(rule));
  }
@@ -434,7 +434,20 @@ try {
  const {buildPoliticsMemoryCandidateCatalogCurrent} = await import('../src/lib/politicsMemoryCandidates.mjs');
  const m = await import('../src/lib/politicsMemoryRuntime.mjs');
  const catalog=buildPoliticsMemoryCandidateCatalogCurrent(), candidate=catalog.candidates[0];
+ const marxResidual=catalog.candidates.filter(row=>row.subject==='marxism' && ['LEG27_RESIDUAL_RECOMMENDED','LEG27_MAIN_PROMPT_WITH_RESIDUAL_COMPONENT'].includes(row.handbook_alignment));
+ const marxAbsorbed=catalog.candidates.filter(row=>row.subject==='marxism' && /^LEG27_MAIN_PROMPT_ABSORBED/.test(String(row.handbook_alignment||'')));
+ assert.equal(marxResidual.length,6,'Marxism baseline recommendation must contain only the six residual-bearing old objects');
+ assert.ok(marxAbsorbed.length>0,'Marxism absorbed cards must remain in the full reviewed catalog');
  const state=new Map(), storage={getItem:k=>state.get(k)??null,setItem:(k,v)=>state.set(k,v),removeItem:k=>state.delete(k)};
+ const recommendedEmpty=m.politicsMemoryRecommendedCandidateIds(storage,catalog);
+ assert.ok(marxResidual.every(row=>recommendedEmpty.has(row.id)),'all residual-bearing Marxism objects must be recommended');
+ assert.ok(marxAbsorbed.every(row=>!recommendedEmpty.has(row.id)),'absorbed Marxism objects must not be default-recommended without learner gap evidence');
+ const gapState=new Map(),gapStorage={getItem:k=>gapState.get(k)??null,setItem:(k,v)=>gapState.set(k,v),removeItem:k=>gapState.delete(k)};
+ const gapCandidate=marxAbsorbed[0];
+ m.recordPoliticsMemoryFreeResponse(gapStorage,catalog,{session_id:'gap-fuzzy',candidate_id:gapCandidate.id,response:'FUZZY',study_day:'2026-10-07',observed_at:'2026-10-07T09:00:00Z'});
+ assert.ok(m.politicsMemoryRecommendedCandidateIds(gapStorage,catalog).has(gapCandidate.id),'latest FUZZY must elevate an absorbed card into recommendation');
+ m.recordPoliticsMemoryFreeResponse(gapStorage,catalog,{session_id:'gap-stable',candidate_id:gapCandidate.id,response:'STABLE',study_day:'2026-10-07',observed_at:'2026-10-07T09:30:00Z'});
+ assert.ok(!m.politicsMemoryRecommendedCandidateIds(gapStorage,catalog).has(gapCandidate.id),'later STABLE must remove non-baseline absorbed card from recommendation');
  const day='2026-10-07', time='2026-10-07T10:00:00Z';
  const input={session_id:'isolated-free-regression',candidate_id:candidate.id,response:'FUZZY',study_day:day,observed_at:time};
  const row=m.recordPoliticsMemoryFreeResponse(storage,catalog,input);
@@ -454,5 +467,5 @@ try {
  m.recordPoliticsMemoryFreeResponse(storage,catalog,{...input,session_id:'another-free-round'});
  assert.equal(storage.getItem(m.POLITICS_MEMORY_PLAN_KEY),before,'manual practice must not overwrite an existing Chat plan');
  assert.equal(m.resolvePoliticsMemoryResume(storage,catalog,{expectedDay:day}).status,'ACTIVE','manual practice must not complete a planned attempt');
- console.log('POLITICS_SOURCE_FIRST_AND_FREE_PRACTICE_PASS',JSON.stringify({catalogTargets:catalog.candidates.length,learnerWrites:0,scope:'rule routing and existing evidence semantics, not Leg content selection or learner efficacy'}));
+ console.log('POLITICS_SOURCE_FIRST_AND_FREE_PRACTICE_PASS',JSON.stringify({catalogTargets:catalog.candidates.length,marxResidualBaseline:marxResidual.length,learnerWrites:0,scope:'content-projected recommendation plus preserved all-card free practice; not learner efficacy'}));
 }
