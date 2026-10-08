@@ -7,7 +7,7 @@ This file does not own Mao Source/Content/Learning semantics, Acceptance Truth o
 
 ## Work Cursor
 
-**当前显式Content反审（2026-10-08）：毛中特C00–C08三批完成，三项局部阻塞已保存9c04dcda并8/8远端全文readback。** Kian后续“继续”执行两手抓/党建导图的有界初学闭合：C06原S02/S03补共同原则、实际关系及边界，C07开篇接收、C08回收同步。证据/变化/一次有界推演在[原C06附录](teaching-candidate/ch06.brief.md#mao-c06-diagram-closure-20261008)；原书未见完整展开的Source事实保留，不制造完整清单或新增必背范围。保留原模型/Source绑定/retention/Memory身份；其他原QA及真实学习UNKNOWN不清零。保存以实际commit/readback为证。本轮完成后STOP，不自动跨科或让Kian答题推动。
+**当前显式Content反审（2026-10-08）：毛中特C00–C08本轮已推进至内容收口，保留明确Source精确排除。** 三批修复、三阻塞与两导图关系已保存；本次补核同版乘风Markdown跨行正文、补首次解释/跨章接收，并隔离C00未标正误的绝对比较混合表。最终原位置/变化/一次整科合成初学推演/跨章终态与精确排除见[原C08最终回执](teaching-candidate/ch08.brief.md#mao-final-learner-audit-closure-20261008)。原模型/NU/Source binding/retention/Memory payload与真实学习状态保留；8个raw节点继续BLOCKED，题键/图中不清证据不猜填。最终保存以实际commit及逐文件全文readback为证。建议下一步在真正新学习Chat验证初学体验，不自动执行；本轮到此STOP，等显式指令。
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/mao/ACCEPTANCE.md`.  
