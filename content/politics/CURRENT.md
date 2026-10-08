@@ -47,7 +47,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Full Politics Content closure task — 2026-10-08
 
-**状态：Kian已于2026-10-08恢复内容执行；首批马原C00–C02。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
+**状态：首批马原C00–C02内容修正已保存本PR，当前C03–C05候选待集成审查。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
 
 ### 目的和范围
 
@@ -93,9 +93,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** Kian resumed the full Politics Content closure task on 2026-10-08. The active bounded batch is Marxism C00–C02; prior five-chapter sampling remains diagnostic, not full-run acceptance.
+**Current:** Marxism C00–C02 minimal content repairs are saved and read back in this draft PR at ac41f38bb9668b80d1cde0df7de04c83fd9e44e3; not merged. C00 unchanged; C01/C02 stale mandatory-recall wording corrected, with 62 original precision objects preserved. Prior matched full-source receipts were reused; this round did not independently reopen the complete PDF. The active batch is C03–C05, whose local candidates await integration review.
 
-**Next:** finish the actual Marxism C00–C02 content/source audit, minimal confirmed repairs and learning-path replay; save and read back the bounded result, then continue the stated chapter scope in order. Ordinary learning still bypasses this cursor. Do not resume #1151 or an old subject production queue.
+**Next:** review the C03–C05 minimal candidate differences, save and read back accepted changes, then continue the stated chapter scope in order. Ordinary learning still bypasses this cursor. Do not resume #1151 or an old subject production queue.
 
 **Existing delivered basis:** the source-first learning rules remain closed/delivered, and the designated retention source is now explicitly bound to **2027 腿姐《冲刺背诵手册》上册 / 下册** under Learning §2 / §6.1 and the current Source owner. Marxism has completed its C00–C08 Chengfeng compression + current-year Leg27 retention review and old-card recommendation-role reconciliation in its [subject Current](learning/marxism/CURRENT.md). This parent cursor does not copy subject counts or infer equivalent review completion for History / Mao / Xi / Ethics-Law.
 
