@@ -229,7 +229,19 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 #### Chapter closure compresses the model already learned; it does not invent a second course
 
-沿实际学习范围及已接受措辞去重、核对、变薄，不换一套知识地图。用户明确委托时可先做小样或较大范围草稿；草稿不等于已经学过、已经接受或已筛出必背内容。不无授权批量重生全科。
+**当 Chat 已经完成一个完整章节或一个主要论证块，并准备进入下一章或下一大块时，closure compression 是必做动作，不需要 Kian 提醒。** 这条规则只约束真正的阶段切换，不要求在每个小段、每次追问或普通自然停顿后重复总结。
+
+自动 closure 只压缩**刚刚实际学过且已经解释清楚的范围**，沿同一个 canonical model 变薄，不重新教学，也不得提前把未学内容伪装成“已完成复习”。最小输出顺序是：
+
+```text
+已学范围的主模型 / reconstruction spine
+→ 已学节点的 Main Prompts
+→ 必要的易混边界
+→ 仅在确有时补 residual Precision / Memory
+→ 然后再进入下一章 / 下一大块
+```
+
+如果该章只学了一部分，就只做该已学范围的局部 closure，不宣称整章压缩完成。沿实际学习范围及已接受措辞去重、核对、变薄，不换一套知识地图。用户明确委托时可先做小样或较大范围草稿；草稿不等于已经学过、已经接受或已筛出必背内容。不无授权批量重生全科。
 
 #### Progressive review ladder — model first, cue second, precision last
 
