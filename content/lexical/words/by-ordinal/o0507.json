@@ -36,18 +36,10 @@
             "sense:blaze:43e0a92fb1f25871",
             "sense:blaze:352898407c6e59b2"
           ]
-        },
-        {
-          "label_cn": "开辟道路；开创先河",
-          "label_en": "to pioneer a new path, method, or approach",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:blaze:c44f9f860e587071"
-          ]
         }
       ],
-      "core_meaning_cn": "明亮燃烧或闪耀；也可比喻为开辟新道路",
-      "core_meaning_en": "bright flame or shining; figuratively, to pioneer a new path",
+      "core_meaning_cn": "明亮燃烧或闪耀；blaze a trail 表开辟新道路",
+      "core_meaning_en": "bright fire or shining; the phrase blaze a trail means pioneer",
       "mental_model_cn": "fire/light → 猛烈燃烧或闪耀；blaze a trail → 开辟道路、开创先河。",
       "mental_model_en": "Physical blaze is bright fire/light; figurative blaze a trail means pioneer."
     },
@@ -130,30 +122,6 @@
         "sense_label_en": "to shine brightly",
         "sort_order": 2,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e6020514886709a5e55a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blaze:c44f9f860e587071:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "开创一条新道路或方法",
-            "phrase": "blaze a trail"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "开创道路或方法",
-        "definition_en": "to pioneer or open a new path, method, or approach",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:blaze:c44f9f860e587071",
-        "sense_label_en": "to pioneer or open a new path, method, or approach",
-        "sort_order": 4,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -919,6 +887,34 @@
       "source_row": 1349,
       "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e6020514886709a5e55a",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:blaze:c44f9f860e587071:collocation:handoff-o0475-o0674"
+          ],
+          "meaning_cn": "开创一条新道路或方法",
+          "phrase": "blaze a trail"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "开创道路或方法",
+      "definition_en": "to pioneer or open a new path, method, or approach",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:blaze:c44f9f860e587071",
+      "sense_label_en": "to pioneer or open a new path, method, or approach",
+      "sort_order": 4,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:blaze:c44f9f860e587071",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -953,7 +949,7 @@
       },
       {
         "sense_id": "sense:blaze:c44f9f860e587071",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1366,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
@@ -962,8 +958,7 @@
     "active_collocations": [
       "collocation:79238d26477c28846994",
       "collocation:c351933c8e95a2ef2b36",
-      "collocation:d7bd8f2aebe870641065",
-      "collocation:e6020514886709a5e55a"
+      "collocation:d7bd8f2aebe870641065"
     ],
     "facts": [],
     "collocations": [
@@ -990,7 +985,10 @@
       {
         "id": "collocation:e6020514886709a5e55a",
         "source_row": 21397,
-        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The selected blaze-a-trail Construction already contains the pioneering interpretation. Do not charge it again as a standalone generic pioneer Sense; preserve the old identity in Lookup without cross-kind remapping."
       }
     ],
     "exam-mappings": [],

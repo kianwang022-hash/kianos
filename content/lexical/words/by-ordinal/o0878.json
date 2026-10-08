@@ -55,30 +55,6 @@
         "sense_label_en": "a drink made from roasted and ground coffee beans, usually served hot but also served cold",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:41d85c7788d90749a95f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:coffee:e18443e24e915d61:collocation:0"
-            ],
-            "meaning_cn": "咖啡色的",
-            "phrase": "coffee-colored"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "咖啡色",
-        "definition_en": "the color of coffee, a light brown",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:coffee:e18443e24e915d61",
-        "sense_label_en": "the color of coffee, a light brown",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -324,7 +300,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:41d85c7788d90749a95f",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:coffee:e18443e24e915d61:collocation:0"
+          ],
+          "meaning_cn": "咖啡色的",
+          "phrase": "coffee-colored"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "咖啡色",
+      "definition_en": "the color of coffee, a light brown",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:coffee:e18443e24e915d61",
+      "sense_label_en": "the color of coffee, a light brown",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:coffee:e18443e24e915d61",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -336,14 +341,13 @@
       },
       {
         "sense_id": "sense:coffee:e18443e24e915d61",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 2506,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
       }
     ],
     "active_collocations": [
-      "collocation:41d85c7788d90749a95f",
       "collocation:4c535b33ba1c6be9fad6",
       "collocation:c40b7c3bcb9351d9a5f0"
     ],
@@ -352,7 +356,10 @@
       {
         "id": "collocation:41d85c7788d90749a95f",
         "source_row": 5578,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Named coffee shade adds little independent decoding value beyond the drink plus color context; preserve Lookup rather than default memory."
       },
       {
         "id": "collocation:4c535b33ba1c6be9fad6",

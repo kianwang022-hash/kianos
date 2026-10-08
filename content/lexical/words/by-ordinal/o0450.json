@@ -14,7 +14,12 @@
         "definition_en": "conduct oneself properly or in accordance with expected rules",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:c8ca686721cbfcb3b88a",
+          "reason": "The existing behave-oneself target preserves imperative and optional reflexive usage once."
+        }
       }
     ],
     "content_hash": "a881a69eca8ba52d17bdd5dc19e8df3461e523900a15533d121fbcd130253dc2",
@@ -70,7 +75,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:121694aff11be0bc652e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:behave:428f968e75505aff:collocation:0"
             ],
@@ -92,8 +97,8 @@
             "legacy_source_object_ids": [
               "sense:behave:11ac6581af1e508c:collocation:0"
             ],
-            "meaning_cn": "守规矩，举止得体",
-            "phrase": "behave oneself"
+            "meaning_cn": "守规矩；举止得体；Behave yourself! 可作劝诫",
+            "phrase": "behave (oneself)"
           }
         ],
         "confidence": "medium",
@@ -290,12 +295,19 @@
     ],
     "active_collocations": [
       "collocation:068d68bac54e9ffc0289",
-      "collocation:121694aff11be0bc652e",
       "collocation:87e479117a6005c5e83f",
       "collocation:c8ca686721cbfcb3b88a",
       "collocation:cab72fe0c089b3141441"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:behave:baseline-v2-oneself",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing behave-oneself target preserves imperative and optional reflexive usage once."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:068d68bac54e9ffc0289",
@@ -305,7 +317,10 @@
       {
         "id": "collocation:121694aff11be0bc652e",
         "source_row": 1494,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Yourself is an imperative instance of the retained behave-oneself frame, not a second target."
       },
       {
         "id": "collocation:87e479117a6005c5e83f",

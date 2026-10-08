@@ -8,15 +8,6 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:blue:baseline-v2-feel-blue",
-        "pattern": "feel blue",
-        "meaning_cn": "感到忧郁、情绪低落",
-        "definition_en": "feel sad or depressed",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
-      },
-      {
         "construction_id": "construction:blue:baseline-v2-out-of-the-blue",
         "pattern": "out of the blue",
         "meaning_cn": "出乎意料地；突然地",
@@ -166,14 +157,15 @@
         "confidence": "medium",
         "definition_cn": "悲伤的、忧郁的",
         "definition_en": "sad or depressed",
-        "governing_pattern": "",
+        "governing_pattern": "be/feel blue",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:blue:bf1e2c403f9d5fe0",
         "sense_label_en": "sad or depressed",
         "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Person/mood context: sad or depressed. Out of the blue means unexpectedly and is a separate phrase."
       }
     ],
     "verification_summary": {
@@ -517,7 +509,15 @@
       "collocation:ba7895467b36f7ea3366",
       "collocation:c7e973ecf6d20613f1fa"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:blue:baseline-v2-feel-blue",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Feel merely links to the already admitted sad/depressed adjective; preserve that selector in the Sense, while out-of-the-blue remains a separate noncompositional idiom."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:19bbb562dc2f467a8ef5",

@@ -20,7 +20,16 @@
     ],
     "content_hash": "e421d0b73ce20555bba7286cf8451c5dc0554feb98222af8ee31bb46107594a5",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "verb",
+          "label_cn": "领取；取走；接走某人（接人义尤见英式英语）",
+          "label_en": "to go and take someone or something away from a place",
+          "sense_ids": [
+            "sense:collect:20261008-pickup"
+          ]
+        }
+      ],
       "core_meaning_cn": "收集",
       "core_meaning_en": "bring or gather together",
       "mental_model_cn": "收集",
@@ -61,6 +70,28 @@
         "sense_label_en": "to call for and obtain payment",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:collect:20261008-pickup",
+        "pos": "verb",
+        "definition_cn": "领取；取走；接走某人（接人义尤见英式英语）",
+        "definition_en": "to go and take someone or something away from a place",
+        "sense_label_en": "to go and take someone or something away from a place",
+        "transitivity": "vt",
+        "governing_pattern": "collect a package/keys; collect sb from a place",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 2,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/collect_1",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Collect a child/package is pickup rather than collecting a series for a collection. Useful routine service/travel interpretation, no extra delivery-service task."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -238,6 +269,11 @@
         "merged_into_sense_id": null,
         "source_row": 2544,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
+      },
+      {
+        "sense_id": "sense:collect:20261008-pickup",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [],

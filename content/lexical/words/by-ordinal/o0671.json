@@ -17,14 +17,6 @@
           "sense_ids": [
             "sense:cannon:ac5dc79b9f535e9b"
           ]
-        },
-        {
-          "label_cn": "炮轰",
-          "label_en": "to attack or hit with cannon fire",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:cannon:7b64259dca4b508c"
-          ]
         }
       ],
       "core_meaning_cn": "大炮",
@@ -72,39 +64,6 @@
         "sense_label_en": "a large heavy gun that is usually on wheels, used in battles",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cdcf32a0b3f84fe7799f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:cannon:7b64259dca4b508c:collocation:0"
-            ],
-            "meaning_cn": "炮轰某物",
-            "phrase": "cannon + sth"
-          },
-          {
-            "collocation_id": "collocation:17fcd37bfd54fd3ea3d5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:cannon:7b64259dca4b508c:collocation:1"
-            ],
-            "meaning_cn": "炮轰敌军阵地",
-            "phrase": "cannon the enemy positions"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "炮轰",
-        "definition_en": "to attack or hit with cannon fire",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:cannon:7b64259dca4b508c",
-        "sense_label_en": "to attack or hit with cannon fire",
-        "sort_order": 1,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -242,12 +201,50 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:cdcf32a0b3f84fe7799f",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:cannon:7b64259dca4b508c:collocation:0"
+          ],
+          "meaning_cn": "炮轰某物",
+          "phrase": "cannon + sth"
+        },
+        {
+          "collocation_id": "collocation:17fcd37bfd54fd3ea3d5",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:cannon:7b64259dca4b508c:collocation:1"
+          ],
+          "meaning_cn": "炮轰敌军阵地",
+          "phrase": "cannon the enemy positions"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "炮轰",
+      "definition_en": "to attack or hit with cannon fire",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:cannon:7b64259dca4b508c",
+      "sense_label_en": "to attack or hit with cannon fire",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:cannon:7b64259dca4b508c",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:cannon:7b64259dca4b508c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1894,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
@@ -261,7 +258,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:17fcd37bfd54fd3ea3d5",
       "collocation:22f1893584ea919b8dba",
       "collocation:a01ce30d47747ba1d6f7"
     ],
@@ -270,7 +266,10 @@
       {
         "id": "collocation:17fcd37bfd54fd3ea3d5",
         "source_row": 1989,
-        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Bombard-with-cannon verb is real in MW, but not demonstrated as a separate default exam/press target. Preserve it in Lookup; do not substitute the distinct collision meaning just because OALD lists that verb."
       },
       {
         "id": "collocation:22f1893584ea919b8dba",
@@ -286,8 +285,9 @@
         "id": "collocation:cdcf32a0b3f84fe7799f",
         "source_row": 17404,
         "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Bombard-with-cannon verb is real in MW, but not demonstrated as a separate default exam/press target. Preserve it in Lookup; do not substitute the distinct collision meaning just because OALD lists that verb."
       }
     ],
     "exam-mappings": [],
