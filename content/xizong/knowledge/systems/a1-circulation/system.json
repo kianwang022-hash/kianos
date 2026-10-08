@@ -185,7 +185,7 @@
     {"id":"mechanics_to_structure_to_hf","title":"正常机械 → 结构故障 → 心衰","route":"B1 → B7/B8 → B11","chain":"正常压力—容积与充盈/射血关系 → 瓣膜或心肌结构故障 → 压力/容量/充盈/泵异常 → 前向低灌注 + 后向淤血 → 心衰"},
     {"id":"compensation_to_chronic_disease_to_shock","title":"代偿 → 慢性反噬 → 灌注崩溃","route":"B2 → B5/B11 → B12","chain":"神经体液与容量调节急性保压保灌注 → 长期持续激活增加后负荷、潴留与重构 → 慢性高压/心衰 → 严重时进入全身低灌注"},
     {"id":"hemostasis_to_thrombotic_event","title":"止血 → 病理血栓 → 缺血事件","route":"B4 → B5 → B6/B9 → B12","chain":"局部止血机制在错误地点启动 → 斑块/血栓 → 冠脉或外周通路阻断 → 局部缺血/梗死；足够严重时进入全身循环崩溃"},
-    {"id":"electrical_to_mechanical_to_perfusion","title":"电活动 → 节律 → 机械输出 → 灌注","route":"B3 → B10 → B11/B12","chain":"动作电位与传导 → ECG节律 → 机械充盈/射血 → 有效脉搏与灌注；有电活动不等于有有效循环"}
+    {"id":"electrical_to_mechanical_to_perfusion","title":"电活动 → 节律 → 机械输出 → 灌注","route":"B3 → B10 → B11/B12","chain":"动作电位与传导形成全心电活动时序；ECG记录其节律，细胞电活动另经Ca²⁺耦联产生机械力，并在相应充盈与负荷下形成射血、脉搏与灌注；有电活动不等于有有效循环"}
   ],
   "cross_system_interfaces": [
     {"topic":"肺栓塞","circulation_role":"B9保留DVT→PE危险接口，B12保留阻塞性休克接口","primary_owner":"respiratory"},
@@ -236,8 +236,8 @@
   "system_exit": {
     "compression_maps": [
       {"name":"机械面","content":"心动周期 → PV → preload / afterload / contractility / compliance → SV / CO → 器官血流 → 微循环交换 / 淋巴回流"},
-      {"name":"调节面","content":"P/Q/R/V → 神经 → 体液 → 肾容量 → 急性代偿 / 慢性反噬"},
-      {"name":"电活动面","content":"AP → 传导 → ECG → Ca²⁺ → 机械射血"},
+      {"name":"调节面","content":"P/Q/R/V及渗透压偏离 → 神经反馈、体液—肾容量反馈、局部修正按实际刺激并行 → 灌注与水盐平衡；刺激解除则反馈回落，持续则检查负荷 / 潴留 / 重构"},
+      {"name":"电活动面","content":"AP与传导 → 全心电活动时序；ECG是体表观察支路，细胞电活动另经Ca²⁺耦联 → 机械力 → 相应充盈与负荷下的射血"},
       {"name":"血管事件面","content":"止血 → 血栓 + 内皮/斑块 → ACS / 外周阻断 → 梗死"},
       {"name":"结构—心衰面","content":"瓣膜 + 心肌/心包 → 压力/容量/充盈/泵异常 → 心衰"},
       {"name":"崩溃面","content":"外周血流 → 休克四Failure Layer → 有无有效脉搏 → 骤停"}
