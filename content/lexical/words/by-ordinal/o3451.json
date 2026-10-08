@@ -21,13 +21,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "一双，一对，一副；一对（人）；（扑克牌中的）对子",
-          "label_en": "a set of two similar things considered as a unit; two people considered as a unit; a poker hand with 2 cards of the same value",
+          "label_cn": "一双；一对；一副（也可指由两个相连部分构成的一件物品）；一对（人）",
+          "label_en": "two matching or associated things treated as a unit, or one item consisting of two joined matching parts; two people considered as a unit",
           "pos": "noun",
           "sense_ids": [
             "sense:pair:e634a6c9081a5817",
-            "sense:pair:247fcbc7228b5ba9",
-            "sense:pair:be9db67e6dde55ce"
+            "sense:pair:247fcbc7228b5ba9"
           ]
         },
         {
@@ -74,16 +73,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一双，一对，一副",
-        "definition_en": "a set of two similar things considered as a unit",
+        "definition_cn": "一双；一对；一副（也可指由两个相连部分构成的一件物品）",
+        "definition_en": "two matching or associated things treated as a unit, or one item consisting of two joined matching parts",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pair:e634a6c9081a5817",
-        "sense_label_en": "a set of two similar things considered as a unit",
+        "sense_label_en": "two matching or associated things treated as a unit, or one item consisting of two joined matching parts",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "a pair of shoes 是两只鞋；a pair of glasses 是一副眼镜；计数用 one pair / two pairs。"
       },
       {
         "collocations": [
@@ -132,20 +132,6 @@
         "sense_label_en": "form a pair or pairs",
         "sort_order": 3,
         "transitivity": "I/T"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "（扑克牌中的）对子",
-        "definition_en": "a poker hand with 2 cards of the same value",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:pair:be9db67e6dde55ce",
-        "sense_label_en": "a poker hand with 2 cards of the same value",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -344,7 +330,26 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "（扑克牌中的）对子",
+      "definition_en": "a poker hand with 2 cards of the same value",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:pair:be9db67e6dde55ce",
+      "sense_label_en": "a poker hand with 2 cards of the same value",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:pair:be9db67e6dde55ce",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Poker-hand terminology is retained for lookup; no separate default examination or general-reading decision job is established beyond ordinary pair."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -363,7 +368,7 @@
       },
       {
         "sense_id": "sense:pair:be9db67e6dde55ce",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9575,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"

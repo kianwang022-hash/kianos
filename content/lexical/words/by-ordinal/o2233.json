@@ -6,7 +6,48 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:gut:gut-feeling",
+        "pattern": "a gut feeling / gut instinct",
+        "meaning_cn": "直觉；本能的感觉",
+        "definition_en": "a strong instinctive feeling rather than a conclusion reached by reasoning",
+        "direction": "R",
+        "level": "L2",
+        "boundary": "intuition use, not literal intestines",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:c3fc280769e9394410e2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:gut:5069d5ecf16b5967:collocation:0"
+            ],
+            "meaning_cn": "直觉",
+            "phrase": "gut feeling"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:gut:have-guts",
+        "pattern": "have the guts to do sth",
+        "meaning_cn": "有勇气做某事",
+        "definition_en": "to have the courage to do something difficult or frightening",
+        "direction": "R+P",
+        "level": "L2",
+        "boundary": "informal plural guts = courage, not literal organs",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:8f5720d57d69d1e7ae45",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:gut:5069d5ecf16b5967:collocation:1"
+            ],
+            "meaning_cn": "有勇气做某事",
+            "phrase": "have the guts to do sth"
+          }
+        ]
+      }
+    ],
     "content_hash": "2f5a883bc1175395423a58d48b157fdca1f58df30f03c3eb01e9c8935006e0fb",
     "core_concept": {
       "core_clusters": [
@@ -42,26 +83,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c3fc280769e9394410e2",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:gut:5069d5ecf16b5967:collocation:0"
-            ],
-            "meaning_cn": "直觉",
-            "phrase": "gut feeling"
-          },
-          {
-            "collocation_id": "collocation:8f5720d57d69d1e7ae45",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:gut:5069d5ecf16b5967:collocation:1"
-            ],
-            "meaning_cn": "有勇气做某事",
-            "phrase": "have the guts to do sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "内脏；肚子；内部",
         "definition_en": "the stomach or intestines, or the inner parts of something",
@@ -667,9 +689,7 @@
     ],
     "active_collocations": [
       "collocation:6519d0ba57fcae40b0fe",
-      "collocation:67004428f2d2fabf90b8",
-      "collocation:8f5720d57d69d1e7ae45",
-      "collocation:c3fc280769e9394410e2"
+      "collocation:67004428f2d2fabf90b8"
     ],
     "facts": [],
     "collocations": [
@@ -693,12 +713,16 @@
       {
         "id": "collocation:8f5720d57d69d1e7ae45",
         "source_row": 12167,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c3fc280769e9394410e2",
         "source_row": 16582,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

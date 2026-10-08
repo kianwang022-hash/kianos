@@ -78,7 +78,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:0984f3b21c04a3a757e1",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:anger:a5091ce885cf5720:collocation:0"
             ],
@@ -102,18 +102,18 @@
         "collocations": [
           {
             "collocation_id": "collocation:7283ffe52dcffde9da19",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:anger:a80e8a95290357b0:collocation:0"
             ],
-            "meaning_cn": "对……发怒",
-            "phrase": "anger at + sth/sb"
+            "meaning_cn": "容易发怒",
+            "phrase": "anger easily"
           }
         ],
         "confidence": "medium",
         "definition_cn": "发怒",
         "definition_en": "to become angry",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "anger (no object required)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -343,17 +343,18 @@
       }
     ],
     "active_collocations": [
-      "collocation:0984f3b21c04a3a757e1",
       "collocation:0ebe9131589668395df3",
-      "collocation:2897dc6f7f9fe3ff88ee",
-      "collocation:7283ffe52dcffde9da19"
+      "collocation:2897dc6f7f9fe3ff88ee"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:0984f3b21c04a3a757e1",
         "source_row": 792,
-        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Anger sb is the current causative sense plus a generic object, not a separate phrase."
       },
       {
         "id": "collocation:0ebe9131589668395df3",
@@ -368,7 +369,10 @@
       {
         "id": "collocation:7283ffe52dcffde9da19",
         "source_row": 9671,
-        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       }
     ],
     "exam-mappings": [],

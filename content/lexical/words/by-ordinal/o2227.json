@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:guilt:guilt-by-association",
+        "pattern": "guilt by association",
+        "meaning_cn": "仅因与某人有关联而被认定有错／受到牵连指责",
+        "definition_en": "being treated as guilty or discredited merely because of a connection with someone else",
+        "direction": "R",
+        "level": "L2",
+        "boundary": "presumed blame from association; does not establish actual wrongdoing",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:709e6b1e87f7f50f2015",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:guilt:dc1152bb02fd5e29:collocation:1"
+            ],
+            "meaning_cn": "牵连犯罪",
+            "phrase": "guilt by association"
+          }
+        ]
+      }
+    ],
     "content_hash": "d85eebcb089c328fd0cddf77508189a486c795398486dee6b1878895ab2560ce",
     "core_concept": {
       "core_clusters": [],
@@ -33,15 +54,6 @@
             ],
             "meaning_cn": "认罪",
             "phrase": "admit one's guilt"
-          },
-          {
-            "collocation_id": "collocation:709e6b1e87f7f50f2015",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:guilt:dc1152bb02fd5e29:collocation:1"
-            ],
-            "meaning_cn": "牵连犯罪",
-            "phrase": "guilt by association"
           }
         ],
         "confidence": "medium",
@@ -78,14 +90,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "内疚，自责",
-        "definition_en": "remorse caused by feeling responsible for some offense",
+        "definition_cn": "内疚；自责",
+        "definition_en": "feeling bad because one believes one has done something wrong or failed an obligation",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:guilt:ba05ee2a52a75261",
-        "sense_label_en": "remorse caused by feeling responsible for some offense",
+        "sense_label_en": "feeling bad because one believes one has done something wrong or failed an obligation",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -229,7 +241,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:709e6b1e87f7f50f2015",
       "collocation:b84315bc2f48b4216d42",
       "collocation:db2dc74d232dde39828e",
       "collocation:f196d5b54c31fe2f119c"
@@ -239,7 +250,9 @@
       {
         "id": "collocation:709e6b1e87f7f50f2015",
         "source_row": 9510,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b84315bc2f48b4216d42",

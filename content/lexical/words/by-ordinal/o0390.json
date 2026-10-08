@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "气球",
-          "label_en": "a small rubber bag inflated with air or gas",
+          "label_cn": "气球；用来飞行、可载人的大型气球及其飞行器",
+          "label_en": "a flexible envelope filled with gas, used as a toy or as part of a craft for flight",
           "pos": "noun",
           "sense_ids": [
             "sense:balloon:c43a794e1199595a"
@@ -23,8 +23,7 @@
           "label_en": "to become inflated or expand rapidly; to travel in a hot-air balloon",
           "pos": "verb",
           "sense_ids": [
-            "sense:balloon:014e8a20ea6351d6",
-            "sense:balloon:6159db2d8b985684"
+            "sense:balloon:014e8a20ea6351d6"
           ]
         }
       ],
@@ -54,14 +53,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "气球",
-        "definition_en": "a small rubber bag inflated with air or gas",
+        "definition_cn": "气球；用来飞行、可载人的大型气球及其飞行器",
+        "definition_en": "a flexible envelope filled with gas, used as a toy or as part of a craft for flight",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:balloon:c43a794e1199595a",
-        "sense_label_en": "a small rubber bag inflated with air or gas",
+        "sense_label_en": "a flexible envelope filled with gas, used as a toy or as part of a craft for flight",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -80,37 +79,13 @@
         "confidence": "medium",
         "definition_cn": "膨胀，激增",
         "definition_en": "to become inflated or expand rapidly",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "balloon; balloon up",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:balloon:014e8a20ea6351d6",
         "sense_label_en": "to become inflated or expand rapidly",
         "sort_order": 1,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:574bfb5371214b06de28",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:balloon:6159db2d8b985684:collocation:0"
-            ],
-            "meaning_cn": "乘气球飞越某地",
-            "phrase": "balloon over + place"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "乘热气球",
-        "definition_en": "to travel in a hot-air balloon",
-        "governing_pattern": "vi. + in",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:balloon:6159db2d8b985684",
-        "sense_label_en": "to travel in a hot-air balloon",
-        "sort_order": 2,
         "transitivity": "vi"
       }
     ],
@@ -310,7 +285,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:574bfb5371214b06de28",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:balloon:6159db2d8b985684:collocation:0"
+          ],
+          "meaning_cn": "乘气球飞越某地",
+          "phrase": "balloon over + place"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "乘热气球",
+      "definition_en": "to travel in a hot-air balloon",
+      "governing_pattern": "balloon; balloon over + place",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:balloon:6159db2d8b985684",
+      "sense_label_en": "to travel in a hot-air balloon",
+      "sort_order": 2,
+      "transitivity": "vi",
+      "stable_sense_id": "sense:balloon:6159db2d8b985684",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -322,7 +326,7 @@
       },
       {
         "sense_id": "sense:balloon:6159db2d8b985684",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1005,
         "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
@@ -337,8 +341,7 @@
     ],
     "active_collocations": [
       "collocation:148354df5aa431f9f525",
-      "collocation:14b873671fff88d39670",
-      "collocation:574bfb5371214b06de28"
+      "collocation:14b873671fff88d39670"
     ],
     "facts": [],
     "collocations": [
@@ -355,7 +358,10 @@
       {
         "id": "collocation:574bfb5371214b06de28",
         "source_row": 7365,
-        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Travel-by-balloon is transparent from the already active aircraft noun and no bounded default examination/press evidence justifies a separate leisure-travel verb target here. Preserve true meaning in Lookup; ballooning costs/expansion remains active."
       }
     ],
     "exam-mappings": [],

@@ -20,13 +20,12 @@
           ]
         },
         {
-          "label_cn": "滴；微量；下降；投递点（秘密）",
-          "label_en": "a small amount of liquid; a sudden decrease; a secret place for leaving or collecting something",
+          "label_cn": "滴；微量；下降",
+          "label_en": "a small amount of liquid; a decrease",
           "pos": "noun",
           "sense_ids": [
             "sense:drop:c38fa086ebd8509f",
-            "sense:drop:77afb0e5cae25875",
-            "sense:drop:b19b032ddd2c557b"
+            "sense:drop:77afb0e5cae25875"
           ]
         }
       ],
@@ -51,7 +50,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5df34855bc60580859df",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:drop:febc46c0c89657b1:collocation:0"
             ],
@@ -69,22 +68,22 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使落下；放下",
-        "definition_en": "to let something fall",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "落下；使落下；放下",
+        "definition_en": "to fall to a lower position, or let something fall",
+        "governing_pattern": "sth drops; drop sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:drop:febc46c0c89657b1",
-        "sense_label_en": "to let something fall",
+        "sense_label_en": "to fall to a lower position, or let something fall",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
           {
             "collocation_id": "collocation:02f6d57fbd2eb284e9d3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:drop:55368f684b715a6c:collocation:handoff-o1375-o1624"
             ],
@@ -142,38 +141,14 @@
         ],
         "confidence": "medium",
         "definition_cn": "下降",
-        "definition_en": "a sudden decrease",
+        "definition_en": "a decrease in an amount, level, or value",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:drop:77afb0e5cae25875",
-        "sense_label_en": "a sudden decrease",
+        "sense_label_en": "a decrease in an amount, level, or value",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:fbf15e4f1f71cfd4fe27",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:drop:b19b032ddd2c557b:collocation:0"
-            ],
-            "meaning_cn": "秘密投递点",
-            "phrase": "a drop point"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "投递点（秘密）",
-        "definition_en": "a secret place for leaving or collecting something",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:drop:b19b032ddd2c557b",
-        "sense_label_en": "a secret place for leaving or collecting something",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -378,7 +353,35 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:fbf15e4f1f71cfd4fe27",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:drop:b19b032ddd2c557b:collocation:0"
+          ],
+          "meaning_cn": "秘密投递点",
+          "phrase": "a drop point"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "投递点（秘密）",
+      "definition_en": "a secret place for leaving or collecting something",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:drop:b19b032ddd2c557b",
+      "sense_label_en": "a secret place for leaving or collecting something",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -397,7 +400,7 @@
       },
       {
         "sense_id": "sense:drop:b19b032ddd2c557b",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4232,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -418,12 +421,9 @@
       }
     ],
     "active_collocations": [
-      "collocation:02f6d57fbd2eb284e9d3",
-      "collocation:5df34855bc60580859df",
       "collocation:9b278fe7fde9cf63c7d8",
       "collocation:cb16c593b147ff69e265",
-      "collocation:e1a05aa4a6fd814ffcae",
-      "collocation:fbf15e4f1f71cfd4fe27"
+      "collocation:e1a05aa4a6fd814ffcae"
     ],
     "facts": [
       {
@@ -436,12 +436,16 @@
       {
         "id": "collocation:02f6d57fbd2eb284e9d3",
         "source_row": 21612,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5df34855bc60580859df",
         "source_row": 7907,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6371c1ac60426dd1b29c",
@@ -466,7 +470,9 @@
       {
         "id": "collocation:fbf15e4f1f71cfd4fe27",
         "source_row": 21315,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

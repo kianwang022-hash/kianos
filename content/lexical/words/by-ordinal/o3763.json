@@ -17,14 +17,6 @@
           "sense_ids": [
             "sense:pretext:1e0314889b9f5ca0"
           ]
-        },
-        {
-          "label_cn": "以...为借口",
-          "label_en": "to use as a pretext",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:pretext:f4545790220c50a6"
-          ]
         }
       ],
       "core_meaning_cn": "借口，托词",
@@ -81,30 +73,6 @@
         "sense_label_en": "a fictitious reason given to conceal the real reason",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f20936404324ff842314",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pretext:f4545790220c50a6:collocation:0"
-            ],
-            "meaning_cn": "以某事为借口",
-            "phrase": "pretext + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "以...为借口",
-        "definition_en": "to use as a pretext",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pretext:f4545790220c50a6",
-        "sense_label_en": "to use as a pretext",
-        "sort_order": 1,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -197,7 +165,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f20936404324ff842314",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:pretext:f4545790220c50a6:collocation:0"
+          ],
+          "meaning_cn": "以某事为借口",
+          "phrase": "pretext + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "以...为借口",
+      "definition_en": "to use as a pretext",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:pretext:f4545790220c50a6",
+      "sense_label_en": "to use as a pretext",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:pretext:f4545790220c50a6",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "The verb is dictionary-valid (MW Scrabble pretext) but ordinary exam/general-press excuse reading is carried by the noun and its existing patterns. No independent default learner job is evidenced for pretext + object; preserve full verb body in Lookup."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -209,7 +206,7 @@
       },
       {
         "sense_id": "sense:pretext:f4545790220c50a6",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10476,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
@@ -218,8 +215,7 @@
     "active_collocations": [
       "collocation:0ad8dbc9fd895ceea8c1",
       "collocation:5c8a7a946bdebc56b9ca",
-      "collocation:d0c62344f977f68817fc",
-      "collocation:f20936404324ff842314"
+      "collocation:d0c62344f977f68817fc"
     ],
     "facts": [],
     "collocations": [
@@ -241,7 +237,9 @@
       {
         "id": "collocation:f20936404324ff842314",
         "source_row": 20507,
-        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

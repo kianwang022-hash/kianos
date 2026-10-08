@@ -15,7 +15,18 @@
         "level": "L1",
         "meaning_cn": "取得成功；奏效；带来回报",
         "pattern": "pay off",
-        "source_sense_id": "sense:pay:225b7f7e076f5ab7"
+        "source_sense_id": "sense:pay:225b7f7e076f5ab7",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:7c6a6231975808c87986",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pay:225b7f7e076f5ab7:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "努力会有回报",
+            "phrase": "hard work pays off"
+          }
+        ]
       },
       {
         "boundary": "money-payment reading: repay a debt completely",
@@ -31,41 +42,49 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "支付；付钱",
-          "label_en": "give money in exchange for goods/services",
+          "label_cn": "付钱；支付费用、账单、债务等",
+          "label_en": "to give money for goods or services, to someone owed money, or to settle a debt, bill or charge",
           "pos": "verb",
           "sense_ids": [
             "sense:pay:10b3932f0c4d567d"
           ]
         },
         {
-          "label_cn": "工资；薪酬",
-          "label_en": "money received for work",
+          "label_cn": "工资；薪酬；报酬",
+          "label_en": "money received for work; wages or salary",
           "pos": "noun",
           "sense_ids": [
             "sense:pay:ff509eae7a715950"
           ]
         },
         {
-          "label_cn": "给予/表示（固定搭配）",
-          "label_en": "render/give in fixed expressions",
+          "label_cn": "给予；表示（注意、敬意、拜访等固定搭配）",
+          "label_en": "to give or render something such as attention, respect, or a visit in fixed expressions",
           "pos": "verb",
           "sense_ids": [
             "sense:pay:1228ff3e18725086"
           ]
         },
         {
-          "label_cn": "奏效；带来回报",
-          "label_en": "succeed/yield a benefit",
+          "label_cn": "奏效；值得；带来回报",
+          "label_en": "to yield a benefit, succeed, or prove worthwhile",
           "pos": "verb",
           "sense_ids": [
             "sense:pay:225b7f7e076f5ab7"
           ]
+        },
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pay:4a1d98b5e7005507"
+          ],
+          "label_cn": "付出代价；承受不利后果",
+          "label_en": "to suffer a loss or other adverse consequence"
         }
       ],
       "core_meaning_cn": "支付；工资；固定非金钱搭配；奏效",
       "core_meaning_en": "pay money; pay/wages; fixed nonfinancial expressions; pay off/succeed",
-      "mental_model_cn": "支付；工资；固定非金钱搭配；奏效",
+      "mental_model_cn": "pay money 支付；pay attention 给予；hard work pays 有回报；pay for mistakes 承受后果，未必付钱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -106,14 +125,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "支付；付钱",
-        "definition_en": "give money in exchange for goods or services",
+        "definition_cn": "付钱；支付费用、账单、债务等",
+        "definition_en": "to give money for goods or services, to someone owed money, or to settle a debt, bill or charge",
         "governing_pattern": "I/T: pay the bill / pay sb / pay an amount; pay for sth; pay amount for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pay:10b3932f0c4d567d",
-        "sense_label_en": "give money in exchange for goods or services",
+        "sense_label_en": "to give money for goods or services, to someone owed money, or to settle a debt, bill or charge",
         "sort_order": 0,
         "transitivity": "I/T"
       },
@@ -175,17 +194,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7c6a6231975808c87986",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pay:225b7f7e076f5ab7:collocation:forward-o3375-o3624"
-            ],
-            "meaning_cn": "努力会有回报",
-            "phrase": "hard work pays off"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "奏效；值得；带来回报",
         "definition_en": "to yield a benefit, succeed, or prove worthwhile",
@@ -197,6 +206,57 @@
         "sense_label_en": "to yield a benefit, succeed, or prove worthwhile",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:pay:4a1d98b5e7005507",
+        "pos": "verb",
+        "definition_cn": "付出代价；承受不利后果",
+        "definition_en": "to suffer a loss or other adverse consequence",
+        "sense_label_en": "to suffer a loss or other adverse consequence",
+        "transitivity": "I/T",
+        "governing_pattern": "pay for sth; pay dearly; pay a/the price for sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [],
+        "source_evidence_objects": [
+          {
+            "stable_sense_id": "sense:pay:4a1d98b5e7005507",
+            "status": "merged",
+            "merged_into_sense_id": "sense:pay:10b3932f0c4d567d",
+            "pos": "verb",
+            "definition_cn": "付出代价；得到报应",
+            "definition_en": "suffer the consequences of an action",
+            "semantic_key": "b573e6ef3695a0471ea892f54984319a81a0b35fd162f8d3cb7e810569622023",
+            "semantic_key_history": [
+              "2b322eaf3c886f78576caef5d02d546d2f4f8dabb79ff0e40a63b687cf5b020a"
+            ],
+            "legacy_aliases": [
+              "pay:l2:4"
+            ],
+            "legacy_alias_history": [
+              {
+                "legacy_sense_id": "pay:l2:4",
+                "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+              }
+            ],
+            "updated_at": "2026-09-09T00:00:00Z",
+            "source_row": 9759,
+            "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json",
+            "reference_only": true
+          }
+        ],
+        "usage_note": "代价可以是环境、健康、机会等损失，不一定付钱，也不一定意味着道德上的报应。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.233.com/kaoyan/english/zhenti/202211/251534398552.html",
+            "role": "2023_EnglishII_exam_reprint_Text1_environment_paying_price"
+          },
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/learner-english/pay",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -389,31 +449,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:pay:4a1d98b5e7005507",
-      "status": "merged",
-      "merged_into_sense_id": "sense:pay:10b3932f0c4d567d",
-      "pos": "verb",
-      "definition_cn": "付出代价；得到报应",
-      "definition_en": "suffer the consequences of an action",
-      "semantic_key": "b573e6ef3695a0471ea892f54984319a81a0b35fd162f8d3cb7e810569622023",
-      "semantic_key_history": [
-        "2b322eaf3c886f78576caef5d02d546d2f4f8dabb79ff0e40a63b687cf5b020a"
-      ],
-      "legacy_aliases": [
-        "pay:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pay:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9759,
-      "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:pay:a93f6a4f786150fa",
       "status": "merged",
       "merged_into_sense_id": "sense:pay:10b3932f0c4d567d",
@@ -487,8 +522,8 @@
       },
       {
         "sense_id": "sense:pay:4a1d98b5e7005507",
-        "status": "merged",
-        "merged_into_sense_id": "sense:pay:10b3932f0c4d567d",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9759,
         "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
       },
@@ -517,7 +552,6 @@
     "active_collocations": [
       "collocation:281502e7943739a81cb6",
       "collocation:6675ebc71127d7cf3394",
-      "collocation:7c6a6231975808c87986",
       "collocation:8e303a5f2fa871e1c50d",
       "collocation:9b4f1a9a12af829e4f05",
       "collocation:c14af1d962ad1e48791c"
@@ -593,7 +627,9 @@
       {
         "id": "collocation:7c6a6231975808c87986",
         "source_row": 21435,
-        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

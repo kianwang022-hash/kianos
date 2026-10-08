@@ -12,33 +12,39 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "引起/提醒人们注意…",
-        "pattern": "draw/call attention to sth"
+        "pattern": "draw/call attention to sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:9b97dda1887059ad4162",
+          "reason": "Retain one full draw/call-attention-to target rather than two overlapping entries."
+        }
       }
     ],
     "content_hash": "a445ba435e47601b5126e6ab35b7e4d1ba30b88617017179b68a3d36e14f5da8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "注意；专注",
-          "label_en": "the process whereby a person concentrates on some features of the environment to the (relative) exclusion of others",
+          "label_cn": "专注或关注",
+          "label_en": "mental focus or interest",
           "pos": "noun",
           "sense_ids": [
-            "sense:attention:63ce18651dcb5d4c"
+            "sense:attention:63ce18651dcb5d4c",
+            "sense:attention:f8de33835c65520e"
           ]
         },
         {
-          "label_cn": "关注；兴趣",
-          "label_en": "a general interest that leads people to want to know more",
+          "label_cn": "照料或示好",
+          "label_en": "care, treatment, or affectionate acts",
           "pos": "noun",
           "sense_ids": [
-            "sense:attention:f8de33835c65520e",
-            "sense:attention:4b2aa60463110766"
+            "sense:attention:4b2aa60463110766",
+            "sense:attention:1d822b952e285f5f"
           ]
         }
       ],
       "core_meaning_cn": "注意；关注；照料",
       "core_meaning_en": "careful focus or care given to someone or something",
-      "mental_model_cn": "注意；注意力",
+      "mental_model_cn": "pay attention to → 专注；attract attention → 引起公众关注；medical attention / a problem needs attention → 照料、治疗或处理；attentions → 殷勤示好。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,8 +76,8 @@
             "legacy_source_object_ids": [
               "sense:attention:63ce18651dcb5d4c:collocation:1"
             ],
-            "meaning_cn": "引起注意",
-            "phrase": "draw attention"
+            "meaning_cn": "引起或提醒人们注意某事",
+            "phrase": "draw/call attention to + sth"
           }
         ],
         "confidence": "medium",
@@ -82,7 +88,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:attention:63ce18651dcb5d4c",
-        "sense_label_en": "the process whereby a person concentrates on some features of the enviro",
+        "sense_label_en": "the process whereby a person concentrates on some features of the environment to the (relative) exclusion of others",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -114,12 +120,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:2bfc1f18505ef1844ac9",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:attention:1d822b952e285f5f:collocation:0"
             ],
-            "meaning_cn": "对某人表示关怀",
-            "phrase": "show attention to sb"
+            "meaning_cn": "不受欢迎的殷勤或示好",
+            "phrase": "unwanted attentions"
           }
         ],
         "confidence": "medium",
@@ -132,7 +138,8 @@
         "sense_id": "sense:attention:1d822b952e285f5f",
         "sense_label_en": "a courteous act indicating affection",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "表示殷勤、示好行为时常用复数 attentions；一般注意力或照料通常用不可数 attention。"
       },
       {
         "collocations": [
@@ -453,7 +460,6 @@
     ],
     "active_collocations": [
       "collocation:23ca455091f8bc2a22d0",
-      "collocation:2bfc1f18505ef1844ac9",
       "collocation:3a966ae842713eb13c87",
       "collocation:3ed2b18bd19e7bd10c4e",
       "collocation:50655eff1cbdd03c9bda",
@@ -465,6 +471,13 @@
         "id": "deep:constructions:attention:87d709fb8552dda2",
         "source_row": 137,
         "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json"
+      },
+      {
+        "id": "construction:66ea75dbb9d0360ae9b0",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Retain one full draw/call-attention-to target rather than two overlapping entries."
       }
     ],
     "collocations": [
@@ -476,7 +489,10 @@
       {
         "id": "collocation:2bfc1f18505ef1844ac9",
         "source_row": 3730,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The affection/attentions sense is retained with a matching plural example, not an additional generic show-attention fixed pattern."
       },
       {
         "id": "collocation:50655eff1cbdd03c9bda",

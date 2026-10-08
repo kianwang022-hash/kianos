@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "旗子；旗帜；信号旗；石板（铺路用）；（鹿或狗等）蓬松的尾巴",
-          "label_en": "a piece of cloth with a distinctive design, used as a symbol of a country, organization, or as a signal; a flat stone used for paving; a conspicuously marked or shaped tail (as of a deer or dog)",
+          "label_cn": "旗帜；信号旗；铺路石板",
+          "label_en": "a cloth symbol or signal; a flat paving stone",
           "pos": "noun",
           "sense_ids": [
             "sense:flag:420b6e9b17ff5521",
@@ -20,8 +20,8 @@
           ]
         },
         {
-          "label_cn": "标记；用旗子标示；打旗号；用旗语传达；减弱；衰退；疲倦",
-          "label_en": "to mark or identify something with a flag or label; to signal or communicate by waving a flag; to become tired or weaker; to lose enthusiasm",
+          "label_cn": "标记；用旗子标示；发信号；挥手或挥旗示意停下；减弱；衰退；疲倦",
+          "label_en": "to mark or identify something with a flag or label; to give a signal, for example by waving a flag or hand to stop a vehicle; to become tired or weaker; to lose enthusiasm",
           "pos": "verb",
           "sense_ids": [
             "sense:flag:dcf04d7983b552b6",
@@ -72,7 +72,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:flag:420b6e9b17ff5521",
-        "sense_label_en": "a piece of cloth with a distinctive design, used as a symbol of a countr",
+        "sense_label_en": "a piece of cloth with a distinctive design, used as a symbol of a country, organization, or as a signal",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -80,21 +80,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:6e3697352d46e63f9d45",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:flag:dcf04d7983b552b6:collocation:0"
             ],
             "meaning_cn": "标记某物",
             "phrase": "flag + sth"
-          },
-          {
-            "collocation_id": "collocation:5292bf6080630562df49",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:flag:dcf04d7983b552b6:collocation:1"
-            ],
-            "meaning_cn": "挥手拦出租车",
-            "phrase": "flag a taxi"
           }
         ],
         "confidence": "medium",
@@ -143,17 +134,26 @@
             ],
             "meaning_cn": "挥手示意（车等）停下",
             "phrase": "flag down + sth/sb"
+          },
+          {
+            "collocation_id": "collocation:5292bf6080630562df49",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:flag:dcf04d7983b552b6:collocation:1"
+            ],
+            "meaning_cn": "挥手拦出租车",
+            "phrase": "flag down a taxi"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "打旗号；用旗语传达",
-        "definition_en": "to signal or communicate by waving a flag",
+        "definition_cn": "发信号；挥手或挥旗示意停下",
+        "definition_en": "to give a signal, for example by waving a flag or hand to stop a vehicle",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:flag:30960ef8d3145fe4",
-        "sense_label_en": "to signal or communicate by waving a flag",
+        "sense_label_en": "to give a signal, for example by waving a flag or hand to stop a vehicle",
         "sort_order": 3,
         "transitivity": "vt"
       },
@@ -736,7 +736,6 @@
     "active_collocations": [
       "collocation:260a73b64dfce79e7116",
       "collocation:5292bf6080630562df49",
-      "collocation:6e3697352d46e63f9d45",
       "collocation:793092766f5e12012be0",
       "collocation:c4d41664f524bb55d617",
       "collocation:c60d6132dc1925af633d",
@@ -752,12 +751,15 @@
       {
         "id": "collocation:5292bf6080630562df49",
         "source_row": 6953,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "sense_id": "sense:flag:30960ef8d3145fe4"
       },
       {
         "id": "collocation:6e3697352d46e63f9d45",
         "source_row": 9295,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:793092766f5e12012be0",

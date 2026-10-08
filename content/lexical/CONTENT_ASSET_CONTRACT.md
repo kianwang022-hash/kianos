@@ -37,14 +37,9 @@ The purpose of rebuilding 7,946 owners is partly to discover which words are saf
 
 ### 0A. Learner objective and attention hierarchy — Exam-first, not Exam-only
 
-Lexical is built for two simultaneous goals:
+The current default-learning scope is **考研优先**, with coverage of the meanings and usages needed for 考研、TOEFL、IELTS and CET-4/CET-6 as a union, not an intersection. Relevant, high-frequency general press usage may be included when supported by reliable usage evidence, especially for 考研 reading; “modern professional use” or an indefinite long-run benefit is not independent admission authority.
 
-1. protect and improve current exam performance;
-2. compound into stronger long-run English lexical ability.
-
-Therefore:
-
-> **Exam-first does not mean Exam-only.**
+> **Exam-first extends to the evidenced examination and general-press scope above, not every dictionary sense of an exam-listed headword.**
 
 Canonical truth may be rich, but learner attention must be layered.
 
@@ -54,10 +49,9 @@ CORE / DECISION
   branch selection, syntax/collocation choice, translation, writing, or broad transfer
 
 EXPANSION / LEVERAGE
-= non-Core knowledge with real lexical leverage:
-  morphology/irregular form, academic/professional use, regional form,
-  high-value word-family structure, pronunciation/form identity,
-  cross-word decision network, or reusable productive value
+= non-Core knowledge with evidenced leverage within the scope above:
+  decision-relevant morphology/form, academic use, word-family structure,
+  cross-word decision networks, or reusable productive value
 
 REFERENCE
 = valid truth worth preserving/searching, but with low current learner leverage
@@ -72,11 +66,11 @@ Admission rules:
 
 - a fact does **not** enter Core merely because a dictionary lists it;
 - a fact does **not** disappear merely because it is not high-yield for the exam;
-- high-leverage non-Core truth belongs in Expansion when it improves future decoding, transfer, academic English, productive use, or lexical network quality;
-- low-value valid truth belongs in Reference;
+- non-Core truth enters default Expansion only with an applicable examination use or evidenced high-frequency general-press use, a concrete comprehension/selection/grammar/expression risk if omitted, and a reason existing senses or ordinary grammar cannot cover that job; a dictionary listing, a single press occurrence or a constructed specialist example is insufficient;
+- correct specialist, historical and otherwise unsupported default-scope truth remains in Reference/Lookup; a scope change is not proof that the truth is wrong, and existing correct professional/formal content is not deleted as a class;
 - Form / Identity truth may remain canonical background support without becoming learner-facing Expansion;
 - when learner attention is scarce, **semantic decision value outranks form completeness**: familiar-new meaning, polysemy, confusable/near-form semantic boundaries, construction/argument structure and phraseology normally outrank routine pronunciation/stress or regional spelling;
-- whether an object deserves a Repair Test is decided separately from whether it deserves Content.
+- Recognition does not automatically entail Production or Repair. Content coverage does not require mandatory Depth or memorization; the learner’s local `+` or real failure evidence admits review debt. Whether an object deserves a Repair Test is decided separately from whether it deserves Content.
 
 Hard distinctions:
 

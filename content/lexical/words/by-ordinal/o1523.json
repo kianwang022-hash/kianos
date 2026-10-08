@@ -17,14 +17,6 @@
           "sense_ids": [
             "sense:dual:6c69030007255fa4"
           ]
-        },
-        {
-          "label_cn": "双数（语法范畴）",
-          "label_en": "a grammatical number category referring to two items or units",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:dual:aef06761ab145b75"
-          ]
         }
       ],
       "core_meaning_cn": "双重的，双的",
@@ -71,30 +63,6 @@
         "sense_id": "sense:dual:6c69030007255fa4",
         "sense_label_en": "consisting of two parts or having two aspects",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:cca9bcc8e0f2a7c09594",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:dual:aef06761ab145b75:collocation:0"
-            ],
-            "meaning_cn": "双数（形式）",
-            "phrase": "the dual"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "双数（语法范畴）",
-        "definition_en": "a grammatical number category referring to two items or units",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:dual:aef06761ab145b75",
-        "sense_label_en": "a grammatical number category referring to two items or units",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -239,7 +207,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:cca9bcc8e0f2a7c09594",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:dual:aef06761ab145b75:collocation:0"
+          ],
+          "meaning_cn": "双数（形式）",
+          "phrase": "the dual"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "双数（语法范畴）",
+      "definition_en": "a grammatical number category referring to two items or units",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:dual:aef06761ab145b75",
+      "sense_label_en": "a grammatical number category referring to two items or units",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -251,7 +247,7 @@
       },
       {
         "sense_id": "sense:dual:aef06761ab145b75",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4258,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -259,8 +255,7 @@
     ],
     "active_collocations": [
       "collocation:14628b5a66a5c4f90d3f",
-      "collocation:cc36816c69f42411b5a1",
-      "collocation:cca9bcc8e0f2a7c09594"
+      "collocation:cc36816c69f42411b5a1"
     ],
     "facts": [],
     "collocations": [
@@ -277,7 +272,9 @@
       {
         "id": "collocation:cca9bcc8e0f2a7c09594",
         "source_row": 17307,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

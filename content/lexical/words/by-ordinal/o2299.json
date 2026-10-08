@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:hedge:hedge-bets",
+        "pattern": "hedge one's bets",
+        "meaning_cn": "保留多个选择以降低风险；给自己留后路",
+        "definition_en": "to keep more than one option available so as to reduce the risk of being wrong or losing",
+        "direction": "R+P",
+        "level": "L2",
+        "boundary": "risk-spreading idiom; hedge is a verb here, not an ambiguous statement noun",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:624c2419f89b45a81df8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hedge:f84b94474655578d:collocation:0"
+            ],
+            "meaning_cn": "两面下注；给自己留后路",
+            "phrase": "hedge one's bets"
+          }
+        ]
+      }
+    ],
     "content_hash": "840dc3e93c996794ca3d47150579c48cc1c7bfdbf7292c66ef60b269f6db5509",
     "core_concept": {
       "core_clusters": [
@@ -22,7 +43,7 @@
         },
         {
           "label_cn": "用树篱围住；套期保值；对冲；躲闪；回避",
-          "label_en": "to surround or enclose with a hedge; to protect oneself against financial loss by making balancing contracts; to avoid giving a direct answer or commitment",
+          "label_en": "enclose with a hedge; protect against risk; avoid a direct answer",
           "pos": "verb",
           "sense_ids": [
             "sense:hedge:cd4167cbe172509d",
@@ -31,9 +52,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "树篱或保护手段",
-      "core_meaning_en": "a row of bushes or a means of protection",
-      "mental_model_cn": "树篱或保护手段",
+      "core_meaning_cn": "树篱／围篱；防范风险或对冲；回避表态",
+      "core_meaning_en": "a hedge or enclosure; protect against risk; avoid committing to a direct answer",
+      "mental_model_cn": "树篱／围篱；防范风险或对冲；回避表态",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,15 +67,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:85dc1e7d9e140d1de8a3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hedge:11107e60c50554f2:collocation:0"
-            ],
-            "meaning_cn": "对冲基金",
-            "phrase": "hedge fund"
-          },
           {
             "collocation_id": "collocation:ef7808de65ee37b5c74b",
             "exam_value": "usage_example",
@@ -87,6 +99,15 @@
             ],
             "meaning_cn": "抵御通货膨胀的对冲手段",
             "phrase": "hedge against inflation"
+          },
+          {
+            "collocation_id": "collocation:85dc1e7d9e140d1de8a3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hedge:11107e60c50554f2:collocation:0"
+            ],
+            "meaning_cn": "对冲基金",
+            "phrase": "hedge fund"
           }
         ],
         "confidence": "medium",
@@ -102,17 +123,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:624c2419f89b45a81df8",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hedge:f84b94474655578d:collocation:0"
-            ],
-            "meaning_cn": "两面下注；给自己留后路",
-            "phrase": "hedge one's bets"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "闪烁其词；模棱两可的话",
         "definition_en": "an intentionally noncommittal or ambiguous statement",
@@ -159,29 +170,14 @@
             ],
             "meaning_cn": "对冲风险",
             "phrase": "hedge against risk"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "套期保值；对冲",
-        "definition_en": "to protect oneself against financial loss by making balancing contracts",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:hedge:ccd0a08a0d645f3f",
-        "sense_label_en": "to protect oneself against financial loss by making balancing contracts",
-        "sort_order": 4,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:f3172503dda3cd09a4d1",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:hedge:8e0c976e32c95235:collocation:0"
             ],
-            "meaning_cn": "回避某事；对某事闪烁其词",
+            "meaning_cn": "防范某种风险或问题",
             "phrase": "hedge against + sth"
           },
           {
@@ -190,10 +186,24 @@
             "legacy_source_object_ids": [
               "sense:hedge:8e0c976e32c95235:collocation:1"
             ],
-            "meaning_cn": "回避批评",
+            "meaning_cn": "预先防范受到批评的风险",
             "phrase": "hedge against criticism"
           }
         ],
+        "confidence": "medium",
+        "definition_cn": "防范风险；（金融）对冲",
+        "definition_en": "to protect against a possible loss or problem, especially by offsetting financial risk",
+        "governing_pattern": "hedge sth (against sth); hedge against sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hedge:ccd0a08a0d645f3f",
+        "sense_label_en": "to protect against a possible loss or problem, especially by offsetting financial risk",
+        "sort_order": 4,
+        "transitivity": "vt/vi"
+      },
+      {
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "躲闪；回避",
         "definition_en": "to avoid giving a direct answer or commitment",
@@ -448,12 +458,10 @@
     "active_collocations": [
       "collocation:1f7890491f3669c28264",
       "collocation:46c350f1ef18173fc8a6",
-      "collocation:624c2419f89b45a81df8",
       "collocation:77f163d85d43841f6915",
       "collocation:85dc1e7d9e140d1de8a3",
       "collocation:bfe8c53b05d17c6ffafc",
-      "collocation:ef7808de65ee37b5c74b",
-      "collocation:f3172503dda3cd09a4d1"
+      "collocation:ef7808de65ee37b5c74b"
     ],
     "facts": [],
     "collocations": [
@@ -465,12 +473,15 @@
       {
         "id": "collocation:46c350f1ef18173fc8a6",
         "source_row": 5973,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "sense_id": "sense:hedge:ccd0a08a0d645f3f"
       },
       {
         "id": "collocation:624c2419f89b45a81df8",
         "source_row": 8283,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:77f163d85d43841f6915",
@@ -480,7 +491,8 @@
       {
         "id": "collocation:85dc1e7d9e140d1de8a3",
         "source_row": 11361,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "sense_id": "sense:hedge:156b330f114a572a"
       },
       {
         "id": "collocation:bfe8c53b05d17c6ffafc",
@@ -495,7 +507,10 @@
       {
         "id": "collocation:f3172503dda3cd09a4d1",
         "source_row": 20592,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "sense_id": "sense:hedge:ccd0a08a0d645f3f",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

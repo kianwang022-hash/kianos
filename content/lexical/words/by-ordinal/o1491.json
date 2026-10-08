@@ -12,14 +12,19 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "去/住在市中心",
-        "pattern": "go/live downtown"
+        "pattern": "go/live downtown",
+        "boundary": "go/live/work downtown: downtown is an adverb, without to/in. go to/live in the downtown area: use the preposition required by the verb with this noun phrase."
       },
       {
         "construction_id": "construction:5f6beaf8e7c5bc8378d8",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "市中心的副词、名词或定语用法",
-        "pattern": "downtown / the downtown area"
+        "pattern": "downtown / the downtown area",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:64e56eb3e4cf525eb6fb",
+          "reason": "Generic POS restatement duplicates the existing downtown-area example; useful adverb versus noun-phrase syntax is retained in the other existing Construction."
+        }
       }
     ],
     "content_hash": "3e71e333881d4eea18e9bbfabccf091dda3031361361c4e27a488cfa1dce86c5",
@@ -71,8 +76,8 @@
             "legacy_source_object_ids": [
               "sense:downtown:0e3db7f5411e5794:collocation:0"
             ],
-            "meaning_cn": "在市中心",
-            "phrase": "in downtown"
+            "meaning_cn": "市中心的核心地带",
+            "phrase": "the heart of downtown"
           }
         ],
         "confidence": "medium",
@@ -320,7 +325,14 @@
       "collocation:829bf45e46aa263f6a71",
       "collocation:ab08b92f925425b7c4e1"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:5f6beaf8e7c5bc8378d8",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:64e56eb3e4cf525eb6fb",

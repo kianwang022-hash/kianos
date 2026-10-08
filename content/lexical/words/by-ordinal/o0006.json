@@ -20,7 +20,12 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "更有/较没能力做某事",
-        "pattern": "be better/less able to + verb"
+        "pattern": "be better/less able to + verb",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:2ef5956112c3d0cb66ac",
+          "reason": "Regular comparison does not add a distinct lexical skeleton beyond be able to; preserve it as an example."
+        }
       }
     ],
     "content_hash": "334cfe2f36e4fcede3d2976df46d0a945cf6dc88041aa9d3c34d95f45b18214d",
@@ -63,12 +68,27 @@
         "collocations": [
           {
             "collocation_id": "collocation:298054f3c20db1c48a87",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:able:9d1f6c4b8e585dd8:collocation:0"
             ],
             "meaning_cn": "能够做某事",
             "phrase": "be able to do sth"
+          },
+          {
+            "collocation_id": "collocation:2ef5956112c3d0cb66ac",
+            "phrase": "be better/less able to do sth",
+            "meaning_cn": "更有/较没能力做某事",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_type": "learner_dictionary",
+                "source_url": "https://www.merriam-webster.com/dictionary/able",
+                "accessed_date": "2026-10-07",
+                "evidence_status": "source_checked",
+                "supports": "更有/较没能力做某事"
+              }
+            ]
           }
         ],
         "confidence": "high",
@@ -381,26 +401,41 @@
       }
     ],
     "active_collocations": [
-      "collocation:298054f3c20db1c48a87",
-      "collocation:ced9b13966d385095ee4"
+      "collocation:ced9b13966d385095ee4",
+      "collocation:2ef5956112c3d0cb66ac"
     ],
     "facts": [
       {
         "id": "deep:word_family:able:accc8bf90d667d11",
         "source_row": 2,
         "source_path": "content/lexical/canonical/facts/shards/o0001-0032.json"
+      },
+      {
+        "id": "construction:e278ae7c592201e0d70b",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
       }
     ],
     "collocations": [
       {
         "id": "collocation:298054f3c20db1c48a87",
         "source_row": 3510,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:ced9b13966d385095ee4",
         "source_row": 17479,
         "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+      },
+      {
+        "id": "collocation:2ef5956112c3d0cb66ac",
+        "status": "active",
+        "source_url": "https://www.merriam-webster.com/dictionary/able"
       }
     ],
     "exam-mappings": [],

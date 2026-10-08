@@ -72,7 +72,7 @@
           },
           {
             "collocation_id": "collocation:d9e2eb841923b6f2d498",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:accident:6efa8b01ee4658ec:collocation:1"
             ],
@@ -82,15 +82,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "意外，偶然事件",
-        "definition_en": "something that happens by chance, without apparent cause",
+        "definition_en": "an unplanned or unintended event; something that happens by chance",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accident:483e0350a62e5da6",
-        "sense_label_en": "something that happens by chance, without apparent cause",
+        "sense_label_en": "an unplanned or unintended event; something that happens by chance",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/accident",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "chance/unplanned does not entail absence of a cause"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -389,8 +398,7 @@
     ],
     "active_collocations": [
       "collocation:60c49066c4cd964912d6",
-      "collocation:d96ec058ffdc0ed49918",
-      "collocation:d9e2eb841923b6f2d498"
+      "collocation:d96ec058ffdc0ed49918"
     ],
     "facts": [],
     "collocations": [
@@ -407,7 +415,10 @@
       {
         "id": "collocation:d9e2eb841923b6f2d498",
         "source_row": 18429,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       }
     ],
     "exam-mappings": [],

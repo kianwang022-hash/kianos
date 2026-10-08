@@ -17,27 +17,11 @@
           "sense_ids": [
             "sense:piano:6792dc50414b5e62"
           ]
-        },
-        {
-          "label_cn": "轻柔的",
-          "label_en": "soft (in music)",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:piano:c5e855e467e4584a"
-          ]
-        },
-        {
-          "label_cn": "轻柔地",
-          "label_en": "softly (in music)",
-          "pos": "adverb",
-          "sense_ids": [
-            "sense:piano:57e5359c3d75598d"
-          ]
         }
       ],
-      "core_meaning_cn": "钢琴或轻柔演奏",
-      "core_meaning_en": "a keyboard instrument or soft musical direction",
-      "mental_model_cn": "钢琴或轻柔演奏",
+      "core_meaning_cn": "钢琴",
+      "core_meaning_en": "a keyboard musical instrument",
+      "mental_model_cn": "钢琴",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,34 +54,6 @@
         "sense_id": "sense:piano:6792dc50414b5e62",
         "sense_label_en": "a large keyboard instrument",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "轻柔的",
-        "definition_en": "soft (in music)",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:piano:c5e855e467e4584a",
-        "sense_label_en": "soft (in music)",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "轻柔地",
-        "definition_en": "softly (in music)",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "sense_id": "sense:piano:57e5359c3d75598d",
-        "sense_label_en": "softly (in music)",
-        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -209,12 +165,49 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "轻柔的",
+      "definition_en": "soft (in music)",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:piano:c5e855e467e4584a",
+      "sense_label_en": "soft (in music)",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:piano:c5e855e467e4584a",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Specialist score direction is retained for lookup; ordinary instrument recognition does not require this additional default adjective."
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "轻柔地",
+      "definition_en": "softly (in music)",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adverb",
+      "sense_id": "sense:piano:57e5359c3d75598d",
+      "sense_label_en": "softly (in music)",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:piano:57e5359c3d75598d",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Specialist soft-playing direction is retained for lookup; no separate default examination admission established."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:piano:57e5359c3d75598d",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9951,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
@@ -228,7 +221,7 @@
       },
       {
         "sense_id": "sense:piano:c5e855e467e4584a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9953,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"

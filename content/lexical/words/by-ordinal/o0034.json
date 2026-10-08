@@ -24,15 +24,6 @@
         "level": "L1",
         "pos": "phrase",
         "source": "continuous-content-upgrade-20260918"
-      },
-      {
-        "construction_id": "construction:accommodation:continuous-20260918-02",
-        "pattern": "accommodation for + person/need",
-        "meaning_cn": "为某人或某需要提供的住宿/调整",
-        "definition_en": "lodging or an adjustment provided for a person or need",
-        "level": "L2",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
       }
     ],
     "content_hash": "ce56a42cb57db019540628047211d53325837f966f9c8086a46da7d73554ac67",
@@ -84,13 +75,23 @@
         "sense_id": "sense:accommodation:5ad63bd02bfa5bf3",
         "sense_label_en": "living quarters provided for people",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "For lodging, accommodation is normally uncountable in British English; American English commonly uses accommodations.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/accommodation",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "lodging countability and regional plural"
+          }
+        ]
       },
       {
         "collocations": [
           {
             "collocation_id": "collocation:70c2d70bd351469bf12a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:accommodation:465234e7d1be530b:collocation:0"
             ],
@@ -123,8 +124,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "适应，调节",
-        "definition_en": "the process of adapting or adjusting",
+        "definition_cn": "适应；调整；为不同需要作出的具体安排",
+        "definition_en": "the process of adapting or adjusting, or an arrangement made to meet different needs",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
@@ -132,7 +133,17 @@
         "sense_id": "sense:accommodation:e33ebbe126a85146",
         "sense_label_en": "the process of adapting or adjusting",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "An adjustment for particular needs may be countable, often plural in US usage; reasonable accommodation names such an arrangement.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/accommodation",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "accommodation may be an arrangement, not only a process"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -431,12 +442,19 @@
       }
     ],
     "active_collocations": [
-      "collocation:70c2d70bd351469bf12a",
       "collocation:896190b79d847a908eac",
       "collocation:b7a9d0c79c00fd44e1f9",
       "collocation:ddb7aced54059f55e51b"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:accommodation:continuous-20260918-02",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Generic for-person/need combines two senses without a new lexical choice; their existing lodging/adjustment content remains."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:6fa34eaf834aa008a6f5",
@@ -446,7 +464,10 @@
       {
         "id": "collocation:70c2d70bd351469bf12a",
         "source_row": 9518,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:896190b79d847a908eac",

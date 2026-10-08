@@ -8,9 +8,9 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "vt. + that-clause",
+        "boundary": "that 后接完整从句；区别 perceive A as B 的看待/解释义。",
         "codex_reviewed": false,
-        "definition_cn": "意识到；认识到",
+        "definition_cn": "意识到/察觉到某个事实",
         "definition_en": "to become conscious of",
         "dimensions": {},
         "direction": "R+P",
@@ -27,10 +27,10 @@
         "fact_id": "deep:constructions:perceive:eab5fbb858e0899c",
         "family_sources": [],
         "label_en": null,
-        "level": null,
-        "meaning_cn": "",
+        "level": "L1",
+        "meaning_cn": "意识到/察觉到某个事实",
         "module": "constructions",
-        "pattern": "vt. + that-clause",
+        "pattern": "perceive that + clause",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,18 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:8f1dd5d7c908e317d007",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:perceive:c735fe882c0e59c6:collocation:0"
+            ],
+            "meaning_cn": "意识到……",
+            "phrase": "perceive that + clause"
+          }
+        ]
       },
       {
         "construction_id": "construction:91cfe0f9595a9124f33e",
@@ -79,15 +90,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f702e91bbc3a590c314a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:perceive:02c7e0b743755a5a:collocation:0"
-            ],
-            "meaning_cn": "感知到某物",
-            "phrase": "perceive + sth"
-          },
-          {
             "collocation_id": "collocation:123bbb63bc56275633bb",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -107,19 +109,21 @@
         "sense_id": "sense:perceive:02c7e0b743755a5a",
         "sense_label_en": "to become aware of through the senses",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:f702e91bbc3a590c314a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:perceive:02c7e0b743755a5a:collocation:0"
+            ],
+            "meaning_cn": "感知到某物",
+            "phrase": "perceive + sth"
+          }
+        ]
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:8f1dd5d7c908e317d007",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:perceive:c735fe882c0e59c6:collocation:0"
-            ],
-            "meaning_cn": "意识到……",
-            "phrase": "perceive that + clause"
-          },
           {
             "collocation_id": "collocation:4a2aa09e3443fd346d3b",
             "exam_value": "usage_example",
@@ -325,9 +329,7 @@
     "active_collocations": [
       "collocation:06df98767a4e314e42cf",
       "collocation:123bbb63bc56275633bb",
-      "collocation:4a2aa09e3443fd346d3b",
-      "collocation:8f1dd5d7c908e317d007",
-      "collocation:f702e91bbc3a590c314a"
+      "collocation:4a2aa09e3443fd346d3b"
     ],
     "facts": [
       {
@@ -365,12 +367,16 @@
       {
         "id": "collocation:8f1dd5d7c908e317d007",
         "source_row": 12143,
-        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f702e91bbc3a590c314a",
         "source_row": 20918,
-        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

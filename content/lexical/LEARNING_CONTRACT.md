@@ -18,6 +18,10 @@ backend ownership independence
 
 Lexical exists to build **fast, correct, transferable lexical access**.
 
+The current learning objective is **考研优先**, covering the union of meanings and usages needed for 考研、TOEFL、IELTS and CET-4/CET-6, not only their intersection. Evidence-backed, high-frequency general press usage relevant to those reading tasks may extend that scope, especially for 考研; a professional possibility or indefinite long-run English benefit does not by itself authorize a new default learning item. Correct specialist, historical and otherwise out-of-scope truth remains available in Lookup.
+
+Dictionary evidence establishes truth, not examination coverage or frequency. For a new default item, the existing owner receipt must name the applicable exam or evidenced general-press use, the concrete comprehension/selection/grammar/expression risk, and why existing senses or ordinary grammar cannot cover it. Without that basis, preserve Lookup truth or a local pending claim. Recognition does not imply Production or future Repair; content coverage does not mandate Depth or memorization, and review debt requires the learner’s local `+` or real failure evidence.
+
 Kian already has broad vocabulary exposure. The main problem is not beginner word-list coverage but access quality:
 
 - familiar-new senses;

@@ -20,14 +20,6 @@
             "sense:pour:6180e49e902a54fd",
             "sense:pour:aa8ffe89953c5060"
           ]
-        },
-        {
-          "label_cn": "倾泻；骤雨",
-          "label_en": "a heavy fall of rain or a flowing out",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:pour:8491d9b45fda525a"
-          ]
         }
       ],
       "core_meaning_cn": "使液体流出或大量涌出",
@@ -61,7 +53,8 @@
               "sense:pour:fd7473323cc95e71:collocation:1"
             ],
             "meaning_cn": "倒出；倾吐",
-            "phrase": "pour out + sth"
+            "phrase": "pour sth out / pour out sth",
+            "usage_note": "With a pronoun, use pour it out. The existing figurative use with feelings/troubles means express them freely, not move a physical liquid."
           }
         ],
         "confidence": "medium",
@@ -74,19 +67,11 @@
         "sense_id": "sense:pour:fd7473323cc95e71",
         "sense_label_en": "to cause a liquid or substance to flow from a container",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Usually a flowing material; the existing pour-out expression can figuratively describe freely expressing feelings or troubles."
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:8a2a58dac48513bb1fe0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pour:a9b5fab813ac5441:collocation:0"
-            ],
-            "meaning_cn": "倾盆而下",
-            "phrase": "pour down"
-          },
           {
             "collocation_id": "collocation:b684f41d26917bc9bdc5",
             "exam_value": "fixed_pattern",
@@ -143,6 +128,15 @@
             ],
             "meaning_cn": "下倾盆大雨",
             "phrase": "pour with rain"
+          },
+          {
+            "collocation_id": "collocation:8a2a58dac48513bb1fe0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pour:a9b5fab813ac5441:collocation:0"
+            ],
+            "meaning_cn": "倾盆而下",
+            "phrase": "pour down"
           }
         ],
         "confidence": "medium",
@@ -156,30 +150,6 @@
         "sense_label_en": "to rain heavily",
         "sort_order": 3,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:daf2a286afa17ba07981",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pour:8491d9b45fda525a:collocation:0"
-            ],
-            "meaning_cn": "一阵大雨",
-            "phrase": "a pour of rain"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "倾泻；骤雨",
-        "definition_en": "a heavy fall of rain or a flowing out",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:pour:8491d9b45fda525a",
-        "sense_label_en": "a heavy fall of rain or a flowing out",
-        "sort_order": 4,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -440,7 +410,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:daf2a286afa17ba07981",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:pour:8491d9b45fda525a:collocation:0"
+          ],
+          "meaning_cn": "一阵大雨",
+          "phrase": "a pour of rain"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "倾泻；骤雨",
+      "definition_en": "a heavy fall of rain or a flowing out",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:pour:8491d9b45fda525a",
+      "sense_label_en": "a heavy fall of rain or a flowing out",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:pour:8491d9b45fda525a",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Valid nominal pouring/rain use (Merriam-Webster pour), but this isolated nominal packaging has no established incremental examination/general-press job. Active flow and rain verbs remain."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -452,7 +451,7 @@
       },
       {
         "sense_id": "sense:pour:8491d9b45fda525a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10347,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
@@ -485,8 +484,7 @@
       "collocation:8a2a58dac48513bb1fe0",
       "collocation:8fc3dfaee5c16089e24f",
       "collocation:a28e6101baafdbb3f577",
-      "collocation:b684f41d26917bc9bdc5",
-      "collocation:daf2a286afa17ba07981"
+      "collocation:b684f41d26917bc9bdc5"
     ],
     "facts": [],
     "collocations": [
@@ -503,7 +501,8 @@
       {
         "id": "collocation:8a2a58dac48513bb1fe0",
         "source_row": 11718,
-        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json",
+        "sense_id": "sense:pour:aa8ffe89953c5060"
       },
       {
         "id": "collocation:8fc3dfaee5c16089e24f",
@@ -523,7 +522,9 @@
       {
         "id": "collocation:daf2a286afa17ba07981",
         "source_row": 18524,
-        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

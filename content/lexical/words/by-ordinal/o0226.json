@@ -14,7 +14,12 @@
         "definition_en": "express regret to someone for something",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:52ac4daead0804dec36e",
+          "reason": "Use one existing full apology-to-for retrieval, preserving offer and the reason complement instead of a second overlapping target."
+        }
       }
     ],
     "content_hash": "da07d06527d217ea6566e4f82cb70118ba966da84b81e6f7bb84fd17d6dc8dcd",
@@ -43,8 +48,8 @@
             "legacy_source_object_ids": [
               "sense:apology:8d660cd028785197:collocation:0"
             ],
-            "meaning_cn": "向某人道歉",
-            "phrase": "make an apology to + sb"
+            "meaning_cn": "因某事或做了某事向某人道歉",
+            "phrase": "make/offer an apology to + sb for + sth/doing sth"
           },
           {
             "collocation_id": "collocation:93a84c4ea3cea23d8c06",
@@ -314,7 +319,15 @@
       "collocation:52ac4daead0804dec36e",
       "collocation:93a84c4ea3cea23d8c06"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:apology:handoff-46143def2dc21349",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Use one existing full apology-to-for retrieval, preserving offer and the reason complement instead of a second overlapping target."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:52ac4daead0804dec36e",

@@ -13,7 +13,8 @@
         "level": "L1",
         "meaning_cn": "为了…的利益；为实现/保障…",
         "pattern": "in the interest(s) of sth",
-        "source_sense_key": "word:interest|sense|advantage_welfare"
+        "source_sense_key": "word:interest|sense|advantage_welfare",
+        "source_sense_id": "sense:interest:e432353b04c55659"
       },
       {
         "construction_id": "construction:interest:take-an-interest-in",
@@ -31,12 +32,13 @@
       "core_clusters": [
         {
           "label_cn": "兴趣，好奇心；利息；利益；权益；股份",
-          "label_en": "a feeling of curiosity or concern about something; a charge for borrowing money, usually a percentage of the amount borrowed; a right or legal share in something; a financial involvement",
+          "label_en": "a feeling of curiosity or concern about something; a charge for borrowing money, usually a percentage of the amount borrowed; a right or legal share in something; a financial involvement; a person's or group's welfare or advantage",
           "pos": "noun",
           "sense_ids": [
             "sense:interest:fca3513a40d054e9",
             "sense:interest:003829fecf1a5367",
-            "sense:interest:ccb05516e1835cb5"
+            "sense:interest:ccb05516e1835cb5",
+            "sense:interest:e432353b04c55659"
           ]
         },
         {
@@ -48,7 +50,7 @@
           ]
         }
       ],
-      "core_meaning_cn": "兴趣或利益",
+      "core_meaning_cn": "兴趣；利息；权益或股份；利益、福祉",
       "core_meaning_en": "a feeling of curiosity or concern; a financial charge or share",
       "mental_model_cn": "curiosity → 兴趣；money → 利息；stake/benefit → 利益/权益；take an interest in → 对…产生兴趣/关心。",
       "mental_model_en": ""
@@ -127,22 +129,12 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:interest:003829fecf1a5367",
-        "sense_label_en": "a charge for borrowing money, usually a percentage of the amount borrowe",
+        "sense_label_en": "a charge for borrowing money, usually a percentage of the amount borrowed",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ee33095eff41705eee30",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:interest:ccb05516e1835cb5:collocation:1"
-            ],
-            "meaning_cn": "在……中有既得利益",
-            "phrase": "have a vested interest in + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "利益；权益；股份",
         "definition_en": "a right or legal share in something; a financial involvement",
@@ -189,7 +181,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee33095eff41705eee30",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:interest:ccb05516e1835cb5:collocation:1"
+            ],
+            "meaning_cn": "对某种安排或结果有切身利益（不局限于金钱或法律权益）",
+            "phrase": "have a vested interest in + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "利益；利害；福祉",
         "definition_en": "an advantage, benefit, welfare, or stake that matters to a person or group, often plural",
@@ -837,7 +839,8 @@
       {
         "id": "collocation:ee33095eff41705eee30",
         "source_row": 20183,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "sense_id": "sense:interest:e432353b04c55659"
       }
     ],
     "exam-mappings": [],

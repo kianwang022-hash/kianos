@@ -40,21 +40,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:b6c5b0993664c205759e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:exploit:8a8e044e70705bd0:collocation:0"
             ],
             "meaning_cn": "利用某物",
             "phrase": "exploit + sth"
-          },
-          {
-            "collocation_id": "collocation:0610cd004a28343bd959",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:exploit:8a8e044e70705bd0:collocation:1"
-            ],
-            "meaning_cn": "开发自然资源",
-            "phrase": "exploit natural resources"
           }
         ],
         "confidence": "medium",
@@ -73,7 +64,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:18fe72b599ffb13884af",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:exploit:a4353045371a5274:collocation:0"
             ],
@@ -88,6 +79,15 @@
             ],
             "meaning_cn": "开矿",
             "phrase": "exploit a mine"
+          },
+          {
+            "collocation_id": "collocation:0610cd004a28343bd959",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:exploit:8a8e044e70705bd0:collocation:1"
+            ],
+            "meaning_cn": "开发自然资源",
+            "phrase": "exploit natural resources"
           }
         ],
         "confidence": "medium",
@@ -283,17 +283,26 @@
             }
           ]
         }
+      ],
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "exploit",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "exploit noun has initial stress; exploit verb has final stress.",
+      "boundaries": [
+        {
+          "surface": "exploit",
+          "condition": "noun",
+          "note": "initial stress"
+        },
+        {
+          "surface": "exploit",
+          "condition": "verb",
+          "note": "final stress"
+        }
       ]
     }
   },
-  "relation_refs": [
-    {
-      "relation_id": "confusable:horizontal:a257a82c73eec2460ac7",
-      "owner_path": "content/lexical/relations/by-id/37/37148cd3c08a0dfff3b7423f1379e405b6437f4bd67c5ec5a92c06cb2730f1b5.json",
-      "field": "confusables",
-      "index": 0
-    }
-  ],
+  "relation_refs": [],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -321,10 +330,8 @@
     ],
     "active_collocations": [
       "collocation:0610cd004a28343bd959",
-      "collocation:18fe72b599ffb13884af",
       "collocation:6ebd848e09ba1a30ddd0",
-      "collocation:7212854c1130688962b0",
-      "collocation:b6c5b0993664c205759e"
+      "collocation:7212854c1130688962b0"
     ],
     "facts": [
       {
@@ -337,12 +344,15 @@
       {
         "id": "collocation:0610cd004a28343bd959",
         "source_row": 482,
-        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json",
+        "sense_id": "sense:exploit:a4353045371a5274"
       },
       {
         "id": "collocation:18fe72b599ffb13884af",
         "source_row": 2064,
-        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6ebd848e09ba1a30ddd0",
@@ -357,7 +367,9 @@
       {
         "id": "collocation:b6c5b0993664c205759e",
         "source_row": 15501,
-        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

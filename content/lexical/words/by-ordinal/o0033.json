@@ -15,24 +15,6 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:accommodate:continuous-20260918-01",
-        "pattern": "accommodate + number/guests",
-        "meaning_cn": "可容纳某数量的人",
-        "definition_en": "have enough space for a stated number of people",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
-      },
-      {
-        "construction_id": "construction:accommodate:continuous-20260918-02",
-        "pattern": "accommodate + need/request/preference",
-        "meaning_cn": "满足、照顾某种需要/请求/偏好",
-        "definition_en": "make room for or satisfy a need, request, or preference",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
       }
     ],
     "content_hash": "f6fa9598eadf0b2056b4fdeb2f1d7e352e9f6edd8623fe7fbfb010b595d4ecb7",
@@ -57,7 +39,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:82ee56032f0f295c5685",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:accommodate:c291a8f41cf257f7:collocation:0"
             ],
@@ -184,7 +166,16 @@
         "sense_label_en": "to adapt to something",
         "sort_order": 3,
         "transitivity": "vi",
-        "note": "Bare intransitive accommodate to is relatively uncommon in ordinary production; prefer accommodate oneself to or adapt to when expressing personal adaptation."
+        "usage_note": "Bare intransitive accommodate to is relatively uncommon in ordinary production; prefer accommodate oneself to or adapt to when expressing personal adaptation.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/accommodate",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "existing bounded vi productive caveat must reach the learner note"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -491,13 +482,27 @@
       "collocation:051a5d0b3dac12e864a7",
       "collocation:39bdf1ee62a326e67517",
       "collocation:62e21fa0196de629e47f",
-      "collocation:82ee56032f0f295c5685",
       "collocation:870e65656fbd90b9b811",
       "collocation:89beddce3782166c7843",
       "collocation:a003d71b1a1095c1bcdb",
       "collocation:a03a47d6363d3c19e8b7"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:accommodate:continuous-20260918-01",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Number/guests simply fill the current capacity sense; hotel-can-accommodate example retains the selector."
+      },
+      {
+        "id": "construction:accommodate:continuous-20260918-02",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Need/request/preference fill the current satisfy-needs sense; no independent argument skeleton beyond its existing examples."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:051a5d0b3dac12e864a7",
@@ -517,7 +522,10 @@
       {
         "id": "collocation:82ee56032f0f295c5685",
         "source_row": 11096,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:870e65656fbd90b9b811",

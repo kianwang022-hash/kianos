@@ -13,7 +13,11 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "买单；支付费用",
-        "pattern": "foot the bill"
+        "pattern": "foot the bill",
+        "source_sense_id": "sense:foot:19fcb0eca9d95c0b",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:ea789a0823394251467e"
+        }
       }
     ],
     "content_hash": "edd01459741c439fd868351deadfc5a2084b846105d1ee9a7deac43103e8f615",
@@ -62,15 +66,6 @@
             ],
             "meaning_cn": "步行",
             "phrase": "on foot"
-          },
-          {
-            "collocation_id": "collocation:b3359e70879540379bd9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:foot:62669744c7035cdf:collocation:1"
-            ],
-            "meaning_cn": "付账",
-            "phrase": "foot the bill"
           }
         ],
         "confidence": "medium",
@@ -116,6 +111,15 @@
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:foot:19fcb0eca9d95c0b:collocation:0"
+            ],
+            "meaning_cn": "付账",
+            "phrase": "foot the bill"
+          },
+          {
+            "collocation_id": "collocation:b3359e70879540379bd9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:foot:62669744c7035cdf:collocation:1"
             ],
             "meaning_cn": "付账",
             "phrase": "foot the bill"
@@ -332,7 +336,14 @@
       "collocation:b3359e70879540379bd9",
       "collocation:ea789a0823394251467e"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:49dcc5c066f22644da50",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:8f3b73548817649d8184",
@@ -347,7 +358,8 @@
       {
         "id": "collocation:b3359e70879540379bd9",
         "source_row": 15190,
-        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json",
+        "sense_id": "sense:foot:19fcb0eca9d95c0b"
       },
       {
         "id": "collocation:ea789a0823394251467e",

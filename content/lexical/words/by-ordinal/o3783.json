@@ -18,19 +18,11 @@
             "sense:prison:1986b2b7bdf1539d",
             "sense:prison:7c7210b28f605aa7"
           ]
-        },
-        {
-          "label_cn": "监禁",
-          "label_en": "put in prison",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:prison:bf110d25b4d55db9"
-          ]
         }
       ],
-      "core_meaning_cn": "监狱",
-      "core_meaning_en": "a place of confinement for criminals",
-      "mental_model_cn": "监狱",
+      "core_meaning_cn": "监狱；使人受禁锢的处境",
+      "core_meaning_en": "a place of confinement, including detention or punishment; a confining situation",
+      "mental_model_cn": "实指拘禁人的场所；比喻让人觉得无法摆脱的处境，不能由 prison 一词断定所有在押者都已定罪。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -97,30 +89,6 @@
         "sense_label_en": "a prisonlike situation; a place of seeming confinement",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:02fc533311d7b3baa72d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:prison:bf110d25b4d55db9:collocation:0"
-            ],
-            "meaning_cn": "监禁罪犯",
-            "phrase": "prison the criminal"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "监禁",
-        "definition_en": "put in prison",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:prison:bf110d25b4d55db9",
-        "sense_label_en": "put in prison",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -213,7 +181,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:02fc533311d7b3baa72d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:prison:bf110d25b4d55db9:collocation:0"
+          ],
+          "meaning_cn": "监禁罪犯",
+          "phrase": "prison the criminal"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "监禁",
+      "definition_en": "put in prison",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:prison:bf110d25b4d55db9",
+      "sense_label_en": "put in prison",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:prison:bf110d25b4d55db9",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Valid verb equivalent to imprison (MW prison), but the ordinary noun plus standard imprison carry the useful default job. Preserve full uncommon verb truth in Lookup."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -232,14 +229,13 @@
       },
       {
         "sense_id": "sense:prison:bf110d25b4d55db9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10535,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
       }
     ],
     "active_collocations": [
-      "collocation:02fc533311d7b3baa72d",
       "collocation:2608cf58d07859daf41c",
       "collocation:ae33b54383b74040762f",
       "collocation:f920b79726292fb9738d"
@@ -249,7 +245,9 @@
       {
         "id": "collocation:02fc533311d7b3baa72d",
         "source_row": 249,
-        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:2608cf58d07859daf41c",

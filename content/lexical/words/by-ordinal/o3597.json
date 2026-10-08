@@ -26,15 +26,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:778f8b4b5bbe3f1239b0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pierce:5ce79596903b5658:collocation:0"
-            ],
-            "meaning_cn": "刺穿某物",
-            "phrase": "pierce + sth"
-          },
-          {
             "collocation_id": "collocation:a9712dc9264cd37588b3",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -47,14 +38,25 @@
         "confidence": "medium",
         "definition_cn": "刺穿，穿透",
         "definition_en": "to make a hole in or through something with a sharp object",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "pierce sth; pierce through sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pierce:5ce79596903b5658",
         "sense_label_en": "to make a hole in or through something with a sharp object",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:778f8b4b5bbe3f1239b0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pierce:5ce79596903b5658:collocation:0"
+            ],
+            "meaning_cn": "刺穿某物",
+            "phrase": "pierce + sth"
+          }
+        ]
       },
       {
         "collocations": [
@@ -104,14 +106,15 @@
         "confidence": "medium",
         "definition_cn": "（声音）响彻；（亮光）照进",
         "definition_en": "to pass through or into something, as sound or light",
-        "governing_pattern": "vi. + through/into",
+        "governing_pattern": "pierce sth; pierce through/into sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pierce:49ee092e2d775778",
         "sense_label_en": "to pass through or into something, as sound or light",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "a sound pierces the silence / light pierces the mist 可直接接宾语，并非只用 through/into。"
       }
     ],
     "verification_summary": {
@@ -403,7 +406,6 @@
     "active_collocations": [
       "collocation:30a70435e682e6aeb4e6",
       "collocation:6af438ae8ed3e0737ca9",
-      "collocation:778f8b4b5bbe3f1239b0",
       "collocation:a9712dc9264cd37588b3",
       "collocation:ce5fbe83c2371f3ff7d4"
     ],
@@ -422,7 +424,9 @@
       {
         "id": "collocation:778f8b4b5bbe3f1239b0",
         "source_row": 10096,
-        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a9712dc9264cd37588b3",

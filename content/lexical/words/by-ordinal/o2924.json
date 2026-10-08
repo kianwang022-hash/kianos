@@ -26,15 +26,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:67043a79532c6dc4685e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:magnify:a708fab92b735879:collocation:0"
-            ],
-            "meaning_cn": "放大某物",
-            "phrase": "magnify + sth"
-          },
-          {
             "collocation_id": "collocation:b1ad376f1aecf685217c",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -54,19 +45,21 @@
         "sense_id": "sense:magnify:a708fab92b735879",
         "sense_label_en": "to make something look bigger than it really is",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:67043a79532c6dc4685e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:magnify:a708fab92b735879:collocation:0"
+            ],
+            "meaning_cn": "放大某物",
+            "phrase": "magnify + sth"
+          }
+        ]
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:83492828f5fbd757c1b8",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:magnify:f2f9cde5baa95369:collocation:0"
-            ],
-            "meaning_cn": "夸大某事物",
-            "phrase": "magnify + sth"
-          },
           {
             "collocation_id": "collocation:1a123a22c64aca213463",
             "exam_value": "usage_example",
@@ -87,7 +80,18 @@
         "sense_id": "sense:magnify:f2f9cde5baa95369",
         "sense_label_en": "to make something seem more important or serious than it really is",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:83492828f5fbd757c1b8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:magnify:f2f9cde5baa95369:collocation:0"
+            ],
+            "meaning_cn": "夸大某事物",
+            "phrase": "magnify + sth"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -304,8 +308,6 @@
     ],
     "active_collocations": [
       "collocation:1a123a22c64aca213463",
-      "collocation:67043a79532c6dc4685e",
-      "collocation:83492828f5fbd757c1b8",
       "collocation:b1ad376f1aecf685217c"
     ],
     "facts": [],
@@ -318,12 +320,16 @@
       {
         "id": "collocation:67043a79532c6dc4685e",
         "source_row": 8688,
-        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:83492828f5fbd757c1b8",
         "source_row": 11126,
-        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b1ad376f1aecf685217c",

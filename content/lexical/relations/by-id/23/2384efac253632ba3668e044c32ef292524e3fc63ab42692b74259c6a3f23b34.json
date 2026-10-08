@@ -3,15 +3,14 @@
   "relation_id": "deep:semantic_contrast:account:7e6042c5223cc39f",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "均可指账单；bill更具体列出应付款项，account另有账户等义",
+    "boundary": "bank/user account 是账户或使用记录；bill 是要求支付货物或服务费用的账单。这里的账户义不能直接替换付款账单义。",
     "codex_boundary_corrected": true,
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
-    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_review_rationale": "The current account endpoint is a record for money/access/business, while the bill endpoint is a document of money owed; an old shared synset does not make these current senses interchangeable.",
     "codex_reviewed": true,
     "content": {
-      "shared_definition": "an itemized statement of money owed for goods shipped or services rendered",
-      "shared_synset": "06528946-n",
+      "shared_definition": null,
       "source_definition": "a record for money, access, or business dealings",
       "source_sense_id": "sense:account:614e5928ef58500a",
       "target_definition": "a document showing how much money you owe for goods or services",
@@ -20,14 +19,14 @@
     },
     "dimensions": {
       "certainty": "高",
-      "collocation": "bank account",
-      "core_meaning": "账户 vs 账单",
-      "exam_trap": "近义词辨析",
+      "collocation": "bank/user account; pay a bill",
+      "core_meaning": "账户/记录与应付款账单",
+      "exam_trap": "不要把账户名称当应付款账单",
       "register": "通用",
       "semantic_prosody": "中性",
       "strength": "中",
-      "syntax": "名词",
-      "writing_safety": "安全"
+      "syntax": "两个当前名词义",
+      "writing_safety": "account 和 bill 按当前语境不可互换"
     },
     "direction": "C",
     "evidence": [
@@ -61,7 +60,7 @@
     "schema_validated": true,
     "selection_rank": 14,
     "semantic_stage_a": {
-      "relation_class": "partial_overlap",
+      "relation_class": "semantic_contrast",
       "source_definition": "a record for money, access, or business dealings",
       "source_sense_id": "sense:account:614e5928ef58500a",
       "target_definition": "a document showing how much money you owe for goods or services",
@@ -89,7 +88,28 @@
     "why": "",
     "word": "account",
     "word_id": "word:account",
-    "writing_safe": false
+    "writing_safe": true,
+    "source_evidence_objects": [
+      {
+        "source_url": "https://www.merriam-webster.com/dictionary/account",
+        "accessed_date": "2026-10-07",
+        "learner_note": "Account can name a financial or user record; the current bank/user-account examples do not name a bill.",
+        "difference": {
+          "account": "bank/user record",
+          "bill": "document stating charges to be paid"
+        }
+      },
+      {
+        "source_url": "https://www.merriam-webster.com/dictionary/bill",
+        "accessed_date": "2026-10-07",
+        "supports": "bill as an itemized statement of charges or money owed"
+      },
+      {
+        "source_synset": "06528946-n",
+        "evidence_status": "historical_source",
+        "applicability": "The original lemma overlap is provenance; it does not assert equivalence of the current bank/user-record and bill endpoint senses."
+      }
+    ]
   },
   "word_views": [
     {
@@ -98,20 +118,20 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "均可指账单；bill更具体列出应付款项，account另有账户等义",
+        "boundary": "bank/user account 是账户或使用记录；bill 是要求支付货物或服务费用的账单。这里的账户义不能直接替换付款账单义。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
         "dimensions": {
           "certainty": "高",
-          "collocation": "bank account",
-          "core_meaning": "账户 vs 账单",
-          "exam_trap": "近义词辨析",
+          "collocation": "bank/user account; pay a bill",
+          "core_meaning": "账户/记录与应付款账单",
+          "exam_trap": "不要把账户名称当应付款账单",
           "register": "通用",
           "semantic_prosody": "中性",
           "strength": "中",
-          "syntax": "名词",
-          "writing_safety": "安全"
+          "syntax": "两个当前名词义",
+          "writing_safety": "account 和 bill 按当前语境不可互换"
         },
         "direction": "C",
         "evidence": [
@@ -133,7 +153,7 @@
         "pos": null,
         "priority": "A",
         "publication_status": "codex_reviewed",
-        "shared_definition": "an itemized statement of money owed for goods shipped or services rendered",
+        "shared_definition": null,
         "source_sense_id": "sense:account:614e5928ef58500a",
         "target_sense_id": "sense:bill:736de9643fb75ec2",
         "target_word": "bill",
@@ -141,7 +161,28 @@
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": true,
+        "source_evidence_objects": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/account",
+            "accessed_date": "2026-10-07",
+            "learner_note": "Account can name a financial or user record; the current bank/user-account examples do not name a bill.",
+            "difference": {
+              "account": "bank/user record",
+              "bill": "document stating charges to be paid"
+            }
+          },
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/bill",
+            "accessed_date": "2026-10-07",
+            "supports": "bill as an itemized statement of charges or money owed"
+          },
+          {
+            "source_synset": "06528946-n",
+            "evidence_status": "historical_source",
+            "applicability": "The original lemma overlap is provenance; it does not assert equivalence of the current bank/user-record and bill endpoint senses."
+          }
+        ]
       }
     }
   ],

@@ -13,14 +13,24 @@
         "level": "L1",
         "meaning_cn": "做某事的能力",
         "pattern": "the ability to do sth",
-        "learning_note": "Use to-infinitive, not of + -ing."
+        "learning_note": "Use to-infinitive, not of + -ing.",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:aa43b28901fdc72137a9",
+          "reason": "The noun-to-infinitive collocation already owns this exact reusable frame."
+        }
       },
       {
         "construction_id": "construction:c0ca70f8aab256474638",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "具备/培养/展现做某事的能力",
-        "pattern": "have/develop/show the ability to do sth"
+        "pattern": "have/develop/show the ability to do sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:aa43b28901fdc72137a9",
+          "reason": "Have/develop/show are preserved prefix choices for the same ability-to frame, not another local to-infinitive task."
+        }
       }
     ],
     "content_hash": "dab261b9912a071f6f36f34e71c09b305d6777711480bc05cd288a4722f29e17",
@@ -63,7 +73,7 @@
           },
           {
             "collocation_id": "collocation:eaea95b553bc6946fa16",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:ability:cdd1c93c1b68540e:collocation:1"
             ],
@@ -82,7 +92,7 @@
         "sense_label_en": "capacity or skill to do something",
         "sort_order": 0,
         "transitivity": "nonverb",
-        "usage_note": "Use ability to do something; not ability of doing something."
+        "usage_note": "Use the ability to do something, including have/develop/show the ability to do it; not ability of doing."
       }
     ],
     "verification_summary": {
@@ -249,10 +259,24 @@
       }
     ],
     "active_collocations": [
-      "collocation:aa43b28901fdc72137a9",
-      "collocation:eaea95b553bc6946fa16"
+      "collocation:aa43b28901fdc72137a9"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:233a297c0d52f86a0704",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
+      },
+      {
+        "id": "construction:c0ca70f8aab256474638",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:aa43b28901fdc72137a9",
@@ -262,7 +286,10 @@
       {
         "id": "collocation:eaea95b553bc6946fa16",
         "source_row": 19903,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       }
     ],
     "exam-mappings": [],

@@ -6,7 +6,41 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:but:lane0601-0650-all-but-almost",
+        "pattern": "all but + adj / all but + verb",
+        "meaning_cn": "几乎；差不多完全",
+        "definition_en": "almost or very nearly",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R",
+        "boundary": "all but one/all but the weakest plants 是“除了”；all but impossible/all but given up 等属性、动作语境是“几乎”。不要只按 but 的“除了”义逐词翻译。",
+        "source": "https://dictionary.cambridge.org/us/dictionary/english/all-but"
+      },
+      {
+        "construction_id": "construction:but:lane0601-0650-anything-but",
+        "pattern": "anything but (+ adj/n)",
+        "meaning_cn": "一点也不；绝不是",
+        "definition_en": "definitely not",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R+P",
+        "boundary": "用来描写属性或身份时强调否定，如 anything but cheap。实物排除语境可按普通 except 读作“除了…什么都”。省略补语时由上下文补出被否定的属性。",
+        "source": "https://www.oxfordlearnersdictionaries.com/definition/english/anything"
+      },
+      {
+        "construction_id": "construction:but:lane0601-0650-but-for",
+        "pattern": "but for + sth",
+        "meaning_cn": "要不是……；除了……（按语境选择）",
+        "definition_en": "if it were not for something; also except for something",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R+P",
+        "boundary": "反事实语境（常配 would/could）表示“要不是”；描述场景中可表示“除了…以外”。不要把两种读法互相覆盖。",
+        "source": "https://www.oxfordlearnersdictionaries.com/definition/english/but_1"
+      }
+    ],
     "content_hash": "5a3db3efcd82437c18c80921c3230c4212b50c40623bf2fb4f5dfabccea49617",
     "core_concept": {
       "core_clusters": [
@@ -37,7 +71,7 @@
       ],
       "core_meaning_cn": "转折或例外",
       "core_meaning_en": "contrast or exception",
-      "mental_model_cn": "转折或例外",
+      "mental_model_cn": "连接分句常表示转折；排除对象语境表示“除了”；固定 all but + 属性/动作常表示“几乎”；正式或文学语境 but a few 表示“仅仅几个”。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -80,26 +114,8 @@
             "legacy_source_object_ids": [
               "sense:but:ebe814b0b35e5599:collocation:0"
             ],
-            "meaning_cn": "除了……都",
-            "phrase": "all but + sth"
-          },
-          {
-            "collocation_id": "collocation:4b3bfb779347920d020f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:but:ebe814b0b35e5599:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "一点也不，远非",
-            "phrase": "anything but"
-          },
-          {
-            "collocation_id": "collocation:8b6fb0388276b00131a0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:but:ebe814b0b35e5599:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "若不是、要不是",
-            "phrase": "but for"
+            "meaning_cn": "除了被排除的人、事物或数量之外，其余都",
+            "phrase": "all but + excluded person/thing/amount"
           }
         ],
         "confidence": "medium",
@@ -1199,8 +1215,6 @@
     ],
     "active_collocations": [
       "collocation:3e82934fa986f5c7aa4d",
-      "collocation:4b3bfb779347920d020f",
-      "collocation:8b6fb0388276b00131a0",
       "collocation:f1082a8f7a3124913ec2",
       "collocation:fa9e8a961332cf1c7d1e"
     ],
@@ -1224,12 +1238,16 @@
       {
         "id": "collocation:4b3bfb779347920d020f",
         "source_row": 21593,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8b6fb0388276b00131a0",
         "source_row": 21597,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
