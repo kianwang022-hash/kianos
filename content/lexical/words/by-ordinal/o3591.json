@@ -8,13 +8,13 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "bounded phrasal construction; do not expand to every pick up sense",
+        "boundary": "接人/取物/捡起；代词放 up 前：pick it up / pick him up，不写 pick up him。不扩展到所有 pick up 义项。",
         "construction_id": "construction:24ca7512d5ed680fcd2c",
         "definition_en": "to collect, lift, or take up someone or something",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "接/取/捡起某人或某物",
-        "pattern": "pick up sb/sth"
+        "pattern": "pick sb/sth up / pick up + noun"
       },
       {
         "boundary": "acquire/learn informally; separate from physical collect/lift",
@@ -34,14 +34,38 @@
         "meaning_cn": "不用钥匙撬开锁；通过工具操纵锁芯打开",
         "pattern": "pick a lock",
         "source_sense_id": "sense:pick:5ea5b834f9d65504"
+      },
+      {
+        "construction_id": "construction:pick:ed75c08d9ab2df38",
+        "pattern": "the economy/business/activity picks up",
+        "definition_en": "to improve, recover, or become more active",
+        "meaning_cn": "好转；复苏；变得活跃",
+        "level": "L1",
+        "direction": "R",
+        "source_sense_id": null,
+        "boundary": "不及物：the economy picks up；区别接取物品和非正式学会，不需要补一个被捡起的宾语。",
+        "source_evidence": [
+          {
+            "source_url": "https://edu.sina.com.cn/kaoyan/2011-01-16/1053282521.shtml",
+            "role": "2011_EnglishI_Text2_exam_reprint"
+          },
+          {
+            "source_url": "https://edu.people.com.cn/BIG5/n/2013/0906/c1053-22830791-2.html",
+            "role": "independent_exam_reprint"
+          },
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/pick-up",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "content_hash": "f5efc6143c009f4f653abc9447fd92f4870a962f1eb9106848157f101de119fa",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "挑选，选择；采摘；挖，剔，掏",
-          "label_en": "to choose someone or something from a group; to remove a fruit or flower from a plant; to remove something with a pointed tool or finger",
+          "label_cn": "挑选，选择；采摘；用手指或尖工具剔除小物；剔、抠、掏",
+          "label_en": "to choose someone or something from a group; to remove a fruit or flower from a plant; to remove small bits with a finger or pointed tool, or clean or probe something in this way",
           "pos": "verb",
           "sense_ids": [
             "sense:pick:5e693e8b142b5979",
@@ -78,15 +102,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:7ee9af9c5dbfd8517fb4",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pick:5e693e8b142b5979:collocation:0"
-            ],
-            "meaning_cn": "挑选某物/某人",
-            "phrase": "pick + sth/sb"
-          },
-          {
             "collocation_id": "collocation:a2bcc6f3d107d8404c25",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -106,7 +121,18 @@
         "sense_id": "sense:pick:5e693e8b142b5979",
         "sense_label_en": "to choose someone or something from a group",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:7ee9af9c5dbfd8517fb4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pick:5e693e8b142b5979:collocation:0"
+            ],
+            "meaning_cn": "挑选某物/某人",
+            "phrase": "pick + sth/sb"
+          }
+        ]
       },
       {
         "collocations": [
@@ -144,15 +170,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:e8981351252a8ff60903",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pick:5ea5b834f9d65504:collocation:0"
-            ],
-            "meaning_cn": "挖/剔某物",
-            "phrase": "pick + sth"
-          },
-          {
             "collocation_id": "collocation:b3a77574e77b55a70fc2",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -163,16 +180,28 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "挖，剔，掏",
-        "definition_en": "to remove something with a pointed tool or finger",
+        "definition_cn": "用手指或尖工具剔除小物；剔、抠、掏",
+        "definition_en": "to remove small bits with a finger or pointed tool, or clean or probe something in this way",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pick:5ea5b834f9d65504",
-        "sense_label_en": "to remove something with a pointed tool or finger",
+        "sense_label_en": "to remove small bits with a finger or pointed tool, or clean or probe something in this way",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:e8981351252a8ff60903",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pick:5ea5b834f9d65504:collocation:0"
+            ],
+            "meaning_cn": "挖/剔某物",
+            "phrase": "pick + sth"
+          }
+        ],
+        "usage_note": "pick one's teeth 是剔除牙间残渣，不是拔牙；pick a lock 由既有开锁构式承接。"
       },
       {
         "collocations": [
@@ -472,14 +501,19 @@
       "collocation:0038553cd124b02bf4ca",
       "collocation:520daf6f8c44a1dc70d7",
       "collocation:6eb96ddea8c666242721",
-      "collocation:7ee9af9c5dbfd8517fb4",
       "collocation:a2bcc6f3d107d8404c25",
       "collocation:b09ae71007e64f43ba7a",
       "collocation:b3a77574e77b55a70fc2",
-      "collocation:e8981351252a8ff60903",
       "collocation:f7d263cad14f82a92e03"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:pick:ed75c08d9ab2df38",
+        "target_kind": "construction",
+        "status": "active",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:0038553cd124b02bf4ca",
@@ -504,7 +538,9 @@
       {
         "id": "collocation:7ee9af9c5dbfd8517fb4",
         "source_row": 10737,
-        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a2bcc6f3d107d8404c25",
@@ -524,7 +560,9 @@
       {
         "id": "collocation:e8981351252a8ff60903",
         "source_row": 19706,
-        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f7d263cad14f82a92e03",
