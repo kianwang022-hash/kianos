@@ -1,5 +1,6 @@
 import {
   POLITICS_MEMORY_PLAN_KEY,
+  politicsMemoryRecommendedCandidateIds,
   recordPoliticsMemoryFreeResponse,
   recordPoliticsMemoryResponse,
   resolvePoliticsMemoryResume
@@ -47,6 +48,7 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   const card = $('[data-memory-card]');
   const freePanel = $('[data-memory-free]');
   const freeOpen = $('[data-memory-free-open]');
+  const freeScope = $('[data-memory-free-scope]');
   const freeSubject = $('[data-memory-free-subject]');
   const freeChapter = $('[data-memory-free-chapter]');
   const freeStart = $('[data-memory-free-start]');
@@ -125,10 +127,18 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
     reveal?.focus({ preventScroll: true });
   };
 
+  const freeCandidatePool = () => {
+    if ((freeScope?.value || 'recommended') === 'all') return candidates;
+    let recommendedIds;
+    try { recommendedIds = politicsMemoryRecommendedCandidateIds(storage, catalog); }
+    catch { recommendedIds = new Set(); }
+    return candidates.filter((candidate) => recommendedIds.has(candidate.id));
+  };
+
   const filteredFreeCandidates = () => {
     const subject = freeSubject?.value || 'all';
     const chapter = freeChapter?.value || 'all';
-    return candidates.filter((candidate) =>
+    return freeCandidatePool().filter((candidate) =>
       (subject === 'all' || candidate.subject === subject)
       && (chapter === 'all' || candidate.chapter_id === chapter)
     );
@@ -141,9 +151,10 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   const fillChapterOptions = () => {
     if (!(freeChapter instanceof HTMLSelectElement)) return;
     const subject = freeSubject?.value || 'all';
+    const pool = freeCandidatePool();
     const rows = subject === 'all'
       ? []
-      : candidates.filter((candidate) => candidate.subject === subject);
+      : pool.filter((candidate) => candidate.subject === subject);
     const seen = new Map();
     for (const row of rows) {
       if (!row.chapter_id || seen.has(row.chapter_id)) continue;
@@ -166,19 +177,21 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
 
   const fillFreeOptions = () => {
     if (!(freeSubject instanceof HTMLSelectElement)) return;
-    if (!freeSubject.options.length) {
-      const all = document.createElement('option');
-      all.value = 'all';
-      all.textContent = `全部政治 · ${candidates.length}`;
-      freeSubject.append(all);
-      const subjects = [...new Set(candidates.map((candidate) => candidate.subject).filter(Boolean))];
-      for (const subject of subjects) {
-        const option = document.createElement('option');
-        option.value = subject;
-        option.textContent = `${subjectLabels[subject] || subject} · ${candidates.filter((row) => row.subject === subject).length}`;
-        freeSubject.append(option);
-      }
+    const previous = freeSubject.value || 'all';
+    const pool = freeCandidatePool();
+    freeSubject.replaceChildren();
+    const all = document.createElement('option');
+    all.value = 'all';
+    all.textContent = `全部政治 · ${pool.length}`;
+    freeSubject.append(all);
+    const subjects = [...new Set(pool.map((candidate) => candidate.subject).filter(Boolean))];
+    for (const subject of subjects) {
+      const option = document.createElement('option');
+      option.value = subject;
+      option.textContent = `${subjectLabels[subject] || subject} · ${pool.filter((row) => row.subject === subject).length}`;
+      freeSubject.append(option);
     }
+    if ([...freeSubject.options].some((option) => option.value === previous)) freeSubject.value = previous;
     fillChapterOptions();
   };
 
@@ -193,7 +206,7 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
       freeOpen.textContent = hasPlan ? '返回今日任务' : '自主选练';
       freeOpen.disabled = !hasPlan;
     }
-    if (progress) progress.textContent = String(candidates.length);
+    if (progress) progress.textContent = String(freeCandidatePool().length);
   };
 
   const renderFreeCandidate = () => {
@@ -222,7 +235,9 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   const startFree = () => {
     freeCandidates = filteredFreeCandidates();
     if (!freeCandidates.length) {
-      if (status) status.textContent = '这个范围暂时没有已审核的 Memory。';
+      if (status) status.textContent = (freeScope?.value || 'recommended') === 'all'
+        ? '这个范围暂时没有已审核的 Memory。'
+        : '这个范围暂时没有推荐 Memory；可以切到「全部已审核练习」查看保留的参考卡。';
       return;
     }
     mode = 'free-active';
@@ -333,6 +348,7 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
     else if (mode === 'free-picker') renderPlan();
     else showFreePicker();
   });
+  freeScope?.addEventListener('change', fillFreeOptions);
   freeSubject?.addEventListener('change', fillChapterOptions);
   freeChapter?.addEventListener('change', updateFreeCount);
   freeStart?.addEventListener('click', startFree);
