@@ -73,7 +73,7 @@
       "长期复杂过程",
       "远大理想与现实实践统一"
     ],
-    "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch08.brief.md#c08-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→进入原 subject_closure 的全科回收。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。"
+    "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch08.brief.md#c08-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→进入原 subject_closure 的全科回收。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。 全科回收紧接本轮时，刚完成的章模型重建也只确认覆盖并核章际连接，不自动整章重建第二遍；未做内容和以后独立复习仍需恢复。"
   },
   "subject_closure": {
     "marxism_full_chain": [
@@ -86,7 +86,7 @@
       "第七章：社会主义怎样从理论进入现实——科学社会主义",
       "第八章：整个历史运动指向什么——共产主义理想与实现"
     ],
-    "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。 全科回收先从 C00 的理论产生、体系和发展定位进入，再按本字段原有八章顺序展开；实际执行 teaching-candidate/ch08.brief.md#c08-whole-subject-return，逐章恢复原节点、主提示与两个既有 residual 家族，不以章节标题表代替复习。"
+    "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。 全科回收先从 C00 的理论产生、体系和发展定位进入，再按本字段原有八章顺序展开；实际执行 teaching-candidate/ch08.brief.md#c08-whole-subject-return，按原章顺序核原节点、主提示与两个既有 residual 家族及章际连接；同一连续回合刚完成的内容确认覆盖并补漏修错，未做内容仍需取回，独立复习不永久豁免，不以章节标题表代替复习。"
   },
   "content_support": {
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
