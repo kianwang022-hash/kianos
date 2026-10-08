@@ -47,7 +47,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Full Politics Content closure task — 2026-10-08
 
-**状态：任务说明已准备／内容执行暂停。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
+**状态：Kian已于2026-10-08恢复内容执行；首批马原C00–C02。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
 
 ### 目的和范围
 
@@ -93,9 +93,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** the full Politics Content closure task above is **specified but paused / not started**, pending Kian's review of this task and reading path. The completed five-chapter sample does not authorize or certify the full run.
+**Current:** Kian resumed the full Politics Content closure task on 2026-10-08. The active bounded batch is Marxism C00–C02; prior five-chapter sampling remains diagnostic, not full-run acceptance.
 
-**Next:** finish the task-specification attack review and durable readback; then wait for Kian to resume content execution. On resumption, begin Marxism C00–C02 and continue the stated chapter scope in order. Ordinary learning still bypasses this cursor. Do not resume #1151 or an old subject production queue.
+**Next:** finish the actual Marxism C00–C02 content/source audit, minimal confirmed repairs and learning-path replay; save and read back the bounded result, then continue the stated chapter scope in order. Ordinary learning still bypasses this cursor. Do not resume #1151 or an old subject production queue.
 
 **Existing delivered basis:** the source-first learning rules remain closed/delivered, and the designated retention source is now explicitly bound to **2027 腿姐《冲刺背诵手册》上册 / 下册** under Learning §2 / §6.1 and the current Source owner. Marxism has completed its C00–C08 Chengfeng compression + current-year Leg27 retention review and old-card recommendation-role reconciliation in its [subject Current](learning/marxism/CURRENT.md). This parent cursor does not copy subject counts or infer equivalent review completion for History / Mao / Xi / Ethics-Law.
 
@@ -135,7 +135,7 @@ Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact nati
 
 ## Stop / reopen
 
-The bounded #1151 Memory delivery is closed. Its technical delivery proof does not promote unresolved content/Source claims or learner acceptance. The separately authorized content closure task above is currently paused; its state and bounded next step are governed by Current / Next, not by the historical delivery closure.
+The bounded #1151 Memory delivery is closed. Its technical delivery proof does not promote unresolved content/Source claims or learner acceptance. The separately authorized content closure task above is active for its bounded content scope; its state and bounded next step are governed by Current / Next, not by the historical delivery closure.
 
 After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
 
