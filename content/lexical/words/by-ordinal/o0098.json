@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:aeroplane:handoff-a023e1f356dc2859",
-        "definition_en": "regional spelling variants for an aircraft",
-        "level": "L1",
-        "meaning_cn": "英式 aeroplane；美式 airplane",
-        "pattern": "aeroplane / airplane",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "982dab192803984aad9362c6abfd508fee3a6dea5a190e9ec7fdcdc09ed95fbb",
     "core_concept": {
       "core_clusters": [],
@@ -66,7 +56,8 @@
         "sense_id": "sense:aeroplane:bd683e8947755c89",
         "sense_label_en": "an aircraft with fixed wings and engines that is heavier than air",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Aeroplane is especially British English; airplane is especially American English. Both name the same aircraft."
       }
     ],
     "verification_summary": {
@@ -204,8 +195,9 @@
       {
         "id": "construction:aeroplane:handoff-a023e1f356dc2859",
         "target_kind": "construction",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Regional spelling is background identity support, not a construction; preserve the distinction in the sense note and existing relation."
       },
       {
         "id": "relation:horizontal:125da2d4b9eaa72d11d3",

@@ -6,27 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:aggregate:handoff-ca7b5d6c90783d4c",
-        "pattern": "aggregate data/total",
-        "meaning_cn": "汇总的；总计；汇总",
-        "definition_en": "combined into a total or collect into a whole",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "f2c512daa70c9bc9d2619afa6906d813c4984f008cdf11ab49b2a83ef0f5ec6b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "总计；合计；骨料（混凝土中的砂石等）",
-          "label_en": "a collection or total of units or parts; material such as sand or gravel used in concrete",
+          "label_cn": "总计；合计",
+          "label_en": "a collection or total of units or parts",
           "pos": "noun",
           "sense_ids": [
-            "sense:aggregate:0958c5a38ed45554",
-            "sense:aggregate:306999a15b635c76"
+            "sense:aggregate:0958c5a38ed45554"
           ]
         },
         {
@@ -93,38 +82,6 @@
           "paired_form": "aggregate noun/adjective vs verb",
           "note": "Noun/adjective normally end in /-ət/ and verb in /-eɪt/; canonical Form owns the pronunciation and source scopes. Primary stress remains initial in these variants."
         }
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c83927ff4bea90556256",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:aggregate:306999a15b635c76:collocation:0"
-            ],
-            "meaning_cn": "粗骨料",
-            "phrase": "coarse aggregate"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "骨料（混凝土中的砂石等）",
-        "definition_en": "material such as sand or gravel used in concrete",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:aggregate:306999a15b635c76",
-        "sense_label_en": "material such as sand or gravel used in concrete",
-        "sort_order": 1,
-        "transitivity": "nonverb",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "pronunciation_boundary",
-          "surface_lemma": "aggregate",
-          "paired_form": "aggregate noun/adjective vs verb",
-          "note": "Noun/adjective normally end in /-ət/ and verb in /-eɪt/; canonical Form owns the pronunciation and source scopes. Primary stress remains initial in these variants."
-        },
-        "usage_note": "specialist construction-material sense; lower than academic/general total/combined uses"
       },
       {
         "collocations": [
@@ -481,7 +438,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:c83927ff4bea90556256",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:aggregate:306999a15b635c76:collocation:0"
+          ],
+          "meaning_cn": "粗骨料",
+          "phrase": "coarse aggregate"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "骨料（混凝土中的砂石等）",
+      "definition_en": "material such as sand or gravel used in concrete",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:aggregate:306999a15b635c76",
+      "sense_label_en": "material such as sand or gravel used in concrete",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "lexical_identity_overlay": {
+        "case_sensitive": false,
+        "identity_type": "pronunciation_boundary",
+        "surface_lemma": "aggregate",
+        "paired_form": "aggregate noun/adjective vs verb",
+        "note": "Noun/adjective normally end in /-ət/ and verb in /-eɪt/; canonical Form owns the pronunciation and source scopes. Primary stress remains initial in these variants."
+      },
+      "usage_note": "specialist construction-material sense; lower than academic/general total/combined uses",
+      "stable_sense_id": "sense:aggregate:306999a15b635c76",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -493,7 +487,7 @@
       },
       {
         "sense_id": "sense:aggregate:306999a15b635c76",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 319,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
@@ -523,15 +517,15 @@
     "active_collocations": [
       "collocation:140078c142b84cba87ba",
       "collocation:5721c2f90d46964c551b",
-      "collocation:b906587a244337102c53",
-      "collocation:c83927ff4bea90556256"
+      "collocation:b906587a244337102c53"
     ],
     "facts": [
       {
         "id": "construction:aggregate:handoff-ca7b5d6c90783d4c",
         "target_kind": "construction",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Aggregate data/total combines existing glosses and an example, not an independent construction."
       }
     ],
     "collocations": [
@@ -561,7 +555,10 @@
       {
         "id": "collocation:c83927ff4bea90556256",
         "source_row": 16922,
-        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Concrete-material aggregate is explicitly specialist and adds a construction-material label beyond general summation/combined-data reading. Preserve exact truth and coarse-aggregate example in Lookup; no evidence establishes this extra default examination task."
       }
     ],
     "exam-mappings": [],

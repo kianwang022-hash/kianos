@@ -33,14 +33,24 @@
             "evidence_status": "source_checked",
             "supports": "Collins COBUILD noun entry explicitly supports an abstract of a document, article or speech; this does not approve freely replacing of with from"
           }
-        ]
+        ],
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:9afd54b832c7df8283cf",
+          "reason": "Existing abstract-of collocation owns the academic noun complement."
+        }
       },
       {
         "construction_id": "construction:19ab57ac7e31c4d9b203",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "撰写/提交摘要",
-        "pattern": "write/submit/read an abstract"
+        "pattern": "write/submit/read an abstract",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:b04bed99ea544054dd47",
+          "reason": "Write/submit/read are normal actions on an abstract; keep the example rather than another recall object."
+        }
       },
       {
         "construction_id": "construction:19ab57ac7e31c4d9b204",
@@ -70,12 +80,11 @@
           ]
         },
         {
-          "label_cn": "抽取/抽象出；做摘要",
-          "label_en": "extract or generalize something from a source; less commonly, summarize it",
+          "label_cn": "抽取；抽象出",
+          "label_en": "extract or generalize something from a source",
           "pos": "verb",
           "sense_ids": [
-            "sense:abstract:d665d4c15aae5ea2",
-            "sense:abstract:101ad1c99ab15f03"
+            "sense:abstract:d665d4c15aae5ea2"
           ]
         }
       ],
@@ -195,31 +204,6 @@
         "sense_label_en": "extract or generalize from a source",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2255bd40db066fe3d294",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:abstract:101ad1c99ab15f03:collocation:0"
-            ],
-            "meaning_cn": "给论文写摘要",
-            "phrase": "abstract a paper"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "（较少见）为……作摘要；概述",
-        "definition_en": "less commonly, to make a summary or abstract of something",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:abstract:101ad1c99ab15f03",
-        "sense_label_en": "make a summary of",
-        "sort_order": 3,
-        "transitivity": "vt",
-        "usage_note": "Lower-frequency verb use; do not confuse it with the much more common noun abstract."
       }
     ],
     "verification_summary": {
@@ -451,12 +435,42 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:2255bd40db066fe3d294",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:abstract:101ad1c99ab15f03:collocation:0"
+          ],
+          "meaning_cn": "给论文写摘要",
+          "phrase": "abstract a paper"
+        }
+      ],
+      "confidence": "high",
+      "definition_cn": "（较少见）为……作摘要；概述",
+      "definition_en": "less commonly, to make a summary or abstract of something",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:abstract:101ad1c99ab15f03",
+      "sense_label_en": "make a summary of",
+      "sort_order": 3,
+      "transitivity": "vt",
+      "usage_note": "Lower-frequency verb use; do not confuse it with the much more common noun abstract.",
+      "stable_sense_id": "sense:abstract:101ad1c99ab15f03",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:abstract:101ad1c99ab15f03",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 46,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -485,7 +499,6 @@
     ],
     "active_collocations": [
       "collocation:1a4336d484967ef2b583",
-      "collocation:2255bd40db066fe3d294",
       "collocation:9afd54b832c7df8283cf",
       "collocation:b04bed99ea544054dd47",
       "collocation:ef37fa184bd004463c42"
@@ -502,6 +515,20 @@
         "status": "deprecated",
         "merged_into_id": null,
         "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
+      },
+      {
+        "id": "construction:19ab57ac7e31c4d9b202",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Existing abstract-of collocation owns the academic noun complement."
+      },
+      {
+        "id": "construction:19ab57ac7e31c4d9b203",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Write/submit/read are normal actions on an abstract; keep the example rather than another recall object."
       }
     ],
     "collocations": [
@@ -513,7 +540,10 @@
       {
         "id": "collocation:2255bd40db066fe3d294",
         "source_row": 2866,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "OALD labels summary-making verb specialist. Noun abstract and abstract-from already cover current academic reading/production needs; no demonstrated extra examination/press need for separately recalling this indexing-style verb. Preserve exact truth in Lookup."
       },
       {
         "id": "collocation:9afd54b832c7df8283cf",

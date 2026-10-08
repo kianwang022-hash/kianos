@@ -8,32 +8,28 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:18ab50b4c8f6e20d1101",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "吸收、理解并记住信息",
-        "pattern": "absorb + information/knowledge/ideas"
-      },
-      {
         "construction_id": "construction:18ab50b4c8f6e20d1102",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "全神贯注于……",
-        "pattern": "be absorbed in + n/doing"
+        "pattern": "be absorbed in + n/doing",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:21f14baa6c3e68d32460",
+          "reason": "Keep one absorbed-in retrieval; both versions express the same attention frame."
+        }
       },
       {
         "construction_id": "construction:18ab50b4c8f6e20d1103",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "把 A 并入 B",
-        "pattern": "absorb + A + into + B"
-      },
-      {
-        "construction_id": "construction:18ab50b4c8f6e20d1104",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "承担/消化成本、损失或冲击",
-        "pattern": "absorb + cost/loss/impact/shock"
+        "pattern": "absorb + A + into + B",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:98d707bf2f78ed43c33e",
+          "reason": "Keep one incorporation-into retrieval; identical A-into-B frame."
+        }
       }
     ],
     "content_hash": "50e3f50bffe922463b38f849ff3f350e2924221e1a829f776f668e1209c7c43d",
@@ -154,7 +150,7 @@
               "sense:absorb:986532362aea5901:collocation:0"
             ],
             "meaning_cn": "全神贯注于某事",
-            "phrase": "be absorbed in + sth"
+            "phrase": "be absorbed in + sth/doing sth"
           },
           {
             "collocation_id": "collocation:6dea9c690d6ebfeaae94",
@@ -704,7 +700,36 @@
       "collocation:8bd761e5be8a9395809c",
       "collocation:98d707bf2f78ed43c33e"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:18ab50b4c8f6e20d1101",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Information/knowledge/ideas are objects illustrating the admitted understand-and-retain sense, not new lexical syntax."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1104",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Cost/loss/impact/shock illustrate the admitted bear-cost sense; the meaning is retained in that sense and example."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1102",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one absorbed-in retrieval; both versions express the same attention frame."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1103",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one incorporation-into retrieval; identical A-into-B frame."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:21f14baa6c3e68d32460",

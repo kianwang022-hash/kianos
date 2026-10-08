@@ -15,24 +15,6 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:accommodate:continuous-20260918-01",
-        "pattern": "accommodate + number/guests",
-        "meaning_cn": "可容纳某数量的人",
-        "definition_en": "have enough space for a stated number of people",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
-      },
-      {
-        "construction_id": "construction:accommodate:continuous-20260918-02",
-        "pattern": "accommodate + need/request/preference",
-        "meaning_cn": "满足、照顾某种需要/请求/偏好",
-        "definition_en": "make room for or satisfy a need, request, or preference",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
       }
     ],
     "content_hash": "f6fa9598eadf0b2056b4fdeb2f1d7e352e9f6edd8623fe7fbfb010b595d4ecb7",
@@ -505,7 +487,22 @@
       "collocation:a003d71b1a1095c1bcdb",
       "collocation:a03a47d6363d3c19e8b7"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:accommodate:continuous-20260918-01",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Number/guests simply fill the current capacity sense; hotel-can-accommodate example retains the selector."
+      },
+      {
+        "id": "construction:accommodate:continuous-20260918-02",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Need/request/preference fill the current satisfy-needs sense; no independent argument skeleton beyond its existing examples."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:051a5d0b3dac12e864a7",

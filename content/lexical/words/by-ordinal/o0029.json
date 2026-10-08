@@ -30,13 +30,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使用权；接近或进入的机会；通路；入口；（计算机）存取；访问",
-          "label_en": "the right or opportunity to use or benefit from something; a way of entering or leaving a place; the operation of reading or writing data in a computer system",
+          "label_cn": "使用权；接近或进入的机会；通路；入口",
+          "label_en": "the right or opportunity to reach or use something; a way of entering or reaching a place",
           "pos": "noun",
           "sense_ids": [
             "sense:access:19bed9a501315d9d",
-            "sense:access:eebda8857a67598d",
-            "sense:access:c2ad21ce22535191"
+            "sense:access:eebda8857a67598d"
           ]
         },
         {
@@ -167,30 +166,6 @@
         "sense_label_en": "to obtain, read, or retrieve data from a computer system",
         "sort_order": 4,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:76433c2d285df2e4510b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:access:c2ad21ce22535191:collocation:0"
-            ],
-            "meaning_cn": "随机存取存储器",
-            "phrase": "random access memory"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（计算机）存取；访问",
-        "definition_en": "the operation of reading or writing data in a computer system",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:access:c2ad21ce22535191",
-        "sense_label_en": "the operation of reading or writing data in a computer system",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -905,6 +880,34 @@
       "source_row": 80,
       "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:76433c2d285df2e4510b",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:access:c2ad21ce22535191:collocation:0"
+          ],
+          "meaning_cn": "随机存取存储器",
+          "phrase": "random access memory"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（计算机）存取；访问",
+      "definition_en": "the operation of reading or writing data in a computer system",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:access:c2ad21ce22535191",
+      "sense_label_en": "the operation of reading or writing data in a computer system",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:access:c2ad21ce22535191",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -925,7 +928,7 @@
       },
       {
         "sense_id": "sense:access:c2ad21ce22535191",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 81,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -958,7 +961,6 @@
       "collocation:34093580f5a820465d63",
       "collocation:42bce22a921acf273940",
       "collocation:4f120d04fa51e2d40ddd",
-      "collocation:76433c2d285df2e4510b",
       "collocation:e8cbfaa94d07c55fac5c"
     ],
     "facts": [
@@ -1007,7 +1009,10 @@
       {
         "id": "collocation:76433c2d285df2e4510b",
         "source_row": 9979,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The precise computer read/write-operation noun and RAM example add a technical classification beyond general access-to and access-data already active. Preserve in Lookup; ordinary digital access comprehension remains active, no cross-sense merge."
       },
       {
         "id": "collocation:e8cbfaa94d07c55fac5c",

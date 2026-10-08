@@ -6,26 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:advanced:handoff-225f6aa49ee5cdba",
-        "pattern": "advanced age/disease",
-        "meaning_cn": "高龄；晚期疾病",
-        "definition_en": "late or at a developed stage",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:advanced:handoff-37267ccdd77153c0",
-        "pattern": "advanced technology/course",
-        "meaning_cn": "先进技术；高级课程",
-        "definition_en": "highly developed or difficult",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "76187107f8e42426cbabed003c79d8404cf1ab19a4a9b38ee7d55afc6b1c46f0",
     "core_concept": {
       "core_clusters": [],
@@ -109,7 +90,8 @@
         "sense_id": "sense:advanced:9e10a473b8b153c4",
         "sense_label_en": "at a late or far-progressed stage, as in advanced age or advanced disease",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Advanced age means old age; advanced disease means disease at a late or far-progressed stage, not medically superior disease."
       }
     ],
     "verification_summary": {
@@ -494,14 +476,16 @@
       {
         "id": "construction:advanced:handoff-225f6aa49ee5cdba",
         "target_kind": "construction",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Age/disease are examples of the existing late-stage sense; retain that sense and note rather than an extra target."
       },
       {
         "id": "construction:advanced:handoff-37267ccdd77153c0",
         "target_kind": "construction",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Technology/course exemplify the existing high-level sense and existing collocations."
       }
     ],
     "collocations": [

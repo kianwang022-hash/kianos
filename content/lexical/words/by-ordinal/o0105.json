@@ -15,7 +15,12 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1",
-        "boundary": "通常与 can/could/cannot 等连用；钱、时间或不利后果决定是否承担得起。"
+        "boundary": "通常与 can/could/cannot 等连用；钱、时间或不利后果决定是否承担得起。",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:551ccbcf02dc5b2b78ab",
+          "reason": "Keep one can/cannot-afford resource/consequence frame with object or infinitive."
+        }
       },
       {
         "construction_id": "construction:afford:handoff-0f1ebdd76aa0e3d8",
@@ -24,7 +29,12 @@
         "definition_en": "provide someone with an opportunity",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:62fa52b28eea7e0fe332",
+          "reason": "An opportunity fills the existing afford sb sth double-object frame."
+        }
       }
     ],
     "content_hash": "9ece8edf6286c3412b46e070999c43618ac12684f55367b8fcbaa3ee53de8300",
@@ -64,8 +74,8 @@
             "legacy_source_object_ids": [
               "sense:afford:f62ce54bb8f754b9:collocation:1"
             ],
-            "meaning_cn": "有条件/负担得起做某事",
-            "phrase": "can afford to do sth"
+            "meaning_cn": "有无足够的钱、时间等资源；能否承担行为的风险或后果",
+            "phrase": "can/cannot afford sth / to do sth"
           }
         ],
         "confidence": "medium",
@@ -275,8 +285,16 @@
       {
         "id": "construction:afford:handoff-0f1ebdd76aa0e3d8",
         "target_kind": "construction",
-        "status": "reference",
-        "merged_into_id": null
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "An opportunity fills the existing afford sb sth double-object frame."
+      },
+      {
+        "id": "construction:afford:handoff-1b41c4738615a272",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one can/cannot-afford resource/consequence frame with object or infinitive."
       }
     ],
     "collocations": [
