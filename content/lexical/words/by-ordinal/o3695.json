@@ -11,7 +11,7 @@
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "拥有/占有；具有；（情绪/观念）支配",
-      "core_meaning_en": "to own or have something; to possess a quality; to be controlled by an emotion/idea",
+      "core_meaning_en": "to own or have; to have a quality; for an emotion or idea to control someone",
       "mental_model_cn": "拥有/占有；具有；（情绪/观念）支配",
       "mental_model_en": ""
     },
@@ -32,15 +32,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:20e5aacfcf24001abc97",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:possess:f134c6d5241251fd:collocation:0"
-            ],
-            "meaning_cn": "拥有某物",
-            "phrase": "possess + sth"
-          },
-          {
             "collocation_id": "collocation:940b46280153976ed668",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -52,27 +43,29 @@
         ],
         "confidence": "medium",
         "definition_cn": "拥有；具有；占有",
-        "definition_en": "to have, own, hold, or come to have something, including property, wealth, qualities, knowledge, or skills",
+        "definition_en": "to have, own, or hold something, including property, qualities, knowledge, or skills",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:possess:f134c6d5241251fd",
-        "sense_label_en": "to have, own, hold, or come to have something, including property, wealth, qualities, knowledge, or skills",
+        "sense_label_en": "to have, own, or hold something, including property, qualities, knowledge, or skills",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:20e5aacfcf24001abc97",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:possess:f134c6d5241251fd:collocation:0"
+            ],
+            "meaning_cn": "拥有某物",
+            "phrase": "possess + sth"
+          }
+        ]
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:f94a4835b5e470cbdc43",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:possess:3b84ce9acba8568f:collocation:0"
-            ],
-            "meaning_cn": "支配某人",
-            "phrase": "possess + sb"
-          },
           {
             "collocation_id": "collocation:e6dd17b9142cd9dabb27",
             "exam_value": "usage_example",
@@ -93,7 +86,18 @@
         "sense_id": "sense:possess:3b84ce9acba8568f",
         "sense_label_en": "enter into and control, as of emotions or ideas",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:f94a4835b5e470cbdc43",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:possess:3b84ce9acba8568f:collocation:0"
+            ],
+            "meaning_cn": "支配某人",
+            "phrase": "possess + sb"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -248,10 +252,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:20e5aacfcf24001abc97",
       "collocation:940b46280153976ed668",
-      "collocation:e6dd17b9142cd9dabb27",
-      "collocation:f94a4835b5e470cbdc43"
+      "collocation:e6dd17b9142cd9dabb27"
     ],
     "facts": [
       {
@@ -269,7 +271,9 @@
       {
         "id": "collocation:20e5aacfcf24001abc97",
         "source_row": 2722,
-        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:940b46280153976ed668",
@@ -284,7 +288,9 @@
       {
         "id": "collocation:f94a4835b5e470cbdc43",
         "source_row": 21117,
-        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],
