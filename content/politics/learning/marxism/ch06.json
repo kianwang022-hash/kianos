@@ -38,7 +38,7 @@
       "二战后资本主义在所有制、劳资关系、社会阶层和管理方式等方面出现新变化",
       "这些变化具有现实适应作用，但不能据此否定资本主义基本矛盾和历史限度"
     ],
-    "attention_rule": "做题时先问：题干是在考‘垄断阶段的新形式’，还是在偷换成‘资本主义本质已经改变’。 首次教学先消费 teaching-candidate/ch06.brief.md#c06-learner-entry 的最小前提和前章取回，再沿本章原 reconstruction_chain 进入各解释节点；不能只读 source-review 当作首次教学。",
+    "attention_rule": "做题时先问：题干是在考‘垄断阶段的新形式’，还是在偷换成‘资本主义本质已经改变’。 首次教学先消费 teaching-candidate/ch06.brief.md#c06-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次取回时机与深度见 teaching-candidate/ch06.brief.md#c06-first-retrieval，已讲通的完整论证块或章末关闭才取回，不等真实错题才安排选定记忆。",
     "next_chapter_bridge": "资本主义的发展趋势讨论完以后，下一章进入社会主义：如果资本主义具有历史限度，社会主义怎样从思想设想变成科学理论和现实运动？"
   },
   "unit_projections": [
@@ -135,7 +135,7 @@
       "本质矛盾仍在",
       "历史趋势"
     ],
-    "review_prompt": "为什么垄断和国家调节既说明资本主义有很强适应能力，又不能证明其基本矛盾已经消失？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch06.brief.md#c06-learner-close：主模型重建→现行主提示逐节点取回→必要 residual→接收章交接。没有真实回答不能记为掌握。"
+    "review_prompt": "为什么垄断和国家调节既说明资本主义有很强适应能力，又不能证明其基本矛盾已经消失？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch06.brief.md#c06-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→接收章交接。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。"
   },
   "content_support": {
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",

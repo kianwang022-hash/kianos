@@ -26,7 +26,7 @@
       "共产主义的实现具有历史必然性，但这种必然性通过人的实践和长期社会发展实现",
       "社会主义是通向共产主义的现实历史阶段，远大理想必须同当前具体实践统一起来"
     ],
-    "attention_rule": "不要把‘必然实现’理解成自动、短期、无需实践；也不要因为过程长期就否定方向和理想。 首次教学先消费 teaching-candidate/ch08.brief.md#c08-learner-entry 的最小前提和前章取回，再沿本章原 reconstruction_chain 进入各解释节点；不能只读 source-review 当作首次教学。"
+    "attention_rule": "不要把‘必然实现’理解成自动、短期、无需实践；也不要因为过程长期就否定方向和理想。 首次教学先消费 teaching-candidate/ch08.brief.md#c08-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次取回时机与深度见 teaching-candidate/ch08.brief.md#c08-first-retrieval，已讲通的完整论证块或章末关闭才取回，不等真实错题才安排选定记忆。"
   },
   "unit_projections": [
     {
@@ -73,7 +73,7 @@
       "长期复杂过程",
       "远大理想与现实实践统一"
     ],
-    "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch08.brief.md#c08-learner-close：主模型重建→现行主提示逐节点取回→必要 residual→接收章交接。没有真实回答不能记为掌握。"
+    "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch08.brief.md#c08-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→进入原 subject_closure 的全科回收。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。"
   },
   "subject_closure": {
     "marxism_full_chain": [
