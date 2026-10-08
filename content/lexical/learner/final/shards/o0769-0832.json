@@ -5,18 +5,26 @@
     "ordinal": 769,
     "word": "cheat",
     "source_owner_path": "content/lexical/words/by-ordinal/o0769.json",
-    "source_fingerprint": "18839f237e3a740f373e92d4ab2f6c64440289419a8efb100fae5031a39fe7db",
-    "sense_lineage": [],
+    "source_fingerprint": "0b08a79e11ac6212bf6b0356fdfa6cc42aece6eb735b5ad0f89689f738b54a62",
+    "sense_lineage": [
+      {
+        "word_id": "word:cheat",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e3eda990ce5ee3aca940",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "欺骗；作弊",
-      "decision_cn": "",
+      "decision_cn": "欺骗；作弊 exam/game → 作弊；partner → 不忠；cheat sb out of sth → 骗取。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -29,7 +37,7 @@
         "id": "sense:cheat:2221f37d3f9c5bcd",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "cheat; cheat in/on an exam; cheat at a game",
         "definition_cn": "作弊",
         "definition_en": "to act dishonestly to gain an advantage, especially in a test or game",
         "note": "",
@@ -55,19 +63,6 @@
             "meaning_cn": "考试作弊",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:5848c4b2bf86644764f6",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "cheat on sb",
-            "meaning_cn": "对伴侣不忠",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5848c4b2bf86644764f6",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "cheat on sb"
-            }
           }
         ],
         "repair": {
@@ -130,7 +125,7 @@
             "id": "collocation:0d102f03038722464e5d",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a cheat sheet",
-            "meaning_cn": "小抄；作弊纸条",
+            "meaning_cn": "速查表、备忘单；用于考试作弊时指小抄",
             "kind": "usage_example",
             "repair": null
           },
@@ -139,13 +134,8 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "call sb a cheat",
             "meaning_cn": "称某人为骗子",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e3eda990ce5ee3aca940",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "call sb a cheat"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -153,6 +143,37 @@
           "target_id": "sense:cheat:4e4e36d31199529a",
           "target_locator": "record.senses[2]",
           "target_label": "骗子；欺骗行为"
+        }
+      },
+      {
+        "id": "sense:cheat:20261008-unfaithful",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "cheat (on sb)",
+        "definition_cn": "对伴侣不忠；有婚外或伴侣关系之外的性关系",
+        "definition_en": "to be sexually unfaithful to a spouse or regular partner",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5848c4b2bf86644764f6",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "cheat on sb",
+            "meaning_cn": "对伴侣不忠",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5848c4b2bf86644764f6",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "cheat on sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cheat:20261008-unfaithful",
+          "target_locator": "record.senses[3]",
+          "target_label": "对伴侣不忠；有婚外或伴侣关系之外的性关系"
         }
       }
     ],
@@ -199,18 +220,18 @@
     "ordinal": 770,
     "word": "check",
     "source_owner_path": "content/lexical/words/by-ordinal/o0770.json",
-    "source_fingerprint": "5ce1509562ef6f8b32e07bfab8707e6abab205810c704ddcecd4fcdbb61dffbc",
+    "source_fingerprint": "c28fab44e7a58f3201f52211b0287465bf3d0e5477c39293721f6f802a2db829",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单",
-      "decision_cn": "check facts → 核对；restaurant check（AmE）→ 餐厅账单；check baggage → 寄存/托运行李；bank check（AmE）/ cheque（BrE）→ 支票；check spread → 抑制。",
+      "decision_cn": "check facts → 核对；restaurant check（AmE）→ 餐厅账单；check baggage → 寄存/托运行李；bank check（AmE）/ cheque（BrE）→ 支票；check spread → 抑制。 书写指令的 check 可指对勾；权力、增长、扩散语境中的名词 check 可指制约。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -223,7 +244,7 @@
         "id": "sense:check:e0c22bfa3a8852a4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "check (sth); check for sth; check whether/that ...",
         "definition_cn": "检查；核对",
         "definition_en": "examine something to verify its condition or accuracy",
         "note": "",
@@ -394,6 +415,40 @@
           "target_locator": "record.senses[5]",
           "target_label": "寄存；托运"
         }
+      },
+      {
+        "id": "sense:check:20261008-mark",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "put a check beside an item (chiefly AmE)",
+        "definition_cn": "核对符号；对勾（主要美式英语）",
+        "definition_en": "a tick-shaped mark indicating that an item is correct, completed, or selected",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:check:20261008-mark",
+          "target_locator": "record.senses[6]",
+          "target_label": "核对符号；对勾（主要美式英语）"
+        }
+      },
+      {
+        "id": "sense:check:20261008-restraint",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "a check on/to sth; keep sth in check",
+        "definition_cn": "制约；阻碍；遏制因素",
+        "definition_en": "something that limits, restrains, or prevents growth or worsening",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:check:20261008-restraint",
+          "target_locator": "record.senses[7]",
+          "target_label": "制约；阻碍；遏制因素"
+        }
       }
     ],
     "pronunciation_support": {
@@ -465,10 +520,10 @@
       {
         "id": "construction:check:baseline-v2-check-out",
         "source_locator": "record.constructions[2]",
-        "pattern": "check out sth",
+        "pattern": "check sth out / check out sth",
         "lines": [
           {
-            "text": "查看、调查或检查某物；与不及物 check out 的退房义区分",
+            "text": "查看、调查或检查某物；代词放中间：check it out。与不及物 check out 的退房义区分",
             "lang": "cn"
           }
         ],
@@ -476,7 +531,7 @@
           "target_kind": "construction",
           "target_id": "construction:check:baseline-v2-check-out",
           "target_locator": "record.constructions[2]",
-          "target_label": "check out sth"
+          "target_label": "check sth out / check out sth"
         }
       }
     ],
@@ -665,7 +720,7 @@
     "ordinal": 772,
     "word": "cheer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0772.json",
-    "source_fingerprint": "72c14218162c6e127f05f51d8453bf9d6ef3c3161c436ef1f8e0f171bea5f597",
+    "source_fingerprint": "cf41331da45b1bbe00e5fb8c8c78a0893b201bdc350211b8d2fdd45c46942380",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -793,10 +848,10 @@
         "id": "sense:cheer:214de291cc875e44",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使振奋，使高兴",
-        "definition_en": "to make someone feel happier or more cheerful",
-        "note": "",
+        "governing_pattern": "cheer sb; cheer sb up / cheer up a noun object; cheer up",
+        "definition_cn": "使振奋、使高兴；（cheer up）振作起来",
+        "definition_en": "to make someone happier, or become happier, especially in cheer up",
+        "note": "A pronoun goes between the verb and up: cheer him/her/them up, not cheer up him/her/them.",
         "identity_overlay": null,
         "usage": [
           {
@@ -825,7 +880,7 @@
           "target_kind": "sense",
           "target_id": "sense:cheer:214de291cc875e44",
           "target_locator": "record.senses[3]",
-          "target_label": "使振奋，使高兴"
+          "target_label": "使振奋、使高兴；（cheer up）振作起来"
         }
       }
     ],
@@ -1210,7 +1265,7 @@
     "ordinal": 775,
     "word": "chemical",
     "source_owner_path": "content/lexical/words/by-ordinal/o0775.json",
-    "source_fingerprint": "457c4d886ee802c76d6c6e9638cf513a51c869dacbd067035b8373c1408b41e8",
+    "source_fingerprint": "acfaace33578120c38bf5e247421315931d92b2152fad9bdc3aef4850eee42eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1235,7 +1290,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "化学药品",
+        "definition_cn": "化学品；化学物质",
         "definition_en": "a substance obtained by or used in a chemical process",
         "note": "",
         "identity_overlay": null,
@@ -1253,7 +1308,7 @@
           "target_kind": "sense",
           "target_id": "sense:chemical:a73a4fa75d9f5d68",
           "target_locator": "record.senses[0]",
-          "target_label": "化学药品"
+          "target_label": "化学品；化学物质"
         }
       },
       {
@@ -1355,7 +1410,7 @@
     "ordinal": 776,
     "word": "chemist",
     "source_owner_path": "content/lexical/words/by-ordinal/o0776.json",
-    "source_fingerprint": "b2a514e7e70b3717a275b6cc3c9a5a852d7615dfc9cbc8d677d95175fb2ca9fd",
+    "source_fingerprint": "c2b1131b59c821c579b291c75ce7fcd595391ec1932af984577ede3a96004294",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1391,19 +1446,6 @@
             "meaning_cn": "研究化学家",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:96aeeac15a637f289248",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "the chemist's",
-            "meaning_cn": "（英）药房",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:96aeeac15a637f289248",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "the chemist's"
-            }
           }
         ],
         "repair": {
@@ -1418,7 +1460,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "药剂师",
+        "definition_cn": "（英式英语）药剂师",
         "definition_en": "a person who is qualified to prepare and sell medicines",
         "note": "药剂师这一义主要见于英式英语；美式英语通常用 pharmacist。",
         "identity_overlay": null,
@@ -1430,13 +1472,26 @@
             "meaning_cn": "药房",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:96aeeac15a637f289248",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "the chemist's",
+            "meaning_cn": "（英）药房",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:96aeeac15a637f289248",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "the chemist's"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chemist:0ce3683e97495685",
           "target_locator": "record.senses[1]",
-          "target_label": "药剂师"
+          "target_label": "（英式英语）药剂师"
         }
       }
     ],
@@ -1485,7 +1540,7 @@
     "ordinal": 777,
     "word": "chemistry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0777.json",
-    "source_fingerprint": "3c061a740f4e277e49cb8aaf911b65c7babd3c3e1c48578fe2d41f21030818a2",
+    "source_fingerprint": "6071e5649d74c9903cc90f8fa747c1174cedb3da38b8b757587d90d30cbdd449",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1660,7 +1715,7 @@
     "ordinal": 778,
     "word": "cheque",
     "source_owner_path": "content/lexical/words/by-ordinal/o0778.json",
-    "source_fingerprint": "29c9b3740660eba23bdf3897663942115d01bdeae3f2dfcc22cec14e2d4d3e3e",
+    "source_fingerprint": "21a02f25790df7fa4a43813e276df0cc3086ee735faf248cfcb8b80a4780ac58",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1942,11 +1997,26 @@
     "ordinal": 780,
     "word": "cherry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0780.json",
-    "source_fingerprint": "4e10524c2f8e30797968b2967888c2bd90d992afe313d190501cd7c292ac4b1a",
-    "sense_lineage": [],
+    "source_fingerprint": "fcaa5a5d6fbe1c72b8147c39ac0722374f04dc19b35166f10fb76e9102088e66",
+    "sense_lineage": [
+      {
+        "word_id": "word:cherry",
+        "target_kind": "sense",
+        "from_target_id": "sense:cherry:ae6660e52926537b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cherry",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9d460bdbe20351bf6368",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -1986,32 +2056,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "樱桃；樱桃树"
         }
-      },
-      {
-        "id": "sense:cherry:ae6660e52926537b",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "樱桃色；鲜红色",
-        "definition_en": "a bright red color",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9d460bdbe20351bf6368",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "cherry lips",
-            "meaning_cn": "樱桃色的嘴唇",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cherry:ae6660e52926537b",
-          "target_locator": "record.senses[1]",
-          "target_label": "樱桃色；鲜红色"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2039,7 +2083,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9d460bdbe20351bf6368",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cherry:ae6660e52926537b:collocation:0"
+              ],
+              "meaning_cn": "樱桃色的嘴唇",
+              "phrase": "cherry lips"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "樱桃色；鲜红色",
+          "definition_en": "a bright red color",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:cherry:ae6660e52926537b",
+          "sense_label_en": "a bright red color",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:cherry:ae6660e52926537b",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2176,7 +2250,7 @@
     "ordinal": 782,
     "word": "chest",
     "source_owner_path": "content/lexical/words/by-ordinal/o0782.json",
-    "source_fingerprint": "99f0df6113d06350beba0543e745218618410f83e88f2028c49ad0131cce03de",
+    "source_fingerprint": "76a7b69da37a12d66c244db536a6a5d3112a7ef870e447c4dfe731dc24181107",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2256,7 +2330,7 @@
             "id": "collocation:77e3f3011afa8cc784ff",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "chest of drawers",
-            "meaning_cn": "五斗柜；衣柜",
+            "meaning_cn": "抽屉柜；五斗柜（不限定必须五个抽屉）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -2319,13 +2393,20 @@
     "ordinal": 783,
     "word": "chew",
     "source_owner_path": "content/lexical/words/by-ordinal/o0783.json",
-    "source_fingerprint": "403f79597111c23f2f4319b547ae0b5422c2c2afcf0fa89bc87ce002a26dcac7",
+    "source_fingerprint": "7095d4984946ded1d833b6514acae867ec572c8292ade96eb378bdc738f80c1b",
     "sense_lineage": [
       {
         "word_id": "word:chew",
         "target_kind": "sense",
         "from_target_id": "sense:chew:5cca2ed2ef3959e5",
         "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chew",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:80e2d67c629b48223cd5",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -2350,7 +2431,7 @@
         "id": "sense:chew:24e2b49e48595b45",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "chew (food); chew on sth",
         "definition_cn": "咀嚼，嚼碎",
         "definition_en": "to bite and grind food with the teeth",
         "note": "",
@@ -2361,13 +2442,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "chew + sth",
             "meaning_cn": "咀嚼某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:80e2d67c629b48223cd5",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "chew + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:ce459f7824f88e1e6b33",
@@ -2389,7 +2465,7 @@
         "id": "sense:chew:a879cd051fde5965",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/over",
+        "governing_pattern": "chew on sth; chew sth over / chew over sth",
         "definition_cn": "细想，深思",
         "definition_en": "to think about something carefully",
         "note": "",
@@ -2444,10 +2520,10 @@
       {
         "id": "construction:chew:baseline-v2-over",
         "source_locator": "record.constructions[1]",
-        "pattern": "chew over sth",
+        "pattern": "chew sth over / chew over sth",
         "lines": [
           {
-            "text": "反复思考、仔细琢磨某事",
+            "text": "反复思考、仔细琢磨某事；代词放中间：chew it over",
             "lang": "cn"
           }
         ],
@@ -2455,7 +2531,7 @@
           "target_kind": "construction",
           "target_id": "construction:chew:baseline-v2-over",
           "target_locator": "record.constructions[1]",
-          "target_label": "chew over sth"
+          "target_label": "chew sth over / chew over sth"
         }
       }
     ],
@@ -3051,7 +3127,7 @@
     "ordinal": 787,
     "word": "childhood",
     "source_owner_path": "content/lexical/words/by-ordinal/o0787.json",
-    "source_fingerprint": "ba15fcda28d8a90be666638ea4834c53b80a93cc70759cc59756e8a24af709fb",
+    "source_fingerprint": "a48d93c27f0e19c9103c90f8bf988204c485a2834dade9cce00cfbd54796b283",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3076,7 +3152,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "孩童时期",
-        "definition_en": "the time of person's life when they are a child",
+        "definition_en": "the period of a person's life when they are a child",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3161,7 +3237,7 @@
     "ordinal": 788,
     "word": "chill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0788.json",
-    "source_fingerprint": "58c7a47975986a6b6115bbb5eecaed5d7caf0babf1050f74df62c2d772e3ef0f",
+    "source_fingerprint": "745988c75592c0da6f18fa9c1307895da00747288c04001508f44e7e5aae9e14",
     "sense_lineage": [
       {
         "word_id": "word:chill",
@@ -3272,7 +3348,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使变冷，冷冻",
+        "definition_cn": "使变冷；冷却，冰镇",
         "definition_en": "to make something cold, especially food or drink",
         "note": "",
         "identity_overlay": null,
@@ -3290,14 +3366,14 @@
           "target_kind": "sense",
           "target_id": "sense:chill:e40141c656dd59e5",
           "target_locator": "record.senses[2]",
-          "target_label": "使变冷，冷冻"
+          "target_label": "使变冷；冷却，冰镇"
         }
       },
       {
         "id": "sense:chill:01ce3214647854f7",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + down/out",
+        "governing_pattern": "chill (become cold)",
         "definition_cn": "变冷",
         "definition_en": "to become cold",
         "note": "",
@@ -3485,7 +3561,7 @@
     "ordinal": 789,
     "word": "chimney",
     "source_owner_path": "content/lexical/words/by-ordinal/o0789.json",
-    "source_fingerprint": "d5e8a19f0a6a6dcb0a633c359323311a0aa103cc25b1496ebe0c48654f89a1f4",
+    "source_fingerprint": "59c9d2e28d64cbb094140db4a5448442365fc71c3b0401d5d9c3b5055d03cbc9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4018,8 +4094,16 @@
     "ordinal": 792,
     "word": "chip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0792.json",
-    "source_fingerprint": "4ba642885f0bbfe4cda5ebe752fdcd746cfe4f30b2b0efa41fcf74bcfbfdec95",
-    "sense_lineage": [],
+    "source_fingerprint": "59b47766a473f31ae957fbe2490a69d51f947a15e8d318df366b6561f291ea25",
+    "sense_lineage": [
+      {
+        "word_id": "word:chip",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:11929f764224b7077588",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -4077,8 +4161,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "薯条；炸土豆片",
-        "definition_en": "a thin crisp slice of potato fried in deep fat",
+        "definition_cn": "（美）薯片；（英）薯条",
+        "definition_en": "a thin crisp slice of potato (especially AmE), or a fried strip of potato (BrE)",
         "note": "地区差异：AmE chips 通常指薯片；BrE chips 通常指薯条（如 fish and chips）。",
         "identity_overlay": null,
         "usage": [
@@ -4103,7 +4187,7 @@
           "target_kind": "sense",
           "target_id": "sense:chip:dc59375d22ae5b99",
           "target_locator": "record.senses[1]",
-          "target_label": "薯条；炸土豆片"
+          "target_label": "（美）薯片；（英）薯条"
         }
       },
       {
@@ -4128,7 +4212,7 @@
             "id": "collocation:a15243a66045b98309ea",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "silicon chip",
-            "meaning_cn": "硅片",
+            "meaning_cn": "硅芯片",
             "kind": "usage_example",
             "repair": null
           }
@@ -4181,19 +4265,14 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "chip + sth",
             "meaning_cn": "削某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:11929f764224b7077588",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "chip + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:951a7aa6781baa3cb38b",
             "source_locator": "record.senses[4].collocations[1]",
             "phrase": "chip a tooth",
-            "meaning_cn": "磕掉一颗牙",
+            "meaning_cn": "磕掉牙齿的一小块；把牙磕缺",
             "kind": "usage_example",
             "repair": null
           }
@@ -4340,23 +4419,51 @@
     "ordinal": 793,
     "word": "chocolate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0793.json",
-    "source_fingerprint": "670f91a9ebca3f7cb25f54d7b3cedf23a5649e18425c7a35ec84a68140bb1071",
-    "sense_lineage": [],
+    "source_fingerprint": "0a429ff83779672f9a5f041324bcf5b5ccea75bc2b1af08302502c9dbb14e3a0",
+    "sense_lineage": [
+      {
+        "word_id": "word:chocolate",
+        "target_kind": "sense",
+        "from_target_id": "sense:chocolate:939b2667d6a4575a",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chocolate",
+        "target_kind": "sense",
+        "from_target_id": "sense:chocolate:995d7a5aa8625799",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chocolate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a7c53c92bb0e4d0db911",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chocolate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fbd57cc09191b3ccf230",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "巧克力；巧克力色",
-      "decision_cn": "",
+      "summary_cn": "巧克力",
+      "decision_cn": "巧克力；可直接修饰食品，如 chocolate cake。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "巧克力；巧克力色"
+        "target_label": "巧克力"
       }
     },
     "senses": [
@@ -4367,7 +4474,7 @@
         "governing_pattern": "",
         "definition_cn": "巧克力",
         "definition_en": "a food made from roasted ground cacao beans",
-        "note": "",
+        "note": "The noun can modify another food noun, for example chocolate cake; no second meaning is required merely to recognize that combination.",
         "identity_overlay": null,
         "usage": [
           {
@@ -4402,63 +4509,6 @@
           "target_id": "sense:chocolate:b6aaff32830e5b15",
           "target_locator": "record.senses[0]",
           "target_label": "巧克力"
-        }
-      },
-      {
-        "id": "sense:chocolate:995d7a5aa8625799",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "巧克力色，深褐色",
-        "definition_en": "a medium brown to dark-brown color",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:fbd57cc09191b3ccf230",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "chocolate brown",
-            "meaning_cn": "巧克力棕色",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fbd57cc09191b3ccf230",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "chocolate brown"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chocolate:995d7a5aa8625799",
-          "target_locator": "record.senses[1]",
-          "target_label": "巧克力色，深褐色"
-        }
-      },
-      {
-        "id": "sense:chocolate:939b2667d6a4575a",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "巧克力制的，含巧克力的",
-        "definition_en": "made of or flavored with chocolate",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a7c53c92bb0e4d0db911",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "chocolate cake",
-            "meaning_cn": "巧克力蛋糕",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chocolate:939b2667d6a4575a",
-          "target_locator": "record.senses[2]",
-          "target_label": "巧克力制的，含巧克力的"
         }
       }
     ],
@@ -4500,7 +4550,65 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fbd57cc09191b3ccf230",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:chocolate:995d7a5aa8625799:collocation:0"
+              ],
+              "meaning_cn": "巧克力棕色",
+              "phrase": "chocolate brown"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "巧克力色，深褐色",
+          "definition_en": "a medium brown to dark-brown color",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:chocolate:995d7a5aa8625799",
+          "sense_label_en": "a medium brown to dark-brown color",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:chocolate:995d7a5aa8625799",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a7c53c92bb0e4d0db911",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:chocolate:939b2667d6a4575a:collocation:0"
+              ],
+              "meaning_cn": "巧克力蛋糕",
+              "phrase": "chocolate cake"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "巧克力制的，含巧克力的",
+          "definition_en": "made of or flavored with chocolate",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:chocolate:939b2667d6a4575a",
+          "sense_label_en": "made of or flavored with chocolate",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:chocolate:939b2667d6a4575a",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4509,7 +4617,7 @@
     "ordinal": 794,
     "word": "choice",
     "source_owner_path": "content/lexical/words/by-ordinal/o0794.json",
-    "source_fingerprint": "bca0232e5bb49f938349709c902a4ee11fb3cb8cfbf26b205437d51efeeb5617",
+    "source_fingerprint": "effb58c3cfa0b23f719745a652f72506acbaa2c501f3facf9106462a0c0c31d2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4520,7 +4628,7 @@
     },
     "word_feel": {
       "summary_cn": "选择",
-      "decision_cn": "",
+      "decision_cn": "选择 选择动作、选择自由，以及选中或可供选择的对象要按句子区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4534,8 +4642,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "选择；挑选",
-        "definition_en": "the act of choosing",
+        "definition_cn": "选择、挑选；选择的机会或自由",
+        "definition_en": "the act of choosing, or the opportunity or freedom to choose",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4570,7 +4678,7 @@
           "target_kind": "sense",
           "target_id": "sense:choice:6eb948c843eb5b93",
           "target_locator": "record.senses[0]",
-          "target_label": "选择；挑选"
+          "target_label": "选择、挑选；选择的机会或自由"
         }
       },
       {
@@ -4578,9 +4686,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "被选中的人或物",
-        "definition_en": "the person or thing chosen",
-        "note": "",
+        "definition_cn": "选中的人或物；可供选择的对象或范围",
+        "definition_en": "a person or thing selected or available to select; a range of available options",
+        "note": "First choice names a preferred option; a wide choice describes many available options, not necessarily completed selections.",
         "identity_overlay": null,
         "usage": [
           {
@@ -4596,7 +4704,7 @@
           "target_kind": "sense",
           "target_id": "sense:choice:a8ae5bc682e857eb",
           "target_locator": "record.senses[1]",
-          "target_label": "被选中的人或物"
+          "target_label": "选中的人或物；可供选择的对象或范围"
         }
       },
       {
@@ -4662,7 +4770,7 @@
     "ordinal": 795,
     "word": "choir",
     "source_owner_path": "content/lexical/words/by-ordinal/o0795.json",
-    "source_fingerprint": "3a6d04ef2c016ff02dba92b39e5e2f7563e1712793a426443032a4faa15b73b3",
+    "source_fingerprint": "ce86160b291094368176607b2e062fee0bb18ff2431ffab44deda43f2bbe2e4c",
     "sense_lineage": [
       {
         "word_id": "word:choir",
@@ -4693,13 +4801,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "唱诗班",
+      "summary_cn": "合唱团；（尤指教堂的）唱诗班",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "唱诗班"
+        "target_label": "合唱团；（尤指教堂的）唱诗班"
       }
     },
     "senses": [
@@ -4877,7 +4985,7 @@
     "ordinal": 796,
     "word": "choke",
     "source_owner_path": "content/lexical/words/by-ordinal/o0796.json",
-    "source_fingerprint": "323eefc1b786f7f794e96ded516c1885a6dbb890b87f766495444bba775439ab",
+    "source_fingerprint": "099650a591ef30ad78a7fbd7d2fb3c89e48b9f529ba582bddc26c16d20d81201",
     "sense_lineage": [
       {
         "word_id": "word:choke",
@@ -4890,6 +4998,13 @@
         "word_id": "word:choke",
         "target_kind": "sense",
         "from_target_id": "sense:choke:eb53b90eb27c522b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:choke",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d2ec98287a7024380127",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -4915,9 +5030,9 @@
         "id": "sense:choke:ebefe664f09b54a3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
-        "definition_cn": "因异物卡喉而呼吸困难",
-        "definition_en": "to have difficulty breathing because something is stuck in your throat",
+        "governing_pattern": "choke (on sth) | choke sb",
+        "definition_cn": "因气道受阻或吸入烟尘等而呼吸困难；使呛噎、窒息",
+        "definition_en": "to have difficulty breathing because air cannot pass freely, or make someone have this difficulty",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4947,7 +5062,7 @@
           "target_kind": "sense",
           "target_id": "sense:choke:ebefe664f09b54a3",
           "target_locator": "record.senses[0]",
-          "target_label": "因异物卡喉而呼吸困难"
+          "target_label": "因气道受阻或吸入烟尘等而呼吸困难；使呛噎、窒息"
         }
       },
       {
@@ -4964,7 +5079,7 @@
             "id": "collocation:4b1b58536dc793a1726e",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "choke sb",
-            "meaning_cn": "掐死某人；使某人窒息",
+            "meaning_cn": "掐住某人的喉咙，使其呼吸困难或窒息（不必然死亡）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -4977,7 +5092,7 @@
             "id": "collocation:6f8dd0d35f2828f7142c",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "The villain choked his victim.",
-            "meaning_cn": "坏人掐死了受害者。",
+            "meaning_cn": "坏人掐住受害者的喉咙，使其无法正常呼吸。",
             "kind": "usage_example",
             "repair": null
           }
@@ -5004,13 +5119,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "choke + sth",
             "meaning_cn": "阻塞某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d2ec98287a7024380127",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "choke + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4c149f6642cb3ba78d36",
@@ -5167,8 +5277,16 @@
     "ordinal": 797,
     "word": "choose",
     "source_owner_path": "content/lexical/words/by-ordinal/o0797.json",
-    "source_fingerprint": "cdde3fdf7d137a7a6e9a5024da459e3110cad9348760f8a15a70fd87c7af4556",
-    "sense_lineage": [],
+    "source_fingerprint": "de1940548f669d4899eb5af6e5cf874676006421cd14eedc6883f45671106347",
+    "sense_lineage": [
+      {
+        "word_id": "word:choose",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3b43b461c5653c59e5da",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -5201,25 +5319,12 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "choose + sth",
             "meaning_cn": "选择某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3b43b461c5653c59e5da",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "choose + sth"
-            }
-          },
-          {
-            "id": "collocation:8722cb269af448dc3097",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "choose between A and B",
-            "meaning_cn": "在A和B之间选择",
             "kind": "usage_example",
             "repair": null
           },
           {
             "id": "collocation:875cd845d8787c97aa3a",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "choose a career",
             "meaning_cn": "选择职业",
             "kind": "usage_example",
@@ -5276,7 +5381,7 @@
         "id": "sense:choose:cb11e88f2c4f5d15",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + between/among",
+        "governing_pattern": "choose; choose between A and B; choose from/among alternatives",
         "definition_cn": "作出选择",
         "definition_en": "to make a choice",
         "note": "",
@@ -5300,6 +5405,14 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "choose between two options",
             "meaning_cn": "在两个选项中作出选择",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:8722cb269af448dc3097",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "choose between A and B",
+            "meaning_cn": "在A和B之间选择",
             "kind": "usage_example",
             "repair": null
           }
@@ -5589,8 +5702,16 @@
     "ordinal": 799,
     "word": "chorus",
     "source_owner_path": "content/lexical/words/by-ordinal/o0799.json",
-    "source_fingerprint": "0d1d5d63b7c1346dee4f7596547bf1be1e31601b43c6d8321959454d295a82f0",
-    "sense_lineage": [],
+    "source_fingerprint": "737441c8f3bb121143e2351ba2306c25e0d76a3ecd4de02baf81fece8f6aa621",
+    "sense_lineage": [
+      {
+        "word_id": "word:chorus",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2112e7f3ad2bb543bd40",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -5599,13 +5720,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一起唱歌的群体；齐声",
-      "decision_cn": "",
+      "summary_cn": "合唱团；齐声；歌曲副歌",
+      "decision_cn": "people/group → 合唱团；approval/protest → 一片齐声；song/verse → 反复唱的副歌。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一起唱歌的群体；齐声"
+        "target_label": "合唱团；齐声；歌曲副歌"
       }
     },
     "senses": [
@@ -5622,15 +5743,10 @@
           {
             "id": "collocation:2112e7f3ad2bb543bd40",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "join in the chorus",
-            "meaning_cn": "加入合唱",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2112e7f3ad2bb543bd40",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "join in the chorus"
-            }
+            "phrase": "sing in a chorus",
+            "meaning_cn": "在合唱团中演唱",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5757,7 +5873,7 @@
     "ordinal": 800,
     "word": "christ",
     "source_owner_path": "content/lexical/words/by-ordinal/o0800.json",
-    "source_fingerprint": "567a2634e0457250ab9fc4281d088752df9c63b24940559eb4a4cf0d19fe49b8",
+    "source_fingerprint": "599d2632403714d5ba24782cc1aa11023e43e9fee741e5468013516db1ebe542",
     "sense_lineage": [
       {
         "word_id": "word:christ",
@@ -6449,7 +6565,7 @@
     "ordinal": 805,
     "word": "church",
     "source_owner_path": "content/lexical/words/by-ordinal/o0805.json",
-    "source_fingerprint": "0bc5ca47a9b7be34b4a19d389d6bc26c74b269164caeedc07932116f03b48f64",
+    "source_fingerprint": "8d9be9bb04c2ebf42b642f95416c7f34d367e757725672612ed8437676bbf560",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6473,9 +6589,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "公共（尤其是基督教）礼拜的场所；教堂",
-        "definition_en": "a place for public (especially Christian) worship",
-        "note": "",
+        "definition_cn": "教堂；（不可数用法）教堂礼拜活动",
+        "definition_en": "a building used for Christian worship; also the services of worship held there",
+        "note": "A church is a building. Go to/attend church often means attend worship; Church is at nine refers to the service, not the building moving in time.",
         "identity_overlay": null,
         "usage": [
           {
@@ -6499,7 +6615,7 @@
           "target_kind": "sense",
           "target_id": "sense:church:33765f76d48951a4",
           "target_locator": "record.senses[0]",
-          "target_label": "公共（尤其是基督教）礼拜的场所；教堂"
+          "target_label": "教堂；（不可数用法）教堂礼拜活动"
         }
       },
       {
@@ -6690,7 +6806,7 @@
     "ordinal": 807,
     "word": "cigaret",
     "source_owner_path": "content/lexical/words/by-ordinal/o0807.json",
-    "source_fingerprint": "afc5cf98610c40ca7b04758d860fb8ff8d691693690c22160adf15dbbb724c13",
+    "source_fingerprint": "975aaf9c186d0bc5a820692ec6fd600133bdbc6789dead9d40ce262798e0ff8e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6730,7 +6846,7 @@
           {
             "id": "collocation:0e33d005802b34a95b5f",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "smoke a cigaret",
+            "phrase": "smoke a cigarette",
             "meaning_cn": "抽一支香烟",
             "kind": "usage_example",
             "repair": null
@@ -6873,7 +6989,7 @@
     "ordinal": 808,
     "word": "cinema",
     "source_owner_path": "content/lexical/words/by-ordinal/o0808.json",
-    "source_fingerprint": "475a737a3b34a6a673a9fc8dc54af36434ff14f329396296ee2d8382e1714462",
+    "source_fingerprint": "2f65a484bd06c34c70c1d1c6d1dba1c2c59909bc1c44953d366ab7a63ec3323d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6882,13 +6998,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "电影院",
-      "decision_cn": "",
+      "summary_cn": "电影院；电影艺术与电影业",
+      "decision_cn": "go to the cinema 指去看电影；cinema 也可指电影这种艺术及其产业。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "电影院"
+        "target_label": "电影院；电影艺术与电影业"
       }
     },
     "senses": [
@@ -7019,7 +7135,7 @@
     "ordinal": 809,
     "word": "circle",
     "source_owner_path": "content/lexical/words/by-ordinal/o0809.json",
-    "source_fingerprint": "8482a5e7c4b14aa7a3a886459b99be211865280543e9b04dd848f8eb3e2c0557",
+    "source_fingerprint": "f803d806b484841ba1edc15df51d396c7946f216626d38910791519ce6fb4da3",
     "sense_lineage": [
       {
         "word_id": "word:circle",
@@ -7027,6 +7143,13 @@
         "from_target_id": "sense:circle:08aee532bc4f5aaf",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:circle",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a1aea9800f7c9202948f",
+        "status": "merged",
+        "to_target_id": "collocation:63b6c5065b1652acd8a4"
       }
     ],
     "recall_map": {
@@ -7142,19 +7265,6 @@
             "meaning_cn": "环绕地球",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:a1aea9800f7c9202948f",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "circle around + sth",
-            "meaning_cn": "环绕某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a1aea9800f7c9202948f",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "circle around + sth"
-            }
           }
         ],
         "repair": {
@@ -7177,14 +7287,14 @@
           {
             "id": "collocation:63b6c5065b1652acd8a4",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "circle around",
-            "meaning_cn": "盘旋；环绕",
+            "phrase": "circle around/round (sth)",
+            "meaning_cn": "盘旋；围绕某物移动",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:63b6c5065b1652acd8a4",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "circle around"
+              "target_label": "circle around/round (sth)"
             }
           },
           {
@@ -7278,7 +7388,7 @@
     "ordinal": 810,
     "word": "circuit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0810.json",
-    "source_fingerprint": "c5b4d739f9b67e3625bf42082790adc9a65e374339e0cd981dba5c35b38ecde9",
+    "source_fingerprint": "6190f3dc2157149ba1b45b4bdb99601236ddeeadcdda9da2b0d95539853ac5d7",
     "sense_lineage": [
       {
         "word_id": "word:circuit",
@@ -7324,9 +7434,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电流或电子的闭合通路；环行路线",
-        "definition_en": "a closed path for electrical current or electronics, or a route around a series of points",
-        "note": "",
+        "definition_cn": "电路；环行或巡回路线",
+        "definition_en": "an electrical path or arrangement through which current can flow; also a route around a place or series of places",
+        "note": "An open/broken circuit is still called a circuit although current cannot complete the path. A route or tour is selected in travel/sport contexts.",
         "identity_overlay": null,
         "usage": [
           {
@@ -7347,7 +7457,7 @@
           "target_kind": "sense",
           "target_id": "sense:circuit:6168e5cbdbc45d7e",
           "target_locator": "record.senses[0]",
-          "target_label": "电流或电子的闭合通路；环行路线"
+          "target_label": "电路；环行或巡回路线"
         }
       }
     ],
@@ -7475,7 +7585,7 @@
     "ordinal": 811,
     "word": "circular",
     "source_owner_path": "content/lexical/words/by-ordinal/o0811.json",
-    "source_fingerprint": "79d7887d78241658c3be858a75524eeefd5d2f3474f356554241760dec8c0d5f",
+    "source_fingerprint": "c21bc08f62306a87abcac64a6f5f8a216142d0d6a8e002fa0f20c9d63f919df2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7485,13 +7595,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "圆形的；传单",
-      "decision_cn": "",
+      "summary_cn": "圆形的、循环的；广泛分发的通函、通知或传单",
+      "decision_cn": "圆形的；传单",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "圆形的；传单"
+        "target_label": "圆形的、循环的；广泛分发的通函、通知或传单"
       }
     },
     "senses": [
@@ -7539,8 +7649,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "传单，广告",
-        "definition_en": "an advertisement (usually printed on a page or in a leaflet) intended for wide distribution",
+        "definition_cn": "通函，通知；传单，广告",
+        "definition_en": "a notice, letter, or advertisement distributed to many people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7557,7 +7667,7 @@
           "target_kind": "sense",
           "target_id": "sense:circular:7949fb1c632c5f7d",
           "target_locator": "record.senses[1]",
-          "target_label": "传单，广告"
+          "target_label": "通函，通知；传单，广告"
         }
       }
     ],
@@ -7608,7 +7718,7 @@
     "ordinal": 812,
     "word": "circulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0812.json",
-    "source_fingerprint": "d3d09ca6b9741aea0ac6271ba4d4a04b413ce6e9571002a959bcf4a8be4f7cda",
+    "source_fingerprint": "f2d185d1b8958fd4f429cec03571e7ded2837103d6366246604c0d827cba9a07",
     "sense_lineage": [
       {
         "word_id": "word:circulate",
@@ -7639,9 +7749,9 @@
         "id": "sense:circulate:ccc20a8d6fab5ab2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "information/rumours circulate; circulate sth (among/to people)",
         "definition_cn": "传播；散布",
-        "definition_en": "to cause something to become widely known or distributed",
+        "definition_en": "to spread among people, or to distribute information or copies to people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7673,9 +7783,9 @@
         "id": "sense:circulate:ffd25b3a92525e22",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "liquid/air circulates; circulate liquid/air",
         "definition_cn": "循环",
-        "definition_en": "to move through a circuit or system and return to the starting point",
+        "definition_en": "to move continuously around a place or system, or to make a liquid, gas, or air move in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7909,13 +8019,20 @@
     "ordinal": 814,
     "word": "circus",
     "source_owner_path": "content/lexical/words/by-ordinal/o0814.json",
-    "source_fingerprint": "f227dbe1465d91195091646b7f2f12e1378b7e3f995ac67ebe1edcdff3176c80",
+    "source_fingerprint": "acc8902866638f2ff6d43a46e35fae2cbbb9ee01be5c9833920a5d4e53cc8361",
     "sense_lineage": [
       {
         "word_id": "word:circus",
         "target_kind": "sense",
         "from_target_id": "sense:circus:ae605014a6b2590f",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:circus",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:475cde2f1a38795dc21b",
+        "status": "deprecated",
         "to_target_id": null
       },
       {
@@ -7948,8 +8065,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "巡回演出的马戏团，包括受过训练的动物",
-        "definition_en": "a traveling company of entertainers, including trained animals",
+        "definition_cn": "马戏团；表演者可包括杂技演员、小丑等，也可能有驯兽节目",
+        "definition_en": "a company of entertainers such as acrobats and clowns, sometimes including trained-animal acts",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7974,7 +8091,7 @@
           "target_kind": "sense",
           "target_id": "sense:circus:72b26f92d9425480",
           "target_locator": "record.senses[0]",
-          "target_label": "巡回演出的马戏团，包括受过训练的动物"
+          "target_label": "马戏团；表演者可包括杂技演员、小丑等，也可能有驯兽节目"
         }
       },
       {
@@ -8018,13 +8135,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a circus performance/show",
             "meaning_cn": "一场马戏表演",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:475cde2f1a38795dc21b",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "a circus performance/show"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8108,7 +8220,7 @@
     "ordinal": 815,
     "word": "cite",
     "source_owner_path": "content/lexical/words/by-ordinal/o0815.json",
-    "source_fingerprint": "42ff02fdcc986c3db4d86a836ec7582478052c9831c019639e96f70de88c8505",
+    "source_fingerprint": "5e14666e3e1fa4b83f3de87b3bd155ef2710f8cab984857650124d1cc6f4ee4e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8133,7 +8245,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + sth",
         "definition_cn": "引用；引证",
-        "definition_en": "to quote a passage, book, author, etc. as evidence or support",
+        "definition_en": "to mention or quote a source, example, or fact as evidence or support",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8310,7 +8422,7 @@
     "ordinal": 816,
     "word": "citizen",
     "source_owner_path": "content/lexical/words/by-ordinal/o0816.json",
-    "source_fingerprint": "62b1d548ced8dc9e34dc6b6b837e53e53fc0614329a50196b1eade4ebd1d499d",
+    "source_fingerprint": "d19091e9d1595646b68ab62d4446c66c2419e143a1378e9ca7670fbe4f88a849",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8319,13 +8431,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "国家或城市的合法成员",
-      "decision_cn": "",
+      "summary_cn": "依法具有某国公民身份的人；公民，国民",
+      "decision_cn": "当前主学习义是国家或政治共同体的公民身份，不等于住在某地就自动拥有该国国籍。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "国家或城市的合法成员"
+        "target_label": "依法具有某国公民身份的人；公民，国民"
       }
     },
     "senses": [
@@ -8430,7 +8542,7 @@
     "ordinal": 817,
     "word": "city",
     "source_owner_path": "content/lexical/words/by-ordinal/o0817.json",
-    "source_fingerprint": "681a6a0d25eb173816779727d692177b073b14ae09963ee7ea48c3d9c5ac1cdd",
+    "source_fingerprint": "c86e08fa7bd899164c8ac56cd9e934175e17dd19d37a18704f24b5ef6cd75c8f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8493,8 +8605,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（由州特许设立的）市；行政市",
-        "definition_en": "an incorporated administrative district established by state charter",
+        "definition_cn": "正式设立的市或城市行政单位；某些制度下由特许状设立",
+        "definition_en": "an urban area officially recognized as a city or municipal administrative unit, in some systems established by charter",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8516,7 +8628,7 @@
           "target_kind": "sense",
           "target_id": "sense:city:2ebd3f416caa52b0",
           "target_locator": "record.senses[1]",
-          "target_label": "（由州特许设立的）市；行政市"
+          "target_label": "正式设立的市或城市行政单位；某些制度下由特许状设立"
         }
       },
       {
@@ -8580,7 +8692,7 @@
     "ordinal": 818,
     "word": "civil",
     "source_owner_path": "content/lexical/words/by-ordinal/o0818.json",
-    "source_fingerprint": "b2ebd13fab6a5e7ed08d4f3f0c12e5d0ae8ae60a39559d0e0a6fd1ca5e426ade",
+    "source_fingerprint": "0c80c90e311663bb78b8d39a426aeb628bafdb153b26f3c4250d109ad9ae5a68",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8606,7 +8718,7 @@
         "governing_pattern": "",
         "definition_cn": "公民的；市民的；国内的",
         "definition_en": "of or relating to citizens as individuals; of or occurring within the state",
-        "note": "",
+        "note": "Civil rights concern citizens; civil war is internal war. In civil law/case/action, civil contrasts with criminal, not with foreign or military.",
         "identity_overlay": null,
         "usage": [
           {
@@ -8863,7 +8975,7 @@
     "ordinal": 820,
     "word": "civilisation",
     "source_owner_path": "content/lexical/words/by-ordinal/o0820.json",
-    "source_fingerprint": "eda403876f9cb9bba11592e4a14ac0af9200aa68ab78750e261ab69b777c82b8",
+    "source_fingerprint": "69fa0e9c1fdc1147e3b7c42ec71f03ee850576df9b4150aac89ffde71c822022",
     "sense_lineage": [
       {
         "word_id": "word:civilisation",
@@ -9046,7 +9158,7 @@
     "ordinal": 821,
     "word": "civilise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0821.json",
-    "source_fingerprint": "ce761a1b7b0f6e3d0fe641dbcb83c651830bc577609b057fa34886d36656e580",
+    "source_fingerprint": "00163d53a2f4a136d5f9a21af9cb9125eaf91e0f1f9931fb3fe14ed7fa02cc4a",
     "sense_lineage": [
       {
         "word_id": "word:civilise",
@@ -9054,6 +9166,13 @@
         "from_target_id": "sense:civilise:b84a8dc94110591b",
         "status": "merged",
         "to_target_id": "sense:civilise:443008350e705ac7"
+      },
+      {
+        "word_id": "word:civilise",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5efdc117318d7444aaed",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -9077,9 +9196,9 @@
         "id": "sense:civilise:443008350e705ac7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使某人或社会符合某种被认为较文明、较有教养的标准；现代语境中常需注意其历史和价值判断色彩",
-        "definition_en": "to make a person or society conform to standards regarded as more civilized or refined; often historically or critically framed",
+        "governing_pattern": "civilise sb/sth | civilise (become civilized)",
+        "definition_cn": "使符合被认为较文明、有教养的标准；也可指变得符合这种标准",
+        "definition_en": "to make, or become, more refined or conform to standards regarded as civilized; often historically or critically framed",
         "note": "用于描述民族、文化或殖民历史时可能带有“以某套标准衡量谁更文明”的价值判断；现代使用常见于历史叙述或批判讨论。",
         "identity_overlay": {
           "text": "civilise is BrE; civilize is AmE; people/society examples require dated or ethnocentric caution",
@@ -9096,13 +9215,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "civilise + sb/sth",
             "meaning_cn": "使某人/某物文明",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5efdc117318d7444aaed",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "civilise + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:civilise:baseline-v2-society",
@@ -9117,7 +9231,7 @@
           "target_kind": "sense",
           "target_id": "sense:civilise:443008350e705ac7",
           "target_locator": "record.senses[0]",
-          "target_label": "使某人或社会符合某种被认为较文明、较有教养的标准；现代语境中常需注意其历史和价值判断色彩"
+          "target_label": "使符合被认为较文明、有教养的标准；也可指变得符合这种标准"
         }
       }
     ],
@@ -9199,7 +9313,7 @@
     "ordinal": 822,
     "word": "claim",
     "source_owner_path": "content/lexical/words/by-ordinal/o0822.json",
-    "source_fingerprint": "b724438ecdd1d11c4313594cbb81cb78e736e1a9aad17628aca5c13769c98ef3",
+    "source_fingerprint": "629f8df8c94847ec5c95671c657ecb3bb780d380b5d073e4bfdd51322a527513",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9223,7 +9337,7 @@
         "id": "sense:claim:a6b75064b07c5826",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause / vt. + object",
+        "governing_pattern": "claim (that) ... | claim to do/be ... | claim sth",
         "definition_cn": "声称；主张",
         "definition_en": "to say that something is true, often before it is fully proved",
         "note": "",
@@ -9233,7 +9347,7 @@
             "id": "collocation:4ea61c04711cc93277d5",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "claim that",
-            "meaning_cn": "声称；主张",
+            "meaning_cn": "声称……",
             "kind": "usage_example",
             "repair": null
           }
@@ -9249,7 +9363,7 @@
         "id": "sense:claim:a46e7c86eb62524d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + right/compensation/object",
+        "governing_pattern": "claim sth (from sb) | claim (on insurance) (for sth)",
         "definition_cn": "要求；索取；权利主张",
         "definition_en": "to ask for something believed to be owed or owned",
         "note": "",
@@ -9259,7 +9373,7 @@
             "id": "collocation:20cac50a5eb4f1b31e53",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "claim a right",
-            "meaning_cn": "要求；索取；权利主张",
+            "meaning_cn": "主张某项权利",
             "kind": "usage_example",
             "repair": null
           },
@@ -9267,7 +9381,7 @@
             "id": "collocation:63070811c4e5d7520cab",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "claim compensation",
-            "meaning_cn": "要求；索取；权利主张",
+            "meaning_cn": "要求赔偿",
             "kind": "usage_example",
             "repair": null
           }
@@ -9319,7 +9433,7 @@
             "id": "collocation:0c2fb53ddfe4494ede5b",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "claim to land",
-            "meaning_cn": "所有权要求",
+            "meaning_cn": "对土地的权利主张",
             "kind": "usage_example",
             "repair": null
           }
@@ -9424,6 +9538,10 @@
           "target_word": "allege ↔ assert",
           "lines": [
             {
+              "text": "allege = claim wrongdoing/fact before it has been proved (not necessarily without evidence), often formally; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance/register.",
+              "lang": "en"
+            },
+            {
               "text": "allege = claim wrongdoing/fact without proof, often formally; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance/register.",
               "lang": "en"
             }
@@ -9447,7 +9565,7 @@
     "ordinal": 823,
     "word": "clap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0823.json",
-    "source_fingerprint": "c0919f88074880b35c65eb7a16db085c861ff64d9af2f11587bd5c3c63a7711c",
+    "source_fingerprint": "c96aa590dc464f82d5c3d5efe8fe57598e86478586a6912b0af3036e5fb2c16f",
     "sense_lineage": [
       {
         "word_id": "word:clap",
@@ -9486,7 +9604,7 @@
         "id": "sense:clap:354cbc8983ac5791",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "clap; clap one's hands; clap for sb/sth",
         "definition_cn": "拍手，鼓掌",
         "definition_en": "clap one's hands together, typically to applaud",
         "note": "",
@@ -9495,7 +9613,7 @@
           {
             "id": "collocation:455c9fd3b94cbb43022c",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "clap hands",
+            "phrase": "clap one's hands",
             "meaning_cn": "拍手",
             "kind": "usage_example",
             "repair": null
@@ -9959,7 +10077,7 @@
     "ordinal": 826,
     "word": "clash",
     "source_owner_path": "content/lexical/words/by-ordinal/o0826.json",
-    "source_fingerprint": "a98235ab26eacf005180a1ba3c1600a23ddbd8e8efe61af5aca1275a3076e964",
+    "source_fingerprint": "2ac62b3d851d3b67db24bf7e14e600ba92aa659ac8a86fa67edd8a63c6cf5e92",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10010,8 +10128,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi. + with",
-        "definition_cn": "冲突, 抵触",
-        "definition_en": "to be in conflict or disagree violently",
+        "definition_cn": "冲突，抵触；（日程、活动）时间相撞",
+        "definition_en": "to conflict or disagree; for events, to occur at the same time so that they cannot both be attended",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10041,7 +10159,7 @@
           "target_kind": "sense",
           "target_id": "sense:clash:bc03c32912585679",
           "target_locator": "record.senses[1]",
-          "target_label": "冲突, 抵触"
+          "target_label": "冲突，抵触；（日程、活动）时间相撞"
         }
       },
       {
@@ -10074,9 +10192,9 @@
         "id": "sense:clash:45528a465e85515d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使发出撞击声",
-        "definition_en": "to cause to make a loud noise by striking",
+        "governing_pattern": "clash (together) | clash objects (together)",
+        "definition_cn": "碰撞发出响声；使发出碰撞声",
+        "definition_en": "to strike together with a loud ringing sound, or make objects do this",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10093,7 +10211,7 @@
           "target_kind": "sense",
           "target_id": "sense:clash:45528a465e85515d",
           "target_locator": "record.senses[3]",
-          "target_label": "使发出撞击声"
+          "target_label": "碰撞发出响声；使发出碰撞声"
         }
       }
     ],
@@ -10284,7 +10402,7 @@
     "ordinal": 828,
     "word": "class",
     "source_owner_path": "content/lexical/words/by-ordinal/o0828.json",
-    "source_fingerprint": "315926904f0b5b82cc33dfacc91b03e6fe160585a8631e610d5dbf162e99cce4",
+    "source_fingerprint": "248cf0e73943ac7fc12be39ccfc4cea9c991c8617c545a556eee7e182c16cf32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10414,7 +10532,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "等级，级别",
-        "definition_en": "a league ranked by quality",
+        "definition_en": "a grade or level of quality, service, or rank",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10517,7 +10635,7 @@
           "target_word": "classify",
           "lines": [
             {
-              "text": "classify 分类，归类",
+              "text": "class（种类、类别）→ classify（分类、归类）；不是从班级义推导。",
               "lang": "cn"
             }
           ],
@@ -10532,7 +10650,7 @@
     "ordinal": 829,
     "word": "classic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0829.json",
-    "source_fingerprint": "a05f203e693aef40b4ffc43d7b92c6119f01b5b8033ae497ef00661b7e183e32",
+    "source_fingerprint": "2dae358bb519ff81fca0a6ad9b5707a4dcc2c6452863165eb2561249361a80e4",
     "sense_lineage": [
       {
         "word_id": "word:classic",
@@ -10545,8 +10663,8 @@
         "word_id": "word:classic",
         "target_kind": "sense",
         "from_target_id": "sense:classic:644921afc0b9503f",
-        "status": "merged",
-        "to_target_id": "sense:classic:aa832e15a17055e0"
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -10714,8 +10832,8 @@
         },
         {
           "stable_sense_id": "sense:classic:644921afc0b9503f",
-          "status": "merged",
-          "merged_into_sense_id": "sense:classic:aa832e15a17055e0",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "noun",
           "definition_cn": "大艺术家，文豪",
           "definition_en": "an artist who has created classic works",
@@ -10746,11 +10864,19 @@
     "ordinal": 830,
     "word": "classical",
     "source_owner_path": "content/lexical/words/by-ordinal/o0830.json",
-    "source_fingerprint": "95ab18fd88a00e1db41217e0e66bbfc84f07ce22a200075e80d87fd45123b8cf",
-    "sense_lineage": [],
+    "source_fingerprint": "64146d25141eee889763638e1469bc568c10ab07c10af8843d9018dc5b32e2cf",
+    "sense_lineage": [
+      {
+        "word_id": "word:classical",
+        "target_kind": "sense",
+        "from_target_id": "sense:classical:091165bb36ac553d",
+        "status": "merged",
+        "to_target_id": "sense:classical:55b09c2a3b6a56aa"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -10770,8 +10896,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "古典的（指古希腊罗马文化）",
-        "definition_en": "relating to ancient Greek or Roman culture, especially in its most developed form",
+        "definition_cn": "古希腊罗马文化及其研究的；古典的",
+        "definition_en": "relating to ancient Greek and Roman culture, or to the study of their languages and literature",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10790,13 +10916,26 @@
             "meaning_cn": "古典文学",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1bc8a11f3035b626e13d",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "classical studies",
+            "meaning_cn": "古典学研究",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1bc8a11f3035b626e13d",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "classical studies"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:classical:55b09c2a3b6a56aa",
           "target_locator": "record.senses[0]",
-          "target_label": "古典的（指古希腊罗马文化）"
+          "target_label": "古希腊罗马文化及其研究的；古典的"
         }
       },
       {
@@ -10836,37 +10975,6 @@
           "target_id": "sense:classical:f6f550aa296c5a54",
           "target_locator": "record.senses[1]",
           "target_label": "经典的，传统的"
-        }
-      },
-      {
-        "id": "sense:classical:091165bb36ac553d",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "古典学（研究古希腊罗马的）",
-        "definition_en": "relating to the study of ancient Greek and Roman literature and culture",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:1bc8a11f3035b626e13d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "classical studies",
-            "meaning_cn": "古典学研究",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1bc8a11f3035b626e13d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "classical studies"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:classical:091165bb36ac553d",
-          "target_locator": "record.senses[2]",
-          "target_label": "古典学（研究古希腊罗马的）"
         }
       }
     ],
@@ -10911,7 +11019,37 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1bc8a11f3035b626e13d",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:classical:091165bb36ac553d:collocation:0"
+              ],
+              "meaning_cn": "古典学研究",
+              "phrase": "classical studies"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "古典学（研究古希腊罗马的）",
+          "definition_en": "relating to the study of ancient Greek and Roman literature and culture",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:classical:091165bb36ac553d",
+          "sense_label_en": "relating to the study of ancient Greek and Roman literature and culture",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:classical:091165bb36ac553d",
+          "status": "merged",
+          "merged_into_sense_id": "sense:classical:55b09c2a3b6a56aa",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -10920,8 +11058,16 @@
     "ordinal": 831,
     "word": "classification",
     "source_owner_path": "content/lexical/words/by-ordinal/o0831.json",
-    "source_fingerprint": "72fe9a660ab6a4d639e8879f97fe6f28fdeb4a3d710f64191c07e65ae3d94206",
-    "sense_lineage": [],
+    "source_fingerprint": "b21a40a896db9a98425d5a2085e47705454afe4f350434e7235053fb3a676aba",
+    "sense_lineage": [
+      {
+        "word_id": "word:classification",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9508d4bfe8436401c682",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3N"
@@ -10945,7 +11091,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "分类；分级",
-        "definition_en": "the basic cognitive process of arranging into classes or categories",
+        "definition_en": "the act or system of arranging things into classes or categories",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10962,13 +11108,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "classification of + sth",
             "meaning_cn": "对某物的分类",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9508d4bfe8436401c682",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "classification of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -11010,7 +11151,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "保密级别；机密分类",
-        "definition_en": "restriction imposed by the government on documents or weapons that are available only to certain authorized people",
+        "definition_en": "the assignment of a security level to information or materials, or the level assigned",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11065,7 +11206,7 @@
     "ordinal": 832,
     "word": "classify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0832.json",
-    "source_fingerprint": "04a5ee6f1a3be49c9adccac169361fec62ba5ba1782e4e1ba8035a56c6a455c7",
+    "source_fingerprint": "8a501da31a2298dbff06dac013d0e3ca7d0935f680ad8093e7bcc3fec57c9db3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11075,7 +11216,7 @@
     },
     "word_feel": {
       "summary_cn": "分类，归类",
-      "decision_cn": "",
+      "decision_cn": "分类语境是归类；安全、文件语境可指列为机密。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

@@ -9,11 +9,20 @@
     "constructions": [],
     "content_hash": "d72f6438fa88b929380e7ea1f8e953ff5b800f78385ced1b77597ec132e24694",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "（数量或科学比较）绝对的；不相对于其他量的",
+          "label_en": "not relative to another quantity or comparison",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:absolute:2e0d56b5632bbda8"
+          ]
+        }
+      ],
       "core_meaning_cn": "不受限制、保留或相对条件约束的“完全/绝对”；权力语境可指不受制度约束",
       "core_meaning_en": "complete or unlimited by qualification; of power, unrestricted by external control",
-      "mental_model_cn": "先找比较基准：absolute 把尺度推到端点，不再说“相对多少/在什么条件下”；absolute power/monarchy 则把“不受限制”落到权力。",
-      "mental_model_en": "Absolute removes a limiting comparison or condition; with power/monarchy, the same idea becomes freedom from external restraint."
+      "mental_model_cn": "按语境区分：absolute certainty 是完全确定；an absolute requirement 是无保留、无例外的要求；absolute power 是不受限制的权力；absolute amount 是不相对于基准的量，不必达到最大值。",
+      "mental_model_en": "Use context: complete certainty; a requirement allowing no exceptions; unrestricted power; or an amount measured without a relative reference, which need not be maximal."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -33,20 +42,11 @@
             ],
             "meaning_cn": "绝对真理",
             "phrase": "absolute truth"
-          },
-          {
-            "collocation_id": "collocation:83ab77a8b16d45c9c01d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:absolute:88ee4e57be7e566f:collocation:1"
-            ],
-            "meaning_cn": "绝对权力",
-            "phrase": "absolute power"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "绝对的，完全的",
-        "definition_en": "complete and without restriction or qualification",
+        "definition_cn": "完全的；彻底的；无保留或例外的",
+        "definition_en": "complete or total; without qualification or exception",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
@@ -54,7 +54,16 @@
         "sense_id": "sense:absolute:88ee4e57be7e566f",
         "sense_label_en": "complete and without restriction or qualification",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/absolute",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "complete/total and unqualified or exception-free uses; unrestricted authority remains a separate current sense"
+          }
+        ]
       },
       {
         "collocations": [
@@ -66,6 +75,31 @@
             ],
             "meaning_cn": "君主专制",
             "phrase": "absolute monarchy"
+          },
+          {
+            "collocation_id": "collocation:83ab77a8b16d45c9c01d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:absolute:88ee4e57be7e566f:collocation:1"
+            ],
+            "meaning_cn": "绝对权力",
+            "phrase": "absolute power",
+            "source_evidence": [
+              {
+                "source_type": "learner_dictionary",
+                "source_url": "https://www.merriam-webster.com/dictionary/absolute",
+                "accessed_date": "2026-10-07",
+                "evidence_status": "source_checked",
+                "supports": "absolute power is unrestricted authority"
+              },
+              {
+                "source_type": "learner_dictionary",
+                "source_url": "https://www.merriam-webster.com/dictionary/absolute",
+                "accessed_date": "2026-10-07",
+                "evidence_status": "source_checked",
+                "supports": "absolute power is unrestricted authority"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -79,6 +113,28 @@
         "sense_label_en": "not limited by law or other restrictions",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:absolute:2e0d56b5632bbda8",
+        "pos": "adjective",
+        "definition_cn": "（数量或科学比较）绝对的；不相对于其他量的",
+        "definition_en": "not relative to another quantity or comparison",
+        "sense_label_en": "not relative to another quantity or comparison",
+        "sort_order": 2,
+        "level": "L2",
+        "depth": "recognition_plus",
+        "governing_pattern": "",
+        "collocations": [],
+        "usage_note": "Contrast an absolute amount or measurement with one expressed relative to a reference.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/absolute",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "not relative to another quantity or comparison"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -643,6 +699,12 @@
         "merged_into_sense_id": null,
         "source_row": 40,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:absolute:2e0d56b5632bbda8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_url": "https://www.merriam-webster.com/dictionary/absolute"
       }
     ],
     "active_collocations": [

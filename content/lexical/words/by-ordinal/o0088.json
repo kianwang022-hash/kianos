@@ -36,7 +36,7 @@
           },
           {
             "collocation_id": "collocation:b9911105109a87a6b4b5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:advent:85fd73d733225a16:collocation:1"
             ],
@@ -54,30 +54,6 @@
         "sense_id": "sense:advent:85fd73d733225a16",
         "sense_label_en": "the arrival of an important event, person, or thing",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2ac987f29730b8973894",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:advent:0a8c592279055e20:collocation:0"
-            ],
-            "meaning_cn": "降临节主日",
-            "phrase": "Advent Sunday"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "基督降临节，圣诞节前的四个星期",
-        "definition_en": "the season of Advent in the Christian calendar, the four Sundays before Christmas",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:advent:0a8c592279055e20",
-        "sense_label_en": "the season of Advent in the Christian calendar, the four Sundays before ",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -322,12 +298,51 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:2ac987f29730b8973894",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:advent:0a8c592279055e20:collocation:0"
+          ],
+          "meaning_cn": "降临节主日",
+          "phrase": "Advent Sunday"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "降临期；圣诞节前第四个星期日开始的基督教节期",
+      "definition_en": "the Christian season beginning four Sundays before Christmas",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:advent:0a8c592279055e20",
+      "sense_label_en": "the Christian season beginning four Sundays before Christmas",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "usage_note": "The Christian season is written Advent with an initial capital; generic the advent of technology uses lower-case advent.",
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/advent",
+          "accessed_date": "2026-10-07",
+          "evidence_status": "source_checked",
+          "supports": "Capitalized Christian season begins four Sundays before Christmas; it is not necessarily an exact four-week interval."
+        }
+      ],
+      "stable_sense_id": "sense:advent:0a8c592279055e20",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:advent:0a8c592279055e20",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 248,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -341,16 +356,17 @@
       }
     ],
     "active_collocations": [
-      "collocation:2ac987f29730b8973894",
-      "collocation:754be26119b88d5018ca",
-      "collocation:b9911105109a87a6b4b5"
+      "collocation:754be26119b88d5018ca"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:2ac987f29730b8973894",
         "source_row": 3641,
-        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The capitalized Christian liturgical season and its calendar rule remain searchable background. The main arrival-of-development sense earns current default attention; no specific exam or frequent relevant press basis was established for independently recalling the season."
       },
       {
         "id": "collocation:754be26119b88d5018ca",
@@ -360,7 +376,10 @@
       {
         "id": "collocation:b9911105109a87a6b4b5",
         "source_row": 15723,
-        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       }
     ],
     "exam-mappings": [],

@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "打，敲打；打败，战胜；（心脏等）跳动",
-          "label_en": "to hit someone or something many times; to defeat someone in a game or competition; to make a regular sound or movement, as the heart does",
+          "label_cn": "打，敲打；打败或超过；（心脏等）跳动",
+          "label_en": "strike repeatedly; defeat or surpass; move or sound rhythmically",
           "pos": "verb",
           "sense_ids": [
             "sense:beat:d8e0cfe523555e44",
@@ -40,7 +40,7 @@
       ],
       "core_meaning_cn": "打；打败；节拍",
       "core_meaning_en": "to strike repeatedly; to defeat; a rhythmic pulse",
-      "mental_model_cn": "打；打败；节拍",
+      "mental_model_cn": "人/对手 → 击败；record/expectations → 超过；反复击打 → 敲打；heart/music → 跳动、节拍。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,7 +55,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5091b840b1bc33f004e5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:beat:d8e0cfe523555e44:collocation:0"
             ],
@@ -79,23 +79,29 @@
         "collocations": [
           {
             "collocation_id": "collocation:26313b509be9608d48cc",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:beat:7710f71e14865e1c:collocation:0"
             ],
             "meaning_cn": "打败某人",
             "phrase": "beat + sb"
+          },
+          {
+            "collocation_id": "collocation:77606cc67d12aa87863b",
+            "exam_value": "usage_example",
+            "meaning_cn": "超过预期",
+            "phrase": "beat expectations"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "打败，战胜",
-        "definition_en": "to defeat someone in a game or competition",
+        "definition_cn": "打败，战胜；超过（成绩、标准或预期）",
+        "definition_en": "to defeat a competitor, or to do better than a result, standard, or expectation",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:beat:7710f71e14865e1c",
-        "sense_label_en": "to defeat someone in a game or competition",
+        "sense_label_en": "to defeat a competitor, or to do better than a result, standard, or expectation",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -444,11 +450,10 @@
     ],
     "active_collocations": [
       "collocation:25d5c4a21381b96ea8c2",
-      "collocation:26313b509be9608d48cc",
       "collocation:2b42a749a061633be963",
-      "collocation:5091b840b1bc33f004e5",
       "collocation:7c21875201e8d739e4ec",
-      "collocation:d4b5772ceb6d67ea2990"
+      "collocation:d4b5772ceb6d67ea2990",
+      "collocation:77606cc67d12aa87863b"
     ],
     "facts": [],
     "collocations": [
@@ -460,7 +465,10 @@
       {
         "id": "collocation:26313b509be9608d48cc",
         "source_row": 3208,
-        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Beat a person restates defeating a competitor; expectations extension and opponent selector remain."
       },
       {
         "id": "collocation:2b42a749a061633be963",
@@ -470,7 +478,10 @@
       {
         "id": "collocation:5091b840b1bc33f004e5",
         "source_row": 6794,
-        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Beat a generic object restates repeated hitting; the parent meaning remains."
       },
       {
         "id": "collocation:7c21875201e8d739e4ec",

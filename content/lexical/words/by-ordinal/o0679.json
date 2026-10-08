@@ -30,8 +30,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "首都；国都；资本；资金；大写字母",
-          "label_en": "a city where a country's government is located; wealth or assets used to produce more wealth; an uppercase letter",
+          "label_cn": "首都、首府；资本、资金；大写字母",
+          "label_en": "a national or regional seat of government; wealth used as capital; an uppercase letter",
           "pos": "noun",
           "sense_ids": [
             "sense:capital:42e76ac2eac25221",
@@ -46,11 +46,19 @@
           "sense_ids": [
             "sense:capital:fb5b064474665ed9"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "可利用的非金钱资源、优势或影响力（常见于复合表达）",
+          "label_en": "a valuable nonfinancial resource or advantage, such as knowledge, social connections, or political influence",
+          "sense_ids": [
+            "sense:capital:20261008-nonfinancial-resource"
+          ]
         }
       ],
       "core_meaning_cn": "首都；资本；大写字母",
       "core_meaning_en": "a city serving as a seat of government; wealth or assets; uppercase letter",
-      "mental_model_cn": "首都；资本；大写字母",
+      "mental_model_cn": "city/state → 首都或首府；investment → 资本；letter → 大写；punishment/crime → 死刑相关。 political/social/intellectual 等语境还可指可利用的影响力、关系或知识资源，不必是钱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -81,14 +89,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "首都；国都",
-        "definition_en": "a city where a country's government is located",
+        "definition_cn": "首都；（州、省等的）首府",
+        "definition_en": "the city or town serving as the seat of government of a country or region",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:capital:42e76ac2eac25221",
-        "sense_label_en": "a city where a country's government is located",
+        "sense_label_en": "the city or town serving as the seat of government of a country or region",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -195,6 +203,35 @@
         "sense_label_en": "punishable by death or involving the death penalty",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:capital:20261008-nonfinancial-resource",
+        "pos": "noun",
+        "definition_cn": "可利用的非金钱资源、优势或影响力（常见于复合表达）",
+        "definition_en": "a valuable nonfinancial resource or advantage, such as knowledge, social connections, or political influence",
+        "sense_label_en": "valuable nonfinancial resource or influence",
+        "transitivity": "nonverb",
+        "governing_pattern": "political/intellectual/social/human capital",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 5,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/capital_1",
+            "evidence_status": "source_checked",
+            "accessed_date": "2026-10-08",
+            "supports": "resources meaning, distinct from financial capital"
+          },
+          {
+            "source_type": "exam_reproduction",
+            "source_url": "https://kaoyan.xdf.cn/201907/10963642_4.html",
+            "evidence_status": "source_checked",
+            "accessed_date": "2026-10-08",
+            "supports": "2008 postgraduate English reading reproduction explicitly contains political capital; third-party reproduction, not original examination authority"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -531,6 +568,11 @@
         "merged_into_sense_id": null,
         "source_row": 2003,
         "source_path": "content/lexical/canonical/senses/shards/o0673-0704.json"
+      },
+      {
+        "sense_id": "sense:capital:20261008-nonfinancial-resource",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [

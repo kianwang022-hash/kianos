@@ -14,7 +14,12 @@
         "definition_en": "the smallest amount that is necessary or acceptable",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:dbbbdd3e6b09645f730d",
+          "reason": "The bare-minimum phrase already has one selected collocation."
+        }
       }
     ],
     "content_hash": "25b264bce8e600c09a86ab3ca373b3265425bd0214c860f3a9645f01331aec1e",
@@ -40,7 +45,7 @@
       ],
       "core_meaning_cn": "“裸露/缺少覆盖”延伸到“只剩最低限度”：可指无遮盖、赤裸，也可表示仅仅/极少",
       "core_meaning_en": "uncovered or exposed, extending figuratively to something reduced to the minimum or mere amount",
-      "mental_model_cn": "body/surface → 无遮盖；bare minimum/majority/facts → 仅仅、最低限度；bare one's teeth/soul → 暴露、袒露。",
+      "mental_model_cn": "body/surface → 无遮盖；bare minimum/majority → 最低限度、勉强够；bare facts → 没有添饰或额外细节的基本事实；bare one's teeth/soul → 暴露、袒露。",
       "mental_model_en": "Use the noun or verb object to distinguish physical exposure, minimal amount, and deliberate revealing."
     },
     "exam_paraphrases": [],
@@ -106,14 +111,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "仅仅的；极少的",
-        "definition_en": "lacking in amplitude or quantity; mere",
+        "definition_cn": "仅仅的；最低限度的；仅有基本内容、无添饰的",
+        "definition_en": "with nothing extra; mere; without added detail or embellishment",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:bare:5bbbc4d22e205c8e",
-        "sense_label_en": "lacking in amplitude or quantity; mere",
+        "sense_label_en": "with nothing extra; mere; without added detail or embellishment",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -121,7 +126,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:254078199ab430f1a046",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:bare:6e25b9077e8e5220:collocation:0"
             ],
@@ -807,14 +812,21 @@
     ],
     "active_collocations": [
       "collocation:16f42cef86c6ba01b9e9",
-      "collocation:254078199ab430f1a046",
       "collocation:88acb3e8101653bf8ff3",
       "collocation:89dbe976009b17c0f9ec",
       "collocation:90ff43038b217cd89bf6",
       "collocation:c7da1d6d1bd3b7e25b9f",
       "collocation:dbbbdd3e6b09645f730d"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:bare:baseline-v2-minimum",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The bare-minimum phrase already has one selected collocation."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:16f42cef86c6ba01b9e9",
@@ -824,7 +836,10 @@
       {
         "id": "collocation:254078199ab430f1a046",
         "source_row": 3127,
-        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Bare an arbitrary object restates transitive uncover; teeth/soul remain meaningful lexical selections."
       },
       {
         "id": "collocation:88acb3e8101653bf8ff3",

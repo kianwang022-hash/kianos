@@ -14,7 +14,12 @@
         "definition_en": "fail to remember, find an answer, or get a result",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:a17d79dba52c94fd8985",
+          "reason": "The existing idiomatic draw-a-blank collocation already owns this retrieval."
+        }
       },
       {
         "construction_id": "construction:blank:baseline-v2-go-blank",
@@ -23,7 +28,12 @@
         "definition_en": "suddenly become unable to think or remember",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:f1f86773b0d7378d1171",
+          "reason": "The existing go-blank collocation already owns this retrieval."
+        }
       }
     ],
     "content_hash": "b6f60ae106736adb60da88be8270494aad852d7a05cca3ad0cbcbdcbf36e1a55",
@@ -70,6 +80,15 @@
             ],
             "meaning_cn": "填空",
             "phrase": "fill in the blank"
+          },
+          {
+            "collocation_id": "collocation:a17d79dba52c94fd8985",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blank:a09069a1e33956d6:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "想不起、找不到答案或结果",
+            "phrase": "draw a blank"
           }
         ],
         "confidence": "medium",
@@ -96,15 +115,6 @@
             "phrase": "blank page"
           },
           {
-            "collocation_id": "collocation:a17d79dba52c94fd8985",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:blank:a09069a1e33956d6:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "想不起、找不到答案或结果",
-            "phrase": "draw a blank"
-          },
-          {
             "collocation_id": "collocation:f1f86773b0d7378d1171",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -115,14 +125,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "空白的",
-        "definition_en": "not written or printed on",
+        "definition_cn": "空白的；（头脑）没有想法或突然想不起的",
+        "definition_en": "empty or without writing; of the mind, without thoughts or remembered information",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:blank:a09069a1e33956d6",
-        "sense_label_en": "not written or printed on",
+        "sense_label_en": "empty or without writing; of the mind, without thoughts or remembered information",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -357,7 +367,22 @@
       "collocation:e6587b9c1a6612d5d692",
       "collocation:f1f86773b0d7378d1171"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:blank:baseline-v2-draw-a-blank",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing idiomatic draw-a-blank collocation already owns this retrieval."
+      },
+      {
+        "id": "construction:blank:baseline-v2-go-blank",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing go-blank collocation already owns this retrieval."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:283e72e0e737d277af70",

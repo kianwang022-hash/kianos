@@ -14,7 +14,12 @@
         "definition_en": "the prominence or emphasis placed on a syllable, word, or idea",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:5d3bd1c9f92527438f8d",
+          "reason": "This is a noun-sense label, not a Construction; the real place-the-accent-on collocation carries the useful phrase."
+        }
       }
     ],
     "content_hash": "a8e63ad3020f712fc602005200db9be83556622bfe866fa7d636fbb5a9d03a15",
@@ -46,10 +51,19 @@
           ]
         }
       ],
-      "core_meaning_cn": "把声音、符号或信息中的某一部分“凸显出来”：可形成口音、重音/重音符号，也可表示强调",
-      "core_meaning_en": "to make part of speech, sound, writing, or meaning stand out: an accent, stress mark, or emphasis",
-      "mental_model_cn": "共同点不是“口音”本身，而是 prominence：regional accent 是一套显著发音特征；word accent 是重音；place the accent on sth 是把重点凸显出来。",
-      "mental_model_en": "The common idea is prominence: a regional accent marks pronunciation, word accent marks stress, and figurative accent marks emphasis."
+      "core_meaning_cn": "口音；语音或书写中的重音与记号；引申为重点或强调",
+      "core_meaning_en": "a regional or social pronunciation pattern; stress or its written mark; a point of emphasis",
+      "mental_model_cn": "先看对象：说话人的地区/群体→口音；音节或字母→重音/重音符号；重点或重要性→强调。地区口音不等于只把某个音节读重。",
+      "mental_model_en": "Distinguish a speaker pronunciation pattern, stress or a written accent mark, and figurative emphasis.",
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/accent",
+          "accessed_date": "2026-10-07",
+          "evidence_status": "source_checked",
+          "supports": "accent pronunciation-pattern sense is not derived from prominence"
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -84,7 +98,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accent:db6cfea9045c504f",
-        "sense_label_en": "a distinctive manner of pronunciation characteristic of a region or soci",
+        "sense_label_en": "a distinctive manner of pronunciation characteristic of a region or social group",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -690,7 +704,17 @@
       {
         "id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
         "source_row": 5,
-        "source_path": "content/lexical/canonical/facts/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/facts/shards/o0001-0032.json",
+        "target_kind": "relation",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "construction:accent:handoff-27a07365f337a05f",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The exact former Construction Repair object is nonactive under explicit presentation_merge. Complete canonical content and its materialized collocation survivor remain; no cross-kind Repair remap is inferred."
       }
     ],
     "collocations": [

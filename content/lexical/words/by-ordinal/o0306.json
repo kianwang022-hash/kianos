@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "帮助；协助；协助；参加",
-          "label_en": "to help someone or make something easier; to be present and help",
+          "label_cn": "帮助；协助",
+          "label_en": "to help someone or give support",
           "pos": "verb",
           "sense_ids": [
             "sense:assist:c764f4cce6b45190",
@@ -51,15 +51,6 @@
             ],
             "meaning_cn": "帮助某人做某事",
             "phrase": "assist sb with sth"
-          },
-          {
-            "collocation_id": "collocation:a6fe3436d22e709d738e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:assist:c764f4cce6b45190:collocation:1"
-            ],
-            "meaning_cn": "协助做某事",
-            "phrase": "assist in doing sth"
           }
         ],
         "confidence": "medium",
@@ -82,8 +73,8 @@
             "legacy_source_object_ids": [
               "sense:assist:f42427bfdefb512b:collocation:0"
             ],
-            "meaning_cn": "参与某事；协助某事",
-            "phrase": "assist in + sth"
+            "meaning_cn": "协助某项活动或协助做某事",
+            "phrase": "assist in + sth/doing sth"
           },
           {
             "collocation_id": "collocation:685f1ae575aa69dbdf99",
@@ -93,17 +84,26 @@
             ],
             "meaning_cn": "协助某事",
             "phrase": "assist with + sth"
+          },
+          {
+            "collocation_id": "collocation:a6fe3436d22e709d738e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:assist:c764f4cce6b45190:collocation:1"
+            ],
+            "meaning_cn": "协助做某事",
+            "phrase": "assist in doing sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "协助；参加",
-        "definition_en": "to be present and help",
+        "definition_cn": "协助；提供帮助（不及物用法）",
+        "definition_en": "to give support or help, often in an activity or with a task",
         "governing_pattern": "vi. + in/with",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:assist:f42427bfdefb512b",
-        "sense_label_en": "to be present and help",
+        "sense_label_en": "give support or help without a direct object",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -581,7 +581,6 @@
       "collocation:33f7abce7cfdeca3427e",
       "collocation:4dd085bfc9cad423951f",
       "collocation:685f1ae575aa69dbdf99",
-      "collocation:a6fe3436d22e709d738e",
       "collocation:eefa24bcdb750b4080c8"
     ],
     "facts": [],
@@ -604,7 +603,11 @@
       {
         "id": "collocation:a6fe3436d22e709d738e",
         "source_row": 14174,
-        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json",
+        "sense_id": "sense:assist:f42427bfdefb512b",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The retained assist-in collocation now explicitly includes both noun and gerund complements; no separate duplicate retrieval."
       },
       {
         "id": "collocation:eefa24bcdb750b4080c8",

@@ -5,12 +5,26 @@
     "ordinal": 129,
     "word": "air",
     "source_owner_path": "content/lexical/words/by-ordinal/o0129.json",
-    "source_fingerprint": "a2001b50456ff73728b257af4e3d126ca43895f1931aeaa2149221553c00d292",
+    "source_fingerprint": "ba689ad7461d3116fecf24aa4f5dd8f8304cc79efa4579124ce7958476fedab1",
     "sense_lineage": [
       {
         "word_id": "word:air",
         "target_kind": "sense",
         "from_target_id": "sense:air:9f3a796b8fb556dc",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:air",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ead3fdd354474dc8f741",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:air",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f113b80921996b6e10f1",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -173,13 +187,8 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "air + sth",
             "meaning_cn": "公开表达某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f113b80921996b6e10f1",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "air + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -193,9 +202,9 @@
         "id": "sense:air:122212a40e38a5fa",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + program/material; vi. (program airs)",
         "definition_cn": "播出；广播",
-        "definition_en": "to broadcast a program, interview, or other material on radio, television, or media",
+        "definition_en": "to broadcast material, or for a program to be broadcast",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -204,13 +213,8 @@
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "air a program/interview",
             "meaning_cn": "播出节目/访谈",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ead3fdd354474dc8f741",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "air a program/interview"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -245,14 +249,14 @@
       {
         "id": "construction:air:handoff-9cf40c95d3a8f16e",
         "source_locator": "record.constructions[0]",
-        "pattern": "air a program/interview; on the air",
+        "pattern": "on the air / be on the air",
         "lines": [
           {
-            "text": "播出节目/访谈；正在播出",
+            "text": "正在广播或播出",
             "lang": "cn"
           },
           {
-            "text": "broadcast a program or be broadcast",
+            "text": "being broadcast on radio or television",
             "lang": "en"
           }
         ],
@@ -260,7 +264,7 @@
           "target_kind": "construction",
           "target_id": "construction:air:handoff-9cf40c95d3a8f16e",
           "target_locator": "record.constructions[0]",
-          "target_label": "air a program/interview; on the air"
+          "target_label": "on the air / be on the air"
         }
       }
     ],
@@ -492,7 +496,7 @@
     "ordinal": 131,
     "word": "airline",
     "source_owner_path": "content/lexical/words/by-ordinal/o0131.json",
-    "source_fingerprint": "bfc6b872d159e1575857b491e6cb7f18cf387b2b1c37206136d1cf99f68032e9",
+    "source_fingerprint": "7de2900c27dbe11cba7f7a503055182c8c06517227bcd843cadefd83c9b2f741",
     "sense_lineage": [
       {
         "word_id": "word:airline",
@@ -525,7 +529,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "航空公司",
-        "definition_en": "a commercial enterprise that provides scheduled flights for passengers",
+        "definition_en": "a commercial company providing air transport for passengers or cargo",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -615,8 +619,16 @@
     "ordinal": 132,
     "word": "airport",
     "source_owner_path": "content/lexical/words/by-ordinal/o0132.json",
-    "source_fingerprint": "1e94ef0d3740c20ff00e680bed96203c400ae3b55af3b878af0c6a2dc24b6d2d",
-    "sense_lineage": [],
+    "source_fingerprint": "ec7f573db779efd935b55dfb4527b1d26f46134f4f06fb6d2cc0316b2cb65ebb",
+    "sense_lineage": [
+      {
+        "word_id": "word:airport",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:14e9467642c96c2171d4",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -649,13 +661,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "at the airport",
             "meaning_cn": "在机场",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:14e9467642c96c2171d4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "at the airport"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:271618004f83bbb95081",
@@ -721,7 +728,7 @@
     "ordinal": 133,
     "word": "aisle",
     "source_owner_path": "content/lexical/words/by-ordinal/o0133.json",
-    "source_fingerprint": "571edc5fee8146a81f178b02c291b599a042a7463c623b17337eae8c429fa494",
+    "source_fingerprint": "4cf24fabce1740c1de824d708a739974f5fe05d27c4c008ba63acf2ec9a1ff9a",
     "sense_lineage": [
       {
         "word_id": "word:aisle",
@@ -761,7 +768,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "过道，通道",
-        "definition_en": "a passage between rows of seats in a theater, aircraft, etc.",
+        "definition_en": "a passage between rows of seats or shelves, as in a theater, aircraft, or store",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -777,7 +784,7 @@
             "id": "collocation:e5e56e33afbb999f2bda",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "walk down the aisle",
-            "meaning_cn": "步入婚姻殿堂",
+            "meaning_cn": "（婚礼语境）结婚；也可字面指沿过道走",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -904,8 +911,16 @@
     "ordinal": 134,
     "word": "alarm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0134.json",
-    "source_fingerprint": "802bbbae70e77edc3647ee489ae990a4bd138be7d2a289df94d0f7681feae4cf",
-    "sense_lineage": [],
+    "source_fingerprint": "443c1354452d2450db241d9ba63bc9f8d31368fc2f59af056ea66f82b1bd2b73",
+    "sense_lineage": [
+      {
+        "word_id": "word:alarm",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c76dd9438c7ce5d99eea",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -969,7 +984,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "警报器；闹钟",
-        "definition_en": "a device that signals the occurrence of some undesirable event",
+        "definition_en": "a device that warns of danger or sounds at a set time",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1017,19 +1032,14 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "alarm + sb",
             "meaning_cn": "使某人惊恐",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c76dd9438c7ce5d99eea",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "alarm + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:d1f5350e2d226bc846e9",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "alarm the public",
-            "meaning_cn": "警告公众",
+            "meaning_cn": "使公众惊恐或担忧",
             "kind": "usage_example",
             "repair": null
           }
@@ -1047,7 +1057,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "警报信号",
-        "definition_en": "an automatic signal (usually a sound) warning of danger",
+        "definition_en": "a signal, often a sound, that warns of danger",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1120,8 +1130,16 @@
     "ordinal": 135,
     "word": "albeit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0135.json",
-    "source_fingerprint": "2daa6eaad7ddffa2171d2736311ab5c1010815896b5530199cfad529389288b8",
-    "sense_lineage": [],
+    "source_fingerprint": "14a8e5ada6ce169b7a5befe2006499e7946630407ff6052610b9ddd536a13a02",
+    "sense_lineage": [
+      {
+        "word_id": "word:albeit",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0f30e6abe794c0e88e08",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1CONJ"
@@ -1152,15 +1170,10 @@
           {
             "id": "collocation:0f30e6abe794c0e88e08",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "albeit + adj./adv./clause",
+            "phrase": "albeit + adjective/adverb/phrase/non-finite clause",
             "meaning_cn": "尽管……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0f30e6abe794c0e88e08",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "albeit + adj./adv./clause"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1244,8 +1257,23 @@
     "ordinal": 136,
     "word": "album",
     "source_owner_path": "content/lexical/words/by-ordinal/o0136.json",
-    "source_fingerprint": "fb9bf29c089206932db586ee89516de681813685ccb4300c680dd41a802a448c",
-    "sense_lineage": [],
+    "source_fingerprint": "4a1541be5bbed79631abb5742eb444f3248c2be1f621e99e25cad4b653ff80b1",
+    "sense_lineage": [
+      {
+        "word_id": "word:album",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:09bc07c273ff3c8a9a2f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:album",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:885966f35379b524bcec",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -1317,26 +1345,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "photo album",
             "meaning_cn": "相册",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:885966f35379b524bcec",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "photo album"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:09bc07c273ff3c8a9a2f",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "stamp album",
             "meaning_cn": "集邮册",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:09bc07c273ff3c8a9a2f",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "stamp album"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1382,7 +1400,7 @@
     "ordinal": 137,
     "word": "alcohol",
     "source_owner_path": "content/lexical/words/by-ordinal/o0137.json",
-    "source_fingerprint": "9b2402f11cc06d783374c92302a860e298688b51531be019e1361e8126311bf9",
+    "source_fingerprint": "8f3eff62742e410cca3fbfec3e02d7d383881da89d51aae6f132f818d178c66d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1441,7 +1459,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "醇类；酒精（化学）",
-        "definition_en": "an alcohol in chemistry: a compound containing a hydroxyl group; ethanol is the alcohol in alcoholic drinks",
+        "definition_en": "in chemistry, a compound with an OH group bonded to a saturated carbon atom; ethanol is the alcohol in drinks",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1522,8 +1540,16 @@
     "ordinal": 138,
     "word": "alert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0138.json",
-    "source_fingerprint": "e304998fcd24bd9d50a1b4b6fdec20c503ca9d86727ae64b09c7c59e52e5496d",
-    "sense_lineage": [],
+    "source_fingerprint": "d940cad661eb2a3582cb4ec1670292f4726842e1e3b6232627be1c1d3e6d0dac",
+    "sense_lineage": [
+      {
+        "word_id": "word:alert",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8a8d459eee50d96bb4f0",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -1582,8 +1608,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "警报，警示",
-        "definition_en": "a warning or signal of danger",
+        "definition_cn": "警报；戒备状态",
+        "definition_en": "a warning of danger, or a state of watchfulness and readiness",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1613,14 +1639,14 @@
           "target_kind": "sense",
           "target_id": "sense:alert:b1ca03e5e73c5353",
           "target_locator": "record.senses[1]",
-          "target_label": "警报，警示"
+          "target_label": "警报；戒备状态"
         }
       },
       {
         "id": "sense:alert:9bf4fe506b3555a5",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + to",
+        "governing_pattern": "vt. + object (optionally + to sth)",
         "definition_cn": "使警觉，使意识到",
         "definition_en": "to make someone aware of something, especially danger",
         "note": "",
@@ -1631,13 +1657,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "alert sb to the danger",
             "meaning_cn": "使某人意识到危险",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8a8d459eee50d96bb4f0",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "alert sb to the danger"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:615d02ef88e31f094c39",
@@ -1847,8 +1868,16 @@
     "ordinal": 140,
     "word": "alien",
     "source_owner_path": "content/lexical/words/by-ordinal/o0140.json",
-    "source_fingerprint": "92cc5d10dbb22f97dca4b328c07f8873cdde5ecd963835cf0a075e39213b7d55",
-    "sense_lineage": [],
+    "source_fingerprint": "41b4abb967496b9fac5013651a5b109fa3ebe1fd568bc593d5b4d33173bc3f80",
+    "sense_lineage": [
+      {
+        "word_id": "word:alien",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cfb5a014959e8b81cdeb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2A",
@@ -1965,13 +1994,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "an alien from another planet",
             "meaning_cn": "来自外星球的外星生物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cfb5a014959e8b81cdeb",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "an alien from another planet"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2024,29 +2048,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:alien:handoff-9c7dd79a2b64f1a6",
-        "source_locator": "record.constructions[0]",
-        "pattern": "an alien",
-        "lines": [
-          {
-            "text": "外星人；外来者",
-            "lang": "cn"
-          },
-          {
-            "text": "an extraterrestrial being; non-citizen use is formal and context-sensitive",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:alien:handoff-9c7dd79a2b64f1a6",
-          "target_locator": "record.constructions[0]",
-          "target_label": "an alien"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2184,7 +2186,7 @@
     "ordinal": 142,
     "word": "align",
     "source_owner_path": "content/lexical/words/by-ordinal/o0142.json",
-    "source_fingerprint": "d1061dbf23209e75cce2cf5c79e553ea17327ecf0f3494f7be03096688b6079e",
+    "source_fingerprint": "1e222591df16b13c39944f3974f1c3397250735b1c9fe75c3ac87e5e21748407",
     "sense_lineage": [
       {
         "word_id": "word:align",
@@ -2215,9 +2217,9 @@
         "id": "sense:align:65e906b717115df6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt. + object (with sth); vi. (with sth)",
         "definition_cn": "使成一行；使对齐",
-        "definition_en": "to place in a straight line or arrange properly",
+        "definition_en": "to place or be in a straight line or proper relative position",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2249,9 +2251,9 @@
         "id": "sense:align:f67b11ecb4ab5cfc",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vt. + object + with sth; vi. + with sth",
         "definition_cn": "与…一致；结盟",
-        "definition_en": "to come into agreement or alliance with",
+        "definition_en": "to bring or come into agreement or alliance",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2437,8 +2439,16 @@
     "ordinal": 143,
     "word": "alike",
     "source_owner_path": "content/lexical/words/by-ordinal/o0143.json",
-    "source_fingerprint": "e5a8dd1cf1209e12c961d837fa9af19939903241a70758a3bcee028d42250115",
-    "sense_lineage": [],
+    "source_fingerprint": "18357dcf22278f478397297d03c15359cc286db8122ecdafba460756d6f703cf",
+    "sense_lineage": [
+      {
+        "word_id": "word:alike",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f057889bfc8e484759a6",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -2472,13 +2482,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "look alike",
             "meaning_cn": "看起来相似",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f057889bfc8e484759a6",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "look alike"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:3320be53b640516d3aa9",
@@ -2614,12 +2619,19 @@
     "ordinal": 144,
     "word": "alive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0144.json",
-    "source_fingerprint": "365c57c48fd138c61337bed694af9c00fde2c6b8bb50316ebdf9d4cf35a97025",
+    "source_fingerprint": "ae87b88e4b0afe1cb332b5014ddcfee8fe30ae9757eed43b70a06b90a559d9d6",
     "sense_lineage": [
       {
         "word_id": "word:alive",
         "target_kind": "sense",
         "from_target_id": "sense:alive:2564ae653338566f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:alive",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c517dd2cc402b22c94ec",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -2656,13 +2668,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stay alive",
             "meaning_cn": "活下去",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c517dd2cc402b22c94ec",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "stay alive"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:0ff71be7dd578ebdd5c1",
@@ -2810,14 +2817,14 @@
       {
         "id": "construction:alive:handoff-7e8f8862602502b3",
         "source_locator": "record.constructions[0]",
-        "pattern": "come alive; alive to ...",
+        "pattern": "come alive",
         "lines": [
           {
-            "text": "活跃起来；意识到……",
+            "text": "活跃起来；变得生动",
             "lang": "cn"
           },
           {
-            "text": "become lively or be aware of something",
+            "text": "become lively or animated",
             "lang": "en"
           }
         ],
@@ -2825,7 +2832,7 @@
           "target_kind": "construction",
           "target_id": "construction:alive:handoff-7e8f8862602502b3",
           "target_locator": "record.constructions[0]",
-          "target_label": "come alive; alive to ..."
+          "target_label": "come alive"
         }
       },
       {
@@ -2892,7 +2899,7 @@
     "ordinal": 145,
     "word": "all",
     "source_owner_path": "content/lexical/words/by-ordinal/o0145.json",
-    "source_fingerprint": "08d4c226bb341977097d212a0f00037dce0dbc1a073fc18bfd404ab2f131289d",
+    "source_fingerprint": "aba2e3105cfbe262c96299118898d6facde94deb72f010897e99924883193b19",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2952,14 +2959,14 @@
           {
             "id": "collocation:9ef77b764dc6faf673eb",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "all of + sth",
-            "meaning_cn": "某物的全部",
+            "phrase": "all of + noun phrase / object pronoun",
+            "meaning_cn": "所指范围的全部；所有人或物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9ef77b764dc6faf673eb",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "all of + sth"
+              "target_label": "all of + noun phrase / object pronoun"
             }
           },
           {
@@ -3057,6 +3064,10 @@
             "lang": "cn"
           },
           {
+            "text": "这里的非字面读法表示“几乎”，如 all but gone；all + but 也可按“全部＋除外”的普通组合表示“除……之外都”，如 all but one。不能把后者机械读成“几乎”。",
+            "lang": "cn"
+          },
+          {
             "text": "almost or very nearly",
             "lang": "en"
           }
@@ -3124,8 +3135,16 @@
     "ordinal": 146,
     "word": "allege",
     "source_owner_path": "content/lexical/words/by-ordinal/o0146.json",
-    "source_fingerprint": "ae38b06c23f94439d8ecf8c3b06c660b72669f618f7dc370d60e286889de0f1b",
-    "sense_lineage": [],
+    "source_fingerprint": "028f5905cdf20fa83da8974b6b664b55cd5f43b5e6ff8ddba536266b6715cb81",
+    "sense_lineage": [
+      {
+        "word_id": "word:allege",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7907fa52f61b8ffdb0d3",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -3133,13 +3152,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无证据地声称",
-      "decision_cn": "",
+      "summary_cn": "尚未经证实地声称或提出指控",
+      "decision_cn": "提出尚未证明的说法，不表示“毫无证据”，也不替说法背书。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无证据地声称"
+        "target_label": "尚未经证实地声称或提出指控"
       }
     },
     "senses": [
@@ -3171,13 +3190,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "be alleged to + do",
             "meaning_cn": "据称做……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7907fa52f61b8ffdb0d3",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "be alleged to + do"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:47db67bbb7a55eb1e86b",
@@ -3262,7 +3276,7 @@
             "lang": "cn"
           },
           {
-            "text": "formal reporting pattern that keeps the claim unattributed/unproven rather than presenting it as fact.",
+            "text": "Formal reported-claim pattern; the reporter does not present the claim as proven. Its source may be named or unnamed.",
             "lang": "en"
           },
           {
@@ -3286,7 +3300,7 @@
           "target_word": "assert ↔ claim",
           "lines": [
             {
-              "text": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+              "text": "allege = formally report/claim something (often wrongdoing) before it has been proved (not necessarily without evidence); assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
               "lang": "en"
             },
             {
@@ -3581,7 +3595,7 @@
     "ordinal": 149,
     "word": "alliance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0149.json",
-    "source_fingerprint": "f5d989460170e90c9c723c772019ef6a8971455f7825eec2d590159407682820",
+    "source_fingerprint": "f71dbd600510610e2961938dcb18781336e2a7eb97d85308688ed442b4612161",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3738,8 +3752,16 @@
     "ordinal": 150,
     "word": "allocate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0150.json",
-    "source_fingerprint": "30be2a7fd68d04eb98f7943d793e77b8fda07483d99a928d428b19b3560c31d1",
-    "sense_lineage": [],
+    "source_fingerprint": "d3ebf04308fc992c69c7083ff37663b32781f5c5683bbec5a8096771094c0fff",
+    "sense_lineage": [
+      {
+        "word_id": "word:allocate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c370892105a08cc51cbe",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -3780,13 +3802,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "allocate funds to + sth",
             "meaning_cn": "把资金分配给某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c370892105a08cc51cbe",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "allocate funds to + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3919,8 +3936,23 @@
     "ordinal": 151,
     "word": "allow",
     "source_owner_path": "content/lexical/words/by-ordinal/o0151.json",
-    "source_fingerprint": "afb61b5a05d3c60e703b3f22bead68d4739911dc4ecef0932d84aa44ec89d97b",
-    "sense_lineage": [],
+    "source_fingerprint": "c0b3fdfb6008f72f308e95206439a56965a24529a4fd25b64e9261c0be34cc55",
+    "sense_lineage": [
+      {
+        "word_id": "word:allow",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1b4d2fee22b44f515e03",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:allow",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:90d6a0765d813375d9b4",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -3943,9 +3975,9 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "允许；准许",
-        "definition_en": "to give permission to someone or something to do something",
-        "note": "",
+        "definition_cn": "允许；准许；使某事成为可能",
+        "definition_en": "to permit an action or event, or make it possible",
+        "note": "人或机构作主语常表示准许；条件、设施或技术作主语时可表示使某事成为可能，不一定有人授予许可。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3966,20 +3998,15 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "allow + sth",
             "meaning_cn": "允许某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1b4d2fee22b44f515e03",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "allow + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:allow:b42ebb1c0c725d7b",
           "target_locator": "record.senses[0]",
-          "target_label": "允许；准许"
+          "target_label": "允许；准许；使某事成为可能"
         }
       },
       {
@@ -4010,13 +4037,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "allow time for + sth",
             "meaning_cn": "为某事留出时间",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:90d6a0765d813375d9b4",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "allow time for + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4122,27 +4144,6 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:allow:baseline-v2-sb-to-do",
-        "source_locator": "record.constructions[0]",
-        "pattern": "allow sb to do sth",
-        "lines": [
-          {
-            "text": "允许某人做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "permit someone to do something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:allow:baseline-v2-sb-to-do",
-          "target_locator": "record.constructions[0]",
-          "target_label": "allow sb to do sth"
-        }
-      },
-      {
         "id": "construction:allow:baseline-v2-doing",
         "source_locator": "record.constructions[1]",
         "pattern": "allow doing sth",
@@ -4183,27 +4184,6 @@
           "target_locator": "record.constructions[2]",
           "target_label": "be allowed to do sth"
         }
-      },
-      {
-        "id": "construction:allow:baseline-v2-for",
-        "source_locator": "record.constructions[3]",
-        "pattern": "allow for sth",
-        "lines": [
-          {
-            "text": "考虑到；顾及某因素",
-            "lang": "cn"
-          },
-          {
-            "text": "take a factor or circumstance into account",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:allow:baseline-v2-for",
-          "target_locator": "record.constructions[3]",
-          "target_label": "allow for sth"
-        }
       }
     ],
     "reference": {
@@ -4214,7 +4194,7 @@
           "target_word": "let",
           "lines": [
             {
-              "text": "allow正式允许，let口语让",
+              "text": "表示允许某人做某事时：allow sb to do sth；let sb do sth（不带 to）。let 通常较口语，不能仅用语体代替补语选择。",
               "lang": "cn"
             },
             {
@@ -4231,8 +4211,8 @@
           }
         },
         {
-          "title": "allow ↔ allow ↔ enable/permit",
-          "target_word": "allow ↔ enable/permit",
+          "title": "allow ↔ enable/permit",
+          "target_word": "enable/permit",
           "lines": [
             {
               "text": "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences.",
@@ -4244,7 +4224,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:ee550bb5881ac3c29b24",
             "target_locator": "record.semantic_neighbors[1]",
-            "target_label": "allow ↔ allow ↔ enable/permit"
+            "target_label": "allow ↔ enable/permit"
           }
         }
       ],
@@ -4258,7 +4238,7 @@
     "ordinal": 152,
     "word": "allowance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0152.json",
-    "source_fingerprint": "f7fceee11a48abfcddf9bdb96701f50e4ea6daa4aeef619b9f74aed4afc060f9",
+    "source_fingerprint": "c58b89dd7a9203ddc5021e3808232cacc6a373bb129c9c84c023a47b505b5a21",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4282,8 +4262,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "定期给予的金额，尤指用于特定目的",
-        "definition_en": "an amount of money given regularly to someone, especially for a specific purpose",
+        "definition_cn": "津贴；补助；为某用途给予的金额（可定期发放）",
+        "definition_en": "money provided for expenses or a particular purpose, sometimes paid regularly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4300,7 +4280,7 @@
           "target_kind": "sense",
           "target_id": "sense:allowance:c67eb3ef02b855be",
           "target_locator": "record.senses[0]",
-          "target_label": "定期给予的金额，尤指用于特定目的"
+          "target_label": "津贴；补助；为某用途给予的金额（可定期发放）"
         }
       },
       {
@@ -4412,7 +4392,7 @@
     "ordinal": 153,
     "word": "alloy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0153.json",
-    "source_fingerprint": "0738e2140ac1daaa02c17220e0d13d71fd65997b16a458a69ccd422bf6f6a59d",
+    "source_fingerprint": "7bed2ced471541238bdbd6edd149c1ab7baa4f7aa1360f42bf41fe8cf56c72d3",
     "sense_lineage": [
       {
         "word_id": "word:alloy",
@@ -4471,7 +4451,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "将...铸成合金",
+        "definition_cn": "使合金化；将……制成合金",
         "definition_en": "make an alloy of",
         "note": "",
         "identity_overlay": null,
@@ -4480,7 +4460,7 @@
             "id": "collocation:490079f69e079d732c51",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "alloy steel with chromium",
-            "meaning_cn": "将钢与铬铸成合金",
+            "meaning_cn": "把铬加入钢中制成合金",
             "kind": "usage_example",
             "repair": null
           }
@@ -4489,7 +4469,7 @@
           "target_kind": "sense",
           "target_id": "sense:alloy:00784ef707b75ced",
           "target_locator": "record.senses[1]",
-          "target_label": "将...铸成合金"
+          "target_label": "使合金化；将……制成合金"
         }
       }
     ],
@@ -5324,7 +5304,7 @@
     "ordinal": 157,
     "word": "along",
     "source_owner_path": "content/lexical/words/by-ordinal/o0157.json",
-    "source_fingerprint": "0a66651829e678f87ea7da8ef7c009c10871d6209b324e52d6b0f79d2eead8a4",
+    "source_fingerprint": "30da351c87e717b2d176e8ff2340209955d2afde54815669fde98ddace5e12ac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5349,9 +5329,9 @@
         "source_locator": "record.senses[0]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "沿着某物的线或长度",
-        "definition_en": "following the line or length of something",
-        "note": "",
+        "definition_cn": "沿着；顺着；在某条长形物的一处/沿线",
+        "definition_en": "following the length or side of something, or at a point on that length",
+        "note": "可以表示移动路线，也可以表示静态分布或所在位置，如沿河分布的房屋、走廊那头的办公室。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5367,7 +5347,7 @@
           "target_kind": "sense",
           "target_id": "sense:along:9432ffad61c65e6d",
           "target_locator": "record.senses[0]",
-          "target_label": "沿着某物的线或长度"
+          "target_label": "沿着；顺着；在某条长形物的一处/沿线"
         }
       },
       {
@@ -5375,9 +5355,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "向前；朝某个方向",
-        "definition_en": "forward; in a particular direction",
-        "note": "",
+        "definition_cn": "向前；进展",
+        "definition_en": "forward in a direction, or making progress towards a better state",
+        "note": "come along用于book/project等时可表示进展，如come along nicely；不是空间上的出现。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5401,7 +5381,7 @@
           "target_kind": "sense",
           "target_id": "sense:along:95ce2a7b5baf5c17",
           "target_locator": "record.senses[1]",
-          "target_label": "向前；朝某个方向"
+          "target_label": "向前；进展"
         }
       },
       {
@@ -5516,8 +5496,23 @@
     "ordinal": 158,
     "word": "alongside",
     "source_owner_path": "content/lexical/words/by-ordinal/o0158.json",
-    "source_fingerprint": "32b6b3b819acd58fe194d63790c5e7975ac03ae8048eafb5feef60f0377f844c",
-    "sense_lineage": [],
+    "source_fingerprint": "f718754b93a928d33ba1d8ef27ee49ff492ccf47a4eeb737c61ee9823716473a",
+    "sense_lineage": [
+      {
+        "word_id": "word:alongside",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:86fb5fd85d15293179e2",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:alongside",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:be5e8d3bdb1ba316c706",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV",
@@ -5551,26 +5546,16 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "alongside + sth/sb",
             "meaning_cn": "在...旁边；与...一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:86fb5fd85d15293179e2",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "alongside + sth/sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:be5e8d3bdb1ba316c706",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "work alongside + sb",
             "meaning_cn": "与某人一起工作",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:be5e8d3bdb1ba316c706",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "work alongside + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5826,8 +5811,23 @@
     "ordinal": 161,
     "word": "already",
     "source_owner_path": "content/lexical/words/by-ordinal/o0161.json",
-    "source_fingerprint": "863129ad4d2ec9a8c336a6a0a05ddf75e120aab3c887f9d2a085bdf743eaca53",
-    "sense_lineage": [],
+    "source_fingerprint": "04cb6da0ba63b616b87ad94b362fa60cd903b8f0771f620e5e4a2ee4e6623462",
+    "sense_lineage": [
+      {
+        "word_id": "word:already",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:55eeb96cbe6dbafdf5b5",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:already",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d5221db8a5520c7a2415",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV"
@@ -5852,7 +5852,7 @@
         "governing_pattern": "",
         "definition_cn": "已经",
         "definition_en": "before now or before a particular time",
-        "note": "",
+        "note": "Already is not restricted to perfect tenses: it can describe a state or event existing before the reference time, including I already know and have already finished.",
         "identity_overlay": null,
         "usage": [
           {
@@ -5860,26 +5860,16 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "already + done",
             "meaning_cn": "已经完成",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d5221db8a5520c7a2415",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "already + done"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:55eeb96cbe6dbafdf5b5",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "have already + past participle",
             "meaning_cn": "已经做了某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:55eeb96cbe6dbafdf5b5",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "have already + past participle"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6022,7 +6012,7 @@
     "ordinal": 163,
     "word": "alter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0163.json",
-    "source_fingerprint": "ac57f42b57473ebac682a656d6ff6d1da4db0535e2125bbce7dd45b6fbef63a8",
+    "source_fingerprint": "c753adb4d7aa187fde337548c358ea3e8fd08269b9909259304ba24da5622950",
     "sense_lineage": [
       {
         "word_id": "word:alter",
@@ -6053,9 +6043,9 @@
         "id": "sense:alter:ef5ea5d2408352df",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "alter | alter sth",
         "definition_cn": "改变；更改；修改",
-        "definition_en": "to change or modify something",
+        "definition_en": "to become different, or to modify something",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6180,8 +6170,8 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "verb",
-          "definition_cn": "切除卵巢，阉割",
-          "definition_en": "remove the ovaries of (an animal)",
+          "definition_cn": "使动物绝育（阉割或切除卵巢）",
+          "definition_en": "to castrate or spay an animal",
           "semantic_key": "e14b191e063d531f7980fcecc54bbca582b3fa802bf59642bb73364172d22fa1",
           "semantic_key_history": [],
           "legacy_aliases": [
@@ -6207,8 +6197,16 @@
     "ordinal": 164,
     "word": "alternate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0164.json",
-    "source_fingerprint": "f9d6258d0767665982e257a2c5d39360797dab579a068828b1f8fcd7e7ed485d",
-    "sense_lineage": [],
+    "source_fingerprint": "60e294ee16e55b9b26e944933feea4a87ed612047d5552a1bdc4a1a38bcee178",
+    "sense_lineage": [
+      {
+        "word_id": "word:alternate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ec9f322c17a29fd0e1bd",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -6218,13 +6216,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "轮流或交替发生",
-      "decision_cn": "",
+      "summary_cn": "交替或轮流；每隔一个；（尤北美）另一可选或替代的",
+      "decision_cn": "alternate days 是隔天；alternate A and B 是轮流安排；alternate route/explanation 尤在北美可指替代路线/另一种解释。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "轮流或交替发生"
+        "target_label": "交替或轮流；每隔一个；（尤北美）另一可选或替代的"
       }
     },
     "senses": [
@@ -6276,9 +6274,9 @@
         "id": "sense:alternate:ba24afe407cc56b8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "轮流做",
-        "definition_en": "do something in turns",
+        "governing_pattern": "alternate A and B | alternate A with B",
+        "definition_cn": "使交替；轮流使用/安排",
+        "definition_en": "to arrange or use two things in a repeated sequence",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6295,7 +6293,7 @@
           "target_kind": "sense",
           "target_id": "sense:alternate:ba24afe407cc56b8",
           "target_locator": "record.senses[1]",
-          "target_label": "轮流做"
+          "target_label": "使交替；轮流使用/安排"
         }
       },
       {
@@ -6303,9 +6301,9 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "间隔的，每隔一个的",
-        "definition_en": "every second one of a series",
-        "note": "",
+        "definition_cn": "交替的；每隔一个的；（尤北美）替代的、另一可选的",
+        "definition_en": "alternating or occurring every other time; especially in North American English, available as another choice or substitute",
+        "note": "alternate layers是A/B交替层；alternate days是隔天，不是每天。 尤在北美英语中，alternate 也可表示替代的/另一可选的，如 alternate route；该用法与 alternative 重叠。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6326,7 +6324,7 @@
           "target_kind": "sense",
           "target_id": "sense:alternate:faf2eae5accf541f",
           "target_locator": "record.senses[2]",
-          "target_label": "间隔的，每隔一个的"
+          "target_label": "交替的；每隔一个的；（尤北美）替代的、另一可选的"
         }
       },
       {
@@ -6344,13 +6342,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "an alternate",
             "meaning_cn": "替代者；候补者",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ec9f322c17a29fd0e1bd",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "an alternate"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6509,7 +6502,7 @@
           "target_word": "alternative",
           "lines": [
             {
-              "text": "alternate = 交替、轮流、每隔一个或候补；alternative = 另一可选方案或替代方案。",
+              "text": "alternate可表交替或每隔一个；作为名词可指候补。尤在北美英语中，alternate也可作形容词表替代/另一可选，与alternative重叠；不是绝对二分。",
               "lang": "cn"
             }
           ],
@@ -6597,7 +6590,7 @@
     "ordinal": 165,
     "word": "alternative",
     "source_owner_path": "content/lexical/words/by-ordinal/o0165.json",
-    "source_fingerprint": "ab960d09d51128e0161fd86d887d8148bbb36344f86500f33a46e2f60af69c84",
+    "source_fingerprint": "fd597f62514991665236bbd0593ff6db1d7c8dc20f15ab6774c61792b3cf0337",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6630,10 +6623,15 @@
           {
             "id": "collocation:e9936aa94c1df3a2871e",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "have no alternative but to do",
+            "phrase": "have no alternative but to do sth",
             "meaning_cn": "别无选择只能做",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e9936aa94c1df3a2871e",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "have no alternative but to do sth"
+            }
           },
           {
             "id": "collocation:4464d710e7dad453546b",
@@ -6743,8 +6741,8 @@
           "target_word": "alternate",
           "lines": [
             {
-              "text": "alternative = another available choice/substitute; alternate = take turns/change back and forth, or every second in a series",
-              "lang": "en"
+              "text": "alternate可表交替或每隔一个；作为名词可指候补。尤在北美英语中，alternate也可作形容词表替代/另一可选，与alternative重叠；不是绝对二分。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -7199,7 +7197,7 @@
     "ordinal": 169,
     "word": "aluminum",
     "source_owner_path": "content/lexical/words/by-ordinal/o0169.json",
-    "source_fingerprint": "af2d12319755e9ff0b45e37859ec762eadc359165c7eb7c0e9bfaa7f42cbc9e8",
+    "source_fingerprint": "fc3469813f8967c65bb3595ee7fb950c9b86a6a0a264afc23ab5f2b20949bf7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7278,8 +7276,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "aluminum ↔ aluminium ↔ aluminum",
-          "target_word": "aluminium ↔ aluminum",
+          "title": "aluminum ↔ aluminium",
+          "target_word": "aluminium",
           "lines": [
             {
               "text": "aluminum is standard in American English (also common in Canada/Philippines); aluminium is standard in British/international usage. Same chemical element.",
@@ -7291,7 +7289,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:f9b2d3df4709e2afb2f5",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "aluminum ↔ aluminium ↔ aluminum"
+            "target_label": "aluminum ↔ aluminium"
           }
         }
       ],
@@ -7305,8 +7303,16 @@
     "ordinal": 170,
     "word": "always",
     "source_owner_path": "content/lexical/words/by-ordinal/o0170.json",
-    "source_fingerprint": "6f6de35583d9fb4ec852495f750e84487567984cf4d417702db08ae358f667bf",
-    "sense_lineage": [],
+    "source_fingerprint": "ea6f91afb3c4e8274726d632cb70581d6567b41cec069accf955abbe19d2d680",
+    "sense_lineage": [
+      {
+        "word_id": "word:always",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4ff04e9187eec22a804f",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3ADV"
@@ -7314,13 +7320,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "总是",
-      "decision_cn": "",
+      "summary_cn": "总是、一直或永远；can/could always也可提出备选办法",
+      "decision_cn": "普通陈述 → 总是/一直；can/could always或there is always → 还可用的备选；always+进行时 → 反复发生、常带不满；未来承诺 → 永远。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "总是"
+        "target_label": "总是、一直或永远；can/could always也可提出备选办法"
       }
     },
     "senses": [
@@ -7331,7 +7337,7 @@
         "governing_pattern": "",
         "definition_cn": "总是，一直",
         "definition_en": "at all times; on every occasion",
-        "note": "",
+        "note": "普通陈述中表总是/每次；与进行时连用可表反复发生，常带说话者的烦恼或批评，而非每一瞬间持续。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7339,13 +7345,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "always + verb",
             "meaning_cn": "总是做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4ff04e9187eec22a804f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "always + verb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:6e92a45b01541ede2859",
@@ -7354,6 +7355,19 @@
             "meaning_cn": "他总是早到。",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:585f09760ffc17377ecb",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "as always",
+            "meaning_cn": "一如既往",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:585f09760ffc17377ecb",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "as always"
+            }
           }
         ],
         "repair": {
@@ -7367,31 +7381,17 @@
         "id": "sense:always:64a40d8798eb51f3",
         "source_locator": "record.senses[1]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "在任何时候，无论如何",
-        "definition_en": "at any time or in any event",
-        "note": "",
+        "governing_pattern": "can/could always do sth | there is always sb/sth",
+        "definition_cn": "（can/could always…等）总还可以；实在不行还有某种选择",
+        "definition_en": "used with can, could or there is to offer an available option",
+        "note": "用于提出备选办法，如实在不行还可以退货；不是断言每次都这样做。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:585f09760ffc17377ecb",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "as always",
-            "meaning_cn": "一如既往",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:585f09760ffc17377ecb",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "as always"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:always:64a40d8798eb51f3",
           "target_locator": "record.senses[1]",
-          "target_label": "在任何时候，无论如何"
+          "target_label": "（can/could always…等）总还可以；实在不行还有某种选择"
         }
       },
       {
@@ -7481,7 +7481,7 @@
     "ordinal": 171,
     "word": "amateur",
     "source_owner_path": "content/lexical/words/by-ordinal/o0171.json",
-    "source_fingerprint": "74d497fd917834ae96141fea73d81f70668dfbf41d18331c950be4da92a0e510",
+    "source_fingerprint": "676522a58dcd2ba0799a413f218b8e99d582e2d62e5469845245562d071b5041",
     "sense_lineage": [
       {
         "word_id": "word:amateur",
@@ -7526,14 +7526,6 @@
             "meaning_cn": "摄影业余爱好者",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:3f7a289f59378f4fc9a4",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "amateur athlete",
-            "meaning_cn": "业余运动员",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7566,6 +7558,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "amateur photographer",
             "meaning_cn": "业余摄影师",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:3f7a289f59378f4fc9a4",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "amateur athlete",
+            "meaning_cn": "业余运动员",
             "kind": "usage_example",
             "repair": null
           }
@@ -7676,8 +7676,16 @@
     "ordinal": 172,
     "word": "amaze",
     "source_owner_path": "content/lexical/words/by-ordinal/o0172.json",
-    "source_fingerprint": "9aac1b790dbddb8bc17d171452d06d9f3925ef4024a95dccdec2a7b75de29660",
-    "sense_lineage": [],
+    "source_fingerprint": "6fba112c26590209e2ec95148381e54f870f1c152dd8ec42e97f9ed89fdf4bec",
+    "sense_lineage": [
+      {
+        "word_id": "word:amaze",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:74c7d1dfa0f3054ff808",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -7710,13 +7718,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "amaze sb",
             "meaning_cn": "使某人惊奇",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:74c7d1dfa0f3054ff808",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "amaze sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:dba2aa9fbdaf92b0eeb9",
@@ -7775,7 +7778,7 @@
     "ordinal": 173,
     "word": "ambassador",
     "source_owner_path": "content/lexical/words/by-ordinal/o0173.json",
-    "source_fingerprint": "e5c70dc7bcd3703d1e1ba05525f7436eb55ba288f4ce2bd2675ae824ce46d9d6",
+    "source_fingerprint": "535682e31d88182f30895e83c444c203a6709b638167c71a947fc36b87924c83",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7839,7 +7842,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "代表，使者",
-        "definition_en": "an informal representative or spokesperson for something",
+        "definition_en": "a person who represents or promotes an organization, activity, cause, or product",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8020,7 +8023,7 @@
     "ordinal": 175,
     "word": "ambition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0175.json",
-    "source_fingerprint": "7fc6fb6135afe492f44824a165002c37939b682cf57ad26f8e75d71d69363199",
+    "source_fingerprint": "75b1a7396bbddbcee8f51653c530d6d41cb9bdc29bef5ccbbf852c4a9d46014b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8145,7 +8148,7 @@
     "ordinal": 176,
     "word": "ambitious",
     "source_owner_path": "content/lexical/words/by-ordinal/o0176.json",
-    "source_fingerprint": "c2aaacb97119e802b1a295f581b2d9ce6123204d9fcc2a01c1e9e0ff4ef54b52",
+    "source_fingerprint": "a3bf0aa916f680186a4e029238ceb4268f2a25348d90702011caea27eea8308e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8175,23 +8178,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d41712c1373de628130a",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "ambitious plan",
-            "meaning_cn": "雄心勃勃的计划",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:67803cabf5ab44cf12b0",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "be ambitious for + sth",
             "meaning_cn": "对某事有雄心",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:67803cabf5ab44cf12b0",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "be ambitious for + sth"
             }
           }
@@ -8218,6 +8213,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "an ambitious project",
             "meaning_cn": "一项艰巨的工程",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d41712c1373de628130a",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "ambitious plan",
+            "meaning_cn": "雄心勃勃的计划",
             "kind": "usage_example",
             "repair": null
           }
@@ -8354,7 +8357,7 @@
     "ordinal": 178,
     "word": "amend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0178.json",
-    "source_fingerprint": "8ed5f0cdab8026da5e26953c188d515e0df6e57cfbef13667fe30eaabba99830",
+    "source_fingerprint": "549a5c3efbc1dace8ff77382cf5003be6c3e970137d60f47a2701bfb517cb751",
     "sense_lineage": [
       {
         "word_id": "word:amend",
@@ -8419,9 +8422,9 @@
         "id": "sense:amend:2173ab8786e85a2c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "改善，改正（行为等）",
-        "definition_en": "to improve or correct something, especially one's behavior",
+        "governing_pattern": "amend one's ways/behavior | amend",
+        "definition_cn": "改正、改善（行为等）；改过自新",
+        "definition_en": "to improve or correct something, especially behavior, or to reform oneself",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8443,7 +8446,7 @@
           "target_kind": "sense",
           "target_id": "sense:amend:2173ab8786e85a2c",
           "target_locator": "record.senses[1]",
-          "target_label": "改善，改正（行为等）"
+          "target_label": "改正、改善（行为等）；改过自新"
         }
       }
     ],
@@ -8636,8 +8639,16 @@
     "ordinal": 180,
     "word": "amid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0180.json",
-    "source_fingerprint": "c1c5c7c367dd30e1c35ecda705d277c3865673894e2b10f2d93fe96a1eafab95",
-    "sense_lineage": [],
+    "source_fingerprint": "f6b5fb15d9dd81b22c03fbf985b28855231afc8d55b9d9b8cf62804c19d94c2d",
+    "sense_lineage": [
+      {
+        "word_id": "word:amid",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:95a84891a9a294077ace",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1PREP"
@@ -8678,13 +8689,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "amid + sth",
             "meaning_cn": "在…之中",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:95a84891a9a294077ace",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "amid + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8730,7 +8736,7 @@
     "ordinal": 181,
     "word": "among",
     "source_owner_path": "content/lexical/words/by-ordinal/o0181.json",
-    "source_fingerprint": "8afafe8374b9886ab96389b5b85766adae405fcd80bc1f9a98edd9ebf28e1041",
+    "source_fingerprint": "b530fa1d5c1f72d1261addd5fed1574d2939a8186307b7cf3c73005e7add92cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8739,13 +8745,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在……中间",
-      "decision_cn": "",
+      "summary_cn": "置于或属于一个群体；在群体内部发生或分配",
+      "decision_cn": "trees/crowd可表所处环境；survivors/the best表群体成员；divide/share表在群体间分配。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在……中间"
+        "target_label": "置于或属于一个群体；在群体内部发生或分配"
       }
     },
     "senses": [
@@ -8753,10 +8759,10 @@
         "id": "sense:among:d2e81eeb40335dc4",
         "source_locator": "record.senses[0]",
         "pos": "preposition",
-        "governing_pattern": "prep. + plural noun",
-        "definition_cn": "在……之中，在……中间",
-        "definition_en": "surrounded by; in the middle of",
-        "note": "",
+        "governing_pattern": "among + a group/set expression (often a plural noun)",
+        "definition_cn": "在群体中；属于其中；在群体成员间分配",
+        "definition_en": "within or surrounded by a group, including as a member or in a distribution",
+        "note": "可接表示集合的单数名词，如among the crowd；among the survivors表包含/成员身份，不是空间正中央。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8780,7 +8786,7 @@
           "target_kind": "sense",
           "target_id": "sense:among:d2e81eeb40335dc4",
           "target_locator": "record.senses[0]",
-          "target_label": "在……之中，在……中间"
+          "target_label": "在群体中；属于其中；在群体成员间分配"
         }
       }
     ],
@@ -8805,29 +8811,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:among:handoff-4105219215784e99",
-        "source_locator": "record.constructions[0]",
-        "pattern": "among the best; divide/share among",
-        "lines": [
-          {
-            "text": "在最佳者之中；在多人/多项之间分配",
-            "lang": "cn"
-          },
-          {
-            "text": "within a group or distributed through relationships in a group",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:among:handoff-4105219215784e99",
-          "target_locator": "record.constructions[0]",
-          "target_label": "among the best; divide/share among"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -8859,7 +8843,7 @@
     "ordinal": 182,
     "word": "amount",
     "source_owner_path": "content/lexical/words/by-ordinal/o0182.json",
-    "source_fingerprint": "9c29a0a8f517e92990ef25cb549ef0deb5031eb9e151c5797a4911300f02cb23",
+    "source_fingerprint": "0ce1958f6e3a593f65c8c4fda506d29cc2127b57c850b98701b47af3e1d6ae30",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8997,29 +8981,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:amount:f719d6a7b1d44c65",
-        "source_locator": "record.constructions[0]",
-        "pattern": "amount to sth",
-        "lines": [
-          {
-            "text": "总计为；等同于",
-            "lang": "cn"
-          },
-          {
-            "text": "total or add up to; be equivalent to",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:amount:f719d6a7b1d44c65",
-          "target_locator": "record.constructions[0]",
-          "target_label": "amount to sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -9051,7 +9013,7 @@
     "ordinal": 183,
     "word": "ample",
     "source_owner_path": "content/lexical/words/by-ordinal/o0183.json",
-    "source_fingerprint": "2ce154242439e2c9923c15474a55e0453fb66c1ea2f3efd6d8fd99319b69628f",
+    "source_fingerprint": "709562984f677537bf9a914ef835ee81474b613df6f138edd5e8946da5829fdf",
     "sense_lineage": [
       {
         "word_id": "word:ample",
@@ -9090,9 +9052,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "充足的；充裕的",
-        "definition_en": "more than enough in size or scope or capacity",
-        "note": "",
+        "definition_cn": "足够的；充裕的；宽大的",
+        "definition_en": "enough or more than enough in quantity, space or size",
+        "note": "数量、空间或尺寸可以是足够或绰绰有余；不能把more than enough当作所有用法的必要条件。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9108,7 +9070,7 @@
           "target_kind": "sense",
           "target_id": "sense:ample:670952052bed5fa0",
           "target_locator": "record.senses[0]",
-          "target_label": "充足的；充裕的"
+          "target_label": "足够的；充裕的；宽大的"
         }
       }
     ],
@@ -9199,7 +9161,7 @@
     "ordinal": 184,
     "word": "amplify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0184.json",
-    "source_fingerprint": "b828ef1aef1f186ae03984f6a9f414c89ebe4ce22bf5ed7a0cc488b40fb168f6",
+    "source_fingerprint": "2e38640d13c9434433c1e35d10eb3e4c52ca319f5d03877651f97ac17b5c4cef",
     "sense_lineage": [
       {
         "word_id": "word:amplify",
@@ -9207,6 +9169,13 @@
         "from_target_id": "sense:amplify:dfc6d81d9925548d",
         "status": "merged",
         "to_target_id": "sense:amplify:6ad2ce95235551da"
+      },
+      {
+        "word_id": "word:amplify",
+        "target_kind": "sense",
+        "from_target_id": "sense:amplify:20261008-dna-reference",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -9217,7 +9186,7 @@
     },
     "word_feel": {
       "summary_cn": "把某种东西“放大”：可放大声音/信号、增强影响，也可把观点或说明展开得更充分",
-      "decision_cn": "看对象：sound/signal → 放大；effect/importance → 增强；point/story → 详述；DNA/gene → 扩增。",
+      "decision_cn": "看对象：sound/signal → 放大；effect/importance → 增强；point/story → 详述。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9264,10 +9233,10 @@
         "id": "sense:amplify:6ad2ce95235551da",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "amplify sth | amplify (further) | amplify on sth",
         "definition_cn": "详述，进一步说明",
         "definition_en": "to add details to a story or statement; to elaborate",
-        "note": "",
+        "note": "详述义属正式表达，可及物也可不带宾语；amplify on sth中的on引出详述对象。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9346,29 +9315,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:amplify:handoff-6cd0ea1ed52430fe",
-        "source_locator": "record.constructions[0]",
-        "pattern": "amplify DNA/a gene sequence",
-        "lines": [
-          {
-            "text": "扩增 DNA 或基因序列",
-            "lang": "cn"
-          },
-          {
-            "text": "increase the number of copies of a DNA sequence",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:amplify:handoff-6cd0ea1ed52430fe",
-          "target_locator": "record.constructions[0]",
-          "target_label": "amplify DNA/a gene sequence"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9397,6 +9344,45 @@
           "source_row": 471,
           "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json",
           "reference_only": true
+        },
+        {
+          "sense_id": "sense:amplify:20261008-dna-reference",
+          "stable_sense_id": "sense:amplify:20261008-dna-reference",
+          "pos": "verb",
+          "definition_cn": "（分子生物学）扩增 DNA 或基因序列",
+          "definition_en": "to increase the number of copies of a gene or DNA sequence",
+          "sense_label_en": "increase copies of DNA (molecular biology)",
+          "transitivity": "vt",
+          "governing_pattern": "amplify DNA/a gene sequence",
+          "collocations": [],
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "Specialist Lookup support; not a separate default learning or Repair item. The former phrase identity is retired without transferring its history to this new reference identity.",
+          "source_evidence": [
+            {
+              "source_type": "dictionary",
+              "source_url": "https://www.merriam-webster.com/dictionary/amplify",
+              "accessed_date": "2026-10-08",
+              "evidence_status": "source_checked",
+              "supports": "gene or DNA amplification sense"
+            },
+            {
+              "source_type": "preserved_existing_content",
+              "source_path": "content/lexical/words/by-ordinal/o0184.json",
+              "source_ref": "39b5af92596688d8b150fa2fa7a7a0e857771897",
+              "source_object_id": "construction:amplify:handoff-6cd0ea1ed52430fe",
+              "original_object": {
+                "construction_id": "construction:amplify:handoff-6cd0ea1ed52430fe",
+                "pattern": "amplify DNA/a gene sequence",
+                "meaning_cn": "扩增 DNA 或基因序列",
+                "definition_en": "increase the number of copies of a DNA sequence",
+                "level": "L1",
+                "pos": "phrase",
+                "source": "semantic-review-handoff-v1"
+              }
+            }
+          ]
         }
       ]
     }
@@ -9407,8 +9393,16 @@
     "ordinal": 185,
     "word": "amuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0185.json",
-    "source_fingerprint": "fcd65f4ddb1adcd9716995a07a157c12b632c5f5912fd2e2f98028395dc44b78",
-    "sense_lineage": [],
+    "source_fingerprint": "cd9791d5b8fbc7a6eefeff14efa9c843edc7b7d3310fb49e0a1aa9c6850839c4",
+    "sense_lineage": [
+      {
+        "word_id": "word:amuse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e968ea4bb1bc8a713475",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -9441,13 +9435,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "amuse sb",
             "meaning_cn": "逗某人笑",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e968ea4bb1bc8a713475",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "amuse sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:b206322ed777e8017b23",
@@ -9510,19 +9499,6 @@
         {
           "ipa": "/əˈmjuːz/",
           "locales": [],
-          "applicability": [
-            {
-              "surface": "amuse"
-            }
-          ],
-          "evidence_basis": "source_ipa",
-          "spelling_binding": null
-        },
-        {
-          "ipa": "/ʌˈmjus/",
-          "locales": [
-            "en-US"
-          ],
           "applicability": [
             {
               "surface": "amuse"
@@ -9762,7 +9738,7 @@
     "ordinal": 187,
     "word": "analogy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0187.json",
-    "source_fingerprint": "0adf7ba23cffc25daa3da2aca055ad6f75ccfd13a003503ee083ffa3dcf353d4",
+    "source_fingerprint": "be3788227ccc0cc056c3e3af346b1e178aa5519aa3bfd15b681441713af662ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9932,8 +9908,16 @@
     "ordinal": 188,
     "word": "analyse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0188.json",
-    "source_fingerprint": "389ed4609efcea3b0e6a36c2f9ce6d7d6270490144ccc140e576638e43adb1ad",
-    "sense_lineage": [],
+    "source_fingerprint": "69348d41aef9d378fbe597ef018f009dffb5bd68f5e82a76d811a288974579d9",
+    "sense_lineage": [
+      {
+        "word_id": "word:analyse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c6cbe3cb9193b57fb603",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -9966,13 +9950,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "analyse + sth",
             "meaning_cn": "分析某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c6cbe3cb9193b57fb603",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "analyse + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:0a52b2ae373de028c78a",
@@ -10083,13 +10062,20 @@
     "ordinal": 189,
     "word": "analysis",
     "source_owner_path": "content/lexical/words/by-ordinal/o0189.json",
-    "source_fingerprint": "054b2b281b210d6d6843b3e196b707085b70b1a4aa87bf04518921307a6515a3",
+    "source_fingerprint": "12a5ed09243b40238dff881064f99ca592ac3c9f87ad0369d2aa73c35bd688e5",
     "sense_lineage": [
       {
         "word_id": "word:analysis",
         "target_kind": "sense",
         "from_target_id": "sense:analysis:575d2bf4ac0b5199",
         "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:analysis",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:76a1451a89f700381db6",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -10125,13 +10111,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "analysis of + sth",
             "meaning_cn": "对某事物的分析",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:76a1451a89f700381db6",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "analysis of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:14a2730e48ea89f54e9e",
@@ -10244,7 +10225,7 @@
     "ordinal": 190,
     "word": "analytic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0190.json",
-    "source_fingerprint": "afa46f42bc94b4d57531eb5603853ac99b7a62993ee911220e8b0150c92c8771",
+    "source_fingerprint": "6c9fd69110641a670d4dd77aaccb01e13a53c842c29d36bee7c613531ced0d78",
     "sense_lineage": [
       {
         "word_id": "word:analytic",
@@ -10541,7 +10522,7 @@
     "ordinal": 192,
     "word": "anchor",
     "source_owner_path": "content/lexical/words/by-ordinal/o0192.json",
-    "source_fingerprint": "720788f32eeeff5baf3fbfd0106350a096b9ac2bb3c12f26a1eebe24b208cf86",
+    "source_fingerprint": "dc449a80d980a92ddc1184edbe9a1ebf0173951a005a1acbeb112e907b590ac3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10692,7 +10673,7 @@
         "id": "sense:anchor:31a75364f1f35deb",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "anchor | anchor a ship/boat",
         "definition_cn": "抛锚停泊",
         "definition_en": "to lower an anchor to stop a ship from moving",
         "note": "",

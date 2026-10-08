@@ -9,12 +9,18 @@
     "constructions": [
       {
         "construction_id": "construction:afford:handoff-1b41c4738615a272",
-        "pattern": "afford time/resources/risk",
+        "pattern": "can/cannot afford + cost/time; can/cannot afford to do sth",
         "meaning_cn": "有时间、资源承担某事；承受风险或后果",
         "definition_en": "have enough resources or be able to bear a cost, risk, or consequence",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "boundary": "通常与 can/could/cannot 等连用；钱、时间或不利后果决定是否承担得起。",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:551ccbcf02dc5b2b78ab",
+          "reason": "Keep one can/cannot-afford resource/consequence frame with object or infinitive."
+        }
       },
       {
         "construction_id": "construction:afford:handoff-0f1ebdd76aa0e3d8",
@@ -23,7 +29,12 @@
         "definition_en": "provide someone with an opportunity",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:62fa52b28eea7e0fe332",
+          "reason": "An opportunity fills the existing afford sb sth double-object frame."
+        }
       }
     ],
     "content_hash": "9ece8edf6286c3412b46e070999c43618ac12684f55367b8fcbaa3ee53de8300",
@@ -31,7 +42,7 @@
       "core_clusters": [],
       "core_meaning_cn": "有足够资源承担成本、时间或风险；正式用法也可表示给予、提供",
       "core_meaning_en": "to have enough resources to bear a cost, time commitment, or risk; formally, to provide or grant",
-      "mental_model_cn": "afford + price/time/risk → 能承担；afford sb sth → 给某人提供某物。",
+      "mental_model_cn": "can/cannot afford + 成本、时间或 to do：是否承担得起；afford + 机会、保护等：正式用法“提供”，可带双宾语，也可直接带所提供的事物。",
       "mental_model_en": "Let the argument pattern choose between bear/can afford and provide/grant."
     },
     "exam_paraphrases": [],
@@ -50,7 +61,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:9c7f2032e7e929ca682f",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:afford:f62ce54bb8f754b9:collocation:0"
             ],
@@ -63,21 +74,30 @@
             "legacy_source_object_ids": [
               "sense:afford:f62ce54bb8f754b9:collocation:1"
             ],
-            "meaning_cn": "有条件/负担得起做某事",
-            "phrase": "can afford to do sth"
+            "meaning_cn": "有无足够的钱、时间等资源；能否承担行为的风险或后果",
+            "phrase": "can/cannot afford sth / to do sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "买得起；负担得起",
-        "definition_en": "have enough money to buy or do something",
+        "definition_en": "have enough money, time, or other resources, or be able to bear the consequences of doing something",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:afford:f62ce54bb8f754b9",
-        "sense_label_en": "have enough money to buy or do something",
+        "sense_label_en": "have enough money, time, or other resources, or be able to bear the consequences of doing something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/afford",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "Existing time/risk Constructor and can afford to frame are not limited to money."
+          }
+        ]
       },
       {
         "collocations": [
@@ -254,14 +274,27 @@
     ],
     "active_collocations": [
       "collocation:551ccbcf02dc5b2b78ab",
-      "collocation:62fa52b28eea7e0fe332",
-      "collocation:9c7f2032e7e929ca682f"
+      "collocation:62fa52b28eea7e0fe332"
     ],
     "facts": [
       {
         "id": "deep:constructions:afford:c8579812c5d3a8ed",
         "source_row": 46,
         "source_path": "content/lexical/canonical/facts/shards/o0097-0128.json"
+      },
+      {
+        "id": "construction:afford:handoff-0f1ebdd76aa0e3d8",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "An opportunity fills the existing afford sb sth double-object frame."
+      },
+      {
+        "id": "construction:afford:handoff-1b41c4738615a272",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one can/cannot-afford resource/consequence frame with object or infinitive."
       }
     ],
     "collocations": [
@@ -278,7 +311,10 @@
       {
         "id": "collocation:9c7f2032e7e929ca682f",
         "source_row": 13323,
-        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       }
     ],
     "exam-mappings": [],

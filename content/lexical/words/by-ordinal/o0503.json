@@ -14,7 +14,12 @@
         "definition_en": "hold someone responsible for something wrong or undesirable",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:1b05a57e005f64ea8dc9",
+          "reason": "The existing person-for-event frame is already selected once."
+        }
       },
       {
         "construction_id": "construction:blame:baseline-v2-sth-on-sb",
@@ -23,7 +28,12 @@
         "definition_en": "attribute a problem, fault, or bad outcome to someone or something",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:dfa58a4464eec60f1497",
+          "reason": "One full event-on-person/cause frame, without duplicate Construction."
+        }
       }
     ],
     "content_hash": "55f3f9759317288f10c6eb088a06ce142b94ec89c988f9c1e3887e1eaf569bb3",
@@ -38,7 +48,7 @@
           ]
         },
         {
-          "label_cn": "责备；过失",
+          "label_cn": "责备；对过错的责任",
           "label_en": "responsibility for a fault or wrong",
           "pos": "noun",
           "sense_ids": [
@@ -81,8 +91,8 @@
             "legacy_source_object_ids": [
               "sense:blame:389ef55bc0185723:collocation:1"
             ],
-            "meaning_cn": "把某事归咎于某人",
-            "phrase": "blame sth on sb"
+            "meaning_cn": "把某个问题或坏结果归咎于某人或某事",
+            "phrase": "blame sth on sb/sth"
           }
         ],
         "confidence": "medium",
@@ -119,7 +129,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "责备；过失",
+        "definition_cn": "责备；（对过错或坏结果的）责任",
         "definition_en": "responsibility for a fault or wrong",
         "governing_pattern": "",
         "level": "L1",
@@ -659,6 +669,20 @@
         "id": "deep:constructions:blame:252db6dc031574c8",
         "source_row": 173,
         "source_path": "content/lexical/canonical/facts/shards/o0481-0512.json"
+      },
+      {
+        "id": "construction:blame:baseline-v2-sb-for-sth",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing person-for-event frame is already selected once."
+      },
+      {
+        "id": "construction:blame:baseline-v2-sth-on-sb",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One full event-on-person/cause frame, without duplicate Construction."
       }
     ],
     "collocations": [

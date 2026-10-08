@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "蓝图，周详的计划；设计图，蓝图（照片）",
-          "label_en": "something intended as a guide for making something else; photographic print of plans or technical drawings etc.",
+          "label_cn": "详细的计划；技术设计图",
+          "label_en": "a detailed guiding plan, or a technical drawing",
           "pos": "noun",
           "sense_ids": [
-            "sense:blueprint:1bf629d2f97155fe"
+            "sense:blueprint:1bf629d2f97155fe",
+            "sense:blueprint:3b4b990857fc5a62"
           ]
         },
         {
@@ -87,6 +88,52 @@
         "sense_label_en": "make a blueprint of",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "stable_sense_id": "sense:blueprint:3b4b990857fc5a62",
+        "pos": "noun",
+        "definition_cn": "设计图；技术蓝图",
+        "definition_en": "a detailed technical plan or drawing for a building, machine, or similar project",
+        "semantic_key": "4f167a41f1624f4e1d238cde063a644efafed218eac11da1933a7de6e6dccf8b",
+        "semantic_key_history": [
+          "c523ea3c8093b33134d08ae8278ffa462f51f0e07dd094f47cad802c60c2d802"
+        ],
+        "legacy_aliases": [
+          "blueprint:l2:2"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "blueprint:l2:2",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 1398,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
+        "sense_id": "sense:blueprint:3b4b990857fc5a62",
+        "sense_label_en": "a technical plan or drawing",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "collocations": [],
+        "usage_note": "The literal drawing is distinct from a figurative policy blueprint; traditional copies had white lines on blue paper, but the learning target is recognizing the plan/drawing.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/blueprint",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "literal plan for a building or machine"
+          },
+          {
+            "source_type": "exam_preparation",
+            "source_url": "https://sh.xhd.cn/m/ielts/cihui/875186.html",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "IELTS vocabulary material explicitly teaches blueprint as a drawing; not an official exam or frequency claim"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -245,33 +292,7 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:blueprint:3b4b990857fc5a62",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "设计图，蓝图（照片）",
-      "definition_en": "photographic print of plans or technical drawings etc.",
-      "semantic_key": "4f167a41f1624f4e1d238cde063a644efafed218eac11da1933a7de6e6dccf8b",
-      "semantic_key_history": [
-        "c523ea3c8093b33134d08ae8278ffa462f51f0e07dd094f47cad802c60c2d802"
-      ],
-      "legacy_aliases": [
-        "blueprint:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "blueprint:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1398,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -283,7 +304,7 @@
       },
       {
         "sense_id": "sense:blueprint:3b4b990857fc5a62",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1398,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"

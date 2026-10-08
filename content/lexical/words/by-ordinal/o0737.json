@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "中心；中央；中锋",
-          "label_en": "the middle point or part of something; a player in a team sport positioned in the middle",
+          "label_cn": "中心；中央",
+          "label_en": "the middle point or part of something",
           "pos": "noun",
           "sense_ids": [
             "sense:centre:dd31926863855e47"
@@ -25,11 +25,19 @@
           "sense_ids": [
             "sense:centre:88f46fed08da547b"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "供某种活动或服务使用的中心、场所或机构",
+          "label_en": "a place, building, or organization where a particular activity or service is provided",
+          "sense_ids": [
+            "sense:centre:20261008-activity-place"
+          ]
         }
       ],
       "core_meaning_cn": "中心",
       "core_meaning_en": "the middle point or area",
-      "mental_model_cn": "中心",
+      "mental_model_cn": "位置语境：中心；shopping/sports/community centre：提供活动或服务的场所；centre on：围绕、集中于。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -59,15 +67,6 @@
             ],
             "meaning_cn": "关注的焦点",
             "phrase": "centre of attention"
-          },
-          {
-            "collocation_id": "collocation:608b428fdf3a706dcc0a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:centre:dd31926863855e47:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "以…为中心",
-            "phrase": "centre on / be centred on"
           }
         ],
         "confidence": "medium",
@@ -98,7 +97,7 @@
               "sense:centre:88f46fed08da547b:collocation:0"
             ],
             "meaning_cn": "集中于",
-            "phrase": "centre on"
+            "phrase": "centre on sth / be centred on sth"
           },
           {
             "collocation_id": "collocation:cf5d84adc96d03281cca",
@@ -113,14 +112,43 @@
         "confidence": "medium",
         "definition_cn": "集中；使居中",
         "definition_en": "place in the center; focus on",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "centre on sth; centre sth on sth; be centred on sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:centre:88f46fed08da547b",
         "sense_label_en": "place in the center; focus on",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:centre:20261008-activity-place",
+        "pos": "noun",
+        "definition_cn": "供某种活动或服务使用的中心、场所或机构",
+        "definition_en": "a place, building, or organization where a particular activity or service is provided",
+        "sense_label_en": "place or institution for an activity or service",
+        "transitivity": "nonverb",
+        "level": "L1",
+        "depth": "recognition_plus",
+        "sort_order": 2,
+        "governing_pattern": "community/sports/shopping centre; a centre for an activity",
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/centre_1",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "activity/service building meaning distinct from geometric middle"
+          },
+          {
+            "source_type": "exam_preparation",
+            "source_url": "https://ielts.koolearn.com/collins/details/centre",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "IELTS dictionary explains meeting/activity/help building, not just middle point"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -281,11 +309,15 @@
         "merged_into_sense_id": null,
         "source_row": 2083,
         "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      },
+      {
+        "sense_id": "sense:centre:20261008-activity-place",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
       "collocation:01b567aab2340a7f9f85",
-      "collocation:608b428fdf3a706dcc0a",
       "collocation:b5cb65f992f7b7d62d63",
       "collocation:cf5d84adc96d03281cca",
       "collocation:fb119e7d7039ce407c3e"
@@ -320,7 +352,9 @@
       {
         "id": "collocation:608b428fdf3a706dcc0a",
         "source_row": 21525,
-        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json",
+        "status": "merged",
+        "merged_into_id": "collocation:fb119e7d7039ce407c3e"
       }
     ],
     "exam-mappings": [],

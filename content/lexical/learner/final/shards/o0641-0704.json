@@ -5,7 +5,7 @@
     "ordinal": 641,
     "word": "buzz",
     "source_owner_path": "content/lexical/words/by-ordinal/o0641.json",
-    "source_fingerprint": "8a9ed90552617b38934b7606aac2b2a258a51221249bf7b6366b145a6eb53cb9",
+    "source_fingerprint": "413680fc37816fbbb54854fd7508a25f41b071b44d86af75b81ef625dd1e06ea",
     "sense_lineage": [
       {
         "word_id": "word:buzz",
@@ -189,8 +189,30 @@
     "ordinal": 642,
     "word": "by",
     "source_owner_path": "content/lexical/words/by-ordinal/o0642.json",
-    "source_fingerprint": "42abe6bf12447e6102aaaeeadfa00d59d2a31833dfa62328d1f7b3418d5aea4b",
-    "sense_lineage": [],
+    "source_fingerprint": "7d29af4dd18f8e7707a0b30b4d7c8c62619b975bdae03a0b7dc8e76b4de68256",
+    "sense_lineage": [
+      {
+        "word_id": "word:by",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:89b63bbbf87dde2de83a",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:by",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5ca9b84ec46d6752f28d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:by",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d0c8505d3984c12701f9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV",
@@ -259,54 +281,28 @@
             }
           },
           {
-            "id": "collocation:5ca9b84ec46d6752f28d",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "by far",
-            "meaning_cn": "大大地、远远地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5ca9b84ec46d6752f28d",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "by far"
-            }
-          },
-          {
-            "id": "collocation:d0c8505d3984c12701f9",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "by no means",
-            "meaning_cn": "绝不、一点也不",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d0c8505d3984c12701f9",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "by no means"
-            }
-          },
-          {
             "id": "collocation:7b7b817b4f82b6b8f8c1",
-            "source_locator": "record.senses[1].collocations[3]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "by + V-ing",
             "meaning_cn": "通过做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:7b7b817b4f82b6b8f8c1",
-              "target_locator": "record.senses[1].collocations[3]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "by + V-ing"
             }
           },
           {
             "id": "collocation:e0c227d8d48188f678c1",
-            "source_locator": "record.senses[1].collocations[4]",
+            "source_locator": "record.senses[1].collocations[2]",
             "phrase": "by means of",
             "meaning_cn": "借助、通过",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e0c227d8d48188f678c1",
-              "target_locator": "record.senses[1].collocations[4]",
+              "target_locator": "record.senses[1].collocations[2]",
               "target_label": "by means of"
             }
           }
@@ -333,13 +329,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "stand by the door",
             "meaning_cn": "站在门旁",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:89b63bbbf87dde2de83a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "stand by the door"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -449,6 +440,56 @@
           "target_locator": "record.constructions[0]",
           "target_label": "by + time/deadline"
         }
+      },
+      {
+        "id": "construction:by:lane0601-0650-far",
+        "source_locator": "record.constructions[1]",
+        "pattern": "by far (with a comparative/superlative)",
+        "lines": [
+          {
+            "text": "大大地；远远地（强调比较差距）",
+            "lang": "cn"
+          },
+          {
+            "text": "与比较级或最高级搭配强调程度差距，如 better by far/by far the best；不是“通过某种方式”。",
+            "lang": "cn"
+          },
+          {
+            "text": "by a large degree or difference",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:by:lane0601-0650-far",
+          "target_locator": "record.constructions[1]",
+          "target_label": "by far (with a comparative/superlative)"
+        }
+      },
+      {
+        "id": "construction:by:lane0601-0650-no-means",
+        "source_locator": "record.constructions[2]",
+        "pattern": "by no means",
+        "lines": [
+          {
+            "text": "绝不；一点也不",
+            "lang": "cn"
+          },
+          {
+            "text": "整体作强调否定表达；不是在列举某种方法。与字面 means/method 读法区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "not at all; in no way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:by:lane0601-0650-no-means",
+          "target_locator": "record.constructions[2]",
+          "target_label": "by no means"
+        }
       }
     ],
     "reference": {
@@ -482,8 +523,23 @@
     "ordinal": 643,
     "word": "bypass",
     "source_owner_path": "content/lexical/words/by-ordinal/o0643.json",
-    "source_fingerprint": "70cd37ba090a65fd6984bcf64c4627a787581e3258ce45276f51018de4bec3de",
-    "sense_lineage": [],
+    "source_fingerprint": "1dc6c7f823dece01ae5a340b5d7425a38904520ad3031c12c49bea09c7867e1d",
+    "sense_lineage": [
+      {
+        "word_id": "word:bypass",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:52e78c7645039bff644d",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bypass",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bf6209e7eb17f1575eca",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -507,9 +563,9 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "绕过；回避（不愉快或费力的事）",
-        "definition_en": "to avoid something unpleasant or laborious",
-        "note": "",
+        "definition_cn": "绕过（地点、障碍）；避开或跳过（程序、环节等）",
+        "definition_en": "to go around a place or obstacle, or avoid a procedure, person, or stage instead of dealing with it",
+        "note": "道路、城镇语境通常是实际绕行；程序、权威或问题语境是避开或跳过。",
         "identity_overlay": null,
         "usage": [
           {
@@ -525,20 +581,15 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "bypass + sth",
             "meaning_cn": "绕过某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:52e78c7645039bff644d",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "bypass + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bypass:a438cfcbdefa5d01",
           "target_locator": "record.senses[0]",
-          "target_label": "绕过；回避（不愉快或费力的事）"
+          "target_label": "绕过（地点、障碍）；避开或跳过（程序、环节等）"
         }
       },
       {
@@ -582,13 +633,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "build/take a bypass",
             "meaning_cn": "修建/走绕行道路",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bf6209e7eb17f1575eca",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "build/take a bypass"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -646,11 +692,18 @@
     "ordinal": 644,
     "word": "cab",
     "source_owner_path": "content/lexical/words/by-ordinal/o0644.json",
-    "source_fingerprint": "537a255ec8053175344054cd36bc74e53ac40f3bc0208b45ed2a8f14c59fe937",
-    "sense_lineage": [],
+    "source_fingerprint": "cdc4f820e2b515fdab9190039fdd21c214f8b9b43008637413561cbd5ff08ad4",
+    "sense_lineage": [
+      {
+        "word_id": "word:cab",
+        "target_kind": "sense",
+        "from_target_id": "sense:cab:703652099431549b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
@@ -735,23 +788,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "驾驶室"
         }
-      },
-      {
-        "id": "sense:cab:703652099431549b",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "乘出租车",
-        "definition_en": "travel by taxi",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cab:703652099431549b",
-          "target_locator": "record.senses[2]",
-          "target_label": "乘出租车"
-        }
       }
     ],
     "pronunciation_support": {
@@ -790,7 +826,27 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "乘出租车",
+          "definition_en": "travel by taxi",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cab:703652099431549b",
+          "sense_label_en": "travel by taxi",
+          "sort_order": 2,
+          "transitivity": "vi",
+          "stable_sense_id": "sense:cab:703652099431549b",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -880,7 +936,7 @@
     "ordinal": 646,
     "word": "cabin",
     "source_owner_path": "content/lexical/words/by-ordinal/o0646.json",
-    "source_fingerprint": "c099dc8398eed3dfd407253f4116f5b6300a45e314c462ef60214d519b62174f",
+    "source_fingerprint": "6874968fc6fb84776430411267623a30e178eac6e511af9b9696de937d6b499a",
     "sense_lineage": [
       {
         "word_id": "word:cabin",
@@ -953,8 +1009,8 @@
           {
             "id": "collocation:c2d2e2e363af04b5d099",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "cabin class",
-            "meaning_cn": "二等舱",
+            "phrase": "a cabin on the ship",
+            "meaning_cn": "船上的一间客舱",
             "kind": "usage_example",
             "repair": null
           }
@@ -1051,7 +1107,7 @@
     "ordinal": 647,
     "word": "cabinet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0647.json",
-    "source_fingerprint": "32faacc78184ca092ce43e7ecfcded7e51ce921a59e80b62f0d107cbbc738dbb",
+    "source_fingerprint": "88bf815b571975179daf6ae53f398f263cea1b6734fdcee54dfebd44a536f1c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1110,7 +1166,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "内阁",
-        "definition_en": "persons appointed by a head of state to head executive departments of government and act as official advisers",
+        "definition_en": "a government's senior group of ministers or officials involved in advising on and deciding policy",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1213,7 +1269,7 @@
     "ordinal": 648,
     "word": "cable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0648.json",
-    "source_fingerprint": "af46b3100e930b28e98f1db04ea3986ef0893e41bd19a6df6045506ccb3d10c7",
+    "source_fingerprint": "a61d14e2ae9d453c150144e63fdcd86821e60a1c0f29f3d4a06babd532d4ed85",
     "sense_lineage": [
       {
         "word_id": "word:cable",
@@ -1227,6 +1283,13 @@
         "target_kind": "sense",
         "from_target_id": "sense:cable:5dfe06e301065db1",
         "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cable",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d59619d2dcd1e7e47ad6",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -1283,13 +1346,8 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "data/power cable",
             "meaning_cn": "数据线或电力电缆",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d59619d2dcd1e7e47ad6",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "data/power cable"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1589,13 +1647,20 @@
     "ordinal": 651,
     "word": "cage",
     "source_owner_path": "content/lexical/words/by-ordinal/o0651.json",
-    "source_fingerprint": "d4b9ab9646dd91497ffb5fcc9da0f975d11e9d6c672377c537537042bfa5b432",
+    "source_fingerprint": "0c7b84f5aa7bfa581b994f833e12ee334b5498f4465246267eaeb9e0ff2d13da",
     "sense_lineage": [
       {
         "word_id": "word:cage",
         "target_kind": "sense",
         "from_target_id": "sense:cage:0139693c04c1558c",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cage",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8faa17bbda285a1e2cd7",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -1640,13 +1705,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "put sb/sth in a cage",
             "meaning_cn": "把某人/某物关进笼子",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8faa17bbda285a1e2cd7",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "put sb/sth in a cage"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1818,7 +1878,7 @@
     "ordinal": 652,
     "word": "cake",
     "source_owner_path": "content/lexical/words/by-ordinal/o0652.json",
-    "source_fingerprint": "73fa547fcc9445de13acbc29ddf57c5a984e9f6b3bf2004b97ab2a92fa02eefc",
+    "source_fingerprint": "64f7a0249ed420e6ff9ad2db467d4f9e7a8b54d656ccf40fcb30e4799796125e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1924,7 +1984,7 @@
         "id": "sense:cake:c8173a230b2e503b",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "vi.; optionally + up",
         "definition_cn": "结块",
         "definition_en": "to become a solid mass",
         "note": "",
@@ -1997,7 +2057,7 @@
     "ordinal": 653,
     "word": "calcium",
     "source_owner_path": "content/lexical/words/by-ordinal/o0653.json",
-    "source_fingerprint": "3f1439553f55185e17aaad399ec11d88c9e288de2c17837598e8892732f2884b",
+    "source_fingerprint": "6b4c7686742d16d5ecd6f74b6310e099265b04bb2f1f5dec3865cdc4e6e3eafa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2086,8 +2146,16 @@
     "ordinal": 654,
     "word": "calculate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0654.json",
-    "source_fingerprint": "e820ac63c3d6b5730e4d0175949b5129cacaf7542e4766bfe4f77d809dd1b988",
-    "sense_lineage": [],
+    "source_fingerprint": "7bed51fb9ded73d4ab7af80e7c445285bd6ad28effcdb6e944c0e15b8f741410",
+    "sense_lineage": [
+      {
+        "word_id": "word:calculate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e08111de3f9712cbd670",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -2109,7 +2177,7 @@
         "id": "sense:calculate:9db15739026b5239",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "calculate (sth) | calculate how much/how long/etc.",
         "definition_cn": "计算",
         "definition_en": "to find out something by using mathematics",
         "note": "",
@@ -2163,13 +2231,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "be calculated to do sth",
             "meaning_cn": "旨在做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e08111de3f9712cbd670",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "be calculated to do sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2260,11 +2323,25 @@
     "ordinal": 655,
     "word": "calendar",
     "source_owner_path": "content/lexical/words/by-ordinal/o0655.json",
-    "source_fingerprint": "11abcf7e3427663856b4e41d0d6d96d1cabbc882ce57dc0efa6e744a41c26b82",
-    "sense_lineage": [],
+    "source_fingerprint": "cac2313f1ab9f10973692c0a9b7e800e0c66e0056f7e1a39d31b37a421c23eb4",
+    "sense_lineage": [
+      {
+        "word_id": "word:calendar",
+        "target_kind": "sense",
+        "from_target_id": "sense:calendar:acd02c7e494e5790",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:calendar",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:10dc16188da1aee1f7f6",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
@@ -2295,14 +2372,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "calendar year",
             "meaning_cn": "日历年",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:6d7331ec52e3cab1fa6a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "lunar calendar",
-            "meaning_cn": "农历",
             "kind": "usage_example",
             "repair": null
           }
@@ -2341,45 +2410,28 @@
         }
       },
       {
-        "id": "sense:calendar:acd02c7e494e5790",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "把…列入日程",
-        "definition_en": "to enter something in a calendar",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:10dc16188da1aee1f7f6",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "calendar a meeting",
-            "meaning_cn": "把会议列入日程",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:calendar:acd02c7e494e5790",
-          "target_locator": "record.senses[2]",
-          "target_label": "把…列入日程"
-        }
-      },
-      {
         "id": "sense:calendar:644131dee8bc5550",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "历法；纪年体系",
         "definition_en": "a system for dividing and organizing time into days, months, and years",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:6d7331ec52e3cab1fa6a",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "lunar calendar",
+            "meaning_cn": "农历",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:calendar:644131dee8bc5550",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "历法；纪年体系"
         }
       }
@@ -2422,7 +2474,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:10dc16188da1aee1f7f6",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:calendar:acd02c7e494e5790:collocation:0"
+              ],
+              "meaning_cn": "把会议列入日程",
+              "phrase": "calendar a meeting"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "把…列入日程",
+          "definition_en": "to enter something in a calendar",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:calendar:acd02c7e494e5790",
+          "sense_label_en": "to enter something in a calendar",
+          "sort_order": 2,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:calendar:acd02c7e494e5790",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2431,18 +2513,40 @@
     "ordinal": 656,
     "word": "call",
     "source_owner_path": "content/lexical/words/by-ordinal/o0656.json",
-    "source_fingerprint": "1168e4b82781faa25584a0d054add867fdecf89b9f3932a7d27416a6612d5054",
-    "sense_lineage": [],
+    "source_fingerprint": "590a76bcdbcaf75fd845c5d6b75814ef7b61f5a6b7db819bc5c36eec227ed5b5",
+    "sense_lineage": [
+      {
+        "word_id": "word:call",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:18c1b59718dce4308daf",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:call",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f47ec05c3f156058f050",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:call",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d4c0d40c7ce4d2814cd1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "通过“发出称呼/联系/要求”来触达对象：可命名、打电话、要求/呼吁；名词还可表示电话、拜访或召唤",
-      "decision_cn": "call sb sth → 称呼；call sb → 打电话；call for sth / call on sb to do → 要求/呼吁；call off → 取消；noun call → 电话/拜访/召唤。",
+      "decision_cn": "call sb sth → 称呼；call sb → 打电话；call for sth / call on sb to do → 要求/呼吁；call off → 取消；noun call → 电话/拜访/召唤。 声音、呼救、喊名字语境也可直接指喊叫或呼唤，不能一律读作打电话。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2455,23 +2559,23 @@
         "id": "sense:call:519141ab735c50ee",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "称呼；命名",
-        "definition_en": "to give a name to someone or something",
+        "governing_pattern": "vt. + object + noun/adjective complement",
+        "definition_cn": "称呼；命名；把…称作/说成",
+        "definition_en": "to name someone or something, or describe them using a noun or adjective",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c0ec94f5d05179a897fe",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "call + sb/sth + name",
-            "meaning_cn": "把……叫做……",
+            "phrase": "call + sb/sth + noun/adjective",
+            "meaning_cn": "给某人/某物命名，或把其称作/说成…",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c0ec94f5d05179a897fe",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "call + sb/sth + name"
+              "target_label": "call + sb/sth + noun/adjective"
             }
           },
           {
@@ -2487,16 +2591,16 @@
           "target_kind": "sense",
           "target_id": "sense:call:519141ab735c50ee",
           "target_locator": "record.senses[0]",
-          "target_label": "称呼；命名"
+          "target_label": "称呼；命名；把…称作/说成"
         }
       },
       {
         "id": "sense:call:fc8878140c205585",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "打电话给",
-        "definition_en": "to telephone someone",
+        "governing_pattern": "vi.; vt. + recipient",
+        "definition_cn": "打电话；打电话给",
+        "definition_en": "to make a telephone call, with or without naming the recipient",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2505,13 +2609,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "call + sb",
             "meaning_cn": "给某人打电话",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f47ec05c3f156058f050",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "call + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:3f4d364e0d1a16d3623e",
@@ -2526,16 +2625,16 @@
           "target_kind": "sense",
           "target_id": "sense:call:fc8878140c205585",
           "target_locator": "record.senses[1]",
-          "target_label": "打电话给"
+          "target_label": "打电话；打电话给"
         }
       },
       {
         "id": "sense:call:e7157b265c1c5d07",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "要求；呼吁",
-        "definition_en": "to demand or request something",
+        "governing_pattern": "call for + sth; call on/upon + sb + to do sth",
+        "definition_cn": "要求；呼吁；需要",
+        "definition_en": "to demand or request something, or require something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2544,13 +2643,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "call for + sth",
             "meaning_cn": "要求；需要",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:18c1b59718dce4308daf",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "call for + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4c1b7e6e9fb151e59b87",
@@ -2565,20 +2659,15 @@
             "source_locator": "record.senses[2].collocations[2]",
             "phrase": "call on/upon sb to do sth",
             "meaning_cn": "正式要求或敦促某人做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d4c0d40c7ce4d2814cd1",
-              "target_locator": "record.senses[2].collocations[2]",
-              "target_label": "call on/upon sb to do sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:call:e7157b265c1c5d07",
           "target_locator": "record.senses[2]",
-          "target_label": "要求；呼吁"
+          "target_label": "要求；呼吁；需要"
         }
       },
       {
@@ -2676,6 +2765,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "号召；使命感"
         }
+      },
+      {
+        "id": "sense:call:20261008-audible",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "call (out) to sb; call a name; call sb in",
+        "definition_cn": "喊；大声说；呼唤某人来",
+        "definition_en": "to speak loudly to attract attention or ask someone to come",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:call:20261008-audible",
+          "target_locator": "record.senses[6]",
+          "target_label": "喊；大声说；呼唤某人来"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2739,8 +2845,8 @@
         "pattern": "call on/upon sb to do sth",
         "lines": [
           {
-            "text": "formally ask or urge someone to act",
-            "lang": "en"
+            "text": "正式要求或敦促某人做某事",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -2806,7 +2912,7 @@
     "ordinal": 657,
     "word": "calm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0657.json",
-    "source_fingerprint": "aef066d1c15b1a5f65e20a678c4d81279f8111c06af116e2b49951a90c2f92bc",
+    "source_fingerprint": "30c01fa48041ded388f0ed419b243381dbb6c4aacd591547ea434907522c9ec0",
     "sense_lineage": [
       {
         "word_id": "word:calm",
@@ -2814,6 +2920,20 @@
         "from_target_id": "sense:calm:141ca785a51e53d4",
         "status": "merged",
         "to_target_id": "sense:calm:6c57d9df7e5e5395"
+      },
+      {
+        "word_id": "word:calm",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7183c09d0f39db875cc5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:calm",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:92976a72672dfbdd607b",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2925,9 +3045,9 @@
         "id": "sense:calm:6c57d9df7e5e5395",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使平静；使镇定",
-        "definition_en": "to make someone or something calm",
+        "governing_pattern": "vi. (optionally + down); vt. + object (optionally + down)",
+        "definition_cn": "使平静；使镇定；平静下来",
+        "definition_en": "to make someone or something calm, or become calm",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2936,33 +3056,23 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "calm sb down",
             "meaning_cn": "使某人平静下来",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7183c09d0f39db875cc5",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "calm sb down"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:92976a72672dfbdd607b",
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "calm down",
             "meaning_cn": "平静下来",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:92976a72672dfbdd607b",
-              "target_locator": "record.senses[3].collocations[1]",
-              "target_label": "calm down"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:calm:6c57d9df7e5e5395",
           "target_locator": "record.senses[3]",
-          "target_label": "使平静；使镇定"
+          "target_label": "使平静；使镇定；平静下来"
         }
       }
     ],
@@ -3189,7 +3299,7 @@
     "ordinal": 659,
     "word": "camel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0659.json",
-    "source_fingerprint": "fed9892c79e16ef22f33f588521b1d688698c0ba950e57f0033c82cb98926441",
+    "source_fingerprint": "36d8ad7b52bb1663b157bffe404bfe795e75ddadcbc762bbd8194729ad3ea121",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3393,7 +3503,7 @@
     "ordinal": 661,
     "word": "camp",
     "source_owner_path": "content/lexical/words/by-ordinal/o0661.json",
-    "source_fingerprint": "c0967938a600cd4164eb1945d4f1b692380e05b35ce6ba5c15c972a0af9b566c",
+    "source_fingerprint": "1dfaf4cb07b3d6879c5beebb4c4171751cefef65701cb350b77b40d54337eb67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3403,13 +3513,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "营地；露营",
-      "decision_cn": "",
+      "summary_cn": "营地；露营；（观点相同的）阵营",
+      "decision_cn": "地点语境是营地；观点或立场语境是阵营。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "营地；露营"
+        "target_label": "营地；露营；（观点相同的）阵营"
       }
     },
     "senses": [
@@ -3571,8 +3681,16 @@
     "ordinal": 662,
     "word": "campaign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0662.json",
-    "source_fingerprint": "79583f02cc00ed20f698906f93e7f7be5edf3d874e74076b75ce07388fec8712",
-    "sense_lineage": [],
+    "source_fingerprint": "f0030914dd642e03b92b2a1a7baf557df94a57bc6cdb74bd3c44cdb6686e568e",
+    "sense_lineage": [
+      {
+        "word_id": "word:campaign",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:26520b84f2695b2f086e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -3631,7 +3749,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "战役",
-        "definition_en": "several related operations aimed at achieving a particular goal (usually within geographical and temporal constraints)",
+        "definition_en": "a connected series of military operations pursuing an objective",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3692,13 +3810,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "campaign for/against sth",
             "meaning_cn": "为支持或反对某事而开展运动",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:26520b84f2695b2f086e",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "campaign for/against sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4560,7 +4673,7 @@
     "ordinal": 666,
     "word": "cancel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0666.json",
-    "source_fingerprint": "dc1ddcdc5f6610524367f562da68040a4b3a108f878ed0bda881152fd8004351",
+    "source_fingerprint": "b9e0d32fe2ae7c5c0bbd5ca5bc5546bcf3518cf85debc98aa1ce2276c595b67c",
     "sense_lineage": [
       {
         "word_id": "word:cancel",
@@ -4598,7 +4711,7 @@
         "id": "sense:cancel:0397a7880ee15644",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "cancel an event/order/plan | cancel (when the order or arrangement is understood)",
         "definition_cn": "取消安排的事件、订单或计划",
         "definition_en": "to decide that an arranged event, order, or plan will not happen",
         "note": "",
@@ -4632,7 +4745,7 @@
         "id": "sense:cancel:dd0685090c7d5e44",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt./vi. + out",
+        "governing_pattern": "cancel out | cancel sth out / cancel out sth",
         "definition_cn": "抵消；中和；使效果相互抵消",
         "definition_en": "to offset or neutralize an effect",
         "note": "",
@@ -4776,7 +4889,7 @@
     "ordinal": 667,
     "word": "cancer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0667.json",
-    "source_fingerprint": "1875365db8cb4c24762528fc2d4c427e79795d7ff3879060497f7ec4a1e55093",
+    "source_fingerprint": "45b356baa63a99b5b56ce1392f5b9e37b8323f371c3ab153312ff7faa6ddb6fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4800,8 +4913,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "恶性肿瘤；癌",
-        "definition_en": "any malignant growth or tumor caused by abnormal and uncontrolled cell division; it may spread to other parts of the body through the lymphatic system or the blood stream",
+        "definition_cn": "癌症；恶性肿瘤疾病",
+        "definition_en": "a disease in which abnormal cells multiply without control and may invade or spread to other tissues",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4818,7 +4931,7 @@
           "target_kind": "sense",
           "target_id": "sense:cancer:92d079916e605cbf",
           "target_locator": "record.senses[0]",
-          "target_label": "恶性肿瘤；癌"
+          "target_label": "癌症；恶性肿瘤疾病"
         }
       },
       {
@@ -4922,7 +5035,7 @@
     "ordinal": 668,
     "word": "candidate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0668.json",
-    "source_fingerprint": "2db45ecf4b89b9fefd427489f263e784323383df630b69df85eac896789e1ace",
+    "source_fingerprint": "2c97fb401f295e301d2ad001cd80f423b4cbd0c85ccc9d174eb4e4a65cf598c6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4946,22 +5059,22 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "候选人；投考者",
-        "definition_en": "someone who is considered for something, such as an office or prize",
-        "note": "",
+        "definition_cn": "候选人；应试者；被考虑适合某用途或结果的人或事物",
+        "definition_en": "a person seeking a position or taking an exam; also a person or thing considered suitable for a role, use, or outcome",
+        "note": "Candidate for selects the role or outcome. A candidate for an award may be a person or a work; do not force every subject to mean a job applicant.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b1437dd46c41da5cf9bd",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "candidate for + position",
-            "meaning_cn": "某职位的候选人",
+            "phrase": "candidate for a position/role/outcome",
+            "meaning_cn": "某职位、角色或结果的候选者或合适对象",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b1437dd46c41da5cf9bd",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "candidate for + position"
+              "target_label": "candidate for a position/role/outcome"
             }
           },
           {
@@ -4977,7 +5090,7 @@
           "target_kind": "sense",
           "target_id": "sense:candidate:ecaeadfc03f758b4",
           "target_locator": "record.senses[0]",
-          "target_label": "候选人；投考者"
+          "target_label": "候选人；应试者；被考虑适合某用途或结果的人或事物"
         }
       }
     ],
@@ -5320,7 +5433,7 @@
     "ordinal": 670,
     "word": "candy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0670.json",
-    "source_fingerprint": "d5ed7bb39f912926d60add98982299d936edf9e308a45fb92f8ef50946a5ee5a",
+    "source_fingerprint": "7603f1d6e23829e949a8bb02187b5a46d1a5afe66b04a2f8f1124bd89f31ee8c",
     "sense_lineage": [
       {
         "word_id": "word:candy",
@@ -5397,7 +5510,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "用糖煮；使结晶为砂糖",
+        "definition_cn": "用糖煮；裹糖保存",
         "definition_en": "to preserve or coat with sugar",
         "note": "",
         "identity_overlay": null,
@@ -5415,7 +5528,7 @@
           "target_kind": "sense",
           "target_id": "sense:candy:83d97492ef345e08",
           "target_locator": "record.senses[1]",
-          "target_label": "用糖煮；使结晶为砂糖"
+          "target_label": "用糖煮；裹糖保存"
         }
       }
     ],
@@ -5515,11 +5628,32 @@
     "ordinal": 671,
     "word": "cannon",
     "source_owner_path": "content/lexical/words/by-ordinal/o0671.json",
-    "source_fingerprint": "a6dae1deb01b9a64ab451d7502c168c3713a4f9ce83d7d3840245661923a849c",
-    "sense_lineage": [],
+    "source_fingerprint": "4b115fc4ff3716dac5d6e83e56e987e653b4fd2e006bfd4af00e2cc9e9bd2083",
+    "sense_lineage": [
+      {
+        "word_id": "word:cannon",
+        "target_kind": "sense",
+        "from_target_id": "sense:cannon:7b64259dca4b508c",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cannon",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:17fcd37bfd54fd3ea3d5",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cannon",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cdcf32a0b3f84fe7799f",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
@@ -5568,45 +5702,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "大炮；加农炮"
         }
-      },
-      {
-        "id": "sense:cannon:7b64259dca4b508c",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "炮轰",
-        "definition_en": "to attack or hit with cannon fire",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cdcf32a0b3f84fe7799f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "cannon + sth",
-            "meaning_cn": "炮轰某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cdcf32a0b3f84fe7799f",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "cannon + sth"
-            }
-          },
-          {
-            "id": "collocation:17fcd37bfd54fd3ea3d5",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "cannon the enemy positions",
-            "meaning_cn": "炮轰敌军阵地",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cannon:7b64259dca4b508c",
-          "target_locator": "record.senses[1]",
-          "target_label": "炮轰"
-        }
       }
     ],
     "pronunciation_support": {
@@ -5651,9 +5746,6 @@
       "sense_readings": {
         "sense:cannon:ac5dc79b9f535e9b": [
           0
-        ],
-        "sense:cannon:7b64259dca4b508c": [
-          1
         ]
       },
       "has_scope": true
@@ -5664,7 +5756,46 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cdcf32a0b3f84fe7799f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cannon:7b64259dca4b508c:collocation:0"
+              ],
+              "meaning_cn": "炮轰某物",
+              "phrase": "cannon + sth"
+            },
+            {
+              "collocation_id": "collocation:17fcd37bfd54fd3ea3d5",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cannon:7b64259dca4b508c:collocation:1"
+              ],
+              "meaning_cn": "炮轰敌军阵地",
+              "phrase": "cannon the enemy positions"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "炮轰",
+          "definition_en": "to attack or hit with cannon fire",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:cannon:7b64259dca4b508c",
+          "sense_label_en": "to attack or hit with cannon fire",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:cannon:7b64259dca4b508c",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -5819,8 +5950,16 @@
     "ordinal": 673,
     "word": "canteen",
     "source_owner_path": "content/lexical/words/by-ordinal/o0673.json",
-    "source_fingerprint": "29553d2d95ea5963c7cf79da7d3c60d84cbab8aaaf828951aaa1f443910a5905",
-    "sense_lineage": [],
+    "source_fingerprint": "44718609437aac9404354de312847dc30b82a7ad78faa494fda068c2b72cf77e",
+    "sense_lineage": [
+      {
+        "word_id": "word:canteen",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:25cffc2b9d5d20cf9b80",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -5853,13 +5992,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "staff canteen",
             "meaning_cn": "员工食堂",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:25cffc2b9d5d20cf9b80",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "staff canteen"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5943,7 +6077,7 @@
     "ordinal": 674,
     "word": "canvas",
     "source_owner_path": "content/lexical/words/by-ordinal/o0674.json",
-    "source_fingerprint": "b5dd453b8a2222313e2e60d2b36938b2e3dcbb1077015fdd13ebaf282489cd95",
+    "source_fingerprint": "43fefce11e2e637b8863b670b55691f2a76746c7377648e2bfdd4a9a261addf9",
     "sense_lineage": [
       {
         "word_id": "word:canvas",
@@ -5958,6 +6092,20 @@
         "from_target_id": "sense:canvas:dbb6b9b970bc5196",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:canvas",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:771ebda57229d7fc47bd",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:canvas",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:933a46bfc55ac767ae2c",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -5967,13 +6115,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一种用于绘画、船帆等的结实织物",
-      "decision_cn": "",
+      "summary_cn": "结实织物；画布或画布上的绘画作品",
+      "decision_cn": "织物语境指帆布；艺术语境也可指画布或绘画作品。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一种用于绘画、船帆等的结实织物"
+        "target_label": "结实织物；画布或画布上的绘画作品"
       }
     },
     "senses": [
@@ -5992,13 +6140,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "canvas fabric",
             "meaning_cn": "帆布材料",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:771ebda57229d7fc47bd",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "canvas fabric"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6023,13 +6166,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a canvas painting",
             "meaning_cn": "一幅画布油画",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:933a46bfc55ac767ae2c",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a canvas painting"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6179,7 +6317,7 @@
     "ordinal": 675,
     "word": "cap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0675.json",
-    "source_fingerprint": "9ac22e826997ca26897417133042507ad0593a037b91dea5cb9311013024c6ce",
+    "source_fingerprint": "c889ffe9a86f4f969b9779bd120d9f321550eace34c2990ea036845fd4725326",
     "sense_lineage": [
       {
         "word_id": "word:cap",
@@ -6416,25 +6554,8 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:7f7f9078eabc237c4aa7",
-        "source_locator": "record.constructions[0]",
-        "pattern": "cap = upper limit / cap sth",
-        "lines": [
-          {
-            "text": "cap denotes an upper limit; cap sth sets that limit",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:7f7f9078eabc237c4aa7",
-          "target_locator": "record.constructions[0]",
-          "target_label": "cap = upper limit / cap sth"
-        }
-      },
-      {
         "id": "construction:cap:to-cap-it-all",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[0]",
         "pattern": "to cap it all / to cap it all off",
         "lines": [
           {
@@ -6453,7 +6574,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:cap:to-cap-it-all",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[0]",
           "target_label": "to cap it all / to cap it all off"
         }
       }
@@ -6471,7 +6592,7 @@
     "ordinal": 676,
     "word": "capable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0676.json",
-    "source_fingerprint": "6813db51c03de6e5cf338731759d79b5b8816582587720d5b559d2dada026263",
+    "source_fingerprint": "49fe0bd13a862a63bea4b7f981e80f54581cb977bd23f88e5af5da0dd7d583a7",
     "sense_lineage": [
       {
         "word_id": "word:capable",
@@ -6479,6 +6600,13 @@
         "from_target_id": "sense:capable:4b6e809023cc5307",
         "status": "merged",
         "to_target_id": "sense:capable:8080dca8b9ae5192"
+      },
+      {
+        "word_id": "word:capable",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8f72a10dafd9391a638b",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -6513,13 +6641,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "be capable of + sth/doing",
             "meaning_cn": "有能力做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8f72a10dafd9391a638b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "be capable of + sth/doing"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6614,8 +6737,16 @@
     "ordinal": 677,
     "word": "capacity",
     "source_owner_path": "content/lexical/words/by-ordinal/o0677.json",
-    "source_fingerprint": "bd6890df452f391fd2c3c80253974aa2b907a92a4e86fb3b7b3f943df82d2a64",
-    "sense_lineage": [],
+    "source_fingerprint": "7482a3f6a9b773500b0d872ae350720290daa1cb40cf1168984e607a2a86b89f",
+    "sense_lineage": [
+      {
+        "word_id": "word:capacity",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f160ce8ef2971367c301",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3N"
@@ -6624,7 +6755,7 @@
     },
     "word_feel": {
       "summary_cn": "某对象“能容纳/能做到/以某身份行动”的能力或容量",
-      "decision_cn": "container/system → 容量；person/organization → 能力；in one's capacity as... → 以某身份/职位。",
+      "decision_cn": "容纳量/产能语境 → 容量；capacity for/to 做某事 → 能力；in one's capacity as... → 以某身份/职位。人或组织也可有容量/产能，不能仅凭指人还是物选义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6644,21 +6775,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f84ede95de2511f000d7",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "capacity for + sth",
-            "meaning_cn": "……的能力",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f84ede95de2511f000d7",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "capacity for + sth"
-            }
-          },
-          {
             "id": "collocation:e7272fe442e9c6bf0458",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "at full capacity",
             "meaning_cn": "满负荷；全容量",
             "kind": "usage_example",
@@ -6694,6 +6812,19 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "capacity to do sth"
             }
+          },
+          {
+            "id": "collocation:f84ede95de2511f000d7",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "capacity for + sth",
+            "meaning_cn": "……的能力",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f84ede95de2511f000d7",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "capacity for + sth"
+            }
           }
         ],
         "repair": {
@@ -6718,13 +6849,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "in one's capacity as + sth",
             "meaning_cn": "以……的身份",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f160ce8ef2971367c301",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "in one's capacity as + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6909,18 +7035,18 @@
     "ordinal": 679,
     "word": "capital",
     "source_owner_path": "content/lexical/words/by-ordinal/o0679.json",
-    "source_fingerprint": "4ae7077a52bdd982e50c20c0751ef648a551aad10176df63def10dc02086d61b",
+    "source_fingerprint": "a58d4f8fde4fc63f698274d394e067fc7817b9a42db65a45f8fb0d7bdaa6adeb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2A",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "首都；资本；大写字母",
-      "decision_cn": "",
+      "decision_cn": "city/state → 首都或首府；investment → 资本；letter → 大写；punishment/crime → 死刑相关。 political/social/intellectual 等语境还可指可利用的影响力、关系或知识资源，不必是钱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6934,8 +7060,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "首都；国都",
-        "definition_en": "a city where a country's government is located",
+        "definition_cn": "首都；（州、省等的）首府",
+        "definition_en": "the city or town serving as the seat of government of a country or region",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6952,7 +7078,7 @@
           "target_kind": "sense",
           "target_id": "sense:capital:42e76ac2eac25221",
           "target_locator": "record.senses[0]",
-          "target_label": "首都；国都"
+          "target_label": "首都；（州、省等的）首府"
         }
       },
       {
@@ -7064,6 +7190,23 @@
           "target_id": "sense:capital:91acd0f4a37d5ac0",
           "target_locator": "record.senses[4]",
           "target_label": "可判死刑的；涉及死刑的"
+        }
+      },
+      {
+        "id": "sense:capital:20261008-nonfinancial-resource",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "political/intellectual/social/human capital",
+        "definition_cn": "可利用的非金钱资源、优势或影响力（常见于复合表达）",
+        "definition_en": "a valuable nonfinancial resource or advantage, such as knowledge, social connections, or political influence",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:capital:20261008-nonfinancial-resource",
+          "target_locator": "record.senses[5]",
+          "target_label": "可利用的非金钱资源、优势或影响力（常见于复合表达）"
         }
       }
     ],
@@ -7181,7 +7324,7 @@
     "ordinal": 680,
     "word": "capsule",
     "source_owner_path": "content/lexical/words/by-ordinal/o0680.json",
-    "source_fingerprint": "9689ecf2e4b05a6681914d671702801ab672a8906559c7831aef9677087516ad",
+    "source_fingerprint": "8beecece06d9ee42aa0a9efe507aef11a15109ea162a80b2b6254edd994cfef4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7303,8 +7446,16 @@
     "ordinal": 681,
     "word": "captain",
     "source_owner_path": "content/lexical/words/by-ordinal/o0681.json",
-    "source_fingerprint": "c4bd0b69a1a4b2463326ef8f2489d0ced64d4add2b62ecccede3c921358160c2",
-    "sense_lineage": [],
+    "source_fingerprint": "2bed0af6ab51255eac9df73581807e18df1b5c0f783bb898fce8711e6c2f813c",
+    "sense_lineage": [
+      {
+        "word_id": "word:captain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4f6d90b09debec7719ec",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -7364,13 +7515,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "team captain",
             "meaning_cn": "队长",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4f6d90b09debec7719ec",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "team captain"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7489,7 +7635,7 @@
     "ordinal": 682,
     "word": "captive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0682.json",
-    "source_fingerprint": "f56c25d6daf04c7d09c11fe2c55874098300d70870268fdbd9b2cc3f6cf55346",
+    "source_fingerprint": "db9fb1feda7fe8d02c8fc86e2ef7ea87fc4a110bef662d72d2c5c9a954a66b40",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7500,7 +7646,7 @@
     },
     "word_feel": {
       "summary_cn": "核心是“失去自由”：可字面指被囚禁/俘虏，也可比喻为无法摆脱、被牢牢吸引",
-      "decision_cn": "prison/animal → 被囚禁；captive audience/market → 无法离开或被牢牢吸引。",
+      "decision_cn": "prison/animal → 被囚禁；captive audience → 无法离开、不得不听/看，不必着迷；captive market → 缺乏购买或供应者选择。其他语境可有被吸引、迷住的比喻义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7518,21 +7664,7 @@
         "definition_en": "a person or animal that is held in confinement",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9ce79bb5fa7cfd783406",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "take + sb/sth + captive",
-            "meaning_cn": "俘虏某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9ce79bb5fa7cfd783406",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "take + sb/sth + captive"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:captive:7b9b9740d0c45dac",
@@ -7557,6 +7689,19 @@
             "meaning_cn": "被圈养的动物",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:9ce79bb5fa7cfd783406",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "take + sb/sth + captive",
+            "meaning_cn": "俘虏某人/某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9ce79bb5fa7cfd783406",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "take + sb/sth + captive"
+            }
           }
         ],
         "repair": {
@@ -7571,16 +7716,16 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "被迷住的；无法逃脱的",
-        "definition_en": "unable to escape or resist; completely attentive",
-        "note": "",
+        "definition_cn": "无法离开或缺乏选择的；特定比喻语境中可指被迷住的",
+        "definition_en": "not free to leave or choose; in some figurative contexts, held by fascination",
+        "note": "A captive audience has little choice about staying, not necessarily interest. A captive market has limited buying options. Hold someone captive can be literal imprisonment or figurative fascination; context decides.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:68e7088681c1f7d9b23e",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "hold + sb + captive",
-            "meaning_cn": "使某人着迷",
+            "meaning_cn": "把某人拘禁住；比喻语境中也可使其着迷",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7593,7 +7738,7 @@
             "id": "collocation:captive:baseline-v2-audience",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "a captive audience",
-            "meaning_cn": "被牢牢吸引、无法离开的听众/观众",
+            "meaning_cn": "无法离开、不得不听或观看的听众/观众（不一定感兴趣）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7607,7 +7752,7 @@
           "target_kind": "sense",
           "target_id": "sense:captive:9c65d5910318579f",
           "target_locator": "record.senses[2]",
-          "target_label": "被迷住的；无法逃脱的"
+          "target_label": "无法离开或缺乏选择的；特定比喻语境中可指被迷住的"
         }
       }
     ],
@@ -7656,12 +7801,26 @@
     "ordinal": 683,
     "word": "capture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0683.json",
-    "source_fingerprint": "69779169d66eff6fccb72d2bd8ec2bb383f085a59a27f81a85d6eb3bc286e3a3",
+    "source_fingerprint": "ded995bebf3d815c7471e42455ee33d614b73623451792a59de3753ae50318a4",
     "sense_lineage": [
       {
         "word_id": "word:capture",
         "target_kind": "sense",
         "from_target_id": "sense:capture:8e973dbf7820559b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:capture",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:77edb835ec4be77ac07d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:capture",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fa5c76b3ef00dcddda33",
         "status": "reference",
         "to_target_id": null
       }
@@ -7699,13 +7858,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "capture sb/sth",
             "meaning_cn": "捕获某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:77edb835ec4be77ac07d",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "capture sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7756,13 +7910,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "capture one's attention",
             "meaning_cn": "吸引某人的注意",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fa5c76b3ef00dcddda33",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "capture one's attention"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7778,7 +7927,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "捕获，夺取",
-        "definition_en": "the act of taking someone by force",
+        "definition_en": "the act of taking someone or something by force",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7880,7 +8029,7 @@
     "ordinal": 684,
     "word": "car",
     "source_owner_path": "content/lexical/words/by-ordinal/o0684.json",
-    "source_fingerprint": "59fc020c901d4ffbd99b95a24ecfb219e8be7be7b1255bc41a823490a03eea87",
+    "source_fingerprint": "b54709fe9f73d51f43c21a701e6e12a793d7dbe85d1d88f3cb944e08654a3f40",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7905,7 +8054,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "汽车",
-        "definition_en": "a motor vehicle with four wheels",
+        "definition_en": "a road motor vehicle, usually with four wheels, designed for a small number of passengers",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8020,7 +8169,7 @@
     "ordinal": 685,
     "word": "carbohydrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0685.json",
-    "source_fingerprint": "b3a06e62f2f64eb9e1d87ab689e57941e2c16f39cdd311ae83e953d180a7b1e5",
+    "source_fingerprint": "5525d5db78871e54b2ccf6cdbd2237ff2c438defd8940d61f16b3b62c511cc17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8113,7 +8262,7 @@
     "ordinal": 686,
     "word": "carbon",
     "source_owner_path": "content/lexical/words/by-ordinal/o0686.json",
-    "source_fingerprint": "66c1039b0056c2abc990374ba487408aa4f7444b32e57cc7c86378c36d6f0579",
+    "source_fingerprint": "2f9780c48ef4b0b0cf5c84ebd558c157a18d30e6895464c3e3541f681b8856cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8240,7 +8389,7 @@
     "ordinal": 687,
     "word": "card",
     "source_owner_path": "content/lexical/words/by-ordinal/o0687.json",
-    "source_fingerprint": "a3f8441906fe52964d4e86126b50b17c667318d4ee847ce19f9036fdab2ebd4c",
+    "source_fingerprint": "12f69d9e3d6225171ba7f90687125426af6483fd6b2370eff486a7dd3dfd521c",
     "sense_lineage": [
       {
         "word_id": "word:card",
@@ -8273,7 +8422,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "卡片，纸牌",
-        "definition_en": "a piece of stiff paper used for various purposes",
+        "definition_en": "a small flat piece of stiff paper or plastic used for various purposes",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8415,23 +8564,45 @@
     "ordinal": 688,
     "word": "cardinal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0688.json",
-    "source_fingerprint": "e2ef434018c590d81bd492e3108a0d25b9f221b8780040501ec63e24a52d790e",
-    "sense_lineage": [],
+    "source_fingerprint": "b22289baf4645d8850b946d3846021c132266f14da5b05abf25d2aca20c64b50",
+    "sense_lineage": [
+      {
+        "word_id": "word:cardinal",
+        "target_kind": "sense",
+        "from_target_id": "sense:cardinal:f3383fe56da85c63",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cardinal",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:95d04d7deb4466a7c93a",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cardinal",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e99d40b9e06c39b71967",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "核心形容词义是“最重要/主要”；名词里要特别识别红衣主教与“基数（数量数）”",
+      "summary_cn": "最重要的；红衣主教；基数；北美红雀",
       "decision_cn": "cardinal rule/principle = 最重要、基本；宗教语境 a cardinal = 红衣主教；数学/语言语境 cardinal (number) = 基数（1、2、3…，与 ordinal 序数相对）；鸟类语境可指北美红雀。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "核心形容词义是“最重要/主要”；名词里要特别识别红衣主教与“基数（数量数）”"
+        "target_label": "最重要的；红衣主教；基数；北美红雀"
       }
     },
     "senses": [
@@ -8484,13 +8655,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "the College of Cardinals",
             "meaning_cn": "红衣主教团",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:95d04d7deb4466a7c93a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "the College of Cardinals"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8518,46 +8684,20 @@
         }
       },
       {
-        "id": "sense:cardinal:f3383fe56da85c63",
+        "id": "sense:cardinal:78576e673e075de4",
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "鲜红色",
-        "definition_en": "a bright red color",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e99d40b9e06c39b71967",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "cardinal red",
-            "meaning_cn": "鲜红色",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:cardinal:f3383fe56da85c63",
-          "target_locator": "record.senses[3]",
-          "target_label": "鲜红色"
-        }
-      },
-      {
-        "id": "sense:cardinal:78576e673e075de4",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "北美红雀（一种羽毛鲜红的鸣禽）",
-        "definition_en": "a North American songbird with bright red plumage",
+        "definition_cn": "北美红雀（雄鸟羽毛鲜红的鸣禽）",
+        "definition_en": "a North American songbird whose male has bright red plumage",
         "note": "",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cardinal:78576e673e075de4",
-          "target_locator": "record.senses[4]",
-          "target_label": "北美红雀（一种羽毛鲜红的鸣禽）"
+          "target_locator": "record.senses[3]",
+          "target_label": "北美红雀（雄鸟羽毛鲜红的鸣禽）"
         }
       }
     ],
@@ -8599,7 +8739,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e99d40b9e06c39b71967",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:cardinal:f3383fe56da85c63:collocation:0"
+              ],
+              "meaning_cn": "鲜红色",
+              "phrase": "cardinal red"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "鲜红色",
+          "definition_en": "a bright red color",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:cardinal:f3383fe56da85c63",
+          "sense_label_en": "a bright red color",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:cardinal:f3383fe56da85c63",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -8608,8 +8778,30 @@
     "ordinal": 689,
     "word": "care",
     "source_owner_path": "content/lexical/words/by-ordinal/o0689.json",
-    "source_fingerprint": "0e5d413e50530601940deea4089dae1297d9845f8e0d2cacb302d4bc81022914",
-    "sense_lineage": [],
+    "source_fingerprint": "9632137d7823e1f07dc617c802dc5b541d1d2814c47fbd5089e3c0ffb4ce8c07",
+    "sense_lineage": [
+      {
+        "word_id": "word:care",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:123270dc8c40ba08bfa3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:care",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5c947bf095a69bf16d27",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:care",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ac44cd358886fbb08e6e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -8655,7 +8847,7 @@
             "id": "collocation:a87f429a192e057cb847",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "in care",
-            "meaning_cn": "由福利院照顾",
+            "meaning_cn": "（英）由社会照护体系安置照顾，包括寄养家庭或照护机构",
             "kind": "usage_example",
             "repair": null
           }
@@ -8713,13 +8905,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "care about + sth",
             "meaning_cn": "关心某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ac44cd358886fbb08e6e",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "care about + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8735,7 +8922,7 @@
         "pos": "verb",
         "governing_pattern": "vi. + for",
         "definition_cn": "照顾；护理",
-        "definition_en": "to look after someone who is sick or old",
+        "definition_en": "to look after someone who needs care, for example because they are young, old, or ill",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8744,13 +8931,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "care for + sb",
             "meaning_cn": "照顾某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5c947bf095a69bf16d27",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "care for + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8764,7 +8946,7 @@
         "id": "sense:care:b9248ea160ad5065",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "care for + sb/sth; care to do sth (usually in questions or negatives)",
         "definition_cn": "喜欢；想要",
         "definition_en": "to like or want something (often in negative or question)",
         "note": "",
@@ -8775,13 +8957,8 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "would you care for + sth?",
             "meaning_cn": "你想要……吗？",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:123270dc8c40ba08bfa3",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "would you care for + sth?"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9077,13 +9254,20 @@
     "ordinal": 691,
     "word": "careful",
     "source_owner_path": "content/lexical/words/by-ordinal/o0691.json",
-    "source_fingerprint": "551c35b08aa91760ed1cbb39b44447339f9cba71fd860e835c36d3c147ef0601",
+    "source_fingerprint": "3ee4f545b5e0a1b9ec05e72c3d2b4c81d44ddac0697310dc1550198705837be0",
     "sense_lineage": [
       {
         "word_id": "word:careful",
         "target_kind": "sense",
         "from_target_id": "sense:careful:14f0ad37159c5ddd",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:careful",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:77a7e4565cab2515d07b",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -9132,13 +9316,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "be careful to do sth",
             "meaning_cn": "小心做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:77a7e4565cab2515d07b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "be careful to do sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:85dceea11cafd0fac97d",
@@ -9223,8 +9402,12 @@
         "pattern": "be careful to do sth",
         "lines": [
           {
-            "text": "take care to do something; do not use the malformed + sth pattern",
-            "lang": "en"
+            "text": "留心、注意去做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "to 后接动词原形；with/about 后可接名词，不能把两种结构混成 careful + sth。",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -9528,7 +9711,7 @@
     "ordinal": 694,
     "word": "carpet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0694.json",
-    "source_fingerprint": "ac34f133141323244913769de36f451800366ae9c65bc447d7334407df6ee8b4",
+    "source_fingerprint": "734b343eaccd6a08d2574d3423c187bf55bc47307608f5e5638c43229efaa14f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9565,14 +9748,6 @@
             "meaning_cn": "铺地毯",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:78f59e8e7e009d4dc8f6",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a carpet of leaves",
-            "meaning_cn": "一层树叶",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -9597,6 +9772,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a carpet of snow",
             "meaning_cn": "一层雪",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:78f59e8e7e009d4dc8f6",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a carpet of leaves",
+            "meaning_cn": "一层树叶",
             "kind": "usage_example",
             "repair": null
           }
@@ -9690,7 +9873,7 @@
     "ordinal": 695,
     "word": "carriage",
     "source_owner_path": "content/lexical/words/by-ordinal/o0695.json",
-    "source_fingerprint": "7d497a7119703fab98dee9378b996490ac7e863ae5f0cfcfe06c1e28760d9fcd",
+    "source_fingerprint": "83dc04fd24a4eb8797e9e2b3a94517ada04f3177c2518556196bc11ac93ee767",
     "sense_lineage": [
       {
         "word_id": "word:carriage",
@@ -9704,6 +9887,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:5c3b7d1ebdbe39aae0e6",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carriage",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ebb43a0cc58eb21e809d",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -9782,8 +9972,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "运输；运费",
-        "definition_en": "the act of transporting goods",
-        "note": "",
+        "definition_en": "the transport of goods, or the charge for transporting them",
+        "note": "运输、运费义主要用于英式英语的正式或商业语境。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9791,13 +9981,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "carriage of goods",
             "meaning_cn": "货物运输",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ebb43a0cc58eb21e809d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "carriage of goods"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:76fd038e4e1c412671fa",
@@ -9895,22 +10080,51 @@
     "ordinal": 696,
     "word": "carrier",
     "source_owner_path": "content/lexical/words/by-ordinal/o0696.json",
-    "source_fingerprint": "79da830945021cca2d0904b1fa5cd858e191d842b2cbdea1b52926680cb332f5",
-    "sense_lineage": [],
+    "source_fingerprint": "6e3b6a8ac1faf3d12216f49464dbfd7cfe0ccb6751e2bc099f09add7dbc62ea2",
+    "sense_lineage": [
+      {
+        "word_id": "word:carrier",
+        "target_kind": "sense",
+        "from_target_id": "sense:carrier:398f6a010e85597c",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carrier",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2f3e080543453cebef9f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carrier",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a76743f55ddfaee58077",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carrier",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fd3f4a35696dcb15472a",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "核心是“携带/承载某物的载体”：可指运输者/公司、病原携带者、药物载体或通信运营商",
-      "decision_cn": "transport/mail → 运输者或运输公司；virus/disease → 病原携带者；drug/tracer → 载体；mobile/network → 运营商。",
+      "summary_cn": "运输者或运输公司；运输工具；病原携带者；电信运营商",
+      "decision_cn": "transport/mail → 运输者或运输公司；virus/disease → 病原携带者；mobile/network → 电信运营商。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "核心是“携带/承载某物的载体”：可指运输者/公司、病原携带者、药物载体或通信运营商"
+        "target_label": "运输者或运输公司；运输工具；病原携带者；电信运营商"
       }
     },
     "senses": [
@@ -10007,13 +10221,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a carrier of the virus",
             "meaning_cn": "病毒携带者",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2f3e080543453cebef9f",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "a carrier of the virus"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10024,65 +10233,29 @@
         }
       },
       {
-        "id": "sense:carrier:398f6a010e85597c",
+        "id": "sense:carrier:fe77808980c1c455",
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "载体（如药物或示踪物的惰性物质）",
-        "definition_en": "an inactive substance used to carry a radioactive tracer or drug",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a76743f55ddfaee58077",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a carrier for a drug",
-            "meaning_cn": "药物载体",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a76743f55ddfaee58077",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "a carrier for a drug"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:carrier:398f6a010e85597c",
-          "target_locator": "record.senses[3]",
-          "target_label": "载体（如药物或示踪物的惰性物质）"
-        }
-      },
-      {
-        "id": "sense:carrier:fe77808980c1c455",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "运输、电信或类似服务的服务提供商",
-        "definition_en": "a company or network that provides transport, telecommunications, or a similar service",
+        "definition_cn": "电信、移动通信或网络服务运营商",
+        "definition_en": "a company that provides telecommunications or network services",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fd3f4a35696dcb15472a",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "mobile/wireless/network carrier",
             "meaning_cn": "移动、无线或网络运营商",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fd3f4a35696dcb15472a",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "mobile/wireless/network carrier"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:carrier:fe77808980c1c455",
-          "target_locator": "record.senses[4]",
-          "target_label": "运输、电信或类似服务的服务提供商"
+          "target_locator": "record.senses[3]",
+          "target_label": "电信、移动通信或网络服务运营商"
         }
       }
     ],
@@ -10111,7 +10284,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a76743f55ddfaee58077",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:carrier:398f6a010e85597c:collocation:0"
+              ],
+              "meaning_cn": "药物载体",
+              "phrase": "a carrier for a drug"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "载体（如药物或示踪物的惰性物质）",
+          "definition_en": "an inactive substance used to carry a radioactive tracer or drug",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:carrier:398f6a010e85597c",
+          "sense_label_en": "an inactive substance used to carry a radioactive tracer or drug",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:carrier:398f6a010e85597c",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -10120,8 +10323,23 @@
     "ordinal": 697,
     "word": "carrot",
     "source_owner_path": "content/lexical/words/by-ordinal/o0697.json",
-    "source_fingerprint": "8c6feeaeea373aea147a944012ccbeaaa6961b5dd6a7e3e7f8da49ba4983df3d",
-    "sense_lineage": [],
+    "source_fingerprint": "0f7df060dcbee89329b1f4ea643c3f2421f216df386975019ac8abf08de10605",
+    "sense_lineage": [
+      {
+        "word_id": "word:carrot",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:04ab28d0e882c2a0ff4b",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carrot",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c3992291245aaa5c7283",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -10171,26 +10389,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "dangle a carrot",
             "meaning_cn": "以利益引诱",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c3992291245aaa5c7283",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dangle a carrot"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:04ab28d0e882c2a0ff4b",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "carrot and stick",
             "meaning_cn": "胡萝卜加大棒；软硬兼施",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:04ab28d0e882c2a0ff4b",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "carrot and stick"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10278,7 +10486,7 @@
     "ordinal": 698,
     "word": "carry",
     "source_owner_path": "content/lexical/words/by-ordinal/o0698.json",
-    "source_fingerprint": "62ff7f9c732838a434bb4387180f0e15a7ce014f42f1599875c86726190729d4",
+    "source_fingerprint": "1a80d28f1e5bd03ce67e80713ccd40dc8ebf9ad1b0019df5fdfc3676c2cc3d66",
     "sense_lineage": [
       {
         "word_id": "word:carry",
@@ -10291,6 +10499,13 @@
         "word_id": "word:carry",
         "target_kind": "collocation",
         "from_target_id": "collocation:210c18d42c993c036d1f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carry",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8fd262b40c29a5f88518",
         "status": "reference",
         "to_target_id": null
       }
@@ -10327,13 +10542,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "carry + sth",
             "meaning_cn": "携带某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8fd262b40c29a5f88518",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "carry + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4c286c0afff4fa60e88f",
@@ -10383,7 +10593,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "传送，传播",
-        "definition_en": "to serve as a means for expressing something",
+        "definition_en": "to transmit or convey a message, signal, or information",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10484,7 +10694,7 @@
       {
         "id": "construction:98ba86a8f09b1ccaf485",
         "source_locator": "record.constructions[0]",
-        "pattern": "carry out sth",
+        "pattern": "carry out sth / carry sth out",
         "lines": [
           {
             "text": "执行；实施；进行",
@@ -10495,13 +10705,13 @@
           "target_kind": "construction",
           "target_id": "construction:98ba86a8f09b1ccaf485",
           "target_locator": "record.constructions[0]",
-          "target_label": "carry out sth"
+          "target_label": "carry out sth / carry sth out"
         }
       },
       {
         "id": "construction:carry:baseline-v2-on",
         "source_locator": "record.constructions[1]",
-        "pattern": "carry on",
+        "pattern": "carry on (doing sth) / carry on with sth",
         "lines": [
           {
             "text": "继续进行；继续做下去",
@@ -10516,13 +10726,13 @@
           "target_kind": "construction",
           "target_id": "construction:carry:baseline-v2-on",
           "target_locator": "record.constructions[1]",
-          "target_label": "carry on"
+          "target_label": "carry on (doing sth) / carry on with sth"
         }
       },
       {
         "id": "construction:carry:baseline-v2-over",
         "source_locator": "record.constructions[2]",
-        "pattern": "carry over",
+        "pattern": "carry over (into/to sth) | carry sth over / carry over sth",
         "lines": [
           {
             "text": "延续、保留或转移到下一时期/情境",
@@ -10537,7 +10747,7 @@
           "target_kind": "construction",
           "target_id": "construction:carry:baseline-v2-over",
           "target_locator": "record.constructions[2]",
-          "target_label": "carry over"
+          "target_label": "carry over (into/to sth) | carry sth over / carry over sth"
         }
       },
       {
@@ -10601,7 +10811,7 @@
     "ordinal": 699,
     "word": "cart",
     "source_owner_path": "content/lexical/words/by-ordinal/o0699.json",
-    "source_fingerprint": "e1046dc1679db540d88ae3779c4231675c31712684b4fbe43ef5c04ba622d0ff",
+    "source_fingerprint": "176b788b9473a792113a806e70e681149ce9df1947fc219ba2facd52cc0330cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10611,13 +10821,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "购物车或小型手推车；较旧义为运货车；也可作动词表示用车运送",
-      "decision_cn": "shopping/hand cart → 购物车或手推车；older goods vehicle → 运货车；verb → 用车运送。",
+      "summary_cn": "购物车、手推车或运货两轮车；也表示搬运、运送，不必实际使用这种车",
+      "decision_cn": "shopping/hand cart → 购物车或手推车；两轮运货车也称 cart；动词表示搬运/运送，未必实际用这种车。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "购物车或小型手推车；较旧义为运货车；也可作动词表示用车运送"
+        "target_label": "购物车、手推车或运货两轮车；也表示搬运、运送，不必实际使用这种车"
       }
     },
     "senses": [
@@ -10626,8 +10836,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小型带轮手推车，尤指购物车；较旧义为运货车",
-        "definition_en": "a small wheeled trolley, especially a shopping cart; formerly a vehicle for carrying goods",
+        "definition_cn": "小型带轮手推车，尤指购物车；也指运货的两轮车（常由畜力牵引）",
+        "definition_en": "a small wheeled trolley, especially a shopping cart; also a two-wheeled vehicle used to carry goods, often drawn by an animal",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10657,7 +10867,7 @@
           "target_kind": "sense",
           "target_id": "sense:cart:8d21703247d65986",
           "target_locator": "record.senses[0]",
-          "target_label": "小型带轮手推车，尤指购物车；较旧义为运货车"
+          "target_label": "小型带轮手推车，尤指购物车；也指运货的两轮车（常由畜力牵引）"
         }
       },
       {
@@ -10665,8 +10875,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "用车装载；运送",
-        "definition_en": "transport something in a cart",
+        "definition_cn": "用车或像用车一样搬运；运送",
+        "definition_en": "to carry or convey something in or as if in a cart",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10674,7 +10884,7 @@
             "id": "collocation:3285caf3b107085f7353",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "cart sth away",
-            "meaning_cn": "用车运走某物",
+            "meaning_cn": "搬走；运走（不一定实际使用手推车）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -10696,7 +10906,7 @@
           "target_kind": "sense",
           "target_id": "sense:cart:3f90c708663b5d56",
           "target_locator": "record.senses[1]",
-          "target_label": "用车装载；运送"
+          "target_label": "用车或像用车一样搬运；运送"
         }
       }
     ],
@@ -10907,8 +11117,23 @@
     "ordinal": 701,
     "word": "carve",
     "source_owner_path": "content/lexical/words/by-ordinal/o0701.json",
-    "source_fingerprint": "d3983e5f8d740bc4dfbdef9707c5a4115793175a9188ba4f41dd41538edc1a2e",
-    "sense_lineage": [],
+    "source_fingerprint": "b26d527736ef3a0140db1f40175c58642935cf7f9b6563b15bae1d28f5016f93",
+    "sense_lineage": [
+      {
+        "word_id": "word:carve",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1bbef7bf2abc30fccda3",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:carve",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:75bbb329a4207912ff02",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -10930,7 +11155,7 @@
         "id": "sense:carve:2c57e511db0853f7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "carve sth (from/out of material) | carve in wood/stone/etc.",
         "definition_cn": "雕刻",
         "definition_en": "to make an object or pattern by cutting wood or stone",
         "note": "",
@@ -10969,7 +11194,7 @@
         "id": "sense:carve:338036a0bd24525a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "carve (cooked meat)",
         "definition_cn": "把（熟肉）切成片",
         "definition_en": "to cut cooked meat into slices",
         "note": "",
@@ -10980,13 +11205,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "carve + sth",
             "meaning_cn": "切某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1bbef7bf2abc30fccda3",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "carve + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:6cd00dbf0d5f77fb4d6c",
@@ -11032,13 +11252,8 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "carve one's name on a tree",
             "meaning_cn": "把名字刻在树上",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:75bbb329a4207912ff02",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "carve one's name on a tree"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -11086,7 +11301,7 @@
       {
         "id": "construction:6c9ef79bf7cdc3be4b9c",
         "source_locator": "record.constructions[0]",
-        "pattern": "carve out sth / carve out a niche, career, reputation, etc.",
+        "pattern": "carve out sth / carve sth out (for oneself), e.g. a niche, career, reputation",
         "lines": [
           {
             "text": "努力开创/赢得（位置、事业、声誉等）",
@@ -11097,7 +11312,7 @@
           "target_kind": "construction",
           "target_id": "construction:6c9ef79bf7cdc3be4b9c",
           "target_locator": "record.constructions[0]",
-          "target_label": "carve out sth / carve out a niche, career, reputation, etc."
+          "target_label": "carve out sth / carve sth out (for oneself), e.g. a niche, career, reputation"
         }
       }
     ],
@@ -11114,7 +11329,7 @@
     "ordinal": 702,
     "word": "case",
     "source_owner_path": "content/lexical/words/by-ordinal/o0702.json",
-    "source_fingerprint": "86402bf02eced51889c0bbfa22987bdecbc02fb79d735a940a2b1ac95b898632",
+    "source_fingerprint": "92e36259693eaccd912ed8d9795e79c9744204eb6fb105138babd474f9a62453",
     "sense_lineage": [
       {
         "word_id": "word:case",
@@ -11129,6 +11344,13 @@
         "from_target_id": "collocation:9c2b46f923f3f8479d88",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:case",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8cefc46b08ff89786c8f",
+        "status": "merged",
+        "to_target_id": "collocation:e83d5f39b0f89adfa2eb"
       }
     ],
     "recall_map": {
@@ -11162,7 +11384,7 @@
             "id": "collocation:e83d5f39b0f89adfa2eb",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in case of + sth",
-            "meaning_cn": "万一，如果发生",
+            "meaning_cn": "如果发生某事；后接名词，如 in case of fire",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -11183,7 +11405,7 @@
             "id": "collocation:83c44df4fef847c7be28",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "in case + clause",
-            "meaning_cn": "以防、万一后接从句",
+            "meaning_cn": "以防……：预先采取措施应对某种可能情况，后接从句；通常不等于 if",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -11193,28 +11415,15 @@
             }
           },
           {
-            "id": "collocation:8cefc46b08ff89786c8f",
-            "source_locator": "record.senses[0].collocations[3]",
-            "phrase": "in case of + noun",
-            "meaning_cn": "在发生某事时、以防某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8cefc46b08ff89786c8f",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "in case of + noun"
-            }
-          },
-          {
             "id": "collocation:a478f8b6be301678694e",
-            "source_locator": "record.senses[0].collocations[4]",
+            "source_locator": "record.senses[0].collocations[3]",
             "phrase": "in this/that case",
             "meaning_cn": "在这种/那种情况下",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a478f8b6be301678694e",
-              "target_locator": "record.senses[0].collocations[4]",
+              "target_locator": "record.senses[0].collocations[3]",
               "target_label": "in this/that case"
             }
           }
@@ -11231,8 +11440,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "箱，容器",
-        "definition_en": "a portable container for carrying several objects",
+        "definition_cn": "盒，箱；套，保护壳",
+        "definition_en": "a container or protective cover for holding or enclosing something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11249,7 +11458,7 @@
           "target_kind": "sense",
           "target_id": "sense:case:659c5466b5d356dc",
           "target_locator": "record.senses[1]",
-          "target_label": "箱，容器"
+          "target_label": "盒，箱；套，保护壳"
         }
       },
       {
@@ -11402,7 +11611,7 @@
     "ordinal": 703,
     "word": "cash",
     "source_owner_path": "content/lexical/words/by-ordinal/o0703.json",
-    "source_fingerprint": "164e3cc5c3e1ba05d76cba28e1d56e4de70c506b846606740f38a77115159fdf",
+    "source_fingerprint": "62148e8aa88ff7c8b091bfd23061e59242198a8525e19a85aa77945b7fd024d6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11412,13 +11621,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "现金",
-      "decision_cn": "",
+      "summary_cn": "现金；可立即使用的资金",
+      "decision_cn": "pay in cash 可指用现钞支付；cash flow / available cash 关注资金流动或可动用资金，不只指纸币硬币。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "现金"
+        "target_label": "现金；可立即使用的资金"
       }
     },
     "senses": [
@@ -11427,8 +11636,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "现金",
-        "definition_en": "money in the form of bills or coins",
+        "definition_cn": "现金；可立即使用的资金",
+        "definition_en": "money in notes or coins, or funds that are immediately available",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11453,7 +11662,7 @@
           "target_kind": "sense",
           "target_id": "sense:cash:5414774833d158b2",
           "target_locator": "record.senses[0]",
-          "target_label": "现金"
+          "target_label": "现金；可立即使用的资金"
         }
       },
       {

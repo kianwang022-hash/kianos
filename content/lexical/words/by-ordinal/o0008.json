@@ -6,26 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:aboard:continuous-20260918-01",
-        "pattern": "go/climb/come aboard",
-        "meaning_cn": "登上船、飞机、火车等交通工具",
-        "definition_en": "get onto a ship, aircraft, train, or other vehicle",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
-      },
-      {
-        "construction_id": "construction:aboard:continuous-20260918-02",
-        "pattern": "aboard + vehicle",
-        "meaning_cn": "在/到某交通工具上",
-        "definition_en": "on or into the named vehicle",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
-      }
-    ],
+    "constructions": [],
     "content_hash": "1f90dbbe49bb743815389f198e086bcea921ef1284066f1d3b5048e4e2051d15",
     "core_concept": {
       "core_clusters": [
@@ -48,8 +29,17 @@
       ],
       "core_meaning_cn": "登上或位于船、飞机、火车等交通工具上",
       "core_meaning_en": "on or into a ship, aircraft, train, or other vehicle",
-      "mental_model_cn": "aboard 自带“上/到……上”的地点方向感：go/climb aboard；作介词时直接 aboard the ship。不要把副词 abroad 的 to/in 用法套进来。",
-      "mental_model_en": "Aboard already carries the on/onto relation: go aboard, or aboard the ship; do not add an extra to/in before adverbial aboard."
+      "mental_model_cn": "aboard 作副词直接跟在动词后（go aboard）；作介词直接接船、飞机、火车等交通工具名词（aboard a train）。aboard/abroad 作副词通常都不另加 to/in。",
+      "mental_model_en": "Aboard already carries the on/onto relation: go aboard, or aboard the ship; do not add an extra to/in before adverbial aboard.",
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/aboard",
+          "accessed_date": "2026-10-07",
+          "evidence_status": "source_checked",
+          "supports": "adverb versus preposition without erroneous abroad to/in claim"
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,7 +53,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:7e77bad243e27399fe6a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:aboard:441221247ade5e6f:collocation:0"
             ],
@@ -114,7 +104,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在...之上",
+        "definition_cn": "在/到船、飞机、火车等交通工具上",
         "definition_en": "on or into (a ship, aircraft, train, etc.)",
         "governing_pattern": "",
         "level": "L1",
@@ -123,7 +113,16 @@
         "sense_id": "sense:aboard:8fff4e755a4c5c11",
         "sense_label_en": "on or into (a ship, aircraft, train, etc.)",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/aboard",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "vehicle scope and on/into meaning"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -339,17 +338,34 @@
       }
     ],
     "active_collocations": [
-      "collocation:7e77bad243e27399fe6a",
       "collocation:9b9faf5f1175eeeeff6b",
       "collocation:b36113ba470ea9301105",
       "collocation:d4f8265d4cb26dee9ef7"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:aboard:continuous-20260918-01",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Go/climb/come are ordinary motion choices; the adverb sense and go/climb aboard examples already preserve on/into usage."
+      },
+      {
+        "id": "construction:aboard:continuous-20260918-02",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The preposition sense and named-vehicle examples already supply this exact slot; no extra phrase meaning."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:7e77bad243e27399fe6a",
         "source_row": 10693,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:9b9faf5f1175eeeeff6b",

@@ -64,7 +64,7 @@
             "legacy_source_object_ids": [
               "sense:background:9e521e7d0b375e5d:collocation:0"
             ],
-            "meaning_cn": "在背景中",
+            "meaning_cn": "在背景中；处于不显眼、不占主要注意的位置",
             "phrase": "in the background"
           },
           {
@@ -78,16 +78,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "背景（画面中）",
-        "definition_en": "the part of a scene or picture behind the main objects",
+        "definition_cn": "背景：画面后景，或衬托主要活动、不占主要注意的环境（如背景音乐）",
+        "definition_en": "the part of a scene behind the main subject, or secondary surroundings accompanying the main activity",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:background:9e521e7d0b375e5d",
-        "sense_label_en": "the part of a scene or picture behind the main objects",
+        "sense_label_en": "the part of a scene behind the main subject, or secondary surroundings accompanying the main activity",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Background can include secondary sounds, such as background music or noise, as well as a visual scene. Technical measurement interference is separately available in Lookup."
       },
       {
         "collocations": [
@@ -111,30 +112,6 @@
         "sense_id": "sense:background:d070abbfd6ab53f4",
         "sense_label_en": "information needed to understand a situation",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:df75cbac06e4e5a8e0af",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:background:7cc62ff1609e5e73:collocation:0"
-            ],
-            "meaning_cn": "背景噪音",
-            "phrase": "background noise"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "干扰信号（技术）",
-        "definition_en": "extraneous signals that interfere with observation",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:background:7cc62ff1609e5e73",
-        "sense_label_en": "extraneous signals that interfere with observation",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -228,7 +205,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:df75cbac06e4e5a8e0af",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:background:7cc62ff1609e5e73:collocation:0"
+          ],
+          "meaning_cn": "背景噪音",
+          "phrase": "background noise"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "干扰信号（技术）",
+      "definition_en": "extraneous signals that interfere with observation",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:background:7cc62ff1609e5e73",
+      "sense_label_en": "extraneous signals that interfere with observation",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:background:7cc62ff1609e5e73",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -240,7 +246,7 @@
       },
       {
         "sense_id": "sense:background:7cc62ff1609e5e73",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 951,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -265,8 +271,7 @@
       "collocation:6bff5f9f099cc22ba264",
       "collocation:7157b2eb76d1bb866232",
       "collocation:cc496410fd22d3cbe074",
-      "collocation:d630a9e37fb484697067",
-      "collocation:df75cbac06e4e5a8e0af"
+      "collocation:d630a9e37fb484697067"
     ],
     "facts": [],
     "collocations": [
@@ -298,7 +303,10 @@
       {
         "id": "collocation:df75cbac06e4e5a8e0af",
         "source_row": 18912,
-        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The measurement-specific extraneous-signal category adds a technical classification, while the active surroundings sense already supports ordinary background sounds. Preserve the technical truth and exact example in Lookup; no false same-meaning merge."
       }
     ],
     "exam-mappings": [],

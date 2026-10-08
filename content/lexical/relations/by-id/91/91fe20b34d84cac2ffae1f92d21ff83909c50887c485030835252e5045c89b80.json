@@ -11,7 +11,7 @@
       "index": 1,
       "payload": {
         "boundaries": [
-          "address ≈ deal with"
+          "仅处理问题/任务语境相近：address sth 与 deal with sth；不是全词互换。"
         ],
         "codex_reviewed": false,
         "direction": "C",
@@ -25,25 +25,37 @@
             "source_type": "external_horizontal_audit"
           }
         ],
-        "learning_note": "address ≈ deal with",
+        "learning_note": "address 直接接问题宾语；deal with 必须保留 with。",
         "members": [
           {
-            "word_id": "word:address"
+            "word_id": "word:address",
+            "sense_id": "sense:address:3a3a81ef4c935758"
+          },
+          {
+            "word_id": "word:deal",
+            "sense_id": "sense:deal:9dad879330265856"
           }
         ],
         "priority": "S",
         "publication_status": "publishable",
         "relation_id": "relation:horizontal:a79b15260df251ab9574",
-        "relation_note": "address ≈ deal with",
-        "relation_scope": "lexeme",
+        "relation_note": "这一对应不涵盖 address 的地址、向人讲话或正式演说义。",
+        "relation_scope": "sense",
         "relation_type": "near_paraphrase",
-        "sense_ids": [],
-        "shared_meaning": "address ≈ deal with",
+        "sense_ids": [
+          "sense:address:3a3a81ef4c935758"
+        ],
+        "shared_meaning": "take action regarding a problem or situation",
         "source_evidence_objects": [
           {
             "canonical_members": [
               {
-                "word_id": "word:address"
+                "word_id": "word:address",
+                "sense_id": "sense:address:3a3a81ef4c935758"
+              },
+              {
+                "word_id": "word:deal",
+                "sense_id": "sense:deal:9dad879330265856"
               }
             ],
             "difference": {
@@ -55,23 +67,24 @@
             "relation_type": "near_paraphrase",
             "shared_core": "take action regarding a problem, issue, concern, or situation",
             "source": {
-              "sense_id": "sense:address:3a3a81ef4c935758",
-              "word_id": "word:address"
+              "word_id": "word:address",
+              "sense_id": "sense:address:3a3a81ef4c935758"
             },
             "target": {
-              "construction_or_collocation_id": "collocation:1aa0391e3771a4e6141e",
-              "sense_id": "sense:deal:9dad879330265856",
-              "word_id": "word:deal"
+              "word_id": "word:deal",
+              "sense_id": "sense:deal:9dad879330265856"
             },
             "unsafe_swap": "Not a headword-global synonym relation."
           }
         ],
         "source_expression": "address",
-        "source_sense_id": null,
-        "target_expression": "address ≈ deal with",
-        "target_sense_id": null,
-        "target_sense_ids": [],
-        "target_word": null,
+        "source_sense_id": "sense:address:3a3a81ef4c935758",
+        "target_expression": "deal with",
+        "target_sense_id": "sense:deal:9dad879330265856",
+        "target_sense_ids": [
+          "sense:deal:9dad879330265856"
+        ],
+        "target_word": "deal",
         "task_tags": [
           "reading"
         ],

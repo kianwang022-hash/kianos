@@ -6,26 +6,7 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:advanced:handoff-225f6aa49ee5cdba",
-        "pattern": "advanced age/disease",
-        "meaning_cn": "高龄；晚期疾病",
-        "definition_en": "late or at a developed stage",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      },
-      {
-        "construction_id": "construction:advanced:handoff-37267ccdd77153c0",
-        "pattern": "advanced technology/course",
-        "meaning_cn": "先进技术；高级课程",
-        "definition_en": "highly developed or difficult",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "76187107f8e42426cbabed003c79d8404cf1ab19a4a9b38ee7d55afc6b1c46f0",
     "core_concept": {
       "core_clusters": [],
@@ -68,15 +49,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "高级的；先进的",
-        "definition_en": "at a higher level in training or knowledge or skill",
+        "definition_en": "at a high level of knowledge or skill, or highly developed or ahead in progress",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:advanced:6910a7a3ec9858f4",
-        "sense_label_en": "at a higher level in training or knowledge or skill",
+        "sense_label_en": "at a high level of knowledge or skill, or highly developed or ahead in progress",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/advanced",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "Advanced covers high-level study and highly developed methods/technology, not only trained people."
+          }
+        ]
       },
       {
         "collocations": [
@@ -100,7 +90,8 @@
         "sense_id": "sense:advanced:9e10a473b8b153c4",
         "sense_label_en": "at a late or far-progressed stage, as in advanced age or advanced disease",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Advanced age means old age; advanced disease means disease at a late or far-progressed stage, not medically superior disease."
       }
     ],
     "verification_summary": {
@@ -481,7 +472,22 @@
       "collocation:ab626a453fa495e63cb0",
       "collocation:b56954a6f591454f8805"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:advanced:handoff-225f6aa49ee5cdba",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Age/disease are examples of the existing late-stage sense; retain that sense and note rather than an extra target."
+      },
+      {
+        "id": "construction:advanced:handoff-37267ccdd77153c0",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Technology/course exemplify the existing high-level sense and existing collocations."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:8da893070802f51fbab9",

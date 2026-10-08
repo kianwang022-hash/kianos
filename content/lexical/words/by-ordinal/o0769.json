@@ -26,11 +26,19 @@
           "sense_ids": [
             "sense:cheat:4e4e36d31199529a"
           ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "对伴侣不忠；有婚外或伴侣关系之外的性关系",
+          "label_en": "to be sexually unfaithful to a spouse or regular partner",
+          "sense_ids": [
+            "sense:cheat:20261008-unfaithful"
+          ]
         }
       ],
       "core_meaning_cn": "欺骗；作弊",
       "core_meaning_en": "deceive or act dishonestly",
-      "mental_model_cn": "欺骗；作弊",
+      "mental_model_cn": "欺骗；作弊 exam/game → 作弊；partner → 不忠；cheat sb out of sth → 骗取。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,21 +73,12 @@
             ],
             "meaning_cn": "考试作弊",
             "phrase": "cheat on an exam"
-          },
-          {
-            "collocation_id": "collocation:5848c4b2bf86644764f6",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cheat:2221f37d3f9c5bcd:collocation:handoff-o0675-o0874"
-            ],
-            "meaning_cn": "对伴侣不忠",
-            "phrase": "cheat on sb"
           }
         ],
         "confidence": "medium",
         "definition_cn": "作弊",
         "definition_en": "to act dishonestly to gain an advantage, especially in a test or game",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "cheat; cheat in/on an exam; cheat at a game",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -129,12 +128,12 @@
             "legacy_source_object_ids": [
               "sense:cheat:4e4e36d31199529a:collocation:0"
             ],
-            "meaning_cn": "小抄；作弊纸条",
+            "meaning_cn": "速查表、备忘单；用于考试作弊时指小抄",
             "phrase": "a cheat sheet"
           },
           {
             "collocation_id": "collocation:e3eda990ce5ee3aca940",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:cheat:4e4e36d31199529a:collocation:1"
             ],
@@ -153,6 +152,45 @@
         "sense_label_en": "a person who cheats; an act of cheating",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:cheat:20261008-unfaithful",
+        "pos": "verb",
+        "definition_cn": "对伴侣不忠；有婚外或伴侣关系之外的性关系",
+        "definition_en": "to be sexually unfaithful to a spouse or regular partner",
+        "sense_label_en": "to be sexually unfaithful to a spouse or regular partner",
+        "transitivity": "vi",
+        "governing_pattern": "cheat (on sb)",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5848c4b2bf86644764f6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cheat:2221f37d3f9c5bcd:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "对伴侣不忠",
+            "phrase": "cheat on sb"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/cheat_1",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Already selected cheat-on-sb belongs to partner infidelity, not an exam or game. Move the existing selected expression with its ID; no new knowledge admission."
+          },
+          {
+            "source_type": "preserved_existing_content",
+            "source_path": "content/lexical/words/by-ordinal/o0769.json",
+            "source_ref": "f835f90b0e7313c67fd30b62d237f4ef20f3da09",
+            "source_object_id": "collocation:5848c4b2bf86644764f6",
+            "supports": "This selected expression was already active; only repair its semantic parent."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -334,6 +372,11 @@
         "merged_into_sense_id": null,
         "source_row": 2188,
         "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
+      },
+      {
+        "sense_id": "sense:cheat:20261008-unfaithful",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -342,8 +385,7 @@
       "collocation:5848c4b2bf86644764f6",
       "collocation:93faae199d5ca737299d",
       "collocation:bda23ce511923da29d57",
-      "collocation:ccb7f48efd9b88f121be",
-      "collocation:e3eda990ce5ee3aca940"
+      "collocation:ccb7f48efd9b88f121be"
     ],
     "facts": [
       {
@@ -386,12 +428,16 @@
       {
         "id": "collocation:e3eda990ce5ee3aca940",
         "source_row": 19297,
-        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Call-someone-a-cheat instantiates ordinary naming and the current cheat noun, not a new lexical construction."
       },
       {
         "id": "collocation:5848c4b2bf86644764f6",
         "source_row": 21306,
-        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json",
+        "sense_id": "sense:cheat:20261008-unfaithful"
       }
     ],
     "exam-mappings": [],

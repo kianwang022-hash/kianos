@@ -20,12 +20,11 @@
           ]
         },
         {
-          "label_cn": "抓住，扭住；给…装上领子",
-          "label_en": "to seize or catch someone by the collar or roughly; to put a collar on something",
+          "label_cn": "抓住，扭住",
+          "label_en": "to seize or catch someone by the collar or roughly",
           "pos": "verb",
           "sense_ids": [
-            "sense:collar:5796fa763ef45032",
-            "sense:collar:a76becff5f605035"
+            "sense:collar:5796fa763ef45032"
           ]
         }
       ],
@@ -121,7 +120,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:213c2ebd6201d631adab",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:collar:5796fa763ef45032:collocation:0"
             ],
@@ -139,30 +138,6 @@
         "sense_id": "sense:collar:5796fa763ef45032",
         "sense_label_en": "to seize or catch someone by the collar or roughly",
         "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:55aebc5bf85b045572ad",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:collar:a76becff5f605035:collocation:0"
-            ],
-            "meaning_cn": "给衬衫上领子",
-            "phrase": "collar a shirt"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "给…装上领子",
-        "definition_en": "to put a collar on something",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:collar:a76becff5f605035",
-        "sense_label_en": "to put a collar on something",
-        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -275,7 +250,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:55aebc5bf85b045572ad",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:collar:a76becff5f605035:collocation:0"
+          ],
+          "meaning_cn": "给衬衫上领子",
+          "phrase": "collar a shirt"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "给…装上领子",
+      "definition_en": "to put a collar on something",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:collar:a76becff5f605035",
+      "sense_label_en": "to put a collar on something",
+      "sort_order": 3,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:collar:a76becff5f605035",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -294,7 +298,7 @@
       },
       {
         "sense_id": "sense:collar:a76becff5f605035",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 2538,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
@@ -309,8 +313,6 @@
     ],
     "active_collocations": [
       "collocation:1bc4da43770fabc06403",
-      "collocation:213c2ebd6201d631adab",
-      "collocation:55aebc5bf85b045572ad",
       "collocation:879d1a2a08359d9ef55c",
       "collocation:8ee38485acb2e26882bb",
       "collocation:96742c1750091376efbe",
@@ -326,12 +328,18 @@
       {
         "id": "collocation:213c2ebd6201d631adab",
         "source_row": 2755,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Collar sb repeats seize/catch, no independent frame."
       },
       {
         "id": "collocation:55aebc5bf85b045572ad",
         "source_row": 7223,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Textile put-a-collar-on verb adds no demonstrated independent default task beyond neckband recognition; retain exact truth and example in Lookup."
       },
       {
         "id": "collocation:8ee38485acb2e26882bb",

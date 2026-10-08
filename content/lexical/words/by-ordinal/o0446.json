@@ -61,14 +61,14 @@
         "confidence": "medium",
         "definition_cn": "恳求，乞求",
         "definition_en": "ask earnestly for something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt. + object / sb + to do sth; vi. + for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:beg:ae91165a58b15d7f",
         "sense_label_en": "ask earnestly for something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -102,30 +102,6 @@
         "sense_label_en": "ask for money or food as charity",
         "sort_order": 1,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3db891a54f52ed3c477f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:beg:8e8fdc87b5035c8e:collocation:0"
-            ],
-            "meaning_cn": "预设结论；循环论证",
-            "phrase": "beg the question"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "预设结论；循环论证",
-        "definition_en": "to assume the conclusion in an argument or reason circularly",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:beg:8e8fdc87b5035c8e",
-        "sense_label_en": "to assume the conclusion in an argument or reason circularly",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -293,12 +269,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3db891a54f52ed3c477f",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:beg:8e8fdc87b5035c8e:collocation:0"
+          ],
+          "meaning_cn": "预设结论；循环论证",
+          "phrase": "beg the question"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "预设结论；循环论证",
+      "definition_en": "to assume the conclusion in an argument or reason circularly",
+      "governing_pattern": "vt. + object",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:beg:8e8fdc87b5035c8e",
+      "sense_label_en": "to assume the conclusion in an argument or reason circularly",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:beg:8e8fdc87b5035c8e",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:beg:8e8fdc87b5035c8e",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1176,
         "source_path": "content/lexical/canonical/senses/shards/o0417-0448.json"
@@ -320,7 +325,6 @@
     ],
     "active_collocations": [
       "collocation:0c1ec3a671d05aab4488",
-      "collocation:3db891a54f52ed3c477f",
       "collocation:5bf79d3dd892c3776523",
       "collocation:dd6951fc128756992b65",
       "collocation:f76075719423cd6152f3"
@@ -341,7 +345,10 @@
       {
         "id": "collocation:3db891a54f52ed3c477f",
         "source_row": 5217,
-        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Circular reasoning is a reading of the already selected whole phrase beg the question, not a general meaning of bare beg. Keep the full phrase Construction and both traditional/modern readings; retire the duplicate standalone Sense without cross-kind history remapping."
       },
       {
         "id": "collocation:5bf79d3dd892c3776523",

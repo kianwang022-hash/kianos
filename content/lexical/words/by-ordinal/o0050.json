@@ -23,7 +23,11 @@
         "definition_en": "recognize someone in a stated role",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:ca176401e085b56c2a46",
+          "reason": "The existing acknowledge sb as sth collocation carries this same role-recognition skeleton."
+        }
       },
       {
         "construction_id": "construction:acknowledge:continuous-20260918-01",
@@ -32,7 +36,11 @@
         "definition_en": "formally confirm that something has been received",
         "level": "L1",
         "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
+        "source": "continuous-content-upgrade-20260918",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:d9650a0217d788efc4c2",
+          "reason": "The existing acknowledge receipt of sth collocation carries this same receipt-confirmation skeleton."
+        }
       },
       {
         "construction_id": "construction:acknowledge:continuous-20260918-02",
@@ -41,7 +49,12 @@
         "definition_en": "publicly recognize or give credit for someone's help or contribution",
         "level": "L2",
         "pos": "phrase",
-        "source": "continuous-content-upgrade-20260918"
+        "source": "continuous-content-upgrade-20260918",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:b8057e92ccb9382aab24",
+          "reason": "Help/contribution illustrate credit or thanks; retain the existing example and gratitude sense."
+        }
       }
     ],
     "content_hash": "3ec00a1edab4c19a70303334b9168b4bfbb9d4855af45c4f3c19f7189c48d5e2",
@@ -77,7 +90,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:89c7fc9b72b699630151",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:d5f0efa1a6a8571b:collocation:0"
             ],
@@ -143,7 +156,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:4e711157476bfe65674e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:1b009faaff9f5da8:collocation:0"
             ],
@@ -152,7 +165,7 @@
           },
           {
             "collocation_id": "collocation:b8057e92ccb9382aab24",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:1b009faaff9f5da8:collocation:1"
             ],
@@ -185,7 +198,7 @@
           },
           {
             "collocation_id": "collocation:2e6930f134766bf634ef",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:806e74ecbc1e5e3b:collocation:1"
             ],
@@ -209,7 +222,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:79e4ef47de7c2c7a4e76",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:87a2cf20dda5c882:collocation:retro-o0025-o0224"
             ],
@@ -218,7 +231,7 @@
           },
           {
             "collocation_id": "collocation:26c56714f82caef5b1ec",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:acknowledge:87a2cf20dda5c882:collocation:retro-o0025-o0224"
             ],
@@ -356,14 +369,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:26c56714f82caef5b1ec",
-      "collocation:2e6930f134766bf634ef",
-      "collocation:4e711157476bfe65674e",
       "collocation:55ebeeec99af3c414651",
-      "collocation:79e4ef47de7c2c7a4e76",
-      "collocation:89c7fc9b72b699630151",
       "collocation:a1c5ca9574fe84f470e7",
-      "collocation:b8057e92ccb9382aab24",
       "collocation:ca176401e085b56c2a46",
       "collocation:d9650a0217d788efc4c2"
     ],
@@ -372,23 +379,51 @@
         "id": "deep:secondary_senses:acknowledge:0e654ba1b40ac05e",
         "source_row": 18,
         "source_path": "content/lexical/canonical/facts/shards/o0033-0064.json"
+      },
+      {
+        "id": "construction:acknowledge:handoff-7ff81d1709ced63a",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      },
+      {
+        "id": "construction:acknowledge:continuous-20260918-01",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      },
+      {
+        "id": "construction:acknowledge:continuous-20260918-02",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Help/contribution illustrate credit or thanks; retain the existing example and gratitude sense."
       }
     ],
     "collocations": [
       {
         "id": "collocation:26c56714f82caef5b1ec",
         "source_row": 21516,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Greeting/presence are two selector examples of noticing, not an independent fixed expression."
       },
       {
         "id": "collocation:2e6930f134766bf634ef",
         "source_row": 3923,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Authority is a selector example for role recognition; acknowledge sb as remains the useful lexical frame."
       },
       {
         "id": "collocation:4e711157476bfe65674e",
         "source_row": 6620,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Acknowledge plus sb/sth is a sense label expressed as a slot; retain thanks sense, not an extra lexical pattern."
       },
       {
         "id": "collocation:55ebeeec99af3c414651",
@@ -398,12 +433,18 @@
       {
         "id": "collocation:79e4ef47de7c2c7a4e76",
         "source_row": 21509,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Presence is the ordinary object of noticing/recognizing; keep meaning and example rather than a duplicate pattern."
       },
       {
         "id": "collocation:89c7fc9b72b699630151",
         "source_row": 11690,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Acknowledge plus an arbitrary object is ordinary transitivity; the admission sense and that-frame remain."
       },
       {
         "id": "collocation:a1c5ca9574fe84f470e7",
@@ -413,7 +454,10 @@
       {
         "id": "collocation:b8057e92ccb9382aab24",
         "source_row": 15606,
-        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Help/contribution are transparent objects of giving credit; retain the concrete example."
       },
       {
         "id": "collocation:ca176401e085b56c2a46",

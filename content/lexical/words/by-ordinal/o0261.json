@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "argue with/over/about 与某人争论",
+        "boundary": "with 后接争论对象（人）；about/over 后接争论的议题。可只用其中一个介词短语。",
         "codex_reviewed": false,
         "definition_cn": "争论，争吵",
         "definition_en": "to speak angrily to someone because you disagree with them",
@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "与某人就某事争论",
         "module": "constructions",
-        "pattern": "vi. + with/over/about",
+        "pattern": "argue with sb about/over sth",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,12 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:f1186e066aace36aea4b",
+          "reason": "One existing full person/topic frame retains optionality and both prepositions."
+        }
       },
       {
         "boundary": "argue that + clause 主张/论证",
@@ -66,9 +71,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "主张或论证……",
         "module": "constructions",
-        "pattern": "vt. + that-clause",
+        "pattern": "argue that + clause",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -81,7 +86,12 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:80903f0f108b5e1f145f",
+          "reason": "The admitted argue-that clause is already present as a selected collocation."
+        }
       }
     ],
     "content_hash": "0e281361d3a3a6d07d2dbd7de2796f7fbc13ee9060117f7e55619f02d8b29a9f",
@@ -119,12 +129,12 @@
             "legacy_source_object_ids": [
               "sense:argue:96e9bfb7067f51e2:collocation:0"
             ],
-            "meaning_cn": "与某人争论",
-            "phrase": "argue with + sb"
+            "meaning_cn": "与某人争论，可加 about/over 指明议题；只说明议题时可用 argue about/over sth",
+            "phrase": "argue with + sb (about/over + sth)"
           },
           {
             "collocation_id": "collocation:f15f22dadddf886949d3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:argue:96e9bfb7067f51e2:collocation:1"
             ],
@@ -168,38 +178,39 @@
         "confidence": "medium",
         "definition_cn": "主张，认为，论证",
         "definition_en": "to state your opinion or reasons in support of something",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "argue that + clause | argue sth | argue for/against sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:argue:bd6c743958815e64",
         "sense_label_en": "to state your opinion or reasons in support of something",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
           {
             "collocation_id": "collocation:f2b18ec443be1a4fbe64",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:argue:414cf64c118b51d3:collocation:0"
             ],
-            "meaning_cn": "证明某人/某物是……",
-            "phrase": "argue + sb/sth + to be + adj/n"
+            "meaning_cn": "证据表明应得出不同结论。",
+            "phrase": "The evidence argues a different conclusion."
           }
         ],
         "confidence": "medium",
-        "definition_cn": "证明，表明",
-        "definition_en": "to show or suggest something by giving evidence",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "（正式）表明；显示有……的迹象",
+        "definition_en": "to provide evidence suggesting or showing that something is true",
+        "governing_pattern": "facts/evidence/developments argue + a conclusion or state",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:argue:414cf64c118b51d3",
-        "sense_label_en": "to show or suggest something by giving evidence",
+        "sense_label_en": "to provide evidence suggesting or showing that something is true",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "This formal reading can have facts, evidence, or developments as its subject. The evidence points to a conclusion; no person needs to be quarrelling."
       }
     ],
     "verification_summary": {
@@ -367,9 +378,7 @@
     "active_collocations": [
       "collocation:6c5789ed324b09fac9e2",
       "collocation:80903f0f108b5e1f145f",
-      "collocation:f1186e066aace36aea4b",
-      "collocation:f15f22dadddf886949d3",
-      "collocation:f2b18ec443be1a4fbe64"
+      "collocation:f1186e066aace36aea4b"
     ],
     "facts": [
       {
@@ -390,12 +399,18 @@
       {
         "id": "deep:constructions:argue:631f9f87d567065c",
         "source_row": 105,
-        "source_path": "content/lexical/canonical/facts/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/facts/shards/o0257-0288.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One existing full person/topic frame retains optionality and both prepositions."
       },
       {
         "id": "deep:constructions:argue:fda5d96d59b55030",
         "source_row": 106,
-        "source_path": "content/lexical/canonical/facts/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/facts/shards/o0257-0288.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The admitted argue-that clause is already present as a selected collocation."
       }
     ],
     "collocations": [
@@ -417,12 +432,18 @@
       {
         "id": "collocation:f15f22dadddf886949d3",
         "source_row": 20437,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Retain the topic example alongside a single complete with/about-over frame; avoid two independently charged copies of the same construction."
       },
       {
         "id": "collocation:f2b18ec443be1a4fbe64",
         "source_row": 20564,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "No bounded exam/press support establishes the old sb-to-be frame as a separate default production target. Keep formal evidential meaning with a contemporary evidence-subject example."
       }
     ],
     "exam-mappings": [],

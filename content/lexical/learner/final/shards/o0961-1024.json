@@ -5,7 +5,7 @@
     "ordinal": 961,
     "word": "compound",
     "source_owner_path": "content/lexical/words/by-ordinal/o0961.json",
-    "source_fingerprint": "2894c2ba014224b61820ffdde7dcb399caf0351afb2eba8454e446c8a782bd54",
+    "source_fingerprint": "a36c48bfb82452fcad7388c222dd4f9fd3ee37b70baad198a983b62f22c91575",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -17,7 +17,7 @@
     },
     "word_feel": {
       "summary_cn": "把多个部分结合成一个整体；名词可指化合物/围地，形容词指复合的，动词还可表示叠加使问题更严重",
-      "decision_cn": "noun/adjective COMpound → 化合物、复合的；verb comPOUND → 混合/叠加，compound a problem = 使问题进一步恶化。",
+      "decision_cn": "noun/adjective COMpound → 化合物、复合的；an enclosed compound → 围墙内的大院；verb comPOUND → 混合/叠加，compound a problem = 使问题进一步恶化。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -107,7 +107,7 @@
             "id": "collocation:cef9faa1389ab79d2be6",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "compound a problem",
-            "meaning_cn": "使问题复杂化",
+            "meaning_cn": "使问题进一步恶化；加重问题",
             "kind": "usage_example",
             "repair": null
           }
@@ -300,12 +300,19 @@
     "ordinal": 962,
     "word": "comprehend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0962.json",
-    "source_fingerprint": "bb2238b8d389db72f21ffac143be657d50762a715a51a92174bfbee220fa47e5",
+    "source_fingerprint": "7bcae55bff45c68e79fc691824a4d17540d041170dd4b2b7dd822e9e09c29f20",
     "sense_lineage": [
       {
         "word_id": "word:comprehend",
         "target_kind": "sense",
         "from_target_id": "sense:comprehend:5f7c3416084a5c47",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:comprehend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f9af3764e0f2a0e81a57",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -318,7 +325,7 @@
     },
     "word_feel": {
       "summary_cn": "理解、领会某事的意义或整体关系",
-      "decision_cn": "当前主学习义就是“理解、领会”；旧的“包括、包含”义仅保留历史参考，不进入主 Core。",
+      "decision_cn": "comprehend sth / comprehend that ... → 理解、领会某事或命题。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -342,13 +349,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "comprehend + sth",
             "meaning_cn": "理解某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f9af3764e0f2a0e81a57",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "comprehend + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c01c379b2fffd0568272",
@@ -595,7 +597,7 @@
     "ordinal": 964,
     "word": "comprehensive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0964.json",
-    "source_fingerprint": "5c3e3158967fc1ed0fa8a05aa52590e2495be2b70f72daffe627c27aa190b5d0",
+    "source_fingerprint": "138bb9a14ff2afcf95005889e6881ccff6b25c52d8cd164a72af85878ba5ef61",
     "sense_lineage": [
       {
         "word_id": "word:comprehensive",
@@ -627,8 +629,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "全面的，综合的",
-        "definition_en": "including all or everything",
+        "definition_cn": "全面的，综合的；涵盖所有或几乎所有相关方面",
+        "definition_en": "covering all or nearly all relevant parts or aspects",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -645,7 +647,7 @@
           "target_kind": "sense",
           "target_id": "sense:comprehensive:96f9ddc3ec2e586d",
           "target_locator": "record.senses[0]",
-          "target_label": "全面的，综合的"
+          "target_label": "全面的，综合的；涵盖所有或几乎所有相关方面"
         }
       }
     ],
@@ -723,8 +725,16 @@
     "ordinal": 965,
     "word": "compress",
     "source_owner_path": "content/lexical/words/by-ordinal/o0965.json",
-    "source_fingerprint": "33cead48f3aa5124474bb81c40621320eea400de38933de1677b65f1bb67f211",
-    "sense_lineage": [],
+    "source_fingerprint": "31f6a0265bdc4b9065e2bbd1ad330cbee46a8ec3d183532163ac328365d6506d",
+    "sense_lineage": [
+      {
+        "word_id": "word:compress",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0a2ebf529b494c46a680",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -766,13 +776,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "compress + sth",
             "meaning_cn": "压缩某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0a2ebf529b494c46a680",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "compress + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2f6930f5eb285bbb610f",
@@ -1026,7 +1031,7 @@
     "ordinal": 966,
     "word": "comprise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0966.json",
-    "source_fingerprint": "9e490591396ff17583b2eb9e0aa626770492ed3c9079af3b6f71a4f40e86db99",
+    "source_fingerprint": "baccb3cb36e7e9f13edcb053905edde54e3e2d0ad6172d35a6064c814aa4dc2a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1036,7 +1041,7 @@
     },
     "word_feel": {
       "summary_cn": "包含，由...组成",
-      "decision_cn": "",
+      "decision_cn": "整体 comprises 各部分 → 包含；各部分 comprise 整体 → 构成。be comprised of 表示由……组成，正式写作若需避开用法争议可选 consist of / be composed of。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1049,7 +1054,7 @@
         "id": "sense:comprise:42dbdd3a2e02571f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "the whole comprises its parts",
         "definition_cn": "包含，包括，由...组成",
         "definition_en": "to be made up of; to include",
         "note": "",
@@ -1058,14 +1063,14 @@
           {
             "id": "collocation:5e4e885069a37f9b6ff0",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "comprise + sth",
-            "meaning_cn": "包含某物",
+            "phrase": "whole + comprise + parts",
+            "meaning_cn": "整体包含其组成部分",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5e4e885069a37f9b6ff0",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "comprise + sth"
+              "target_label": "whole + comprise + parts"
             }
           },
           {
@@ -1093,7 +1098,7 @@
         "id": "sense:comprise:93838bc3c7a95e8a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "the parts comprise the whole",
         "definition_cn": "构成，组成",
         "definition_en": "to form or compose",
         "note": "",
@@ -1102,14 +1107,14 @@
           {
             "id": "collocation:4557b72df8a4f7f33cac",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "comprise + sth",
-            "meaning_cn": "构成某物",
+            "phrase": "parts + comprise + whole",
+            "meaning_cn": "各部分构成整体",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4557b72df8a4f7f33cac",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "comprise + sth"
+              "target_label": "parts + comprise + whole"
             }
           }
         ],
@@ -1195,8 +1200,16 @@
     "ordinal": 967,
     "word": "compromise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0967.json",
-    "source_fingerprint": "9c3d0e12c81a7507e907b8295298f2dac5b2ee498b9ac79c2c45c5cd9a6b82f5",
-    "sense_lineage": [],
+    "source_fingerprint": "1206c398bc60510eb16a80dee67c4c7d425496689a3727d7ab33bd75d6c4e466",
+    "sense_lineage": [
+      {
+        "word_id": "word:compromise",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4e375f20499a32eb8f54",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -1262,14 +1275,14 @@
           {
             "id": "collocation:797972ba4f3a9491f6f9",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "compromise on + sth",
-            "meaning_cn": "在某事上妥协",
+            "phrase": "compromise (with sb) on sth",
+            "meaning_cn": "在某事上（与某人）妥协",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:797972ba4f3a9491f6f9",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "compromise on + sth"
+              "target_label": "compromise (with sb) on sth"
             }
           }
         ],
@@ -1295,13 +1308,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "compromise + sth",
             "meaning_cn": "危害某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4e375f20499a32eb8f54",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "compromise + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:d1905f5bc7e7d434e6fe",
@@ -1340,25 +1348,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:3571fe79506078c41561",
-        "source_locator": "record.constructions[0]",
-        "pattern": "compromise with sb on sth",
-        "lines": [
-          {
-            "text": "与某人在某事上妥协",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:3571fe79506078c41561",
-          "target_locator": "record.constructions[0]",
-          "target_label": "compromise with sb on sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1906,7 +1896,7 @@
     "ordinal": 973,
     "word": "concede",
     "source_owner_path": "content/lexical/words/by-ordinal/o0973.json",
-    "source_fingerprint": "0a2215d47bbb1c4d8223713281b0bdc14190299c5018743a0cc51a417b4a7f34",
+    "source_fingerprint": "e9c27064f555f5cefcd354db79b9a260de1626db00a241a9a460b60254ec09d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1947,6 +1937,19 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "concede that + clause"
             }
+          },
+          {
+            "id": "collocation:concede:baseline-v2-defeat",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "concede defeat",
+            "meaning_cn": "承认失败；认输",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:concede:baseline-v2-defeat",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "concede defeat"
+            }
           }
         ],
         "repair": {
@@ -1960,7 +1963,7 @@
         "id": "sense:concede:bd158bc22f3f5509",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "concede sth (to sb); concede to sb/sth",
         "definition_cn": "退让；让步",
         "definition_en": "to give up or yield something, such as a right or a point in an argument",
         "note": "",
@@ -1992,34 +1995,21 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "承认失败；（比赛中）失球、丢分或让对方得分",
-        "definition_en": "to admit defeat, or in sport to allow the opposing side to score a goal or point",
+        "definition_cn": "（比赛中）失球、丢分；让对方得分",
+        "definition_en": "in sport, to let an opponent score a goal or point",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:concede:baseline-v2-defeat",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "concede defeat",
-            "meaning_cn": "承认失败；认输",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:concede:baseline-v2-defeat",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "concede defeat"
-            }
-          },
-          {
             "id": "collocation:concede:baseline-v2-goal",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "concede a goal / point",
             "meaning_cn": "失球；让对方进球/得分",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:concede:baseline-v2-goal",
-              "target_locator": "record.senses[2].collocations[1]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "concede a goal / point"
             }
           }
@@ -2028,7 +2018,7 @@
           "target_kind": "sense",
           "target_id": "sense:concede:754405db530d5c91",
           "target_locator": "record.senses[2]",
-          "target_label": "承认失败；（比赛中）失球、丢分或让对方得分"
+          "target_label": "（比赛中）失球、丢分；让对方得分"
         }
       }
     ],
@@ -2079,7 +2069,7 @@
     "ordinal": 974,
     "word": "conceive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0974.json",
-    "source_fingerprint": "248071cbff6ed8bb4d0131f284d651f7268aea2801e1741a6230ed1a24045cea",
+    "source_fingerprint": "1859fbf169bf423c849c9d64e26e26d7bcb3a4624887e33383e12135b18b2b56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2102,7 +2092,7 @@
         "id": "sense:conceive:e192104ca499567b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "conceive an idea/plan; conceive of sth",
         "definition_cn": "构想，设想，构思",
         "definition_en": "to form or devise (an idea, plan, etc.) in the mind",
         "note": "",
@@ -2141,7 +2131,7 @@
         "id": "sense:conceive:ab85a88ff26c5467",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "conceive that ...; conceive of sb/sth as ...",
         "definition_cn": "认为，以为",
         "definition_en": "to believe or consider",
         "note": "",
@@ -2240,7 +2230,7 @@
     "ordinal": 975,
     "word": "concentrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0975.json",
-    "source_fingerprint": "64e0d5463fcc3b6d6df237f7780067add61f7c47df7bab61decf67c00b9aaeef",
+    "source_fingerprint": "980bc96285137005c8a0efe96ce87597db1f43db5856bd05bf6bc8cd5633b68b",
     "sense_lineage": [
       {
         "word_id": "word:concentrate",
@@ -2252,14 +2242,14 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "把分散的东西集中到更小范围：可以集中注意力/努力，也可以把物质浓缩得更密",
-      "decision_cn": "attention/effort → 把心理资源集中到一点；solution/material → 把物质集中、浓缩。两义共享“从分散到集中”。",
+      "decision_cn": "attention → 专注；people/resources/power in one place → 聚集或集中分布；solution → 浓缩；名词 concentrate → 浓缩物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2272,7 +2262,7 @@
         "id": "sense:concentrate:e64728881884555c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "concentrate on sth; concentrate attention/efforts on sth",
         "definition_cn": "专心，集中注意力",
         "definition_en": "to direct one's attention or efforts on something",
         "note": "",
@@ -2359,8 +2349,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "浓缩物",
-        "definition_en": "a concentrated form of a foodstuff; the bulk is reduced by removing water",
+        "definition_cn": "浓缩物；浓缩液",
+        "definition_en": "a substance made stronger by reducing its bulk or removing some liquid",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2377,7 +2367,24 @@
           "target_kind": "sense",
           "target_id": "sense:concentrate:9efba1232bb15516",
           "target_locator": "record.senses[2]",
-          "target_label": "浓缩物"
+          "target_label": "浓缩物；浓缩液"
+        }
+      },
+      {
+        "id": "sense:concentrate:20261008-gather",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "concentrate sth in/on/around a place; be concentrated in a place or group",
+        "definition_cn": "使集中、聚集在某处或少数人手中",
+        "definition_en": "to gather or bring people, resources, activity, or power into one place or limited area",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:concentrate:20261008-gather",
+          "target_locator": "record.senses[3]",
+          "target_label": "使集中、聚集在某处或少数人手中"
         }
       }
     ],
@@ -2545,7 +2552,7 @@
     "ordinal": 976,
     "word": "concept",
     "source_owner_path": "content/lexical/words/by-ordinal/o0976.json",
-    "source_fingerprint": "80d695a627bdb220d91e9cf293b9c1f234703c23bebc9c9f2f386f0d81350d9f",
+    "source_fingerprint": "d867285a838e15bb681c966034df4f93d7da8416e063a1c7f283c5f9ae102b01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2569,8 +2576,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "从具体事例中推断或得出的一般观念或概念",
-        "definition_en": "an abstract or general idea inferred or derived from specific instances",
+        "definition_cn": "概念；一般观念或构想",
+        "definition_en": "an idea or general notion used to understand or think about something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2600,7 +2607,7 @@
           "target_kind": "sense",
           "target_id": "sense:concept:bca4563513715c69",
           "target_locator": "record.senses[0]",
-          "target_label": "从具体事例中推断或得出的一般观念或概念"
+          "target_label": "概念；一般观念或构想"
         }
       }
     ],
@@ -2638,7 +2645,7 @@
     "ordinal": 977,
     "word": "conception",
     "source_owner_path": "content/lexical/words/by-ordinal/o0977.json",
-    "source_fingerprint": "6b8617482ad46b77dfab7e4fdff91888914ae7a24c8e6cec7f42635fe479809e",
+    "source_fingerprint": "e3acc54102294639f20ace01700144e68b96d7593c6fac291588c0b7df9b10d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2662,8 +2669,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "概念；观念",
-        "definition_en": "an abstract or general idea inferred or derived from specific instances",
+        "definition_cn": "概念；观念；对某事的理解或看法",
+        "definition_en": "an idea, belief, or understanding of what something is or should be",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2693,7 +2700,7 @@
           "target_kind": "sense",
           "target_id": "sense:conception:8475255d096f5c83",
           "target_locator": "record.senses[0]",
-          "target_label": "概念；观念"
+          "target_label": "概念；观念；对某事的理解或看法"
         }
       },
       {
@@ -2701,7 +2708,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "受孕；妊娠",
+        "definition_cn": "受孕；怀孕的开始",
         "definition_en": "the act of becoming pregnant; fertilization of an ovum by a spermatozoon",
         "note": "",
         "identity_overlay": null,
@@ -2719,7 +2726,7 @@
           "target_kind": "sense",
           "target_id": "sense:conception:c01536783fb85104",
           "target_locator": "record.senses[1]",
-          "target_label": "受孕；妊娠"
+          "target_label": "受孕；怀孕的开始"
         }
       }
     ],
@@ -2758,7 +2765,7 @@
     "ordinal": 978,
     "word": "concern",
     "source_owner_path": "content/lexical/words/by-ordinal/o0978.json",
-    "source_fingerprint": "9719ba9ae127d63c23a163bfdb49ba46745795c7a8318eb614b70fe84947eaef",
+    "source_fingerprint": "f709a2bbbf4c6f07109a4d2f7d8b08a5423a22ef4a61c8f6c4d0a547010b8f0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2835,7 +2842,7 @@
             "id": "collocation:5d76d025b70f17eff487",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "public concern",
-            "meaning_cn": "关切事项；担忧",
+            "meaning_cn": "公众的担忧或关切",
             "kind": "usage_example",
             "repair": null
           },
@@ -2843,7 +2850,7 @@
             "id": "collocation:b486a12de3a3ec1378da",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "raise concerns",
-            "meaning_cn": "关切事项；担忧",
+            "meaning_cn": "引起担忧；提出担忧或疑虑（依语境）",
             "kind": "usage_example",
             "repair": null
           }
@@ -2886,7 +2893,7 @@
             "id": "collocation:9078b1ca61779ea6c6fb",
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a going concern",
-            "meaning_cn": "公司；企业",
+            "meaning_cn": "仍在持续经营的企业",
             "kind": "usage_example",
             "repair": null
           }
@@ -3014,7 +3021,7 @@
     "ordinal": 979,
     "word": "concert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0979.json",
-    "source_fingerprint": "b602db0069b84f3066285ec28b4264bd1340d6a4b36f16af619745c87952b21b",
+    "source_fingerprint": "d7ba3a2194cf89565aacf71de8639d4db44c2bad32f53b00fb39a6635e907a70",
     "sense_lineage": [
       {
         "word_id": "word:concert",
@@ -3032,7 +3039,7 @@
     },
     "word_feel": {
       "summary_cn": "音乐会；或共同协调、一致行动（in concert with）",
-      "decision_cn": "concert 最常见是“音乐会”；in concert (with) 是固定表达，表示协同、一致行动。旧的动词“协调安排”不进入主 Core。",
+      "decision_cn": "concert → 音乐会；in concert (with) → 协同地、（与……）一致行动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3240,8 +3247,16 @@
     "ordinal": 980,
     "word": "concession",
     "source_owner_path": "content/lexical/words/by-ordinal/o0980.json",
-    "source_fingerprint": "5827b4db0493146933c8eb5b8e45d93ab6b4b577420825838a15d84b2b1b5cee",
-    "sense_lineage": [],
+    "source_fingerprint": "f9c4dfa243227a474ba21b628a58ef6b7ed7fa1b5356edf7246001cb6fe9e8d9",
+    "sense_lineage": [
+      {
+        "word_id": "word:concession",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a17336db4679f8ca7a9b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3N"
@@ -3274,25 +3289,20 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "make a concession",
             "meaning_cn": "做出让步",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a17336db4679f8ca7a9b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "make a concession"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:concession:baseline-v2-to-sb",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "make concessions to sb",
-            "meaning_cn": "向某人作出让步",
+            "phrase": "make a concession / concessions (to sb)",
+            "meaning_cn": "作出让步；向某人让步",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:concession:baseline-v2-to-sb",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "make concessions to sb"
+              "target_label": "make a concession / concessions (to sb)"
             }
           }
         ],
@@ -3308,8 +3318,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "特许权，特许经营",
-        "definition_en": "a contract granting the right to operate a subsidiary business",
+        "definition_cn": "特许权；使用土地、财产或在特定地点经营、销售的权利",
+        "definition_en": "a granted right to use land or property, or to operate a business or sell goods in a particular place",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3331,7 +3341,7 @@
           "target_kind": "sense",
           "target_id": "sense:concession:e5944b36ba7d592f",
           "target_locator": "record.senses[1]",
-          "target_label": "特许权，特许经营"
+          "target_label": "特许权；使用土地、财产或在特定地点经营、销售的权利"
         }
       },
       {
@@ -3500,7 +3510,7 @@
     "ordinal": 982,
     "word": "conclude",
     "source_owner_path": "content/lexical/words/by-ordinal/o0982.json",
-    "source_fingerprint": "67341d84f5ccf0f4702c0b3533239e943dd37703c464702f2df9dc6fc959aa69",
+    "source_fingerprint": "e51aaf66ac627b54b2443aaa3a8dfb6b0c0080b3c763d2e3e60b4f7d34c15a05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3549,7 +3559,7 @@
         "id": "sense:conclude:3eee218945a25875",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "conclude sth (from sth); conclude (from sth) that ...",
         "definition_cn": "推断出；得出结论",
         "definition_en": "to decide or believe something as a result of reasoning",
         "note": "",
@@ -3784,7 +3794,7 @@
     "ordinal": 984,
     "word": "concrete",
     "source_owner_path": "content/lexical/words/by-ordinal/o0984.json",
-    "source_fingerprint": "bf519f69985aee28c46879a87a48c1f2ef391777d7378bc523f10f682cd1fd14",
+    "source_fingerprint": "6a6504145a66eb3aa58b06f82a6ee9cf7ce1b9fa25228f4175540a563289b9dc",
     "sense_lineage": [
       {
         "word_id": "word:concrete",
@@ -4177,8 +4187,30 @@
     "ordinal": 986,
     "word": "condemn",
     "source_owner_path": "content/lexical/words/by-ordinal/o0986.json",
-    "source_fingerprint": "40cac8e1ae88fc81d16e90ccd7ef3ac0ae225de33c8945820a6a68ab87507c11",
-    "sense_lineage": [],
+    "source_fingerprint": "fdf64f63edaecaece73b77e71112f92a6a8700ec38855261739424a718bc1247",
+    "sense_lineage": [
+      {
+        "word_id": "word:condemn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:86e7b1ffd1f9f10d5f27",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:condemn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a482003d5b0ae57d965a",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:condemn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d1a10ab75d1ac8911dee",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -4200,7 +4232,7 @@
         "id": "sense:condemn:7371c9ca503d5e07",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "condemn sb/sth; condemn sb/sth for/as sth",
         "definition_cn": "谴责，指责",
         "definition_en": "express strong disapproval of",
         "note": "",
@@ -4211,13 +4243,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "condemn + sth/sb",
             "meaning_cn": "谴责某事/某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a482003d5b0ae57d965a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "condemn + sth/sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:ca2cb3241ac91173d51c",
@@ -4265,7 +4292,7 @@
         "id": "sense:condemn:012f4b6a3a505508",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "condemn sb to sth/do sth",
+        "governing_pattern": "condemn sb to sth; be condemned to sth / to do sth",
         "definition_cn": "判处或迫使某人陷入某种状态",
         "definition_en": "to sentence or force someone into a particular state or activity",
         "note": "",
@@ -4276,13 +4303,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "condemn sb to + sth",
             "meaning_cn": "使某人陷入（困境等）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:86e7b1ffd1f9f10d5f27",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "condemn sb to + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:328075989682b00b6583",
@@ -4305,8 +4327,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "证明（某人）有罪",
-        "definition_en": "demonstrate the guilt of (someone)",
+        "definition_cn": "（证据、言辞等）显示或暗示某人有罪、有过错",
+        "definition_en": "to show or suggest that someone is guilty or at fault",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4314,21 +4336,16 @@
             "id": "collocation:d1a10ab75d1ac8911dee",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "condemn sb",
-            "meaning_cn": "证明某人有罪",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d1a10ab75d1ac8911dee",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "condemn sb"
-            }
+            "meaning_cn": "显示或暗示某人有罪、有过错",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:condemn:b7d2d35fef2d53ab",
           "target_locator": "record.senses[3]",
-          "target_label": "证明（某人）有罪"
+          "target_label": "（证据、言辞等）显示或暗示某人有罪、有过错"
         }
       }
     ],
@@ -4357,18 +4374,18 @@
       {
         "id": "construction:f08ea04cac8c1dd983d5",
         "source_locator": "record.constructions[0]",
-        "pattern": "condemn/sentence sb to ...",
+        "pattern": "condemn sb to sth; be condemned to sth / to do sth",
         "lines": [
           {
-            "text": "legally sentence someone or declare them destined for an unpleasant state",
-            "lang": "en"
+            "text": "判处某种刑罚；也可迫使某人陷入困境或不得不做某事。to sth 是处境/刑罚，to do 是行为。",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:f08ea04cac8c1dd983d5",
           "target_locator": "record.constructions[0]",
-          "target_label": "condemn/sentence sb to ..."
+          "target_label": "condemn sb to sth; be condemned to sth / to do sth"
         }
       }
     ],
@@ -4385,7 +4402,7 @@
     "ordinal": 987,
     "word": "condense",
     "source_owner_path": "content/lexical/words/by-ordinal/o0987.json",
-    "source_fingerprint": "8ae359304467495bbdae5b3a4d96265ec2d873d8c11cd44a3ee329db986e72c1",
+    "source_fingerprint": "ce4a2fdab399ebfb261905176d8cbcc2d40ff935c52d2fa40683512ecd0c42d2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4491,9 +4508,9 @@
         "id": "sense:condense:6d3a40902b4f5618",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
-        "definition_cn": "浓缩；变浓",
-        "definition_en": "to become more compact or concentrated",
+        "governing_pattern": "condense; condense sth; condense (sth) into sth",
+        "definition_cn": "（使）浓缩；（使）变浓或紧密",
+        "definition_en": "to become or make something more compact or concentrated, including making a liquid thicker by removing water",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4515,7 +4532,7 @@
           "target_kind": "sense",
           "target_id": "sense:condense:6d3a40902b4f5618",
           "target_locator": "record.senses[3]",
-          "target_label": "浓缩；变浓"
+          "target_label": "（使）浓缩；（使）变浓或紧密"
         }
       }
     ],
@@ -4564,8 +4581,16 @@
     "ordinal": 988,
     "word": "condition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0988.json",
-    "source_fingerprint": "86d57a45cf762814a08dd2fb1a6540caaaf004662f78dfc0a5c3a58bbdc61219",
-    "sense_lineage": [],
+    "source_fingerprint": "d9e1c08374f7417a0ec1528725c9e7aeb00e36da5ee96d1dcded1151f9fa740f",
+    "sense_lineage": [
+      {
+        "word_id": "word:condition",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:42c4545e3638cec0c9d3",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -4673,7 +4698,7 @@
         "id": "sense:condition:d866c9d93ee45016",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "condition sb to do sth; condition sb to sth",
         "definition_cn": "使适应；使习惯于",
         "definition_en": "to train or accustom someone or something to behave in a certain way or to become used to certain conditions",
         "note": "",
@@ -4684,13 +4709,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "condition sb to + sth",
             "meaning_cn": "使某人习惯于某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:42c4545e3638cec0c9d3",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "condition sb to + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e91e6ed0fb00f5272743",
@@ -4743,19 +4763,49 @@
     "pronunciation_support": {
       "readings": [
         {
-          "ipa": "/kɒndiʃən/",
-          "locales": [],
+          "ipa": "/kənˈdɪʃn/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
           "applicability": [
             {
-              "surface": "condition"
+              "surface": "condition",
+              "sense_ids": [
+                "sense:condition:5e6f22588c06514e",
+                "sense:condition:c17837bb9d3554b4",
+                "sense:condition:febf31e55a8c5fb1",
+                "sense:condition:d866c9d93ee45016",
+                "sense:condition:88cb1eadbc391efe"
+              ],
+              "pos": [
+                "noun",
+                "verb"
+              ]
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:condition:5e6f22588c06514e": [
+          0
+        ],
+        "sense:condition:88cb1eadbc391efe": [
+          0
+        ],
+        "sense:condition:c17837bb9d3554b4": [
+          0
+        ],
+        "sense:condition:d866c9d93ee45016": [
+          0
+        ],
+        "sense:condition:febf31e55a8c5fb1": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -4779,18 +4829,18 @@
       {
         "id": "construction:becbb27335b15dfc7aaf",
         "source_locator": "record.constructions[1]",
-        "pattern": "condition sb to do sth / be conditioned to sth/doing",
+        "pattern": "condition sb to do sth / be conditioned to do sth; condition sb to sth",
         "lines": [
           {
-            "text": "train or accustom someone, or become accustomed to a condition",
-            "lang": "en"
+            "text": "训练或影响某人，使其习惯性地做某事；也可使某人适应某种条件。to do 表行为，to sth 表所适应的条件",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:becbb27335b15dfc7aaf",
           "target_locator": "record.constructions[1]",
-          "target_label": "condition sb to do sth / be conditioned to sth/doing"
+          "target_label": "condition sb to do sth / be conditioned to do sth; condition sb to sth"
         }
       }
     ],
@@ -4807,7 +4857,7 @@
     "ordinal": 989,
     "word": "conduct",
     "source_owner_path": "content/lexical/words/by-ordinal/o0989.json",
-    "source_fingerprint": "9114857050afb387a76f4936f412642892e7344bb5cfd64b2ec7eac3999079c2",
+    "source_fingerprint": "3ee5b2e4c19566ee2a1323163f4046a0d58d58c497a4a5f5d1d45cbd2aa3b2ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4907,7 +4957,7 @@
         "id": "sense:conduct:4d920f17e4135b6c",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "conduct; conduct an orchestra/choir/work",
         "definition_cn": "指挥（乐队等）",
         "definition_en": "to direct the performance of (music or musicians)",
         "note": "",
@@ -5120,7 +5170,7 @@
     "ordinal": 990,
     "word": "conductor",
     "source_owner_path": "content/lexical/words/by-ordinal/o0990.json",
-    "source_fingerprint": "5b82da5840d14227d20581a90871a6a1fda861d2478b92d7b4af7a76ac706fb9",
+    "source_fingerprint": "54f476c1e429b259a964e1e0e7b3c8940f268a32c25f1705d7d78e56051c86b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5204,8 +5254,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（公共汽车、火车上的）售票员",
-        "definition_en": "a person who collects fares on a bus or train",
+        "definition_cn": "公共汽车售票员；列车员、列车长（具体职责依地区制度而异）",
+        "definition_en": "a person who collects fares on a bus, or who is responsible for a train or its passengers, including checking tickets",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5222,7 +5272,7 @@
           "target_kind": "sense",
           "target_id": "sense:conductor:835ea920c1dc5d9c",
           "target_locator": "record.senses[2]",
-          "target_label": "（公共汽车、火车上的）售票员"
+          "target_label": "公共汽车售票员；列车员、列车长（具体职责依地区制度而异）"
         }
       }
     ],
@@ -5269,8 +5319,16 @@
     "ordinal": 991,
     "word": "confer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0991.json",
-    "source_fingerprint": "4fd6abf31d7e5abc5e257e2dc3713706366b9e2498ce74d45c836cca5f92b5f1",
-    "sense_lineage": [],
+    "source_fingerprint": "295f6b220aa5f46739a88f1e324ca6e5d9abfc9634ab4c023f0cda636739a021",
+    "sense_lineage": [
+      {
+        "word_id": "word:confer",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:aa68139a49156f723528",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -5329,13 +5387,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "confer a degree on someone",
             "meaning_cn": "授予某人学位",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:aa68139a49156f723528",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "confer a degree on someone"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5551,8 +5604,16 @@
     "ordinal": 993,
     "word": "confess",
     "source_owner_path": "content/lexical/words/by-ordinal/o0993.json",
-    "source_fingerprint": "b433c11693f703e6d129c8725a81c1eea4d89710395b781d48e6756453fa4b05",
-    "sense_lineage": [],
+    "source_fingerprint": "84e6d846484bea99705827f2b4b61d16606fe109392d9466559c3c665f5297d8",
+    "sense_lineage": [
+      {
+        "word_id": "word:confess",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5b7c7aceb4f92c36c1b6",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -5574,9 +5635,9 @@
         "id": "sense:confess:f8e01d9f0cb45b0e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "承认（错误或罪行）",
-        "definition_en": "to admit that you have done something wrong or illegal",
+        "governing_pattern": "confess; confess sth; confess to sth/doing sth; confess that ...",
+        "definition_cn": "承认；坦白（过错、罪行或令人难为情的事）",
+        "definition_en": "to admit a personal truth, especially a wrong act, crime, or something embarrassing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5585,13 +5646,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "confess + sth",
             "meaning_cn": "承认某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5b7c7aceb4f92c36c1b6",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "confess + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:40179898f668c2c8272e",
@@ -5624,14 +5680,14 @@
           "target_kind": "sense",
           "target_id": "sense:confess:f8e01d9f0cb45b0e",
           "target_locator": "record.senses[0]",
-          "target_label": "承认（错误或罪行）"
+          "target_label": "承认；坦白（过错、罪行或令人难为情的事）"
         }
       },
       {
         "id": "sense:confess:b2302bbd03435553",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "confess (one's sins) to a priest",
         "definition_cn": "（在神父面前）忏悔，告解",
         "definition_en": "to admit to a priest that you have done something wrong, especially in the Catholic faith",
         "note": "",
@@ -5867,7 +5923,7 @@
     "ordinal": 995,
     "word": "confident",
     "source_owner_path": "content/lexical/words/by-ordinal/o0995.json",
-    "source_fingerprint": "f3ffaa954ffcf650f51c699ef12d7e1cd400cd968805d80f12be96474129d74b",
+    "source_fingerprint": "53b386da19764d41decfe35fe15ab1bb18aaa0a76305a85dc6ef9f42cbbccf27",
     "sense_lineage": [
       {
         "word_id": "word:confident",
@@ -6006,7 +6062,7 @@
           "merged_into_sense_id": "sense:confident:bb31ff57e798518d",
           "pos": "adjective",
           "definition_cn": "有把握的；确信的",
-          "definition_en": "not liable to error in judgment or action",
+          "definition_en": "feeling certain about a judgment or action; this does not guarantee that it is correct",
           "semantic_key": null,
           "semantic_key_history": [],
           "legacy_aliases": [],
@@ -6288,15 +6344,8 @@
     "ordinal": 998,
     "word": "confine",
     "source_owner_path": "content/lexical/words/by-ordinal/o0998.json",
-    "source_fingerprint": "26014980e6bde100003c95b4442d097a2843dcfbe1ba238dea4471eb5c98b3ba",
+    "source_fingerprint": "24d77a620ac563f5089a5535839dcd08576cbdc61a0c9e0d6a159dc53e50bbed",
     "sense_lineage": [
-      {
-        "word_id": "word:confine",
-        "target_kind": "sense",
-        "from_target_id": "sense:confine:8ace2d228bf1526a",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:confine",
         "target_kind": "sense",
@@ -6307,13 +6356,14 @@
     ],
     "recall_map": {
       "parts": [
-        "1V"
+        "1V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "限制；使局限于某个范围",
-      "decision_cn": "confine sb/sth to X / be confined to X → 限制、局限。罕见的“接壤”义保留为 Reference。",
+      "decision_cn": "confine sb/sth to X / be confined to X → 限制、局限；复数名词 confines → 界限、范围，常见 within/beyond the confines of。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6352,6 +6402,23 @@
           "target_locator": "record.senses[0]",
           "target_label": "限制、使局限于一定范围"
         }
+      },
+      {
+        "id": "sense:confine:8ace2d228bf1526a",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "within/beyond/outside the confines of sth",
+        "definition_cn": "（复数 confines）界限；范围；边界",
+        "definition_en": "the limits or boundaries of a place, activity, or subject",
+        "note": "This noun is plural confines and has first-syllable stress; distinguish the verb confine with second-syllable stress.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:confine:8ace2d228bf1526a",
+          "target_locator": "record.senses[1]",
+          "target_label": "（复数 confines）界限；范围；边界"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6382,11 +6449,53 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈkɒnfaɪnz/",
+          "locales": [
+            "en-GB"
+          ],
+          "applicability": [
+            {
+              "surface": "confines",
+              "sense_ids": [
+                "sense:confine:8ace2d228bf1526a"
+              ],
+              "pos": [
+                "noun"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈkɑːnfaɪnz/",
+          "locales": [
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "confines",
+              "sense_ids": [
+                "sense:confine:8ace2d228bf1526a"
+              ],
+              "pos": [
+                "noun"
+              ]
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
         "sense:confine:3ec742797c75560d": [
           0
+        ],
+        "sense:confine:8ace2d228bf1526a": [
+          1,
+          2
         ]
       },
       "has_scope": true
@@ -6399,31 +6508,6 @@
       "form": null,
       "family": [],
       "senses": [
-        {
-          "stable_sense_id": "sense:confine:8ace2d228bf1526a",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "边缘，范围",
-          "definition_en": "a boundary or limit",
-          "semantic_key": "040f412e0f75a69c62e27410b8394b8257de24ad6c9bdb168b1c2fb9cf8307c4",
-          "semantic_key_history": [
-            "d935c95446f669d16f68d140f7734bf79bd293a25ec76e7eae2d6e80e6e48d00"
-          ],
-          "legacy_aliases": [
-            "confine:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "confine:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 2823,
-          "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json",
-          "reference_only": true
-        },
         {
           "collocations": [],
           "confidence": "medium",
@@ -6682,7 +6766,7 @@
     "ordinal": 1000,
     "word": "conflict",
     "source_owner_path": "content/lexical/words/by-ordinal/o1000.json",
-    "source_fingerprint": "96c2cfbbb90709420222b696ae404109534083a4e07d819c776e9bbb1f41e503",
+    "source_fingerprint": "15ff49f2b23aaf89aa83468460c27e8006f971f74f1c25d3d2c717c3d4c31f35",
     "sense_lineage": [
       {
         "word_id": "word:conflict",
@@ -6715,8 +6799,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "冲突，争执",
-        "definition_en": "a serious disagreement or argument",
+        "definition_cn": "冲突，争执；斗争，武装冲突",
+        "definition_en": "a serious disagreement, opposition, or fight, including armed fighting",
         "note": "",
         "identity_overlay": {
           "text": "conflict as a noun has initial stress; the verb has second-syllable stress.",
@@ -6762,7 +6846,7 @@
           "target_kind": "sense",
           "target_id": "sense:conflict:2e2971bdbe0c5c93",
           "target_locator": "record.senses[0]",
-          "target_label": "冲突，争执"
+          "target_label": "冲突，争执；斗争，武装冲突"
         }
       },
       {

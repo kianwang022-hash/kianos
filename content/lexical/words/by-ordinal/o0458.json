@@ -23,7 +23,12 @@
         "definition_en": "be in the right place, setting, or group",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:68e2d2703aed2061044c",
+          "reason": "The existing proper-place collocation now explicitly retains in/on/among alternatives."
+        }
       }
     ],
     "content_hash": "a39d5eaa622431a3c9aab2ea5b0d883ef2222b29de6fb712d656f1db63ca4741",
@@ -75,7 +80,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:7d26a581e0b3c547832b",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:belong:9ba1b59e53fd5c21:collocation:0"
             ],
@@ -112,8 +117,8 @@
             "legacy_source_object_ids": [
               "sense:belong:23ba68d1d72453a9:collocation:0"
             ],
-            "meaning_cn": "应在某处",
-            "phrase": "belong in + place"
+            "meaning_cn": "应放在某处；适合某位置或群体",
+            "phrase": "belong in/on/among + place/group"
           },
           {
             "collocation_id": "collocation:13a1889f474a1db59f11",
@@ -141,7 +146,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:49dfad80bec8df46bc87",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:belong:b5970b2532fc5599:collocation:0"
             ],
@@ -174,7 +179,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:37deb7956d501cda44a3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:belong:dd81579f540a00d3:collocation:new-e1f2afc5"
             ],
@@ -194,14 +199,14 @@
         "confidence": "medium",
         "definition_cn": "感到被接纳；属于某个群体或地方",
         "definition_en": "to feel accepted, at home, or part of a group or place",
-        "governing_pattern": "",
+        "governing_pattern": "vi.; optionally + place/group expression",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:belong:dd81579f540a00d3",
         "sense_label_en": "to feel accepted, at home, or part of a group or place",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -409,10 +414,7 @@
     ],
     "active_collocations": [
       "collocation:13a1889f474a1db59f11",
-      "collocation:37deb7956d501cda44a3",
-      "collocation:49dfad80bec8df46bc87",
       "collocation:68e2d2703aed2061044c",
-      "collocation:7d26a581e0b3c547832b",
       "collocation:9949dc5a9d5b9c07dcb9",
       "collocation:af53b312311bfe965245",
       "collocation:ed1e1024e6c5b270f1a8"
@@ -422,6 +424,13 @@
         "id": "deep:constructions:belong:1975da0277fd7c47",
         "source_row": 165,
         "source_path": "content/lexical/canonical/facts/shards/o0449-0480.json"
+      },
+      {
+        "id": "construction:belong:baseline-v2-in-on-among",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing proper-place collocation now explicitly retains in/on/among alternatives."
       }
     ],
     "collocations": [
@@ -433,7 +442,10 @@
       {
         "id": "collocation:49dfad80bec8df46bc87",
         "source_row": 6218,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The retained belong-to Construction covers category membership; preserve this example without duplicate retrieval."
       },
       {
         "id": "collocation:68e2d2703aed2061044c",
@@ -443,7 +455,10 @@
       {
         "id": "collocation:7d26a581e0b3c547832b",
         "source_row": 10572,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep the complete belong-to Construction once across ownership/classification; this ownership example is not a second syntax task."
       },
       {
         "id": "collocation:af53b312311bfe965245",
@@ -458,7 +473,10 @@
       {
         "id": "collocation:37deb7956d501cda44a3",
         "source_row": 48,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Feel that you belong is an ordinary clause illustrating acceptance; sense-of-belonging expression remains."
       },
       {
         "id": "collocation:9949dc5a9d5b9c07dcb9",

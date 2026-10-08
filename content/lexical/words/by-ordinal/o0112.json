@@ -19,10 +19,27 @@
     ],
     "content_hash": "f58e43c8f0ab4a26b6b012b7531e1fd53a08f442c98cc59cc2bcf614c30768ad",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "处于对立、接触或防御关系的一侧",
-      "core_meaning_en": "in opposition to, in contact with, or protected from something",
-      "mental_model_cn": "vote/fight against → 反对；lean against → 接触/倚靠；protect/insure against → 防范风险。",
+      "core_clusters": [
+        {
+          "pos": "preposition",
+          "label_cn": "（比较、核对时）与……相比较或对照",
+          "label_en": "used to introduce what something is compared or checked with",
+          "sense_ids": [
+            "sense:against:20261008-comparison"
+          ]
+        },
+        {
+          "pos": "preposition",
+          "label_cn": "以……为背景；在……衬托下",
+          "label_en": "with something as a background or contrasting setting",
+          "sense_ids": [
+            "sense:against:20261008-background"
+          ]
+        }
+      ],
+      "core_meaning_cn": "反对或相逆；接触或倚靠；防范；比较对照；以某情境为背景",
+      "core_meaning_en": "opposition, contact, prevention, comparison, or a contrasting background, selected by context",
+      "mental_model_cn": "fight against → 对抗；lean against → 倚靠；protect against → 防范；weigh A against B → 比较权衡；against a background of → 在某背景下。不能一律译成反对。",
       "mental_model_en": "Use the relation: opposition, contact, or protection."
     },
     "exam_paraphrases": [],
@@ -40,7 +57,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:913cb59606b363fe40e0",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:against:ee856fd86ea45daa:collocation:0"
             ],
@@ -106,7 +123,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:58d02a4ebe9c08c3f4fe",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:against:afd1992d33025326:collocation:0"
             ],
@@ -125,6 +142,68 @@
         "sense_label_en": "in preparation for",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:against:20261008-comparison",
+        "pos": "preposition",
+        "definition_cn": "（比较、核对时）与……相比较或对照",
+        "definition_en": "used to introduce what something is compared or checked with",
+        "sense_label_en": "used to introduce what something is compared or checked with",
+        "transitivity": "nonverb",
+        "sort_order": 3,
+        "level": "L2",
+        "depth": "recognition_plus",
+        "governing_pattern": "compare/check/weigh A against B",
+        "usage_note": "Recognition of a neutral comparison, not opposition or physical contact.",
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/against",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "used to introduce what something is compared or checked with"
+          },
+          {
+            "source_type": "exam_reproduction",
+            "source_url": "https://cs.xhd.cn/m/info/kyztk/954578.html",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "考研英语：公开转载的2002年完形第40题明确考查 weighed ... against ...；此处不是“反对有害结果”。",
+            "limitation": "公开备考机构转载及标注，不冒充考试院原始扫描；不据此声称统计频率。"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:against:20261008-background",
+        "pos": "preposition",
+        "definition_cn": "以……为背景；在……衬托下",
+        "definition_en": "with something as a background or contrasting setting",
+        "sense_label_en": "with something as a background or contrasting setting",
+        "transitivity": "nonverb",
+        "sort_order": 4,
+        "level": "L2",
+        "depth": "recognition_plus",
+        "governing_pattern": "against a background/backdrop of sth",
+        "usage_note": "The setting may be visual, historical, social, or economic; it is not necessarily an opponent.",
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/against",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "with something as a background or contrasting setting"
+          },
+          {
+            "source_type": "exam_reproduction",
+            "source_url": "https://sy.xhd.cn/ksjq/tf/839611.html",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "四六级阅读：该页明确将 against the background of ... 句标为2016年6月六级阅读原文；若只知反对/接触/防范，会误读背景关系。",
+            "limitation": "公开备考机构转载及标注，不冒充考试院原始扫描；不据此声称统计频率。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -321,12 +400,22 @@
         "merged_into_sense_id": null,
         "source_row": 302,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
+      },
+      {
+        "sense_id": "sense:against:20261008-comparison",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_url": "https://cs.xhd.cn/m/info/kyztk/954578.html"
+      },
+      {
+        "sense_id": "sense:against:20261008-background",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_url": "https://sy.xhd.cn/ksjq/tf/839611.html"
       }
     ],
     "active_collocations": [
-      "collocation:58d02a4ebe9c08c3f4fe",
       "collocation:8288a6efa2cab47e642a",
-      "collocation:913cb59606b363fe40e0",
       "collocation:9cd84bb253cfaa580739",
       "collocation:ed5fa2c1549da7cc7e60"
     ],
@@ -340,7 +429,10 @@
       {
         "id": "collocation:58d02a4ebe9c08c3f4fe",
         "source_row": 7488,
-        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       },
       {
         "id": "collocation:8288a6efa2cab47e642a",
@@ -350,7 +442,10 @@
       {
         "id": "collocation:913cb59606b363fe40e0",
         "source_row": 12338,
-        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Reviewed example or same-job duplicate retained as usage; no independent fixed-pattern admission."
       },
       {
         "id": "collocation:9cd84bb253cfaa580739",
