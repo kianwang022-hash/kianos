@@ -78,7 +78,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current：** 马原C00–C08第一轮内容候选已保存并回读（3dcf04c035bf640727692c0fd117947ad7ca5e9a），未合并；马原第二轮整科学习路径反审尚未完成。当前准备史纲C01–C03；对应修正与来源范围留在原科目审查owner，未重新核验完整CF母PDF或图像。
+**Current：** 马原C00–C08内容候选已保存并回读（内容版本3dcf04c035bf640727692c0fd117947ad7ca5e9a），独立第二轮九章及整科路径在既有Source边界内通过；未合并。当前准备史纲C01–C03；对应修正与来源范围留在原科目审查owner，未重新核验完整CF母PDF或图像。
 
 **Next：** 验收史纲C01–C03候选，保存回读后继续既定53章范围；按完成的科目做第二轮串联，不把第一轮候选或旧PASS当全量收口。
 
