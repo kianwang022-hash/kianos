@@ -438,6 +438,8 @@ try {
  assert.ok(!politicsCurrent.includes('A future retention-baseline task must resolve the exact designated Leg source'),'parent Current must not reopen the already bound Leg27 source');
  assert.ok(politicsAcceptance.includes('Supersession note (2026-10-08)'),'historical 2026-10-07 unresolved-Leg receipt must be visibly superseded');
  assert.ok(!marxC01Brief.includes('不能称作腿姐筛选完成') && !marxC01Brief.includes('若后续对旧22组逐项核对后'),'C01 brief must not retain pre-reconciliation status language');
+ assert.ok(learning.includes('closure compression 是必做动作，不需要 Kian 提醒') && learning.includes('然后再进入下一章 / 下一大块'),'completed chapter/major-block transition must auto-close before advancing');
+ assert.ok(interaction.includes('close it first, then continue') && interaction.includes('mandatory compression boundary'),'fresh Chat continuation must not skip a pending chapter closure');
  for (const rule of [learning, interaction, system]) {
   assert.ok(!/Chat is the single continuous teaching mainline|Chat remains the single continuous teaching mainline|Politics continuous teaching is Chat-primary/.test(rule));
  }
