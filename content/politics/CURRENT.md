@@ -78,9 +78,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current：** 马原C00–C08及独立第二轮在既有Source边界内通过。史纲C01–C10第一轮有据内容修正已保存回读（最新内容c06b6ec0e7bb7605b835903d693af51429384156），均为候选未合并；整科第二轮尚待。乘风下册原页确认的六处Source录入问题已在767380f4e76e1ec9b15cc297af62e637eccec80e保存并回读（C06三处、C09三处）；节点身份及其余Source未变。当前正复核这些修正对章内容的影响；其他Source/Visual缺口不提前关闭。
+**Current：** 马原C00–C08及独立第二轮在既有Source边界内通过。史纲C01–C10第一轮有据内容修正已保存回读（最新内容c06b6ec0e7bb7605b835903d693af51429384156），均为候选未合并；整科第二轮尚待。乘风下册原页确认的六处Source录入问题已在767380f4e76e1ec9b15cc297af62e637eccec80e保存并回读（C06三处、C09三处）；节点身份及其余Source未变。六处对应的C06/C09 Core与来源说明已在703d4f307f97397b293dd35b2fe7518f12e8c021补齐并逐文件回读；原模型/主提示及23组精记保持，未增加闭卷任务。其他Source/Visual缺口不提前关闭。
 
-**Next：** 复核六处Source修正影响的C06/C09现行内容，再完成史纲整科路径反审；无依赖部分可继续既定后续科目。旧Source缺口必须逐项核实解除，不以候选数量或旧PASS替代覆盖。
+**Next：** 对最终C01–C10内容完成史纲整科路径反审，复用未变化的准确来源证据；无依赖部分可继续既定后续科目。旧Source缺口必须逐项核实解除，不以候选数量或旧PASS替代覆盖。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
