@@ -90,30 +90,6 @@
         "sense_label_en": "lacking refinement or good manners; vulgar",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d9562e7a441e72afbc9e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:coarse:3795b720c4375b25:collocation:0"
-            ],
-            "meaning_cn": "劣质商品",
-            "phrase": "coarse goods"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "劣质的；低级的",
-        "definition_en": "of low or inferior quality",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:coarse:3795b720c4375b25",
-        "sense_label_en": "of low or inferior quality",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -253,7 +229,36 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:d9562e7a441e72afbc9e",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:coarse:3795b720c4375b25:collocation:0"
+          ],
+          "meaning_cn": "劣质商品",
+          "phrase": "coarse goods"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "劣质的；低级的",
+      "definition_en": "of low or inferior quality",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:coarse:3795b720c4375b25",
+      "sense_label_en": "of low or inferior quality",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:coarse:3795b720c4375b25",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -265,7 +270,7 @@
       },
       {
         "sense_id": "sense:coarse:3795b720c4375b25",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 2487,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
@@ -282,8 +287,7 @@
       "collocation:05626b56e6f57cf5245e",
       "collocation:33a5fc5ca39c54af28ad",
       "collocation:7ae4dd05932697ec3645",
-      "collocation:8feaa8ab51677b662482",
-      "collocation:d9562e7a441e72afbc9e"
+      "collocation:8feaa8ab51677b662482"
     ],
     "facts": [
       {
@@ -316,7 +320,10 @@
       {
         "id": "collocation:d9562e7a441e72afbc9e",
         "source_row": 18381,
-        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Low-quality default reading can wrongly imply any large-grained/rough material is inferior. Current texture and vulgar-language selectors suffice for default; preserve the historical qualitative reading in Lookup."
       }
     ],
     "exam-mappings": [],

@@ -35,11 +35,19 @@
             "sense:change:0daba1934f8b5919",
             "sense:change:a7d31ac7681f5d38"
           ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "更换；替换；交换或兑换",
+          "label_en": "to replace one thing with another or exchange one thing for another",
+          "sense_ids": [
+            "sense:change:20261008-exchange-replace"
+          ]
         }
       ],
       "core_meaning_cn": "改变、变化；也可指零钱/找头",
       "core_meaning_en": "to become different or make something different",
-      "mental_model_cn": "alteration/transition → 改变、变化；money returned/small coins → 零钱、找头。",
+      "mental_model_cn": "alteration/transition → 改变、变化；money returned/small coins → 零钱、找头。 更换衣物、换车或兑换钱币时，是用另一项替换原项。",
       "mental_model_en": "Context separates alteration/transition from money returned or small coins."
     },
     "exam_paraphrases": [],
@@ -54,7 +62,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:18d6d9615a89ace54a46",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:change:a3a031fddc565a73:collocation:0"
             ],
@@ -111,7 +119,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:52414a1a26a0a45b0c7c",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:change:0daba1934f8b5919:collocation:0"
             ],
@@ -163,6 +171,28 @@
         "sense_label_en": "money in coins, or money returned when a payment exceeds the price",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:change:20261008-exchange-replace",
+        "pos": "verb",
+        "definition_cn": "更换；替换；交换或兑换",
+        "definition_en": "to replace one thing with another or exchange one thing for another",
+        "sense_label_en": "to replace one thing with another or exchange one thing for another",
+        "transitivity": "I/T",
+        "governing_pattern": "change trains/clothes; change A for B; change money",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 4,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/change_1",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Basic change-trains/clothes/money is not alteration of the existing object. One replacement/exchange recognition branch, no separate cards for every object."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -315,12 +345,15 @@
         "merged_into_sense_id": null,
         "source_row": 2134,
         "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      },
+      {
+        "sense_id": "sense:change:20261008-exchange-replace",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
       "collocation:079f484b00cfe24b1127",
-      "collocation:18d6d9615a89ace54a46",
-      "collocation:52414a1a26a0a45b0c7c",
       "collocation:bc68db7719b77effb8e5",
       "collocation:c1d364a9e4f57ad8c50a",
       "collocation:fd120699b01b279a4b44"
@@ -335,12 +368,18 @@
       {
         "id": "collocation:18d6d9615a89ace54a46",
         "source_row": 2052,
-        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Generic change-sth repeats basic transitivity; change-mind remains useful."
       },
       {
         "id": "collocation:52414a1a26a0a45b0c7c",
         "source_row": 6931,
-        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing full in/from-to/of Construction explains this comparison once."
       },
       {
         "id": "collocation:bc68db7719b77effb8e5",

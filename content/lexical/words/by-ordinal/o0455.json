@@ -14,7 +14,12 @@
         "definition_en": "have faith, confidence, or belief in someone or something",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:a484c15d03cc06307c47",
+          "reason": "One existing complete believe-in target retains confidence/existence/value; the other that/to-be constructions were already merged and are not re-counted."
+        }
       },
       {
         "construction_id": "construction:believe:baseline-v2-that",
@@ -70,8 +75,8 @@
             "legacy_source_object_ids": [
               "sense:believe:38c85518cb335906:collocation:0"
             ],
-            "meaning_cn": "相信某事",
-            "phrase": "believe + sth"
+            "meaning_cn": "相信某人说的是真话或某事为真；区别于 believe in sb 对其能力/人品有信心",
+            "phrase": "believe sb/sth"
           }
         ],
         "confidence": "medium",
@@ -84,7 +89,8 @@
         "sense_id": "sense:believe:38c85518cb335906",
         "sense_label_en": "to accept that something is true or that someone is telling the truth",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Believe sb accepts what the person says as true; believe in sb expresses confidence in the person. These are useful selection cues, not a ban on context-dependent overlap."
       },
       {
         "collocations": [
@@ -132,7 +138,7 @@
           },
           {
             "collocation_id": "collocation:61aa1ba34a932e69cb75",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:believe:b74604ae7c415b55:collocation:1"
             ],
@@ -326,7 +332,6 @@
     ],
     "active_collocations": [
       "collocation:02d246f5ed51809910db",
-      "collocation:61aa1ba34a932e69cb75",
       "collocation:7cb620312bb73dc27264",
       "collocation:a484c15d03cc06307c47",
       "collocation:ad56e8fca87ce9827c1b",
@@ -342,6 +347,13 @@
         "id": "deep:constructions:believe:b47cd7e39b6fd89c",
         "source_row": 164,
         "source_path": "content/lexical/canonical/facts/shards/o0449-0480.json"
+      },
+      {
+        "id": "construction:believe:baseline-v2-in",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One existing complete believe-in target retains confidence/existence/value; the other that/to-be constructions were already merged and are not re-counted."
       }
     ],
     "collocations": [
@@ -353,7 +365,10 @@
       {
         "id": "collocation:61aa1ba34a932e69cb75",
         "source_row": 8228,
-        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One complete existing believe-in-sb/sth target retains existence/value/faith/confidence; no second sth-only copy."
       },
       {
         "id": "collocation:7cb620312bb73dc27264",

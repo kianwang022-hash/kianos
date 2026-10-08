@@ -21,7 +21,12 @@
         "definition_en": "gain extra time, often by delaying action or using some resource or concession",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:11bb3cfbcf6d55fb8bf8",
+          "reason": "Existing selected buy-time target already covers gaining time by delay or cost."
+        }
       }
     ],
     "content_hash": "3031c212cd5e02843c71e9de3d42bdbc8cdc2d6db82c982a5d08451fc9f222f3",
@@ -66,7 +71,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:39fdaba26dc8751980fb",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:buy:ccf68df3f5ae5f38:collocation:0"
             ],
@@ -128,7 +133,7 @@
             "legacy_source_object_ids": [
               "sense:buy:b4fc8dd0ce665dcd:collocation:0"
             ],
-            "meaning_cn": "争取时间",
+            "meaning_cn": "争取更多时间，常通过拖延、投入资源或作出让步",
             "phrase": "buy time"
           }
         ],
@@ -410,11 +415,18 @@
       "collocation:0106cc4a346c08354c83",
       "collocation:08eeac3b50e4b8028335",
       "collocation:11bb3cfbcf6d55fb8bf8",
-      "collocation:39fdaba26dc8751980fb",
       "collocation:6172e4b2ed051ebc0274",
       "collocation:d0e901ca411254951edc"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:buy:baseline-v2-time",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Existing selected buy-time target already covers gaining time by delay or cost."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:0106cc4a346c08354c83",
@@ -434,7 +446,10 @@
       {
         "id": "collocation:39fdaba26dc8751980fb",
         "source_row": 4921,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Buy something repeats the main purchase verb."
       },
       {
         "id": "collocation:6172e4b2ed051ebc0274",

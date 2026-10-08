@@ -21,12 +21,11 @@
           ]
         },
         {
-          "label_cn": "基本知识或技能；BASIC语言",
-          "label_en": "fundamental facts, skills, or principles; a programming language",
+          "label_cn": "基本事实、技能或原则（通常用复数 basics）",
+          "label_en": "fundamental facts, skills, or principles, normally plural basics",
           "pos": "noun",
           "sense_ids": [
-            "sense:basic:48d2935450fb58fb",
-            "sense:basic:221559da40855a35"
+            "sense:basic:48d2935450fb58fb"
           ]
         }
       ],
@@ -146,37 +145,6 @@
         "sense_id": "sense:basic:48d2935450fb58fb",
         "sense_label_en": "the fundamental facts, skills, or principles of a subject or activity",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9060419885308f2cdef9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:basic:221559da40855a35:collocation:0"
-            ],
-            "meaning_cn": "学习BASIC语言",
-            "phrase": "learn BASIC"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "BASIC语言",
-        "definition_en": "a popular programming language that is relatively easy to learn",
-        "governing_pattern": "",
-        "level": "L3",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "proper_programming_language_acronym",
-          "lexical_identity_id": "identity:c164a4d522cb8bc0a427",
-          "recommended_disposition": "DEFER_ACADEMIC",
-          "surface_lemma": "BASIC"
-        },
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:basic:221559da40855a35",
-        "sense_label_en": "a popular programming language that is relatively easy to learn",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -620,12 +588,48 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9060419885308f2cdef9",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:basic:221559da40855a35:collocation:0"
+          ],
+          "meaning_cn": "学习BASIC语言",
+          "phrase": "learn BASIC"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "BASIC语言",
+      "definition_en": "BASIC, a programming language designed to be relatively easy for beginners to learn",
+      "governing_pattern": "",
+      "level": "L3",
+      "lexical_identity_overlay": {
+        "case_sensitive": true,
+        "identity_type": "proper_programming_language_acronym",
+        "lexical_identity_id": "identity:c164a4d522cb8bc0a427",
+        "recommended_disposition": "DEFER_ACADEMIC",
+        "surface_lemma": "BASIC"
+      },
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:basic:221559da40855a35",
+      "sense_label_en": "BASIC, a programming language designed to be relatively easy for beginners to learn",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:basic:221559da40855a35",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:basic:221559da40855a35",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1076,
         "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
@@ -664,8 +668,7 @@
       "collocation:03291806ac4b5e471244",
       "collocation:159d6cf0cc1447ef030b",
       "collocation:6c2bbce32d2cc304e451",
-      "collocation:762333a4a75ed6b0c28b",
-      "collocation:9060419885308f2cdef9"
+      "collocation:762333a4a75ed6b0c28b"
     ],
     "facts": [],
     "collocations": [
@@ -692,7 +695,10 @@
       {
         "id": "collocation:9060419885308f2cdef9",
         "source_row": 12254,
-        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The named BASIC programming language is true Lookup information but not a necessary default meaning of basic for the current examination/general-reading scope. Keep basic foundations, elementary level, basics plural, and chemistry alkaline active; preserve the uppercase language identity in Lookup."
       },
       {
         "id": "collocation:ef7ac5a54f4a0eef5acd",

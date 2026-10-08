@@ -12,14 +12,24 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "有机会做某事",
-        "pattern": "have a chance to do sth"
+        "pattern": "have a chance to do sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:7893724711b722e2e2c5",
+          "reason": "One existing opportunity-to-do frame."
+        }
       },
       {
         "construction_id": "construction:chance:baseline-v2-probability",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "某事发生或做某事的可能性",
-        "pattern": "chance of doing sth / chance of sth"
+        "pattern": "chance of doing sth / chance of sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:6aa09ad332f4317bfebe",
+          "reason": "One existing probability-of event/doing frame."
+        }
       }
     ],
     "content_hash": "407cdb6907bb75c905522a8a8c4caad7c6c55b681d048b748e9b86cc20228914",
@@ -42,11 +52,19 @@
             "sense:chance:a4f1b5b830395cc7",
             "sense:chance:74cab295cc275692"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "偶然；运气；不可预料的机缘",
+          "label_en": "the way events happen without being planned or controlled",
+          "sense_ids": [
+            "sense:chance:20261008-luck"
+          ]
         }
       ],
       "core_meaning_cn": "机会、可能性或偶然发生；结构决定你是在说 opportunity、probability 还是 happen by chance",
       "core_meaning_en": "possibility or opportunity; to happen by luck",
-      "mental_model_cn": "have a chance to do → 有机会；chance of doing/sth → 有可能；chance to do / chance upon → 碰巧；chance it → 冒险碰碰运气。",
+      "mental_model_cn": "have a chance to do → 有机会；chance of doing/sth → 有可能；chance to do / chance upon → 碰巧；chance it → 冒险碰碰运气。 by chance 指偶然、运气；不是“有机会”。",
       "mental_model_en": "Let syntax select opportunity, probability, happen-by-chance, or risk."
     },
     "exam_paraphrases": [],
@@ -71,15 +89,6 @@
             "phrase": "have a chance to do + sth"
           },
           {
-            "collocation_id": "collocation:06d2236c8678d140af52",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:chance:6e4e46264c405fb8:collocation:1"
-            ],
-            "meaning_cn": "偶然；碰巧",
-            "phrase": "by chance"
-          },
-          {
             "collocation_id": "collocation:528ae4cdc6c8675df667",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -99,7 +108,8 @@
         "sense_id": "sense:chance:6e4e46264c405fb8",
         "sense_label_en": "an opportunity to do something",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Have a chance to do describes an opportunity; the supporting idiom take a chance means accept a risk, not merely obtain an opportunity."
       },
       {
         "collocations": [
@@ -171,7 +181,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:fe6780013e5bcb050100",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:chance:74cab295cc275692:collocation:0"
             ],
@@ -199,6 +209,45 @@
         "sense_label_en": "to risk doing something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:chance:20261008-luck",
+        "pos": "noun",
+        "definition_cn": "偶然；运气；不可预料的机缘",
+        "definition_en": "the way events happen without being planned or controlled",
+        "sense_label_en": "the way events happen without being planned or controlled",
+        "transitivity": "nonverb",
+        "governing_pattern": "by chance; leave sth to chance",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:06d2236c8678d140af52",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:chance:6e4e46264c405fb8:collocation:1"
+            ],
+            "meaning_cn": "偶然；碰巧",
+            "phrase": "by chance"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/chance_1",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "By chance was already selected but attached to opportunity. Preserve its existing identity under the actual randomness reading, without a new phrase drill."
+          },
+          {
+            "source_type": "preserved_existing_content",
+            "source_path": "content/lexical/words/by-ordinal/o0752.json",
+            "source_ref": "f835f90b0e7313c67fd30b62d237f4ef20f3da09",
+            "source_object_id": "collocation:06d2236c8678d140af52",
+            "supports": "This selected expression was already active; only repair its semantic parent."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -425,6 +474,11 @@
         "merged_into_sense_id": null,
         "source_row": 2128,
         "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      },
+      {
+        "sense_id": "sense:chance:20261008-luck",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -435,15 +489,30 @@
       "collocation:542df02332e7d2945b34",
       "collocation:6aa09ad332f4317bfebe",
       "collocation:6d3d72a1b13a17bba5f3",
-      "collocation:7893724711b722e2e2c5",
-      "collocation:fe6780013e5bcb050100"
+      "collocation:7893724711b722e2e2c5"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:chance:baseline-v2-opportunity",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One existing opportunity-to-do frame."
+      },
+      {
+        "id": "construction:chance:baseline-v2-probability",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One existing probability-of event/doing frame."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:06d2236c8678d140af52",
         "source_row": 569,
-        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json",
+        "sense_id": "sense:chance:20261008-luck"
       },
       {
         "id": "collocation:43b914d6060a994d14a1",
@@ -483,7 +552,10 @@
       {
         "id": "collocation:fe6780013e5bcb050100",
         "source_row": 21512,
-        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Chance plus an arbitrary object merely repeats risk transitivity; chance-it retained as example."
       }
     ],
     "exam-mappings": [],
