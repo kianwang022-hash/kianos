@@ -1,5 +1,14 @@
 # 马原备课候选｜有界复核结果
 
+<a id="independent-content-path-c00-c08-20261008"></a>
+## Independent second-pass content route — C00–C08 (2026-10-08)
+
+At exact content checkpoint `3dcf04c035bf640727692c0fd117947ad7ca5e9a`, a separate reader read all nine full learner chapters (including unchanged C00), current entry/rules, prompt/answer scopes, nine chapter JSON learning fields and chapter/subject handoffs. C00–C08 and subject path were ACCEPT within the existing explicit Source scope; no new confirmed HOLD.
+
+Concrete attacks: C04 brief185–190 correctly separates the two part-specific cores and whole-structure dominance; C07 brief150 includes the second limitation “不是科学的思想体系”, directly checked against Leg27 p65; C08 brief159–166 separates two time processes from stage/path, and265/285/293 avoids immediate repeated retrieval without exempting independent review. Existing Source exclusions remain. Nine current CF shard SHAs match the historical evidence used; no new mother-PDF acquisition or pixel check. This is answer-aware independent semantic review, not Kian recall/mastery or Website validation.
+
+Detailed reader proof is durably retained in Library package `libfile_fd49360e8c008191af0dc06901e86a03` (exact versions, per-chapter arguments and locators). This section records evidence only; current task/Next remains Politics CURRENT. Candidate is not main adoption.
+
 <a id="final-content-c06-c08-20261008"></a>
 
 ## 全量 Content 收口第三批 C06–C08：源分组纠正、现行取回边界及章际连续复核
