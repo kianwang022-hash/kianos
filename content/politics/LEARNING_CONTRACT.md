@@ -422,7 +422,7 @@ A rule/content review, a catalog/plan test, a rendered candidate and real learne
 ## 4. First-round interaction principles
 
 - **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
-- **One mainline only:** Chat carries continuous teaching; Chengfeng and Suyi remain source/reference inputs, not parallel courses.
+- **One mainline only:** follow the current source-first chain in §2: Chengfeng provides detailed first study; Chat provides requested clarification and source-faithful compression, or teaching when explicitly requested. Suyi remains optional background support. Do not impose a second required Chat course.
 - **Source calibration:** return to original Chengfeng images/text when necessary for exact wording, relations or boundaries; preserve source locators without requiring a second course.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
 - **Content-rich, display-precise:** backend source/learning assets may be rich; each learner surface should show only the current cognitive action it actually owns.
