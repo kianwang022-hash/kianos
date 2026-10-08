@@ -47,9 +47,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current:** the 2026-10-07 source-first rules and self-selected Memory repair is **CLOSED / DELIVERED** in [#1249](https://github.com/kianwang022-hash/kianos/pull/1249), with formal main and served readback in [the scoped acceptance](ACCEPTANCE.md#2026-10-07-source-first-policy-and-self-selected-memory--bounded-repair). Learning §2 / §6.1 own the meaning. No chapter regeneration, Leg baseline reclassification or real learner-state mutation was performed.
+**Current:** the source-first learning rules remain closed/delivered, and the designated retention source is now explicitly bound to **2027 腿姐《冲刺背诵手册》上册 / 下册** under Learning §2 / §6.1 and the current Source owner. Marxism has completed its C00–C08 Chengfeng compression + current-year Leg27 retention review and old-card recommendation-role reconciliation in its [subject Current](learning/marxism/CURRENT.md). This parent cursor does not copy subject counts or infer equivalent review completion for History / Mao / Xi / Ethics-Law.
 
-**Next:** no remaining execution step for this closed repair. Normal source study/review follows Learning / Interaction. A future retention-baseline task must resolve the exact designated Leg source before claiming selection; that unresolved content scope does not reopen the delivered rule/entry repair or authorize automatic chapter regeneration.
+**Next:** ordinary learning bypasses this engineering cursor and follows Learning / Interaction plus the exact subject owner. Reopen only the narrow subject/content/consumer owner for a real Source change, learner-evidenced defect or explicit product task; do not restart a global retention-baseline task merely because the historical 2026-10-07 repair predates the Leg27 binding.
 
 **Blocker rule:** any remaining or new blocker lives with its exact task/native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
 
