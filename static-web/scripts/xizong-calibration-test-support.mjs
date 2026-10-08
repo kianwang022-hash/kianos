@@ -228,6 +228,642 @@ const a2ReviewedSources = {
   }
 };
 
+// R4–R12: the exact named spans were independently reversed to the original
+// Git bytes before recording these ranges. The current span and whole-file hashes
+// are required; every byte outside them still matches the original protected hash.
+// Five explicitly reviewed Core exceptions are also checked as full native records
+// below. These are test comparison inputs, never runtime or learner normalization.
+const a2AdditionalSourceReviews = {
+  "respiratory-r04": {
+    "originalCanonicalGitBlob": "4da385542a0c524e780922612de0cd0d7559c4ae",
+    "originalPackagingSha256": "442d79cb6eef36fdbe300fa3a76ab9e08480ffb1cfc550df38575ee9a383339b",
+    "reviewedCurrentSourceSha256": "2020e566bdb6baf1edd53ac23783fe59a33c23f22571cc1888e206dead24cbe6",
+    "originalProtectedSourceSha256": "d984e87a571778e4c2d2a5ff6b07eb625aa3b846f13c72387d78cd5671299d39",
+    "reviewedSpans": [
+      {
+        "label": "preamble-purpose",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 49,
+        "end": 132,
+        "sha256": "08aba1f89ad4449a2a277889b895e1dba05a9c248ac1915c8006bf7804114022"
+      },
+      {
+        "label": "center-question",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 521,
+        "end": 591,
+        "sha256": "fc25cd075e64af982883f7cf7accf84b35fe7c485fd8c6cf65191fd352b5411f"
+      },
+      {
+        "label": "model-sections-0-1-1a",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 595,
+        "end": 5566,
+        "sha256": "166e25838f40a767599f35f0404496db90ebb0347a4f9d1179d2722b408f6b6c"
+      },
+      {
+        "label": "exit-handoff",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 19557,
+        "end": 19640,
+        "sha256": "fb32c0b2cf7da8f9eae9468da54c57e39682671ab37e601102bd1e1aa3ef303f"
+      }
+    ]
+  },
+  "respiratory-r05": {
+    "originalCanonicalGitBlob": "f08a4e954cdc195cd599df5185d65aba550dfb07",
+    "originalPackagingSha256": "7bb48fd1dfc5d4cd423d1dac539f0d6e81c48cff7da0529c093d4b3e45828abd",
+    "reviewedCurrentSourceSha256": "720261e1c6e572097d2a00955ca6a7ea11164cbb3bb74885065cd35280500ef7",
+    "originalProtectedSourceSha256": "a5436ebb283b255f4d1b949870b3bd140bfa622b2b21b9cfb02b3f4facf03bc6",
+    "reviewedSpans": [
+      {
+        "label": "preamble-purpose",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 54,
+        "end": 134,
+        "sha256": "15384b379569a21a1f3d6b8cf1b00bbfe533a29e05db5e150aceee35f5c8eaa8"
+      },
+      {
+        "label": "center-question",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 587,
+        "end": 664,
+        "sha256": "536787da7ccf49cf97e830bae751b9e4ef6fd0fb19e3f8c33bd3455660695b7f"
+      },
+      {
+        "label": "model-sections-0-1-1a",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 668,
+        "end": 5392,
+        "sha256": "fe23c99948f20ba167c96750756b55301e7bdeba36531b613e82034e1ba00041"
+      },
+      {
+        "label": "exit-q18",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 18384,
+        "end": 18431,
+        "sha256": "72cb73cdc310c90896ebc5d4fc6c3cd8695a11783703ac3828fce2c7f7c1842c"
+      },
+      {
+        "label": "exit-handoff",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 18433,
+        "end": 18513,
+        "sha256": "581dfe19a8cc3bbd1ef9fa960c8fb5f0f5cfa0a35ac3e1f45c681b2b565ba8b8"
+      }
+    ]
+  },
+  "respiratory-r06": {
+    "originalCanonicalGitBlob": "e618604921f5735fd6631a122fc00196cdf57ee1",
+    "originalPackagingSha256": "fe906df99f144b537e541013b931437864b8e8433655a2e2e210fa559ef44f80",
+    "reviewedCurrentSourceSha256": "568d39bd3467fbb4bbb20235cce0176ab3c896da88ab8ba5d13cb444bdae8ab1",
+    "originalProtectedSourceSha256": "f312ace489a2d6e124966f2699f8ee5ad9379f13651aca61124efe43405f3654",
+    "reviewedSpans": [
+      {
+        "label": "preamble-purpose",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 49,
+        "end": 139,
+        "sha256": "19beb4eef8825e11e74cc4272c1cc2d34af4474d5d304663db035cf4da4b5c68"
+      },
+      {
+        "label": "model-sections-0-1-1a",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 605,
+        "end": 4995,
+        "sha256": "be89d17828fad1dcd1592fe34c656000bc88b9953f7443cbab17955b3f1a2cbc"
+      },
+      {
+        "label": "mi-g05",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 5169,
+        "end": 5211,
+        "sha256": "3afe871cb558a5f9cfe382452b3274bbecc1efdf76d7f8f98c01ce688c4b626a"
+      },
+      {
+        "label": "mi-g13",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 5437,
+        "end": 5477,
+        "sha256": "09687c549e6a88a4e612b4ad8bb579b3dd05671b587778d892909ddc224b2742"
+      },
+      {
+        "label": "comparison-aspiration-treatment",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 14129,
+        "end": 14209,
+        "sha256": "020556c3cfc5993c13a7a799db7323518d5e180ba9d8fe094bcc72747418c427"
+      },
+      {
+        "label": "exit-q16",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 15600,
+        "end": 15638,
+        "sha256": "04143d599f184efb260b6508219c04d5497f1b73ca18a7bf365479ca6486c2cb"
+      },
+      {
+        "label": "exit-handoff",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 15710,
+        "end": 15803,
+        "sha256": "40e35399de7e20ecae0ceb6226abe9c76ccce5b72d55d04f52129b35d50d12a8"
+      }
+    ]
+  },
+  "respiratory-r07": {
+    "originalCanonicalGitBlob": "19e95efa68cf98954179e9b93268ef4f09d8bb20",
+    "originalPackagingSha256": "a6eec5ec1194459dfd2f4b2414ec8d808a10375780b8f0ff0938030319e2d1cc",
+    "reviewedCurrentSourceSha256": "876f0d8e306e02706a0c4ed77c4afcfd3cc240378d8a38b4539274d9ee08f5bf",
+    "originalProtectedSourceSha256": "a04e05033a128df3fc78b9fb5e735e4c43912e81105241eab3abcee5bde6a4f7",
+    "reviewedSpans": [
+      {
+        "label": "File nature same-model restatement",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 50,
+        "end": 144,
+        "sha256": "cdd421a79971e3f45e5f3724dff7c1a805c25e77d97e0f4bc79779f7976c3aeb"
+      },
+      {
+        "label": "§0 / Framework / §1A and original same-model entry",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 762,
+        "end": 5508,
+        "sha256": "c82377a5f0a1a9964688f1ba30b6c0e72c6c237082b73edd4061def530b97d45"
+      },
+      {
+        "label": "MI-G11",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 5923,
+        "end": 5983,
+        "sha256": "40807b5e9270d5c23201379bb6281d7e4e4183dec7e2a9ca52534c50613a48f5"
+      },
+      {
+        "label": "MI-G13",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 6003,
+        "end": 6066,
+        "sha256": "fb3de17cb82877f1ac8bb9ba7f8e8cc2534b24a621514fa27a4266aa6072c72c"
+      },
+      {
+        "label": "MI-G15",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 6098,
+        "end": 6160,
+        "sha256": "fc52215ee08dfa9f9cd2d3fa146e198a415104347800d9894df496073457ae11"
+      },
+      {
+        "label": "MI-G19",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 6233,
+        "end": 6316,
+        "sha256": "3a2e4386fca5105cc3dd4725f0413af129d3799a35b2a2c168a1b11dd41be013"
+      },
+      {
+        "label": "Unit C same-model restatement",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 9663,
+        "end": 9699,
+        "sha256": "ac5547778ff451dbfbdeb5328d6246d1181bc2618cb9ca979c35d85cc40bf84f"
+      },
+      {
+        "label": "Exit22",
+        "marker": "REVIEWED_A2_SPAN_7",
+        "start": 23220,
+        "end": 23297,
+        "sha256": "ef6f4ee529f19b642faabd93c73cec6ef23a7c0be268b8a5b50d27e2d115d2d0"
+      }
+    ]
+  },
+  "respiratory-r08": {
+    "originalCanonicalGitBlob": "9e0b91de8ca970455246b67ca39d3510209a413d",
+    "originalPackagingSha256": "043088529d1218e2d17a8aa771b876fd1601a0e333c1fb515a907251d1e5e03f",
+    "reviewedCurrentSourceSha256": "4f8cd323c34602cacc2a1e0e2b2504dadeb0fd5bb311a1621fb5cb694a1164f3",
+    "originalProtectedSourceSha256": "6a77e143c206dc01f80529c8cd5c22e7019304945d1dad9494bf48a5ad3a63d4",
+    "reviewedSpans": [
+      {
+        "label": "File nature same-model restatement",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 83,
+        "end": 156,
+        "sha256": "73a3f9900c13fe83ef829dc55873134870b7765d65f903231d19c007476f1ef9"
+      },
+      {
+        "label": "§0 / Framework / §1A and original same-model entry",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 715,
+        "end": 4657,
+        "sha256": "32c62f063e0d9cf7c11c6057e3cfed4d7f345171b328751a9b876b0197d8d941"
+      },
+      {
+        "label": "MI-G7",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 5095,
+        "end": 5157,
+        "sha256": "957c59ad12ac28392451e8177195b8c58bd42866fd747aeccad61e8e66ffa45e"
+      },
+      {
+        "label": "MI-G9",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 5195,
+        "end": 5252,
+        "sha256": "55e1d655e663cf1365784a13d3734eddeacf8a6ae8b2655a1834838d90a75000"
+      },
+      {
+        "label": "KP08 single Core exception: imaging stage versus mandatory chronology",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 9639,
+        "end": 9900,
+        "sha256": "ba255aab64a2dd58b2be5630507ba45189ba182d56f8b9e56d4e8e76efbee8ff"
+      },
+      {
+        "label": "§4 case reconstruction, table retained",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 13485,
+        "end": 13838,
+        "sha256": "05c3c02a8ff4885eaca407d6a108b58813ddcd8f6a9e5014bcba64e159a679b1"
+      },
+      {
+        "label": "Exit8",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 15906,
+        "end": 15959,
+        "sha256": "14923074da357570d5e9830ec87d1c7af49af82958201ec79b0820018204d0ed"
+      }
+    ]
+  },
+  "respiratory-r09": {
+    "originalCanonicalGitBlob": "c546c3c6f2cde391da35034f64c97c0829100c0c",
+    "originalPackagingSha256": "5571204e9d4c855eced490fdfb97e170900c736f5757a7a3c007aee2cb6a7897",
+    "reviewedCurrentSourceSha256": "1b580e40a1474b6ad9a183367df8b8efcab1e576375c55152c6da308e8346cb8",
+    "originalProtectedSourceSha256": "86407c9fbb9147e7da7dada12f8f38e80abad8ebd2401b634df91dbcecc362ec",
+    "reviewedSpans": [
+      {
+        "label": "File nature same-model restatement",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 94,
+        "end": 171,
+        "sha256": "0bf110df2967f155a51f1c5e40919ffb87d4da43c8ffc01256f0794dbf7ce85e"
+      },
+      {
+        "label": "§0 / Framework / §1A and original same-model entry",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 836,
+        "end": 5415,
+        "sha256": "bcdd2ab9e2a3f6428a82050a72a3adbbd211c096c32f637dfd5f022f69243211"
+      },
+      {
+        "label": "Unit C independent IPAH scope",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 11124,
+        "end": 11153,
+        "sha256": "53c11f1778f08204477b2b02cd8af6ffe31daf18d0335a1b05ff821945d9366a"
+      },
+      {
+        "label": "§4A-C same-model clinical reconstruction",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 16423,
+        "end": 17180,
+        "sha256": "44a540d92599f80dcaabd5c208f5a6a552b3741d464cfaa6623855965f15ebfd"
+      },
+      {
+        "label": "Exit7",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 19409,
+        "end": 19460,
+        "sha256": "f9c02a82d5b93567fbbd6259a34af9eea9bcf90e675c9f3cb2fb6d8aa89ec19f"
+      }
+    ]
+  },
+  "respiratory-r10": {
+    "originalCanonicalGitBlob": "5dd3fd247775b510276f0664dc4b279aed28da57",
+    "originalPackagingSha256": "bd647be75d38d3625a0c19b488121c709c342c75667e076abea5f2af2dce1fe8",
+    "reviewedCurrentSourceSha256": "c2da9207a73fa56a17371e76b36045be80ab48ce36a43717efb56862de9de7d0",
+    "originalProtectedSourceSha256": "130b7cc942ef78c91917b650ae31fc41ee99627fcf6c43b48817142360890e4e",
+    "reviewedSpans": [
+      {
+        "label": "中心问题",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 1017,
+        "end": 1108,
+        "sha256": "9fb825d199a97e7eb2dda26c6c8720963114155dd12bc458b7355b94f6a3353f"
+      },
+      {
+        "label": "§0统一机制模型",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 1112,
+        "end": 1618,
+        "sha256": "e595c30c5e4cd55a03a467462de8ca365c3834c2191730e60b7bc82acaea5654"
+      },
+      {
+        "label": "第一轮模型回建",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 1726,
+        "end": 1788,
+        "sha256": "0b5600acc97185a689338200626186c29e41b846e041ead600249028194dcc29"
+      },
+      {
+        "label": "§2 Framework",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 2023,
+        "end": 2712,
+        "sha256": "07f7a11bdfc0735f95e31edb75998b34dc18117628ba3fc7d012d09c4194469c"
+      },
+      {
+        "label": "§1A 自然模型",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 2712,
+        "end": 6293,
+        "sha256": "08fa7b38dba9124b37ff469ac1c2048fc496814b40588d7a80d1387c820db427"
+      },
+      {
+        "label": "MI-G7 经批准补积液区域条件",
+        "marker": "REVIEWED_A2_SPAN_10",
+        "start": 6569,
+        "end": 6635,
+        "sha256": "80fa0fc70b6a7c83dae1f4c264816813dd3c0114500320b705341e2705c98ba6"
+      },
+      {
+        "label": "MI-G15",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 6933,
+        "end": 7005,
+        "sha256": "e7928a0f99a1da5fe1e803998deea039b11f5d411e1c0bc0a19e2b670d1a8fbe"
+      },
+      {
+        "label": "MI-G18",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 7086,
+        "end": 7160,
+        "sha256": "402b877b7c8b245107a8ce012250da0d48234e370be28476220fdd15042c5604"
+      },
+      {
+        "label": "MI-G19",
+        "marker": "REVIEWED_A2_SPAN_7",
+        "start": 7161,
+        "end": 7234,
+        "sha256": "cb55b358a2defac3774002ab3ea0f334735c4b5c4b519fce80734af24c11e009"
+      },
+      {
+        "label": "MI-G21",
+        "marker": "REVIEWED_A2_SPAN_8",
+        "start": 7262,
+        "end": 7330,
+        "sha256": "dd18ba2ef65f6da4eb7ac9e44ef0bd053962d3926d54b2bbd980c7d105828897"
+      },
+      {
+        "label": "respiratory-r10-kp06 explicit Core exception",
+        "marker": "REVIEWED_A2_SPAN_13",
+        "start": 11030,
+        "end": 11248,
+        "sha256": "125c3c0c2656d07fc8c4a7346c6ce7d93d1ae0c4e036aa78f1748bb287ab4fea"
+      },
+      {
+        "label": "respiratory-r10-kp18 explicit Core exception",
+        "marker": "REVIEWED_A2_SPAN_14",
+        "start": 16069,
+        "end": 16323,
+        "sha256": "4438010570890cab25b3d495001feb9cd0996e0b3f816e2a284efd33392a38ea"
+      },
+      {
+        "label": "§4D 稳定性前置",
+        "marker": "REVIEWED_A2_SPAN_9",
+        "start": 19606,
+        "end": 20009,
+        "sha256": "668741f766ceb62b0b4dc59cf8d625b04e8dd6b76b4397128efd81169180a8f9"
+      },
+      {
+        "label": "Exit6 经批准补积液区域条件",
+        "marker": "REVIEWED_A2_SPAN_11",
+        "start": 22619,
+        "end": 22676,
+        "sha256": "6168c8be3ee50941e4ef952c357ff63210ff97d4cd08699a9d2312e05b5a588a"
+      },
+      {
+        "label": "Exit模型回建",
+        "marker": "REVIEWED_A2_SPAN_12",
+        "start": 23141,
+        "end": 23223,
+        "sha256": "31ba3af899c1f5f0f51ffe506a48cb7b24ebac5c256037d59c75d189650c8481"
+      }
+    ]
+  },
+  "respiratory-r11": {
+    "originalCanonicalGitBlob": "dc7c8e10205e9c9eef7f11b1a15ac4f98d49aaaa",
+    "originalPackagingSha256": "5a277376df76b1c837b75eccdd07fb07eb9f5f5393b7ea47687b796d5920431e",
+    "reviewedCurrentSourceSha256": "eea5130db506f8bb0618f32583601be2f1d0eb269d682c08b4e596669dd4ce5e",
+    "originalProtectedSourceSha256": "ad22faafcdc1702957e917939927817d8d9e8134fc4601c50d89e7d96b1f7270",
+    "reviewedSpans": [
+      {
+        "label": "文件性质模型总述",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 266,
+        "end": 373,
+        "sha256": "9574cfbacb602e317be1cecb6d1638431f3291e714dfd4d44a293e75ea5cb519"
+      },
+      {
+        "label": "中心问题",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 1064,
+        "end": 1144,
+        "sha256": "3601f8576d590630a9b98eaeb774da05d8bc2ea99df249683168aa242e92605f"
+      },
+      {
+        "label": "§0同一模型",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 1148,
+        "end": 1685,
+        "sha256": "ef60bc3f56534f9e8f48b0b45455ac35bf536659238d6c7b7e8c700e014c7db0"
+      },
+      {
+        "label": "第一轮模型回建",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 1798,
+        "end": 1858,
+        "sha256": "4a8915da1f65adec084671dc180ec72170bd44b642d366d84c264473c3f07554"
+      },
+      {
+        "label": "第一轮模型概括",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 1982,
+        "end": 2079,
+        "sha256": "2b13ae5f39e1692899f1655ff44726d82429126e6ccd8fdf94af811b78584053"
+      },
+      {
+        "label": "§2 Framework",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 2086,
+        "end": 2958,
+        "sha256": "167e69c5e575b3d05468f5ea59023e46db28266a6dbc4f2667e0c98ec1f63359"
+      },
+      {
+        "label": "§1A 自然模型",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 2958,
+        "end": 6892,
+        "sha256": "4c65871eab52d585e7aa8eeb1ec5bc53756e1ce0c3a96e13abf69b991acea5ef"
+      },
+      {
+        "label": "MI-G14",
+        "marker": "REVIEWED_A2_SPAN_7",
+        "start": 7511,
+        "end": 7617,
+        "sha256": "98d1b27642e98f60dabec4afd8a3c86f38f3038d1ea9c48e48b7e1f78c3ece96"
+      },
+      {
+        "label": "MI-G15",
+        "marker": "REVIEWED_A2_SPAN_8",
+        "start": 7618,
+        "end": 7725,
+        "sha256": "30eb9e0a81414f3340590ae759dc656cd4b84f7a516fad3228e8608ae811d7fb"
+      },
+      {
+        "label": "respiratory-r11-kp17 explicit Core exception",
+        "marker": "REVIEWED_A2_SPAN_13",
+        "start": 16843,
+        "end": 17288,
+        "sha256": "3bca246360525d155c61c13aee87bcb356a91113086082833c77e5da9ed9312b"
+      },
+      {
+        "label": "§4B 并行受累证据",
+        "marker": "REVIEWED_A2_SPAN_9",
+        "start": 20490,
+        "end": 20664,
+        "sha256": "3bbd0969be63439f754f53925ed8c0c16ddc5e7cd5e9bd768064b1a6b8a3e24a"
+      },
+      {
+        "label": "§4D 阴性边界",
+        "marker": "REVIEWED_A2_SPAN_10",
+        "start": 20854,
+        "end": 20925,
+        "sha256": "3108ad02ba04ac090d289b79fe9df8ab945401c9d3da916765fc7dfdc16c96a7"
+      },
+      {
+        "label": "Exit22",
+        "marker": "REVIEWED_A2_SPAN_11",
+        "start": 24072,
+        "end": 24151,
+        "sha256": "a8bc9eba190b688becf2b2e1fbac5f61367402a93d12e2a668bcebacda080201"
+      },
+      {
+        "label": "Exit模型回建",
+        "marker": "REVIEWED_A2_SPAN_12",
+        "start": 24153,
+        "end": 24250,
+        "sha256": "1417b6160cf3ee64f001e76da094deb94806d2c2a9fe5e0fda14ce55d193245d"
+      }
+    ]
+  },
+  "respiratory-r12": {
+    "originalCanonicalGitBlob": "d84b136358035e7a5ff3b3a8c6291cec5103c62b",
+    "originalPackagingSha256": "328ce2c9027a250d462289ecc2930fa5365efe3a3727dc04f1f1d6ac45ccccc1",
+    "reviewedCurrentSourceSha256": "1cefb8bf07253b96173ad79b7a929c266a54b9c19ec9e72487a9a973538b8008",
+    "originalProtectedSourceSha256": "4ef626ae33271c0d99fbc383bee2cc93b17b4d5e46db0de41c6631b2b1b3e49d",
+    "reviewedSpans": [
+      {
+        "label": "文件性质模型总述",
+        "marker": "REVIEWED_A2_SPAN_0",
+        "start": 238,
+        "end": 351,
+        "sha256": "f86117fb63cd8467d2da550f9e7fe1d4c2e6bf732ec9ef82cac0d942406a8e6c"
+      },
+      {
+        "label": "中心问题",
+        "marker": "REVIEWED_A2_SPAN_1",
+        "start": 934,
+        "end": 1020,
+        "sha256": "f7cf9342a19d495e13f7ffbe4094512eb3487735d11a86c50a9ec66d6a9367b1"
+      },
+      {
+        "label": "§0同一模型",
+        "marker": "REVIEWED_A2_SPAN_2",
+        "start": 1024,
+        "end": 1742,
+        "sha256": "58ac6c0aab00ad1027ab4aa998a9bf671f297cf5229c60a7785eb6b206c96e13"
+      },
+      {
+        "label": "§1 Framework; §1 Framework两损伤后的共同后果层级",
+        "marker": "REVIEWED_A2_SPAN_3",
+        "start": 1742,
+        "end": 2855,
+        "sha256": "29cb11be308687535df565896da43510bf17807cd4987ac37d1121dd1b6d6629"
+      },
+      {
+        "label": "§1A 自然模型; 独立交叉：右心支显式负荷与储备条件（仅自然模型）",
+        "marker": "REVIEWED_A2_SPAN_4",
+        "start": 2855,
+        "end": 6994,
+        "sha256": "328b769f10a0efeea4d100e14bc6e400dc6cc60a147c72458e2ad3b06a151f7a"
+      },
+      {
+        "label": "MI-G6",
+        "marker": "REVIEWED_A2_SPAN_5",
+        "start": 7247,
+        "end": 7333,
+        "sha256": "e9b31d71198ba4a777b57423d80b3aadd2fa381dd106d0cf48975e341bdf994b"
+      },
+      {
+        "label": "MI-G12",
+        "marker": "REVIEWED_A2_SPAN_6",
+        "start": 7546,
+        "end": 7612,
+        "sha256": "efcd37d8af26a8f1117e4d09e01c9f22a62ced590b57d3f44a0823c9b9af8e92"
+      },
+      {
+        "label": "respiratory-r12-kp18 explicit Core exception",
+        "marker": "REVIEWED_A2_SPAN_10",
+        "start": 15509,
+        "end": 16365,
+        "sha256": "50be61aa0b44899294fd370f9b932060c23302c2631148a197f769249d066f08"
+      },
+      {
+        "label": "Exit9",
+        "marker": "REVIEWED_A2_SPAN_7",
+        "start": 22424,
+        "end": 22482,
+        "sha256": "1c46369b0ad244555a80ed3f360766d1c6195f805238155b2c995fdeba1b0a78"
+      },
+      {
+        "label": "Exit12",
+        "marker": "REVIEWED_A2_SPAN_8",
+        "start": 22557,
+        "end": 22616,
+        "sha256": "65a62a1abbb73de2bec057e6ef56d9f83d184e56ae07cb0003b3e29704a76e57"
+      },
+      {
+        "label": "Exit22",
+        "marker": "REVIEWED_A2_SPAN_9",
+        "start": 22922,
+        "end": 22985,
+        "sha256": "c9d727d5825c66b8c06d416299e6264a69b968f801f4a459acd8b0d2fd39c6d1"
+      }
+    ]
+  }
+};
+
+const a2ReviewedCoreWitnessChanges = [
+  {
+    "id": "a2-r08-lg03-precision",
+    "refIndex": 1,
+    "kpId": "respiratory-r08-kp08",
+    "before": "e9c78cc0ab38ced51753ac50fc464615650a9e4100f9786811950cde03a2bc28",
+    "after": "f96c9fa32769888a67fc4f0a18d5373687eca8fd80221bb40c72ce9dfbe48cbf"
+  },
+  {
+    "id": "a2-r10-kp16-precision",
+    "refIndex": 1,
+    "kpId": "respiratory-r10-kp18",
+    "before": "5d133c0cabd102293f797bb20e9bef58c3aebd954e421716fa53a7713e03e4a8",
+    "after": "4438010570890cab25b3d495001feb9cd0996e0b3f816e2a284efd33392a38ea"
+  },
+  {
+    "id": "a2-r10-kp19-precision",
+    "refIndex": 3,
+    "kpId": "respiratory-r10-kp18",
+    "before": "5d133c0cabd102293f797bb20e9bef58c3aebd954e421716fa53a7713e03e4a8",
+    "after": "4438010570890cab25b3d495001feb9cd0996e0b3f816e2a284efd33392a38ea"
+  }
+];
+
 const a2ReviewedSynchronizedLines = {
   "respiratory-r02": [
     [
@@ -272,6 +908,106 @@ const a2ReviewedLearningChanges = [
     "path": "blocks/respiratory-r03/recall_spine",
     "before": "气道损伤 + 肺泡弹性破坏 → 持续气流受限 → 过度充气/换气失败 → 分期治疗",
     "after": "气道损伤 / 肺实质破坏 → 呼气受限（呼气时间不足可加重气体潴留）；区域VA/Q、弥散面积及整体有效肺泡通气分别解释血气 → 按当前稳定 / 急性加重处理对应故障"
+  },
+  {
+    "path": "blocks/respiratory-r04/first_pass_focus",
+    "before": "把哮喘理解为炎症/高反应底物上的可变气流阻塞，并把‘发作—证据—缓解—长期控制’串起来。",
+    "after": "把炎症与神经调节参与的高反应气道、触发后的可变阻塞和观察证据接入同一模型，持续评估当前危险，分清急性处理与长期控制反馈。"
+  },
+  {
+    "path": "blocks/respiratory-r04/recall_spine",
+    "before": "慢性炎症 → 高反应 → 可变阻塞 → 可逆/变异证据 → 缓解+控制 → 危重通气",
+    "after": "从入口评当前危险；炎症/上皮损伤与神经调节参与高反应气道，触发后痉挛/水肿/黏液造成可变阻塞；症状与肺功能读取结果；急性缓解、抗炎和支持按失效环节并行，稳定时评控制与未来风险。"
+  },
+  {
+    "path": "blocks/respiratory-r05/first_pass_focus",
+    "before": "先定位感染发生的空间和获得环境，再用病原线索、严重度与证据决定病原模型和处理方向。",
+    "after": "获得环境与入口提供病原先验；按病变空间解释体征和气体交换后果，合读病原证据与严重度，并从入口持续识别危重情况。"
+  },
+  {
+    "path": "blocks/respiratory-r05/recall_spine",
+    "before": "获得环境 → 病变空间 → 病原线索/证据 → 严重度 → 并发去向",
+    "after": "感染进入相应肺部空间 → 炎症、充填或组织损伤；获得环境/宿主、病变空间与病原证据并读；严重度从入口持续评估 → 对应抗感染、支持及并发症处理。"
+  },
+  {
+    "path": "blocks/respiratory-r06/first_pass_focus",
+    "before": "把支扩和肺脓肿都放回‘结构异常—分泌物/感染—引流失败’这条链，重点学定位、危险点和处理。",
+    "after": "把支气管结构破坏后的潴痰—感染—再损伤反馈，与肺实质化脓坏死形成脓腔的不同入口并行比较，按来源、清除/引流和咯血危险选择处理重点。"
+  },
+  {
+    "path": "blocks/respiratory-r06/recall_spine",
+    "before": "结构层级 → 支扩三股力/痰液循环 → 肺脓肿三入口 → 抗感染+引流+危险处理",
+    "after": "支气管壁破坏 → 清除下降/潴痰 → 感染 → 再损伤；肺脓肿由误吸、血源或继发入口进入实质化脓坏死/脓腔分支；清痰、感染加重与危险咯血按当前情境处理。"
+  },
+  {
+    "path": "blocks/respiratory-r07/first_pass_focus",
+    "before": "从结核菌—细胞免疫—肉芽肿/干酪坏死出发，理解原发/继发/HIV宿主状态怎样决定临床类型、传播和治疗。",
+    "after": "感染与宿主细胞免疫共同影响结核的局限、坏死和播散；以原发/继发/HIV背景理解疾病谱，分别判断活动、传染和治疗条件。"
+  },
+  {
+    "path": "blocks/respiratory-r07/recall_spine",
+    "before": "感染免疫 → 肉芽肿/干酪 → 原发/继发/HIV → 六型/播散 → 活动/传染 → 化疗",
+    "after": "结核感染与宿主免疫相互作用 → 局限/肉芽肿与坏死/空洞等可并存结果；原发/继发/HIV背景和不同播散途径解释疾病谱；影像、免疫检测、菌学分别提供证据 → 按活动、传染、药敏及宿主条件处理。"
+  },
+  {
+    "path": "blocks/respiratory-r07/logic_groups/respiratory-r07-lg06/closure",
+    "before": "面对治疗场景时，能先守住联合、规律、足量、全程等原则，再处理具体方案差异。",
+    "after": "面对治疗场景时，能先守住联合、规律、适量、全程等原则，再处理具体方案差异。"
+  },
+  {
+    "path": "blocks/respiratory-r08/recall_spine",
+    "before": "限制/弥散低氧 → 临床入口 → HRCT/BALF/组织 → 疾病分流",
+    "after": "肺实质不同分布与结构损伤 → 弹性负荷、弥散及气血匹配并行变化；症状、肺功能与影像读取结果 → 按宿主/暴露及相应证据分流；支持与病因处理回到对应环节。"
+  },
+  {
+    "path": "blocks/respiratory-r09/recall_spine",
+    "before": "PVR慢升→肥厚；急阻塞→扩张/休克；证据→抗凝/溶栓",
+    "after": "肺血管阻力慢性升高 → 肺动脉压力/右室后负荷改变 → 代偿重构，失代偿时右心衰；PE急性阻塞按负荷可致右室扩张/灌注不足；依据稳定性、可获得的诊断证据和出血风险/禁忌，决定抗凝与紧急再灌注的适用性及配合时机。"
+  },
+  {
+    "path": "blocks/respiratory-r10/first_pass_focus",
+    "before": "把胸腔里的液体/气体/血液和胸壁失稳都放回‘压力—肺扩张—纵隔—循环’坐标，再决定引流和急救。",
+    "after": "把胸膜腔占位/压力和胸壁损伤作为不同入口，区分肺扩张受限、回心受阻与出血失容量；持续评估呼吸和循环危险，选择对应取证、减压、引流或手术。"
+  },
+  {
+    "path": "blocks/respiratory-r10/recall_spine",
+    "before": "内容物 → 压力/纵隔 → 胸壁稳定 → 血流动力学 → 急救动作",
+    "after": "胸膜液/气占位或压力升高 → 肺扩张与回心受影响；血胸另可失容量，胸壁损伤另可破坏通气力学；先评气道/呼吸/循环危险，危急减压、止血或支持与必要取证并行；稳定后完善病因分流。"
+  },
+  {
+    "path": "blocks/respiratory-r11/recall_spine",
+    "before": "位置 → 组织 → 扩展 → 证据 → TNM/可切除性 → 治疗；纵隔先分区",
+    "after": "位置与组织学共同解释局部、远处和副癌表现；按问题选择影像与取材 → 组织、分期及分子证据；范围、技术可切除性与功能耐受共同决定治疗；纵隔保留独立空间定位。"
+  },
+  {
+    "path": "blocks/respiratory-r11/logic_groups/respiratory-r11-lg03/closure",
+    "before": "能把副癌表现和直接肿瘤压迫/转移区分；遇到‘最常见’单选时答小细胞癌，同时不误解为只有小细胞癌可导致。",
+    "after": "能把副癌表现和直接肿瘤压迫/转移区分；遇到 2026 N129 原题的‘最常见’单选时答小细胞癌，同时不误解为只有小细胞癌可导致。"
+  },
+  {
+    "path": "blocks/respiratory-r11/logic_groups/respiratory-r11-lg04/goal",
+    "before": "把筛查、影像、取材、PET 和基因检测按‘发现—定性—分期—分子分层’排序。",
+    "after": "区分筛查、影像、取材、PET 和基因检测所回答的发现、组织确诊、分期与靶点问题，按当前场景选择检查，不预设每例必经同一顺序。"
+  },
+  {
+    "path": "blocks/respiratory-r11/logic_groups/respiratory-r11-lg05/closure",
+    "before": "能从组织学和分期先判断是否可能手术，再进入靶向/放化疗等治疗层级。",
+    "after": "能合读组织学、分期、技术可切除性和功能耐受，判断手术适合性，并按相应条件选择靶向、放化疗等方案。"
+  },
+  {
+    "path": "blocks/respiratory-r12/recall_spine",
+    "before": "氧合失败 vs 通气失败 → 证据 → 支持 → 防治疗伤害",
+    "after": "先评生命危险；氧合与通气失败可并存，ARDS是屏障损伤子支；血气/影像按定义与采样条件取证；支持回作用于有效通气、分流和肺泡开闭，同时兼顾肺损伤及回心/循环。"
+  },
+  {
+    "path": "blocks/respiratory-r12/logic_groups/respiratory-r12-lg02/closure",
+    "before": "给出血气、影像和心脏证据时，能完成 ARDS 严重度与心源性肺水肿的关键分流。",
+    "after": "合读血气、影像与心脏证据判断是否满足既有 ARDS 定义，再在相应时相和呼吸支持条件下分级；区分并允许与心源性肺水肿并存。"
+  },
+  {
+    "path": "blocks/respiratory-r12/logic_groups/respiratory-r12-lg04/closure",
+    "before": "看到 PaO₂/PaCO₂ 时能先判Ⅰ型还是Ⅱ型，再决定氧疗/通气支持方向，避免机械套规则。",
+    "after": "先核采样/供氧情境与呼衰条件，再按实际血气辨别Ⅰ/Ⅱ型及可能并存机制，按当前危险选择氧疗/通气支持，避免机械套规则。"
   }
 ];
 
@@ -300,6 +1036,106 @@ const a2ReviewedOwnerChanges = [
     "id": "a2-r03-lg05-precision",
     "before": "7480eaa3a89dd7d4ee7d62bd6b6b17509b99a3df56b5a4915c98da5b242ee93b",
     "after": "cbbfecff0a2aa6df06f89c316d38b93a1535e474d83a34e878ce5edfff6ecb1d"
+  },
+  {
+    "id": "a2-r05-lg01-precision",
+    "before": "2c96d6ea1624ceb1cb5e5552598c212854f613b03a855a0960078eab0836bb51",
+    "after": "60464f79f07b1b52af6ac3a22ee27c2f2e79060b5f4d8d9d6673939048a115ac"
+  },
+  {
+    "id": "a2-r05-lg03-precision",
+    "before": "8251b079070ee243ca6e463a017a1b64483ea7f01e0afcc158fe76c8829001a4",
+    "after": "bfabb44818d692f55d568b72b6de8a479c4b25d7d1c41f3f1f93cdede09df67a"
+  },
+  {
+    "id": "a2-r06-lg02-precision",
+    "before": "ee4dbc04970b6a16a0b22a1691b9eb753bbf99d89c98bb20d732831dda7f59b0",
+    "after": "4d70b27d68ab88e28502b868beec6044f36c043c0077857ab8b738e575539164"
+  },
+  {
+    "id": "a2-r06-lg03-precision",
+    "before": "b0873a9d0db68f52a564f3a173e34b204deb0ba4dcad2d7e000e14e014c557e4",
+    "after": "cf93d0099a36bb1f2c13fa90f03ac171fc471faf8b1ea24a9c1715cd2415c81b"
+  },
+  {
+    "id": "a2-r08-lg03-precision",
+    "before": "36cf7ff6aceedf8f217a5954be6adb2e7e7244e6ed6e68e0b428f2313b51408e",
+    "after": "a2fa024c3c7d53603172293fe08e0e2475594f115491b8819e073f12f6cd52ce"
+  },
+  {
+    "id": "a2-r09-lg05-precision",
+    "before": "ed7bdb316e78487744922df98e4145b6125c4f929118bd99820303a0cfd69373",
+    "after": "6027efe47b16f236241aca21dd44f143daa0eeb8ccbe544dcb3a2481298e930d"
+  },
+  {
+    "id": "a2-r10-kp02-precision",
+    "before": "14d2d1d7ce9786fa15a6b0fe6ea65ba6f6cc50cbdaa230e6f5e26590797dd747",
+    "after": "0ffd48068d61c22c0e8f681ca2d1570d920fd7ada67af2c52e0f15a0cb023e29"
+  },
+  {
+    "id": "a2-r10-kp04-precision",
+    "before": "315aaa289a5377e532e14b60ac35e1fe6407c196dde30496040c58a17773072e",
+    "after": "f1edc5ee8f75cd03c2f54552bf5edf82b20a73c5508b2ae6bd209206e9fe2113"
+  },
+  {
+    "id": "a2-r10-kp08-precision",
+    "before": "62a755aad0f2906cdefd4b176f492051e7ccdb1bf3ef79d577020372f44255e8",
+    "after": "bc7cc1391892f97ee0f947b16e5575a2198c95347552a8a4653f2787cf3c39bd"
+  },
+  {
+    "id": "a2-r10-kp16-precision",
+    "before": "33f91bb4933579ebaeaae317c23795baaafb7d46179f85f7a1125a7bc8c49ced",
+    "after": "e0a9de3e9e43a87a4e412c0012e6f61bd744c409c59c736a3b6c32159189736c"
+  },
+  {
+    "id": "a2-r10-kp19-precision",
+    "before": "cfe881cc74701649f506f31761d5724c53719ccee800257e2afac77c38329e13",
+    "after": "e082686a3dc7aa21044885568571488a97871f681d49884e14aa26c8c326d75d"
+  },
+  {
+    "id": "a2-r11-kp21-precision",
+    "before": "5f77f723e264a70a2e7f8a91b5ce2124cb4c6477681a891a079c675a3dc937c0",
+    "after": "66b9b0099aa8b8b3666f565c0feef305f876a2ab64dc53a649961753d5d48c7b"
+  },
+  {
+    "id": "a2-r11-kp22-precision",
+    "before": "09ee6b5334ce1c3ad61e0cf3b68b271e887c27d8c21b2f48fd68e4d15d5a38b1",
+    "after": "c3441157ed7dca77ccb9f401b0d0fb72737115c0d01ab3e5443afd17116f7737"
+  },
+  {
+    "id": "a2-r11-lg05-precision",
+    "before": "e1cae7dd74b5a26f82347eb80491e5596f6d95dfe0c071e3f3281e979c4b534c",
+    "after": "8569ee4e98c31b4205c1f1d8b3864dff1f1e1fd97f8d40164df1c1702346876f"
+  },
+  {
+    "id": "a2-r12-kp08-precision",
+    "before": "b140c867cafae85ebe8198984cf328f29ccd7a906c60284ed7d024817623151f",
+    "after": "0d7112dc9cd9ef0a93ee976c96a233936e41a2fdafbfbd6f0998e78b54e0d051"
+  },
+  {
+    "id": "a2-r12-kp09-precision",
+    "before": "20331726f5e6f07477a26968effc20342a86dc8d602346bdcd1074bc406e98c5",
+    "after": "8cfdf7fe5aa48962d5139418e9565278b0137c433257a5605ff128351196ed28"
+  },
+  {
+    "id": "a2-r12-kp12-precision",
+    "before": "67f97c86e2059fd8543f58ffc310aeb4eecabe4d01651c3c2a7e8b99588a0e42",
+    "after": "3169335cfd2319eaf7b9f68adcfff19949db97b934b4cf5ebb946bc790780b8a"
+  },
+  {
+    "id": "a2-r12-kp13-precision",
+    "before": "73eb65894c6b114b856c8e9dd6422113a4824525f658dba30467a5815811ed19",
+    "after": "daeb381ef32a85110c660d0249b373ceaa8959843a2960159eb4bdf31526d64b"
+  },
+  {
+    "id": "a2-r12-kp16-precision",
+    "before": "8b1d057bf9a43fc2a1ebf06586f288c939e6ac382ef2ce23a5c506bdb84babe6",
+    "after": "53c0cfb706bfbfe3e73bcd35586843ae42c55c2af2ac1b0145c914ceb575bc97"
+  },
+  {
+    "id": "a2-r12-kp17-precision",
+    "before": "afbd7b5249d455f98406d545763dee0d1cc8f277b59881c8537025604f6810ce",
+    "after": "d778635831c1f50c3d6af5197db20ac93bb6b99addaa758f8fee6604a4419688"
   }
 ];
 
@@ -374,6 +1210,300 @@ const a2ReviewedDescriptorChanges = {
       "before": "3bcc3d9713f99113ada78d483bb6d54b892118a53e2d1b0035ed033e574d579b",
       "after": "41c1a001abec68a053de781a0609080e782cb6778cff89b46adbd73e9c220364"
     }
+  ],
+  "respiratory-r05": [
+    {
+      "path": "revisionWitness/groups/respiratory-r05-lg01",
+      "before": "d86251049d12f9eafcc931c004dd84bb6380ee68e02e329aa028ce3d933f7b77",
+      "after": "2e1ebc93fa54b747880b5b49ee59ce3aa6dcce77d90cfbc3d0d2bf8491329c8c"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r05-lg03",
+      "before": "be6db0760b662294c02f96e88301db734d03d27405fdefbb6e2b98fdd1ad4536",
+      "after": "8dd719a08a82c993583e0f7e29279f21eadab00ace080a2bb6cdc9cc8e421fad"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "d15bfecdbefe115e0dbf93471b3085b652a8416cdd90cc5871a927033caac88b",
+      "after": "921994db1007883d10f7989c7babdf227510a298f7dbf4d8430b80b6b9d2bb5e"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "d86251049d12f9eafcc931c004dd84bb6380ee68e02e329aa028ce3d933f7b77",
+      "after": "2e1ebc93fa54b747880b5b49ee59ce3aa6dcce77d90cfbc3d0d2bf8491329c8c"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "be6db0760b662294c02f96e88301db734d03d27405fdefbb6e2b98fdd1ad4536",
+      "after": "8dd719a08a82c993583e0f7e29279f21eadab00ace080a2bb6cdc9cc8e421fad"
+    }
+  ],
+  "respiratory-r06": [
+    {
+      "path": "revisionWitness/groups/respiratory-r06-lg02",
+      "before": "42d45153a9426f5e53b5807ef27e01aaee5add16eeb1eaae718bc8d070177401",
+      "after": "4a660947e7c20c5b08f2b30baaa82a17f8a00f5ca2c0fee733ae05b4a9f31089"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r06-lg03",
+      "before": "b040b8074a174aeba29e810bc283cb62a8d6dda1d781414ac5eb23d296928c9d",
+      "after": "9098ae31da0da8d5752ebc47a8c1de1612a268e140206e707eddf85b02a8d0c3"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "1957a2805840014272f0fa35a665088dbe2d3522ad521a3687142daf58a3d055",
+      "after": "2ea1555a36db495b85a44613b30835c5c8b2cd58344903846451687bc4983ab8"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "42d45153a9426f5e53b5807ef27e01aaee5add16eeb1eaae718bc8d070177401",
+      "after": "4a660947e7c20c5b08f2b30baaa82a17f8a00f5ca2c0fee733ae05b4a9f31089"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "b040b8074a174aeba29e810bc283cb62a8d6dda1d781414ac5eb23d296928c9d",
+      "after": "9098ae31da0da8d5752ebc47a8c1de1612a268e140206e707eddf85b02a8d0c3"
+    }
+  ],
+  "respiratory-r08": [
+    {
+      "path": "revisionWitness/kps/respiratory-r08-kp08",
+      "before": "ffc34ed7abc21faee9bfa2239b73acf588da77ba860e2436a0e7eecc6fcd4abb",
+      "after": "05abc4f79da8759dbe4e5a6038b4f0cde6074855d1137ea61473eee575f733ae"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r08-lg03",
+      "before": "9efb3746d5c15bf50d457a5fe6675f81ca8b4f7071451e9e1f260caa5a3903c0",
+      "after": "64d136e0b87cc54a527c3146f4977b2f0b9ab0bf6016475e967c5b599ecfcc02"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "aaa2f312376b7a58021457f92aab6ea1ed3088d85f4f660ca41a7f8d7e675115",
+      "after": "a48349d5e094b0561824d160c8ebcdfd56cd2030d37d5f7b37d6626d3ded7b6f"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "9efb3746d5c15bf50d457a5fe6675f81ca8b4f7071451e9e1f260caa5a3903c0",
+      "after": "64d136e0b87cc54a527c3146f4977b2f0b9ab0bf6016475e967c5b599ecfcc02"
+    }
+  ],
+  "respiratory-r09": [
+    {
+      "path": "revisionWitness/groups/respiratory-r09-lg05",
+      "before": "85b47b2de5302ef76d56eeaa3a3501da35572090a26008cf22b2efc1fbc0e514",
+      "after": "d54c6f3a15b83b00ffb76017d4df255d5da3faa8c23db95e1b041348516f213d"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "5ed4b31f078f53c2c12c0bfa8d7bb21f0ce3622d45bccd86b7fb155eea5e9ca9",
+      "after": "4326c8b8eed714e28004848c3b49a060e2813b6545b21446fa9cde38c1ad021b"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "85b47b2de5302ef76d56eeaa3a3501da35572090a26008cf22b2efc1fbc0e514",
+      "after": "d54c6f3a15b83b00ffb76017d4df255d5da3faa8c23db95e1b041348516f213d"
+    }
+  ],
+  "respiratory-r10": [
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp02",
+      "before": "fc956efcc1cd4ddca36c26b10ac7b0e369b36c7d5dd4a386061283faaaba56f2",
+      "after": "9bdf61dc20597ed7abf13d849a90e91df0eaec312ef8a4ee3d9408ae02dda11a"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp04",
+      "before": "f9ee9950b29630340e6a6b582457fe329c0edd9bbd0002128276992159edd1ac",
+      "after": "ebc6c5be0cc7ade2b1db4ba5ac2c8c8ca765b9e0e325f95a27684cd32c70d0e3"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp06",
+      "before": "72f1fb1a02afb41e3a5c4ef08537764353a8a51f312938da6264d923756ef06c",
+      "after": "7868d47c8ab5d29f9d02447af9626ec38d224253b22985dc9f608ce8ff40ca38"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp08",
+      "before": "a89e12581d87aaf4010964dce10d7dfbc7fc58b0568b7c006426b8c4890c57b6",
+      "after": "a07eef98c3698abd6853e7083230c63edca15bf5b34940a244eadc43fa92dbb5"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp16",
+      "before": "09099a85ccc72e0be28b72141c95923ddec6a80a425fc15dc7447f8a3e41a00e",
+      "after": "4d83c01bb0a05c195c987de826ee86c977031f13172d67a80038b6548ffea5b6"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp18",
+      "before": "99ec494fecfc61d37f9821b335672eeae34ed8785d4ca453850545f16f6fefd2",
+      "after": "5f467abc2d0b93769bb1d438a55067f109a4715eeefcc09e71c29da33408c3bd"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r10-kp19",
+      "before": "ad110419f89e13150f8ae3f49fc539605f0940ece118337d67ffaf9f921cdc79",
+      "after": "5698ca3b418b794b96f94d2bfc3b00e78cea34817ce2ae94f2a3ca1d72cd462f"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "4d6811d7e4cd782000981b4617d9095511bc1ca46122c72ac9a69a296e78a228",
+      "after": "54e47f1d09e15a3402f140a8ebfba976313f67f260c2f2396bb8d925f815f24e"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "fc956efcc1cd4ddca36c26b10ac7b0e369b36c7d5dd4a386061283faaaba56f2",
+      "after": "9bdf61dc20597ed7abf13d849a90e91df0eaec312ef8a4ee3d9408ae02dda11a"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "f9ee9950b29630340e6a6b582457fe329c0edd9bbd0002128276992159edd1ac",
+      "after": "ebc6c5be0cc7ade2b1db4ba5ac2c8c8ca765b9e0e325f95a27684cd32c70d0e3"
+    },
+    {
+      "path": "precisionCards/2/semanticRevision",
+      "before": "a89e12581d87aaf4010964dce10d7dfbc7fc58b0568b7c006426b8c4890c57b6",
+      "after": "a07eef98c3698abd6853e7083230c63edca15bf5b34940a244eadc43fa92dbb5"
+    },
+    {
+      "path": "precisionCards/3/semanticRevision",
+      "before": "09099a85ccc72e0be28b72141c95923ddec6a80a425fc15dc7447f8a3e41a00e",
+      "after": "4d83c01bb0a05c195c987de826ee86c977031f13172d67a80038b6548ffea5b6"
+    },
+    {
+      "path": "precisionCards/4/semanticRevision",
+      "before": "ad110419f89e13150f8ae3f49fc539605f0940ece118337d67ffaf9f921cdc79",
+      "after": "5698ca3b418b794b96f94d2bfc3b00e78cea34817ce2ae94f2a3ca1d72cd462f"
+    }
+  ],
+  "respiratory-r11": [
+    {
+      "path": "revisionWitness/kps/respiratory-r11-kp17",
+      "before": "d983be1817d1dd4ba135de0adda3374749f4951317ceac1f76866cb5692c3a36",
+      "after": "46e9e12b7202887ab89bbbcfc4a3a0d146da48bff3f1ad6f1f840b98ff929e7a"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r11-kp21",
+      "before": "5078ef8b28939f256fc0c8d84cb032a91e07d837440660c06d80dfd48ecb66d9",
+      "after": "db9b0741550b82a793447db271eaaa80fc09c26712589b73a460992fe098272b"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r11-kp22",
+      "before": "a683ac8a56b28eef55d5b272fc535ea347e091c385d97cb1f30c488796731846",
+      "after": "18a57b59bb78f562938d6a1ed4cee244d20126b161404c54966b04234bc832aa"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r11-lg03",
+      "before": "0745474a46a26787b07b0d2258519a87188d8897e854802c441c3bd0f04c657f",
+      "after": "a8f22b1fa090a895ce85a4ce54db8dbd0f6acb70f41745d79b14f0697a55c54b"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r11-lg04",
+      "before": "c3033a77b6c5e0959ae9484a9d3275a23cdf23a3a5792a37c75c9014cf93f8c7",
+      "after": "ae38dc28832378f86a409f8f6b29c37e1bcad22f63a04d036c4a1a2fe78a4f53"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r11-lg05",
+      "before": "22540e678925b68e746579cc5ac45abfc3ed4f2562896b47ba8ffda208d75d0c",
+      "after": "49c506c550bbcd707c437752b1007c6b552dc1bd3d94c158969856a913707011"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "3531a83be54472c3dd1ecf013572cbfacaabefe22c2f5836f321e3412bf1c75e",
+      "after": "048ea755f25fe919aa1816c93e8a83a3f330e9c6d4ba94cc512024cd19a9fc25"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "5078ef8b28939f256fc0c8d84cb032a91e07d837440660c06d80dfd48ecb66d9",
+      "after": "db9b0741550b82a793447db271eaaa80fc09c26712589b73a460992fe098272b"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "a683ac8a56b28eef55d5b272fc535ea347e091c385d97cb1f30c488796731846",
+      "after": "18a57b59bb78f562938d6a1ed4cee244d20126b161404c54966b04234bc832aa"
+    },
+    {
+      "path": "precisionCards/2/semanticRevision",
+      "before": "22540e678925b68e746579cc5ac45abfc3ed4f2562896b47ba8ffda208d75d0c",
+      "after": "49c506c550bbcd707c437752b1007c6b552dc1bd3d94c158969856a913707011"
+    }
+  ],
+  "respiratory-r12": [
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp08",
+      "before": "68f7f872aeee9bdd101cc00901f8f6c90e82c63c96c521feb967053261e4ef97",
+      "after": "1a21bcc3912a79496cd34b4039dcf2e315032503155e3244d01ea91acd905609"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp09",
+      "before": "414335cdc84062066114a42be52ff36f956b7445d00cc2545372ab2fbd2203bb",
+      "after": "5f8f913e68995011b390bc485abbaf713c05f5e0124f95981a0e88abdae0ef35"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp12",
+      "before": "aa78029a12cf905cd37796666b5c861347c30a9199a0a61514a86d2bc7bffd37",
+      "after": "ba3cbb696e5c19744aa88d8bcf2d85015ead47f8018a07355e51aa6852227203"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp13",
+      "before": "b41e633407a80fc6a3bfb925f4e67c6793261ded7aebf984b197df119870dfa4",
+      "after": "22065e94cb537e56dad1664c68bd39207b406a2e8c5f6d116281151ca6259494"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp16",
+      "before": "85ba7fa9d7379a3d182ed934a814847866139f5e01bba33b2da03ca7ac7aa721",
+      "after": "2ccbfa49e1575aff98443d7e445388a83d0f64e193f462f4c73d64bf149097fe"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp17",
+      "before": "6b4a9c52cc77e9896e3cf62a5f71a214bb3b24e855c666d82aff60f577327eff",
+      "after": "1d692a26756ccdc8f4eb7808179fd9b6eb980dfa46064bf2b6b48dd8828f836d"
+    },
+    {
+      "path": "revisionWitness/kps/respiratory-r12-kp18",
+      "before": "f0a8fcd4448a7d3499418a983c0c7e483f3c130e63594ad0fd9094ed8e95ccc3",
+      "after": "c044e4d744e74247e391ed1ae6265532dca401799341512ec801e03393564217"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r12-lg02",
+      "before": "b3fa43b638c22b936918dcad79436deffcb850062ef79354648ec0712a6f5b3d",
+      "after": "55995c7753ab405ced67fa04a2ac66fce23b479672c586615596448916b034e0"
+    },
+    {
+      "path": "revisionWitness/groups/respiratory-r12-lg04",
+      "before": "92fd8c18e075cbc9e2a9a2a40453f0f2503b96f9d1e25513913a0e22aa881a36",
+      "after": "5be960c2e4a3885384f5ea74bce3271ea8075a50b5a4de86aec85481549d9c80"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "d953368ad84f42085d572f0be4bbcf41e4b9122e53a456f8078f6ca92f8bbef4",
+      "after": "5674ca3570df11cb77ec11dbfc87afb15a15bf5cd5b7d1977241546f8865af27"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "68f7f872aeee9bdd101cc00901f8f6c90e82c63c96c521feb967053261e4ef97",
+      "after": "1a21bcc3912a79496cd34b4039dcf2e315032503155e3244d01ea91acd905609"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "414335cdc84062066114a42be52ff36f956b7445d00cc2545372ab2fbd2203bb",
+      "after": "5f8f913e68995011b390bc485abbaf713c05f5e0124f95981a0e88abdae0ef35"
+    },
+    {
+      "path": "precisionCards/2/semanticRevision",
+      "before": "aa78029a12cf905cd37796666b5c861347c30a9199a0a61514a86d2bc7bffd37",
+      "after": "ba3cbb696e5c19744aa88d8bcf2d85015ead47f8018a07355e51aa6852227203"
+    },
+    {
+      "path": "precisionCards/3/semanticRevision",
+      "before": "b41e633407a80fc6a3bfb925f4e67c6793261ded7aebf984b197df119870dfa4",
+      "after": "22065e94cb537e56dad1664c68bd39207b406a2e8c5f6d116281151ca6259494"
+    },
+    {
+      "path": "precisionCards/4/semanticRevision",
+      "before": "85ba7fa9d7379a3d182ed934a814847866139f5e01bba33b2da03ca7ac7aa721",
+      "after": "2ccbfa49e1575aff98443d7e445388a83d0f64e193f462f4c73d64bf149097fe"
+    },
+    {
+      "path": "precisionCards/5/semanticRevision",
+      "before": "6b4a9c52cc77e9896e3cf62a5f71a214bb3b24e855c666d82aff60f577327eff",
+      "after": "1d692a26756ccdc8f4eb7808179fd9b6eb980dfa46064bf2b6b48dd8828f836d"
+    }
   ]
 };
 
@@ -409,6 +1539,252 @@ const a2ReviewedPreentry = {
       "markdown": ""
     },
     "nonFrameworkChanges": []
+  },
+  "respiratory-r04": {
+    "originalKpRecordsSha256": "68949d74790478b3648bd3cfd98c189b0a1970e98b0f3b0adc0a14905d21ead2",
+    "originalPreentrySha256": "ad5256afd0d4a20715fcbae66f76186fb1f852eeba06beadb7783b73ac98f8c9",
+    "originalStablePreentrySha256": "99469ed3e4811bd0b56f8cd379b4414bbe4c79deda7c53eb1077a648623a7e23",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block4_支气管哮喘_可逆性气流受限_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "respiratory-r05": {
+    "originalKpRecordsSha256": "019befdff70e913b91c2b96251f3609b085e0e52158d46f65e2d58782b79d80f",
+    "originalPreentrySha256": "6919adde2b38743b9e04f944bff4c69abfb644e215befb41316948f04407a53d",
+    "originalStablePreentrySha256": "e2caf8e084b5ed7d5e49d21a5fd7ed39d6b742f2a22bdbe941eaed4018744b7c",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "respiratory-r06": {
+    "originalKpRecordsSha256": "a50e9d612462e0440eea7617e4d908d4461bd753bf5923fbb036c5644637f983",
+    "originalPreentrySha256": "372f7613aaf140706028051c9ab103d7e210d9c0b5d39c55b14b79ff84395050",
+    "originalStablePreentrySha256": "971dd46d3508c5f3f25c6808d05e8f4d4528c588f6e3ae36e2fd6b637343d05e",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/4",
+        "before": "阻塞是支扩的结果，不是最主要发病基础；",
+        "after": "阻塞可为支扩诱因，也可由扩张后痰液潴留产生；核心病理基础仍是管壁支撑结构破坏；"
+      },
+      {
+        "path": "memoryRouting/miG/12",
+        "before": "肺脓肿治疗必须达到影像空洞消失 / 明显吸收后才停药；",
+        "after": "肺脓肿停药须综合临床、炎症与影像反应，不能只看退热、痰臭消失或固定周数；"
+      }
+    ]
+  },
+  "respiratory-r07": {
+    "originalKpRecordsSha256": "696ac3c295ef25eb726164887f92205fa01d71480ed0390d027774efef5f1890",
+    "originalPreentrySha256": "c591d6a0f065244b2cf1cb739ab3d1521f4c31f860f6c139590cfc1b68df8a42",
+    "originalStablePreentrySha256": "f40021f15917a525e309a24641ce8fa359ffca1d3f638959ca195950ccfaf59f",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/10",
+        "before": "慢性纤维空洞型：开放、排菌强、上叶纤维化、肺门抬高、垂柳征、肺心病；",
+        "after": "慢性纤维空洞型的典型病理开放形态、上叶纤维化、肺门抬高、垂柳征与肺心病；实际排菌/传染性仍据病原和治疗状态判断；"
+      },
+      {
+        "path": "memoryRouting/miG/12",
+        "before": "影像活动性证据：渗出、任何空洞、播散；修复证据：钙化、纤维条索；",
+        "after": "影像中渗出、播散及新旧变化可提示活动，钙化/纤维条索可提示修复；任何空洞不独立证明活动，钙化亦不独立保证全部病灶静止；"
+      },
+      {
+        "path": "memoryRouting/miG/14",
+        "before": "痰涂片决定当前 Study 的传染性，痰培养是确诊金标准并支持活动性；",
+        "after": "涂片提供排菌量/传染风险证据之一，培养结合鉴定，分子检测可提供病原及耐药证据；活动与传染分开合读，涂阴不保证不传播；"
+      },
+      {
+        "path": "memoryRouting/miG/18",
+        "before": "初治 2HRZE/4HR；复治涂阳先药敏；RR/MDR首选短程9–12个月；",
+        "after": "药敏初治肺TB课程方案2HRZE/4HR；复治先药敏；RR/MDR按适用条件选择，课程9–12/18–20个月与KP23所列WHO版本分开，不能视为统一首选；"
+      }
+    ]
+  },
+  "respiratory-r08": {
+    "originalKpRecordsSha256": "2a90d613767f89fb0b77a31bf07dda5c4744f22ccdc7f5d163e9c150005fa1d1",
+    "originalPreentrySha256": "d9e062f3ccbbb41c5bea2e98187fb81ae58d208dc3c89ab7c7773b82f91d905c",
+    "originalStablePreentrySha256": "0e895bf7bf34c56e31cdf239172d128003b84bd8cc61d7ba1c0ebed38cde7fc9",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [
+      {
+        "path": "7/detailMarkdown",
+        "before": "### 1｜治疗\n\n- 多数患者无需治疗；\n- 症状严重者：糖皮质激素；\n- 当前 Study 疗程：6–24个月。\n\n### 2｜四期\n\n| 分期 | 影像身份 |\n|---|---|\n| I | 双肺门淋巴结肿大 |\n| II | 双肺门淋巴结肿大 + 肺部浸润影 |\n| III | 仅肺部浸润影 |\n| IV | 蜂窝肺、肺纤维化、肺气肿 |\n\n（易混：III 期肺门淋巴结消失，不表示疾病一定好转；病变已由中心向肺内扩展。）\n\n---",
+        "after": "### 1｜治疗\n\n- 多数患者无需治疗；\n- 症状严重者：糖皮质激素；\n- 当前 Study 疗程：6–24个月。\n\n### 2｜四期\n\n| 分期 | 影像身份 |\n|---|---|\n| I | 双肺门淋巴结肿大 |\n| II | 双肺门淋巴结肿大 + 肺部浸润影 |\n| III | 仅肺部浸润影 |\n| IV | 蜂窝肺、肺纤维化、肺气肿 |\n\n（易混：III 期仅见肺部浸润，不表示病情一定好转。I–IV 是影像分布/形态分类，不要求患者逐期进展；讲义“由中心向外周”的说法保留为教学记忆路径，不能作为所有患者的固定病程。此边界依据 [TSANZ 官方 Sarcoidosis State of the Art Paper，正文 P15](https://thoracic.org.au/wp-content/uploads/2024/09/TSANZ-SarcoidosisPaper-2018-web-v3.pdf) 的影像分期说明；四期课程表和治疗范围不变。）\n\n---"
+      }
+    ],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/6",
+        "before": "IPF：BALF中性粒 / 嗜酸粒↑；HRCT不清时外科肺活检；肺移植最有效；",
+        "after": "IPF：BALF中性粒/嗜酸粒↑是支持接口；HRCT不确定先多学科讨论与取样风险评估，非自动外科肺活检；肺移植最有效；"
+      },
+      {
+        "path": "memoryRouting/miG/8",
+        "before": "结节病分期 I–IV 的“肺门 → 肺内浸润 → 纤维化”方向；",
+        "after": "结节病I–IV分别恢复肺门结、肺内浸润和纤维化的影像组合，不要求逐期进展；III期仅肺内浸润不能独立判好转；"
+      }
+    ]
+  },
+  "respiratory-r09": {
+    "originalKpRecordsSha256": "33286d6e5b645f53f6380349a3e9a2ee22b6a91efc9d4e6f97ca9f2979950a8c",
+    "originalPreentrySha256": "d613abbcbf3a8ab2c22088a4596117af1b69d672e1969b83b5bdda4d485a85df",
+    "originalStablePreentrySha256": "1a46d9eea73f9ab906987fd460fa78fc5f019f8cf26124ac5073eee99e1aebe0",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "respiratory-r10": {
+    "originalKpRecordsSha256": "e9140ca5a9e889385ec85927f99e3ae1736c5058c99a1b7ca4badb43fa3f33a5",
+    "originalPreentrySha256": "16bb35ce14c8a5abb3e028684e639d3b6834a90efdcfd58b11f5562bda6597fc",
+    "originalStablePreentrySha256": "459a58f9580d063340456cab33b6d868039c8703f4e4dfd51ce371042df6e886",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [
+      {
+        "path": "5/detailMarkdown",
+        "before": "### 1｜向健侧\n\n- 大量胸腔积液；\n- 大量气胸。\n\n### 2｜向患侧\n\n- 慢性纤维空洞型肺结核；\n- 慢性肺脓肿；\n- 慢性脓胸；\n- 肺不张；\n- 明显胸膜粘连 / 增厚。\n\n### 3｜多不移位\n\n- 病变较轻；\n- COPD、哮喘；\n- 大叶性肺炎实变；\n- 肺泡性肺水肿。\n\n> 明显纵隔移位意味着液体量较大，此时胸膜两层已分开，因此通常不与胸膜摩擦音共存。\n\n---",
+        "after": "### 1｜向健侧\n\n- 大量胸腔积液；\n- 大量气胸。\n\n### 2｜向患侧\n\n- 慢性纤维空洞型肺结核；\n- 慢性肺脓肿；\n- 慢性脓胸；\n- 肺不张；\n- 明显胸膜粘连 / 增厚。\n\n### 3｜多不移位\n\n- 病变较轻；\n- COPD、哮喘；\n- 大叶性肺炎实变；\n- 肺泡性肺水肿。\n\n> 因大量胸腔积液把纵隔推向健侧时，积液覆盖区域的脏、壁两层胸膜已分开，该区域通常听不到胸膜摩擦音；这不适用于所有原因的纵隔移位。\n\n---"
+      },
+      {
+        "path": "17/detailMarkdown",
+        "before": "- 别称：高压性气胸；\n- 破口：活瓣；\n- 胸膜腔内压：高于大气压；\n- 三类气胸中威胁最大。\n\n```text\n气体只进不出\n→ 胸膜腔压力持续升高\n→ 患肺受压、通气下降\n→ 腔静脉回流↓\n→ 前负荷、SV、CO↓\n→ 心动过速、低血压、休克\n```\n\n还可：\n\n- 纵隔气肿；\n- 皮下气肿；\n- 呼吸循环障碍。\n\n急救：\n\n> **立即胸膜腔穿刺减压 / 抽气。**\n\n（易混：张力性气胸是高压持续向一侧推移，不是开放性气胸的左右纵隔摆动。）\n\n---",
+        "after": "- 别称：高压性气胸；\n- 破口：活瓣；\n- 胸膜腔内压：高于大气压；\n- 三类气胸中威胁最大。\n\n```text\n气体只进不出\n→ 胸膜腔压力持续升高\n├─ 患肺受压、通气下降\n└─ 高压阻碍腔静脉回流\n   → 回心血量、前负荷下降，SV、CO可下降\n   → 可出现心动过速、低血压、休克\n```\n\n还可：\n\n- 纵隔气肿；\n- 皮下气肿；\n- 呼吸循环障碍。\n\n急救：\n\n> **立即胸膜腔穿刺减压 / 抽气。**\n\n（易混：张力性气胸是高压持续向一侧推移，不是开放性气胸的左右纵隔摆动。）\n\n---"
+      }
+    ],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/6",
+        "before": "胸膜摩擦音只在积液少时容易听到，大量积液与明显纵隔移位时通常不共存；",
+        "after": "胸膜摩擦音可出现在仍接触的炎症胸膜区域；大量积液覆盖并分开两层的区域通常减弱 / 消失，不能推成任何纵隔移位或全胸均无摩擦音；"
+      },
+      {
+        "path": "memoryRouting/miG/14",
+        "before": "闭合性：破口闭、胸膜压<大气压；<20%观察，否则穿刺抽气；",
+        "after": "闭合性指破口闭合；压力低于大气压和20%分支是课程概括，不能排除张力。观察 / 抽气还须结合症状、低氧、循环、大小和背景，详见KP16；"
+      },
+      {
+        "path": "memoryRouting/miG/17",
+        "before": "气胸引流：锁骨中线第2肋间；胸水引流：腋中—腋后线第6–7肋间；",
+        "after": "课程气 / 液引流位置分别为锁骨中线第2肋间、腋中—腋后线第6–7肋间；须区分急救针刺与胸管，并结合安全三角 / 超声等定位，详见KP19；"
+      },
+      {
+        "path": "memoryRouting/miG/18",
+        "before": "插管深呼气后屏气；拔管深吸气后屏气；",
+        "after": "插管深呼气后屏气、拔管深吸气后屏气是课程配对；实际呼吸配合与Valsalva等按具体操作，拔管须看完整组合，堵管不等于可拔，详见KP19；"
+      },
+      {
+        "path": "memoryRouting/miG/20",
+        "before": "多根多处肋骨骨折 = 连枷胸 / 胸壁软化，出现反常呼吸；",
+        "after": "多根多处骨折可形成连枷段；影像连枷段与临床反常运动须分开，课程与现有定义带版本，支持取决于肺挫伤、疲劳和呼吸状态，详见KP21；"
+      }
+    ]
+  },
+  "respiratory-r11": {
+    "originalKpRecordsSha256": "d1a3c6411383fd4074ad07f06902c0565e5f3994ba2615c2ba34fbe08e6818df",
+    "originalPreentrySha256": "d70bf5604d2a56c0a27df5ff1f5ae94b3d18408849bf4c277e69cf074b5f37c4",
+    "originalStablePreentrySha256": "154e8bd3135041f200264ef3d52911a421300e0a6552f39da4cc7d2869fc22ae",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [
+      {
+        "path": "16/detailMarkdown",
+        "before": "### 1｜肿块边缘\n\n肺癌结节或肿块可见：\n\n- 分叶；\n- 毛刺；\n- 胸膜凹陷 / 边缘凹凸不平接口。\n\n当前 Lecture 将其与肿瘤内部亚克隆生长不均匀联系。\n\n### 2｜癌性空洞\n\n```text\n肿瘤坏死\n→ 坏死物排出\n→ 空洞形成\n→ 肿块本身分叶 / 毛刺\n→ 空洞壁凹凸不平\n```\n\n### 3｜空洞反向定位\n\n| 疾病 | 当前 Study 入口 |\n|---|---|\n| 吸入性肺脓肿 | 边缘不清浸润影 + 液平 |\n| 支扩 | 薄壁囊腔 |\n| 慢性肺脓肿 | 厚壁空洞 + 脓痰 |\n| 浸润性结核 | 薄壁空洞 |\n| 干酪性肺炎 | 虫蚀样无壁空洞 |\n| 慢性纤维空洞型 TB | 厚壁 + 卫星灶 / 上旧下新 |\n| 肺癌 | 凹凸不平的癌性空洞 |\n| 大叶性肺炎 | 当前 Study 强调无坏死空洞 |\n\n### 4｜倒 S 征\n\n见 KP10：右上叶中央型肺癌 + 肺不张。\n\n---",
+        "after": "### 1｜肿块边缘\n\n肺癌结节或肿块可见：\n\n- 分叶；\n- 毛刺；\n- 胸膜凹陷 / 边缘凹凸不平接口。\n\n当前 Lecture 将其与肿瘤内部亚克隆生长不均匀联系。\n\n### 2｜癌性空洞\n\n```text\n肿瘤坏死 → 坏死物排出 → 空洞形成\n同时考虑：肿块本身已有分叶 / 毛刺等形态\n→ 当前Lecture结合两者解释空洞壁凹凸不平\n```\n\n### 3｜空洞反向定位\n\n| 疾病 | 当前 Study 入口 |\n|---|---|\n| 吸入性肺脓肿 | 边缘不清浸润影 + 液平 |\n| 支扩 | 薄壁囊腔 |\n| 慢性肺脓肿 | 厚壁空洞 + 脓痰 |\n| 浸润性结核 | 薄壁空洞 |\n| 干酪性肺炎 | 虫蚀样无壁空洞 |\n| 慢性纤维空洞型 TB | 厚壁 + 卫星灶 / 上旧下新 |\n| 肺癌 | 凹凸不平的癌性空洞 |\n| 大叶性肺炎 | 当前 Study 强调无坏死空洞 |\n\n### 4｜倒 S 征\n\n见 KP10：右上叶中央型肺癌 + 肺不张。\n\n---"
+      }
+    ],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/13",
+        "before": "低剂量 CT 筛查；支气管镜活检为金标准；PET/CT用于早期灶、转移、分期和疗效；",
+        "after": "低剂量CT用于筛查，异常灶先定位再按可达性取材；支镜活检是课程金标准，周围 / Pancoast等可选经胸壁路径。PET/CT辅助范围 / 分期和疗效，不能以浓聚替代组织确诊，详见KP16 / KP18；"
+      },
+      {
+        "path": "memoryRouting/miG/14",
+        "before": "小细胞癌首选化疗；I、II期 NSCLC首选手术；T4 / N3 / M1当前 Study 不手术；",
+        "after": "小细胞课程以化疗为主，少数极早期手术有条件；I、II期NSCLC可切且耐受者评估手术。T4 / N3 / M1课程快捷口径须与Core条件合读，T4并非一律不可切，晚期还看分子 / 免疫条件，详见KP20；"
+      }
+    ]
+  },
+  "respiratory-r12": {
+    "originalKpRecordsSha256": "6002c00323d818b7918f71ab42d68f19ba4fa3afe765e7ea515e1fdb7db553cb",
+    "originalPreentrySha256": "fdfa10b4e0781f4dc304e2690e82a3b8e96b44adb6b48ceeaefb448d8ff1bfd8",
+    "originalStablePreentrySha256": "c4d82c37bf67dd75b29f4219ac7ed434d68455e37439cb10c3a7a570b519ed00",
+    "originalFrameworkMeta": {
+      "present": false,
+      "ownerPath": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+      "anchor": null,
+      "items": [],
+      "markdown": ""
+    },
+    "kpChanges": [
+      {
+        "path": "17/detailMarkdown",
+        "before": "### 1｜药物\n\n- 急性呼衰：多沙普仑；\n- 慢性呼衰：阿米三嗪。\n\n### 2｜适合\n\n以呼吸中枢抑制为主的通气障碍，例如脑干出血、镇静催眠剂中毒接口。\n\n### 3｜使用前提\n\n```text\n中枢能被兴奋\n+ 传出神经完整\n+ 呼吸肌能收缩\n+ 气道通畅\n```\n\n### 4｜不适合 / 禁慎用\n\n- 换气障碍：兴奋呼吸肌不能修复呼吸膜；\n- 神经传导障碍、呼吸肌完全病变：禁用；\n- 脑缺氧、脑水肿未纠正且频繁抽搐：慎用。\n\n（边界：COPD核心有小气道阻塞，呼吸兴奋剂作用弱且可能增加呼吸功，当前 Study认为机械通气更有效；其过量主要只是加强已经疲劳的呼吸肌运动，**不作为造成碱中毒的典型原因**。）\n\n---",
+        "after": "### 1｜药物\n\n当前 Study 的药物配对，保留为讲义口径，不等于临床通用适应证：\n\n- 急性呼衰：多沙普仑；\n- 慢性呼衰：阿米三嗪。\n\n### 2｜适合\n\n讲义以呼吸中枢抑制为主的通气障碍作为适合的机制类别，并举“脑干出血、镇静催眠剂中毒”为例。该机制分类不能自动转成具体药物适应证；其中“脑干出血”作为原Source例子保留，不能据此判断多沙普仑可用，其具体禁忌见下方Source冲突。\n\n### 3｜使用前提\n\n```text\n中枢能被兴奋\n+ 传出神经完整\n+ 呼吸肌能收缩\n+ 气道通畅\n```\n\n### 4｜不适合 / 禁慎用\n\n以下为讲义对呼吸兴奋剂的分类概括：\n\n- 换气障碍：兴奋呼吸肌不能修复呼吸膜；\n- 神经传导障碍、呼吸肌完全病变：禁用；\n- 脑缺氧、脑水肿未纠正且频繁抽搐：慎用。\n\n> **具体药物边界 / Source冲突**：DailyMed的多沙普仑官方说明书将脑血管事件、脑水肿，以及癫痫或其他惊厥性疾病列为禁忌，不能仅套用上方讲义的“慎用”。因此，中枢抑制的病因示例不能证明多沙普仑适用，尤其不能从“脑干出血”推出可用该药。这是多沙普仑的药物边界，不据此重写整类兴奋剂的适应证。\n>\n> 来源：[DailyMed，DOXAPRAM HYDROCHLORIDE / DOPRAM Injection，CONTRAINDICATIONS](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=954859c0-a121-34d6-e053-2a95a90a1e19)（美国药品标签，页面更新2025-01-08）。原讲义P58的药物配对、脑干出血例子与慎用说法在上文显式保留；此处不扩写剂量或完整ICU用药方案。\n\n（边界：COPD核心有小气道阻塞，呼吸兴奋剂作用弱且可能增加呼吸功，当前 Study认为机械通气更有效；其过量主要只是加强已经疲劳的呼吸肌运动，**不作为造成碱中毒的典型原因**。）\n\n---"
+      }
+    ],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/5",
+        "before": "PaO₂ / FiO₂≤300是当前 Study必要氧合条件；200 / 100分轻中重。",
+        "after": "PaO₂ / FiO₂≤300是课程必要氧合条件，200 / 100分档；Berlin版本还须相应正压、时间、双肺影和水肿来源条件，不能凭比值单独确诊，详见KP08。"
+      },
+      {
+        "path": "memoryRouting/miG/11",
+        "before": "慢性Ⅱ型COPD强调低浓度氧；严重急性哮喘虽是Ⅱ型，不套用同一低氧逻辑。",
+        "after": "慢性COPD高碳酸风险控制给氧并复血气；严重急性哮喘发生通气衰竭时可为Ⅱ型，不能机械套用同一COPD氧疗方案，详见KP17。"
+      }
+    ]
   }
 };
 
@@ -444,6 +1820,22 @@ function a2ProtectedSource(source, blockId) {
 }
 
 export function assertReviewedA2Source(source, blockId, originalCanonicalGitBlob = null) {
+  const additional = a2AdditionalSourceReviews[blockId];
+  if (additional) {
+    if (originalCanonicalGitBlob) assert.equal(originalCanonicalGitBlob, additional.originalCanonicalGitBlob);
+    assert.equal(a2TestSha(source), additional.reviewedCurrentSourceSha256, blockId + ': exact independently reviewed current source');
+    let comparison = source;
+    const ranges = [...additional.reviewedSpans].sort((a, b) => b.start - a.start);
+    for (const [i, range] of ranges.entries()) {
+      assert.ok(range.start >= 0 && range.end > range.start);
+      if (i) assert.ok(range.end <= ranges[i - 1].start, blockId + ': disjoint explicitly reviewed spans');
+      assert.equal(a2TestSha(source.slice(range.start, range.end)), range.sha256, blockId + ': reviewed ' + range.label);
+      comparison = comparison.slice(0, range.start) + range.marker + comparison.slice(range.end);
+    }
+    assert.equal(a2TestSha(comparison), additional.originalProtectedSourceSha256,
+      blockId + ': every original byte outside the exact model and named Core/consistency exceptions');
+    return true;
+  }
   const reviewed = a2ReviewedSources[blockId];
   if (!reviewed) return false;
   if (originalCanonicalGitBlob) assert.equal(originalCanonicalGitBlob, reviewed.originalCanonicalGitBlob);
@@ -477,6 +1869,26 @@ export function a2CuesBeforeOwnerReview(source) {
     assert.notEqual(change.after, change.before);
     historical = a2ReplaceOnce(historical, JSON.stringify(change.after), JSON.stringify(change.before));
   }
+  const coreGroups = new Map();
+  for (const change of a2ReviewedCoreWitnessChanges) {
+    const rows = index.precision_index.filter(row => row.id === change.id);
+    assert.equal(rows.length, 1, change.id + ': same independently admitted identity');
+    const ref = rows[0].prepared_memory_ref.core_refs[change.refIndex];
+    assert.equal(ref.kp_id, change.kpId);
+    assert.equal(ref.kp_core_sha256, change.after, change.id + ': substantively re-reviewed current Core witness');
+    assert.notEqual(change.after, change.before, 'Core exception is not semantic equivalence');
+    const key = JSON.stringify([change.before, change.after]);
+    const group = coreGroups.get(key) || { ...change, count: 0 };
+    group.count += 1;
+    coreGroups.set(key, group);
+  }
+  // KP18 is required by two original R10 admissions. Validate both exact owners
+  // above, then reverse only the expected number of shared fingerprint values.
+  for (const change of coreGroups.values()) {
+    const after = JSON.stringify(change.after);
+    assert.equal(historical.split(after).length - 1, change.count, 'only explicitly reviewed Core references');
+    historical = historical.split(after).join(JSON.stringify(change.before));
+  }
   return historical;
 }
 
@@ -499,7 +1911,7 @@ export function assertPreparedDescriptorAfterModelReview(descriptor, source, ori
       const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
       parent[keys.at(-1)] = change.before;
     }
-    const reviewed = a2ReviewedSources[descriptor.blockId];
+    const reviewed = a2ReviewedSources[descriptor.blockId] || a2AdditionalSourceReviews[descriptor.blockId];
     if (reviewed) {
       assertReviewedA2Source(source, descriptor.blockId);
       comparison.sourceHash = reviewed.originalPackagingSha256;
@@ -516,21 +1928,32 @@ export function assertReviewedA2Preentry(block, current, source) {
   const reviewed = block.systemId === 'respiratory' && a2ReviewedPreentry[block.blockId];
   if (!reviewed) return false;
   assertReviewedA2Source(source, block.blockId);
-  assert.equal(a2TestSha(JSON.stringify(block.kpRecords)), reviewed.originalKpRecordsSha256,
-    block.blockId + ': complete original native KP records');
-  // This existing preentry consumer has no Framework recovery for R2/R3 in
-  // either old or current output. Do not invent a new model-consumption claim.
+  const originalKpComparison = structuredClone(block.kpRecords);
+  for (const change of reviewed.kpChanges || []) {
+    const keys = change.path.split('/');
+    assert.equal(keys.length, 2);
+    assert.equal(keys[1], 'detailMarkdown', 'only the five named Core fields were substantively reviewed');
+    const actual = keys.reduce((owner, key) => owner?.[key], block.kpRecords);
+    assert.equal(actual, change.after, block.blockId + ': exact reviewed Core exception');
+    assert.notEqual(change.after, change.before);
+    originalKpComparison[Number(keys[0])].detailMarkdown = change.before;
+  }
+  assert.equal(a2TestSha(JSON.stringify(originalKpComparison)), reviewed.originalKpRecordsSha256,
+    block.blockId + ': complete original native KP records outside explicit Core exceptions');
+  // This existing preentry consumer has no Framework recovery for these A2
+  // Blocks in old or current output. Canonical model-frame consumption is
+  // verified separately; this comparison does not claim to restore that consumer.
   assert.deepEqual(current.framework, reviewed.originalFrameworkMeta);
   const comparison = structuredClone(current);
   for (const change of reviewed.nonFrameworkChanges) {
     const keys = change.path.split('/');
     const actual = keys.reduce((owner, key) => owner?.[key], current);
-    assert.equal(actual, change.after, block.blockId + ': actual reviewed MI-G14');
+    assert.equal(actual, change.after, block.blockId + ': actual reviewed Memory Routing value');
     const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
     parent[keys.at(-1)] = change.before;
   }
   // Both unrelated original A3 and B raw/preentry baselines were reproduced
-  // from the original 4ad inputs before extracting these unchanged values.
+  // from their original 4ad/09ce inputs before extracting the exact review deltas.
   assert.equal(a2TestSha(JSON.stringify(comparison)), reviewed.originalPreentrySha256);
   assert.equal(a2TestDigest(comparison), reviewed.originalStablePreentrySha256);
   return true;

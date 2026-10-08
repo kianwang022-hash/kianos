@@ -151,12 +151,12 @@ const d8Ambiguous=structuredClone(d8);d8Ambiguous.canonicalBlock.kpRecords.push(
 assert.throws(()=>formatXizongModelFrame(d8Ambiguous),/INLINE_TITLE_PROMPT_NOT_EXACT/);checks++;
 
 let reviewedRespiratoryKps=0;
-for (const [ref,count] of [['r02',16],['r03',21]]) {
+for (const [ref,count] of [['r02',16],['r03',21],['r04',19],['r05',18],['r06',16],['r07',25],['r08',16],['r09',22],['r10',23],['r11',23],['r12',22]]) {
   const current=await inspectXizongContent({systemId:'respiratory',blockRef:ref});
   const source=fs.readFileSync(path.join(repo,current.canonicalBlock.sourcePath),'utf8');
   const authored=source.match(/同一模型上的自然节点〔完整 Prompt〕[^\n]*\n[\s\S]*?```text\n([\s\S]*?)\n```/)?.[1];
   const rendered=formatXizongModelFrame(current);
-  check(Boolean(authored) && rendered.endsWith(authored),`${ref}: current consumer returns the complete authored gas-pathway model`);
+  check(Boolean(authored) && rendered.endsWith(authored),`${ref}: current consumer returns the complete authored respiratory model`);
   const annotations=[...authored.matchAll(/〈([^〈〉\n]*?〔[^〔〕\n]+〕)〉/g)].map(m=>m[1]);
   const expected=current.canonicalBlock.kpRecords.map(k=>k.title+'〔'+k.prompt+'〕');
   check(expected.length===count && annotations.length===count && expected.every(text=>annotations.filter(a=>a===text).length===1),`${ref}: original full titles and Prompts remain attached to authored nodes`);
@@ -165,7 +165,7 @@ for (const [ref,count] of [['r02',16],['r03',21]]) {
   assert.throws(()=>formatXizongModelFrame(wrong),/XIZONG_MODEL_FRAME_/);checks++;
   reviewedRespiratoryKps+=expected.length;
 }
-check(reviewedRespiratoryKps===37,'both reviewed A2 models retain all 37 canonical KPs');
+check(reviewedRespiratoryKps===221,'R2–R12 models retain all 221 canonical KPs; R1 separately retains its original 15');
 const r2Cli=spawnSync(process.execPath,[cli,'respiratory','r02','--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
 check(r2Cli.status===0 && r2Cli.stdout.includes('肺泡通气VA持续更新肺泡气，肺血流Q同时带来静脉血'),'actual R2 model CLI preserves the parallel entry without a browser');
 
@@ -216,6 +216,8 @@ check(a1Route.includes('current canonical/support owners controlling facts and c
 const r1Route = learningRoute.split('### Accepted A2 Respiratory teaching basis')[1]?.split('### Accepted A3 Urinary teaching basis')[0] || '';
 check(r1Route.includes('respiratory-r01') && r1Route.includes('canonical R1 Block §1A') && r1Route.includes('preparatory reading order'), 'normal R1 learning consumes one canonical causal model, not an independently ordered KP tree');
 check(r1Route.includes('respiratory-r02 and respiratory-r03') && r1Route.includes('R2 canonical Block') && r1Route.includes('R3 canonical Block') && r1Route.includes('same model for first teaching and compressed review'), 'normal R2/R3 teaching and review select their current canonical models');
+check(r1Route.includes('respiratory-r04 through respiratory-r12') && r1Route.includes('canonical A2 Block') && r1Route.includes('for both first teaching and compressed review'), 'normal R4–R12 teaching and review select the same current canonical model');
+check(r1Route.includes('matching nodes under current canonical/Core and Source conditions') && r1Route.includes('do not change independent Memory admission'), 'retained explanations and corrected Learning wording preserve current fact ownership and independent admission');
 const entryRoute = learningRoute.split('## Chat-led Block reading entry')[1]?.split('## Teaching basis resolution')[0] || '';
 check(entryRoute.includes('§0, §4') && entryRoute.includes('§5 and §13') && entryRoute.includes('Lecture Replacement Contract'), 'normal entry restores the existing teaching/interaction rules');
 check(!/node\s+.*inspect-xizong-content/.test(learningRoute), 'normal entry has no executable inspection prerequisite');
@@ -230,4 +232,4 @@ const routerLinks = [...learningRoute.matchAll(/\]\(([^)]+)\)/g)].map(m => m[1])
 check(routerLinks.every(url => fs.existsSync(path.resolve(repo, 'content/xizong/knowledge/learner', decodeURI(url.split('#')[0])))), 'every local content-routing target exists');
 
 check(status()===before,'inspection did not mutate repository');
-console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R3; exact models and negative identity/scope cases, no browser/learner-state writes.`);
+console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1–R12; exact models and negative identity/scope cases, no browser/learner-state writes.`);

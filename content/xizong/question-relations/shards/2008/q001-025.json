@@ -119,12 +119,16 @@
       "question_truth_path": "content/xizong/questions/shards/2008/q001-025.json",
       "question_truth_blob_sha": "158fef6caa27feea30d1582f0d5ace88a0ced0da",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53"
+      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53",
+      "knowledge_revalidated_blob_sha": "335ed66dd2ba02d79d03ce2a894e3350a4289d18"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "R1 KP12 explicitly owns surfactant lowering alveolar surface tension and stabilizing alveoli; deficiency raises recoil and lowers compliance.",
-      "old_mapping_inherited": false
+      "basis": "正式答案B。原KP12明给表活↓时表面张力/肺弹性负担↑、静态顺应性↓，supporting KP11对照肺气肿弹性破坏时静态顺应性↑；气道/惯性阻力是动态成分，不能当作静态顺应性下降的同义词。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 52451919e516a2099e273a27ee10f54417b2bb53 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -145,9 +149,9 @@
       "semantic_owner": "Chat",
       "basis": "R1 KP01 explicitly identifies functional residual capacity at end-tidal expiration as the alveolar gas buffer that limits breath-to-breath PO2/PCO2 fluctuation.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP01的FRC为平静呼气末气体缓冲池，完整段落说明降低PO₂/PCO₂逐呼吸波动；Prompt保留容量定义及生理意义。"
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 335ed66dd2ba02d79d03ce2a894e3350a4289d18 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式答案B。原KP01完整说明FRC为平静呼气末保留的肺泡气缓冲池，限制逐次PO₂/PCO₂波动；原effective Core及identity/title精确连续。"
     }
   },
   {

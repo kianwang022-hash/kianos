@@ -169,12 +169,16 @@
       "question_truth_path": "content/xizong/questions/shards/2012/q001-025.json",
       "question_truth_blob_sha": "43b9b3e38fb749d14e015751f1d2c5ccbf89ded3",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53"
+      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53",
+      "knowledge_revalidated_blob_sha": "335ed66dd2ba02d79d03ce2a894e3350a4289d18"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Final unified owner review: Current Block respiratory-r01 is the smallest safe owner for '用分钟通气量计算肺泡通气与通气/血流比'. Block-level relation retained rather than guessing a narrower KP.",
-      "old_mapping_inherited": false
+      "basis": "正式答案D。Current KP04直接给VE=VT×f及VA=(VT−VD)×f；由题设VE7000/f20得VT350，再得VA=(350−100)×20=5000 mL/min，按题给每分心输出量5000作肺血流分母，通气/血流比为1.0。原Block-level拥有必要的扣无效腔计算步骤，未改挂R2。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 52451919e516a2099e273a27ee10f54417b2bb53 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

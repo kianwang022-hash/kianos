@@ -53,13 +53,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q126-150.json",
       "question_truth_blob_sha": "43a57570edb31c187590a8e438d6f9f970c2b2c9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f"
+      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f",
+      "knowledge_revalidated_blob_sha": "bf06a1af5abe2f786a5d6472284c8a0c1884b3f4"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current R11 explicitly pairs lung adenocarcinoma with the EGFR-mutation targeted-therapy interface; Block-level is used because this frozen owner has no stable embedded KP markers."
+      "basis": "正式A为腺癌。当前KP03/18明确腺癌与EGFR突变关联，KP19说明有靶点再选相应药；原Block关系仍可保留。新basis不再沿用旧basis“无稳定embedded KP markers”的过时理由，也不自动把原Block缩成Primary。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness a0a2ee65d44057dddb3207b461025ec480afa48f was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -72,13 +76,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q126-150.json",
       "question_truth_blob_sha": "43a57570edb31c187590a8e438d6f9f970c2b2c9",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f"
+      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f",
+      "knowledge_revalidated_blob_sha": "bf06a1af5abe2f786a5d6472284c8a0c1884b3f4"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current R11 explicitly records the verified 2026 N129 single-choice closure: for “most common lung-cancer type causing carcinoid syndrome,” answer C small-cell carcinoma, while preserving the broader lecture pairing."
+      "basis": "正式C为小细胞癌。当前KP15已有同question_id、同题干及C的已核2026单选裁决，且明确只适用于本题与选项。保留原Block以及讲义小细胞+腺癌一般配对、类癌/NET临床边界，不外推所有NET的流行病学排序。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness a0a2ee65d44057dddb3207b461025ec480afa48f was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

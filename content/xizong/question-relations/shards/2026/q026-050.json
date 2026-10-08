@@ -216,13 +216,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q026-050.json",
       "question_truth_blob_sha": "2e61e04212d2602ca14d766f45652ed5e173412a",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f"
+      "knowledge_blob_sha": "a0a2ee65d44057dddb3207b461025ec480afa48f",
+      "knowledge_revalidated_blob_sha": "bf06a1af5abe2f786a5d6472284c8a0c1884b3f4"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current R11 explicitly freezes the Study-version TNM axes: T1 <=3 cm and N3 for supraclavicular/anterior-scalene or contralateral regional nodes; Block-level safely covers T1N3M0 with a version boundary."
+      "basis": "正式C为T1N3M0。KP21课程直径≤3cm给2cm的T1，KP22将锁骨上区域结节归N3，题明无远转为M0；取最高N而非因同侧肺门降至N1。保持原Block及版本范围，不混入未问的N2a/b等细分。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness a0a2ee65d44057dddb3207b461025ec480afa48f was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -235,13 +239,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q026-050.json",
       "question_truth_blob_sha": "2e61e04212d2602ca14d766f45652ed5e173412a",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block4_支气管哮喘_可逆性气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "6f500d34257a5b5087d8a853334174f424744e43"
+      "knowledge_blob_sha": "6f500d34257a5b5087d8a853334174f424744e43",
+      "knowledge_revalidated_blob_sha": "577895fb353f85946e4c6a0adee9e57244432068"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current R4 jointly owns critical-attack recognition, bronchodilation/systemic glucocorticoid treatment and escalation to mechanical ventilation, while biologics are a control-therapy interface rather than immediate rescue."
+      "basis": "正式答案D。意识模糊、呼吸音下降和pH7.10/PaCO₂95符合危急通气失败；KP15/16支持急性支扩、抗炎、通气评估，KP10将生物制剂置长期控制接口而非立即救急，原Block-level仍充分。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 6f500d34257a5b5087d8a853334174f424744e43 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

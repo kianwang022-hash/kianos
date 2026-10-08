@@ -130,12 +130,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q051-075.json",
       "question_truth_blob_sha": "f2bac2ff9afb53dd9970beaa2c0d302d027d4809",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434"
+      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434",
+      "knowledge_revalidated_blob_sha": "927ca550ece5649a9f5c6fae6673677c53afd846"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R9 KP19 pulmonary-embolism imaging identity: V/Q scanning shows preserved ventilation with regional perfusion defects/mismatch and is particularly useful when CTPA is unsuitable or distal embolism is suspected.",
-      "old_mapping_inherited": false
+      "basis": "正式D肺栓塞对应KP19核素V/Q显像观察仍有通气而灌注缺损的失配。历史对MRPA风险、V/Q选择和DSA传统金标准补足不改变该检查用途，仍保留原Primary；不把V/Q失配脱离临床概率独立确诊。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 014de94962d5cf0fcb4673833c1274c700231434 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -149,12 +153,16 @@
       "question_truth_path": "content/xizong/questions/shards/2007/q051-075.json",
       "question_truth_blob_sha": "f2bac2ff9afb53dd9970beaa2c0d302d027d4809",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "1ee9493c5ececba72bbf59dc76c7ddf781785eaf"
+      "knowledge_blob_sha": "1ee9493c5ececba72bbf59dc76c7ddf781785eaf",
+      "knowledge_revalidated_blob_sha": "56f312009dd91235fc59e888b53ba9b98ffd0c58"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact blood-gas pattern is chronic ventilatory failure with hypercapnia; R12 KP16 owns type-I versus type-II respiratory failure and chest-wall hypoventilation routing.",
-      "old_mapping_inherited": false
+      "basis": "正式A为脊柱后侧凸。KP16把胸廓畸形列慢性通气衰竭，把异物、重症哮喘和脑干出血列急性代表；题中CO2潴留伴HCO3增高/pH可近正常更符合长期过程。保留原Primary，室内空气阈值新边界不改变急慢性机制辨别。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 1ee9493c5ececba72bbf59dc76c7ddf781785eaf was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -188,15 +196,15 @@
       "question_truth_blob_sha": "f2bac2ff9afb53dd9970beaa2c0d302d027d4809",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "1ee9493c5ececba72bbf59dc76c7ddf781785eaf",
-      "knowledge_revalidated_blob_sha": "ca1a1b8dc2c94f19adbc17ec8d9de3271fcecdc8"
+      "knowledge_revalidated_blob_sha": "56f312009dd91235fc59e888b53ba9b98ffd0c58"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Exact question asks the consequence of type-II pneumocyte injury and surfactant loss in ARDS; R12 KP05 explicitly owns surfactant loss to alveolar collapse/atelectasis.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP05完整保留II型损伤→表活减少→张力增加→肺泡萎陷/不张；Prompt仍显式含不张链，A未改变。"
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness ca1a1b8dc2c94f19adbc17ec8d9de3271fcecdc8 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式A为肺不张、肺泡萎陷。KP05的II型细胞损伤→表活↓→张力↑→萎陷/不张与正式问题完全同向；原effective scoped Core/identity精确不变。"
     }
   },
   {

@@ -10,16 +10,16 @@
       "question_truth_blob_sha": "41b712d4a36f59f006f6f0e6c92c7b5925fb0cee",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434",
-      "knowledge_revalidated_blob_sha": "746e7fed7e2dd3a42950392c69843574fa24c363"
+      "knowledge_revalidated_blob_sha": "927ca550ece5649a9f5c6fae6673677c53afd846"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
       "basis": "Independent solve: long-bone fracture followed by three weeks of bed rest creates venous stasis/DVT risk; mobilization can dislodge thrombus into the pulmonary circulation. R9 KP15 explicitly owns DVT→PTE sources and risk factors.",
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP15骨折/制动→静脉淤滞/DVT→右心→肺动脉的完整链及风险Prompt保持；三周卧床的血栓轴不因其他PTE治疗条件变化改变。"
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 746e7fed7e2dd3a42950392c69843574fa24c363 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式D血栓栓塞由KP15长骨骨折/长期制动致DVT，再脱落入肺循环的完整来源路径支持；3周卧床与起立时间线不等于即时脂肪栓塞，也不支持气体栓塞。原scope精确连续。"
     },
     "primary_kp_id": "respiratory-r09-kp15"
   },
@@ -200,13 +200,17 @@
       "question_truth_path": "content/xizong/questions/shards/2019/q126-150.json",
       "question_truth_blob_sha": "41b712d4a36f59f006f6f0e6c92c7b5925fb0cee",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53"
+      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53",
+      "knowledge_revalidated_blob_sha": "335ed66dd2ba02d79d03ce2a894e3350a4289d18"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: pulmonary surfactant lowers surface tension, reduces inspiratory work, prevents alveolar collapse/edema tendency and stabilizes alveolar pressure/volume; it does not prevent emphysema. R1 KP12 explicitly owns all tested distinctions."
+      "basis": "正式答案ACD。Current原KP12明确防液体进入肺泡、吸气省力和稳定压力容积，并明确不能防肺气肿弹性破坏；原Primary拥有全部选项分界，呼气总负担的历史校准无关。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 52451919e516a2099e273a27ee10f54417b2bb53 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r01-kp12"
   },
