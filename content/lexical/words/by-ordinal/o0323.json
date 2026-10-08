@@ -6,17 +6,7 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:attack:handoff-929dcdbb7ae53162",
-        "pattern": "attack a policy/argument; an attack of illness",
-        "meaning_cn": "猛烈批评政策/论点；疾病突然发作",
-        "definition_en": "direct hostile criticism at something or a sudden episode of illness",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "constructions": [],
     "content_hash": "7a5800c1830c883871eaec5e2805cbeabfe1478ca3fa4379109952f425c94982",
     "core_concept": {
       "core_clusters": [
@@ -112,8 +102,8 @@
             "legacy_source_object_ids": [
               "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
             ],
-            "meaning_cn": "对政策/论点的猛烈抨击",
-            "phrase": "an attack on a policy/argument"
+            "meaning_cn": "对某人/某物的攻击或抨击，如 an attack on a policy",
+            "phrase": "an attack on + sb/sth"
           }
         ],
         "confidence": "medium",
@@ -132,7 +122,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:62adec0520eb9a74055f",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
             ],
@@ -404,7 +394,6 @@
     ],
     "active_collocations": [
       "collocation:1cf4fe93933224737058",
-      "collocation:62adec0520eb9a74055f",
       "collocation:8407ce4a60b672318b09",
       "collocation:bc298c867d85820a9970",
       "collocation:e691aee1f9df6fcf7c41"
@@ -418,9 +407,9 @@
       {
         "id": "construction:attack:handoff-929dcdbb7ae53162",
         "target_kind": "construction",
-        "status": "reference",
+        "status": "deprecated",
         "merged_into_id": null,
-        "reason": "Reviewed duplicate juxtaposition of existing Sense/collocation jobs; payload retained in Lookup, no separate default task."
+        "reason": "Combining criticism and illness into a two-sense label duplicates active senses and their current examples; retain attack-on and attack-of-illness in place."
       }
     ],
     "collocations": [
@@ -432,7 +421,10 @@
       {
         "id": "collocation:62adec0520eb9a74055f",
         "source_row": 21219,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Policy/argument are example objects of the existing strongly-criticize meaning; the distinct attack-on noun frame remains."
       },
       {
         "id": "collocation:8407ce4a60b672318b09",

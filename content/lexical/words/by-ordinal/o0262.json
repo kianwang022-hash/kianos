@@ -10,10 +10,10 @@
     "content_hash": "9e1c1fa27b049bab5116c4c2224a0a090afa657eb2069ec586526efb5cad24c3",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "论据；争论；参数",
-      "core_meaning_en": "a reason or set of reasons given to support an idea; a disagreement; a parameter in computing",
-      "mental_model_cn": "论据；争论；参数",
-      "mental_model_en": ""
+      "core_meaning_cn": "论据、理由；争论、争吵",
+      "core_meaning_en": "reasons supporting a position, or a disagreement",
+      "mental_model_cn": "论据、理由；争论、争吵",
+      "mental_model_en": "Distinguish reasons supporting a claim from a quarrel or disagreement."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -91,30 +91,6 @@
         "sense_id": "sense:argument:00810c2f7e045947",
         "sense_label_en": "a disagreement or quarrel in which people express different opinions",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:beadb92d5d7c9f570857",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:argument:ff4bff78349e5cfb:collocation:0"
-            ],
-            "meaning_cn": "向函数传递参数",
-            "phrase": "pass an argument to + a function"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "参数，自变量",
-        "definition_en": "a value or reference passed to a function or program in computing",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:argument:ff4bff78349e5cfb",
-        "sense_label_en": "a value or reference passed to a function or program in computing",
-        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -311,6 +287,34 @@
       "source_row": 661,
       "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:beadb92d5d7c9f570857",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:argument:ff4bff78349e5cfb:collocation:0"
+          ],
+          "meaning_cn": "向函数传递参数",
+          "phrase": "pass an argument to + a function"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "参数，自变量",
+      "definition_en": "a value or reference passed to a function or program in computing",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:argument:ff4bff78349e5cfb",
+      "sense_label_en": "a value or reference passed to a function or program in computing",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:argument:ff4bff78349e5cfb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -338,7 +342,7 @@
       },
       {
         "sense_id": "sense:argument:ff4bff78349e5cfb",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 663,
         "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
@@ -348,7 +352,6 @@
       "collocation:93ea40f60854259e2282",
       "collocation:9e415bcd94a10c7f38d4",
       "collocation:9f6cb4389cd34dcb95b8",
-      "collocation:beadb92d5d7c9f570857",
       "collocation:e18e22cd1f599ea0e1cd"
     ],
     "facts": [
@@ -377,7 +380,10 @@
       {
         "id": "collocation:beadb92d5d7c9f570857",
         "source_row": 16134,
-        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Function-call parameter is true programming terminology, but no current examination/general-press need justifies requiring it independently here. Preserve the complete definition/example in Lookup; argumentative reasoning and disagreement remain active."
       },
       {
         "id": "collocation:d1ab80f8d7cb12bda8c3",

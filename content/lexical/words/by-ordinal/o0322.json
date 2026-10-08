@@ -43,7 +43,12 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:d4e5a28abe2611681d40",
+          "reason": "The attach-object-to-object frame is already present once as a selected collocation."
+        }
       },
       {
         "construction_id": "construction:attach:baseline-v2-importance-value-to",
@@ -52,7 +57,12 @@
         "definition_en": "regard something as having importance, value, or significance",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:98aa6b15b3dbef7bcd4e",
+          "reason": "Use one full retained abstract-importance/value/significance frame."
+        }
       }
     ],
     "content_hash": "6b1b3992483491c823ed1a83b788436c1a7313ef47c03bcf11fb6413bf89fabd",
@@ -122,12 +132,12 @@
             "legacy_source_object_ids": [
               "sense:attach:5987f86e8f15547b:collocation:0"
             ],
-            "meaning_cn": "重视某事",
-            "phrase": "attach importance to + sth"
+            "meaning_cn": "重视某事；认为某事有重要性、价值或意义",
+            "phrase": "attach importance/value/significance to + sth"
           },
           {
             "collocation_id": "collocation:e82f4155f8dcf874e0e3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:attach:5987f86e8f15547b:collocation:1"
             ],
@@ -155,19 +165,19 @@
             "legacy_source_object_ids": [
               "sense:attach:bfe9d4ecb7fc5957:collocation:0"
             ],
-            "meaning_cn": "依恋某人",
-            "phrase": "be attached to + sb"
+            "meaning_cn": "依恋某人或某物",
+            "phrase": "be attached to + sb/sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "使依恋，使喜爱",
-        "definition_en": "to cause to be fond of or devoted to someone",
-        "governing_pattern": "vt. + object + to + sb",
+        "definition_en": "to make someone feel fond of or devoted to a person or thing",
+        "governing_pattern": "attach sb to sb/sth; commonly be/become attached to sb/sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:attach:bfe9d4ecb7fc5957",
-        "sense_label_en": "to cause to be fond of or devoted to someone",
+        "sense_label_en": "to make someone feel fond of or devoted to a person or thing",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -485,8 +495,7 @@
       "collocation:656edcf4315f74f49692",
       "collocation:93b0ecbf704b03d7abea",
       "collocation:98aa6b15b3dbef7bcd4e",
-      "collocation:d4e5a28abe2611681d40",
-      "collocation:e82f4155f8dcf874e0e3"
+      "collocation:d4e5a28abe2611681d40"
     ],
     "facts": [
       {
@@ -512,7 +521,17 @@
       {
         "id": "deep:constructions:attach:e4313a1067f27853",
         "source_row": 134,
-        "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The attach-object-to-object frame is already present once as a selected collocation."
+      },
+      {
+        "id": "construction:attach:baseline-v2-importance-value-to",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Use one full retained abstract-importance/value/significance frame."
       }
     ],
     "collocations": [
@@ -544,7 +563,10 @@
       {
         "id": "collocation:e82f4155f8dcf874e0e3",
         "source_row": 19673,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Importance/value/significance are preserved in one complete retained attach-X-to-Y frame."
       }
     ],
     "exam-mappings": [],

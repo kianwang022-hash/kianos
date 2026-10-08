@@ -12,7 +12,12 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "引起/提醒人们注意…",
-        "pattern": "draw/call attention to sth"
+        "pattern": "draw/call attention to sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:9b97dda1887059ad4162",
+          "reason": "Retain one full draw/call-attention-to target rather than two overlapping entries."
+        }
       }
     ],
     "content_hash": "a445ba435e47601b5126e6ab35b7e4d1ba30b88617017179b68a3d36e14f5da8",
@@ -71,8 +76,8 @@
             "legacy_source_object_ids": [
               "sense:attention:63ce18651dcb5d4c:collocation:1"
             ],
-            "meaning_cn": "引起注意",
-            "phrase": "draw attention"
+            "meaning_cn": "引起或提醒人们注意某事",
+            "phrase": "draw/call attention to + sth"
           }
         ],
         "confidence": "medium",
@@ -115,12 +120,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:2bfc1f18505ef1844ac9",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:attention:1d822b952e285f5f:collocation:0"
             ],
-            "meaning_cn": "对某人表示关怀",
-            "phrase": "show attention to sb"
+            "meaning_cn": "不受欢迎的殷勤或示好",
+            "phrase": "unwanted attentions"
           }
         ],
         "confidence": "medium",
@@ -455,7 +460,6 @@
     ],
     "active_collocations": [
       "collocation:23ca455091f8bc2a22d0",
-      "collocation:2bfc1f18505ef1844ac9",
       "collocation:3a966ae842713eb13c87",
       "collocation:3ed2b18bd19e7bd10c4e",
       "collocation:50655eff1cbdd03c9bda",
@@ -467,6 +471,13 @@
         "id": "deep:constructions:attention:87d709fb8552dda2",
         "source_row": 137,
         "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json"
+      },
+      {
+        "id": "construction:66ea75dbb9d0360ae9b0",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Retain one full draw/call-attention-to target rather than two overlapping entries."
       }
     ],
     "collocations": [
@@ -478,7 +489,10 @@
       {
         "id": "collocation:2bfc1f18505ef1844ac9",
         "source_row": 3730,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The affection/attentions sense is retained with a matching plural example, not an additional generic show-attention fixed pattern."
       },
       {
         "id": "collocation:50655eff1cbdd03c9bda",
