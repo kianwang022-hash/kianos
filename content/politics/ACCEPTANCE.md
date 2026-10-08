@@ -62,7 +62,9 @@ Only this receipt, the Maturity summary and the existing test changed. No chapte
 
 ## 2026-10-07 source-first policy and self-selected Memory — bounded repair
 
-Learning §2 / §6.1 now own Chengfeng-led detailed study, source-faithful compression and Leg-informed retention necessity. Interaction, Content Semantics/Hierarchy, manifest, shared System reference, Maturity and Dot entry consume those owners. The prior teacher package remains support; its C inventories and source-review hashes are not a new must-memorize syllabus. The exact named Leg title/edition still needs resolution before claiming a newly filtered baseline; no chapter or card answer was regenerated in this repair.
+> **Supersession note (2026-10-08):** the statements in this dated receipt about an unresolved Leg title and cards not yet being re-filtered describe the state on 2026-10-07. Current Source now binds **2027 腿姐《冲刺背诵手册》上册 / 下册**. Marxism C00–C08 has since completed current-year retention review and old-card role reconciliation; see [Marxism Current](learning/marxism/CURRENT.md). This does not imply the same subject-level review has been completed for the other Politics subjects.
+
+Learning §2 / §6.1 now own Chengfeng-led detailed study, source-faithful compression and Leg-informed retention necessity. Interaction, Content Semantics/Hierarchy, manifest, shared System reference, Maturity and Dot entry consume those owners. The prior teacher package remains support; its C inventories and source-review hashes are not a new must-memorize syllabus. **At the time of this 2026-10-07 receipt**, the exact named Leg title/edition still needed resolution before claiming a newly filtered baseline; no chapter or card answer was regenerated in that repair.
 
 The existing `validate-politics-repair-memory.mjs` passed its routing/consumer checks and added source-first policy regressions plus manual-practice evidence tests. History-profile and Chat-return regressions passed unchanged. Source-reviewed cards retain their IDs, answers and pending-source exclusion. Voluntary practice uses the existing Recall evidence field with a `manual:` batch identity, never an invented day plan, and does not complete/overwrite a planned attempt.
 
@@ -72,7 +74,7 @@ The existing `validate-politics-repair-memory.mjs` passed its routing/consumer c
 
 Politics Runtime QA, Functional First Journey, Xi/Ethics acceptance, maturity, private control and authority checks passed. Two unrelated Xizong checks still reported `wrong_auto_flips_to_back`; the identical failure was confirmed on pre-PR main runs 37571161905 / 37607921414. The failing Xizong code/tests were untouched and not weakened; exact CI reconciliation is recorded in #1249. This receipt does not call all-repository CI green.
 
-**Boundary:** this proves the named source-first rule/entry repair and self-selected practice path. It does not prove Leg necessity of every existing card, a regenerated course's quality, real learning or mastery. Existing cards have not been re-filtered against the unresolved named Leg source. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
+**Boundary:** this proves the named source-first rule/entry repair and self-selected practice path. It does not prove Leg necessity of every existing card, a regenerated course's quality, real learning or mastery. **At that receipt's cutoff**, existing cards had not yet been re-filtered against the then-unresolved named Leg source; later subject-local reviews must be read from their current owners rather than inferred from this historical receipt. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
 
 ## Permanent boundaries
 

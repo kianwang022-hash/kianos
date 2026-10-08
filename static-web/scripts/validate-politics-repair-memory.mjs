@@ -417,6 +417,10 @@ try {
  const learning = readRule('content/politics/LEARNING_CONTRACT.md');
  const interaction = readRule('content/politics/INTERACTION_CONTRACT.md');
  const semantics = readRule('content/politics/CONTENT_SEMANTICS_CONTRACT.md');
+ const politicsCurrent = readRule('content/politics/CURRENT.md');
+ const politicsAcceptance = readRule('content/politics/ACCEPTANCE.md');
+ const marxC01Brief = readRule('content/politics/learning/marxism/teaching-candidate/ch01.brief.md');
+ const learningManifest = JSON.parse(readRule('content/politics/learning/manifest.json'));
  const system = readRule('SYSTEM_CONTRACT.md');
  const { politicsNavigation } = await import('../src/lib/sharedNavigation.mjs');
  assert.deepEqual(politicsNavigation().filter(row=>row.matchPath.test('politics/memory/')).map(row=>row.key),['review'],'Memory is a review route, not a lesson');
@@ -427,6 +431,13 @@ try {
  assert.ok(learning.includes('recognition') && learning.includes('complete membership') && learning.includes('genuinely required fixed wording'));
  assert.ok(learning.includes('optional practice/reference') && learning.includes('No mass deletion'));
  assert.ok(learning.includes('Content is the finished learning product') && learning.includes('residual Precision / Memory'));
+ assert.equal(learningManifest.source_roles?.leg27?.role,'DESIGNATED_RETENTION_SOURCE','manifest must expose the current designated Leg27 retention role');
+ assert.ok(learning.includes('not ingested or used in the completed Marxism C00–C08 retention pass'),'self-test book must not silently become a Marxism source');
+ assert.ok(learning.includes('Website Memory workspace is a practice container'),'fresh Chat must distinguish residual Memory semantics from the learner-facing practice container');
+ assert.ok(semantics.includes('practice view may project both model-bound active-retrieval objects and residual fragments'),'consumer projection must not reclassify model-bound prompts as residual Memory');
+ assert.ok(!politicsCurrent.includes('A future retention-baseline task must resolve the exact designated Leg source'),'parent Current must not reopen the already bound Leg27 source');
+ assert.ok(politicsAcceptance.includes('Supersession note (2026-10-08)'),'historical 2026-10-07 unresolved-Leg receipt must be visibly superseded');
+ assert.ok(!marxC01Brief.includes('不能称作腿姐筛选完成') && !marxC01Brief.includes('若后续对旧22组逐项核对后'),'C01 brief must not retain pre-reconciliation status language');
  for (const rule of [learning, interaction, system]) {
   assert.ok(!/Chat is the single continuous teaching mainline|Chat remains the single continuous teaching mainline|Politics continuous teaching is Chat-primary/.test(rule));
  }
