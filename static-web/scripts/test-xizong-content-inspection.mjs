@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { inspectXizongContent, formatXizongInspection, assertContentIdentity, assertInspectionSupportCoverage } from './inspect-xizong-content.mjs';
+import { inspectXizongContent, formatXizongInspection, formatXizongModelFrame, assertContentIdentity, assertInspectionSupportCoverage } from './inspect-xizong-content.mjs';
 
 const repo = process.env.KIANOS_REPO_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const status = () => execFileSync('git',['-C',repo,'status','--porcelain'],{encoding:'utf8'});
@@ -11,6 +11,15 @@ const before = status();
 let checks = 0;
 const check = (ok,label) => { assert.ok(ok,label); checks++; };
 const b1 = await inspectXizongContent({systemId:'circulation',blockRef:'b01'});
+const modelB1 = formatXizongModelFrame(b1);
+check(modelB1.includes('主路：①充盈／周期 → ②SV／CO → ③动脉储器／阻力 → ④微循环交换 → ⑤静脉回收与再次充盈。'),'model frame retains native flow');
+check(modelB1.includes('并行供养：③主动脉分出冠脉 → ⑥供养心肌 → 维持下一搏。'),'model frame retains coronary branch');
+check(b1.canonicalBlock.kpRecords.every(k => modelB1.includes(k.title+'〔'+k.prompt+'〕')),'model frame shows all 32 original full titles/Prompts in their pre-existing direct or side-reference positions');
+check(!modelB1.includes('kianos:model') && !modelB1.includes('{{kp:'),'model frame strips internal token syntax');
+check(formatXizongModelFrame(b1)===modelB1,'model frame is deterministic for identical canonical inputs');
+const tamperedB1=structuredClone(b1);
+tamperedB1.canonicalBlock.kpRecords[0].prompt+=' corrupted';
+assert.throws(()=>formatXizongModelFrame(tamperedB1),/XIZONG_MODEL_FRAME_/);checks++;
 check(b1.summary.kpCount===32 && b1.summary.logicGroupCount===7,'native B1 topology');
 check(b1.trace.length===32,'whole Block inspection');
 check(b1.summary.medicalVisualKpCount===6 && b1.summary.medicalVisualGroupCount===3,'KP and LG MedicalVisual both retained');
@@ -58,11 +67,23 @@ check(b.trace.length===b.canonicalBlock.kpRecords.length,'not a circulation-spec
 const cli=fileURLToPath(new URL('./inspect-xizong-content.mjs',import.meta.url));
 const run=spawnSync(process.execPath,[cli,'circulation','b01','circulation-b01-kp24','--json'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
 check(run.status===0 && JSON.parse(run.stdout).requestedKpId==='circulation-b01-kp24','CLI works outside repository cwd and /tmp symlink');
+const modelCli=spawnSync(process.execPath,[cli,'circulation','b01','--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
+check(modelCli.status===0 && modelCli.stdout.trim()===modelB1,'content-only model CLI resolves identical Current canonical frame');
 const invalid=spawnSync(process.execPath,[cli,'--unknown'],{encoding:'utf8'});
 check(invalid.status===2,'unknown CLI options fail explicitly');
 // Group/Block supports must be visible in the human inspection, not only
 // buried in learnerObject JSON or accidentally counted as KP-owned records.
 const respiratory=await inspectXizongContent({systemId:'respiratory',blockRef:'r01'});
+const modelR1 = formatXizongModelFrame(respiratory);
+check(respiratory.canonicalBlock.kpRecords.every(k => modelR1.includes(k.title+'〔'+k.prompt+'〕')),'R1 natural model uses exact canonical title and full Prompt, even when model text abbreviated it');
+check(modelR1.includes('空气怎样真正进出肺泡') && modelR1.includes('再跑一遍通气机械电影'),'R1 fixed model relationships remain in original text frame');
+const tamperedR1=structuredClone(respiratory);
+tamperedR1.canonicalBlock.kpRecords[0].prompt='unrelated-unique-invalid';
+assert.throws(()=>formatXizongModelFrame(tamperedR1),/XIZONG_MODEL_FRAME_/);checks++;
+const d8=await inspectXizongContent({systemId:'digestive-metabolic-endocrine-tumor',blockRef:'D8'});
+const modelD8=formatXizongModelFrame(d8);
+check(d8.canonicalBlock.kpRecords.every(k => modelD8.includes(k.title+'〔'+k.prompt+'〕')),'B D8 natural model resolves all exact full Prompts without inferring order');
+check(modelD8.includes('急性危象') && modelD8.includes('慢性高糖把损伤落到器官'),'D8 retains original branches');
 check(Array.isArray(respiratory.logicGroupTrace),'group support trace exists');
 const lg4=respiratory.logicGroupTrace.find(g=>g.identity.logicGroupId==='respiratory-r01-lg04');
 check(lg4.supports.some(s=>s.id==='a2-r01-obstruction-to-r03'&&s.family==='connection'),'R1 reviewed LG relation is inspectable');
