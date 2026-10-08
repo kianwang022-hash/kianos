@@ -49,13 +49,17 @@
       "question_truth_path": "content/xizong/questions/shards/2023/q126-150.json",
       "question_truth_blob_sha": "d5e99870fbcfcd3cd889fbd208ce23d7823bf1e1",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434"
+      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434",
+      "knowledge_revalidated_blob_sha": "927ca550ece5649a9f5c6fae6673677c53afd846"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: acute pulmonary embolism abruptly raises pulmonary vascular resistance and is the classic acute-cor-pulmonale upstream. R9 KP16 explicitly owns the acute-PE hemodynamic model."
+      "basis": "Independent solve: acute pulmonary embolism abruptly raises pulmonary vascular resistance and is the classic acute-cor-pulmonale upstream. R9 KP16 explicitly owns the acute-PE hemodynamic model.",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 014de94962d5cf0fcb4673833c1274c700231434 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式B急性PE是KP16明示急性肺心病典型上游：骤升PVR→急扩右室→左室充盈/输出下降。与选项慢性COPD/IPF及一般肺炎的慢性/不同故障背景区分，原Primary仍直接承接急性病例入口，scope精确连续。"
     },
     "primary_kp_id": "respiratory-r09-kp16"
   },
@@ -71,13 +75,17 @@
       "question_truth_path": "content/xizong/questions/shards/2023/q126-150.json",
       "question_truth_blob_sha": "d5e99870fbcfcd3cd889fbd208ce23d7823bf1e1",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434"
+      "knowledge_blob_sha": "014de94962d5cf0fcb4673833c1274c700231434",
+      "knowledge_revalidated_blob_sha": "927ca550ece5649a9f5c6fae6673677c53afd846"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: COPD is the Current Study's most common chronic-cor-pulmonale upstream. R9 KP02 owns chronic pulmonary-heart-disease causes; KP22 contrasts chronic disease with acute PE."
+      "basis": "正式A COPD为Primary KP02慢性肺病病因中明确最常见者；support KP22仍对照慢性多年肺病和急性PE。KP22改的是血气不必然及再灌注需风险评估，未改变其急慢鉴别支持角色，保留原Primary/support。",
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 014de94962d5cf0fcb4673833c1274c700231434 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r09-kp02"
   },

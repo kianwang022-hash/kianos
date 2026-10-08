@@ -164,12 +164,16 @@
       "question_truth_path": "content/xizong/questions/shards/2006/q001-025.json",
       "question_truth_blob_sha": "a2674da231994ece90e656720fc0238395e290a5",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53"
+      "knowledge_blob_sha": "52451919e516a2099e273a27ee10f54417b2bb53",
+      "knowledge_revalidated_blob_sha": "335ed66dd2ba02d79d03ce2a894e3350a4289d18"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R1 chain: surfactant reduction raises alveolar surface tension and elastic recoil, lowers compliance, increases inspiratory work and makes the lung harder to expand; KP12 owns surfactant/Laplace and KP11 owns the elastic-resistance consequence.",
-      "old_mapping_inherited": false
+      "basis": "正式答案E。原Primary KP12及supporting KP11共同明确表活减少→表面张力/弹性回缩增加→静态顺应性下降、吸气更难；Laplace无表活条件下小肺泡压力更高，排除D的反向描述。历史“呼气阻力”边界变化不取消这条链。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 52451919e516a2099e273a27ee10f54417b2bb53 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

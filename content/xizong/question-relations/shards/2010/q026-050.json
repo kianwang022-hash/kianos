@@ -446,12 +446,16 @@
       "question_truth_path": "content/xizong/questions/shards/2010/q026-050.json",
       "question_truth_blob_sha": "04a96602e4e069558bca4b71d9237a20f034e014",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c"
+      "knowledge_blob_sha": "0528936a44409ad139f85324ae37404f48769a5c",
+      "knowledge_revalidated_blob_sha": "89a7be9e60ccbf11c7b25d3957979ae8b2180c9a"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "R5 is the smallest safe owner for bronchopneumonia/lobular pneumonia spatial pathology; the aspiration etiology routes into that pattern while severe chemical aspiration remains a separate DAD boundary.",
-      "old_mapping_inherited": false
+      "basis": "正式答案A。Current KP07将吸入性背景列入细支气管为中心的化脓性小叶性肺炎，KP01对应支气管肺炎空间；旧Block-level仍有直接病理分类依据。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0528936a44409ad139f85324ae37404f48769a5c was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   }
 ]

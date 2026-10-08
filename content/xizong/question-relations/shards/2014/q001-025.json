@@ -133,15 +133,15 @@
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block4_支气管哮喘_可逆性气流受限_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "6f500d34257a5b5087d8a853334174f424744e43",
-      "knowledge_revalidated_blob_sha": "25e9ccd994b444c44fe505e99d73e0e3280e8f27"
+      "knowledge_revalidated_blob_sha": "577895fb353f85946e4c6a0adee9e57244432068"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Respiratory R4 KP06 explicitly owns obstructive spirometry in asthma with reduced FEV1 and FEV1/FVC. Final integration revalidated against current Question Truth and Current Knowledge owner.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP06仍以FEV₁下降和FEV₁/FVC下降描述哮喘发作阻塞性方向；Prompt保留发作与间歇条件。A的相对流量下降是既有判断，FVC基本不变为题目典型比较而非所有病例通则。"
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 25e9ccd994b444c44fe505e99d73e0e3280e8f27 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式答案A。原KP06仍明给哮喘发作FEV₁预计值与FEV₁/FVC降低的阻塞方向，原effective Core精确连续；保留原basis对题目相对流量下降的判断。"
     }
   },
   {
@@ -178,12 +178,16 @@
       "question_truth_path": "content/xizong/questions/shards/2014/q001-025.json",
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "1ee9493c5ececba72bbf59dc76c7ddf781785eaf"
+      "knowledge_blob_sha": "1ee9493c5ececba72bbf59dc76c7ddf781785eaf",
+      "knowledge_revalidated_blob_sha": "56f312009dd91235fc59e888b53ba9b98ffd0c58"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Respiratory R12 KP17 explicitly owns low-concentration oxygen for chronic COPD-type II respiratory failure, with Current Study <35%. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "basis": "正式D为23%–30%吸氧。题源肺心病慢性高碳酸血症背景与KP17讲义控制氧浓度<35%的方向一致，在选项中D合适。当前更强调SpO2目标和复查血气，不能把此题范围套到所有肺心病或所有II型呼衰。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R01_R04_R12_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 1ee9493c5ececba72bbf59dc76c7ddf781785eaf was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
