@@ -60,6 +60,7 @@ function groupCandidate({ chapter, family, group }) {
     source_refs: [...new Set(sourceRefs)],
     source_role: 'CURRENT_LEARNING_CONTENT',
     admission: 'CANDIDATE_ONLY',
+    handbook_alignment: clean(group?.handbook_alignment, 120) || null,
     checking_criteria: strings(group?.checking_criteria),
     memory_cue: String(group?.memory_cue || '').trim(),
     inspected_refs: strings(group?.inspected_refs),
