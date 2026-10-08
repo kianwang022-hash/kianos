@@ -334,3 +334,12 @@ Integration with actual main8145967ad595a04058ea76894a5a48de88648f33 keeps curre
 The final integrated Candidate uses standard4322 with fully materialized compatible trusted dependencies. Its fresh Chrome context observed original Native APPLIED→same-page first Recall29ms, exact authored prompt/answer/checking and pre-reveal hiding. Real Home panel/copy button exported a complete702516-byte Packet with122 prior fixture events byte-equivalent/current-compatible; clipboard was captured in context memory, production learner/control/relay were not accessed. Guarded first Packet click3712ms; four DOMContentLoaded paths were Memory939ms/Home2016ms/Mao C04 448ms/Xi C17 72ms. These are bounded dev observations, not all-route cold-start or human learning proof. Temporary process watcher failed in the restricted host environment and succeeded at the existing authorized Mac execution boundary; the test locator was corrected to read the real SSR catalog because the native client removes its JSON script after initialization. No product defect or guard relaxation was inferred from those test/environment failures.
 
 This checkpoint authorizes no Source promotion. Original first-round PASS is preserved; main adoption/current-head CI and actual managed Website readback are still separate required steps. Real U/mastery remains untested. Final main/served versions and delivery evidence will be recorded after those steps rather than fabricated here.
+
+
+## 2026-10-08｜C04–C06有界修正与来源缺口
+
+内容保存点：4a202da28e78ee98c4b7d2003b60247ef00751b2（PR #1289候选，未合并）。C04修旧民主主义失败/新文化的假先后、组织恢复题泄露地点及失败教训伪完整计数；C05修民族危机与长征的交叠关系及旧C整表负担；C06直接修压缩主链为“统一战线酝酿推动→1937七七全民族抗战开始、九月正式形成”，同步三处，不能仅靠旁注纠正。原模型其余关系保留，31组content_support完整原始字节不变。作者回放及独立修后窄核通过；不是整科第二轮或真人学习证据。
+
+实际新读：C04/C05/C06现存全部Source original_text_span，blob依次ffc173655b56e56db4ba3f12088e5f141b201be3、993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8、25465dcf7bcebf2eca127839d9f85f644f31ac73；Leg27上册PDF173–192、下册6–11相关段、17–20、23–24、26–28、77–78。C04/C05完整母文旧审读仅按本owner已存版本/范围复用，未新取母文bytes或PDF像素。C06 K13-N05/TBL01确有整风结束、七大路线与三大作风连续文字，补回Core理解/识别，不新增整段默写。
+
+C06完整Source仍PARTIAL：母文路径不可达，PDF41时间图、42–43谈判/合作原文、43–44正面战场续段、44洛川条目、46–47中间条件/皖南/租息生产/K10、48新民主主义理论及图像、50–51投降完整句/抗战精神意义续段仍缺。有限Leg支持不冒充CF全文；未核原图/题键保持未核。具体缺口已在ch06.brief原位置保留，局部修复不等于本章完整收口。无Website/Runtime/私人记录更改。
