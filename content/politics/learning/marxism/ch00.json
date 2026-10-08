@@ -35,7 +35,7 @@
       "理解马克思主义不是一次完成的封闭体系，而是在实践和时代问题中继续发展",
       "最后用基本特征和当代价值回答：为什么今天仍然需要学习马克思主义"
     ],
-    "attention_rule": "不要一上来背人物—著作—年份。先把‘为什么产生—形成了什么—为什么能发展—今天为什么仍有解释力’这条线搭起来。",
+    "attention_rule": "不要一上来背人物—著作—年份。先把‘为什么产生—形成了什么—为什么能发展—今天为什么仍有解释力’这条线搭起来。 首次教学先消费 teaching-candidate/subject-model.md#c00-learner-entry 的最小前提和前章取回，再沿本章原 reconstruction_chain 进入各解释节点；不能只读 source-review 当作首次教学。",
     "next_chapter_bridge": "导论确定了马克思主义这套理论的身份。第一章开始进入它的世界观和方法论基础：世界到底是什么。"
   },
   "unit_projections": [
@@ -756,7 +756,7 @@
       "基本特征说明其理论品格",
       "当代价值说明为什么今天仍需要这套立场、观点和方法"
     ],
-    "review_prompt": "闭卷回答：如果不列人物和著作，能否用‘产生条件—理论体系—持续发展—基本特征—当代价值’解释马克思主义导论在整科中的作用？"
+    "review_prompt": "闭卷回答：如果不列人物和著作，能否用‘产生条件—理论体系—持续发展—基本特征—当代价值’解释马克思主义导论在整科中的作用？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/subject-model.md#c00-learner-close：主模型重建→现行主提示逐节点取回→必要 residual→接收章交接。没有真实回答不能记为掌握。"
   },
   "projection_notes": {
     "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
@@ -1232,7 +1232,7 @@
       "本批14组仅承接已解释并原图核实的准确范围；完整著作表仍可查，但《哲学的贫困》最早发表文本之绝对范围未解决，不获本批准入。",
       "原learning_semantics.precision_objects是章内结构提示，不是旧Memory目录；保留全部原ID和Source支持，实际Memory由本章content_support单一路径承接。书表和年月须相关内容已教，不因概览完成或原题年份标签自动排程。",
       "Source独有/首次等理论比较与著作称谓均保留本课程对象范围，不推成对全部思想史或其他学科的无例外判断。",
-      "LEG27 retention-role overlay applied 2026-10-08 from teaching-candidate/ch00.brief.md source-review: handbook_alignment is Content metadata only; IDs/answers/Recall history remain unchanged and consumer selection is not altered by this field alone."
+      "LEG27 retention-role overlay applied 2026-10-08 from teaching-candidate/subject-model.md#c00-source-review: handbook_alignment is Content metadata only; IDs/answers/Recall history remain unchanged and consumer selection is not altered by this field alone."
     ]
   }
 }
