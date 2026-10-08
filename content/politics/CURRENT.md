@@ -78,9 +78,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current：** 马原C00–C05内容候选已保存于本草稿PR，最近保存版本 `32532cb7960aa660cdf1fba68d2e0908eea7c086`；未合并。C06–C08候选已备份，待总控内容审查。对应PR和章节原owner保留精确修正及证据；本轮复用范围、版本匹配的既有全源证据，不声称重新完整核读PDF或图像。
+**Current：** 马原C00–C08第一轮内容候选已保存并回读（3dcf04c035bf640727692c0fd117947ad7ca5e9a），未合并；马原第二轮整科学习路径反审尚未完成。当前准备史纲C01–C03；对应修正与来源范围留在原科目审查owner，未重新核验完整CF母PDF或图像。
 
-**Next：** 总控审查已备份的C06–C08候选，保存并回读接受的最小变化，再按53章既定范围继续；不因旧入口重做已完成批次。
+**Next：** 验收史纲C01–C03候选，保存回读后继续既定53章范围；按完成的科目做第二轮串联，不把第一轮候选或旧PASS当全量收口。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
