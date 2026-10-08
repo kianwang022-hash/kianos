@@ -27,6 +27,14 @@
           ]
         },
         {
+          "label_cn": "黑人的；与黑人身份、群体或文化有关的",
+          "label_en": "relating to Black people, communities, or culture",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:black:20261008-racial-cultural"
+          ]
+        },
+        {
           "label_cn": "非法的；秘密的；被禁止的（复合词中）",
           "label_en": "illicit, secret, or prohibited in compounds",
           "pos": "adjective",
@@ -35,10 +43,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "黑色；在部分复合词中也可表示非法、秘密或被禁止",
-      "core_meaning_en": "the color black; in some compounds, illicit, secret, or prohibited",
-      "mental_model_cn": "普通颜色义之外，black 在 black market / black economy 等复合词中可标记非法、秘密或被禁止的活动。",
-      "mental_model_en": "Beyond color, black can mark illicit, secret, or prohibited activity in compounds."
+      "core_meaning_cn": "黑色；Black/black 在人群语境中指黑人及相关文化；部分复合词另有非法、秘密义",
+      "core_meaning_en": "black as a colour; Black/black for people and culture; illicit or secret in certain compounds",
+      "mental_model_cn": "颜色看物体；people/community/culture 等人群语境指黑人身份或文化；black market/economy 才选非法或秘密的复合词义。",
+      "mental_model_en": "Use the following noun and context to distinguish colour, identity/culture, and established illicit-activity compounds."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -138,6 +146,21 @@
         "sense_label_en": "in compounds, illicit, secret, or prohibited",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:black:20261008-racial-cultural",
+        "pos": "adjective",
+        "transitivity": "nonverb",
+        "governing_pattern": "Black/black + people, community, culture, etc.",
+        "definition_cn": "黑人的；与黑人身份、群体或文化有关的",
+        "definition_en": "relating to Black people or their identity, communities, and culture, especially people of African descent",
+        "sense_label_en": "relating to Black people, communities, or culture",
+        "collocations": [],
+        "usage_note": "Black people、Black culture 等指人的身份或文化，不能按纯颜色或“非法”义理解。",
+        "level": "L1",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -293,7 +316,20 @@
             }
           ]
         }
-      ]
+      ],
+      "form_type": "case_and_context_usage",
+      "spelling": "black",
+      "identity_rule": "context_selects_colour_or_identity",
+      "boundary": "Black is commonly capitalized for racial, ethnic, or cultural identity; some sources also use lowercase black. Ordinary colour uses lowercase black.",
+      "boundaries": [
+        {
+          "surface": "Black / black",
+          "condition": "racial, ethnic, or cultural adjective",
+          "note": "许多新闻机构使用 Black；也会遇到 black，不能仅靠大小写判义。"
+        }
+      ],
+      "variants": [],
+      "authority": "AP Stylebook 2020-06-19 and OALD black adjective, read 2026-10-08"
     }
   },
   "relation_refs": [],
@@ -319,6 +355,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1365,
+        "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
+      },
+      {
+        "sense_id": "sense:black:20261008-racial-cultural",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1369,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
       }
     ],
