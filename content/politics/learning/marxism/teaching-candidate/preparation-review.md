@@ -1,5 +1,93 @@
 # 马原备课候选｜有界复核结果
 
+<a id="learner-quality-followup-20261008"></a>
+
+## C00–C08 质量反审续修：题面、同轮负担与继续语义
+
+2026-10-08；Kian 明确纠正“不是，我让你反审优化质量，你问我干吗？”，随后要求“继续”。本次继续的是 Content 质量反审，不把 Kian 的真实回答设为审查、修改或保存前提。三批原位修复及各自 STOP 是历史证据；本次只修下列确证缺口，完成保存和逐文件 readback 即 STOP。
+
+**Canonical 与最窄实读。**刷新 `kian-personal-os/exam/roles/POLITICS.md`，blob `a8b094b17473a8cee4ff14049b48790f968d9695`；现行 owner 为 `kianwang022-hash/kianos/main`，本次基点 `9a1506ee28213c3697c6073fb1f8e1e5f9f3077d`。沿 Learning §0.7 与 Interaction §0 核对取回/继续语义，检查九稿现行57组主提示、首次完整答案与深度、首次取回段和 C00–C02 的关闭/JSON review_prompt；再窄读改变题面的相邻解释，核对所问对象没有越过既定 retention。既有 Source binding 与三批 Markdown 证据只沿原 owner 使用；本次未重做九章 Source 全量 QA，未读取 PDF、未写源材料，也未声称新增原图核验或单独自测本准入。
+
+### 确证缺陷与原位修复
+
+1. **题面包含待回忆答案。**例如 C01 主提示原写“物质：唯一特性=客观实在性”、C05 原写“m′=m/v”、C07 原写两大基石及历史飞跃。即使遮住邻近答案，读题本身也能抄出结论。34处题面改成问题；原首次完整答案留在邻近位置。其他23组已是对象/比较维度提示，保留。57组的选择、分组、成员数与深度不变，不为旧对象数增加作业。
+2. **仅遮正文仍可能从后台信息取得答案。**九稿原 `#cNN-first-retrieval` 深度说明、分流表、对象检查标准和 memory_cue 有完整成员/配对。各同位置补一段教师执行说明：真正取回只发主提示题面，答案、深度说明里的答案词与检查资料在核对阶段才打开；正文首次阅读仍提供完整解释。概念对象、比较维度和已选数量可保留；已看过答案的复述仅算有提示。说明/审核场景可直接演示，不要求 Kian 实答作继续或保存门槛。
+3. **C00–C02 同一连续回合强制重复。**三稿原首次取回段允许论证块末做，但原 `#cNN-learner-close` 又要求“展开全部当前主提示，逐项取回”，JSON review_prompt 也未说明覆盖确认。原首次时机、关闭段及三个 JSON 同步改为：未做组首次取回，同轮已做组确认具体覆盖并补真实错漏；以后独立新复习仍重新取回。模型重建、必要边界及残余分工照旧。C03–C08 已有相同去重语义，本次不重改。
+4. **恢复路由与当前意图不符。**原 Marxism CURRENT 的 mandate 还写“C02 is next”，检查点末又推荐真实无提示讲述，容易让后续“继续”重启旧章或切成测验。原 CURRENT 明确旧游标退休、最新显式任务优先，并将这次质量审查与学习状态分开；本记录保存用户纠正及实修证据，不新增任务注册表、学习状态或 Runtime。
+
+下表逐项记录第1项的**基点原位置 → 原题面 → 同一 owner 修后位置/题面**。旧链接固定在本次基点，修后链接指 main；本次提交也完整固定这些新行。所有题面相邻的首次答案保持原文，表格本身是审查证据，不是发给初学者的练习表。
+
+|项/原位置|原题面及问题|修后原位置/题面|
+|---|---|---|
+|Q01 [C00:160](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/subject-model.md#L160)|`《共产党宣言》：公开问世｜首个无产阶级政党党纲` 含答案词/配对/结论。|[C00:162](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/subject-model.md#L162) ` 《共产党宣言》标志什么？是哪一组织的什么文献？ `|
+|Q02 [C00:186](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/subject-model.md#L186)|`4特征｜科学性与革命性统一｜人民/实践/发展→革命性` 含答案词/配对/结论。|[C00:188](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/subject-model.md#L188) ` 4特征及含义？理论总体特征怎样统一？后三者集中体现什么？ `|
+|Q03 [C01:291](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L291)|`物质：唯一特性=客观实在性` 含答案词/配对/结论。|[C01:293](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L293) ` 哲学物质的唯一特性是什么？ `|
+|Q04 [C01:301](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L301)|`运动=根本属性/存在方式｜时空=基本存在形式｜运动绝对/静止相对` 含答案词/配对/结论。|[C01:303](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L303) ` 运动、时空各怎样定位？运动与静止的绝对/相对性怎样对应？时空两层性质怎样区分？ `|
+|Q05 [C01:329](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L329)|`规律定义｜能动性前提/实践/条件手段｜自然规律↔历史规律` 含答案词/配对/结论。|[C01:331](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L331) ` 规律怎样定义？正确发挥能动性的前提、基础/途径和条件手段分别是什么？自然/历史规律怎样实现？ `|
+|Q06 [C01:345](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L345)|`物质统一性：最基本/最核心观点｜马克思主义基石｜多样性统一` 含答案词/配对/结论。|[C01:347](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch01.brief.md#L347) ` 世界物质统一性的理论地位是什么？怎样解释统一与多样？ `|
+|Q07 [C02:185](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch02.brief.md#L185)|`联系4特点｜人为/自在都客观｜普遍联系经中介` 含答案词/配对/结论。|[C02:187](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch02.brief.md#L187) ` 联系4特点？人为/自在联系的性质如何？普遍联系怎样实现？ `|
+|Q08 [C02:225](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch02.brief.md#L225)|`扬弃｜内部/自我否定｜2环节｜前进×曲折` 含答案词/配对/结论。|[C02:227](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch02.brief.md#L227) ` 辩证否定的实质与动力？为什么是2个环节？发展总趋势怎样表现？ `|
+|Q09 [C03:311](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L311)|`实践333｜桥梁作用｜主客体3关系/实践最根本` 含答案词/配对/结论。|[C03:313](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L313) ` 实践的3特征、3要素、3类型？怎样起桥梁作用？主客体3关系中哪种最根本？ `|
+|Q10 [C03:320](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L320)|`实践→认识4作用｜直接经验=源/间接经验=流` 含答案词/配对/结论。|[C03:322](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L322) ` 实践对认识4作用？直接/间接经验的源流关系怎样对应？ `|
+|Q11 [C03:338](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L338)|`两次飞跃｜第二次更重要｜实践—认识循环` 含答案词/配对/结论。|[C03:340](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L340) ` 两次飞跃各做什么？哪次更重要、为什么？认识循环怎样深化？ `|
+|Q12 [C03:356](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L356)|`实践=唯一标准｜逻辑证明≠最终检验` 含答案词/配对/结论。|[C03:358](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L358) ` 检验真理的唯一标准是什么、为什么？逻辑证明能否代替它？ `|
+|Q13 [C03:376](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L376)|`认识/改造统一基础=实践` 含答案词/配对/结论。|[C03:378](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch03.brief.md#L378) ` 认识世界和改造世界统一的基础是什么？ `|
+|Q14 [C04:176](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L176)|`生产力3要素｜劳动者最活跃/工具分时代｜所有制最基本定性质｜第一规律` 含答案词/配对/结论。|[C04:178](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L178) ` 生产力3要素？最活跃因素与时代标志怎样定位？生产关系中最基本并决定性质的是什么？第一规律？ `|
+|Q15 [C04:196](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L196)|`两对基本矛盾｜根本动力｜生产力=最基本动力因素/最终决定力量` 含答案词/配对/结论。|[C04:198](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L198) ` 两对社会基本矛盾？根本动力与最基本动力因素/最终决定力量分别怎样定位？ `|
+|Q16 [C04:209](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L209)|`5种其他动力｜阶级斗争=阶级社会直接｜革命=最高形式/重要手段/决定性环节｜改革=社会主义直接｜科技=杠杆｜文化=重要力量` 含答案词/配对/结论。|[C04:211](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L211) ` 5种其他动力分别是什么？适用范围和作用层级怎样配对？革命的3项定位是什么？ `|
+|Q17 [C04:220](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L220)|`人的本质=社会关系总和/社会性｜人民群众质/量/稳定主体｜3种创造作用｜历史人物：个别事件≠总方向` 含答案词/配对/结论。|[C04:222](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch04.brief.md#L222) ` 人的本质及属性怎样把握？人民群众质/量/稳定主体？3种创造作用？历史人物对事件和总方向的作用怎样区别？ `|
+|Q18 [C05:195](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L195)|`商品2因素｜使用价值=价值物质承担者` 含答案词/配对/结论。|[C05:197](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L197) ` 商品2因素及关系？哪一因素是另一因素的物质承担者？ `|
+|Q19 [C05:206](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L206)|`具体劳动→使用价值/转移旧值｜抽象劳动→价值｜社会必要劳动时间｜生产率3变化｜私有制下私人/社会=基本矛盾` 含答案词/配对/结论。|[C05:208](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L208) ` 劳动二重性各起什么作用？价值量由什么时间决定？生产率3变化及比较条件？私有制商品经济的基本矛盾？ `|
+|Q20 [C05:235](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L235)|`生产=劳动过程+价值增殖｜c/v作用｜剩余劳动=唯一源泉｜m′=m/v｜绝对vs相对/超额` 含答案词/配对/结论。|[C05:237](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L237) ` 资本主义生产过程的两重性？c/v各起什么作用？剩余价值唯一源泉？m′怎样计算？绝对/相对/超额怎样区分？ `|
+|Q21 [C05:244](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L244)|`积累=剩余价值资本化｜有机构成｜相对过剩人口3形式` 含答案词/配对/结论。|[C05:246](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L246) ` 资本积累的含义？资本有机构成？相对过剩人口3形式？ `|
+|Q22 [C05:255](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L255)|`3职能资本｜空间并存/时间继起｜周转2因素｜危机：根因/本质/一般可能/周期` 含答案词/配对/结论。|[C05:257](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L257) ` 3职能资本？连续循环的空间/时间2条件？周转2因素？危机的根因、本质、一般可能和周期怎样区分？ `|
+|Q23 [C05:264](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L264)|`工资本质=劳动力价值/价格｜m→利润｜部门竞争→平均利润率｜生产价格=成本+平均利润` 含答案词/配对/结论。|[C05:266](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch05.brief.md#L266) ` 工资本质？剩余价值怎样表现为利润？平均利润率怎样形成？生产价格怎样构成？ `|
+|Q24 [C06:180](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L180)|`垄断利润：归根到底=剩余价值｜4取得通道｜垄断高价/低价｜价值规律未取消` 含答案词/配对/结论。|[C06:182](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L182) ` 垄断利润的根本来源与4取得通道怎样分开？高价/低价怎样定位？价值规律是否改变、为什么？ `|
+|Q25 [C06:189](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L189)|`金融资本3途径｜寡头：参与制/个人联合｜国家垄断定义｜3类原因｜5形式｜性质未变` 含答案词/配对/结论。|[C06:191](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L191) ` 金融资本3途径？寡头经济/政治控制怎样对应？国家垄断定义、3类原因、5形式？制度性质是否改变、为什么？ `|
+|Q26 [C06:207](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L207)|`战后6变化｜4原因/科技生产力=根本｜实质=框架内调整｜21C4特征｜3组失效` 含答案词/配对/结论。|[C06:209](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L209) ` 战后6变化和4原因？根本推动力与变化实质？21世纪4特征、3组矛盾冲突？ `|
+|Q27 [C06:225](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L225)|`替代趋势4层论证｜前奏≠已经社会主义` 含答案词/配对/结论。|[C06:227](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch06.brief.md#L227) ` 替代趋势4层论证？国家垄断资本主义的历史定位是否等于制度已替代、为什么？ `|
+|Q28 [C07:150](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L150)|`19C空想=直接思想来源｜4贡献｜2局限` 含答案词/配对/结论。|[C07:152](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L152) ` 19世纪初空想社会主义怎样定位？4贡献与2局限？ `|
+|Q29 [C07:159](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L159)|`唯物史观+剩余价值=两大基石｜空想→科学=第一次飞跃` 含答案词/配对/结论。|[C07:161](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L161) ` 科学社会主义的两大理论基础及各自作用？第一次历史性飞跃是什么？ `|
+|Q30 [C07:170](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L170)|`第一国际=理论×工运结合｜巴黎公社=首次伟大尝试+4经验｜十月革命=第二次飞跃/首个社会主义国家` 含答案词/配对/结论。|[C07:172](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch07.brief.md#L172) ` 第一国际起什么作用？巴黎公社的历史定位与4经验？十月革命的飞跃和国家定位？ `|
+|Q31 [C08:134](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L134)|`预见未来4原则｜一般特征≠现成方案` 含答案词/配对/结论。|[C08:136](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L136) ` 预见未来4原则？能够预见到何种程度、为什么？ `|
+|Q32 [C08:145](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L145)|`共产主义3特征｜自由全面=根本价值目标+根本特征` 含答案词/配对/结论。|[C08:147](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L147) ` 共产主义3特征？人的自由全面发展有哪两项根本定位？ `|
+|Q33 [C08:152](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L152)|`实现依据：社会发展规律｜资本主义基本矛盾` 含答案词/配对/结论。|[C08:154](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L154) ` 共产主义实现的理论依据是什么？ `|
+|Q34 [C08:164](https://github.com/kianwang022-hash/kianos/blob/9a1506ee28213c3697c6073fb1f8e1e5f9f3077d/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L164)|`长期：2个过程+阶段道路定位｜人类解放3方面` 含答案词/配对/结论。|[C08:166](https://github.com/kianwang022-hash/kianos/blob/main/content/politics/learning/marxism/teaching-candidate/ch08.brief.md#L166) ` 为何是长期过程？腿姐3要点的对象类型怎样分开？人类解放3方面？ `|
+
+第2、3项的准确段落锚点：C00 [首次取回](subject-model.md#c00-first-retrieval) / [关闭](subject-model.md#c00-learner-close)；C01 [首次取回](ch01.brief.md#c01-first-retrieval) / [关闭](ch01.brief.md#c01-learner-close)；C02 [首次取回](ch02.brief.md#c02-first-retrieval) / [关闭](ch02.brief.md#c02-learner-close)。C03–C08 的新增执行说明分别在原 `#c03/04/05/06/07/08-first-retrieval`，未改变后续原深度。三个 JSON 仅改 `chapter_compression.review_prompt`，没有动 `reconstruction_chain` 或教学内容对象。第4项仅在原 `../CURRENT.md` 的 Scope、Current checkpoint 及下方历史证据说明。
+
+### 一次有界、无 Kian 提醒的题面与闭环压力推演
+
+**证据性质：同一助手的合成路径推演。**本次实际按 C00→C08 的原关系承接，给下表题面各设置一个假设错误，再打开原答案核对教师应怎样纠正；没有独立新实例，没有 Kian 实答，未写 Recall、进度或掌握。此轮不重演全部首次课堂，也不以静态差异检查代替教学验收；只检验本次修复的题面是否泄露结论、原稿能否接住错误、同轮覆盖确认及后续提示能否自然衔接。
+
+|连续落点/只展示的题面|假设错误与实际核对/纠正路径|主动承接|
+|---|---|---|
+|C00：《共产党宣言》标志什么？是哪一组织的什么文献？|假设“只是一本设想未来的著作”。原答案恢复马克思主义公开问世、科学社会主义产生与共产主义者同盟党纲关系；组织地位另按原解释，不从题面抄出标志。4特征题必须先恢复含义，再分科学/革命统一及后三者体现革命性。|由社会条件和理论来源进入 C01 世界/意识关系，不因完成标志配对而跳过解释。|
+|C01：哲学物质的唯一特性是什么？|假设“运动”。核对原答案为客观实在性，区分哲学范畴的唯一特性与运动的根本属性/存在方式；时空是基本存在形式。题面不能再直接提供正确词。|运动、静止和客观条件使 C02 的联系/发展有对象，不把发展等同任何变化。|
+|C02：联系4特点？人为/自在联系的性质如何？普遍联系怎样实现？|假设“人为就是主观，普遍联系就是任意直接联系”。核对客观性及中介/条件；否定题假设“全盘抛弃、一直直线前进”，原答案以扬弃、自我否定、联系/发展环节与前进曲折统一纠正。|通过实践中的客观条件进入 C03，所说人为建立须依条件，不等意识任意造规律。|
+|C03：检验真理的唯一标准是什么、为什么？逻辑证明能否代替它？|假设“逻辑自洽就最终证明事实”。原答案以实践桥接主客观、逻辑证明辅助而非最终检验纠正；两飞跃题另辨理性认识返回实践的意义，未由题面预给“第二更重要”。|实践的社会历史条件自然接 C04 生产关系、制度与主体。|
+|C04：两对社会基本矛盾？根本动力与最基本动力因素/最终决定力量分别怎样定位？|假设“科技一项就是社会发展的全部根本动力”。核对两对基本矛盾、生产力的层级及科技杠杆作用，仍经群众实践实现；五其他动力题按原适用范围核对，不把不同层次统一成五个同级最终决定。|资料占有、劳动与产品分配进入 C05 资本主义生产关系及价值机制。|
+|C05：资本主义生产过程的两重性？c/v各起什么作用？剩余价值唯一源泉？m′怎样计算？绝对/相对/超额怎样区分？|假设“机器创造全部新值；m′=m/(c+v)”。原答案分 c 的旧值转移、活劳动新值及 v/m，再核 m′=m/v 与利润率层次；源泉只按雇佣剩余劳动，未给积累节点新增全量来源列项。|C06 回收价值创造与取得，组织/价格变化不自动产生另一新价值源泉。|
+|C06：垄断利润的根本来源与4取得通道怎样分开？高价/低价怎样定位？价值规律是否改变、为什么？|假设“高价本身新创造价值；国家参与就已社会主义”。原答案和邻近 caveat 区分创造/取得、再分配与关系性质；国家垄断的前奏定位不等制度替代。源术语争议留原 BLOCKED，不用此推演擅自统一。|趋势及实现条件接 C07 的科学基础、现实力量与道路。|
+|C07：第一国际起什么作用？巴黎公社的历史定位与4经验？十月革命的飞跃和国家定位？|假设“公社就是首个社会主义国家；十月是第一次理论飞跃”。原答案分国际工运结合、公社首次伟大尝试、十月第二次飞跃/首个社会主义国家，并回 C00 宣言和两大理论基础。|实际道路与阶段条件接 C08，不把现实探索直接当未来高级特征。|
+|C08：为何是长期过程？腿姐3要点的对象类型怎样分开？人类解放3方面？|假设“低级阶段是第三个时间过程；未来原则就是详细现成蓝图”。原答案分两个过程与阶段/道路定位、一般预见与具体方案；三特征题只恢复已选三特征和双重根本地位，不额外考列自由全面三条件。|沿原 `#c08-whole-subject-return` 接全科回收；本次没有虚构下一章，也不把已做组再整组派发。|
+
+**同一次推演中三条同轮分支。**为验证去重，假设论证块末已分别做 C00 的前2组、C01 的前3组、C02 的前2组；章末先重建同一模型，再依原顺序确认这些具体组和补漏，分别首次做余下2/4/3组。合成执行的独立组覆盖因此为4/7/5，重复完整发题次数为0；旧关闭句会再整发4/7/5。这是本次设计的操作分支，不是 Kian 的回忆结果。对已有错误只局部纠正，不因一点卡住惩罚性重发全部。再模拟以后独立复习，三章仍各自取回4/7/5组，去重不构成永久豁免。已看答案的说明复述不能冒称无提示成绩。
+
+**推演结论与限度。**上述九个错误落点可由未改的原解释/邻近答案接住；题面不再直接给待恢复结论，承接不依赖 Kian 提醒。三条关闭分支保留必要覆盖并减少同轮重复。它支持本次题面/负担/继续语义修复的可执行性，不能证明真实初学者一次就能理解、长期记住或教师 Chat 永不泄露后台信息。
+
+### 不变量、保存范围与未解风险
+
+静态保真复核与上面的合成推演分别记载：将34个题面、新增执行段和三章去重句逆向恢复后，九份 brief 与基点全文逐字相同，证明邻近完整答案、原模型正文、身份、Source说明及原深度未被顺手改写。三个 JSON 剔除唯一改动 `chapter_compression.review_prompt` 后，与基点结构完整相同；其余六 JSON、C02独立 `ch02.memory.json` 完整未改。九章原对象数14/22/26/23/24/30/18/16/8合计181，handbook_alignment、ID、答案、cue、检查标准、准入和 Source 均保留；57组现行主提示仍为4/7/5/8/6/9/8/5/5，原分类不变。锚点唯一/内部指向与差异格式检查通过；这些静态结果不叫教学验收。
+
+本次写入范围仅14文件：九份原 brief/subject-model、C00–C02 三个原 JSON、原 Marxism CURRENT 与本 preparation-review。无新 Content 层、无 Source 修改、无 Runtime/Website/真实学习状态写入。GitHub 保存以本次真实提交和逐文件远端 readback 为准，不由本地修改或本段声明自动成立。
+
+- **BLOCKED：原 Source 的最终裁定继续保留。**第三批已记录 C06/C07 的10+3个 needs_review 及术语/口径未决；前两批各自的未解 Source 风险也不因本次题面修改清零。没有重新打开全部源材料，就不能宣称全科事实已全量复核。
+- **UNKNOWN：真实初学者/独立新 Chat 的教学与记忆表现。**本次仅同助手合成推演，不把 Kian 未作答当成 Content 反审的 BLOCKED，也不请求他先做测验才能继续修复。
+- **剩余执行风险：**后续教师若把深度说明/邻近答案连同题面发出，仍可能提示答案；本次已在原入口给具体显示顺序，实际 Chat 表现不能由保存证明。
+
+**STOP。**本次确证质量缺口原位修复后停止，不自动再审九章、其他科目或安排后台任务。下一步建议继续按已有 MD 窄审 C03 真理条件与 C05→C06 价值创造/取得措辞，优先可确证的解释边界；等待下一次显式反审指令，不把任务改成要求 Kian 回答的课堂测验。
+
 <a id="learner-path-batch3-20261008"></a>
 
 ## C06–C08 第三批学习者视角反审：原位修复与一次连续推演
@@ -77,7 +165,7 @@
 - **Source未决保持项级：**C06垄断利润总额/超额与价式、其他劳动者来源术语、商品资本输出两口径、机构功能/每国统计和21世纪全称外推；C07战时政策简化、苏联模式历史评价/贡献、部分政治原则的评价范围；C08方法“永恒价值”、国家协调/旧分工的边界解释、未来一般预见与具体实证范围，均按各稿原未决段保留。本批涉及的经典著作/历史节点已定位，不据此全量核实所有人物年表。单独自测本未获准入，不能声称其内容已核验。
 - **真实学习验收仍 UNKNOWN：**没有 Kian 新无提示回答，没有独立另一新 Chat 的课堂表现；不写真实学习进度、Recall或掌握。实际Website/Runtime消费也不在本批范围。所选分类有Leg27依据，但原Source歧义不因retention支持而自动解决。
 
-**STOP。**C00–C08三批的有界Content反审已有分别可核验结果；不自动继续其他科目、再润色九章或安排后台任务。下一步建议选一个真实薄弱关系做无提示讲述，优先“价值创造/取得→垄断变化→科学社会主义及阶段条件”，以真实回答决定是否需要局部再修。须等待 Kian 下一次显式指令。
+**第三批交付时 STOP。**C00–C08三批的有界Content反审已有分别可核验结果；不自动继续其他科目或安排后台任务。交付时曾建议真实无提示讲述；该建议已由上方本次显式质量反审接收，当前继续任务不是学习测验，真实学习未知不阻断 Content 审查。
 
 <a id="learner-path-batch2-20261008"></a>
 

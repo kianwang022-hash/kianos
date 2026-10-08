@@ -13,7 +13,7 @@ This is the durable task definition for the current Marxism content pass. It exi
 
 **Parent outcome / why:** after Kian studies the detailed material from Chengfeng, the canonical Politics Content should let him quickly reconstruct each Marxism chapter, use the model itself to carry structured memory, and spend separate Recall effort only on the genuinely residual exact fragments. The product being optimized is **future review cost and retrieval quality**, not maximal visible coverage, maximal card count, or a prettier secondary summary.
 
-**Scope:** Marxism only, C00–C08. Work sequentially from the current cursor. C00/C01 are already reviewed; C02 is next. Do not auto-expand this mandate to History / Mao / Xi / Ethics-Law.
+**Scope:** Marxism only, C00–C08. Resume only the latest explicitly authorized bounded task in Current checkpoint below. The old “C02 is next” cursor is retired; the three batch receipts below supersede it. Do not auto-expand this mandate to History / Mao / Xi / Ethics-Law.
 
 **Upstream source roles are fixed:**
 - **2027 Chengfeng** is the detailed-study and compression mother source. Read the actual chapter text and necessary tables/figures. It owns the chapter knowledge scope, terminology, relations, conditions and exam distinctions.
@@ -69,13 +69,15 @@ Never start from the old card catalog and work backwards. Never treat “precise
 
 ### Current checkpoint
 
-**本次显式第三批反审（2026-10-08）已完成原 Content 修复及一次有界连续推演：仅 C06–C08。** Kian 在第二批交付后显式要求“继续”。本批只读对应 Markdown，实际原位修改、18组本批主提示/四身份配对、C08原全科回收与项级 BLOCKED 见 [第三批证据](teaching-candidate/preparation-review.md#learner-path-batch3-20261008)。原模型、身份、Source、42个原对象及分类完整保留；GitHub保存以本批提交和逐文件readback为准，不从历史全科记录推断。C00–C08三批的Content反审至此有分别证据；真实教学验收仍UNKNOWN。STOP，不自动进入其他学科或重新润色。下一步建议用真实无提示讲述检验薄弱跨章关系，等待下一次显式指令。
+**本次显式质量反审续修（2026-10-08）：C00–C08 的题面、取回负担和恢复指令。** Kian 已纠正“继续”被误解成真实学习测验：当前任务是反审优化质量，不要求 Kian 回答才能继续或保存。确认后原位改写34处含答案主提示，在九稿首次取回段明确只展示题面、核对时再打开答案；C00–C02 的关闭段和三个 JSON review_prompt 补齐同轮去重。原57组主提示、181个旧对象、答案、Source binding、retention 与 spine 不变。逐项原/新位置、一次有界九章链式压力推演及三条去重分支见 [本次质量证据](teaching-candidate/preparation-review.md#learner-quality-followup-20261008)。保存只以本次提交及逐文件远端 readback 为准；真实学习与原 Source 未决项仍保持 UNKNOWN/BLOCKED。完成后 STOP。下一步建议按已有 MD 窄审 C03 真理条件与 C05→C06 价值创造/取得措辞，不自动开始，不以真实测验替代反审。
+
+**本次显式第三批反审（2026-10-08）已完成原 Content 修复及一次有界连续推演：仅 C06–C08。** Kian 在第二批交付后显式要求“继续”。本批只读对应 Markdown，实际原位修改、18组本批主提示/四身份配对、C08原全科回收与项级 BLOCKED 见 [第三批证据](teaching-candidate/preparation-review.md#learner-path-batch3-20261008)。原模型、身份、Source、42个原对象及分类完整保留；GitHub保存以本批提交和逐文件readback为准，不从历史全科记录推断。C00–C08三批的Content反审至此有分别证据；真实教学验收仍UNKNOWN。第三批已在交付后 STOP；后续由上方显式质量反审接收，真实学习未知不阻断 Content 审查。
 
 **本次显式第二批反审（2026-10-08）已完成原 Content 修复及一次有界连续推演：仅 C03–C05。** Kian 在第一批交付后显式要求“继续”。本批全部源阅读用 Markdown；原位置/修复、23组现行主提示与五来源连续推演、项级 BLOCKED 见 [第二批证据](teaching-candidate/preparation-review.md#learner-path-batch2-20261008)。原模型、身份、Source、答案与 retention 分类保留。GitHub 保存以本批提交及逐文件 readback 为准，不从旧全科记录推断。第二批已在交付后 STOP；其下一批建议已由上方第三批的显式授权及证据接收。
 
 **本次显式第一批反审（2026-10-08）已完成 Content 修复及有界连续推演：仅 C00–C02。** 修复项、源本实读范围和局部 BLOCKED 见 [第一批证据](teaching-candidate/preparation-review.md#learner-path-batch1-20261008)。保持原模型/身份/Source/retention 分类，不触碰 Runtime 或真实 learner state。GitHub 保存须由本次提交及逐文件 readback 证明，不从下方旧全科记录推断。第一批已在交付后 STOP；其下一批建议已由上方第二批的显式授权及证据接收。
 
-以下全科和工程记录为既有历史范围，不取代上方三批实读/修复/推演及GitHub回读证据，不用于证明Kian已掌握。
+以下全科和工程记录为既有历史范围，不取代上方三批及本次续修的实读/修复/推演和GitHub回读证据，不用于证明Kian已掌握。
 
 **Latest authorized learner-path re-audit (2026-10-08):** normal polishing was reopened only for Kian’s explicit C00–C08 learner-path reverse audit. Twenty-one concrete defect classes were repaired in the nine original chapter briefs and their existing JSON teaching-entry/closure fields. First-use premises, receiving-chapter callbacks, Core versus Main Prompt instructions, residual timing, C03 truth wording, C06 complete competition-feature answers, and C08 stage/process distinction plus whole-subject review are now explicit at the point of use. See [defects, sequential rehearsal and remaining risks](teaching-candidate/preparation-review.md#learner-path-20261008). This is a same-assistant synthetic teaching-path rehearsal, not independent fresh-Chat or Kian learning acceptance. All identities, Source bindings, original spines, precision payloads and 181 retention classifications are preserved; the existing 112/69 consumer projection below is not reopened. C04–C08 raw pages were not all visually rechecked in this run; existing source caveats remain. Stop this bounded content audit after verified GitHub readback; further work requires a concrete remaining defect, newly available source evidence or real learner/consumer behavior—not automatic chapter polishing.
 
