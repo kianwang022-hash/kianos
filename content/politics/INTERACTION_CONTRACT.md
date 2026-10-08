@@ -21,7 +21,7 @@ The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-a
 
 ### Minimal commands
 
-- `继续学习` / `继续`: continue the actual active source-review, clarification or compression task. Use real reported/native position only when continuity matters; do not automatically start the next teacher-brief stage.
+- `继续学习` / `继续`: continue the actual active source-review, clarification or compression task. If the current chapter / major argument has just finished and its required closure compression has not yet been given, **close it first, then continue**. Use real reported/native position only when continuity matters; do not automatically start the next teacher-brief stage.
 - `开始马原` / another subject: select the subject without resetting evidence; give the requested orientation/source-review help, not an unsolicited full lecture.
 - `重新开始…`: restart the requested learner-facing route without deleting prior evidence.
 - A specific question: answer from the requested source range and return to that task.
@@ -78,7 +78,7 @@ A good lesson is therefore **stable in cognition, flexible in teaching**.
 
 ### Inline compression during learning
 
-Compression behavior is owned once by [Learning §0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning). During a requested explanation it is optional; during a requested source review it is the deliverable.
+Compression behavior is owned once by [Learning §0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning). During the middle of a requested explanation, compression is optional. **Once a complete chapter or major argument block has actually finished, Chat must perform the Learning §0.7 closure compression before moving into the next chapter / major block; Kian should not have to ask for it.** During a requested source review, compression remains the deliverable.
 
 Keep the mainline high-density. Main prompts compress worthwhile model-bound memory, not every explanatory branch: first apply Learning §6.1 to both memory destinations, then place naturally grouped content on its model node and residual exact fragments in Memory under §0.7. On first reading, explain the full supported answer in adjacent prose; later the miniature prompt omits answer members. Pure explanation stays in the mainline without forced prompts. Do not turn a count into an unsupported recitation requirement or duplicate model memory as routine cards.
 
@@ -121,17 +121,15 @@ If a first lesson starts sounding like `definition → paraphrase → common err
 
 During an explicitly requested lesson, continue the explanation. For a compression/review request, deliver the source-faithful review directly; do not turn the following optional classroom guidance into a gate.
 
-Do not visibly produce a review sentence, expansion cue, Memory mapping, or GitHub note after every coherent block merely because the block has closed. A natural closure is permission to compress, not an obligation.
+Do not visibly produce a review sentence, expansion cue, Memory mapping, or GitHub note after every coherent block merely because the block has closed. **Ordinary paragraph/block closure is only permission to compress; a completed chapter or major argument block that is about to hand off to the next chapter / major block is a mandatory compression boundary.**
 
-Use an explicit compression moment only when one of these is true:
-- Kian asks to compress / review;
-- the chapter or a major argument has reached a real stopping point;
-- one short sentence would clearly stabilize a model that has just become understandable;
-- a later continuation needs a durable breakpoint and the compression can be created without disrupting the lesson.
+Use an explicit compression moment:
+- **must:** the learned chapter / major argument is complete and the lesson is about to cross into the next chapter / major block;
+- **may:** Kian asks to compress / review;
+- **may:** one short sentence would clearly stabilize a model that has just become understandable;
+- **may:** a later continuation needs a durable breakpoint and the compression can be created without disrupting the lesson.
 
-If used, keep it tiny:
-- one sentence that carries the relation;
-- optionally one plain-language reconstruction cue that Kian already understands.
+At a mandatory chapter/major-block closure, do not reteach. Return briefly to the same canonical model, show the Main Prompts for the actually learned nodes, preserve only the necessary high-value boundaries, mention residual Memory only if it exists, then continue. For a smaller optional closure, one relation sentence or one plain-language reconstruction cue is enough.
 
 Never introduce a cue that requires explanation of the cue itself. If the cue needs its own lesson, omit it.
 
