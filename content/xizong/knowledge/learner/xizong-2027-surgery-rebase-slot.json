@@ -667,7 +667,7 @@
             },
             "A1:circulation-b09": {
               "owner_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block9_周围血管疾病_学习阅读版_v1_Batch4冻结版.md",
-              "revision_sha256": "69c244ad196cf4bd2ed8841e4bcb4e2c15cc999b0c350e54d128d2cfe44ac969"
+              "revision_sha256": "e56fb5b4f4e1a9d67a6c4e5e86897a0899e996b86ee04fe31d1b6df05233990a"
             },
             "A3:urinary-b13": {
               "owner_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md",
@@ -791,7 +791,7 @@
             },
             "A1:circulation-b12": {
               "owner_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
-              "revision_sha256": "e518258f461b382110bf4419ccfb273f3509fc7686277bb05c8ee7e433af2b74"
+              "revision_sha256": "50e070555762b843e583a9ae1e1755d14976153531e1d050d55a447e0def5e47"
             },
             "F:F3": {
               "owner_path": "content/xizong/knowledge/systems/f-remaining-clinical/blocks/外科总论_F3_无菌术与开放伤初期处理_学习阅读版_v1_最终执行版.md",
@@ -802,7 +802,7 @@
               "revision_sha256": "da0ddea3c2b14ac0b93e98734a9f066104e2c53ac9c025be8e3547f1cbba9004"
             }
           },
-          "receipt_sha256": "47072e989e515a0b587b09f736f5955030b078a31a535306b62c9214bfa57fca"
+          "receipt_sha256": "198dc0e2a4ac9adc2e124bbb9f703d6e76870d12b57908f14c4aae60682faa48"
         },
         "reviewed_learning_bindings": {
           "mode": "REVIEWED_DERIVATION",
@@ -854,7 +854,7 @@
             "reviewed_learning_bindings"
           ],
           "freshness": "TARGETED_Q_X_EVIDENCE_RECONCILIATION",
-          "receipt_sha256": "1bc3b38ffe22b65f0ee21184994660f2577c5c46bb7295fe3dd9113d16ba733c"
+          "receipt_sha256": "da8e3603d5584ad36a765fa19d4ef7df2311a8636c951f7a266d44ae4802c08f"
         },
         "source_visuals": {
           "mode": "DERIVED_PROJECTION",
@@ -1159,6 +1159,32 @@
         ]
       },
       "source_learning_evidence_boundary": "Source identity, source-contact gates, stable ID/order, Source lifecycle phases, historical learner evidence and Acceptance remain unchanged; modern candidate conditions are not misattributed to lecture text."
+    },
+    "dependency_reconciliation_2026_10_08_a1": {
+      "scope": "Only SUR27-U17 → A1 B9 and SUR27-U37 → A1 B12 model dependencies",
+      "semantic_base": "c7a75268077dacbcd44aae5e9d39bfcd874c6c08",
+      "acceptance_owner": "content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md#a1-deep-model-quality-20261008",
+      "previous_receipts": {
+        "knowledge": "47072e989e515a0b587b09f736f5955030b078a31a535306b62c9214bfa57fca",
+        "learning": "589b9e25b140811c2868f1cad376c600986662204c76bb85a787f6d0e8030bc0",
+        "downstream": "1bc3b38ffe22b65f0ee21184994660f2577c5c46bb7295fe3dd9113d16ba733c"
+      },
+      "reviews": [
+        {
+          "key": "A1:circulation-b09",
+          "previous_revision_sha256": "69c244ad196cf4bd2ed8841e4bcb4e2c15cc999b0c350e54d128d2cfe44ac969",
+          "reviewed_revision_sha256": "e56fb5b4f4e1a9d67a6c4e5e86897a0899e996b86ee04fe31d1b6df05233990a",
+          "review": "Reviewed full peripheral vascular model: arterial downstream hypoperfusion and venous upstream congestion; acute/chronic and deep/superficial branches retain their own evidence/action gates. All native KP fields and existing named tests/Source boundaries equal the previous reviewed revision."
+        },
+        {
+          "key": "A1:circulation-b12",
+          "previous_revision_sha256": "e518258f461b382110bf4419ccfb273f3509fc7686277bb05c8ee7e433af2b74",
+          "reviewed_revision_sha256": "50e070555762b843e583a9ae1e1755d14976153531e1d050d55a447e0def5e47",
+          "review": "Reviewed the shock/perfusion model: effective pulse first, parallel volume/pump/distribution/obstruction faults, perfusion feedback and conditional action. All native shock KP fields, CVP/PAWP conditions and pulse-number Source conflict equal the previous reviewed revision; CPR remains outside SUR27-U37 scope."
+        }
+      ],
+      "preserved_basis": "Both prior exact reviewed_against hashes match the semantic base files. Separate production-native loads establish all 312 A1 KP records equal, including B9/B12 IDs, full Prompts, Core, Source/Outline locators and diagnostics. Source identity/map, all other 50 bound Knowledge owners and all seven Learning targets remain unchanged.",
+      "downstream_boundary": "Only these two exact Knowledge witnesses and their required Knowledge/downstream aggregate hashes advance. Original Source/PDF inspection receipts, Q/X explanation or relation review witnesses and private learner evidence are preserved. This is bounded model dependency review; it does not renew historical question evidence or assert fresh Source pixels, a served-site journey or learner U."
     }
   },
   "governance": {

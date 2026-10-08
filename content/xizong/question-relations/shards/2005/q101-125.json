@@ -401,11 +401,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact question semantics matched canonical ECG versus Holter roles in B10 KP01.",
+      "basis": "当前正式题干、全选项、答案已读，且formal truth逐字段与原question witness一致。原review basis继续成立：KP01 explicitly retains Holter for correlating palpitations/syncope symptoms with rhythm, supporting C rather than ischemia imaging or infection/necrosis studies.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP01 explicitly retains Holter for correlating palpitations/syncope symptoms with rhythm, supporting C rather than ischemia imaging or infection/necrosis studies."
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 7417fd68a8a9abd24510faa1f884055680175987 was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -424,8 +424,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Current B6 KP23 owns modality roles for post-MI viability/perfusion assessment; the historical answer uses radionuclide myocardial perfusion imaging, while Current owner distinguishes perfusion imaging from PET metabolic viability.",
-      "old_mapping_inherited": false
+      "basis": "正式B核素心肌灌注为历史题源选择；Current KP23仍明确核素看灌注、PET看代谢/存活，新增运动ECG门槛不改变这一检查分层。原Primary可返回该对照，不能把B重认成Current唯一最佳活力检查。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness ddc83a529a9c03c2598e92733e0ea3cd06bafc1d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

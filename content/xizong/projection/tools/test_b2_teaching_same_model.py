@@ -22,7 +22,11 @@ SYSTEM = ROOT / 'content/xizong/knowledge/systems/a1-circulation/system.json'
 SHARED = ROOT / 'content/xizong/knowledge/learner/shared-fields.json'
 CUES = ROOT / 'content/xizong/knowledge/learner/a1-circulation-learning-cues.json'
 BASE_BLOB = 'e2d78d4dfc7f88880a04fc11fb51a88c9f2a4d14'
-CANONICAL_BASE_BLOB = '2fe128fcc32374b83a7d584b2eab9a8c8ce0db04'
+# A1's 2026-10-08 review accepts the current model, while the entire authored
+# body from the first mechanism section remains at its previous exact bytes.
+# See A1 ACCEPTANCE.md#a1-deep-model-quality-20261008.
+CANONICAL_REVIEWED_BLOB = '0d5a84eb4f157eb142bfb98162c9b2913279073e'
+CANONICAL_BODY_BASE_BLOB = '5113f84514a8830a558b024820d5f32522cec7dd'
 OLD_EXIT = '窦弓反射为什么快速、双向，却不能长期调压？'
 CURRENT_EXIT = '窦弓反射怎样快速、双向缓冲，并与肾—体液长期调压分工？'
 SOURCE = re.compile(r'<!-- b2:source (\d+):(\d+) -->\n(.*?)<!-- /b2:source -->', re.S)
@@ -106,9 +110,11 @@ def inspect(text):
     canonical = CANONICAL.read_text()
     expected = annotations(canonical)
     require(OLD_EXIT not in canonical and canonical.count(CURRENT_EXIT) == 1, 'stale exit premise')
-    calibrated = re.sub(r'^# 同一模型上的自然节点〔完整 Prompt〕\n[\s\S]*?^---\n\n(?=^# ① 感知：谁先发现循环变量偏了$)', '', canonical, count=1, flags=re.M)
-    require(blob(calibrated.replace(CURRENT_EXIT, OLD_EXIT)) == CANONICAL_BASE_BLOB,
-            'unreviewed canonical change beyond exit alignment / natural Prompt calibration')
+    require(blob(canonical) == CANONICAL_REVIEWED_BLOB,
+            'canonical changed beyond the explicitly reviewed A1 model')
+    body = canonical[canonical.index('# ① 感知：谁先发现循环变量偏了\n'):]
+    require(blob(body) == CANONICAL_BODY_BASE_BLOB,
+            'original KP/Core, source boundaries or retained execution body changed')
     chunks = sorted((int(m[1]), int(m[2]), m[3]) for m in SOURCE.finditer(text))
     require(bool(chunks), 'original explanation missing')
     next_line = 1

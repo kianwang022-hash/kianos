@@ -15,8 +15,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B6 KP07 attack-state phenotype: transient ischemia can produce sympathetic tachycardia, S4, reversed S2 splitting and temporary papillary-muscle MR murmur; hypotension is not part of the canonical typical stable-angina attack pattern.",
-      "old_mapping_inherited": false
+      "basis": "正式A血压下降不是本题典型稳定发作体征。Current KP07保留交感HR/BP↑、S4、逆分裂和暂时MR；新增Source对外周压下降的冲突说明进一步阻止由末梢收缩错误推导血压下降。原Primary成立，已有Source冲突保留。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness ddc83a529a9c03c2598e92733e0ea3cd06bafc1d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -37,8 +40,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B6 evidence hierarchy: KP20 states cardiac troponin has the highest diagnostic value for myocardial necrosis while myoglobin is early but less specific; KP21 keeps ST change in the electrical injury layer rather than using ECG alone as biochemical proof of necrosis.",
-      "old_mapping_inherited": false
+      "basis": "正式B肌钙蛋白T对应题干急性心肌损害。Current KP20从坏死泛称收窄为心肌损伤标志并要求MI另有动态/缺血证据，与题干更精确；supporting KP21电投影不是生化损伤证据仍相同。两个原锚都保留。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness ddc83a529a9c03c2598e92733e0ea3cd06bafc1d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -57,11 +63,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B7 KP03 valve-load model: mitral regurgitation sends systolic flow into LA and returns that volume to LV next diastole, making LA plus LV volume load the defining early mechanics rather than a primary pressure-load model.",
+      "basis": "原effective blob中每个已列Primary/supporting（无显式锚时整Block）的native Core与identity/title均和Current逐字相同；题干、选项、答案及题目身份亦与原question_truth_blob相同。因此仅Prompt/模型包装变动，不需要以本批base替代历史见证或改动原target。此为已接受医学判定的历史连续性证明，不是重新背书旧答案作现行医学事实。",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP03 retains LA+LV volume load and increased total pump volume from regurgitation, distinct from primary pressure load; C is unchanged."
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness be9f0c855ca23a9a8459e22d2af3dfef3cc828e4 was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -82,11 +88,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B7 IE recognition chain: KP13 makes persistent fever the bacteremia axis and says structural heart disease plus fever/new-or-changed murmur should raise IE suspicion; KP11 supplies the damaged-endocardium plus bacteremia substrate.",
+      "basis": "原effective blob中每个已列Primary/supporting（无显式锚时整Block）的native Core与identity/title均和Current逐字相同；题干、选项、答案及题目身份亦与原question_truth_blob相同。因此仅Prompt/模型包装变动，不需要以本批base替代历史见证或改动原target。此为已接受医学判定的历史连续性证明，不是重新背书旧答案作现行医学事实。",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP13 retains structural cardiac disease plus fever/new-or-changed murmur and multisystem findings as the suspicion axis; mapped support KP11 retains damaged endocardium plus bacteremia. D remains supported without changing roles."
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness be9f0c855ca23a9a8459e22d2af3dfef3cc828e4 was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -105,8 +111,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact question semantics matched explicit canonical isolated-atrial-fibrillation classification in B10 KP11.",
-      "old_mapping_inherited": false
+      "basis": "正式D仍错误：持续多久/有无症状不定义孤立性；新增永久性共同决策限定与该排除轴无冲突。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 1f43c8c41bcaf62e3484bde697b146cd6f144366 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -125,8 +134,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B11 KP19 treatment-state gate: beta blockers are chronic-stable-phase anti-remodeling therapy and are not force-started or escalated in cardiogenic shock/marked hypoperfusion; the official question's stable weight is the operational volume-stability signal for that gate.",
-      "old_mapping_inherited": false
+      "basis": "Original effective witness to current, production-native detailMarkdown and identity/title are exactly equal for every original explicit target (or all KPs for Block-level); the full current Question Truth object is equal to the original truth witness. Existing target and original semantic basis can carry forward; this is scoped equivalence, not a claim all Core in the Block is unchanged.",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 60a657821afe883ff58a1b6c796c57e4be7e89fb was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -145,11 +157,11 @@
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B6 KP12 vasospastic-angina identity: spontaneous severe coronary spasm produces resting/night attacks with transient ST elevation and recovery after spasm resolves, matching the case pattern directly.",
+      "basis": "原effective blob中每个已列Primary/supporting（无显式锚时整Block）的native Core与identity/title均和Current逐字相同；题干、选项、答案及题目身份亦与原question_truth_blob相同。因此仅Prompt/模型包装变动，不需要以本批base替代历史见证或改动原target。此为已接受医学判定的历史连续性证明，不是重新背书旧答案作现行医学事实。",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP12 keeps coronary spasm → resting/night attacks → transient ST elevation, with the explicit ST elevation versus necrosis boundary. This is the prior variant-angina return axis for D, not a new diagnosis from the latest persistent episode."
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 40a1cdae22d77a2ce2da2cc03568003d5ace6a1c was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
