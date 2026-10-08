@@ -7,7 +7,7 @@ This file does not own Mao Source/Content/Learning semantics, Acceptance Truth o
 
 ## Work Cursor
 
-**当前显式Content反审（2026-10-08）：毛中特C00–C08，按三章一批检查初学与跨章兑现，保留原模型/Source/retention。** 第一批C00–C02已保存94713bd0并7/7远端readback；第二批C03–C05原位修复与一次连续有界推演见[原教师附录](teaching-candidate/ch05.brief.md#mao-learner-audit-batch2-20261008)，保存以本批commit/逐文件readback为准。真实学习UNKNOWN，原Source gap不清零。下一批C06–C08认领C05分章承诺、C00/C01方法和理论接续及末章整科收束。当前任务是反审，不要求Kian答题，也不自动进入其他科目。
+**当前显式Content反审（2026-10-08）：毛中特C00–C08，按三章一批检查初学与跨章兑现，保留原模型/Source/retention。** 第一批C00–C02已保存94713bd0、第二批C03–C05已保存f9686d4e，均7/7远端readback。第三批C06–C08及C05一处承诺边界原位修复，连续推演/整科回收见[原教师附录](teaching-candidate/ch08.brief.md#mao-learner-audit-batch3-20261008)；全科跨章台账与局部BLOCKED也在同一附录。保存须由本批真实commit/逐文件readback证明。毛中特C00–C08本轮审核到此STOP，不自动跨科。真实学习UNKNOWN，原Source gap不清零。当前任务是反审，不要求Kian答题，也不自动进入其他科目。
 
 **Active local engineering task:** none.  
 **Acceptance Truth:** `content/politics/learning/mao/ACCEPTANCE.md`.  
