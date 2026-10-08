@@ -8,32 +8,28 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:18ab50b4c8f6e20d1101",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "吸收、理解并记住信息",
-        "pattern": "absorb + information/knowledge/ideas"
-      },
-      {
         "construction_id": "construction:18ab50b4c8f6e20d1102",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "全神贯注于……",
-        "pattern": "be absorbed in + n/doing"
+        "pattern": "be absorbed in + n/doing",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:21f14baa6c3e68d32460",
+          "reason": "Keep one absorbed-in retrieval; both versions express the same attention frame."
+        }
       },
       {
         "construction_id": "construction:18ab50b4c8f6e20d1103",
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "把 A 并入 B",
-        "pattern": "absorb + A + into + B"
-      },
-      {
-        "construction_id": "construction:18ab50b4c8f6e20d1104",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "承担/消化成本、损失或冲击",
-        "pattern": "absorb + cost/loss/impact/shock"
+        "pattern": "absorb + A + into + B",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:98d707bf2f78ed43c33e",
+          "reason": "Keep one incorporation-into retrieval; identical A-into-B frame."
+        }
       }
     ],
     "content_hash": "50e3f50bffe922463b38f849ff3f350e2924221e1a829f776f668e1209c7c43d",
@@ -83,7 +79,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:4406551cbc518d444f62",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:absorb:ac064998275d5f3d:collocation:0"
             ],
@@ -125,7 +121,7 @@
           },
           {
             "collocation_id": "collocation:c798257e678e28b6e8bb",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:absorb:f3ade412a01b5da4:collocation:1"
             ],
@@ -154,7 +150,7 @@
               "sense:absorb:986532362aea5901:collocation:0"
             ],
             "meaning_cn": "全神贯注于某事",
-            "phrase": "be absorbed in + sth"
+            "phrase": "be absorbed in + sth/doing sth"
           },
           {
             "collocation_id": "collocation:6dea9c690d6ebfeaae94",
@@ -225,7 +221,7 @@
           },
           {
             "collocation_id": "collocation:41ed0865c4cd8b8f9e21",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:absorb:efa12a855e2a5080:collocation:1"
             ],
@@ -623,7 +619,34 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "sense_id": "sense:absorb:c722e23747787e7b",
+      "pos": "verb",
+      "definition_cn": "耗用（时间、资源等）",
+      "definition_en": "to use up time or resources",
+      "sense_label_en": "to use up time or resources",
+      "sort_order": 5,
+      "level": "L2",
+      "depth": "recognition_plus",
+      "governing_pattern": "absorb + time/resources",
+      "collocations": [],
+      "usage_note": "A demanding project may absorb time or resources; this is consumption, not engrossing attention or bearing a loss.",
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/absorb",
+          "accessed_date": "2026-10-07",
+          "evidence_status": "source_checked",
+          "supports": "to use up time or resources"
+        }
+      ],
+      "stable_sense_id": "sense:absorb:c722e23747787e7b",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -660,21 +683,53 @@
         "merged_into_sense_id": null,
         "source_row": 45,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:absorb:c722e23747787e7b",
+        "status": "reference",
+        "merged_into_sense_id": null,
+        "source_url": "https://www.merriam-webster.com/dictionary/absorb"
       }
     ],
     "active_collocations": [
       "collocation:21f14baa6c3e68d32460",
       "collocation:3d2c96be64d961290d73",
-      "collocation:41ed0865c4cd8b8f9e21",
-      "collocation:4406551cbc518d444f62",
       "collocation:6a45302d1fdf69cd49f7",
       "collocation:6dea9c690d6ebfeaae94",
       "collocation:7a43b3395329d004e967",
       "collocation:8bd761e5be8a9395809c",
-      "collocation:98d707bf2f78ed43c33e",
-      "collocation:c798257e678e28b6e8bb"
+      "collocation:98d707bf2f78ed43c33e"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:18ab50b4c8f6e20d1101",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Information/knowledge/ideas are objects illustrating the admitted understand-and-retain sense, not new lexical syntax."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1104",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Cost/loss/impact/shock illustrate the admitted bear-cost sense; the meaning is retained in that sense and example."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1102",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one absorbed-in retrieval; both versions express the same attention frame."
+      },
+      {
+        "id": "construction:18ab50b4c8f6e20d1103",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Keep one incorporation-into retrieval; identical A-into-B frame."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:21f14baa6c3e68d32460",
@@ -689,12 +744,18 @@
       {
         "id": "collocation:41ed0865c4cd8b8f9e21",
         "source_row": 5586,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:4406551cbc518d444f62",
         "source_row": 5760,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       },
       {
         "id": "collocation:6a45302d1fdf69cd49f7",
@@ -724,7 +785,10 @@
       {
         "id": "collocation:c798257e678e28b6e8bb",
         "source_row": 16877,
-        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This exact former fixed-pattern Repair object is nonactive. Its lexical content remains as usage support or a complete Word Construction; no cross-kind evidence remap is inferred."
       }
     ],
     "exam-mappings": [],

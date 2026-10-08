@@ -5,8 +5,23 @@
     "ordinal": 449,
     "word": "behalf",
     "source_owner_path": "content/lexical/words/by-ordinal/o0449.json",
-    "source_fingerprint": "64e9e33c4a429fae769b8c71276e302ea63319da72eb134aee3b69ff56ec0336",
-    "sense_lineage": [],
+    "source_fingerprint": "087c537cc34c13aa5a41fd2440d46e16c1e75edb80157f47f393c85396b27a39",
+    "sense_lineage": [
+      {
+        "word_id": "word:behalf",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:01f2f041b60d1695b8b4",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:behalf",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ed3b4623b01d16b55dcf",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -39,13 +54,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "on behalf of + sb",
             "meaning_cn": "代表某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01f2f041b60d1695b8b4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "on behalf of + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:5850f69af04f8ffb82fe",
@@ -78,13 +88,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "in behalf of + sb",
             "meaning_cn": "为了某人的利益",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ed3b4623b01d16b55dcf",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "in behalf of + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -181,7 +186,7 @@
     "ordinal": 450,
     "word": "behave",
     "source_owner_path": "content/lexical/words/by-ordinal/o0450.json",
-    "source_fingerprint": "dabae39f5f1caaf3bf2ccbd4b8fa090087e34d498af8958df394dde6007ae631",
+    "source_fingerprint": "215279e8ae7693a0924f8131f9349ff9c7a9f1a5431ac821cba66a8c4b1aa5e4",
     "sense_lineage": [
       {
         "word_id": "word:behave",
@@ -189,6 +194,13 @@
         "from_target_id": "sense:behave:11ac6581af1e508c",
         "status": "merged",
         "to_target_id": "sense:behave:428f968e75505aff"
+      },
+      {
+        "word_id": "word:behave",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:121694aff11be0bc652e",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -212,7 +224,7 @@
         "id": "sense:behave:a86ca2c9483552fc",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + like + sb/sth",
+        "governing_pattern": "behave + adverb/prepositional phrase | behave like sb/sth",
         "definition_cn": "以某种方式行事；表现",
         "definition_en": "to act in a particular way; to conduct oneself",
         "note": "",
@@ -251,7 +263,7 @@
         "id": "sense:behave:428f968e75505aff",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "behave (oneself)",
         "definition_cn": "举止端正，守规矩",
         "definition_en": "to conduct oneself properly or in accordance with rules",
         "note": "",
@@ -262,13 +274,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "behave yourself",
             "meaning_cn": "规矩点，好好表现",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:121694aff11be0bc652e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "behave yourself"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:068d68bac54e9ffc0289",
@@ -281,14 +288,14 @@
           {
             "id": "collocation:c8ca686721cbfcb3b88a",
             "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "behave oneself",
-            "meaning_cn": "守规矩，举止得体",
+            "phrase": "behave (oneself)",
+            "meaning_cn": "守规矩；举止得体；Behave yourself! 可作劝诫",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c8ca686721cbfcb3b88a",
               "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "behave oneself"
+              "target_label": "behave (oneself)"
             }
           }
         ],
@@ -333,29 +340,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:behave:baseline-v2-oneself",
-        "source_locator": "record.constructions[0]",
-        "pattern": "behave yourself / behave oneself",
-        "lines": [
-          {
-            "text": "规矩点；举止得体；守规矩",
-            "lang": "cn"
-          },
-          {
-            "text": "conduct oneself properly or in accordance with expected rules",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:behave:baseline-v2-oneself",
-          "target_locator": "record.constructions[0]",
-          "target_label": "behave yourself / behave oneself"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -553,8 +538,16 @@
     "ordinal": 452,
     "word": "behind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0452.json",
-    "source_fingerprint": "c35894256878aed04d36baaf958a5a0de90f3e2c1e67e008a002bf25f0ecda2d",
-    "sense_lineage": [],
+    "source_fingerprint": "28d41272f40c699108dd4bf4fb1cb551d94d685ba12ad806fe40e35e67bc37c7",
+    "sense_lineage": [
+      {
+        "word_id": "word:behind",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c38160a4017796d3c5cb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV",
@@ -616,6 +609,14 @@
             "meaning_cn": "落后于计划",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:654d30bcbda5fadac2d4",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "fall behind",
+            "meaning_cn": "落后",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -634,16 +635,7 @@
         "definition_en": "in or to the rear",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:654d30bcbda5fadac2d4",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "fall behind",
-            "meaning_cn": "落后",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:behind:67aca6dfd8155d5b",
@@ -666,13 +658,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "behind + sb",
             "meaning_cn": "支持某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c38160a4017796d3c5cb",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "behind + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1209,8 +1196,16 @@
     "ordinal": 454,
     "word": "belief",
     "source_owner_path": "content/lexical/words/by-ordinal/o0454.json",
-    "source_fingerprint": "6a2a50258d4520d9e1377eadf07b064ed2390fc4fe84277d6660e7467eeaa44a",
-    "sense_lineage": [],
+    "source_fingerprint": "f350e32166ffc1677726c16dcd7a9df0c8240994d980048ac24255e76f250b01",
+    "sense_lineage": [
+      {
+        "word_id": "word:belief",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d3e4ba46b442bf0295a7",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -1243,13 +1238,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "belief in + sth",
             "meaning_cn": "对某事的信念",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d3e4ba46b442bf0295a7",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "belief in + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:20a87398b042645d3de9",
@@ -1326,8 +1316,16 @@
     "ordinal": 455,
     "word": "believe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0455.json",
-    "source_fingerprint": "cf4cdaee1d3d2b92b9efbc16135b26b87163911ba92112e6600b61d59ba83442",
-    "sense_lineage": [],
+    "source_fingerprint": "257e63e30ff63270b0696d1ac443c672ca55c20115b79522bcd4c4096d7435a3",
+    "sense_lineage": [
+      {
+        "word_id": "word:believe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:61aa1ba34a932e69cb75",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -1352,33 +1350,20 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "相信",
         "definition_en": "to accept that something is true or that someone is telling the truth",
-        "note": "",
+        "note": "Believe sb accepts what the person says as true; believe in sb expresses confidence in the person. These are useful selection cues, not a ban on context-dependent overlap.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ad56e8fca87ce9827c1b",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "believe + sth",
-            "meaning_cn": "相信某事",
+            "phrase": "believe sb/sth",
+            "meaning_cn": "相信某人说的是真话或某事为真；区别于 believe in sb 对其能力/人品有信心",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ad56e8fca87ce9827c1b",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "believe + sth"
-            }
-          },
-          {
-            "id": "collocation:a484c15d03cc06307c47",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "believe in + sth/sb",
-            "meaning_cn": "相信；信任",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a484c15d03cc06307c47",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "believe in + sth/sb"
+              "target_label": "believe sb/sth"
             }
           }
         ],
@@ -1393,7 +1378,7 @@
         "id": "sense:believe:a468afc35b53584a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "vt./vi.; believe (that) ... / believe so; believe sb/sth to be ...",
         "definition_cn": "认为；料想",
         "definition_en": "to think or suppose that something is true",
         "note": "",
@@ -1415,14 +1400,14 @@
           {
             "id": "collocation:7cb620312bb73dc27264",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "believe + sb + to be + adj",
-            "meaning_cn": "认为某人是……",
+            "phrase": "believe sb/sth to be ...",
+            "meaning_cn": "认为某人/某物具有某种身份或性质",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:7cb620312bb73dc27264",
               "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "believe + sb + to be + adj"
+              "target_label": "believe sb/sth to be ..."
             }
           }
         ],
@@ -1438,8 +1423,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + in",
-        "definition_cn": "信仰；信任",
-        "definition_en": "to have a religious faith or trust in something",
+        "definition_cn": "信仰；信任；相信存在或价值",
+        "definition_en": "to have faith or confidence in someone or something, or to accept its existence or value",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1456,12 +1441,20 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "believe in + sth",
             "meaning_cn": "相信某事",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:a484c15d03cc06307c47",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "believe in + sth/sb",
+            "meaning_cn": "相信；信任",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:61aa1ba34a932e69cb75",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "believe in + sth"
+              "target_id": "collocation:a484c15d03cc06307c47",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "believe in + sth/sb"
             }
           }
         ],
@@ -1469,7 +1462,7 @@
           "target_kind": "sense",
           "target_id": "sense:believe:b74604ae7c415b55",
           "target_locator": "record.senses[2]",
-          "target_label": "信仰；信任"
+          "target_label": "信仰；信任；相信存在或价值"
         }
       }
     ],
@@ -1506,71 +1499,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:believe:baseline-v2-in",
-        "source_locator": "record.constructions[0]",
-        "pattern": "believe in sb/sth",
-        "lines": [
-          {
-            "text": "信奉；相信其存在/价值；信任某人或某事",
-            "lang": "cn"
-          },
-          {
-            "text": "have faith, confidence, or belief in someone or something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:believe:baseline-v2-in",
-          "target_locator": "record.constructions[0]",
-          "target_label": "believe in sb/sth"
-        }
-      },
-      {
-        "id": "construction:believe:baseline-v2-that",
-        "source_locator": "record.constructions[1]",
-        "pattern": "believe (that) ...",
-        "lines": [
-          {
-            "text": "相信/认为……是真的",
-            "lang": "cn"
-          },
-          {
-            "text": "accept or suppose that a proposition is true",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:believe:baseline-v2-that",
-          "target_locator": "record.constructions[1]",
-          "target_label": "believe (that) ..."
-        }
-      },
-      {
-        "id": "construction:believe:baseline-v2-sb-to-be",
-        "source_locator": "record.constructions[2]",
-        "pattern": "believe sb/sth to be ...",
-        "lines": [
-          {
-            "text": "认为某人/某物是……",
-            "lang": "cn"
-          },
-          {
-            "text": "regard someone or something as having a stated identity or quality",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:believe:baseline-v2-sb-to-be",
-          "target_locator": "record.constructions[2]",
-          "target_label": "believe sb/sth to be ..."
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -1774,18 +1703,33 @@
     "ordinal": 457,
     "word": "belly",
     "source_owner_path": "content/lexical/words/by-ordinal/o0457.json",
-    "source_fingerprint": "58e54b11f0976ffcbbf4a36227eb757aeb64d0b971664d3ef71ea2901929d9de",
-    "sense_lineage": [],
+    "source_fingerprint": "2bd5129445008f0d5658a59ca1f05724bb42b95600b1575950a54b4ed8b8df1f",
+    "sense_lineage": [
+      {
+        "word_id": "word:belly",
+        "target_kind": "sense",
+        "from_target_id": "sense:belly:4f741acaa9665531",
+        "status": "merged",
+        "to_target_id": "sense:belly:a3f0eb8ed93d59f9"
+      },
+      {
+        "word_id": "word:belly",
+        "target_kind": "sense",
+        "from_target_id": "sense:belly:8cbcd027784e51b0",
+        "status": "merged",
+        "to_target_id": "sense:belly:48f95ac34a505219"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "1V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "腹部或鼓起部分；鼓起或使鼓起",
-      "decision_cn": "",
+      "decision_cn": "腹部或腹部般鼓出的部分；动词表示鼓起或使鼓起。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1799,8 +1743,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "腹部",
-        "definition_en": "the front part of the human body between the chest and the legs; the abdomen",
+        "definition_cn": "腹部；肚子（也可特指鼓起的大肚子）",
+        "definition_en": "the abdomen of a person or animal, sometimes especially a rounded or protruding abdomen",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1819,28 +1763,10 @@
             "meaning_cn": "啤酒肚",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:belly:48f95ac34a505219",
-          "target_locator": "record.senses[0]",
-          "target_label": "腹部"
-        }
-      },
-      {
-        "id": "sense:belly:8cbcd027784e51b0",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "大肚子",
-        "definition_en": "a protruding abdomen",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
+          },
           {
             "id": "collocation:ca2081c12f0b3bdb3742",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "pot belly",
             "meaning_cn": "罗汉肚",
             "kind": "usage_example",
@@ -1849,55 +1775,63 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:belly:8cbcd027784e51b0",
-          "target_locator": "record.senses[1]",
-          "target_label": "大肚子"
+          "target_id": "sense:belly:48f95ac34a505219",
+          "target_locator": "record.senses[0]",
+          "target_label": "腹部；肚子（也可特指鼓起的大肚子）"
         }
       },
       {
         "id": "sense:belly:a3f0eb8ed93d59f9",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + out",
-        "definition_cn": "鼓起",
-        "definition_en": "to swell out or bulge",
+        "governing_pattern": "belly (out); belly sth",
+        "definition_cn": "鼓起；使鼓起",
+        "definition_en": "to swell or bulge outward, or cause something to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:78a3d69cf72c3bebd854",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "belly out",
             "meaning_cn": "鼓起",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:78a3d69cf72c3bebd854",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "belly out"
             }
+          },
+          {
+            "id": "collocation:7db81590be7bb768ad01",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "belly the sails",
+            "meaning_cn": "使帆鼓起",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:belly:a3f0eb8ed93d59f9",
-          "target_locator": "record.senses[2]",
-          "target_label": "鼓起"
+          "target_locator": "record.senses[1]",
+          "target_label": "鼓起；使鼓起"
         }
       },
       {
         "id": "sense:belly:28ee2565148a53ef",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "内部",
-        "definition_en": "the hollow inside of something",
+        "definition_cn": "物体腹部般鼓出的下部或内部",
+        "definition_en": "the rounded lower part or interior of an object, such as a ship",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ef7a82b1fcf6fd05e514",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the belly of a ship",
             "meaning_cn": "船腹",
             "kind": "usage_example",
@@ -1907,34 +1841,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:belly:28ee2565148a53ef",
-          "target_locator": "record.senses[3]",
-          "target_label": "内部"
-        }
-      },
-      {
-        "id": "sense:belly:4f741acaa9665531",
-        "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使鼓起",
-        "definition_en": "to cause to swell out or bulge",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7db81590be7bb768ad01",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "belly the sails",
-            "meaning_cn": "使帆鼓起",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:belly:4f741acaa9665531",
-          "target_locator": "record.senses[4]",
-          "target_label": "使鼓起"
+          "target_locator": "record.senses[2]",
+          "target_label": "物体腹部般鼓出的下部或内部"
         }
       }
     ],
@@ -1974,7 +1882,65 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ca2081c12f0b3bdb3742",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:belly:8cbcd027784e51b0:collocation:0"
+              ],
+              "meaning_cn": "罗汉肚",
+              "phrase": "pot belly"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "大肚子",
+          "definition_en": "a protruding abdomen",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:belly:8cbcd027784e51b0",
+          "sense_label_en": "a protruding abdomen",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:belly:8cbcd027784e51b0",
+          "status": "merged",
+          "merged_into_sense_id": "sense:belly:48f95ac34a505219",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7db81590be7bb768ad01",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:belly:4f741acaa9665531:collocation:0"
+              ],
+              "meaning_cn": "使帆鼓起",
+              "phrase": "belly the sails"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使鼓起",
+          "definition_en": "to cause to swell out or bulge",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:belly:4f741acaa9665531",
+          "sense_label_en": "to cause to swell out or bulge",
+          "sort_order": 4,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:belly:4f741acaa9665531",
+          "status": "merged",
+          "merged_into_sense_id": "sense:belly:a3f0eb8ed93d59f9",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1983,8 +1949,30 @@
     "ordinal": 458,
     "word": "belong",
     "source_owner_path": "content/lexical/words/by-ordinal/o0458.json",
-    "source_fingerprint": "696f1671764acc3a05db041c53a458f1039b01ac95fd8d9cf1880d70fb1df01c",
-    "sense_lineage": [],
+    "source_fingerprint": "03f99aa0037298d717f26172d55a7d41bef15cede256f41943995b3e432459db",
+    "sense_lineage": [
+      {
+        "word_id": "word:belong",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:49dfad80bec8df46bc87",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:belong",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7d26a581e0b3c547832b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:belong",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:37deb7956d501cda44a3",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -2017,13 +2005,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "belong to + sb/sth",
             "meaning_cn": "属于某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7d26a581e0b3c547832b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "belong to + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:af53b312311bfe965245",
@@ -2054,14 +2037,14 @@
           {
             "id": "collocation:68e2d2703aed2061044c",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "belong in + place",
-            "meaning_cn": "应在某处",
+            "phrase": "belong in/on/among + place/group",
+            "meaning_cn": "应放在某处；适合某位置或群体",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:68e2d2703aed2061044c",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "belong in + place"
+              "target_label": "belong in/on/among + place/group"
             }
           },
           {
@@ -2095,13 +2078,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "belong to + group/category",
             "meaning_cn": "属于某群体/类别",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49dfad80bec8df46bc87",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "belong to + group/category"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:ed1e1024e6c5b270f1a8",
@@ -2123,7 +2101,7 @@
         "id": "sense:belong:dd81579f540a00d3",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vi.; optionally + place/group expression",
         "definition_cn": "感到被接纳；属于某个群体或地方",
         "definition_en": "to feel accepted, at home, or part of a group or place",
         "note": "",
@@ -2134,13 +2112,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "feel that you belong",
             "meaning_cn": "感到自己属于这里",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:37deb7956d501cda44a3",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "feel that you belong"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:9949dc5a9d5b9c07dcb9",
@@ -2204,27 +2177,6 @@
           "target_id": "construction:belong:baseline-v2-to",
           "target_locator": "record.constructions[0]",
           "target_label": "belong to sb/sth"
-        }
-      },
-      {
-        "id": "construction:belong:baseline-v2-in-on-among",
-        "source_locator": "record.constructions[1]",
-        "pattern": "belong in/on/among ...",
-        "lines": [
-          {
-            "text": "应在某处；适合放在某处/某群体中",
-            "lang": "cn"
-          },
-          {
-            "text": "be in the right place, setting, or group",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:belong:baseline-v2-in-on-among",
-          "target_locator": "record.constructions[1]",
-          "target_label": "belong in/on/among ..."
         }
       }
     ],
@@ -2419,8 +2371,23 @@
     "ordinal": 460,
     "word": "below",
     "source_owner_path": "content/lexical/words/by-ordinal/o0460.json",
-    "source_fingerprint": "faf8b47851083902125260bd8003dd2fc8a4c3982fbca858eaa66f3b55999447",
-    "sense_lineage": [],
+    "source_fingerprint": "645ac628dd5a9c7574126ab2ed8de72ef1dab08cdc30bff92c644b7f3a9aeb18",
+    "sense_lineage": [
+      {
+        "word_id": "word:below",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a5e8767ce5db984c6663",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:below",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a8835daa7be9e23e644a",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV",
@@ -2429,13 +2396,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在下面",
-      "decision_cn": "",
+      "summary_cn": "在下面；低于某个水平、数量或标准",
+      "decision_cn": "位置 → 在下方；数字、水平或标准 → 低于；see below → 见下文。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在下面"
+        "target_label": "在下面；低于某个水平、数量或标准"
       }
     },
     "senses": [
@@ -2454,13 +2421,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "below the surface",
             "meaning_cn": "在表面之下",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a8835daa7be9e23e644a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "below the surface"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:df78f4059ef7e3489dcb",
@@ -2493,13 +2455,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "see below",
             "meaning_cn": "见下文",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a5e8767ce5db984c6663",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "see below"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:971b2fa2e2b28bac764e",
@@ -2565,7 +2522,7 @@
     "ordinal": 461,
     "word": "belt",
     "source_owner_path": "content/lexical/words/by-ordinal/o0461.json",
-    "source_fingerprint": "3cc2a7d0ee4154a609033568af9b375d2c527e5b723011fd0917e010d00d5262",
+    "source_fingerprint": "73a7951e79bb3d90419f2e60599fcc8a3237234dfffb81b30bb29c76999e4a5c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2589,8 +2546,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "腰带，皮带",
-        "definition_en": "a strip of leather or cloth worn around the waist to hold up clothes or for decoration",
+        "definition_cn": "腰带；用于系紧或保护的带子",
+        "definition_en": "a strip of material worn around the waist, or a similar strap used for fastening or safety",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2620,7 +2577,7 @@
           "target_kind": "sense",
           "target_id": "sense:belt:5e308ba1007a561e",
           "target_locator": "record.senses[0]",
-          "target_label": "腰带，皮带"
+          "target_label": "腰带；用于系紧或保护的带子"
         }
       },
       {
@@ -2714,21 +2671,21 @@
     "ordinal": 462,
     "word": "bench",
     "source_owner_path": "content/lexical/words/by-ordinal/o0462.json",
-    "source_fingerprint": "31a8f14fef96e04af3cdaf4876628a36b84116bb1e63a22f3efac4e4cef7141b",
+    "source_fingerprint": "73d2b5cecf09a0cb22c3da02a2f911e0be59dd76237f8e87ca8af6d98dd8b44f",
     "sense_lineage": [
       {
         "word_id": "word:bench",
         "target_kind": "sense",
         "from_target_id": "sense:bench:bdd33c3186625100",
         "status": "merged",
-        "to_target_id": "sense:bench:16afa7c57aea5c16"
+        "to_target_id": "sense:bench:314919b5c60d5e1e"
       },
       {
         "word_id": "word:bench",
         "target_kind": "sense",
         "from_target_id": "sense:bench:e278f3ad0c9b5a20",
-        "status": "merged",
-        "to_target_id": "sense:bench:16afa7c57aea5c16"
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2810,8 +2767,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "法官席；法官（总称）",
-        "definition_en": "the judge or judges sitting in court, or the judicial office",
+        "definition_cn": "法官席；法官（总称）；法官职位",
+        "definition_en": "the judge or judges, their seat in court, or the judicial office",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2819,7 +2776,7 @@
             "id": "collocation:21b1ae1c0b6f959394c2",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the bench ruled",
-            "meaning_cn": "法官席作出裁定",
+            "meaning_cn": "法官作出裁定",
             "kind": "usage_example",
             "repair": null
           }
@@ -2828,7 +2785,7 @@
           "target_kind": "sense",
           "target_id": "sense:bench:314919b5c60d5e1e",
           "target_locator": "record.senses[2]",
-          "target_label": "法官席；法官（总称）"
+          "target_label": "法官席；法官（总称）；法官职位"
         }
       }
     ],
@@ -2863,7 +2820,7 @@
         {
           "stable_sense_id": "sense:bench:bdd33c3186625100",
           "status": "merged",
-          "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
+          "merged_into_sense_id": "sense:bench:314919b5c60d5e1e",
           "pos": "noun",
           "definition_cn": "法官席（法庭中的座位）",
           "definition_en": "(law) the seat for judges in a courtroom",
@@ -2887,8 +2844,8 @@
         },
         {
           "stable_sense_id": "sense:bench:e278f3ad0c9b5a20",
-          "status": "merged",
-          "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
+          "status": "reference",
+          "merged_into_sense_id": null,
           "pos": "verb",
           "definition_cn": "使（球员）下场；把…换下",
           "definition_en": "to take a player out of a game; to remove from play",
@@ -2919,7 +2876,7 @@
     "ordinal": 463,
     "word": "bend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0463.json",
-    "source_fingerprint": "064b7ba064d5899a5297158450b457157089ba86711936415dacb3fa5524c7d4",
+    "source_fingerprint": "daf89e3d4f21debee36b0bd3d28bfa10f31012cd63df9794e275e2a2229695af",
     "sense_lineage": [
       {
         "word_id": "word:bend",
@@ -2951,7 +2908,7 @@
         "id": "sense:bend:15e5c2e30ba25716",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt. + object / vi. (become curved)",
         "definition_cn": "（使）弯曲",
         "definition_en": "to make or become curved",
         "note": "",
@@ -3392,7 +3349,7 @@
     "ordinal": 466,
     "word": "benefit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0466.json",
-    "source_fingerprint": "d30f319c0000da9c7b34265c0e7c176a7aa95dfd7a3f5c9550c10eea3370f54d",
+    "source_fingerprint": "ecfe6b71270b05c57e76bf699b30a588759e92a86559401cc1eb7ecdade30384",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3604,50 +3561,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:benefit:baseline-v2-transitive",
-        "source_locator": "record.constructions[0]",
-        "pattern": "benefit sb/sth",
-        "lines": [
-          {
-            "text": "使某人/某物受益；对……有好处",
-            "lang": "cn"
-          },
-          {
-            "text": "be good for or give an advantage to someone or something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:benefit:baseline-v2-transitive",
-          "target_locator": "record.constructions[0]",
-          "target_label": "benefit sb/sth"
-        }
-      },
-      {
-        "id": "construction:benefit:baseline-v2-from",
-        "source_locator": "record.constructions[1]",
-        "pattern": "benefit from sth",
-        "lines": [
-          {
-            "text": "从某事中受益",
-            "lang": "cn"
-          },
-          {
-            "text": "receive an advantage or useful effect from something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:benefit:baseline-v2-from",
-          "target_locator": "record.constructions[1]",
-          "target_label": "benefit from sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3794,7 +3708,7 @@
     "ordinal": 468,
     "word": "benign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0468.json",
-    "source_fingerprint": "f0dac100cc6fb12328f50d5a60e39ac7de3782dbd890fb73cf6f1d5876495a4e",
+    "source_fingerprint": "24bbb640f6cc312964da90e8ef5812885ae350fdbe77f97e4ad901472321b05b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3803,13 +3717,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "核心是“无害/温和”：医学上指良性，环境或影响可指温和有益，用于人或神情可指慈祥善良",
+      "summary_cn": "一般表示温和、无害或慈祥；肿瘤语境指非恶性，不能直接推成完全无害",
       "decision_cn": "tumor/condition → 良性；climate/influence → 温和、有益；person/smile/manner → 善良、慈祥。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "核心是“无害/温和”：医学上指良性，环境或影响可指温和有益，用于人或神情可指慈祥善良"
+        "target_label": "一般表示温和、无害或慈祥；肿瘤语境指非恶性，不能直接推成完全无害"
       }
     },
     "senses": [
@@ -3818,8 +3732,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "良性的（肿瘤）",
-        "definition_en": "not dangerous to health; not recurrent or progressive (especially of a tumor)",
+        "definition_cn": "良性的（尤指肿瘤）；非恶性的",
+        "definition_en": "not malignant or cancerous, especially of a tumour",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3836,7 +3750,7 @@
           "target_kind": "sense",
           "target_id": "sense:benign:253da62a269a583f",
           "target_locator": "record.senses[0]",
-          "target_label": "良性的（肿瘤）"
+          "target_label": "良性的（尤指肿瘤）；非恶性的"
         }
       },
       {
@@ -3871,7 +3785,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "善良的；慈祥的",
-        "definition_en": "kindness of disposition or manner",
+        "definition_en": "kind or gentle in character or manner",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3927,7 +3841,7 @@
     "ordinal": 469,
     "word": "beside",
     "source_owner_path": "content/lexical/words/by-ordinal/o0469.json",
-    "source_fingerprint": "b22113b682c9c1df4b3db965a12545e299467f8e220831b6ad6039f6cc0b8f84",
+    "source_fingerprint": "2f4a884ed5ab6d0208d5aa6669bef4707c7cd49a42c0d270776658888d0a956d",
     "sense_lineage": [
       {
         "word_id": "word:beside",
@@ -4055,7 +3969,7 @@
           "target_word": "besides",
           "lines": [
             {
-              "text": "beside 表在旁边；besides 表此外或除外",
+              "text": "beside 通常表在旁边；besides 表此外、除……以外还，在 no one/nothing 等否定语境也可表除外。",
               "lang": "cn"
             }
           ],
@@ -4156,7 +4070,7 @@
     "ordinal": 470,
     "word": "besides",
     "source_owner_path": "content/lexical/words/by-ordinal/o0470.json",
-    "source_fingerprint": "5aff4653e564aa2876765795e5e75803972ff4110686908d518d1336b545e7ef",
+    "source_fingerprint": "d951b8c72fc57f22b54aa2c5140c9a0a08ada482c6f6714af81d6ea43403c570",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4183,7 +4097,7 @@
         "governing_pattern": "",
         "definition_cn": "除…之外",
         "definition_en": "in addition to; apart from",
-        "note": "",
+        "note": "常表示“除……以外还”；在 no one/nothing 等否定语境可表示“除……以外没有”。不要脱离句子一律译成排除。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4257,8 +4171,8 @@
           "target_word": "beside",
           "lines": [
             {
-              "text": "besides means 'in addition to / apart from' or adverbial 'furthermore'; beside means physically 'next to'.",
-              "lang": "en"
+              "text": "beside 通常表在旁边；besides 表此外、除……以外还，在 no one/nothing 等否定语境也可表除外。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -4281,7 +4195,7 @@
     "ordinal": 471,
     "word": "best",
     "source_owner_path": "content/lexical/words/by-ordinal/o0471.json",
-    "source_fingerprint": "ad28369df1fd5bb1152117fd6fc5012937dda5fb52018f0e1319936cfa48ef25",
+    "source_fingerprint": "599b2a6be82db03b47996de4a014e1b5c7535adf450ba7c023fde98eb6326dd5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4350,8 +4264,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "一个人能做出的最大努力",
-        "definition_en": "the supreme effort one can make",
+        "definition_cn": "最好的事物或结果；最高水平；最大努力",
+        "definition_en": "the most excellent thing or result, the highest standard, or the greatest effort possible",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4386,7 +4300,7 @@
           "target_kind": "sense",
           "target_id": "sense:best:ed84ee18dd7f56d8",
           "target_locator": "record.senses[2]",
-          "target_label": "一个人能做出的最大努力"
+          "target_label": "最好的事物或结果；最高水平；最大努力"
         }
       }
     ],
@@ -4469,7 +4383,7 @@
     "ordinal": 472,
     "word": "bet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0472.json",
-    "source_fingerprint": "bb4eb286d59a3a2c58c49d058fd9b2bf2be8ee956b04ad21aabfd7e55fb3ca75",
+    "source_fingerprint": "84580c9a1ae7f5d305b71c8374d2174799a5647b06b43ebe0bdb1bb5fefc314c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4527,7 +4441,7 @@
         "id": "sense:bet:527c70b812f9532c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vi. + on/against sth; vt. + money/sth or sb + (money) + (that) ...",
         "definition_cn": "打赌；下注",
         "definition_en": "to risk money or something on the outcome of an event",
         "note": "",
@@ -4571,10 +4485,10 @@
         "id": "sense:bet:7e40eb1c153e587d",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "bet (that) + clause; often I bet ...",
         "definition_cn": "敢断定；确信",
         "definition_en": "to be certain or confident about something",
-        "note": "",
+        "note": "Informal: I bet (that) ... expresses confidence or expectation without requiring a real wager.",
         "identity_overlay": null,
         "usage": [
           {
@@ -4641,29 +4555,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:bet:baseline-v2-i-bet",
-        "source_locator": "record.constructions[0]",
-        "pattern": "I bet (that) ...",
-        "lines": [
-          {
-            "text": "我敢肯定……；我想……十有八九如此",
-            "lang": "cn"
-          },
-          {
-            "text": "used to express strong confidence or expectation, not necessarily a literal wager",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bet:baseline-v2-i-bet",
-          "target_locator": "record.constructions[0]",
-          "target_label": "I bet (that) ..."
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4677,7 +4569,7 @@
     "ordinal": 473,
     "word": "betray",
     "source_owner_path": "content/lexical/words/by-ordinal/o0473.json",
-    "source_fingerprint": "43f13e9fa8f6b013cb35e766aa8344a5b8e5ad91bc04ca54ab8fd7cd05b45bfd",
+    "source_fingerprint": "ae260fc5253d87ec519838cc9d4978183c6353bd242cc6c89a36d2934658620f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4740,8 +4632,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "泄露，暴露",
-        "definition_en": "to reveal (information) secretly or unintentionally",
+        "definition_cn": "泄露；暴露",
+        "definition_en": "to disclose private information or reveal a hidden feeling or fact, often unintentionally",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4771,7 +4663,7 @@
           "target_kind": "sense",
           "target_id": "sense:betray:b9d12488afd650c5",
           "target_locator": "record.senses[1]",
-          "target_label": "泄露，暴露"
+          "target_label": "泄露；暴露"
         }
       },
       {
@@ -5123,7 +5015,7 @@
     "ordinal": 475,
     "word": "between",
     "source_owner_path": "content/lexical/words/by-ordinal/o0475.json",
-    "source_fingerprint": "1f3acecbcea5107b6398df1240d0061b203530882899116dfbe0f8cb11fb706c",
+    "source_fingerprint": "3eddb27e985eeae6bab8de95a39070c541cc811e4f24c0fc3d0686372031a692",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5207,7 +5099,7 @@
         "source_locator": "record.senses[2]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "在（两者）之间共享",
+        "definition_cn": "在两者或多个可区分对象之间共享",
         "definition_en": "shared by two or more people or things",
         "note": "",
         "identity_overlay": null,
@@ -5225,7 +5117,7 @@
           "target_kind": "sense",
           "target_id": "sense:between:d793ad02110a5367",
           "target_locator": "record.senses[2]",
-          "target_label": "在（两者）之间共享"
+          "target_label": "在两者或多个可区分对象之间共享"
         }
       }
     ],
@@ -5408,7 +5300,7 @@
     "ordinal": 477,
     "word": "beware",
     "source_owner_path": "content/lexical/words/by-ordinal/o0477.json",
-    "source_fingerprint": "60a7f6c42436248249d232e3cbb651b947f6af018e5dfe0fd694bdd25b747ae7",
+    "source_fingerprint": "1c5c3d85ba35f0a0ad075fc6e7bbf1df9e0b529e23bce586f5c46b97631d1ac6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5431,23 +5323,23 @@
         "id": "sense:beware:0bb7fcea78185720",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + of",
+        "governing_pattern": "beware (of) sb/sth; beware (of) doing sth",
         "definition_cn": "小心；谨防",
         "definition_en": "to be on one's guard; be cautious or wary about",
-        "note": "",
+        "note": "Used only in orders and infinitives.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:937b948908df8869ab4f",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "beware of + sth",
-            "meaning_cn": "谨防某事",
+            "phrase": "beware of sb/sth",
+            "meaning_cn": "当心；谨防某人/某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:937b948908df8869ab4f",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "beware of + sth"
+              "target_label": "beware of sb/sth"
             }
           },
           {
@@ -5507,29 +5399,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:beware:baseline-v2-of",
-        "source_locator": "record.constructions[0]",
-        "pattern": "beware of sb/sth",
-        "lines": [
-          {
-            "text": "当心；谨防某人/某事",
-            "lang": "cn"
-          },
-          {
-            "text": "be cautious or on guard against someone or something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:beware:baseline-v2-of",
-          "target_locator": "record.constructions[0]",
-          "target_label": "beware of sb/sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5543,7 +5413,7 @@
     "ordinal": 478,
     "word": "bewilder",
     "source_owner_path": "content/lexical/words/by-ordinal/o0478.json",
-    "source_fingerprint": "b4072dbc01c22f4b5b20a566aadf84bf31754f73211116e21c0132f20b4f6929",
+    "source_fingerprint": "335bc48641cc2a9455c24508c94f3023166e4d599229e64e3af9d0a8267babe6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5567,8 +5437,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使迷惑，使不知所措",
-        "definition_en": "cause to be confused emotionally",
+        "definition_cn": "使迷惑；使不知所措",
+        "definition_en": "to make someone very confused or unable to understand something",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5576,7 +5446,7 @@
           "target_kind": "sense",
           "target_id": "sense:bewilder:7c48ee2a188f5216",
           "target_locator": "record.senses[0]",
-          "target_label": "使迷惑，使不知所措"
+          "target_label": "使迷惑；使不知所措"
         }
       }
     ],
@@ -5614,7 +5484,7 @@
     "ordinal": 479,
     "word": "beyond",
     "source_owner_path": "content/lexical/words/by-ordinal/o0479.json",
-    "source_fingerprint": "3142d440d81c33af9a18ab292f55b6316865d5851557f2a8b100709f41c8277a",
+    "source_fingerprint": "bcd4959632f74ed3e62348dc1cde57a8602cefe89a5827343afcc2eac5ba9a35",
     "sense_lineage": [
       {
         "word_id": "word:beyond",
@@ -5657,19 +5527,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "beyond + sth",
             "meaning_cn": "超出某物；在…之外",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e1ab8b7c32f65102b204",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "beyond + sth"
-            }
-          },
-          {
-            "id": "collocation:73d7530cc61adb544931",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "beyond doubt",
-            "meaning_cn": "毫无疑问",
             "kind": "usage_example",
             "repair": null
           }
@@ -5686,8 +5543,8 @@
         "source_locator": "record.senses[1]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "超过（数量或程度）",
-        "definition_en": "more than or greater than a particular amount or level",
+        "definition_cn": "超出（数量、程度、能力或可能性的界限）",
+        "definition_en": "outside or exceeding a limit, amount, level, ability, or possibility",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5696,13 +5553,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "beyond + sth",
             "meaning_cn": "超出某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:eee399eaa97abcdf2994",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "beyond + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e582e68c877ea3e7b09e",
@@ -5711,13 +5563,21 @@
             "meaning_cn": "无法控制",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:73d7530cc61adb544931",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "beyond doubt",
+            "meaning_cn": "毫无疑问",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:beyond:228965111d9d5786",
           "target_locator": "record.senses[1]",
-          "target_label": "超过（数量或程度）"
+          "target_label": "超出（数量、程度、能力或可能性的界限）"
         }
       },
       {
@@ -5788,7 +5648,7 @@
     "ordinal": 480,
     "word": "bias",
     "source_owner_path": "content/lexical/words/by-ordinal/o0480.json",
-    "source_fingerprint": "a884083c1df7010482d11403597341e3636aac262af15c2a74e44b4d3143b718",
+    "source_fingerprint": "6ce05ad7fb742f74a7100a8f2a434f2c6695dc7d76079b6d6c7af80773d1bf66",
     "sense_lineage": [
       {
         "word_id": "word:bias",
@@ -5835,8 +5695,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "偏见；偏心",
-        "definition_en": "a partiality that prevents objective consideration of an issue or situation",
+        "definition_cn": "偏见；偏向；系统性偏差",
+        "definition_en": "an inclination or partiality, or a systematic skew in sampling, testing, or results",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5866,7 +5726,7 @@
           "target_kind": "sense",
           "target_id": "sense:bias:648c335993925883",
           "target_locator": "record.senses[0]",
-          "target_label": "偏见；偏心"
+          "target_label": "偏见；偏向；系统性偏差"
         }
       },
       {
@@ -5874,8 +5734,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使有偏见；使偏向",
-        "definition_en": "influence in an unfair way",
+        "definition_cn": "使有偏见；使判断或结果偏向",
+        "definition_en": "to influence a judgment or result so that it favours one side or outcome",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5905,7 +5765,7 @@
           "target_kind": "sense",
           "target_id": "sense:bias:c4dbdfbc84d5530c",
           "target_locator": "record.senses[1]",
-          "target_label": "使有偏见；使偏向"
+          "target_label": "使有偏见；使判断或结果偏向"
         }
       }
     ],
@@ -6012,8 +5872,23 @@
     "ordinal": 481,
     "word": "bible",
     "source_owner_path": "content/lexical/words/by-ordinal/o0481.json",
-    "source_fingerprint": "941c7fdbd9b767e051c6a39c9375ca48fa060462c0dc77c7affc07dfd450c003",
-    "sense_lineage": [],
+    "source_fingerprint": "01d91a044201033d34c5328d674d27dcbd364f64781e3e3393a4291b11d3b816",
+    "sense_lineage": [
+      {
+        "word_id": "word:bible",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ba6bbe7b43008b18dbce",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bible",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c376b9655a6b7d553ef4",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -6046,13 +5921,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "the Bible",
             "meaning_cn": "圣经（特指基督教经典）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ba6bbe7b43008b18dbce",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "the Bible"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:f4b562cfef9543878bf5",
@@ -6085,13 +5955,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a bible for + sth",
             "meaning_cn": "某领域的权威指南",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c376b9655a6b7d553ef4",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a bible for + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:870ece7f5280fcf4d6d0",
@@ -6166,8 +6031,16 @@
     "ordinal": 482,
     "word": "bibliography",
     "source_owner_path": "content/lexical/words/by-ordinal/o0482.json",
-    "source_fingerprint": "24e17386f232f26be345b2f161a3a622a5188b13c437abb631abf994b2f35965",
-    "sense_lineage": [],
+    "source_fingerprint": "291ee325bbd4887667be387c2b72c4e6c3b5d0f88ce7c37c22fa888fc7b3142a",
+    "sense_lineage": [
+      {
+        "word_id": "word:bibliography",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:71c3775e6a588b501c42",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -6191,7 +6064,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "参考书目；文献目录",
-        "definition_en": "a list of writings with time and place of publication, such as the writings of a single author or the works referred to in preparing a document",
+        "definition_en": "a list of books, articles, or other writings on a subject or used in preparing a work, usually with publication details",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6200,13 +6073,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a bibliography of + sth",
             "meaning_cn": "关于某主题的参考书目",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:71c3775e6a588b501c42",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a bibliography of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:7968522d162d9b1780de",
@@ -6399,7 +6267,7 @@
     "ordinal": 484,
     "word": "bid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0484.json",
-    "source_fingerprint": "66a6fb6dd62d5aace48e581d338bc5a33a50125780f72951ef7099b75c045a97",
+    "source_fingerprint": "55f2ac9eeed14778042e0db47566bcf0b5b6770187fccd412ef6e098bd1b0d12",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6454,7 +6322,7 @@
         "id": "sense:bid:405e0afb96075ec6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vi. + for/on sth; vt. + price",
         "definition_cn": "出价；投标",
         "definition_en": "to offer to pay a particular price for something",
         "note": "",
@@ -6583,71 +6451,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:bid:baseline-v2-for",
-        "source_locator": "record.constructions[0]",
-        "pattern": "bid for sth",
-        "lines": [
-          {
-            "text": "为某物出价；投标；争取",
-            "lang": "cn"
-          },
-          {
-            "text": "offer a price or compete/try for something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bid:baseline-v2-for",
-          "target_locator": "record.constructions[0]",
-          "target_label": "bid for sth"
-        }
-      },
-      {
-        "id": "construction:bid:baseline-v2-to-do",
-        "source_locator": "record.constructions[1]",
-        "pattern": "a bid to do sth",
-        "lines": [
-          {
-            "text": "为了做某事而作的尝试；努力争取",
-            "lang": "cn"
-          },
-          {
-            "text": "an attempt to achieve or do something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bid:baseline-v2-to-do",
-          "target_locator": "record.constructions[1]",
-          "target_label": "a bid to do sth"
-        }
-      },
-      {
-        "id": "construction:bid:baseline-v2-sb-do",
-        "source_locator": "record.constructions[2]",
-        "pattern": "bid sb do sth",
-        "lines": [
-          {
-            "text": "命令/吩咐某人做某事（正式或旧式）",
-            "lang": "cn"
-          },
-          {
-            "text": "formally or old-fashionedly tell someone to do something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bid:baseline-v2-sb-do",
-          "target_locator": "record.constructions[2]",
-          "target_label": "bid sb do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6821,7 +6625,7 @@
     "ordinal": 486,
     "word": "bill",
     "source_owner_path": "content/lexical/words/by-ordinal/o0486.json",
-    "source_fingerprint": "09560d9d6941e550d4f171c93b4837a99db7b1818d07fd2067557d0e103427d8",
+    "source_fingerprint": "442c1282eb2c49780c6683e52e4fa6b728e34056260914a4696fde49f532e41c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6969,7 +6773,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鸟嘴",
-        "definition_en": "the hard pointed part of a bird's mouth",
+        "definition_en": "the hard outer parts of a bird’s mouth; its beak",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6994,8 +6798,8 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "节目单；广告",
-        "definition_en": "a list of performances or events at a theater or concert",
+        "definition_cn": "节目单；演出安排；广告告示",
+        "definition_en": "a programme of entertainment, or a public notice advertising an event",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7017,7 +6821,7 @@
           "target_kind": "sense",
           "target_id": "sense:bill:ad4984b60274598b",
           "target_locator": "record.senses[4]",
-          "target_label": "节目单；广告"
+          "target_label": "节目单；演出安排；广告告示"
         }
       },
       {
@@ -7109,31 +6913,6 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:bill:final-standard-for",
-        "source_locator": "record.constructions[0]",
-        "pattern": "bill sb for sth",
-        "lines": [
-          {
-            "text": "因某项商品或服务向某人收费、开账单",
-            "lang": "cn"
-          },
-          {
-            "text": "bill sb for sth = charge/invoice; bill sb/sth as ... = advertise/describe/present as",
-            "lang": "en"
-          },
-          {
-            "text": "charge or invoice someone for goods or services",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bill:final-standard-for",
-          "target_locator": "record.constructions[0]",
-          "target_label": "bill sb for sth"
-        }
-      },
-      {
         "id": "construction:bill:baseline-v2-as",
         "source_locator": "record.constructions[1]",
         "pattern": "bill sb/sth as ...",
@@ -7172,7 +6951,7 @@
     "ordinal": 487,
     "word": "billion",
     "source_owner_path": "content/lexical/words/by-ordinal/o0487.json",
-    "source_fingerprint": "641241f0ad3d0fb51ae1f86b71a29ecba59f0d4e67555822940f112f1bbbda7d",
+    "source_fingerprint": "64df18cb868b63d4fa2c9fa61f6622f881c054a40229e5a246f78ba74a80cdb2",
     "sense_lineage": [
       {
         "word_id": "word:billion",
@@ -7233,15 +7012,10 @@
           {
             "id": "collocation:2e3648fc11439b047843",
             "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "a billion (modern)",
+            "phrase": "a billion",
             "meaning_cn": "十亿（10^9）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2e3648fc11439b047843",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "a billion (modern)"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7324,8 +7098,16 @@
     "ordinal": 488,
     "word": "bin",
     "source_owner_path": "content/lexical/words/by-ordinal/o0488.json",
-    "source_fingerprint": "e59fb4e1c1664d5493118c92a469b282dd02d7a87ebaabde1a6544ca4fe73c54",
-    "sense_lineage": [],
+    "source_fingerprint": "2bab83c1a240464416428f4974739426267d8e5e00b463b5fd608af18358821b",
+    "sense_lineage": [
+      {
+        "word_id": "word:bin",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1be4a9a23b96905916ef",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -7334,13 +7116,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "容器；箱子",
-      "decision_cn": "",
+      "summary_cn": "垃圾箱或储物容器；动词可指放入箱内或扔掉",
+      "decision_cn": "noun → 垃圾/回收或储物容器；verb bin sth → 装箱，或英式非正式语境中扔掉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "容器；箱子"
+        "target_label": "垃圾箱或储物容器；动词可指放入箱内或扔掉"
       }
     },
     "senses": [
@@ -7349,8 +7131,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "箱子；容器",
-        "definition_en": "a container with a lid, used for storing things",
+        "definition_cn": "垃圾箱；回收箱；储物容器",
+        "definition_en": "a container for waste or for storing things, often with a lid",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7359,13 +7141,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "storage bin",
             "meaning_cn": "储物箱",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1be4a9a23b96905916ef",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "storage bin"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:299b95b2ecfb2b4d8f1a",
@@ -7380,7 +7157,7 @@
           "target_kind": "sense",
           "target_id": "sense:bin:94a01ec8388b5735",
           "target_locator": "record.senses[0]",
-          "target_label": "箱子；容器"
+          "target_label": "垃圾箱；回收箱；储物容器"
         }
       },
       {
@@ -7392,16 +7169,7 @@
         "definition_en": "to put something in a bin",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:eec1600290d5234a6783",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "bin the waste",
-            "meaning_cn": "把废物扔进垃圾箱",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bin:e285f51fadb25b5f",
@@ -7413,12 +7181,21 @@
         "id": "sense:bin:bd819e09f5b2e658",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt. + object",
         "definition_cn": "扔掉；丢弃",
         "definition_en": "to throw something away or discard it",
-        "note": "",
+        "note": "British English, informal: throw something away.",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:eec1600290d5234a6783",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "bin the waste",
+            "meaning_cn": "把废物扔进垃圾箱",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:bin:bd819e09f5b2e658",
@@ -7496,8 +7273,23 @@
     "ordinal": 489,
     "word": "bind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0489.json",
-    "source_fingerprint": "85fc3fa0827fcf8385a8cd34ba82bb92077063a54e7d121ec5d848f2cdfc7830",
-    "sense_lineage": [],
+    "source_fingerprint": "1780e13b56f0e95e56511572af10bdb8e0fc9a74c133f6df26119bdd809df73e",
+    "sense_lineage": [
+      {
+        "word_id": "word:bind",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b0d39b486fefb515da29",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bind",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:93b817249af3a3d83642",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "6V"
@@ -7646,7 +7438,7 @@
         "id": "sense:bind:6736c8a7a83053bd",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "bind sb to sth/to do sth | be bound by sth",
         "definition_cn": "约束，使负有义务",
         "definition_en": "to legally or morally oblige someone",
         "note": "",
@@ -7657,26 +7449,16 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "be bound by sth",
             "meaning_cn": "受某事物约束",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b0d39b486fefb515da29",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "be bound by sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:93b817249af3a3d83642",
             "source_locator": "record.senses[4].collocations[1]",
             "phrase": "be bound to do sth",
-            "meaning_cn": "一定会、很可能或注定做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:93b817249af3a3d83642",
-              "target_locator": "record.senses[4].collocations[1]",
-              "target_label": "be bound to do sth"
-            }
+            "meaning_cn": "在义务语境中：有义务做某事；常见的很可能/必然义见本词构式辨析",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7691,8 +7473,8 @@
         "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "凝固",
-        "definition_en": "to become solid or hard",
+        "definition_cn": "黏合；结合成整体",
+        "definition_en": "to stick together in a mass",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7714,7 +7496,7 @@
           "target_kind": "sense",
           "target_id": "sense:bind:aeea5efc13f25c3f",
           "target_locator": "record.senses[5]",
-          "target_label": "凝固"
+          "target_label": "黏合；结合成整体"
         }
       }
     ],
@@ -8047,7 +7829,7 @@
     "ordinal": 492,
     "word": "bird",
     "source_owner_path": "content/lexical/words/by-ordinal/o0492.json",
-    "source_fingerprint": "c48984f3e3df71bdbf1f1e882abfd36d8bbad89bee72ad6dff27e9d83222cc6e",
+    "source_fingerprint": "c2f41e6331fef503de94fe2ed64dc683d0361b254c9bdffc0a133681ca57f784",
     "sense_lineage": [
       {
         "word_id": "word:bird",
@@ -8064,13 +7846,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "有羽毛能飞的动物",
-      "decision_cn": "",
+      "summary_cn": "有羽毛的鸟类动物；并非所有鸟都会飞",
+      "decision_cn": "鸟类以羽毛等特征识别；不能把会飞当成必要条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有羽毛能飞的动物"
+        "target_label": "有羽毛的鸟类动物；并非所有鸟都会飞"
       }
     },
     "senses": [
@@ -8166,7 +7948,7 @@
     "ordinal": 493,
     "word": "birth",
     "source_owner_path": "content/lexical/words/by-ordinal/o0493.json",
-    "source_fingerprint": "c4eabfacbeb238db482bb19cb22bef8d4f469c0d5178a0f1e2d4885e4e0da70a",
+    "source_fingerprint": "8c90a8f2ddc503fb7b7751e42f8bc3e7d5daee7c099e72e6c9349c045d81534f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8284,29 +8066,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:birth:baseline-v2-give-birth-to",
-        "source_locator": "record.constructions[0]",
-        "pattern": "give birth to sb/sth",
-        "lines": [
-          {
-            "text": "生下；产生；孕育出",
-            "lang": "cn"
-          },
-          {
-            "text": "produce a child or, figuratively, bring something into existence",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:birth:baseline-v2-give-birth-to",
-          "target_locator": "record.constructions[0]",
-          "target_label": "give birth to sb/sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8413,7 +8173,7 @@
     "ordinal": 495,
     "word": "biscuit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0495.json",
-    "source_fingerprint": "45ba5c71f0fd7f888d8558a532730968887f7483e5e4817fd394a3a4c30be779",
+    "source_fingerprint": "f41dd6757749e1a5f0c0f3d323c3675b1784c252aad58236d176f19e6793151c",
     "sense_lineage": [
       {
         "word_id": "word:biscuit",
@@ -8437,13 +8197,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "小烤饼",
-      "decision_cn": "",
+      "summary_cn": "英式常指饼干；美式常指松软的小烤饼",
+      "decision_cn": "packet/tea 等英式语境 → 饼干；美式早餐或 gravy 语境 → 松软烤饼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小烤饼"
+        "target_label": "英式常指饼干；美式常指松软的小烤饼"
       }
     },
     "senses": [
@@ -8469,7 +8229,7 @@
             "id": "collocation:32c735a97bf9da59de02",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "butter a biscuit",
-            "meaning_cn": "给饼干涂黄油",
+            "meaning_cn": "给饼干／美式松软烤饼涂黄油，按语境区分",
             "kind": "usage_example",
             "repair": null
           },
@@ -8478,13 +8238,8 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "BrE biscuit / AmE biscuit",
             "meaning_cn": "英美义项边界",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e427be9a9a920c88a2e2",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "BrE biscuit / AmE biscuit"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8629,11 +8384,18 @@
     "ordinal": 496,
     "word": "bit",
     "source_owner_path": "content/lexical/words/by-ordinal/o0496.json",
-    "source_fingerprint": "ad5810e8542de4aeb93a4dc24deb11f4bd738adb2edefef7dcd49c7ecdff27f4",
-    "sense_lineage": [],
+    "source_fingerprint": "18669d24d7eac9681322a86f77b82cdb533fcf4807826113c82d777227db0a7e",
+    "sense_lineage": [
+      {
+        "word_id": "word:bit",
+        "target_kind": "sense",
+        "from_target_id": "sense:bit:4ac2f15d731a572a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
@@ -8762,23 +8524,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "马嚼子"
         }
-      },
-      {
-        "id": "sense:bit:4ac2f15d731a572a",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "咬（bite的过去式）",
-        "definition_en": "past tense of bite",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:bit:4ac2f15d731a572a",
-          "target_locator": "record.senses[3]",
-          "target_label": "咬（bite的过去式）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -8862,7 +8607,23 @@
           "target_label": "bit can be an independent noun (a small amount/piece, computing bit, horse bit) or the past tense of bite."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "咬（bite的过去式）",
+          "definition_en": "past tense of bite",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:bit:4ac2f15d731a572a",
+          "sense_label_en": "past tense of bite",
+          "sort_order": 3,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -8871,8 +8632,16 @@
     "ordinal": 497,
     "word": "bite",
     "source_owner_path": "content/lexical/words/by-ordinal/o0497.json",
-    "source_fingerprint": "33288138e488f9c07b03c4bfa51fa7020b11f0938fe0163bcf26490b726c996e",
-    "sense_lineage": [],
+    "source_fingerprint": "b4bed93d89063ca570bfc30f761c0ff29db662002c6beec1a3c9df37d16a9b89",
+    "sense_lineage": [
+      {
+        "word_id": "word:bite",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:063abe79375105e3620b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -8895,7 +8664,7 @@
         "id": "sense:bite:42ce5d80389c5aee",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt. + object / vi.; bite into/through sth",
         "definition_cn": "咬",
         "definition_en": "to cut or grip with the teeth",
         "note": "",
@@ -8966,8 +8735,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "一口；少量食物",
-        "definition_en": "a light informal meal",
+        "definition_cn": "一口食物；少量食物；简餐",
+        "definition_en": "a small piece or mouthful of food, or a small informal meal",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8989,7 +8758,7 @@
           "target_kind": "sense",
           "target_id": "sense:bite:d029627d80fa5840",
           "target_locator": "record.senses[2]",
-          "target_label": "一口；少量食物"
+          "target_label": "一口食物；少量食物；简餐"
         }
       },
       {
@@ -8997,7 +8766,7 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "鱼上钩",
+        "definition_cn": "鱼咬饵",
         "definition_en": "(angling) an instance of a fish taking the bait",
         "note": "",
         "identity_overlay": null,
@@ -9006,7 +8775,7 @@
             "id": "collocation:e8522cce0c4d82cb3938",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "get a bite",
-            "meaning_cn": "钓到鱼",
+            "meaning_cn": "有鱼咬饵（不保证已钓获）",
             "kind": "usage_example",
             "repair": null
           }
@@ -9015,14 +8784,14 @@
           "target_kind": "sense",
           "target_id": "sense:bite:77189e49409c5bd3",
           "target_locator": "record.senses[3]",
-          "target_label": "鱼上钩"
+          "target_label": "鱼咬饵"
         }
       },
       {
         "id": "sense:bite:295b487b58bb5326",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "vi.; no obligatory preposition",
         "definition_cn": "刺痛；产生刺痛感",
         "definition_en": "to have a sharp or stinging effect",
         "note": "",
@@ -9031,15 +8800,10 @@
           {
             "id": "collocation:063abe79375105e3620b",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "bite into + sth",
-            "meaning_cn": "咬进；刺痛",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:063abe79375105e3620b",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "bite into + sth"
-            }
+            "phrase": "the cold bites into your skin",
+            "meaning_cn": "寒气刺痛皮肤",
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:a6df979de324630b6c56",
@@ -9391,23 +9155,31 @@
     "ordinal": 500,
     "word": "black",
     "source_owner_path": "content/lexical/words/by-ordinal/o0500.json",
-    "source_fingerprint": "4e05f461eb88de03ebb775a65671c51e11a00b363b53495f9579bdafe446cf77",
-    "sense_lineage": [],
+    "source_fingerprint": "6949441014061430defdc0481f2ebd33aba35f43fe078c1a2ad60fe940b0a623",
+    "sense_lineage": [
+      {
+        "word_id": "word:black",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e351a0ccd1d8cbdcc64c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "黑色；在部分复合词中也可表示非法、秘密或被禁止",
-      "decision_cn": "普通颜色义之外，black 在 black market / black economy 等复合词中可标记非法、秘密或被禁止的活动。",
+      "summary_cn": "黑色；Black/black 在人群语境中指黑人及相关文化；部分复合词另有非法、秘密义",
+      "decision_cn": "颜色看物体；people/community/culture 等人群语境指黑人身份或文化；black market/economy 才选非法或秘密的复合词义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "黑色；在部分复合词中也可表示非法、秘密或被禁止"
+        "target_label": "黑色；Black/black 在人群语境中指黑人及相关文化；部分复合词另有非法、秘密义"
       }
     },
     "senses": [
@@ -9439,13 +9211,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "in black",
             "meaning_cn": "穿着黑色衣服",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e351a0ccd1d8cbdcc64c",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "in black"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9462,7 +9229,7 @@
         "governing_pattern": "",
         "definition_cn": "黑色的",
         "definition_en": "having the darkest color",
-        "note": "",
+        "note": "For coffee or tea, black means served without milk; it does not describe a required exact shade.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9472,19 +9239,6 @@
             "meaning_cn": "不加奶的咖啡",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:23684b2c52d5c8483a3e",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "black market",
-            "meaning_cn": "黑市",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:23684b2c52d5c8483a3e",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "black market"
-            }
           }
         ],
         "repair": {
@@ -9516,6 +9270,19 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "black economy"
             }
+          },
+          {
+            "id": "collocation:23684b2c52d5c8483a3e",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "black market",
+            "meaning_cn": "黑市",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:23684b2c52d5c8483a3e",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "black market"
+            }
           }
         ],
         "repair": {
@@ -9523,6 +9290,23 @@
           "target_id": "sense:black:ed9b69ecbc2254ca",
           "target_locator": "record.senses[2]",
           "target_label": "（组合词中）非法的、秘密的或被禁止的"
+        }
+      },
+      {
+        "id": "sense:black:20261008-racial-cultural",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "Black/black + people, community, culture, etc.",
+        "definition_cn": "黑人的；与黑人身份、群体或文化有关的",
+        "definition_en": "relating to Black people or their identity, communities, and culture, especially people of African descent",
+        "note": "Black people、Black culture 等指人的身份或文化，不能按纯颜色或“非法”义理解。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:black:20261008-racial-cultural",
+          "target_locator": "record.senses[3]",
+          "target_label": "黑人的；与黑人身份、群体或文化有关的"
         }
       }
     ],
@@ -9551,7 +9335,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "Black is commonly capitalized for racial, ethnic, or cultural identity; some sources also use lowercase black. Ordinary colour uses lowercase black.",
+        "boundaries": [
+          {
+            "surface": "Black / black",
+            "condition": "racial, ethnic, or cultural adjective",
+            "note": "许多新闻机构使用 Black；也会遇到 black，不能仅靠大小写判义。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": "Black is commonly capitalized for racial, ethnic, or cultural identity; some sources also use lowercase black. Ordinary colour uses lowercase black."
+        }
+      },
       "family": []
     }
   },
@@ -9868,7 +9668,7 @@
     "ordinal": 503,
     "word": "blame",
     "source_owner_path": "content/lexical/words/by-ordinal/o0503.json",
-    "source_fingerprint": "3be69250712cb4ca2267c06ad53f232b0ac1f305052186ba7cc4978d89bd7d9a",
+    "source_fingerprint": "04f06a7f1ab12dfbfe94f8bd1d8610cc84117adf018d0a4631cf9e32fe136526",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9914,14 +9714,14 @@
           {
             "id": "collocation:dfa58a4464eec60f1497",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "blame sth on sb",
-            "meaning_cn": "把某事归咎于某人",
+            "phrase": "blame sth on sb/sth",
+            "meaning_cn": "把某个问题或坏结果归咎于某人或某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:dfa58a4464eec60f1497",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "blame sth on sb"
+              "target_label": "blame sth on sb/sth"
             }
           }
         ],
@@ -9937,7 +9737,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "责备；过失",
+        "definition_cn": "责备；（对过错或坏结果的）责任",
         "definition_en": "responsibility for a fault or wrong",
         "note": "",
         "identity_overlay": null,
@@ -9968,7 +9768,7 @@
           "target_kind": "sense",
           "target_id": "sense:blame:94fd7d0cb0095f30",
           "target_locator": "record.senses[1]",
-          "target_label": "责备；过失"
+          "target_label": "责备；（对过错或坏结果的）责任"
         }
       }
     ],
@@ -10003,50 +9803,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:blame:baseline-v2-sb-for-sth",
-        "source_locator": "record.constructions[0]",
-        "pattern": "blame sb for sth",
-        "lines": [
-          {
-            "text": "因某事责备某人；认为某人应为某事负责",
-            "lang": "cn"
-          },
-          {
-            "text": "hold someone responsible for something wrong or undesirable",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:blame:baseline-v2-sb-for-sth",
-          "target_locator": "record.constructions[0]",
-          "target_label": "blame sb for sth"
-        }
-      },
-      {
-        "id": "construction:blame:baseline-v2-sth-on-sb",
-        "source_locator": "record.constructions[1]",
-        "pattern": "blame sth on sb/sth",
-        "lines": [
-          {
-            "text": "把某事归咎于某人/某物",
-            "lang": "cn"
-          },
-          {
-            "text": "attribute a problem, fault, or bad outcome to someone or something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:blame:baseline-v2-sth-on-sb",
-          "target_locator": "record.constructions[1]",
-          "target_label": "blame sth on sb/sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10060,7 +9817,7 @@
     "ordinal": 504,
     "word": "blank",
     "source_owner_path": "content/lexical/words/by-ordinal/o0504.json",
-    "source_fingerprint": "280133eae1958ec3e21786c750e880455e5223b8b04e1d5b34074d3a3393628b",
+    "source_fingerprint": "a61db0cb5a45794c2051e263419d95b58e9d7184cbb704d29f13e4e7a1c53424",
     "sense_lineage": [
       {
         "word_id": "word:blank",
@@ -10105,6 +9862,19 @@
             "meaning_cn": "填空",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a17d79dba52c94fd8985",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "draw a blank",
+            "meaning_cn": "想不起、找不到答案或结果",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a17d79dba52c94fd8985",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "draw a blank"
+            }
           }
         ],
         "repair": {
@@ -10119,8 +9889,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "空白的",
-        "definition_en": "not written or printed on",
+        "definition_cn": "空白的；（头脑）没有想法或突然想不起的",
+        "definition_en": "empty or without writing; of the mind, without thoughts or remembered information",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10133,28 +9903,15 @@
             "repair": null
           },
           {
-            "id": "collocation:a17d79dba52c94fd8985",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "draw a blank",
-            "meaning_cn": "想不起、找不到答案或结果",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a17d79dba52c94fd8985",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "draw a blank"
-            }
-          },
-          {
             "id": "collocation:f1f86773b0d7378d1171",
-            "source_locator": "record.senses[1].collocations[2]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "go blank",
             "meaning_cn": "突然无法思考或记忆",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f1f86773b0d7378d1171",
-              "target_locator": "record.senses[1].collocations[2]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "go blank"
             }
           }
@@ -10163,7 +9920,7 @@
           "target_kind": "sense",
           "target_id": "sense:blank:a09069a1e33956d6",
           "target_locator": "record.senses[1]",
-          "target_label": "空白的"
+          "target_label": "空白的；（头脑）没有想法或突然想不起的"
         }
       },
       {
@@ -10213,50 +9970,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:blank:baseline-v2-draw-a-blank",
-        "source_locator": "record.constructions[0]",
-        "pattern": "draw a blank",
-        "lines": [
-          {
-            "text": "想不起；没有得到答案或结果",
-            "lang": "cn"
-          },
-          {
-            "text": "fail to remember, find an answer, or get a result",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:blank:baseline-v2-draw-a-blank",
-          "target_locator": "record.constructions[0]",
-          "target_label": "draw a blank"
-        }
-      },
-      {
-        "id": "construction:blank:baseline-v2-go-blank",
-        "source_locator": "record.constructions[1]",
-        "pattern": "go blank",
-        "lines": [
-          {
-            "text": "脑子突然一片空白；突然想不起来",
-            "lang": "cn"
-          },
-          {
-            "text": "suddenly become unable to think or remember",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:blank:baseline-v2-go-blank",
-          "target_locator": "record.constructions[1]",
-          "target_label": "go blank"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10297,8 +10011,16 @@
     "ordinal": 505,
     "word": "blanket",
     "source_owner_path": "content/lexical/words/by-ordinal/o0505.json",
-    "source_fingerprint": "eb09c5b66d4d4ef2ac638fa622fd28df6e3773b74ccdcbeb6b7345ab5ccdb92f",
-    "sense_lineage": [],
+    "source_fingerprint": "a9d9bdd62c4eae649f043810b5a8bbd95ff87e803a32df222f6a147227d5c53b",
+    "sense_lineage": [
+      {
+        "word_id": "word:blanket",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3f46cd8fb3f8a7d07cc3",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -10309,7 +10031,7 @@
     },
     "word_feel": {
       "summary_cn": "覆盖层",
-      "decision_cn": "",
+      "decision_cn": "实物或雪雾是一层覆盖；动词是笼罩；blanket ban/policy 则是无差别、全面适用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10401,13 +10123,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "blanket + sth",
             "meaning_cn": "覆盖某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3f46cd8fb3f8a7d07cc3",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "blanket + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:b8221c9e4def836f4f7f",
@@ -10505,8 +10222,23 @@
     "ordinal": 506,
     "word": "blast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0506.json",
-    "source_fingerprint": "051c4a484f73fc7cd0433d3cf8dd23a4a1dc518d9283bdf0db04ab256dce335f",
-    "sense_lineage": [],
+    "source_fingerprint": "2ec173ecb031a5315b210a75f8ee9a9615a9c5b5f65df22ebf2d0c3dec7e030d",
+    "sense_lineage": [
+      {
+        "word_id": "word:blast",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:02ec1b352714f8f74d38",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blast",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b39b49edbb4a39080936",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -10516,7 +10248,7 @@
     },
     "word_feel": {
       "summary_cn": "爆炸或强风",
-      "decision_cn": "",
+      "decision_cn": "爆炸或强气流看物理对象；blast a policy 是猛烈抨击；music blasts 是大声播放；have a blast 是玩得尽兴。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10608,13 +10340,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "blast + sth",
             "meaning_cn": "炸毁某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b39b49edbb4a39080936",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "blast + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:eecb5728ed62df19267c",
@@ -10647,13 +10374,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "blast + sb/sth",
             "meaning_cn": "猛烈抨击某人/某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:02ec1b352714f8f74d38",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "blast + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:8e9685955e497e4ceb29",
@@ -10675,9 +10397,9 @@
         "id": "sense:blast:dcfc0698d29a5306",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "发出刺耳的声音",
-        "definition_en": "to make a loud, harsh sound",
+        "governing_pattern": "blast (sth)",
+        "definition_cn": "发出或大声播放声音",
+        "definition_en": "to make or play a loud sound",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10694,7 +10416,7 @@
           "target_kind": "sense",
           "target_id": "sense:blast:dcfc0698d29a5306",
           "target_locator": "record.senses[4]",
-          "target_label": "发出刺耳的声音"
+          "target_label": "发出或大声播放声音"
         }
       }
     ],
@@ -10771,7 +10493,7 @@
     "ordinal": 507,
     "word": "blaze",
     "source_owner_path": "content/lexical/words/by-ordinal/o0507.json",
-    "source_fingerprint": "d457d6f996b9f92c805695febbefabf9bd3778dce157a7c3ac65a9e62ba33c1a",
+    "source_fingerprint": "6551ab2f47200394e69400220fc2f16d4ca46a6d7fc201120993cd9ae9443430",
     "sense_lineage": [
       {
         "word_id": "word:blaze",
@@ -10779,23 +10501,37 @@
         "from_target_id": "sense:blaze:9992835f1cc75b67",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:blaze",
+        "target_kind": "sense",
+        "from_target_id": "sense:blaze:c44f9f860e587071",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blaze",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e6020514886709a5e55a",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "明亮燃烧或闪耀；也可比喻为开辟新道路",
+      "summary_cn": "明亮燃烧或闪耀；blaze a trail 表开辟新道路",
       "decision_cn": "fire/light → 猛烈燃烧或闪耀；blaze a trail → 开辟道路、开创先河。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "明亮燃烧或闪耀；也可比喻为开辟新道路"
+        "target_label": "明亮燃烧或闪耀；blaze a trail 表开辟新道路"
       }
     },
     "senses": [
@@ -10804,8 +10540,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "强烈的火焰",
-        "definition_en": "a strong bright flame",
+        "definition_cn": "旺盛的火焰；耀眼的光",
+        "definition_en": "a strong bright fire or an intense bright light",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10822,7 +10558,7 @@
           "target_kind": "sense",
           "target_id": "sense:blaze:3f315f322ada5349",
           "target_locator": "record.senses[0]",
-          "target_label": "强烈的火焰"
+          "target_label": "旺盛的火焰；耀眼的光"
         }
       },
       {
@@ -10885,37 +10621,6 @@
           "target_id": "sense:blaze:352898407c6e59b2",
           "target_locator": "record.senses[2]",
           "target_label": "闪耀，发光"
-        }
-      },
-      {
-        "id": "sense:blaze:c44f9f860e587071",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "开创道路或方法",
-        "definition_en": "to pioneer or open a new path, method, or approach",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e6020514886709a5e55a",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "blaze a trail",
-            "meaning_cn": "开创一条新道路或方法",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e6020514886709a5e55a",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "blaze a trail"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:blaze:c44f9f860e587071",
-          "target_locator": "record.senses[3]",
-          "target_label": "开创道路或方法"
         }
       }
     ],
@@ -11001,6 +10706,34 @@
           "source_row": 1349,
           "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e6020514886709a5e55a",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:blaze:c44f9f860e587071:collocation:handoff-o0475-o0674"
+              ],
+              "meaning_cn": "开创一条新道路或方法",
+              "phrase": "blaze a trail"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "开创道路或方法",
+          "definition_en": "to pioneer or open a new path, method, or approach",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:blaze:c44f9f860e587071",
+          "sense_label_en": "to pioneer or open a new path, method, or approach",
+          "sort_order": 4,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:blaze:c44f9f860e587071",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -11011,7 +10744,7 @@
     "ordinal": 508,
     "word": "bleak",
     "source_owner_path": "content/lexical/words/by-ordinal/o0508.json",
-    "source_fingerprint": "ad98450f0b0a8b7e6caf603d2b30a1c04fd9de5ab1e26571cab1ce8fc7f2cea6",
+    "source_fingerprint": "e936247df962393fe84cd97cd2bf73c3f3c1798cd7e512342e64ef4ce40fda1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11036,7 +10769,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "阴冷的；荒凉的",
-        "definition_en": "unpleasantly cold and damp",
+        "definition_en": "cold and unpleasant; of a place, bare, exposed, and unwelcoming",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11045,14 +10778,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "bleak landscape",
             "meaning_cn": "荒凉的景色",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:8534af425946d0ee20f2",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "bleak future",
-            "meaning_cn": "黯淡的前景",
             "kind": "usage_example",
             "repair": null
           }
@@ -11079,6 +10804,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "bleak future/prospects/outlook",
             "meaning_cn": "黯淡的未来、前景或展望",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:8534af425946d0ee20f2",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "bleak future",
+            "meaning_cn": "黯淡的前景",
             "kind": "usage_example",
             "repair": null
           }
@@ -11123,7 +10856,7 @@
     "ordinal": 509,
     "word": "bleed",
     "source_owner_path": "content/lexical/words/by-ordinal/o0509.json",
-    "source_fingerprint": "d2a0f5df92032e1572efa46f6da3e3a30c8b1a72e0447a18b5cfda6aee351089",
+    "source_fingerprint": "3ab4e9091d28f900040fb2d023565752e70fb9a2a228464c422bdce0676289a9",
     "sense_lineage": [
       {
         "word_id": "word:bleed",
@@ -11219,9 +10952,9 @@
         "id": "sense:bleed:42af86e2599b53fa",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "渗出，流出",
-        "definition_en": "to drain of liquid or steam",
+        "governing_pattern": "bleed; bleed sth from sth; bleed off sth",
+        "definition_cn": "渗出、流出；排出或放出（液体、气体）",
+        "definition_en": "to flow or seep out; to drain or release liquid or gas",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11251,7 +10984,7 @@
           "target_kind": "sense",
           "target_id": "sense:bleed:42af86e2599b53fa",
           "target_locator": "record.senses[2]",
-          "target_label": "渗出，流出"
+          "target_label": "渗出、流出；排出或放出（液体、气体）"
         }
       },
       {
@@ -11357,8 +11090,23 @@
     "ordinal": 510,
     "word": "blend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0510.json",
-    "source_fingerprint": "b944dad7f49855fa09dd6f59f2d3c8c4bd4262208aa2b67fcf63a3a1b8b9f1ae",
-    "sense_lineage": [],
+    "source_fingerprint": "171bf748626487cc57ae84d3a8bc72b694a5516a12d665d8740ca157b03720ad",
+    "sense_lineage": [
+      {
+        "word_id": "word:blend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:85cb53510f7fe47b21b0",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:de4d79abf416294c2edb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -11381,9 +11129,9 @@
         "id": "sense:blend:16c1c13e3f335ef5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "混合；掺和",
-        "definition_en": "mix together or combine",
+        "governing_pattern": "blend A with B; blend in; blend with/into sth",
+        "definition_cn": "混合、掺和；（blend in/with/into）融入或协调",
+        "definition_en": "to mix or combine; to merge gradually or fit harmoniously with surrounding things",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11413,33 +11161,23 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "blend in",
             "meaning_cn": "融入、不显眼",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:de4d79abf416294c2edb",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "blend in"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:85cb53510f7fe47b21b0",
             "source_locator": "record.senses[0].collocations[3]",
             "phrase": "blend with/into",
             "meaning_cn": "与…协调或逐渐混合",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:85cb53510f7fe47b21b0",
-              "target_locator": "record.senses[0].collocations[3]",
-              "target_label": "blend with/into"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:blend:16c1c13e3f335ef5",
           "target_locator": "record.senses[0]",
-          "target_label": "混合；掺和"
+          "target_label": "混合、掺和；（blend in/with/into）融入或协调"
         }
       },
       {
@@ -11507,8 +11245,8 @@
         "pattern": "blend in / blend with or into",
         "lines": [
           {
-            "text": "fit in or harmonize; combine gradually, distinct from transitive mixing",
-            "lang": "en"
+            "text": "blend in：融入环境而不显眼；blend with/into：与……协调或逐渐混合",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -11532,8 +11270,16 @@
     "ordinal": 511,
     "word": "bless",
     "source_owner_path": "content/lexical/words/by-ordinal/o0511.json",
-    "source_fingerprint": "708660c11987b24873be1d2fe79f59c44a03489cd6bab80e2677590362afc147",
-    "sense_lineage": [],
+    "source_fingerprint": "47926615728427ce7c240d837efd16dae101a7968f4ed2225de31249f9ab4d07",
+    "sense_lineage": [
+      {
+        "word_id": "word:bless",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cf13813daf030320ce85",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -11542,7 +11288,7 @@
     },
     "word_feel": {
       "summary_cn": "祝福；祈佑",
-      "decision_cn": "",
+      "decision_cn": "祝福语境可祈求神的保护；be blessed with sth 常表示幸运地拥有某种品质或优势，不必理解为宗教赐予。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11555,9 +11301,9 @@
         "id": "sense:bless:09267e2209f554e3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "祝福；祈佑；使神圣化",
-        "definition_en": "to ask God to protect someone or something, or to make something holy",
+        "governing_pattern": "bless sb/sth; be blessed with sth",
+        "definition_cn": "祝福；祈佑；使神圣化；（be blessed with）幸运地拥有、享有",
+        "definition_en": "to invoke divine protection or make holy; in be blessed with, to be fortunate in having a quality or advantage",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11566,13 +11312,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "bless + sb/sth",
             "meaning_cn": "祝福某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cf13813daf030320ce85",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "bless + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:313ef15b2cde8f54751c",
@@ -11600,7 +11341,7 @@
           "target_kind": "sense",
           "target_id": "sense:bless:09267e2209f554e3",
           "target_locator": "record.senses[0]",
-          "target_label": "祝福；祈佑；使神圣化"
+          "target_label": "祝福；祈佑；使神圣化；（be blessed with）幸运地拥有、享有"
         }
       }
     ],
@@ -11649,7 +11390,7 @@
     "ordinal": 512,
     "word": "blind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0512.json",
-    "source_fingerprint": "22310a9ad67e52cb9aeeb2270b465af8dfa12ad3e74d0cf1203a4c4a346fe412",
+    "source_fingerprint": "f8d09afae7325aa2eab67034e8651478e287b7903a90ca0c9f4a4cbea24148f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11893,7 +11634,7 @@
             "id": "collocation:3b5bb2afbc36dda039de",
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "fly blind",
-            "meaning_cn": "盲目飞行",
+            "meaning_cn": "仅靠仪表飞行（无外部目视参照）；比喻缺乏必要信息而行动",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -11953,29 +11694,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:blind:baseline-v2-turn-a-blind-eye-to",
-        "source_locator": "record.constructions[0]",
-        "pattern": "turn a blind eye to sth",
-        "lines": [
-          {
-            "text": "对本应注意或处理的问题故意视而不见",
-            "lang": "cn"
-          },
-          {
-            "text": "deliberately ignore something wrong, unpleasant, or requiring attention",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:blind:baseline-v2-turn-a-blind-eye-to",
-          "target_locator": "record.constructions[0]",
-          "target_label": "turn a blind eye to sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],

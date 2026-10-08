@@ -19,11 +19,12 @@
           ]
         },
         {
-          "label_cn": "滚木球；快而稳地行驶",
-          "label_en": "to roll a ball in the game of bowling; to move quickly and smoothly",
+          "label_cn": "滚球；快速平稳地行进",
+          "label_en": "roll a ball; move quickly in a direction",
           "pos": "verb",
           "sense_ids": [
-            "sense:bowl:03860f8db15858c9"
+            "sense:bowl:03860f8db15858c9",
+            "sense:bowl:20261008-move"
           ]
         }
       ],
@@ -76,15 +77,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:99cf4759e999c1bf5f4c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bowl:03860f8db15858c9:collocation:0"
-            ],
-            "meaning_cn": "平稳快速地行驶",
-            "phrase": "bowl along"
-          },
-          {
             "collocation_id": "collocation:02b0888d28329b35caca",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -95,16 +87,54 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "滚木球；快而稳地行驶",
-        "definition_en": "to roll a ball in the game of bowling; to move quickly and smoothly",
-        "governing_pattern": "vi. + at/along",
+        "definition_cn": "（在保龄球等运动中）滚球",
+        "definition_en": "to roll a ball in a game such as bowling",
+        "governing_pattern": "bowl (a ball)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:bowl:03860f8db15858c9",
-        "sense_label_en": "to roll a ball in the game of bowling; to move quickly and smoothly",
+        "sense_label_en": "to roll a ball in a game such as bowling",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:bowl:20261008-move",
+        "pos": "verb",
+        "definition_cn": "（尤指乘车）快速平稳地行进",
+        "definition_en": "to move quickly in a particular direction, especially in a vehicle",
+        "sense_label_en": "move quickly in a particular direction",
+        "transitivity": "vi",
+        "governing_pattern": "bowl + direction, e.g. along/down",
+        "level": "L2",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:99cf4759e999c1bf5f4c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bowl:03860f8db15858c9:collocation:0"
+            ],
+            "meaning_cn": "平稳快速地行驶",
+            "phrase": "bowl along"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_type": "preserved_existing_content",
+            "source_path": "content/lexical/words/by-ordinal/o0559.json",
+            "source_ref": "f835f90b0e7313c67fd30b62d237f4ef20f3da09",
+            "source_object_id": "sense:bowl:03860f8db15858c9",
+            "supports": "The motion meaning and bowl-along example were already active in this combined Sense."
+          },
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/bowl_2",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Separate sports-ball action from directional motion."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -381,6 +411,11 @@
         "merged_into_sense_id": null,
         "source_row": 1529,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
+      },
+      {
+        "sense_id": "sense:bowl:20261008-move",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -409,7 +444,8 @@
       {
         "id": "collocation:99cf4759e999c1bf5f4c",
         "source_row": 13109,
-        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json",
+        "sense_id": "sense:bowl:20261008-move"
       }
     ],
     "exam-mappings": [],

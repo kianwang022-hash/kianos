@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "与某人交往、来往",
         "module": "constructions",
-        "pattern": "vi. + with",
+        "pattern": "associate with sb",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -71,12 +71,20 @@
           "sense_ids": [
             "sense:associate:aaad4a8f591d5300"
           ]
+        },
+        {
+          "label_cn": "（职位、级别）副的；（会员身份）非正式的、准的",
+          "label_en": "sharing a role or responsibility, often with a secondary rank or less than full membership",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:associate:20261007-adjective-status"
+          ]
         }
       ],
-      "core_meaning_cn": "联系；同伴",
-      "core_meaning_en": "to connect in the mind, or a person connected with another in activity",
-      "mental_model_cn": "联系；同伴",
-      "mental_model_en": ""
+      "core_meaning_cn": "联系；交往；同伴；职位或会员身份中的副/准",
+      "core_meaning_en": "connect or keep company; a colleague; a title or membership adjective marking associated or secondary status",
+      "mental_model_cn": "associate A with B → 联系；associate with sb → 交往；an associate → 同伴；associate professor/member 中是职位或身份形容词。",
+      "mental_model_en": "Use the object and position: connect A with B, keep company with someone, a colleague, or a rank adjective before a title."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -96,14 +104,14 @@
         "confidence": "high",
         "definition_cn": "把 A 与 B 联系起来",
         "definition_en": "link A with B in thought or fact",
-        "governing_pattern": "",
+        "governing_pattern": "associate A with B; be associated with B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:associate:8597335726c65975",
         "sense_label_en": "associate A with B",
         "sort_order": 0,
-        "transitivity": "vi",
+        "transitivity": "vt",
         "collocations": []
       },
       {
@@ -124,7 +132,7 @@
         "confidence": "high",
         "definition_cn": "交往；结交",
         "definition_en": "to keep company or associate with someone",
-        "governing_pattern": "",
+        "governing_pattern": "associate with sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -133,6 +141,51 @@
         "sort_order": 2,
         "transitivity": "vi",
         "collocations": []
+      },
+      {
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "pos": "adjective",
+        "definition_cn": "（职位、级别）副的；（会员身份）非正式的、准的",
+        "definition_en": "sharing a role or responsibility, often with a secondary rank or less than full membership",
+        "governing_pattern": "before a role or membership noun",
+        "level": "L2",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sense_label_en": "secondary rank or associate membership",
+        "collocations": [
+          {
+            "collocation_id": "collocation:associate:20261007-professor",
+            "phrase": "associate professor",
+            "meaning_cn": "副教授",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:associate:20261007-member",
+            "phrase": "associate member",
+            "meaning_cn": "准会员；非正式会员",
+            "exam_value": "usage_example"
+          }
+        ],
+        "depth": "recognition_plus",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/associate_2",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "adjective used before a title or membership noun"
+          },
+          {
+            "source_type": "exam_commentary",
+            "source_url": "https://sh.xhd.cn/ielts/xuexiyuandi/861776.html",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Cambridge IELTS 15 Test 4 Passage 2 commentary explicitly explains associate professor; third-party commentary, not an independently opened official exam scan"
+          }
+        ],
+        "usage_note": "Before a title or membership noun, associate can mark an associated or secondary rank/status. Associate professor is 副教授; exact institutional rank varies. Do not read it as the verb associate or as a separate colleague."
       }
     ],
     "verification_summary": {
@@ -157,7 +210,7 @@
       "form_type": "same_spelling_pos_conditioned_pronunciation",
       "spelling": "associate",
       "identity_rule": "part_of_speech_selects_final_syllable",
-      "boundary": "The verb associate ends in /-eɪt/; the noun associate ends in /-ət/.",
+      "boundary": "The verb normally ends in /-eɪt/; the noun and adjective normally end in /-ət/.",
       "boundaries": [
         {
           "surface": "associate",
@@ -166,8 +219,8 @@
         },
         {
           "surface": "associate",
-          "condition": "noun",
-          "note": "名词词尾读 /-ət/，表示同事/伙伴"
+          "condition": "noun/adjective",
+          "note": "名词和形容词词尾通常读 /-ət/：同事/伙伴；副职或准会员身份"
         }
       ],
       "variants": [
@@ -190,17 +243,19 @@
         {
           "variant_id": "form:associate:noun-uk",
           "pos": [
-            "noun"
+            "noun",
+            "adjective"
           ],
-          "learner_key": "noun · UK",
+          "learner_key": "noun/adjective · UK",
           "ipa": "/əˈsəʊ.ʃi.ət/"
         },
         {
           "variant_id": "form:associate:noun-us",
           "pos": [
-            "noun"
+            "noun",
+            "adjective"
           ],
-          "learner_key": "noun · US",
+          "learner_key": "noun/adjective · US",
           "ipa": "/əˈsoʊ.ʃi.ət/"
         }
       ],
@@ -310,9 +365,17 @@
         "merged_into_sense_id": "sense:associate:aaad4a8f591d5300",
         "source_row": 19517,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:associate:20261007-professor",
+      "collocation:associate:20261007-member"
+    ],
     "facts": [
       {
         "id": "deep:constructions:associate:531dde10df4b367a",
@@ -345,6 +408,18 @@
         "id": "collocation:edcd81b45ba7942028b0",
         "source_row": 20152,
         "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      },
+      {
+        "id": "collocation:associate:20261007-professor",
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "active",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:associate:20261007-member",
+        "sense_id": "sense:associate:20261007-adjective-status",
+        "status": "active",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

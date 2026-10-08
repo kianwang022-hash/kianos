@@ -14,7 +14,12 @@
         "definition_en": "strengthen, increase, reinforce, or improve something",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:3a34305483c714f27ea0",
+          "reason": "The existing selected beef-up object frame now includes separability."
+        }
       }
     ],
     "content_hash": "a0d6910452cf3b15fbd473f590bcb39d00a62d241f09ce01dc022c7ab9acaa16",
@@ -30,17 +35,18 @@
           ]
         },
         {
-          "label_cn": "抱怨；养（牛）；宰（牛）",
-          "label_en": "to complain persistently; to raise or slaughter cattle for meat",
+          "label_cn": "抱怨；加强、充实或改进",
+          "label_en": "complain; beef up something by strengthening, increasing, or improving it",
           "pos": "verb",
           "sense_ids": [
-            "sense:beef:9b8296536b6856ff"
+            "sense:beef:9b8296536b6856ff",
+            "sense:beef:4a291e995f66a319"
           ]
         }
       ],
       "core_meaning_cn": "牛肉；抱怨",
       "core_meaning_en": "meat from cattle; to complain",
-      "mental_model_cn": "牛肉；抱怨",
+      "mental_model_cn": "食物 → 牛肉；体力 → 肌肉、力气；beef about → 抱怨；beef up → 加强或充实。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -126,7 +132,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:8996d582cbd78b0acc4a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:beef:2c76d91428bd5e9f:collocation:0"
             ],
@@ -139,8 +145,8 @@
             "legacy_source_object_ids": [
               "sense:beef:4a291e995f66a319:collocation:new-1b313b3d"
             ],
-            "meaning_cn": "加强、增加或改进某物",
-            "phrase": "beef up sth"
+            "meaning_cn": "加强或充实某物；代词宾语放在 beef 与 up 之间",
+            "phrase": "beef up sth / beef sth up; beef it up"
           }
         ],
         "confidence": "medium",
@@ -482,11 +488,18 @@
     "active_collocations": [
       "collocation:3a34305483c714f27ea0",
       "collocation:7390416f3928980dc64d",
-      "collocation:8996d582cbd78b0acc4a",
       "collocation:c926f25db9e1a1fd193b",
       "collocation:ca9626b6086a4bc3fea8"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:beef:baseline-v2-up",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing selected beef-up object frame now includes separability."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:5d727374cc5a26b588d5",
@@ -501,7 +514,10 @@
       {
         "id": "collocation:8996d582cbd78b0acc4a",
         "source_row": 11673,
-        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Beef up is covered by the other existing complete separable-object frame; no second pattern target."
       },
       {
         "id": "collocation:c926f25db9e1a1fd193b",

@@ -10,9 +10,9 @@
     "content_hash": "681817c6c3e32dd85a9dfcaea9a9e0626a7cf556f9001b9121d0b01dc4be610d",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "核心是“携带/承载某物的载体”：可指运输者/公司、病原携带者、药物载体或通信运营商",
-      "core_meaning_en": "an entity that carries something: transporter/provider, disease carrier, delivery medium, or telecom/network operator",
-      "mental_model_cn": "transport/mail → 运输者或运输公司；virus/disease → 病原携带者；drug/tracer → 载体；mobile/network → 运营商。",
+      "core_meaning_cn": "运输者或运输公司；运输工具；病原携带者；电信运营商",
+      "core_meaning_en": "transporter; carrying vehicle; disease carrier; telecommunications provider",
+      "mental_model_cn": "transport/mail → 运输者或运输公司；virus/disease → 病原携带者；mobile/network → 电信运营商。",
       "mental_model_en": "The carried thing and domain select transport, disease, carrier medium, or service provider."
     },
     "exam_paraphrases": [],
@@ -93,7 +93,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:2f3e080543453cebef9f",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:carrier:bef72201ff1c55a6:collocation:0"
             ],
@@ -109,39 +109,15 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:carrier:bef72201ff1c55a6",
-        "sense_label_en": "a person or animal that carries and transmits a disease without showing ",
+        "sense_label_en": "a person or animal that carries and transmits a disease without showing symptoms",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a76743f55ddfaee58077",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:carrier:398f6a010e85597c:collocation:0"
-            ],
-            "meaning_cn": "药物载体",
-            "phrase": "a carrier for a drug"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "载体（如药物或示踪物的惰性物质）",
-        "definition_en": "an inactive substance used to carry a radioactive tracer or drug",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:carrier:398f6a010e85597c",
-        "sense_label_en": "an inactive substance used to carry a radioactive tracer or drug",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:fd3f4a35696dcb15472a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:carrier:fe77808980c1c455:collocation:handoff-o0675-o0874"
             ],
@@ -150,14 +126,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "运输、电信或类似服务的服务提供商",
-        "definition_en": "a company or network that provides transport, telecommunications, or a similar service",
+        "definition_cn": "电信、移动通信或网络服务运营商",
+        "definition_en": "a company that provides telecommunications or network services",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:carrier:fe77808980c1c455",
-        "sense_label_en": "a company or network that provides transport, telecommunications, or a similar service",
+        "sense_label_en": "a company that provides telecommunications or network services",
         "sort_order": 4,
         "transitivity": "nonverb"
       }
@@ -240,12 +216,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a76743f55ddfaee58077",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:carrier:398f6a010e85597c:collocation:0"
+          ],
+          "meaning_cn": "药物载体",
+          "phrase": "a carrier for a drug"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "载体（如药物或示踪物的惰性物质）",
+      "definition_en": "an inactive substance used to carry a radioactive tracer or drug",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:carrier:398f6a010e85597c",
+      "sense_label_en": "an inactive substance used to carry a radioactive tracer or drug",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:carrier:398f6a010e85597c",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:carrier:398f6a010e85597c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1972,
         "source_path": "content/lexical/canonical/senses/shards/o0673-0704.json"
@@ -282,11 +287,8 @@
     "active_collocations": [
       "collocation:0bf78923b4ed1213aa7b",
       "collocation:18de9352299d552cae27",
-      "collocation:2f3e080543453cebef9f",
       "collocation:8d556f09d3b84bf1ccd4",
-      "collocation:a76743f55ddfaee58077",
-      "collocation:f5d570d168179af37e08",
-      "collocation:fd3f4a35696dcb15472a"
+      "collocation:f5d570d168179af37e08"
     ],
     "facts": [],
     "collocations": [
@@ -303,7 +305,10 @@
       {
         "id": "collocation:2f3e080543453cebef9f",
         "source_row": 3992,
-        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Of-virus is the ordinary complement of the existing disease-carrier noun."
       },
       {
         "id": "collocation:8d556f09d3b84bf1ccd4",
@@ -313,7 +318,10 @@
       {
         "id": "collocation:a76743f55ddfaee58077",
         "source_row": 14206,
-        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Narrow inactive drug/tracer medium is specialist material rather than an independently required general-exam selector; preserve exact content for lookup."
       },
       {
         "id": "collocation:f5d570d168179af37e08",
@@ -323,7 +331,10 @@
       {
         "id": "collocation:fd3f4a35696dcb15472a",
         "source_row": 21482,
-        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Mobile/wireless/network examples clarify the existing telecom meaning; they are not three new tasks."
       }
     ],
     "exam-mappings": [],

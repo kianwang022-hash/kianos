@@ -59,13 +59,10 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:10ce76162f473fbe9824",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:audience:01312cc474f65d8d:collocation:0"
-            ],
-            "meaning_cn": "读者群",
-            "phrase": "readership"
+            "collocation_id": "collocation:audience:20261007-wider",
+            "phrase": "reach a wider audience",
+            "meaning_cn": "接触到更广泛的受众",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -158,7 +155,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "sense_id": "sense:audience:20261007-formal-meeting",
+      "pos": "noun",
+      "definition_cn": "正式会见；谒见（重要人物）",
+      "definition_en": "a formal meeting with an important person",
+      "governing_pattern": "an audience with sb",
+      "level": "L2",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "confidence": "high",
+      "needs_human_review": 0,
+      "sense_label_en": "formal meeting",
+      "note": "an audience with + 人，尤其pope/king等 → 正式会见；这里不是一群观众。",
+      "collocations": [
+        {
+          "collocation_id": "collocation:audience:20261007-with",
+          "phrase": "an audience with the pope",
+          "meaning_cn": "获教皇接见",
+          "exam_value": "fixed_pattern"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -174,19 +196,27 @@
         "merged_into_sense_id": null,
         "source_row": 855,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:audience:20261007-formal-meeting",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
-      "collocation:10ce76162f473fbe9824",
       "collocation:2144b56adf64942f5e22",
-      "collocation:8c1edbcdb64f53e4808d"
+      "collocation:8c1edbcdb64f53e4808d",
+      "collocation:audience:20261007-wider"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:10ce76162f473fbe9824",
         "source_row": 1387,
-        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Readership is another headword, not an audience collocation; retained declaration without a false successor."
       },
       {
         "id": "collocation:2144b56adf64942f5e22",
@@ -197,6 +227,18 @@
         "id": "collocation:8c1edbcdb64f53e4808d",
         "source_row": 11885,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:audience:20261007-with",
+        "sense_id": "sense:audience:20261007-formal-meeting",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:audience:20261007-wider",
+        "sense_id": "sense:audience:01312cc474f65d8d",
+        "status": "active",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

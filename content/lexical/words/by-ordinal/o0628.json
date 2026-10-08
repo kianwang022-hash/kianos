@@ -12,8 +12,20 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "因过劳或压力而精疲力竭；职业倦怠",
-        "pattern": "be burned/burnt out",
-        "definition_en": "become exhausted through overwork or stress"
+        "pattern": "burn out | be burned/burnt out",
+        "definition_en": "become exhausted through overwork or stress",
+        "boundary": "人、过劳或压力语境中指精疲力竭；火焰语境中的 burn out 指烧尽、熄灭。"
+      },
+      {
+        "construction_id": "construction:burn:lane0601-0650-emotion",
+        "pattern": "burn with + emotion/desire",
+        "meaning_cn": "充满强烈的情绪或愿望（文学性表达）",
+        "definition_en": "feel or show a very strong emotion or desire",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R",
+        "boundary": "anger/rage/love 等情绪宾语选择比喻读法；不是人或物真的着火。主要支持阅读辨义。",
+        "source": "https://www.oxfordlearnersdictionaries.com/definition/english/burn_1"
       }
     ],
     "content_hash": "9b575f5d5ed11fd325dc37f7561d02fa6c800385e387eb9c843abaeaaa594a96",
@@ -63,21 +75,12 @@
             "phrase": "burn down"
           },
           {
-            "collocation_id": "collocation:8628a018a12bebc0bab9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:burn:a33e54c41916554a:collocation:1"
-            ],
-            "meaning_cn": "怒火中烧",
-            "phrase": "burn with anger"
-          },
-          {
             "collocation_id": "collocation:6d17726480920305d440",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:burn:a33e54c41916554a:collocation:handoff-o0475-o0674"
             ],
-            "meaning_cn": "耗尽；因过劳或压力而精疲力竭",
+            "meaning_cn": "（火）因可燃物耗尽而熄灭、烧尽",
             "phrase": "burn out"
           }
         ],
@@ -97,7 +100,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:f4e7f1104d007c7ff313",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:burn:674247b63e98564b:collocation:0"
             ],
@@ -116,13 +119,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "烧毁，烧伤",
-        "definition_en": "to damage or destroy by fire",
+        "definition_en": "to damage, injure or destroy by fire or heat; to damage food by cooking it too much",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:burn:674247b63e98564b",
-        "sense_label_en": "to damage or destroy by fire",
+        "sense_label_en": "to damage, injure or destroy by fire or heat; to damage food by cooking it too much",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -492,10 +495,8 @@
       "collocation:2ea8a95a79cbaf3154be",
       "collocation:561fd8c568c0844da160",
       "collocation:6d17726480920305d440",
-      "collocation:8628a018a12bebc0bab9",
       "collocation:9855406365e9e21d3826",
-      "collocation:e1567cfe67de55838459",
-      "collocation:f4e7f1104d007c7ff313"
+      "collocation:e1567cfe67de55838459"
     ],
     "facts": [],
     "collocations": [
@@ -512,7 +513,9 @@
       {
         "id": "collocation:8628a018a12bebc0bab9",
         "source_row": 11393,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9855406365e9e21d3826",
@@ -527,7 +530,10 @@
       {
         "id": "collocation:f4e7f1104d007c7ff313",
         "source_row": 20741,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Burn plus an arbitrary object merely repeats transitivity."
       },
       {
         "id": "collocation:6d17726480920305d440",

@@ -23,15 +23,19 @@
         "definition_en": "a fee for entry",
         "level": "L1",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "source": "semantic-review-handoff-v1",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:28a1d6fcc218084ddfff",
+          "reason": "The existing admission fee usage example retains this exact phrase; the independent admission-price Sense owns the meaning."
+        }
       }
     ],
     "content_hash": "d6d901607ed2ff287e44154b030707c08cfff46e28295f5dcaef152dc33f856b",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "允许进入或承认某事的行为",
-      "core_meaning_en": "the act of allowing someone to enter or acknowledging something",
-      "mental_model_cn": "允许进入或承认某事的行为",
+      "core_meaning_cn": "准许进入或录取；入场费；承认某事",
+      "core_meaning_en": "permission to enter, the price of entry, or an acknowledgment",
+      "mental_model_cn": "准许进入或录取；入场费；承认某事",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,24 +59,6 @@
             ],
             "meaning_cn": "准许进入某地",
             "phrase": "admission to + sth"
-          },
-          {
-            "collocation_id": "collocation:28a1d6fcc218084ddfff",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:admission:3510bd6bcdc45c41:collocation:1"
-            ],
-            "meaning_cn": "入场费",
-            "phrase": "admission fee"
-          },
-          {
-            "collocation_id": "collocation:79265c26c774fbfb1eea",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:admission:3510bd6bcdc45c41:collocation:retro-o0025-o0224"
-            ],
-            "meaning_cn": "入场费",
-            "phrase": "admission charge"
           }
         ],
         "confidence": "medium",
@@ -152,6 +138,37 @@
         "sense_label_en": "the act of accepting someone into an institution",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:admission:d57f24639ae453e6",
+        "pos": "noun",
+        "definition_cn": "入场费",
+        "definition_en": "the fee charged for admission",
+        "governing_pattern": "admission + price | admission is free",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "collocations": [
+          {
+            "collocation_id": "collocation:28a1d6fcc218084ddfff",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:admission:3510bd6bcdc45c41:collocation:1"
+            ],
+            "meaning_cn": "入场费",
+            "phrase": "admission fee"
+          },
+          {
+            "collocation_id": "collocation:79265c26c774fbfb1eea",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:admission:3510bd6bcdc45c41:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "入场费",
+            "phrase": "admission charge"
+          }
+        ],
+        "sort_order": 3,
+        "usage_note": "admission 本身可指入场价格，不只用于 admission fee/charge。"
       }
     ],
     "verification_summary": {
@@ -284,31 +301,7 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:admission:d57f24639ae453e6",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "入场费",
-      "definition_en": "the fee charged for admission",
-      "semantic_key": "e6ce44b3e0ad9b269f971449787498781d411a554742b39cbea6742c1cf29c29",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "admission:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "admission:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-15T05:20:00Z",
-      "source_row": 218,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -334,7 +327,7 @@
       },
       {
         "sense_id": "sense:admission:d57f24639ae453e6",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 218,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -344,12 +337,18 @@
       "collocation:1e199817cb9e7ca41752",
       "collocation:28a1d6fcc218084ddfff",
       "collocation:6790ad74779e4d9dd6af",
-      "collocation:79265c26c774fbfb1eea",
       "collocation:f663f342921f1fce60ed",
       "collocation:f8e50ad18423e93195fc",
       "collocation:fc55be0ffd4000c7d069"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:admission:handoff-444b3d902068b1ac",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:1e199817cb9e7ca41752",
@@ -374,7 +373,10 @@
       {
         "id": "collocation:79265c26c774fbfb1eea",
         "source_row": 21613,
-        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Admission charge is a transparent price noun phrase, alongside the preserved fee example and price sense."
       },
       {
         "id": "collocation:f663f342921f1fce60ed",

@@ -25,6 +25,17 @@
         "level": "L1",
         "pos": "phrase",
         "source": "baseline-v2-2026-09-19"
+      },
+      {
+        "construction_id": "construction:bump:lane0601-0650-noun-increase",
+        "pattern": "a bump in sth (amount/level)",
+        "meaning_cn": "（数额、价格或水平的）增长",
+        "definition_en": "an increase in an amount or level",
+        "level": "L2",
+        "pos": "phrase",
+        "direction": "R",
+        "boundary": "数额、价格等语境选择名词“增长”，不是碰撞动词；a bump on the head 等身体语境仍指肿块。",
+        "source": "https://ahdictionary.com/word/search.html?q=BUMP"
       }
     ],
     "content_hash": "22a22a2d149a6b185fb1b985d6e6dd833f0f37274cd8d3f00f9cee7b53a546d7",
@@ -40,7 +51,7 @@
         },
         {
           "label_cn": "碰撞；撞击；颠簸而行",
-          "label_en": "knock against with force or violence; move or travel with a jolting motion",
+          "label_en": "hit against something, usually accidentally; move or move something with jolts",
           "pos": "verb",
           "sense_ids": [
             "sense:bump:0eb114d0e31f5577",
@@ -93,7 +104,7 @@
             "legacy_source_object_ids": [
               "sense:bump:0eb114d0e31f5577:collocation:0"
             ],
-            "meaning_cn": "撞上；偶然遇见",
+            "meaning_cn": "撞上某人或某物",
             "phrase": "bump into + sb/sth"
           },
           {
@@ -104,28 +115,19 @@
             ],
             "meaning_cn": "使...撞到某物上",
             "phrase": "bump + object + against/on + sth"
-          },
-          {
-            "collocation_id": "collocation:d4fe86b9f7c19d74b106",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bump:0eb114d0e31f5577:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "价格上涨",
-            "phrase": "a bump in prices"
           }
         ],
         "confidence": "medium",
         "definition_cn": "碰撞；撞击",
-        "definition_en": "knock against with force or violence",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to hit against someone or something, usually accidentally",
+        "governing_pattern": "bump into/against sb/sth | bump sth (against/on sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:bump:0eb114d0e31f5577",
-        "sense_label_en": "knock against with force or violence",
+        "sense_label_en": "to hit against someone or something, usually accidentally",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -149,16 +151,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "颠簸而行",
-        "definition_en": "move or travel with a jolting motion",
-        "governing_pattern": "vi. + along",
+        "definition_cn": "颠簸而行；使颠簸着移动",
+        "definition_en": "to move, or move something, with jolts over a rough surface",
+        "governing_pattern": "bump along/over sth | bump sth + adv./prep.",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:bump:97340ecb466851b3",
-        "sense_label_en": "move or travel with a jolting motion",
+        "sense_label_en": "to move, or move something, with jolts over a rough surface",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -398,8 +400,7 @@
       "collocation:89a60bee9e6919b635a5",
       "collocation:93367bf69f654e5eb045",
       "collocation:9ce1c0cf7040a8b7e821",
-      "collocation:b0e6218b271167c585f5",
-      "collocation:d4fe86b9f7c19d74b106"
+      "collocation:b0e6218b271167c585f5"
     ],
     "facts": [],
     "collocations": [
@@ -441,7 +442,9 @@
       {
         "id": "collocation:d4fe86b9f7c19d74b106",
         "source_row": 21604,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

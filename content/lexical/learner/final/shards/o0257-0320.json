@@ -5,8 +5,23 @@
     "ordinal": 257,
     "word": "architecture",
     "source_owner_path": "content/lexical/words/by-ordinal/o0257.json",
-    "source_fingerprint": "168cb7925b49fa9e9aeec7812caa4bacff64677cc32a62c91df1e54753c800ce",
-    "sense_lineage": [],
+    "source_fingerprint": "61019ea503def38cb0b97991b6d175d21bfd5c068a536aa0847a19e131e40984",
+    "sense_lineage": [
+      {
+        "word_id": "word:architecture",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:26dd9ddf08edf0a56ecd",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:architecture",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bc301b27626ffea90bf7",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -29,9 +44,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "建筑学；建筑设计",
-        "definition_en": "the art and science of designing and constructing buildings",
-        "note": "",
+        "definition_cn": "建筑学；建筑设计及风格",
+        "definition_en": "the art and study of designing buildings; also the design or style of a building or buildings",
+        "note": "study architecture 指建筑学；modern/Gothic architecture 可指建筑的设计或风格。",
         "identity_overlay": null,
         "usage": [
           {
@@ -55,7 +70,7 @@
           "target_kind": "sense",
           "target_id": "sense:architecture:38b3cccf09155c2a",
           "target_locator": "record.senses[0]",
-          "target_label": "建筑学；建筑设计"
+          "target_label": "建筑学；建筑设计及风格"
         }
       },
       {
@@ -73,26 +88,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "computer architecture",
             "meaning_cn": "计算机体系结构",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:26dd9ddf08edf0a56ecd",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "computer architecture"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:bc301b27626ffea90bf7",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "network architecture",
             "meaning_cn": "网络架构",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bc301b27626ffea90bf7",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "network architecture"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -150,7 +155,7 @@
     "ordinal": 258,
     "word": "archive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0258.json",
-    "source_fingerprint": "c3daf05a40807932a0cbdc945086efd656448a62e1895533a3c32b0eeb014484",
+    "source_fingerprint": "75b666c4fee419509066e9bcd13e0e48b903350306ec618b6c229fa419989f31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -187,14 +192,6 @@
             "meaning_cn": "国家档案馆",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:cd6d3d24520e2ffef7e9",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "digital archive",
-            "meaning_cn": "数字档案",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -209,9 +206,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "档案文件",
-        "definition_en": "a collection of historical records or documents",
-        "note": "",
+        "definition_cn": "档案；档案资料集；电子归档数据",
+        "definition_en": "a collection of records or documents kept for later use, often historical; in computing, electronically stored data kept for preservation or backup",
+        "note": "可指历史文献集，也可指保留供以后查阅或备份的电子记录；不必已有历史价值。",
         "identity_overlay": null,
         "usage": [
           {
@@ -221,13 +218,21 @@
             "meaning_cn": "信件档案",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:cd6d3d24520e2ffef7e9",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "digital archive",
+            "meaning_cn": "数字档案",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:archive:f47313f47c405816",
           "target_locator": "record.senses[1]",
-          "target_label": "档案文件"
+          "target_label": "档案；档案资料集；电子归档数据"
         }
       },
       {
@@ -312,8 +317,16 @@
     "ordinal": 259,
     "word": "area",
     "source_owner_path": "content/lexical/words/by-ordinal/o0259.json",
-    "source_fingerprint": "704c826ed764f606770eedb84b9c519c85f9066c0b4e21511dff5c60768d522a",
-    "sense_lineage": [],
+    "source_fingerprint": "a9df973a93a7cc90659d7b61f1785300dfc7a57ca8dfb2e5f0f2233c96847010",
+    "sense_lineage": [
+      {
+        "word_id": "word:area",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7a2c421854d8415cf10e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4N"
@@ -337,7 +350,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "区域；地区",
-        "definition_en": "a particular geographical region of indefinite boundary",
+        "definition_en": "a region or part of a place, town, country, or other space, whether or not its boundaries are specified",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -354,13 +367,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "in the area",
             "meaning_cn": "在该地区",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7a2c421854d8415cf10e",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "in the area"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -453,8 +461,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "部位；区域（解剖学）",
-        "definition_en": "a part of a structure or organ with a specific function",
+        "definition_cn": "部位；区域（如身体或器官的一部分）",
+        "definition_en": "a particular part of the body or an organ, identified by its location or sometimes by its function",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -471,7 +479,7 @@
           "target_kind": "sense",
           "target_id": "sense:area:3f9feba238df5e84",
           "target_locator": "record.senses[3]",
-          "target_label": "部位；区域（解剖学）"
+          "target_label": "部位；区域（如身体或器官的一部分）"
         }
       }
     ],
@@ -640,8 +648,23 @@
     "ordinal": 261,
     "word": "argue",
     "source_owner_path": "content/lexical/words/by-ordinal/o0261.json",
-    "source_fingerprint": "e51c42623e255bc3e8df46948022a720c38da4d7a89a99aebad556fb685d89ec",
-    "sense_lineage": [],
+    "source_fingerprint": "e80bbfa99ee5c4b5567756a0b7b0d0da2af7004251d6bdd88cee24492016aa92",
+    "sense_lineage": [
+      {
+        "word_id": "word:argue",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f15f22dadddf886949d3",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:argue",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f2b18ec443be1a4fbe64",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -672,14 +695,14 @@
           {
             "id": "collocation:f1186e066aace36aea4b",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "argue with + sb",
-            "meaning_cn": "与某人争论",
+            "phrase": "argue with + sb (about/over + sth)",
+            "meaning_cn": "与某人争论，可加 about/over 指明议题；只说明议题时可用 argue about/over sth",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f1186e066aace36aea4b",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "argue with + sb"
+              "target_label": "argue with + sb (about/over + sth)"
             }
           },
           {
@@ -687,13 +710,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "argue about/over + sth",
             "meaning_cn": "就某事争论",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f15f22dadddf886949d3",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "argue about/over + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -707,7 +725,7 @@
         "id": "sense:argue:bd6c743958815e64",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "argue that + clause | argue sth | argue for/against sth",
         "definition_cn": "主张，认为，论证",
         "definition_en": "to state your opinion or reasons in support of something",
         "note": "",
@@ -751,31 +769,26 @@
         "id": "sense:argue:414cf64c118b51d3",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "证明，表明",
-        "definition_en": "to show or suggest something by giving evidence",
-        "note": "",
+        "governing_pattern": "facts/evidence/developments argue + a conclusion or state",
+        "definition_cn": "（正式）表明；显示有……的迹象",
+        "definition_en": "to provide evidence suggesting or showing that something is true",
+        "note": "This formal reading can have facts, evidence, or developments as its subject. The evidence points to a conclusion; no person needs to be quarrelling.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f2b18ec443be1a4fbe64",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "argue + sb/sth + to be + adj/n",
-            "meaning_cn": "证明某人/某物是……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f2b18ec443be1a4fbe64",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "argue + sb/sth + to be + adj/n"
-            }
+            "phrase": "The evidence argues a different conclusion.",
+            "meaning_cn": "证据表明应得出不同结论。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:argue:414cf64c118b51d3",
           "target_locator": "record.senses[2]",
-          "target_label": "证明，表明"
+          "target_label": "（正式）表明；显示有……的迹象"
         }
       }
     ],
@@ -812,58 +825,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:argue:631f9f87d567065c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with/over/about",
-        "lines": [
-          {
-            "text": "争论，争吵",
-            "lang": "cn"
-          },
-          {
-            "text": "argue with/over/about 与某人争论",
-            "lang": "cn"
-          },
-          {
-            "text": "to speak angrily to someone because you disagree with them",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:argue:631f9f87d567065c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with/over/about"
-        }
-      },
-      {
-        "id": "deep:constructions:argue:fda5d96d59b55030",
-        "source_locator": "record.constructions[1]",
-        "pattern": "vt. + that-clause",
-        "lines": [
-          {
-            "text": "主张，认为，论证",
-            "lang": "cn"
-          },
-          {
-            "text": "argue that + clause 主张/论证",
-            "lang": "cn"
-          },
-          {
-            "text": "to state your opinion or reasons in support of something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:argue:fda5d96d59b55030",
-          "target_locator": "record.constructions[1]",
-          "target_label": "vt. + that-clause"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -872,7 +834,7 @@
           "target_word": "indicate",
           "lines": [
             {
-              "text": "在表明义接近；argue常含论据推导，indicate中性显示",
+              "text": "在证据表明某结论这一交集下，argue 是较正式的说法；indicate 更通用。不要把这里的非人称证据表明，混同于某人提出论点。",
               "lang": "cn"
             },
             {
@@ -899,7 +861,7 @@
     "ordinal": 262,
     "word": "argument",
     "source_owner_path": "content/lexical/words/by-ordinal/o0262.json",
-    "source_fingerprint": "4b63b410165e21471059f6171f7d6886255a5196214c2794f86b13b729a00191",
+    "source_fingerprint": "733bbee03b38da33ec0eaa36c43871ffcc85fe0fd5cc047dbedca4b06cc4a742",
     "sense_lineage": [
       {
         "word_id": "word:argument",
@@ -907,22 +869,36 @@
         "from_target_id": "sense:argument:0c74cf35573e5b67",
         "status": "reference_only",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:argument",
+        "target_kind": "sense",
+        "from_target_id": "sense:argument:ff4bff78349e5cfb",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:argument",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:beadb92d5d7c9f570857",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "论据；争论；参数",
+      "summary_cn": "论据、理由；争论、争吵",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "论据；争论；参数"
+        "target_label": "论据、理由；争论、争吵"
       }
     },
     "senses": [
@@ -1003,37 +979,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "争论，争吵"
         }
-      },
-      {
-        "id": "sense:argument:ff4bff78349e5cfb",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "参数，自变量",
-        "definition_en": "a value or reference passed to a function or program in computing",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:beadb92d5d7c9f570857",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "pass an argument to + a function",
-            "meaning_cn": "向函数传递参数",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:beadb92d5d7c9f570857",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "pass an argument to + a function"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:argument:ff4bff78349e5cfb",
-          "target_locator": "record.senses[2]",
-          "target_label": "参数，自变量"
-        }
       }
     ],
     "pronunciation_support": {
@@ -1109,6 +1054,34 @@
           "source_row": 661,
           "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:beadb92d5d7c9f570857",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:argument:ff4bff78349e5cfb:collocation:0"
+              ],
+              "meaning_cn": "向函数传递参数",
+              "phrase": "pass an argument to + a function"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "参数，自变量",
+          "definition_en": "a value or reference passed to a function or program in computing",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:argument:ff4bff78349e5cfb",
+          "sense_label_en": "a value or reference passed to a function or program in computing",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:argument:ff4bff78349e5cfb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -1119,7 +1092,7 @@
     "ordinal": 263,
     "word": "arise",
     "source_owner_path": "content/lexical/words/by-ordinal/o0263.json",
-    "source_fingerprint": "25c16db2b51548d3a7970d850a257a6ff8c90ad1f258e4453c09a5056154005b",
+    "source_fingerprint": "d581183a079d61799b85a14bd1973df363d7752ac1dab04b12427d869e22399c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1142,7 +1115,7 @@
         "id": "sense:arise:2f5d2e64e59a589c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "arise | arise from/out of sth",
         "definition_cn": "出现；产生；起因于",
         "definition_en": "to happen or start to exist, especially as a result of something",
         "note": "",
@@ -1244,7 +1217,7 @@
     "ordinal": 264,
     "word": "arithmetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0264.json",
-    "source_fingerprint": "9f366f1de75365611f62d2a08eb83a1365c2b78c4b2b98be76f8ffae1d7bd3d2",
+    "source_fingerprint": "5b3de0ae4259ea878fb43b420e4f27eef567e06f1c99755eb42d75a34d319a52",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1342,7 +1315,7 @@
     "ordinal": 265,
     "word": "arm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0265.json",
-    "source_fingerprint": "9af2b57ded35c0a676a1cd7382dd20e2f5fbf9c9c9d7c00f69214cad242519f6",
+    "source_fingerprint": "210e2843776f4e82e0ef673ecb9c1595a96f9eabbbdab421df2a4b60aae54cf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1423,10 +1396,10 @@
         "id": "sense:arm:53abf0aaac7e5cee",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "usually plural: arms",
         "definition_cn": "武器",
         "definition_en": "a weapon or weapons",
-        "note": "",
+        "note": "武器义通常用复数 arms（如 arms race）；不能把单数 an arm 一律理解为武器。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1524,7 +1497,7 @@
     "ordinal": 266,
     "word": "army",
     "source_owner_path": "content/lexical/words/by-ordinal/o0266.json",
-    "source_fingerprint": "4e8aba197b6d035981ce1a4b44fb5944a7acf3f9be9238ad38e3f5624384768c",
+    "source_fingerprint": "ac8defa58a42321e95145e828692745c276c6f765d349b15d3f9e82ff0ce7a07",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1548,8 +1521,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "国家的陆军或军事力量",
-        "definition_en": "a permanent organization of the military land forces of a nation or state",
+        "definition_cn": "军队；陆军",
+        "definition_en": "an organized force of soldiers trained to fight on land; especially the land forces of a country",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1574,7 +1547,7 @@
           "target_kind": "sense",
           "target_id": "sense:army:b190275f1e7754b2",
           "target_locator": "record.senses[0]",
-          "target_label": "国家的陆军或军事力量"
+          "target_label": "军队；陆军"
         }
       },
       {
@@ -1651,7 +1624,7 @@
     "ordinal": 267,
     "word": "around",
     "source_owner_path": "content/lexical/words/by-ordinal/o0267.json",
-    "source_fingerprint": "bac0212dcb368019dce40d09360cf20a70c24add658e17de71a7645a16381f0c",
+    "source_fingerprint": "7e57893bae147fbe662769fb02ebe689213dc060c0c5226e5a3c7349e6471369",
     "sense_lineage": [
       {
         "word_id": "word:around",
@@ -1691,9 +1664,9 @@
         "source_locator": "record.senses[0]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "在...周围",
-        "definition_en": "on every side of; surrounding",
-        "note": "",
+        "definition_cn": "围绕；在……周围；在……各处",
+        "definition_en": "surrounding or following a route about something; also in or to different parts of a place",
+        "note": "around a table 可指围着桌子；around the world 可指在世界各地或环游世界，不是位于地球外侧。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1709,7 +1682,7 @@
           "target_kind": "sense",
           "target_id": "sense:around:673bebfb93f3527e",
           "target_locator": "record.senses[0]",
-          "target_label": "在...周围"
+          "target_label": "围绕；在……周围；在……各处"
         }
       },
       {
@@ -1718,7 +1691,7 @@
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "兜着圈子；旋转",
-        "definition_en": "in a circle or circular motion",
+        "definition_en": "in circular movement, or so as to face another or the opposite direction",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1744,7 +1717,7 @@
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "在附近；到处",
-        "definition_en": "in the vicinity; nearby",
+        "definition_en": "in the nearby area; in or to different parts of a place; present or available",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1778,7 +1751,7 @@
             "id": "collocation:735d202ce4e99793b60d",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "come around",
-            "meaning_cn": "过来；恢复知觉",
+            "meaning_cn": "过来；来访",
             "kind": "usage_example",
             "repair": null
           }
@@ -1794,10 +1767,10 @@
         "id": "sense:around:1cfe2000dfc853bd",
         "source_locator": "record.senses[4]",
         "pos": "adverb/preposition",
-        "governing_pattern": "",
+        "governing_pattern": "around + number/time",
         "definition_cn": "大约；左右",
         "definition_en": "approximately; about",
-        "note": "",
+        "note": "Approximately a quantity or time; about is a common paraphrase in this use.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1831,24 +1804,28 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:around:handoff-de74d1033da13a6a",
+        "id": "construction:around:o0251-o0300-come-conscious",
         "source_locator": "record.constructions[0]",
-        "pattern": "around/about + number/time",
+        "pattern": "come around/round",
         "lines": [
           {
-            "text": "大约……",
+            "text": "恢复知觉；苏醒",
             "lang": "cn"
           },
           {
-            "text": "approximately a number or time",
+            "text": "昏迷或麻醉语境中的 come around/round 表示恢复知觉；来访语境仍表示过来拜访。",
+            "lang": "cn"
+          },
+          {
+            "text": "become conscious again",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:around:handoff-de74d1033da13a6a",
+          "target_id": "construction:around:o0251-o0300-come-conscious",
           "target_locator": "record.constructions[0]",
-          "target_label": "around/about + number/time"
+          "target_label": "come around/round"
         }
       }
     ],
@@ -1891,7 +1868,7 @@
     "ordinal": 268,
     "word": "arouse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0268.json",
-    "source_fingerprint": "549bfec6bf0e48c40f80198a9b4a45cd070702f1ebe35a69ad8db3e236733c25",
+    "source_fingerprint": "bc7d8265e017f1dbaf0f793abc976c2204bbca27c8546e68edf3b68a15b2ba6f",
     "sense_lineage": [
       {
         "word_id": "word:arouse",
@@ -1932,7 +1909,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "引起；唤起",
         "definition_en": "cause a feeling, reaction, interest, or suspicion",
-        "note": "",
+        "note": "Typical objects include interest, suspicion, anger, or a reaction; the verb means evoke or cause that response.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1995,29 +1972,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:arouse:handoff-0602bf2337be93d9",
-        "source_locator": "record.constructions[0]",
-        "pattern": "arouse interest/suspicion/anger/a reaction",
-        "lines": [
-          {
-            "text": "引起兴趣、怀疑、愤怒或反应",
-            "lang": "cn"
-          },
-          {
-            "text": "evoke or cause a feeling, suspicion, or reaction",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:arouse:handoff-0602bf2337be93d9",
-          "target_locator": "record.constructions[0]",
-          "target_label": "arouse interest/suspicion/anger/a reaction"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2074,7 +2029,7 @@
     "ordinal": 269,
     "word": "arrange",
     "source_owner_path": "content/lexical/words/by-ordinal/o0269.json",
-    "source_fingerprint": "4c5a5c7bf825f550a6acc9b9f42d0339d8f1bdf61dc845f8f76473d01e95a1fe",
+    "source_fingerprint": "927ff11522e69d27251566bc04f838149b73ac1915ce70ca5258affb8d8e1aac",
     "sense_lineage": [
       {
         "word_id": "word:arrange",
@@ -2082,6 +2037,13 @@
         "from_target_id": "sense:arrange:2aeeec248ccd55d7",
         "status": "merged",
         "to_target_id": "sense:arrange:63d06070edd1558e"
+      },
+      {
+        "word_id": "word:arrange",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:49ce74a975da670e9878",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2124,13 +2086,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "arrange thoughts/ideas",
             "meaning_cn": "整理思路/想法",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49ce74a975da670e9878",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "arrange thoughts/ideas"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2144,7 +2101,7 @@
         "id": "sense:arrange:7050860454745090",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "arrange sth | arrange for sth/sb to do sth | arrange to do sth",
         "definition_cn": "安排；筹备",
         "definition_en": "to make plans for something to happen",
         "note": "",
@@ -2744,7 +2701,7 @@
     "ordinal": 273,
     "word": "arrive",
     "source_owner_path": "content/lexical/words/by-ordinal/o0273.json",
-    "source_fingerprint": "2a7408b6e02ae72e3f36a849b4398282235745576cde5ddd95997eb9f53f3b62",
+    "source_fingerprint": "26b21aa78ca8dc2eb46b2e0acbd0305aca7f3a49b0b21173092082a1d08ae143",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2777,7 +2734,7 @@
             "id": "collocation:520e1fe1c82e60390e6d",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "arrive at + place",
-            "meaning_cn": "到达某地（小地点）",
+            "meaning_cn": "到达某地点或站点（把地点视作到达的点）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -2790,7 +2747,7 @@
             "id": "collocation:b29b0c7646402343f75d",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "arrive in + place",
-            "meaning_cn": "到达某地（大地点）",
+            "meaning_cn": "到达城镇、国家等区域",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -2858,14 +2815,18 @@
       {
         "id": "deep:constructions:arrive:8894143c04455d26",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + at/in",
+        "pattern": "arrive at + point/destination; arrive in + town/country; arrive home/here/there",
         "lines": [
+          {
+            "text": "到达某地点、城镇或国家；到家／这里／那里（副词前不加介词）",
+            "lang": "cn"
+          },
           {
             "text": "到达；抵达",
             "lang": "cn"
           },
           {
-            "text": "arrive at/in 到达",
+            "text": "at 常把地点看作到达的点或站点；in 常接城镇、国家等区域。home/here/there 是副词，直接接在 arrive 后。不是只按地点面积选介词。",
             "lang": "cn"
           },
           {
@@ -2877,7 +2838,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:arrive:8894143c04455d26",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + at/in"
+          "target_label": "arrive at + point/destination; arrive in + town/country; arrive home/here/there"
         }
       },
       {
@@ -3139,7 +3100,7 @@
     "ordinal": 276,
     "word": "art",
     "source_owner_path": "content/lexical/words/by-ordinal/o0276.json",
-    "source_fingerprint": "f1b21e620516705b023f5ecef09a8f00fd1d9604c27d8b929c6a750a3998b049",
+    "source_fingerprint": "a3ae75841c674ad87d930be7e28a078577edd9b52c17d056d995f301628c6bb1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3284,7 +3245,7 @@
     "ordinal": 277,
     "word": "artefact",
     "source_owner_path": "content/lexical/words/by-ordinal/o0277.json",
-    "source_fingerprint": "07289d4228ecf67f2997d53a2a01fb45378769aa32e9eee1b5263d991c32696b",
+    "source_fingerprint": "c42715d3462ff1b014604537f273127f5f9db25625b7c308f55ebba4efeb6e79",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3342,9 +3303,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "人为现象；人工产物",
-        "definition_en": "an artificial product or phenomenon, especially in scientific contexts",
-        "note": "",
+        "definition_cn": "（实验或观察方法造成的）人为现象；假象",
+        "definition_en": "a result or feature caused by the methods or equipment used in observation or experimentation, rather than by the phenomenon being studied",
+        "note": "experimental artefact 指由实验过程引入的现象，不是把真正的研究结果统称为人工产物。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3360,7 +3321,7 @@
           "target_kind": "sense",
           "target_id": "sense:artefact:e2db7d49a1795264",
           "target_locator": "record.senses[1]",
-          "target_label": "人为现象；人工产物"
+          "target_label": "（实验或观察方法造成的）人为现象；假象"
         }
       }
     ],
@@ -3759,7 +3720,7 @@
     "ordinal": 280,
     "word": "articulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0280.json",
-    "source_fingerprint": "1e46d9fcc9e8ee1fd05e5e5cfcddfea0cbc59a6d3e272fb7968b8eddb29529af",
+    "source_fingerprint": "0b8736f2122725701d4c206a2f4b603a42f5adedf84a39aa679aaaaa036882b9",
     "sense_lineage": [
       {
         "word_id": "word:articulate",
@@ -3792,6 +3753,13 @@
       {
         "word_id": "word:articulate",
         "target_kind": "collocation",
+        "from_target_id": "collocation:43b01886002d97be9154",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
         "from_target_id": "collocation:47d2451ff47325579110",
         "status": "reference",
         "to_target_id": null
@@ -3801,6 +3769,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:ab44a1ff9f1e9d308187",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:articulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c5e67b1c852765504e0f",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -3876,26 +3851,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "articulate + sth",
             "meaning_cn": "清楚地表达某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:43b01886002d97be9154",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "articulate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c5e67b1c852765504e0f",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "articulate one's ideas",
             "meaning_cn": "清楚地表达自己的想法",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c5e67b1c852765504e0f",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "articulate one's ideas"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4508,23 +4473,23 @@
     "ordinal": 284,
     "word": "as",
     "source_owner_path": "content/lexical/words/by-ordinal/o0284.json",
-    "source_fingerprint": "e6b616367497550a29fe5909d1eee06c8d84e7e93b6461521f9e07a7f1c724cb",
+    "source_fingerprint": "aa18943757b590112153f1ba5ece80fa914f4f19c18e10a192dcdbe499aaff6e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1PREP",
-        "3CONJ"
+        "4CONJ"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表示同等程度、角色、时间或原因",
-      "decision_cn": "",
+      "summary_cn": "同等程度、角色、时间、原因或让步",
+      "decision_cn": "时间、方式、原因、角色依语境区分；Tired as she was 这类前置结构表示“尽管”，不能硬解为“因为/当……时”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表示同等程度、角色、时间或原因"
+        "target_label": "同等程度、角色、时间、原因或让步"
       }
     },
     "senses": [
@@ -4619,14 +4584,14 @@
           {
             "id": "collocation:dfcf4983c5584fa81fe7",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "work as a teacher",
-            "meaning_cn": "作为教师工作",
+            "phrase": "work as + role/job",
+            "meaning_cn": "以某种身份或职业任职",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:dfcf4983c5584fa81fe7",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "work as a teacher"
+              "target_label": "work as + role/job"
             }
           }
         ],
@@ -4635,6 +4600,23 @@
           "target_id": "sense:as:d6459ba29e86507d",
           "target_locator": "record.senses[3]",
           "target_label": "作为；当作"
+        }
+      },
+      {
+        "id": "sense:as:20261008-concession",
+        "source_locator": "record.senses[4]",
+        "pos": "conjunction",
+        "governing_pattern": "adjective/adverb + as + subject + verb; verb + as + subject + may/might",
+        "definition_cn": "虽然；尽管（常见于成分前置的让步结构）",
+        "definition_en": "although, used with a fronted element to concede a point before a contrasting statement",
+        "note": "Tired as she was, she continued = although she was tired. Try as he might also introduces concession. Do not read this as causal because or temporal while. This describes the concessive pattern, not every use of as.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:as:20261008-concession",
+          "target_locator": "record.senses[4]",
+          "target_label": "虽然；尽管（常见于成分前置的让步结构）"
         }
       }
     ],
@@ -4903,13 +4885,20 @@
     "ordinal": 285,
     "word": "ascend",
     "source_owner_path": "content/lexical/words/by-ordinal/o0285.json",
-    "source_fingerprint": "928077323a9d268075bfe322ddcdcbc562048986f2f68019ef1109f3c9e3e202",
+    "source_fingerprint": "21fc958d8087f168a831688b24324d9c455dae3798b125132810a62298e1ad54",
     "sense_lineage": [
       {
         "word_id": "word:ascend",
         "target_kind": "sense",
         "from_target_id": "sense:ascend:130a1ec387d85feb",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ascend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:52c5deb91e6b84730bf4",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -4953,13 +4942,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "ascend from + sth",
             "meaning_cn": "从某处上升",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:52c5deb91e6b84730bf4",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "ascend from + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4999,7 +4983,7 @@
         "id": "sense:ascend:1dd93d294a9a578a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "ascend the throne",
         "definition_cn": "即位，登基",
         "definition_en": "become king or queen",
         "note": "",
@@ -5189,7 +5173,7 @@
     "ordinal": 287,
     "word": "ascribe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0287.json",
-    "source_fingerprint": "b790ebbc061d83b5b8e885ca55ffab16040842eda26896a6c37edf1377607612",
+    "source_fingerprint": "6ce5039f0bb2587fc5ef31d3e6e735b07b960b23b8b385afc894e3ba086a7fc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5213,16 +5197,16 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + sth to sb/sth",
-        "definition_cn": "把…归因于；归咎于",
+        "definition_cn": "把……归因于；把作品等归属于某作者",
         "definition_en": "to attribute something to a cause or source",
-        "note": "",
+        "note": "ascribe failure to bad luck 是归因；ascribe a play to an author 是认定作者。表示判断或归属，不保证已经证明。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ascribe:85cde079b0755b71",
           "target_locator": "record.senses[0]",
-          "target_label": "把…归因于；归咎于"
+          "target_label": "把……归因于；把作品等归属于某作者"
         }
       }
     ],
@@ -5315,7 +5299,7 @@
     "ordinal": 288,
     "word": "ash",
     "source_owner_path": "content/lexical/words/by-ordinal/o0288.json",
-    "source_fingerprint": "01c54781dc67457fa6863b1c9ea91a224c836eccf36eb6aba377c6da47d576a0",
+    "source_fingerprint": "23c61cb43d95a4e3128bbc7207fbbcb52debc82e55339fffdb0dfcd103baf55c",
     "sense_lineage": [
       {
         "word_id": "word:ash",
@@ -5327,8 +5311,22 @@
       {
         "word_id": "word:ash",
         "target_kind": "collocation",
+        "from_target_id": "collocation:c577e454cbd4c65a84ed",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ash",
+        "target_kind": "collocation",
         "from_target_id": "collocation:e8f74496586ccab865a4",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ash",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ee515a83d10e3316e844",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -5403,13 +5401,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "ash tree",
             "meaning_cn": "白蜡树",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c577e454cbd4c65a84ed",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "ash tree"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5434,13 +5427,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "ash wood",
             "meaning_cn": "白蜡木",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ee515a83d10e3316e844",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "ash wood"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5768,7 +5756,7 @@
     "ordinal": 291,
     "word": "aside",
     "source_owner_path": "content/lexical/words/by-ordinal/o0291.json",
-    "source_fingerprint": "1d2f169ec8086eacd52a32647188d44ec2529b46720affbd7b3aa215fb2beafa",
+    "source_fingerprint": "4edc5d9a88d3f88d87980566aefe74fc0148ae79574442c71b84079941795d02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5966,7 +5954,7 @@
     "ordinal": 292,
     "word": "ask",
     "source_owner_path": "content/lexical/words/by-ordinal/o0292.json",
-    "source_fingerprint": "b7e171df196212c35b271a49fc483f58a576bfca080225c0c422212cc676999b",
+    "source_fingerprint": "004014fd558c409f15fa732ce5cc891b53bde698ed0519373d2756be3f91a689",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5989,7 +5977,7 @@
         "id": "sense:ask:4ff1e3eb315f5961",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "ask (sb) sth | ask (sb) about sth | ask + clause | ask",
         "definition_cn": "问；询问",
         "definition_en": "to say something to get an answer or information",
         "note": "",
@@ -6033,7 +6021,7 @@
         "id": "sense:ask:b784d88fff4e594c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "ask for sth | ask sb for sth | ask sb to do sth",
         "definition_cn": "要求；请求",
         "definition_en": "to request something from someone",
         "note": "",
@@ -6108,17 +6096,17 @@
         "id": "sense:ask:245d98d3aab857d6",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "需要",
-        "definition_en": "to require or need something",
-        "note": "",
+        "governing_pattern": "ask sth of sb",
+        "definition_cn": "要求；期待（付出等）",
+        "definition_en": "to demand or expect something from somebody",
+        "note": "ask a lot/too much of sb 指对某人要求很多/过高，不只是说某人需要某物。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ask:245d98d3aab857d6",
           "target_locator": "record.senses[3]",
-          "target_label": "需要"
+          "target_label": "要求；期待（付出等）"
         }
       }
     ],
@@ -6166,15 +6154,11 @@
             "lang": "cn"
           },
           {
-            "text": "需要",
+            "text": "ask sth of sb：of 后是被请求或被要求的人；ask a lot/too much of sb 强调要求的负担。",
             "lang": "cn"
           },
           {
-            "text": "ask sth of sb 向某人要求",
-            "lang": "cn"
-          },
-          {
-            "text": "to require or need something",
+            "text": "to demand or expect something from somebody",
             "lang": "en"
           }
         ],
@@ -6220,7 +6204,7 @@
     "ordinal": 293,
     "word": "asleep",
     "source_owner_path": "content/lexical/words/by-ordinal/o0293.json",
-    "source_fingerprint": "9f84e11e24b1f911e06d99a87a2f20896e9b590da4e14e65862cb67da88f5465",
+    "source_fingerprint": "c3ab35a15a8611489e77a87137429e8e2935b82db8814c8f13b87f3f5ae17837",
     "sense_lineage": [
       {
         "word_id": "word:asleep",
@@ -6349,7 +6333,7 @@
             "lang": "cn"
           },
           {
-            "text": "asleep normally follows a linking verb or functions as a complement; before a noun use sleeping/asleep alternatives as appropriate.",
+            "text": "asleep normally follows a linking verb or functions as a complement. Before a noun use sleeping (a sleeping child); asleep may follow a noun (a child asleep).",
             "lang": "en"
           },
           {
@@ -6428,7 +6412,7 @@
     "ordinal": 294,
     "word": "aspect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0294.json",
-    "source_fingerprint": "a59bf65f67f67966336433d279d6fcf6bc23f7497c6cf3ad54255b9f99b7683f",
+    "source_fingerprint": "87aef88bef0b442ff98816f57e55104e884fd6b0ff9eab551d3d04afa5d76cb6",
     "sense_lineage": [
       {
         "word_id": "word:aspect",
@@ -6461,7 +6445,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "方面；层面",
-        "definition_en": "a distinct feature or element in a problem",
+        "definition_en": "a particular feature, part or side of something or a situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6561,7 +6545,7 @@
     "ordinal": 295,
     "word": "aspire",
     "source_owner_path": "content/lexical/words/by-ordinal/o0295.json",
-    "source_fingerprint": "614013b294ac43c0dfa725939a20ed5bd59eb8045c8674b78cc13deceb966751",
+    "source_fingerprint": "109d67b090b841b2d0047703331329f65fbb23d86d995c20eb3b356a3bc3e96b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6584,7 +6568,7 @@
         "id": "sense:aspire:1c6699c0fede5d9b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "aspire to sth; aspire to do sth",
         "definition_cn": "渴望；立志",
         "definition_en": "to have a strong desire to achieve something",
         "note": "",
@@ -6606,14 +6590,14 @@
           {
             "id": "collocation:eb16579d2c98d16be066",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "aspire to be + adj/n",
-            "meaning_cn": "立志成为……",
+            "phrase": "aspire to + do sth",
+            "meaning_cn": "立志或渴望做某事，如 aspire to be a teacher",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:eb16579d2c98d16be066",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "aspire to be + adj/n"
+              "target_label": "aspire to + do sth"
             }
           }
         ],
@@ -6645,29 +6629,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:aspire:handoff-7152f07f27df1a1e",
-        "source_locator": "record.constructions[0]",
-        "pattern": "aspire to do sth",
-        "lines": [
-          {
-            "text": "渴望做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "strongly aim or hope to achieve something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:aspire:handoff-7152f07f27df1a1e",
-          "target_locator": "record.constructions[0]",
-          "target_label": "aspire to do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6810,7 +6772,7 @@
     "ordinal": 297,
     "word": "assault",
     "source_owner_path": "content/lexical/words/by-ordinal/o0297.json",
-    "source_fingerprint": "ce43b81c4df908bad7ab31dcfcd51551cac545f9f598592ba61280ddd9e42d19",
+    "source_fingerprint": "68c553334485744b1da8ea8265f563cb5b5d2c8bea0e142bb4923fe7707bb9ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6943,8 +6905,8 @@
           "target_word": "attack",
           "lines": [
             {
-              "text": "assault usually implies a violent or legal-register attack on a person; attack is broader and also covers non-physical targets and criticism.",
-              "lang": "en"
+              "text": "在猛烈言辞攻击这一交集下，attack 指强烈批评；assault 强调强势、猛烈的攻击，不能作为普通轻微批评的通用替换。assault 也有物理/法律用法，本关系不将它限定为人身暴力。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -6966,7 +6928,7 @@
     "ordinal": 298,
     "word": "assemble",
     "source_owner_path": "content/lexical/words/by-ordinal/o0298.json",
-    "source_fingerprint": "ae3ea55f2ec4df8e811be0e2b65db1af8294dda202c2e302435d2e02e6650fce",
+    "source_fingerprint": "a1f9d5485a6e852ab45476bb16ae54a81856b22b458068d580b9cf91bbe1e5a0",
     "sense_lineage": [
       {
         "word_id": "word:assemble",
@@ -7038,7 +7000,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object / vi.",
         "definition_cn": "集合，召集",
-        "definition_en": "to gather people together for a common purpose",
+        "definition_en": "to come together as a group, or bring people together for a common purpose",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7159,7 +7121,7 @@
     "ordinal": 299,
     "word": "assembly",
     "source_owner_path": "content/lexical/words/by-ordinal/o0299.json",
-    "source_fingerprint": "707b29bf6c8f64f43855db6583d4a3f246ff632bc075961ec46358e2c742ef31",
+    "source_fingerprint": "19ca91909fddd0251a652ecbe9e079c3e19b71c54383c36b9442b7d1dd720038",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7183,9 +7145,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "集会；与会者",
-        "definition_en": "a group of people gathered together for a common purpose",
-        "note": "",
+        "definition_cn": "集会；与会者；（正式代表机构）议会、大会",
+        "definition_en": "a gathering or group of people who meet for a common purpose; also an official representative body that meets to discuss matters or make decisions or laws",
+        "note": "assembly hall 常指集会场所；General/National Assembly 可指正式代表机构，不只是一次聚集。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7214,7 +7176,7 @@
           "target_kind": "sense",
           "target_id": "sense:assembly:0474d7a1281c5439",
           "target_locator": "record.senses[0]",
-          "target_label": "集会；与会者"
+          "target_label": "集会；与会者；（正式代表机构）议会、大会"
         }
       },
       {
@@ -7270,7 +7232,7 @@
             "id": "collocation:864db76ddabd0684e32d",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "component assembly",
-            "meaning_cn": "组件装配",
+            "meaning_cn": "组装成的组件",
             "kind": "usage_example",
             "repair": null
           }
@@ -7343,7 +7305,7 @@
     "ordinal": 300,
     "word": "assert",
     "source_owner_path": "content/lexical/words/by-ordinal/o0300.json",
-    "source_fingerprint": "dd80cf008f734344d097f1aa27a49d11fe6efd8a67cb403f00f89df2254b73aa",
+    "source_fingerprint": "8d9ccce2ffc3bae6389fd8811206d094a6c8d95addf51c10bafb42747719f1b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7480,7 +7442,7 @@
           "target_word": "allege ↔ claim",
           "lines": [
             {
-              "text": "allege = formally report/claim something (often wrongdoing) without proof; assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
+              "text": "allege = formally report/claim something (often wrongdoing) before it has been proved (not necessarily without evidence); assert = state firmly/confidently; claim = say something is true, often potentially disputed. They overlap but differ in evidential stance and register.",
               "lang": "en"
             },
             {
@@ -7507,7 +7469,7 @@
     "ordinal": 301,
     "word": "assess",
     "source_owner_path": "content/lexical/words/by-ordinal/o0301.json",
-    "source_fingerprint": "03c4137e52b25849c37319c6a7409b1f4f23324b04d9839d948ea932cfefa3e0",
+    "source_fingerprint": "0dfac38b96a31b72520e7e95f86383972a7e1bc6999d7c418abe66d9595c84fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7645,7 +7607,7 @@
     "ordinal": 302,
     "word": "asset",
     "source_owner_path": "content/lexical/words/by-ordinal/o0302.json",
-    "source_fingerprint": "05a7876bd21a8da909b9aea3c08c28eb5cb8431eb24ebb98f7ecbd63f5db36e3",
+    "source_fingerprint": "4daefb7a3394cfb8d4dd8526cdb55056de55d26293748eb18a1ca1152b768cd0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7670,7 +7632,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "有价值的人或物；优点",
-        "definition_en": "a useful or valuable quality or skill",
+        "definition_en": "a person, thing, quality, or skill that is useful or valuable",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7791,7 +7753,7 @@
     "ordinal": 303,
     "word": "assign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0303.json",
-    "source_fingerprint": "8266d82e5f30121af4295eec56a70bb4ba9f9ce995332dadfbf5ff94e0e86b11",
+    "source_fingerprint": "9457ec80784008fcdd0ba4e89b4dbb46172da6acd0b1c2c26cfd925ad5b3be36",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7814,7 +7776,7 @@
         "id": "sense:assign:42e6888fe99f5553",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth (to sb)",
+        "governing_pattern": "assign sth to sb | assign sb sth",
         "definition_cn": "分配；布置",
         "definition_en": "to give out as a task or duty",
         "note": "",
@@ -7840,6 +7802,19 @@
             "meaning_cn": "布置作业",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:452c88c2b0f50f2f2c0c",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "assign + sb + sth",
+            "meaning_cn": "给某人分配某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:452c88c2b0f50f2f2c0c",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "assign + sb + sth"
+            }
           }
         ],
         "repair": {
@@ -7862,27 +7837,14 @@
           {
             "id": "collocation:4e18f53649db078123f3",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "assign + sb to + sth",
-            "meaning_cn": "指派某人做某事",
+            "phrase": "assign + sb to + a role/task; assign + sb to do sth",
+            "meaning_cn": "指派某人到某岗位或任务；派某人做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4e18f53649db078123f3",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "assign + sb to + sth"
-            }
-          },
-          {
-            "id": "collocation:452c88c2b0f50f2f2c0c",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "assign + sb + sth",
-            "meaning_cn": "给某人分配某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:452c88c2b0f50f2f2c0c",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "assign + sb + sth"
+              "target_label": "assign + sb to + a role/task; assign + sb to do sth"
             }
           }
         ],
@@ -7995,50 +7957,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:assign:baseline-v2-sth-to-sb",
-        "source_locator": "record.constructions[0]",
-        "pattern": "assign sth to sb/sth",
-        "lines": [
-          {
-            "text": "把任务、物品、数值或权利分配/指定给某人或某对象",
-            "lang": "cn"
-          },
-          {
-            "text": "give or allocate a task, item, value, category, or right to a recipient or target",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assign:baseline-v2-sth-to-sb",
-          "target_locator": "record.constructions[0]",
-          "target_label": "assign sth to sb/sth"
-        }
-      },
-      {
-        "id": "construction:assign:baseline-v2-sb-to-sth",
-        "source_locator": "record.constructions[1]",
-        "pattern": "assign sb to sth / to do sth",
-        "lines": [
-          {
-            "text": "指派某人到某岗位/任务；派某人做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "select or direct someone for a role, task, place, or action",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assign:baseline-v2-sb-to-sth",
-          "target_locator": "record.constructions[1]",
-          "target_label": "assign sb to sth / to do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8052,7 +7971,7 @@
     "ordinal": 304,
     "word": "assignment",
     "source_owner_path": "content/lexical/words/by-ordinal/o0304.json",
-    "source_fingerprint": "0c78f0f2aa034cb30c6f368dba77454ed44eb293359c6739ed0fa1d5ddbd8142",
+    "source_fingerprint": "b501514d337df4fe6c79b106f51cd78f13dc5e96144e2706c066018c415d3e67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8061,13 +7980,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "被分配的任务或职责",
-      "decision_cn": "",
+      "summary_cn": "分派：可指交给某人的任务、分配或指派的行为，也可指权利或财产的法律转让",
+      "decision_cn": "a homework/work assignment → 任务；assignment to a post / of resources → 指派或分配；assignment of rights/property → 法律转让。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "被分配的任务或职责"
+        "target_label": "分派：可指交给某人的任务、分配或指派的行为，也可指权利或财产的法律转让"
       }
     },
     "senses": [
@@ -8088,19 +8007,6 @@
             "meaning_cn": "家庭作业",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:309e1adaa16f68f8f0a4",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "assignment to + sth",
-            "meaning_cn": "分配到某处/某任务",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:309e1adaa16f68f8f0a4",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "assignment to + sth"
-            }
           }
         ],
         "repair": {
@@ -8124,13 +8030,26 @@
             "id": "collocation:760af9082497198b8426",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "assignment of + sth",
-            "meaning_cn": "某物的分配/转让",
+            "meaning_cn": "某物的分配；某任务的指派（权利转让另看法律义）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:760af9082497198b8426",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "assignment of + sth"
+            }
+          },
+          {
+            "id": "collocation:309e1adaa16f68f8f0a4",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "assignment to + sth",
+            "meaning_cn": "分配到某处/某任务",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:309e1adaa16f68f8f0a4",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "assignment to + sth"
             }
           }
         ],
@@ -8200,19 +8119,47 @@
     "ordinal": 305,
     "word": "assimilate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0305.json",
-    "source_fingerprint": "5f340ac984ae309f129f5f0100a5a7bab892fb280a6762da9c7168ca9b429e11",
+    "source_fingerprint": "fb000eb7dff51ea8b6da009b38a24b95327b4190dfc82d617ec1fab42aea0c5f",
     "sense_lineage": [
+      {
+        "word_id": "word:assimilate",
+        "target_kind": "sense",
+        "from_target_id": "sense:assimilate:80b93c1671e55c35",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:assimilate",
         "target_kind": "sense",
         "from_target_id": "sense:assimilate:c325e7659ed154b3",
         "status": "merged",
         "to_target_id": "sense:assimilate:2b5059974eb35969"
+      },
+      {
+        "word_id": "word:assimilate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:097c8490b6fb172b0ad8",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:assimilate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1b5a7b8648838bfa2df3",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:assimilate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:67d32d957a32056705ad",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "4V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -8250,13 +8197,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "assimilate + sth",
             "meaning_cn": "吸收某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:67d32d957a32056705ad",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "assimilate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8270,9 +8212,9 @@
         "id": "sense:assimilate:2b5059974eb35969",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使同化，使相似",
-        "definition_en": "to make similar to one's environment or to another group",
+        "governing_pattern": "assimilate sb (into a group/culture); assimilate into/to a group/culture",
+        "definition_cn": "使同化；融入、适应另一群体或文化",
+        "definition_en": "to make people part of another group or culture, or to become part of it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8287,14 +8229,14 @@
           {
             "id": "collocation:5cc36da875f089ad9f3d",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "assimilate into + a culture",
-            "meaning_cn": "融入一种文化",
+            "phrase": "assimilate into + a group/culture/society",
+            "meaning_cn": "融入某群体、文化或社会",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5cc36da875f089ad9f3d",
               "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "assimilate into + a culture"
+              "target_label": "assimilate into + a group/culture/society"
             }
           },
           {
@@ -8302,20 +8244,15 @@
             "source_locator": "record.senses[1].collocations[2]",
             "phrase": "assimilate into + a society",
             "meaning_cn": "融入一个社会",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1b5a7b8648838bfa2df3",
-              "target_locator": "record.senses[1].collocations[2]",
-              "target_label": "assimilate into + a society"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:assimilate:2b5059974eb35969",
           "target_locator": "record.senses[1]",
-          "target_label": "使同化，使相似"
+          "target_label": "使同化；融入、适应另一群体或文化"
         }
       },
       {
@@ -8333,37 +8270,6 @@
           "target_id": "sense:assimilate:9a33fd2585ea5e20",
           "target_locator": "record.senses[2]",
           "target_label": "吸收并同化（食物、营养或其他物质）到生物体/组织中"
-        }
-      },
-      {
-        "id": "sense:assimilate:80b93c1671e55c35",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "（语音）同化",
-        "definition_en": "to become similar in sound",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:097c8490b6fb172b0ad8",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "assimilate to + a sound",
-            "meaning_cn": "同化为某个音",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:097c8490b6fb172b0ad8",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "assimilate to + a sound"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:assimilate:80b93c1671e55c35",
-          "target_locator": "record.senses[3]",
-          "target_label": "（语音）同化"
         }
       }
     ],
@@ -8417,6 +8323,34 @@
           "source_row": 780,
           "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:097c8490b6fb172b0ad8",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:assimilate:80b93c1671e55c35:collocation:0"
+              ],
+              "meaning_cn": "同化为某个音",
+              "phrase": "assimilate to + a sound"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（语音）同化",
+          "definition_en": "to become similar in sound",
+          "governing_pattern": "vi. + to",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:assimilate:80b93c1671e55c35",
+          "sense_label_en": "to become similar in sound",
+          "sort_order": 4,
+          "transitivity": "vi",
+          "stable_sense_id": "sense:assimilate:80b93c1671e55c35",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -8427,8 +8361,16 @@
     "ordinal": 306,
     "word": "assist",
     "source_owner_path": "content/lexical/words/by-ordinal/o0306.json",
-    "source_fingerprint": "b143058d9165cc8392bd0c658c0f5ecf8c1cf3cac06c4add88fb10a46a397597",
-    "sense_lineage": [],
+    "source_fingerprint": "a33614316709e3420275bf3f71763875432aad6f35e29becde5397cd4daa7adb",
+    "sense_lineage": [
+      {
+        "word_id": "word:assist",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a6fe3436d22e709d738e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -8469,19 +8411,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "assist sb with sth"
             }
-          },
-          {
-            "id": "collocation:a6fe3436d22e709d738e",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "assist in doing sth",
-            "meaning_cn": "协助做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a6fe3436d22e709d738e",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "assist in doing sth"
-            }
           }
         ],
         "repair": {
@@ -8496,22 +8425,22 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi. + in/with",
-        "definition_cn": "协助；参加",
-        "definition_en": "to be present and help",
+        "definition_cn": "协助；提供帮助（不及物用法）",
+        "definition_en": "to give support or help, often in an activity or with a task",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4dd085bfc9cad423951f",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "assist in + sth",
-            "meaning_cn": "参与某事；协助某事",
+            "phrase": "assist in + sth/doing sth",
+            "meaning_cn": "协助某项活动或协助做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4dd085bfc9cad423951f",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "assist in + sth"
+              "target_label": "assist in + sth/doing sth"
             }
           },
           {
@@ -8526,13 +8455,21 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "assist with + sth"
             }
+          },
+          {
+            "id": "collocation:a6fe3436d22e709d738e",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "assist in doing sth",
+            "meaning_cn": "协助做某事",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:assist:f42427bfdefb512b",
           "target_locator": "record.senses[1]",
-          "target_label": "协助；参加"
+          "target_label": "协助；提供帮助（不及物用法）"
         }
       },
       {
@@ -8842,7 +8779,7 @@
     "ordinal": 309,
     "word": "associate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0309.json",
-    "source_fingerprint": "477615076571a8de9f49aeeafab64b2b6f6dded24bc3b86d16426daf1771fd01",
+    "source_fingerprint": "d041b9c2beb2abe1d67f0ee9be3d73ccdf818c18b38a6c3e09351d6f82691308",
     "sense_lineage": [
       {
         "word_id": "word:associate",
@@ -8869,18 +8806,19 @@
     "recall_map": {
       "parts": [
         "2V",
+        "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "联系；同伴",
-      "decision_cn": "",
+      "summary_cn": "联系；交往；同伴；职位或会员身份中的副/准",
+      "decision_cn": "associate A with B → 联系；associate with sb → 交往；an associate → 同伴；associate professor/member 中是职位或身份形容词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "联系；同伴"
+        "target_label": "联系；交往；同伴；职位或会员身份中的副/准"
       }
     },
     "senses": [
@@ -8888,7 +8826,7 @@
         "id": "sense:associate:8597335726c65975",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "associate A with B; be associated with B",
         "definition_cn": "把 A 与 B 联系起来",
         "definition_en": "link A with B in thought or fact",
         "note": "",
@@ -8922,7 +8860,7 @@
         "id": "sense:associate:ec7fa5a747735c15",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "associate with sb",
         "definition_cn": "交往；结交",
         "definition_en": "to keep company or associate with someone",
         "note": "",
@@ -8933,6 +8871,40 @@
           "target_id": "sense:associate:ec7fa5a747735c15",
           "target_locator": "record.senses[2]",
           "target_label": "交往；结交"
+        }
+      },
+      {
+        "id": "sense:associate:20261007-adjective-status",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "before a role or membership noun",
+        "definition_cn": "（职位、级别）副的；（会员身份）非正式的、准的",
+        "definition_en": "sharing a role or responsibility, often with a secondary rank or less than full membership",
+        "note": "Before a title or membership noun, associate can mark an associated or secondary rank/status. Associate professor is 副教授; exact institutional rank varies. Do not read it as the verb associate or as a separate colleague.",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:associate:20261007-professor",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "associate professor",
+            "meaning_cn": "副教授",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:associate:20261007-member",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "associate member",
+            "meaning_cn": "准会员；非正式会员",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:associate:20261007-adjective-status",
+          "target_locator": "record.senses[3]",
+          "target_label": "（职位、级别）副的；（会员身份）非正式的、准的"
         }
       }
     ],
@@ -8986,14 +8958,16 @@
           "applicability": [
             {
               "pos": [
-                "noun"
+                "noun",
+                "adjective"
               ],
               "sense_ids": [
+                "sense:associate:20261007-adjective-status",
                 "sense:associate:aaad4a8f591d5300"
               ]
             }
           ],
-          "learner_reading": "noun · UK",
+          "learner_reading": "noun/adjective · UK",
           "evidence_basis": "existing_form",
           "spelling_binding": null
         },
@@ -9005,14 +8979,16 @@
           "applicability": [
             {
               "pos": [
-                "noun"
+                "noun",
+                "adjective"
               ],
               "sense_ids": [
+                "sense:associate:20261007-adjective-status",
                 "sense:associate:aaad4a8f591d5300"
               ]
             }
           ],
-          "learner_reading": "noun · US",
+          "learner_reading": "noun/adjective · US",
           "evidence_basis": "existing_form",
           "spelling_binding": null
         }
@@ -9026,6 +9002,10 @@
           0,
           1
         ],
+        "sense:associate:20261007-adjective-status": [
+          2,
+          3
+        ],
         "sense:associate:aaad4a8f591d5300": [
           2,
           3
@@ -9038,8 +9018,12 @@
       {
         "id": "deep:constructions:associate:531dde10df4b367a",
         "source_locator": "record.constructions[0]",
-        "pattern": "vi. + with",
+        "pattern": "associate with sb",
         "lines": [
+          {
+            "text": "与某人交往、来往",
+            "lang": "cn"
+          },
           {
             "text": "交往",
             "lang": "cn"
@@ -9057,7 +9041,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:associate:531dde10df4b367a",
           "target_locator": "record.constructions[0]",
-          "target_label": "vi. + with"
+          "target_label": "associate with sb"
         }
       },
       {
@@ -9091,8 +9075,8 @@
           },
           {
             "surface": "associate",
-            "condition": "noun",
-            "note": "名词词尾读 /-ət/，表示同事/伙伴"
+            "condition": "noun/adjective",
+            "note": "名词和形容词词尾通常读 /-ət/：同事/伙伴；副职或准会员身份"
           }
         ],
         "variants": [
@@ -9112,16 +9096,18 @@
           },
           {
             "pos": [
-              "noun"
+              "noun",
+              "adjective"
             ],
-            "reading": "noun · UK",
+            "reading": "noun/adjective · UK",
             "ipa": "/əˈsəʊ.ʃi.ət/"
           },
           {
             "pos": [
-              "noun"
+              "noun",
+              "adjective"
             ],
-            "reading": "noun · US",
+            "reading": "noun/adjective · US",
             "ipa": "/əˈsoʊ.ʃi.ət/"
           }
         ],
@@ -9200,7 +9186,7 @@
     "ordinal": 310,
     "word": "association",
     "source_owner_path": "content/lexical/words/by-ordinal/o0310.json",
-    "source_fingerprint": "28908695e3edc197bd14a70b14bd3f5c95144b550293bc8c13332e43930b2a56",
+    "source_fingerprint": "f3f7722d959a86b9a6bd36eb0da81a71b9f4f45629eadb3fe8cea7e92a1eb55f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9236,19 +9222,6 @@
             "meaning_cn": "行业协会",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:aa08f65846085e723e48",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "association with + sb/sth",
-            "meaning_cn": "与…的联合/交往",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:aa08f65846085e723e48",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "association with + sb/sth"
-            }
           }
         ],
         "repair": {
@@ -9269,15 +9242,28 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:2cffd820ed0adba8d487",
+            "id": "collocation:aa08f65846085e723e48",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "association with + sb/sth",
+            "meaning_cn": "与…的联合/交往",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:aa08f65846085e723e48",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "association with + sb/sth"
+            }
+          },
+          {
+            "id": "collocation:2cffd820ed0adba8d487",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "in association with + sb/sth",
             "meaning_cn": "与…联合/合作",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:2cffd820ed0adba8d487",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "in association with + sb/sth"
             }
           }
@@ -9611,7 +9597,7 @@
     "ordinal": 312,
     "word": "assumption",
     "source_owner_path": "content/lexical/words/by-ordinal/o0312.json",
-    "source_fingerprint": "29c5ebc35de701b654cbc8716919dc599f6d54073636e092ef61aa0e29525d43",
+    "source_fingerprint": "7a970751711a95eb4b503fcc7b99eb2875fac392b302a908e26e025fd76b550d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9637,7 +9623,7 @@
         "governing_pattern": "",
         "definition_cn": "假定；假设",
         "definition_en": "a belief or statement that is accepted without proof",
-        "note": "",
+        "note": "In assumption of innocence, assumption means treating innocence as the starting premise, not pretending to be innocent. The conventional legal label is presumption of innocence.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9755,29 +9741,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:assumption:handoff-28d1d35d210ed7fc",
-        "source_locator": "record.constructions[0]",
-        "pattern": "assumption of innocence",
-        "lines": [
-          {
-            "text": "无罪推定，而不是假装无辜",
-            "lang": "cn"
-          },
-          {
-            "text": "the legal presumption that a person is innocent until proven guilty",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assumption:handoff-28d1d35d210ed7fc",
-          "target_locator": "record.constructions[0]",
-          "target_label": "assumption of innocence"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9791,7 +9755,7 @@
     "ordinal": 313,
     "word": "assurance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0313.json",
-    "source_fingerprint": "03fb25163fa3c8c3ae1150fe41288ec2aeb8eae021f51c00c477c8b6de534c72",
+    "source_fingerprint": "78701d19ea8668a459e78befab1f0d6bd54911291f4c59814f302d7f2389cafc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9949,14 +9913,14 @@
       {
         "id": "construction:assurance:handoff-d4568abd1db3beaf",
         "source_locator": "record.constructions[0]",
-        "pattern": "give/receive an assurance that ...; quality assurance",
+        "pattern": "quality assurance",
         "lines": [
           {
-            "text": "保证；质量保证",
+            "text": "质量保证：使产品或服务达到质量要求的系统性措施",
             "lang": "cn"
           },
           {
-            "text": "a promise or guarantee, distinct from confidence",
+            "text": "systematic measures used to ensure that a product or service meets quality requirements",
             "lang": "en"
           }
         ],
@@ -9964,7 +9928,7 @@
           "target_kind": "construction",
           "target_id": "construction:assurance:handoff-d4568abd1db3beaf",
           "target_locator": "record.constructions[0]",
-          "target_label": "give/receive an assurance that ...; quality assurance"
+          "target_label": "quality assurance"
         }
       }
     ],
@@ -9981,7 +9945,7 @@
     "ordinal": 314,
     "word": "assure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0314.json",
-    "source_fingerprint": "7f91025ec906e5790102bde5ff84e90464454b4bf330bdbf968679557c9b27d2",
+    "source_fingerprint": "53bd3e6950bd20d4deaf511b7e88bd10aebbb382392e91a5dc1c09c38ae74655",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10104,50 +10068,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:assure:baseline-v2-sb-that",
-        "source_locator": "record.constructions[0]",
-        "pattern": "assure sb (that) ...",
-        "lines": [
-          {
-            "text": "向某人保证……；使某人确信……",
-            "lang": "cn"
-          },
-          {
-            "text": "tell someone confidently that something is true, especially to remove doubt",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assure:baseline-v2-sb-that",
-          "target_locator": "record.constructions[0]",
-          "target_label": "assure sb (that) ..."
-        }
-      },
-      {
-        "id": "construction:assure:baseline-v2-sb-of",
-        "source_locator": "record.constructions[1]",
-        "pattern": "assure sb of sth",
-        "lines": [
-          {
-            "text": "向某人保证某事；使某人确信某事",
-            "lang": "cn"
-          },
-          {
-            "text": "give someone confidence or certainty about something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:assure:baseline-v2-sb-of",
-          "target_locator": "record.constructions[1]",
-          "target_label": "assure sb of sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [
@@ -10195,7 +10116,7 @@
     "ordinal": 315,
     "word": "astonish",
     "source_owner_path": "content/lexical/words/by-ordinal/o0315.json",
-    "source_fingerprint": "8703bf882b08bd1a7561769d8774dcc166dc5fe2772b713028c39959b455cd6a",
+    "source_fingerprint": "6258c5c36498ec43d89e9a77a8a52374486374d1922f907e13318984dd90e471",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10219,7 +10140,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使惊讶，使惊骇",
+        "definition_cn": "使非常惊讶；使震惊",
         "definition_en": "to surprise or amaze someone greatly",
         "note": "",
         "identity_overlay": null,
@@ -10268,7 +10189,7 @@
           "target_kind": "sense",
           "target_id": "sense:astonish:75bc8433109555d2",
           "target_locator": "record.senses[0]",
-          "target_label": "使惊讶，使惊骇"
+          "target_label": "使非常惊讶；使震惊"
         }
       }
     ],
@@ -10412,7 +10333,7 @@
     "ordinal": 317,
     "word": "astronomy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0317.json",
-    "source_fingerprint": "f1a96bfa9260c67c3f18f8f55e73f4d85a221dfc8469dfdedaee8b22952b1616",
+    "source_fingerprint": "58f1277222bf711b36441812ef85cb3a8fe0af1b739a16bb3b6cd7ca533a59c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10526,8 +10447,37 @@
     "ordinal": 318,
     "word": "at",
     "source_owner_path": "content/lexical/words/by-ordinal/o0318.json",
-    "source_fingerprint": "c19ae17686a69d90fe3196dd3766fcc3b4471cad0e0cf9e1ceea4d32ba731e95",
-    "sense_lineage": [],
+    "source_fingerprint": "bf918731731f6d631e078e6486c2e942519e1f70142bbc5d97effef83b2f2ced",
+    "sense_lineage": [
+      {
+        "word_id": "word:at",
+        "target_kind": "sense",
+        "from_target_id": "sense:at:20261007-at-all",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:at",
+        "target_kind": "sense",
+        "from_target_id": "sense:at:20261007-at-once",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:at",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2ce2153fbefb4aeeebc6",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:at",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:441ab37a7c8fa2787197",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3PREP"
@@ -10560,26 +10510,16 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "at + time",
             "meaning_cn": "在……时刻",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:441ab37a7c8fa2787197",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "at + time"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2ce2153fbefb4aeeebc6",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "at + place",
             "meaning_cn": "在……地点",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2ce2153fbefb4aeeebc6",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "at + place"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10762,13 +10702,87 @@
           "target_locator": "record.constructions[1]",
           "target_label": "at least / at most"
         }
+      },
+      {
+        "id": "construction:at:20261007-at-all",
+        "source_locator": "record.constructions[2]",
+        "pattern": "at all",
+        "lines": [
+          {
+            "text": "否定或疑问等语境中强调丝毫、任何程度；not ... at all 表示一点也不",
+            "lang": "cn"
+          },
+          {
+            "text": "把整个短语作为词汇单位识别；不能从地点/时间介词 at 或普通 all/once 直译得到。",
+            "lang": "cn"
+          },
+          {
+            "text": "in any way or to any degree, often emphasizing a negative or question",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:at:20261007-at-all",
+          "target_locator": "record.constructions[2]",
+          "target_label": "at all"
+        }
+      },
+      {
+        "id": "construction:at:20261007-at-once",
+        "source_locator": "record.constructions[3]",
+        "pattern": "at once",
+        "lines": [
+          {
+            "text": "要求立即执行时表示立刻；多个事件一起发生时表示同时",
+            "lang": "cn"
+          },
+          {
+            "text": "把整个短语作为词汇单位识别；不能从地点/时间介词 at 或普通 all/once 直译得到。",
+            "lang": "cn"
+          },
+          {
+            "text": "immediately, or at the same time, depending on context",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:at:20261007-at-once",
+          "target_locator": "record.constructions[3]",
+          "target_label": "at once"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "sense_id": "sense:at:20261007-at-all",
+          "pos": "phrase",
+          "definition_cn": "常用于否定、疑问或条件语境加强“丝毫、究竟、在任何程度上”的意思；not ... at all → 一点也不……",
+          "definition_en": "in any way or to any extent, often emphasizing a negative, question, or condition",
+          "governing_pattern": "at all",
+          "level": "L1",
+          "note": "常用于否定、疑问或条件语境加强“丝毫、究竟、在任何程度上”的意思；not ... at all → 一点也不……",
+          "reference_only": true,
+          "status": "reference_only"
+        },
+        {
+          "sense_id": "sense:at:20261007-at-once",
+          "pos": "phrase",
+          "definition_cn": "动作要求立即执行时 → 立刻；多个事件一起发生时 → 同时；at once A and B → 既A又B",
+          "definition_en": "immediately, simultaneously, or both A and B depending on context",
+          "governing_pattern": "at once; at once A and B",
+          "level": "L1",
+          "note": "动作要求立即执行时 → 立刻；多个事件一起发生时 → 同时；at once A and B → 既A又B",
+          "reference_only": true,
+          "status": "reference_only"
+        }
+      ]
     }
   },
   {
@@ -10878,7 +10892,7 @@
     "ordinal": 320,
     "word": "atmosphere",
     "source_owner_path": "content/lexical/words/by-ordinal/o0320.json",
-    "source_fingerprint": "73c49f0baa211e404af84065a0590270fd8e346e548307b63c467967708b6e1f",
+    "source_fingerprint": "f7911666b50c697286b951297368beb07af762c2b2713b91d1911378f0fe3e8a",
     "sense_lineage": [
       {
         "word_id": "word:atmosphere",
@@ -10893,6 +10907,34 @@
         "from_target_id": "sense:atmosphere:b9b5a2dabb1056df",
         "status": "merged",
         "to_target_id": "sense:atmosphere:a205b0256dc5591b"
+      },
+      {
+        "word_id": "word:atmosphere",
+        "target_kind": "sense",
+        "from_target_id": "sense:atmosphere:20261007-pressure-unit",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:atmosphere",
+        "target_kind": "sense",
+        "from_target_id": "sense:atmosphere:20261007-local-air",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:atmosphere",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:atmosphere:20261007-two-atmospheres",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:atmosphere",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:atmosphere:20261007-local-air",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -11006,29 +11048,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:atmosphere:handoff-93e4f07fb43577ec",
-        "source_locator": "record.constructions[0]",
-        "pattern": "planetary atmosphere; atmosphere of a place",
-        "lines": [
-          {
-            "text": "行星大气层；环境氛围",
-            "lang": "cn"
-          },
-          {
-            "text": "the gaseous envelope of a celestial body or the mood/environment of a place",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:atmosphere:handoff-93e4f07fb43577ec",
-          "target_locator": "record.constructions[0]",
-          "target_label": "planetary atmosphere; atmosphere of a place"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -11080,6 +11100,47 @@
           "source_row": 816,
           "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
           "reference_only": true
+        },
+        {
+          "sense_id": "sense:atmosphere:20261007-pressure-unit",
+          "pos": "noun",
+          "definition_cn": "大气压（压力单位）",
+          "definition_en": "a unit of pressure based on standard atmospheric pressure at sea level",
+          "sense_label_en": "unit of pressure",
+          "governing_pattern": "a number + atmosphere(s)",
+          "transitivity": "nonverb",
+          "level": "L2",
+          "sort_order": 2,
+          "confidence": "high",
+          "needs_human_review": 0,
+          "note": "数值 + atmospheres 是压力大小，不是多个气氛或气体层。",
+          "collocations": [
+            {
+              "collocation_id": "collocation:atmosphere:20261007-two-atmospheres",
+              "phrase": "a pressure of two atmospheres",
+              "meaning_cn": "两个大气压的压力",
+              "exam_value": "usage_example"
+            }
+          ],
+          "reference_only": true,
+          "status": "reference_only"
+        },
+        {
+          "sense_id": "sense:atmosphere:20261007-local-air",
+          "pos": "noun",
+          "definition_cn": "某处的空气",
+          "definition_en": "the air in a particular place",
+          "note": "stuffy/smoky + room context indicates physical air, rather than social mood.",
+          "collocations": [
+            {
+              "collocation_id": "collocation:atmosphere:20261007-local-air",
+              "phrase": "a stuffy atmosphere",
+              "meaning_cn": "闷热不流通的空气",
+              "exam_value": "usage_example"
+            }
+          ],
+          "reference_only": true,
+          "status": "reference_only"
         }
       ]
     }

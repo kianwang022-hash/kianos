@@ -8,22 +8,18 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:assign:baseline-v2-sth-to-sb",
-        "pattern": "assign sth to sb/sth",
-        "meaning_cn": "把任务、物品、数值或权利分配/指定给某人或某对象",
-        "definition_en": "give or allocate a task, item, value, category, or right to a recipient or target",
-        "level": "L1",
-        "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
-      },
-      {
         "construction_id": "construction:assign:baseline-v2-sb-to-sth",
         "pattern": "assign sb to sth / to do sth",
         "meaning_cn": "指派某人到某岗位/任务；派某人做某事",
         "definition_en": "select or direct someone for a role, task, place, or action",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:4e18f53649db078123f3",
+          "reason": "One existing person-to-task/action retrieval contains both complements."
+        }
       }
     ],
     "content_hash": "18bc3eadb8968e28d4c444d85bf7731a2e29e4b169a9827b6b876fee2ed6f4a4",
@@ -61,12 +57,21 @@
             ],
             "meaning_cn": "布置作业",
             "phrase": "assign homework"
+          },
+          {
+            "collocation_id": "collocation:452c88c2b0f50f2f2c0c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:assign:66fb6f86641955f7:collocation:1"
+            ],
+            "meaning_cn": "给某人分配某物",
+            "phrase": "assign + sb + sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "分配；布置",
         "definition_en": "to give out as a task or duty",
-        "governing_pattern": "vt. + sth (to sb)",
+        "governing_pattern": "assign sth to sb | assign sb sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -83,17 +88,8 @@
             "legacy_source_object_ids": [
               "sense:assign:66fb6f86641955f7:collocation:0"
             ],
-            "meaning_cn": "指派某人做某事",
-            "phrase": "assign + sb to + sth"
-          },
-          {
-            "collocation_id": "collocation:452c88c2b0f50f2f2c0c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:assign:66fb6f86641955f7:collocation:1"
-            ],
-            "meaning_cn": "给某人分配某物",
-            "phrase": "assign + sb + sth"
+            "meaning_cn": "指派某人到某岗位或任务；派某人做某事",
+            "phrase": "assign + sb to + a role/task; assign + sb to do sth"
           }
         ],
         "confidence": "medium",
@@ -537,12 +533,28 @@
       "collocation:a7d660a377263d144964",
       "collocation:e6fdae0807d5fd0a6d02"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:assign:baseline-v2-sb-to-sth",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One existing person-to-task/action retrieval contains both complements."
+      },
+      {
+        "id": "construction:assign:baseline-v2-sth-to-sb",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "This broad summary repeats allocation/category/rights A-to-B frames already explicitly retained in their own active senses; it is not an extra meaning or syntax decision."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:452c88c2b0f50f2f2c0c",
         "source_row": 5846,
-        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json",
+        "sense_id": "sense:assign:42e6888fe99f5553"
       },
       {
         "id": "collocation:4c06627ec2c8ad4890c3",

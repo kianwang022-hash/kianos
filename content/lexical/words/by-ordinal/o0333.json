@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "把某事归因于某人或某事",
         "module": "constructions",
-        "pattern": "vt. + object + to + sb/sth",
+        "pattern": "attribute sth to sb/sth",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,12 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": false,
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:2379a4e36bddc43b51ac",
+          "reason": "The existing attribute-A-to-B collocation is the same argument structure; one selected target suffices."
+        }
       }
     ],
     "content_hash": "25ef7810eb8aeee69c14ca80cbb74daf0ef93ecc2bc9eb4b69c5ebd75db29eac",
@@ -205,7 +210,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:attribute:ae2dae6afe725db5",
+        "source_sense_id": "sense:attribute:9d75480caee85cd9",
         "target_sense_id": null,
         "target_word": "attributable",
         "task_tags": [
@@ -300,7 +305,38 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "sense_id": "sense:attribute:20261007-authorship-quality",
+      "pos": "verb",
+      "definition_cn": "把（作品、发明等）归属于某作者或来源；认为某人/物具有（特点、动机等）",
+      "definition_en": "to identify a work as originating with someone, or to regard a quality as belonging to someone or something",
+      "governing_pattern": "attribute a work/quality to sb/sth",
+      "level": "L2",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "confidence": "high",
+      "needs_human_review": 0,
+      "sense_label_en": "ascribe authorship or a quality",
+      "note": "作品/发明 → 作者或来源；动机/能力/特点 → 认为谁具有它。不能一律读成因果解释。",
+      "collocations": [
+        {
+          "collocation_id": "collocation:attribute:20261007-painting",
+          "phrase": "attribute a painting to an artist",
+          "meaning_cn": "认为某画出自某艺术家",
+          "exam_value": "usage_example"
+        },
+        {
+          "collocation_id": "collocation:attribute:20261007-motive",
+          "phrase": "attribute motives to sb",
+          "meaning_cn": "认为某人怀有某种动机",
+          "exam_value": "usage_example"
+        }
+      ],
+      "reference_only": true,
+      "status": "reference_only"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -316,6 +352,11 @@
         "merged_into_sense_id": null,
         "source_row": 851,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:attribute:20261007-authorship-quality",
+        "status": "reference",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
@@ -338,7 +379,10 @@
       {
         "id": "deep:constructions:attribute:4fb3d3432ddaed7a",
         "source_row": 141,
-        "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json"
+        "source_path": "content/lexical/canonical/facts/shards/o0321-0352.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "The existing attribute-A-to-B collocation is the same argument structure; one selected target suffices."
       },
       {
         "id": "deep:constructions:attribute:a2404b29dde24b92",
@@ -366,6 +410,18 @@
         "id": "collocation:82b591183d827f346e17",
         "source_row": 11075,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:attribute:20261007-painting",
+        "sense_id": "sense:attribute:20261007-authorship-quality",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:attribute:20261007-motive",
+        "sense_id": "sense:attribute:20261007-authorship-quality",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

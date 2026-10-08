@@ -186,7 +186,7 @@
     "ordinal": 835,
     "word": "clause",
     "source_owner_path": "content/lexical/words/by-ordinal/o0835.json",
-    "source_fingerprint": "62ac4ecae92c3e1be4d319e01851c42688b4dc922d1ebe31f7547d49f90ced77",
+    "source_fingerprint": "4e23a1cd2a451a42989910c254f2ec9534103dca5c97097b7376a409d831db62",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -195,13 +195,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "语法中的从句或法律文件中的条款",
-      "decision_cn": "",
+      "summary_cn": "语法中的分句（主句或从句）；法律文件中的条款",
+      "decision_cn": "语法中 clause 不只指从句：main clause 可独立成句，subordinate clause 依附其他分句；合同中则指条款。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "语法中的从句或法律文件中的条款"
+        "target_label": "语法中的分句（主句或从句）；法律文件中的条款"
       }
     },
     "senses": [
@@ -210,8 +210,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "从句",
-        "definition_en": "a group of words containing a subject and a verb, forming part of a sentence",
+        "definition_cn": "分句；子句，包括主句和从句",
+        "definition_en": "a grammatical unit built around a verb, usually with a subject, that forms a sentence or part of one; it may be main or subordinate",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -236,7 +236,7 @@
           "target_kind": "sense",
           "target_id": "sense:clause:824a4c316b675bfc",
           "target_locator": "record.senses[0]",
-          "target_label": "从句"
+          "target_label": "分句；子句，包括主句和从句"
         }
       },
       {
@@ -300,7 +300,7 @@
     "ordinal": 836,
     "word": "claw",
     "source_owner_path": "content/lexical/words/by-ordinal/o0836.json",
-    "source_fingerprint": "6b8a53db80b553cbc923fc6c1b187ad90fa80d08487070dcde78bcb5cd13ea5d",
+    "source_fingerprint": "2dedc114a1d8603eb937a3ec54caf9b102261bce34e1205d462e4666e4e3504f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -376,7 +376,7 @@
         "id": "sense:claw:657fda37f23f5be7",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "claw sth; claw at sth",
         "definition_cn": "用爪抓，挖",
         "definition_en": "to move or seize as if by clawing, digging, or scratching",
         "note": "",
@@ -456,8 +456,16 @@
     "ordinal": 837,
     "word": "clay",
     "source_owner_path": "content/lexical/words/by-ordinal/o0837.json",
-    "source_fingerprint": "e2d9467aee472c9e81c6568e5abc6721fbe21d9342e2efb2ada5bc9b714f2f71",
-    "sense_lineage": [],
+    "source_fingerprint": "5e5b40812fbeb42102d3a9e20a0eb1769f96818ec5585ac5de424a30dc2bdfbb",
+    "sense_lineage": [
+      {
+        "word_id": "word:clay",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3fc2b6a268870adb085d",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -498,13 +506,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "model in clay",
             "meaning_cn": "用黏土塑造",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3fc2b6a268870adb085d",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "model in clay"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -560,7 +563,7 @@
     "ordinal": 838,
     "word": "clean",
     "source_owner_path": "content/lexical/words/by-ordinal/o0838.json",
-    "source_fingerprint": "2abb60ea9c67001b4a033007a127edc1bbab560c414abec8a1a97dadeb249ed0",
+    "source_fingerprint": "d1df05e89d274703a57840d9889ba7f5f279c23ba916ad09d674a046ed64aa80",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -637,7 +640,7 @@
         "id": "sense:clean:e6f5bddbdae55639",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "clean (sth)",
         "definition_cn": "清理，打扫",
         "definition_en": "to remove dirt or unwanted substances from something",
         "note": "",
@@ -705,7 +708,7 @@
         "governing_pattern": "",
         "definition_cn": "变干净；变清洁",
         "definition_en": "to become clean",
-        "note": "",
+        "note": "This oven cleans easily means it is easy to clean; contrast I clean every day, where the subject performs the cleaning.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -808,7 +811,7 @@
     "ordinal": 839,
     "word": "clear",
     "source_owner_path": "content/lexical/words/by-ordinal/o0839.json",
-    "source_fingerprint": "8b5e9d1939aee44ab15191e332f4890dda7a1199bd13f02606fcae340696618f",
+    "source_fingerprint": "6882732a15a071d4456ab7c738d67114d841718b944ec37f77f13cd045393694",
     "sense_lineage": [
       {
         "word_id": "word:clear",
@@ -828,7 +831,7 @@
     },
     "word_feel": {
       "summary_cn": "移除遮挡、混乱或障碍，使东西“看得见、想得明、走得通”：因此可指清楚、透明、畅通、清除、批准或洗清嫌疑",
-      "decision_cn": "clear explanation/evidence → 明确；clear glass/water → 透明；clear road/schedule → 无阻碍/空出；clear the table → 清除；clear a person → 洗清嫌疑；clear a check/obstacle → 获准通过。",
+      "decision_cn": "clear explanation/evidence → 明确；clear glass/water → 透明；clear road/schedule → 无阻碍/空出；clear the table → 清除；clear a person → 洗清嫌疑；clear security → 通过安检；clear an obstacle → 越过障碍。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -859,7 +862,7 @@
             "id": "collocation:ea672d151355add3b201",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "make clear",
-            "meaning_cn": "弄清楚",
+            "meaning_cn": "说明白；使明确",
             "kind": "usage_example",
             "repair": null
           }
@@ -918,14 +921,14 @@
           {
             "id": "collocation:793f324e9970763404f9",
             "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "clear up",
-            "meaning_cn": "澄清；放晴",
+            "phrase": "clear sth up / clear up sth",
+            "meaning_cn": "澄清、解决（疑问、问题等）；或清理某物；代词放中间：clear it up",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:793f324e9970763404f9",
               "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "clear up"
+              "target_label": "clear sth up / clear up sth"
             }
           },
           {
@@ -966,7 +969,7 @@
         "id": "sense:clear:90832309c52056ed",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "clear; clear up",
         "definition_cn": "变清澈；放晴",
         "definition_en": "become clear or transparent",
         "note": "",
@@ -1038,7 +1041,7 @@
             "id": "collocation:9b7a6fab7df80fc228fc",
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "clear glass",
-            "meaning_cn": "",
+            "meaning_cn": "透明的玻璃",
             "kind": "usage_example",
             "repair": null
           },
@@ -1046,7 +1049,7 @@
             "id": "collocation:2014e631cc9aaaaad78c",
             "source_locator": "record.senses[5].collocations[1]",
             "phrase": "clear water",
-            "meaning_cn": "",
+            "meaning_cn": "清澈的水",
             "kind": "usage_example",
             "repair": null
           }
@@ -1072,7 +1075,7 @@
             "id": "collocation:12b7aef25ffd9b343f78",
             "source_locator": "record.senses[6].collocations[0]",
             "phrase": "a clear road",
-            "meaning_cn": "",
+            "meaning_cn": "畅通无阻的道路",
             "kind": "usage_example",
             "repair": null
           },
@@ -1080,7 +1083,7 @@
             "id": "collocation:830be24ea1ca860d67a4",
             "source_locator": "record.senses[6].collocations[1]",
             "phrase": "a clear view",
-            "meaning_cn": "",
+            "meaning_cn": "无遮挡的视野",
             "kind": "usage_example",
             "repair": null
           },
@@ -1088,7 +1091,7 @@
             "id": "collocation:70eabc6ccb7b2fe07206",
             "source_locator": "record.senses[6].collocations[2]",
             "phrase": "a clear day in the schedule",
-            "meaning_cn": "",
+            "meaning_cn": "日程中空出的一天",
             "kind": "usage_example",
             "repair": null
           }
@@ -1135,9 +1138,9 @@
         "id": "sense:clear:c891404cb6985045",
         "source_locator": "record.senses[8]",
         "pos": "verb",
-        "governing_pattern": "vt. + object / vt. + sb/sth for sth",
+        "governing_pattern": "clear sth (with sb) | clear sb/sth for sth",
         "definition_cn": "批准；许可；放行",
-        "definition_en": "to give official permission, authorization, or approval",
+        "definition_en": "to give or obtain official permission, authorization, or approval",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1154,7 +1157,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + sb + of + suspicion/charge/blame",
         "definition_cn": "宣告无罪；洗清嫌疑",
-        "definition_en": "to officially decide that someone is not guilty of a criminal charge",
+        "definition_en": "to establish that someone is not responsible for an alleged crime or wrongdoing",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1255,7 +1258,7 @@
     "ordinal": 840,
     "word": "clergy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0840.json",
-    "source_fingerprint": "ac33588467fb49b154b85cac09f51bc16aff3afbf9984b4a28d69f4116639be8",
+    "source_fingerprint": "ae29e38a8c4a1cb05b76efef8d7560c5a0fa11903765abddbf3f1d8c91dc323b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1361,8 +1364,16 @@
     "ordinal": 841,
     "word": "clerk",
     "source_owner_path": "content/lexical/words/by-ordinal/o0841.json",
-    "source_fingerprint": "fcfe56a42ddd2f37f95f8e69e8c27d262e3bd938654685420e59fee835202b6d",
-    "sense_lineage": [],
+    "source_fingerprint": "b9b2c5a42ead4c3305a9f55a39acf6b68056c50de5c57ba53aadc890fc89b701",
+    "sense_lineage": [
+      {
+        "word_id": "word:clerk",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:40142a324912ada74e7d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -1386,9 +1397,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "职员，办事员；文书",
-        "definition_en": "an employee who performs clerical work (e.g., keeps records or accounts)",
-        "note": "",
+        "definition_cn": "职员；办事员；文书；（北美英语）店员",
+        "definition_en": "an employee who handles office records or administration, or in North American English serves customers in a shop",
+        "note": "Office/bank clerk selects administrative work; sales/store clerk selects a shop assistant. The shop reading is chiefly North American.",
         "identity_overlay": null,
         "usage": [
           {
@@ -1412,37 +1423,24 @@
           "target_kind": "sense",
           "target_id": "sense:clerk:64b129da946d597f",
           "target_locator": "record.senses[0]",
-          "target_label": "职员，办事员；文书"
+          "target_label": "职员；办事员；文书；（北美英语）店员"
         }
       },
       {
         "id": "sense:clerk:41acdc109a935de5",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + as",
+        "governing_pattern": "clerk; clerk in an office / for sb",
         "definition_cn": "当职员，当店员",
         "definition_en": "to work as a clerk",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:40142a324912ada74e7d",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "clerk as + sth",
-            "meaning_cn": "担任某职务",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:40142a324912ada74e7d",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "clerk as + sth"
-            }
-          },
-          {
             "id": "collocation:c3471472fd19d384d2d5",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "clerk as a receptionist",
-            "meaning_cn": "当接待员",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "clerk in an office",
+            "meaning_cn": "在办公室做文书工作",
             "kind": "usage_example",
             "repair": null
           }
@@ -1647,7 +1645,7 @@
     "ordinal": 843,
     "word": "click",
     "source_owner_path": "content/lexical/words/by-ordinal/o0843.json",
-    "source_fingerprint": "19dff3a1de3cf34aca829396976cb94fa25803bfba162fd022d517509c97ea96",
+    "source_fingerprint": "79704b2072c25705cf47faf7044b7bda3b45e27763a2686d77dc227df4eb8d88",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1671,9 +1669,9 @@
         "id": "sense:click:f5d3874c182a5c09",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "发出短促尖锐的声音",
-        "definition_en": "make a short sharp sound",
+        "governing_pattern": "click; click one's fingers/tongue",
+        "definition_cn": "发出或使发出短促的咔嗒声",
+        "definition_en": "to make a short sharp sound, or to cause something to make it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1690,16 +1688,16 @@
           "target_kind": "sense",
           "target_id": "sense:click:f5d3874c182a5c09",
           "target_locator": "record.senses[0]",
-          "target_label": "发出短促尖锐的声音"
+          "target_label": "发出或使发出短促的咔嗒声"
         }
       },
       {
         "id": "sense:click:5e0b37188b2c56be",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "点击鼠标按钮",
-        "definition_en": "press a computer mouse button",
+        "governing_pattern": "click (on) sth; click here",
+        "definition_cn": "点击；用鼠标或触控板选择屏幕项目",
+        "definition_en": "to select an item or function on a screen using a mouse or touchpad",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1716,7 +1714,7 @@
           "target_kind": "sense",
           "target_id": "sense:click:5e0b37188b2c56be",
           "target_locator": "record.senses[1]",
-          "target_label": "点击鼠标按钮"
+          "target_label": "点击；用鼠标或触控板选择屏幕项目"
         }
       },
       {
@@ -1750,16 +1748,16 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "短促尖锐的声音",
-        "definition_en": "a short sharp sound",
-        "note": "",
+        "definition_cn": "咔嗒声；（鼠标、触控板等的）一次点击",
+        "definition_en": "a short sharp sound, or one press of a mouse or touchpad button to select something",
+        "note": "Sound context selects the noise; a few clicks or a mouse click may count actions even if no sound is heard.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ddcc1e71af72864daee6",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "a click of the mouse",
-            "meaning_cn": "鼠标点击声",
+            "meaning_cn": "一次鼠标点击；声音语境中也可指点击声",
             "kind": "usage_example",
             "repair": null
           }
@@ -1768,7 +1766,7 @@
           "target_kind": "sense",
           "target_id": "sense:click:f4317a70e6b359fa",
           "target_locator": "record.senses[3]",
-          "target_label": "短促尖锐的声音"
+          "target_label": "咔嗒声；（鼠标、触控板等的）一次点击"
         }
       }
     ],
@@ -1835,7 +1833,7 @@
     "ordinal": 844,
     "word": "client",
     "source_owner_path": "content/lexical/words/by-ordinal/o0844.json",
-    "source_fingerprint": "1a16b2891f74e680507a6a29389358c46999752486ec69f27bed4d8895354c11",
+    "source_fingerprint": "79d5c4c5c20c24b0efd2e0715139430ce1fbdc84a141aba33a7c24f4ea6e5810",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1845,7 +1843,7 @@
     },
     "word_feel": {
       "summary_cn": "客户，委托人",
-      "decision_cn": "",
+      "decision_cn": "专业服务语境是客户或委托人；与 server 相对的计算机语境是客户机或客户端软件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1859,8 +1857,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "委托人，客户",
-        "definition_en": "a person who receives services, especially from a lawyer or other professional",
+        "definition_cn": "客户；委托人（个人或机构）",
+        "definition_en": "a person or organization that receives professional services",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1885,7 +1883,7 @@
           "target_kind": "sense",
           "target_id": "sense:client:e125c82614db5936",
           "target_locator": "record.senses[0]",
-          "target_label": "委托人，客户"
+          "target_label": "客户；委托人（个人或机构）"
         }
       },
       {
@@ -1893,8 +1891,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "客户机，客户端",
-        "definition_en": "a computer that is connected to a server",
+        "definition_cn": "客户机；客户端软件",
+        "definition_en": "a computer or software application that requests information or services from a server",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1911,7 +1909,7 @@
           "target_kind": "sense",
           "target_id": "sense:client:36b83e4b9b955f4e",
           "target_locator": "record.senses[1]",
-          "target_label": "客户机，客户端"
+          "target_label": "客户机；客户端软件"
         }
       }
     ],
@@ -2402,7 +2400,7 @@
     "ordinal": 848,
     "word": "climb",
     "source_owner_path": "content/lexical/words/by-ordinal/o0848.json",
-    "source_fingerprint": "a21e18e419d8fb2da521e5318bf2f29f15c73755f853c149fbf9bc9f92506307",
+    "source_fingerprint": "edc3652784bb6fb0f8b6a9e1fe8fed948368d9645403f2a2547152534f2c1185",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2412,13 +2410,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "向更高的位置或水平移动：可以是身体攀登，也可以是价格、温度、数量等抽象上升",
+      "summary_cn": "攀爬、攀登（也可向下或越过）；数量、价格等上升",
       "decision_cn": "mountain/stairs → 物理向上；climb over/down → 攀爬越过/向下；prices/temperature/figures climb → 数值持续上升。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "向更高的位置或水平移动：可以是身体攀登，也可以是价格、温度、数量等抽象上升"
+        "target_label": "攀爬、攀登（也可向下或越过）；数量、价格等上升"
       }
     },
     "senses": [
@@ -2427,7 +2425,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "I/T + object/up/along/over",
-        "definition_cn": "向上移动，攀登",
+        "definition_cn": "攀登，攀爬（可向上、向下或越过）",
         "definition_en": "to climb up, down, over, or onto something; to ascend a mountain, tree, or stairs",
         "note": "",
         "identity_overlay": null,
@@ -2458,14 +2456,14 @@
           "target_kind": "sense",
           "target_id": "sense:climb:ff4f38a03b615c36",
           "target_locator": "record.senses[0]",
-          "target_label": "向上移动，攀登"
+          "target_label": "攀登，攀爬（可向上、向下或越过）"
         }
       },
       {
         "id": "sense:climb:cb99a4d071f35065",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + with difficulty",
+        "governing_pattern": "climb over/down/through/into ...",
         "definition_cn": "艰难地移动，攀爬",
         "definition_en": "to move with difficulty, by grasping",
         "note": "",
@@ -2929,7 +2927,7 @@
     "ordinal": 851,
     "word": "clip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0851.json",
-    "source_fingerprint": "b5335af4d96b1c28f67794bf2c03ed4db0b2c9291a3ee5257fe521086c5cc0df",
+    "source_fingerprint": "4f66a6b746cc0426f7def643590d756187f21b1f1f80a1df84d53dc94ffb4c90",
     "sense_lineage": [
       {
         "word_id": "word:clip",
@@ -3145,7 +3143,7 @@
     "ordinal": 852,
     "word": "cloak",
     "source_owner_path": "content/lexical/words/by-ordinal/o0852.json",
-    "source_fingerprint": "cb65009a90ce3760fb9a459e9ab3843d058c1ef8405e2dadb1c5d37fa069a379",
+    "source_fingerprint": "ccba7efe501e5fc1befd7052bee706831a3baec848694af62cd78d84a9b5b4ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3155,13 +3153,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "斗篷",
-      "decision_cn": "",
+      "summary_cn": "斗篷；掩护或掩盖；遮掩",
+      "decision_cn": "实体是覆盖身体的斗篷；under the cloak of 则指借某种表象掩护或掩盖真实情况。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "斗篷"
+        "target_label": "斗篷；掩护或掩盖；遮掩"
       }
     },
     "senses": [
@@ -3182,19 +3180,6 @@
             "meaning_cn": "穿斗篷",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:00654eda1555195116bc",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "under the cloak of + sth",
-            "meaning_cn": "在……的掩护下",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:00654eda1555195116bc",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "under the cloak of + sth"
-            }
           }
         ],
         "repair": {
@@ -3221,6 +3206,19 @@
             "meaning_cn": "秘密的掩护",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:00654eda1555195116bc",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "under the cloak of + sth",
+            "meaning_cn": "在……的掩护下",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:00654eda1555195116bc",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "under the cloak of + sth"
+            }
           }
         ],
         "repair": {
@@ -3563,8 +3561,16 @@
     "ordinal": 855,
     "word": "clone",
     "source_owner_path": "content/lexical/words/by-ordinal/o0855.json",
-    "source_fingerprint": "f1eb60d8dca78dc8c0d6509cdaf49ef0eae5c90c69bf0d47c894402c0c61ab70",
-    "sense_lineage": [],
+    "source_fingerprint": "f53803748a17efd829e5fe3b5eefa6bfab4ad67ff796ecee52621f94acb993e3",
+    "sense_lineage": [
+      {
+        "word_id": "word:clone",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7ac1673afbe9f371f63e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -3588,9 +3594,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "无性系；克隆体",
-        "definition_en": "a group of genetically identical cells or organisms derived from a single cell or individual by asexual reproduction",
-        "note": "",
+        "definition_cn": "克隆体；无性系；极相似的复制品或仿制物",
+        "definition_en": "an identical or very close copy of a person or thing; in biology, a genetically identical organism or cell derived from another",
+        "note": "Biology context requires the genetic reading; a product/person clone may be a very close imitation rather than a biological offspring.",
         "identity_overlay": null,
         "usage": [
           {
@@ -3611,7 +3617,7 @@
           "target_kind": "sense",
           "target_id": "sense:clone:b9f24796363d5228",
           "target_locator": "record.senses[0]",
-          "target_label": "无性系；克隆体"
+          "target_label": "克隆体；无性系；极相似的复制品或仿制物"
         }
       },
       {
@@ -3620,7 +3626,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "克隆；复制",
-        "definition_en": "make multiple identical copies of",
+        "definition_en": "to produce a genetically identical copy, or to make an identical copy of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3629,13 +3635,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "clone + sth",
             "meaning_cn": "克隆某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7ac1673afbe9f371f63e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "clone + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:b79b3f4a59e770b44edf",
@@ -3701,7 +3702,7 @@
     "ordinal": 856,
     "word": "close",
     "source_owner_path": "content/lexical/words/by-ordinal/o0856.json",
-    "source_fingerprint": "5ac06f1f6f4c2a8a0c25cca96fedd3e9fb192edbaa4e14ca4ad46b11ed50c4ab",
+    "source_fingerprint": "910424b0c60e53d4507c267ccb50ecedc54b0417678d9ef6540b68361e2604e6",
     "sense_lineage": [
       {
         "word_id": "word:close",
@@ -3714,7 +3715,7 @@
     "recall_map": {
       "parts": [
         "3V",
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3733,9 +3734,9 @@
         "id": "sense:close:4d0061d6b4eb5061",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "close sth; sth closes",
         "definition_cn": "关闭；合上",
-        "definition_en": "to move so that an opening or passage is obstructed; make shut",
+        "definition_en": "to shut something, or to become shut",
         "note": "",
         "identity_overlay": {
           "text": "verb close /kloʊz/ vs adjective/adverb close /kloʊs/",
@@ -3788,9 +3789,9 @@
         "id": "sense:close:bfbb41c8ea9459b8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "close (a meeting/event) | close with sth",
         "definition_cn": "结束；终止",
-        "definition_en": "to finish or terminate (meetings, speeches, etc.)",
+        "definition_en": "to end, or to bring an event, meeting, or activity to an end",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3799,14 +3800,6 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "close a meeting",
             "meaning_cn": "结束会议",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:96c7894230caee7862ea",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "close the deal",
-            "meaning_cn": "达成交易",
             "kind": "usage_example",
             "repair": null
           }
@@ -3823,9 +3816,9 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "靠近的；接近的",
-        "definition_en": "near in space or time",
-        "note": "",
+        "definition_cn": "接近的；差距小的；势均力敌的",
+        "definition_en": "near in space, time, or amount; with little difference between competitors",
+        "note": "A close election/game has a small margin; it does not mean the event is physically nearby.",
         "identity_overlay": null,
         "usage": [
           {
@@ -3846,7 +3839,7 @@
           "target_kind": "sense",
           "target_id": "sense:close:c49d1ce0c5b55285",
           "target_locator": "record.senses[2]",
-          "target_label": "靠近的；接近的"
+          "target_label": "接近的；差距小的；势均力敌的"
         }
       },
       {
@@ -3864,6 +3857,14 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "close a contract",
             "meaning_cn": "签订合同",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:96c7894230caee7862ea",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "close the deal",
+            "meaning_cn": "达成交易",
             "kind": "usage_example",
             "repair": null
           }
@@ -3900,6 +3901,23 @@
           "target_locator": "record.senses[4]",
           "target_label": "亲近的；亲密的"
         }
+      },
+      {
+        "id": "sense:close:20261008-careful",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "close attention/look/examination",
+        "definition_cn": "仔细的；严密的；彻底的（常置于名词前）",
+        "definition_en": "involving careful and thorough attention or examination",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:close:20261008-careful",
+          "target_locator": "record.senses[5]",
+          "target_label": "仔细的；严密的；彻底的（常置于名词前）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3932,6 +3950,7 @@
                 "adjective"
               ],
               "sense_ids": [
+                "sense:close:20261008-careful",
                 "sense:close:2ab1b1f78c32573b",
                 "sense:close:c49d1ce0c5b55285"
               ]
@@ -3951,6 +3970,9 @@
         ],
         "sense:close:bfbb41c8ea9459b8": [
           0
+        ],
+        "sense:close:20261008-careful": [
+          1
         ],
         "sense:close:2ab1b1f78c32573b": [
           1
@@ -4059,7 +4081,7 @@
     "ordinal": 857,
     "word": "closet",
     "source_owner_path": "content/lexical/words/by-ordinal/o0857.json",
-    "source_fingerprint": "9bd971897e316c13709db5209ea68d7a46afb98ea4f6c089a1aebb4e5619a3ab",
+    "source_fingerprint": "8ff45a56302510fc25d4f0b0cf1bc9c0637e8350dfaacd5fdc7d37a3c375cfac",
     "sense_lineage": [
       {
         "word_id": "word:closet",
@@ -4200,7 +4222,7 @@
     "ordinal": 858,
     "word": "cloth",
     "source_owner_path": "content/lexical/words/by-ordinal/o0858.json",
-    "source_fingerprint": "bcd93dc5e51c0815a3b49a6c3f865df0a0bb9904cdfb7bb02ae2eafee374b089",
+    "source_fingerprint": "c5ddcfe166d622696ac38109f75ac7f9f5350ad74ee551b4f219cfd8ff3be674",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4335,8 +4357,16 @@
     "ordinal": 859,
     "word": "clothe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0859.json",
-    "source_fingerprint": "e67ade03251782d7531fb5a9854e05aec315c3f936158d8719e432798123d08a",
-    "sense_lineage": [],
+    "source_fingerprint": "bd129a068efd3eff0deb6ed45a453009d1b1e78d0298625627384eb2be06c29a",
+    "sense_lineage": [
+      {
+        "word_id": "word:clothe",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:28b2cab0c169f8ac7c40",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -4359,8 +4389,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "给某人穿衣；（比喻）用某物覆盖某物",
-        "definition_en": "to provide or put clothes on someone; also figuratively to cover something with something",
+        "definition_cn": "给某人提供衣物；给某人穿衣",
+        "definition_en": "to provide clothes for someone or put clothes on them",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4369,13 +4399,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "clothe + sb",
             "meaning_cn": "给某人穿衣",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:28b2cab0c169f8ac7c40",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "clothe + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:8bdb27b42c5d83f258db",
@@ -4390,7 +4415,7 @@
           "target_kind": "sense",
           "target_id": "sense:clothe:2e7168c189a9523d",
           "target_locator": "record.senses[0]",
-          "target_label": "给某人穿衣；（比喻）用某物覆盖某物"
+          "target_label": "给某人提供衣物；给某人穿衣"
         }
       },
       {
@@ -4745,8 +4770,16 @@
     "ordinal": 861,
     "word": "clothing",
     "source_owner_path": "content/lexical/words/by-ordinal/o0861.json",
-    "source_fingerprint": "47a8aefd3f475cb71af6ed89f57e4b33f8a13542767ca44a4c9e99c001b00f3c",
-    "sense_lineage": [],
+    "source_fingerprint": "2a11836ab6b5506fb33b6e576591acb1eea05d63027a6b8ce9e757fae089cbd4",
+    "sense_lineage": [
+      {
+        "word_id": "word:clothing",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:daf8e827a20c64de717f",
+        "status": "merged",
+        "to_target_id": "collocation:4b923dfebcf8ef14a035"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -4769,27 +4802,14 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "衣服",
-        "definition_en": "a covering designed to be worn on a person's body",
+        "definition_cn": "衣服，服装（不可数总称）",
+        "definition_en": "clothes considered collectively; garments",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:daf8e827a20c64de717f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "an article of clothing",
-            "meaning_cn": "一件衣服",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:daf8e827a20c64de717f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "an article of clothing"
-            }
-          },
-          {
             "id": "collocation:2ca7cfa2006d357db448",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "protective clothing",
             "meaning_cn": "防护服",
             "kind": "usage_example",
@@ -4797,14 +4817,14 @@
           },
           {
             "id": "collocation:4b923dfebcf8ef14a035",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "an item/article/piece of clothing",
             "meaning_cn": "一件衣服",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4b923dfebcf8ef14a035",
-              "target_locator": "record.senses[0].collocations[2]",
+              "target_locator": "record.senses[0].collocations[1]",
               "target_label": "an item/article/piece of clothing"
             }
           }
@@ -4813,7 +4833,7 @@
           "target_kind": "sense",
           "target_id": "sense:clothing:8ffea84694bf59f3",
           "target_locator": "record.senses[0]",
-          "target_label": "衣服"
+          "target_label": "衣服，服装（不可数总称）"
         }
       }
     ],
@@ -4886,8 +4906,16 @@
     "ordinal": 862,
     "word": "cloud",
     "source_owner_path": "content/lexical/words/by-ordinal/o0862.json",
-    "source_fingerprint": "756afb4401dfcbbe6d98dfd4fdc3486b33efc18753705b3648bee70e7fb7976b",
-    "sense_lineage": [],
+    "source_fingerprint": "2cf5467a1db53a8e9faf7a9bea834be5101f9bb5a3e9500da6138b15c7069463",
+    "sense_lineage": [
+      {
+        "word_id": "word:cloud",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e0d8b4e78b7891ac0578",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -5038,13 +5066,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "cloud + sth",
             "meaning_cn": "使某物模糊",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e0d8b4e78b7891ac0578",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "cloud + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5249,8 +5272,16 @@
     "ordinal": 864,
     "word": "club",
     "source_owner_path": "content/lexical/words/by-ordinal/o0864.json",
-    "source_fingerprint": "999f8f839a29167d146620b24d3ff5fca3cfc66cc0b792624142a3cb382f5b56",
-    "sense_lineage": [],
+    "source_fingerprint": "ff0e81c8241b4b903296fb211dd9de17812ad08c205fcab7ea436feed288ce49",
+    "sense_lineage": [
+      {
+        "word_id": "word:club",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e6a64b2513a3d49f9cc3",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -5259,13 +5290,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "俱乐部或棍棒",
-      "decision_cn": "",
+      "summary_cn": "俱乐部；球杆或棍棒；纸牌梅花；用棍棒打或合力凑钱",
+      "decision_cn": "俱乐部或棍棒",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "俱乐部或棍棒"
+        "target_label": "俱乐部；球杆或棍棒；纸牌梅花；用棍棒打或合力凑钱"
       }
     },
     "senses": [
@@ -5370,13 +5401,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "club sb to death",
             "meaning_cn": "用棍棒打死某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e6a64b2513a3d49f9cc3",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "club sb to death"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5579,7 +5605,7 @@
     "ordinal": 866,
     "word": "clumsy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0866.json",
-    "source_fingerprint": "d47543142f901050738ffa6fabd89361fa6cb16efe32e93d11a80f76c7c9832e",
+    "source_fingerprint": "049161896378a8acef9c8be356845050d9a432e03458ffb11a7de71f7dd38f01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5868,8 +5894,16 @@
     "ordinal": 868,
     "word": "clutch",
     "source_owner_path": "content/lexical/words/by-ordinal/o0868.json",
-    "source_fingerprint": "7a4088fd1664fcabd63eb637ea81c4146e5903622eb5ed9b12abc965dbabe75d",
-    "sense_lineage": [],
+    "source_fingerprint": "4356f988825fecd2c5c277539d70d34015816d75590439aebeeed922c27a0d51",
+    "sense_lineage": [
+      {
+        "word_id": "word:clutch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c93e98991a39fee9966b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -5892,7 +5926,7 @@
         "id": "sense:clutch:52c3a54b53745663",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "clutch sb/sth | clutch on to/at sb/sth",
         "definition_cn": "紧握，抓住",
         "definition_en": "to grasp or hold tightly",
         "note": "",
@@ -5903,13 +5937,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "clutch sth",
             "meaning_cn": "紧握某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c93e98991a39fee9966b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "clutch sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:9467571e55f9821ee3b8",
@@ -6088,7 +6117,7 @@
     "ordinal": 869,
     "word": "coach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0869.json",
-    "source_fingerprint": "d420a612ea23f376f1da9f0e14fa4d758b3eea37070a96da3ecd403f0934c6ce",
+    "source_fingerprint": "c65bdc5f7e5634d6cc774d934568d9d482ffed504cf1a470e9174f4d9efbb2f8",
     "sense_lineage": [
       {
         "word_id": "word:coach",
@@ -6146,7 +6175,7 @@
         "id": "sense:coach:624256fd61275b94",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "coach | coach sb/a team (in sth)",
         "definition_cn": "训练，指导",
         "definition_en": "to train or teach someone",
         "note": "",
@@ -6302,7 +6331,7 @@
     "ordinal": 870,
     "word": "coal",
     "source_owner_path": "content/lexical/words/by-ordinal/o0870.json",
-    "source_fingerprint": "994d22ee1a2240d9d15ace38f2a86835a56681ab9c5ba45589acd9e988954a5b",
+    "source_fingerprint": "e69c8c84cf04f5f4768d624e8795291b9732619b26c21a4cbc0aedf77295633a",
     "sense_lineage": [
       {
         "word_id": "word:coal",
@@ -6470,7 +6499,7 @@
     "ordinal": 871,
     "word": "coalition",
     "source_owner_path": "content/lexical/words/by-ordinal/o0871.json",
-    "source_fingerprint": "8b429ae4677a5ef81a1c70d2ec0a671687b3fa19dc6b3ccf18419e49e135d950",
+    "source_fingerprint": "44e83ad668789bb0770deb73f831a1ffd28a77863e139365155e496dbc1684cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6494,8 +6523,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（政党、国家等）临时联合，联盟",
-        "definition_en": "a temporary alliance of distinct parties, persons, or states for joint action",
+        "definition_cn": "（政党、团体、国家等为共同目标组成的）联合，联盟",
+        "definition_en": "an alliance of separate parties, people, or groups working together for a shared purpose, often temporarily",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6520,7 +6549,7 @@
           "target_kind": "sense",
           "target_id": "sense:coalition:7348f4f404545da5",
           "target_locator": "record.senses[0]",
-          "target_label": "（政党、国家等）临时联合，联盟"
+          "target_label": "（政党、团体、国家等为共同目标组成的）联合，联盟"
         }
       }
     ],
@@ -6571,11 +6600,26 @@
     "ordinal": 872,
     "word": "coarse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0872.json",
-    "source_fingerprint": "0fc062f2a21fda145f651ec0fa7d79a2c4676083c99560ab210908b17b0b14a6",
-    "sense_lineage": [],
+    "source_fingerprint": "15fd77611ae9dadd6ec82bada5dde74f06af1c36ad2cc19d9f08260fe1954172",
+    "sense_lineage": [
+      {
+        "word_id": "word:coarse",
+        "target_kind": "sense",
+        "from_target_id": "sense:coarse:3795b720c4375b25",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coarse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d9562e7a441e72afbc9e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -6657,32 +6701,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "粗俗的；不文雅的"
         }
-      },
-      {
-        "id": "sense:coarse:3795b720c4375b25",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "劣质的；低级的",
-        "definition_en": "of low or inferior quality",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d9562e7a441e72afbc9e",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "coarse goods",
-            "meaning_cn": "劣质商品",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:coarse:3795b720c4375b25",
-          "target_locator": "record.senses[2]",
-          "target_label": "劣质的；低级的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6741,7 +6759,37 @@
       ],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d9562e7a441e72afbc9e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:coarse:3795b720c4375b25:collocation:0"
+              ],
+              "meaning_cn": "劣质商品",
+              "phrase": "coarse goods"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "劣质的；低级的",
+          "definition_en": "of low or inferior quality",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:coarse:3795b720c4375b25",
+          "sense_label_en": "of low or inferior quality",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:coarse:3795b720c4375b25",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6750,7 +6798,7 @@
     "ordinal": 873,
     "word": "coast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0873.json",
-    "source_fingerprint": "e866cad345bf8542747102fe3e4b80f1eef21a988d3a7f5356c2d4d1f6c08e40",
+    "source_fingerprint": "7398279471deb63a4f0958a131e93f8de8a865200917910104ca4e25d25b7159",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6760,13 +6808,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "靠惯性或已有势头继续前进：可字面滑行，也可比喻几乎不费力地通过或取得成功",
+      "summary_cn": "海岸；靠惯性滑行；比喻不费力地取得进展",
       "decision_cn": "vehicle/bicycle/downhill → 不加动力靠惯性滑行；coast through an exam / to victory → 凭已有优势轻松通过或取胜。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "靠惯性或已有势头继续前进：可字面滑行，也可比喻几乎不费力地通过或取得成功"
+        "target_label": "海岸；靠惯性滑行；比喻不费力地取得进展"
       }
     },
     "senses": [
@@ -6808,7 +6856,7 @@
         "id": "sense:coast:77142e02cbb65b10",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + along/down",
+        "governing_pattern": "coast along/down sth; coast through sth; coast to a result",
         "definition_cn": "靠惯性滑行；不费力地推进或取得进展",
         "definition_en": "to move by momentum without much power, or figuratively to progress/succeed with little effort",
         "note": "",
@@ -6904,7 +6952,7 @@
     "ordinal": 874,
     "word": "coat",
     "source_owner_path": "content/lexical/words/by-ordinal/o0874.json",
-    "source_fingerprint": "571db92c7901b40c423227d891a1b05035d4ff914bc4bfb7e2a6ff33dfde79d8",
+    "source_fingerprint": "c2eebcc28806caf87f9533cd1d39194afbf0099facb736c4833f5cc5ab4fc168",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7203,7 +7251,7 @@
     "ordinal": 876,
     "word": "cock",
     "source_owner_path": "content/lexical/words/by-ordinal/o0876.json",
-    "source_fingerprint": "79244dd4ac2e280fca5490059baab794ae8b74a7c50720063095da03ab6f769f",
+    "source_fingerprint": "65100e0310a20931d1216c077e741423ed7253594ed5b382b81dfad446ec5282",
     "sense_lineage": [
       {
         "word_id": "word:cock",
@@ -7286,7 +7334,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "cock one's head/ear",
-        "definition_cn": "（鸟等）倾斜或竖起；注意地偏向一侧",
+        "definition_cn": "歪头；竖起耳朵；使倾向一侧（常为集中注意）",
         "definition_en": "to tilt or raise the head or ear attentively; also to tilt to one side",
         "note": "",
         "identity_overlay": null,
@@ -7309,7 +7357,7 @@
           "target_kind": "sense",
           "target_id": "sense:cock:e21d2be2bf68509e",
           "target_locator": "record.senses[2]",
-          "target_label": "（鸟等）倾斜或竖起；注意地偏向一侧"
+          "target_label": "歪头；竖起耳朵；使倾向一侧（常为集中注意）"
         }
       }
     ],
@@ -7404,8 +7452,23 @@
     "ordinal": 877,
     "word": "code",
     "source_owner_path": "content/lexical/words/by-ordinal/o0877.json",
-    "source_fingerprint": "19ab7122e476518a330237cb649e822bcda4fb268e59591f64b22fb70dba9cd9",
-    "sense_lineage": [],
+    "source_fingerprint": "e6a1fdb0d5e3d2e7cac5e8d402861062b5816e7536e28690428ad8cfcf2efa0a",
+    "sense_lineage": [
+      {
+        "word_id": "word:code",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8f5222aeacd0be117184",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:code",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:09f4323faa652fa04d02",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -7414,13 +7477,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用于通信或法律的符号或规则系统",
-      "decision_cn": "",
+      "summary_cn": "规则体系；符号、密码或程序代码；编码、编程",
+      "decision_cn": "用于通信或法律的符号或规则系统",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用于通信或法律的符号或规则系统"
+        "target_label": "规则体系；符号、密码或程序代码；编码、编程"
       }
     },
     "senses": [
@@ -7556,13 +7619,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "code + sth",
             "meaning_cn": "给某物编码",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8f5222aeacd0be117184",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "code + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:3832ace208ee5e1e0587",
@@ -7584,7 +7642,7 @@
         "id": "sense:code:426c4c9da5ccb6aa",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "code in + language",
+        "governing_pattern": "code; code in a programming language; code a program",
         "definition_cn": "编写计算机代码或程序",
         "definition_en": "to write or create computer code or a program",
         "note": "",
@@ -7595,13 +7653,8 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "code in Python/Java",
             "meaning_cn": "用某种编程语言编写代码",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:09f4323faa652fa04d02",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "code in Python/Java"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7766,11 +7819,26 @@
     "ordinal": 878,
     "word": "coffee",
     "source_owner_path": "content/lexical/words/by-ordinal/o0878.json",
-    "source_fingerprint": "0602e2ed5b30b8c68f9057754a69445480ab275c6c9f3407aa634edd27b8609e",
-    "sense_lineage": [],
+    "source_fingerprint": "ae36ccbc3944d7e2b86d940b2cd013b1a207f0cb2700e21ada52d19686f0dafc",
+    "sense_lineage": [
+      {
+        "word_id": "word:coffee",
+        "target_kind": "sense",
+        "from_target_id": "sense:coffee:e18443e24e915d61",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:coffee",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:41d85c7788d90749a95f",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -7791,7 +7859,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "咖啡（饮料）",
-        "definition_en": "a hot drink made from roasted and ground coffee beans",
+        "definition_en": "a drink made from roasted and ground coffee beans, usually served hot but also served cold",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7817,32 +7885,6 @@
           "target_id": "sense:coffee:dd068b20e9fd55db",
           "target_locator": "record.senses[0]",
           "target_label": "咖啡（饮料）"
-        }
-      },
-      {
-        "id": "sense:coffee:e18443e24e915d61",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "咖啡色",
-        "definition_en": "the color of coffee, a light brown",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:41d85c7788d90749a95f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "coffee-colored",
-            "meaning_cn": "咖啡色的",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:coffee:e18443e24e915d61",
-          "target_locator": "record.senses[1]",
-          "target_label": "咖啡色"
         }
       }
     ],
@@ -7871,7 +7913,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:41d85c7788d90749a95f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:coffee:e18443e24e915d61:collocation:0"
+              ],
+              "meaning_cn": "咖啡色的",
+              "phrase": "coffee-colored"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "咖啡色",
+          "definition_en": "the color of coffee, a light brown",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:coffee:e18443e24e915d61",
+          "sense_label_en": "the color of coffee, a light brown",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:coffee:e18443e24e915d61",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -7968,7 +8040,7 @@
     "ordinal": 880,
     "word": "coherent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0880.json",
-    "source_fingerprint": "12bcc5556a1fee95a54f469c9f4532982d43986d1d2b73ca7642acee58647b66",
+    "source_fingerprint": "bbdb7d2a0a75929c26b660ce39dac427ec1ef456a23463e46a291a4710b47dc4",
     "sense_lineage": [
       {
         "word_id": "word:coherent",
@@ -8028,8 +8100,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "各部分之间有序、逻辑且美学上一致的",
-        "definition_en": "marked by an orderly, logical, and aesthetically consistent relation of parts",
+        "definition_cn": "连贯的；条理清楚、前后一致的",
+        "definition_en": "logical, clear, and consistent, with parts that fit together",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8054,7 +8126,7 @@
           "target_kind": "sense",
           "target_id": "sense:coherent:f5e6ec81a3bb507c",
           "target_locator": "record.senses[0]",
-          "target_label": "各部分之间有序、逻辑且美学上一致的"
+          "target_label": "连贯的；条理清楚、前后一致的"
         }
       },
       {
@@ -8322,7 +8394,7 @@
     "ordinal": 882,
     "word": "coil",
     "source_owner_path": "content/lexical/words/by-ordinal/o0882.json",
-    "source_fingerprint": "44ad743fe0b1564ba0169b63895b35053b0e271ea2458509a4d585b335ea9f3f",
+    "source_fingerprint": "862e21b6879e18e4e0c156a16992f0def4173233d28b63555fd75a579c218c69",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8382,7 +8454,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "螺旋形；盘绕状",
-        "definition_en": "a round shape formed by a series of concentric circles",
+        "definition_en": "a curved or spiral shape formed by connected loops or turns",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9330,7 +9402,7 @@
     "ordinal": 888,
     "word": "collapse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0888.json",
-    "source_fingerprint": "d834508ab21046db2c68afd549044ea3f0f5e393441e93937dd9d534be419281",
+    "source_fingerprint": "8802e2b6c7a03bc14b2dbeaee632830bc55c41a0779115265204fb63124583b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9355,9 +9427,9 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "倒塌，坍塌",
-        "definition_en": "to fall down or give way suddenly",
-        "note": "",
+        "definition_cn": "突然倒下；（建筑等）倒塌；（人）因病弱等倒下",
+        "definition_en": "to fall down or give way suddenly; of a person, to fall from illness, weakness, or exhaustion, sometimes losing consciousness",
+        "note": "A person collapsing need not die or necessarily become unconscious; buildings and structures collapse physically.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9373,7 +9445,7 @@
           "target_kind": "sense",
           "target_id": "sense:collapse:c70cab2624e35f2f",
           "target_locator": "record.senses[0]",
-          "target_label": "倒塌，坍塌"
+          "target_label": "突然倒下；（建筑等）倒塌；（人）因病弱等倒下"
         }
       },
       {
@@ -9406,9 +9478,9 @@
         "id": "sense:collapse:6fbaa6e90a15543c",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "collapse (a chair/table/etc.)",
         "definition_cn": "折叠，收起",
-        "definition_en": "to fold or close up",
+        "definition_en": "to fold into a smaller shape for storage, or make something fold in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9516,7 +9588,7 @@
               "lang": "cn"
             },
             {
-              "text": "collapse = 倒塌/折叠；collapsible = 设计成可以折叠、收起或塌缩的",
+              "text": "collapse（折叠、收起）→ collapsible（可折叠、可收起或可塌缩的）；常指设计成便于收纳的物品。",
               "lang": "cn"
             },
             {
@@ -9535,11 +9607,33 @@
     "ordinal": 889,
     "word": "collar",
     "source_owner_path": "content/lexical/words/by-ordinal/o0889.json",
-    "source_fingerprint": "7043501f6d678f06433ab5abf38caf97f1281403bee4f21b263de85b30aa7df3",
-    "sense_lineage": [],
+    "source_fingerprint": "9a3081ba96cf7fb0fda3b06bb411a5e730718162863c1bba1b81edb626740d36",
+    "sense_lineage": [
+      {
+        "word_id": "word:collar",
+        "target_kind": "sense",
+        "from_target_id": "sense:collar:a76becff5f605035",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:collar",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:213c2ebd6201d631adab",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:collar",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:55aebc5bf85b045572ad",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -9661,13 +9755,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "collar + sb",
             "meaning_cn": "抓住某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:213c2ebd6201d631adab",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "collar + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9675,32 +9764,6 @@
           "target_id": "sense:collar:5796fa763ef45032",
           "target_locator": "record.senses[2]",
           "target_label": "抓住，扭住"
-        }
-      },
-      {
-        "id": "sense:collar:a76becff5f605035",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给…装上领子",
-        "definition_en": "to put a collar on something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:55aebc5bf85b045572ad",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "collar a shirt",
-            "meaning_cn": "给衬衫上领子",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:collar:a76becff5f605035",
-          "target_locator": "record.senses[3]",
-          "target_label": "给…装上领子"
         }
       }
     ],
@@ -9729,7 +9792,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:55aebc5bf85b045572ad",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:collar:a76becff5f605035:collocation:0"
+              ],
+              "meaning_cn": "给衬衫上领子",
+              "phrase": "collar a shirt"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "给…装上领子",
+          "definition_en": "to put a collar on something",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:collar:a76becff5f605035",
+          "sense_label_en": "to put a collar on something",
+          "sort_order": 3,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:collar:a76becff5f605035",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -9857,7 +9950,7 @@
     "ordinal": 891,
     "word": "collect",
     "source_owner_path": "content/lexical/words/by-ordinal/o0891.json",
-    "source_fingerprint": "05308dd7eddbeb74974ebaec9b16cf520bdfd57ac9388e230ec49217c4c6634a",
+    "source_fingerprint": "25eba07672b4ac268616a24ce2611104d05573f3f0dd3f7b7c36f4deffec837d",
     "sense_lineage": [
       {
         "word_id": "word:collect",
@@ -9876,7 +9969,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -9895,9 +9988,9 @@
         "id": "sense:collect:41f31f80671352bb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "collect sth; people/things collect",
         "definition_cn": "收集、聚集；获得或积累",
-        "definition_en": "to gather or bring together, or to receive or accumulate something",
+        "definition_en": "to gather or bring things together, to receive or accumulate something, or to come together in a group",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -9923,6 +10016,23 @@
           "target_id": "sense:collect:e6be65b9923f5624",
           "target_locator": "record.senses[1]",
           "target_label": "收取并获得款项"
+        }
+      },
+      {
+        "id": "sense:collect:20261008-pickup",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "collect a package/keys; collect sb from a place",
+        "definition_cn": "领取；取走；接走某人（接人义尤见英式英语）",
+        "definition_en": "to go and take someone or something away from a place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:collect:20261008-pickup",
+          "target_locator": "record.senses[2]",
+          "target_label": "领取；取走；接走某人（接人义尤见英式英语）"
         }
       }
     ],
@@ -10057,7 +10167,7 @@
     "ordinal": 892,
     "word": "collection",
     "source_owner_path": "content/lexical/words/by-ordinal/o0892.json",
-    "source_fingerprint": "084ab8ae324cc54000a9f3988ec10b3871a5c8272434b90ef4ac32429a5c4cb5",
+    "source_fingerprint": "66c4b6c3a76cc716ebe7b67992122cb103c23a84a08def3fd3b0521afb49f2fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10090,7 +10200,7 @@
             "id": "collocation:9d0161449f4a71928a51",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a collection of + sth",
-            "meaning_cn": "一批……收藏品",
+            "meaning_cn": "一批、一组……；……的收藏",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -10213,7 +10323,7 @@
     "ordinal": 893,
     "word": "collective",
     "source_owner_path": "content/lexical/words/by-ordinal/o0893.json",
-    "source_fingerprint": "248ea41d2a6828bbae9426b1707ab8da19fda913b5bc2a9f03225a991d3a8a66",
+    "source_fingerprint": "6fe952480f3f09098eb4a84060ba3098fcce0aab6ec8cf853460c2c6f4168b9d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10365,7 +10475,7 @@
     "ordinal": 894,
     "word": "college",
     "source_owner_path": "content/lexical/words/by-ordinal/o0894.json",
-    "source_fingerprint": "4aa608089ac9ddf229e7cb42f187bdea21ff8762dc04793c4788a9913ee3a385",
+    "source_fingerprint": "7d432d296c6814ab37101e174b2c6bea4b0840f783d57fa8e2df5eb9239ccef7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10389,9 +10499,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "学院；大学",
-        "definition_en": "an institution of higher education that grants degrees, often part of a university",
-        "note": "",
+        "definition_cn": "学院；大学；（提供继续教育或专门训练的）学校",
+        "definition_en": "an institution providing higher or further education or specialized training, sometimes part of a university",
+        "note": "具体层级随地区而异；不能仅凭 college 就断定该机构独立授予大学学位。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10415,7 +10525,7 @@
           "target_kind": "sense",
           "target_id": "sense:college:7c9c85c268e05e4e",
           "target_locator": "record.senses[0]",
-          "target_label": "学院；大学"
+          "target_label": "学院；大学；（提供继续教育或专门训练的）学校"
         }
       },
       {

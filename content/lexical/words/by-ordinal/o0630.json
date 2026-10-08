@@ -14,7 +14,12 @@
         "definition_en": "become deeply absorbed in work, study, reading, or another activity",
         "level": "L1",
         "pos": "phrase",
-        "source": "baseline-v2-2026-09-19"
+        "source": "baseline-v2-2026-09-19",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:e98625200268e066773d",
+          "reason": "Existing selected absorbed-in frame owns this retrieval once."
+        }
       },
       {
         "construction_id": "construction:bury:baseline-v2-hatchet",
@@ -46,7 +51,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:7d7ab49059ae98848887",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:bury:21e0905c4ed75e0c:collocation:0"
             ],
@@ -100,26 +105,17 @@
             ],
             "meaning_cn": "埋头于，专心致志于",
             "phrase": "bury oneself in + sth"
-          },
-          {
-            "collocation_id": "collocation:9533616c77c7167d360f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:bury:c417d1d40d2853cc:collocation:handoff-o0475-o0674"
-            ],
-            "meaning_cn": "结束争吵、和解",
-            "phrase": "bury the hatchet"
           }
         ],
         "confidence": "medium",
         "definition_cn": "隐藏，使沉浸",
-        "definition_en": "hide or conceal something deeply",
+        "definition_en": "to hide something out of sight; with oneself in, to become deeply absorbed in an activity",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:bury:c417d1d40d2853cc",
-        "sense_label_en": "hide or conceal something deeply",
+        "sense_label_en": "to hide something out of sight; with oneself in, to become deeply absorbed in an activity",
         "sort_order": 2,
         "transitivity": "vt"
       }
@@ -272,17 +268,26 @@
       }
     ],
     "active_collocations": [
-      "collocation:7d7ab49059ae98848887",
-      "collocation:9533616c77c7167d360f",
       "collocation:aec7c1ccd556a9e73e82",
       "collocation:e98625200268e066773d"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:bury:baseline-v2-oneself-in",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Existing selected absorbed-in frame owns this retrieval once."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:7d7ab49059ae98848887",
         "source_row": 10606,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Bury a body merely instantiates the funeral sense; absorption and idiom stay selected."
       },
       {
         "id": "collocation:aec7c1ccd556a9e73e82",
@@ -297,7 +302,9 @@
       {
         "id": "collocation:9533616c77c7167d360f",
         "source_row": 21598,
-        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -3,15 +3,14 @@
   "relation_id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "accent can mean a particular stress/prominence; emphasis is the broader act or effect of giving special importance.",
+    "boundary": "当前两个名词义真实重叠：accent 和 emphasis 都可表示重音或强调的重点。put the accent/emphasis on clarity 中，两者都可表示把重点放在清晰上；不要把这对名词硬分成“重音”与“重要性”。",
     "codex_boundary_corrected": true,
-    "codex_disposition": "explicit_promote",
-    "codex_disposition_status": "resolved",
-    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_disposition": "reference_only",
+    "codex_disposition_status": "pending_consumer",
+    "codex_review_rationale": "The current noun endpoints overlap in stress and importance. Keep this truthful overlap searchable, but it supplies no independent default contrast task. Reference-only consumer transport is pending; content metadata alone does not withdraw Repair eligibility.",
     "codex_reviewed": true,
     "content": {
-      "shared_definition": "the relative prominence of a syllable or musical note (especially with regard to stress or pitch)",
-      "shared_synset": "07099567-n",
+      "shared_definition": "stress or prominence given to a syllable, word, or point of concern",
       "source_definition": "prominence or emphasis placed on a syllable, word, or idea",
       "source_sense_id": "sense:accent:01f93f5864f4cdfc",
       "target_definition": "special importance or stress",
@@ -19,15 +18,15 @@
       "target_word": "emphasis"
     },
     "dimensions": {
-      "certainty": "高",
-      "collocation": "accent the need",
-      "core_meaning": "强调动作与名词",
-      "exam_trap": "词性转换考点",
-      "register": "通用",
+      "certainty": "高：当前名词义有重叠",
+      "collocation": "put the accent/emphasis on clarity",
+      "core_meaning": "重音或强调的重点有重叠",
+      "exam_trap": "不能强造重音与重要性的互斥边界",
+      "register": "按具体语境读取",
       "semantic_prosody": "中性",
-      "strength": "词性差异明显",
-      "syntax": "动词对名词",
-      "writing_safety": "安全"
+      "strength": "本对照无已证互斥强度差异",
+      "syntax": "两个当前名词义",
+      "writing_safety": "本例重叠不等于所有语境都可互换"
     },
     "direction": "C",
     "evidence": [
@@ -36,43 +35,45 @@
         "evidence_status": "source_checked",
         "source_locator": "07099567-n",
         "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
-        "source_type": "learner_dictionary"
+        "source_type": "learner_dictionary",
+        "supports": "Historical evidence for a narrower stress overlap; not authority for a default contrast or for dividing stress from importance.",
+        "historical_shared_synset": "07099567-n"
       }
     ],
     "fact_existence_status": "verified",
     "fact_id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
-    "generation_checked": true,
+    "generation_checked": false,
     "high_risk_flags": [],
-    "independent_verification_checked": true,
-    "learning_value_score": 8.5,
-    "learning_value_status": "selected",
-    "machine_checked": true,
+    "independent_verification_checked": false,
+    "learning_value_score": 0,
+    "learning_value_status": "not_selected",
+    "machine_checked": false,
     "module": "semantic_contrast",
     "policy_reasons": [],
     "prepolicy_high_risk_flags": [],
     "prepolicy_publication_status": "publishable",
     "prepolicy_verification_status": "verified",
-    "presentation_status": "published",
-    "priority": "A",
+    "presentation_status": "reference_only",
+    "priority": null,
     "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
-    "publication_status": "codex_reviewed",
+    "publication_status": "reference_only",
     "record_type": "deep_vocabulary_fact",
-    "rule_checked": true,
-    "schema_validated": true,
-    "selection_rank": 7,
+    "rule_checked": false,
+    "schema_validated": false,
+    "selection_rank": null,
     "semantic_stage_a": {
       "relation_class": "partial_overlap",
-      "source_definition": "to emphasize or stress",
-      "source_sense_id": "sense:accent:9eece5d7e6595bee",
-      "target_definition": "special and significant stress by means of position or repetition",
+      "source_definition": "prominence or emphasis placed on a syllable, word, or idea",
+      "source_sense_id": "sense:accent:01f93f5864f4cdfc",
+      "target_definition": "special importance or stress",
       "target_sense_id": "sense:emphasis:740adc49afae53c0"
     },
     "semantic_stage_b": {
       "dimensions_complete": true,
-      "eligible_relation": true,
-      "learning_contrast_value": true,
-      "specific_boundary": true,
-      "translation_or_exam_competition": true
+      "eligible_relation": false,
+      "learning_contrast_value": false,
+      "specific_boundary": false,
+      "translation_or_exam_competition": false
     },
     "source_grounded": true,
     "source_sense_id": "sense:accent:01f93f5864f4cdfc",
@@ -89,7 +90,23 @@
     "why": "",
     "word": "accent",
     "word_id": "word:accent",
-    "writing_safe": false
+    "writing_safe": false,
+    "source_evidence_objects": [
+      {
+        "source_type": "learner_dictionary",
+        "source_url": "https://www.merriam-webster.com/dictionary/accent",
+        "accessed_date": "2026-10-07",
+        "evidence_status": "source_checked",
+        "supports": "noun includes both syllable stress and special attention or emphasis"
+      },
+      {
+        "source_type": "learner_dictionary",
+        "source_url": "https://www.merriam-webster.com/dictionary/emphasis",
+        "accessed_date": "2026-10-07",
+        "evidence_status": "source_checked",
+        "supports": "noun includes both prominence in speech and special attention or stress"
+      }
+    ]
   },
   "word_views": [
     {
@@ -98,20 +115,20 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "accent can mean a particular stress/prominence; emphasis is the broader act or effect of giving special importance.",
+        "boundary": "当前两个名词义真实重叠：accent 和 emphasis 都可表示重音或强调的重点。put the accent/emphasis on clarity 中，两者都可表示把重点放在清晰上；不要把这对名词硬分成“重音”与“重要性”。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
         "dimensions": {
-          "certainty": "高",
-          "collocation": "accent the need",
-          "core_meaning": "强调动作与名词",
-          "exam_trap": "词性转换考点",
-          "register": "通用",
+          "certainty": "高：当前名词义有重叠",
+          "collocation": "put the accent/emphasis on clarity",
+          "core_meaning": "重音或强调的重点有重叠",
+          "exam_trap": "不能强造重音与重要性的互斥边界",
+          "register": "按具体语境读取",
           "semantic_prosody": "中性",
-          "strength": "词性差异明显",
-          "syntax": "动词对名词",
-          "writing_safety": "安全"
+          "strength": "本对照无已证互斥强度差异",
+          "syntax": "两个当前名词义",
+          "writing_safety": "本例重叠不等于所有语境都可互换"
         },
         "direction": "C",
         "evidence": [
@@ -120,7 +137,9 @@
             "evidence_status": "source_checked",
             "source_locator": "07099567-n",
             "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
-            "source_type": "learner_dictionary"
+            "source_type": "learner_dictionary",
+            "supports": "Historical evidence for a narrower stress overlap; not authority for a default contrast or for dividing stress from importance.",
+            "historical_shared_synset": "07099567-n"
           }
         ],
         "fact_id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
@@ -131,9 +150,9 @@
         "module": "semantic_contrast",
         "pattern": null,
         "pos": null,
-        "priority": "A",
-        "publication_status": "codex_reviewed",
-        "shared_definition": "the relative prominence of a syllable or musical note (especially with regard to stress or pitch)",
+        "priority": null,
+        "publication_status": "reference_only",
+        "shared_definition": "stress or prominence given to a syllable, word, or point of concern",
         "source_sense_id": "sense:accent:01f93f5864f4cdfc",
         "target_sense_id": "sense:emphasis:740adc49afae53c0",
         "target_word": "emphasis",
@@ -141,7 +160,43 @@
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": false,
+        "codex_disposition": "reference_only",
+        "codex_disposition_status": "pending_consumer",
+        "codex_review_rationale": "The current noun endpoints overlap in stress and importance. Keep this truthful overlap searchable, but it supplies no independent default contrast task. Reference-only consumer transport is pending; content metadata alone does not withdraw Repair eligibility.",
+        "learning_value_score": 0,
+        "learning_value_status": "not_selected",
+        "presentation_status": "reference_only",
+        "semantic_stage_a": {
+          "relation_class": "partial_overlap",
+          "source_definition": "prominence or emphasis placed on a syllable, word, or idea",
+          "source_sense_id": "sense:accent:01f93f5864f4cdfc",
+          "target_definition": "special importance or stress",
+          "target_sense_id": "sense:emphasis:740adc49afae53c0"
+        },
+        "semantic_stage_b": {
+          "dimensions_complete": true,
+          "eligible_relation": false,
+          "learning_contrast_value": false,
+          "specific_boundary": false,
+          "translation_or_exam_competition": false
+        },
+        "source_evidence_objects": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/accent",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "noun includes both syllable stress and special attention or emphasis"
+          },
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/emphasis",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "noun includes both prominence in speech and special attention or stress"
+          }
+        ]
       }
     }
   ],

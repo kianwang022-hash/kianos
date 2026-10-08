@@ -5,7 +5,7 @@
     "ordinal": 705,
     "word": "cassette",
     "source_owner_path": "content/lexical/words/by-ordinal/o0705.json",
-    "source_fingerprint": "01d3fb7dc82592b3bc762bac0a40545d5516407477f1367b55a3c216a7c02900",
+    "source_fingerprint": "739612f4e6c6c5713c476f3ab9e444bef7f18bb146a8cf85d899a6f0e756466d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -108,8 +108,16 @@
     "ordinal": 706,
     "word": "cast",
     "source_owner_path": "content/lexical/words/by-ordinal/o0706.json",
-    "source_fingerprint": "43c9a49f74d626943793fcac578cf8b48a242f723c6f6c3caba87e9bea71dd43",
-    "sense_lineage": [],
+    "source_fingerprint": "b4bae8deee9c824d1d46a28bbb011cfd50e1722a65018c6b8b399f8ace36df0b",
+    "sense_lineage": [
+      {
+        "word_id": "word:cast",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0b3b918046f21a8181ba",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -134,8 +142,8 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "投，掷，抛",
-        "definition_en": "to throw something forcefully",
-        "note": "",
+        "definition_en": "to throw something, such as a net or fishing line",
+        "note": "Cast a net is literal throwing; cast a vote means formally vote, not physically throw a ballot. Cast aside may be physical or figurative rejection.",
         "identity_overlay": null,
         "usage": [
           {
@@ -232,22 +240,22 @@
           {
             "id": "collocation:47481d48f7f5e7185519",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "cast iron",
-            "meaning_cn": "铸铁",
+            "phrase": "cast a bronze statue",
+            "meaning_cn": "铸造一尊青铜像",
             "kind": "usage_example",
             "repair": null
           },
           {
             "id": "collocation:0cbe5fbf4ca8086638da",
             "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "cast + sth + in + mold",
+            "phrase": "cast sth in a mould/mold",
             "meaning_cn": "用模具铸造某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:0cbe5fbf4ca8086638da",
               "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "cast + sth + in + mold"
+              "target_label": "cast sth in a mould/mold"
             }
           }
         ],
@@ -336,14 +344,14 @@
           {
             "id": "collocation:e59d84d7f842f981402e",
             "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "cast sb as X",
-            "meaning_cn": "选某人饰演某角色",
+            "phrase": "cast sb as a role | be cast as a role",
+            "meaning_cn": "选某人饰演某角色；被选中饰演某角色",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e59d84d7f842f981402e",
               "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "cast sb as X"
+              "target_label": "cast sb as a role | be cast as a role"
             }
           },
           {
@@ -351,13 +359,8 @@
             "source_locator": "record.senses[5].collocations[1]",
             "phrase": "be cast as X",
             "meaning_cn": "被选中饰演某角色",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0b3b918046f21a8181ba",
-              "target_locator": "record.senses[5].collocations[1]",
-              "target_label": "be cast as X"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -630,7 +633,7 @@
     "ordinal": 708,
     "word": "casual",
     "source_owner_path": "content/lexical/words/by-ordinal/o0708.json",
-    "source_fingerprint": "e0c456b5360431fdc040e32321deadea2eeef43fc4a45088f34bb176bc85ebf9",
+    "source_fingerprint": "af407053a7ac42385cbb7d1655cd5cb75985cc0d717109db9dcefd61f6b9cbee",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -663,7 +666,7 @@
             "id": "collocation:bf7c79671f2fd229a4bd",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "casual reader",
-            "meaning_cn": "偶尔的；普通的；非专业的",
+            "meaning_cn": "偶尔阅读或不作深入研究的读者",
             "kind": "usage_example",
             "repair": null
           },
@@ -671,7 +674,7 @@
             "id": "collocation:b210cadc646187e1c7b7",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "casual user",
-            "meaning_cn": "偶尔的；普通的；非专业的",
+            "meaning_cn": "偶尔使用或不作深入使用的用户",
             "kind": "usage_example",
             "repair": null
           }
@@ -697,7 +700,7 @@
             "id": "collocation:346849c098ef74e9b8bd",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "casual clothes",
-            "meaning_cn": "随意的；非正式的",
+            "meaning_cn": "便装；休闲服",
             "kind": "usage_example",
             "repair": null
           },
@@ -705,7 +708,7 @@
             "id": "collocation:09ce292540a026cb1065",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "casual conversation",
-            "meaning_cn": "随意的；非正式的",
+            "meaning_cn": "随意、非正式的交谈",
             "kind": "usage_example",
             "repair": null
           }
@@ -731,7 +734,7 @@
             "id": "collocation:19b5c359cad25d780a6e",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "casual encounter",
-            "meaning_cn": "偶然的；漫不经心的",
+            "meaning_cn": "偶然的相遇",
             "kind": "usage_example",
             "repair": null
           },
@@ -739,7 +742,7 @@
             "id": "collocation:73e889f2a2ce2b3892db",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "casual remark",
-            "meaning_cn": "偶然的；漫不经心的",
+            "meaning_cn": "随口说出的评论",
             "kind": "usage_example",
             "repair": null
           }
@@ -765,7 +768,7 @@
             "id": "collocation:63e8b6ad6164dd8737bb",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "casual labor",
-            "meaning_cn": "临时雇用的",
+            "meaning_cn": "临时性劳动；临时雇用的劳动力",
             "kind": "usage_example",
             "repair": null
           }
@@ -838,7 +841,7 @@
     "ordinal": 709,
     "word": "casualty",
     "source_owner_path": "content/lexical/words/by-ordinal/o0709.json",
-    "source_fingerprint": "a7985af40d1835b28870dbe4a415c17afa010d684adde14a8403a279fe374309",
+    "source_fingerprint": "0d303bef0b73fefa615c7a397c9e1a8b42fa3e7699d2c77bf14f1e5039c976fb",
     "sense_lineage": [
       {
         "word_id": "word:casualty",
@@ -855,13 +858,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在事故或战争中受伤或死亡的人",
-      "decision_cn": "",
+      "summary_cn": "伤亡人员；也指某次事件中受损的人或事物、牺牲品",
+      "decision_cn": "war/accident 可指实际伤亡；a casualty of a crisis 也可指因危机受损或消失的人、企业等，不一定受伤或死亡。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在事故或战争中受伤或死亡的人"
+        "target_label": "伤亡人员；也指某次事件中受损的人或事物、牺牲品"
       }
     },
     "senses": [
@@ -1234,8 +1237,23 @@
     "ordinal": 711,
     "word": "catalog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0711.json",
-    "source_fingerprint": "98ca43f077d70d3fa3869b8d76fddb36308f3489b96afa004ad592c9087d9ab9",
-    "sense_lineage": [],
+    "source_fingerprint": "880af8294e514c4d5da3e09130c308e621b3b8033153c4715d629229e67787f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:catalog",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7c60a2930e4540189b9a",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:catalog",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d3a4b1c75093a9ed2a77",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -1277,13 +1295,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a catalog of + sth",
             "meaning_cn": "某物的目录",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7c60a2930e4540189b9a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a catalog of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:cc5ec348fc8e5cfe8276",
@@ -1316,13 +1329,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "catalog + sth",
             "meaning_cn": "将某物编入目录",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d3a4b1c75093a9ed2a77",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "catalog + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:ea848d6e12bbcda3e0fb",
@@ -1512,13 +1520,20 @@
     "ordinal": 713,
     "word": "catch",
     "source_owner_path": "content/lexical/words/by-ordinal/o0713.json",
-    "source_fingerprint": "311d0e5c1b247857da332de536cb9c56dba9b6cf34db6c112387ac752fe5a09b",
+    "source_fingerprint": "1b3b200c61169aec0a18797287363f90e376611fb182c5e1531ccf24b4c2744f",
     "sense_lineage": [
       {
         "word_id": "word:catch",
         "target_kind": "sense",
         "from_target_id": "sense:catch:be147c402eb55f43",
         "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:catch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ba378a8b2be623a59266",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -1531,7 +1546,7 @@
     },
     "word_feel": {
       "summary_cn": "把移动、流逝或传递中的东西“抓到”：接住、赶上、感染、听懂；名词 catch 是隐藏问题",
-      "decision_cn": "ball/person → 抓住；train/deadline → 赶上；disease → 感染；words/meaning → 听懂；noun there is a catch → 有隐藏条件。",
+      "decision_cn": "ball/person → 抓住；train/bus → 赶上；disease → 感染；words/meaning → 听懂；noun there is a catch → 有隐藏条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1544,10 +1559,10 @@
         "id": "sense:catch:82578e9ab8f75226",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "catch (sth/sb)",
         "definition_cn": "抓住；接住",
-        "definition_en": "to seize or capture something moving",
-        "note": "",
+        "definition_en": "to stop and hold a moving object, or seize and capture a person or animal",
+        "note": "Catch fire is the existing selected phrase under fire; it means begin burning, not capture a flame. Physical capture does not require constant movement.",
         "identity_overlay": null,
         "usage": [
           {
@@ -1633,13 +1648,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "catch what someone said",
             "meaning_cn": "听清某人说的话",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ba378a8b2be623a59266",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "catch what someone said"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1737,7 +1747,7 @@
         "pattern": "catch on (to sth)",
         "lines": [
           {
-            "text": "理解、领会；也可指开始流行",
+            "text": "catch on (to sth)：理解、领会；catch on：开始流行（此义不接 to sth）",
             "lang": "cn"
           }
         ],
@@ -1827,8 +1837,16 @@
     "ordinal": 714,
     "word": "category",
     "source_owner_path": "content/lexical/words/by-ordinal/o0714.json",
-    "source_fingerprint": "edf96279a78f1216904a152c68790dfd607193f4473c7981e7cb0d5f6b5c6cf4",
-    "sense_lineage": [],
+    "source_fingerprint": "9ab190434c7e702022bfa1120be6946e587a483d5ae665d7d6576c6dbe46cf5e",
+    "sense_lineage": [
+      {
+        "word_id": "word:category",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c7ce72aee0a79788849e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -1861,13 +1879,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "category of + sth",
             "meaning_cn": "某物的类别",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c7ce72aee0a79788849e",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "category of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:dcb2fc387161f1a15b7b",
@@ -1952,7 +1965,7 @@
     "ordinal": 715,
     "word": "cater",
     "source_owner_path": "content/lexical/words/by-ordinal/o0715.json",
-    "source_fingerprint": "3b4b2c6171a51db85b177490333a2370fc0f4b800726efdb3fcc38aa176be2a9",
+    "source_fingerprint": "dd4ebfd5aa2f6a42cc6022a091f27ebb612b499b8fecfd420a18bf0c8fa01fa4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1975,7 +1988,7 @@
         "id": "sense:cater:f47ffad22eed5b5e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "cater for an event (especially BrE); cater an event (especially AmE)",
         "definition_cn": "为活动提供饮食及服务",
         "definition_en": "provide food and service for an event",
         "note": "",
@@ -2001,7 +2014,7 @@
         "id": "sense:cater:5197af55e865500e",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "cater for/to sb/sth",
         "definition_cn": "满足、适应（某人的需求或兴趣）；语境中可有“迎合”意味",
         "definition_en": "to provide for or adapt to the needs, interests, or tastes of a person or group",
         "note": "",
@@ -2011,7 +2024,7 @@
             "id": "collocation:4f71b8e5f23b38f46b09",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "cater to the audience",
-            "meaning_cn": "迎合观众",
+            "meaning_cn": "满足、适应观众的需求或兴趣；语境中也可指迎合",
             "kind": "usage_example",
             "repair": null
           }
@@ -2747,7 +2760,7 @@
     "ordinal": 719,
     "word": "cause",
     "source_owner_path": "content/lexical/words/by-ordinal/o0719.json",
-    "source_fingerprint": "be13f425ab5162a1943eea32de0f625b08c635663278c461564bc74bd8cb1b31",
+    "source_fingerprint": "8e2cf59ffdd0c0c05ff5ace464b93cc24565f641e70198743efad6161bcd1834",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2859,7 +2872,7 @@
             "id": "collocation:78e02bc38653aab608f6",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "have cause for + sth",
-            "meaning_cn": "有理由做某事",
+            "meaning_cn": "有……的理由或根据；for 后接名词，如 have cause for concern",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3073,11 +3086,11 @@
           "target_word": "reason",
           "lines": [
             {
-              "text": "只在理由义接近；cause偏客观缘由，reason偏解释依据",
+              "text": "这里比较的是理由/根据义：cause for concern 与 reason for concern 都可表示担忧的理由；不要套用“cause 客观、reason 主观”的绝对规则。cause of an event 表示事件起因，是另一个义项。",
               "lang": "cn"
             },
             {
-              "text": "a justification for something existing or happening",
+              "text": "a reason or justification for a feeling, action, or belief",
               "lang": "en"
             }
           ],
@@ -3100,8 +3113,16 @@
     "ordinal": 720,
     "word": "caution",
     "source_owner_path": "content/lexical/words/by-ordinal/o0720.json",
-    "source_fingerprint": "ce0bd5e96962de48ce90b34f879ba4a1ee051580b6da00fa44aff1cfdfc714a3",
-    "sense_lineage": [],
+    "source_fingerprint": "661da5db8b5ea79b94e5a2d15eb1f2d47adc5db6ee1570e0678dbf5853675cd8",
+    "sense_lineage": [
+      {
+        "word_id": "word:caution",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:95930abf8a0cc278a99b",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -3202,7 +3223,7 @@
         "id": "sense:caution:8e089c366a7d5201",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "caution (sb) against sth/doing sth; caution sb not to do sth",
         "definition_cn": "警告，告诫",
         "definition_en": "warn strongly; put on guard",
         "note": "",
@@ -3211,14 +3232,14 @@
           {
             "id": "collocation:5aa74f6ce2c37fc59827",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "caution sb against + sth",
-            "meaning_cn": "警告某人提防某事",
+            "phrase": "caution (sb) against sth/doing sth",
+            "meaning_cn": "告诫（某人）提防某事或不要做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5aa74f6ce2c37fc59827",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "caution sb against + sth"
+              "target_label": "caution (sb) against sth/doing sth"
             }
           },
           {
@@ -3239,13 +3260,8 @@
             "source_locator": "record.senses[2].collocations[2]",
             "phrase": "caution against + sth",
             "meaning_cn": "对某事提出警告",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:95930abf8a0cc278a99b",
-              "target_locator": "record.senses[2].collocations[2]",
-              "target_label": "caution against + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3740,7 +3756,7 @@
     "ordinal": 723,
     "word": "cease",
     "source_owner_path": "content/lexical/words/by-ordinal/o0723.json",
-    "source_fingerprint": "272d7de2d1ce9f4ddea0a0d7037d51c1bc1030f687314da99424dcd6c2c1e697",
+    "source_fingerprint": "01eb2eb8eba444f704e13347d3e87deb435c94da871eea8d5d0f5e003653c7cf",
     "sense_lineage": [
       {
         "word_id": "word:cease",
@@ -3771,10 +3787,10 @@
         "id": "sense:cease:a4a517ed73e853c2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi.; vt. + doing/to do",
+        "governing_pattern": "cease | cease sth | cease doing sth / cease to do sth",
         "definition_cn": "停止；终止；不再继续",
         "definition_en": "to stop or end",
-        "note": "",
+        "note": "较正式；可直接接活动名词，如 cease operations。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4070,8 +4086,23 @@
     "ordinal": 725,
     "word": "celebrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0725.json",
-    "source_fingerprint": "293cc50d9ba3391ff797403d17c113730fd54687d684634465da21042c20ec63",
-    "sense_lineage": [],
+    "source_fingerprint": "b85767541b61e1af7804c2e0be43f52535a556379c066fdd82b4ee8f48232700",
+    "sense_lineage": [
+      {
+        "word_id": "word:celebrate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:237c9d58358a719fc9ca",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:celebrate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:477f644576cb908633ee",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -4093,7 +4124,7 @@
         "id": "sense:celebrate:92e0bd55587150a9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "celebrate; celebrate an occasion or achievement",
         "definition_cn": "庆祝",
         "definition_en": "to do something enjoyable to mark a special occasion",
         "note": "",
@@ -4104,13 +4135,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "celebrate + sth",
             "meaning_cn": "庆祝某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:477f644576cb908633ee",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "celebrate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:5fad38978f9530e41b7a",
@@ -4143,13 +4169,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "celebrate + sb/sth",
             "meaning_cn": "赞美某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:237c9d58358a719fc9ca",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "celebrate + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4207,25 +4228,17 @@
     "ordinal": 726,
     "word": "celebrity",
     "source_owner_path": "content/lexical/words/by-ordinal/o0726.json",
-    "source_fingerprint": "a37de07f458fa8bc0ec79252b856520bc2113ed0793a0845c73317e741be2e52",
-    "sense_lineage": [
-      {
-        "word_id": "word:celebrity",
-        "target_kind": "sense",
-        "from_target_id": "sense:celebrity:70ca95cae5c45001",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "d3b33ea4bebd47fc27a1849dae083060dba6337f40977471469b2978d46fd8d1",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "名人",
-      "decision_cn": "",
+      "decision_cn": "a celebrity 是一位名人；不可数 celebrity 是名声、名望。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4249,6 +4262,23 @@
           "target_id": "sense:celebrity:6f54337ff3c659f9",
           "target_locator": "record.senses[0]",
           "target_label": "名人，广为人知的人"
+        }
+      },
+      {
+        "id": "sense:celebrity:70ca95cae5c45001",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "uncountable: achieve celebrity; growing celebrity",
+        "definition_cn": "名声；名望（不可数）",
+        "definition_en": "the state of being widely known or famous",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:celebrity:70ca95cae5c45001",
+          "target_locator": "record.senses[1]",
+          "target_label": "名声；名望（不可数）"
         }
       }
     ],
@@ -4290,34 +4320,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:celebrity:70ca95cae5c45001",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "名声；名望",
-          "definition_en": "the state of being famous",
-          "semantic_key": "f164f1401c79b41dd2f61698ea4b925ca2b7b9d60a6a6e122d8cedcdc42b8c1b",
-          "semantic_key_history": [
-            "885d6f01622cb4d352f127278aae53acf9650b934499e1569b389dbdc2037537"
-          ],
-          "legacy_aliases": [
-            "celebrity:l2:2"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "celebrity:l2:2",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 2061,
-          "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -4326,7 +4329,7 @@
     "ordinal": 727,
     "word": "cell",
     "source_owner_path": "content/lexical/words/by-ordinal/o0727.json",
-    "source_fingerprint": "1870c2cd1124c6afe58e80b9a2335cc35c1622c1a4faf00862226876b7e89ba7",
+    "source_fingerprint": "59f50f65497006c10b89d42202c652f274d517d8ffe28104c7d6445439833380",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4410,8 +4413,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电池",
-        "definition_en": "a device that produces electricity from chemical reactions",
+        "definition_cn": "电池单元；将化学能或光能等转化为电能的装置",
+        "definition_en": "a unit that produces electricity by converting energy, for example from a chemical reaction or from light",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4436,7 +4439,7 @@
           "target_kind": "sense",
           "target_id": "sense:cell:44f8d474cdce5749",
           "target_locator": "record.senses[2]",
-          "target_label": "电池"
+          "target_label": "电池单元；将化学能或光能等转化为电能的装置"
         }
       },
       {
@@ -4650,7 +4653,7 @@
     "ordinal": 729,
     "word": "cement",
     "source_owner_path": "content/lexical/words/by-ordinal/o0729.json",
-    "source_fingerprint": "87080b04b254fb7a1823c7f534e34c97f1ab92d400072ecec6e52c64be75d7bf",
+    "source_fingerprint": "8b94c96678957b043f2c41301fc30bb335fcce550e3e6c61df62a5fae0868973",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4676,7 +4679,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "水泥",
-        "definition_en": "a building material made from limestone and clay, used with water and sand to make concrete",
+        "definition_en": "a powder that hardens when mixed with water and is used as a binder in building materials",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4960,7 +4963,7 @@
     "ordinal": 731,
     "word": "censorship",
     "source_owner_path": "content/lexical/words/by-ordinal/o0731.json",
-    "source_fingerprint": "1b0fdc6c5553433acde9b9f791fb3c4c682b1a9ec7b42eb18c9f87c814c650de",
+    "source_fingerprint": "b386cbca0051bd5377830aad48946eeb7ece2efd508676fbff6e29b14dd64724",
     "sense_lineage": [
       {
         "word_id": "word:censorship",
@@ -5504,7 +5507,7 @@
     "ordinal": 736,
     "word": "central",
     "source_owner_path": "content/lexical/words/by-ordinal/o0736.json",
-    "source_fingerprint": "65804c32663d829fdd04ad8ba575b0e416b7e96d4a88be750837b002a69dfd8f",
+    "source_fingerprint": "bc7f36eb3b8d9dc191cefe599845487a217a523a75342047cd63ad6c68185617",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5513,13 +5516,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "中心的，中央的",
-      "decision_cn": "",
+      "summary_cn": "中心的，中央的；核心的，最重要的",
+      "decision_cn": "既可指空间或组织的中心，也可指问题中最重要、起核心作用的部分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "中心的，中央的"
+        "target_label": "中心的，中央的；核心的，最重要的"
       }
     },
     "senses": [
@@ -5528,7 +5531,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "中心的，中央的",
+        "definition_cn": "中心的，中央的；核心的，最重要的",
         "definition_en": "in the center of an area or object; most important",
         "note": "",
         "identity_overlay": null,
@@ -5567,7 +5570,7 @@
           "target_kind": "sense",
           "target_id": "sense:central:802c8c73c2d8550f",
           "target_locator": "record.senses[0]",
-          "target_label": "中心的，中央的"
+          "target_label": "中心的，中央的；核心的，最重要的"
         }
       }
     ],
@@ -5603,7 +5606,7 @@
     "ordinal": 737,
     "word": "centre",
     "source_owner_path": "content/lexical/words/by-ordinal/o0737.json",
-    "source_fingerprint": "96b64d8f8ad344e140a4d43f4f4666284c97bd0ca22f6e6fcffb6d206c310a15",
+    "source_fingerprint": "469de699ec157365b6109cbf9443d56c1629f30b3de68fdc5886e29482d66eec",
     "sense_lineage": [
       {
         "word_id": "word:centre",
@@ -5611,18 +5614,25 @@
         "from_target_id": "sense:centre:d58b205ab235518b",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:centre",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:608b428fdf3a706dcc0a",
+        "status": "merged",
+        "to_target_id": "collocation:fb119e7d7039ce407c3e"
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "中心",
-      "decision_cn": "",
+      "decision_cn": "位置语境：中心；shopping/sports/community centre：提供活动或服务的场所；centre on：围绕、集中于。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5674,19 +5684,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "centre of attention"
             }
-          },
-          {
-            "id": "collocation:608b428fdf3a706dcc0a",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "centre on / be centred on",
-            "meaning_cn": "以…为中心",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:608b428fdf3a706dcc0a",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "centre on / be centred on"
-            }
           }
         ],
         "repair": {
@@ -5700,7 +5697,7 @@
         "id": "sense:centre:88f46fed08da547b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "centre on sth; centre sth on sth; be centred on sth",
         "definition_cn": "集中；使居中",
         "definition_en": "place in the center; focus on",
         "note": "",
@@ -5709,14 +5706,14 @@
           {
             "id": "collocation:fb119e7d7039ce407c3e",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "centre on",
+            "phrase": "centre on sth / be centred on sth",
             "meaning_cn": "集中于",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:fb119e7d7039ce407c3e",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "centre on"
+              "target_label": "centre on sth / be centred on sth"
             }
           },
           {
@@ -5738,6 +5735,23 @@
           "target_id": "sense:centre:88f46fed08da547b",
           "target_locator": "record.senses[1]",
           "target_label": "集中；使居中"
+        }
+      },
+      {
+        "id": "sense:centre:20261008-activity-place",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "community/sports/shopping centre; a centre for an activity",
+        "definition_cn": "供某种活动或服务使用的中心、场所或机构",
+        "definition_en": "a place, building, or organization where a particular activity or service is provided",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:centre:20261008-activity-place",
+          "target_locator": "record.senses[2]",
+          "target_label": "供某种活动或服务使用的中心、场所或机构"
         }
       }
     ],
@@ -5903,7 +5917,7 @@
     "ordinal": 739,
     "word": "ceremony",
     "source_owner_path": "content/lexical/words/by-ordinal/o0739.json",
-    "source_fingerprint": "f2a028fc44a61313cc137be6367bf90f53dfcaff0234ce2545ea9e7fb85bb693",
+    "source_fingerprint": "a85e227f930ea772adec99e03b832fd576bcddd5a06656380ed269a99d3b5193",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5962,7 +5976,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "礼节；礼仪",
-        "definition_en": "the proper or conventional behavior on some solemn occasion",
+        "definition_en": "formal or conventional behaviour and observances",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6582,7 +6596,7 @@
     "ordinal": 743,
     "word": "certify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0743.json",
-    "source_fingerprint": "fdf673599e856c1fdf3de330a8aa753808fb9348ecb529835fddd6b1f36c98a4",
+    "source_fingerprint": "cf776f9e81b0a973ac35f19e93afa513b2e4e520d4832c33aee29b0727e16ae7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6605,7 +6619,7 @@
         "id": "sense:certify:6c2a4ad1aa4e58eb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause / vt. + object",
+        "governing_pattern": "certify (that) ... | certify sb/sth (as) + quality/status | certify sb/sth to be ...",
         "definition_cn": "证明；证实",
         "definition_en": "to state officially that something is true or correct",
         "note": "",
@@ -6644,9 +6658,9 @@
         "id": "sense:certify:bb8b7f7624635def",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "保证；认证",
-        "definition_en": "to guarantee that something meets a standard",
+        "governing_pattern": "certify sb/sth | be certified as + profession/status",
+        "definition_cn": "认证符合标准或具备资格",
+        "definition_en": "to officially confirm that a person or thing meets a required standard or qualification",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6663,7 +6677,7 @@
           "target_kind": "sense",
           "target_id": "sense:certify:bb8b7f7624635def",
           "target_locator": "record.senses[1]",
-          "target_label": "保证；认证"
+          "target_label": "认证符合标准或具备资格"
         }
       }
     ],
@@ -6714,8 +6728,16 @@
     "ordinal": 744,
     "word": "chain",
     "source_owner_path": "content/lexical/words/by-ordinal/o0744.json",
-    "source_fingerprint": "1c0469d2d1a0e4f3caccb6bfe91fc669151de2b2eb964a84a9b5fad08ad74622",
-    "sense_lineage": [],
+    "source_fingerprint": "0340daf343cdb1fd4fb0a4be1d79e9e64e0a904fa722c7d965fca71c5e9dcfd0",
+    "sense_lineage": [
+      {
+        "word_id": "word:chain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:208625583101abb2e9a3",
+        "status": "merged",
+        "to_target_id": "collocation:11529466e41a3803e6de"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -6743,42 +6765,7 @@
         "definition_en": "a series of connected metal rings used for pulling or fastening things",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:208625583101abb2e9a3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a chain of events",
-            "meaning_cn": "一连串事件",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:930a85f7ad0364f8d902",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "supply chain",
-            "meaning_cn": "供应链",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:930a85f7ad0364f8d902",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "supply chain"
-            }
-          },
-          {
-            "id": "collocation:a335979840d47e5f98ed",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "chain reaction",
-            "meaning_cn": "连锁反应",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a335979840d47e5f98ed",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "chain reaction"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:chain:0fb9ceb089965562",
@@ -6803,6 +6790,32 @@
             "meaning_cn": "一连串事件",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:930a85f7ad0364f8d902",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "supply chain",
+            "meaning_cn": "供应链",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:930a85f7ad0364f8d902",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "supply chain"
+            }
+          },
+          {
+            "id": "collocation:a335979840d47e5f98ed",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "chain reaction",
+            "meaning_cn": "连锁反应",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a335979840d47e5f98ed",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "chain reaction"
+            }
           }
         ],
         "repair": {
@@ -7086,7 +7099,7 @@
     "ordinal": 746,
     "word": "chairman",
     "source_owner_path": "content/lexical/words/by-ordinal/o0746.json",
-    "source_fingerprint": "c5436c018875ac667f212d7eee5b28b56a521e7f621a4c109b0179668e8eeab2",
+    "source_fingerprint": "700d84729ad1f16724631bebb680c6298212049f0dbdbf5d2194a8b56e00d769",
     "sense_lineage": [
       {
         "word_id": "word:chairman",
@@ -7118,8 +7131,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "男性主持人或主席；现代语境常用 chair/chairperson 表示中性",
-        "definition_en": "a male person who chairs a meeting or organization; chair or chairperson is often preferred when gender is irrelevant",
+        "definition_cn": "主席，主持人；传统职衔可用于男性或女性，性别中性的表达常用 chair/chairperson",
+        "definition_en": "a person who chairs a meeting or heads an organization; the traditional title can refer to either sex",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7127,7 +7140,7 @@
           "target_kind": "sense",
           "target_id": "sense:chairman:577a99acf1d25799",
           "target_locator": "record.senses[0]",
-          "target_label": "男性主持人或主席；现代语境常用 chair/chairperson 表示中性"
+          "target_label": "主席，主持人；传统职衔可用于男性或女性，性别中性的表达常用 chair/chairperson"
         }
       }
     ],
@@ -7218,8 +7231,16 @@
     "ordinal": 747,
     "word": "chalk",
     "source_owner_path": "content/lexical/words/by-ordinal/o0747.json",
-    "source_fingerprint": "5a5e1c81c79c5637999a2e0af09755d2cc7d688239307ec40f6c52bf35c6df8f",
-    "sense_lineage": [],
+    "source_fingerprint": "77858d351b61235c0e4ce7f9a0c9073df8b1e6af5b88635058cb1aa5097b5892",
+    "sense_lineage": [
+      {
+        "word_id": "word:chalk",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4c57eba1fa7607d0b7c0",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -7279,13 +7300,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "chalk + sth",
             "meaning_cn": "用粉笔写某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4c57eba1fa7607d0b7c0",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "chalk + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7320,7 +7336,7 @@
       {
         "id": "construction:chalk:baseline-v2-chalk-up",
         "source_locator": "record.constructions[0]",
-        "pattern": "chalk up sth",
+        "pattern": "chalk up sth / chalk sth up",
         "lines": [
           {
             "text": "取得、累计或记录某个结果/成绩",
@@ -7331,7 +7347,7 @@
           "target_kind": "construction",
           "target_id": "construction:chalk:baseline-v2-chalk-up",
           "target_locator": "record.constructions[0]",
-          "target_label": "chalk up sth"
+          "target_label": "chalk up sth / chalk sth up"
         }
       },
       {
@@ -7365,18 +7381,26 @@
     "ordinal": 748,
     "word": "challenge",
     "source_owner_path": "content/lexical/words/by-ordinal/o0748.json",
-    "source_fingerprint": "d356c8e0f375173742e46990fdcca1a52077143381d03b6c3c5df9bd81bb9e9a",
-    "sense_lineage": [],
+    "source_fingerprint": "0e8cdc7c76acf213eed985d13fd4cad58cf76e1e5e26fc5c70de839a88bed707",
+    "sense_lineage": [
+      {
+        "word_id": "word:challenge",
+        "target_kind": "sense",
+        "from_target_id": "sense:challenge:09a9f87089d95624",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "挑战/难题；也指对说法、合法性、有效性或权威的质疑",
-      "decision_cn": "task → 难题/挑战；a challenge to a claim/authority / legal challenge → 对真实性、权威或合法性的质疑；challenge sb to do → 向某人发起挑战；法律陪审员回避义另属专业 L3。",
+      "decision_cn": "task → 难题/挑战；challenge a claim/authority → 质疑说法或权威；challenge sb → 考验能力；challenge sb to do → 要求尝试或发起挑战。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7399,7 +7423,7 @@
             "id": "collocation:677bb54db2fec4fb399d",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "face a challenge",
-            "meaning_cn": "挑战；难题",
+            "meaning_cn": "面临挑战",
             "kind": "usage_example",
             "repair": null
           },
@@ -7407,7 +7431,7 @@
             "id": "collocation:abe2153b3c3bff8f5b7e",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "major challenge",
-            "meaning_cn": "挑战；难题",
+            "meaning_cn": "重大挑战",
             "kind": "usage_example",
             "repair": null
           },
@@ -7415,7 +7439,7 @@
             "id": "collocation:8c4ecf387410eae2c326",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "pose a challenge",
-            "meaning_cn": "挑战；难题",
+            "meaning_cn": "构成挑战；带来难题",
             "kind": "usage_example",
             "repair": null
           }
@@ -7467,7 +7491,7 @@
             "id": "collocation:842f6f1a558038fb3c88",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "challenge a claim",
-            "meaning_cn": "质疑；挑战",
+            "meaning_cn": "质疑某项说法",
             "kind": "usage_example",
             "repair": null
           },
@@ -7475,7 +7499,7 @@
             "id": "collocation:ae443e91d0aa73ffb221",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "challenge an assumption",
-            "meaning_cn": "质疑；挑战",
+            "meaning_cn": "质疑某个假设",
             "kind": "usage_example",
             "repair": null
           },
@@ -7483,7 +7507,7 @@
             "id": "collocation:1f99b3b7d663ee86784e",
             "source_locator": "record.senses[2].collocations[2]",
             "phrase": "challenge authority",
-            "meaning_cn": "质疑；挑战",
+            "meaning_cn": "质疑、挑战权威",
             "kind": "usage_example",
             "repair": null
           }
@@ -7499,17 +7523,17 @@
         "id": "sense:challenge:58e615d6b7695068",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "向……发起挑战",
-        "definition_en": "to invite someone to compete or prove an ability",
+        "governing_pattern": "challenge sb; challenge sb to a contest / to do sth",
+        "definition_cn": "考验（能力）；向某人发起挑战或要求其尝试",
+        "definition_en": "to test someone’s abilities, or invite or strongly ask someone to attempt a demanding action or competition",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:69c63f70671bd1fa5716",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "challenge someone to",
-            "meaning_cn": "向……发起挑战",
+            "phrase": "challenge sb to a contest / to do sth",
+            "meaning_cn": "邀请某人比赛；激某人或要求其尝试做某事",
             "kind": "usage_example",
             "repair": null
           }
@@ -7518,24 +7542,7 @@
           "target_kind": "sense",
           "target_id": "sense:challenge:58e615d6b7695068",
           "target_locator": "record.senses[3]",
-          "target_label": "向……发起挑战"
-        }
-      },
-      {
-        "id": "sense:challenge:09a9f87089d95624",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求",
-        "definition_en": "law: a formal objection to a prospective juror, juror qualification, or jury",
-        "note": "specialized jury-selection sense; distinct from ordinary a legal challenge / a challenge to authority",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:challenge:09a9f87089d95624",
-          "target_locator": "record.senses[4]",
-          "target_label": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求"
+          "target_label": "考验（能力）；向某人发起挑战或要求其尝试"
         }
       }
     ],
@@ -7599,7 +7606,7 @@
         "pattern": "challenge sb to do sth",
         "lines": [
           {
-            "text": "向某人提出挑战，要求其证明能力或完成某事",
+            "text": "向某人提出挑战，要求其尝试做某事或证明能力、意愿",
             "lang": "cn"
           }
         ],
@@ -7626,6 +7633,46 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "high",
+          "definition_cn": "（法律）对候选陪审员或陪审团资格的正式异议；回避请求",
+          "definition_en": "law: a formal objection to a prospective juror, juror qualification, or jury",
+          "depth": "recognition_only",
+          "domain_tag": "law",
+          "frequency_tag": "specialized",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:challenge:09a9f87089d95624",
+          "sense_label_en": "a formal legal objection to a prospective juror or jury",
+          "sort_order": 4,
+          "source_evidence": [
+            {
+              "role": "local_evidence",
+              "source": "kaoyan"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_ecdict"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_oewn"
+            },
+            {
+              "role": "local_evidence",
+              "source": "ai_curated_mvp_v1"
+            }
+          ],
+          "usage_note": "specialized jury-selection sense; distinct from ordinary a legal challenge / a challenge to authority",
+          "stable_sense_id": "sense:challenge:09a9f87089d95624",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
       ]
     }
   },
@@ -7635,7 +7682,7 @@
     "ordinal": 749,
     "word": "chamber",
     "source_owner_path": "content/lexical/words/by-ordinal/o0749.json",
-    "source_fingerprint": "18922b760837a0e62e07076c0e5a8ca40a781bf73051730633d27abf570d8836",
+    "source_fingerprint": "20543d2c2a5b44a20a7dbe630d0ee240f87b8a8081a441952851577194d00326",
     "sense_lineage": [
       {
         "word_id": "word:chamber",
@@ -7719,15 +7766,15 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "法官办公室",
-        "definition_en": "a room where a judge transacts business",
+        "definition_cn": "（用复数 chambers）法官办公室",
+        "definition_en": "a judge's private office (used in the plural: chambers)",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2efe423a1db6a935ef29",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "judge's chamber",
+            "phrase": "a judge's chambers",
             "meaning_cn": "法官办公室",
             "kind": "usage_example",
             "repair": null
@@ -7737,7 +7784,7 @@
           "target_kind": "sense",
           "target_id": "sense:chamber:1745ba0e20e45ae2",
           "target_locator": "record.senses[2]",
-          "target_label": "法官办公室"
+          "target_label": "（用复数 chambers）法官办公室"
         }
       },
       {
@@ -7876,7 +7923,7 @@
     "ordinal": 750,
     "word": "champagne",
     "source_owner_path": "content/lexical/words/by-ordinal/o0750.json",
-    "source_fingerprint": "74a14868094173a673f7f8d048e1b45a2e76bb35d7a40f03a9b7f17ce6ff2567",
+    "source_fingerprint": "ca5b4e68f519d263b9c4709b3797663d429cf015a5f6a740346886be849077f1",
     "sense_lineage": [
       {
         "word_id": "word:champagne",
@@ -7909,7 +7956,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "香槟酒",
-        "definition_en": "a white sparkling wine either produced in Champagne or resembling that produced there",
+        "definition_en": "a sparkling wine, white or pink, from Champagne in France or a wine resembling it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8000,7 +8047,7 @@
     "ordinal": 751,
     "word": "champion",
     "source_owner_path": "content/lexical/words/by-ordinal/o0751.json",
-    "source_fingerprint": "3c845c9321caa137f14462fab1163672e02c9ff6aecd867db933d6d16f54c7ed",
+    "source_fingerprint": "253424a26175f5ace4ec720f1d553bf8e596973c961b4b264dbae98c871660d8",
     "sense_lineage": [
       {
         "word_id": "word:champion",
@@ -8014,6 +8061,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:4bc437ceb8c00485cad4",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:champion",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:628bbf1876c99da00ac8",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -8141,13 +8195,8 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "champion the rights of + sb/sth",
             "meaning_cn": "捍卫…的权利",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:628bbf1876c99da00ac8",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "champion the rights of + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8219,18 +8268,26 @@
     "ordinal": 752,
     "word": "chance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0752.json",
-    "source_fingerprint": "f43daca72c8a4fe026075a621a59d5172647a9704ec9e99979c1885c6129ab84",
-    "sense_lineage": [],
+    "source_fingerprint": "bea54561e147fe5b45a9288df5804baa2d619c0fd960bb0e0bb276813cb9c418",
+    "sense_lineage": [
+      {
+        "word_id": "word:chance",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fe6780013e5bcb050100",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "机会、可能性或偶然发生；结构决定你是在说 opportunity、probability 还是 happen by chance",
-      "decision_cn": "have a chance to do → 有机会；chance of doing/sth → 有可能；chance to do / chance upon → 碰巧；chance it → 冒险碰碰运气。",
+      "decision_cn": "have a chance to do → 有机会；chance of doing/sth → 有可能；chance to do / chance upon → 碰巧；chance it → 冒险碰碰运气。 by chance 指偶然、运气；不是“有机会”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8246,7 +8303,7 @@
         "governing_pattern": "",
         "definition_cn": "机会",
         "definition_en": "an opportunity to do something",
-        "note": "",
+        "note": "Have a chance to do describes an opportunity; the supporting idiom take a chance means accept a risk, not merely obtain an opportunity.",
         "identity_overlay": null,
         "usage": [
           {
@@ -8263,21 +8320,8 @@
             }
           },
           {
-            "id": "collocation:06d2236c8678d140af52",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "by chance",
-            "meaning_cn": "偶然；碰巧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:06d2236c8678d140af52",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "by chance"
-            }
-          },
-          {
             "id": "collocation:528ae4cdc6c8675df667",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "take a chance",
             "meaning_cn": "冒险；碰运气",
             "kind": "usage_example",
@@ -8389,13 +8433,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "chance + sth",
             "meaning_cn": "冒险做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fe6780013e5bcb050100",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "chance + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4d9afcc125a4f4ccf910",
@@ -8411,6 +8450,37 @@
           "target_id": "sense:chance:74cab295cc275692",
           "target_locator": "record.senses[3]",
           "target_label": "冒险"
+        }
+      },
+      {
+        "id": "sense:chance:20261008-luck",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "by chance; leave sth to chance",
+        "definition_cn": "偶然；运气；不可预料的机缘",
+        "definition_en": "the way events happen without being planned or controlled",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:06d2236c8678d140af52",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "by chance",
+            "meaning_cn": "偶然；碰巧",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:06d2236c8678d140af52",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "by chance"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:chance:20261008-luck",
+          "target_locator": "record.senses[4]",
+          "target_label": "偶然；运气；不可预料的机缘"
         }
       }
     ],
@@ -8447,42 +8517,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:chance:baseline-v2-opportunity",
-        "source_locator": "record.constructions[0]",
-        "pattern": "have a chance to do sth",
-        "lines": [
-          {
-            "text": "有机会做某事",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:chance:baseline-v2-opportunity",
-          "target_locator": "record.constructions[0]",
-          "target_label": "have a chance to do sth"
-        }
-      },
-      {
-        "id": "construction:chance:baseline-v2-probability",
-        "source_locator": "record.constructions[1]",
-        "pattern": "chance of doing sth / chance of sth",
-        "lines": [
-          {
-            "text": "某事发生或做某事的可能性",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:chance:baseline-v2-probability",
-          "target_locator": "record.constructions[1]",
-          "target_label": "chance of doing sth / chance of sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8496,7 +8531,7 @@
     "ordinal": 753,
     "word": "chancellor",
     "source_owner_path": "content/lexical/words/by-ordinal/o0753.json",
-    "source_fingerprint": "41b890f6bb2ccac410e6506b30d2f1f61257529d4709b2cbefd36278ee0cfcc0",
+    "source_fingerprint": "9e1e89329a3246e5ff5f0977cdefc7ddef218c150e48587f794664c08f4e3db7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8559,8 +8594,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大学名誉校长",
-        "definition_en": "the honorary or titular head of a university",
+        "definition_cn": "大学校长；英国常为名誉或礼仪性职位",
+        "definition_en": "the head of a university: an honorary or ceremonial role in Britain, also a title for the head of some American universities",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8577,7 +8612,7 @@
           "target_kind": "sense",
           "target_id": "sense:chancellor:c075958efcb1527a",
           "target_locator": "record.senses[1]",
-          "target_label": "大学名誉校长"
+          "target_label": "大学校长；英国常为名誉或礼仪性职位"
         }
       }
     ],
@@ -8654,18 +8689,33 @@
     "ordinal": 754,
     "word": "change",
     "source_owner_path": "content/lexical/words/by-ordinal/o0754.json",
-    "source_fingerprint": "9ad3a52e0ac1fbbda8cdd71d6199b4e2f3cf4b57493b56ace626f059bbfaf632",
-    "sense_lineage": [],
+    "source_fingerprint": "aaf66a396b55b58df638875fcb5f91347ae4b9dab9c8f760ea992f3e0224b5a6",
+    "sense_lineage": [
+      {
+        "word_id": "word:change",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:18d6d9615a89ace54a46",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:change",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:52414a1a26a0a45b0c7c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "改变、变化；也可指零钱/找头",
-      "decision_cn": "alteration/transition → 改变、变化；money returned/small coins → 零钱、找头。",
+      "decision_cn": "alteration/transition → 改变、变化；money returned/small coins → 零钱、找头。 更换衣物、换车或兑换钱币时，是用另一项替换原项。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8689,13 +8739,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "change + sth",
             "meaning_cn": "改变某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:18d6d9615a89ace54a46",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "change + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:bc68db7719b77effb8e5",
@@ -8722,7 +8767,7 @@
         "id": "sense:change:0f662ec870a8521f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "change; change into sth; change from A to B",
         "definition_cn": "变化；转变",
         "definition_en": "to become different",
         "note": "",
@@ -8764,13 +8809,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "a change of + sth",
             "meaning_cn": "……的变化",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:52414a1a26a0a45b0c7c",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "a change of + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c1d364a9e4f57ad8c50a",
@@ -8799,7 +8839,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "零钱；找头",
-        "definition_en": "money returned as balance",
+        "definition_en": "money in coins, or money returned when a payment exceeds the price",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8817,6 +8857,23 @@
           "target_id": "sense:change:a7d31ac7681f5d38",
           "target_locator": "record.senses[3]",
           "target_label": "零钱；找头"
+        }
+      },
+      {
+        "id": "sense:change:20261008-exchange-replace",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "change trains/clothes; change A for B; change money",
+        "definition_cn": "更换；替换；交换或兑换",
+        "definition_en": "to replace one thing with another or exchange one thing for another",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:change:20261008-exchange-replace",
+          "target_locator": "record.senses[4]",
+          "target_label": "更换；替换；交换或兑换"
         }
       }
     ],
@@ -8848,8 +8905,8 @@
         "pattern": "change in sth / change from A to B / change of sth",
         "lines": [
           {
-            "text": "distinguish an alteration, a transition, and a replacement or type shift",
-            "lang": "en"
+            "text": "change in sth：某方面发生变化；change from A to B：由A转变为B；change of sth：更换或改变（如地点、计划）",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -8873,7 +8930,7 @@
     "ordinal": 755,
     "word": "channel",
     "source_owner_path": "content/lexical/words/by-ordinal/o0755.json",
-    "source_fingerprint": "efb1cdb9b3172c8e88f735e1f7a682f2e32cbc5b3b2c7c394512972a469c392b",
+    "source_fingerprint": "79e30171b9cc42d92e7f18a3719f9c5f97fad0818ea0f19635f0133bff48681c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8932,8 +8989,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "海峡；航道",
-        "definition_en": "a narrow body of water connecting two larger bodies",
+        "definition_cn": "水道；航道；海峡",
+        "definition_en": "a passage along which water flows, a navigable route through water, or a narrow stretch of sea between land areas",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8958,7 +9015,7 @@
           "target_kind": "sense",
           "target_id": "sense:channel:4e5e7ceadfa45443",
           "target_locator": "record.senses[1]",
-          "target_label": "海峡；航道"
+          "target_label": "水道；航道；海峡"
         }
       },
       {
@@ -9087,30 +9144,44 @@
     "ordinal": 756,
     "word": "chaos",
     "source_owner_path": "content/lexical/words/by-ordinal/o0756.json",
-    "source_fingerprint": "c5d8c29d9301959240c78b9399d4a08923266162f6f100943c7860db412aa767",
+    "source_fingerprint": "24add65cb8373feb3dd4fa856d1e1218ee3ce9114b8706f86e53994b6c6390ee",
     "sense_lineage": [
+      {
+        "word_id": "word:chaos",
+        "target_kind": "sense",
+        "from_target_id": "sense:chaos:0bfcba860fb55c11",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:chaos",
         "target_kind": "sense",
         "from_target_id": "sense:chaos:31370550a3ba5e85",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:chaos",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f43d9393963b2aa4e59e",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "混乱；混沌",
+      "summary_cn": "混乱；无秩序",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "混乱；混沌"
+        "target_label": "混乱；无秩序"
       }
     },
     "senses": [
@@ -9140,14 +9211,14 @@
           {
             "id": "collocation:a0a1c3afd3d8aa4dc3a6",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "throw into chaos",
+            "phrase": "throw sb/sth into chaos",
             "meaning_cn": "使陷入混乱",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a0a1c3afd3d8aa4dc3a6",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "throw into chaos"
+              "target_label": "throw sb/sth into chaos"
             }
           }
         ],
@@ -9156,32 +9227,6 @@
           "target_id": "sense:chaos:18a823c3ea875a27",
           "target_locator": "record.senses[0]",
           "target_label": "大混乱，无秩序"
-        }
-      },
-      {
-        "id": "sense:chaos:0bfcba860fb55c11",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（宇宙形成前的）混沌",
-        "definition_en": "the formless and disordered state of matter before the creation of the cosmos",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f43d9393963b2aa4e59e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "primordial chaos",
-            "meaning_cn": "原始的混沌",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:chaos:0bfcba860fb55c11",
-          "target_locator": "record.senses[1]",
-          "target_label": "（宇宙形成前的）混沌"
         }
       }
     ],
@@ -9249,6 +9294,34 @@
           "source_row": 2141,
           "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f43d9393963b2aa4e59e",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:chaos:0bfcba860fb55c11:collocation:0"
+              ],
+              "meaning_cn": "原始的混沌",
+              "phrase": "primordial chaos"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（宇宙形成前的）混沌",
+          "definition_en": "the formless and disordered state of matter before the creation of the cosmos",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:chaos:0bfcba860fb55c11",
+          "sense_label_en": "the formless and disordered state of matter before the creation of the cosmos",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:chaos:0bfcba860fb55c11",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -9259,7 +9332,7 @@
     "ordinal": 757,
     "word": "chapter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0757.json",
-    "source_fingerprint": "68205fea578eacc07915fcb643a60028d6df493546c894300ff58b41f9543532",
+    "source_fingerprint": "21821b1c7a54373e6aea4b744b203a20af832cae7a0d01318cca7e651688ae97",
     "sense_lineage": [
       {
         "word_id": "word:chapter",
@@ -9412,7 +9485,7 @@
           "needs_human_review": 0,
           "pos": "noun",
           "sense_id": "sense:chapter:c284eca55789534a",
-          "sense_label_en": "an ecclesiastical assembly of the monks in a monastery or even of the ca",
+          "sense_label_en": "an ecclesiastical assembly of the monks in a monastery or even of the canons of a church",
           "sort_order": 2,
           "transitivity": "nonverb"
         }
@@ -9425,7 +9498,7 @@
     "ordinal": 758,
     "word": "character",
     "source_owner_path": "content/lexical/words/by-ordinal/o0758.json",
-    "source_fingerprint": "3a235fab55242588e0e57534d58eceb81a0ba550869c146304a999a00849e632",
+    "source_fingerprint": "a7f12ca1ddbaa06cf56aed746bdbc1537c04769cf02bd47384969e58a6cfdcc3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9793,8 +9866,16 @@
     "ordinal": 760,
     "word": "characteristic",
     "source_owner_path": "content/lexical/words/by-ordinal/o0760.json",
-    "source_fingerprint": "56eeb3e985efd8b9dfae0a4a61af095f9eaf73de878680e0f6f23740c1862bd0",
-    "sense_lineage": [],
+    "source_fingerprint": "95317a059e13cbd04e58db9cddd30d60d95a1cb8e10e4493d2e041da02434dec",
+    "sense_lineage": [
+      {
+        "word_id": "word:characteristic",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8ab1c58641d4e4e0ebe0",
+        "status": "merged",
+        "to_target_id": "collocation:bbba1754b2c2a3ad0d7b"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -9822,29 +9903,7 @@
         "definition_en": "a distinguishing quality or feature",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8ab1c58641d4e4e0ebe0",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "characteristic of + sth",
-            "meaning_cn": "……所特有的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8ab1c58641d4e4e0ebe0",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "characteristic of + sth"
-            }
-          },
-          {
-            "id": "collocation:9f1cbce555a3640f78c5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a characteristic feature",
-            "meaning_cn": "一个典型特征",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:characteristic:7121bd9d4b9a5bd6",
@@ -9880,6 +9939,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "characteristic behavior",
             "meaning_cn": "典型行为",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:9f1cbce555a3640f78c5",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a characteristic feature",
+            "meaning_cn": "一个典型特征",
             "kind": "usage_example",
             "repair": null
           }
@@ -9926,7 +9993,7 @@
     "ordinal": 761,
     "word": "charge",
     "source_owner_path": "content/lexical/words/by-ordinal/o0761.json",
-    "source_fingerprint": "3b0b71b583c1434e74f66050b89c3c056807d81111f3efcd3d4ca89a5be75894",
+    "source_fingerprint": "0034dad0de90dfc04a544546a3f0a47bcd8a8140a1402a0523288548abc1e45e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9937,7 +10004,7 @@
     },
     "word_feel": {
       "summary_cn": "把某种“负担/力量/责任”加到对象上：可收费、指控、充电、负责；也可表示向前猛冲",
-      "decision_cn": "charge sb money → 收费；charge sb with wrongdoing → 指控；charge sb with a task/duty → 责成、委托；charge a battery → 充电；be/take in charge of → 负责；charge at/into → 猛冲。",
+      "decision_cn": "charge sb money → 收费；charge sb with wrongdoing → 指控；charge sb with a task/duty → 责成、委托；charge a battery → 充电；be in charge of / take charge of → 负责；charge at/into → 猛冲。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9957,21 +10024,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7d7a63143b0ff5664e84",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "charge for + sth",
-            "meaning_cn": "对...收费",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7d7a63143b0ff5664e84",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "charge for + sth"
-            }
-          },
-          {
             "id": "collocation:113ac104b406985e7064",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "free of charge",
             "meaning_cn": "免费",
             "kind": "usage_example",
@@ -10028,7 +10082,7 @@
         "id": "sense:charge:730f69342ca35817",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "charge (sb) an amount; charge (sb) for sth",
         "definition_cn": "要价，收费",
         "definition_en": "to ask as a price",
         "note": "",
@@ -10054,6 +10108,19 @@
             "meaning_cn": "收取费用",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:7d7a63143b0ff5664e84",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "charge for + sth",
+            "meaning_cn": "对...收费",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7d7a63143b0ff5664e84",
+              "target_locator": "record.senses[2].collocations[2]",
+              "target_label": "charge for + sth"
+            }
           }
         ],
         "repair": {
@@ -10106,9 +10173,9 @@
         "id": "sense:charge:df86bdc68e9e5a89",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "给...充电",
-        "definition_en": "to supply with electrical energy",
+        "governing_pattern": "charge (a battery/device) | charge (sth) up",
+        "definition_cn": "充电；给……充电",
+        "definition_en": "to store electrical energy in a battery or device, or make it store energy",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10133,16 +10200,16 @@
           "target_kind": "sense",
           "target_id": "sense:charge:df86bdc68e9e5a89",
           "target_locator": "record.senses[4]",
-          "target_label": "给...充电"
+          "target_label": "充电；给……充电"
         }
       },
       {
         "id": "sense:charge:9babaf4d8217555f",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "charge | charge at/into/towards ... | charge sb/sth (attack)",
         "definition_cn": "冲锋，猛冲",
-        "definition_en": "to rush forward in attack",
+        "definition_en": "to rush in a direction, often to attack someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10482,31 +10549,45 @@
     "ordinal": 763,
     "word": "charm",
     "source_owner_path": "content/lexical/words/by-ordinal/o0763.json",
-    "source_fingerprint": "14f04c9fcc9b9dff80d118a0376c26669e9cbcec0486f68c8b90419f9bdff546",
+    "source_fingerprint": "f068b2bd56a9094128a8148f42a315fbef5c01fe9b4686c0c18a608c184ca18e",
     "sense_lineage": [
+      {
+        "word_id": "word:charm",
+        "target_kind": "sense",
+        "from_target_id": "sense:charm:6117506b58575e0e",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:charm",
         "target_kind": "sense",
         "from_target_id": "sense:charm:88518f61773557a1",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:charm",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f90caad4c9f8146d0e17",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "魅力；魔力",
-      "decision_cn": "",
+      "summary_cn": "魅力；护身符；吸引、使愉悦",
+      "decision_cn": "人或事物的魅力；带来好运的护身符；动词表示吸引、使愉悦",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "魅力；魔力"
+        "target_label": "魅力；护身符；吸引、使愉悦"
       }
     },
     "senses": [
@@ -10537,39 +10618,8 @@
         }
       },
       {
-        "id": "sense:charm:6117506b58575e0e",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用魔法控制，施魔法于",
-        "definition_en": "to control or protect by magic",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f90caad4c9f8146d0e17",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "charm + sb/sth",
-            "meaning_cn": "对某人/某物施魔法",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f90caad4c9f8146d0e17",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "charm + sb/sth"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:charm:6117506b58575e0e",
-          "target_locator": "record.senses[1]",
-          "target_label": "用魔法控制，施魔法于"
-        }
-      },
-      {
         "id": "sense:charm:76a95984411c50cd",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "吸引人的愉悦品质；魅力",
@@ -10580,13 +10630,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:charm:76a95984411c50cd",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "吸引人的愉悦品质；魅力"
         }
       },
       {
         "id": "sense:charm:c6f2eaf41e715d8f",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "吸引、使愉悦",
@@ -10597,7 +10647,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:charm:c6f2eaf41e715d8f",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "吸引、使愉悦"
         }
       }
@@ -10655,6 +10705,34 @@
           "sense_label_en": "to use magic spells",
           "sort_order": 2,
           "transitivity": "vi"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f90caad4c9f8146d0e17",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:charm:6117506b58575e0e:collocation:0"
+              ],
+              "meaning_cn": "对某人/某物施魔法",
+              "phrase": "charm + sb/sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用魔法控制，施魔法于",
+          "definition_en": "to control or protect by magic",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:charm:6117506b58575e0e",
+          "sense_label_en": "to control or protect by magic",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:charm:6117506b58575e0e",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -10665,7 +10743,7 @@
     "ordinal": 764,
     "word": "chart",
     "source_owner_path": "content/lexical/words/by-ordinal/o0764.json",
-    "source_fingerprint": "1f3542027fab35c3787615f456f6a6d186921247cbc54b7f938eeb686e3ec31c",
+    "source_fingerprint": "48eff3628b07868e2006cdce8a9ac56202d3a8fb45861012fad15ad0e155cfdb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10676,7 +10754,7 @@
     },
     "word_feel": {
       "summary_cn": "图表或海图，或制作图表",
-      "decision_cn": "",
+      "decision_cn": "data → 图表或制图；navigation → 海图或标绘航线；strategy/course of action → 详细规划。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10853,7 +10931,7 @@
     "ordinal": 765,
     "word": "charter",
     "source_owner_path": "content/lexical/words/by-ordinal/o0765.json",
-    "source_fingerprint": "8dec5c0dd534801e08feda61f424cbc34af2f681fe2efebf1e168b56bab589f4",
+    "source_fingerprint": "a0f77c849f88b2ea2c29c45e654dc40f2762dc7b354251f3411ed7512666fbb6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10879,7 +10957,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "宪章；特许状",
-        "definition_en": "a written document that establishes an institution and specifies its rights",
+        "definition_en": "a written statement of an organization's principles or a group's rights, or an official document granting rights or establishing an institution",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10999,8 +11077,16 @@
     "ordinal": 766,
     "word": "chase",
     "source_owner_path": "content/lexical/words/by-ordinal/o0766.json",
-    "source_fingerprint": "b11d2c7c49816a5993e386529278e4d3d1956f1816448c637db74ed91973a1a4",
-    "sense_lineage": [],
+    "source_fingerprint": "eba40cea5709b139095feb914287c2cc2b6ea73c5ce372f536cd3c5691f92942",
+    "sense_lineage": [
+      {
+        "word_id": "word:chase",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:04492a365a7cfc9ca1a4",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -11034,13 +11120,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "chase + sb/sth",
             "meaning_cn": "追逐某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:04492a365a7cfc9ca1a4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "chase + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:af3c3ffaee1a424c8648",
@@ -11324,7 +11405,7 @@
     "ordinal": 768,
     "word": "cheap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0768.json",
-    "source_fingerprint": "753da0d802c87262d22dab39c556dff81a3f3708d4680d732a1d241afeb0b1cd",
+    "source_fingerprint": "5e8f306e3a0781eb65ce49eacbe566c6241b6bf6e7ded1ba0f2bcd4752cebb7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11349,9 +11430,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "便宜的；价格低但有时暗示质量低劣或吝啬",
-        "definition_en": "inexpensive; sometimes suggesting low quality or stinginess",
-        "note": "",
+        "definition_cn": "便宜的；价格低的",
+        "definition_en": "costing relatively little money",
+        "note": "A low price does not necessarily imply poor quality. With people or contemptuous evaluations, use the separate stingy or disparaging meanings.",
         "identity_overlay": null,
         "usage": [
           {
@@ -11380,7 +11461,7 @@
           "target_kind": "sense",
           "target_id": "sense:cheap:a0e8284e86905b8e",
           "target_locator": "record.senses[0]",
-          "target_label": "便宜的；价格低但有时暗示质量低劣或吝啬"
+          "target_label": "便宜的；价格低的"
         }
       },
       {

@@ -12,7 +12,12 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "笨拙或偶然地进入、卷入某事",
-        "pattern": "blunder into sth"
+        "pattern": "blunder into sth",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:8c981fa49e78a7c96975",
+          "reason": "One blunder-into target keeps clumsy movement and accidental involvement."
+        }
       }
     ],
     "content_hash": "ab73786f219d67a357ac6d92b270351310cd53f21d928327718aa8225f44fb9a",
@@ -31,7 +36,8 @@
           "label_en": "to move clumsily or stumble; to make a stupid mistake; to do something wrongly",
           "pos": "verb",
           "sense_ids": [
-            "sense:blunder:0efe92c987615121"
+            "sense:blunder:0efe92c987615121",
+            "sense:blunder:0818b026548850a8"
           ]
         }
       ],
@@ -82,7 +88,7 @@
             "legacy_source_object_ids": [
               "sense:blunder:0efe92c987615121:collocation:0"
             ],
-            "meaning_cn": "跌跌撞撞地撞上某物",
+            "meaning_cn": "笨拙地闯入；偶然卷入某事",
             "phrase": "blunder into + sth"
           }
         ],
@@ -102,12 +108,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:27e230110248c42e35d5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:blunder:0818b026548850a8:collocation:retro-o0025-o0224"
             ],
             "meaning_cn": "犯严重或愚蠢的错误",
-            "phrase": "blunder badly / make a blunder"
+            "phrase": "blunder badly"
           }
         ],
         "confidence": "medium",
@@ -376,11 +382,18 @@
       }
     ],
     "active_collocations": [
-      "collocation:27e230110248c42e35d5",
       "collocation:2dcd16682240d8c84ec0",
       "collocation:8c981fa49e78a7c96975"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:f34f0ce7b5a14165442c",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "One blunder-into target keeps clumsy movement and accidental involvement."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:190ce4ecaba298fb397e",
@@ -390,7 +403,10 @@
       {
         "id": "collocation:27e230110248c42e35d5",
         "source_row": 21503,
-        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Badly intensifies the current serious-mistake verb; no independent lexical construction."
       },
       {
         "id": "collocation:2dcd16682240d8c84ec0",

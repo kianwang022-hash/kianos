@@ -39,6 +39,23 @@
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:account:fe2cf86f39b9a897",
+        "pattern": "account for + factor/possibility",
+        "meaning_cn": "（美式）把某因素或可能性考虑在内",
+        "direction": "R",
+        "level": "L2",
+        "learning_note": "US use meaning allow for a factor when planning; distinguish it from explaining a result or forming a percentage.",
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/account%20for",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "（美式）把某因素或可能性考虑在内"
+          }
+        ]
       }
     ],
     "content_hash": "c3b6968f6dffe8cdeb45434b1d2a0f21d2a53ab92f840e571ad65ac710f71db9",
@@ -65,7 +82,7 @@
       ],
       "core_meaning_cn": "用于解释、叙述、核算或记录某事的表述或记录",
       "core_meaning_en": "a representation used to explain, report, count, or keep track of something",
-      "mental_model_cn": "account 的核心是“把事情说清或算清”：叙述、记录、解释原因、说明占比。",
+      "mental_model_cn": "account 的核心是“把事情说清或算清”：叙述、记录、解释原因、说明占比；account for 人/资金/时间可交代下落/去向。",
       "mental_model_en": "An account makes something countable or explainable: a report tells it, a record tracks it, and account for explains its share or cause."
     },
     "exam_paraphrases": [],
@@ -109,8 +126,8 @@
           }
         ],
         "confidence": "high",
-        "definition_cn": "解释原因；说明差异",
-        "definition_en": "to explain why something happens or why a difference exists",
+        "definition_cn": "解释原因；说明差异；交代人或物的下落、时间或资金的去向",
+        "definition_en": "to explain a cause or difference, or show what happened to someone or something",
         "depth": "full_card",
         "domain_tag": "general",
         "frequency_tag": "exam_core",
@@ -136,8 +153,16 @@
           {
             "role": "local_evidence",
             "source": "ai_curated_mvp_v1"
+          },
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.merriam-webster.com/dictionary/account%20for",
+            "accessed_date": "2026-10-07",
+            "evidence_status": "source_checked",
+            "supports": "account for someone/something whereabouts and expenditure"
           }
-        ]
+        ],
+        "usage_note": "account for money/time can mean explain its use; everyone is accounted for means their whereabouts are known."
       },
       {
         "collocations": [
@@ -486,6 +511,32 @@
       "source_row": 115,
       "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
       "reference_only": true
+    },
+    {
+      "sense_id": "sense:account:1da3d106c42da864",
+      "pos": "noun",
+      "definition_cn": "（商业）客户；业务客户",
+      "definition_en": "a customer or client with whom a business deals",
+      "sense_label_en": "a customer or client with whom a business deals",
+      "sort_order": 4,
+      "level": "L2",
+      "depth": "recognition_plus",
+      "governing_pattern": "",
+      "collocations": [],
+      "usage_note": "An important account can be a client, not merely the record kept for that client.",
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/account",
+          "accessed_date": "2026-10-07",
+          "evidence_status": "source_checked",
+          "supports": "a customer or client with whom a business deals"
+        }
+      ],
+      "stable_sense_id": "sense:account:1da3d106c42da864",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -524,6 +575,12 @@
         "merged_into_sense_id": null,
         "source_row": 116,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
+        "sense_id": "sense:account:1da3d106c42da864",
+        "status": "reference",
+        "merged_into_sense_id": null,
+        "source_url": "https://www.merriam-webster.com/dictionary/account"
       }
     ],
     "active_collocations": [
@@ -551,6 +608,13 @@
         "id": "deep:word_family:account:7d432bff68f56082",
         "source_row": 14,
         "source_path": "content/lexical/canonical/facts/shards/o0033-0064.json"
+      },
+      {
+        "id": "construction:account:fe2cf86f39b9a897",
+        "status": "reference",
+        "source_url": "https://www.merriam-webster.com/dictionary/account%20for",
+        "target_kind": "construction",
+        "merged_into_id": null
       }
     ],
     "collocations": [

@@ -8,13 +8,15 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:around:handoff-de74d1033da13a6a",
-        "pattern": "around/about + number/time",
-        "meaning_cn": "大约……",
-        "definition_en": "approximately a number or time",
-        "level": "L1",
+        "construction_id": "construction:around:o0251-o0300-come-conscious",
+        "pattern": "come around/round",
+        "meaning_cn": "恢复知觉；苏醒",
+        "definition_en": "become conscious again",
         "pos": "phrase",
-        "source": "semantic-review-handoff-v1"
+        "direction": "R",
+        "level": "L2",
+        "boundary": "昏迷或麻醉语境中的 come around/round 表示恢复知觉；来访语境仍表示过来拜访。",
+        "source": "https://www.oxfordlearnersdictionaries.com/definition/english/come-around"
       }
     ],
     "content_hash": "c18bdded4b654c35746cef7b7e9fc48517e4dd5f500ec489235cd61d4bb3c903",
@@ -77,16 +79,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在...周围",
-        "definition_en": "on every side of; surrounding",
+        "definition_cn": "围绕；在……周围；在……各处",
+        "definition_en": "surrounding or following a route about something; also in or to different parts of a place",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:around:673bebfb93f3527e",
-        "sense_label_en": "on every side of; surrounding",
+        "sense_label_en": "surrounding or following a route about something; also in or to different parts of a place",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "around a table 可指围着桌子；around the world 可指在世界各地或环游世界，不是位于地球外侧。"
       },
       {
         "collocations": [
@@ -102,13 +105,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "兜着圈子；旋转",
-        "definition_en": "in a circle or circular motion",
+        "definition_en": "in circular movement, or so as to face another or the opposite direction",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:around:20ba4a5e5f255376",
-        "sense_label_en": "in a circle or circular motion",
+        "sense_label_en": "in circular movement, or so as to face another or the opposite direction",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -126,13 +129,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "在附近；到处",
-        "definition_en": "in the vicinity; nearby",
+        "definition_en": "in the nearby area; in or to different parts of a place; present or available",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:around:47b7e76809715ee8",
-        "sense_label_en": "in the vicinity; nearby",
+        "sense_label_en": "in the nearby area; in or to different parts of a place; present or available",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -144,7 +147,7 @@
             "legacy_source_object_ids": [
               "sense:around:b3df4bb941155ce5:collocation:0"
             ],
-            "meaning_cn": "过来；恢复知觉",
+            "meaning_cn": "过来；来访",
             "phrase": "come around"
           }
         ],
@@ -180,7 +183,9 @@
             "source_operation_sha256": "70c5bd879e1ce69780944838100c26e4ec1a9c14902d00b416302573c3e752bf",
             "verification_status": "semantic_auditor_verified"
           }
-        ]
+        ],
+        "governing_pattern": "around + number/time",
+        "usage_note": "Approximately a quantity or time; about is a common paraphrase in this use."
       }
     ],
     "verification_summary": {
@@ -417,7 +422,22 @@
       "collocation:7a6d0f32065810f5b45b",
       "collocation:e4546fbf170222da438c"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:around:o0251-o0300-come-conscious",
+        "target_kind": "construction",
+        "status": "active",
+        "merged_into_id": null,
+        "reason": "Existing default recovery meaning relocated from wrong physical-visit parent; R-only, not a new semantic branch."
+      },
+      {
+        "id": "construction:around:handoff-de74d1033da13a6a",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "reason": "Approximate quantity/time is already an active around sense. Keep the number/time selector in that sense instead of a second sense-label construction."
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:641c24666b2ae9d062fc",

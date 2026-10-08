@@ -25,8 +25,8 @@
         "construction_id": "construction:check:baseline-v2-check-out",
         "direction": "R+P",
         "level": "L2",
-        "meaning_cn": "查看、调查或检查某物；与不及物 check out 的退房义区分",
-        "pattern": "check out sth"
+        "meaning_cn": "查看、调查或检查某物；代词放中间：check it out。与不及物 check out 的退房义区分",
+        "pattern": "check sth out / check out sth"
       }
     ],
     "content_hash": "0446823cde42f9a360908906522c66211efa34fb5c850a20b1514743c0cfb25e",
@@ -51,11 +51,27 @@
             "sense:check:dfc6edabfffc519c",
             "sense:check:6d7b0ef5f42f5f63"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "核对符号；对勾（主要美式英语）",
+          "label_en": "a tick-shaped mark indicating that an item is correct, completed, or selected",
+          "sense_ids": [
+            "sense:check:20261008-mark"
+          ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "制约；阻碍；遏制因素",
+          "label_en": "something that limits, restrains, or prevents growth or worsening",
+          "sense_ids": [
+            "sense:check:20261008-restraint"
+          ]
         }
       ],
       "core_meaning_cn": "先确认、核实或控制状态：可检查、制止、登记/寄存；名词还可指检查、支票或餐厅账单",
       "core_meaning_en": "to examine or verify; a written order to pay money; a mark indicating verification",
-      "mental_model_cn": "check facts → 核对；restaurant check（AmE）→ 餐厅账单；check baggage → 寄存/托运行李；bank check（AmE）/ cheque（BrE）→ 支票；check spread → 抑制。",
+      "mental_model_cn": "check facts → 核对；restaurant check（AmE）→ 餐厅账单；check baggage → 寄存/托运行李；bank check（AmE）/ cheque（BrE）→ 支票；check spread → 抑制。 书写指令的 check 可指对勾；权力、增长、扩散语境中的名词 check 可指制约。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -90,14 +106,14 @@
         "confidence": "medium",
         "definition_cn": "检查；核对",
         "definition_en": "examine something to verify its condition or accuracy",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "check (sth); check for sth; check whether/that ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:check:e0c22bfa3a8852a4",
         "sense_label_en": "examine something to verify its condition or accuracy",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -226,6 +242,50 @@
         "sense_label_en": "leave something in the temporary care of someone",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:check:20261008-mark",
+        "pos": "noun",
+        "definition_cn": "核对符号；对勾（主要美式英语）",
+        "definition_en": "a tick-shaped mark indicating that an item is correct, completed, or selected",
+        "sense_label_en": "a tick-shaped mark indicating that an item is correct, completed, or selected",
+        "transitivity": "nonverb",
+        "governing_pattern": "put a check beside an item (chiefly AmE)",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 6,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/check_2",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Basic written-instruction selector is not a bank payment or the abstract act of checking. One recognition branch, no check-box UI engineering."
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:check:20261008-restraint",
+        "pos": "noun",
+        "definition_cn": "制约；阻碍；遏制因素",
+        "definition_en": "something that limits, restrains, or prevents growth or worsening",
+        "sense_label_en": "something that limits, restrains, or prevents growth or worsening",
+        "transitivity": "nonverb",
+        "governing_pattern": "a check on/to sth; keep sth in check",
+        "level": "L2",
+        "depth": "recognition_plus",
+        "sort_order": 7,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/check_2",
+            "accessed_date": "2026-10-08",
+            "evidence_status": "source_checked",
+            "supports": "Nominal control is needed to distinguish a check on power from an inspection. The existing restraint verb alone did not represent the nominal reading; no separate political-law inventory."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -1092,6 +1152,16 @@
         "merged_into_sense_id": null,
         "source_row": 2194,
         "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
+      },
+      {
+        "sense_id": "sense:check:20261008-mark",
+        "status": "active",
+        "merged_into_sense_id": null
+      },
+      {
+        "sense_id": "sense:check:20261008-restraint",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
