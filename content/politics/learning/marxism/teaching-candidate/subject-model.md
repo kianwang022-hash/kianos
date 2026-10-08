@@ -3,7 +3,7 @@
 当前使用范围：本资产已随 #1151 落入 main；沿既有备课复核所审范围供 Chat 复用。`teaching-candidate` 目录名及文末日期记录是历史定位，不能单独判定当前采纳状态；交付范围见[马原 Acceptance](../ACCEPTANCE.md#current-supplemental-scope--reviewed-target-delivery)。来源未决项仍有效，不把本稿、已审精记或测试结果当作全科完整覆盖、真实学习或掌握证明。
 
 
-本稿保留既有后台讲解、关系校验和查漏用途；源本压缩直接读乘风，不以本稿正文为母本。当前学习分工及主模型记忆/碎片记忆分别见 [Learning §2](../../../LEARNING_CONTRACT.md#2-active-first-round-learning-chain)、[§0.7](../../../LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning) 和 [§6.1](../../../LEARNING_CONTRACT.md#61-memory-admission-proactive-precision-with-source-bounded-scope)。下方旧精记清单是解释/可选练习支持，不是已经按指定腿姐材料筛过的必背基线；不得直接恢复成整组背诵任务。导论本轮内容草稿在[源本压缩小样](#c00-source-review)。不修改正式单元、题目答案、学习记录、卡片或 Acceptance。
+本稿保留既有后台讲解、关系校验和查漏用途；源本压缩直接读乘风，不以本稿正文为母本。当前学习分工及主模型记忆/碎片记忆分别见 [Learning §2](../../../LEARNING_CONTRACT.md#2-active-first-round-learning-chain)、[§0.7](../../../LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning) 和 [§6.1](../../../LEARNING_CONTRACT.md#61-memory-admission-proactive-precision-with-source-bounded-scope)。下方旧精记清单保留为解释/可选练习支持；**当前 2027 retention 去向以本页 [C00 源本 review](#c00-source-review) 与原对象的 current `handbook_alignment` 为准**，不得再从历史卡表倒推必背基线。导论当前完成的源本压缩/retention review 也在该锚点。不修改正式题目答案或真实学习记录。
 
 <a id="c00-fixed-spine"></a>
 
@@ -49,7 +49,7 @@
 
 ## 导论讲解与准确恢复支持（非默认背诵清单）
 
-以下保留旧首课的解释素材，只在请求教学或具体查阅时使用。复习默认直接使用乘风源本压缩；这些编码分组不能自行确立记忆必要性，也不要求逐组背诵。经 Learning §6.1 筛选后，先判断能否借主模型共同记忆，再判断是否需要独立精记；未完成的来源核对继续保持未决。
+以下保留旧首课的解释素材，只在请求教学或具体查阅时使用。复习默认直接使用乘风源本压缩；这些编码分组不能自行确立记忆必要性，也不要求逐组背诵。经 Learning §6.1 筛选后，先判断能否借主模型共同记忆，再判断是否需要独立精记；**仍存在的 item-scoped Source gaps（例如下文《哲学的贫困》“最早”范围）继续保持未决，而不是把整个 C00 review 重新标成未完成。**
 
 六方面内涵分别恢复创立者与后继发展、自然社会思维一般规律、社会主义必然代替资本主义并最终实现共产主义的学说、无产阶级与全人类解放和每个人自由全面发展、无产阶级政党与社会主义国家的指导思想、指引人民创造美好生活的行动指南。前两方面说明理论身份和对象，中间两方面说明制度方向与解放目标，后两方面说明政治地位和行动功能；不能把这六句当成彼此无条件证明。
 
@@ -109,7 +109,7 @@ K05四特征逐项落到作用：科学性强调反映规律与世界观方法�
 
 ## 导论｜乘风主模型 + 2027 腿姐 retention review
 
-**使用范围：**直接复核《★27乘风考点一本通上册（马原+思修）》PDF6–9／书页5–8的正文、导图和表格。源书第一节为K01内涵构成、K02立场观点方法、K03创立、K04发展，第二节为K05特征、K06价值。以下保留既有C00六节点关系索引，逐段标明源书位置；不是改写原书顺序或新建第二套模型。本文是原位置更新的内容草稿，不是Kian已学习/接受的证明。
+**使用范围：**直接复核《★27乘风考点一本通上册（马原+思修）》PDF6–9／书页5–8的正文、导图和表格。源书第一节为K01内涵构成、K02立场观点方法、K03创立、K04发展，第二节为K05特征、K06价值。以下保留既有C00六节点关系索引，逐段标明源书位置；不是改写原书顺序或新建第二套模型。**本文是原位置已经完成并采用的 C00 quick-review Content；Content 完成不等于 Kian 已学习、接受或掌握。**
 
 **记忆筛选已核：**本轮实际读取 2027 腿姐《冲刺背诵手册》上册 PDF p7–9（专题一“马、恩、列经典著作和标志理论”、专题二“马克思主义的构成、特征”）。QUALITY_REPORT 的 UNCLEAR 不涉及 p7–9，因此可用于本章 retention 判断。筛选只决定主动恢复价值与深度，不改乘风主模型。2027《背练结合自测本》不参与本轮筛选；LEG26 仅保留历史基线。
 
