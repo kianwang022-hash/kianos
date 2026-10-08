@@ -7,7 +7,11 @@ This file does not own Source/Content/Learning semantics, Acceptance Truth or le
 
 ## Work Cursor
 
-**Active local engineering task:** none.  
+**Active local engineering task:** none.
+**Authorized learner-perspective Content audit:** C00–C06 closed with item-scoped Source limits; STOP. Actual commit/readback receipt governs save status.
+**Content evidence:** [原C06反审收口记录](teaching-candidate/ch06.brief.md#ethics-learner-audit-final-20261008).
+**Real learner acceptance:** UNKNOWN; no Runtime/Recall records written.
+**Next:** only on explicit instruction, real beginner C00→C02 learning and unaided retrieval.
 **Acceptance Truth:** `content/politics/learning/ethics-law/ACCEPTANCE.md`.  
 **Learner / execution evidence:** private native Runtime only.
 
