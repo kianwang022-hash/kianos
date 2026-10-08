@@ -27,16 +27,18 @@ function catalogMap(catalog) {
     .map((row) => [String(row?.id || ''), row]).filter(([id]) => id));
 }
 
-const MARXISM_BASELINE_RESIDUAL_ROLES = new Set([
-  'LEG27_RESIDUAL_RECOMMENDED',
-  'LEG27_MAIN_PROMPT_WITH_RESIDUAL_COMPONENT'
+const MARXISM_BASELINE_ACTIVE_MEMORY_ROLES = new Set([
+  'LEG27_MAIN_PROMPT_ABSORBED',
+  'LEG27_MAIN_PROMPT_ABSORBED_WITH_CORE_EXTRA',
+  'LEG27_MAIN_PROMPT_WITH_RESIDUAL_COMPONENT',
+  'LEG27_RESIDUAL_RECOMMENDED'
 ]);
 
 export function politicsMemoryCandidateRecommendedByContent(candidate) {
   const subject = clean(candidate?.subject, 80);
   if (subject !== 'marxism') return true;
   const role = clean(candidate?.handbook_alignment, 120);
-  return MARXISM_BASELINE_RESIDUAL_ROLES.has(role);
+  return MARXISM_BASELINE_ACTIVE_MEMORY_ROLES.has(role);
 }
 
 export function validatePoliticsMemoryPlan(input, catalog, {
