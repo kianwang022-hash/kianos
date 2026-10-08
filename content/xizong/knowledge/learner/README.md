@@ -69,7 +69,9 @@ For **circulation-b03 through circulation-b12**, select the corresponding curren
 
 ### Accepted A2 Respiratory teaching basis
 
-For **respiratory-r01 through respiratory-r12**, select the corresponding `b01`–`b12` file from [A2 teaching inputs](../../projection/a2-respiratory/chat/), its canonical Block and current Learning slice. [Adoption evidence](../systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006) remains off the normal reading path. Preserve R12's unadopted AB/SB change and the current Source/visual holds. Only exact admitted [A2 cues](./a2-respiratory-learning-cues.json) resolve prepared answers; Core-only destinations are not prepared cards.
+For **respiratory-r01**, use the Current [canonical R1 Block §1A](../systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md) as the one continuous mechanical model and in-model title〔full Prompt〕 text frame. Start with the A2 System and R1's original Block orientation (§0), then teach the existing mechanism/pressure/elastic-load/airway-load/measurement relations at their natural positions and expand exact canonical Core only as needed. R1's earlier `b01-teaching.md` may supply reviewed explanatory presentation but cannot replace §1A with a KP list or second topology. The earlier learning entry that introduces measurement terminology first remains a **preparatory reading order**, not a causal arrow making pulmonary function values drive ventilation. Original Source/MedicalVisual gates and R1's Learn/Recall/evidence paths remain unchanged.
+
+For **respiratory-r02 through respiratory-r12**, continue selecting the corresponding `b02`–`b12` file from [A2 teaching inputs](../../projection/a2-respiratory/chat/), its canonical Block and current Learning slice. [Adoption evidence](../systems/a2-respiratory/ACCEPTANCE.md#a2-teaching-adoption-20261006) remains off the normal reading path. Preserve R12's unadopted AB/SB change and the current Source/visual holds. Only exact admitted [A2 cues](./a2-respiratory-learning-cues.json) resolve prepared answers; Core-only destinations are not prepared cards.
 
 ### Accepted A3 Urinary teaching basis
 

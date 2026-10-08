@@ -76,7 +76,27 @@ check(invalid.status===2,'unknown CLI options fail explicitly');
 const respiratory=await inspectXizongContent({systemId:'respiratory',blockRef:'r01'});
 const modelR1 = formatXizongModelFrame(respiratory);
 check(respiratory.canonicalBlock.kpRecords.every(k => modelR1.includes(k.title+'〔'+k.prompt+'〕')),'R1 natural model uses exact canonical title and full Prompt, even when model text abbreviated it');
-check(modelR1.includes('空气怎样真正进出肺泡') && modelR1.includes('再跑一遍通气机械电影'),'R1 fixed model relationships remain in original text frame');
+const rawR1=fs.readFileSync(path.join(repo,respiratory.canonicalBlock.sourcePath),'utf8');
+const authoredR1=rawR1.match(/同一模型上的自然节点〔完整 Prompt〕[\s\S]*?```text\n([\s\S]*?)\n```/)[1];
+check(modelR1.endsWith(authoredR1),'R1 frame reads exact same authored causal model, not a rewritten KP table');
+check((authoredR1.match(/〈/g)||[]).length===15,'R1 exactly 15 Current in-model full Prompt annotations');
+const unannotatedR1=authoredR1.replace(/〈[^〈〉\n]*?〔[^〔〕\n]+〕〉/g,'');
+check(!/[〈〉〔〕]/.test(unannotatedR1),'R1 model remains independent with every Prompt hidden');
+check([
+ '膈肌、肋间外肌 → 胸廓容积↑',
+ '胸膜腔内压更负 → 跨肺压↑ → 肺扩张、肺容积↑',
+ '肺泡内压暂低于大气压（直接动力）→ 空气经传导气道流入肺泡',
+ '肺泡内压暂高于大气压 → 空气流出',
+ '肺组织弹性 + 肺泡表面张力',
+ '口径减小 → 气道阻力↑',
+ 'VE = VT × f',
+ 'TLC 低于正常下限'
+].every(s=>unannotatedR1.includes(s)),'R1 independent model retains physiology, load and diagnostic measurement boundaries');
+check(
+ unannotatedR1.indexOf('① 通气机械电影')<unannotatedR1.indexOf('② 同一口气的两类负荷')
+ && unannotatedR1.indexOf('② 同一口气的两类负荷')<unannotatedR1.indexOf('③ 同一机制的测量读数'),
+ 'R1 puts mechanism first and marks measurement as observation, not causal upstream'
+);
 const tamperedR1=structuredClone(respiratory);
 tamperedR1.canonicalBlock.kpRecords[0].prompt='unrelated-unique-invalid';
 assert.throws(()=>formatXizongModelFrame(tamperedR1),/XIZONG_MODEL_FRAME_/);checks++;
@@ -149,6 +169,8 @@ assert.throws(()=>assertInspectionSupportCoverage(missingBlock));checks++;
 // Normal learning consumes the rules and Current content, not this audit report.
 const learningRoute = fs.readFileSync(path.join(repo, 'content/xizong/knowledge/learner/README.md'), 'utf8');
 const b1Route = learningRoute.split('### Accepted B1 teaching basis')[1]?.split('### Accepted B2 teaching basis')[0] || '';
+const r1Route = learningRoute.split('### Accepted A2 Respiratory teaching basis')[1]?.split('### Accepted A3 Urinary teaching basis')[0] || '';
+check(r1Route.includes('respiratory-r01') && r1Route.includes('canonical R1 Block §1A') && r1Route.includes('preparatory reading order'), 'normal R1 learning consumes one canonical causal model, not an independently ordered KP tree');
 const entryRoute = learningRoute.split('## Chat-led Block reading entry')[1]?.split('## Teaching basis resolution')[0] || '';
 check(entryRoute.includes('§0, §4') && entryRoute.includes('§5 and §13') && entryRoute.includes('Lecture Replacement Contract'), 'normal entry restores the existing teaching/interaction rules');
 check(!/node\s+.*inspect-xizong-content/.test(learningRoute), 'normal entry has no executable inspection prerequisite');
