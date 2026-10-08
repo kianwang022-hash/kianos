@@ -156,10 +156,10 @@
     "chat_role": "Chat may form bounded diagnosis hypotheses and return the smallest useful repair plan. A diagnosis remains a hypothesis until discriminating or later evidence supports it."
   },
   "lecture_runtime_contract": {
-    "lecture": "首次学习必须完整接触的原始教学材料：解释顺序、原图、表格、例子、题旁拓展与讲义配套题。",
+    "lecture": "原始 Lecture 是需要如实接触/校准的 Source（解释、原图、表格、例子、题旁拓展与讲义配套题），不是 Chat 主导模型教学的排序指令。完整 Lecture sweep 可在 System 模型可用后集中进行；当前理解依赖的原图/表格须当场查看，未实际接触不得记录为已完成。",
     "source_contact_unit": "Source-contact segment / natural Lecture subsection 是连续原讲义学习的执行单位，不是第五层 canonical hierarchy，也不自动等于 Logic Group。具体粒度由 System-specific Learning owner 决定。",
     "kianos": "负责框架、注意力边界、机制定位、Source-contact / return guidance、TTSX checkpoint、串联调度、主动 Recall、压缩与后续复习；不得变成第二本需要与 Lecture 重复通读的长讲义。",
-    "first_pass_rule": "Lecture-first。KianOS 告诉 learner 现在抓什么、哪些先不展开、何时到达真实 Source boundary、是否有真实绑定 TTSX、以后在哪里收回，并在学习后把知识从脑中叫出来。"
+    "first_pass_rule": "默认 Chat-led：System 定位 → Block 完整模型 → 沿同一医学模型连续教学（非逐 KP 顺排）→ 自然节点嵌入知识标题〔完整正式 Prompt〕→ 同模型压缩与主动恢复。必要 Source 图表当场查看；完整 Lecture sweep 可在 System 模型建立后集中校准；仅在真实 Source-contact 小节闭合且有 reviewed binding 时释放 TTSX。用户选择先读讲义也不得产生第二知识模型、改变医学/Prompt 语义或伪造 Source/Recall/Complete 证据。"
   },
   "lecture_attached_ttsx": {
     "role": "FIRST_PASS_LOCAL_LECTURE_PROBE",
