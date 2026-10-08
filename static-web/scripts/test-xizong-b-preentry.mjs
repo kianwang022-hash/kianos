@@ -1,4 +1,4 @@
-import { beforePromptCalibration } from './xizong-calibration-test-support.mjs';
+import { beforePromptCalibration, assertReviewedA1Preentry } from './xizong-calibration-test-support.mjs';
 // Fixed, independently reviewed raw Current spans and rows; never regenerate
 // the B oracle from compileXizongBlockPreentry or its heading helpers.
 import fs from 'node:fs';
@@ -114,12 +114,12 @@ check('Non-B baseline covers all 121 native Blocks across the other seven System
   assert.equal(frozen.length, 121);
   assert.deepEqual(current, frozen);
 });
-for (const prior of baseline.blocks) check(`${prior.block_id}: non-B raw and pre-entry byte-values unchanged`, () => {
+for (const prior of baseline.blocks) check(`${prior.block_id}: non-B protected content and reviewed pre-entry`, () => {
   const block = native.loadXizongBlock(prior.system_id, prior.block_id);
   if(prior.block_id==='circulation-b01' && prior.system_id==='circulation') {
     // B1 relocated its packaging into the canonical owner. Keep its independent
     // Core semantic golden and frozen MI-G/MI-D route below; never
-    // re-sign the frozen raw snapshot or relax the other 120 Blocks.
+    // re-sign the frozen raw snapshot or relax any unreviewed Block.
     assert.ok(block.knowledge);
     assert.equal(sha(JSON.stringify(block.kpRecords.map(k=>Object.fromEntries(
       ['kpId','title','prompt','detailMarkdown','sourceLocator','outlineLocator'].map(key=>[key,k[key]]))))),
@@ -130,6 +130,9 @@ for (const prior of baseline.blocks) check(`${prior.block_id}: non-B raw and pre
     // matched the unchanged frozen fixture. Never re-sign that fixture.
     assert.equal(sha(JSON.stringify(current.memoryRouting)),'ad48b07424d2b320d85be403662aa18e36a1fa3380ab2910e056dfcafff49081');
     return;
+  } else if (prior.system_id === 'circulation') {
+    assert.equal(assertReviewedA1Preentry(block, production.compileXizongBlockPreentry(block),
+      fs.readFileSync(path.join(root, block.sourcePath), 'utf8')), true);
   } else if (!['circulation','respiratory','urinary'].includes(prior.system_id)) {
     assert.equal(sha(fs.readFileSync(path.join(root, block.sourcePath))), prior.raw_sha256);
     assert.equal(sha(JSON.stringify(production.compileXizongBlockPreentry(block))), prior.preentry_sha256);

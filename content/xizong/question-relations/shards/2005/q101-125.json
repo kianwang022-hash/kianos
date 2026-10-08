@@ -128,12 +128,16 @@
       "question_truth_path": "content/xizong/questions/shards/2005/q101-125.json",
       "question_truth_blob_sha": "eb85a5db580a0c6bd9c0413e3b14fc4582695733",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
-      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d"
+      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d",
+      "knowledge_revalidated_blob_sha": "7db1d112d0ff166fe48823313fa0f20ccf4d17bb"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B1 KP22 arterial-pressure determinant table: stroke volume is the primary reflected variable for systolic pressure under the usual comparison conditions.",
-      "old_mapping_inherited": false
+      "basis": "题干限定一般情况下；KP22以第一近似指出SBP主要反映SV/射血，并保留多因素边界，直接覆盖原Primary的收缩压决定轴。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_B1_DEEP_REVIEW_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Actual re-review of this unchanged official question, options and answer against Current B1 Core; existing Primary/Block-level/supporting identities retained. Historical and Current B1 Core are not asserted equal."
     }
   },
   {
@@ -147,12 +151,16 @@
       "question_truth_path": "content/xizong/questions/shards/2005/q101-125.json",
       "question_truth_blob_sha": "eb85a5db580a0c6bd9c0413e3b14fc4582695733",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
-      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d"
+      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d",
+      "knowledge_revalidated_blob_sha": "7db1d112d0ff166fe48823313fa0f20ccf4d17bb"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact B1 KP22 arterial-pressure determinant table: total peripheral resistance is the primary reflected variable for diastolic pressure under the usual comparison conditions.",
-      "old_mapping_inherited": false
+      "basis": "题干限定一般情况下；KP22以第一近似指出DBP主要反映TPR，并保留非单一变量决定的边界，原Primary成立。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_B1_DEEP_REVIEW_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Actual re-review of this unchanged official question, options and answer against Current B1 Core; existing Primary/Block-level/supporting identities retained. Historical and Current B1 Core are not asserted equal."
     }
   },
   {
@@ -389,15 +397,15 @@
       "question_truth_blob_sha": "eb85a5db580a0c6bd9c0413e3b14fc4582695733",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block10_心律失常_学习阅读版_v2_最终执行版.md",
       "knowledge_blob_sha": "ff2db06fde366d999567669d75523ffd6d552185",
-      "knowledge_revalidated_blob_sha": "7417fd68a8a9abd24510faa1f884055680175987"
+      "knowledge_revalidated_blob_sha": "a62b6e4be97f2b1d75947ee9f0db63d68766f1d0"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact question semantics matched canonical ECG versus Holter roles in B10 KP01.",
+      "basis": "当前正式题干、全选项、答案已读，且formal truth逐字段与原question witness一致。原review basis继续成立：KP01 explicitly retains Holter for correlating palpitations/syncope symptoms with rhythm, supporting C rather than ischemia imaging or infection/necrosis studies.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP01 explicitly retains Holter for correlating palpitations/syncope symptoms with rhythm, supporting C rather than ischemia imaging or infection/necrosis studies."
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 7417fd68a8a9abd24510faa1f884055680175987 was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -412,12 +420,15 @@
       "question_truth_blob_sha": "eb85a5db580a0c6bd9c0413e3b14fc4582695733",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md",
       "knowledge_blob_sha": "01744dd81d0a39fd39b1a227e7ce28aa83d2c46e",
-      "knowledge_revalidated_blob_sha": "ddc83a529a9c03c2598e92733e0ea3cd06bafc1d"
+      "knowledge_revalidated_blob_sha": "d3e9de499c6a2030176033c5033f881c8a7fbacc"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Current B6 KP23 owns modality roles for post-MI viability/perfusion assessment; the historical answer uses radionuclide myocardial perfusion imaging, while Current owner distinguishes perfusion imaging from PET metabolic viability.",
-      "old_mapping_inherited": false
+      "basis": "正式B核素心肌灌注为历史题源选择；Current KP23仍明确核素看灌注、PET看代谢/存活，新增运动ECG门槛不改变这一检查分层。原Primary可返回该对照，不能把B重认成Current唯一最佳活力检查。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness ddc83a529a9c03c2598e92733e0ea3cd06bafc1d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

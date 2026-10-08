@@ -154,13 +154,17 @@
       "question_truth_path": "content/xizong/questions/shards/2025/q051-075.json",
       "question_truth_blob_sha": "1e8a101e96a3f69f8adf54a73fa0a6c5b13c269e",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
-      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d"
+      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d",
+      "knowledge_revalidated_blob_sha": "5e2e43f58297d1cfb70867faa94ebe706abf42b6"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current B12 KP14 explicitly preserves the Study SIRS thresholds, including HR >90 rather than <90; relation is Source-bound and not a claim that SIRS equals modern Sepsis criteria."
+      "basis": "KP14当前完整保留SIRS心率>90次/min，故<90的B不属于列出的指标；新单位和SIRS不单独确诊感染/脓毒症边界必须保留，不用旧筛查替代现代诊断。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness b546de11e2945c745bafc3a48b705a46ad98009d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "circulation-b12-kp14"
   },

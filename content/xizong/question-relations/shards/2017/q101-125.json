@@ -110,13 +110,17 @@
       "question_truth_path": "content/xizong/questions/shards/2017/q101-125.json",
       "question_truth_blob_sha": "ec52de48a4c58a51c30fee42fb4340514095519a",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md",
-      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d"
+      "knowledge_blob_sha": "8568c5d170be506620b4bbeffb1b6c0a14f18b5d",
+      "knowledge_revalidated_blob_sha": "7db1d112d0ff166fe48823313fa0f20ccf4d17bb"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: right-heart failure raises systemic venous and capillary hydrostatic pressure, increasing filtration and producing edema. Circulation B1 KP26 explicitly owns capillary hydrostatic-pressure elevation as the heart-failure edema mechanism."
+      "basis": "KP26明确心衰/淤血通过毛细血管静水压升高增加滤过并导致水肿；原Primary直接对应右心衰水肿机制。",
+      "source_revision_revalidated": "A1_B1_DEEP_REVIEW_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Actual re-review of this unchanged official question, options and answer against Current B1 Core; existing Primary/Block-level/supporting identities retained. Historical and Current B1 Core are not asserted equal."
     }
   },
   {
@@ -297,16 +301,16 @@
       "question_truth_blob_sha": "ec52de48a4c58a51c30fee42fb4340514095519a",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md",
       "knowledge_blob_sha": "6d3ea9aa5df2e7520da402f579fdb2722cd16259",
-      "knowledge_revalidated_blob_sha": "afece5718f8b70cd89c75cd1b674b71b993d2d12"
+      "knowledge_revalidated_blob_sha": "56b9eb86254e22775be1cea13ae63c312acb561a"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: the characteristic small-vessel lesion of chronic/benign hypertension is hyaline arteriolosclerosis. Circulation B5 KP08 explicitly owns this lesion and mechanism.",
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP08 keeps hyaline arteriolosclerosis and its wall-deposition mechanism, matching A rather than fibrinoid change, atheroma or medial calcification."
+      "basis": "原effective blob中每个已列Primary/supporting（无显式锚时整Block）的native Core与identity/title均和Current逐字相同；题干、选项、答案及题目身份亦与原question_truth_blob相同。因此仅Prompt/模型包装变动，不需要以本批base替代历史见证或改动原target。此为已接受医学判定的历史连续性证明，不是重新背书旧答案作现行医学事实。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness afece5718f8b70cd89c75cd1b674b71b993d2d12 was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -321,13 +325,16 @@
       "question_truth_blob_sha": "ec52de48a4c58a51c30fee42fb4340514095519a",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block5_高血压与动脉粥样硬化_学习阅读版_v2_最终执行版.md",
       "knowledge_blob_sha": "6d3ea9aa5df2e7520da402f579fdb2722cd16259",
-      "knowledge_revalidated_blob_sha": "11e4f45ca833d57c1d88cdd26bbf524b04b51e46"
+      "knowledge_revalidated_blob_sha": "56b9eb86254e22775be1cea13ae63c312acb561a"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: myocardial infarction most commonly arises on coronary atherosclerotic disease; B5 KP26 explicitly maps coronary atherosclerosis, especially LAD involvement, to CHD/MI."
+      "basis": "心梗常见冠脉病变正式C粥样硬化。Current KP26冠脉行仍写LAD常见→CHD/MI；改动在脑、肠和主动脉/瓣膜后果，不改变冠脉AS→MI归属。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 11e4f45ca833d57c1d88cdd26bbf524b04b51e46 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   }
 ]

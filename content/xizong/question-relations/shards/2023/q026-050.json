@@ -231,16 +231,16 @@
       "question_truth_blob_sha": "8681661b5d1cda4af4c48002e9215cac092e935f",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block6_冠心病与心肌梗死_学习阅读版_v1_Batch3冻结版.md",
       "knowledge_blob_sha": "01744dd81d0a39fd39b1a227e7ce28aa83d2c46e",
-      "knowledge_revalidated_blob_sha": "40a1cdae22d77a2ce2da2cc03568003d5ace6a1c"
+      "knowledge_revalidated_blob_sha": "d3e9de499c6a2030176033c5033f881c8a7fbacc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: RV infarction can cause hypotension through inadequate LV preload; in the absence of pulmonary congestion, cautious fluid loading can restore filling. Circulation B6 KP32 explicitly owns this.",
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "KP32 retains RV output failure → reduced LV preload → hypotension, and maintaining/supplementing preload versus further return reduction with nitrates/strong diuresis. B remains the existing route under the retained filling/congestion conditions."
+      "basis": "原effective blob中每个已列Primary/supporting（无显式锚时整Block）的native Core与identity/title均和Current逐字相同；题干、选项、答案及题目身份亦与原question_truth_blob相同。因此仅Prompt/模型包装变动，不需要以本批base替代历史见证或改动原target。此为已接受医学判定的历史连续性证明，不是重新背书旧答案作现行医学事实。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 40a1cdae22d77a2ce2da2cc03568003d5ace6a1c was loaded through the native parser; the original Primary/supporting scope (or whole Block for a Block-level route) has exactly equal Core and identity/title at Current. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "circulation-b06-kp32"
   },
@@ -255,13 +255,16 @@
       "question_truth_blob_sha": "8681661b5d1cda4af4c48002e9215cac092e935f",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block8_心肌与心包_学习阅读版_v1_Batch4冻结版.md",
       "knowledge_blob_sha": "628349002b475f336a1f86c8190def7b4a14523f",
-      "knowledge_revalidated_blob_sha": "2f53c65b59984e5f1fce4d76f14a2402ad5143be"
+      "knowledge_revalidated_blob_sha": "ed1bcd10822080099ef884cc62ff3a7b9df765f6"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: acute myocarditis more often shows active myocyte-injury biomarkers than stable chronic DCM, while echo/BNP can overlap. B8 owns myocarditis-vs-cardiomyopathy discrimination; relation remains Block-level."
+      "basis": "正式B仍利用急性心肌损伤证据区分急性心肌炎与慢性DCM；不以共通超声/BNP单独完成鉴别。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 2f53c65b59984e5f1fce4d76f14a2402ad5143be was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

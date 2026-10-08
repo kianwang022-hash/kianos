@@ -69,6 +69,28 @@ const run=spawnSync(process.execPath,[cli,'circulation','b01','circulation-b01-k
 check(run.status===0 && JSON.parse(run.stdout).requestedKpId==='circulation-b01-kp24','CLI works outside repository cwd and /tmp symlink');
 const modelCli=spawnSync(process.execPath,[cli,'circulation','b01','--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
 check(modelCli.status===0 && modelCli.stdout.trim()===modelB1,'content-only model CLI resolves identical Current canonical frame');
+// A1's accepted models use h1 and h2 headings. Exercise the real Current
+// consumer for every Block, including the h1 case that previously failed.
+let a1KpCount=b1.canonicalBlock.kpRecords.length;
+for (let n=2;n<=12;n++) {
+  const ref=`b${String(n).padStart(2,'0')}`;
+  const current=await inspectXizongContent({systemId:'circulation',blockRef:ref});
+  const source=fs.readFileSync(path.join(repo,current.canonicalBlock.sourcePath),'utf8');
+  const authored=source.match(/同一模型上的自然节点〔完整 Prompt〕[^\n]*\n[\s\S]*?```text\n([\s\S]*?)\n```/)?.[1];
+  const rendered=formatXizongModelFrame(current);
+  check(Boolean(authored) && rendered.endsWith(authored),`${ref}: consumer preserves the authored medical model byte for byte`);
+  const annotations=[...authored.matchAll(/〈([^〈〉\n]*?〔[^〔〕\n]+〕)〉/g)].map(m=>m[1]);
+  const expected=current.canonicalBlock.kpRecords.map(k=>k.title+'〔'+k.prompt+'〕');
+  check(annotations.length===expected.length && expected.every(text=>annotations.filter(a=>a===text).length===1),`${ref}: every original full title/Prompt occupies one authored node`);
+  const medicine=authored.replace(/〈[^〈〉\n]*?〔[^〔〕\n]+〕〉/g,'');
+  check(!/[〈〉〔〕]/.test(medicine),`${ref}: all Prompt annotations can be hidden without leaving annotation fragments`);
+  const wrong=structuredClone(current);wrong.canonicalBlock.kpRecords[0].prompt+=' invalid';
+  assert.throws(()=>formatXizongModelFrame(wrong),/XIZONG_MODEL_FRAME_/);checks++;
+  a1KpCount+=expected.length;
+}
+check(a1KpCount===312,'all 12 A1 models retain all 312 canonical KPs');
+const h1Cli=spawnSync(process.execPath,[cli,'circulation','b12','--model'],{cwd:'/tmp',env:{...process.env,KIANOS_REPO_ROOT:repo},encoding:'utf8',maxBuffer:32*1024*1024});
+check(h1Cli.status===0 && h1Cli.stdout.includes('① 最高优先级门：有无有效脉搏？'),'actual CLI accepts the h1 canonical model and preserves its first decision');
 const invalid=spawnSync(process.execPath,[cli,'--unknown'],{encoding:'utf8'});
 check(invalid.status===2,'unknown CLI options fail explicitly');
 // Group/Block supports must be visible in the human inspection, not only
@@ -169,6 +191,9 @@ assert.throws(()=>assertInspectionSupportCoverage(missingBlock));checks++;
 // Normal learning consumes the rules and Current content, not this audit report.
 const learningRoute = fs.readFileSync(path.join(repo, 'content/xizong/knowledge/learner/README.md'), 'utf8');
 const b1Route = learningRoute.split('### Accepted B1 teaching basis')[1]?.split('### Accepted B2 teaching basis')[0] || '';
+const a1Route = learningRoute.split('### Accepted B2 teaching basis')[1]?.split('### Accepted A2 Respiratory teaching basis')[0] || '';
+check(a1Route.includes('canonical B2 Block') && a1Route.includes('canonical A1 Block') && a1Route.includes('同一模型上的自然节点〔完整 Prompt〕'),'B2–B12 learning routes select the current canonical models');
+check(a1Route.includes('current canonical/support owners controlling facts and conditions') && a1Route.includes('Only the existing [A1 cue admission]'),'retained teaching explanations do not replace current facts or Memory admission');
 const r1Route = learningRoute.split('### Accepted A2 Respiratory teaching basis')[1]?.split('### Accepted A3 Urinary teaching basis')[0] || '';
 check(r1Route.includes('respiratory-r01') && r1Route.includes('canonical R1 Block §1A') && r1Route.includes('preparatory reading order'), 'normal R1 learning consumes one canonical causal model, not an independently ordered KP tree');
 const entryRoute = learningRoute.split('## Chat-led Block reading entry')[1]?.split('## Teaching basis resolution')[0] || '';
@@ -185,4 +210,4 @@ const routerLinks = [...learningRoute.matchAll(/\]\(([^)]+)\)/g)].map(m => m[1])
 check(routerLinks.every(url => fs.existsSync(path.resolve(repo, 'content/xizong/knowledge/learner', decodeURI(url.split('#')[0])))), 'every local content-routing target exists');
 
 check(status()===before,'inspection did not mutate repository');
-console.log(`PASS ${checks} Xizong content-inspection checks; native B1/B6 + B/D1 + A2/R1/R3; 7 Content and 7 scope-corruption cases, no browser/learner-state writes.`);
+console.log(`PASS ${checks} Xizong content-inspection checks; native A1 B1–B12 + B/D1/D8 + A2/R1/R3; exact models and negative identity/scope cases, no browser/learner-state writes.`);

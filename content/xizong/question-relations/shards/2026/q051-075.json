@@ -132,13 +132,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q051-075.json",
       "question_truth_blob_sha": "b24acbdebbe3af5ee90e7e746e5c90d9849160c8",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
-      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d"
+      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d",
+      "knowledge_revalidated_blob_sha": "5e2e43f58297d1cfb70867faa94ebe706abf42b6"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current B12 explicitly freezes adult basic CPR compression-to-ventilation ratio 30:2; Block-level is used because the CPR subsection lacks a stable embedded KP marker."
+      "basis": "当前KP17明确成人基础CPR尚无高级气道时30:2，支持D；已有高级气道才是连续按压配10次/min。保留原Block归属，但修正旧basis：当前KP17已有稳定身份，不能继续声称“无稳定嵌入marker”。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness b546de11e2945c745bafc3a48b705a46ad98009d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -151,13 +155,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q051-075.json",
       "question_truth_blob_sha": "b24acbdebbe3af5ee90e7e746e5c90d9849160c8",
       "knowledge_path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block12_休克与心脏骤停_学习阅读版_v2_最终执行版.md",
-      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d"
+      "knowledge_blob_sha": "b546de11e2945c745bafc3a48b705a46ad98009d",
+      "knowledge_revalidated_blob_sha": "5e2e43f58297d1cfb70867faa94ebe706abf42b6"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current B12 KP05 explicitly states compensated/early shock may keep SBP normal or slightly high while DBP rises, pulse pressure narrows and heart rate increases."
+      "basis": "KP05当前代偿期SBP正常/稍升、DBP升高、脉压缩小、HR快，支持B不是典型代偿表现；重度脉率>200源文疑点仍hold，不以其刷新本题或扩写新分级。",
+      "source_revision_revalidated": "A1_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness b546de11e2945c745bafc3a48b705a46ad98009d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "circulation-b12-kp05"
   },
