@@ -489,3 +489,19 @@ Private learner/browser/conversation evidence only. No engineering gate in this 
 
 **当前批次合并状态及 merge/main 的证据必须以实际 PR 与回读结果为准；这段记录本身不代表已经部署。**
 
+
+
+<a id="a3-b11-b12-content-model-quality-20261008"></a>
+## 2026-10-08｜A3 B11–B12 Content-first 连续模型与原 Prompt 验收
+
+**Owner/目标复核：** 开始本批前重新读取 [#1113](https://github.com/kianwang022-hash/kianos/issues/1113) 顶部 Parent/Current/Next、`LEARNING_CONTRACT.md §0`、本 A3 canonical、原 A3 Learning 与八项已审 Precision 的现存身份/有序 Core 归属。继续“完成 Content 全部系统后再 Website/Runtime/Memory consumer”的优先级；本批仅 B11+ B12 原 owner，后续 B13–B14、B、C/D/E/F，不借机重审 Question mapping、重定 Memory admission、修改 Core 或引入新 Contract。
+
+### 医学模型与原 Prompt 的独立内容验收
+
+- **B11 肾病综合征，24/24 原 KP 全标题〔完整正式 Prompt〕在 §1A 自然节点准确一次。** 屏障/足细胞损伤→大量尿蛋白，低白蛋白与肝脏脂质代偿/两种水肿路径并行；抗凝蛋白丢失/高凝、免疫防御下降及激素背景、肾间质/小管因素分别造成血栓、感染、AKI 风险，不能讲成病人顺次必经。支持性处理依实际危险与容量；MCD、膜性、MsPGN、MPGN、FSGS 的经典 LM/IF/EM 识别连接“临床综合征→病理损伤模式→最终病因”，形态不是单病因或自动免疫抑制处方。隐藏全部 KP 注释后仍能讲出并行机制、条件、风险与治疗反馈。
+- **B12 尿路梗阻/结石/BPH/尿失禁，17/17 原 KP 全标题〔完整正式 Prompt〕在 §1A 自然节点准确一次。** 同一尿路生理以肾盂→输尿管→膀胱低压储存/同步排空、出口阻力与神经肌动力为共同底座。BPH 移行带增生经出口阻力增加可伴储尿症状与条件性潴留/上游压力；不同成分/位置结石可由另一入口直接阻断上尿路，并行制造绞痛、血尿、感染；四种失禁由储尿、排空和括约肌条件分别定位，绝非 BPH/结石的必经下一期。**感染性梗阻、无尿或肾功能威胁**先有危险评估、抗感染与尿路减压需求；稳定后术式才由位置、大小、密度、解剖等共同决定。删除所有注释仍留下真实因果、条件、平行分支和复评。
+
+两个原文件仅替换旧 `#1 Framework` 的串行/KP目录和 `#1A` 相关连续模型，原 `#0` 及以前、`#2` 及以后（包括 **41 份 native KP Core、原标题/正式 Prompt、MI-G、MI-D、Source/Outline、原任务、HOLD**）字节逐项保护不变。原 KP/LG identity、顺序/成员、正式医学答案、其他 Block、Question 与私人状态均不在写入范围。已有 B11 五张、B12 三张已审 prepared Memory 的答案、助记、准入、身份、原 Core refs 和 review 记录不变，依原 native Cues/Shared fields 继续承担模型外精确小项；不对卡数优化。正常 Chat 路由只在原 `knowledge/learner/README.md` 指向两个 §1A，老 teaching 文件不成为第二医学模型。
+
+**未解 Source/Visual 与验收边界：** B11 四项原图要求（并发症、MCD/膜性、MPGN/FSGS、病理总表）`REQUIRED_ORIGINAL_SOURCE_REVIEW` 原封不动；B12 外科 PDF P133–P141、术式/位置原图 `REQUIRED_ORIGINAL_PDF_REVIEW` 原封不动。旧教材具体激素剂量、抗凝阈值、CCB/80mL、0.6/2cm 等数字、结石与术式矩阵仍是 Source-specific Precision 而非现代无条件临床决策。**此次 Content 文本验收不是新增原 PDF 像素验收，亦非 Website/browser/Stable/真实学习 U 或全部 CI PASS。** 最终分支合并状态取实际 PR/main 回读，不从本段推断交付。
+
