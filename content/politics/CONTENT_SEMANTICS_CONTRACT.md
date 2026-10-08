@@ -272,7 +272,7 @@ Reuse the existing chapter/NU/content identities and substantive answers. A work
 
 Accept only when every main prompt has a source-supported answer explained at first encounter; its count/members and required accuracy are justified. Hide members in the miniature prompt, not in first-reading prose. Check that model memory plus residual Memory covers the justified retention scope without default duplicate practice. Do not infer a memory obligation from a prompt or from an existing card.
 
-Omitted understanding/recognition/reference material stays in source/support; uncertainties stay in Source gaps. Reconcile recommended use in existing owners; preserve optional cards and history without claiming they have been re-filtered. No Runtime/Website/plan/schema change is implied by this content projection.
+Omitted understanding/recognition/reference material stays in source/support; uncertainties stay in Source gaps. Reconcile recommended use in existing owners; preserve optional cards and history, and **claim current-year re-filtering only when the exact owner records that completed review**. No Runtime/Website/plan/schema change is implied merely by the content projection.
 
 Reject a replacement framework, arbitrary enumeration, answerless cue, generic branch index mislabeled as memory, unselected lists smuggled into main prompts, unrequested whole-course generation, and using prepared content as learner or admission evidence.
 
