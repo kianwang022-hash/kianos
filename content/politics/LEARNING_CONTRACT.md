@@ -383,6 +383,21 @@ without reconstructing the course from Source or old conversation history.
 
 If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
+
+### 3.1.2 Content production execution loop — bounded batches, chapter closure, forward progress
+
+This is the **execution order** for an explicitly commissioned Politics Content-production Chat across all five subjects, not a new schema, another readiness ledger, a learner-state cursor or a second course. §§0.4–0.7, 3.1, 3.1.1, 3.2 and 6.1 continue to own the underlying quality and retention standards. The same loop applies to different subject shapes; do not force a history timeline, Mao theory response, Xi hierarchy or Ethics-Law concept/norm scaffold into Marxism's reasoning-chain form.
+
+1. **定位范围，不重生整章。** 从最新 `main` 及准确的 subject/chapter/NU/Source owner 判断本批是新内容、未完成的局部筛选，还是有证据的缺陷修复；区分既有 base Content PASS、当前年份 Leg retention 审查和真实 learner state。以一个完整逻辑问题或对应 Source 范围为工作批次，复用已有效的模型、解释和 ID，不能为“再优化一次”重复生成已接受内容。
+2. **源本先行，再定学习内容。** 实读该批 2027 乘风正文和必要原表/图片，记录实际检查的模态与范围；建立或核对该章唯一的主模型，填充解释机制、前置概念、关键条件、容易混淆的边界和具体选项辨析。不能以目录、旧卡或 teacher brief 代替源文；未见到或有歧义的字句保留 item-scoped gap，既不猜补，也不阻塞无依赖内容。
+3. **筛记忆，再定位置与时机。** 实读对应的 2027 腿姐《冲刺背诵手册》范围，分别判定 recognition / option discrimination / conceptual paraphrase / complete membership / exact pairing / fixed wording 的必要性。先决定是否值得主动提取，再放入模型节点 Main Prompt 或确有必要的 residual；其余保留 Core / Source。首次主提示附近给完整答案；旧 CF-only / 历史精记对象不自动变推荐基线，不重写原 ID、答案、checking、admission 和 Recall 历史。
+4. **落实真实学习路径，不只在总模型承诺。** 对本批检查：初学者第一次见到的概念是否有实际解释；先修依赖是否先出现；前章已经介绍或明确承诺后章回收的著作、人物、理论成果、历史标志、术语与易混关系，是否在**相应下游章节的现有正文/节点**实际重新激活，且深度仍服从当前 retention 结论。只把必要的连接放入自然位置，不强制每章回顾所有旧知识，也不让“以后再讲”停在总表。
+5. **同一语义一次收口。** 每批更新准确的原 `chXX.json`、brief/support 或既有 precision owner 中真正承载该改变的部分。凡当前分类/主模型/答案深度已有多个消费者可读落点，必须核对它们的**现行语义一致**；不能让 brief 降为 Core，而 JSON 的 `deferred_precision` 或旧默认推荐说明仍宣称必背。历史事实可保留，但要在原有效读取位置明确取代过期结论；不靠旁边再追加一份互相冲突的“最新说明”。旧卡和学习证据保留原身份与历史含义。
+6. **分批前进，整章验收。** 一个批次经来源核对、局部质量检查、准确 owner 写入与 readback 后，可直接继续下一批，**不需要 Kian 每处理 K01/K02 就再发一次“继续”**；但批次完成不等于整章完成。章节真正收口时，沿完整实际 Source 范围做 §3.1 的覆盖／连续性／压缩三个 review pass、§3.2 的记忆与题面一致性、跨章承诺兑现检查，并模拟一个全新初学 Chat 的“首次建模 → 实质讲解 → 主提示与 Core 分工 → 自然章节压缩 → 下一章再激活”。仅将通过的具体范围认定为 prepared；决定义务缺失则标局部未完成。模拟测试不能自称 Kian 真正学会、也不能代替 Website 已交付。
+7. **并行写入要防覆盖，完成后继续向前。** 当另一 Chat 同时生成章节时，优先各写各的实际 owner。每次提交前重新读取目标文件及最新 `main`，比较工作起点；若同文件已被改过，必须合并真实增量、重新核对冲突语义并 readback，**禁止用旧全文覆盖他人新修改或强制推进旧版本**。真实冲突只阻塞受影响章/项，其他独立章节可继续。整章收口后默认冻结、不循环抛光；只有 Source 变化、已确认的逻辑/retention 矛盾或真实学习问题才局部重开。
+
+每次有意义的章节断点只需简短汇报：**完成到哪里、修了哪个具体问题、哪一项仍有 Source/Content gap、是否真实写入并回读、下一范围是什么。** 不逐项直播工具、不造独立进度表、不把生成/脚本/工程 PASS 当作 learner progress。持续推进已获授权的后续 Content；不要创建自动化，也不要因为学习 Chat 没学到该章就暂停生产。
+
 ### 3.2 Model-to-memory preparation completion
 
 The completion boundary is **understand the source → recover its model → encode justified exact targets → retrieve → diagnose**, not teacher-prose completeness alone. Understanding can come from Kian's source study; a compulsory Chat lesson is not part of this gate. Earlier bounded teaching reviews remain evidence for the scope they actually inspected; they do not automatically certify this additional scope.
