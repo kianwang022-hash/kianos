@@ -286,12 +286,16 @@
       "question_truth_path": "content/xizong/questions/shards/2008/q001-025.json",
       "question_truth_blob_sha": "158fef6caa27feea30d1582f0d5ace88a0ced0da",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56"
+      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "B3 KP03 explicitly characterizes proximal-tubule reabsorption as large-volume, near-isotonic and water-salt synchronized. The mapping keeps that stable mechanism rather than inheriting the old option's literal claim that tubular fluid and epithelial intracellular fluid are simply 'isotonic'.",
-      "old_mapping_inherited": false
+      "basis": "正式答案D与原Primary KP03保留。原review已经明确映射仅承接『大宗、近等渗、水盐同步』，不继承D『管液与细胞内液保持等渗』为精确恒定；原Explanation也承认近端存在神经体液调节，C不能升级为绝对错误。本次当前KP03仍拥有近等渗机制，历史新增只是将六组比例指向既有MI-D，保留原已限定映射，不证明单选排他性。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness e981cc58b9f0871892c71a1e063fb6861bfa2b56 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -306,15 +310,15 @@
       "question_truth_blob_sha": "158fef6caa27feea30d1582f0d5ace88a0ced0da",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "af23fc3bc95f994cf087e0ca5ac7fc20b820b41a",
-      "knowledge_revalidated_blob_sha": "8b32649b4661e9112834d9fb642dd096550b7e17"
+      "knowledge_revalidated_blob_sha": "d2ad342810ed59363d4f92140b0eda0bdd13fdd8"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "B4 KP19 explicitly defines water diuresis as ADH decrease/collecting-duct water-permeability decrease and gives drinking a large amount of water as the canonical example.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "Key D matches the unchanged KP19 water-diuresis column and its explicit large-water-intake example. The less absolute new title covers terminal permeability while the actual drinking-water mechanism remains ADH decrease."
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 8b32649b4661e9112834d9fb642dd096550b7e17 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式答案D。原有效KP19与当前Core/identity/title精确相同，水利尿栏直接以ADH下降/集合管水通透下降为首断点，且列大量饮清水；不需先增加RBF/GFR。原Primary充分。"
     }
   },
   {

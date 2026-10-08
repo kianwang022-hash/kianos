@@ -11,6 +11,72 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 
 ---
 
+<a id="a3-b01-b05-deep-model-quality-20261008"></a>
+## 2026-10-08｜A3 第一阶段 B1–B5 连续模型、既有依赖与原题深验
+
+**限定医学模型、原有依赖与本地原生消费：PASS。** 本阶段承接 [#1113](https://github.com/kianwang022-hash/kianos/issues/1113)，基于已合并的 A2 深验 `5e05ab121b41bac473d5d83667ca7fa447bd9db6`。按 Kian 的阶段推进要求，只交付 B1–B5；后续 B6–B10、B11–B14、B 以及同质量 C/D/E/F 目标仍取 #1113 的完整最新指令，不从本小阶段推断全部 A3 或 A–F 已完成。继续使用原 [Learning Contract §0](../../../LEARNING_CONTRACT.md#learning-outcome) 和 [Lecture Replacement Contract](../../learner/LECTURE_REPLACEMENT_CONTRACT.md)，不新增第二套质量规则。
+
+### 同一模型、完整原注释与原文保护
+
+五块完整 Core、System/Learning、旧 teaching、87 对正式完整 title/Prompt、原模型和模型外去处均已实际读取，并由独立执行者逐块交叉。学习解释和压缩复述沿同一 canonical 医学关系；提示不决定拓扑。隐藏全部 `〈标题〔完整 Prompt〕〉` 后，仍能读出因果、并行、条件和反馈。
+
+| 唯一 canonical owner | 审定 Git blob | 原 KP | 本批模型关系 |
+|---|---|---:|---|
+| [B1](./blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md) | `e4e4e7227b91b3a0b20ae36d7f3dd785752e02b7` | 15 | 血液继续回血与管液沿小管成尿并行，滤过/重吸收/分泌跨接两流；局部反馈和内分泌有各自入口，清除率是有条件的测量推断，终尿接排尿反射。 |
+| [B2](./blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md) | `04f41f6332797c9159494562076476b6b792383c` | 14 | 屏障选择性与滤出体积并列，Starling 力、RPF 和 Kf 是不同轴；仅在达到净滤过压为零的课程模型中讨论平衡点；病例允许多个变量同时变化。 |
+| [B3](./blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md) | `1ff85ebef17054d9bf620386d45ebe8e2599a28c` | 19 | 固定管腔/细胞/血侧方向，沿真实肾单位分段处理；球管平衡和管球反馈分开，药物回到各段靶点，K/H 按容量、激素和净排酸等条件判断。 |
+| [B4](./blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md) | `d2ad342810ed59363d4f92140b0eda0bdd13fdd8` | 19 | 建立梯度、保留梯度与沿梯度回水共同决定浓缩能力；激素经各自入口影响不同效应，不按列表强配或依次等待；轻中度与严重低灌注明确分支。 |
+| [B5](./blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md) | `c3383df60d4da17886940febca32c311f73da7d4` | 20 | 同一病例并行看容量/张力、离子总量与分布、酸碱，并持续识别危险；干预反馈到具体变量；expected compensation、AG/白蛋白、delta 沿原诊断边界使用。 |
+
+15 个模型 span 与三处批准的非 Core 同步均可精确逆还原。三处同步仅为：B2 MI-D 区分 BSA 与肺比顺应性的肺容积/FRC 口径；B2 MI-G 给 RPF/平衡点补回课程模型条件；B4 Exit 区分 ADH/AVP/VP 与垂体后叶素制剂。所有原 title、完整 Prompt、Source/Outline、KP/LG 身份与成员顺序保持。原 teaching 文件不变，合法解释继续回其节点；原目录不能成为第二份主模型。
+
+**唯一 native Core 读取例外是 B2 KP14。** 原 Markdown 在 KP14 标题下使用五个同级子标题，真实 native loader 因而只读到 59 字符的回看句，漏掉已存在的两大入口、五类场景、药物接口、糖尿病边界和六步病例算法。只将该 KP 内五个 `##` 与四个 `###` 子标题各降一级，外层 `# 11` 边界保持；真实 loader 现返回完整 1126 字符原正文。医学文字、正式标题/Prompt、外围内容和共享 parser 未改。故本批 **870 个指定 native 字段中 869 项精确不变，1 项为原文恢复读取**；全 A3 为 2570 项中的 2569 项精确不变，不能写成所有 native Core 都未变。15 模型、3 非 Core、1 标题修复共 **19 个不重叠 span** 逆还原后，五个完整文件均等于原 Git blob。
+
+### Learning、Memory 与实际模型消费
+
+Learning 只同步 **11 个原字符串：5 个 recall spine 与6个既有 group goal/closure**。原 first-pass/stop-line、成员、Source、其他 Block 值与所有其余字节保持。B1 明确使用“血液与尿液测量”，B4 明确“经各自入口影响”，避免区室和一一对应误读。
+
+逐项实读受影响的 **9 张既有 Memory 完整答案及有序依赖**后，只更新其 `owner_sha256`。其中 B11 LG04 的原有 B2 KP01/KP02 依赖因 B2 recall spine 改动而受影响，B11 canonical 本身未改。全 A3 **28 个 item、答案/助记/来源、准入、身份、成员、Core refs 及顺序保持**，无 KP14 直接 prepared Core ref；真实 witness 和 resolver 全通过。6 块中的29个实际语义 descriptor 字段变化单独校验，真实 revision 保持更新，不在 runtime 或私人历史中归一。
+
+原 A3/B source、完整 native、preentry 和28个 descriptor goldens均先由原 Git 输入独立复现；原 fixtures 不改。测试只在要求精确当前 `after` 后，对比较副本还原明确的19源段、11 Learning、6 group和9 owner变化，继续用原基准保护所有其他字段。A3 本批五个 Framework 均真实存在；独立 Markdown 标题归属核对完整 authored Framework，包括 B5 嵌套自然模型。两个原 Memory Routing 字符串变化单列，不能把 Framework 或其余原 preentry 字段整体豁免。
+
+原 `inspect-xizong-content --model` 只会找 `text` 围栏，本批完整 Markdown 模型因此无法读取。最小适配现以唯一真实 Markdown 标题限定范围，支持原单一闭合 text 围栏和完整注释 prose；prose 不进入旧模糊后缀匹配。后续 Core 的围栏不能补足本模型，伪/重标题、缺 KP、错 title/Prompt、破损括号、错误/未闭合/多围栏均拒绝。与保存的旧函数直接对比 **24 个 A1/A2 完整输出（548 KP）及 D8（25 KP）全字节相同**；五个 A3 真 CLI 与87完整注释通过。原 A1 B1 特殊路径、legacy matcher 和 production strict guard保持。
+
+原 B1/B5 Projection 只同步 **2 个 Core pin 和4个原对象 selector**。所有 object ID、role、geometry、stage、answer-bearing、front/reveal策略、Source/外源合同和其余 JSON 精确保留；真实非 candidate `buildXizongProductionBlock` 均成功读取原对象。未改网站组件或生产 parser。
+
+### 75 条原题从原 effective 见证重审
+
+**8 个原 effective Knowledge blob、48 个原 Truth blob与75个完整正式题/Explanation**均实际读取和逐对象核对。22 条原作用域 Core/身份/title精确连续；43条因历史医学变化或 KP14 读取恢复而按最终 Current 实审；合计65条保留所有原目标并更新复核见证。10条保持原完整 row 和原 effective witness，不擅自移动 Primary、删 supporting、改题干或答案。3条整 B2 关系含 KP14，均按 actual review 记录，不能冒称历史 native 全等。
+
+| 原关系整条保留 | 本轮未能安全续签的具体依据 |
+|---|---|
+| `2005-n131` | 原 KP06/07/08 已提供滤过、强交感/阻力与梗阻所需轴；额外 supporting KP13 在本题重复强交感判据，无独立必要性，不能为原目标续签或擅删目标。 |
+| `2007-n059` | 原 KP02 有 EPO 来源/作用及肾损坏缺 EPO，但缺低氧→EPO增加→继发性红细胞增多的所需方向；Explanation 不能补作 Knowledge owner。 |
+| `2008-n015` | 原 KP02 虽与当前精确连续，但未指定 GBM 为题目所问的主要电荷屏障；已有 Explanation 历史来源注释不能替代缺少的目标证据。 |
+| `2009-n015` | 原 Primary KP07 已有饮水→ADH下降→水通透下降全链，supporting KP19 仅重复水利尿身份，无独立判据。 |
+| `2013-n154` | 正式宽问“能够增加尿钠重吸收”，不能由“ADH主要调水”推出排除 ADH；原实验有条件性 Na 转运效应，不能给正式题干偷加“主要作用”。 |
+| `2020-n012` | Primary KP03 已拥有儿茶酚胺/β1促肾素，supporting KP02 重复该路径，未增加题内四种分子的独立判据。 |
+| `2021-n010` | “等渗盐水不出现同样水利尿”不足以推出总尿量“无明显改变”，也缺口服/静脉及糖水浓度、时相的完整比较。 |
+| `2021-n139` | 正式宽问“参与调节和维持酸碱”，不能因 KP10 未列 NKCC2 就排除其参与；原始 TAL 氨转运实验支持相关机制，Explanation 不能私加“主要/直接”限定。 |
+| `2023-n010` | Primary KP06 已有 V2/cAMP/AQP2 及浓缩全链，supporting KP17 在此激素选择题重复末端模型。 |
+| `2023-n140` | 正式宽问清除率原理可测指标，原 KP07 已给滤过负荷减尿排泄的 Na 回收算法；不能用 Explanation 新增“单一直接清除率测定”排除该选项。 |
+
+上述两个专业反例只用于拒绝无依据排除，不改原答案或据动物实验扩写本批 Core：[Garvin 等原始 TAL 实验](https://pubmed.ncbi.nlm.nih.gov/3394813/)、[Good 等原始实验](https://pubmed.ncbi.nlm.nih.gov/6742203/)、[Bugaj 等小鼠集合管 ENaC 实验](https://pubmed.ncbi.nlm.nih.gov/19692483/)、[Tomita 等 DOCA 预处理大鼠集合管实验](https://www.jci.org/articles/view/111935)。物种、制备和干预条件保留，不外推人体治疗。
+
+10条保留中9条在本批基线已 stale，`2021-n139` 在基线曾 Current，但本次不予续签；保持原 row 后它随 B3 源修订而成为 stale。真实 Current resolver 对65条返回 **49 KP / 16 Block 路由**，10条保留项全部关闭。全库为 **2092 current / 951 stale / 3043**，其中941条非本批旧 stale 及所有其他原关系逐对象保持。manifest同步、Crosswalk、review pipeline与throughput均通过；不能将全部3043条存储 REVIEWED 说成全都可消费。
+
+### Surgery、验证与未决边界
+
+当前 Surgery 的38个 Source unit、59条绑定、52个 owner 全量解析后，本批只命中 **SUR27-U31 → B5**。全部20个 B5 native KP记录、六组身份/成员/顺序及原 Source保持；LG02 closure按实际心脏危险的条件已实审。7个现有 Learning target完整值与签名不变，其中 A3只绑定未改的B12/B13。只同步原B5 owner witness、Knowledge汇总及downstream汇总 **3个已有字段**，全部其他生命周期字节保持；当前完整生产 validator及旧 witness拒绝检查通过。
+
+本地实际验证：内容检查 **240**（原196断言保留）；A2/A3/B prepared Memory **212/229/611**；A3/B preentry **89/327**；A reader **2498**、B reader **9549**；原A1/A2/A3和B post-Chat控制器、B Source、159 Current owners、Surgery、Semantic Adapter、Projection self-test **95/95**及Current、Representation、Production、LearnerObject、B/C兼容、Learning、A3 Source、A2 Runtime/repair-return/evidence、Source Visual和Extension均通过。独立测试适配审查另有102项证明，不替代这些实际套件。
+
+`validate:xizong` 汇总仍在既有 `runtime-group-close-does-not-check-missing-recall` 整句匹配失败；同一运行时与脚本在冻结 A2基线已经复现，当前两个文件原字节未动。其后六项检查已分别执行通过。内容检查与其他验证并行时曾仅在最后的 git-status一致性断言失败，所有检查停止后单独重跑 **240/240通过**；未删除或削弱该保护。最终远端 head、CI及合并回读以关联阶段 PR / #1113 的实际回执为准，不预先授予全站构建或浏览器成功。
+
+原 B3 KP03 比例表未准入、B5 数字端点/DKA/K精度/钙来源分歧与诊断性外源合同继续保持。七个既有 crop 仅按实际已读图像与原绑定核对；没有新全 PDF像素验收。B6–B14本批未改，含 B10原急性肾炎P195/P197视觉定位冲突继续留在其原 owner。Source接触、浏览器、Stable发布及 Kian真实U均不因本批内容/脚本通过而提升。
+
+---
+
 <a id="a2-a3-reader-consumer-repair-20261006"></a>
 ## 2026-10-06｜Delivered A2/A3 reader and Memory consumption repair
 

@@ -1895,10 +1895,11 @@ export function a2CuesBeforeOwnerReview(source) {
 export function assertPreparedDescriptorAfterModelReview(descriptor, source, originalDigest) {
   if (!descriptor) { assert.equal(a2TestDigest(null), originalDigest); return; }
   const comparison = descriptorAtFrozenPackaging(descriptor, source);
-  const changes = a2ReviewedDescriptorChanges[descriptor.blockId];
+  const a3Changes = a3ReviewedDescriptorChanges[descriptor.blockId];
+  const changes = a2ReviewedDescriptorChanges[descriptor.blockId] || a3Changes;
   if (changes) {
-    assert.equal(descriptor.systemId, 'respiratory');
-    assert.equal(descriptor.canonicalId, 'A2');
+    assert.equal(descriptor.systemId, a3Changes ? 'urinary' : 'respiratory');
+    assert.equal(descriptor.canonicalId, a3Changes ? 'A3' : 'A2');
     assert.equal(descriptor.sourceHash, a2TestSha(source));
     assert.equal(descriptor.revisionWitness.sourceHash, descriptor.sourceHash);
     for (const change of changes) {
@@ -1911,9 +1912,11 @@ export function assertPreparedDescriptorAfterModelReview(descriptor, source, ori
       const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
       parent[keys.at(-1)] = change.before;
     }
-    const reviewed = a2ReviewedSources[descriptor.blockId] || a2AdditionalSourceReviews[descriptor.blockId];
+    const reviewed = a2ReviewedSources[descriptor.blockId] || a2AdditionalSourceReviews[descriptor.blockId]
+      || a3ReviewedSources[descriptor.blockId];
     if (reviewed) {
-      assertReviewedA2Source(source, descriptor.blockId);
+      if (a3Changes) assertReviewedA3Source(source, descriptor.blockId);
+      else assertReviewedA2Source(source, descriptor.blockId);
       comparison.sourceHash = reviewed.originalPackagingSha256;
       comparison.revisionWitness.sourceHash = reviewed.originalPackagingSha256;
     }
@@ -1956,5 +1959,697 @@ export function assertReviewedA2Preentry(block, current, source) {
   // from their original 4ad/09ce inputs before extracting the exact review deltas.
   assert.equal(a2TestSha(JSON.stringify(comparison)), reviewed.originalPreentrySha256);
   assert.equal(a2TestDigest(comparison), reviewed.originalStablePreentrySha256);
+  return true;
+}
+
+// A3 B1–B5 staged review (2026-10-08). All five original source owners,
+// complete native records, old preentry outputs and all 28 prepared descriptors
+// first reproduced the unchanged independent A3/B goldens. Only 19 named source
+// spans, 11 Learning fields and nine existing owner witnesses changed. KP14's
+// nine subheadings restore the already-authored original body to its own Core;
+// no medical prose or prepared Core reference was rewritten.
+// These assertions operate on comparison copies only. Current semantic revisions,
+// runtime inputs, answers, admission, Truth and learner history stay real.
+const a3ReviewedSources = {
+  "urinary-b01": {
+    "originalCanonicalGitBlob": "d165e2bde176d68976d886c1ff7aa18a089e2ce7",
+    "originalPackagingSha256": "6c255e6869a568b0fe4527ad0a9b1a77f25b5e47db8f470feee6362d29009dd9",
+    "reviewedCurrentSourceSha256": "4c9da6f949d2e7de07e1ebdab53372ff3c4b173b7a02f57dde846247ca809008",
+    "originalProtectedSourceSha256": "ad6d660ce26fdacffbec40a722d1b2a52c1d870f98b0d9a7b133285d6a6bf6ba",
+    "reviewedSpans": [
+      {
+        "label": "b01-top",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_0",
+        "start": 979,
+        "end": 4921,
+        "sha256": "8aca22975a4b11b6ca8672472e2947269ebb2820bc73fc2126c78489bbaaee02"
+      },
+      {
+        "label": "b01-spine",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_1",
+        "start": 18121,
+        "end": 18486,
+        "sha256": "3a7f233b85a6209728f9f2e43a1aa79a5d1257f4b8db8d203a22f48d9389547c"
+      },
+      {
+        "label": "b01-handoff",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_2",
+        "start": 21215,
+        "end": 21512,
+        "sha256": "ed5a748b943e69b070c075a5036c9d98157aac12fbc6b6510ebf12eadc2173c2"
+      }
+    ]
+  },
+  "urinary-b02": {
+    "originalCanonicalGitBlob": "981804ff17dd56c470924d3d0edbf64f600e2398",
+    "originalPackagingSha256": "8e91d7c344aef5de322fc9ecb45b0039a7782c5b882bb8d55ff671479a68605c",
+    "reviewedCurrentSourceSha256": "0f39e0fa081053039d2be29257fda8f3aadf8786fa5959c2b476bc8578dbf671",
+    "originalProtectedSourceSha256": "bebd4e97017f147435342397690e441d4024c1d478560a0c3e7d70d7645c342e",
+    "reviewedSpans": [
+      {
+        "label": "b02-top",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_0",
+        "start": 1014,
+        "end": 4664,
+        "sha256": "7542665ac8b788535bb337b1c36f4f641a6d77f3da481766e95dbfdd6771ca61"
+      },
+      {
+        "label": "B2 KP14 original five subsections restored to native Core by correct child heading levels",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_6",
+        "start": 14514,
+        "end": 15724,
+        "sha256": "b0381a8c0aa7d15aef47ba70aca7e0fd42827a4ef2185f9e87d53fabd3750f67"
+      },
+      {
+        "label": "b02-equilibrium-comparison",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_1",
+        "start": 15999,
+        "end": 16143,
+        "sha256": "8f0872c6cb0baa5ba3f99a8f4e4d3fa3af341b169a6e35fa3f69480b37319394"
+      },
+      {
+        "label": "b02-spine",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_2",
+        "start": 16297,
+        "end": 16551,
+        "sha256": "9a530bd3dc7e4cd2c35cad22a17cb77402fa156263390fe15b0e2c4b76f54e30"
+      },
+      {
+        "label": "non-model-02",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_3",
+        "start": 16826,
+        "end": 16869,
+        "sha256": "b2b62dd0b0622ab72f92737845be81a5106d25fa085198ce12be7d336391fa06"
+      },
+      {
+        "label": "non-model-01",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_4",
+        "start": 17050,
+        "end": 17092,
+        "sha256": "2b086774cfff0f69e784a63d9a4ef4294b6ff38f2f120897cc58cfcbf68430b5"
+      },
+      {
+        "label": "b02-handoff",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_5",
+        "start": 18833,
+        "end": 19114,
+        "sha256": "e4fc5d2ef69c2ac29762fe668b676c5bbcf1cfe8f5a50a058b9e633c3468abc0"
+      }
+    ]
+  },
+  "urinary-b03": {
+    "originalCanonicalGitBlob": "01d60be7d956cef3f74ad9cbf6018085f60980bb",
+    "originalPackagingSha256": "39fe16ffdeb029b441b53e2aaf31c31e51b87ee5563d3a5e8e09d49ef212849b",
+    "reviewedCurrentSourceSha256": "f0e667471fd08093fe068414f28423f5b6bf2162c93735892f003f0cf31aa614",
+    "originalProtectedSourceSha256": "bd16c7940f7db971db2e0d0d548d8cf3f5f216a7109980820ec4b39ac47bb2bb",
+    "reviewedSpans": [
+      {
+        "label": "b03-top",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_0",
+        "start": 1297,
+        "end": 6107,
+        "sha256": "c48c99a3ac36d51e9984827966dd8e6b89b31db4dde99507c12e4bb939c9a31e"
+      },
+      {
+        "label": "b03-reconstruct-intro",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_1",
+        "start": 17273,
+        "end": 17294,
+        "sha256": "4490f1bbd37298f13d66dfa9be6aaf29c78a6d4d2da0052252ecd25ad775ee22"
+      }
+    ]
+  },
+  "urinary-b04": {
+    "originalCanonicalGitBlob": "1822e21a6feefe73b7c4ecd93a5d36dc249604d1",
+    "originalPackagingSha256": "78f5fe953d94a197959cdfb2464200efd9ea2af93b9b7988027bdde6a50f07e1",
+    "reviewedCurrentSourceSha256": "0c18ca9d4efdc7d6a17cebc5fdd3481cfb20662733915e2d450b67dceb9ed516",
+    "originalProtectedSourceSha256": "f1b76fa7d40d7c8d642811a195715d234d69a9ad305fdf825394676b954e834b",
+    "reviewedSpans": [
+      {
+        "label": "b04-top",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_0",
+        "start": 1325,
+        "end": 6118,
+        "sha256": "c3d822e444784ae4e4e79eb22ccf0794c13dfbfcabc8beca3833a062ae3ed119"
+      },
+      {
+        "label": "b04-reconstruct-intro",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_1",
+        "start": 16701,
+        "end": 16728,
+        "sha256": "11a3dd7bbdcb9478ea2e70829912feee7ee7720d54ba1418f43332203f505620"
+      },
+      {
+        "label": "b04-reconstruct-severity",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_2",
+        "start": 16770,
+        "end": 16812,
+        "sha256": "9619baddab688aa5b696c92949b3ec8b889de9a4635af3e9e328b5043264af93"
+      },
+      {
+        "label": "non-model-03",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_3",
+        "start": 19526,
+        "end": 19566,
+        "sha256": "7eb05c380e94f36a01b32527ebc4b6750c674eb6df6ba4ed0953b271002b1b9f"
+      }
+    ]
+  },
+  "urinary-b05": {
+    "originalCanonicalGitBlob": "676649c373408f24d34d096c5ec2afcc51867af6",
+    "originalPackagingSha256": "2039d5e60b4e04ec74bdcfc882e500e7f5442d58f63be7ffdfdc0359af5a1912",
+    "reviewedCurrentSourceSha256": "da6f1e581217c84d34c55d9c1cf04e6834fb4cc116780b12b5598a03f2a9c874",
+    "originalProtectedSourceSha256": "9373a7dcadcfb9b5c325bad37455bfc6843af70fa48305afc662c0236c3fdf92",
+    "reviewedSpans": [
+      {
+        "label": "b05-top",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_0",
+        "start": 1776,
+        "end": 7419,
+        "sha256": "c984c4383c2d27f78d278e067b44f7de07b1455b46fc3089b22056d2e4655fe5"
+      },
+      {
+        "label": "b05-reconstruct-intro",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_1",
+        "start": 20819,
+        "end": 20845,
+        "sha256": "a20bb9c7bab900632e3c2d1fe8b58ebfefa9f3d313e9b4ffb08261a86cd53429"
+      },
+      {
+        "label": "b05-reconstruct-parallel",
+        "marker": "REVIEWED_A3_STAGE1_SPAN_2",
+        "start": 21103,
+        "end": 21137,
+        "sha256": "342e146d31e8d3f0e2b6eb6577a61c5dcd4e2a9f2af0c43e2b64b2c289b119a3"
+      }
+    ]
+  }
+};
+
+const a3ReviewedLearningChanges = [
+  {
+    "path": "blocks/urinary-b01/recall_spine",
+    "before": "任务/空间 → 内分泌/球旁器 → 肾单位血管 → 清除率 → 自身调节/TGF → 排尿",
+    "after": "血路继续回血；滤液沿小管形成终尿，重吸收/分泌跨接两流；灌注与致密斑 NaCl 反馈调入球/肾素，内分泌并行输出；血液与尿液测量反推处理，终尿接排尿反射。"
+  },
+  {
+    "path": "blocks/urinary-b01/logic_groups/urinary-b01-lg01/goal",
+    "before": "先建立血液→滤过→小管处理→终尿总方向。",
+    "after": "建立继续回血的血路与沿小管成尿的管液路线，并把滤过、重吸收、分泌放在两流之间。"
+  },
+  {
+    "path": "blocks/urinary-b01/logic_groups/urinary-b01-lg04/closure",
+    "before": "能由清除率关系判断净重吸收/分泌并区分主要流量指标。",
+    "after": "在自由滤过、无肾内生成代谢且测量可靠的条件下，用 C 与 GFR 判断净重吸收/分泌，并区分主要流量指标。"
+  },
+  {
+    "path": "blocks/urinary-b02/recall_spine",
+    "before": "屏障选择性 → 有效滤过压 → RPF/Kf → 阻力修饰 → 滤得少vs筛网漏",
+    "after": "屏障选择性与滤出体积并行；入/出球、囊压及胶体压改 Starling 合力，RPF 改沿程蛋白浓缩，Kf 改壁能力；若净滤过压到零才有平衡点；尿成分/GFR 证据回定位，允许多轴同变。"
+  },
+  {
+    "path": "blocks/urinary-b02/logic_groups/urinary-b02-lg02/goal",
+    "before": "沿Starling力、滤过平衡、RPF与Kf建立滤多少模型。",
+    "after": "沿 Starling 力、RPF 对沿程压力的影响与 Kf 建立滤多少模型；仅达到净滤过压为零时讨论滤过平衡。"
+  },
+  {
+    "path": "blocks/urinary-b02/logic_groups/urinary-b02-lg04/goal",
+    "before": "把多个变量压成第一故障层。",
+    "after": "用同一模型定位压力、流量、Kf 与选择性，允许病例同时改变多个变量。"
+  },
+  {
+    "path": "blocks/urinary-b03/recall_spine",
+    "before": "膜方向/球管平衡 → 近端回收 → 排酸 → 集合管Na-K-H → 利尿剂靶点",
+    "after": "管腔—上皮—间质/血侧固定膜方向；管液沿近端→袢→远曲→集合管，各段回收/分泌；球管平衡随条件调近端回收，管球反馈另返滤过端；药物回到各段靶点并改变下游盐水/K/H，K-H 按情境推断。"
+  },
+  {
+    "path": "blocks/urinary-b04/recall_spine",
+    "before": "容量/灌注 → RAAS/ADH/ANP肾端 → 梯度建立/维持 → 管液电影 → 浓缩失败/多尿",
+    "after": "管液沿袢降支失水、升支/远曲失盐；NaCl/尿素建梯度，直小血管保梯度，ADH/AQP2 沿可用梯度回水；交感、RAAS、ADH、ANP 各读输入并行反馈；终尿证据回查梯度、水门与溶质负荷。"
+  },
+  {
+    "path": "blocks/urinary-b04/logic_groups/urinary-b04-lg04/closure",
+    "before": "能讲出先浓后稀、最终由ADH决定的完整电影。",
+    "after": "能沿管液讲出先浓后稀，并在髓质梯度可用且集合管水通路相应改变时，解释 ADH 怎样改变最终尿渗。"
+  },
+  {
+    "path": "blocks/urinary-b05/recall_spine",
+    "before": "五变量/脱水 → 高钾 → 低钾/补钾 → B3 K-H → Ca → 四层酸碱 → expected compensation → AG/delta",
+    "after": "同一病例并行判断容量/张力、Na、K/Ca 与酸碱并持续处理危险；水钠相对变化决定水移，K 总量/分布和离子 Ca 改变膜效应；处置回作用于变量；血气→expected、代酸→AG/白蛋白、HAGMA→delta 用于诊断，K-H 调用 B3。"
+  },
+  {
+    "path": "blocks/urinary-b05/logic_groups/urinary-b05-lg02/closure",
+    "before": "能解释为什么先保心以及每种措施改变哪一层。",
+    "after": "能按心脏危险评估保心需要，并区分稳定心肌、转 K 入细胞与真正排 K 的任务及各自条件。"
+  }
+];
+
+const a3ReviewedOwnerChanges = [
+  {
+    "id": "a3-b01-lg04-precision",
+    "before": "74f4b323b9aceb10da28436afe5314950316d7c4a8cc3484c9326ff6d8fef3ac",
+    "after": "8a9258d5eb1219ab8d395fff70a602a022b661a5e25c858c8e79479a0a1d25a8"
+  },
+  {
+    "id": "a3-b01-kp14-precision",
+    "before": "f30ffc38462590a3983158ef9a4b8623b0006258a596089837635ae626586aba",
+    "after": "e8467a0e4658225b6df7b32a7dd5611a982017c05d5a4241a08afee67e5abae9"
+  },
+  {
+    "id": "a3-b02-kp04-precision",
+    "before": "55cbb42a8079f54e022722a77f90af5dae33e635de6007333c67d00b0b11a5ca",
+    "after": "a337b6952d9f7697037a28ea3d379a0032c278f63f87470874d188c47938ff0e"
+  },
+  {
+    "id": "a3-b03-lg05-precision",
+    "before": "67e1464b93195dfb74f9e6e418221732e96cb35cb2c192620bfe7cd5a892a7f2",
+    "after": "882e806372aae58988dca52d166ccc4fabdadd80749d66718d6f5fa71a4cae8f"
+  },
+  {
+    "id": "a3-b04-lg03-precision",
+    "before": "0d0130507056c7d561f5cb505b5f9105fc94d28bc0fc067277e147f861db905b",
+    "after": "2d7971f06b3cc5efb0c04666971d392b05c54f1ffd5c959560ede3d9a1dffc06"
+  },
+  {
+    "id": "a3-b04-kp05-precision",
+    "before": "a834b456b6199f4ed69a37cb3dc242ee3aca7b5504fde9e7fdeec35910925787",
+    "after": "10c5752ca51274119fe15020e8270ba5cac911d748be064350da266853241bef"
+  },
+  {
+    "id": "a3-b05-lg06-precision",
+    "before": "fb4929d0e9354e79677bbe8c632a5556d1b9ff1c7f79c889df538d154ea63fc8",
+    "after": "cd4ab127287d541b8c3fd01177657672f244ada4e3b7c166e560109aac85d71c"
+  },
+  {
+    "id": "a3-b05-kp13-precision",
+    "before": "3f23a8fbc3de1c052823fc86ccf1fed1c6ca47a98b47356c4adcd1451a67f722",
+    "after": "9ece9d56aab277664fadfe1f60704a46bfa74382f1437aed7e3459b719732d4e"
+  },
+  {
+    "id": "a3-b11-lg04-precision",
+    "before": "e9f7fc38f924ece1a9795449634c4a2bf779a1029d28e322d2b6ed0315e81715",
+    "after": "76d0fa004f95feef469873c02215373bdc7140364c3f62e328997259eac745e3"
+  }
+];
+
+const a3ReviewedGroupChanges = {
+  "urinary-b01": [
+    {
+      "path": "0/goal",
+      "before": "先建立血液→滤过→小管处理→终尿总方向。",
+      "after": "建立继续回血的血路与沿小管成尿的管液路线，并把滤过、重吸收、分泌放在两流之间。"
+    },
+    {
+      "path": "3/closure",
+      "before": "能由清除率关系判断净重吸收/分泌并区分主要流量指标。",
+      "after": "在自由滤过、无肾内生成代谢且测量可靠的条件下，用 C 与 GFR 判断净重吸收/分泌，并区分主要流量指标。"
+    }
+  ],
+  "urinary-b02": [
+    {
+      "path": "1/goal",
+      "before": "沿Starling力、滤过平衡、RPF与Kf建立滤多少模型。",
+      "after": "沿 Starling 力、RPF 对沿程压力的影响与 Kf 建立滤多少模型；仅达到净滤过压为零时讨论滤过平衡。"
+    },
+    {
+      "path": "3/goal",
+      "before": "把多个变量压成第一故障层。",
+      "after": "用同一模型定位压力、流量、Kf 与选择性，允许病例同时改变多个变量。"
+    }
+  ],
+  "urinary-b04": [
+    {
+      "path": "3/closure",
+      "before": "能讲出先浓后稀、最终由ADH决定的完整电影。",
+      "after": "能沿管液讲出先浓后稀，并在髓质梯度可用且集合管水通路相应改变时，解释 ADH 怎样改变最终尿渗。"
+    }
+  ],
+  "urinary-b05": [
+    {
+      "path": "1/closure",
+      "before": "能解释为什么先保心以及每种措施改变哪一层。",
+      "after": "能按心脏危险评估保心需要，并区分稳定心肌、转 K 入细胞与真正排 K 的任务及各自条件。"
+    }
+  ]
+};
+
+const a3ReviewedDescriptorChanges = {
+  "urinary-b01": [
+    {
+      "path": "revisionWitness/kps/urinary-b01-kp14",
+      "before": "36ab5d37d74b68dfe4cf61226d1dc5878c7d781b436433a18eb9907e5683c6f7",
+      "after": "353c07b4a284fad04fe9b6571f6e839304c5d4fe846046c2d4c3068dae7cd849"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b01-lg01",
+      "before": "f549188ff9dbf6078587f04530104ad2e5059880f7d4642169384441153b7963",
+      "after": "5d4d764e94befd795c8bb6eb7fc88d3ffedd15caf1866c42a0be319c9f1abfbf"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b01-lg04",
+      "before": "9fc0d97913889a438382eb1357234e6b47fe81c5e63131749a2e387646a59a01",
+      "after": "f09905304fb335d78a9fcb89fc932ee9b85ed02fef0cebafa5651221bd9e3a0d"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "91e594269db47b5403f54e9860663eb2044495f21e60f4844a0020b152d0ff66",
+      "after": "00cfc91cca355770f9f1711fd720911db757fab446aff6b1db06d29fbbf788f4"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "9fc0d97913889a438382eb1357234e6b47fe81c5e63131749a2e387646a59a01",
+      "after": "f09905304fb335d78a9fcb89fc932ee9b85ed02fef0cebafa5651221bd9e3a0d"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "36ab5d37d74b68dfe4cf61226d1dc5878c7d781b436433a18eb9907e5683c6f7",
+      "after": "353c07b4a284fad04fe9b6571f6e839304c5d4fe846046c2d4c3068dae7cd849"
+    }
+  ],
+  "urinary-b02": [
+    {
+      "path": "revisionWitness/kps/urinary-b02-kp04",
+      "before": "4c5ba84bad8b4fe026ae7897137dbd3158994e31fa1c3981bcbdcf3ba9283eda",
+      "after": "ca43bedd8af24d389e3f8e4cda5e389024c8c94d4fa3a3aa8aafec554ad3e5ee"
+    },
+    {
+      "path": "revisionWitness/kps/urinary-b02-kp14",
+      "before": "03caf9cd3dcc157e0b2b3af75d45e041735c8b64dd07d542f2bd3a0758076db8",
+      "after": "066daa47706d54175b56f5e1eebb7456eebcc60133dc3f60e2df1ae8611542f4"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b02-lg02",
+      "before": "83d51452cd07888db779a6bc9c7f160d2c1bc9716734a1f37d51f5b40bf5c7cd",
+      "after": "8db28bc176942716d76d70e53468823b45e31ecf3c068d786fd5fdfa09b765cc"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b02-lg04",
+      "before": "8a17d06e6657a57b8a9539d1bf5294c17e667ad428dbb4c78ee56857e1e93fbc",
+      "after": "828d2653f54a87087a72c990f60eacdf318eeb3a1c4a7d6df40e29abf1f88009"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "af5d17d2c072bad26cba6b38ef381a35a3a3f5747cf7c850d9a2abb722af96f2",
+      "after": "6c41f9d380af0ea3a35b987e3868ef94918b6a4ce3a9d3b149726a3047bf8b53"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "4c5ba84bad8b4fe026ae7897137dbd3158994e31fa1c3981bcbdcf3ba9283eda",
+      "after": "ca43bedd8af24d389e3f8e4cda5e389024c8c94d4fa3a3aa8aafec554ad3e5ee"
+    }
+  ],
+  "urinary-b03": [
+    {
+      "path": "revisionWitness/groups/urinary-b03-lg05",
+      "before": "44f1f04e139dae1a1b4458099661215d441083a62bc66a8d8aa612dc638f732e",
+      "after": "f5911a3c246236b4292b1540bb4210d3df1768caffa74febac909154226323ef"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "d15543b0cefe37e896befacd5528f1472ec8ca083a6320cdb72bc6425844702c",
+      "after": "b22d2483c6d91fa91b6774cfb75a33f39875541d97399f2af38b3cdd6ef323dd"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "44f1f04e139dae1a1b4458099661215d441083a62bc66a8d8aa612dc638f732e",
+      "after": "f5911a3c246236b4292b1540bb4210d3df1768caffa74febac909154226323ef"
+    }
+  ],
+  "urinary-b04": [
+    {
+      "path": "revisionWitness/kps/urinary-b04-kp05",
+      "before": "9b39b0510162e17346b91ef75e505c94cb68f2341c168b59e971de3a1df07de3",
+      "after": "674db8f90c481e6d9aa75bbc018f78278f902cbed208c451a0ddbd0fe674b646"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b04-lg03",
+      "before": "adb3a655b16f3024c4d6ccd1aa42ee36134d036ddd129b5195c69e42a9ff2f2c",
+      "after": "da32c837a87a3049e22b4c1f7ba937fa358da654c3775b320eecf94d27d12054"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b04-lg04",
+      "before": "9e17a6e0f0d6f5ab09bb795b23ff40510926fac79bd4102d220ee4c381abd185",
+      "after": "7ad64bba6254e5ac4d28a4e9b640d06f9f296a9b0f1a6573607534b8e762617e"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "052599a3c7fc0672aa51d3faf9b3d8808268b2ff47f8904c770e8f96874e6236",
+      "after": "171c94b906c50efde0b57053ebae29eab2df5e6ede60526f9297f851847f51b6"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "adb3a655b16f3024c4d6ccd1aa42ee36134d036ddd129b5195c69e42a9ff2f2c",
+      "after": "da32c837a87a3049e22b4c1f7ba937fa358da654c3775b320eecf94d27d12054"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "9b39b0510162e17346b91ef75e505c94cb68f2341c168b59e971de3a1df07de3",
+      "after": "674db8f90c481e6d9aa75bbc018f78278f902cbed208c451a0ddbd0fe674b646"
+    }
+  ],
+  "urinary-b05": [
+    {
+      "path": "revisionWitness/kps/urinary-b05-kp13",
+      "before": "b7f258a20cbb351935d3c53d8748228f448fb7a6d5a3a0b6fd4a26f76f8d8cef",
+      "after": "ab3c3441a42ff2fb7d14675f8b2552754529d9f762137c3357481ac2281309eb"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b05-lg02",
+      "before": "914e996b5c3ff79f65b10249a4de6f1106ab077ec8a487dbbb77fcc2316be58f",
+      "after": "45132fb42c16b9630360e052018480e8d9c646a0d5b2c45f17c3b710a465f4bf"
+    },
+    {
+      "path": "revisionWitness/groups/urinary-b05-lg06",
+      "before": "64b3347e56656fb6a18566279fdffbc1da9f7515bfa86da012af0647a554d05b",
+      "after": "3ffa34808585b94963a5d2e376886aa4c8721467dce220b4805bf0794fb01562"
+    },
+    {
+      "path": "revisionWitness/block",
+      "before": "5e888c33fd293d2720cf8072f2af0391addb86146bf569e4d5d817176198bbc4",
+      "after": "072832a4f8652d0e874f96add5e7052d3b67ecb94148c1ab58461075a42ef3ff"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "64b3347e56656fb6a18566279fdffbc1da9f7515bfa86da012af0647a554d05b",
+      "after": "3ffa34808585b94963a5d2e376886aa4c8721467dce220b4805bf0794fb01562"
+    },
+    {
+      "path": "precisionCards/1/semanticRevision",
+      "before": "b7f258a20cbb351935d3c53d8748228f448fb7a6d5a3a0b6fd4a26f76f8d8cef",
+      "after": "ab3c3441a42ff2fb7d14675f8b2552754529d9f762137c3357481ac2281309eb"
+    }
+  ],
+  "urinary-b11": [
+    {
+      "path": "revisionWitness/groups/urinary-b11-lg04",
+      "before": "95ca24b1b6935fb632aac4b6ac0491675514b6824f82f846d29a5cc404a36b66",
+      "after": "b116e3e0764d486f1254bb7af6d128e57297686e54d4f955538836c04c8bb91c"
+    },
+    {
+      "path": "precisionCards/0/semanticRevision",
+      "before": "95ca24b1b6935fb632aac4b6ac0491675514b6824f82f846d29a5cc404a36b66",
+      "after": "b116e3e0764d486f1254bb7af6d128e57297686e54d4f955538836c04c8bb91c"
+    }
+  ]
+};
+
+const a3ReviewedPreentry = {
+  "urinary-b01": {
+    "originalKpRecordsSha256": "912da9aea20c80e9027082434952bd3d5c827aff47578cdb90da80ccd070caa3",
+    "originalNonFrameworkSha256": "d30da7097b07bac5d97c19be7e69eb48de1bdaf2c894abb72591afb19bdb603e",
+    "originalNonFrameworkStableSha256": "1af6743be41dec0461bcdf1f1cee000dd41b4fa05e5398fd343061f7040cf53c",
+    "originalFrameworkMeta": {
+      "present": true,
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+      "anchor": "1｜总 Framework",
+      "items": [],
+      "markdown": ""
+    },
+    "reviewedFrameworkItemsSha256": "bcf57e9064ffc0862bf46159864fd78671d630945902191bcdbd589cf4ac58bc",
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "urinary-b02": {
+    "originalKpRecordsSha256": "d8099f196cd77b674cde19f452ac428a1d33cadf0271c95ffc33e91b34660065",
+    "originalNonFrameworkSha256": "c667f5f335c6c17105c8e88186bbf66c2ed1b9e2a22a7a032712b5175cabaf23",
+    "originalNonFrameworkStableSha256": "f67863de8492984b6c5f6e250491ba892b1a5239464980f85e2b1fde8011d65f",
+    "originalFrameworkMeta": {
+      "present": true,
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
+      "anchor": "1｜总 Framework",
+      "items": [],
+      "markdown": ""
+    },
+    "reviewedFrameworkItemsSha256": "851e7ecc3064a69acfc725c78b59a31dc895ea9afe7037253735573e76f253c6",
+    "kpChanges": [
+      {
+        "path": "13/detailMarkdown",
+        "before": "> **讲义回看 →** 全 Block；Block 1 肾血流、RAAS、NSAID与 ACEI / ARB 接口。",
+        "after": "> **讲义回看 →** 全 Block；Block 1 肾血流、RAAS、NSAID与 ACEI / ARB 接口。  \n\n### 1｜两大入口\n\n#### A. 尿液成分异常\n\n```text\n蛋白尿 / 血尿\n→ 先问滤过屏障选择性是否受损\n→ 大小 / 结构、经典电荷、足细胞 / 裂隙膜\n```\n\n#### B. 原尿量下降\n\n```text\nGFR↓ / 少尿\n→ 先问：\n毛细血管压？\n囊内压？\n血浆胶渗压？\nRPF？\nKf？\n```\n\n### 2｜五类典型场景\n\n| 场景 | 第一故障层 | 主链 |\n|---|---|---|\n| 蛋白尿 | 屏障选择性 | 大小 / 结构、经典电荷或足细胞 / 裂隙膜异常 → 蛋白限制下降 |\n| 大失血 / 休克 | 灌注 + RPF + 交感 | 毛细血管压↓、RPF↓、Kf↓、重吸收↑ |\n| 尿路结石 / 肿瘤压迫 | 囊内压 | 上游压力↑ → 有效滤过压↓ → GFR↓ |\n| 肾小球肾炎 | Kf + 屏障 | 增生 / 腔闭塞使Kf↓；同时可有成分漏出 |\n| 双肾动脉狭窄 | 入球前灌注 | 依赖AngⅡ收缩出球维持GFR |\n\n### 3｜两类药物接口\n\n#### NSAID\n\n```text\nNSAID\n→ 抑制PGE₂ / PGI₂\n→ 丢失入球小动脉舒张保护\n→ 肾血流与GFR下降接口\n```\n\n尤其在失血、心衰等低有效循环血量状态更危险。完整药物性 AKI 后置 B7。\n\n#### ACEI / ARB\n\n```text\n阻断AngⅡ\n→ 出球小动脉舒张\n→ 肾小球内压↓\n→ GFR↓\n```\n\n双肾动脉狭窄时尤其可能诱发肾衰。\n\n### 4｜早期糖尿病的 Study 边界\n\n本节真题页同时保留两层提示：\n\n- 早期糖尿病肾病可出现高滤过接口；\n- 普通糖尿病早期多尿首先从“滤过葡萄糖增多 → 小管液溶质高 → 渗透性利尿”切入，不能把尿多机械等同于 GFR 增高。\n\n因此第一轮只记：\n\n> **糖尿病多尿主要是小管渗透性利尿模型；若题干明确指向早期糖尿病肾病，再考虑高滤过。**\n\n### 5｜六步病例算法\n\n```text\n第一步：问题是尿成分异常，还是GFR / 尿量异常？\n        ↓\n第二步：若成分异常，先定位大小 / 结构、经典电荷或足细胞 / 裂隙膜\n        ↓\n第三步：若GFR异常，写出有效滤过压公式\n        ↓\n第四步：再检查RPF与滤过平衡点\n        ↓\n第五步：再检查Kf与系膜 / 毛细血管面积\n        ↓\n第六步：最后把交感、RAAS、药物和尿路梗阻放回对应层\n```\n\n---"
+      }
+    ],
+    "nonFrameworkChanges": [
+      {
+        "path": "memoryRouting/miG/11",
+        "before": "RPF通过蛋白浓缩速度移动平衡点；",
+        "after": "RPF改变沿程蛋白浓缩与净滤过压；在达到滤过平衡的课程模型中再判断平衡点移动；"
+      },
+      {
+        "path": "memoryRouting/miD/2",
+        "before": "与体表面积相关的四个指标；",
+        "after": "GFR、心指数、基础代谢率的体表面积口径与肺比顺应性按肺容积/FRC校正的区别；"
+      }
+    ]
+  },
+  "urinary-b03": {
+    "originalKpRecordsSha256": "bc9363093d0518e22611bf30bb5938dd49463d6a70cd4119bc0cb16b3cf40be4",
+    "originalNonFrameworkSha256": "9226c7ad50f9222af262ac5f22eda9a8c5798012ece2ce1c2040c804a07cbf3e",
+    "originalNonFrameworkStableSha256": "2c1b81af62349192e366350539fefd4f076768104b5a5bfa997dcddc92bcb50e",
+    "originalFrameworkMeta": {
+      "present": true,
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+      "anchor": "1｜总 Framework",
+      "items": [],
+      "markdown": ""
+    },
+    "reviewedFrameworkItemsSha256": "efcccdaa308b1e57cd791657b190e1348ee5c66873a785e0ae8b524300c8b378",
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "urinary-b04": {
+    "originalKpRecordsSha256": "f57099399bdbc6f00c9ff5d651ac88836da93b05f91893b92974db26818efac2",
+    "originalNonFrameworkSha256": "b6470436aa658eb367746d2c62027b2375a6b11a0c29e18e1c3085091ca4a1ae",
+    "originalNonFrameworkStableSha256": "3020bce28a678bf0611618c90f18131b46275dfa9f0e8efe50da521dd9e04b45",
+    "originalFrameworkMeta": {
+      "present": true,
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+      "anchor": "1｜总 Framework",
+      "items": [],
+      "markdown": ""
+    },
+    "reviewedFrameworkItemsSha256": "f43ccdc699568dc7f3290447355405f31ca8577f7c35f63abba0879769ab4602",
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  },
+  "urinary-b05": {
+    "originalKpRecordsSha256": "748384cc9523544d9d7cc812b830508cb76c8d34e37a4c4de638c61550aea048",
+    "originalNonFrameworkSha256": "8d72edda1f078f1c708f7ad1afcf1bea9c4b2786d7041ace14542bd272662413",
+    "originalNonFrameworkStableSha256": "92e9e46e83aa40e9816dbdcf16e06aa34f5302f6eaf97aada36b48e92829bea8",
+    "originalFrameworkMeta": {
+      "present": true,
+      "ownerPath": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+      "anchor": "1｜总 Framework",
+      "items": [],
+      "markdown": ""
+    },
+    "reviewedFrameworkItemsSha256": "39c9c64838d19904a930449beebdb08611f3e3a1af412614b2a4e28f49b5d0d1",
+    "kpChanges": [],
+    "nonFrameworkChanges": []
+  }
+};
+
+function a3ReplaceOnce(text, before, after) {
+  assert.equal(text.split(before).length - 1, 1, 'unique explicitly reviewed A3 value');
+  return text.replace(before, after);
+}
+
+function a3BeforeExactChanges(value, changes, label) {
+  const comparison = structuredClone(value);
+  for (const change of changes || []) {
+    const keys = change.path.split('/');
+    const actual = keys.reduce((owner, key) => owner?.[key], value);
+    assert.equal(actual, change.after, label + '/' + change.path + ': exact reviewed current value');
+    assert.notEqual(change.after, change.before);
+    const parent = keys.slice(0, -1).reduce((owner, key) => owner[key], comparison);
+    parent[keys.at(-1)] = change.before;
+  }
+  return comparison;
+}
+
+export function assertReviewedA3Source(source, blockId, originalCanonicalGitBlob = null) {
+  const reviewed = a3ReviewedSources[blockId];
+  if (!reviewed) return false;
+  if (originalCanonicalGitBlob) assert.equal(originalCanonicalGitBlob, reviewed.originalCanonicalGitBlob);
+  assert.equal(a2TestSha(source), reviewed.reviewedCurrentSourceSha256, blockId + ': reviewed complete current source');
+  let comparison = source;
+  const ranges = [...reviewed.reviewedSpans].sort((a, b) => b.start - a.start);
+  for (const [i, range] of ranges.entries()) {
+    assert.ok(range.start >= 0 && range.end > range.start);
+    if (i) assert.ok(range.end <= ranges[i - 1].start, blockId + ': disjoint named review spans');
+    assert.equal(a2TestSha(source.slice(range.start, range.end)), range.sha256, blockId + ': reviewed ' + range.label);
+    comparison = comparison.slice(0, range.start) + range.marker + comparison.slice(range.end);
+  }
+  assert.equal(a2TestSha(comparison), reviewed.originalProtectedSourceSha256,
+    blockId + ': all original bytes outside the named model, consistency and heading-recovery spans');
+  return true;
+}
+
+export function a3LearningBeforeModelReview(source) {
+  const learning = JSON.parse(source);
+  let historical = source;
+  for (const change of a3ReviewedLearningChanges) {
+    assert.equal(change.path.split('/').reduce((owner, key) => owner?.[key], learning), change.after,
+      change.path + ': current reviewed Learning meaning');
+    assert.notEqual(change.after, change.before);
+    historical = a3ReplaceOnce(historical, JSON.stringify(change.after), JSON.stringify(change.before));
+  }
+  return historical;
+}
+
+export function a3CuesBeforeOwnerReview(source) {
+  const index = JSON.parse(source);
+  let historical = source;
+  for (const change of a3ReviewedOwnerChanges) {
+    const rows = index.precision_index.filter(row => row.id === change.id);
+    assert.equal(rows.length, 1, change.id + ': original existing admission');
+    assert.equal(rows[0].prepared_memory_ref.owner_sha256, change.after, change.id + ': actual reviewed owner witness');
+    assert.notEqual(change.after, change.before);
+    historical = a3ReplaceOnce(historical, JSON.stringify(change.after), JSON.stringify(change.before));
+  }
+  return historical;
+}
+
+export function a3GroupsBeforeModelReview(block) {
+  return a3BeforeExactChanges(block.logicGroups, a3ReviewedGroupChanges[block.blockId], block.blockId + ': groups');
+}
+
+export function a3PreentryBeforeModelReview(current, blockId) {
+  return a3BeforeExactChanges(current, a3ReviewedPreentry[blockId]?.nonFrameworkChanges, blockId + ': Memory Routing');
+}
+
+export function assertReviewedA3Preentry(block, current, source) {
+  const reviewed = block.systemId === 'urinary' && a3ReviewedPreentry[block.blockId];
+  if (!reviewed) return false;
+  assertReviewedA3Source(source, block.blockId);
+  const records = a3BeforeExactChanges(block.kpRecords, reviewed.kpChanges, block.blockId + ': native Core');
+  for (const change of reviewed.kpChanges) {
+    assert.equal(block.blockId, 'urinary-b02');
+    assert.equal(change.path, '13/detailMarkdown');
+    assert.equal(block.kpRecords[13].kpId, 'urinary-b02-kp14');
+  }
+  assert.equal(a2TestSha(JSON.stringify(records)), reviewed.originalKpRecordsSha256,
+    block.blockId + ': all original native records except exact original-body reading recovery');
+  const { framework, ...other } = a3PreentryBeforeModelReview(current, block.blockId);
+  assert.equal(a2TestSha(JSON.stringify(other)), reviewed.originalNonFrameworkSha256);
+  assert.equal(a2TestDigest(other), reviewed.originalNonFrameworkStableSha256);
+  assert.deepEqual({ ...framework, items: [], markdown: '' }, reviewed.originalFrameworkMeta);
+  assert.equal(a2TestSha(JSON.stringify(framework.items)), reviewed.reviewedFrameworkItemsSha256);
+  // Independent Markdown heading ownership checks the complete authored
+  // Framework, including B5's nested natural model, with no regex truncation.
+  let offset = 0;
+  const headings = [];
+  for (const token of marked.lexer(source, { gfm: true })) {
+    const start = source.indexOf(token.raw, offset);
+    assert.ok(start >= offset, 'independent Markdown token belongs to exact source');
+    if (token.type === 'heading') headings.push({ anchor: token.text, level: token.depth,
+      line: source.slice(0, start).split('\n').length });
+    offset = start + token.raw.length;
+  }
+  const matches = headings.filter(row => row.anchor === framework.anchor);
+  assert.equal(matches.length, 1, block.blockId + ': unique authored Framework');
+  const start = matches[0];
+  const end = headings.find(row => row.line > start.line && row.level <= start.level);
+  const authored = source.split('\n').slice(start.line - 1, end ? end.line - 1 : undefined).join('\n').trim();
+  assert.equal(framework.markdown, authored, block.blockId + ': complete current authored Framework');
   return true;
 }

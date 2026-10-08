@@ -29,12 +29,16 @@
       "question_truth_path": "content/xizong/questions/shards/2014/q001-025.json",
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56"
+      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "B3 KP05 explicitly owns proximal-tubule glucose reabsorption through apical Na-glucose cotransport as secondary active transport. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "basis": "正式答案B。原KP05的顶端Na-葡萄糖同向继发性主动转运保持；其能量来自Na梯度而非SGLT直接水解ATP。历史改变的是基底側GLUT具体亚型的证据边界，不能混作管腔膜转运方式改变。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness e981cc58b9f0871892c71a1e063fb6861bfa2b56 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -282,12 +286,16 @@
       "question_truth_path": "content/xizong/questions/shards/2014/q001-025.json",
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d"
+      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d",
+      "knowledge_revalidated_blob_sha": "04f41f6332797c9159494562076476b6b792383c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Urinary B2 KP10 explicitly owns renal-plasma-flow effects on the filtration-equilibrium point and effective filtration area. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "basis": "正式答案C。KP10当前仍以RPF增加减慢沿程蛋白浓缩/胶渗压上升，支持滤过平衡点向出球端；快速大量盐水是题源容量/RPF增加情境。保留本次历史新增前提：这是其他因素受控且毛细血管内达到平衡的课程模型，并不宣称所有正常人都有血管内平衡点或解剖Kf随RPF改变。原KP10机制归属不变。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 506517513ea20cd4e7f918422210526bc6baf73d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -302,15 +310,15 @@
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
-      "knowledge_revalidated_blob_sha": "1c39e7609d18c6bf56753340233203fb4de8c6b8"
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Urinary B3 KP09 explicitly owns proximal bicarbonate reclamation via Na-H exchange and carbonic-anhydrase CO2 cycling. Final integration revalidated against current Question Truth and Current Knowledge owner.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "Key B is explicitly the first step in KP09’s unchanged bicarbonate-reclamation chain. The section still states about 80% proximal recovery and CO2 apical entry, separating the fraction and direct-anion-entry distractors. The revised compartmental prompt preserves that chain."
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 1c39e7609d18c6bf56753340233203fb4de8c6b8 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式答案B。原KP09与Current完整Core/identity/title精确相同，首步Na/H交换分泌H即与滤过碱回收耦联；近端约80%、CO2跨顶膜排除比例与直接Cl-HCO3顶端交换误读。保留循环H回收滤过HCO3与NH4净排酸的分工，不把两个总酸碱过程互换。"
     }
   },
   {
@@ -324,12 +332,16 @@
       "question_truth_path": "content/xizong/questions/shards/2014/q001-025.json",
       "question_truth_blob_sha": "db06c84e6f34e168b37f79f0090f26f666a43e1e",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "af23fc3bc95f994cf087e0ca5ac7fc20b820b41a"
+      "knowledge_blob_sha": "af23fc3bc95f994cf087e0ca5ac7fc20b820b41a",
+      "knowledge_revalidated_blob_sha": "d2ad342810ed59363d4f92140b0eda0bdd13fdd8"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Urinary B4 is the smallest safe owner for sweating-induced hyperosmolality/volume loss, ADH rise and reduced urine volume. Final integration revalidated against current Question Truth and Current Knowledge owner.",
-      "old_mapping_inherited": false
+      "basis": "正式答案A。Current整B4的KP07出汗净失水→ADH增加，与KP06 V2/AQP2水回收共同解释主要尿量方向；历史已区分AVP分子与垂体后叶制剂，并限定出汗水摄入背景。保持原Block归属，不把它换成所有脱水均只靠ADH或必须等待RAAS的顺序。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness af23fc3bc95f994cf087e0ca5ac7fc20b820b41a was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

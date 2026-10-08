@@ -269,13 +269,17 @@
       "question_truth_path": "content/xizong/questions/shards/2026/q126-150.json",
       "question_truth_blob_sha": "43a57570edb31c187590a8e438d6f9f970c2b2c9",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "af23fc3bc95f994cf087e0ca5ac7fc20b820b41a"
+      "knowledge_blob_sha": "af23fc3bc95f994cf087e0ca5ac7fc20b820b41a",
+      "knowledge_revalidated_blob_sha": "d2ad342810ed59363d4f92140b0eda0bdd13fdd8"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Current urinary B4 jointly owns medullary hypertonicity as water-reabsorption driving force and ADH/AQP2 as the permeability gate; lowering either increases urine volume."
+      "basis": "正式答案BD。整B4 KP10/18给梯度下降减少水回收，KP06/17给ADH减少降低集合管水通透；KP07疼痛促ADH、KP02RAAS整体保Na水解释相反选项。历史新增激素并行与条件边界均保留，维持原Block级双断点，而非将任何多尿都只归ADH。",
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness af23fc3bc95f994cf087e0ca5ac7fc20b820b41a was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

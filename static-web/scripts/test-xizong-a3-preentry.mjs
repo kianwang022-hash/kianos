@@ -1,4 +1,4 @@
-import { assertReviewedA1Preentry, assertReviewedA2Preentry } from './xizong-calibration-test-support.mjs';
+import { assertReviewedA1Preentry, assertReviewedA2Preentry, assertReviewedA3Preentry, a3PreentryBeforeModelReview } from './xizong-calibration-test-support.mjs';
 // Independent input: reviewed raw Current line/text, never generated compiler totals.
 // Portable regression; optional KIANOS_REPO_ROOT and KIANOS_QA_DIR.
 // Synthetic fixture and result writes are restricted to the QA output directory.
@@ -44,8 +44,10 @@ let g=0,d=0,framework=0;
 for(const raw of oracle.raw_preentry.blocks){
  const b=native.loadXizongBlock('urinary',raw.block_id), got=production.compileXizongBlockPreentry(b);
  check(`${raw.block_id}: exact raw parent and child ownership`,()=>{
+  const source=fs.readFileSync(`${root}/${b.sourcePath}`,'utf8');assertReviewedA3Preentry(b,got,source);
+  const comparison=a3PreentryBeforeModelReview(got,b.blockId);
   assert.equal(got.memoryRouting.present,true);assert.equal(got.memoryRouting.ownerPath,raw.source_path);assert.equal(got.memoryRouting.anchor,raw.parent_anchor);
-  for(const [kind,key] of [['MI-G','miG'],['MI-D','miD']]){const s=raw.sections.find(s=>s.kind===kind);assert.equal(got.memoryRouting[key+'Anchor'],s.anchor);assert.deepEqual(got.memoryRouting[key],s.items.map(x=>clean(x.text)));}
+  for(const [kind,key] of [['MI-G','miG'],['MI-D','miD']]){const s=raw.sections.find(s=>s.kind===kind);assert.equal(got.memoryRouting[key+'Anchor'],s.anchor);assert.deepEqual(comparison.memoryRouting[key],s.items.map(x=>clean(x.text)));}
  });
  check(`${raw.block_id}: actual LearnerObject attention only`,()=>{
   const object=learner.buildXizongLearnerObject({block:{...b,blockPreentry:got}});

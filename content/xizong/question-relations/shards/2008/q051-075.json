@@ -346,12 +346,16 @@
       "question_truth_path": "content/xizong/questions/shards/2008/q051-075.json",
       "question_truth_blob_sha": "0f2b5f78d32f43bac283e84238fab549854ee75a",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927"
+      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927",
+      "knowledge_revalidated_blob_sha": "e4e4e7227b91b3a0b20ae36d7f3dd785752e02b7"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Urinary B1 KP02 explicitly owns renal EPO as the endocrine signal linking renal oxygenation to erythropoiesis, while renin/prostaglandin/kinin entries belong to vasoactive or local blood-flow regulation; EPO is the non-vasoactive choice.",
-      "old_mapping_inherited": false
+      "basis": "正式答案 A。KP02将EPO列为间质细胞产生、促进红细胞生成的内分泌轴；肾素接RAAS，前列腺素与激肽列为局部血流调节，足以承担本题按主要作用区分非血管活性激素。历史VitD前体校正与本题判别无关；不把非主要血管作用外推成EPO绝无血管相关效应。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4175cc1fde0309ab0061e10a61f380d6cef20927 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

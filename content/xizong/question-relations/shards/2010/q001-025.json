@@ -242,12 +242,16 @@
       "question_truth_path": "content/xizong/questions/shards/2010/q001-025.json",
       "question_truth_blob_sha": "bfa1d5cb0b26bfbafc7b30ccc15edf77297f69ef",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d"
+      "knowledge_blob_sha": "506517513ea20cd4e7f918422210526bc6baf73d",
+      "knowledge_revalidated_blob_sha": "04f41f6332797c9159494562076476b6b792383c"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Urinary B2 KP03 explicitly defines glomerular filtrate as plasma ultrafiltrate lacking blood cells and most plasma proteins.",
-      "old_mapping_inherited": false
+      "basis": "正式答案B。KP03当前明确原尿相对血浆显著减少的是大多数蛋白，水、小离子及葡萄糖近似超滤通过；血浆本身无血细胞。历史Core和原basis曾把缺血细胞混作原尿相对血浆差别，本次仅按已校正的蛋白差异重审原KP03，保留答案与归属，不沿用旧错误表述。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 506517513ea20cd4e7f918422210526bc6baf73d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -262,15 +266,15 @@
       "question_truth_blob_sha": "bfa1d5cb0b26bfbafc7b30ccc15edf77297f69ef",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
       "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
-      "knowledge_revalidated_blob_sha": "1c39e7609d18c6bf56753340233203fb4de8c6b8"
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
       "basis": "Urinary B3 KP10 explicitly owns NH3/NH4+ secretion/trapping as renal net-acid excretion and bicarbonate preservation/generation.",
       "old_mapping_inherited": false,
-      "source_revision_revalidated": "A1_A2_A3_KNOWLEDGE_CONTENT_CURRENT_2026_10_02",
-      "source_revision_revalidated_at": "2026-10-02",
-      "source_revision_revalidation_basis": "Key C directly matches KP10’s NH3 trapping of H+, NH4 excretion and retained/generated blood bicarbonate. The full body contrasts renal acid excretion with hepatic ammonia detoxification, excluding the competing purpose in option B."
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 1c39e7609d18c6bf56753340233203fb4de8c6b8 was loaded through the native parser. The original Primary and every supporting Core (all native KPs for a deliberate Block-level route), identity and title equal Current exactly; the full formal question object equals its original Truth witness. The original decision-specific medical basis is retained for this exact mapped scope. This is bounded historical scope continuity, not blanket Block equivalence or a new target assignment. Current scope review: 正式答案C。原KP10精确连续：近端NH4分泌与集合管NH3捕获H后排NH4，接新增/保留血HCO3，主任务是排酸保碱；正文还明确肝脏尿素循环解毒氨与肾此功能不同。"
     }
   },
   {

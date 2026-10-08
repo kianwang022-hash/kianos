@@ -258,13 +258,17 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q001-025.json",
       "question_truth_blob_sha": "14c1ac8647f069a64f81c6fede8e38ced82b884d",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927"
+      "knowledge_blob_sha": "4175cc1fde0309ab0061e10a61f380d6cef20927",
+      "knowledge_revalidated_blob_sha": "e4e4e7227b91b3a0b20ae36d7f3dd785752e02b7"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: An ideal GFR marker is freely filtered and neither reabsorbed nor secreted so excretion equals filtration; urinary B1 KP07 explicitly owns the inulin clearance fingerprint."
+      "basis": "正式答案 D。原KP07菊粉指纹明确理想GFR测量物应自由滤过且不被小管重吸收或分泌；这是充分测量条件。保留当前新增反向边界：单凭观察C=GFR只说明净转运为0，不能证明两种小管过程各自均不存在。",
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4175cc1fde0309ab0061e10a61f380d6cef20927 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "urinary-b01-kp07"
   },
@@ -278,13 +282,17 @@
       "question_truth_path": "content/xizong/questions/shards/2016/q001-025.json",
       "question_truth_blob_sha": "14c1ac8647f069a64f81c6fede8e38ced82b884d",
       "knowledge_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56"
+      "knowledge_blob_sha": "e981cc58b9f0871892c71a1e063fb6861bfa2b56",
+      "knowledge_revalidated_blob_sha": "1ff85ebef17054d9bf620386d45ebe8e2599a28c"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: Glomerulotubular balance means proximal Na/water reabsorption changes proportionally with GFR; urinary B3 KP02 explicitly owns this relation and location."
+      "basis": "正式答案A。原KP02仍明确近端Na/水回收通常约占滤过负荷65%–70%，承接球管平衡位置和定义。历史校正后不能仅凭GFR升高就断言管周胶渗升高、静水压下降，须看FF/RPF/阻力；这不改变比例回收位于近端的本题判据，也不与致密斑管球反馈混同。",
+      "source_revision_revalidated": "A3_B01_B05_DEEP_MODEL_QUALITY_STAGE1_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness e981cc58b9f0871892c71a1e063fb6861bfa2b56 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against the final Current Core, including any reviewed Core exception in its original scope; this is an actual mapping review, not a claim of historical Core equivalence. The full formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "urinary-b03-kp02"
   },
