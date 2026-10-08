@@ -54,7 +54,17 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "source_evidence_objects": [
+          {
+            "construction_id": "construction:d1c563bac47430aadf7b",
+            "direction": "R+P",
+            "level": "L1",
+            "meaning_cn": "主动提出/表示愿意做某事",
+            "pattern": "offer to do sth",
+            "source_sense_id": "sense:offer:cbeb7ebf21975377"
+          }
+        ]
       },
       {
         "construction_id": "construction:c3e5f4b84bfdd9933acd",
@@ -62,15 +72,18 @@
         "level": "L1",
         "meaning_cn": "把某物提供给某人接受/考虑",
         "pattern": "offer sb sth / offer sth to sb",
-        "source_sense_id": "sense:offer:ec31d64f2b1e5829"
-      },
-      {
-        "construction_id": "construction:d1c563bac47430aadf7b",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "主动提出/表示愿意做某事",
-        "pattern": "offer to do sth",
-        "source_sense_id": "sense:offer:cbeb7ebf21975377"
+        "source_sense_id": "sense:offer:ec31d64f2b1e5829",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:538b0233f7adf0287e41",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:offer:ec31d64f2b1e5829:collocation:0"
+            ],
+            "meaning_cn": "提供某物",
+            "phrase": "offer + sth"
+          }
+        ]
       }
     ],
     "content_hash": "dad1efebe98efdd4057b6e18d4c043bcbc31b27ad7fe3334356d247aac16421e",
@@ -114,15 +127,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:538b0233f7adf0287e41",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:offer:ec31d64f2b1e5829:collocation:0"
-            ],
-            "meaning_cn": "提供某物",
-            "phrase": "offer + sth"
-          },
           {
             "collocation_id": "collocation:2f498c7b41a7e1b10bcf",
             "exam_value": "usage_example",
@@ -225,8 +229,8 @@
             "legacy_source_object_ids": [
               "sense:offer:0caedd5442565a55:collocation:0"
             ],
-            "meaning_cn": "报价",
-            "phrase": "offer price"
+            "meaning_cn": "500英镑的出价",
+            "phrase": "an offer of £500"
           }
         ],
         "confidence": "medium",
@@ -426,7 +430,6 @@
       "collocation:1142808b180fee77d003",
       "collocation:2f498c7b41a7e1b10bcf",
       "collocation:488c892d1166c75f12ea",
-      "collocation:538b0233f7adf0287e41",
       "collocation:7ceb8a9b4fc1eb1007be",
       "collocation:d32b22b2cb7c00347248"
     ],
@@ -435,6 +438,12 @@
         "id": "deep:constructions:offer:c1cc59d5808b50ec",
         "source_row": 803,
         "source_path": "content/lexical/canonical/facts/shards/o3297-3328.json"
+      },
+      {
+        "id": "construction:d1c563bac47430aadf7b",
+        "status": "reference",
+        "target_kind": "construction",
+        "merged_into_id": null
       }
     ],
     "collocations": [
@@ -456,7 +465,9 @@
       {
         "id": "collocation:538b0233f7adf0287e41",
         "source_row": 7039,
-        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:7ceb8a9b4fc1eb1007be",
