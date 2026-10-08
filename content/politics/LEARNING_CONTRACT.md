@@ -293,7 +293,7 @@ Preserve Chengfeng Natural Unit identity, boundaries and source hierarchy. Exist
 | Wrong / Uncertain and batch Review | **Workbench / Review → Chat** | Learner-triggered local repair; a mistake does not automatically create Memory debt |
 | Resume / source locator | **Existing native records + reported source-study position** | Missing browser evidence is not zero learning; no invented progress |
 
-The free-practice change removes plan dependence, not source-fidelity checks. Pending/unreviewed/unsupported content remains excluded. Reuse the current Memory content IDs and evidence path; no second catalog, autonomous scheduler or automatic enrollment. Implementation and real page acceptance must be verified separately from this contract.
+The free-practice change removes plan dependence, not source-fidelity checks. Pending/unreviewed/unsupported content remains excluded. Reuse the current Memory content IDs and evidence path; no second catalog, autonomous scheduler or automatic enrollment. **Terminology boundary:** Content-level `Residual Precision / Memory` still means model-resistant exact fragments, while the learner-facing **Website Memory workspace is a practice container** and may also rehearse current model-bound Main-Prompt objects selected for active retrieval. Rendering a Main-Prompt object there does not reclassify it as residual Memory or create a second semantic inventory. Implementation and real page acceptance must be verified separately from this contract.
 
 ## 3. Teaching projection
 
