@@ -18,6 +18,7 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
     readXizongMemoryStorage,
     setRepairTasks
   } from '../lib/xizongMemoryModel.mjs';
+  import { validateXizongSystemWuReturn } from '../lib/xizongSystemWuReturn.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -79,6 +80,67 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
       };
     };
 
+    const questionIds = (row) => [...new Set(
+      (Array.isArray(row?.sourceQuestionIds) ? row.sourceQuestionIds : []).map(String)
+    )].sort();
+    const sameTarget = (left, right) => ['id', 'kpId', 'blockId', 'systemId', 'origin', 'diagnosticAxis']
+      .every((key) => String(left?.[key] || '') === String(right?.[key] || ''));
+    const samePlan = (left, right) => JSON.stringify(questionIds(left)) === JSON.stringify(questionIds(right))
+      && ['reason', 'action', 'priority', 'blockHref', 'returnHref']
+        .every((key) => String(left?.[key] || '') === String(right?.[key] || ''));
+
+    // System W/U keeps older plans when it updates the envelope. Only its
+    // latest native result, witnessed by current tasks, identifies that batch.
+    const currentSystemBatch = (inbox, incoming, memory) => {
+      try {
+        const id = String(inbox.sourceSystemId || systemId);
+        const raw = localStorage.getItem(`kianos:xizong:system-repair-return:${id}:v1`);
+        if (raw == null) return null; // Only absent native authority permits legacy import.
+        const result = JSON.parse(raw);
+        const packet = validateXizongSystemWuReturn(result?.return_packet, id);
+        const receipt = result?.receipt;
+        const rows = receipt?.repair_tasks;
+        if (packet.decision !== 'REPAIR' || JSON.stringify(packet) !== JSON.stringify(result.return_packet)
+            || result.return_id !== packet.return_id || receipt?.return_id !== packet.return_id
+            || receipt?.schema !== 'kianos.xizong.system_wu_return_receipt.v1'
+            || receipt?.status !== 'APPLIED' || receipt?.system_id !== id
+            || result.importedAt !== inbox.importedAt || receipt?.at !== inbox.importedAt
+            || !Number.isFinite(Date.parse(inbox.importedAt))
+            || !Array.isArray(rows) || !rows.length || !Array.isArray(result.repair_task_ids)) return false;
+        const ids = rows.map((row) => row?.task_id);
+        if (new Set(ids).size !== ids.length
+            || JSON.stringify([...ids].sort()) !== JSON.stringify([...result.repair_task_ids].sort())) return false;
+        const unmapped = result.unmapped_question_ids;
+        if (!Array.isArray(unmapped) || !Array.isArray(receipt.unmapped_question_ids)
+            || JSON.stringify([...unmapped].sort()) !== JSON.stringify([...receipt.unmapped_question_ids].sort())) return false;
+        const mapped = [];
+        let blockWitnesses = 0;
+        for (const row of rows) {
+          const axis = String(row?.diagnostic_axis || '');
+          const expectedId = `repair:system-wu:${id}:${row?.block_id}:${row?.kp_id}${axis ? ':' + axis.toLowerCase() : ''}`;
+          const target = { id: expectedId, systemId: id, blockId: row?.block_id, kpId: row?.kp_id,
+            origin: 'SYSTEM_WU_CHAT_RETURN', diagnosticAxis: axis };
+          const matches = (memory.repairTasks || []).filter((task) => task?.id === row?.task_id);
+          if (row?.task_id !== expectedId || row?.origin !== target.origin
+              || row?.created_at !== inbox.importedAt || matches.length !== 1
+              || matches[0].createdAt !== row.created_at || !sameTarget(matches[0], target)) return false;
+          const questions = questionIds(matches[0]);
+          if (!questions.length || !questions.every((qid) => packet.plan.some((plan) =>
+            plan.question_id === qid && plan.diagnostic_axis === axis))) return false;
+          mapped.push(...questions);
+          if (row.block_id === blockId) {
+            const plans = incoming.filter((task) => task.id === row.task_id);
+            if (plans.length !== 1 || !sameTarget(matches[0], plans[0]) || !samePlan(matches[0], plans[0])) return false;
+            blockWitnesses += 1;
+          }
+        }
+        const covered = [...mapped, ...unmapped];
+        if (new Set(covered).size !== covered.length
+            || JSON.stringify([...covered].sort()) !== JSON.stringify(packet.plan.map((plan) => plan.question_id).sort())) return false;
+        return blockWitnesses ? new Set(ids) : false;
+      } catch { return false; }
+    };
+
     const consumeInbox = () => {
       const inbox = readJson(inboxKey, null);
       if (!inbox) return false;
@@ -93,14 +155,45 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
       let memory;
       try { memory = readXizongMemoryStorage(localStorage); }
       catch (error) { console.error(error); return false; }
-      const incomingIds = new Set(incoming.map((task) => task.id));
+      // Native Return owns new occurrences. This bridge consumes duplicates;
+      // the envelope's newer timestamp never authorizes replacing a native task.
+      const batch = currentSystemBatch(inbox, incoming, memory);
+      if (batch === false && incoming.some((task) => task.origin === 'SYSTEM_WU_CHAT_RETURN')) return false;
+      const replacements = [];
+      for (const task of incoming) {
+        const existing = (memory.repairTasks || []).filter((row) => row?.id === task.id);
+        if (!existing.length) {
+          // Do not reconstruct a retained native occurrence from a later batch.
+          if (batch && task.origin === 'SYSTEM_WU_CHAT_RETURN' && !batch.has(task.id)) return false;
+          replacements.push(task);
+          continue;
+        }
+        if (existing.length !== 1) return false;
+        const current = existing[0];
+        const currentTime = Date.parse(current.createdAt);
+        const incomingTime = Date.parse(inbox.importedAt);
+        if (!sameTarget(current, task) || !Number.isFinite(currentTime) || !Number.isFinite(incomingTime)
+            || incomingTime < currentTime) return false;
+        if (incomingTime === currentTime) {
+          if (current.createdAt !== task.createdAt
+              || JSON.stringify(questionIds(current)) !== JSON.stringify(questionIds(task))) return false;
+          continue;
+        }
+        // An older plan belongs to the retained set only when the exact latest
+        // native batch excludes it and its payload still matches this task.
+        if (task.origin !== 'SYSTEM_WU_CHAT_RETURN' || !batch || batch.has(task.id)
+            || !samePlan(current, task)) return false;
+      }
+      const incomingIds = new Set(replacements.map((task) => task.id));
       const preserved = (memory.repairTasks || []).filter((task) => !incomingIds.has(String(task?.id || '')));
-      const next = setRepairTasks(memory, [...preserved, ...incoming]);
+      const next = { ...memory, repairTasks: [
+        ...preserved, ...setRepairTasks(memory, replacements).repairTasks
+      ] };
 
       const beforeMemory = localStorage.getItem(XIZONG_MEMORY_STORAGE_KEY);
       const beforeInbox = localStorage.getItem(inboxKey);
       try {
-        if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');
+        if (replacements.length && !writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');
         localStorage.removeItem(inboxKey);
       } catch {
         try {

@@ -353,7 +353,7 @@ has(memoryUi, 'completeRepairTask(state, item.id)', 'memory-repair-completion-mi
 has(memoryUi, 'data-repair-block-link', 'memory-repair-block-return-missing');
 has(memoryUi, 'data-repair-return-link', 'memory-repair-question-return-missing');
 has(systemWuReturnLib, 'nextMemory=setRepairTasks', 'system-wu-not-routed-to-current-memory-repair');
-has(repairInboxUi, 'const next = setRepairTasks(memory, [...preserved, ...incoming]);', 'repair-inbox-not-routed-to-current-memory-repair');
+matches(repairInboxUi, /const next = \{\s*\.\.\.memory,\s*repairTasks:\s*\[\s*\.\.\.preserved,\s*\.\.\.setRepairTasks\(memory,\s*replacements\)\.repairTasks\s*\]\s*\};/, 'repair-inbox-not-routed-to-current-memory-repair');
 lacks(repairInboxUi, /appendMemoryEvidence|evidence\.push/, 'repair-inbox-must-not-manufacture-memory-evidence');
 has(memoryModel, 'export function completeRepairTask', 'repair-completion-owner-missing');
 lacks(enhancerUi, /Current 暂无精确定位/, 'engineering-current-jargon-in-study-dock');

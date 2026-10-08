@@ -113,7 +113,7 @@ assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 're
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
 assert(repairBridge.includes('XIZONG_MEMORY_STORAGE_KEY') && repairBridge.includes('setRepairTasks'), 'repair-inbox-does-not-merge-into-current-memory-owner');
 assert(systemWuReturn.includes("origin:'SYSTEM_WU_CHAT_RETURN'"), 'repair-inbox-import-origin-missing');
-assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'repair-inbox-promoted-beyond-repair');
+assert(/const next = \{\s*\.\.\.memory,\s*repairTasks:\s*\[\s*\.\.\.preserved,\s*\.\.\.setRepairTasks\(memory,\s*replacements\)\.repairTasks\s*\]\s*\};/.test(repairBridge), 'repair-inbox-promoted-beyond-repair');
 assert(repairBridge.includes('sourceQuestionIds,'), 'repair-inbox-loses-question-provenance');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-tab-cannot-receive-inbox');
 assert(repairBridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'repair-inbox-consume-does-not-announce-current-memory-state');
