@@ -1,3 +1,4 @@
+import { assertReviewedA1Preentry } from './xizong-calibration-test-support.mjs';
 // Independent input: reviewed raw Current line/text, never generated compiler totals.
 // Portable regression; optional KIANOS_REPO_ROOT and KIANOS_QA_DIR.
 // Synthetic fixture and result writes are restricted to the QA output directory.
@@ -37,6 +38,7 @@ for(const prior of baseline.legacy)check(`legacy ${prior.blockId} exact topics/o
  // main962d889's complete historical preentry first matched the unchanged
  // prior.preentry_sha256; this is its independently extracted memory route.
  assert.equal(independentDigest(actual.preentry.memoryRouting),'fe25a4e9802418fa035a26dfaafc7960405f025420294380cbc6c8fb210b25bb');
+}else if(actual.systemId==='circulation'){const b=native.loadXizongBlock(actual.systemId,prior.blockId);assert.equal(assertReviewedA1Preentry(b,actual.preentry,fs.readFileSync(`${root}/${actual.sourcePath}`,'utf8')),true);
 }else{const b=native.loadXizongBlock(actual.systemId,prior.blockId),source=fs.readFileSync(`${root}/${actual.sourcePath}`,'utf8'),normalized=stripNaturalPromptCalibration(source);assert.equal(sha(normalized),prior.raw_sha256);const file=path.join(normalizedLegacyDir,actual.systemId+'-'+prior.blockId+'.md');fs.writeFileSync(file,normalized);const normalizedPreentry=production.compileXizongBlockPreentry({...b,sourcePath:path.relative(root,file)});for(const key of ['framework','memoryRouting'])if(normalizedPreentry[key])normalizedPreentry[key].ownerPath=actual.sourcePath;assert.equal(independentDigest(normalizedPreentry),prior.preentry_sha256)}});
 let g=0,d=0,framework=0;
 for(const raw of oracle.raw_preentry.blocks){
