@@ -258,13 +258,17 @@
       "question_truth_path": "content/xizong/questions/shards/2021/q026-050.json",
       "question_truth_blob_sha": "8af95035bc7b150c1e86493dc9fb98dbf82978b8",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: COPD requires persistent post-bronchodilator airflow limitation; FEV1/FVC<0.70 is the Current Study diagnostic threshold. R3 KP13 explicitly owns diagnostic spirometry."
+      "basis": "KP13支扩剂后FEV1/FVC<70%仍是课程持续气流受限检查标准，支持D；新增背景条件提醒这是诊断证据而非仅一数值便确立病因，FEV1%pred并非同一指标。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r03-kp13"
   },

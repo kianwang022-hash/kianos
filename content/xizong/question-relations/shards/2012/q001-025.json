@@ -187,12 +187,16 @@
       "question_truth_path": "content/xizong/questions/shards/2012/q001-025.json",
       "question_truth_blob_sha": "43b9b3e38fb749d14e015751f1d2c5ccbf89ded3",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Final unified owner review: Current Block respiratory-r02 is the smallest safe owner for 'Hb氧容量、氧含量与氧饱和度边界'. Block-level relation retained rather than guessing a narrower KP.",
-      "old_mapping_inherited": false
+      "basis": "KP05区分实际含量与最大可结合容量，KP07的四亚基协同/S形曲线支持A–C并排除把实际结合量称为容量的D。新增SaO2精确定义保留，不用总CaO2/容量替代正常Hb的结合氧比例。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

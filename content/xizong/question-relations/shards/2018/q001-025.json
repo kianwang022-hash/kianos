@@ -78,13 +78,17 @@
       "question_truth_path": "content/xizong/questions/shards/2018/q001-025.json",
       "question_truth_blob_sha": "9ddd7c9f46744b3adff7ac8fafd6f519b54b6174",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent SECOND_PASS solve: R2 KP14 explicitly states that PaCO2 that is too low removes tonic CO2/H+ respiratory drive, so a physiological PaCO2 level is required for normal breathing."
+      "basis": "KP14说明PaCO2过低会缺少维持呼吸的CO2/H+刺激，支持D；KP13保留外周快、中枢强而易适应的比较。新增“不能自行给氧气加5%CO2”限制将生理驱动与氧疗操作分开，不影响答案。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

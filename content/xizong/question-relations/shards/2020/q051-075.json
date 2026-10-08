@@ -382,13 +382,17 @@
       "question_truth_path": "content/xizong/questions/shards/2020/q051-075.json",
       "question_truth_blob_sha": "98e9474227e3ec3076db3c782513e064d3cc8e2d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: long smoking history plus chronic cough/dyspnea and post-bronchodilator FEV1/FVC 61% establishes persistent airflow limitation/COPD. R3 KP06 owns the clinical identity and KP13 the diagnostic spirometry."
+      "basis": "长期暴露、慢性症状、肺气肿样体征与支扩剂后FEV1/FVC61%合并支持COPD A，原Primary6+support13不变；新文要求临床背景，题中已提供，不以比值单独排除并存或其他病因。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r03-kp06"
   },
@@ -402,13 +406,17 @@
       "question_truth_path": "content/xizong/questions/shards/2020/q051-075.json",
       "question_truth_blob_sha": "98e9474227e3ec3076db3c782513e064d3cc8e2d",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3"
+      "knowledge_blob_sha": "4a4417bc76dbd0f200e00f2f246884879d4be5c3",
+      "knowledge_revalidated_blob_sha": "11f169fb064d0f192e1c505e84036d84202262fc"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: COPD severity uses FEV1%pred, not FEV1/FVC; 52% falls in the Current Study's GOLD 2 50–79% range. R3 KP10 explicitly owns the grading."
+      "basis": "KP10当前50–79%pred为课程GOLD2肺功能级，52%支持中度阻塞C；61%的FEV1/FVC用于定性而非该严重度分级，新增DLCO/容積的条件不混入答案轴。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 4a4417bc76dbd0f200e00f2f246884879d4be5c3 was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r03-kp10"
   }

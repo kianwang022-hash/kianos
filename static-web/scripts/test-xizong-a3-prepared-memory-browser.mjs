@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { descriptorAtFrozenPackaging } from './xizong-calibration-test-support.mjs';
+import { assertPreparedDescriptorAfterModelReview } from './xizong-calibration-test-support.mjs';
 
 assert.equal(process.env.GITHUB_ACTIONS, 'true', 'A3 browser may execute only in existing GitHub CI');
 assert.equal(process.env.CI, 'true', 'A3 browser requires existing isolated CI');
@@ -149,9 +149,8 @@ try {
         assert.equal(sha(JSON.stringify(descriptor.precisionCards.map(card => Object.fromEntries(
           ['id', 'precisionCueId', 'kpId', 'answerHtml', 'semanticRevision'].map(key => [key, card[key]]))))),
         '0af414c1310ec3e53c91d2eb3dce3804d76a4d02dc2d3b2cd107413e598f9144', 'B1: independent frozen card semantics after canonical relocation');
-      } else assert.equal(sha(JSON.stringify(stable(descriptor ? descriptorAtFrozenPackaging(descriptor,
-        fs.readFileSync(repoFile(block.sourcePath), 'utf8')) : null))), baseline.descriptor_sha256_by_block[block.blockId],
-      `${canonical}/${slug}: full frozen native descriptor after additive Prompt packaging normalization`);
+      } else assertPreparedDescriptorAfterModelReview(descriptor,
+        fs.readFileSync(repoFile(block.sourcePath), 'utf8'), baseline.descriptor_sha256_by_block[block.blockId]);
       if (descriptor) actual.push(...descriptor.precisionCards.map(card => card.precisionCueId));
     }
     assert.deepEqual(actual.sort(), [...baseline.admitted_ids].sort(), `${canonical}: exact previous descriptor identities`);

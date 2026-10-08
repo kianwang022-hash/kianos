@@ -1,4 +1,4 @@
-import { beforePromptCalibration, descriptorAtFrozenPackaging } from './xizong-calibration-test-support.mjs';
+import { beforePromptCalibration, descriptorAtFrozenPackaging, a2CuesBeforeOwnerReview, assertPreparedDescriptorAfterModelReview } from './xizong-calibration-test-support.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,7 +50,7 @@ for(const id of [lgId,kpId]){const bid=oracle.accepted.find(x=>x.id===id).anchor
 for(const id of [lgId,kpId])for(const field of ['cue','ownerContextHtml','answerResolution'])check(id+': same-Core '+field+' revision preserves prior content',()=>{const bid=oracle.accepted.find(x=>x.id===id).anchor.block_id,d=descriptors.get(bid),state=memory.makePreparedMemoryAvailable(memory.createXizongMemoryState(),d,'2026-10-01T00:00:00Z'),cardId='precision:'+id;state.cards[cardId][field]=field==='answerResolution'?'OWNER_CONTEXT_ONLY':state.cards[cardId][field]+' DECLARED_PRIOR_REVIEW';const before=clone(state),next=memory.makePreparedMemoryAvailable(state,d,'2026-10-02T00:00:00Z');assert.equal(next.cards[cardId].semanticRevision,before.cards[cardId].semanticRevision);assert.equal(next.cards[cardId].contentHistory.at(-1)[field],before.cards[cardId][field]);assert.equal(next.cards[cardId].contentChangedAt,'2026-10-02T00:00:00.000Z');assert.deepEqual(state,before)});
 function reverseKeys(value){return Array.isArray(value)?value.map(reverseKeys):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).reverse().map(key=>[key,reverseKeys(value[key])])):value;}
 check('object-key reordering remains valid; array ownership and Core order remain strict',()=>{const row=rowFor(lgId),block=blocks.get(row.anchor.block_id);assert.ok(cues.resolvePreparedMemoryCue(reverseKeys(row),reverseKeys(block),reverseKeys(shared)).answer_html);assert.deepEqual(release.buildXizongPreparedMemoryAvailability(reverseKeys(objects.get(block.blockId))),descriptors.get(block.blockId))});
-check('all 230 A1/A2/A3 prepared identities remain exact across Block packaging changes',()=>{for(const[sys,old]of Object.entries(baseline.a_systems)){if(sys==='circulation'){const index=read(path.join(root,old.index_path));index.precision_index=index.precision_index.filter(row=>row.anchor.block_id!=='circulation-b01');assert.equal(digest(index),'e922107c6988ba9799a558e07f7c2060290900c1266679ca521e3a790152107e');}else assert.equal(digest(fs.readFileSync(path.join(root,old.index_path),'utf8')),old.index_sha256);const lc=cues.loadXizongLearningCues(native.loadXizongSystem(sys));for(const prior of old.blocks){const b=production.buildXizongProductionBlock(native.loadXizongBlock(sys,prior.blockId)),o=b.knowledge?compiler.resolveXizongLearnerProjection({systemId:sys,blockId:b.blockId}).learnerObject:learner.buildXizongLearnerObject({block:b,learningCues:cues.learningCuesForBlock(lc,b)});o.revisionWitness=revision.buildXizongRevisionWitness(o);const descriptor=release.supportsXizongPreparedMemoryBlock(b.blockId)?release.buildXizongPreparedMemoryAvailability(o):null;assert.deepEqual(descriptor?.precisionCards.map(c=>c.id)||[],prior.ids);if(!b.knowledge)assert.equal(digest(descriptor ? descriptorAtFrozenPackaging(descriptor,fs.readFileSync(path.join(root,b.sourcePath),'utf8')) : null),prior.descriptor_sha256,prior.blockId)}}});
+check('all 230 A1/A2/A3 prepared answers/identities remain exact with separately asserted model-owner revisions',()=>{for(const[sys,old]of Object.entries(baseline.a_systems)){if(sys==='circulation'){const index=read(path.join(root,old.index_path));index.precision_index=index.precision_index.filter(row=>row.anchor.block_id!=='circulation-b01');assert.equal(digest(index),'e922107c6988ba9799a558e07f7c2060290900c1266679ca521e3a790152107e');}else {const source=fs.readFileSync(path.join(root,old.index_path),'utf8');assert.equal(digest(sys==='respiratory'?a2CuesBeforeOwnerReview(source):source),old.index_sha256);}const lc=cues.loadXizongLearningCues(native.loadXizongSystem(sys));for(const prior of old.blocks){const b=production.buildXizongProductionBlock(native.loadXizongBlock(sys,prior.blockId)),o=b.knowledge?compiler.resolveXizongLearnerProjection({systemId:sys,blockId:b.blockId}).learnerObject:learner.buildXizongLearnerObject({block:b,learningCues:cues.learningCuesForBlock(lc,b)});o.revisionWitness=revision.buildXizongRevisionWitness(o);const descriptor=release.supportsXizongPreparedMemoryBlock(b.blockId)?release.buildXizongPreparedMemoryAvailability(o):null;assert.deepEqual(descriptor?.precisionCards.map(c=>c.id)||[],prior.ids);if(!b.knowledge)assertPreparedDescriptorAfterModelReview(descriptor,fs.readFileSync(path.join(root,b.sourcePath),'utf8'),prior.descriptor_sha256)}}});
 check('packaging normalization cannot hide changed answers, owners, revisions or missing cards',()=>{
   const b=native.loadXizongBlock('circulation','circulation-b02');
   const source=fs.readFileSync(path.join(root,b.sourcePath),'utf8');
@@ -63,6 +63,23 @@ check('packaging normalization cannot hide changed answers, owners, revisions or
   const removed=clone(d);removed.precisionCards.pop();
   assert.notEqual(digest(descriptorAtFrozenPackaging(removed,source)),expected);
   assert.notEqual(digest(beforePromptCalibration(source+'\nCHANGED_CORE')),digest(beforePromptCalibration(source)));
+  const respiratoryCues=cues.loadXizongLearningCues(native.loadXizongSystem('respiratory'));
+  for(const id of ['respiratory-r01','respiratory-r02','respiratory-r03']){
+    const block=production.buildXizongProductionBlock(native.loadXizongBlock('respiratory',id));
+    const object=learner.buildXizongLearnerObject({block,learningCues:cues.learningCuesForBlock(respiratoryCues,block)});
+    object.revisionWitness=revision.buildXizongRevisionWitness(object);
+    const current=release.buildXizongPreparedMemoryAvailability(object);
+    const source=fs.readFileSync(path.join(root,block.sourcePath),'utf8');
+    const original=baseline.a_systems.respiratory.blocks.find(row=>row.blockId===id).descriptor_sha256;
+    for(const key of ['id','answerHtml','cue','ownerContextHtml','semanticRevision']){
+      const changed=clone(current);changed.precisionCards[0][key]+='UNREVIEWED_CHANGE';
+      assert.throws(()=>assertPreparedDescriptorAfterModelReview(changed,source,original),undefined,id+'/'+key);
+    }
+    const changed=clone(current);changed.revisionWitness.block='UNREVIEWED_BLOCK_REVISION';
+    assert.throws(()=>assertPreparedDescriptorAfterModelReview(changed,source,original));
+    const missing=clone(current);missing.precisionCards.pop();
+    assert.throws(()=>assertPreparedDescriptorAfterModelReview(missing,source,original));
+  }
 });
 check('tested native/runtime/review/owner inputs remain byte-stable throughout execution',()=>assert.deepEqual(inputHashes(),testedInputs));
 const report={input_sha256:testedInputs,status:failures.length?'FAIL':'PASS',scope:'Actual native loader/cue/learner/release/model with independent complete-intent fixture; no browser, live learner or medical-source acceptance claim.',admitted:42,held:oracle.dispositions.filter(x=>x.status==='HOLD'),checks,failures};fs.writeFileSync(path.join(out,'xizong-b-system-prepared-memory.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:report.status,passed:checks.length,failures},null,2));if(failures.length)process.exitCode=1;

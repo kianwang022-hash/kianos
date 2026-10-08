@@ -131,12 +131,16 @@
       "question_truth_path": "content/xizong/questions/shards/2006/q101-125.json",
       "question_truth_blob_sha": "5fead35fff58b5906058a2b22c33c92b09fff15a",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R2 KP05 definition: oxygen capacity is the maximum amount of O2 the hemoglobin in 100 mL of blood can bind, distinct from current oxygen content and saturation.",
-      "old_mapping_inherited": false
+      "basis": "KP05明确氧容量是100mL血中Hb最多可结合的氧量，与已携带量及占据比例分开，支持C；当前SaO2分子去掉物理溶解氧的精确定义不改变容量概念。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {
@@ -150,12 +154,16 @@
       "question_truth_path": "content/xizong/questions/shards/2006/q101-125.json",
       "question_truth_blob_sha": "5fead35fff58b5906058a2b22c33c92b09fff15a",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "Exact R2 KP05 definition: oxygen content is the amount of O2 actually carried in 100 mL of blood, whereas saturation is the proportion of capacity currently occupied.",
-      "old_mapping_inherited": false
+      "basis": "题目“实际结合的氧量”指向含量维度而非最大容量或占据比例，B的原KP05回看仍成立。当前精确定义总氧含量=溶解氧+Hb结合氧，Hb结合占绝大部分；保留旧题对结合部分的简化，不能把Hb实际结合量或总CaO2直接当成SaO2分子。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

@@ -101,13 +101,17 @@
       "question_truth_path": "content/xizong/questions/shards/2024/q001-025.json",
       "question_truth_blob_sha": "1253ff8f0636652e37478337aca033b16e622a43",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
       "anti_anchored": true,
       "old_mapping_inherited": false,
-      "basis": "Independent solve: increased RBC glycolytic 2,3-DPG right-shifts the O2 dissociation curve and promotes unloading. R2 KP08 explicitly owns curve-shift factors."
+      "basis": "KP08的红细胞代谢/DPG维持联系与DPG增加使曲线右移的规则支撑D；CO、碱化及PCO2降低均沿当前左移分支。保留当前库存血仍有代谢的条件，不复制“储存糖酵解完全停止”。",
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     },
     "primary_kp_id": "respiratory-r02-kp08"
   },

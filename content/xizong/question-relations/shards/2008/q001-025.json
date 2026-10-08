@@ -161,12 +161,16 @@
       "question_truth_path": "content/xizong/questions/shards/2008/q001-025.json",
       "question_truth_blob_sha": "158fef6caa27feea30d1582f0d5ace88a0ced0da",
       "knowledge_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
-      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d"
+      "knowledge_blob_sha": "0da394d48b854f0386b406eda704dae4c7bdaf4d",
+      "knowledge_revalidated_blob_sha": "66439342b04a031869535068055ef30a2642263b"
     },
     "review": {
       "semantic_owner": "Chat",
-      "basis": "R2 KP12 explicitly states that arterial H+ directly stimulates the peripheral carotid/aortic-body chemoreceptors, whereas central chemoreceptors mainly sense CSF H+ generated after CO2 crosses the blood-brain barrier.",
-      "old_mapping_inherited": false
+      "basis": "KP12当前明确外周化学感受器是颈动脉体/主动脉体，并把其呼吸反射与酸中毒条件相接；KP13进一步明确动脉H+可直接刺激外周、而中枢主要看CSF H+，支持D。保留原Primary12的感受器身份入口，但修正旧basis把完整BBB/直接H+机制全称为KP12明文的过度定位，实际细节在KP13，不新增target。",
+      "old_mapping_inherited": false,
+      "source_revision_revalidated": "A2_R02_R03_DEEP_MODEL_QUALITY_2026_10_08",
+      "source_revision_revalidated_at": "2026-10-08",
+      "source_revision_revalidation_basis": "Original effective Knowledge witness 0da394d48b854f0386b406eda704dae4c7bdaf4d was loaded through the native parser. Historical changes were inspected and this formal question was re-read against Current Core; this is an actual mapping review, not a claim of historical Core equivalence. The formal question object equals its original Truth witness. Original Primary/supporting/Block-level routing and existing Source/conflict boundaries are retained; the current decision-specific reason is recorded in basis."
     }
   },
   {

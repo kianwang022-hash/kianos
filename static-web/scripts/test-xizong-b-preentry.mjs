@@ -1,4 +1,4 @@
-import { beforePromptCalibration, assertReviewedA1Preentry } from './xizong-calibration-test-support.mjs';
+import { beforePromptCalibration, assertReviewedA1Preentry, assertReviewedA2Preentry } from './xizong-calibration-test-support.mjs';
 // Fixed, independently reviewed raw Current spans and rows; never regenerate
 // the B oracle from compileXizongBlockPreentry or its heading helpers.
 import fs from 'node:fs';
@@ -137,6 +137,8 @@ for (const prior of baseline.blocks) check(`${prior.block_id}: non-B protected c
     assert.equal(sha(fs.readFileSync(path.join(root, block.sourcePath))), prior.raw_sha256);
     assert.equal(sha(JSON.stringify(production.compileXizongBlockPreentry(block))), prior.preentry_sha256);
   } else {
+    if (assertReviewedA2Preentry(block, production.compileXizongBlockPreentry(block),
+      fs.readFileSync(path.join(root, block.sourcePath), 'utf8'))) return;
     assert.equal(sha(beforePromptCalibration(fs.readFileSync(path.join(root, block.sourcePath), 'utf8'))), prior.raw_sha256);
     const current = production.compileXizongBlockPreentry(block);
     current.framework.markdown = beforePromptCalibration(current.framework.markdown + '\n\n').trim();
