@@ -145,7 +145,9 @@ export function initPoliticsMemoryWorkspace(root, { storage = localStorage, stud
   };
 
   const updateFreeCount = () => {
-    if (freeCount) freeCount.textContent = String(filteredFreeCandidates().length);
+    const count = filteredFreeCandidates().length;
+    if (freeCount) freeCount.textContent = String(count);
+    if (mode === 'free-picker' && progress) progress.textContent = String(count);
   };
 
   const fillChapterOptions = () => {
