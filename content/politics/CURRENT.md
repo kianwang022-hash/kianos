@@ -47,66 +47,48 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Full Politics Content closure task — 2026-10-08
 
-**State: SPECIFICATION FOR REVIEW / NOT STARTED.** Kian requested the full content audit, then explicitly asked to fix the task and reading rules before execution. The five-chapter sample is diagnostic evidence only; it does not certify the other chapters. Do not start chapter edits from this specification until Kian resumes the task. English is a separate continuing task; Xizong content rewriting remains paused.
+**状态：任务说明已准备／内容执行暂停。** 本轮五章抽查只是诊断，不代表全量通过；政治规则当前交付在本PR候选中，不冒充main已采用。
 
-### Purpose, authority and fixed scope
+### 目的和范围
 
-Deliver the existing Politics Content as a dependable, source-faithful resource for understanding, fast same-model reconstruction and proportionate exam recall. Reduce future review cost without losing necessary knowledge or decisive conditions. The controlling purpose and learning standard remain [Learning §0](LEARNING_CONTRACT.md#0-exam-objective-function--the-reason-this-lane-exists), especially §0.7, [the current source-first chain](LEARNING_CONTRACT.md#2-active-first-round-learning-chain), and [the necessity/depth filter §6.1](LEARNING_CONTRACT.md#61-memory-admission-proactive-precision-with-source-bounded-scope). This task does not redefine them.
+按原[学习合同§0](LEARNING_CONTRACT.md#0-exam-objective-function--the-reason-this-lane-exists)、§0.7、§2、§3.1.2、§3.2、§6.1及相关Interaction条款，让现有政治内容支持理解、快速同模型恢复与适度考研记忆。最高规则拥有稳定目的，本任务只拥有范围、执行和断点，不重定义课程。
 
-Scope is the **53 existing chapters** in the [learning manifest](learning/manifest.json): Marxism C00–C08, History C01–C10, Mao C00–C08, Xi C00–C17, Ethics-Law C00–C06. Review each chapter and its real subject/cross-chapter connections. Preserve the existing accepted model, useful explanations, identities and valid precision assets. Do not regenerate whole subjects or import Xizong System/LG/KP taxonomy.
+覆盖manifest中的53章：马原C00–08、史纲C01–10、毛中特C00–08、习思想C00–17、思修法基C00–06，以及真实章际连接。保留有效模型、解释、身份和已审精记。执行中不得自行增加学习要求、必背负担、规则层、标签体系或工程阶段；实质改目标/扩范围须先向Kian说明。
 
-### Two clear reading paths
+### 两条读取路径
 
-**Task execution / recovery**
-1. Read this active task section and the last saved bounded checkpoint; recover purpose, scope, current chapter, next action and stop condition.
-2. Read Learning §0.7 / §2 / §3.1.2 / §3.2 / §6.1 and the relevant Interaction clauses once for the task; inherit the existing production loop, current-owner consistency and concurrency requirements rather than substituting this task outline. Reuse them while their revisions remain unchanged; reread only a changed or genuinely relevant passage.
-3. Follow the manifest's exact subject model and current chapter assets. Read the current model/quick-review view, node prompts and nearby full answers, necessary Core and precision disposition. Read the adjacent chapter's handoff only where this chapter depends on it.
-4. Read the chapter's actual Chengfeng source across its whole knowledge scope, including necessary tables/figures, and compare it with the finished Content in both directions: every necessary source point has a usable destination, and every content claim has source support. Inspect the corresponding Leg27 scope, including cross-chapter placement, before judging retention necessity/depth. Searching only for passages supporting already-selected prompts cannot prove no omissions. A Source ID, truncated node, title, old PASS or teacher brief cannot replace unavailable source text. Name the exact uninspected portion and its dependent claim rather than filling it from memory; prior unchanged evidence can be reused with its inspected range and limits explicit.
-5. Consult existing review/Acceptance records only for the claim being checked. Historical receipts, old PRs and old Next paragraphs never select the task.
+- **执行/恢复：** 本任务与最近有效断点 → 上述必要母合同段落 → manifest的准确科目/章节owner → 当前模型/快速复习、节点主提示与邻近完整答案、必要Core及精记分流 → 对应实际来源。首次读规则，同版本复用，变化或有具体疑问才读相关段。
+- 完整检查该章接受范围的乘风正文和必要图表，与内容双向核对遗漏和支持；阅读对应腿姐2027《冲刺背诵手册》范围及跨章归属，判必要性与深度。不能只搜支持既有提示的命中片段；标题、截断节点、旧PASS、教案不能替代缺失原文。可复用版本和范围均匹配的原证据，并保留未检模态/范围。
+- **普通学习/复习：** Learning/Interaction决定学习方式 → manifest给科目地图和当前章入口 → 当前快速复习/模型 → 节点提示与按需解释/答案 → 必要精记或原Source。无需读取Current、PR、Acceptance、代码或审核附录。
+- 旧报告仅用于对应证据，旧Next不提供任务；当前可用内容入口与历史作者稿明确区分，不让普通Chat自己在多套要求中择优。
 
-**Ordinary learning / review**
-- Learning / Interaction supplies the learning mode; the manifest supplies the subject model and chapter entry.
-- Open the chapter's current quick-review/model section, then the selected node prompt and its explanation/answer; open residual precision or original Source only as needed.
-- Do not require a learner or a fresh teaching Chat to read Current, PRs, Acceptance reports, code or audit appendices to reconstruct the chapter.
-- Each chapter must make its current learning entry distinguishable from old author drafts and historical instructions. Preserve useful history without letting it supply a second live syllabus.
+### 两轮执行，问题修完即停
 
-### Per-chapter execution and evidence
+**第一轮逐章：** 每批2–3相邻章。读实际内容，按母合同的覆盖、连续性、压缩保真三个维度判断；先确认知识完整正确，再判值得主动恢复的内容和深度，最后核模型节点Prompt或残余Memory的去向。两者均受§6.1筛选，数字/名单/已有卡不能自动成为必背。
 
-Work in bounded groups of 2–3 adjacent chapters; complete the following jobs before advancing:
-1. **Read the actual content:** judge whether the model explains the chapter's relationships, conditions and turning points. Removing prompts must leave a coherent model; restoring them must put each selected knowledge group at the correct node.
-2. **Check the selected burden:** apply §6.1 to both node main prompts and residual Memory. Distinguish recognition, option discrimination, conceptual paraphrase, full membership, exact pairing and genuinely fixed wording. Existing cards, numbers or lists are not sufficient reasons to require memorization.
-3. **Check usability:** first-use explanations and full answers must be reachable and sufficient. Prompts must identify what to recover without becoming a private codebook or giving away answers when clean recall is intended. Old instructions must not restore a burden rejected by the current disposition.
-4. **Make only demonstrated repairs:** fix the original responsible content passage and its genuine dependents. Preserve correct models and explanations. Do not delete/rewrite reviewed Memory or its identities merely because a prompt overlaps it; any change to a recommended role needs an explicit item-level rationale and retains historical evidence.
-5. **Replay the learning path:** simulate a beginner following the available explanation, a later review using only the model/prompts before checking answers, and the next chapter recovering the prerequisites it actually needs. Identify missing premises, ambiguous questions, answer leakage, forced repetition and false cross-chapter links.
-6. **Recheck the repair:** compare the final content to the inspected sources and replay the affected path. A changed relationship requires checking its direct upstream/downstream chapter; an unchanged chapter need not be reread because an unrelated file changed.
+检查首次解释与完整答案可达；提示应明确对象且在测试独立回忆时不泄答案；旧精记指令不能恢复已被当前筛选排除的负担。同一语义的所有现行落点依§3.1.2一并收口，历史可保留但不再指挥学习。只改确证问题及真实依赖，不重生成整科。
 
-A simulation is a **content-path stress test**, not Kian's real answer, study completion, delayed retention or mastery. An answer produced while the reviewer has the source in context cannot prove unaided human recall. A later/fresh reader may assess whether the minimal entry is sufficient; it must report what information it actually received. No fake learner events, scores, plans or schedules.
+**第二轮学习路径反审：** 对最终内容（包括未修改章）模拟初学读懂、随后只凭模型/提示恢复再核答案、下一章重启真正需要的前提和整科串联。同样应用覆盖/连续性/压缩维度。检查缺前提、错归属、重复任务、模糊题面、泄答案与假跨章关系；复用未变化的来源证据，不用关键词数量代替语义阅读。
 
-### Repeated review without drift
+修改后重走受影响路径；关系改变才核直接前后章。后续轮次只处理确认缺陷、真实来源变化或未决证据，不自动开始第三遍全量润色。每批问：是否改善理解、恢复、必要精记或纠正实错？没有具体学习收益就不改；先修原内容，不默认加validator、文档、标签或架构。
 
-The two execution rounds below both apply the parent contract's coverage, continuity and compression checks; they do not replace those review dimensions.
+模拟只是内容路径压力测试；模型看到过答案后生成正确回答，不能证明真人独立回忆、隔天保持或掌握。新读者测试明确披露收到哪些输入。不给Kian生成虚假学习记录、成绩、计划或复习债。
 
-- Pass one covers every chapter under the fixed criteria above.
-- Pass two challenges the final content from the learner's reading/retrieval path and checks subject-level continuity, including chapters left unchanged. Reuse source findings that remain valid; do not replace the semantic read with keyword counts.
-- Further passes target confirmed remaining defects, consequential source changes or uncertain evidence. They are not an automatic third/fourth rewrite of all content.
-- At each batch boundary, compare the result to the parent purpose: does it make understanding/reconstruction clearer, remove an unjustified burden, or prevent a concrete error? If not, do not add the change.
-- A reviewer reports defects and evidence; it does not invent a new syllabus or quality standard. Do not optimize card counts, prompt counts, chapter throughput, document length or test greenness.
+### 保护、保存和断点
 
-### Saving, concurrency and progress
+已审Memory不因Prompt重叠自动删除、重造或换身份；推荐角色改变须有逐项理由，保留历史证据。真实答案错误按原owner和既有规则修正，不以保护旧身份为由保留错误。
 
-One integrator owns this task's repository writes; this does not take over another Chat's task. Parallel readers may inspect disjoint chapters; they return exact source references, confirmed defects and minimal changes rather than competing edits to shared rules or cursors. Check affected-file freshness before saving and retain unrelated changes from other Chats.
+本任务一名集成写者，不接管其他Chat任务。并行读取可分独立章节；提交前核目标最新变化，按§3.1.2合并真实增量，禁止旧全文覆盖。证据放既有科目/章审查位置，不新建规则书、答案库或第二进度账本。
 
-Use existing chapter/subject review or Acceptance owners for bounded evidence; no second rulebook, answer registry or global card catalog. Each checkpoint records: completed and still-open chapters (including blocked/provisional items), confirmed changes, inspected source scope and exact outstanding dependencies/exclusions, saved commit/content version, and the next bounded step. Recovery checks unfinished items before advancing; a blocked item may be bypassed only for independent work and is never silently counted as completed. Keep progress out of the highest learning contract. Report useful concrete changes to Kian by batch/subject, without raw tool logs.
+断点只记录：章ID及完成/部分/阻塞状态、具体修正、实际来源范围与精确未决依赖、已保存版本、下一小步。恢复先检查未完成项；可以继续独立章节，不能把跳过的缺口算完成。每批/科汇报具体成果与例子，不转发日志。
 
-### Completion and stop
+### 完成边界
 
-Close this task when all 53 chapters have a recorded final content judgment; the subject models and real chapter handoffs have been replayed; every confirmed in-scope defect is repaired and checked; and the saved GitHub content has been read back. A remaining unverified source-dependent item must be explicitly excluded at its actual learning location, not left as a recommended answer or silently counted as PASS. If an unresolved issue prevents a necessary chapter model or answer, that chapter remains blocked and prevents full-task closure; independent chapters may continue.
+53章都有最终内容判断、科目及章际路径已反审、已确认范围内问题修复复查、GitHub保存可回读，才可收口。未核来源项在实际学习位置准确隔离；必要模型/答案仍被阻塞则该章和全任务不能宣称完成，独立部分可继续。
 
-Final delivery states what changed, what was actually source-checked, which localized exclusions remain, and what still requires real learner use. Do not claim blanket source fidelity, full human acceptance or guaranteed exam results.
+交付修好的内容、实际核源范围、局部排除项与真实学习待验证边界。当前仅包括可审查的内容提交和远端回读，不自动授权合并或网站发布，也不宣称保证分数/真人效果。
 
-**Excluded:** Website/UI/runtime/compiler work, builds/deployment, question-bank restructuring, source invention, new learning rules, personal learning-record changes, whole-catalog Memory retirement, and unrelated legacy cleanup. Content approval does not authorize website delivery. No merge or deployment is included in this specification; submit a reviewable content change and honor the explicit delivery authorization then in force. Completion here means a reviewable content change with remote content readback; it does not claim merged or Website-delivered content.
-
-After this finite content closure, stop. Reopen only for a concrete new content/source defect or real learner evidence, not optional polishing.
+**排除：** Website/UI/runtime/compiler、构建/部署、题库重构、猜补来源、新学习规则、私人记录修改、全卡退休和无关遗留清理。完成后停止；只因新实质缺陷、来源变化或真实学习证据重开。
 
 
 ## Current / Next / Blocker
