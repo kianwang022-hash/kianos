@@ -70,7 +70,7 @@ These jobs may be realized through existing chapter JSON, `learning_semantics`, 
 
 A consumer may expose only the subset appropriate to the current action, but hidden detail remains owned upstream. UI layout, reveal behavior, local storage, scheduling, compiler metadata, hashes and migration witnesses do not become part of Content completeness merely because a downstream system needs them.
 
-**Prompt and Memory are not two independent inventories.** Learning §0.7 first decides which knowledge is worth active retrieval, then Content places naturally model-bound groups in node prompts and keeps only the residual exact items in Precision / Memory. Existing Website card availability cannot reverse this decision.
+**Prompt and Memory are not two independent inventories.** Learning §0.7 first decides which knowledge is worth active retrieval, then Content places naturally model-bound groups in node prompts and keeps only the residual exact items in Precision / Memory. **A Website Memory practice view may project both model-bound active-retrieval objects and residual fragments for rehearsal; that consumer projection does not change their Content placement.** Existing Website card availability cannot reverse the semantic decision.
 
 ---
 
