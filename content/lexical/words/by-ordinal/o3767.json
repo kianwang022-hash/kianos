@@ -10,8 +10,8 @@
       {
         "boundary": "prevent sb/sth from doing",
         "codex_reviewed": false,
-        "definition_cn": "阻止某人做某事或处于某种状态",
-        "definition_en": "to stop someone from doing something or being in a certain state",
+        "definition_cn": "阻止某人或某物做某事",
+        "definition_en": "to stop someone or something from acting or happening",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "阻止某人或某物做某事",
         "module": "constructions",
-        "pattern": "vt. + sb/sth + from + doing",
+        "pattern": "prevent sb/sth from doing sth",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,18 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:552b3278b4a1c7a726bb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:prevent:711b9c33aa175bbd:collocation:0"
+            ],
+            "meaning_cn": "阻止某人/某物做某事",
+            "phrase": "prevent sb/sth from + doing"
+          }
+        ]
       }
     ],
     "content_hash": "dea4c2d383b2c9a4201566c1b337ef5c3c8679e0a67fab9cf034c380ae87b1c2",
@@ -72,15 +83,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:ad3cbe44db5d8560c59b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:prevent:5c32f62291c35e84:collocation:0"
-            ],
-            "meaning_cn": "防止某事",
-            "phrase": "prevent + sth"
-          },
-          {
             "collocation_id": "collocation:f2f6bef5d19b308b9f45",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -100,19 +102,21 @@
         "sense_id": "sense:prevent:5c32f62291c35e84",
         "sense_label_en": "to stop something from happening or arising",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:ad3cbe44db5d8560c59b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:prevent:5c32f62291c35e84:collocation:0"
+            ],
+            "meaning_cn": "防止某事",
+            "phrase": "prevent + sth"
+          }
+        ]
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:552b3278b4a1c7a726bb",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:prevent:711b9c33aa175bbd:collocation:0"
-            ],
-            "meaning_cn": "阻止某人/某物做某事",
-            "phrase": "prevent sb/sth from + doing"
-          },
           {
             "collocation_id": "collocation:b9524f90f552ced759d6",
             "exam_value": "usage_example",
@@ -124,14 +128,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "阻止某人做某事或处于某种状态",
-        "definition_en": "to stop someone from doing something or being in a certain state",
+        "definition_cn": "阻止某人或某物行动、发生或进入某状态",
+        "definition_en": "to stop someone or something from acting, happening, or entering a state",
         "governing_pattern": "vt. + sb/sth + from + doing",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:prevent:711b9c33aa175bbd",
-        "sense_label_en": "to stop someone from doing something or being in a certain state",
+        "sense_label_en": "to stop someone or something from acting, happening, or entering a state",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -249,8 +253,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:552b3278b4a1c7a726bb",
-      "collocation:ad3cbe44db5d8560c59b",
       "collocation:b9524f90f552ced759d6",
       "collocation:f2f6bef5d19b308b9f45"
     ],
@@ -275,12 +277,16 @@
       {
         "id": "collocation:552b3278b4a1c7a726bb",
         "source_row": 7185,
-        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ad3cbe44db5d8560c59b",
         "source_row": 14677,
-        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b9524f90f552ced759d6",

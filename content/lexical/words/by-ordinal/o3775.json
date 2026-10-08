@@ -11,25 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "原始的；早期的；简单基本的",
-          "label_en": "early, undeveloped, simple, or basic",
+          "label_cn": "原始的；早期的；简单粗陋的",
+          "label_en": "belonging to an early stage, or simple and not highly developed",
           "pos": "adjective",
           "sense_ids": [
             "sense:primitive:a4518d2581bd5c87"
           ]
-        },
-        {
-          "label_cn": "基元；原语；图元",
-          "label_en": "a basic element or unit in computing or mathematics",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:primitive:4cfd381955f450ef"
-          ]
         }
       ],
-      "core_meaning_cn": "原始的；早期/简单基本的；技术上也可指基元",
-      "core_meaning_en": "early/simple/basic; technical noun for a primitive element",
-      "mental_model_cn": "原始的；早期/简单基本的；技术上也可指基元",
+      "core_meaning_cn": "早期或原始的；简单、未充分发展的",
+      "core_meaning_en": "early-stage, simple, or rudimentary",
+      "mental_model_cn": "指发展阶段早，或设备和条件仍很简陋；评价现代人群时要避免贬损性标签。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,65 +56,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "原始的；上古的",
-        "definition_en": "relating to an early stage of human development; not advanced",
+        "definition_cn": "原始的；早期的；简单粗陋的",
+        "definition_en": "belonging to an early stage, or simple and not highly developed",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:primitive:a4518d2581bd5c87",
-        "sense_label_en": "relating to an early stage of human development; not advanced",
+        "sense_label_en": "belonging to an early stage, or simple and not highly developed",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:80d0b73130f8f2b36e66",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:primitive:df6a9f75ec1857af:collocation:0"
-            ],
-            "meaning_cn": "部落的原始人",
-            "phrase": "the primitives of the tribe"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "原始人",
-        "definition_en": "a person belonging to an early stage of civilization",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:primitive:df6a9f75ec1857af",
-        "sense_label_en": "a person belonging to an early stage of civilization",
-        "sort_order": 1,
         "transitivity": "nonverb",
-        "usage_note": "dated and potentially offensive/dehumanizing when used as a noun for a person or people; avoid as neutral modern human reference"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ef9d3c727b6f0e805b03",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:primitive:4cfd381955f450ef:collocation:0"
-            ],
-            "meaning_cn": "图形基元",
-            "phrase": "graphics primitive"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "基元；原语；图元",
-        "definition_en": "a basic element or unit in computing or mathematics",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:primitive:4cfd381955f450ef",
-        "sense_label_en": "a basic element or unit in computing or mathematics",
-        "sort_order": 2,
-        "transitivity": "nonverb"
+        "usage_note": "Current equipment or conditions can be primitive too. Applied to living peoples/cultures it can be disparaging or offensive; it is not a neutral ranking of people."
       }
     ],
     "verification_summary": {
@@ -393,12 +337,70 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:80d0b73130f8f2b36e66",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:primitive:df6a9f75ec1857af:collocation:0"
+          ],
+          "meaning_cn": "部落的原始人",
+          "phrase": "the primitives of the tribe"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "原始人",
+      "definition_en": "a person belonging to an early stage of civilization",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:primitive:df6a9f75ec1857af",
+      "sense_label_en": "a person belonging to an early stage of civilization",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "usage_note": "dated and potentially offensive/dehumanizing when used as a noun for a person or people; avoid as neutral modern human reference",
+      "stable_sense_id": "sense:primitive:df6a9f75ec1857af",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Dated and potentially offensive human categorization, not a neutral default word for people. Preserve the complete old body and its warning for historical lookup."
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ef9d3c727b6f0e805b03",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:primitive:4cfd381955f450ef:collocation:0"
+          ],
+          "meaning_cn": "图形基元",
+          "phrase": "graphics primitive"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "基元；原语；图元",
+      "definition_en": "a basic element or unit in computing or mathematics",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:primitive:4cfd381955f450ef",
+      "sense_label_en": "a basic element or unit in computing or mathematics",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:primitive:4cfd381955f450ef",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Valid technical computing/mathematics base-unit noun; no evidenced exam/general-press incremental admission for this isolated graphics primitive item. Preserve specialist truth in Lookup."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:primitive:4cfd381955f450ef",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10511,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
@@ -412,7 +414,7 @@
       },
       {
         "sense_id": "sense:primitive:df6a9f75ec1857af",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 10513,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
@@ -420,8 +422,6 @@
     ],
     "active_collocations": [
       "collocation:6e9f759b3917bed92a8a",
-      "collocation:80d0b73130f8f2b36e66",
-      "collocation:ef9d3c727b6f0e805b03",
       "collocation:fa68956dd191a9271c2d"
     ],
     "facts": [],
@@ -434,12 +434,16 @@
       {
         "id": "collocation:80d0b73130f8f2b36e66",
         "source_row": 10909,
-        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ef9d3c727b6f0e805b03",
         "source_row": 20305,
-        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fa68956dd191a9271c2d",

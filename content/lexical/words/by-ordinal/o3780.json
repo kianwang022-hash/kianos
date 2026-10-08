@@ -8,12 +8,12 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "publication availability, not generic printed text",
+        "boundary": "Report/news context can contrast print with speech or online form; a book's availability contrasts in print with out of print.",
         "construction_id": "construction:819ced9239ebddf64de2",
-        "definition_en": "currently available in printed/publication form",
+        "definition_en": "in printed or published form; of a book, still being published and available",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "仍在印刷/出版并可正常买到",
+        "meaning_cn": "以印刷或出版形式；书籍仍在出版、可正常买到",
         "pattern": "in print"
       },
       {
@@ -39,11 +39,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "打印；印刷",
-          "label_en": "to produce words or images on paper using a machine",
+          "label_cn": "印刷、打印；用印刷体字母手写",
+          "label_en": "produce printed material; handwrite separate letters",
           "pos": "verb",
           "sense_ids": [
-            "sense:print:2e19c31c99f4512a"
+            "sense:print:2e19c31c99f4512a",
+            "sense:print:1c43d3284e947a47"
           ]
         },
         {
@@ -56,8 +57,8 @@
           ]
         }
       ],
-      "core_meaning_cn": "印刷；打印",
-      "core_meaning_en": "to produce text or images on paper or other material",
+      "core_meaning_cn": "印刷、打印或用印刷体手写；印刷文字、图像和印记",
+      "core_meaning_en": "print mechanically or handwrite separate letters; printed material and marks",
       "mental_model_cn": "印刷；打印",
       "mental_model_en": ""
     },
@@ -92,15 +93,15 @@
         ],
         "confidence": "medium",
         "definition_cn": "打印；印刷",
-        "definition_en": "to produce words or images on paper using a machine",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to produce text or images on paper or another surface using a printing process",
+        "governing_pattern": "print sth; print on sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:print:2e19c31c99f4512a",
-        "sense_label_en": "to produce words or images on paper using a machine",
+        "sense_label_en": "to produce text or images on paper or another surface using a printing process",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [],
@@ -139,6 +140,34 @@
         "sense_label_en": "a mark or impression made by pressure",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:print:1c43d3284e947a47",
+        "pos": "verb",
+        "definition_cn": "用不连笔的印刷体字母书写",
+        "definition_en": "to write by hand using separate letters shaped like printed type",
+        "sense_label_en": "write in separate, unjoined letters",
+        "transitivity": "I/T",
+        "governing_pattern": "print your name; print clearly/in capitals",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "This does not require a printer. Printing may use lower-case letters too; capitals are required only when the instruction specifies them.",
+        "source_evidence": [
+          {
+            "source_type": "exam_provider_instruction",
+            "source_url": "https://ielts.idp.com/book/Content/pdf/ChildProtectionConsentForm.pdf",
+            "source_locator": "Full name fields: Print in CAPITALS",
+            "admission_basis": "R: an IELTS test-day form uses this instruction. Machine-print-only knowledge would misparse the required handwritten action; ordinary grammar cannot recover this different verb meaning."
+          },
+          {
+            "source_type": "dictionary_entry",
+            "source_url": "https://www.merriam-webster.com/dictionary/print",
+            "source_locator": "verb handwriting senses"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -566,6 +595,11 @@
         "merged_into_sense_id": null,
         "source_row": 10527,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:print:1c43d3284e947a47",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
