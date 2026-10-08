@@ -343,3 +343,10 @@ This checkpoint authorizes no Source promotion. Original first-round PASS is pre
 实际新读：C04/C05/C06现存全部Source original_text_span，blob依次ffc173655b56e56db4ba3f12088e5f141b201be3、993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8、25465dcf7bcebf2eca127839d9f85f644f31ac73；Leg27上册PDF173–192、下册6–11相关段、17–20、23–24、26–28、77–78。C04/C05完整母文旧审读仅按本owner已存版本/范围复用，未新取母文bytes或PDF像素。C06 K13-N05/TBL01确有整风结束、七大路线与三大作风连续文字，补回Core理解/识别，不新增整段默写。
 
 C06完整Source仍PARTIAL：母文路径不可达，PDF41时间图、42–43谈判/合作原文、43–44正面战场续段、44洛川条目、46–47中间条件/皖南/租息生产/K10、48新民主主义理论及图像、50–51投降完整句/抗战精神意义续段仍缺。有限Leg支持不冒充CF全文；未核原图/题键保持未核。具体缺口已在ch06.brief原位置保留，局部修复不等于本章完整收口。无Website/Runtime/私人记录更改。
+
+
+## 2026-10-08｜C07–C09有据内容修正
+
+六文件保存点9d1a293a8deb501ada770ddda80498a61096fc46，候选未合并。C07恢复战略决战“基本摧毁”限定并补清人民民主专政理论、七届二中决议与共同纲领的关系。C08直接修JSON timeline、首屏主链及所有相关入口，明确1956过渡后期的《论十大关系》/八大探索与改造收尾交叠，不能保留错链再靠旁注纠正。C09撤销“完整三个有利于见Leg96”的错误出处：已读上册96/下册15仅支持名称、用途及生产力首要标准，完整成员仍缺源。真实可读农村改革限定解释与未取得CF全文分开。
+
+作者及独立窄核实读当前CF分片、对应Leg27和精确历史范围；36组原精记完整payload、身份准入、Source bindings与NU不变。独立修后六文件diff获有限ACCEPT。三章完整CF母文/必要原图仍未取得，Source均PARTIAL；具体缺段保留原brief，不能把局部修复算整章或整科通过。未新增必背要求，未做Website/Runtime/真实学习验证。
