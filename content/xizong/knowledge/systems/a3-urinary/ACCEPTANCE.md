@@ -459,3 +459,33 @@ Private learner/browser/conversation evidence only. No engineering gate in this 
 
 原候选的内容检查记录为 **288** 项 PASS；A3 prepared Memory与 preentry 的既有独立检查有已完成记录，但后续完整 CI 曾在旧 B6 prepared descriptor golden 的 revision 比较处失败；其余全站构建被独立 Politics source revision mismatch 阻断。该 descriptor 比较不等于答案丢失，**不记为 PASS**。在 Website 阶段需按真实消费者重新核对受影响的原修订，不以删测试或重写卡片规避；浏览器、Stable、Source PDF 新像素接触与 Kian 真人学习仍未验收。本批内容质量不从这些未验证项外推。提交合并和 main readback 以实际 PR 回执为准，不提前声明。
 
+
+
+<a id="a3-b08-b10-content-model-quality-20261008"></a>
+## 2026-10-08｜A3 B8–B10 Content-first 连续模型、完整正式 Prompt 与原数据保护
+
+**父目标和执行顺序：** [Issue #1113](https://github.com/kianwang022-hash/kianos/issues/1113) 顶部最新 Current 优先于本文件历史交付流程。本批按 **Content 先行**审查 B8/B9/B10，后续 B11–B12、B13–B14、B、C/D/E/F；全部高质量 Content 完成后才统一验证 Website/Runtime/Memory consumer。本批不逐题审查 Question→KP，不新增 Contract、Memory 准入与新医学答案 owner，也不改 learner state。
+
+### 同一模型的医学关系（而非 KP 目录）
+
+| 原 canonical Block | 原 KP / 完整正式 Prompt | 模型内容与真实关系 |
+|---|---:|---|
+| B8 细菌性尿路感染 | 17 / 17 | 正常尿流冲刷与宿主防御失守→普通上行风险；复杂化/ASB 是有条件的独立分支；菌尿、炎症、上/下尿路定位、总体肾功能是不同证据；症状/风险→留标本、抗感染与梗阻源控制并行，疗效回馈到病原/位置假设；长期反流/感染可经小管间质瘢痕损害浓缩与排泄，而非所有下尿路感染自动慢性肾盂肾炎。 |
+| B9 肾小球免疫及双坐标 | 18 / 18 | 同一肾小球的免疫复合物、anti-GBM、pauci-immune 和足细胞功能故障是不同损伤入口；沉积位置影响炎症与蛋白屏障倾向，毛细血管受累可降低 GFR，与尿成分改变并行。LM/IF/EM 提供不同证据；临床综合征、损伤形态、病因来源是交叉轴，而不是 A→F 连续病理阶段。 |
+| B10 急性、急进、IgA 与慢性肾炎 | 26 / 26 | 从屏障漏/有效滤过面积降低的共同表现出发，分出感染后迟发免疫/短暂 C3 消耗、快速新月体且 I/II/III 不同免疫入口、紧贴黏膜感染的 IgA 系膜沉积、不同病因长期进展的慢性硬化四路；速度、C3、LM/IF/EM、BP/容量与肾形态为并行证据；急重症干预与病因评估可并行，慢性高压/RAAS 可构成持续反馈。 |
+
+对照三个原 Block 每一条 native 标题及 `**主提示**` / `**主提示：…**` 原文解析，合计 **61 个原 KP/完整 Prompt 均保持精确字节与身份**，在 §1A 对应自然节点各完整出现一次。标注不定义模型箭头或阅读顺序；删除全部 `〈标题〔完整 Prompt〕〉` 后，三个 §1A 仍保留机制、条件、分支、观察与反馈。旧 `# 1` 串行目录/框仅替换为指向同一 §1A 的短路由，避免第二份因果模型。模型之外知识没有因文字压缩而被删。
+
+### Core、模型外知识与 Source 边界
+
+- **B8 全部 17 项和 B9 全部 18 项原 native KP Core 保持逐字不变。B10 仅 KP05 一处 Core 原句消歧：** `→ C3消耗下降` 改 `→ C3被消耗，血中C3浓度下降`。这是讲义已经采用的“补体激活后消耗导致血中 C3 降低”的准确表达，未增加新的药物策略、指南阈值或 Question 医学判据；B10 其余 25 项 Core、所有 KP 标题/Prompt、Study/Outline/Source/MI-G/MI-D 字节保持。
+- 原 A3 精确 prepared Memory **B8 两项、B9 一项、B10 两项**继续在原 `a3-urinary-learning-cues.json` 与 `shared-fields.json` 保存完整答案、助记、身份、准入与有序 Core 依赖，原 B11 LG04→B9 KP05 的跨块引用也保留；本批未修改任何 Memory/Precision、Learning 或私人学习记录。数值/疗程、病理小配对及临床药名不能只因为模型谈到就改写这些已审答案。
+- B9 的四处 MedicalVisual 必须看原图：免疫机制、沉积空间、IF 模式、总病理表；目前 `REQUIRED_ORIGINAL_SOURCE_REVIEW` / `VISUAL_SOURCE_GAP_EXPLICIT` 不解除。B10 既有急性肾炎 **P195 任务 vs P197 急进新月体资产**真实不匹配继续 HOLD，其余原 Source 边界、图像需求与图缺口保留；不伪称文本等同 Source 原图。B8 无新的强制 Visual gate。
+- 正常 Chat 内容路由在现有 `knowledge/learner/README.md` 为 B8–B10 明确改为 canonical §1A；现存短 `recall_spine` 仅解释为导航提纲，不能另成一套医学因果模型。各 Block 完整原 Core、具体学习条目和模型外名单仍可按原路径取到。Teaching/projection 历史文件保持 provenance，不另当医学 owner。
+
+### 验收与不外推
+
+**本批 Content 受控验收：** 经原 Github `main@HEAD` 内容和原 KP 元数据检查，61 项正式 title〔Prompt〕恰好一次；B8/B9 所有 §2 及以后字节逐字不变，B10 去掉唯一 KP05 医学消歧后亦全部逐字还原；其它 canonical Blocks、System、shared-fields、精确 Memory/Source/Visual/HOLD、正式题目/答案/映射和个人状态均不在本批 write-set。通过对模型去掉注释的独立文字审读，医学关系可读，不再靠目录生成拓扑。未进行新的原 PDF 像素审读、网站浏览器、稳定版发布或真人学习验证；原 CI 的 descriptor goldens / Politics 失败未声称修复或通过。本阶段的内容成果与全站消费验收必须分别记录。
+
+**当前批次合并状态及 merge/main 的证据必须以实际 PR 与回读结果为准；这段记录本身不代表已经部署。**
+
