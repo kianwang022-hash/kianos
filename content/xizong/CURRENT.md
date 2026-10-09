@@ -7,26 +7,27 @@ This file owns routing only, not medical Knowledge, Learning Logic, Acceptance T
 
 ## Active engineering anchor
 
-[**#1113 — Content→Website consistency and readability**](https://github.com/kianwang022-hash/kianos/issues/1113) owns this task's **Parent outcome → Current/Phase/Next/Blocker → acceptance/stop**. Read it on a fresh Chat, context reset or phase change; do not reconstruct progress from an old commit/receipt. [#1111](https://github.com/kianwang022-hash/kianos/issues/1111) remains the separate exam operating-loop anchor, not a replacement for #1113.
+[**#1113 — Xizong models, full Prompts and exact-memory content**](https://github.com/kianwang022-hash/kianos/issues/1113) owns this task's **scope → Current/Phase/Next/Blocker → completion evidence/stop**. The stable learning goal and final content/Chat acceptance are owned only by `LEARNING_CONTRACT.md` §0; this cursor and the Issue do not define a second standard. Read it on a fresh Chat, context reset or phase change; do not reconstruct progress from an old commit/receipt. [#1111](https://github.com/kianwang022-hash/kianos/issues/1111) remains the separate exam operating-loop anchor, not a replacement for #1113.
 
-The parent outcome is direct Source-backed discussion and editing of canonical Block/KP content, followed by faithful shared Website consumption and preserved private learner feedback. This is not a new textbook, IR, state store, System template or UI redesign. Current implementation progress and pending decisions live only in the Issue, not in a second status table here.
+The parent outcome and current scope live in #1113, under the existing Learning Contract §0 and Lecture Replacement Contract. The task prepares usable Chat learning and review content in the original System/Block owners; Website/Runtime and private learner state are separate scopes, not an automatic downstream phase. Current progress, priorities and pending decisions live only in the Issue, not in a second status table here.
 
 ## Design context to retain
 
-- Preserve one accepted shared learner product. A1 is the accepted visual/interaction calibration reference, **not** a universal medical template or Source-mode template. Exact System Acceptance owners retain their integration evidence and real-use proof boundaries.
+- For separately requested Website work only: preserve one accepted shared learner product. A1 is the accepted visual/interaction calibration reference, **not** a universal medical template or Source-mode template. Exact System Acceptance owners retain their integration evidence and real-use proof boundaries.
 - `System → Block → Logic Group → KP` is the hierarchy. Stable identity, learner order, group membership and continuous Source coverage are distinct. Preserve explicit/non-contiguous members, accepted route order, global Biochemistry Source, natural Source units, integration-primary and source-visual readiness gates.
 - Chat-led teaching follows `LEARNING_CONTRACT.md` and the existing Lecture organization owner. Original Lecture / MarginNote stays the external-primary surface **when original-Source study or concentrated Source calibration is selected, or actual Source inspection is needed**; Source-contact execution is not the default teaching order for every Chat. LG retrieval/closure does not automatically create another Source visit.
 - Canonical Prompt/full Core, Block Framework, Memory Routing and MI-G/MI-D keep their Content owners. Current-reasoning boundaries/connections may remain in the Prompt; Attention cannot replace that skeleton. Deferred relations, Precision and MedicalVisual remain conditional support, not compulsory parallel curricula or Memory debt.
 - **MedicalVisual** is medical image/curve/diagram knowledge and its reading task. **Visual** is interface design/typography/layout. Existing wire names remain compatible; terminology is clarified in the existing `static-web/XIZONG_PRODUCT_BRIEF.md`.
-- Keep the center primary, the existing single action row and current-KP Source/Outline header; Space acts on the active frame. Use the existing design owners for actual geometry/interaction changes, not historical screenshot dimensions. No System-local pages, CSS patches or Runtime forks.
-- Content availability is not permission to reveal it: KP Recall Core and explicit answer-bearing/POST_REVEAL policies remain protected. Repository construction, page navigation, saved Packets and synthetic tests are not learner evidence.
+- For separately requested Website work only: keep the center primary, the existing single action row and current-KP Source/Outline header; Space acts on the active frame. Use the existing design owners for actual geometry/interaction changes, not historical screenshot dimensions. No System-local pages, CSS patches or Runtime forks.
+- On existing protected Website Recall surfaces, content availability is not permission to reveal it: KP Recall Core and explicit answer-bearing/POST_REVEAL policies remain protected. Ordinary Chat review follows Learning Contract §0 and may show answers. Repository construction, page navigation, saved Packets and synthetic tests are not learner evidence.
 - Keep private Prompt overrides, notes, marks, Timer, Resume, Memory/Repair/Return and historical evidence with their native owners. Content revision semantics are a Learning/Evidence decision; do not bypass a guard to obtain a green test or assume that any wording change may inherit mastery.
 
 ## Route by need
 
 | Need | Read next |
 | --- | --- |
-| Ordinary study / where Kian actually stopped | Native learner state / subject Packet / Resume; bypass this engineering cursor |
+| Ordinary study of the named content | `knowledge/learner/README.md` → exact current learning/content owners; bypass this engineering cursor |
+| Explicit actual progress / history question | Actual conversation or native learner evidence / subject Packet / Resume; never infer learner progress from this engineering cursor |
 | Subject maturity / 270–275 control | `MATURITY_PACKAGE.md` |
 | Cross-System Content priority / dependency | `CONTENT_MAINLINE.md` → exact System owner |
 | One Block/KP's complete current content | Existing native inspector below → exact owner paths in its result |
