@@ -35,7 +35,7 @@
       "理解马克思主义不是一次完成的封闭体系，而是在实践和时代问题中继续发展",
       "最后用基本特征和当代价值回答：为什么今天仍然需要学习马克思主义"
     ],
-    "attention_rule": "不要一上来背人物—著作—年份。先把‘为什么产生—形成了什么—为什么能发展—今天为什么仍有解释力’这条线搭起来。 首次教学先消费 teaching-candidate/subject-model.md#c00-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 在已学主要论证块或章末，主动执行 teaching-candidate/subject-model.md#c00-first-retrieval 的首次取回时机，不等错题或 Kian 提醒。",
+    "attention_rule": "不要一上来背人物—著作—年份。先把‘为什么产生—形成了什么—为什么能发展—今天为什么仍有解释力’这条线搭起来。 首次教学从 teaching-candidate/subject-model.md#c00-learner-entry 的最小前提和问题驱动解释进入，讲通后映回原 reconstruction_chain；不能用复习压缩替代首次解释。普通复习或章末压缩直接读 teaching-candidate/subject-model.md#c00-source-review 的同一模型、完整节点主提示及邻近答案，不以 first-retrieval、Resume 或闭卷测试为前置步骤。",
     "next_chapter_bridge": "导论确定了马克思主义这套理论的身份。第一章开始进入它的世界观和方法论基础：世界到底是什么。"
   },
   "unit_projections": [
@@ -756,7 +756,7 @@
       "基本特征说明其理论品格",
       "当代价值说明为什么今天仍需要这套立场、观点和方法"
     ],
-    "review_prompt": "闭卷回答：如果不列人物和著作，能否用‘产生条件—理论体系—持续发展—基本特征—当代价值’解释马克思主义导论在整科中的作用？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/subject-model.md#c00-learner-close：主模型重建→已学节点现行主提示必做取回→必要易混边界→确有的 residual→接收章交接。没有真实回答不能记为掌握。 同一连续回合已取回的组确认覆盖并补真实漏项，未做的才完成首次取回；以后独立新复习不永久豁免。题面与核对内容的区分见本章 first-retrieval，不展示答案型助记来测试回忆。"
+    "review_prompt": "普通复习直接读 teaching-candidate/subject-model.md#c00-source-review：沿原 reconstruction_chain 呈现紧凑关系模型，各自然节点带出完整现行主提示，必要解释与答案可见；随后看必要易混边界，最后仅处理既有 residual。章末只压缩实际已学范围，不重讲整章、不要求先作答。只有 Kian 明确要求测试时才用同稿 #c00-first-retrieval 的既有深度；没有真实回答不记录掌握。"
   },
   "projection_notes": {
     "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
