@@ -80,7 +80,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 **Current：** 马原C00–C08、史纲C01–C10已支持内容完成两轮审查；毛中特C00–C08九章文字学习路径第二轮反审已完成，仅澄清C02一处既有取回深度，保存并回读至e3968a878990e0fa6767b61ca0a741badec2bf3c，均在本草稿分支未合并。原模型、正式主提示及有效精记身份保留；未核来源和旧prerequisite矛盾不算已解决，不能称53章全量收口。
 
-**Next：** 毛中特未变内容不重开第三遍润色；九章反审备份为Library libfile_6d1e013b923c8191bde8f866f0403a29 v0。其余科目本次未启动，继续独立的已授权西综与英语内容。待保存尾项：毛C00–C02的22处Source修正已在Library libfile_555e029c42ac81918a8672174cc3e442 v2；本机下载403，raw尚未应用。毛C06–C08原页包libfile_36f77eb2b1b48191942beec65db85a06 v0上传成功，但本端下载403未读像素，完整Source仍PARTIAL。史纲C06–C10其余原文/Visual缺口按原owner保留，不重开已修内容。
+**Next：** 毛中特未变内容不重开第三遍润色；九章反审备份为Library libfile_6d1e013b923c8191bde8f866f0403a29 v0。按Kian已授权的全量政治53章范围，下一小批检查习思想现有内容与来源，政治全科收口后再转英语重心；不启动网站或新课程生成。待保存尾项：毛C00–C02的22处Source修正已在Library libfile_555e029c42ac81918a8672174cc3e442 v2；本机下载403，raw尚未应用。毛C06–C08原页包libfile_36f77eb2b1b48191942beec65db85a06 v0上传成功，但本端下载403未读像素，完整Source仍PARTIAL。史纲C06–C10其余原文/Visual缺口按原owner保留，不重开已修内容。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
