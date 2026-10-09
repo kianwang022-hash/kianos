@@ -6,7 +6,7 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 
 ## Current / Next / Blocker
 
-**Current：** 西综主线并行词汇，词汇语义审核由总控本人完成。第一遍已到 **o3850 / 7946**，成果仍存于 [PR #1245](https://github.com/kianwang022-hash/kianos/pull/1245) 的 `f835f90b0e7313c67fd30b62d237f4ef20f3da09`；对应 CURRENT blob `b49c5f03d6bc09f3666781c8bf55dd00be209b12` 已回读。前1000词已交付。**1001–3850不得作为第一遍未做而重启。** 旧第二千词部分P2/P3未发布文件不可用，不代表第一遍GitHub成果丢失。本轮1001–1050已完成50词及8个Relation的补充复审，保存41词、6个Relation修正候选；P2已完成，P3整词全文已读，最后措辞修正及持久保存待完成。已有Library checkpoint `libfile_42e6e79c3738819189a2dce184aca294` version9；其后的本地P2/P3增量尚待更新到该备份。
+**Current：** 西综主线并行词汇，词汇语义审核由总控本人完成。第一遍已到 **o3850 / 7946**，成果仍存于 [PR #1245](https://github.com/kianwang022-hash/kianos/pull/1245) 的 `f835f90b0e7313c67fd30b62d237f4ef20f3da09`；对应 CURRENT blob `b49c5f03d6bc09f3666781c8bf55dd00be209b12` 已回读。前1000词已交付。**1001–3850不得作为第一遍未做而重启。** 旧第二千词部分P2/P3未发布文件不可用，不代表第一遍GitHub成果丢失。本轮1001–1050已完成50词及8个Relation的补充复审，保存41词、6个Relation修正候选；P2已完成，P3整词全文已读并纠正一处本轮新增的过度绝对措辞；全部增量已保存至Library checkpoint `libfile_42e6e79c3738819189a2dce184aca294` version10。原稿与第一遍候选的逐文件对应正在核对，未完成前不计该50词最终交付。
 
 **Next：** 先保存1001–1050复审增量，并核对本轮原稿与PR #1245第一遍候选的对应关系，避免丢掉此前修正；后续1001–3850从既有第一遍候选进入第二、三遍。每50词持久备份，每200词三遍齐全后在本聊天交付文件。第一遍的3850进度与第二、三遍交付进度分别记录，不能混算或清零。
 
