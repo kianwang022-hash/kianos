@@ -38,12 +38,14 @@ Resolve the version once: use current main unless Kian explicitly selected anoth
 requested subject/chapter and action
 → learning/manifest.json: subjects[subject].teaching_preparation.subject_model
 → that subject's current_assets chapter JSON: orientation + fixed model + NU relations
-→ chapter's explicit explanation/review pointer, or its existing brief in teaching_preparation.chapter_directory
+→ chapter's action-matched explanation/review pointer, or its existing brief in teaching_preparation.chapter_directory
 → current explanation / review section: node main prompts + adjacent full answers
 → necessary existing precision object or Source passage only for the dependent claim
 ```
 
 The chapter JSON locates the stable model; the brief supplies substantive explanations and the current review/prompt answers. Neither a heading list nor `teaching_beats` alone is a full lesson. Do not invent a same-named file: Marxism C00 explicitly points to `learning/marxism/teaching-candidate/subject-model.md` for both first entry and `c00-source-review`. Marxism C01 uses `learning/marxism/ch01.json` and `learning/marxism/teaching-candidate/ch01.brief.md` (`c01-learner-entry` for first explanation; `c01-source-review` for the current review). Xi C01 uses `learning/xi/subject-map.json`, `learning/xi/ch01.json` and `learning/xi/teaching-candidate/ch01.brief.md` (C01-S00–S03 explanation/prompts, S91 compression, S92 current retention depth).
+
+For ordinary review/compression, locate the existing current quick-review section with its complete node prompts and adjacent answers; do not enter a first-retrieval/test section merely because it appears earlier in the brief. If a chapter pointer is missing, use the manifest's chapter directory and that chapter's actual quick-review heading; if the content cannot be read, state the specific missing section rather than inventing prompts or treating headings as complete content. Chapter-local testing directions apply only when Kian explicitly asks to be tested, as Learning §0.7 specifies.
 
 Read only the relevant section after locating it. Ordinary learning does not require root/domain engineering `CURRENT.md`, PR history, old review signatures, inventories or a new Acceptance pass. The directory name `teaching-candidate` and an old appendix are not current admission decisions: use the selected version's current scope statement and item-level restrictions. Unknown adoption remains unknown; a usable local explanation does not certify the whole prepared package, Memory admission, Website delivery or learner progress.
 
@@ -88,7 +90,7 @@ A good lesson is therefore **stable in cognition, flexible in teaching**.
 
 Compression behavior is owned once by [Learning §0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning). During the middle of a requested explanation, compression is optional. **Once a complete chapter or major argument block has actually finished, Chat must perform the Learning §0.7 closure compression before moving into the next chapter / major block; Kian should not have to ask for it.** During a requested source review, compression remains the deliverable.
 
-Keep the mainline high-density. Main prompts compress worthwhile model-bound memory, not every explanatory branch: first apply Learning §6.1 to both memory destinations, then place naturally grouped content on its model node and residual exact fragments in Memory under §0.7. On first reading, explain the full supported answer in adjacent prose; later the miniature prompt omits answer members. Pure explanation stays in the mainline without forced prompts. Do not turn a count into an unsupported recitation requirement or duplicate model memory as routine cards.
+Keep the mainline high-density. Main prompts compress worthwhile model-bound memory, not every explanatory branch: first apply Learning §6.1 to both memory destinations, then place naturally grouped content on its model node and residual exact fragments in Memory under §0.7. On first reading, explain the full supported answer in adjacent prose; ordinary review may keep necessary answers beside the model and complete prompts; omit answer-bearing material only for an explicitly requested clean retrieval attempt. Pure explanation stays in the mainline without forced prompts. Do not turn a count into an unsupported recitation requirement or duplicate model memory as routine cards.
 
 Preserve the accepted simple reading presentation rather than adding tools: compact chapter logic/cues with continuous review content. No repeated reveal clicks, quizzes, source-QA panels or Memory inventories unless requested. An HTML save is not a website deployment or memory-plan application.
 
@@ -142,7 +144,7 @@ Never introduce a cue that requires explanation of the cue itself. If the cue ne
 
 Precision/Memory remains a separate later layer. Do not inspect the Memory catalog during live explanation unless an exact fact is currently needed to teach the argument correctly or Kian explicitly asks about what must be memorized.
 
-During review, follow Learning §0.7: traverse the same model with each learned node’s complete existing Main Prompts presented at that natural node, rather than in a separate lookup table; add worthwhile residual Precision only when applicable. Full answers stay available in reading/review; hide them only for a clean retrieval attempt. Exact failures can justify local repair, but are not a prerequisite for currently approved precision. During first study, do not force a repeated reveal or testing ritual into the explanation.
+During review, follow Learning §0.7: traverse the same model with each learned node’s complete existing Main Prompts presented at that natural node, rather than in a separate lookup table; add worthwhile residual Precision only when applicable. Full answers stay available in reading/review; hide them only for an explicitly requested clean retrieval attempt. Exact failures can justify local repair, but are not a prerequisite for currently approved precision. During first study, do not force a repeated reveal or testing ritual into the explanation.
 
 The quick-review wording remains Kian's self-use asset. It can be refined and stored later in the existing chapter brief, but normal teaching does not pause to maintain that file.
 
@@ -187,7 +189,7 @@ Closure and later review must return to the chapter's fixed reconstruction spine
 ### Encoding and exact retrieval
 After the relevant model is understood, Chat follows Learning Contract §3.2: identify what must be exact, organize it with meaningful cues/contrasts, recover the authoritative wording and explain the checking criteria. Explanation, aid and answer are distinct. Useful first-round exactness is not postponed merely because no question has been missed.
 
-Use a small natural group rather than a wall of lists or mechanically isolated words. Start with a clear unaided prompt; optional help follows an attempt. A mnemonic is optional and must not replace the approved answer. First rehearsal is a teaching action, not an invented Website event or a mastery declaration.
+Use a small natural group rather than a wall of lists or mechanically isolated words. When Kian explicitly requests exact retrieval practice, start with a clear unaided prompt; optional help follows an attempt. Ordinary explanation and framework review may show the answers directly. A mnemonic is optional and must not replace the approved answer. First rehearsal is a teaching action, not an invented Website event or a mastery declaration.
 
 The Website executes learner-selected source-reviewed items or an optional existing Memory plan: prompt → learner retrieval → reveal answer/checking content → `FORGOT / FUZZY / STABLE` self-report → continue. Do not pre-reveal answer-bearing hints in a clean Recall or Xiao1000 task. Fields not consumed by the existing loader/renderer are not implemented merely because an author added them to a file.
 
@@ -485,7 +487,7 @@ A Politics learner experience is good when:
 - Chat explains or compresses the requested scope without a compulsory replacement course;
 - useful Suyi cognition has been absorbed/accounted for without creating a second Suyi course;
 - Astro keeps self-selected Memory reachable without a Chat plan and preserves optional planned retrieval, verification and return;
-- the first reading explains each cue answer; later cue miniatures support recall without leaking members;
+- the first reading explains each cue answer; ordinary review keeps the same model and complete prompts with answers available; only explicitly requested clean retrieval hides answer members;
 - source-reviewed availability is not confused with Leg-informed retention necessity or must-recite wording;
 - approved proactive precision can be delivered without a fabricated Wrong event, while unsupported/pending targets remain excluded;
 - new teacher wording and the corresponding Website answer agree after Source reconciliation;
@@ -499,3 +501,4 @@ A Politics learner experience is good when:
 - meaningful accumulated Wrong/Uncertain evidence can be exported to Chat as one batch without manual reconstruction;
 - the learner never has to wonder which of two competing surfaces is the real place to study the same content;
 - the KianOS surface feels simpler as the backend becomes richer.
+
