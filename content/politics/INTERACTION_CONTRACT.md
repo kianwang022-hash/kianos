@@ -10,7 +10,7 @@ It inherits:
 - the shared Mac-first cognitive presentation grammar from `static-web/PRESENTATION_CONTRACT.md`;
 - Politics surface ownership from `content/politics/LEARNING_CONTRACT.md`.
 
-The shared presentation grammar decides how approved cognition is represented. This file decides the Politics-specific cognitive states and semantic shapes that the shared grammar must represent.
+The shared presentation grammar governs Website representation. Normal Chat content learning does not require reading shared presentation, static-web or Runtime contracts.
 
 
 ## 0. Kian-visible teaching default — no setup prompt required
@@ -22,10 +22,11 @@ The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-a
 ### Minimal commands
 
 - `开始马原` / another subject: enter the subject total model and its opening question; an explicitly named chapter enters that chapter directly. Do not make a Runtime lookup or old-chat recap a prerequisite. Starting does not reset prior evidence or require a full replacement lecture.
-- `继续政治` / `继续学习` / `继续`: continue the actual bound learning action, including a requested Chat lesson. Recover the relevant real Chat/source-study breakpoint under §8, not the next engineering batch or simply the latest opened Website page. If an actually completed chapter / major argument still lacks its required closure compression, close that learned scope before moving on.
 - `重新开始…`: restart the requested learner-facing route without deleting prior evidence.
 - A specific question: answer that question from the relevant owned explanation and Source when needed; no whole-course restart.
 - `直接复习一章` / `复习这一章` / `压缩这一章`: use the named/current chapter's existing source-faithful model, node main prompts and full answers under Learning §0.7. Do not require another lesson or an answer-by-answer test before showing the review. Ask only which chapter if neither the request nor reliable context identifies it.
+
+Kian names the subject, chapter or question to study. Follow-ups may use the explicit target in this conversation; if the target is unclear, ask “想学哪一章或哪个问题？” Do not search prior Chats, Resume or learner progress to choose it.
 
 ### The ordinary Chat read path
 
@@ -35,7 +36,6 @@ Resolve the version once: use current main unless Kian explicitly selected anoth
 
 ```text
 requested subject/chapter and action
-→ only for continuation: the relevant actual learning breakpoint (§8)
 → learning/manifest.json: subjects[subject].teaching_preparation.subject_model
 → that subject's current_assets chapter JSON: orientation + fixed model + NU relations
 → chapter's explicit explanation/review pointer, or its existing brief in teaching_preparation.chapter_directory
@@ -102,9 +102,9 @@ Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Me
 
 Only this top-level cognitive loop is shared across subjects. Internal teaching shape remains subject-specific, and the path is allowed to cross surfaces.
 
-### 1.1 Fresh-Chat teaching continuity
+### 1.1 Chat Content reuse
 
-Recover the action and substantive content through §0, and the real breakpoint through §8. A teacher brief is backstage support, not a script or a substitute for a newly requested source inspection. Its current source-checked review and owned explanations are reusable Content. Keep valid model relationships and exact identities stable; do not force Source into a conflicting brief or silently correct Source from general knowledge.
+Read the requested substantive content through §0. A teacher brief is backstage support, not a script or a substitute for a newly requested source inspection. Its current source-checked review and owned explanations are reusable Content. Keep valid model relationships and exact identities stable; do not force Source into a conflicting brief or silently correct Source from general knowledge.
 
 A source-based review follows the learner's stated studied scope without requiring a new teaching pass. Explicitly commissioned draft preparation is not learner progress. Existing precision cards are optional artifacts until their current retention role is justified under Learning §6.1.
 
@@ -135,7 +135,6 @@ Use an explicit compression moment:
 - **must:** the learned chapter / major argument is complete and the lesson is about to cross into the next chapter / major block;
 - **may:** Kian asks to compress / review;
 - **may:** one short sentence would clearly stabilize a model that has just become understandable;
-- **may:** a later continuation needs a durable breakpoint and the compression can be created without disrupting the lesson.
 
 At a mandatory chapter/major-block closure, do not reteach. Return briefly to the same canonical model, show the Main Prompts for the actually learned nodes, preserve only the necessary high-value boundaries, mention residual Memory only if it exists, then continue. For a smaller optional closure, one relation sentence or one plain-language reconstruction cue is enough.
 
@@ -431,15 +430,6 @@ Politics inherits the KianOS-wide Continue and Return/Handoff capabilities witho
 The runtime may remember the learner's most recently opened Politics chapter / Natural Unit and, when useful, the last external-source locator in private browser/device state and offer a Continue entry from the Politics home.
 
 This is personal session position, not shared Current and not a semantic owner.
-
-Continue must recover both the action and the relevant evidence:
-
-- For a Chat lesson/clarification, use the latest reliable breakpoint in that bound conversation: subject/chapter, the question or relation actually explained, what remains unresolved, and the next intended action. A content stage label can locate it but is not proof it was completed.
-- For Chengfeng study, use the learner's actual reported position or its source locator. For Website practice, use the existing native Resume/attempt/Recall record. Read an existing linked handoff/daily synthesis only when it helps reconcile that same task.
-- Match records by task, scope, source and time. A later Website page open for reference does not overwrite an unfinished Chat explanation; an older Chat plan does not override a newer explicit learner report. Preserve a real conflict instead of selecting the globally latest timestamp mechanically.
-- If accessible evidence cannot identify the breakpoint, keep it unknown and ask one narrow question such as “上次政治停在哪一章、哪个问题？” Do not request a long setup prompt, invent completed nodes, or use Content/engineering progress as a substitute.
-
-A natural Chat pause may state the actual explained range and next question in the same conversation; it does not require a new file, completion form or runtime write. New Chats use accessible linked context/records, and must not claim cross-Chat recovery when those records are unavailable. The Website need not duplicate the handout, and native page position is neither source completion nor Chat teaching completion.
 
 ### Return / Handoff
 
