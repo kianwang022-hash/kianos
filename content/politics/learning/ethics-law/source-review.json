@@ -3,7 +3,7 @@
   "status": "CURRENT_REVIEW_COMPLETE",
   "scope": "ETHICS_C00_TO_C06",
   "review_snapshot": {
-    "node_registry_canonical_row_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "node_registry_canonical_row_digest_sha256": "e1be610d098bde32f463e7c890b5ea4fb457652814ca895faae983a5d522a482",
     "rule": "This disposition is valid only while the Current node-shard manifest retains the same canonical row digest. A Source change reopens compact review rather than silently inheriting this approval."
   },
   "review_rule": "Use Chengfeng as the continuous mainline and source authority for first-round content. Use Suyi only as compact cross-check/framework evidence. Admit a Suyi delta only when it supplies a stable high-value identity, boundary, role or discrimination structure missing or under-specified in Current. Do not create a second learner course.",
@@ -122,5 +122,25 @@
     "self_test_book": "NOT_BOUND_NOT_USED",
     "stop": true,
     "followup": "Explicit instruction only: real beginner C00-C02 learning and unaided retrieval."
+  },
+  "source_change_impact_review_20261009": {
+    "scope": "ETHICS_SOURCE_UNCHANGED_WITHIN_GLOBAL_REGISTRY_UPDATE",
+    "previous_ref": "3a8a1aa55e67430aa0c3a2206723200ab262537c",
+    "inspected_ref": "73a6b8706614e350a25ad203e7d9af677afab440",
+    "previous_global_digest": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "current_global_digest": "e1be610d098bde32f463e7c890b5ea4fb457652814ca895faae983a5d522a482",
+    "finding": "Only eight existing POL27-CF-HISTORY C06/C09 source rows changed; no Ethics source row was added, removed or modified.",
+    "unchanged_source_trees": [
+      {
+        "path": "content/politics/source/nodes/shards/pol27-cf/ethics",
+        "tree_sha": "faa5833102a2b03ed45cc2efa363354318a10b53"
+      },
+      {
+        "path": "content/politics/source/nodes/shards/pol27-sy/ethics",
+        "tree_sha": "5ce6f9efcc57bba90c6fe2bb3dc986dba9a196aa"
+      }
+    ],
+    "decision": "Retain the original Ethics source disposition and update only its global registry binding, based on exact source-change impact review.",
+    "boundaries": "No new PDF/image inspection or broader Source approval. Original statuses, semantic review, admitted scope and all 20 raw needs_review items remain unchanged."
   }
 }
