@@ -216,7 +216,7 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 保留乘风术语、知识组织、决定性关系和范围。既有模型用于关系/覆盖校验，教案用于后台查漏和有据纠偏，均不替代乘风正文。删除重复讲解、例子堆积、教师话术和 Source QA；不以短为由删掉推理必要条件，不将说明用的比喻/临时归纳变成额外记忆对象。
 
-主提示的短措辞可以由 Chat 压缩；其成员、分类、数量、关系必须能回到实际来源。第一次阅读时，邻近正文要给出对应的完整答案及关系；以后缩影只留不泄露答案的提示。不得编造“3原则/5作用”或需要另背码本的暗号。识别/判断即可的点，不因写成带数字提示就升级为闭卷列全或逐字背诵。
+主提示的短措辞可以由 Chat 压缩；其成员、分类、数量、关系必须能回到实际来源。第一次阅读时，邻近正文要给出对应的完整答案及关系；普通复习沿同一模型展示完整主提示，必要答案和关系可以同时可见，按需展开。只有 Kian 明确要求考查/闭卷取回时才隐藏对应答案。不得编造“3原则/5作用”或需要另背码本的暗号。识别/判断即可的点，不因写成带数字提示就升级为闭卷列全或逐字背诵。
 
 **Expansion cue ≠ Memory index.** 主提示是模型内记忆的压缩入口，不是与记忆任务无关的泛泛索引，也不由现成卡库倒推。无对应网站卡不妨碍经筛选的知识挂入模型；有对应网站卡也不要求两边常规重复刷。纯理解关系保留在正文，不为格式对称强造主提示。
 
@@ -245,7 +245,7 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 #### Progressive review ladder — model first, cue second, precision last
 
-沿主线恢复关系，走到节点时用主提示主动恢复该组记忆，再以独立 Memory 补齐另一部分需精确提取的内容。这是注意顺序，不是反复点击/折叠的要求。阅读正文可同时解释提示和答案；只有 clean Recall/做题时才在作答前隐藏答案、核对标准和泄露答案的助记。
+沿主线恢复关系，走到节点时用主提示主动恢复该组记忆，再以独立 Memory 补齐另一部分需精确提取的内容。这是注意顺序，不是反复点击/折叠的要求。阅读正文可同时解释提示和答案；只有 Kian 明确选择 clean Recall/做题时才在作答前隐藏答案、核对标准和泄露答案的助记。章节备课中的“首次取回”“先不给提示”“心答后核对”等测试说明仅用于该显式测试请求，不把普通学习、章末压缩或看框架复习自动变成测试。
 
 模型不懂就局部解释；模型内成员忘了就沿节点修补；孤立精确错误才用针对性练习。模型内某点有真实反复混淆时，可复用其既有身份作临时独立加练，但不默认复制成第二套常规任务。
 
@@ -609,3 +609,4 @@ If a better explanation, orientation, bridge, boundary, or compression can be ex
 ## 8. Private interaction state
 
 Current content is learner-independent. Answers, progress, wrong/uncertain history, timing, notes, highlights, last external-source position, and similar private state may exist in browser/session/device storage only when it materially improves learning. It is not shared Current authority.
+
