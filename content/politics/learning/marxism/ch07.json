@@ -30,7 +30,7 @@
       "社会主义实践经历探索、曲折和发展，说明普遍原则必须与具体国情结合",
       "科学社会主义基本原则提供方向，但具体道路和制度形式需要在实践中发展"
     ],
-    "attention_rule": "这一章不要把历史节点和基本原则混成一张清单：先看‘怎么走到现实’，再看‘现实探索中什么不能丢、什么必须具体化’。 首次教学先消费 teaching-candidate/ch07.brief.md#c07-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次取回时机与深度见 teaching-candidate/ch07.brief.md#c07-first-retrieval，已讲通的完整论证块或章末关闭才取回，不等真实错题才安排选定记忆。",
+    "attention_rule": "这一章不要把历史节点和基本原则混成一张清单：先看‘怎么走到现实’，再看‘现实探索中什么不能丢、什么必须具体化’。 首次教学从 teaching-candidate/ch07.brief.md#c07-learner-entry 的最小前提和问题驱动解释进入，讲通后映回原 reconstruction_chain；不能用复习压缩替代首次解释。普通复习或章末压缩直接读 teaching-candidate/ch07.brief.md#c07-source-review 的同一模型、完整节点主提示及邻近答案，不以 first-retrieval、Resume 或闭卷测试为前置步骤。",
     "next_chapter_bridge": "社会主义已经进入现实历史后，最后一章再讨论共产主义：怎样科学地理解最终理想，而不是把它当成脱离现实的乌托邦。"
   },
   "unit_projections": [
@@ -102,7 +102,7 @@
       "基本原则",
       "基本原理与具体实际结合"
     ],
-    "review_prompt": "把‘历史进程’和‘基本原则’分开恢复，再说明两者为什么必须重新结合。 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch07.brief.md#c07-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→接收章交接。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。"
+    "review_prompt": "普通复习直接读 teaching-candidate/ch07.brief.md#c07-source-review：沿原 reconstruction_chain 呈现紧凑关系模型，各自然节点带出完整现行主提示，必要解释与答案可见；随后看必要易混边界，最后仅处理既有 residual。章末只压缩实际已学范围，不重讲整章、不要求先作答。只有 Kian 明确要求测试时才用同稿 #c07-first-retrieval 的既有深度；没有真实回答不记录掌握。"
   },
   "content_support": {
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
