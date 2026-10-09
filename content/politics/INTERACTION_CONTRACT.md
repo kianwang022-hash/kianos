@@ -15,16 +15,16 @@ The shared presentation grammar governs Website representation. Normal Chat cont
 
 ## 0. Kian-visible teaching default — no setup prompt required
 
-The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain): **Chengfeng detailed study; Chat clarification, compression and selective memory encoding.** Do not make Kian repeat this choice or reopen a full Chat course.
+[Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain) owns action selection and surface roles. Follow the current request without asking Kian to restate a mode.
 
 **Content authority:** Chat consumes canonical Politics Content; it does not own a parallel durable version of the chapter. It may rephrase, expand, question or locally repair the accepted model, Core and prompts, but it must not reconstruct a new model/prompt/Memory split from a teacher brief, old conversation or current Website shape. If canonical Content is missing or defective, use the best source-grounded local explanation for the current need and repair or state the exact Content limitation rather than silently creating another course.
 
 ### Minimal commands
 
-- `开始马原` / another subject: enter the subject total model and its opening question; an explicitly named chapter enters that chapter directly. Do not make a Runtime lookup or old-chat recap a prerequisite. Starting does not reset prior evidence or require a full replacement lecture.
+- `开始马原` / another subject: orient with the subject total model and enter its opening chapter's existing substantive teaching under Learning §2; an explicitly named chapter enters that chapter directly. Do not make a Runtime lookup or old-chat recap a prerequisite. Starting does not reset prior evidence.
 - `重新开始…`: restart the requested learner-facing route without deleting prior evidence.
 - A specific question: answer that question from the relevant owned explanation and Source when needed; no whole-course restart.
-- `直接复习一章` / `复习这一章` / `压缩这一章`: use the named/current chapter's existing source-faithful model, node main prompts and full answers under Learning §0.7. Do not require another lesson or an answer-by-answer test before showing the review. Ask only which chapter if neither the request nor reliable context identifies it.
+- `直接复习一章` / `复习这一章` / `压缩这一章`: enter the named/current chapter's existing review under Learning §2 and §0.7. Ask only which chapter if neither the request nor reliable context identifies it.
 
 Kian names the subject, chapter or question to study. Follow-ups may use the explicit target in this conversation; if the target is unclear, ask “想学哪一章或哪个问题？” Do not search prior Chats, Resume or learner progress to choose it.
 
@@ -61,7 +61,7 @@ The learner should experience:
 - examples and analogies chosen freely when they help;
 - decisive conditions/boundaries explained at the moment they matter;
 - secondary classifications, quotations and exact wording filled into an already-built model;
-- occasional short reconstruction or 2–3 item self-check only when it helps the current chunk;
+- short explanatory questions answered in the same flow; self-checks only in the explicitly requested testing mode under Learning §2;
 - the same fixed model returning at review/compression.
 
 The learner should **not** experience:
@@ -96,13 +96,7 @@ Preserve the accepted simple reading presentation rather than adding tools: comp
 
 ## 1. Shared learner loop
 
-The shared first-round loop is:
-
-`Chengfeng detailed study → source-faithful model → Leg-informed necessity/accuracy selection → model-bound main prompts + complementary fragment Memory; Xiao1000 / Recall → smallest justified repair`
-
-Learning Contract §2 owns this loop and §6.1 owns source-grounded selective Memory. This Interaction contract follows them; it does not establish a second teaching or admission owner.
-
-Only this top-level cognitive loop is shared across subjects. Internal teaching shape remains subject-specific, and the path is allowed to cross surfaces.
+Learning Contract §2 owns learner actions and surface roles, §0.7 owns same-model compression, and §6.1 owns source-grounded selective Memory. This Interaction contract does not establish a second learning or admission owner. Internal teaching shape remains subject-specific, and the chosen path may cross surfaces.
 
 ### 1.1 Chat Content reuse
 
@@ -112,7 +106,7 @@ A source-based review follows the learner's stated studied scope without requiri
 
 ### 1.2 First-contact classroom behavior
 
-When Kian explicitly requests Chat teaching, do not expose the prepared package as a table of contents to be read through. The learner should experience **one problem being solved**, not a sequence of metadata-backed mini-lessons.
+For a teaching request under Learning §2, do not expose the prepared package as a table of contents to be read through. The learner should experience **one problem being solved**, not a sequence of metadata-backed mini-lessons.
 
 Default move:
 ```text
@@ -154,7 +148,7 @@ The quick-review wording remains Kian's self-use asset. It can be refined and st
 During first-round learning, attention priority is:
 
 1. current cognitive question / Natural Unit position;
-2. the requested Chengfeng source-study, clarification or compression task;
+2. the current learning action selected under Learning §2;
 3. necessary conditions/boundaries in that explanation, with original Chengfeng images/text for calibration when needed;
 4. Chat-assisted encoding and exact rehearsal when approved targets become timely, without exposing the entire precision inventory at first entry;
 5. Xiao1000 verification in Astro/KianOS web after the relevant whole-item prerequisites are learned;
@@ -175,7 +169,7 @@ Show only:
 - the Chengfeng Source locator when calibration is needed.
 
 ### During Chat teaching
-Chat leads only the explanation Kian requested; Chengfeng remains the detailed-study and compression basis. This is help within one course, not a replacement course.
+Chat follows the current teaching request and Source boundaries under Learning §2.
 
 Astro may keep the current Natural Unit, learning question, checkpoint, relation anchor, boundary, absorbed Suyi framework object, or source locator visible when useful, but it must **not** render Chengfeng as a competing continuous lecture reader.
 
@@ -247,7 +241,7 @@ Primary Politics semantic objects:
 - `Handoff / Locator` to Chengfeng.
 
 #### `EXTERNAL_LEARN`
-Native Website Source subflow: point to the owning Chengfeng materials for detailed study or calibration. Chat explains on request; `EXTERNAL_LEARN` is not evidence that source study occurred.
+Native Website Source subflow: point to the owning Chengfeng materials for learner-selected detailed study or calibration. This state does not select the Chat learning action or prove that source study occurred.
 
 Astro is companion-only. It may preserve:
 - current `Problem`;
@@ -484,7 +478,7 @@ If a better explanation, relation, boundary, hierarchy, or stage story can live 
 A Politics learner experience is good when:
 - the learner knows what they are trying to understand or do now without scanning the whole page;
 - detailed study and compression are grounded in the requested Chengfeng text and required images;
-- Chat explains or compresses the requested scope without a compulsory replacement course;
+- Chat fulfils the current learning action under Learning §2 using the existing Content;
 - useful Suyi cognition has been absorbed/accounted for without creating a second Suyi course;
 - Astro keeps self-selected Memory reachable without a Chat plan and preserves optional planned retrieval, verification and return;
 - the first reading explains each cue answer; ordinary review keeps the same model and complete prompts with answers available; only explicitly requested clean retrieval hides answer members;
