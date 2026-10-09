@@ -10,10 +10,10 @@ It does not own medical Knowledge, Learning Logic, scoped Acceptance Truth, Ques
 ## Fresh-Chat restart
 
 ```text
-main@HEAD
-→ content/xizong/CURRENT.md
+initial unbound routing: main@HEAD → content/xizong/CURRENT.md → #1113
+→ use #1113's declared current task ref for the goal, production rules, acceptance and task inputs
 → this Mainline only for cross-lane content coordination
-→ exact lane / System / task owner
+→ exact lane / System / task owner at its verified current content revision
 → work
 ```
 
