@@ -366,20 +366,19 @@ The package must provide, for the chapter's actually admitted scope:
 
 The package may be realized by the existing chapter JSON, teaching brief, support objects and optional `*.memory.json`; no particular file split is required. A chapter-level `content_support.active_precision` realization is valid when it satisfies the same requirements. Do not create a sidecar merely for symmetry.
 
-This rule applies to every chapter across all five Politics subjects. Reuse existing Current Knowledge, teaching, reconstruction and precision assets within their accepted scope, together with the bounded review evidence already earned; a partial package does not reset mature components or revoke existing base first-round PASS. Prepare or calibrate only the missing, stale or defective parts, reconciling them in the original owners around the same canonical spine rather than rebuilding the chapter or creating another Memory set. Reviewed candidate assets remain candidates until adopted through the existing review/admission path; then consume the resulting Current package. Candidate presence, partial maturity and base first-round PASS do not by themselves prove completion of the six-part package or Website delivery.
+This rule applies to every chapter across all five Politics subjects. Reuse existing Current Knowledge, teaching, reconstruction and precision assets within their accepted scope, together with the bounded review evidence already earned; a partial package does not reset mature components or revoke existing base first-round PASS. Prepare or calibrate only the missing, stale or defective parts, reconciling them in the original owners around the same canonical spine rather than rebuilding the chapter or creating another Memory set. Adoption applies to the actual asset and inspected scope, not its directory name. Ordinary learning follows the selected version and current scope statements through INTERACTION_CONTRACT.md §0; an explicitly selected candidate may be used for its supported teaching text without claiming it is on main or that its pending exact targets are admitted. Unresolved adoption remains unresolved. Candidate presence, partial maturity and base first-round PASS do not by themselves prove completion of the six-part package or Website delivery.
 
-**Fresh-Chat consumption rule:** first resolve the requested action under §2. For source-based review/compression, Chengfeng is the direct basis; existing models and teacher preparation are backstage checks, not replacement mother text. For an explicitly requested Chat lesson, reuse the relevant prepared explanation and route where still sound. Preserve stable identities and valid relationships; do not regenerate the existing knowledge set or infer study/retention duties from preparation. Old precision inventories require the current §6.1 selection judgment before being presented as a must-retain baseline.
+**Fresh-Chat consumption rule:** first resolve the requested action under §2, then use the concrete Content read path in INTERACTION_CONTRACT.md §0. Reuse the existing source-checked review, model, current node prompts/full answers and relevant prepared explanations within their stated scope; a new Chat does not rebuild the course or reselect its memory targets. Chengfeng remains the source basis: a new compression range, wording check or unresolved conflict requires the actual source text and necessary images, rather than treating teacher prose as new Source evidence. Old precision inventories are not a must-retain baseline; use the current §6.1 selection already recorded at the original owner, and inspect the designated source when that judgment must actually be made or changed.
 
 A fresh Chat should therefore be able to recover:
 ```text
-where the learner is in the fixed chapter model
-→ which prepared teaching stage comes next
-→ the owned explanation/detail for that stage
-→ the prepared confusion/boundary pass when timely
-→ the same-model compression
-→ the reviewed precision/Memory handoff
+subject position + the same fixed chapter model
+→ the explanation for the requested question / actual continuation point
+→ current node main prompts and their complete supported answers
+→ same-model review and necessary confusion/boundary repair
+→ only the applicable residual precision / Source limitation
 ```
-without reconstructing the course from Source or old conversation history.
+An explicit new chapter or review does not need a learner-progress lookup first. Continuation uses actual Chat/source/Runtime evidence under INTERACTION_CONTRACT.md §8; no engineering cursor or prepared stage list establishes what Kian has learned. Fixed models constrain the relations recovered, not the teacher's wording or a compulsory stage-by-stage performance.
 
 If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
