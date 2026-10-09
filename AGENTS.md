@@ -49,14 +49,13 @@ A bare learner continuation stays LEARN unless the current conversation clearly 
 ## LEARN
 
 ```text
-known domain/task + actual current conversation
-→ new learning at an explicit target: current subject Chat-learning entry
-→ continuation: restore the actual teaching position; read learner evidence / Resume when needed
+Kian's requested subject / System / Block / question
+→ existing subject Chat-learning entry
 → exact current learning/content owners for that target
-→ learn
+→ teach or answer the requested scope
 ```
 
-For Chat learning, use [Xizong's existing learner reading entry](content/xizong/knowledge/learner/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md). These route the subject's saved teaching behavior and relevant current content. A new lesson at an explicit target does not need a private-progress search merely to begin. A question about actual learner progress still requires learner/runtime evidence; missing teaching history remains unknown. Do not enter root engineering `CURRENT.md` merely because it exists.
+Use [Xizong's learner reading entry](content/xizong/knowledge/learner/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md). For these two subjects, do not recover a course cursor or infer the next lesson from previous Chats, Packet/Resume or engineering Current. Ordinary follow-up questions may use the current exchange's context. Read learner evidence for explicitly requested progress/history questions, not as a prerequisite for learning the named content.
 
 A Daily Learning Packet / `KIANOS_DAILY_LEARNING_HANDOFF_V1` is learner evidence/planning input, not an engineering cursor. Use the current subject evidence and Exam/Chat planning boundary; preserve UNKNOWN and use the existing private control path only when execution is authorized.
 
