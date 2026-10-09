@@ -21,8 +21,8 @@ Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTR
 Build one coherent Politics learning loop:
 
 ```text
-Chengfeng detailed study + requested Chat clarification
-→ source-faithful compression + selectively justified encoding
+Requested Chat teaching / clarification or learner-selected Chengfeng study
+→ same-model, source-faithful compression + selectively justified encoding
 → Website retrieves learner-selected reviewed targets or an optional Chat plan
 → Recall / question evidence returns to Chat
 → smallest justified review / repair
@@ -80,9 +80,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current：** 五科53章本轮内容及Chat读取验收已收口，最终内容修补版本为 `5e919f1d0392b114a91f1cfb4a56bcd3940eb4e2`。269组现行主提示答案维度已核对；53章五类输出、五次当前对话内接续、五科串联及最后五条自然短请求均已实际生成并由总控阅读。13个原文件17处旧读取指令已修复、远端逐字回读及受影响路径复测。精确覆盖与未检边界见[Acceptance的2026-10-09记录](ACCEPTANCE.md#2026-10-09-final-content--chat-reading-acceptance--candidate-only)。这不证明全部原始Source/PDF或真人学习效果通过。
+**Current：** 五科53章本轮内容及有限合成读取审查已完成；2026-10-09真人开课输出仍出现“你回答后再继续”的教学门槛，故不宣称Chat稳定可用。此问题按用户授权窄修现有入口：清除重复旧模式默认，明确当前学习/解释/复习请求，保留已接受内容。最终内容修补版本为 `5e919f1d0392b114a91f1cfb4a56bcd3940eb4e2`。269组现行主提示答案维度已核对；53章五类输出、五次当前对话内接续、五科串联及最后五条自然短请求均已实际生成并由总控阅读。13个原文件17处旧读取指令已修复、远端逐字回读及受影响路径复测。精确覆盖与未检边界见[Acceptance的2026-10-09记录](ACCEPTANCE.md#2026-10-09-final-content--chat-reading-acceptance--candidate-only)。这不证明全部原始Source/PDF或真人学习效果通过。
 
-**Next：** 本轮内容审查停止，不自动再开全量审查。2026-10-09用户已明确要求完成收尾并合并PR #1289；合并尚未完成时，只核对最终合并条件并执行该PR合并、main回读；PR已合并则该交付步骤结束，默认STOP，不从历史Next恢复任务。不发布网站。普通学习按指定科目/章节经Interaction直接读取Content，不读本游标。毛中特22项原始Source待保存项及其C06–C08、史纲C06–C10等局部Source/PDF、OCR、题键和年度边界仍由原owner保留，不扩大为新任务。
+**Next：** #1289已合并，本轮53章源审不重开。当前只完成Learning/Interaction既有入口措辞清理及受影响短指令检查，保存前后差异与真实失败边界；候选不等于main生效，合成通过不等于真人稳定。完成该窄修即停止，不重写全科教案，不扩网站或真实学习记录。原局部Source/PDF、OCR、题键和年度边界继续由原owner保留。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
@@ -125,3 +125,4 @@ Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact nati
 After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
 
 Historical preparation receipts remain in Git/PR history and exact Acceptance owners. They are evidence, never fallback Current instructions.
+

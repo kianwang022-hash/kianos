@@ -54,7 +54,7 @@ If the official exam structure materially changes, this score model must be reva
 Politics learning is deliberately asymmetric across time:
 
 1. **First-round understanding / objective engine**  
-   Use Chengfeng for detailed first study, Chat for requested clarification and source-faithful compression, and Xiao1000 as transfer evidence. Select long-term exact targets under §6.1, not from the volume of teaching material. Model construction and systematic precision are complementary; heavy later-phase answer-template memorization is out of scope here.
+   Follow the current learner action and surface roles in §2; use Xiao1000 as transfer evidence. Select long-term exact targets under §6.1, not from the volume of teaching material. Model construction and systematic precision are complementary; heavy later-phase answer-template memorization is out of scope here.
 2. **Consolidation / evidence repair**  
    Consolidate the approved precision baseline as well as Wrong / Uncertain gaps; use Recall and question evidence to adjust selection, memory encoding and repair depth, rather than treating mistakes as the only reason to memorize.
 3. **Analysis-output phase**  
@@ -170,7 +170,7 @@ Acceptance test: two legitimate reviews of the same unchanged chapter may differ
 
 ### 0.6 First teaching is problem-driven — the spine is not a lecture outline
 
-This section applies when Kian asks Chat to explain or teach. It must not turn a source-summary/review request into another first lesson; the default surface division is §2.
+This section applies to Chat teaching selected under §2. It must not turn a source-summary/review request into another first lesson.
 
 The canonical reconstruction spine is the learner's stable **review/index structure**. It does **not** automatically define the sentence-by-sentence or node-by-node order of first teaching.
 
@@ -272,22 +272,22 @@ Source ownership ≠ Surface ownership.
 Chengfeng Source ownership ≠ Chat teaching surface ownership.
 ```
 
-The current default is Chengfeng-led detailed study with Chat clarification, compression and selective memory encoding. Surface roles are owned once by §2; a prepared Chat lesson remains available on request, not an obligatory replacement course. A policy change alone does not prove Website delivery.
+Learner actions and surface roles are owned once by §2. A policy change alone does not prove Website delivery.
 
 ## 2. Active first-round learning chain
 
-Current learner choice (2026-10-07): **Chengfeng detailed study → source-faithful model + selectively retained model-bound main prompts, complemented by residual Precision / Memory; Xiao1000 verification and local repair alongside this path.** The division is owned by §0.7 and the necessity filter by §6.1.
+**The current request selects the learning action.** “开始学…”, “开始马原” or “教我…” already requests Chat teaching; no special setup prompt or repeated mode confirmation is required. A previous source-study choice does not override a new teaching request, and a review request does not require another lesson. Use the existing assets for that action through INTERACTION_CONTRACT.md §0.
 
-Kian learns the detailed content from Chengfeng lectures/handout. Chat primarily answers a specific confusion and produces a high-density review of that source: main relationships, decisive exam distinctions and expansion cues. Do not replace that request with a second Chat course or summarize the teacher brief as though it were the handout. Chat teaching remains available when explicitly requested.
+During ordinary teaching, use questions to connect the argument, explain their answers and continue; do not stop by default to wait for Kian's answer. Examples and analogies are optional aids when they help. Only an explicit request for self-testing, closed-book recall or question practice switches to prompt → learner attempt → checking under §0.7.
 
-This is a division of jobs, not a required one-sitting sequence. Source study may finish outside Chat; do not demand reteaching, a completion form or a test before helping with review. Do not infer study completion from the existence of a source, HTML, teacher brief or catalog.
+Kian may also choose detailed study in Chengfeng lectures/handout and return for clarification or compression. Neither external study nor a Chat lesson is a prerequisite for the other route. Do not demand a completion form or test before review, or infer study completion from a source, HTML, teacher brief or catalog.
 
 Preserve Chengfeng Natural Unit identity, boundaries and source hierarchy. Existing subject/chapter models remain useful relationship/completeness checks, not a reason to force source content into a conflicting model. If a real model conflict is found, flag it and repair the original owner explicitly; do not quietly invent a replacement. Politics does not import Xizong System/LG/KP taxonomy.
 
 ### Source roles
 
 - **Chengfeng:** detailed-study and compression basis. Read the actual requested text and necessary tables/images; preserve its organization and terminology. Source nodes/locators locate evidence but do not replace missing full text.
-- **Existing model / teacher preparation:** backstage relationship, omission and boundary checks; reusable support for requested explanation. Prepared prose is not the compression mother text and old exact inventories are not the retention decision.
+- **Existing model / teacher preparation:** reusable Content for the accepted teaching route, substantive explanations, fixed model and current review/prompts; also a backstage coverage and boundary check. Reuse it within its recorded scope. It does not replace actual Source inspection for a new compression range, wording check or unresolved conflict; old exact inventories are not the retention decision.
 - **Suyi:** optional structural/reference support, never a second required course or silent replacement of Chengfeng framing.
 - **Designated Leg retention source:** Kian currently designates **2027 腿姐《冲刺背诵手册》上册 / 下册** as the retention source for deciding what is worth active recall and at what depth. Use the actually inspected current-year passage; do not substitute a different teacher/book or infer priorities from title alone. **《背练结合自测本》 may be used only when the exact subject/task has explicitly ingested and admitted it for that role; it is not ingested or used in the completed Marxism C00–C08 retention pass.** Selection follows §6.1; neither a union nor a mechanical intersection of books is a retention syllabus.
 - **Xiao1000:** original questions/answers and transfer/error evidence, not the source of chapter order or an automatic card generator.
@@ -296,8 +296,10 @@ Preserve Chengfeng Natural Unit identity, boundaries and source hierarchy. Exist
 
 | Learner action | Primary surface | Companion / boundary |
 | --- | --- | --- |
-| Detailed first study | **Chengfeng lecture / original handout**, in the learner's chosen reader | Chat explains an actual question on request; no mandatory second course |
-| Orientation / chapter compression | **Chat and the accepted quick-review view** | Source-faithful model + useful cues; first cue answers explained in reading content; §0.7 |
+| Start learning / teach me | **Chat**, using the existing accepted teaching preparation and fixed model | Explain the requested scope continuously; at chapter/major-block transition compress the same taught model with its complete existing Main Prompts under §0.7 |
+| A specific question | **Chat**, using the relevant owned explanation and Source when needed | Explain the local confusion without restarting the course |
+| Review / chapter compression | **Chat and the accepted quick-review view** | Present the existing same-model review and complete node Main Prompts under §0.7, with supported answers available; no prerequisite lesson or test |
+| Self-selected detailed source study | **Chengfeng lecture / original handout**, in the learner's chosen reader | Return to Chat for the requested explanation or compression; not a mandatory prerequisite for Chat teaching |
 | Selective memory encoding | **Chat / existing Content** | Resolve the exact Leg basis and required recall depth; useful grouping/contrast, not a list of everything precise |
 | Self-selected exact practice | **Website Memory workspace** | Permanent entry. The default recommended view follows the current Content-owned retention role; **全部已审核练习** remains optional reference/practice access to reviewed legacy cards. Neither view requires a Chat day plan, and optional access does not create a must-memorize baseline |
 | Planned exact retrieval | **Website Memory workspace** | Optional Chat plan through the existing path, never a prerequisite for self-selected practice |
@@ -409,7 +411,7 @@ For the reported usable chapter scope, provide substantive content for:
 2. **Same-model reconstruction.** A compact recovery route must expand to the same explained relations, directions, conditions and scope. It is not a second unrelated summary.
 3. **Exact target coverage.** Identify the actual fixed statements, lists, identities, pairings or boundaries to retain, with Source and admission basis. Distinguish conceptual paraphrase, complete list membership, exact object/role pairing and source-required fixed wording. Order is compulsory only when the Source/task makes order meaningful. “C: hats/lists, return to book later” is a locator, not a completed precision deliverable. Sparse means nonredundant, not an arbitrary small quota or omitted required targets.
 4. **Memory encoding.** For each justified target/group, supply a useful grouping rationale, contrast, retrieval cue, mnemonic or contextual association when it lowers effort. No forced mnemonic for a simple point. Mark teaching aids as aids, not authoritative answers. They must expand back to the approved target without inventing causes, reversing roles, dropping members or deleting decisive qualifiers.
-5. **Retrieval and checking.** Supply a self-contained prompt, an exact answer/reference and the essential pass/omission/confusion criteria. Show where supported paraphrase is allowed. A chapter title or a generic “boundary” label is not a sufficient prompt for several different tasks. Test an unaided retrieval before providing an optional cue; a cued correction is repair evidence, not a fresh independent success.
+5. **Retrieval and checking.** Supply a self-contained prompt, an exact answer/reference and the essential pass/omission/confusion criteria. Show where supported paraphrase is allowed. A chapter title or a generic “boundary” label is not a sufficient prompt for several different tasks. For explicitly requested retrieval practice, test unaided retrieval before providing an optional cue; a cued correction is repair evidence, not a fresh independent success.
 6. **Consumer mapping.** Reuse or repair existing chapter precision groups / `*.memory.json` candidates before adding a new item. Locate the accepted content ID and model/Source explanation, or explicitly report why it is not yet catalog-selectable. New teaching wording must reconcile dependent old Memory wording; do not leave Chat teaching one answer while the Website recalls another. Exact realization follows CONTENT_SEMANTICS_CONTRACT.md §3.2.
 
 The existing three review passes in §3.1 must now inspect these deliverables as part of coverage, continuity and compression fidelity. Independent textual attacks include a missing approved target, a vague prompt with two possible answers, a mnemonic that cannot recover the whole answer, and an old/new exact-wording conflict. Extend the existing bounded review result, do not create a parallel QA ledger.
@@ -421,7 +423,7 @@ A rule/content review, a catalog/plan test, a rendered candidate and real learne
 ## 4. First-round interaction principles
 
 - **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
-- **One mainline only:** follow the current source-first chain in §2: Chengfeng provides detailed first study; Chat provides requested clarification and source-faithful compression, or teaching when explicitly requested. Suyi remains optional background support. Do not impose a second required Chat course.
+- **One mainline only:** follow the action-matched surface roles in §2 around the same canonical Content. Suyi remains optional background support; do not impose a second course.
 - **Source calibration:** return to original Chengfeng images/text when necessary for exact wording, relations or boundaries; preserve source locators without requiring a second course.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
 - **Content-rich, display-precise:** backend source/learning assets may be rich; each learner surface should show only the current cognitive action it actually owns.
