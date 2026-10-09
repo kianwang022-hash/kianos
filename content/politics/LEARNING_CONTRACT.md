@@ -358,7 +358,7 @@ For a chapter to be called **prepared for continuous Chat learning**, its existi
 The package must provide, for the chapter's actually admitted scope:
 
 1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
-2. **Progressive first-learning route.** A reviewed **problem-driven dependency route** under §0.6 that says how the chapter is unfolded after orientation. It may use several natural teaching batches, but a batch is defined by the problem it resolves and the next question it creates—not by “read the next N spine nodes.” Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the fixed-spine nodes/content range it ultimately fills, and its intended next problem/closure. A fresh Chat must be able to resume the same argument without re-cutting a long teacher text or reciting the reconstruction index as a lecture outline.
+2. **Progressive first-learning route.** A reviewed **problem-driven dependency route** under §0.6 that says how the chapter is unfolded after orientation. It may use several natural teaching batches, but a batch is defined by the problem it resolves and the next question it creates—not by “read the next N spine nodes.” Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the fixed-spine nodes/content range it ultimately fills, and its intended next problem/closure. A fresh Chat must be able to explain the requested content from that same argument without re-cutting a long teacher text or reciting the reconstruction index as a lecture outline.
 3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
 4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
 5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
@@ -373,12 +373,12 @@ This rule applies to every chapter across all five Politics subjects. Reuse exis
 A fresh Chat should therefore be able to recover:
 ```text
 subject position + the same fixed chapter model
-→ the explanation for the requested question / actual continuation point
+→ the explanation for the requested chapter or question
 → current node main prompts and their complete supported answers
 → same-model review and necessary confusion/boundary repair
 → only the applicable residual precision / Source limitation
 ```
-An explicit new chapter or review does not need a learner-progress lookup first. Continuation uses actual Chat/source/Runtime evidence under INTERACTION_CONTRACT.md §8; no engineering cursor or prepared stage list establishes what Kian has learned. Fixed models constrain the relations recovered, not the teacher's wording or a compulsory stage-by-stage performance.
+Chat enters through the subject, chapter or question Kian specifies; if that target is unclear, ask for it instead of looking up progress. Normal follow-ups can use this conversation's explicit target. Fixed models constrain the relations explained, not the teacher's wording or a compulsory stage-by-stage performance.
 
 If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
