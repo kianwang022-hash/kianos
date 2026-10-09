@@ -796,7 +796,7 @@ R8-E｜KP13–KP16
 
 ```text
 局部 Framework Reconstruction
-→ 主提示闭卷展开
+→ 完整主提示与答案可见；明确要求自测时再闭卷展开
 → 只在模糊处看详细展开 / 回 Study
 → Outline 可低压力扫漏或抽检
 → MI-D 归位

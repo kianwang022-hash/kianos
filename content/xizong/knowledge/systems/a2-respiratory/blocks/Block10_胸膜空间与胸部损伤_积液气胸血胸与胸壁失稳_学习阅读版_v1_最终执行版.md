@@ -1122,7 +1122,7 @@ R10-E｜KP20–KP23
 
 ```text
 局部 Framework Reconstruction
-→ 主提示闭卷展开
+→ 完整主提示与答案可见；明确要求自测时再闭卷展开
 → 只回补错漏 / 原图
 → Outline可扫漏或抽检
 → MI-D归位

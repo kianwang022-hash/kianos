@@ -980,7 +980,7 @@ R9-E｜KP20–KP22
 每个切片结束：
 
 ```text
-闭卷恢复局部 Framework
+沿同一局部 Framework 复习，可直接看解释和答案；明确要求自测时再闭卷
 → 主提示展开
 → 模糊处定点回 Lecture / 原图
 → Outline可扫漏或抽检

@@ -1130,7 +1130,7 @@ R12-E｜KP20–KP22
 
 ```text
 局部 Framework Reconstruction
-→ 主提示闭卷展开
+→ 完整主提示与答案可见；明确要求自测时再闭卷展开
 → 模糊处回详细展开 / Study原图
 → Outline按需扫漏或抽检
 → MI-D归位
