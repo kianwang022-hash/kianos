@@ -7236,12 +7236,12 @@
       "scope_note": [
         "数值属于本节Study的典型近似值，不能当所有人的实测值。",
         "RV定位最大呼气末；FRC定位平静呼气末且包括ERV，不可互换。",
-        "Current没有给IRV/ERV/RV各自通用数值，也未给正常呼吸频率数值；答案只恢复本意图现有明确数值，MI-D的频率缺口单列Source/HOLD。",
+        "本接受Source范围没有给IRV/ERV/RV各自通用数值，不猜补。正常呼吸频率已由同版P170、P177明确为12–18次/分，正文KP04承接；它不属于此肺容积卡的答案范围。",
         "正常肺泡无效腔很小，150 mL计算按解剖无效腔；PE使肺泡无效腔增加时不能仍把生理无效腔一律等于150。"
       ],
       "source_conflict": {
         "conflict": [
-          "Current没有给IRV/ERV/RV各自通用数值，也未给正常呼吸频率数值；答案只恢复本意图现有明确数值，MI-D的频率缺口单列Source/HOLD。"
+          "本接受Source范围未给IRV/ERV/RV各自通用数值；未给值仍不补造。正常呼吸频率已在P170、P177找到并归KP04，不再作为Source缺口，也不扩入此卡。"
         ],
         "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
       },
@@ -7385,7 +7385,7 @@
     },
     "a2-r02-lg04-precision": {
       "cue": "P50、Hb 氧容量与氧解离曲线的关键数字 / 移动边界最终需要精确恢复。",
-      "answer": "先分“载体最多装多少”与“给定氧分压抓得多紧”。\n容量/含量/饱和度：1 g Hb最多约结合1.34 mL O₂；Hb约15 g/100 mL时氧容量约20.1 mL/100 mL。氧含量是溶解＋结合氧；正常Hb的SaO₂只以实际结合氧/最大可结合氧计算，不用总CaO₂作分子。正常动脉SaO₂约97%；约98.5%的O₂用Hb结合形式运输。COHb/MetHb时分清功能性/分数饱和度并用共氧测定。\n曲线数字：上段PO₂ 60–100 mmHg平坦，PaO₂≥60时SaO₂通常≥90%，利肺装氧；中段40–60较陡，利安静组织卸氧；下段15–40最陡，利高代谢卸氧。P50＝Hb饱和50%时PO₂，约26.5 mmHg。T型亲和低、R型高，亚基协同形成S形。\n移动：温度↑、PCO₂↑、H⁺↑/pH↓、2,3-DPG↑→P50↑、右移、亲和↓、易卸氧；反向以及CO中毒→左移、P50↓、亲和↑、难卸氧。库存血2,3-DPG维持受损，不等于细胞代谢绝对停止。低温同时降低耗氧并左移；不当补碱可妨碍卸氧，不能把生理串联直接变成治疗决定。\n效应分组：波尔“酸度→O₂亲和”；霍尔丹“Hb氧合→CO₂/H⁺携带”。组织卸O₂、装CO₂，肺内反向。\n携氧/利用边界：CO与Hb亲和本节约为O₂的250倍，既减少可结合位点又使余位点左移；PaO₂/普通SpO₂正常不能排除，CO的PvO₂非固定方向。发绀看去氧Hb绝对量≥50 g/L（5 g/100 mL），不等于组织缺氧：肺通气/换气失败常PaO₂与含量↓；严重贫血PaO₂可正常、含量↓且不绀；CO亦可不绀，樱桃红非人人典型；氰化物主要不能利用O₂，PaO₂/含量按本节表可正常而PvO₂↑。\nCO救治仅继承Current接口：脱离暴露、100%氧，按神经/心脏表现、酸中毒及暴露条件评高压氧；旧“加5%CO₂”不能当常规操作。",
+      "answer": "先分“载体最多装多少”与“给定氧分压抓得多紧”。\n容量/含量/饱和度：1 g Hb最多约结合1.34 mL O₂；Hb约15 g/100 mL时氧容量约20.1 mL/100 mL。氧含量是溶解＋结合氧；正常Hb的SaO₂只以实际结合氧/最大可结合氧计算，不用总CaO₂作分子。正常动脉SaO₂约97%；约98.5%的O₂用Hb结合形式运输。COHb/MetHb时分清功能性/分数饱和度并用共氧测定。\n曲线数字：上段PO₂ 60–100 mmHg平坦，PaO₂≥60时SaO₂通常≥90%，利肺装氧；中段40–60较陡，利安静组织卸氧；下段15–40最陡，利高代谢卸氧。P50＝Hb饱和50%时PO₂，约26.5 mmHg。T型亲和低、R型高，亚基协同形成S形。\n移动：温度↑、PCO₂↑、H⁺↑/pH↓、2,3-DPG↑→P50↑、右移、亲和↓、易卸氧；反向以及CO中毒→左移、P50↓、亲和↑、难卸氧。库存血2,3-DPG维持受损，不等于细胞代谢绝对停止。低温同时降低耗氧并左移；不当补碱可妨碍卸氧，不能把生理串联直接变成治疗决定。\n效应分组：波尔“酸度→O₂亲和”；霍尔丹“Hb氧合→CO₂/H⁺携带”。组织卸O₂、装CO₂，肺内反向。\n携氧/利用边界：CO与Hb亲和本节约为O₂的250倍，既减少可结合位点又使余位点左移；PaO₂/普通SpO₂正常不能排除，CO的PvO₂非固定方向。发绀看去氧Hb绝对量≥50 g/L（5 g/100 mL），不等于组织缺氧：肺通气/换气失败常PaO₂与含量↓；严重贫血PaO₂可正常、含量↓且不绀；CO亦可不绀，樱桃红非人人典型；氰化物主要不能利用O₂，PaO₂/含量按本节表可正常而PvO₂↑。\nCO救治仅继承Current接口：脱离暴露、100%氧，按神经/心脏表现、酸中毒及暴露条件评高压氧；旧“加5%CO₂”不能当常规操作。\n四轴完整回看（顺序为PaO₂／动脉氧含量／PvO₂／皮肤黏膜）：肺通气或换气障碍按课程典型为↓／↓／↓／紫蓝、可发绀；严重贫血为正常／↓／↓／苍白、可缺氧不绀；CO为肺通气换气尚正常时可正常／↓／课程写↓但Current不固定／课程樱桃红、实际可不典型且通常不绀；氰化物为正常／正常／↑／鲜红。此为课程典型比较，保留上文的CO限定，不用这张表独断患者。严重贫血/缺氧/高原适应可使2,3-DPG↑、曲线右移，与CO的左移分开。",
       "answer_scope": "原LG04的P50/Hb容量/曲线精度与完整鉴别条件，保留5个原成员＋额外容量owner。",
       "scope_note": [
         "原LG07–11全成员保留；容量来自额外KP05，不能为方便把LG改锚KP07。",
@@ -7467,7 +7467,7 @@
     },
     "a2-r03-lg03-precision": {
       "cue": "持续气流受限的诊断边界与 GOLD 严重度数字最终需要精确恢复。",
-      "answer": "诊断与定级先分分母/前提：吸入支气管扩张剂后FEV1/FVC仍<70%，是本课程持续气流受限入口；需合看暴露、症状和其他病因，不是COPD独有。FEV1%pred用于GOLD肺功能严重度：1级≥80%；2级50%–79%；3级30%–49%；4级<30%。它不是一秒率，也不是症状/加重史的A/B/E治疗分组。\n把数字放回原LG的力学范围：小气道可先出现MEFV下降、闭合容积升高、动态顺应性下降；合并肺气肿的弹性破坏才可静态顺应性升高，不能记成所有COPD的必经先后。呼气受限且呼气时间不够、下一吸气尚未达静态平衡，才形成PEEPi；RV/FRC增大不能单独证明。\n肺功能条件：FEV1下降；FEV1/FVC下降；VA在通气失败时可下降；RV在滞气时常升、FRC在过充时常升，TLC在气肿等可升而非必然；课程RV/TLC>40%是肺气肿接口；DLCO在肺气肿/毛细床破坏时常下降，不能套所有气道为主COPD。\n血气：有效肺泡通气下降是CO₂潴留主轴；低VA/Q、高VA/Q和弥散面积丢失均可参与低氧。换气主导可PaO₂低、PaCO₂正常的Ⅰ型；通气不足主导可PaCO₂>50 mmHg并低氧，常慢性Ⅱ型。有血气以实际PaO₂/PaCO₂为准，不能凭病名覆盖。传统Ⅱ型判据完整背景为海平面、静息、室内空气PaO₂<60且PaCO₂>50；给氧纠正PaO₂不等于通气衰竭消失。",
+      "answer": "诊断与定级先分分母/前提：吸入支气管扩张剂后FEV1/FVC仍<70%，是本课程持续气流受限入口；需合看暴露、症状和其他病因，不是COPD独有。FEV1%pred用于GOLD肺功能严重度：1级≥80%；2级50%–79%；3级30%–49%；4级<30%。它不是一秒率，也不是症状/加重史的A/B/E治疗分组。\n把数字放回原LG的力学范围：小气道可先出现MEFV下降、闭合容积升高、动态顺应性下降；合并肺气肿的弹性破坏才可静态顺应性升高，不能记成所有COPD的必经先后。呼气受限且呼气时间不够、下一吸气尚未达静态平衡，才形成PEEPi；RV/FRC增大不能单独证明。\n肺功能条件：FEV1下降；FEV1/FVC下降；课程流速旁轴MMFR/PEF也常下降，FVC可下降或正常。与之比较，限制性以TLC/FVC等容积下降、FEV1/FVC保留或升高为轴，FEV1可下降或正常，不能用FEV1单值区分；VA在通气失败时可下降；RV在滞气时常升、FRC在过充时常升，TLC在气肿等可升而非必然；课程RV/TLC>40%是肺气肿接口；DLCO在肺气肿/毛细床破坏时常下降，不能套所有气道为主COPD。\n血气：有效肺泡通气下降是CO₂潴留主轴；低VA/Q、高VA/Q和弥散面积丢失均可参与低氧。换气主导可PaO₂低、PaCO₂正常的Ⅰ型；通气不足主导可PaCO₂>50 mmHg并低氧，常慢性Ⅱ型。有血气以实际PaO₂/PaCO₂为准，不能凭病名覆盖。传统Ⅱ型判据完整背景为海平面、静息、室内空气PaO₂<60且PaCO₂>50；给氧纠正PaO₂不等于通气衰竭消失。",
       "answer_scope": "原LG03完整PFT/气体失败条件，诊断阈值与严重度答案不丢原LG成员。",
       "scope_note": [
         "原LG03成员KP09–11全部保留，定义/诊断限定另读KP06、KP13、KP14；GOLD与ABE区别另读KP16。",
@@ -7479,13 +7479,13 @@
         "conflict": [
           "固定70%属于当前课程/GOLD入口；一次舒张反应不能把COPD与哮喘绝对二分。"
         ],
-        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+        "policy": "Current canonical scope plus source-explicit corrections from the same pinned Source Markdown; no new admission, no invented dose or unresolved source claim, and no original-PDF visual acceptance. Historical source_refs are preserved as provenance."
       },
       "mnemonic": [
         "先问“有没有持续限速”（支扩后比值70），再问“受限多重”（预计值80/50/30分界）；残气、弥散、血气分三条旁轴。用这一顺序复原数字，避免把ABE症状风险塞进肺功能分级。",
         "Current KP09–16同轴组织；无新卡片或新医学口诀。"
       ],
-      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source": "Basis main@137912d6e60e0e6d47ac453d9fba54b5961616b5 canonical plus complete Source Markdown read: pathology PDF54–64; internal medicine printed1–11/PDF2–12. Original PDF images and visual supplements were not inspected in this batch.",
       "source_refs": [
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L612-L657",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L665-L695",
@@ -7495,7 +7495,8 @@
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L807-L820",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L858-L858",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L951-L951",
-        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md"
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+        "https://github.com/kianwang022-hash/kianos/blob/137912d6e60e0e6d47ac453d9fba54b5961616b5/content/xizong/source-snapshots/27/%E5%86%85%E7%A7%91%E5%AD%A6%E8%AE%B2%E4%B9%89_AI%E9%98%85%E8%AF%BB%E7%89%88_27%E7%B2%BE%E7%BC%96_UnifiedSource_v2.md"
       ],
       "retention_metadata": {
         "native_owner": {
@@ -7562,27 +7563,27 @@
     },
     "a2-r03-lg05-precision": {
       "cue": "长期家庭氧疗与 AECOPD 的关键阈值 / 用药边界最终需要精确恢复。",
-      "answer": "先分稳定慢性管理与急性加重，不能混用阈值或给药身份。\n稳定风险：课程去年中度加重≤1且未因加重住院为低风险；≥2次中度或因加重住院为E风险。mMRC 0仅剧烈活动气短、1快走/缓坡气短、2比同龄慢或自己节奏也要停、3约100m/几分钟需停、4不能离家或穿脱衣气短；0–1症状少、2–4症状多。课程A低风险少症、B低风险多症、E高风险；Current另标GOLD2026将一次中度加重作为升级治疗评估阈值，旧组不叫最新版。\n稳定用药：A一种支扩；B LABA＋LAMA；E LABA＋LAMA或符合条件三联加ICS。SABA沙丁胺醇/特布他林；SAMA异丙托溴铵；LABA沙美特罗/福莫特罗；LAMA噻托溴铵。ICS代表布地奈德、氟替卡松、倍氯米松；加重住院史、每年≥2次中度、血嗜酸≥300个/μL、伴哮喘共同评获益。300不是独立充分指征，区分初始/随访升级、当前支扩下持续加重及肺炎等风险。茶碱为课程列举，不等于常用吸入支扩的默认地位。\nLTOT：生存获益主要面向稳定慢性重度静息低氧。Current ATS条件示例PaO₂≤55 mmHg或SpO₂≤88%；或PaO₂56–59/SpO₂89%并水肿、红细胞增多或肺型P等；至少15h/d并复评。课程长期目标PaO₂≥60、SaO₂≥90%；鼻导1–2 L/min，“约30%”只是随设备/呼吸模式/分钟通气变化的粗估。\n氧致高碳酸不只因低氧驱动被解除：还要看V/Q恶化、霍尔丹效应及部分通气下降。高碳酸风险AECOPD常按SpO₂88–92%滴定，复查血气、评通气支持；不能延误严重低氧纠正，也不能把此目标套所有Ⅱ型或CO中毒。LTOT目标与急性滴定情境分开，吸氧不替代排CO₂。\nAECOPD：感染最常见触发，咳痰喘加重、黄脓痰/发热、气促/血气恶化。课程Ⅰ级无高碳酸呼衰且无意识变，Ⅱ级有呼衰而意识未变，Ⅲ级有呼衰并意识变/肺性脑病。感染按必要抗菌，痉挛吸入支扩，住院炎症加重用口服或静脉全身激素；稳定期条件性ICS不能混为同一给药身份。低氧滴定；适合且无禁忌的急性高碳酸呼衰评NIV。不能保护气道、持续循环不稳、呼吸停止或NIV失败需升级有创；Ⅲ级要求立即评通气/保护气道，不是所有意识变化自动插管，不为试NIV延误。\n酸碱/药物安全：呼酸先改善通气/病因；课程pH<7.2只是补碱接口，要看新增CO₂能否排出、混合代酸和循环不稳。通气失败/意识差不可自行加镇静抑呼吸药；课程吗啡禁用不能扩大到所有呼吸病、所有目的和专业监护下永久绝对禁忌。",
+      "answer": "先分稳定慢性管理与急性加重，不能混用阈值或给药身份。\n稳定风险：课程去年中度加重≤1且未因加重住院为低风险；≥2次中度或去年因加重住院为E风险。Source P5把“中度急性加重”括注为FEV1%pred 50–79%的解释HOLD：GOLD肺功能级不是急性加重事件级。mMRC 0仅剧烈活动气短、1快走/缓坡气短、2比同龄慢或自己节奏也要停、3约100m/几分钟需停、4不能离家或穿脱衣气短；0–1症状少、2–4症状多。课程A低风险少症、B低风险多症、E高风险；Current另标GOLD2026将一次中度加重作为升级治疗评估阈值，旧组不叫最新版。\n稳定用药：A一种支扩；B LABA＋LAMA；E LABA＋LAMA或符合条件三联加ICS。SABA沙丁胺醇/特布他林；SAMA异丙托溴铵；LABA沙美特罗/福莫特罗；LAMA噻托溴铵。ICS代表布地奈德、氟替卡松、倍氯米松；加重住院史、每年≥2次中度、血嗜酸≥300个/μL、伴哮喘共同评获益。300不是独立充分指征，区分初始/随访升级、当前支扩下持续加重及肺炎等风险。茶碱为课程列举，不等于常用吸入支扩的默认地位。必要祛痰药的课程三项为氨溴索、乙酰半胱氨酸、羧甲司坦。\nLTOT：生存获益主要面向稳定慢性重度静息低氧。Current ATS条件示例PaO₂≤55 mmHg或SpO₂≤88%；或PaO₂56–59/SpO₂89%并水肿、红细胞增多或肺型P等；至少15h/d并复评。课程长期目标PaO₂≥60、SaO₂≥90%；鼻导1–2 L/min；课程粗估FiO₂(%)≈21＋4×流量(L/min)，得到约25%–29%，约30%为近似口径，实际随设备/呼吸模式/分钟通气变化。\n氧致高碳酸不只因低氧驱动被解除：还要看V/Q恶化、霍尔丹效应及部分通气下降。高碳酸风险AECOPD常按SpO₂88–92%滴定，复查血气、评通气支持；不能延误严重低氧纠正，也不能把此目标套所有Ⅱ型或CO中毒。LTOT目标与急性滴定情境分开，吸氧不替代排CO₂。\nAECOPD：感染最常见触发。咳痰喘加重、黄脓痰/发热、气促/血气恶化。课程Ⅰ级无高碳酸血症、无呼衰、无意识变；Ⅱ级有高碳酸血症及呼衰而意识未变；Ⅲ级有高碳酸血症及呼衰并意识变/肺性脑病。感染按必要抗菌，Source仅列头孢/沙星类别，未给具体剂量疗程；痉挛吸入支扩；住院炎症加重用口服或静脉全身激素，课程代表为泼尼松、氢化可的松、甲泼尼龙；祛痰复用稳定期同三药；稳定期条件性ICS不能混为同一给药身份。低氧滴定；适合且无禁忌的急性高碳酸呼衰评NIV。不能保护气道、持续循环不稳、呼吸停止或NIV失败需升级有创；Ⅲ级要求立即评通气/保护气道，不是所有意识变化自动插管，不为试NIV延误。\n酸碱/药物安全：呼酸先改善通气/病因；课程pH<7.2只是补碱接口，要看新增CO₂能否排出、混合代酸和循环不稳。通气失败/意识差不可自行加镇静抑呼吸药，课程具名地西泮在意识障碍者禁用；无意识障碍并不构成常规安全镇静许可；课程吗啡禁用不能扩大到所有呼吸病、所有目的和专业监护下永久绝对禁忌。",
       "answer_scope": "原LG05的LTOT/AECOPD关键阈值与用药边界；全成员/版本差异保留，不声称完整现代处方。",
       "scope_note": [
         "原LG05全成员KP16–20保留，不能只留下LTOT数字或改锚KP18。",
         "课程ABE与GOLD2026并列，不以本提案更新指南；稳定/急性氧疗、ICS/全身激素明确分开。",
         "LTOT适应证是Current给出的条件示例；红细胞增多未提供Hct数值，不补造。",
-        "Current未给完整抗菌药名/剂量/疗程、NIV数值准入细则；本cue恢复已存在关键阈值与用药边界，这些未提供的MI-D细则保持Source/HOLD。"
+        "Source内科印刷P6的病原信息保留在KP19 Core供理解/查阅，不纳入本cue精确恢复范围。原用药范围中的头孢/沙星类别、三种全身激素代表及三种祛痰药已补齐；具体抗菌药、剂量/疗程、NIV数值准入仍未给。P5把中度急性加重等同FEV1%pred 50–79%的解释HOLD，不混肺功能与事件级。"
       ],
       "source_conflict": {
         "conflict": [
           "课程ABE与GOLD2026并列，不以本提案更新指南；稳定/急性氧疗、ICS/全身激素明确分开。",
           "LTOT适应证是Current给出的条件示例；红细胞增多未提供Hct数值，不补造。",
-          "Current未给完整抗菌药名/剂量/疗程、NIV数值准入细则；本cue恢复已存在关键阈值与用药边界，这些未提供的MI-D细则保持Source/HOLD。"
+          "Source内科印刷P6的病原信息保留在KP19 Core供理解/查阅，不纳入本cue精确恢复范围。原用药范围中的头孢/沙星类别、三种全身激素代表及三种祛痰药已补齐；具体抗菌药、剂量/疗程、NIV数值准入仍未给。P5把中度急性加重等同FEV1%pred 50–79%的解释HOLD，不混肺功能与事件级。"
         ],
-        "policy": "Frozen Current only; retained provenance is not fresh original-PDF review. Unsupported exact scope stays unadmitted."
+        "policy": "Current canonical scope plus source-explicit corrections from the same pinned Source Markdown; no new admission, no invented dose or unresolved source claim, and no original-PDF visual acceptance. Historical source_refs are preserved as provenance."
       },
       "mnemonic": [
-        "把记忆分“稳—氧—急—安全”：稳定先ABE和ICS获益；氧疗先问长期适应证还是急性滴定；急发用意识与气道保护升级；pH只放在通气优先条件后。mMRC沿活动能力从剧烈→快走→同龄→百米→穿衣递减。",
+        "把记忆分“稳—氧—急—安全”：稳定先ABE和ICS获益；氧疗先问长期适应证还是急性滴定；急发用意识与气道保护升级；pH只放在通气优先条件后。mMRC沿活动能力从剧烈→快走→同龄→百米→穿衣递减。 药物按靶点分组恢复：痉挛→支扩；炎症→稳定ICS/急性全身激素；分泌物→氨溴索、乙酰半胱氨酸、羧甲司坦。名称组不替代适应证与途径。",
         "Current KP16–20及R2 KP15既有顺序/情境组织，没有新剂量或处方。"
       ],
-      "source": "Frozen Current canonical content; original PDFs not inspected in this batch.",
+      "source": "Basis main@137912d6e60e0e6d47ac453d9fba54b5961616b5 canonical plus complete Source Markdown read: pathology PDF54–64; internal medicine printed1–11/PDF2–12. Original PDF images and visual supplements were not inspected in this batch.",
       "source_refs": [
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L908-L953",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L961-L1012",
@@ -7591,7 +7592,8 @@
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1109-L1133",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1047-L1049",
         "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
-        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md"
+        "https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+        "https://github.com/kianwang022-hash/kianos/blob/137912d6e60e0e6d47ac453d9fba54b5961616b5/content/xizong/source-snapshots/27/%E5%86%85%E7%A7%91%E5%AD%A6%E8%AE%B2%E4%B9%89_AI%E9%98%85%E8%AF%BB%E7%89%88_27%E7%B2%BE%E7%BC%96_UnifiedSource_v2.md"
       ],
       "retention_metadata": {
         "native_owner": {
@@ -8255,7 +8257,7 @@
     },
     "a2-r10-kp19-precision": {
       "cue": "胸管位置、插拔呼吸时相与拔管组合最终需要精确恢复。",
-      "answer": "课程传统位置：气胸锁骨中线第2肋间；胸水腋中线与腋后线之间第6–7肋间。不能替代术前影像和安全定位；液体须超声定位，正式置管常在安全三角选合适位置，不把应急针刺减压点当正式胸管点。\n呼吸配合：插管深呼气后屏气；课程拔管深吸气后屏气。现代操作按流程配合屏气／Valsalva并立即密闭创口，吸气末或呼气末不是唯一成败因素。\n拔管四组合：肺复张好且无气液排出→拔；肺不张且有排出→不拔；复张好、少量残留、管通畅→继续引流；复张好、少量残留、堵塞→课程列可拔，但实际先明确堵塞、漏气／积液和复张状态，堵塞绝不是自动拔管依据。\nCurrent列出的适应证完整保留六行：中／大量闭合性气胸；开放／张力性气胸；穿刺后肺未复张；机械通气相关气胸／血气胸；拔管后复发；开胸术后。Prompt“适应5”仍保持身份原文，不删第六行求齐数字。\n紧急边界：张力性先立即减压；开放封口后监测张力恶化；闭合性大小阈值服从症状、稳定性、基础病和类型。以上是课程提取及安全条件，不构成完整胸管操作教程。",
+      "answer": "课程传统位置：气胸锁骨中线第2肋间；胸水腋中线与腋后线之间第6–7肋间。不能替代术前影像和安全定位；液体须超声定位，正式置管常在安全三角选合适位置，不把应急针刺减压点当正式胸管点。\n呼吸配合：插管深呼气后屏气；课程拔管深吸气后屏气。现代操作按流程配合屏气／Valsalva并立即密闭创口，吸气末或呼气末不是唯一成败因素。\n拔管四组合：肺复张好且无气液排出→拔；肺不张或有排出→不拔；复张好、少量残留、管通畅→继续引流；复张好、少量残留、堵塞→课程列可拔，但实际先明确堵塞、漏气／积液和复张状态，堵塞绝不是自动拔管依据。\nCurrent列出的适应证完整保留六行：中／大量闭合性气胸；开放／张力性气胸；穿刺后肺未复张；机械通气相关气胸／血气胸；拔管后复发；开胸术后。Prompt“适应5”仍保持身份原文，不删第六行求齐数字。\n紧急边界：张力性先立即减压；开放封口后监测张力恶化；闭合性大小阈值服从症状、稳定性、基础病和类型。以上是课程提取及安全条件，不构成完整胸管操作教程。",
       "answer_scope": "All conditions and version distinctions are inside the exact answer. Original KP/LG ownership and complete member set remain unchanged; no splitting, new card identity, or broad-Core fallback.",
       "scope_note": [],
       "source_conflict": {
