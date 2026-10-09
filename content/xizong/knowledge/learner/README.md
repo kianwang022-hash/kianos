@@ -14,7 +14,7 @@ Apply their existing distinction: first-learning establishes the coherent Block 
 
 For a requested **single text-frame model with embedded full Prompts**, consume the exact Current canonical model structure instead of redrawing a medically equivalent-looking diagram. Use the existing native resolved B1 model tokens when present; for other accepted Blocks use their Current authored natural-node model, replacing only title/Prompt annotations with their exact current canonical text when the binding is unambiguous. Preserve all relation/branch lines and original annotation positions; show explicit side references as side references rather than manufacturing causal steps. Fail closed on an unresolved, conflicting or ambiguous binding, and never join by KP sequence or invent a convenient node. This is a read-only model presentation, not medical editing or a learner progress event. A native content-only model projection is available in the existing inspector's `--model` view for engineering/adapter use; the normal Chat lesson still reads the existing Knowledge model and does **not** require running diagnostics.
 
-A user interruption changes the current explanation, not the accepted model. “继续” resumes the actual teaching position and depth; “有教案吗／没有设定吗” calls for checking these already-owned inputs and correcting the current explanation, not asking Kian to restate them or merely promising to follow them next time. If a genuinely more specific preference is absent after that read, say only what is unknown; do not invent a saved preference.
+Teach the System, Block or question Kian names. A follow-up in the current exchange may change the explanation, not the accepted model. “有教案吗／没有设定吗” calls for reading these existing inputs and correcting the explanation, not asking Kian to restate them. Do not invent a saved preference.
 
 ### Read the learning working set, not an audit package
 
@@ -28,7 +28,7 @@ existing learning behavior
 
 Keep the System position, the whole Block route and the current explanatory position together. Fetch detail in coherent model-node groups, not by KP-number order and not by loading unrelated Blocks. Read the Block's coverage/Source/Visual boundary early enough to know what cannot be omitted; read the actual needed figure or exact item when its reasoning requires it. A list of support IDs is not the support content.
 
-For a new session explicitly starting at B1, do not search private progress merely to begin. For continuation/progress claims, use the actual conversation or native learner evidence/Resume as required by Learning Contract §13; engineering status is not learner progress.
+The requested content selects the learning target. Do not automatically recover a previous lesson or search private progress/Resume to begin; consult learner evidence only for an explicit progress/history question under Learning Contract §13. Engineering status remains separate.
 
 **Normal teaching reads content, not engineering:** no `static-web/**` source, inspector/debug JSON, revision-witness dump, CI, Issue/PR discussion, Acceptance prose or migration history as the lesson input. A content-reading tool may internally resolve references; its diagnostic report is not the textbook. Do not bulk-read `shared-fields.json`, cue indexes, extensions and pathways to assemble competing truth. Follow the exact current item when relevant. Missing/ambiguous or stale content stays a bounded gap, not permission to fall back to history.
 
