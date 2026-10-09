@@ -53,7 +53,7 @@
       "进一步区分社会发展的根本动力、重要动力和具体形式",
       "最后回答谁创造历史：人民群众是历史的创造者，但个人和历史人物也会在具体条件下发挥作用"
     ],
-    "attention_rule": "这一章最容易乱的是‘决定关系’和‘动力层级’。第一轮始终抓两件事：谁是基础、谁反作用；谁是根本动力、谁是重要动力。 首次教学先消费 teaching-candidate/ch04.brief.md#c04-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次记忆的时机和深度见同稿 #c04-first-retrieval；主要论证块或章末主动取回已学主提示，不等错题触发。",
+    "attention_rule": "这一章最容易乱的是‘决定关系’和‘动力层级’。第一轮始终抓两件事：谁是基础、谁反作用；谁是根本动力、谁是重要动力。 首次教学从 teaching-candidate/ch04.brief.md#c04-learner-entry 的最小前提和问题驱动解释进入，讲通后映回原 reconstruction_chain；不能用复习压缩替代首次解释。普通复习或章末压缩直接读 teaching-candidate/ch04.brief.md#c04-source-review 的同一模型、完整节点主提示及邻近答案，不以 first-retrieval、Resume 或闭卷测试为前置步骤。",
     "next_chapter_bridge": "第四章给出了社会历史运动的一般规律。第五章开始把这套方法具体用来分析资本主义社会的经济结构和运行机制。"
   },
   "unit_projections": [
@@ -198,7 +198,7 @@
       "上层建筑反作用 ≠ 上层建筑可以脱离经济基础任意决定社会。",
       "人民群众创造历史 ≠ 个人毫无作用。"
     ],
-    "review_prompt": "闭卷恢复三层：社会靠什么结构运行？社会为什么发展？谁在现实中创造历史？能把这三层顺着讲清楚，就说明第四章不是一堆帽子。 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch04.brief.md#c04-learner-close：主模型重建→按节点核对本轮连续学习中全部已学现行主提示覆盖（未取回的逐组完成；本轮主要论证块已取回的只补漏或纠错，不自动整组重复；不免除后续独立复习中的取回）→必要易混边界→确有的 residual→接收章交接。没有真实回答不能记为掌握。"
+    "review_prompt": "普通复习直接读 teaching-candidate/ch04.brief.md#c04-source-review：沿原 reconstruction_chain 呈现紧凑关系模型，各自然节点带出完整现行主提示，必要解释与答案可见；随后看必要易混边界，最后仅处理既有 residual。章末只压缩实际已学范围，不重讲整章、不要求先作答。只有 Kian 明确要求测试时才用同稿 #c04-first-retrieval 的既有深度；没有真实回答不记录掌握。"
   },
   "projection_notes": {
     "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",
