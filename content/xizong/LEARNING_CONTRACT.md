@@ -110,7 +110,7 @@ Model-external knowledge may be an entire recallable KP or a smaller exact item.
 
 Reuse previously reviewed memory preparation before generating anything new. Where useful, organize exact content through chunking, same-axis comparison, meaningful grouping, contrasts, sequences, short causal supports or valid mnemonics. Preserve the complete answer, qualifications and provenance. A mnemonic is optional assistance, never medical authority or a substitute for the exact answer.
 
-A cue naming what to memorize, a link to a long Core, or a metadata row that the actual consumer drops is **not** delivery of prepared exact-memory content. The native learner path must receive the applicable answer and memory aids. Preserve answer/aid hiding on clean Recall fronts, independent content revisions, history and deduplication.
+A cue naming what to memorize, a link to a long Core, or a metadata row that the actual consumer drops is **not** delivery of prepared exact-memory content. The intended learning path must make the complete applicable answer, qualifications and useful memory aids directly available. Ordinary Chat review need not hide answers; answer/aid hiding applies when Kian explicitly requests self-testing or uses an existing protected Recall surface. Preserve independent content revisions, history and deduplication.
 
 ### Learning and acceptance sequence
 
@@ -118,13 +118,13 @@ A cue naming what to memorize, a link to a long Core, or a metadata row that the
 Chat establishes the coherent Block model quickly
 → teach/fill the existing knowledge at its natural model locations
 → immediately compress that same model with titles + full Prompts
-→ Website KP recall + prepared model-external Memory/Precision
+→ same-model ordinary review with full node Prompts + prepared model-external Memory/Precision
 → reconstruct the Block, then connect Blocks into the System model
 → broad Lecture sweep / official questions to calibrate and expose remaining gaps
 → smallest justified repair
 ```
 
-Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation. A broad Lecture sweep may be later; source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
+Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation; pauses follow natural medical scope and Kian's questions, not KP order or a compulsory quiz after each node. A broad learner Lecture sweep may be later; it does not replace checking necessary Lecture coverage during content preparation. Source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
 
 ### Cognitive readiness authorizes the current target
 
@@ -132,7 +132,11 @@ A hard prerequisite constrains the cognitive model genuinely required by the tar
 
 This continuation permission creates no prerequisite-owner Source, Learned, Complete, Mastery, Recall or scheduled Memory debt. Keep existing history intact. Explicit Source, Visual, reviewed TTSX, Tumor and formal-completion requirements remain governed by their own owners and cannot be waived by cognitive-readiness confirmation; unresolved requirements hold only their genuinely dependent scope.
 
-Acceptance must demonstrate a whole representative Block end to end: stable model, full in-model Prompt bindings, accounted model-external material, useful memory preparation and the actual Website retrieval path. A locally elegant LG, a file count, an engineering green check or a candidate inventory cannot stand in for this outcome. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
+Content/Chat acceptance uses this same standard at Block and System scope. Through the normal learning entry, the exact candidate must support first learning of a clear continuous medical model, complete knowledge at its natural title〔full formal Prompt〕 nodes, and ordinary review of that same model without rereading all explanatory Core. Necessary model-external exact memory must have accessible complete answers, conditions and useful grouping; image-dependent knowledge must retain the needed usable Source/MedicalVisual path. The accepted Lecture/Source scope must be checked in both directions: necessary knowledge has a real model/Core/Memory/Precision/Visual or explicitly bounded reference destination, and the model and answers have adequate support. A Block must recover independently and connect through its real interfaces to the System model.
+
+Reuse prior evidence when its content revision, actual scope and evidence type still match; recheck changed meaning, confirmed gaps and their real dependents. Assembled excerpts and appended answers may establish content availability, but cannot establish that a fresh Chat actually recovered the normal inputs and taught or reviewed coherently; verify that entry behavior on its real path before claiming it. Final acceptance checks the actual first-learning, ordinary-review, exact-memory and Block/System connection paths, not an annotation count, a rigid format, or repeated full source audits of unchanged content. A necessary unresolved model, answer or Source/Visual requirement blocks only its dependent claim, but that Block cannot be called complete if its required learning path is still unusable. Optional/reference limits stay explicit without stopping unrelated learning. Simulated use establishes only readiness for real use within the tested scope, never Kian's actual learning, Recall or mastery.
+
+Website retrieval, Runtime and private learner evidence retain their existing independent contracts when those paths are requested; they are not prerequisites for Chat/content delivery or an automatic next phase. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
 
 ---
 
