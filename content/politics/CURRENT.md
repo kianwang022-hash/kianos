@@ -9,7 +9,7 @@ Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTR
 
 ## Intent
 
-- **LEARN:** ordinary Politics learning bypasses this engineering cursor and follows [Interaction §0](INTERACTION_CONTRACT.md) under [Learning](LEARNING_CONTRACT.md). An explicit lesson/question/review enters the relevant current Content directly; continuation uses actual task-matched evidence only as needed. Candidate preparation is not adoption, progress or mastery.
+- **LEARN:** ordinary Politics learning bypasses this engineering cursor and follows [Interaction §0](INTERACTION_CONTRACT.md) under [Learning](LEARNING_CONTRACT.md). The named subject/chapter/question enters current Content directly; no automatic course resumption or progress lookup selects the lesson. Candidate preparation is not adoption, progress or mastery.
 - **BUILD / CONTROL:** enter this cursor, then the active engineering anchor or exact subject/content/consumer owner. Apply [AGENTS](../../AGENTS.md) and change continuity before material changes.
 
 ## Completed bounded Memory delivery
@@ -80,7 +80,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 **Current：** 马原 C00–C08、史纲 C01–C10 已支持内容完成两轮审查；毛中特九章文字学习路径第二轮完成。习思想 C00–C02 原五处修正及后续七处来源增量均已保存并回读至 a6ab273215704ed298b12c3a42269bc55c321777：补科学社会主义性质边界、领导作用与 C03 接续、自主与借鉴相容，并澄清同版 MD 来源。原模型、13 组主提示、答案深度与 Memory 身份不变。均草稿未合并，不能称 53 章全量收口。
 
-**Next：** 按 Kian 最新要求仅以明确科目/章节/问题读取内容，删除自动续学及跨 Chat 进度恢复。共同入口及 Learning 简化已保存至 7a16d3302e053a5d142fa1d7637cbb02bafc1053；Interaction 同步的七处精确修改被平台拦截，已请求该单项确认，未完成前不称入口全部收口，不重复提交。候选已持久保存在原入口审查批次。网站与真实记录不属本任务；确认后收好该文件，再回原 C03–C05 已冻结候选，不重开章节。
+**Next：** 按 Kian 最新要求仅以明确科目/章节/问题读取内容，自动续学及跨 Chat 进度恢复已从学习入口删除；共同入口、Learning、Interaction 均保存并回读，最后内容提交 e807a77234ac1b63211212d4cc3811c131ffbe25。已获该单项确认，原平台阻塞解除。正在做最终内容入口反例检查，不运行网站，不新增学习流程；完成后回原 C03–C05 冻结批次。内容读取与升级独立于网站，真实记录不动。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
