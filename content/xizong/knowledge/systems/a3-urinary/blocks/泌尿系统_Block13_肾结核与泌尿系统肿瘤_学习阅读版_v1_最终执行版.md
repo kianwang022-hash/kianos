@@ -48,7 +48,7 @@ source_gap_status: SOURCE_ROUTING_AND_CLINICAL_BOUNDARIES_EXPLICIT
 >
 > **Primary Outline**：外科 U026 共14题；其中“分肾功能的三个检查”和“尿三杯”已在 K6 完成唯一 Primary，本 Block只 Recall / Apply。其余 **12 / 12** 为本 Block Primary，`duplicate_primary = 0`。
 >
-> **第一轮流程**：Framework → 27外科精编连续学习与 Current refined original-page Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **初学与普通复习**：先用 §1A 建立整块模型，沿自然问题展开相应完整标题〔正式主提示〕和 Core，再回同一模型压缩。普通复习可直接看提示与答案；需要自测时再隐藏解释。必要原图在对应空间节点回看，Source/Visual 与正式完成要求仍由原 owner 保留。
 >
 > **Source boundary**：保留当前 Study 对传统病理名称、检查“首选/最佳/金标准”、分期、术式与抗结核疗程的 306 考试口径，但 Current Core 不把这些压缩表升级成跨情境绝对规则。稳定主线是：器官定位 → 风险/分期 → 合适的影像/内镜/病理证据 → 再决定器官保留、切除或系统治疗方向。
 
@@ -246,6 +246,8 @@ Study 旁注解释肾区疼痛可不突出：感觉神经主要在肾包膜，�
 | 背景 | 结核病史 / 结核线索 | 细菌性下尿路感染入口 |
 | 血尿 | 常在刺激症后出现 | 可伴终末血尿 |
 | 普通抗菌药 | 不能据此获得典型有效反应 | 细菌性模型中有效 |
+
+Source P128另提示“酸性无菌性脓尿”：尿中有白细胞而普通细菌培养未检出通常致病菌时，结合持续症状和结核背景应想到结核等可能；这里的“无菌”不表示没有结核分枝杆菌，酸性尿或脓尿也不能单独确诊。确证仍回 KP04 的结核微生物学及影像组合。
 
 Source另与慢性肾盂肾炎对照：两者可有慢性刺激症及肾盂肾盏变形；肾结核强调结核证据与刺激症进行性加重，慢性肾盂肾炎可反复缓解。症状时序和普通抗菌药反应是线索，不能代替病原学，也不能把任何一方限定为必有全部表现。
 
@@ -842,7 +844,7 @@ silent_source_correction = 0
 
 # 15｜Framework Reconstruction
 
-读完 Lecture 后，不看正文，用下面六个节点重建：
+普通复习沿 §1A 的同一模型及节点上的完整标题〔正式主提示〕恢复；下面六点只压缩主路，不替换原 Prompt。答案可见，卡住时回对应解释；只有明确要自测时才隐藏答案。
 
 ```text
 ① 肾结核：来源—向下蔓延—慢性刺激症—微生物学+影像—医疗为主/按功能重建
@@ -853,7 +855,7 @@ silent_source_correction = 0
 ⑥ 前列腺癌：外周带—PSA/DRE—MRI/活检—风险/分期→多模式治疗
 ```
 
-能闭卷恢复六节点及主要检查层级，即完成本 Block Framework Reconstruction。
+复习收回“结核慢性破坏 / 四器官肿瘤 → 定位证据 → 按任务确证 → 按功能与风险处理”；接到 B14 时保留同一尿路空间和血尿证据，但外伤把稳定性与致命出血放在最前。普通复习不据此生成 Source 接触、掌握或 Block Complete 记录。
 
 ---
 
@@ -873,6 +875,8 @@ LectureQuestionBinding 自动提供
 ---
 
 # 17｜Block Complete
+
+此处保留正式完成核对职责，不是初学或普通复习的前置测验；真实 Source/Visual、Recall 与学习证据不能由本轮内容阅读代替。
 
 本 Block 第一轮完成标准：
 
