@@ -420,7 +420,7 @@ Source contact is evidence. If the corresponding Source has not been read or ins
 
 Primary adaptive teaching surface when Kian chooses Chat-led first learning.
 
-Before teaching a Block, Chat should read the current Block Knowledge, relevant Learning owner and the Source boundary needed to know what must be covered. It may then reorganize teaching around the medical mechanism, causal problem and Kian's live questions rather than reciting KP order.
+Before teaching a Block, Chat should use the [existing learner reading entry](knowledge/learner/README.md) to select the current teaching basis, then read the System position, Block model, relevant Learning owner and the Source boundary needed to know what must be covered. It may adapt explanation order, examples and depth around the medical mechanism and Kian's live questions rather than reciting KP order; the selected model's relationships, directions, boundaries and knowledge positions stay fixed.
 
 For an explicitly requested first-learning session scoped to a material Logic Group, Chat should normally:
 
@@ -480,9 +480,9 @@ The normal Chat-led flow is:
 optional Guide when genuinely useful
 → read current Block Knowledge + Learning boundary + needed Source scope
 → System / Block Framework
-→ Logic Group teaching by mechanism, with KP ownership preserved
-→ resolve understanding-changing detail in the moment
-→ compress each LG / Block to a retrievable scaffold
+→ teach the continuous Block model at its natural nodes, using LG for local scope and coverage
+→ resolve understanding-changing detail in the moment, with KP ownership preserved
+→ compress that same local / Block model to a retrievable scaffold
 → at a natural breakpoint or Block teaching end:
    audit coverage against canonical KP + readable Source
    route exact Precision / Memory candidates to their owning assets
@@ -748,14 +748,16 @@ Only real learner use creates U evidence.
 
 ## 13｜Fresh-Chat / non-drift rule
 
-For actual learner continuation or progress questions, read native learner evidence, the subject Packet or Resume first. Missing evidence remains UNKNOWN; engineering Current never substitutes for learner progress.
+For an ongoing Chat lesson, restore the target Block, first-learning or review stage, current model node, explanation depth and unresolved question from the actual conversation. Read native learner evidence, the subject Packet or Resume for actual progress claims or when the continuation position is not recoverable there. Missing history or evidence remains UNKNOWN; do not infer a teaching position or learner progress from engineering Current, asset coverage or a completed PR.
 
 For learning-model interpretation, read only as needed:
 
 ```text
 this LEARNING_CONTRACT.md
-→ study-policy.json when machine execution detail matters
-→ exact System-specific Learning owner when local Source/LG differences matter
+→ knowledge/learner/README.md: the target's current teaching-basis selection
+→ exact System position + selected Block model + target Learning scope
+→ current natural node's title / full Prompt / Core + relevant exact support
+→ study-policy.json only when machine execution detail matters
 → Website Visual / Engineering owners only for Website implementation
 ```
 
