@@ -234,8 +234,8 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 自动 closure 只压缩**刚刚实际学过且已经解释清楚的范围**，沿同一个 canonical model 变薄，不重新教学，也不得提前把未学内容伪装成“已完成复习”。最小输出顺序是：
 
 ```text
-已学范围的主模型 / reconstruction spine
-→ 已学节点的 Main Prompts
+已学范围的同一主模型 / reconstruction spine，各自然节点直接带出该节点完整的既有 Main Prompts
+（关系与提示同处呈现，不拆成另一张表或靠编号交叉查找；允许压缩措辞，不遗漏既有提示维度，不增加未筛选的记忆要求）
 → 必要的易混边界
 → 仅在确有时补 residual Precision / Memory
 → 然后再进入下一章 / 下一大块
