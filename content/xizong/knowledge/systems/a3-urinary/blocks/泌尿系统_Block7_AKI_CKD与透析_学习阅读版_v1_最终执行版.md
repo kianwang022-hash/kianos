@@ -38,11 +38,11 @@ visual_gate_status: ORIGINAL_SOURCE_TABLE_REVALIDATED
 >
 > **文件性质**：泌尿系统第七个 canonical Block。K1–K6 已经建立肾血流、GFR、小管、浓缩、水电酸碱和尿液证据语言，本 Block 第一次把这些正常变量放进“功能失败的时间轴”。
 >
-> **Primary Study**：`内科学讲义_AI阅读版.md` P151–156《肾衰竭》。正文主读取 P151–154；P155–156 为 Lecture-attached Questions，保留给后续 `LectureQuestionBinding`，不在本文件自行挑题。
+> **Primary Study**：27内科印刷P151–156《肾衰竭》对应PDF物理P185–190，另有物理P191视觉补页。正文主读取印刷P151–154；P155–156 为 Lecture-attached Questions，保留给后续 `LectureQuestionBinding`，不在本文件自行挑题。下文P151–156均为印刷页简写，不是当前PDF物理页。
 >
 > **Primary Outline**：内科 U063 15题 + U064 8题 = **23 / 23**。
 >
-> **第一轮流程**：Framework → Lecture P151–154 连续学习 → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **第一轮流程**：先建立本章同一模型，再沿自然问题讲清已有知识并在对应节点挂完整主提示；自然段落与章末压缩回同一模型，卡点按需展开。需要复习时使用该模型、完整主提示及既有精记。影响当前理解的精确条件和必要原图当步回看；广泛Lecture扫漏、Outline及配套题可后置校准，正式Source接触、Recall和完成仍按各自证据核对。
 >
 > **Source boundary**：Study 中的 CKD 分期、BP目标、ACEI/ARB数字、透析数值和 modality 选择继续作为 306 Source-specific Precision；但当这些旧口径与稳定的现代医学规则冲突时，不把旧绝对数字升级为 learner-canonical 临床规则。原 P153 CKD 表已回原 PDF 重新核对：正式分期以 GFR 为主轴，血Cr四档是旧阶段辅助口径，不制造五个 stage 的假一一对应。
 
@@ -159,7 +159,7 @@ KRT缓解排泄负担，也产生不同风险入口：内瘘低阻力可增加�
 病例决策把时间背景、第一故障层、当前致命变量和可逆原因合起来，决定是否能保守维持或需要KRT；救急与解除病因并行，并随输出/功能变化重新评估。
 〈K7最终病例算法：时间→位置→致命变量→可逆原因→KRT〔5步｜急慢｜肾前/性/后｜高K/水/酸｜可逆病因｜KRT临床门槛〕〉
 
-**Residual 边界**：章节主链、分类、比较、诊断/处理方向归模型 / Prompt；数值、阈值、公式、低频名单与精确配对才进入 MI-D / Precision。
+**Residual 边界**：先保留模型与自然节点的完整 Prompt，再独立判断精确恢复的困难；分类、比较或名单不能仅因形式被移出 Prompt。已审 Prepared Memory / Precision 即使与 Prompt 重叠，仍保留原有答案、条件、身份与历史，不因本次模型校准撤销准入。
 
 ---
 
@@ -952,7 +952,7 @@ Study列：
 
 # 11｜Framework Reconstruction
 
-Lecture完成后闭卷完成：
+沿已讲清的同一模型按需重建或扫漏，普通复习允许答案可见；仅在要求自测时闭卷。广泛Lecture扫漏可后置，当前依赖的原图仍当步核对：
 
 ```text
 1. 画AKI三分：肾前—肾性—肾后，并标第一变量。
@@ -977,7 +977,7 @@ Lecture完成后闭卷完成：
 
 # 12｜Memory Routing
 
-## 12.1 MI-G｜第一轮必须即时掌握
+## 12.1 MI-G｜随模型理解并逐步主动恢复
 
 - AKI肾前 / 肾性 / 肾后三分；
 - 肾前性 vs ATN 的机制与核心指标方向；
@@ -997,7 +997,7 @@ Lecture完成后闭卷完成：
 - IHD / CRRT / PD均是KRT modality，按患者 / 场景 / 资源选择；
 - 透析失衡综合征。
 
-## 12.2 MI-D｜进入 MarginNote 3
+## 12.2 MI-D｜精确复习去向；复用现有Prepared Memory，未准入项保留原Core
 
 - 肾前 vs ATN 全部数值；
 - AKI Scr精确阈值与单位；
@@ -1115,7 +1115,9 @@ duplicate_primary = 0
 
 ---
 
-# 16｜建议学习切片
+# 16｜按需回看索引
+
+以下KP范围只定位已有展开，不另建教学顺序。普通Chat沿§1A的时间背景、第一故障、并行后果与处置反馈连续讲解，在需要处展开；不要求逐片读完或过关才继续。
 
 ```text
 Unit A｜KP01–KP07
@@ -1131,19 +1133,13 @@ Unit D｜KP17–KP20
 KRT指征 → modality → 并发症 → 最终病例算法
 ```
 
-每个 Unit 按冻结流程：
-
-```text
-Framework定位
-→ Lecture连续学习 / 表格回看
-→ Framework Reconstruction
-→ KP Active Recall
-→ Outline按需扫漏
-```
+这些范围用于按需回查。每次展开后回到同一模型；必要表格在推理依赖它时回看，广泛Lecture与Outline留作后续校准，不重复执行一套分段课程。
 
 ---
 
-# 17｜Block Exit｜闭卷 24 问
+# 17｜可选重建与自测｜24 问
+
+以下问题供按需重建与扫漏，不是首次Chat逐题清零门槛。普通复习可查看答案；精确数字、长名单或特定卡点回对应已有内容，不重讲全章。
 
 1. AKI三类第一故障分别在哪里？
 2. 肾前性AKI为什么能保Na保水，而ATN做不到？
@@ -1220,6 +1216,8 @@ First_pass_question_probe = READY_PENDING_BINDING
 ---
 
 # 20｜Block Complete 定义
+
+以下只用于正式完成核对，不是普通Chat、复习或调用既有精记的进入门槛。需要原图/表的当前步骤仍须核对；讲解、复习和连接后续内容本身不产生下列完成证据。
 
 ```text
 Framework已建立
