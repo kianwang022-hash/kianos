@@ -37,7 +37,7 @@
       "把单个资本放进循环、周转和社会总资本再生产中",
       "最后看剩余价值怎样转化为利润等现实表象，并连接到资本主义上层建筑"
     ],
-    "attention_rule": "第五章不要主要靠帽子背诵。先把钱和价值‘怎么走’看明白，再记公式和固定表述。 首次教学先消费 teaching-candidate/ch05.brief.md#c05-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次记忆的时机和深度见同稿 #c05-first-retrieval；主要论证块或章末主动取回已学主提示，不等错题触发。",
+    "attention_rule": "第五章不要主要靠帽子背诵。先把钱和价值‘怎么走’看明白，再记公式和固定表述。 首次教学从 teaching-candidate/ch05.brief.md#c05-learner-entry 的最小前提和问题驱动解释进入，讲通后映回原 reconstruction_chain；不能用复习压缩替代首次解释。普通复习或章末压缩直接读 teaching-candidate/ch05.brief.md#c05-source-review 的同一模型、完整节点主提示及邻近答案，不以 first-retrieval、Resume 或闭卷测试为前置步骤。",
     "next_chapter_bridge": "第五章解释自由竞争资本主义内部怎样运行。第六章继续追问：资本集中以后为什么产生垄断，资本主义又怎样在垄断和全球化条件下继续变化。"
   },
   "unit_projections": [
@@ -146,7 +146,7 @@
       "利润等现实形式",
       "资本主义上层建筑"
     ],
-    "review_prompt": "沿原九节点，先解释商品如何进入资本增殖，再走完资本积累、循环周转与再生产、利润等现实形式及相应上层建筑；只讲到增殖不能判定本章收束。执行 teaching-candidate/ch05.brief.md#c05-learner-close：主模型重建→按原顺序核对全部已学现行主提示覆盖（尚未取回的组必做，不以卡住为条件；本轮已在主要论证块关闭时取回的组只确认覆盖、补漏或局部修错，不自动整组重复；以后独立复习仍主动取回）→必要易混边界→既有五来源 residual。五来源本轮已在主要论证块关闭时取回则确认覆盖、局部修错，不自动重复全组；然后交接 C06。没有真实回答不能记为掌握。"
+    "review_prompt": "普通复习直接读 teaching-candidate/ch05.brief.md#c05-source-review：沿原 reconstruction_chain 呈现紧凑关系模型，各自然节点带出完整现行主提示，必要解释与答案可见；随后看必要易混边界，最后仅处理既有 residual。章末只压缩实际已学范围，不重讲整章、不要求先作答。只有 Kian 明确要求测试时才用同稿 #c05-first-retrieval 的既有深度；没有真实回答不记录掌握。"
   },
   "content_support": {
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
