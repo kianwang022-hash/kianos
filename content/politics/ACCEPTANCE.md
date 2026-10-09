@@ -76,6 +76,24 @@ Politics Runtime QA, Functional First Journey, Xi/Ethics acceptance, maturity, p
 
 **Boundary:** this proves the named source-first rule/entry repair and self-selected practice path. It does not prove Leg necessity of every existing card, a regenerated course's quality, real learning or mastery. **At that receipt's cutoff**, existing cards had not yet been re-filtered against the then-unresolved named Leg source; later subject-local reviews must be read from their current owners rather than inferred from this historical receipt. No autonomous scheduler, new content registry, extra course or compulsory review burden was created.
 
+## 2026-10-09 final Content / Chat reading acceptance — candidate only
+
+**SCOPED CONTENT / CHAT READING PASS.** This closes the currently authorized 53-chapter content and reading-path review in draft [PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289), at content revision `5e919f1d0392b114a91f1cfb4a56bcd3940eb4e2`. It does not adopt the candidate into main or release the Website.
+
+Scope: Marxism C00–08 (9), History C01–10 (10), Mao C00–08 (9), Xi C00–17 (18), Ethics-Law C00–06 (7). Current models, selected complete prompts, all 269 selected prompt-answer dimension groups, adjacent explanations and retention boundaries were read. Root review read the actual outputs, not just completion reports.
+
+Evidence consists of 265 chapter-mode outputs (first-teaching segment, ordinary same-model review, first selected prompt expansion, explicitly requested test, chapter boundary), five in-dialogue continuations and five whole-subject models. A final reader generated five additional answers from ordinary short requests through Interaction → Content at the repaired revision: start Marxism C01, review Ethics C06, review Xi C15, start History C03, compare Mao's original/new three-step strategies. All five actual answers were reviewed. The 280 outputs are coverage evidence, not a quality score or 53 complete multi-turn courses. Reader contexts were reused within subject scope; these are not 53 blind independent contexts.
+
+Seventeen confirmed routing clauses were repaired in thirteen existing content files: eleven Marxism ordinary closure cues requiring closed-book/answer-first behavior, four Ethics C03–06 default test transitions, two Xi C10/C15 historical-appendix retention pointers. Exact remote file bytes were verified and affected paths replayed. Models, full prompts, answers and reviewed Memory identities were preserved. Output-generation defects (orientation, chapter reference, incomplete local expansion, backstage labels and unnecessary expansion) were also corrected; they are not counted as original content defects or evidence that first-generation output always succeeds.
+
+Ordinary learning follows the named subject/chapter/question; it does not infer a lesson from engineering status or Website Resume. It builds understanding along the existing model, supports complete prompt review with visible answers and local expansion, and tests only on explicit request. Synthetic chapter completion never writes real progress.
+
+Evidence deliverable: `politics-content-final-reading-20261009.zip`, containing chapter examples, five subject models, five natural-entry answers and scope/limits. Exact source reads and targeted replay receipts remain with the subject review evidence. This receipt does not create a second textbook or task queue.
+
+**Remaining exclusions:** version/range-matched prior Source evidence was reused; no blanket re-audit of every raw Source/PDF/image/table/OCR/question key was performed. Mao's 22 pending raw-Source items and C06–08 wider Source/PDF limits, History C06–10 wider Source/PDF limits, and other item-scoped source/annual/legal limits remain with their owners. Historical appendices and all old Memory items were not newly certified. Real comprehension, later retention, exam performance and arbitrary future Chat behavior remain unproven. Existing whole-exam PARTIAL and historical Website claims above are unchanged.
+
+Stop this bounded review here. Reopen only for a concrete defect, authoritative Source change, actual learning feedback or explicit new scope.
+
 ## Permanent boundaries
 
 - Drafts, historical material and model memory do not become current-year Source.

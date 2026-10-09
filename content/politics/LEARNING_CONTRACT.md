@@ -216,7 +216,7 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 保留乘风术语、知识组织、决定性关系和范围。既有模型用于关系/覆盖校验，教案用于后台查漏和有据纠偏，均不替代乘风正文。删除重复讲解、例子堆积、教师话术和 Source QA；不以短为由删掉推理必要条件，不将说明用的比喻/临时归纳变成额外记忆对象。
 
-主提示的短措辞可以由 Chat 压缩；其成员、分类、数量、关系必须能回到实际来源。第一次阅读时，邻近正文要给出对应的完整答案及关系；以后缩影只留不泄露答案的提示。不得编造“3原则/5作用”或需要另背码本的暗号。识别/判断即可的点，不因写成带数字提示就升级为闭卷列全或逐字背诵。
+主提示的短措辞可以由 Chat 压缩；其成员、分类、数量、关系必须能回到实际来源。第一次阅读时，邻近正文要给出对应的完整答案及关系；普通复习沿同一模型展示完整主提示，必要答案和关系可以同时可见，按需展开。只有 Kian 明确要求考查/闭卷取回时才隐藏对应答案。不得编造“3原则/5作用”或需要另背码本的暗号。识别/判断即可的点，不因写成带数字提示就升级为闭卷列全或逐字背诵。
 
 **Expansion cue ≠ Memory index.** 主提示是模型内记忆的压缩入口，不是与记忆任务无关的泛泛索引，也不由现成卡库倒推。无对应网站卡不妨碍经筛选的知识挂入模型；有对应网站卡也不要求两边常规重复刷。纯理解关系保留在正文，不为格式对称强造主提示。
 
@@ -234,8 +234,8 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 自动 closure 只压缩**刚刚实际学过且已经解释清楚的范围**，沿同一个 canonical model 变薄，不重新教学，也不得提前把未学内容伪装成“已完成复习”。最小输出顺序是：
 
 ```text
-已学范围的主模型 / reconstruction spine
-→ 已学节点的 Main Prompts
+已学范围的同一主模型 / reconstruction spine，各自然节点直接带出该节点完整的既有 Main Prompts
+（先给可整体阅读的紧凑文字模型：关系与完整提示同处呈现，解释按需展开；不以若干标题下的长文代替压缩模型，不拆成另一张提示表或靠编号交叉查找。允许压缩措辞，不遗漏既有提示维度，不增加未筛选的记忆要求）
 → 必要的易混边界
 → 仅在确有时补 residual Precision / Memory
 → 然后再进入下一章 / 下一大块
@@ -245,7 +245,7 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 #### Progressive review ladder — model first, cue second, precision last
 
-沿主线恢复关系，走到节点时用主提示主动恢复该组记忆，再以独立 Memory 补齐另一部分需精确提取的内容。这是注意顺序，不是反复点击/折叠的要求。阅读正文可同时解释提示和答案；只有 clean Recall/做题时才在作答前隐藏答案、核对标准和泄露答案的助记。
+沿主线恢复关系，走到节点时用主提示主动恢复该组记忆，再以独立 Memory 补齐另一部分需精确提取的内容。这是注意顺序，不是反复点击/折叠的要求。阅读正文可同时解释提示和答案；只有 Kian 明确选择 clean Recall/做题时才在作答前隐藏答案、核对标准和泄露答案的助记。章节备课中的“首次取回”“先不给提示”“心答后核对”等测试说明仅用于该显式测试请求，不把普通学习、章末压缩或看框架复习自动变成测试。
 
 模型不懂就局部解释；模型内成员忘了就沿节点修补；孤立精确错误才用针对性练习。模型内某点有真实反复混淆时，可复用其既有身份作临时独立加练，但不默认复制成第二套常规任务。
 
@@ -358,7 +358,7 @@ For a chapter to be called **prepared for continuous Chat learning**, its existi
 The package must provide, for the chapter's actually admitted scope:
 
 1. **Fixed mother model / reconstruction spine.** The canonical chapter framework and stable learner index under §0.5.
-2. **Progressive first-learning route.** A reviewed **problem-driven dependency route** under §0.6 that says how the chapter is unfolded after orientation. It may use several natural teaching batches, but a batch is defined by the problem it resolves and the next question it creates—not by “read the next N spine nodes.” Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the fixed-spine nodes/content range it ultimately fills, and its intended next problem/closure. A fresh Chat must be able to resume the same argument without re-cutting a long teacher text or reciting the reconstruction index as a lecture outline.
+2. **Progressive first-learning route.** A reviewed **problem-driven dependency route** under §0.6 that says how the chapter is unfolded after orientation. It may use several natural teaching batches, but a batch is defined by the problem it resolves and the next question it creates—not by “read the next N spine nodes.” Each prepared stage must have a stable recoverable identity (label/anchor or equivalent), the fixed-spine nodes/content range it ultimately fills, and its intended next problem/closure. A fresh Chat must be able to explain the requested content from that same argument without re-cutting a long teacher text or reciting the reconstruction index as a lecture outline.
 3. **Substantive teaching content.** The actual explanations, examples, conditions and Source-backed detail needed to teach each stage. A heading list, A/B/C inventory or Source locator alone is not the lesson asset.
 4. **Confusable / boundary pass.** A prepared set of high-value misconceptions, option boundaries and near-neighbor distinctions after the relevant content is understood. This may live in the same teacher brief/support objects; it must be recoverable as a deliberate teaching job rather than reconstructed ad hoc from question options.
 5. **Same-model compression.** The reviewed chapter reconstruction using the same fixed spine, progressively thinner than first teaching without changing the learner index.
@@ -366,20 +366,19 @@ The package must provide, for the chapter's actually admitted scope:
 
 The package may be realized by the existing chapter JSON, teaching brief, support objects and optional `*.memory.json`; no particular file split is required. A chapter-level `content_support.active_precision` realization is valid when it satisfies the same requirements. Do not create a sidecar merely for symmetry.
 
-This rule applies to every chapter across all five Politics subjects. Reuse existing Current Knowledge, teaching, reconstruction and precision assets within their accepted scope, together with the bounded review evidence already earned; a partial package does not reset mature components or revoke existing base first-round PASS. Prepare or calibrate only the missing, stale or defective parts, reconciling them in the original owners around the same canonical spine rather than rebuilding the chapter or creating another Memory set. Reviewed candidate assets remain candidates until adopted through the existing review/admission path; then consume the resulting Current package. Candidate presence, partial maturity and base first-round PASS do not by themselves prove completion of the six-part package or Website delivery.
+This rule applies to every chapter across all five Politics subjects. Reuse existing Current Knowledge, teaching, reconstruction and precision assets within their accepted scope, together with the bounded review evidence already earned; a partial package does not reset mature components or revoke existing base first-round PASS. Prepare or calibrate only the missing, stale or defective parts, reconciling them in the original owners around the same canonical spine rather than rebuilding the chapter or creating another Memory set. Adoption applies to the actual asset and inspected scope, not its directory name. Ordinary learning follows the selected version and current scope statements through INTERACTION_CONTRACT.md §0; an explicitly selected candidate may be used for its supported teaching text without claiming it is on main or that its pending exact targets are admitted. Unresolved adoption remains unresolved. Candidate presence, partial maturity and base first-round PASS do not by themselves prove completion of the six-part package or Website delivery.
 
-**Fresh-Chat consumption rule:** first resolve the requested action under §2. For source-based review/compression, Chengfeng is the direct basis; existing models and teacher preparation are backstage checks, not replacement mother text. For an explicitly requested Chat lesson, reuse the relevant prepared explanation and route where still sound. Preserve stable identities and valid relationships; do not regenerate the existing knowledge set or infer study/retention duties from preparation. Old precision inventories require the current §6.1 selection judgment before being presented as a must-retain baseline.
+**Fresh-Chat consumption rule:** first resolve the requested action under §2, then use the concrete Content read path in INTERACTION_CONTRACT.md §0. Reuse the existing source-checked review, model, current node prompts/full answers and relevant prepared explanations within their stated scope; a new Chat does not rebuild the course or reselect its memory targets. Chengfeng remains the source basis: a new compression range, wording check or unresolved conflict requires the actual source text and necessary images, rather than treating teacher prose as new Source evidence. Old precision inventories are not a must-retain baseline; use the current §6.1 selection already recorded at the original owner, and inspect the designated source when that judgment must actually be made or changed.
 
 A fresh Chat should therefore be able to recover:
 ```text
-where the learner is in the fixed chapter model
-→ which prepared teaching stage comes next
-→ the owned explanation/detail for that stage
-→ the prepared confusion/boundary pass when timely
-→ the same-model compression
-→ the reviewed precision/Memory handoff
+subject position + the same fixed chapter model
+→ the explanation for the requested chapter or question
+→ current node main prompts and their complete supported answers
+→ same-model review and necessary confusion/boundary repair
+→ only the applicable residual precision / Source limitation
 ```
-without reconstructing the course from Source or old conversation history.
+Chat enters through the subject, chapter or question Kian specifies; if that target is unclear, ask for it instead of looking up progress. Normal follow-ups can use this conversation's explicit target. Fixed models constrain the relations explained, not the teacher's wording or a compulsory stage-by-stage performance.
 
 If the prepared package is missing, partial or stale, preserve that as a Content limitation. **Do not block ordinary learning merely because preparation is incomplete.** Chat may still teach from the best accepted Current assets and Source as a session-local provisional explanation, while preserving any existing stable subject/chapter spine. It must not present that provisional route as the durable canonical package or silently persist a competing framework. Repair the existing Content owner before claiming cross-Chat reusable preparation.
 
@@ -422,7 +421,7 @@ A rule/content review, a catalog/plan test, a rendered candidate and real learne
 ## 4. First-round interaction principles
 
 - **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
-- **One mainline only:** Chat carries continuous teaching; Chengfeng and Suyi remain source/reference inputs, not parallel courses.
+- **One mainline only:** follow the current source-first chain in §2: Chengfeng provides detailed first study; Chat provides requested clarification and source-faithful compression, or teaching when explicitly requested. Suyi remains optional background support. Do not impose a second required Chat course.
 - **Source calibration:** return to original Chengfeng images/text when necessary for exact wording, relations or boundaries; preserve source locators without requiring a second course.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
 - **Content-rich, display-precise:** backend source/learning assets may be rich; each learner surface should show only the current cognitive action it actually owns.
@@ -610,3 +609,4 @@ If a better explanation, orientation, bridge, boundary, or compression can be ex
 ## 8. Private interaction state
 
 Current content is learner-independent. Answers, progress, wrong/uncertain history, timing, notes, highlights, last external-source position, and similar private state may exist in browser/session/device storage only when it materially improves learning. It is not shared Current authority.
+

@@ -35,7 +35,7 @@
       "用否定之否定规律解释发展为什么不是简单重复或直线前进",
       "最后把这些客观规律转化为认识世界和改造世界的方法"
     ],
-    "attention_rule": "第一轮不要把‘联系、发展、矛盾、量变质变、否定之否定’背成五个独立定义；始终问它们分别在回答发展过程的哪一个问题。 首次教学先消费 teaching-candidate/ch02.brief.md#c02-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 在已学主要论证块或章末，主动执行 teaching-candidate/ch02.brief.md#c02-first-retrieval 的首次取回时机，不等错题或 Kian 提醒。",
+    "attention_rule": "第一轮不要把‘联系、发展、矛盾、量变质变、否定之否定’背成五个独立定义；始终问它们分别在回答发展过程的哪一个问题。 首次教学先消费 teaching-candidate/ch02.brief.md#c02-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 普通复习或章末压缩直接读取 teaching-candidate/ch02.brief.md#c02-source-review 的同一模型、完整主提示与邻近答案；按需展开解释，不先考试。只有 Kian 明确要求考查时才使用 teaching-candidate/ch02.brief.md#c02-first-retrieval。",
     "next_chapter_bridge": "第二章说明客观世界怎样联系和发展。第三章继续追问：人作为实践主体，怎样在这种客观世界中形成认识，并判断认识是否为真。"
   },
   "unit_projections": [
@@ -89,7 +89,7 @@
         "量变和质变相互转化，但不存在脱离度和具体条件的机械阈值公式。",
         "辩证否定不是简单抛弃，也不是回到原点。"
       ],
-      "closure_cue": "闭卷不要列定义，恢复：联系提供关系网络 → 发展说明变化方向 → 矛盾解释动力 → 量变质变解释跃迁 → 否定之否定解释发展形式。",
+      "closure_cue": "沿同一模型压缩，不拆成定义清单：联系提供关系网络 → 发展说明变化方向 → 矛盾解释动力 → 量变质变解释跃迁 → 否定之否定解释发展形式。",
       "after_this": "客观世界的基本辩证结构建立以后，下一节把它转化为认识和行动的方法。"
     },
     {
@@ -138,7 +138,7 @@
       "辩证否定 ≠ 简单抛弃。",
       "辩证思维 ≠ 无原则折中。"
     ],
-    "review_prompt": "闭卷恢复六个问题：事物为什么相互联系？什么变化才叫发展？发展动力从哪来？状态怎样跃迁？为什么发展前进又曲折？这些规律怎样变成人的思维方法？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch02.brief.md#c02-learner-close：主模型重建→已学节点现行主提示必做取回→必要易混边界→确有的 residual→接收章交接。没有真实回答不能记为掌握。 同一连续回合已取回的组确认覆盖并补真实漏项，未做的才完成首次取回；以后独立新复习不永久豁免。题面与核对内容的区分见本章 first-retrieval，不展示答案型助记来测试回忆。"
+    "review_prompt": "普通复习直接读取 teaching-candidate/ch02.brief.md#c02-source-review：保留原 reconstruction_chain 的关系，在各自然节点直接呈现完整现行主提示，必要答案可同时看，忘了哪处再展开。章末按 teaching-candidate/ch02.brief.md#c02-learner-close 收束已学范围；不强制先闭卷、逐题回答或再听整章。明确要求考查时才用 teaching-candidate/ch02.brief.md#c02-first-retrieval；普通阅读不记作掌握。"
   },
   "projection_notes": {
     "learner_default": "CHAT_CONTINUOUS_TEACHING_WITH_CHENGFENG_SOURCE_CALIBRATION",

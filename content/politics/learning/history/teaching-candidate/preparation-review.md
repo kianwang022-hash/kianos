@@ -1,5 +1,36 @@
 # 史纲教师备课：有界审查记录
 
+
+## 2026-10-08｜C01–C03内容闭合任务的有界反审
+
+本节仅覆盖史纲C01–C03，并校准旧阅读位置中会恢复全量精记要求的语义。以PR1289的`3dcf04c035bf640727692c0fd117947ad7ca5e9a`为输入；提交前最近复核至`d9ea5f53e8f4808cd60ba832a52484f88a0e9f7c`，三章JSON、三brief及本review原blob均未变。作者与独立文字复核已完成受影响内容路径；总控接受、GitHub实际保存、Website与真实学习是另行证据，不能由本节自动获得。
+
+### 实际修复及保持
+
+- C01六节点及章JSON不改。旧“模型展开后再做同组卡”改为检查是否已完整无提示恢复；看答案展开或漏项不冒充检索成功，必要时仍可复用原卡。旧人物/年份/引文C目录改作查阅，明确封建社会四方面是背景Core理解与识别。
+- C02保持农民／洋务／维新三支及原NU。短模型不再用“缺乏近代制度方案”抹掉《资政新篇》，改为确有改革方案、受小生产者局限而未完成救亡任务；原brief正文与阶段路由同步。洋务独立主提示不再预给三失败原因；两纲领题保留原“呈现什么性质”题面及完整答案，不削弱既定性质／身份辨析，也不扩大四领域政策背诵。在原《资政新篇》段补一条Core比较，兑现C01承诺的《海国图志》军事科技范围与法律制度／雇佣劳动范围区别。旧全量年份、企业、书目目录不再指挥必背。
+- C03保持七节点及其顺序。S03失败原因恢复源本的彻底纲领／充分发动依靠群众／坚强政党核心三维，不用“武装力量稳定掌权”挤占该分类；保留民族资产阶级软弱妥协的总根源及原文双面评价。三民主义独立主提示不再给出成员，时间题只把同四事件乱序后要求排序，未增加日月默写；旧C目录及表列明确为查漏／自选练习。革命派基础与骨干留Core角色辨析，不把两类知识分子另设闭卷全列要求。
+- 三章广义`review_prompt`原样保留，其模型信息与关系上下文不是必须挖空的答案泄漏。全部邻近首次完整答案、10个NU、6／3／7模型入口和23组历史精记payload（7／7／9）不变。未改旧ID、答案、checking、Source、admission或reviewed-target revision，未新增／退休Memory；自选旧完整卡仍按原题检查。
+
+### 来源与复用边界
+
+本次直接完整读取三份当前CF shard的全部现存`original_text_span`：C01 `b3ea2294ff169ac16b84e22aa3bdd8243d8a6824`，PDF4–11；C02 `53b471a8ad16ea1c3952a922c8446678ee22cf0d`，PDF11–18；C03 `26932abb314cc2503697302390aa419429ef39ea`，PDF18–24。它们与既有原章证据所记blob一致，Source manifest行摘要仍匹配本科学科source-review。但分片含截断字段，完整读取现存分片不等于完整母文重新核读。
+
+指定History母文`政治资料库/sources/chengfeng/POL27-CF-HISTORY.md`在固定ref返回404，有限Library查找未解析到本次可用母文／下册PDF；没有下载或替用马原上册。复用本review及原brief已有全篇文字审读与独立攻击证据，精确范围为：C01母MD57–529行、13366字符、SHA256 `6177ad1fbd68658f85111634b5d010859b7be110f5c4db473058354545d9d5fc`；C02 530–994行、13546字符、`5ecaa0b61c23bbf47853da509fb2011e657d880b274460b9895d393d54015a94`；C03 995–1467行、13724字符、`1363bdbab993f15c2d9fa4970f18a1f0f33a6a3d3c05913031f86b6103e23f5b`。本次未重新获得这些母文件bytes，不能把复用改称新一次全源通过。
+
+原reader task`01a1071f-3c5a-7462-a3c1-d1c982d95001`、turn`01a10d34-e299-739a-9b55-d4205cc87bc9`，2026-10-05 18:06收到的有界补证继续仅按既有provenance复用：下册PDF SHA256 `0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca`；C01 PDF7/印6、文字255–269行，无像素；C02 PDF12/印11、T+P、行583/628/633/635，仅田亩局部与独立资政表，排除中间跨期土改表；C03 PDF20/印19、T+P、行1129–1173，仅旧三民主义和地价支路，排除后续论战表。本次读原owner所存补证范围，未新取原PDF或完整reader payload，不追加任何像素认证。
+
+本次实读Leg27上册MD PDF158–170（blob `b2b90a8a72723325eedace4cd1511c651ac00c0c`），以及下册PDF16–17人物文献、PDF23土地、PDF26两次论战、PDF76–77分析模板（blob `ee74dc2bc77ff7e5e0f9979d7382f9cff87164e7`）。上册PDF165 UNCLEAR仅为裁切页码，未取不清字段；下册后期分析表达不整体前移为首轮逐字背诵。QUALITY_REPORT和binding一并读取，未使用Leg26或自测本建立基线。当前各章的主动目标／准确度与可选旧卡分工保留；两处未点名的旧组已在原retention表补Core归属，无新增独立残余。
+
+### 覆盖、连续与压缩回读
+
+作者逐章核原解释、模型、主提示及答案，覆盖C01 11考点、C02 6考点、C03 10考点的现有有界内容。独立reviewer返回实际CF/Leg段落攻击，确认并回读修复：仅看C02短模型不再得出“太平无近代方案”；C03恢复源本三弱点不再需另答武装一项；隐藏答案后洋务／三民主义不预给要求恢复的成员；时间排序不预送顺序；正确节点恢复不会自动再刷同组。维新书报能辨析而未默写全集，不被现年路径判为失败；自选完整旧卡则仍守原检查。
+
+C01制度／技术→C02洋务、C02改良→C03革命已在正文实际回收；新增《海国图志》对照仅补一条真实缺口。只读C04 brief原blob`8c658d15c1da33d3d10b461a3b156e59a01964db`第1–36行核交接：该入口已回收主权、土地和群众问题，并明确1915新文化早于护法，不把章序当互不重叠年表；不据此验收C04。
+
+以上模拟均为作者／reviewer已见答案后的内容压力测试，不是新读者独立记忆、真人保持或Kian掌握证据。本地核验只证明原blob bytes、最小diff、JSON语义及23旧组等值；未运行Website、Runtime、compiler、build或私有学习链路。原地图、复杂跨表、截断／疑字与红色题键的item排除全部保留；不声称新全源／全模态完成，不因其局部限制重开其余已审资产。此批到根植真实来源的最小修复候选和独立内容回读为止。
+
+
 当前状态（2026-10-05）：C01–C10均已有有界文字候选；本次新增C06–C10的实质教案与48个PENDING精记作者目标，仍非全科图文/精记准入或实际消费完成。以下早期读取与修补记录保留原范围；最新增量见末节。未改正式Source、NU、题目、Runtime、学习记录或Memory。
 
 ## 原材料实际读取范围
@@ -303,3 +334,26 @@ Integration with actual main8145967ad595a04058ea76894a5a48de88648f33 keeps curre
 The final integrated Candidate uses standard4322 with fully materialized compatible trusted dependencies. Its fresh Chrome context observed original Native APPLIED→same-page first Recall29ms, exact authored prompt/answer/checking and pre-reveal hiding. Real Home panel/copy button exported a complete702516-byte Packet with122 prior fixture events byte-equivalent/current-compatible; clipboard was captured in context memory, production learner/control/relay were not accessed. Guarded first Packet click3712ms; four DOMContentLoaded paths were Memory939ms/Home2016ms/Mao C04 448ms/Xi C17 72ms. These are bounded dev observations, not all-route cold-start or human learning proof. Temporary process watcher failed in the restricted host environment and succeeded at the existing authorized Mac execution boundary; the test locator was corrected to read the real SSR catalog because the native client removes its JSON script after initialization. No product defect or guard relaxation was inferred from those test/environment failures.
 
 This checkpoint authorizes no Source promotion. Original first-round PASS is preserved; main adoption/current-head CI and actual managed Website readback are still separate required steps. Real U/mastery remains untested. Final main/served versions and delivery evidence will be recorded after those steps rather than fabricated here.
+
+
+## 2026-10-08｜C04–C06有界修正与来源缺口
+
+内容保存点：4a202da28e78ee98c4b7d2003b60247ef00751b2（PR #1289候选，未合并）。C04修旧民主主义失败/新文化的假先后、组织恢复题泄露地点及失败教训伪完整计数；C05修民族危机与长征的交叠关系及旧C整表负担；C06直接修压缩主链为“统一战线酝酿推动→1937七七全民族抗战开始、九月正式形成”，同步三处，不能仅靠旁注纠正。原模型其余关系保留，31组content_support完整原始字节不变。作者回放及独立修后窄核通过；不是整科第二轮或真人学习证据。
+
+实际新读：C04/C05/C06现存全部Source original_text_span，blob依次ffc173655b56e56db4ba3f12088e5f141b201be3、993a7ce72ae4fceda04f3fcacc2ed2dba2d592f8、25465dcf7bcebf2eca127839d9f85f644f31ac73；Leg27上册PDF173–192、下册6–11相关段、17–20、23–24、26–28、77–78。C04/C05完整母文旧审读仅按本owner已存版本/范围复用，未新取母文bytes或PDF像素。C06 K13-N05/TBL01确有整风结束、七大路线与三大作风连续文字，补回Core理解/识别，不新增整段默写。
+
+C06完整Source仍PARTIAL：母文路径不可达，PDF41时间图、42–43谈判/合作原文、43–44正面战场续段、44洛川条目、46–47中间条件/皖南/租息生产/K10、48新民主主义理论及图像、50–51投降完整句/抗战精神意义续段仍缺。有限Leg支持不冒充CF全文；未核原图/题键保持未核。具体缺口已在ch06.brief原位置保留，局部修复不等于本章完整收口。无Website/Runtime/私人记录更改。
+
+
+## 2026-10-08｜C07–C09有据内容修正
+
+六文件保存点9d1a293a8deb501ada770ddda80498a61096fc46，候选未合并。C07恢复战略决战“基本摧毁”限定并补清人民民主专政理论、七届二中决议与共同纲领的关系。C08直接修JSON timeline、首屏主链及所有相关入口，明确1956过渡后期的《论十大关系》/八大探索与改造收尾交叠，不能保留错链再靠旁注纠正。C09撤销“完整三个有利于见Leg96”的错误出处：已读上册96/下册15仅支持名称、用途及生产力首要标准，完整成员仍缺源。真实可读农村改革限定解释与未取得CF全文分开。
+
+作者及独立窄核实读当前CF分片、对应Leg27和精确历史范围；36组原精记完整payload、身份准入、Source bindings与NU不变。独立修后六文件diff获有限ACCEPT。三章完整CF母文/必要原图仍未取得，Source均PARTIAL；具体缺段保留原brief，不能把局部修复算整章或整科通过。未新增必背要求，未做Website/Runtime/真实学习验证。
+
+
+## 2026-10-08｜C10有界内容修正
+
+两文件保存点c06b6ec0e7bb7605b835903d693af51429384156，候选未合并。原六节点及五组精记身份保留；区分新时代新历史方位与社会主义初级阶段/世界最大发展中国家两个未变。Leg27 PDF104–106/177同事实支持的主要矛盾、中心任务和百年意义在原Core可读，不再被旧CF缺文说明一律阻断，也不新增列全任务。历史PENDING说明不再覆盖现行五组REVIEWED。整科接口同步C08的1956交叠关系；未增加未经验证的hand-off锚点。作者/独立有界审读及root定点复核通过，五组完整payload/NU/Source绑定不变。
+
+本次直接核现存CF节点及对应Leg文本，仍不等于CF全部原图/全文完成。刚取得的同SHA乘风下册原PDF局部摘录将用于补核具体录入缺口，未核页/字段不得提前升级。模拟是内容路径检查，不是Kian真实学习或网站交付证据。

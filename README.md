@@ -27,7 +27,9 @@ Chat is the open-ended cognition layer. KianOS Runtime may execute bounded appro
 
 KianOS does **not** maintain a second hand-written progress overview.
 
-For live project status and continuation:
+For Chat study, Kian names the subject, System, Block or question. Use [Xizong's learner reading entry](content/xizong/knowledge/learner/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md) to read its current content and teaching settings. There is no automatic course resumption; the engineering status routes below remain separate.
+
+For live project status and engineering continuation:
 
 ```text
 work / routing rules
@@ -49,7 +51,7 @@ If Kian wants a human-readable whole-system progress summary, Chat should read t
 
 This map is navigation, **not a second progress owner**:
 
-| Scope | Enter here | Meaning / readiness | Learner-facing product |
+| Scope | Engineering status | Meaning / readiness | Learner-facing product |
 | --- | --- | --- | --- |
 | Cross-subject exam control | `EXAM_ORCHESTRATOR_CONTRACT.md` + derived `EXAM_ORCHESTRATOR_CURRENT.json` | phase / Gate / material-window facts; Chat owns adaptive daily allocation | shared Home / typed Chat plan consumers |
 | Xizong | `content/xizong/CURRENT.md` | `LEARNING_CONTRACT.md` → `MATURITY_PACKAGE.md` / `ACCEPTANCE.md` → exact System owner | `static-web/XIZONG_PRODUCT_BRIEF.md` + exact accepted surface owner |

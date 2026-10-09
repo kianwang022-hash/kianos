@@ -3,7 +3,7 @@
   "status": "CURRENT_REVIEW_COMPLETE",
   "scope": "HISTORY_CH01_TO_CH10",
   "review_snapshot": {
-    "node_registry_canonical_row_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "node_registry_canonical_row_digest_sha256": "e1be610d098bde32f463e7c890b5ea4fb457652814ca895faae983a5d522a482",
     "semantic_review_blob_sha": "6d236a627495a1e6b696d80162d444568c74fef2",
     "rule": "This disposition is valid only while the Current node-shard manifest retains the same canonical row digest. Any Source change reopens compact review instead of silently inheriting an old approval."
   },
@@ -65,5 +65,67 @@
     ],
     "frozen_pilot_rule": "C04 K03-K07 already carry frozen_pilot_semantic_decision authority. Their many Suyi refs remain provenance for those accepted semantic decisions and are not re-expanded into a second learner course."
   },
-  "acceptance_boundary": "Child OCR defects may remain in canonical Source metadata when the Natural Unit owner is stable, the relevant learner relation is already supported by readable Chengfeng/Suyi evidence, and the defect is not itself required to reconstruct the learner claim."
+  "acceptance_boundary": "Child OCR defects may remain in canonical Source metadata when the Natural Unit owner is stable, the relevant learner relation is already supported by readable Chengfeng/Suyi evidence, and the defect is not itself required to reconstruct the learner claim.",
+  "source_change_impact_review_20261009": {
+    "scope": "EIGHT_HISTORY_RAW_TEXT_REPAIRS_WITH_MATCHED_EXISTING_EVIDENCE",
+    "inspected_ref": "1d5e2e236d627ff0f9f46baa8f7d38b13b06d0c9",
+    "previous_global_digest": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "current_global_digest": "e1be610d098bde32f463e7c890b5ea4fb457652814ca895faae983a5d522a482",
+    "source_pdf_sha256": "0de9c4c3a513d3fb131f9ff87acc44e7dd6da9e58f3917eb73ad3b8dea96adca",
+    "method": "Re-read existing version-matched visual inspection, exact transcription, root review and remote-readback receipts; no new full-page or full-PDF audit this run.",
+    "repaired_nodes": [
+      {
+        "id": "POL27-CF-HISTORY-C06-K09-N01-I02",
+        "pdf_page": 46,
+        "scope": "三三制字形及三类成员各1/3"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C06-K10-N01-I03",
+        "pdf_page": 47,
+        "scope": "联合政府三项主张及响应句"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C06-K12-N01-I01",
+        "pdf_page": 48,
+        "scope": "社会分析与两阶段革命"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C09-K04-N01-I03",
+        "pdf_page": 69,
+        "scope": "开放四层级及箭头"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C09-K05-N01-I01",
+        "pdf_page": 69,
+        "scope": "原两栏六项概要编号"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C09-K05-N01-I02",
+        "pdf_page": 69,
+        "scope": "意义第二、三项"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C09-K02-N02-I01",
+        "pdf_page": 68,
+        "scope": "停止旧口号、冲破左的束缚与两个凡是"
+      },
+      {
+        "id": "POL27-CF-HISTORY-C09-K03-N01-I03",
+        "pdf_page": 68,
+        "scope": "1981主要矛盾完整双方"
+      }
+    ],
+    "source_repair_commits": [
+      "767380f4e76e1ec9b15cc297af62e637eccec80e",
+      "48d793244a3d618bb4dcd0a9e0247a7991ee9022"
+    ],
+    "content_receipt_commits": [
+      "703d4f307f97397b293dd35b2fe7518f12e8c021",
+      "49f27ca464f469b4403e789e7a5d7050326f3448"
+    ],
+    "page68_image_sha256": "8ed454cb36f9008fad544b6059bc8be5f926b353c8f2def7049ef1c907d31eed",
+    "preserved": "Only title and original_text_span changed in eight source rows. IDs, hierarchy, page ranges and verification_status unchanged. Existing semantic_review_blob_sha remains valid. Node/shard parity verified; question payload unchanged.",
+    "decision": "Update the original global snapshot binding using the bounded source-change impact evidence; preserve original approval scope and exclusions.",
+    "boundaries": "C06 and C09 full Source remain PARTIAL. Other continuation text, figures, answer keys, C09 三个有利于 full members and existing OCR/layout restrictions are not newly approved. Recovered lists remain original Core understanding/recognition, not new closed-book lists or Memory. No real learner state changes."
+  }
 }

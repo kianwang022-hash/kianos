@@ -424,7 +424,7 @@ try {
  const system = readRule('SYSTEM_CONTRACT.md');
  const { politicsNavigation } = await import('../src/lib/sharedNavigation.mjs');
  assert.deepEqual(politicsNavigation().filter(row=>row.matchPath.test('politics/memory/')).map(row=>row.key),['review'],'Memory is a review route, not a lesson');
- assert.ok(learning.includes('Chengfeng detailed study') && learning.includes('not replacement mother text'));
+ assert.ok(learning.includes('Chengfeng detailed study') && learning.includes('Prepared prose is not the compression mother text') && learning.includes('Do not replace that request with a second Chat course'), 'Chengfeng remains the detailed-study source; prepared prose and Chat do not replace it');
  assert.ok(learning.includes('2027 腿姐《冲刺背诵手册》') && learning.includes('retention source'));
  assert.ok(learning.includes('Source correctness and memory necessity are different judgments'));
  assert.ok(learning.includes('A Chengfeng-only author choice is **not a substitute**'));
@@ -439,7 +439,7 @@ try {
  assert.ok(politicsAcceptance.includes('Supersession note (2026-10-08)'),'historical 2026-10-07 unresolved-Leg receipt must be visibly superseded');
  assert.ok(!marxC01Brief.includes('不能称作腿姐筛选完成') && !marxC01Brief.includes('若后续对旧22组逐项核对后'),'C01 brief must not retain pre-reconciliation status language');
  assert.ok(learning.includes('closure compression 是必做动作，不需要 Kian 提醒') && learning.includes('然后再进入下一章 / 下一大块'),'completed chapter/major-block transition must auto-close before advancing');
- assert.ok(interaction.includes('close it first, then continue') && interaction.includes('mandatory compression boundary'),'fresh Chat continuation must not skip a pending chapter closure');
+ assert.ok(interaction.includes('mandatory compression boundary') && interaction.includes('At a mandatory chapter/major-block closure, do not reteach.') && interaction.includes('Return briefly to the same canonical model') && interaction.includes('then continue'), 'fresh Chat continuation must preserve mandatory chapter closure before advancing');
  for (const rule of [learning, interaction, system]) {
   assert.ok(!/Chat is the single continuous teaching mainline|Chat remains the single continuous teaching mainline|Politics continuous teaching is Chat-primary/.test(rule));
  }

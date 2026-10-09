@@ -26,7 +26,7 @@
       "共产主义的实现具有历史必然性，但这种必然性通过人的实践和长期社会发展实现",
       "社会主义是通向共产主义的现实历史阶段，远大理想必须同当前具体实践统一起来"
     ],
-    "attention_rule": "不要把‘必然实现’理解成自动、短期、无需实践；也不要因为过程长期就否定方向和理想。 首次教学先消费 teaching-candidate/ch08.brief.md#c08-learner-entry 的最小前提和前章取回，再按对应 brief 的问题驱动路线展开实际解释，讲通后映回本章原 reconstruction_chain；不能只读 source-review 当作首次教学。 首次取回时机与深度见 teaching-candidate/ch08.brief.md#c08-first-retrieval，已讲通的完整论证块或章末关闭才取回，不等真实错题才安排选定记忆。"
+    "attention_rule": "不要把‘必然实现’理解成自动、短期、无需实践；也不要因为过程长期就否定方向和理想。 首次教学从 teaching-candidate/ch08.brief.md#c08-learner-entry 的最小前提和问题驱动解释进入，讲通后映回原 reconstruction_chain；不能用复习压缩替代首次解释。普通复习或章末压缩直接读 teaching-candidate/ch08.brief.md#c08-source-review 的同一模型、完整节点主提示及邻近答案，不以 first-retrieval、Resume 或闭卷测试为前置步骤。"
   },
   "unit_projections": [
     {
@@ -61,7 +61,7 @@
         "实现长期性不等于理想不可实现。",
         "远大理想和当前实践不是彼此割裂的两套目标。"
       ],
-      "closure_cue": "闭卷恢复四句话：从现实出发科学预见 → 基本特征有物质前提 → 方向具有历史必然性 → 实现是长期实践过程。"
+      "closure_cue": "沿同一模型直接呈现四个关系：从现实出发科学预见 → 基本特征有物质前提 → 方向具有历史必然性 → 实现是长期实践过程。必要解释可见，不要求先闭卷。"
     }
   ],
   "chapter_compression": {
@@ -73,7 +73,7 @@
       "长期复杂过程",
       "远大理想与现实实践统一"
     ],
-    "review_prompt": "为什么‘共产主义必然实现’与‘共产主义实现是长期历史过程’并不矛盾？ 章末还必须完整走原 reconstruction_chain，并执行 teaching-candidate/ch08.brief.md#c08-learner-close：主模型重建→全部现行主提示覆盖→易混边界→仅既有 residual→进入原 subject_closure 的全科回收。没有真实回答不能记为掌握。 模型顺利也必须覆盖选定主提示；同一连续回合已取回的组确认覆盖并补真实漏项，不自动整组再发。"
+    "review_prompt": "普通复习直接读 teaching-candidate/ch08.brief.md#c08-source-review：沿原 reconstruction_chain 呈现紧凑关系模型，各自然节点带出完整现行主提示，必要解释与答案可见；随后看必要易混边界，最后仅处理既有 residual。章末只压缩实际已学范围，不重讲整章、不要求先作答。只有 Kian 明确要求测试时才用同稿 #c08-first-retrieval 的既有深度；没有真实回答不记录掌握。 若本轮确已学完整科，沿原 subject_closure 回顾章际联系；单独复习 C08 不自动扩为全科测试。"
   },
   "subject_closure": {
     "marxism_full_chain": [
@@ -86,7 +86,7 @@
       "第七章：社会主义怎样从理论进入现实——科学社会主义",
       "第八章：整个历史运动指向什么——共产主义理想与实现"
     ],
-    "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。 全科回收先从 C00 的理论产生、体系和发展定位进入，再按本字段原有八章顺序展开；实际执行 teaching-candidate/ch08.brief.md#c08-whole-subject-return，逐章恢复原节点、主提示与两个既有 residual 家族，不以章节标题表代替复习。"
+    "one_sentence": "马原从世界观出发，经辩证法、认识论和历史观，最后用同一套方法解释资本主义、社会主义以及共产主义的历史方向。 全科回顾从 C00 的理论产生、体系和发展定位进入，再按本字段原八章顺序衔接各章同一模型、完整主提示和两个既有 residual 家族；普通回顾可看答案，不自动触发全科闭卷测试或 Resume 查询，具体入口见 teaching-candidate/ch08.brief.md#c08-whole-subject-return。"
   },
   "content_support": {
     "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
