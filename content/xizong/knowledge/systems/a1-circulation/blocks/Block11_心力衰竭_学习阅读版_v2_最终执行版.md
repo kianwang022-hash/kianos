@@ -1132,7 +1132,9 @@ orphan_outline = 0
 duplicate_primary = 0
 ```
 
-## 建议学习切片
+## 自然停顿参考
+
+以下保留原Unit与KP范围，便于定位内容；LG / Unit仅提示可能的自然停顿，不按单元逐课推进，也不改变整块机制→自然节点完整Prompt / Core→同一模型压缩的讲解路径。
 
 ```text
 Unit A｜共同机制 + KP01–KP06
