@@ -9,7 +9,7 @@ Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTR
 
 ## Intent
 
-- **LEARN:** ordinary Politics learning bypasses this engineering cursor. Read actual learner/Resume evidence, then the relevant Current prepared package under [Learning](LEARNING_CONTRACT.md) and [Interaction](INTERACTION_CONTRACT.md). Candidate preparation is not adoption, progress or mastery.
+- **LEARN:** ordinary Politics learning bypasses this engineering cursor and follows [Interaction §0](INTERACTION_CONTRACT.md) under [Learning](LEARNING_CONTRACT.md). An explicit lesson/question/review enters the relevant current Content directly; continuation uses actual task-matched evidence only as needed. Candidate preparation is not adoption, progress or mastery.
 - **BUILD / CONTROL:** enter this cursor, then the active engineering anchor or exact subject/content/consumer owner. Apply [AGENTS](../../AGENTS.md) and change continuity before material changes.
 
 ## Completed bounded Memory delivery
@@ -80,7 +80,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 **Current：** 马原 C00–C08、史纲 C01–C10 已支持内容完成两轮审查；毛中特九章文字学习路径第二轮完成。习思想 C00–C02 原五处修正及后续七处来源增量均已保存并回读至 a6ab273215704ed298b12c3a42269bc55c321777：补科学社会主义性质边界、领导作用与 C03 接续、自主与借鉴相容，并澄清同版 MD 来源。原模型、13 组主提示、答案深度与 Memory 身份不变。均草稿未合并，不能称 53 章全量收口。
 
-**Next：** 按 Kian 最新要求先修正常 Chat 读取入口：核学习/交互规则、manifest、科目/章节模型、教案解释与主提示答案的真实接续，原位去歧义，不新增规则体系或网站工程。暂停扩新章节；C03–C05 已读来源和六处未采用候选保存在原批次目录，不重开或计完成。入口修正后再接原内容批次。C00 原图/腿姐必要性、毛 22 处 Source 保存及毛 C06–C08 Source PARTIAL、史纲原文/Visual 缺口继续按原 owner 保留。
+**Next：** Chat 入口修正已保存于本候选分支（两科共同根入口至 1b30787d2e256b694011701cfbac5e51ce42aa32）：新学/继续/直接复习分流，同版 manifest→现有模型/教案/主提示答案，明确候选和历史范围；不改变乘风自学与按需 Chat 教学分工。先完成入口最终独立阅读回执，然后恢复原 C03–C05 批次。原六处候选及暂停前十三处未审增量已冻结，未采用、未计完成。C00 原图/腿姐必要性、毛 22 处 Source 保存及毛 C06–C08 Source PARTIAL、史纲原文/Visual 缺口仍在原 owner。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
