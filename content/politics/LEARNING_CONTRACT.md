@@ -235,7 +235,7 @@ First-teaching acceptance test: hide all node numbers, formal section titles, So
 
 ```text
 已学范围的同一主模型 / reconstruction spine，各自然节点直接带出该节点完整的既有 Main Prompts
-（关系与提示同处呈现，不拆成另一张表或靠编号交叉查找；允许压缩措辞，不遗漏既有提示维度，不增加未筛选的记忆要求）
+（先给可整体阅读的紧凑文字模型：关系与完整提示同处呈现，解释按需展开；不以若干标题下的长文代替压缩模型，不拆成另一张提示表或靠编号交叉查找。允许压缩措辞，不遗漏既有提示维度，不增加未筛选的记忆要求）
 → 必要的易混边界
 → 仅在确有时补 residual Precision / Memory
 → 然后再进入下一章 / 下一大块
