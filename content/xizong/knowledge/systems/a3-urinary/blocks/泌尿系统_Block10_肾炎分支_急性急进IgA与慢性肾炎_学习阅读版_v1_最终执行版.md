@@ -145,9 +145,9 @@ system_final_batch: false
 最终陌生病例：先确定是否有急性危险（Cr 速度、K/容量/血压、器官损害），平行收集感染时间、C3、尿沉渣、血清学和肾形态；再根据需要使用 LM/IF/EM 定位损伤模式与免疫来源，回到病因特异处置及当前危险干预，随后复查临床/功能反应。这是**诊断与干预的可反馈流程，不是四种肾炎的自然先后顺序**。
 〈肾炎分支病例算法〔感染时程｜Cr趋势/C3｜LM-IF-EM｜肾形态｜按病因治疗〕〉
 
-B10 既有“急性肾炎 P195 任务／P197 急进性形态资产”不一致仍为原 MedicalVisual/Source HOLD；不能通过此文字模型冒称原图已匹配或已接触。
+B10 LG01 急性肾炎原图已按同一内科 Source（SHA256 `4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939`）核对为 PDF 物理 P195／印刷 P160：`a3-b10-lg01-visual` 现绑定 `a3-b10-lg01/b10-p195-acute-glomerulonephritis-proliferation-gross-morphology.png` 与 `a3-b10-lg01/b10-p195-acute-glomerulonephritis-subepithelial-humps-granular-if.png`，保留内皮/系膜增生、大红肾、上皮下驼峰标注及颗粒状荧光图。上述图片是原页示意/大体/荧光图，不能冒称全部为光镜或电镜切片。仅此任务/资产定位冲突解除；P197／印刷 P162 的新月体原资产保留，不作急性肾炎图的替代，也不产生用户已看图、Source 接触或其它原图门禁通过的证据。
 
-**Residual 边界**：损伤机制、时间/速度/病理双轴、疾病分支和危险反馈归模型与完整原 Prompt；阈值/时间、药物剂量与低频配对继续由原 Core/Precision/Source/MedicalVisual 承接；P195/P197 视觉定位 HOLD 不解除。
+**Residual 边界**：损伤机制、时间/速度/病理双轴、疾病分支和危险反馈归模型与完整原 Prompt；阈值/时间、药物剂量与低频配对继续由原 Core/Precision/Source/MedicalVisual 承接；本次仅解除 B10 LG01 的 P195 任务误绑 P197 资产这一定位 HOLD，其余 Source/MedicalVisual 要求及真实 HOLD 保留。
 
 ---
 
