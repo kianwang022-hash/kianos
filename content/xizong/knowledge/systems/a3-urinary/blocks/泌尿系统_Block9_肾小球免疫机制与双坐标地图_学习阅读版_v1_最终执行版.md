@@ -46,7 +46,7 @@ system_final_batch: false
 
 > **中心问题**：肾小球病为什么不能只背“肾炎 / 肾病”；怎样同时使用“临床综合征坐标”和“病理证据坐标”，把免疫机制、沉积位置、尿液表现与后续疾病分支接在一起？
 >
-> **Primary Study**：`内科学讲义_AI阅读版.md` P157–160。当前 Project 没有独立肾脏病理 Lecture，因此内科这一连续范围同时承担肾小球疾病的临床与病理联合真相层。
+> **Primary Study**：`内科学讲义_AI阅读版.md` 印刷页P157–160（PDF物理页P192–195）。当前 Project 没有独立肾脏病理 Lecture，因此内科这一连续范围同时承担肾小球疾病的临床与病理联合真相层。
 >
 > **Primary Outline**：内科 U065 全部 18 题；U066 中高脂血症与隐匿性肾炎 3 题；U069 病例总入口 2 题；U070“间断水肿”1题，共 **24 / 24**。
 >
@@ -56,15 +56,7 @@ system_final_batch: false
 
 # 0｜FIRST PASS
 
-```text
-Framework
-→ Lecture P157–160
-→ Framework Reconstruction
-→ KP Active Recall
-→ Outline optional / low-pressure
-→ TTSX Lecture-attached Questions
-→ Block Complete
-```
+先建立本章同一模型，再沿自然问题讲清已有知识并在对应节点挂完整主提示；自然段落与章末压缩回同一模型，卡点按需展开。需要复习时使用该模型、完整主提示及既有精记。影响当前理解的精确条件和必要原图当步回看；广泛Lecture扫漏、Outline及配套题可后置校准，正式Source接触、Recall和完成仍按各自证据核对。
 
 第一轮不要求把所有病理类型一次背成巨表。先稳定四件事：
 
@@ -137,6 +129,8 @@ LM 显示细胞增生、坏死、新月体、基膜和硬化等结构；IF 判�
 ---
 
 # 2｜Memory Routing
+
+以下保留原理解与精确复习去向；普通复习沿§1A同一模型和完整主提示恢复，答案可见，卡点再展开Core或既有精记。只有明确要求自测时才隐藏答案。原MI-D列表不等于新增Memory准入或要求另背全部清单；图像依赖仍回原Source/MedicalVisual。
 
 ## MI-G
 
@@ -648,6 +642,8 @@ System_final_gate = NOT_RUN_NON_FINAL_BLOCK
 ```
 
 # 9｜Block Complete
+
+以下是正式完成的原核对项；普通Chat学习或复习不要求先完成这些项目，阅读与讲解也不产生Source接触、Recall或完成证据。原Source/Visual门禁及图像缺口保持。
 
 ```text
 Framework已建立
