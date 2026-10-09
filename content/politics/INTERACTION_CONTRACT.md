@@ -21,25 +21,33 @@ The learner's current mode is defined in [Learning §2](LEARNING_CONTRACT.md#2-a
 
 ### Minimal commands
 
-- `继续学习` / `继续`: continue the actual active source-review, clarification or compression task. If the current chapter / major argument has just finished and its required closure compression has not yet been given, **close it first, then continue**. Use real reported/native position only when continuity matters; do not automatically start the next teacher-brief stage.
-- `开始马原` / another subject: select the subject without resetting evidence; give the requested orientation/source-review help, not an unsolicited full lecture.
+- `开始马原` / another subject: enter the subject total model and its opening question; an explicitly named chapter enters that chapter directly. Do not make a Runtime lookup or old-chat recap a prerequisite. Starting does not reset prior evidence or require a full replacement lecture.
+- `继续政治` / `继续学习` / `继续`: continue the actual bound learning action, including a requested Chat lesson. Recover the relevant real Chat/source-study breakpoint under §8, not the next engineering batch or simply the latest opened Website page. If an actually completed chapter / major argument still lacks its required closure compression, close that learned scope before moving on.
 - `重新开始…`: restart the requested learner-facing route without deleting prior evidence.
-- A specific question: answer from the requested source range and return to that task.
-- `复习这一章` / `压缩这一章`: produce the source-faithful mainline + cues under Learning §0.7, not another first lesson.
+- A specific question: answer that question from the relevant owned explanation and Source when needed; no whole-course restart.
+- `直接复习一章` / `复习这一章` / `压缩这一章`: use the named/current chapter's existing source-faithful model, node main prompts and full answers under Learning §0.7. Do not require another lesson or an answer-by-answer test before showing the review. Ask only which chapter if neither the request nor reliable context identifies it.
 
-### What Chat does automatically on `继续学习`
+### The ordinary Chat read path
+
+Reuse the teaching rules and model already recovered in this conversation while their version and relevant scope remain unchanged. For a self-contained source clarification or follow-up question, read only the relevant passage or owned explanation; use the fuller path below only when subject/chapter context changes the answer. Do not reread the manifest or whole subject model for every question.
+
+Resolve the version once: use current main unless Kian explicitly selected another branch/revision for this task. A selected candidate may supply its current teaching text within the stated local Source limits; it is not thereby merged into main or admitted in every scope. Keep subsequent reads on that same version.
 
 ```text
-current requested action and source
-→ latest reliable learner position only if needed
-→ actual source passage / accepted review view
-→ existing model and support only for necessary checks
-→ do the requested explanation or compression
+requested subject/chapter and action
+→ only for continuation: the relevant actual learning breakpoint (§8)
+→ learning/manifest.json: subjects[subject].teaching_preparation.subject_model
+→ that subject's current_assets chapter JSON: orientation + fixed model + NU relations
+→ chapter's explicit explanation/review pointer, or its existing brief in teaching_preparation.chapter_directory
+→ current explanation / review section: node main prompts + adjacent full answers
+→ necessary existing precision object or Source passage only for the dependent claim
 ```
 
-For a self-contained source question, do not read learner state or the whole repository. For fresh continuity, reconcile the narrow native Resume with reported source-study position and the existing daily synthesis; missing Website evidence is not zero learning. Do not ask for context that these sources already resolve.
+The chapter JSON locates the stable model; the brief supplies substantive explanations and the current review/prompt answers. Neither a heading list nor `teaching_beats` alone is a full lesson. Do not invent a same-named file: Marxism C00 explicitly points to `learning/marxism/teaching-candidate/subject-model.md` for both first entry and `c00-source-review`. Marxism C01 uses `learning/marxism/ch01.json` and `learning/marxism/teaching-candidate/ch01.brief.md` (`c01-learner-entry` for first explanation; `c01-source-review` for the current review). Xi C01 uses `learning/xi/subject-map.json`, `learning/xi/ch01.json` and `learning/xi/teaching-candidate/ch01.brief.md` (C01-S00–S03 explanation/prompts, S91 compression, S92 current retention depth).
 
-For compression, read actual source text and necessary tables/images, not just source-node headings. For retention selection, resolve the exact designated Leg title/edition and inspected scope under Learning §6.1. Do not preload all chapters, inventories or QA. Do not narrate this routing work unless a genuine limitation affects the answer.
+Read only the relevant section after locating it. Ordinary learning does not require root/domain engineering `CURRENT.md`, PR history, old review signatures, inventories or a new Acceptance pass. The directory name `teaching-candidate` and an old appendix are not current admission decisions: use the selected version's current scope statement and item-level restrictions. Unknown adoption remains unknown; a usable local explanation does not certify the whole prepared package, Memory admission, Website delivery or learner progress.
+
+Reuse a source-checked current review at its recorded scope instead of regenerating it at every new Chat. Read the actual Chengfeng passage and necessary tables/images when the request is to compress a new source range, verify wording, resolve a conflict or fill a stated gap; headings/locators alone cannot support those claims. New retention decisions require the exact designated Leg passage under Learning §6.1. Existing current retention conclusions and valid reviewed objects are not reopened merely because the conversation changed. Do not narrate routing unless a genuine limitation affects the answer.
 
 ### What the live lesson should feel like
 
@@ -96,7 +104,7 @@ Only this top-level cognitive loop is shared across subjects. Internal teaching 
 
 ### 1.1 Fresh-Chat teaching continuity
 
-Recover the action, not just a chapter cursor. A teacher brief is backstage support for clarification, source coverage and an explicitly requested lesson; it is not the default prose mother text for source compression. Existing valid model relationships and exact identities remain stable. Do not force raw source into a conflicting brief or silently correct the source from general knowledge.
+Recover the action and substantive content through §0, and the real breakpoint through §8. A teacher brief is backstage support, not a script or a substitute for a newly requested source inspection. Its current source-checked review and owned explanations are reusable Content. Keep valid model relationships and exact identities stable; do not force Source into a conflicting brief or silently correct Source from general knowledge.
 
 A source-based review follows the learner's stated studied scope without requiring a new teaching pass. Explicitly commissioned draft preparation is not learner progress. Existing precision cards are optional artifacts until their current retention role is justified under Learning §6.1.
 
@@ -135,7 +143,7 @@ Never introduce a cue that requires explanation of the cue itself. If the cue ne
 
 Precision/Memory remains a separate later layer. Do not inspect the Memory catalog during live explanation unless an exact fact is currently needed to teach the argument correctly or Kian explicitly asks about what must be memorized.
 
-During review, use progressive reveal: mainline first → cue only if useful → Precision only for exact failures. During first study, do not force this review ladder into the middle of the lesson.
+During review, follow Learning §0.7: same model → selected node main prompts → worthwhile residual Precision when applicable. Full answers stay available in reading/review; hide them only for a clean retrieval attempt. Exact failures can justify local repair, but are not a prerequisite for currently approved precision. During first study, do not force a repeated reveal or testing ritual into the explanation.
 
 The quick-review wording remains Kian's self-use asset. It can be refined and stored later in the existing chapter brief, but normal teaching does not pause to maintain that file.
 
@@ -173,7 +181,7 @@ Astro may keep the current Natural Unit, learning question, checkpoint, relation
 A minimal source excerpt is allowed only when it serves a bounded repair/orientation decision. It must not expand by convenience into a second full lecture.
 
 ### At natural closure
-Offer one short reconstruction/checkpoint cue only when useful; it may be skipped. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within Chat teaching or Source calibration does not require a web checkpoint or prove completion. Do not create a large recall ceremony at closure. Scheduled proactive precision follows Learning Contract §6.1 and does not require waiting for a later mistake.
+At an ordinary pause, offer one short reconstruction/checkpoint cue only when useful; it may be skipped. The chapter/major-argument transition follows the required learned-scope compression in Learning §0.7, without making every small pause a closure. Natural Unit identity is not a one-sitting requirement. Pausing/resuming within Chat teaching or Source calibration does not require a web checkpoint or prove completion. Do not create a large recall ceremony or make answering a gate to continuation. Proactive precision follows Learning Contract §6.1; this paragraph creates no schedule.
 
 Closure and later review must return to the chapter's fixed reconstruction spine from Learning Contract §0.5. Chat may expand a node, suppress detail, blank a node for Recall or approach one node from a question/example, but it must not improvise a different overall chapter framework when Current has not changed. After any local detour, restate the stable node/relationship it belongs to so the learner's index is reinforced rather than rebuilt.
 
@@ -424,7 +432,14 @@ The runtime may remember the learner's most recently opened Politics chapter / N
 
 This is personal session position, not shared Current and not a semantic owner.
 
-Continue must use the actual action and source-study/report evidence. An external locator can resume Chengfeng study; the Website need not duplicate the handout. Native page position is neither source completion nor Chat teaching completion.
+Continue must recover both the action and the relevant evidence:
+
+- For a Chat lesson/clarification, use the latest reliable breakpoint in that bound conversation: subject/chapter, the question or relation actually explained, what remains unresolved, and the next intended action. A content stage label can locate it but is not proof it was completed.
+- For Chengfeng study, use the learner's actual reported position or its source locator. For Website practice, use the existing native Resume/attempt/Recall record. Read an existing linked handoff/daily synthesis only when it helps reconcile that same task.
+- Match records by task, scope, source and time. A later Website page open for reference does not overwrite an unfinished Chat explanation; an older Chat plan does not override a newer explicit learner report. Preserve a real conflict instead of selecting the globally latest timestamp mechanically.
+- If accessible evidence cannot identify the breakpoint, keep it unknown and ask one narrow question such as “上次政治停在哪一章、哪个问题？” Do not request a long setup prompt, invent completed nodes, or use Content/engineering progress as a substitute.
+
+A natural Chat pause may state the actual explained range and next question in the same conversation; it does not require a new file, completion form or runtime write. New Chats use accessible linked context/records, and must not claim cross-Chat recovery when those records are unavailable. The Website need not duplicate the handout, and native page position is neither source completion nor Chat teaching completion.
 
 ### Return / Handoff
 
