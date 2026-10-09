@@ -64,7 +64,7 @@ Visual / Extension is not a percentage-completion program.
 
 ## Stable program rules
 
-- Exact scoped Current / Acceptance / canonical owners always outrank this file.
+- Exact canonical and Source owners govern their medical facts and evidence. The stable learning goal and final Chat/content acceptance are owned only by `LEARNING_CONTRACT.md` §0; #1113 owns this task's scope, current revision, progress and Next. Historical scoped Current/Acceptance records cannot replace either owner.
 - Source units, Blocks, Logic Groups, KP, Questions, relations and learner evidence keep their existing exact owners; this Mainline creates none of them.
 - A closed lane is not reopened because historical evidence exists. Reopen only from a current defect, authoritative Source change, explicit new corpus/scope, or real-use evidence.
 - Historical year/cycle identity stays explicit. Upload/retrieval date never upgrades prior-year material into current-year truth.
@@ -85,14 +85,8 @@ real dependency / shared owner
 
 An unrelated `main` advance is not a blocker. Never force a historical branch over newer Current truth.
 
-## Continue / task creation
+## Continue the existing task
 
-`继续西综内容建设` means:
+`继续西综内容建设` returns to #1113's current scope, revision and Next, then the exact responsible content owner. This Mainline does not create a second task, copy a second progress table, or restart a completed historical batch. Other lane records above are references for their own authorized scope, not instructions to expand this task.
 
-1. read this file only to identify whether a durable lane is actually open;
-2. if no broad lane is active, require a concrete defect/new Source/explicit scope rather than inventing work;
-3. enter the smallest exact owner;
-4. update only that owner/cursor and any truly dependent acceptance/read model;
-5. update this Mainline only when a **program-level lane state, dependency or active-task set** changes.
-
-A task mentioned only in Chat is not durable Xizong work. Normal learner-facing `继续西综` remains LEARN and does not enter this engineering Mainline.
+Normal learner-facing `继续西综` remains LEARN. Use the actual conversation's named content; if the target is missing, ask only which content Kian wants. Never recover a learning position from engineering progress.
