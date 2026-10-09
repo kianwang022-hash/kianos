@@ -435,7 +435,7 @@ TT观察更下游，但不能只凭“延长”就唯一推出纤维蛋白原缺
 ## 精确项、原图与后续接口
 
 - Memory：20条retained记录逐项处置，精确受体、因子名单、药物配对及病理比较仍在 [B4既有retention owner](../../../knowledge/learner/shared-fields.json?plain=1#L2341)；AT旧未活化列法不得原样进入候选答案，按当前Core激活靶点校准。
-- Precision与Core：[当前精确项索引](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L1)没有B4独立precision cue，不能假称已可用；完整细项取上述Core和已保留Memory，不另建身份。
+- Precision与Core：按[当前精确项索引](../../../knowledge/learner/a1-circulation-learning-cues.json)中 circulation-b04 的精确引用读取已准备 Memory 的完整答案与条件；未接入索引的保留项仍取原Core／Source，不另建身份。
 - MedicalVisual／Source：P91–93血小板桥接、P99–110止血／凝血／抗凝／纤溶与P0血栓形态均按原Core门禁；当前cues／source-visuals没有B4图包，保留Source gap，不以文本示意声称原图已渲染或本轮已验。
 - 完整血友病／vWD／DIC归血液，ACS治疗归B6、DVT归B9、PE完整算法归呼吸；此页不创建第二个疾病模型。
 
