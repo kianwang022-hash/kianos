@@ -58,7 +58,7 @@ system_final_batch: false
 
 > **中心问题**：面对血尿、蛋白尿、水肿、高血压或 Cr 升高，怎样用“前驱感染时间—肾功能恶化速度—C3—LM / IF / EM—肾脏大小”区分急性肾炎、急进性肾炎、IgA肾病和慢性肾炎？
 >
-> **Primary Study**：内科 Lecture P160–162、P165–167及 P167–175病例串联。
+> **Primary Study**：内科 Lecture P160–162、P165–167及 P167–175病例串联。以上均为书内印刷页：P160–162对应PDF物理P195–197，P165–175对应PDF物理P200–210。
 >
 > **Primary Outline**：U066急性/急进14题；U067急进5题；U069 IgA、慢性及病例14题；U070急进/慢性/综合治疗3题，共 **36 / 36**。
 >
@@ -68,15 +68,7 @@ system_final_batch: false
 
 # 0｜FIRST PASS
 
-```text
-Framework
-→ Lecture P160–162 + P165–167
-→ Framework Reconstruction
-→ KP Active Recall
-→ Outline optional / low-pressure
-→ TTSX Lecture-attached Questions
-→ Block Complete
-```
+先建立本章同一模型，再沿自然问题讲清已有知识并在对应节点挂完整主提示；自然段落与章末压缩回同一模型，卡点按需展开。需要复习时使用该模型、完整主提示及既有精记。影响当前理解的精确条件和必要原图当步回看；广泛Lecture扫漏、Outline及配套题可后置校准，正式Source接触、Recall和完成仍按各自证据核对。
 
 第一轮先建四条疾病电影，不把所有治疗揉成一张无边界表。
 
@@ -160,6 +152,8 @@ B10 既有“急性肾炎 P195 任务／P197 急进性形态资产”不一致�
 ---
 
 # 2｜Memory Routing
+
+普通复习沿§1A的同一模型与完整Prompt压缩恢复，答案可见，只在卡点展开；明确要求自测时再隐藏答案。以下原有分流清单与已准备的精记答案保留，不因模型包含同一知识而撤销。
 
 ## MI-G
 
@@ -810,6 +804,8 @@ System_final_gate = NOT_RUN_NON_FINAL_BLOCK
 ```
 
 # 12｜Block Complete
+
+以下是正式Block Complete核对，不是普通Chat初学或复习的进入门槛。讲解与复习本身不产生Source接触、原图验收或完成证据；既有Source/Visual与HOLD要求仍按原职责保留。
 
 ```text
 Framework已建立
