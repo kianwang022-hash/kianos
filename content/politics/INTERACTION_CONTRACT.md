@@ -142,7 +142,7 @@ Never introduce a cue that requires explanation of the cue itself. If the cue ne
 
 Precision/Memory remains a separate later layer. Do not inspect the Memory catalog during live explanation unless an exact fact is currently needed to teach the argument correctly or Kian explicitly asks about what must be memorized.
 
-During review, follow Learning §0.7: same model → selected node main prompts → worthwhile residual Precision when applicable. Full answers stay available in reading/review; hide them only for a clean retrieval attempt. Exact failures can justify local repair, but are not a prerequisite for currently approved precision. During first study, do not force a repeated reveal or testing ritual into the explanation.
+During review, follow Learning §0.7: traverse the same model with each learned node’s complete existing Main Prompts presented at that natural node, rather than in a separate lookup table; add worthwhile residual Precision only when applicable. Full answers stay available in reading/review; hide them only for a clean retrieval attempt. Exact failures can justify local repair, but are not a prerequisite for currently approved precision. During first study, do not force a repeated reveal or testing ritual into the explanation.
 
 The quick-review wording remains Kian's self-use asset. It can be refined and stored later in the existing chapter brief, but normal teaching does not pause to maintain that file.
 
