@@ -2,6 +2,8 @@
 
 # B4｜破口处封与固，外围限，纤溶清
 
+局部解释以同一当前版本的 [B4正式模型与Core](../../../knowledge/systems/a1-circulation/blocks/Block4_正常止血与病理循环整合_学习阅读版_v1_Batch2冻结版.md) 为准；文内旧快照与行号只保留历史定位，当前内容按知识身份、标题定位。
+
 循环不仅要送血，还要在破口处止血、在其余地方保持流动。以下是同一局部反应的主链、反馈和失衡分支；不是六个依次启动的小系统。〔完整Prompt〕附在自然节点上，解释可就地展开。
 
 <!-- b4:route:start -->
@@ -433,7 +435,7 @@ TT观察更下游，但不能只凭“延长”就唯一推出纤维蛋白原缺
 ## 精确项、原图与后续接口
 
 - Memory：20条retained记录逐项处置，精确受体、因子名单、药物配对及病理比较仍在 [B4既有retention owner](../../../knowledge/learner/shared-fields.json?plain=1#L2341)；AT旧未活化列法不得原样进入候选答案，按当前Core激活靶点校准。
-- Precision与Core：[当前精确项索引](../../../knowledge/learner/a1-circulation-learning-cues.json?plain=1#L1)没有B4独立precision cue，不能假称已可用；完整细项取上述Core和已保留Memory，不另建身份。
+- Precision与Core：按[当前精确项索引](../../../knowledge/learner/a1-circulation-learning-cues.json)中 circulation-b04 的精确引用读取已准备 Memory 的完整答案与条件；未接入索引的保留项仍取原Core／Source，不另建身份。
 - MedicalVisual／Source：P91–93血小板桥接、P99–110止血／凝血／抗凝／纤溶与P0血栓形态均按原Core门禁；当前cues／source-visuals没有B4图包，保留Source gap，不以文本示意声称原图已渲染或本轮已验。
 - 完整血友病／vWD／DIC归血液，ACS治疗归B6、DVT归B9、PE完整算法归呼吸；此页不创建第二个疾病模型。
 
