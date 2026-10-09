@@ -711,6 +711,8 @@ Step 5：治疗目标
 
 ## 4｜Study 原图门禁
 
+可先查看现有的[支扩结构裁图](https://github.com/kianwang022-hash/kianos/blob/ee6e1264c9c19bbbf6f5d413065c55eac619545a/static-web/src/assets/xizong/source-visuals/a2-r06-lg01/r06-p66-bronchiectasis-structure.webp)与[支扩和肺气肿局部对照裁图](https://github.com/kianwang022-hash/kianos/blob/ee6e1264c9c19bbbf6f5d413065c55eac619545a/static-web/src/assets/xizong/source-visuals/a2-r06-lg01/r06-p67-bronchiectasis-vs-emphysema.webp)。两张裁图主题已核；原 PDF 页码／对象索引仍待核实，局部裁图不代表完整比较表或本节全部原图任务已完成。
+
 必须回 Study / MarginNote 3 查看：
 
 1. **病理 P68**：段 / 小支气管管壁支撑结构、周围纤维牵拉与跨壁压示意；
