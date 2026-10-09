@@ -6,7 +6,7 @@ Learner-facing Vocabulary / Lexical belongs under **English**. This file owns on
 
 ## Current / Next / Blocker
 
-**Current：** 按Kian 2026-10-09最新要求，重点继续西综，并行推进词汇；词汇语义审核仍由总控本人完成。前 1000 词已交付。本轮由总控本人从 1001–1200 重新完成三遍内容审核；1001–1050 现行语义内容已逐词读取，已有 35 词首轮修改草稿、8 个 Relation 首轮判断（2 保留、6 修改候选）。本次续读1001–1010的现行语义字段，定向修正conform默认不及物Core、confuse抽象宾语及with边界、connection连接对象与转乘选择。第一遍尚未收完，第二、三遍未开始，不计 50 词或 200 词交付。已保存可恢复 Library libfile_42e6e79c3738819189a2dce184aca294 version7：50 词原稿、35 词草稿、8 个 Relation 原稿、6 个 Relation 候选及 16 份审核记录；包与解压文件逐字节核验通过。50 词 relation_refs 与这 8 个原件机械对应完整，不代替语义验收；connection/link 旧 WordNet 校准仍待核。第二千词旧 P2/P3 本地文件不可用，旧累计与旧 PASS 不计本轮完成。
+**Current：** 按Kian 2026-10-09最新要求，重点继续西综，并行推进词汇；词汇语义审核仍由总控本人完成。前1000词已交付。本轮从1001–1200完成三遍内容审核。当前1001–1050已由总控续读全部50词现行语义字段，保存40词首轮修改草稿及8个Relation判断（2保留、6候选）。续读修正包括confuse抽象宾语、conscientious objection适用范围、consent两种to结构、constant反复义、constituent居民/选民范围，并将11项普通及物宾语或组合实例降为usage_example，内容与身份保留，不增加义项或构式。本轮第一遍仍待connection/link旧WordNet校准收口；第二、三遍未开始，不计50词或200词完成。可恢复Library libfile_42e6e79c3738819189a2dce184aca294 version8已保存：50词原稿、40词草稿、8个Relation原稿、6个Relation候选及本轮审核记录；ZIP完整性已核。第二千词旧P2/P3文件不可用，旧累计与旧PASS不计本轮完成。
 
 **Next：** 继续1001–1050的三遍审核，再依次处理该200词包其余范围。每50词保存可恢复的有效断点，注明精确范围、三遍分别进度、具体未决问题、可读文件/版本及下一步；每200词完成三遍后，在当前聊天交付可下载包。200词交付替代原250词方案。
 
