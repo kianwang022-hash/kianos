@@ -3,6 +3,10 @@
 Status: **CURRENT · routing only**  
 Parent: root `CURRENT.md`
 
+Role: **Xizong engineering Work Cursor + narrow scope router**
+
+This file owns routing only, not medical Knowledge, Learning Logic, Acceptance Truth, learner progress or Shared Platform policy. A bare `继续西综 / 继续循环 / 继续呼吸` remains LEARN unless the conversation explicitly establishes engineering work.
+
 ## 唯一内容执行任务
 
 [**#1113 — 西综全科模型、完整主提示与精确记忆**](https://github.com/kianwang022-hash/kianos/issues/1113) 是本次西综内容任务唯一的范围、各System进度、当前版本、Next、Blocker及阶段/总任务结束条件入口。恢复工程时先读它，按其当前版本继续；旧PR、历史Acceptance、交付包或聊天摘要都不提供另一套目标或Next。
