@@ -32,7 +32,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Full Politics Content closure task — 2026-10-08
 
-本任务及当前规则修正仍在[草稿PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289)分支 `dot/politics-content-closure-rules-20261008`，不冒充main已采用。唯一当前断点见下方Current / Next；此前五章抽查只是诊断。
+本轮内容及读取修正在[PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289)完成，采用状态以该PR的实际合并状态为准。此前五章抽查只是诊断，最终53章限定验收见下方记录。
 
 ### 目的和范围
 
@@ -82,7 +82,7 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 **Current：** 五科53章本轮内容及Chat读取验收已收口，最终内容修补版本为 `5e919f1d0392b114a91f1cfb4a56bcd3940eb4e2`。269组现行主提示答案维度已核对；53章五类输出、五次当前对话内接续、五科串联及最后五条自然短请求均已实际生成并由总控阅读。13个原文件17处旧读取指令已修复、远端逐字回读及受影响路径复测。精确覆盖与未检边界见[Acceptance的2026-10-09记录](ACCEPTANCE.md#2026-10-09-final-content--chat-reading-acceptance--candidate-only)。这不证明全部原始Source/PDF或真人学习效果通过。
 
-**Next：** 本轮内容审查停止，不自动再开全量审查。2026-10-09用户已明确要求完成收尾并合并PR #1289；只核对最终合并条件并执行该PR合并、main回读，不发布网站。普通学习按指定科目/章节经Interaction直接读取Content，不读本游标。毛中特22项原始Source待保存项及其C06–C08、史纲C06–C10等局部Source/PDF、OCR、题键和年度边界仍由原owner保留，不扩大为新任务。
+**Next：** 本轮内容审查停止，不自动再开全量审查。2026-10-09用户已明确要求完成收尾并合并PR #1289；合并尚未完成时，只核对最终合并条件并执行该PR合并、main回读；PR已合并则该交付步骤结束，默认STOP，不从历史Next恢复任务。不发布网站。普通学习按指定科目/章节经Interaction直接读取Content，不读本游标。毛中特22项原始Source待保存项及其C06–C08、史纲C06–C10等局部Source/PDF、OCR、题键和年度边界仍由原owner保留，不扩大为新任务。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
