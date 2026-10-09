@@ -1949,7 +1949,7 @@
 <!-- kianos:model adopted-model -->
 # B1｜一圈血怎样被推出、分配、回收，再供养心脏
 
-从充盈开始，沿同一机械变量路线走到回心；左右室分别应用泵模型，稳态输出接近。冠脉是主动脉发出的并行供养支路。节点上的〔完整 Prompt〕就是展开与回忆的入口。先顺着关系重建，卡住才展开原解释；标题可直达完整知识。当前仍是候选阅读稿，不表示已经学习或完成。
+本节是本次所读版本指定的 B1 教学与复习模型，不表示已经学习或完成。首次教学先读下方[整块开场、全圈图与变量语言](#b1-first-learning-opening)，再沿同一模型在自然节点展开解释；复习时再合上解释，沿原路重建，卡住才展开。节点上的〔完整 Prompt〕从同页对应 KP 的现行标题与主提示读取。路线从充盈走到回心；左右室分别应用泵模型，稳态输出接近。冠脉是主动脉发出的并行供养支路。
 
 <!-- b1:route:start -->
 <!-- kianos:model-view mechanism-spine -->
@@ -2374,8 +2374,9 @@ B2只需接着回答这些变量偏了以后谁感知、谁执行、谁调整容
 - MedicalVisual：[全部十项原图要求](#circulation-b01-reference-ef45bb7d4e25)与[当前选择性图像定位](#circulation-b01-reference-169d12f51036)。当前推理依赖图形时就看原图；列出定位不等于已看。
 - 非正文项：[即时机制与延后精度类别](#circulation-b01-reference-ee248caba698)、[原资料、Primary和短接口范围](#circulation-b01-reference-b8da2d09bb5b)、[心肌／心包限制充盈接口](#circulation-b01-reference-169d12f51036)；来源核验保留于下方记录，未决项不补造答案。
 
+<a id="b1-first-learning-opening"></a>
 <details>
-<summary>原开篇与全圈图：查看原有模型背景</summary>
+<summary>首次学习先读：整块开场、全圈图与变量语言；复习可折叠</summary>
 
 <!-- b1:source 2:49 -->
 
