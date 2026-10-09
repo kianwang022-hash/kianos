@@ -78,9 +78,9 @@ The Website does not become a second Politics textbook or semantic owner. Conten
 
 ## Current / Next / Blocker
 
-**Current：** 马原C00–C08、史纲C01–C10已支持内容完成两轮审查；毛中特九章文字学习路径第二轮完成。习思想C00–C02三份教案五处有界修正已保存并回读至91269a9e2ed08e5d86c27136c18ba58c51e4cc88：三题不再预给需恢复成员，两处来源归属澄清；原模型、深度与Memory身份不变。均草稿未合并，不能称53章全量收口。
+**Current：** 马原 C00–C08、史纲 C01–C10 已支持内容完成两轮审查；毛中特九章文字学习路径第二轮完成。习思想 C00–C02 原五处修正及后续七处来源增量均已保存并回读至 a6ab273215704ed298b12c3a42269bc55c321777：补科学社会主义性质边界、领导作用与 C03 接续、自主与借鉴相容，并澄清同版 MD 来源。原模型、13 组主提示、答案深度与 Memory 身份不变。均草稿未合并，不能称 53 章全量收口。
 
-**Next：** 总控复核并采用习思想 C00–C02 已准备的七处来源增量候选：原 Source reader 已完整读取同版乘风 MD 三章，候选备份 Library libfile_ae69434e244c819196360f57ef13dafa v1，尚未写入 GitHub；不重新准备同一批。原图像素仍未核，C00 一身份的腿姐必要性仍未重证。随后按原章序继续；未变毛内容不第三遍润色。毛 22 处 Source 修正仍待保存；毛 C06–C08 原页包下载 403、完整 Source 仍 PARTIAL；史纲其余原文/Visual 缺口按原 owner 保留。
+**Next：** 按原章序接习思想 C03–C05 内容与完整来源核对；复用已核同版证据，不重做 C00–C02 七处增量。该增量候选 Library libfile_ae69434e244c819196360f57ef13dafa v1 已由上述 GitHub 回读采用。原图像素仍未核，C00 一身份的腿姐必要性仍未重证；毛 22 处 Source 修正仍待保存，毛 C06–C08 原页包下载 403、完整 Source 仍 PARTIAL；史纲其余原文/Visual 缺口按原 owner 保留。
 
 **规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
 
