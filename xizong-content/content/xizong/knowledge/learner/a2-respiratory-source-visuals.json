@@ -1,0 +1,377 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "Preserves reviewed sparse A2 source visuals. The former R1 LG04 obstructive/restrictive screenshot and R10 LG01 pleural-fluid mechanism/Light screenshots were migrated to native STRUCTURED_TABLE Extension slots and are intentionally absent here. Freeze 2026-09-24 adds the reviewed R09 pulmonary-hypertension/cor-pulmonale Source visual. R6 original-PDF pixel verification establishes physical PDF P68/P69 and printed P66/P67 for the two existing crops. Their source_page values and p66/p67 filenames retain printed-page convention. Historical source_object_id pi65/pi66 strings remain unchanged as provenance identifiers, not verified physical-page navigation; their generation history is not reconstructed.",
+  "bundles": [
+    {
+      "cue_id": "a2-r01-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi168:crop:e9ccf5070ad3ffd7",
+          "source_page": 169,
+          "usage_role": "LUNG_VOLUMES_CAPACITIES_COMPOSITION_VISUAL",
+          "usage_label": "P169 · 肺容积/肺容量组成",
+          "alt": "生理讲义 P169：潮气量、补吸气量、补呼气量、残气量及 IC/FRC/VC/TLC 的组成图",
+          "asset_path": "a2-r01-lg01/r01-p169-lung-volumes-capacities.webp",
+          "width": 850,
+          "height": 490,
+          "source_crop_sha256": "e9ccf5070ad3ffd7401f7208e93b1494bdcd8ed839b2234086eb04b98812ed0a",
+          "derived_asset_sha256": "054e8a14b7c1fdf8184530919e6bbe27cc271c289bb8c2ff618a574bfa6dc031"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:528ee0d18c51df55",
+          "source_page": 187,
+          "usage_role": "RESPIRATORY_MEMBRANE_LAYER_ANATOMY",
+          "usage_label": "P187 · 呼吸膜六层结构",
+          "alt": "生理讲义 P187：从肺泡表面活性物质层到毛细血管内皮的呼吸膜六层结构图",
+          "asset_path": "a2-r02-lg01/r02-p187-respiratory-membrane.webp",
+          "width": 1100,
+          "height": 420,
+          "source_crop_sha256": "528ee0d18c51df55beae1cfd000400c815f6653fde6fcb54f748d2b9f0f2944f",
+          "derived_asset_sha256": "1f5071f702a47bd91da25068035d8b24d2f81de938c7e2699122b7fc04de9456"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r02-lg02-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi186:crop:3304010f08b9b91c",
+          "source_page": 187,
+          "usage_role": "VAQ_APEX_BASE_GRADIENT_AND_DEAD_SPACE_SHUNT",
+          "usage_label": "P187 · VA/Q 肺尖—肺底梯度与死腔/分流方向",
+          "alt": "生理讲义 P187：正常 VA/Q、肺尖约 3.3、肺底约 0.63 及死腔样通气与肺内分流方向对照",
+          "asset_path": "a2-r02-lg02/r02-p187-vaq-gradient.webp",
+          "width": 1050,
+          "height": 930,
+          "source_crop_sha256": "3304010f08b9b91c7d20dcb6a3c531efd0a1eb23307a6e0fab60d13eb944e481",
+          "derived_asset_sha256": "291d25f84d0128d3780e4243586451ef6b7a4f5fda65e820998747a8dcff3c3a"
+        },
+        {
+          "source_object_id": "physiology:0ad07df500372:pi187:crop:06d38f3774f042ec",
+          "source_page": 188,
+          "usage_role": "DEAD_SPACE_SHUNT_ALVEOLAR_SCHEMATIC",
+          "usage_label": "P188 · 死腔样与分流样肺泡示意",
+          "alt": "生理讲义 P188：小气道通气不足与肺大泡压迫血流所对应的低 VA/Q 与高 VA/Q 肺泡示意图",
+          "asset_path": "a2-r02-lg02/r02-p188-vaq-dead-space-shunt.webp",
+          "width": 500,
+          "height": 300,
+          "source_crop_sha256": "06d38f3774f042ecded2f94a2fd891398236becb069a63b79ab942b1677e48fa",
+          "derived_asset_sha256": "482a2d730aa095fa6531b3331a243e10a924b21ba439ba7ef9981c54d3f771dc"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r03-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi54:r067191-059388-604717-938331",
+          "source_page": 55,
+          "usage_role": "AIRWAY_ACINUS_CONTINUITY_VISUAL",
+          "usage_label": "P55 · 正常气道 → 肺腺泡定位",
+          "alt": "病理讲义 P55：传导部、呼吸部与肺腺泡的连续定位原图",
+          "asset_path": "a2-r03-lg01/p55.webp",
+          "width": 420,
+          "height": 555,
+          "derived_asset_sha256": "d755619e3b711effbaff75c818cf25d56585655bbd338ab92362a1e84bb80a83"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi59:r067191-593881-547125-873005",
+          "source_page": 60,
+          "usage_role": "CHRONIC_BRONCHITIS_WALL_PATHOLOGY_VISUAL",
+          "usage_label": "P60 · 慢支气道壁病理",
+          "alt": "病理讲义 P60：慢性支气管炎气道壁病理变化原图",
+          "asset_path": "a2-r03-lg01/p60.webp",
+          "width": 420,
+          "height": 197,
+          "derived_asset_sha256": "026d4a76477fedcded32732765ac20951048a8ef21a135b1228fee919b3a8b37"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi62:r076789-053449-623914-451349",
+          "source_page": 63,
+          "usage_role": "EMPHYSEMA_ACINAR_TYPE_VISUAL",
+          "usage_label": "P63 · 肺气肿腺泡分型",
+          "alt": "病理讲义 P63：肺气肿在肺腺泡内的分型位置原图",
+          "asset_path": "a2-r03-lg01/p63.webp",
+          "width": 420,
+          "height": 247,
+          "derived_asset_sha256": "d4263beea13b36155da3d130c253e881a209e3786fbe91fd1f976bfcfe808c88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r04-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:e7e3fd25bfe65195",
+          "source_page": 47,
+          "usage_role": "ASTHMA_PATHOGENESIS_FLOW",
+          "usage_label": "P47 · 哮喘炎症—神经—高反应性",
+          "alt": "内科讲义 P47：遗传/环境因素经气道炎症、神经调节与平滑肌异常汇入气道高反应性的机制图",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-pathogenesis.webp",
+          "width": 620,
+          "height": 291,
+          "source_crop_sha256": "e7e3fd25bfe65195b26db2ddcd2cd7b64390c9299bfdda1f773aa38c2fcfff43",
+          "derived_asset_sha256": "407dae0fbb0197dcf92eb05ebdf0286561ebc6a311e00c7c8f9bbdcc6019a51f"
+        },
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi56:crop:d16a3089d7fac6fc",
+          "source_page": 47,
+          "usage_role": "ASTHMA_AIRWAY_NARROWING_COMPARISON",
+          "usage_label": "P47 · 正常支气管 vs 哮喘发作",
+          "alt": "内科讲义 P47：慢性炎症相关管壁肿胀、黏液分泌和支气管痉挛与正常支气管的结构对照",
+          "asset_path": "a2-r04-lg01/r04-p47-asthma-airway.webp",
+          "width": 440,
+          "height": 189,
+          "source_crop_sha256": "d16a3089d7fac6fcc554a021dcc76ad6dd585ac7afd679e47b03688dee70e21a",
+          "derived_asset_sha256": "e1349d6e70f8bf772d46e590a11bb92bcdf0c2e9e01d20bd7721380d6f3a3652"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r05-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi40:crop:01c20136410534ae",
+          "source_page": 33,
+          "usage_role": "PNEUMONIA_SPATIAL_DISTRIBUTION_COMPOSITE",
+          "usage_label": "P33 · 肺炎病变范围与影像分布",
+          "alt": "内科讲义 P33：小叶性、融合性小叶性、间质性与大叶性肺炎的范围示意及代表性影像",
+          "asset_path": "a2-r05-lg02/r05-p33-pneumonia-spatial-distribution.webp",
+          "width": 1150,
+          "height": 490,
+          "source_crop_sha256": "01c20136410534eaedf4e2034825e1a17170613c234218459edfba310685c659",
+          "derived_asset_sha256": "311c5fff66cda88d968c7ec1e1536a0713cbfc60089a3484c329e827953349d2"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r06-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi65:crop:80558db047fe94c2",
+          "source_page": 66,
+          "usage_role": "BRONCHIECTASIS_STRUCTURE_AND_GROSS_VISUAL",
+          "usage_label": "PDF P68 / 印刷 P66 · 支扩结构破坏与永久扩张",
+          "alt": "病理讲义 PDF P68 / 印刷 P66：支气管扩张的结构破坏、肉眼图与永久扩张机制",
+          "asset_path": "a2-r06-lg01/r06-p66-bronchiectasis-structure.webp",
+          "width": 350,
+          "height": 241,
+          "source_crop_sha256": "80558db047fe94c2df017b108c9720a651f2a2fe903e71a08be94efb067970cf",
+          "derived_asset_sha256": "b4a9c6b45828246bca4d44f919e731f6aae6b8edcf9462ee78169592b1c73168"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi66:crop:393c7eb60e5c21f2",
+          "source_page": 67,
+          "usage_role": "BRONCHIECTASIS_VS_EMPHYSEMA_COMPARISON",
+          "usage_label": "PDF P69 / 印刷 P67 · 支扩 vs 肺气肿结构对照",
+          "alt": "病理讲义 PDF P69 / 印刷 P67：支气管扩张与肺气肿在受累部位、壁结构和扩张机制上的对照",
+          "asset_path": "a2-r06-lg01/r06-p67-bronchiectasis-vs-emphysema.webp",
+          "width": 390,
+          "height": 155,
+          "source_crop_sha256": "393c7eb60e5c21f221fd99a5398d69c9989ce2392542b96b88c0d7ff693994a7",
+          "derived_asset_sha256": "fd6e22cd78a660f54a1436361c34b0f79fb924435e93722252df817762ab3539"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi109:crop:071d7e7651c879fd",
+          "source_page": 110,
+          "usage_role": "TUBERCULOUS_GRANULOMA_CELLULAR_ARCHITECTURE",
+          "usage_label": "P110 · 结核结节细胞层次",
+          "alt": "病理讲义 P110：结核结节中上皮样细胞、Langhans 巨细胞与干酪样坏死的层次关系",
+          "asset_path": "a2-r07-lg01/r07-p110-tb-granuloma.webp",
+          "width": 560,
+          "height": 235,
+          "source_crop_sha256": "071d7e7651c879fde609fa99f6c38c64a80bf58c27dec03b389009d741fcbd64",
+          "derived_asset_sha256": "ea615e222d885d63ff38d2d6420276c34c762d5ea82ca3be601a7dd8941311ec"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi110:crop:ab3991feb856def4",
+          "source_page": 111,
+          "usage_role": "CASEOUS_NECROSIS_GROSS_AND_HISTOLOGY_VISUAL",
+          "usage_label": "P111 · 干酪样坏死肉眼与镜下",
+          "alt": "病理讲义 P111：结核干酪样坏死的肉眼形态与镜下无结构坏死区对照",
+          "asset_path": "a2-r07-lg01/r07-p111-caseous-necrosis.webp",
+          "width": 600,
+          "height": 220,
+          "source_crop_sha256": "ab3991feb856def4f64b0e9865c3606feabf869da434319264833958edda9192",
+          "derived_asset_sha256": "5351682d7329d7e5a44eb5889efc4586172d44f145707ddadf73cee61274589b"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg02-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi110:crop:11c49112414287e8",
+          "source_page": 111,
+          "usage_role": "PRIMARY_COMPLEX_ANATOMY_AND_RADIOGRAPH_VISUAL",
+          "usage_label": "P111 · 原发复合征三联征与播散",
+          "alt": "病理讲义 P111：原发复合征的肺内原发灶、淋巴管炎、肺门淋巴结结核及相关影像",
+          "asset_path": "a2-r07-lg02/r07-p111-primary-complex.webp",
+          "width": 600,
+          "height": 330,
+          "source_crop_sha256": "11c49112414287e8dd8dfa73c500955ff15ee93a84103b1418054c258953734d",
+          "derived_asset_sha256": "632899d49c14f7dc7fd08f1e6a0055f2e6d0299e623418172dd01f09defec1f7"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:r033595-486982-547125-629514",
+          "source_page": 22,
+          "usage_role": "OBSTRUCTIVE_RESTRICTIVE_PULMONARY_FUNCTION_TABLE",
+          "usage_label": "P22 · 阻塞 vs 限制肺功能",
+          "alt": "内科讲义 P22：阻塞性与限制性通气功能障碍关键肺功能指标对照表",
+          "asset_path": "a2-r08-lg01/r08-p22-pft-table.webp",
+          "width": 520,
+          "height": 117,
+          "source_crop_sha256": "0d67c0dc3c357bfe87cdd795ffe5525f5f14ae50a6609678bd8b511553fa479c",
+          "derived_asset_sha256": "fcc0cf9781c0744b95bf1f8bd510f3b36b5689cbcf597b897c48246939809464"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r08-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi26:crop:950f038cd66ef5c7",
+          "source_page": 22,
+          "usage_role": "IPF_HRCT_PATTERN_VISUAL",
+          "usage_label": "印刷P22／PDF P27 · 左IPF与中支扩、右肺泡细胞癌原图比较",
+          "alt": "内科原裁图左标特发性肺纤维化，中标支扩，右原标肺泡细胞癌；只将左图用于IPF分布形态，其余为原页比较对象，不将整幅认作IPF。",
+          "asset_path": "a2-r08-lg02/r08-p22-ipf-hrct.webp",
+          "width": 460,
+          "height": 211,
+          "source_crop_sha256": "950f038cd66ef5c7e0fcf7619974335fa4f638ffeb145eb998598aec8bd2f7ed",
+          "derived_asset_sha256": "4760a18df114133aaef47a5e892c318fdd3a874edf8677ca1f51406c5b99735c"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r10-lg02-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi83:crop:9a3124b3776fa71c",
+          "source_page": 69,
+          "usage_role": "PLEURAL_EFFUSION_IMAGING_MEDIASTINAL_DIRECTION",
+          "usage_label": "印刷 P69／PDF P84 · 胸腔积液影像与纵隔方向",
+          "alt": "内科讲义印刷 P69／PDF 物理 P84：胸腔积液液体占位、弧形/D 字型密度与纵隔方向；摩擦音与移位的关系按当前 KP06 局部条件理解",
+          "asset_path": "a2-r10-lg02/r10-p69-pleural-effusion-imaging.webp",
+          "width": 1400,
+          "height": 1180,
+          "source_crop_sha256": "9a3124b3776fa71c0e7d5887597bb854b94d39bb25df13bb9a3e6f7bc771d9d9",
+          "derived_asset_sha256": "56274bb4f8737508d668eecd33761f522421da6636364dab087d92e30c521332"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r12-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "internal-medicine:4ebf1bf62eea5eb1:pi64:crop:a644c5bbc51f63f6",
+          "source_page": 54,
+          "usage_role": "ARDS_DUAL_INJURY_PATHOPHYSIOLOGY_FLOW",
+          "usage_label": "PDF物理P65（印刷P54）· ARDS双损伤病理生理流程",
+          "alt": "内科PDF物理P65（印刷P54）：内皮与Ⅱ型肺泡上皮损伤汇入肺水肿/肺不张、V/Q失调及顽固低氧；此局部下方肺泡对照裁切不全",
+          "asset_path": "a2-r12-lg01/r12-p54-ards-dual-injury.webp",
+          "width": 1000,
+          "height": 800,
+          "source_crop_sha256": "a644c5bbc51f63f6fdcf2913612071977bfe1ac7a94cf6999067452dad670b49",
+          "derived_asset_sha256": "606c3819e95c494e23bda5fb52eb37c65a7dd1bfa211c016942af17570bd129a"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r11-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi76:crop:18a89da3bd2c28e6",
+          "source_page": 75,
+          "usage_role": "LUNG_CANCER_GROSS_LOCATION_TYPES",
+          "usage_label": "PDF P77（印刷 P75）· 三种位置文字与中央／周围具名标本",
+          "alt": "病理讲义PDF P77（印刷P75）：文字列中央／周围／弥漫位置，图10-20、10-21为中央与周围标本；右侧另一标本无独立标签",
+          "asset_path": "a2-r11-lg01/r11-p75-lung-gross-types.webp",
+          "width": 620,
+          "height": 347,
+          "source_crop_sha256": "18a89da3bd2c28e69b49cdf2fbbec3ce9046a17e98dc5f06b06c0c6c74765911",
+          "derived_asset_sha256": "045fe458b0a01dd9dd225621cb354412422e67c05637a82e67fe25e201309f2d"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi77:crop:366fe94125fc07a7",
+          "source_page": 76,
+          "usage_role": "SMALL_CELL_LUNG_CANCER_HISTOLOGY",
+          "usage_label": "PDF P78（印刷 P76）· 小细胞肺癌镜下形态",
+          "alt": "病理讲义 PDF P78（印刷 P76）：小细胞肺癌的燕麦样小细胞、胞质少、核深染和巢状/片状排列的镜下图",
+          "asset_path": "a2-r11-lg01/r11-p76-small-cell-histology.webp",
+          "width": 400,
+          "height": 262,
+          "source_crop_sha256": "366fe94125fc07a7c58b801488db8d75621773262513e097e464883312fd081a",
+          "derived_asset_sha256": "3f1d8683474d0648a301a1b6f2b17e23a4706852c31a688a190088f1ca6ad742"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r09-lg01-visual",
+      "source_sha256": "4ebf1bf62eea5eb12c9363e16f72e2e3c676fd4d387ab222e1daddc45f509939",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "xizong-lecture-internal-medicine-pdf-v2:4ebf1bf62eea5eb1:p15:freeze:r09-p15-pulmonary-hypertension-cor-pulmonale",
+          "source_page": 15,
+          "usage_role": "A2_R09_LG01_VISUAL",
+          "usage_label": "内科_27内科精编版合集_带导图.pdf · PDF P15",
+          "alt": "肺动脉高压/肺心病：肺血管重构→右心后负荷与P2/分裂。",
+          "asset_path": "a2-r09-lg01/r09-p15-pulmonary-hypertension-cor-pulmonale.webp",
+          "width": 651,
+          "height": 1000,
+          "derived_asset_sha256": "4680289cddb102b2f81005076d2cdec9002b42ef51845594285a238e9f0f4ade"
+        }
+      ]
+    }
+  ]
+}

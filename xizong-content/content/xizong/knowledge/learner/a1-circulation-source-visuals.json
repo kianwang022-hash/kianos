@@ -1,0 +1,340 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "circulation",
+  "canonical_id": "A1",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "First reviewed A1 Source Visual slice, byte-locked to reviewed source-faithful pathology crops for rheumatic heart disease and atherosclerotic plaque, now extended with reviewed physiology crops for cardiac-cycle PV mechanics, PV-loop perturbations, microcirculation fluid return and electrophysiology; unused optional or future A1 visuals are not prerequisites. A currently required original visual must be shown from the reviewed asset/source route; if unavailable, disclose the gap and HOLD only that visual-dependent point without claiming it was learned from a locator or text.",
+  "bundles": [
+    {
+      "cue_id": "a1-b05-lg07-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi43:r340659-571318-824176-744267",
+          "source_page": 44,
+          "usage_role": "ATHEROSCLEROTIC_PLAQUE_STRUCTURE_VISUAL",
+          "usage_label": "P44 · 粥样斑块结构",
+          "alt": "病理讲义 P44：动脉粥样硬化斑块中纤维帽、胆固醇结晶与坏死/脂质核心原图",
+          "asset_path": "a1-b05-lg07/p44-plaque-structure.webp",
+          "width": 520,
+          "height": 263,
+          "source_crop_sha256": "1c3908f6e63004cf7217ddaeccd3f3c9526971ed8f7294b0ab3635fd8cada88f",
+          "derived_asset_sha256": "077b200c5dfe401d128502d2ee362e5476468841d4a7b35eff6ac7184d24cb38"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi44:r038462-046638-939560-641275",
+          "source_page": 45,
+          "usage_role": "ATHEROSCLEROTIC_PLAQUE_COMPLICATIONS_VISUAL",
+          "usage_label": "P45 · 斑块继发改变",
+          "alt": "病理讲义 P45：斑块内出血、纤维帽破裂、动脉瘤、钙化与血栓等继发改变原图",
+          "asset_path": "a1-b05-lg07/p45-plaque-complications.webp",
+          "width": 340,
+          "height": 291,
+          "source_crop_sha256": "a0a5a778e5cb66c8f258645fad794b43de30728f49cc63b30ed9badcf9756f36",
+          "derived_asset_sha256": "a9cb39d636b41ad42d192715b6762d3a693f73778f0fb63ddbdfe664d42f3929"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b07-lg02-visual",
+      "source_sha256": "8d294c90a34724d4c70bf6231dd63ce0548e17f9528503d0953078d7d84e1329",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi34:r043956-489701-824176-893898",
+          "source_page": 35,
+          "usage_role": "ASCHOFF_BODY_HISTOLOGY_VISUAL",
+          "usage_label": "P35 · Aschoff 小体",
+          "alt": "病理讲义 P35：风湿性心肌炎 Aschoff 小体组织学原图",
+          "asset_path": "a1-b07-lg02/p35-aschoff.webp",
+          "width": 320,
+          "height": 161,
+          "source_crop_sha256": "836c173bf4e5920dd51a05e551b3ddad532971254eb7dc10949372aefbd8796c",
+          "derived_asset_sha256": "2bf8bade234ec712fa31cfccf16789b2e197e06988fb200d1b9a164d2810d666"
+        },
+        {
+          "source_object_id": "pathology:8d294c90a34724d4:pi35:r505495-641275-912088-897785",
+          "source_page": 36,
+          "usage_role": "RHEUMATIC_VALVE_GROSS_VISUAL",
+          "usage_label": "P36 · 风湿性疣状心内膜炎",
+          "alt": "病理讲义 P36：风湿性疣状心内膜炎肉眼原图，二尖瓣闭锁缘细小赘生物；不以此图单独证明完整慢性纤维化演变",
+          "asset_path": "a1-b07-lg02/p36-rheumatic-valve.webp",
+          "width": 320,
+          "height": 324,
+          "source_crop_sha256": "f4cfc49a04052804414dfe027bfdf3282fed3428e058c53e85806434d4899b1a",
+          "derived_asset_sha256": "58be3c470e324bd129b6b6939d8e0d2422f648681a5aaab349e2961aed6a3cfa"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi111:crop:ce651879562c12c6",
+          "source_page": 112,
+          "usage_role": "CARDIAC_CYCLE_PRESSURE_VOLUME_LOOP",
+          "usage_label": "P112 · 心动周期压力—容积环",
+          "alt": "生理讲义 P112：心室压力—容积环的等容舒张、快速充盈、减慢充盈、等容收缩和射血转换",
+          "asset_path": "a1-b01-lg01/b01-p112-cardiac-cycle-pv-loop.webp",
+          "width": 1100,
+          "height": 1300,
+          "source_crop_sha256": "ce651879562c12c64a38069623f3c57c1065cb7962955c57587186335122b3a9",
+          "derived_asset_sha256": "156c1b09e1cf744d5cce745ebfd574b6328347affdaaf577263e49ae86e2609a"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi118:crop:9673192f23b96f7c",
+          "source_page": 119,
+          "usage_role": "PV_LOOP_PRELOAD_AFTERLOAD_CONTRACTILITY_COMPLIANCE_COMPARISON",
+          "usage_label": "P119 · 前负荷/后负荷/收缩性/顺应性 PV 环",
+          "alt": "生理讲义 P119：前负荷、后负荷、收缩性和顺应性改变对左心室压力—容积环的方向与宽度影响",
+          "asset_path": "a1-b01-lg04/b01-p119-pv-loop-perturbations.webp",
+          "width": 1300,
+          "height": 1600,
+          "source_crop_sha256": "9673192f23b96f7c201891f878c36c4f7dc7e470416cc6f63a1e45dba87313ab",
+          "derived_asset_sha256": "a1ce2aae2a5d23ed883ea8199ebad37d0f5c0dffcd8925c123890ba8c3af42ad"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-lg06-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi130:crop:323db6d1e6bb1ee8",
+          "source_page": 131,
+          "usage_role": "MICROCIRCULATION_STARLING_FLUID_RETURN",
+          "usage_label": "P131 · 微循环—组织液—淋巴回流",
+          "alt": "生理讲义 P131：小动脉、真毛细血管和小静脉微循环与滤出、回吸收、组织液形成及淋巴回流关系",
+          "asset_path": "a1-b01-lg06/b01-p131-microcirculation-starling-fluid-return.webp",
+          "width": 1300,
+          "height": 1650,
+          "source_crop_sha256": "323db6d1e6bb1ee8248dc8c6633b690bc6c1a9878030f2beade527b841b0267d",
+          "derived_asset_sha256": "c13399ded506d5c75112409c3719da84257dcbb3abb1ecdfe95596b127d5cc88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg01-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi137:crop:4bd4954fb5b8f697",
+          "source_page": 138,
+          "usage_role": "FAST_SLOW_WORKING_PACEMAKER_CLASSIFICATION",
+          "usage_label": "P138 · 快/慢反应与工作/自律细胞分类",
+          "alt": "生理讲义 P138：快反应与慢反应、工作细胞与自律细胞两轴分类表，含心房肌、心室肌、窦房结、房室结和浦肯野的归类及 0 期、4 期特征",
+          "asset_path": "a1-b03-lg01/b03-p138-response-cell-classification.webp",
+          "width": 1150,
+          "height": 730,
+          "source_crop_sha256": "4bd4954fb5b8f697c38d4e2cdff4a99e8b7c01935e7907f84ff2166a8a37722b",
+          "derived_asset_sha256": "78e1e9c94dc2a1b3cf1041a67797980b53c3a8a7cf8d0b98e57bccc33481a78f"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg02-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi138:crop:5a306732d515ae63",
+          "source_page": 139,
+          "usage_role": "WORKING_MYOCYTE_ACTION_POTENTIAL_PHASES",
+          "usage_label": "P139 · 工作心肌 0–4 期动作电位",
+          "alt": "生理讲义 P139：工作心肌动作电位 0–4 期曲线及主要离子流、平台期标注",
+          "asset_path": "a1-b03-lg02/b03-p139-working-myocyte-action-potential.webp",
+          "width": 1150,
+          "height": 1250,
+          "source_crop_sha256": "5a306732d515ae6379c16af22ae94e7d6bd3b16a246494d09bc7f370bdb54960",
+          "derived_asset_sha256": "ac727acfdbbd4bc6309fa9f886d3b55e9b188a328bca1384ad52035eda903056"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg03-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi139:crop:73df77c86ac609ff",
+          "source_page": 140,
+          "usage_role": "PACEMAKER_ACTION_POTENTIAL_PHASE_4_AUTOMATIC_DEPOLARIZATION",
+          "usage_label": "P140 · 窦房结起搏细胞动作电位",
+          "alt": "生理讲义 P140：窦房结 P 细胞动作电位曲线，含 4 期自动去极化、阈值区、0 期钙电流和无稳定静息电位特征",
+          "asset_path": "a1-b03-lg03/b03-p140-pacemaker-action-potential.webp",
+          "width": 1150,
+          "height": 650,
+          "source_crop_sha256": "73df77c86ac609ff647dea40018509ee0560ddb854b9d5190d6c5bd6e5c77fbe",
+          "derived_asset_sha256": "786c65f19f7d3ec0547a5bf7a69f56e74690b398f05edfe5d76506ad8f0340b0"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b03-lg04-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df500372:pi142:crop:bb42d73393707c12",
+          "source_page": 143,
+          "usage_role": "CARDIAC_REFRACTORY_PERIOD_EXCITABILITY_TIMELINE",
+          "usage_label": "P143 · 不应期与兴奋性时间轴",
+          "alt": "生理讲义 P143：心室肌动作电位与绝对不应期、有效不应期、局部反应期、相对不应期及超常期时间轴关系图",
+          "asset_path": "a1-b03-lg04/b03-p143-refractory-excitability-timeline.webp",
+          "width": 1150,
+          "height": 1050,
+          "source_crop_sha256": "bb42d73393707c12e4dd2eeff4413397f64ab18ddf53d16923e0990083750648",
+          "derived_asset_sha256": "fdf58282fae592e689a48fd9476d0491f340015f04b9938277034f72ac665f7d"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-kp25-microcirculation-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi129:crop:8a3741a647afda37",
+          "source_page": 130,
+          "printed_page": "116",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P130 / 印刷116 · 三通路/三闸门/开闭与交换",
+          "alt": "结构分支必须分真毛细、通血毛细、AV吻合，P131不能替代",
+          "asset_path": "a1-b1-b2-source-closure/p130-key-original-crop.png",
+          "width": 1494,
+          "height": 2008,
+          "source_crop_sha256": "8a3741a647afda3767d8edcefc5d9a072dd1072b40379013cdb31d6d4b263145",
+          "derived_asset_sha256": "8a3741a647afda3767d8edcefc5d9a072dd1072b40379013cdb31d6d4b263145"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-kp28-coronary-cycle-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi131:crop:6ffba854a797ffbc",
+          "source_page": 132,
+          "printed_page": "118",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P132 / 印刷118 · 左右冠灌注条件与周期方向",
+          "alt": "实际是分支箭头和文字，未存在全冠流波形",
+          "asset_path": "a1-b1-b2-source-closure/p132-key-original-crop.png",
+          "width": 1620,
+          "height": 801,
+          "source_crop_sha256": "6ffba854a797ffbceb4660f3658b293d588c2503f401e14bb7968ed6d5fa658f",
+          "derived_asset_sha256": "6ffba854a797ffbceb4660f3658b293d588c2503f401e14bb7968ed6d5fa658f"
+        },
+        {
+          "source_object_id": "physiology:0ad07df50037:pi132:crop:f4f3a565ca8c82b8",
+          "source_page": 133,
+          "printed_page": "119",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P133 / 印刷119 · 冠脉代谢/神经调节与供需条件",
+          "alt": "P133冠脉调节、交感直接与代谢总体效应，以及硝酸酯供需表",
+          "asset_path": "a1-b1-b2-source-closure/p133-key-original-crop.png",
+          "width": 1602,
+          "height": 1892,
+          "source_crop_sha256": "f4f3a565ca8c82b866661d28c4c343a79d8da2945a76ae1af7f37eaf2a0e919d",
+          "derived_asset_sha256": "f4f3a565ca8c82b866661d28c4c343a79d8da2945a76ae1af7f37eaf2a0e919d"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b01-kp32-coronary-nitrate-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi132:crop:f4f3a565ca8c82b8",
+          "source_page": 133,
+          "printed_page": "119",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P133 / 印刷119 · 代谢/直接神经、硝酸酯供需",
+          "alt": "原硝酸酯表与直接/代谢不同层须分开",
+          "asset_path": "a1-b1-b2-source-closure/p133-key-original-crop.png",
+          "width": 1602,
+          "height": 1892,
+          "source_crop_sha256": "f4f3a565ca8c82b866661d28c4c343a79d8da2945a76ae1af7f37eaf2a0e919d",
+          "derived_asset_sha256": "f4f3a565ca8c82b866661d28c4c343a79d8da2945a76ae1af7f37eaf2a0e919d"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b02-kp06-vascular-nerve-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi163:crop:f2c2d3c691693f68",
+          "source_page": 164,
+          "printed_page": "147",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P164 / 印刷147 · 局部轴突反射分支",
+          "alt": "仅校准感觉纤维局部分支及CGRP释放；四类血管神经纤维的完整比较见本节KP06正文，不能由本裁图代替",
+          "asset_path": "a1-b1-b2-source-closure/p164-key-original-crop.png",
+          "width": 1476,
+          "height": 975,
+          "source_crop_sha256": "f2c2d3c691693f6858d7a88ce5ef731c42a07f0ba7aba4afdb7dd59bb6905421",
+          "derived_asset_sha256": "f2c2d3c691693f6858d7a88ce5ef731c42a07f0ba7aba4afdb7dd59bb6905421"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b02-kp11-adh-aqp2-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi281:crop:a207682957e38693",
+          "source_page": 282,
+          "printed_page": "247",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P282 / 印刷247 · ADH V2与AQP2膜侧定位",
+          "alt": "基底V2与顶端AQP2、水箭头不可互换",
+          "asset_path": "a1-b1-b2-source-closure/p282-key-original-crop.png",
+          "width": 1602,
+          "height": 1091,
+          "source_crop_sha256": "a207682957e386938eeb64c9e02fb63676511ae08bc2d34afc70e97b1c2f44d9",
+          "derived_asset_sha256": "a207682957e386938eeb64c9e02fb63676511ae08bc2d34afc70e97b1c2f44d9"
+        }
+      ]
+    },
+    {
+      "cue_id": "a1-b02-kp02-baroreflex-visual",
+      "source_sha256": "0ad07df50037258eb87cf778ad70ab9e9fb1deed6d06d72cd35ba8241656e123",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "physiology:0ad07df50037:pi153:crop:15d6508a2df9f8d2",
+          "source_page": 154,
+          "printed_page": "137",
+          "usage_role": "SOURCE_RELATION_CALIBRATION",
+          "usage_label": "P154 / 印刷137 · 压力反射曲线/重调定",
+          "alt": "横窦内压纵MAP负斜率S曲线，高压右上移且较平；无数值敏感范围",
+          "asset_path": "a1-b1-b2-source-closure/p154-key-original-crop.png",
+          "width": 2200,
+          "height": 711,
+          "source_crop_sha256": "15d6508a2df9f8d297294216950db26e884dd09887a749ee670ba33b0bb76cba",
+          "derived_asset_sha256": "15d6508a2df9f8d297294216950db26e884dd09887a749ee670ba33b0bb76cba"
+        }
+      ]
+    }
+  ]
+}

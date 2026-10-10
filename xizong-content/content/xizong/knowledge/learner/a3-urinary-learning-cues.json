@@ -1,0 +1,1357 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "system_owner": "content/xizong/knowledge/systems/a3-urinary/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
+  "learning_support": "content/xizong/knowledge/learner/a3-urinary-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues identify sparse high-value exactness / visual learning moments only. They do not copy or replace canonical medical Core or the original Lecture.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "Absence from this index does not downgrade any canonical KP or fact.",
+    "first_pass": "Precision cues identify exactness worth attending to within the same model; they do not create a mandatory drill queue or withhold prepared answers and conditions during first learning or ordinary review. Any DEFERRED_MEMORY attention_role defers optional independent memorization practice only, not access to its prepared complete answer. Hide an answer only for explicitly requested self-testing. Learning behavior is governed by content/xizong/LEARNING_CONTRACT.md and content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md.",
+    "visual_behavior": "Show the reviewed original/source visual at the relevant model node when it is needed for understanding, with its task as a reading cue rather than a mandatory quiz or pause. Preserve answer-bearing content during ordinary learning and review; conceal it only within explicit self-testing. If a currently required original visual is unavailable, disclose the specific gap and keep that visual-dependent point on HOLD; a locator or text does not substitute for the original, and unrelated learning may continue. An unused optional or future visual is not a learning prerequisite. No completion ceremony or image rating.",
+    "source_truth": "Exact medical meaning remains in canonical Block/KP content and the referenced original Lecture."
+  },
+  "precision_index": [
+    {
+      "id": "a3-b01-lg04-precision",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg04"
+      },
+      "cue": "怎样由同一次尿/血测量得到C、RPF、RBF、FF及自由水方向，并在什么条件下用C与GFR比较？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b01-lg04-precision",
+        "item_sha256": "b2830012f3c6ff0e8d793045f35b46ef63c6fc95494577d03251ba11b7d3acbd",
+        "owner_kp_ids": [
+          "urinary-b01-kp06",
+          "urinary-b01-kp07",
+          "urinary-b01-kp08",
+          "urinary-b01-kp09"
+        ],
+        "owner_sha256": "8a9258d5eb1219ab8d395fff70a602a022b661a5e25c858c8e79479a0a1d25a8",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b01",
+            "kp_id": "urinary-b01-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ba4bff4bd95a86cd914f35b3088c22b1a73da5406424715f2f444b6bc28bc1bb"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b01",
+            "kp_id": "urinary-b01-kp07",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ac594796904c1cccc2dd30631ab61cf0337161a4213366b64fdcda15893c5b24"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b01",
+            "kp_id": "urinary-b01-kp08",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a3bd5f627e94ccd3f410b13d72bc03cdf237a1af3b5dc4d9f20d7b32f74cafda"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b01",
+            "kp_id": "urinary-b01-kp09",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "3039659b603562b54ff7cd865ced9724450119023f393f30df8ea41f747a55e6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b01-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "kp_id": "urinary-b01-kp14"
+      },
+      "cue": "本课程正常排尿反射有哪些压力与容量数字，各对应什么阶段、单位和适用语境？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b01-kp14-precision",
+        "item_sha256": "22f6608291a491b6b447363430d0c1b5b92e7d78c6ad3a1380d3a9d3f8935999",
+        "owner_kp_ids": [
+          "urinary-b01-kp14"
+        ],
+        "owner_sha256": "e8467a0e4658225b6df7b32a7dd5611a982017c05d5a4241a08afee67e5abae9",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b01",
+            "kp_id": "urinary-b01-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block1_肾脏总地图_清除率_肾血流与内分泌_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "594a20407d34f3e0baf16e92de2314964ec1e98605d99023252c45b9cc9f2197"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b02-kp04-precision",
+      "anchor": {
+        "block_id": "urinary-b02",
+        "kp_id": "urinary-b02-kp04"
+      },
+      "cue": "写完整净滤过压式、可简化的条件及课程入球端数值。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b02-kp04-precision",
+        "item_sha256": "7b341e5df0f46d0c71d76d823ca22f936f86acfcfa8689f0accc5f20e3d969c5",
+        "owner_kp_ids": [
+          "urinary-b02-kp04"
+        ],
+        "owner_sha256": "a337b6952d9f7697037a28ea3d379a0032c278f63f87470874d188c47938ff0e",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b02",
+            "kp_id": "urinary-b02-kp04",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "93538f48f70c5573f728d55959f558290d9bc3867d2f8240c3d421fbfb6bc05d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b03-lg05-precision",
+      "anchor": {
+        "block_id": "urinary-b03",
+        "logic_group_id": "urinary-b03-lg05"
+      },
+      "cue": "沿PCT→TAL→DCT→集合管，把七类药物、靶点和课程主要效应/风险放回同一段位图。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b03-lg05-precision",
+        "item_sha256": "dcb97968f95c03516de7535d899e2a9e330b62a8188419652737867e85aa14f3",
+        "owner_kp_ids": [
+          "urinary-b03-kp15",
+          "urinary-b03-kp16",
+          "urinary-b03-kp17",
+          "urinary-b03-kp18",
+          "urinary-b03-kp19"
+        ],
+        "owner_sha256": "882e806372aae58988dca52d166ccc4fabdadd80749d66718d6f5fa71a4cae8f",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp15",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ffacec7d46a1c4640b38c52f56cd5fc74e858c6b437506bdcac4b8628ed40339"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ca2c2d450eaa0a77571e03cb02499c60a2eb96b2cd33d76e06037fec11001dce"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp17",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e1a96a6de4482720492535906613bbec9300b97465faec2119917adaf1173f4e"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp18",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4b76153e08659d9b022e710a34060edf586c0fe9a1a1ea57f0d40265270e0cc2"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp19",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "26a4d38945c0ed86211cb75da972a09c2449f98219d15306b514511bf7782ddf"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a73581dad8d0b5486062869c16cec70e6e81a900b3a385da9356aec75da9d337"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "bf3094725fc656e2b292992d51153ead6c7f586ab9f4b87829f6dd7453e11e68"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "df47739581465291d0a7bf6d33446b038d0e91bd9c63a75df2666e678114368b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp09",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f710307a25f12e6f4ac25fa5e21ad7cf1815ca3fad4362a4c2fd283de475913d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b04-lg03-precision",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg03"
+      },
+      "cue": "尿素再循环与AQP通路分别在哪些段、哪侧膜，怎样帮助建立、维持和利用髓质梯度？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b04-lg03-precision",
+        "item_sha256": "040aebd8fde463fae51f687e1449ea53dd35b2aa048a8e123bf5b2ae52aea51b",
+        "owner_kp_ids": [
+          "urinary-b04-kp10",
+          "urinary-b04-kp11",
+          "urinary-b04-kp12",
+          "urinary-b04-kp13",
+          "urinary-b04-kp14"
+        ],
+        "owner_sha256": "2d7971f06b3cc5efb0c04666971d392b05c54f1ffd5c959560ede3d9a1dffc06",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp10",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "984003f37ed10680257aba037f1be87a1ee7225a3565516af4234d497390e0f6"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp11",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "99c043e90bfd80a62f7ae79ef03431f739f3dfeda189f08a866b4c2ffb82af40"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "fa28316532a8281588e46c90812165b88724db9e6df28949ecedb83ca2cfd113"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "595f4e4c8fd598dd9acf17a194133d8e48b5779505ec5fe87d530e8caa5e7468"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "03480b9cec90592ed220b27c9270129525bd5881e284fd3dc8bd824638199a10"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "df47739581465291d0a7bf6d33446b038d0e91bd9c63a75df2666e678114368b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp15",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "92433776698a3a8b796baba3169ef07a96fa2e35c7862f08d3ce48492a2e53ae"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f5d6115b62d1333018d367cfaea8c9c06ee97eda48882d4d4a2d1d65b80fd59b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp17",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "024dad6d5fe98d82d3de50589592b9a6ae0fa70af1df816e733e69a359eaa173"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b04-kp05-precision",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "kp_id": "urinary-b04-kp05"
+      },
+      "cue": "同为高血压、低血钾时，怎样用第一故障、肾素/醛固酮、肾上腺及药物靶点区分原醛和Liddle？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b04-kp05-precision",
+        "item_sha256": "f21e7c733aa03427b78f4cd53442506a603997acb8a4073c44a3425a5a5dd657",
+        "owner_kp_ids": [
+          "urinary-b04-kp05"
+        ],
+        "owner_sha256": "10c5752ca51274119fe15020e8270ba5cac911d748be064350da266853241bef",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp05",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "8cb090ccc71eeeeb78292316f1129502139ff891732cbf91212bb3e9dd7fbc0e"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b03",
+            "kp_id": "urinary-b03-kp19",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block3_分段小管转运与利尿剂_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "26a4d38945c0ed86211cb75da972a09c2449f98219d15306b514511bf7782ddf"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b04",
+            "kp_id": "urinary-b04-kp04",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block4_容量激素与尿液浓缩稀释_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "276e66f1f4ad1e1747dafc0a2a524859b309537518cd6c68425a90388cee68f0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b05-lg06-precision",
+      "anchor": {
+        "block_id": "urinary-b05",
+        "logic_group_id": "urinary-b05-lg06"
+      },
+      "cue": "怎样用应有代偿和间隙分析识别并列出全部原发酸碱过程？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b05-lg06-precision",
+        "item_sha256": "363ef34421c18b7635b5a7e7e0c12a36bcdb547cd722d86f54db1d6b0fa5e057",
+        "owner_kp_ids": [
+          "urinary-b05-kp19",
+          "urinary-b05-kp20"
+        ],
+        "owner_sha256": "cd4ab127287d541b8c3fd01177657672f244ada4e3b7c166e560109aac85d71c",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b05",
+            "kp_id": "urinary-b05-kp19",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b0199832c9a384bb77a99f765f7b0de576301d9a9aae9ec606eeed8a145f0cae"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b05",
+            "kp_id": "urinary-b05-kp20",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "08b68f1edcccc37cd6db721880ab20336587139530d3715773492e665b321c08"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b05-kp13-precision",
+      "anchor": {
+        "block_id": "urinary-b05",
+        "kp_id": "urinary-b05-kp13"
+      },
+      "cue": "当前课程静脉补KCl怎样同时核对四道门及安全条件？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b05-kp13-precision",
+        "item_sha256": "dc4f550f1519884e122d190a2ec9d65ab9288635aa6669e74ed8d044cd916b71",
+        "owner_kp_ids": [
+          "urinary-b05-kp13"
+        ],
+        "owner_sha256": "9ece9d56aab277664fadfe1f60704a46bfa74382f1437aed7e3459b719732d4e",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b05",
+            "kp_id": "urinary-b05-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "730e5d293d9756d375c6d4b508bb9bbd0fa74b7d6be956c61a7fc5b8494d2d7d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b06-lg01-precision",
+      "anchor": {
+        "block_id": "urinary-b06",
+        "logic_group_id": "urinary-b06-lg01"
+      },
+      "cue": "肾小管性蛋白尿五种小蛋白与肾衰大分子毒素五项怎样区分，并与其他蛋白尿来源对照？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b06-lg01-precision",
+        "item_sha256": "2e8fcb072a07a1292200a2d3be44d8de3e44ed3ce14e739451a050513bd43b69",
+        "owner_kp_ids": [
+          "urinary-b06-kp01",
+          "urinary-b06-kp02",
+          "urinary-b06-kp03",
+          "urinary-b06-kp04",
+          "urinary-b06-kp05",
+          "urinary-b06-kp06"
+        ],
+        "owner_sha256": "c62c8677fcc377496e5d2d1c3e0f659957f631d59f1acb74695d07df34528953",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp01",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e8ca3a8f087f73ed988a41537ffd2c9e16f45a80920d3e16bd8ec9f53bd34afb"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp02",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6f59bc9b93668cb3bc398ca6f120166727dddf63377703b4a34f44eb032ca182"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp03",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "1085916ae4d4ad0084738e58a5d6744487d7dd52aa1ac9fcf146458426b11611"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp04",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b9e9f7e8bd8c51152422726507bcf88d3e4ea13d0513bbeaacdc38162be32ff8"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp05",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "35e13dee7897a2561855f525bf68afde73ae634de8abeea14724aea2fa282b1a"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "285cd7fe018d7d5b35f0a22b7a199f9b126ce28e033949e5035de0030b57a1f6"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b07",
+            "kp_id": "urinary-b07-kp08",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "682dbf6bd5561d4d9271da72ffae9fd1e37714776b9319c61a2bc24bda6f8a73"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b06-kp07-precision",
+      "anchor": {
+        "block_id": "urinary-b06",
+        "kp_id": "urinary-b06-kp07"
+      },
+      "cue": "肉眼血尿、镜下血尿和脓尿的课程阈值如何带着检测方法与单位一起恢复？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b06-kp07-precision",
+        "item_sha256": "742a8f546d176fec8bd8364591f4bbf8c158e10cbd0c6f0ca3983a28c18cb118",
+        "owner_kp_ids": [
+          "urinary-b06-kp07"
+        ],
+        "owner_sha256": "190ac05037d463752576ebcee3b0b74dee88f9f1d554b8d01126f09e5a3e8563",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b06",
+            "kp_id": "urinary-b06-kp07",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block6_尿液证据与肾功能诊断语言_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "35c28f2ed90b2f86ec5b8d6d3e805630b13ee473750d925da93e7d8b9e552678"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b07-kp06-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp06"
+      },
+      "cue": "怎样恢复AKI的三条动态诊断标准，并区分初查与非稳态eGFR的作用？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b07-kp06-precision",
+        "item_sha256": "1a370b557c9842f502f04b6637980c91a7f8d4d40378c0f80f67ffe9000a3ce9",
+        "owner_kp_ids": [
+          "urinary-b07-kp06"
+        ],
+        "owner_sha256": "77f14389c39df8f9c2578a7da00f1decdb5be412205b02aaea4acfc28a2ca634",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b07",
+            "kp_id": "urinary-b07-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "2facf51b575e2ec4a8f7b555360acdba2abc74429427531f353dd012c297ecae"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b07-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp14"
+      },
+      "cue": "CKD G分类如何恢复，旧血Cr四档和透析标签怎样保留边界？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b07-kp14-precision",
+        "item_sha256": "92403ce13d107c61b1bf5a4b5d5512a7f61ed79cf46e1eea8ca4f10cda899d4c",
+        "owner_kp_ids": [
+          "urinary-b07-kp14"
+        ],
+        "owner_sha256": "1454043eedabbe4ab5bc69e09d992e6039e09eb01b6221cf543ec3dfacea44a2",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b07",
+            "kp_id": "urinary-b07-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "74dbcb5129279d15348b30bf9f61e353d7a34b8ef303984b227139dbaa78874b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b07",
+            "kp_id": "urinary-b07-kp01",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "1f86f6b7888a140055c262f5e185d91dffbc44f070db9e9e4bfde11d2132c74d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b07-kp15-precision",
+      "anchor": {
+        "block_id": "urinary-b07",
+        "kp_id": "urinary-b07-kp15"
+      },
+      "cue": "ACEI/ARB护肾后怎样按相对变化和临床状态监测，并区分旧Scr/BP口径？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b07-kp15-precision",
+        "item_sha256": "d42d22929592f68979c1998fe39554c5653e97811a257ea948082fbcf23237b5",
+        "owner_kp_ids": [
+          "urinary-b07-kp15"
+        ],
+        "owner_sha256": "f9aa6a59efdeb6a9a0b2acc57213c2a79e87ba4cd9aa3216d18ab875fb855927",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b07",
+            "kp_id": "urinary-b07-kp15",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block7_AKI_CKD与透析_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "62fea9349e25c2e16cab6bf799e17b64a7bfc885850d9a0486fc7ea6e529d5bd"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b08-kp05-precision",
+      "anchor": {
+        "block_id": "urinary-b08",
+        "kp_id": "urinary-b08-kp05"
+      },
+      "cue": "无症状细菌尿怎样按症状、样本、男女确认次数和获益人群判断？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b08-kp05-precision",
+        "item_sha256": "042945d22d98b84d67b7f6c4eff683df05927d550ebb30d3ea7f978a1085288b",
+        "owner_kp_ids": [
+          "urinary-b08-kp05"
+        ],
+        "owner_sha256": "fdf68b445d8310e582668847ad876e5dc6b46e9a5c647e89cc2cc6850f5b53d5",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b08",
+            "kp_id": "urinary-b08-kp05",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "bae4b6f48289c532458894d098bf1710070cb9be67d73e14857fd66f67ce57fe"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b08",
+            "kp_id": "urinary-b08-kp07",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e530c2b6e13c423798bbd4f97ed39adad46aea55a4caf7965c30d9cfef0798b5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b08-kp13-precision",
+      "anchor": {
+        "block_id": "urinary-b08",
+        "kp_id": "urinary-b08-kp13"
+      },
+      "cue": "课程尿感药名如何按下尿路与肾实质效应位置保留妊娠及毒性边界？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b08-kp13-precision",
+        "item_sha256": "67a73e876240b656e933b2afb939b853333308dd79e32dbb2c8f03f5a96c2b36",
+        "owner_kp_ids": [
+          "urinary-b08-kp13"
+        ],
+        "owner_sha256": "79e422b92edd43f576ef5fdaba70a96de4cd4d090ac9231316de058b296f835f",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b08",
+            "kp_id": "urinary-b08-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block8_细菌性尿路感染_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "34e8cc5cdba701831e22ab5e9a92a69ccbc4883168ced93344486a676ab1b4a6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b09-lg03-precision",
+      "anchor": {
+        "block_id": "urinary-b09",
+        "logic_group_id": "urinary-b09-lg03"
+      },
+      "cue": "按空间、检查任务与荧光形态，恢复肾小球病理三视角，并说出不能推出什么。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b09-lg03-precision",
+        "item_sha256": "50f6a5809a0a9a2f2d886912a738b3af1925ea0342e8cf8d9ed911a1adc1b248",
+        "owner_kp_ids": [
+          "urinary-b09-kp07",
+          "urinary-b09-kp08",
+          "urinary-b09-kp09"
+        ],
+        "owner_sha256": "470b28a804e674b51f4024bcf38c29df6678c991e3a151e25f446746af26b1a5",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp07",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "08fff021c926f0a840ac51d93c5ed488fedd05eea998a6dd69a1f96d56af87f3"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp08",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "818852eb06cd1b92b81ac2e4dd9824052f8e5eac98c0713b3e81df57ac01be1f"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp09",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6639254a54a86cf4bf81b16692d1708afaa9549fa00ff05d6ea77f0349a7da14"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a8e0ff74475384ae84186e90592531d9d8ac88de736cbd77f18380647abb7d27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b10-kp06-precision",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "kp_id": "urinary-b10-kp06"
+      },
+      "cue": "课程急性肾炎中，什么三类情境需要考虑肾活检？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b10-kp06-precision",
+        "item_sha256": "4699257eb72934cf3ee089c0dc35ebe47cd08c2acad600a49ee88fe979df51ca",
+        "owner_kp_ids": [
+          "urinary-b10-kp06"
+        ],
+        "owner_sha256": "84729a7a2e88db36e28e4d81055761362edf70867228dc9152486459e38a0f7d",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "fde07bab55b07551fb5690f09bf8fe0652ba187c8a21a6e3ebd334e9d0666f9b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp02",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6d4ef7c76a0caea0a55b814faa283c148f7f87c7892eb315b6ad1f78e6d42c69"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b10-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "kp_id": "urinary-b10-kp14"
+      },
+      "cue": "恢复课程 RPGN 三型的机制、IF、EM、常见度/预后和定义边界。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b10-kp14-precision",
+        "item_sha256": "86a0c1941183055387d998d91c5770c71f9fb3fc03aa240e54089c7a7a2c0179",
+        "owner_kp_ids": [
+          "urinary-b10-kp14"
+        ],
+        "owner_sha256": "2a211dcdab1ead31cde6675f4e9b6dd520e2a5d35a2cd6b233e14efb7dbb6595",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "0bb00e3c7d14875c7a3eda66ddf93db84f27c8c47150adfcfd14b583824ca9f8"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp09",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "3a8f34ed1391afc46701401f058b2a10d313838946194e260787e710d4e547f4"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp11",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "d3562a061a3e2107e8f22987dd437b442341a76860496dd8780aeb0e249dccb3"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6f0da333dfd3dba7751f4c477b1e899fc9d8f9e88e063b9ac92e55b13681500b"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "227c8b08578e2dccd21a062b527bd0e29d4d6f295686465e0ada1998f2bed8a4"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b10",
+            "kp_id": "urinary-b10-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block10_肾炎分支_急性急进IgA与慢性肾炎_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ec95ecb71466eb2476174eaad829dc8eb33b459256edc7465c0a82b722f07ef2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b11-lg04-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "logic_group_id": "urinary-b11-lg04"
+      },
+      "cue": "比较 MCD 与膜性的名字、年龄、机制/三镜、蛋白选择性和并发症，并恢复各自边界。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b11-lg04-precision",
+        "item_sha256": "3f8b49a920c7eb81e9881db82c3e54c4c45233979928c840be332be784686e86",
+        "owner_kp_ids": [
+          "urinary-b11-kp13",
+          "urinary-b11-kp14",
+          "urinary-b11-kp15",
+          "urinary-b11-kp16"
+        ],
+        "owner_sha256": "76d0fa004f95feef469873c02215373bdc7140364c3f62e328997259eac745e3",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "283b97af03d7c6e6ee11d32e6566912543e75caaad82a4316e364ec364886c50"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6f6fefc4d7c2383f1355e86b59d1643852faeaef8c515ffbe3ac0517b9b4dd15"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp15",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "712a9a1bf09513f89d8276779c072451a5b882f8ff4c5a7e69f0f72ef5430bc8"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4125dea2f4baeffa7c8011fdd22aa5809d4e5150b27f18afd7d2b5bbd8e786a4"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b02",
+            "kp_id": "urinary-b02-kp01",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f435723fd18e9d8a685e3b5018408f997ab26a564a87a3d18f493487f9310e31"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b02",
+            "kp_id": "urinary-b02-kp02",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block2_肾小球滤过屏障与GFR_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b335f507b75466a86e70e35e53bfff05ffa5896fd6cea4910114f507baaaa146"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b09",
+            "kp_id": "urinary-b09-kp05",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block9_肾小球免疫机制与双坐标地图_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "454961b89b9c5e43bf85c005e280458ae41038d1ac46c9095b9c5df266dab42c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b11-kp19-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp19"
+      },
+      "cue": "恢复课程 MPGN 传统Ⅰ、Ⅱ、Ⅲ型的沉积位置/形状与分型边界。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b11-kp19-precision",
+        "item_sha256": "d08780978f1a3025eb480569dfa3a83effdb3249a0bd166d3871109ec75c4c9d",
+        "owner_kp_ids": [
+          "urinary-b11-kp19"
+        ],
+        "owner_sha256": "f909d74187f0ecbc6a739ea8f9227c9a1665e74a2c6bc6a740c70b4ad68bb58c",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp19",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "af57724da6bae71223fe6c41419bc401d91cafce6e66b69f76f9f733bb75c165"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp18",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4ce9d0255dd72e53f5e2126c77066643ef9820d63278b803f4110ec5cd3e81ab"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b11-kp21-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp21"
+      },
+      "cue": "课程中哪三类可见足突融合？各用一个最强差别重新分开，为什么不能由足突融合定病因？",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b11-kp21-precision",
+        "item_sha256": "8be3c281b7a26dc0f3fd38bf9a32949b41420b7ce26cc57488b641a62912071d",
+        "owner_kp_ids": [
+          "urinary-b11-kp21"
+        ],
+        "owner_sha256": "6f1e2139128810b2b0bab09029afea9573cbc1931c4d55c189deab4e0608f0c7",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp21",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "37e998854984f3736f802e66f55956594582727b182473828669db5633ba2966"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp11",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "23d30642f50e919e8e08ca8f23e1011fcd9ad28556055d42871356af17877f4e"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "283b97af03d7c6e6ee11d32e6566912543e75caaad82a4316e364ec364886c50"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6f6fefc4d7c2383f1355e86b59d1643852faeaef8c515ffbe3ac0517b9b4dd15"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp15",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "712a9a1bf09513f89d8276779c072451a5b882f8ff4c5a7e69f0f72ef5430bc8"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4125dea2f4baeffa7c8011fdd22aa5809d4e5150b27f18afd7d2b5bbd8e786a4"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e9d606ee1f19d5df8453ca7bb8a377f7c604771e9f733e8b5e7fd9b56ebadcc1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b11-kp23-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp23"
+      },
+      "cue": "恢复课程继发性肾病综合征的儿童/青年与中老年病因组，并说出年龄的作用与诊断次序。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b11-kp23-precision",
+        "item_sha256": "453697e8375f0bde3f083d078546fecfec882098b7a5ac099e2108581d94740a",
+        "owner_kp_ids": [
+          "urinary-b11-kp23"
+        ],
+        "owner_sha256": "a14290f36d9aaa760c68f3f61980ec3b4b995784b40237610949a0fc914b3ba3",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp23",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4ac7ef5e389e679e5e5693671e41b020ed62971851c33444c652e8653b86248a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b11-kp10-precision",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "kp_id": "urinary-b11-kp10"
+      },
+      "cue": "仅按当前 306 Study，恢复泼尼松的剂量、足量疗程、减量/维持、两个疗效判断时点及处理；说明适用边界。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b11-kp10-precision",
+        "item_sha256": "46f7048e58e2de2a4049ffd5a24cee99eab80bdc41bca6478db571615abaa7f9",
+        "owner_kp_ids": [
+          "urinary-b11-kp10"
+        ],
+        "owner_sha256": "3dfbf404a77592bde06a362e2d128a0d2c9c7be0836fac1e679de26bc7deaf48",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp10",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "231b689903e115006ebcac001d525da49a3df83087e5b9609f5070cc37492540"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp11",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "23d30642f50e919e8e08ca8f23e1011fcd9ad28556055d42871356af17877f4e"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b11",
+            "kp_id": "urinary-b11-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block11_肾病综合征分支_大量蛋白漏出与病理类型_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a285fad552a24e1ac8fb89ce3f566a8659b6611df5580f8ec5db46cacac5caff"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b12-kp09-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp09"
+      },
+      "cue": "按同一比较轴恢复四类尿路结石，并说明显影与尿pH处理不能怎样简单化。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b12-kp09-precision",
+        "item_sha256": "1f3336fc6280719cfff51644b2b9a9b07241e80b929e311d9dfaac4c2eef5e97",
+        "owner_kp_ids": [
+          "urinary-b12-kp09"
+        ],
+        "owner_sha256": "7ceaead3e0ee09513e2b23ff61cb4ac3cff6fd140d067a43411020e6bad3f3c6",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp09",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "45b2df4a853d13ed161ffaeaba36773e78adfc979255d5a6582bcf391690fc21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b12-kp14-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp14"
+      },
+      "cue": "完整恢复本课程结石位置×尺寸矩阵、两个特殊情境，并说明Current调用矩阵前后的条件。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b12-kp14-precision",
+        "item_sha256": "65f33a17a82b7b434c6d4eb311fc87c89fb3a57dfbd2bf0c1a399a69e3641d01",
+        "owner_kp_ids": [
+          "urinary-b12-kp14"
+        ],
+        "owner_sha256": "1bafe97ec1219ab0a4a5f2e44941626f574590deb21bc74e486df959c84792ba",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp14",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4adbda02993cad5687bf1f60e1cc181a9eab3dc165c307339f8bdda111efaaa3"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp02",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "343e5517c677fca67f8dd2ac6635dca5db8595eb8ed803f7db2221602c3452a7"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "93e7ae62f890ae917b48216541de07f59cc8390e01c2c8c8ebc769dcda32d65a"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp13",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "92f1d6102c618128ffb32b86f74c5ee5a7740595c8383053fdc9c69b935efece"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b12-kp16-precision",
+      "anchor": {
+        "block_id": "urinary-b12",
+        "kp_id": "urinary-b12-kp16"
+      },
+      "cue": "沿漏尿时相、膀胱状态、控制失败层和病因，比较四类尿失禁，并接回BPH前后期。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b12-kp16-precision",
+        "item_sha256": "22b48a95c6b2c142ce39cb7aec97c5bcc3bc610cc2c2e82c21e98e155e6ea1b3",
+        "owner_kp_ids": [
+          "urinary-b12-kp16"
+        ],
+        "owner_sha256": "54263150dcb0a4629371acb76acd7eea1b36dd68a3913199d4682d3cf065ff09",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp16",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "2fed98db41aa934944423aff9238c70ff37b55615813ae458b95128f0798d898"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp01",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "1c1c2ee8ef66725565a6ed9a958f5dd81e6f09c517fc78b4af4002a1e508aaa4"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b12",
+            "kp_id": "urinary-b12-kp04",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block12_排尿梗阻结石BPH与尿失禁_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b6eea4761c4f6cce5780e28a494a46d724f42b6bfe79b10ec363bf6d06bece41"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b13-kp12-precision",
+      "anchor": {
+        "block_id": "urinary-b13",
+        "kp_id": "urinary-b13-kp12"
+      },
+      "cue": "恢复膀胱癌Ta/Tis/T1/T2及更外层、NMIBC成员，并说明取材与治疗分组的限制。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b13-kp12-precision",
+        "item_sha256": "40052d0df49d8707a3d02c7c1d5aeb9091d4cd0e25aab978311da529ed6d86cf",
+        "owner_kp_ids": [
+          "urinary-b13-kp12"
+        ],
+        "owner_sha256": "78e1d1f3bbfb1a8bccabf00f207c028e26a7963c11a669a35d91877c91b5be68",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b13",
+            "kp_id": "urinary-b13-kp12",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "dd5f780a21a0fcb5c0953b943a3809b45e49dbacc2f38571314636bedbefad70"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b13",
+            "kp_id": "urinary-b13-kp11",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block13_肾结核与泌尿系统肿瘤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "71a73aa0faad51053832d731ea2c3f0ffd65c11bfb9af83e9a07cbda35893424"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a3-b14-lg02-precision",
+      "anchor": {
+        "block_id": "urinary-b14",
+        "logic_group_id": "urinary-b14-lg02"
+      },
+      "cue": "用尿生殖膈、受伤机制、常伤部位、外渗空间和检查证据完整比较前后尿道损伤，并说明安全与旧体征边界。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a3-b14-lg02-precision",
+        "item_sha256": "a3440a81850973b71725a5471e9314b9e445f4ad3a65fe7db709a3b62ff9803f",
+        "owner_kp_ids": [
+          "urinary-b14-kp04",
+          "urinary-b14-kp05",
+          "urinary-b14-kp06"
+        ],
+        "owner_sha256": "73777cedba47200aa09e3850fc06e6faa1de6e465c2be28886a6db6879beeade",
+        "core_refs": [
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp04",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "908d23f6269af42a56588d47a98419e717f7108b873638b1f360e5e428eef728"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp05",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e5ac88897c9cca41c311c4b07410d89cbd502bdbf4cb41b6093d81acd95ce53e"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp06",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "d6f5bf355625376c1cdb6064fea9bf3ac8a1abc1ec73b5f4cadd9feaac015036"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp01",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b95268d5a8642a47cc94b360ba5ec801df454af05364b44a3e17cdc4d57d568d"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp02",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "7644509d00dbb2e064e6c97c36c124817c807b70c264d0013958700996f68bf3"
+          },
+          {
+            "system_id": "urinary",
+            "block_id": "urinary-b14",
+            "kp_id": "urinary-b14-kp03",
+            "source_path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block14_泌尿系外伤_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "7d7fdcd9ea17471a3cde33bcf3787eea69e39e44aad3b9870db2006add77dac5"
+          }
+        ]
+      }
+    }
+  ],
+  "visual_bindings": [
+    {
+      "id": "a3-b01-lg03-visual",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg03"
+      },
+      "source_locator": "生理 Lecture PDF P257–259",
+      "task": "把入球→肾小球→出球→管周/直小血管与肾小管段位放到同一张空间图里，先认‘血路’和‘尿路’。"
+    },
+    {
+      "id": "a3-b01-lg05-visual",
+      "anchor": {
+        "block_id": "urinary-b01",
+        "logic_group_id": "urinary-b01-lg05"
+      },
+      "source_locator": "生理 Lecture PDF P258",
+      "task": "在球旁器位置图上指出致密斑、入球小动脉和球旁细胞，说明远端 NaCl 信号怎样回到滤过端。"
+    },
+    {
+      "id": "a3-b02-lg01-visual",
+      "anchor": {
+        "block_id": "urinary-b02",
+        "logic_group_id": "urinary-b02-lg01"
+      },
+      "source_locator": "生理 Lecture PDF P267–268",
+      "task": "从毛细血管腔向 Bowman 腔逐层穿过滤过屏障，并指出‘漏蛋白’首先是哪类选择性故障。"
+    },
+    {
+      "id": "a3-b02-lg02-visual",
+      "anchor": {
+        "block_id": "urinary-b02",
+        "logic_group_id": "urinary-b02-lg02"
+      },
+      "source_locator": "生理 Lecture PDF P269",
+      "task": "沿肾小球毛细血管看 Starling 力怎样变化，分清促进滤过与抵抗滤过的压力。"
+    },
+    {
+      "id": "a3-b03-lg05-visual",
+      "anchor": {
+        "block_id": "urinary-b03",
+        "logic_group_id": "urinary-b03-lg05"
+      },
+      "source_locator": "生理 Lecture PDF P275、P293",
+      "task": "先用肾单位总图定位各段，再把主要利尿剂挂回真实段位/转运体；不要从药名表反背肾单位。"
+    },
+    {
+      "id": "a3-b04-lg03-visual",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg03"
+      },
+      "source_locator": "生理 Lecture PDF P285",
+      "task": "沿降支、升支、集合管和直小血管走一次逆流系统，分别指出‘建梯度’‘保梯度’‘用梯度’。"
+    },
+    {
+      "id": "a3-b04-lg04-visual",
+      "anchor": {
+        "block_id": "urinary-b04",
+        "logic_group_id": "urinary-b04-lg04"
+      },
+      "source_locator": "生理 Lecture PDF P287",
+      "task": "沿肾单位纵向追踪管液渗透压：哪里先变浓、哪里被稀释、最终哪一段由 ADH 决定。"
+    },
+    {
+      "id": "a3-b09-lg03-visual",
+      "anchor": {
+        "block_id": "urinary-b09",
+        "logic_group_id": "urinary-b09-lg03"
+      },
+      "source_locator": "内科 Lecture PDF P193",
+      "task": "把 LM、IF、EM 当三种不同视角：先找沉积在系膜/内皮下/上皮下哪里，再看荧光形态，不直接从一张图跳到病名。"
+    },
+    {
+      "id": "a3-b10-lg01-visual",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "logic_group_id": "urinary-b10-lg01"
+      },
+      "source_locator": "内科 Lecture PDF P195",
+      "task": "在急性肾炎病理图里同时找内皮/系膜增生、颗粒样沉积与上皮下驼峰，把它们对应到 LM/IF/EM。"
+    },
+    {
+      "id": "a3-b10-lg03-visual",
+      "anchor": {
+        "block_id": "urinary-b10",
+        "logic_group_id": "urinary-b10-lg03"
+      },
+      "source_locator": "内科 Lecture PDF P197",
+      "task": "先认新月体位于哪里，再把‘新月体这个形态结果’与 anti-GBM / immune-complex / pauci-immune 三种免疫入口分开。"
+    },
+    {
+      "id": "a3-b11-lg04-visual",
+      "anchor": {
+        "block_id": "urinary-b11",
+        "logic_group_id": "urinary-b11-lg04"
+      },
+      "source_locator": "内科 Lecture PDF P199",
+      "task": "并排看 MCD 与膜性肾病：LM、IF、EM 各自能看到什么，重点区分足突融合与上皮下沉积/基底膜改变。"
+    }
+  ]
+}
