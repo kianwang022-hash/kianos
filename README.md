@@ -27,7 +27,7 @@ Chat is the open-ended cognition layer. KianOS Runtime may execute bounded appro
 
 KianOS does **not** maintain a second hand-written progress overview.
 
-For Chat study, Kian names the subject, System, Block or question. Use [Xizong's learner reading entry](content/xizong/knowledge/learner/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md) to read its current content and teaching settings. There is no automatic course resumption; the engineering status routes below remain separate.
+For Chat study, Kian names the subject, System, Block or question. Use [Xizong's learner reading entry](xizong-content/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md) to read its current content and teaching settings. There is no automatic course resumption; the engineering status routes below remain separate.
 
 For live project status and engineering continuation:
 
