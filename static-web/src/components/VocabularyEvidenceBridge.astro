@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL;
     registerLexicalIntroduction
   } from '../lib/lexicalSettings.mjs';
   import { lexicalRevisitUndoAllowed, lexicalRevisitContext, lexicalStudyNeighbors, lexicalWordOrdinal, lexicalWordRuntimeHref } from '../lib/lexicalRuntimeRoute.mjs';
-  import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
+  import { learnerWriterReady, commitLearnerStorageChanges } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
   void learnerWriterReady.then(() => {
   if (!lexicalBrowserStateReadable()) return;
@@ -71,10 +71,31 @@ const base = import.meta.env.BASE_URL;
     const undoButton=root.querySelector('[data-vocab-undo]');
     const emptyRouting=()=>({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}});
     const readRouting=()=>{const value=readJson(LEXICAL_ROUTING_STORAGE_KEY,emptyRouting());return value?.schema==='kianos.lexical.card_routing.v1'?value:emptyRouting()};
-    const saveRouting=(value)=>saveJson(LEXICAL_ROUTING_STORAGE_KEY,value);
+    let routingSaveBlocked=false;
+    const saveRouting=(value,intake)=>{
+      try{
+        // Stage both stores together; main routing commits last. The native
+        // transaction verifies writes and rolls back only its own changed bytes.
+        commitLearnerStorageChanges(localStorage,[
+          [LEXICAL_INTAKE_STORAGE_KEY,JSON.stringify(intake)],
+          [LEXICAL_ROUTING_STORAGE_KEY,JSON.stringify(value)]
+        ]);
+        root.querySelector('[data-vocab-save-notice]')?.remove();
+        return true;
+      }catch(error){
+        routingSaveBlocked=error?.message==='KIANOS_LEARNER_STORAGE_ROLLBACK_CONFLICT_PRESERVED';
+        let notice=root.querySelector('[data-vocab-save-notice]');
+        if(!notice){notice=document.createElement('p');notice.setAttribute('data-vocab-save-notice','');notice.setAttribute('role','alert');root.prepend(notice);}
+        notice.textContent=routingSaveBlocked
+          ? '保存未完成，记录状态需要核对，已暂停词汇判断。请告诉 Chat「词汇记录保存失败」。'
+          : '这次操作未保存，原词汇记录已保留，请重试。';
+        notice.scrollIntoView({block:'nearest'});
+        if(routingSaveBlocked){routeButtons.forEach(button=>{button.disabled=true;});if(undoButton instanceof HTMLButtonElement)undoButton.disabled=true;}
+        return false;
+      }
+    };
     const readSettings=()=>normalizeLexicalSettings(readJson(LEXICAL_SETTINGS_STORAGE_KEY,{daily_new_limit:DEFAULT_DAILY_NEW_LIMIT}));
     const readIntake=()=>normalizeLexicalIntake(readJson(LEXICAL_INTAKE_STORAGE_KEY,null));
-    const saveIntake=(value)=>saveJson(LEXICAL_INTAKE_STORAGE_KEY,value);
     const homeHref=()=>{const url=new URL(base+'vocabulary/',location.origin);url.searchParams.set('limit','reached');return url.href};
     const requestRuntimeNavigation=(targetOrdinal,history='push',href=null)=>{
       window.dispatchEvent(new CustomEvent('kianos:vocabulary-navigate',{detail:{ordinal:targetOrdinal,mode,history,href}}));
@@ -88,7 +109,7 @@ const base = import.meta.env.BASE_URL;
       lexicalRevisitContext(location,total,localLexicalDay()),routing.history.at(-1),total,localLexicalDay());
     const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=!canUndoRouting()};
 
-    const recordRouting=(route,introductionBefore)=>{
+    const recordRouting=(route,introductionBefore,intake)=>{
       const now=new Date().toISOString();
       const routing=readRouting();
       const event={
@@ -100,12 +121,13 @@ const base = import.meta.env.BASE_URL;
         observed_at:now,
         return_href:lexicalWordRuntimeHref(base,ordinal,mode,lexicalRevisitContext(location,total,localLexicalDay()))
       };
-      saveRouting(appendLexicalRoutingJudgment(routing,event,introductionBefore));
+      if(!saveRouting(appendLexicalRoutingJudgment(routing,event,introductionBefore),intake))return null;
       updateUndoState();
       return event;
     };
 
     const undoRouting=()=>{
+      if(routingSaveBlocked)return;
       if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
       if(!canUndoRouting(routing))return;
@@ -117,10 +139,9 @@ const base = import.meta.env.BASE_URL;
         notice.textContent='这条记录无法安全撤销，当前词汇状态已保留。';
         return;
       }
-      root.querySelector('[data-vocab-undo-notice]')?.remove();
       const last=result.event;
-      saveRouting(result.routing);
-      if(result.intake.introduced[last.word_id]!==intake.introduced?.[last.word_id])saveIntake(result.intake);
+      if(!saveRouting(result.routing,result.intake))return;
+      root.querySelector('[data-vocab-undo-notice]')?.remove();
       updateUndoState();
       if(last.return_href){
         let targetOrdinal=0;
@@ -131,6 +152,7 @@ const base = import.meta.env.BASE_URL;
     };
 
     const submitRoute=(route)=>{
+      if(routingSaveBlocked)return;
       if(!lexicalBrowserStateReadable())return;
       if(mode!=='study')return;
       const revisit=lexicalRevisitContext(location,total,localLexicalDay());
@@ -145,9 +167,8 @@ const base = import.meta.env.BASE_URL;
         const registered=registerLexicalIntroduction(intake,objectId,prior?.observed_at||new Date());
         intake=registered.intake;
         introducedNow=registered.added&&!prior&&registered.studyDay===localLexicalDay();
-        if(registered.added)saveIntake(intake);
       }
-      recordRouting(route,introductionBefore);
+      if(!recordRouting(route,introductionBefore,intake))return;
       const reached=!revisit&&introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
       if(reached){
         if(ordinal<total)try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal+1))}catch{}

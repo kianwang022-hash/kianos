@@ -49,5 +49,53 @@ try{
   check(await page.locator('[data-vocab-undo]').isDisabled(),'revisit undo stops when its own judgments exhausted');
   await page.evaluate(()=>document.activeElement?.blur());await page.keyboard.press('Backspace');check(JSON.stringify(await read())===before,'extra revisit keyboard undo preserves old traversal');
  },'?o=1&revisit=1,2&revisit_session=synthetic-round&day='+today);
+ // Fault injection applies only to synthetic localStorage in this owned browser context.
+ const injectFailure=async(page,failKey)=>page.evaluate(({failKey,intakeKey,key})=>{
+  window.__storageFault={enabled:true,writes:[],navigations:0};
+  window.addEventListener('kianos:vocabulary-navigate',()=>window.__storageFault.navigations++);
+  const original=Storage.prototype.setItem;
+  Storage.prototype.setItem=function(k,v){
+   if(this===localStorage&&(k===key||k===intakeKey)){
+    window.__storageFault.writes.push({key:k,failed:window.__storageFault.enabled&&k===failKey});
+    if(window.__storageFault.enabled&&k===failKey)throw new DOMException('Synthetic quota failure','QuotaExceededError');
+   }
+   return original.call(this,k,v);
+  };
+ },{failKey,intakeKey,key});
+ const fault=page=>page.evaluate(()=>window.__storageFault);
+ const retry=page=>page.evaluate(()=>{window.__storageFault.enabled=false;});
+ await run({schema:'kianos.lexical.card_routing.v1',history:[old],latest_by_word:{'word:synthetic':old}},{'word:synthetic':day},async(page,read)=>{
+  const before=JSON.stringify(await read());await injectFailure(page,key);
+  await page.locator('[data-vocab-route="mastered"]').click();
+  check(JSON.stringify(await read())===before,'quota failure retains prior successful judgment');
+  check(await page.locator('[data-vocab-save-notice]').isVisible()&&(await page.locator('[data-vocab-save-notice]').textContent()).includes('未保存'),'quota failure explicitly reports unsaved');
+  check((await fault(page)).navigations===0,'quota failure does not navigate');
+  await page.reload();await page.locator('[data-vocab-evidence-initialized="true"]').waitFor();
+  check(JSON.stringify(await read())===before,'refresh after failed score retains prior judgment');
+  await page.locator('[data-vocab-route="mastered"]').click();const saved=await read();
+  check(saved.routing.history.length===2&&saved.routing.latest_by_word['word:synthetic'].route==='MASTERED','retry after refresh adds exactly one judgment');
+ });
+ await run({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}},{},async(page,read)=>{
+  const before=JSON.stringify(await read());await injectFailure(page,key);
+  await page.locator('[data-vocab-route="mastered"]').click();let f=await fault(page);
+  check(f.writes[0]?.key===intakeKey&&!f.writes[0].failed&&f.writes[1]?.key===key&&f.writes[1].failed,'synthetic first intake write succeeds before routing quota failure');
+  check(JSON.stringify(await read())===before,'second-key score failure rolls back introduction');
+  check(f.navigations===0&&await page.locator('[data-vocab-save-notice]').isVisible(),'partial score failure reports unsaved without navigation');
+  await retry(page);await page.locator('[data-vocab-route="mastered"]').click();const saved=await read();
+  check(saved.routing.history.length===1&&!!saved.intake.introduced['word:synthetic']&&(await fault(page)).navigations===1,'same-page retry commits one introduction and judgment');
+  check(await page.locator('[data-vocab-save-notice]').count()===0,'successful retry clears unsaved notice');
+ });
+ await run({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}},{},async(page,read)=>{
+  await page.locator('[data-vocab-route="mastered"]').click();
+  await page.reload();await page.locator('[data-vocab-evidence-initialized="true"]').waitFor();
+  const before=JSON.stringify(await read());await injectFailure(page,key);await page.locator('[data-vocab-undo]').click();let f=await fault(page);
+  check(f.writes[0]?.key===intakeKey&&!f.writes[0].failed&&f.writes[1]?.key===key&&f.writes[1].failed,'refreshed undo injects second-key quota failure');
+  check(JSON.stringify(await read())===before,'failed undo rolls back intake and preserves successful score');
+  check(f.navigations===0&&await page.locator('[data-vocab-save-notice]').isVisible(),'failed undo reports unsaved without navigation');
+  await retry(page);await page.locator('[data-vocab-undo]').click();const undone=await read();
+  check(undone.routing.history.length===0&&!undone.routing.latest_by_word['word:synthetic']&&!undone.intake.introduced['word:synthetic']&&(await fault(page)).navigations===1,'undo retry applies once with consistent stores');
+  await page.reload();await page.locator('[data-vocab-evidence-initialized="true"]').waitFor();
+  check(JSON.stringify(await read())===JSON.stringify(undone),'refresh retains successful undo retry');
+ });
  console.log(JSON.stringify({status:'PASS',checks:checks.length,fixture:'complete production routing script with synthetic storage',port}));
 }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
