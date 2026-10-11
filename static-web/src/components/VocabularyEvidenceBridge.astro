@@ -4,6 +4,7 @@ const base = import.meta.env.BASE_URL;
 ---
 <div data-vocab-evidence-bridge data-base={base} data-total={total} hidden></div>
 <script>
+  import { appendLexicalRoutingJudgment, undoLexicalRoutingJudgment } from '../lib/lexicalRoutingUndo.mjs';
   import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId } from '../lib/lexicalEvidence.mjs';
   import {
     DEFAULT_DAILY_NEW_LIMIT,
@@ -87,7 +88,7 @@ const base = import.meta.env.BASE_URL;
       lexicalRevisitContext(location,total,localLexicalDay()),routing.history.at(-1),total,localLexicalDay());
     const updateUndoState=()=>{if(undoButton instanceof HTMLButtonElement)undoButton.disabled=!canUndoRouting()};
 
-    const recordRouting=(route)=>{
+    const recordRouting=(route,introductionBefore)=>{
       const now=new Date().toISOString();
       const routing=readRouting();
       const event={
@@ -99,9 +100,7 @@ const base = import.meta.env.BASE_URL;
         observed_at:now,
         return_href:lexicalWordRuntimeHref(base,ordinal,mode,lexicalRevisitContext(location,total,localLexicalDay()))
       };
-      routing.history=[...routing.history,event].slice(-300);
-      routing.latest_by_word={...(routing.latest_by_word||{}),[objectId]:event};
-      saveRouting(routing);
+      saveRouting(appendLexicalRoutingJudgment(routing,event,introductionBefore));
       updateUndoState();
       return event;
     };
@@ -109,21 +108,18 @@ const base = import.meta.env.BASE_URL;
     const undoRouting=()=>{
       if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
-      const last=routing.history.at(-1);
       if(!canUndoRouting(routing))return;
-      routing.history=routing.history.slice(0,-1);
-      const previous=[...routing.history].reverse().find((item)=>item.word_id===last.word_id)||null;
-      routing.latest_by_word={...(routing.latest_by_word||{})};
-      if(previous)routing.latest_by_word[last.word_id]=previous;
-      else delete routing.latest_by_word[last.word_id];
-      saveRouting(routing);
-      if(!previous){
-        const intake=readIntake();
-        if(intake.introduced?.[last.word_id]){
-          delete intake.introduced[last.word_id];
-          saveIntake(intake);
-        }
+      const result=undoLexicalRoutingJudgment(routing,readIntake());
+      if(result.status!=='UNDONE'){
+        let notice=root.querySelector('[data-vocab-undo-notice]');
+        if(!notice){notice=document.createElement('p');notice.setAttribute('data-vocab-undo-notice','');notice.setAttribute('role','status');root.append(notice);}
+        notice.textContent='这条记录无法安全撤销，当前词汇状态已保留。';
+        return;
       }
+      root.querySelector('[data-vocab-undo-notice]')?.remove();
+      const last=result.event;
+      saveRouting(result.routing);
+      saveIntake(result.intake);
       updateUndoState();
       if(last.return_href){
         let targetOrdinal=0;
@@ -142,6 +138,7 @@ const base = import.meta.env.BASE_URL;
       const routingBefore=readRouting();
       const prior=routingBefore.latest_by_word?.[objectId]||null;
       let intake=readIntake();
+      const introductionBefore=intake.introduced?.[objectId]??null;
       let introducedNow=false;
       if(!introductionDayFor(intake,objectId)){
         const registered=registerLexicalIntroduction(intake,objectId,prior?.observed_at||new Date());
@@ -149,7 +146,7 @@ const base = import.meta.env.BASE_URL;
         introducedNow=registered.added&&!prior&&registered.studyDay===localLexicalDay();
         if(registered.added)saveIntake(intake);
       }
-      recordRouting(route);
+      recordRouting(route,introductionBefore);
       const reached=!revisit&&introducedNow&&introducedCountForDay(intake,localLexicalDay())>=readSettings().daily_new_limit;
       if(reached){
         if(ordinal<total)try{localStorage.setItem('kianos-vocabulary-last-ordinal',String(ordinal+1))}catch{}
