@@ -109,7 +109,8 @@ const base = import.meta.env.BASE_URL;
       if(!lexicalBrowserStateReadable())return;
       const routing=readRouting();
       if(!canUndoRouting(routing))return;
-      const result=undoLexicalRoutingJudgment(routing,readIntake());
+      const intake=readIntake();
+      const result=undoLexicalRoutingJudgment(routing,intake);
       if(result.status!=='UNDONE'){
         let notice=root.querySelector('[data-vocab-undo-notice]');
         if(!notice){notice=document.createElement('p');notice.setAttribute('data-vocab-undo-notice','');notice.setAttribute('role','status');root.append(notice);}
@@ -119,7 +120,7 @@ const base = import.meta.env.BASE_URL;
       root.querySelector('[data-vocab-undo-notice]')?.remove();
       const last=result.event;
       saveRouting(result.routing);
-      saveIntake(result.intake);
+      if(result.intake.introduced[last.word_id]!==intake.introduced?.[last.word_id])saveIntake(result.intake);
       updateUndoState();
       if(last.return_href){
         let targetOrdinal=0;

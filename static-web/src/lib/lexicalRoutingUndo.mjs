@@ -54,6 +54,7 @@ export function undoLexicalRoutingJudgment(routingInput, intakeInput) {
     // Legacy history proves a prior judgment only if it is actually retained.
     // Its absence cannot prove this was the first judgment of that word.
     if (!previous) return blocked('PRIOR_JUDGMENT_UNAVAILABLE');
+    if (!validPrior(previous, event.word_id)) return blocked('PRIOR_JUDGMENT_INVALID');
     restored = previous;
   }
   routing.history = history;
