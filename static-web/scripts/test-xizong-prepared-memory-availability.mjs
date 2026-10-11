@@ -170,8 +170,7 @@ class Input extends Element {}
 const node = (parent, attrs) => { const child = new Element(attrs); parent.append(child); return child; };
 const inline = name => fs.readFileSync(new URL(`../src/components/${name}.astro`, import.meta.url), 'utf8')
   .match(/<script>\n([\s\S]*?)<\/script>/)[1].replace(/  import[\s\S]*?;\n/g, '').replace('void learnerWriterReady.then', 'learnerWriterReady.then');
-const bridgeScript = inline('XizongMemoryReleaseBridge'), workspaceScript = inline('XizongMemoryWorkspace')
-  .replace("await import('../lib/xizongMemoryRelease.mjs')", 'legacyMemoryModule');
+const bridgeScript = inline('XizongMemoryReleaseBridge'), workspaceScript = inline('XizongMemoryWorkspace');
 async function harness({ payload = learner, saved, failSave = false, search = '', chat = null, workspace = false } = {}) {
   const document = new Element(), window = new Element(), navigations = [], writes = [];
   const values = new Map(saved === undefined ? [] : [[memory.XIZONG_MEMORY_STORAGE_KEY, typeof saved === 'string' ? saved : JSON.stringify(saved)]]);
@@ -181,7 +180,7 @@ async function harness({ payload = learner, saved, failSave = false, search = ''
   const context = { document, window, localStorage: storage, URLSearchParams, HTMLElement: Element, Element,
     HTMLInputElement: Input, HTMLTextAreaElement: Input, HTMLAnchorElement: Input,
     CustomEvent: class { constructor(type, opts) { this.type = type; this.detail = opts?.detail; } },
-    learnerWriterReady: Promise.resolve(), console: { error() {} }, compiledMemory, legacyMemoryModule:release,
+    learnerWriterReady: Promise.resolve(), console: { error() {} }, compiledMemory,
     isCompiledPreparedCard:compiledMemory.isXizongPreparedMemoryCard, ...memory, ...release, ...autoRelease, preparedMemoryPresentationHtml,
     XIZONG_SESSION_KEY: 'synthetic-session', studyDayAt: () => 'synthetic-day',
     validateXizongSessionInstruction: () => chat, resolveXizongSessionNext: () => ({ step: chat?.step }) };
@@ -248,7 +247,7 @@ for (const [name, saved, failSave] of [['corruption', '{broken', false], ['unsup
   checks.push(`actual B2 Bridge ${name} preserves storage and does not route`);
 }
 const both = memory.makePreparedMemoryAvailable(first, b2Descriptor);
-const b2Browse = await harness({ workspace: true, saved: both, search: '?view=precision&block=circulation-b02' });
+const b2Browse = await harness({ payload: b2Learner, workspace: true, saved: both, search: '?view=precision&block=circulation-b02' });
 assert.equal(b2Browse.q('[data-memory-queue]').children.length, 12);
 assert.match(b2Browse.q('[data-memory-view-note]').textContent, /^B2 /);
 assert.equal(b2Browse.q('[data-memory-answer]').hidden, false);
@@ -259,25 +258,43 @@ assert.equal(b2Browse.q('[data-memory-answer]').hidden, true); assert.equal(b2Br
 b2Browse.q('[data-memory-rating="known"]').click(); assert.equal(b2Browse.state().evidence.length, 0);
 b2Browse.q('[data-memory-reveal]').click(); b2Browse.q('[data-memory-rating="known"]').click();
 assert.equal(b2Browse.state().evidence.length, 1); assert.match(b2Browse.state().evidence[0].cardId, /^precision:b02-/);
-const b2Reload = await harness({ workspace: true, saved: b2Browse.state(), search: '?view=precision&block=circulation-b02' });
+const b2Reload = await harness({ payload: b2Learner, workspace: true, saved: b2Browse.state(), search: '?view=precision&block=circulation-b02' });
 assert.deepEqual(b2Reload.state(), b2Browse.state());
-const b2Empty = await harness({ workspace: true, search: '?view=precision&block=circulation-b02' });
+const b2Empty = await harness({ payload: b2Learner, workspace: true, search: '?view=precision&block=circulation-b02' });
 assert.equal(b2Empty.q('[data-memory-queue]').children.length, 0); assert.equal(b2Empty.writes.length, 0);
-const b2Chat = await harness({ workspace: true, saved: both, search: '?view=precision&block=circulation-b02&session=s&step=t',
+const b2Chat = await harness({ payload: b2Learner, workspace: true, saved: both, search: '?view=precision&block=circulation-b02&session=s&step=t',
   chat: { session_id: 's', step: { step_id: 't', kind: 'MEMORY_REVIEW', targets: [{ card_id: descriptor.precisionCards[0].id }] } } });
 assert.equal(b2Chat.q('[data-memory-queue]').children.length, 1); assert.equal(b2Chat.q('[data-memory-answer]').hidden, true);
 assert.equal(b2Chat.writes.length, 0);
 checks.push('actual B2 Bridge/Workspace use B2-only identity/filter/label, preserve B1 cards and authenticated Chat Recall precedence, hide answers until Recall Reveal, persist one explicit rating and reopen without replay');
 for (let n = 1; n <= 12; n++) {
   const blockId = `circulation-b${String(n).padStart(2, '0')}`;
-  const empty = await harness({ workspace: true, search: `?view=precision&block=${blockId}` });
+  const payload = resolveXizongLearnerProjection(loadXizongBlock('circulation', blockId)).learnerObject;
+  const empty = await harness({ payload, workspace: true, search: `?view=precision&block=${blockId}` });
   assert.ok(empty.q('[data-memory-view-note]').textContent.startsWith(`B${n} 已准备的精确记忆`));
   assert.equal(empty.writes.length, 0);
   const fixture = clone(first);
   for (const card of Object.values(fixture.cards)) { card.blockId = blockId; card.blockLabel = `Native B${n}`; }
-  const filled = await harness({ workspace: true, saved: fixture, search: `?view=precision&block=${blockId}` });
+  const filled = await harness({ payload, workspace: true, saved: fixture, search: `?view=precision&block=${blockId}` });
   assert.ok(filled.q('[data-memory-view-note]').textContent.startsWith(`Native B${n} 已准备的精确记忆`));
   assert.equal(filled.writes.length, 0);
 }
 checks.push('all twelve prepared views use native card Block label with validated empty-view fallback, without writes');
+// A future system reaches the same real Workspace without an identity whitelist.
+const future = clone(learner);
+future.identity.systemId = 'future-system';
+future.identity.blockLabel = 'Future label';
+future.preparedMemory.identity = clone(future.identity);
+for (const row of future.preparedMemory.items) if (row.card) {
+  row.card.systemId = future.identity.systemId;
+  row.card.blockLabel = future.identity.blockLabel;
+}
+const futureDescriptor = compiledMemory.buildXizongPreparedMemoryAvailability(future);
+const futureState = memory.makePreparedMemoryAvailable(memory.createXizongMemoryState(), futureDescriptor);
+const futureWorkspace = await harness({ payload: future, workspace: true, saved: futureState,
+  search: `?view=precision&block=${future.identity.blockId}` });
+assert.equal(futureWorkspace.q('[data-memory-queue]').children.length, futureDescriptor.precisionCards.length);
+assert.ok(futureWorkspace.q('[data-memory-view-note]').textContent.startsWith('Future label'));
+assert.equal(futureWorkspace.writes.length, 0);
+checks.push('future system uses compiled Memory in the actual Workspace without a System branch or writes');
 console.log(JSON.stringify({ status: 'PASS', boundary: 'synthetic controller + state regression; no Candidate or learner U claim', checks }, null, 2));
