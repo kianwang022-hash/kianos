@@ -5,6 +5,8 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 import {spawn,spawnSync} from 'node:child_process';
 import {chromium} from 'playwright';
+import {waitForNativeBrowser} from './privateControlNativeBrowserReadiness.mjs';
+import {testNativeBrowserReadiness} from './test-private-control-native-browser-readiness.mjs';
 import {
   ENGLISH_GENERATED_DRILL_SCHEMA,
   validateEnglishGeneratedDrill
@@ -22,6 +24,7 @@ class MemoryStorage{
 }
 
 const playwrightVersion=createRequire(import.meta.url)('playwright/package.json').version;
+await testNativeBrowserReadiness();
 const day='2026-09-20';
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'kianos-control-browser-'));
 const controlDir=path.join(temp,'control');
@@ -357,16 +360,12 @@ try{
     {stdio:['ignore','ignore','pipe'],detached:process.platform!=='win32'});
   focusProcess.stderr?.on('data',chunk=>{focusStderr=(focusStderr+chunk.toString()).slice(-16384);});
   focusProcess.once('error',error=>{focusLaunchError=error.message;});
-  let focusPort=null;
-  for(let i=0;i<100;i++){
-    try{focusPort=Number(fs.readFileSync(path.join(focusProfile,'DevToolsActivePort'),'utf8').split('\n')[0]);if(focusPort)break;}catch{}
-    await sleep(100);
-  }
-  assert.ok(focusPort,'isolated native-focus browser starts: '+JSON.stringify({
-    executable:chrome,platform:process.platform,exitCode:focusProcess.exitCode,
-    signalCode:focusProcess.signalCode,spawnError:focusLaunchError,stderr:focusStderr
-  }));
   console.log('native-focus Playwright',playwrightVersion);
+  const focusStartup=await waitForNativeBrowser({child:focusProcess,profile:focusProfile,spawnError:()=>focusLaunchError});
+  console.log('NATIVE_FOCUS_STARTUP_WITNESS',JSON.stringify({executable:chrome,platform:process.platform,
+    playwrightVersion,...focusStartup,stderr:focusStderr}));
+  assert.ok(focusStartup.ready,'isolated native-focus browser starts: '+JSON.stringify(focusStartup));
+  const focusPort=focusStartup.port;
   const [pwMajor,pwMinor]=playwrightVersion.split('.').map(Number);
   assert.ok(pwMajor>1 || (pwMajor===1 && pwMinor>=60),'NATIVE_FOCUS_REQUIRES_PLAYWRIGHT_1_60_NO_DEFAULTS:'+playwrightVersion);
   browser=await chromium.connectOverCDP('http://127.0.0.1:'+focusPort,{noDefaults:true});
@@ -395,11 +394,11 @@ try{
 }finally{
   try{await browser?.close();}catch{}
   const stopOwned=async child=>{
-    if(!child || child.exitCode!=null)return;
+    if(!child || !child.pid || child.exitCode!=null || child.signalCode!=null)return;
     const exited=new Promise(resolve=>child.once('exit',resolve));
     try{if(process.platform==='win32')child.kill('SIGTERM');else process.kill(-child.pid,'SIGTERM');}catch{}
     await Promise.race([exited,sleep(4000)]);
-    if(child.exitCode==null){try{if(process.platform==='win32')child.kill('SIGKILL');else process.kill(-child.pid,'SIGKILL');}catch{}await Promise.race([exited,sleep(1000)]);}
+    if(child.exitCode==null && child.signalCode==null){try{if(process.platform==='win32')child.kill('SIGKILL');else process.kill(-child.pid,'SIGKILL');}catch{}await Promise.race([exited,sleep(1000)]);}
   };
   await stopOwned(focusProcess);
   await stopOwned(server);
