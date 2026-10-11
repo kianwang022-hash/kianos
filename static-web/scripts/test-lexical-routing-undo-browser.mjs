@@ -97,5 +97,59 @@ try{
   await page.reload();await page.locator('[data-vocab-evidence-initialized="true"]').waitFor();
   check(JSON.stringify(await read())===JSON.stringify(undone),'refresh retains successful undo retry');
  });
+ // Missing transaction edge cases, limited to this component's synthetic stores.
+ const injectEdgeFault=async(page,kind)=>page.evaluate(({kind,key,intakeKey})=>{
+  const proto=Storage.prototype,set=proto.setItem,get=proto.getItem;
+  const priorIntake=get.call(localStorage,intakeKey);
+  const concurrent=JSON.stringify({schema:'kianos.lexical.intake.v1',introduced:{'word:concurrent':'2026-02-02'}});
+  window.__edgeFault={navigations:0,writes:[],readMismatch:false,concurrent};
+  window.addEventListener('kianos:vocabulary-navigate',()=>window.__edgeFault.navigations++);
+  let mismatchPending=false;
+  proto.setItem=function(k,v){
+   if(this!==localStorage||![key,intakeKey].includes(k))return set.call(this,k,v);
+   window.__edgeFault.writes.push(k);
+   if(kind==='first-write'&&k===intakeKey)throw new DOMException('Synthetic first write failure','QuotaExceededError');
+   if(kind==='rollback-failure'&&k===intakeKey&&v===priorIntake)throw new DOMException('Synthetic rollback failure','QuotaExceededError');
+   if(['rollback-failure','concurrent-conflict'].includes(kind)&&k===key){
+    if(kind==='concurrent-conflict')set.call(this,intakeKey,concurrent);
+    throw new DOMException('Synthetic second write failure','QuotaExceededError');
+   }
+   const result=set.call(this,k,v);
+   if(kind==='read-mismatch'&&k===key&&!window.__edgeFault.readMismatch)mismatchPending=true;
+   return result;
+  };
+  proto.getItem=function(k){
+   if(this===localStorage&&k===key&&mismatchPending){mismatchPending=false;window.__edgeFault.readMismatch=true;return null;}
+   return get.call(this,k);
+  };
+ },{kind,key,intakeKey});
+ for(const kind of ['first-write','read-mismatch','rollback-failure','concurrent-conflict']){
+  // Keep a prior intake byte string so rollback failure can target its restore write.
+  await run({schema:'kianos.lexical.card_routing.v1',history:[],latest_by_word:{}},{'word:unrelated':day},async(page,read)=>{
+   const before=await read();await injectEdgeFault(page,kind);
+   await page.locator('[data-vocab-route="mastered"]').click();
+   const after=await read(),state=await page.evaluate(()=>window.__edgeFault);
+   check(state.navigations===0,kind+' stops navigation');
+   check(JSON.stringify(after.routing)===JSON.stringify(before.routing),kind+' preserves prior routing');
+   const notice=page.locator('[data-vocab-save-notice]');
+   check(await notice.isVisible(),kind+' shows save alert');
+   if(['first-write','read-mismatch'].includes(kind)){
+    check(JSON.stringify(after.intake)===JSON.stringify(before.intake),kind+' restores prior intake');
+    check((await notice.textContent()).includes('未保存'),kind+' reports unsaved');
+    if(kind==='first-write')check(state.writes.length===1&&state.writes[0]===intakeKey,'first intake failure never attempts routing write');
+    else check(state.readMismatch,'post-write verification observes injected mismatched read');
+   }else{
+    check((await notice.textContent()).includes('状态需要核对'),kind+' reports uncertain state without preservation claim');
+    check(await page.locator('[data-vocab-route="mastered"]').isDisabled()&&await page.locator('[data-vocab-undo]').isDisabled(),kind+' pauses judgment and undo in current page');
+    if(kind==='concurrent-conflict'){
+     const raw=await page.evaluate(intakeKey=>localStorage.getItem(intakeKey),intakeKey);
+     check(raw===state.concurrent,'rollback conflict preserves exact synthetic concurrent bytes');
+    }else check(!!after.intake.introduced['word:synthetic']&&after.intake.introduced['word:unrelated']===day,'rollback write failure retains unrolled intake for reconciliation');
+    const snapshot=JSON.stringify(after);
+    await page.evaluate(()=>document.activeElement?.blur());await page.keyboard.press('Backspace');await page.keyboard.press('ArrowDown');
+    check(JSON.stringify(await read())===snapshot&&(await page.evaluate(()=>window.__edgeFault.navigations))===0,kind+' keyboard actions do not continue after pause');
+   }
+  });
+ }
  console.log(JSON.stringify({status:'PASS',checks:checks.length,fixture:'complete production routing script with synthetic storage',port}));
 }finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
