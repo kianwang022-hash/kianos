@@ -3,6 +3,7 @@ import test from 'node:test';
 import * as L from '../src/lib/englishLearnerEvidence.mjs';
 import * as S from '../src/lib/englishSessionControl.mjs';
 import './test-english-loop-recovery.mjs';
+import './test-english-session-control-day.mjs';
 
 const day = '2026-09-22';
 const clone = value => JSON.parse(JSON.stringify(value));
