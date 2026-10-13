@@ -9,10 +9,37 @@
     "constructions": [],
     "content_hash": "f5ac011250793e3b03ddbda42b9de5d33e85f6c171659910e0352e17a7aa7c3b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "暴露；曝光",
-      "core_meaning_en": "the state of being exposed to something",
-      "mental_model_cn": "暴露；曝光",
+      "core_clusters": [
+        {
+          "label_cn": "接触、暴露；严寒伤害",
+          "label_en": "contact with a condition; harm from unprotected cold",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exposure:d2978e2ac1b35cf7",
+            "sense:exposure:c59392e2892fca02"
+          ]
+        },
+        {
+          "label_cn": "揭露；公众关注",
+          "label_en": "disclosure or public attention",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exposure:178ef13cbdf95b48",
+            "sense:exposure:50ead225ef12cc15"
+          ]
+        },
+        {
+          "label_cn": "摄影曝光",
+          "label_en": "photographic light exposure",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exposure:15823aa81f555277"
+          ]
+        }
+      ],
+      "core_meaning_cn": "接触、暴露；揭露；公众关注；摄影曝光",
+      "core_meaning_en": "contact or exposure; disclosure; public attention; photographic exposure",
+      "mental_model_cn": "exposure to接所接触的影响或条件；of秘密指揭露；媒体语境指公众关注。严寒中无防护的exposure可指身体伤害，摄影语境按光量或时间解读。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,9 +72,9 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "暴露",
+        "definition_cn": "暴露；接触（常指有害因素）",
         "definition_en": "the state of being exposed to something, especially something harmful",
-        "governing_pattern": "",
+        "governing_pattern": "exposure to + influence/condition",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -93,16 +120,60 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "曝光量",
-        "definition_en": "the amount of light reaching a photographic film",
+        "definition_cn": "（摄影）曝光；曝光时间或曝光量",
+        "definition_en": "the exposure of photographic film or a sensor to light, including its duration or amount",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:exposure:15823aa81f555277",
-        "sense_label_en": "the amount of light reaching a photographic film",
+        "sense_label_en": "photographic exposure, duration or amount",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:exposure:50ead225ef12cc15",
+        "pos": "noun",
+        "definition_cn": "媒体曝光；公众关注",
+        "definition_en": "public attention that a person, product, or organization receives",
+        "sense_label_en": "public attention that a person, product, or organization receives",
+        "governing_pattern": "uncountable: media exposure; get/gain exposure",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3e27d1a19c8dd90bff88",
+            "phrase": "gain media exposure",
+            "meaning_cn": "获得媒体关注",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:exposure:c59392e2892fca02",
+        "pos": "noun",
+        "definition_cn": "（无防护暴露于严寒造成的）身体伤害",
+        "definition_en": "harm to the body from severe cold without adequate shelter or protection",
+        "sense_label_en": "harm to the body from severe cold without adequate shelter or protection",
+        "governing_pattern": "uncountable: suffer from/die of exposure",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:19082766b01332213288",
+            "phrase": "suffer from exposure",
+            "meaning_cn": "因暴露于严寒而受伤害",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -142,6 +213,40 @@
           "applicability": [
             {
               "surface": "exposure"
+            },
+            {
+              "surface": "exposure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exposure:50ead225ef12cc15"
+              ],
+              "owner_sense_ids": [
+                "sense:exposure:50ead225ef12cc15"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1809.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "uncountable: media exposure; get/gain exposure"
+              }
+            },
+            {
+              "surface": "exposure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exposure:c59392e2892fca02"
+              ],
+              "owner_sense_ids": [
+                "sense:exposure:c59392e2892fca02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1809.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "uncountable: suffer from/die of exposure"
+              }
             }
           ],
           "sources": [
@@ -206,6 +311,22 @@
         "merged_into_sense_id": null,
         "source_row": 4952,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:exposure:50ead225ef12cc15",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1809.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:exposure:c59392e2892fca02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1809.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -235,6 +356,20 @@
         "id": "collocation:f54b667661060e2da695",
         "source_row": 20772,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:3e27d1a19c8dd90bff88",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1809.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:19082766b01332213288",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1809.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

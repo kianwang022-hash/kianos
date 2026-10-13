@@ -19,18 +19,19 @@
           ]
         },
         {
-          "label_cn": "屠杀，残杀",
-          "label_en": "to kill a large number of people indiscriminately",
+          "label_cn": "屠杀，残杀；（非正式）以很大比分击败",
+          "label_en": "to kill a large number of people indiscriminately; to defeat an opponent by a very high score",
           "pos": "verb",
           "sense_ids": [
-            "sense:massacre:05143b94a2355146"
+            "sense:massacre:05143b94a2355146",
+            "sense:massacre:0dbcce39fe3e0435"
           ]
         }
       ],
-      "core_meaning_cn": "大规模屠杀",
-      "core_meaning_en": "the killing of a large number of people",
-      "mental_model_cn": "大规模屠杀",
-      "mental_model_en": ""
+      "core_meaning_cn": "大屠杀；屠杀；比赛大比分击败",
+      "core_meaning_en": "mass killing; to kill indiscriminately; to defeat heavily in sport",
+      "mental_model_cn": "massacre civilians是屠杀；a team was massacred在体育报道中可能是大比分败北，并非真的被杀。",
+      "mental_model_en": "mass killing; to kill indiscriminately; to defeat heavily in sport."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -87,6 +88,28 @@
         "sense_label_en": "to kill a large number of people indiscriminately",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:massacre:0dbcce39fe3e0435",
+        "pos": "verb",
+        "definition_cn": "（非正式）以很大比分击败",
+        "definition_en": "to defeat an opponent by a very high score",
+        "sense_label_en": "to defeat an opponent by a very high score",
+        "governing_pattern": "massacre a team/opponent",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7f5d4a200e289d521502",
+            "phrase": "be massacred in the final",
+            "meaning_cn": "在决赛中大比分惨败",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -127,6 +150,23 @@
           "applicability": [
             {
               "surface": "massacre"
+            },
+            {
+              "surface": "massacre",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:massacre:0dbcce39fe3e0435"
+              ],
+              "owner_sense_ids": [
+                "sense:massacre:0dbcce39fe3e0435"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2972.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "massacre a team/opponent"
             }
           ],
           "sources": [
@@ -214,11 +254,20 @@
         "merged_into_sense_id": null,
         "source_row": 8285,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:massacre:0dbcce39fe3e0435",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2972.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:b2062ead2fae3c8d5ea5",
       "collocation:1d1d3c10c8be053cf357",
-      "collocation:b2062ead2fae3c8d5ea5"
+      "collocation:7f5d4a200e289d521502"
     ],
     "facts": [],
     "collocations": [
@@ -231,6 +280,13 @@
         "id": "collocation:b2062ead2fae3c8d5ea5",
         "source_row": 15083,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:7f5d4a200e289d521502",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2972.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

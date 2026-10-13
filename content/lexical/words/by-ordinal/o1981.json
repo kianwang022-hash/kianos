@@ -6,13 +6,39 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:60a2c92e782f0369232c",
+        "pattern": "follow up sth / follow sth up / follow up on sth",
+        "meaning_cn": "跟进；进一步调查或采取行动",
+        "definition_en": "to investigate or take further action about something already begun",
+        "usage_note": "线索可follow up；on接所跟进的事情。代词宾语置中，如follow it up。名词或形容词通常写为带连字符的follow-up。",
+        "boundary": "线索可follow up；on接所跟进的事情。代词宾语置中，如follow it up。名词或形容词通常写为带连字符的follow-up。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "15ae156f9052b5532df9c44133f6a131cf8dfca42978a346805eb923ce650e39",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "跟随；遵循；理解",
-      "core_meaning_en": "to follow, obey, or understand",
-      "mental_model_cn": "跟随，遵循",
+      "core_clusters": [
+        {
+          "label_cn": "跟随，跟着；遵循，遵守；理解；听懂；跟得上；接着，随后发生；由此产生；随之而来；合乎逻辑地推出；关注；持续了解进展；注视；（社交媒体）关注、订阅某人的更新",
+          "label_en": "to go or come after someone or something; to act according to rules, instructions, or advice; to understand the meaning, logic, or explanation of something; to come after in time or order; to happen or be true as a result or logical consequence of something; to watch or keep informed about someone or something over time; to subscribe to someone’s updates on social media",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:follow:9b3c89af4e115251",
+            "sense:follow:4ebf350a0e355648",
+            "sense:follow:6ccaed7f05415eb2",
+            "sense:follow:5d54e6861e695b88",
+            "sense:follow:05dc9c8f19d0551e",
+            "sense:follow:293298f8ea4d2fc5",
+            "sense:follow:d126ea4f6a5fb7f1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "跟随、遵循、理解；随后发生或推出；关注、跟进",
+      "core_meaning_en": "follow, obey, or understand; come after or result; track, subscribe, or follow up",
+      "mental_model_cn": "跟随不自动意味着追上；follow说明是听懂，follow from/it follows that可为结果或推论。follow news持续关注，follow账号为订阅更新；follow up为进一步跟进。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,7 +57,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:e31d0ddc785d431e19d4",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:follow:9b3c89af4e115251:collocation:0"
             ],
@@ -51,14 +77,14 @@
         "confidence": "medium",
         "definition_cn": "跟随，跟着",
         "definition_en": "to go or come after someone or something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "follow (sb/sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:follow:9b3c89af4e115251",
         "sense_label_en": "to go or come after someone or something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -113,15 +139,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:8bb36a037cdcf951d18e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:follow:5d54e6861e695b88:collocation:0"
-            ],
-            "meaning_cn": "由某事物引起",
-            "phrase": "follow from + sth"
-          },
-          {
             "collocation_id": "collocation:c0eff8494af9921b1090",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -134,17 +151,27 @@
         "confidence": "medium",
         "definition_cn": "接着，随后发生",
         "definition_en": "to come after in time or order",
-        "governing_pattern": "",
+        "governing_pattern": "A follows B; B is followed by A",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:follow:5d54e6861e695b88",
         "sense_label_en": "to come after in time or order",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:8bb36a037cdcf951d18e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:follow:5d54e6861e695b88:collocation:0"
+            ],
+            "meaning_cn": "由某事物引起",
+            "phrase": "follow from + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "由此产生；随之而来；合乎逻辑地推出",
         "definition_en": "to happen or be true as a result or logical consequence of something",
@@ -169,6 +196,50 @@
         ],
         "transitivity": "vi",
         "governing_pattern": "follow from + sth / it follows that + clause"
+      },
+      {
+        "sense_id": "sense:follow:293298f8ea4d2fc5",
+        "pos": "verb",
+        "definition_cn": "关注；持续了解进展；注视",
+        "definition_en": "to watch or keep informed about someone or something over time",
+        "sense_label_en": "to watch or keep informed about someone or something over time",
+        "governing_pattern": "follow the news/a career/an event",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8004b185fa87b2b49bbe",
+            "phrase": "follow the news",
+            "meaning_cn": "关注新闻",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:follow:d126ea4f6a5fb7f1",
+        "pos": "verb",
+        "definition_cn": "（社交媒体）关注、订阅某人的更新",
+        "definition_en": "to subscribe to someone’s updates on social media",
+        "sense_label_en": "to subscribe to someone’s updates on social media",
+        "governing_pattern": "follow sb/an account on social media",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6db68b85a26804f68d19",
+            "phrase": "follow an account",
+            "meaning_cn": "关注一个账号",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -209,6 +280,40 @@
           "applicability": [
             {
               "surface": "follow"
+            },
+            {
+              "surface": "follow",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:follow:293298f8ea4d2fc5"
+              ],
+              "owner_sense_ids": [
+                "sense:follow:293298f8ea4d2fc5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1981.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "follow the news/a career/an event"
+              }
+            },
+            {
+              "surface": "follow",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:follow:d126ea4f6a5fb7f1"
+              ],
+              "owner_sense_ids": [
+                "sense:follow:d126ea4f6a5fb7f1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1981.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "follow sb/an account on social media"
+              }
             }
           ],
           "sources": [
@@ -324,21 +429,37 @@
         "merged_into_sense_id": null,
         "source_row": 5511,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:follow:293298f8ea4d2fc5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1981.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:follow:d126ea4f6a5fb7f1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1981.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
       "collocation:8bb36a037cdcf951d18e",
       "collocation:a969ffbbab80e9bd60ce",
       "collocation:c0eff8494af9921b1090",
-      "collocation:d61da3a8af2a1ced20a1",
-      "collocation:e31d0ddc785d431e19d4"
+      "collocation:d61da3a8af2a1ced20a1"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:8bb36a037cdcf951d18e",
         "source_row": 11844,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "sense_id": "sense:follow:05dc9c8f19d0551e"
       },
       {
         "id": "collocation:a969ffbbab80e9bd60ce",
@@ -358,7 +479,23 @@
       {
         "id": "collocation:e31d0ddc785d431e19d4",
         "source_row": 19218,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:8004b185fa87b2b49bbe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1981.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:6db68b85a26804f68d19",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1981.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

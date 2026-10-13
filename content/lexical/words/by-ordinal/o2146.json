@@ -19,18 +19,19 @@
           ]
         },
         {
-          "label_cn": "闪烁的光，灿烂",
-          "label_en": "a bright, sparkling light",
+          "label_cn": "闪烁的光，灿烂；装饰用闪光碎片；亮粉",
+          "label_en": "a bright, sparkling light; small shiny particles used as decoration",
           "pos": "noun",
           "sense_ids": [
-            "sense:glitter:733f6c68ae2250ad"
+            "sense:glitter:733f6c68ae2250ad",
+            "sense:glitter:87b1d6226041bdfe"
           ]
         }
       ],
-      "core_meaning_cn": "闪烁，闪耀",
-      "core_meaning_en": "to shine with a bright, sparkling light",
-      "mental_model_cn": "闪烁，闪耀",
-      "mental_model_en": ""
+      "core_meaning_cn": "闪烁、闪光；闪光碎片或亮粉",
+      "core_meaning_en": "sparkle; sparkling light; decorative shiny particles",
+      "mental_model_cn": "glitter作动词为闪烁，名词可为闪光，也可为装饰卡片或物品的亮粉。",
+      "mental_model_en": "sparkle; sparkling light; decorative shiny particles."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -77,6 +78,28 @@
         "sense_label_en": "a bright, sparkling light",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:glitter:87b1d6226041bdfe",
+        "pos": "noun",
+        "definition_cn": "装饰用闪光碎片；亮粉",
+        "definition_en": "small shiny particles used as decoration",
+        "sense_label_en": "small shiny particles used as decoration",
+        "governing_pattern": "sprinkle glitter on sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9d8632cfc24e11260cdf",
+            "phrase": "gold glitter on the card",
+            "meaning_cn": "卡片上的金色亮粉",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -117,6 +140,23 @@
           "applicability": [
             {
               "surface": "glitter"
+            },
+            {
+              "surface": "glitter",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glitter:87b1d6226041bdfe"
+              ],
+              "owner_sense_ids": [
+                "sense:glitter:87b1d6226041bdfe"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2146.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "sprinkle glitter on sth"
+              }
             }
           ],
           "sources": [
@@ -289,6 +329,14 @@
         "merged_into_sense_id": null,
         "source_row": 5979,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:glitter:87b1d6226041bdfe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2146.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -300,6 +348,13 @@
         "id": "collocation:5ca287548d78e8c719bb",
         "source_row": 7801,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:9d8632cfc24e11260cdf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2146.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

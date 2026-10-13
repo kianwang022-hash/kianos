@@ -26,11 +26,19 @@
           "sense_ids": [
             "sense:fair:f86d0622f2055e92"
           ]
+        },
+        {
+          "label_cn": "天气晴好",
+          "label_en": "clear weather without rain",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fair:a1e0c2f3ec4f7392"
+          ]
         }
       ],
-      "core_meaning_cn": "公正的，合理的，或买卖的公共活动",
-      "core_meaning_en": "just, reasonable, or a public event for buying and selling",
-      "mental_model_cn": "公正的，合理的，或买卖的公共活动",
+      "core_meaning_cn": "公正或合乎情理；天气晴好；展览或市集",
+      "core_meaning_en": "just or reasonable; fair weather; a public event",
+      "mental_model_cn": "待人或规则语境是公正合理，数量/质量语境是相当或尚可；天气语境是晴朗无雨。名词a fair指展览或市集；fair hair/skin指浅色头发或白皙肤色，文学语境也可指美丽。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -143,21 +151,43 @@
             "legacy_source_object_ids": [
               "sense:fair:2e5a3180695f525a:collocation:0"
             ],
-            "meaning_cn": "金发",
+            "meaning_cn": "浅色头发（常指金色，但不限定只有金色）",
             "phrase": "fair hair"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "白皙的；美丽的",
-        "definition_en": "having light skin or hair; beautiful",
+        "definition_cn": "（肤色）白皙的；（头发）浅色的；（文学用语）美丽的",
+        "definition_en": "having light-coloured skin or hair; in literary use, beautiful",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:fair:2e5a3180695f525a",
-        "sense_label_en": "having light skin or hair; beautiful",
+        "sense_label_en": "light-coloured; literary beautiful",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fair:a1e0c2f3ec4f7392",
+        "pos": "adjective",
+        "definition_cn": "（天气）晴朗无雨的",
+        "definition_en": "of weather: sunny or clear and without rain",
+        "sense_label_en": "of weather: sunny or clear and without rain",
+        "governing_pattern": "fair weather/conditions",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8b6e5db957a439698425",
+            "phrase": "The weather remained fair.",
+            "meaning_cn": "天气仍然晴朗无雨。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -201,6 +231,23 @@
           "applicability": [
             {
               "surface": "fair"
+            },
+            {
+              "surface": "fair",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:fair:a1e0c2f3ec4f7392"
+              ],
+              "owner_sense_ids": [
+                "sense:fair:a1e0c2f3ec4f7392"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1845.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "fair weather/conditions"
+              }
             }
           ],
           "sources": [
@@ -594,6 +641,14 @@
         "merged_into_sense_id": null,
         "source_row": 5052,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:fair:a1e0c2f3ec4f7392",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1845.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -641,6 +696,13 @@
         "id": "collocation:e006a1b1a323c8666ea6",
         "source_row": 18951,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:8b6e5db957a439698425",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1845.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

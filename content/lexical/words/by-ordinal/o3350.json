@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:00250432a0a1c2213fca",
+        "pattern": "be of the opinion that…",
+        "meaning_cn": "认为……；持……看法",
+        "definition_en": "hold the view that something is true",
+        "usage_note": "正式；后接that从句陈述所持看法，不是说拥有一本意见书。",
+        "boundary": "正式；后接that从句陈述所持看法，不是说拥有一本意见书。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:f4b32311e83462de3d08",
+        "pattern": "have a high/low opinion of sb/sth",
+        "meaning_cn": "对某人或某事物评价高／低",
+        "definition_en": "judge somebody or something favourably or unfavourably",
+        "usage_note": "of后接评价对象；high/low表示评价程度，不是意见的数量。",
+        "boundary": "of后接评价对象；high/low表示评价程度，不是意见的数量。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "3028d6198e4f3eb3f14627c50974d3bd115afcf44f80235777a77effb37f39f6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "个人的看法或判断",
-      "core_meaning_en": "a personal belief or judgment",
-      "mental_model_cn": "个人的看法或判断",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "看法、专业评估或司法意见书",
+          "label_en": "views, professional advice or legal reasons",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:opinion:6b7418bbbe9c589e",
+            "sense:opinion:744b597632015846",
+            "sense:opinion:aef3444f2a0e6517"
+          ]
+        }
+      ],
+      "core_meaning_cn": "看法、评价；专业意见；法院意见书",
+      "core_meaning_en": "a view or assessment; professional advice; a court’s reasoned statement",
+      "mental_model_cn": "opinion on/about sth说对议题的看法，opinion of sb可说对人的评价；a second opinion说另一位专业人士的评估，法院语境的opinion可指判决理由或意见书。",
+      "mental_model_en": "a view or assessment; professional advice; a court’s reasoned statement."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -47,7 +79,7 @@
         "confidence": "medium",
         "definition_cn": "意见；看法；观点",
         "definition_en": "a view, belief, or judgment about someone or something; what someone thinks about it, as distinct from a bare statement of fact",
-        "governing_pattern": "",
+        "governing_pattern": "opinion on/about sth; opinion of sb/sth; opinion that…; in sb’s opinion",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -79,6 +111,28 @@
         "sense_label_en": "a formal statement of reasons for a legal decision",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:opinion:aef3444f2a0e6517",
+        "pos": "noun",
+        "definition_cn": "专业意见；专业评估",
+        "definition_en": "advice or an assessment given by a professional",
+        "sense_label_en": "advice or an assessment given by a professional",
+        "governing_pattern": "an expert/second opinion; seek/get an opinion",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9eb1411d2ec67f171f27",
+            "phrase": "seek a second opinion",
+            "meaning_cn": "征求另一位专业人士的意见",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +162,24 @@
           "applicability": [
             {
               "surface": "opinion"
+            },
+            {
+              "surface": "opinion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "owner_sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3350.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an expert/second opinion; seek/get an opinion",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -147,6 +219,24 @@
           "applicability": [
             {
               "surface": "opinion"
+            },
+            {
+              "surface": "opinion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "owner_sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3350.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an expert/second opinion; seek/get an opinion",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -240,6 +330,24 @@
           "applicability": [
             {
               "surface": "opinion"
+            },
+            {
+              "surface": "opinion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "owner_sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3350.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an expert/second opinion; seek/get an opinion",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -351,6 +459,24 @@
           "applicability": [
             {
               "surface": "opinion"
+            },
+            {
+              "surface": "opinion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "owner_sense_ids": [
+                "sense:opinion:aef3444f2a0e6517"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3350.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an expert/second opinion; seek/get an opinion",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -423,12 +549,21 @@
         "merged_into_sense_id": null,
         "source_row": 9310,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:opinion:aef3444f2a0e6517",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3350.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:67ac6fab1de264d46c87",
       "collocation:ab0f5bec470a98c2f4df",
-      "collocation:da515a32b454700a4ffe"
+      "collocation:da515a32b454700a4ffe",
+      "collocation:67ac6fab1de264d46c87",
+      "collocation:9eb1411d2ec67f171f27"
     ],
     "facts": [],
     "collocations": [
@@ -446,6 +581,13 @@
         "id": "collocation:da515a32b454700a4ffe",
         "source_row": 18466,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:9eb1411d2ec67f171f27",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3350.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

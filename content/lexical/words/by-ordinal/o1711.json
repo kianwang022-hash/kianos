@@ -11,25 +11,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "护送，护卫",
-          "label_en": "to accompany someone or something to protect or guide them",
+          "label_cn": "护送、引领或陪同",
+          "label_en": "accompany for protection, guidance, or companionship",
           "pos": "verb",
           "sense_ids": [
             "sense:escort:6b780f6cd9ab568f"
           ]
         },
         {
-          "label_cn": "护送者，护卫者",
-          "label_en": "a person or group that accompanies someone for protection",
+          "label_cn": "护送者、护卫队或社交陪同者",
+          "label_en": "a protective escort or social companion",
           "pos": "noun",
           "sense_ids": [
             "sense:escort:cbc6f6344b2e5b94"
           ]
         }
       ],
-      "core_meaning_cn": "护送，护卫",
-      "core_meaning_en": "accompany or be accompanied for protection",
-      "mental_model_cn": "护送，护卫",
+      "core_meaning_cn": "护送、引领或陪同；护卫队或陪同者",
+      "core_meaning_en": "to accompany for protection, guidance, or companionship; an escort or companion",
+      "mental_model_cn": "动词表示陪着护送或引领；名词在警务/旅途中可指护送者或护卫队，在社交活动中可指陪同者。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,7 +55,7 @@
           },
           {
             "collocation_id": "collocation:4dfd0cdd3a0f5647a96a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:escort:6b780f6cd9ab568f:collocation:1"
             ],
@@ -64,14 +64,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "护送，护卫",
-        "definition_en": "to accompany someone or something to protect or guide them",
+        "definition_cn": "护送；引领或陪同",
+        "definition_en": "to accompany someone or something for protection, guidance, or companionship",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:escort:6b780f6cd9ab568f",
-        "sense_label_en": "to accompany someone or something to protect or guide them",
+        "sense_label_en": "accompany for protection, guidance, or companionship",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -85,17 +85,23 @@
             ],
             "meaning_cn": "警察护送",
             "phrase": "police escort"
+          },
+          {
+            "collocation_id": "collocation:485489da8c8680a347a2",
+            "phrase": "her escort at the reception",
+            "meaning_cn": "她在招待会上的陪同者",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "护送者，护卫者",
-        "definition_en": "a person or group that accompanies someone for protection",
+        "definition_cn": "护送者、护卫队或陪同者",
+        "definition_en": "a person, group, or vehicle accompanying another for protection, guidance, or social companionship",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:escort:cbc6f6344b2e5b94",
-        "sense_label_en": "a person or group that accompanies someone for protection",
+        "sense_label_en": "a protective escort or social companion",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -491,7 +497,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:4dfd0cdd3a0f5647a96a",
       "collocation:b525fe37c4a29c30c186",
       "collocation:bd812af098c4bc3ddf00"
     ],
@@ -500,7 +505,9 @@
       {
         "id": "collocation:4dfd0cdd3a0f5647a96a",
         "source_row": 6583,
-        "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b525fe37c4a29c30c186",
@@ -511,6 +518,13 @@
         "id": "collocation:bd812af098c4bc3ddf00",
         "source_row": 16040,
         "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+      },
+      {
+        "id": "collocation:485489da8c8680a347a2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1711.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

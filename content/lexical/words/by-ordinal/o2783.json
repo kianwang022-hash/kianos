@@ -6,24 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:dc44c164ed1f494bb439",
+        "pattern": "in league with sb",
+        "meaning_cn": "与某人勾结／串通",
+        "definition_en": "working with someone on a secret plan, often for a dishonest purpose",
+        "usage_note": "常含负面或秘密合作色彩；不等于单纯属于同一体育联赛。",
+        "boundary": "常含负面或秘密合作色彩；不等于单纯属于同一体育联赛。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "88202e1d41cfef312f52abe6edce0c1c4751b84bb05309897cde0027655c6839",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "体育联赛；联盟；同盟",
-          "label_en": "a sporting league; an alliance or association of groups",
+          "label_cn": "体育联赛；联盟；（质量／能力等的）水平",
+          "label_en": "a sports association, an alliance, or a level of quality or ability",
           "pos": "noun",
           "sense_ids": [
             "sense:league:e2a953379d7e5e20",
-            "sense:league:233a4802074d598b"
+            "sense:league:233a4802074d598b",
+            "sense:league:b8b910efa80da327"
           ]
         }
       ],
-      "core_meaning_cn": "联盟；联合",
-      "core_meaning_en": "an association or union for common action",
-      "mental_model_cn": "sports → 联赛；organizations/states → 联盟。旧式动词“结盟”和历史长度单位“里格”保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "体育联赛；联盟；（质量／能力等的）水平",
+      "core_meaning_en": "a sports association, an alliance, or a level of quality or ability",
+      "mental_model_cn": "sports league是联赛；league of states是联盟；different league是水平不同；in league with常指秘密勾结。",
+      "mental_model_en": "a sports association, an alliance, or a level of quality or ability."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -89,6 +101,35 @@
         "sense_label_en": "an association of states or organizations or individuals for common acti",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:league:b8b910efa80da327",
+        "pos": "noun",
+        "definition_cn": "（质量、能力等的）等级；水平",
+        "definition_en": "an informal level of quality, ability or suitability",
+        "sense_label_en": "an informal level of quality, ability or suitability",
+        "governing_pattern": "in a different league; in a league of one’s own; out of sb’s league",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f6769c9b480772af63b6",
+            "phrase": "Their latest design is in a different league.",
+            "meaning_cn": "他们最新设计的水平与以往明显不同。",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:ffdc52b9b6da7c372903",
+            "phrase": "That apartment is out of my league.",
+            "meaning_cn": "那套公寓超出了我的条件／承受范围。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式比喻；in a different league常指水平明显不同，具体高低由语境决定。out of my league可指超出我的能力或条件，不能一概等于体育联赛。"
       }
     ],
     "verification_summary": {
@@ -118,6 +159,23 @@
           "applicability": [
             {
               "surface": "league"
+            },
+            {
+              "surface": "league",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:league:b8b910efa80da327"
+              ],
+              "owner_sense_ids": [
+                "sense:league:b8b910efa80da327"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2783.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in a different league; in a league of one’s own; out of sb’s league"
             }
           ],
           "sources": [
@@ -313,12 +371,22 @@
         "merged_into_sense_id": null,
         "source_row": 7704,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      },
+      {
+        "sense_id": "sense:league:b8b910efa80da327",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2783.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:2f0e8ccd60ed546eacdb",
       "collocation:8079c635efc89c1312ec",
-      "collocation:d97e22a0bd7612c3c3dd"
+      "collocation:d97e22a0bd7612c3c3dd",
+      "collocation:2f0e8ccd60ed546eacdb",
+      "collocation:f6769c9b480772af63b6",
+      "collocation:ffdc52b9b6da7c372903"
     ],
     "facts": [],
     "collocations": [
@@ -355,6 +423,20 @@
         "id": "collocation:d97e22a0bd7612c3c3dd",
         "source_row": 18397,
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      },
+      {
+        "id": "collocation:f6769c9b480772af63b6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2783.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:ffdc52b9b6da7c372903",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2783.json",
+        "source_pointer": "/record/senses/2/collocations/1"
       }
     ],
     "exam-mappings": [],

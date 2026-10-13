@@ -6,35 +6,58 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:7be3904c21a1f8dc7eee",
+        "pattern": "present/form a united front",
+        "meaning_cn": "表现出一致立场；形成统一阵线",
+        "definition_en": "to show agreement and act together",
+        "level": "L2",
+        "direction": "R",
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:c5da52dd6620e6dabe7d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:front:2e79b2f21b2d5ebc:collocation:1"
+            ],
+            "meaning_cn": "统一战线",
+            "phrase": "united front"
+          }
+        ]
+      }
+    ],
     "content_hash": "537c6604156b6d88d373f4019d0506367991fb00e6797d600a44046aaa48b3dc",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "前面，正面；前线，战线；领域，阵线；外表，态度",
-          "label_en": "the side or part that is forward or most prominent; a line of battle or area of conflict; an area of activity or effort; the outward appearance or bearing of a person",
+          "label_cn": "前面，正面；前线，战线；领域，阵线；外表，态度；掩护；幌子；掩饰真实活动的表面身份；（气象）锋；锋面",
+          "label_en": "the side or part that is forward or most prominent; a line of battle or area of conflict; an area of activity or effort; the outward appearance or bearing of a person; a person, organization, or activity used to conceal the real activity or controller; a boundary between air masses with different properties",
           "pos": "noun",
           "sense_ids": [
             "sense:front:25ba2e6235e45440",
             "sense:front:2e79b2f21b2d5ebc",
             "sense:front:94d18ff1a4b155fe",
-            "sense:front:2f224378e5a15ff4"
+            "sense:front:2f224378e5a15ff4",
+            "sense:front:7770f9153c82cf4e",
+            "sense:front:a864805bf39f4f41"
           ]
         },
         {
-          "label_cn": "面对，朝向；朝向",
-          "label_en": "to face or look out on; to face a particular direction",
+          "label_cn": "面对，朝向；（作为领队或主唱）领衔乐队",
+          "label_en": "to face or look out on; to lead a musical group as its front person",
           "pos": "verb",
           "sense_ids": [
             "sense:front:eae7eb25066e5cb4",
-            "sense:front:eae7eb25066e5cb4"
+            "sense:front:4d1456652a0eca2e"
           ]
         }
       ],
-      "core_meaning_cn": "前面；面对",
-      "core_meaning_en": "the forward part or surface; to face",
-      "mental_model_cn": "前面；面对",
-      "mental_model_en": ""
+      "core_meaning_cn": "正面、前线、领域或表面形象；幌子、锋面；朝向或领衔乐队",
+      "core_meaning_en": "a front, battle line, field, appearance, cover, or weather front; face or lead a band",
+      "mental_model_cn": "front可指物体前部、战线、活动领域或表现出的形象；a front for活动为幌子，cold front为冷锋。动词可表示朝向，也可表示领衔乐队；united front为联合阵线。",
+      "mental_model_en": "a front, battle line, field, appearance, cover, or weather front; face or lead a band."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -87,15 +110,6 @@
             ],
             "meaning_cn": "在前线",
             "phrase": "on the front"
-          },
-          {
-            "collocation_id": "collocation:c5da52dd6620e6dabe7d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:front:2e79b2f21b2d5ebc:collocation:1"
-            ],
-            "meaning_cn": "统一战线",
-            "phrase": "united front"
           }
         ],
         "confidence": "medium",
@@ -162,7 +176,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:1ab9dda51364f4c7c701",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:front:eae7eb25066e5cb4:collocation:0"
             ],
@@ -191,7 +205,7 @@
         "confidence": "medium",
         "definition_cn": "面对，朝向",
         "definition_en": "to face or look out on",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "front sth; front onto sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -199,6 +213,72 @@
         "sense_label_en": "to face or look out on",
         "sort_order": 4,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:front:7770f9153c82cf4e",
+        "pos": "noun",
+        "definition_cn": "掩护；幌子；掩饰真实活动的表面身份",
+        "definition_en": "a person, organization, or activity used to conceal the real activity or controller",
+        "sense_label_en": "a person, organization, or activity used to conceal the real activity or controller",
+        "governing_pattern": "a front for sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8258156943f0bfe8fc37",
+            "phrase": "a front for illegal activity",
+            "meaning_cn": "掩护非法活动的幌子",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:front:a864805bf39f4f41",
+        "pos": "noun",
+        "definition_cn": "（气象）锋；锋面",
+        "definition_en": "a boundary between air masses with different properties",
+        "sense_label_en": "a boundary between air masses with different properties",
+        "governing_pattern": "a cold/warm front",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:81fb69c57db04c697431",
+            "phrase": "a cold front",
+            "meaning_cn": "冷锋",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:front:4d1456652a0eca2e",
+        "pos": "verb",
+        "definition_cn": "（作为领队或主唱）领衔乐队",
+        "definition_en": "to lead a musical group as its front person",
+        "sense_label_en": "to lead a musical group as its front person",
+        "governing_pattern": "front a band",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c0202237a53d3eb7b1ae",
+            "phrase": "front a band",
+            "meaning_cn": "领衔一个乐队",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -252,6 +332,57 @@
           "applicability": [
             {
               "surface": "front"
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:front:7770f9153c82cf4e"
+              ],
+              "owner_sense_ids": [
+                "sense:front:7770f9153c82cf4e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a front for sth"
+              }
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:front:a864805bf39f4f41"
+              ],
+              "owner_sense_ids": [
+                "sense:front:a864805bf39f4f41"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "a cold/warm front"
+              }
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:front:4d1456652a0eca2e"
+              ],
+              "owner_sense_ids": [
+                "sense:front:4d1456652a0eca2e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "front a band"
+              }
             }
           ],
           "sources": [
@@ -461,16 +592,38 @@
         "merged_into_sense_id": null,
         "source_row": 5734,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:front:7770f9153c82cf4e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:front:a864805bf39f4f41",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:front:4d1456652a0eca2e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:1ab9dda51364f4c7c701",
       "collocation:5721946d4a7274fd3b90",
       "collocation:6b514922f7bceec5678f",
       "collocation:a3f06f7f82d96910994f",
       "collocation:b4949484f46d276b0acb",
       "collocation:b7d7e483258bbe49f1db",
-      "collocation:c5da52dd6620e6dabe7d",
       "collocation:ec50df2f634d8c9135a4",
       "collocation:f19ef5665782bf20ea3d"
     ],
@@ -479,7 +632,9 @@
       {
         "id": "collocation:1ab9dda51364f4c7c701",
         "source_row": 2200,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:5721946d4a7274fd3b90",
@@ -509,7 +664,9 @@
       {
         "id": "collocation:c5da52dd6620e6dabe7d",
         "source_row": 16741,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ec50df2f634d8c9135a4",
@@ -520,6 +677,27 @@
         "id": "collocation:f19ef5665782bf20ea3d",
         "source_row": 20466,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:8258156943f0bfe8fc37",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:81fb69c57db04c697431",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:c0202237a53d3eb7b1ae",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2059.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

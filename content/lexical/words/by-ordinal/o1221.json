@@ -11,7 +11,7 @@
         "construction_id": "construction:cdae2c9b8f6e5692c7d4",
         "direction": "R+P",
         "level": "L2",
-        "meaning_cn": "originate from a time in the past",
+        "meaning_cn": "始于、追溯到过去某时",
         "pattern": "date from / date back to"
       }
     ],
@@ -19,8 +19,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "日期；约会；枣椰树的果实，枣子",
-          "label_en": "a particular day of the month or year; a social meeting between two people who are romantically interested; a sweet fruit from a date palm",
+          "label_cn": "日期；约定的见面，尤指恋爱约会；椰枣",
+          "label_en": "a calendar date; an arranged meeting, especially a romantic one; a date-palm fruit",
           "pos": "noun",
           "sense_ids": [
             "sense:date:1a88dc971e745b29",
@@ -29,18 +29,20 @@
           ]
         },
         {
-          "label_cn": "注明日期；约会",
-          "label_en": "to write the date on something; to go out with someone romantically",
+          "label_cn": "注明日期；确定年代；约会；变得过时",
+          "label_en": "write a date; determine age; date someone; become old-fashioned",
           "pos": "verb",
           "sense_ids": [
             "sense:date:9913d2b6ece156cb",
-            "sense:date:4d18dc468a0d5870"
+            "sense:date:4d18dc468a0d5870",
+            "sense:date:70dce53d7590ed3a",
+            "sense:date:d4cb300d68033372"
           ]
         }
       ],
-      "core_meaning_cn": "特定的日子或时间；与某人约会",
-      "core_meaning_en": "a specific day or time; to go out with someone romantically",
-      "mental_model_cn": "特定的日子或时间；与某人约会",
+      "core_meaning_cn": "日期；约会；注明日期或确定年代；变得过时；椰枣",
+      "core_meaning_en": "a date or meeting; mark or determine a date; become old-fashioned; a palm fruit",
+      "mental_model_cn": "date a letter是注明日期，date a building是确定年代；date from/back to是始于过去；a design dates是设计过时；date sb是恋爱交往；水果是椰枣。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,14 +90,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "约会",
-        "definition_en": "a social meeting between two people who are romantically interested",
+        "definition_cn": "约会；约定的见面，尤指恋爱约会",
+        "definition_en": "an arranged meeting, especially a romantic one",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:date:41a33486e01c55fa",
-        "sense_label_en": "a social meeting between two people who are romantically interested",
+        "sense_label_en": "an arranged meeting, especially a romantic one",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -103,7 +105,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:4dab45b005ad743e1846",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:date:9913d2b6ece156cb:collocation:0"
             ],
@@ -137,14 +139,14 @@
         "confidence": "medium",
         "definition_cn": "约会",
         "definition_en": "to go out with someone romantically",
-        "governing_pattern": "",
+        "governing_pattern": "date (sb)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:date:4d18dc468a0d5870",
         "sense_label_en": "to go out with someone romantically",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -154,12 +156,12 @@
             "legacy_source_object_ids": [
               "sense:date:9be20610f165547f:collocation:0"
             ],
-            "meaning_cn": "干枣",
+            "meaning_cn": "干椰枣",
             "phrase": "dried dates"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "枣椰树的果实，枣子",
+        "definition_cn": "椰枣（枣椰树的果实，不是红枣）",
         "definition_en": "a sweet fruit from a date palm",
         "governing_pattern": "",
         "level": "L3",
@@ -169,6 +171,48 @@
         "sense_label_en": "a sweet fruit from a date palm",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:date:70dce53d7590ed3a",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 5,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "确定某物或事件的年代",
+        "definition_en": "determine when something was made or began",
+        "sense_label_en": "determine when something was made or began",
+        "governing_pattern": "date sth; date sth to a period",
+        "collocations": [
+          {
+            "collocation_id": "collocation:7bcd9f4a9faabf70300d",
+            "exam_value": "usage_example",
+            "phrase": "date an ancient building",
+            "meaning_cn": "确定一座古建筑的年代"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:date:d4cb300d68033372",
+        "pos": "verb",
+        "transitivity": "vi",
+        "level": "L2",
+        "sort_order": 6,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "变得过时；显得陈旧",
+        "definition_en": "become old-fashioned or show its age",
+        "sense_label_en": "become old-fashioned or show its age",
+        "governing_pattern": "sth dates; sth has dated",
+        "collocations": [
+          {
+            "collocation_id": "collocation:9ec5be68fc117f4da60e",
+            "exam_value": "usage_example",
+            "phrase": "The design has dated.",
+            "meaning_cn": "这个设计已经显得过时了。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -692,14 +736,29 @@
         "merged_into_sense_id": null,
         "source_row": 3443,
         "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      },
+      {
+        "sense_id": "sense:date:70dce53d7590ed3a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1221.json"
+      },
+      {
+        "sense_id": "sense:date:d4cb300d68033372",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1221.json"
       }
     ],
     "active_collocations": [
       "collocation:1409b191d372d5ffbc8a",
-      "collocation:4dab45b005ad743e1846",
       "collocation:681299063c05ba7ab97c",
       "collocation:7895e32f99f307926b88",
-      "collocation:8b62ec9613709005682e"
+      "collocation:8b62ec9613709005682e",
+      "collocation:7bcd9f4a9faabf70300d",
+      "collocation:9ec5be68fc117f4da60e"
     ],
     "facts": [],
     "collocations": [
@@ -711,7 +770,9 @@
       {
         "id": "collocation:4dab45b005ad743e1846",
         "source_row": 6545,
-        "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:681299063c05ba7ab97c",
@@ -727,6 +788,16 @@
         "id": "collocation:8b62ec9613709005682e",
         "source_row": 11820,
         "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      },
+      {
+        "id": "collocation:7bcd9f4a9faabf70300d",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1221.json"
+      },
+      {
+        "id": "collocation:9ec5be68fc117f4da60e",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1221.json"
       }
     ],
     "exam-mappings": [],

@@ -10,9 +10,9 @@
     "content_hash": "5d85e6a6071c24738f09e93e65191c7f800be0eda660bb90af78a01f4540fce8",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "成功应对问题或困难",
-      "core_meaning_en": "to successfully deal with a problem or difficulty",
-      "mental_model_cn": "成功应对问题或困难",
+      "core_meaning_cn": "克服困难或战胜对手；也可被强烈影响压倒",
+      "core_meaning_en": "successfully handle or defeat; also be strongly affected",
+      "mental_model_cn": "overcome a difficulty是克服困难，overcome a rival是击败对手；be overcome with/by emotion/smoke则是人被强烈影响而受不了，按主动对象与被动语境选。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -25,15 +25,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:75c5bd693995639f8723",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:overcome:2c46e0a8aecd53d2:collocation:0"
-            ],
-            "meaning_cn": "克服某事物",
-            "phrase": "overcome + sth"
-          },
           {
             "collocation_id": "collocation:02c49b2ef72d45ad7969",
             "exam_value": "usage_example",
@@ -54,7 +45,18 @@
         "sense_id": "sense:overcome:2c46e0a8aecd53d2",
         "sense_label_en": "to succeed in dealing with a problem or difficulty",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:75c5bd693995639f8723",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overcome:2c46e0a8aecd53d2:collocation:0"
+            ],
+            "meaning_cn": "克服某事物",
+            "phrase": "overcome + sth"
+          }
+        ]
       },
       {
         "collocations": [
@@ -80,7 +82,7 @@
         "confidence": "medium",
         "definition_cn": "使受不了，使无能为力",
         "definition_en": "to affect someone so strongly that they cannot think or act normally",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "be overcome with/by emotion/smoke; overcome sb (usually passive)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -88,6 +90,21 @@
         "sense_label_en": "to affect someone so strongly that they cannot think or act normally",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:overcome:db25cf4b9abdabb7",
+        "pos": "verb",
+        "definition_cn": "战胜、击败（对手等）",
+        "definition_en": "to defeat an opponent",
+        "sense_label_en": "to defeat an opponent",
+        "governing_pattern": "overcome sb/a rival/opposition",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -129,6 +146,23 @@
           "applicability": [
             {
               "surface": "overcome"
+            },
+            {
+              "surface": "overcome",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:overcome:db25cf4b9abdabb7"
+              ],
+              "owner_sense_ids": [
+                "sense:overcome:db25cf4b9abdabb7"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3414.json",
+              "source_pointer": "/record/senses/2",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -249,6 +283,23 @@
           "applicability": [
             {
               "surface": "overcome"
+            },
+            {
+              "surface": "overcome",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:overcome:db25cf4b9abdabb7"
+              ],
+              "owner_sense_ids": [
+                "sense:overcome:db25cf4b9abdabb7"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3414.json",
+              "source_pointer": "/record/senses/2",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -347,6 +398,40 @@
             }
           ]
         }
+      ],
+      "inflections": [
+        {
+          "surface": "overcame",
+          "grammatical_role": "past_simple",
+          "pos": "verb",
+          "owner_sense_ids": [
+            "sense:overcome:2c46e0a8aecd53d2",
+            "sense:overcome:99732909686d5233",
+            "sense:overcome:db25cf4b9abdabb7"
+          ],
+          "source": {
+            "page": "https://www.oxfordlearnersdictionaries.com/definition/english/overcome",
+            "source_section": "Verb Forms",
+            "actual_body_read": true
+          },
+          "canonical_background_only": true
+        },
+        {
+          "surface": "overcome",
+          "grammatical_role": "past_participle",
+          "pos": "verb",
+          "owner_sense_ids": [
+            "sense:overcome:2c46e0a8aecd53d2",
+            "sense:overcome:99732909686d5233",
+            "sense:overcome:db25cf4b9abdabb7"
+          ],
+          "source": {
+            "page": "https://www.oxfordlearnersdictionaries.com/definition/english/overcome",
+            "source_section": "Verb Forms",
+            "actual_body_read": true
+          },
+          "canonical_background_only": true
+        }
       ]
     }
   },
@@ -367,13 +452,20 @@
         "merged_into_sense_id": null,
         "source_row": 9471,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:overcome:db25cf4b9abdabb7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3414.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:02c49b2ef72d45ad7969",
-      "collocation:75c5bd693995639f8723",
-      "collocation:7ee5de84d62456b0e0c5",
-      "collocation:f0204d11de8b7007529e"
+      "collocation:f0204d11de8b7007529e",
+      "collocation:7ee5de84d62456b0e0c5"
     ],
     "facts": [],
     "collocations": [
@@ -385,7 +477,9 @@
       {
         "id": "collocation:75c5bd693995639f8723",
         "source_row": 9934,
-        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:7ee5de84d62456b0e0c5",

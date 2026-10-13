@@ -33,11 +33,19 @@
           "sense_ids": [
             "sense:extra:ac7ce0070ff65b6e"
           ]
+        },
+        {
+          "label_cn": "群众演员",
+          "label_en": "a background performer",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:extra:794e12d73b889e8c"
+          ]
         }
       ],
-      "core_meaning_cn": "额外的，附加的",
-      "core_meaning_en": "additional or more than usual",
-      "mental_model_cn": "额外的，附加的",
+      "core_meaning_cn": "额外、附加；影视群众演员",
+      "core_meaning_en": "additional or more than usual; a background performer",
+      "mental_model_cn": "数量或费用语境是正常之外的额外部分，副词可加强程度；影视制作中an extra指群众演员。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -148,9 +156,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:extra:ac7ce0070ff65b6e",
-        "sense_label_en": "something additional, such as an extra cost or an extra edition of a new",
+        "sense_label_en": "an additional item, cost or special edition",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:extra:794e12d73b889e8c",
+        "pos": "noun",
+        "definition_cn": "群众演员；临时演员",
+        "definition_en": "a performer with a minor background role in a film or television production",
+        "sense_label_en": "a performer with a minor background role in a film or television production",
+        "governing_pattern": "countable: an extra; film extras; work as an extra",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:de22cd8633bf166b198b",
+            "phrase": "work as an extra in a film",
+            "meaning_cn": "在电影里当群众演员",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -295,6 +325,23 @@
           "applicability": [
             {
               "surface": "extra"
+            },
+            {
+              "surface": "extra",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:extra:794e12d73b889e8c"
+              ],
+              "owner_sense_ids": [
+                "sense:extra:794e12d73b889e8c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1821.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "countable: an extra; film extras; work as an extra"
+              }
             }
           ],
           "sources": [
@@ -436,6 +483,14 @@
         "merged_into_sense_id": null,
         "source_row": 4986,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:extra:794e12d73b889e8c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1821.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -488,6 +543,13 @@
         "id": "collocation:f0aa43564d26ad58fcf5",
         "source_row": 20387,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:de22cd8633bf166b198b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1821.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

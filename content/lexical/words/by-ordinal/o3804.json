@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "职业；专业",
-          "label_en": "a trained or skilled occupation/profession",
+          "label_cn": "专门职业及其全体从业者",
+          "label_en": "a skilled profession or its members",
           "pos": "noun",
           "sense_ids": [
-            "sense:profession:fa33664877415888"
+            "sense:profession:fa33664877415888",
+            "sense:profession:c66a505d0c9f62d3"
           ]
         },
         {
@@ -27,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "职业；专业；正式声明",
-      "core_meaning_en": "a trained occupation/profession; formally, a declaration",
-      "mental_model_cn": "职业；专业；正式声明",
+      "core_meaning_cn": "专门职业及其从业者；正式公开声明",
+      "core_meaning_en": "a skilled occupation or its members; a formal declaration",
+      "mental_model_cn": "by profession→职业身份；the medical profession→该业全体从业者；a profession of faith→公开表明信仰。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,17 +68,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9b3bb2f25dea345cdb99",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:profession:fa33664877415888:collocation:forward-o3625-o3874"
-            ],
-            "meaning_cn": "医学界/法律界",
-            "phrase": "the medical/legal profession"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "职业；专业（尤指需要专门教育、训练或技能的职业）",
         "definition_en": "a job or career requiring special education, training, or skill, especially a recognized profession",
@@ -89,6 +80,36 @@
         "sense_label_en": "a job or career requiring special education, training, or skill, especially a recognized profession",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:profession:c66a505d0c9f62d3",
+        "pos": "noun",
+        "definition_cn": "（某一专业的）全体从业者；业界",
+        "definition_en": "the people who work in a particular profession",
+        "sense_label_en": "the people who work in a particular profession",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9b3bb2f25dea345cdb99",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:profession:fa33664877415888:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "医学界/法律界",
+            "phrase": "the medical/legal profession"
+          }
+        ],
+        "usage_note": "the medical/legal profession通常统称该行业的专业人员。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/profession",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -194,6 +215,12 @@
         "merged_into_sense_id": null,
         "source_row": 10589,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:profession:c66a505d0c9f62d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3804.json"
       }
     ],
     "active_collocations": [

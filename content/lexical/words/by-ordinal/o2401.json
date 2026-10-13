@@ -6,7 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:3e14f4f6e3b380516c8f",
+        "pattern": "humble yourself (and ask/admit ...)",
+        "meaning_cn": "放下架子；低头承认错误或请求帮助",
+        "definition_en": "to set aside pride to ask for something or admit being wrong",
+        "usage_note": "反身框架；不是命令别人地位低下。",
+        "boundary": "反身框架；不是命令别人地位低下。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:humble:038ed0b9de365c07"
+      },
+      {
+        "construction_id": "construction:8a38b1dc250af2834601",
+        "pattern": "in my humble opinion",
+        "meaning_cn": "依我拙见；以谦逊或幽默口吻表达意见",
+        "definition_en": "used to introduce an opinion with modesty, sometimes humorous or ironic",
+        "usage_note": "说话人自称谦逊；不一定是在真诚评价自己的地位。",
+        "boundary": "说话人自称谦逊；不一定是在真诚评价自己的地位。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:humble:5589a408a6635f55"
+      },
+      {
+        "construction_id": "construction:47ea64366209d34278a9",
+        "pattern": "eat humble pie",
+        "meaning_cn": "认错；低头赔罪",
+        "definition_en": "to admit a mistake and show that you are sorry",
+        "usage_note": "习语，常含放下面子；不是吃一种食物。",
+        "boundary": "习语，常含放下面子；不是吃一种食物。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "cbdbe1547dba20eee49054e86c29cfed1c4153a14d8f31a021d6482a95da11a9",
     "core_concept": {
       "core_clusters": [
@@ -21,8 +54,8 @@
           ]
         },
         {
-          "label_cn": "使谦卑，使感到卑微；击败（强敌）",
-          "label_en": "to make (someone) feel less important or proud; to decisively defeat (a person or team) that was previously thought to be superior",
+          "label_cn": "使谦卑，使感到卑微；轻易击败（尤指强敌）",
+          "label_en": "to make (someone) feel less important or proud; to defeat an opponent easily, especially a strong or powerful one",
           "pos": "verb",
           "sense_ids": [
             "sense:humble:038ed0b9de365c07",
@@ -30,10 +63,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "低微的；谦逊的",
-      "core_meaning_en": "low in rank or modest",
-      "mental_model_cn": "低微的；谦逊的",
-      "mental_model_en": ""
+      "core_meaning_cn": "谦逊／地位低微／简朴；使不再骄傲；轻易击败",
+      "core_meaning_en": "modest, lowly or simple; reduce pride; defeat easily",
+      "mental_model_cn": "humble 人→谦逊或使其放下骄傲；humble 出身/事物→低微或朴素；humble 强敌→轻易击败。",
+      "mental_model_en": "modest, lowly or simple; reduce pride; defeat easily."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -113,7 +146,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:ee70173ae9840514988a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:humble:038ed0b9de365c07:collocation:0"
             ],
@@ -188,16 +221,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "击败（强敌）",
-        "definition_en": "to decisively defeat (a person or team) that was previously thought to be superior",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "轻易击败（尤指强敌）",
+        "definition_en": "to defeat an opponent easily, especially a strong or powerful one",
+        "governing_pattern": "humble sb/a team; be humbled",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:humble:d87476f218cf56d2",
-        "sense_label_en": "to decisively defeat (a person or team) that was previously thought to b",
+        "sense_label_en": "to defeat an opponent easily, especially a strong or powerful one",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "常用于被动；对手往往很强，但并不要求此前公认对手更强。"
       }
     ],
     "verification_summary": {
@@ -462,15 +496,15 @@
       }
     ],
     "active_collocations": [
-      "collocation:06b2cc6ae93126bcd0fc",
-      "collocation:32be693346de2d06d2d6",
-      "collocation:471edf41d14521a0e15a",
-      "collocation:63eb6192f17457efdd7c",
       "collocation:76a1cc04054df4568934",
-      "collocation:78287c084b545d7c1f53",
       "collocation:83e36ab9f082e101b997",
+      "collocation:06b2cc6ae93126bcd0fc",
+      "collocation:63eb6192f17457efdd7c",
       "collocation:ee70173ae9840514988a",
-      "collocation:f3ba8c4991faa22a8e9c"
+      "collocation:471edf41d14521a0e15a",
+      "collocation:f3ba8c4991faa22a8e9c",
+      "collocation:32be693346de2d06d2d6",
+      "collocation:78287c084b545d7c1f53"
     ],
     "facts": [],
     "collocations": [
@@ -512,7 +546,9 @@
       {
         "id": "collocation:ee70173ae9840514988a",
         "source_row": 20202,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f3ba8c4991faa22a8e9c",

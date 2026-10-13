@@ -22,12 +22,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "光荣；荣誉；壮丽；辉煌",
-          "label_en": "a state of high honor; brilliant radiant beauty",
+          "label_cn": "光荣；荣誉；壮丽；辉煌；引以为傲或令人赞叹的人、事物",
+          "label_en": "a state of high honor; brilliant radiant beauty; a person or thing that brings pride or admiration",
           "pos": "noun",
           "sense_ids": [
             "sense:glory:89d710e41ce15615",
-            "sense:glory:ee5256aab2a45dcb"
+            "sense:glory:ee5256aab2a45dcb",
+            "sense:glory:8a179df6653ee39b"
           ]
         },
         {
@@ -39,10 +40,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "极大的荣誉或美丽",
-      "core_meaning_en": "great honor or beauty",
-      "mental_model_cn": "极大的荣誉或美丽",
-      "mental_model_en": ""
+      "core_meaning_cn": "荣耀、壮美或引以为傲的人与事；感到自豪",
+      "core_meaning_en": "honour, splendour, or a source of pride; take pride",
+      "mental_model_cn": "glory可为成就带来的荣耀、美景的壮美，或引以为傲的人与事；glory in sth表示以某事为荣。",
+      "mental_model_en": "honour, splendour, or a source of pride; take pride."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -125,6 +126,28 @@
         "sense_label_en": "to rejoice proudly",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:glory:8a179df6653ee39b",
+        "pos": "noun",
+        "definition_cn": "引以为傲或令人赞叹的人、事物",
+        "definition_en": "a person or thing that brings pride or admiration",
+        "sense_label_en": "a person or thing that brings pride or admiration",
+        "governing_pattern": "the glory of a place/group",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d84e84a06ea2dcffb1ed",
+            "phrase": "The museum is the glory of the town.",
+            "meaning_cn": "这座博物馆是镇上引以为傲的地方。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -165,6 +188,23 @@
           "applicability": [
             {
               "surface": "glory"
+            },
+            {
+              "surface": "glory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glory:8a179df6653ee39b"
+              ],
+              "owner_sense_ids": [
+                "sense:glory:8a179df6653ee39b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2151.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "the glory of a place/group"
+              }
             }
           ],
           "sources": [
@@ -412,6 +452,14 @@
         "merged_into_sense_id": null,
         "source_row": 5992,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:glory:8a179df6653ee39b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2151.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -440,6 +488,13 @@
         "id": "collocation:90061505f4b3b6fbce18",
         "source_row": 12222,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:d84e84a06ea2dcffb1ed",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2151.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -16,6 +16,21 @@
         "meaning_cn": "专有名词/专名：特指某个人、地点、组织等的名称，英语中通常首字母大写",
         "pattern": "proper noun/name",
         "source_sense_id": "sense:proper:5aacda5f144453cf"
+      },
+      {
+        "construction_id": "construction:proper:6b0fbdaebd8422e4",
+        "pattern": "noun + proper",
+        "meaning_cn": "严格意义上的；本身的",
+        "definition_en": "the thing itself in the strict or central sense",
+        "boundary": "放在名词后，如the city proper指市区本身，不含外围；名词前proper通常是合适/真正等读法。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/proper",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "content_hash": "5dbaf1e777dbd8adfe218be9ea2d2e72fe06b37caa595ffe82247388b91aa22b",
@@ -28,11 +43,19 @@
           "sense_ids": [
             "sense:proper:5aacda5f144453cf"
           ]
+        },
+        {
+          "label_cn": "真正像样，达到实例标准",
+          "label_en": "a genuine or satisfactory example",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:proper:9aa9fde482ae6843"
+          ]
         }
       ],
-      "core_meaning_cn": "适当的；正确的",
-      "core_meaning_en": "suitable, appropriate, or correct",
-      "mental_model_cn": "适当的；正确的",
+      "core_meaning_cn": "合乎所需标准；位置还能改变读法",
+      "core_meaning_en": "appropriate or genuine; the thing itself when postposed",
+      "mental_model_cn": "proper procedure→合适正确；a proper meal→真正像样；the city proper→后置限定市区本身；proper noun→专有名词。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -68,6 +91,39 @@
         "sense_label_en": "suitable, appropriate, or correct for the circumstances",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:proper:9aa9fde482ae6843",
+        "pos": "adjective",
+        "definition_cn": "真正像样的；符合标准的",
+        "definition_en": "real or satisfactory as an example of its kind",
+        "sense_label_en": "real or satisfactory as an example of its kind",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:proper:b8b41929444ec4de",
+            "phrase": "We finally had a proper meal.",
+            "meaning_cn": "我们终于吃上了一顿像样的饭。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/proper",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "尤其英式非正式，如a proper meal强调像样、够格，不只是礼仪正确。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/proper",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -466,10 +522,17 @@
         "merged_into_sense_id": null,
         "source_row": 10669,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:proper:9aa9fde482ae6843",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3832.json"
       }
     ],
     "active_collocations": [
-      "collocation:0c882f73f175cdbca93a"
+      "collocation:0c882f73f175cdbca93a",
+      "collocation:proper:b8b41929444ec4de"
     ],
     "facts": [],
     "collocations": [
@@ -507,6 +570,10 @@
         "id": "collocation:0c882f73f175cdbca93a",
         "source_row": 21625,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:proper:b8b41929444ec4de",
+        "source_path": "content/lexical/words/by-ordinal/o3832.json"
       }
     ],
     "exam-mappings": [],

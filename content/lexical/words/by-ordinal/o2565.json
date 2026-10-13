@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "903c9d95573903d9ed076892c719a50737636a50567c7b0ebe5cd19fd1ea9e82",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "安装；安置",
-      "core_meaning_en": "to set up for use or place in a position",
-      "mental_model_cn": "安装；安置",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "安装；使就职；安顿",
+          "label_en": "set up equipment, appoint formally, or settle comfortably",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:install:432f41f3ecf45f47",
+            "sense:install:461421053c0a5eaa",
+            "sense:install:d08a47c849797aa1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "安装；使就职；安顿",
+      "core_meaning_en": "set up equipment, appoint formally, or settle comfortably",
+      "mental_model_cn": "equipment/software安装；as president正式就职；oneself in a seat安顿。",
+      "mental_model_en": "set up equipment, appoint formally, or settle comfortably."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -71,7 +82,7 @@
         "confidence": "medium",
         "definition_cn": "使就职；任命",
         "definition_en": "to place someone in an official position",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "install sb as president/leader; be installed as sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -79,6 +90,28 @@
         "sense_label_en": "to place someone in an official position",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:install:d08a47c849797aa1",
+        "pos": "verb",
+        "definition_cn": "安顿某人；使自己舒适地坐下或住下",
+        "definition_en": "to settle someone or oneself comfortably in a place",
+        "sense_label_en": "to settle someone or oneself comfortably in a place",
+        "governing_pattern": "install sb/oneself in a room/seat; be installed in a place",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e536071071b15189f3aa",
+            "phrase": "install ourselves in the front row",
+            "meaning_cn": "在前排安顿坐下",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -119,6 +152,23 @@
           "applicability": [
             {
               "surface": "install"
+            },
+            {
+              "surface": "install",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:install:d08a47c849797aa1"
+              ],
+              "owner_sense_ids": [
+                "sense:install:d08a47c849797aa1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2565.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "install sb/oneself in a room/seat; be installed in a place"
             }
           ],
           "sources": [
@@ -206,12 +256,21 @@
         "merged_into_sense_id": null,
         "source_row": 7092,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
+      },
+      {
+        "sense_id": "sense:install:d08a47c849797aa1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2565.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:09103e1cb4c0a5433840",
+      "collocation:9d73d2e5bae49eefe53d",
       "collocation:4b20db9fe13ab7c67c5a",
-      "collocation:9d73d2e5bae49eefe53d"
+      "collocation:09103e1cb4c0a5433840",
+      "collocation:e536071071b15189f3aa"
     ],
     "facts": [],
     "collocations": [
@@ -229,6 +288,13 @@
         "id": "collocation:9d73d2e5bae49eefe53d",
         "source_row": 13414,
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
+      {
+        "id": "collocation:e536071071b15189f3aa",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2565.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

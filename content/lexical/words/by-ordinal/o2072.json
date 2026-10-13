@@ -6,18 +6,30 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:130673ee2a7af80e997c",
+        "pattern": "be a function of sth",
+        "meaning_cn": "取决于……；是……的结果",
+        "definition_en": "to depend on something or result from it",
+        "usage_note": "可用于说明一事随另一因素变化，如cost is a function of duration；这里不是某物的用途。",
+        "boundary": "可用于说明一事随另一因素变化，如cost is a function of duration；这里不是某物的用途。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "23a5ab1a59e7d381045dee90c932931e963c09d6af13f4ac05268103cbd81eeb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "功能；用途；函数；职务；职责",
-          "label_en": "the purpose or use of something; a mathematical relation in which each input has one output; the duties or activities expected of a person or group",
+          "label_cn": "功能；用途；函数；职务；职责；（正式的）社交活动；典礼",
+          "label_en": "the purpose or use of something; a mathematical relation in which each input has one output; the duties or activities expected of a person or group; a formal or official social gathering or ceremony",
           "pos": "noun",
           "sense_ids": [
             "sense:function:b0c6af04d35f59f5",
             "sense:function:a06ed069e13456e9",
-            "sense:function:ce5b6bff77455ef5"
+            "sense:function:ce5b6bff77455ef5",
+            "sense:function:7900c89ca5d81d11"
           ]
         },
         {
@@ -29,10 +41,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "功能；起作用",
-      "core_meaning_en": "the purpose or activity of something; to work or operate",
-      "mental_model_cn": "功能；起作用",
-      "mental_model_en": ""
+      "core_meaning_cn": "功能、函数、职责或正式活动；运行或起作用；取决于的表达",
+      "core_meaning_en": "a purpose, mathematical function, duty, or formal event; operate; depend on",
+      "mental_model_cn": "function可指物体用途、数学函数、职责或正式社交活动；动词为运行或担当某种作用。be a function of说明取决于某因素或由它产生。",
+      "mental_model_en": "a purpose, mathematical function, duty, or formal event; operate; depend on."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -155,6 +167,28 @@
         "sense_label_en": "the duties or activities expected of a person or group",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:function:7900c89ca5d81d11",
+        "pos": "noun",
+        "definition_cn": "（正式的）社交活动；典礼",
+        "definition_en": "a formal or official social gathering or ceremony",
+        "sense_label_en": "a formal or official social gathering or ceremony",
+        "governing_pattern": "attend a social/official function",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:88fddb99552e9d4319fb",
+            "phrase": "attend an official function",
+            "meaning_cn": "参加一个正式活动",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -195,6 +229,23 @@
           "applicability": [
             {
               "surface": "function"
+            },
+            {
+              "surface": "function",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:function:7900c89ca5d81d11"
+              ],
+              "owner_sense_ids": [
+                "sense:function:7900c89ca5d81d11"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2072.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "attend a social/official function"
+              }
             }
           ],
           "sources": [
@@ -296,6 +347,14 @@
         "merged_into_sense_id": null,
         "source_row": 5781,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:function:7900c89ca5d81d11",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2072.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -337,6 +396,13 @@
         "id": "collocation:a23e66895141f5f7c667",
         "source_row": 13773,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:88fddb99552e9d4319fb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2072.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

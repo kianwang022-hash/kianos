@@ -6,7 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:42b2c7991dfbb05b19bb",
+        "pattern": "pay through the nose (for sth)",
+        "meaning_cn": "花过高的价钱买某物",
+        "definition_en": "pay far more than is reasonable for something",
+        "usage_note": "非正式，比喻花钱过多；for接所购买的东西。",
+        "boundary": "非正式，比喻花钱过多；for接所购买的东西。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0c7c844a4275d76173e5",
+        "pattern": "turn one’s nose up at sth",
+        "meaning_cn": "嫌某物不够好而拒绝",
+        "definition_en": "reject something because one considers it beneath one’s standards",
+        "usage_note": "非正式；at后接被嫌弃、拒绝的东西，如turn your nose up at the food。",
+        "boundary": "非正式；at后接被嫌弃、拒绝的东西，如turn your nose up at the food。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:eec0bf94229723fc975a",
+        "pattern": "under sb’s nose",
+        "meaning_cn": "近在眼前却未看见；在眼皮底下发生却未察觉",
+        "definition_en": "be very close yet unnoticed, or happen openly without being noticed",
+        "usage_note": "非正式；信就在眼前却找不到，或某事明摆着发生却没有发现，均可用此表达。",
+        "boundary": "非正式；信就在眼前却找不到，或某事明摆着发生却没有发现，均可用此表达。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "ac83e480fd83b25cfe685315b452a0af6dca531a1179b231eb8d45d3ae2ff9f8",
     "core_concept": {
       "core_clusters": [
@@ -22,19 +53,20 @@
           ]
         },
         {
-          "label_cn": "嗅到；探出；探听；打听",
-          "label_en": "to smell or detect something; to pry or search for information",
+          "label_cn": "嗅出或探听；缓慢探进",
+          "label_en": "detect or search; move slowly forwards",
           "pos": "verb",
           "sense_ids": [
             "sense:nose:234d2f466b265ba7",
-            "sense:nose:8ab5cdff1bed5d79"
+            "sense:nose:8ab5cdff1bed5d79",
+            "sense:nose:54fea77c07e4511e"
           ]
         }
       ],
-      "core_meaning_cn": "鼻子；嗅觉",
-      "core_meaning_en": "the part of the face used for smelling and breathing",
-      "mental_model_cn": "鼻子；嗅觉",
-      "mental_model_en": ""
+      "core_meaning_cn": "鼻子和前端；嗅觉或察觉能力；嗅探、打听及缓慢探进",
+      "core_meaning_en": "a nose or projecting front; smell and detection; search or move slowly forwards",
+      "mental_model_cn": "身体或交通工具语境看鼻子、前端；a nose for说察觉能力。nose around探听，nose a boat into a harbour说缓缓把船驶入港口。",
+      "mental_model_en": "a nose or projecting front; smell and detection; search or move slowly forwards."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -150,12 +182,18 @@
             ],
             "meaning_cn": "探听，干涉",
             "phrase": "nose into + sth"
+          },
+          {
+            "collocation_id": "collocation:f59826fd8ec28254556c",
+            "phrase": "nose around for information",
+            "meaning_cn": "四处探听消息",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
         "definition_cn": "探听；打听",
         "definition_en": "to pry or search for information",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "nose into sth; nose around/about (for sth)",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
@@ -177,7 +215,7 @@
           },
           {
             "collocation_id": "collocation:8dae44003c266726b68f",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:nose:5af405873df414ad:collocation:streaming-c-checkpoint-o2851-o3050"
             ],
@@ -196,6 +234,28 @@
         "sense_label_en": "the sense of smell, or an instinctive ability to detect or recognize something",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:nose:54fea77c07e4511e",
+        "pos": "verb",
+        "definition_cn": "缓慢小心地前进；使缓慢前进",
+        "definition_en": "move, or guide something, slowly and carefully forwards",
+        "sense_label_en": "move, or guide something, slowly and carefully forwards",
+        "governing_pattern": "nose + direction; nose sth + direction; nose one’s way + direction",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c958a5e96612e396e394",
+            "phrase": "The boat nosed into the harbour.",
+            "meaning_cn": "船缓缓驶入港口。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -236,6 +296,24 @@
           "applicability": [
             {
               "surface": "nose"
+            },
+            {
+              "surface": "nose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "owner_sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3253.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nose + direction; nose sth + direction; nose one’s way + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -321,6 +399,24 @@
           "applicability": [
             {
               "surface": "nose"
+            },
+            {
+              "surface": "nose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "owner_sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3253.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nose + direction; nose sth + direction; nose one’s way + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -436,16 +532,26 @@
         "merged_into_sense_id": null,
         "source_row": 9072,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
+      },
+      {
+        "sense_id": "sense:nose:54fea77c07e4511e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3253.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:13af255bd6a72121abb8",
       "collocation:29fd8f6eecb385872763",
-      "collocation:4a99b923c4eaf9c295a0",
-      "collocation:6a19fc5feda326ce4bd7",
+      "collocation:13af255bd6a72121abb8",
       "collocation:7f5b1b1916d327ccabe6",
+      "collocation:6a19fc5feda326ce4bd7",
+      "collocation:4a99b923c4eaf9c295a0",
+      "collocation:f59826fd8ec28254556c",
+      "collocation:cb88690cf4147eb64660",
       "collocation:8dae44003c266726b68f",
-      "collocation:cb88690cf4147eb64660"
+      "collocation:c958a5e96612e396e394"
     ],
     "facts": [],
     "collocations": [
@@ -477,12 +583,28 @@
       {
         "id": "collocation:8dae44003c266726b68f",
         "source_row": 21539,
-        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:cb88690cf4147eb64660",
         "source_row": 21540,
         "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:c958a5e96612e396e394",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3253.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:f59826fd8ec28254556c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3253.json",
+        "source_pointer": "/record/senses/4/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -9,11 +9,36 @@
     "constructions": [],
     "content_hash": "7211882105026b829d5b70e83d95a432e2e594b88371ce2828db675880a6a3de",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "怪物、恶人",
-      "core_meaning_en": "a large, frightening, or evil creature or person",
-      "mental_model_cn": "怪物、恶人",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "怪物；怪兽",
+          "label_en": "an imaginary creature that is large, ugly, and frightening",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monster:3b713cdc6b4758c1"
+          ]
+        },
+        {
+          "label_cn": "恶人；残忍的人",
+          "label_en": "a cruel, wicked, or inhuman person",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monster:955ba9e33c3d5982"
+          ]
+        },
+        {
+          "label_cn": "庞然大物；很大或丑陋的动物、东西",
+          "label_en": "a strikingly huge or unattractive creature or object",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monster:f64220a781d42f48"
+          ]
+        }
+      ],
+      "core_meaning_cn": "想象的怪物；庞然大物；残忍的人",
+      "core_meaning_en": "an imaginary monster, a huge or ugly real thing, or a cruel person",
+      "mental_model_cn": "故事里的怪兽、现实中的庞大东西和残忍的人依语境区别；庞然大物不一定是虚构的。",
+      "mental_model_en": "an imaginary monster, a huge or ugly real thing, or a cruel person."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,6 +95,28 @@
         "sense_label_en": "a cruel, wicked, or inhuman person",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:monster:f64220a781d42f48",
+        "pos": "noun",
+        "definition_cn": "庞然大物；很大或丑陋的动物、东西",
+        "definition_en": "a strikingly huge or unattractive creature or object",
+        "sense_label_en": "a strikingly huge or unattractive creature or object",
+        "governing_pattern": "a monster of a machine; an absolute monster",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6c847837e82ce405a18e",
+            "phrase": "a monster of a machine",
+            "meaning_cn": "一台庞大的机器",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -111,6 +158,24 @@
           "applicability": [
             {
               "surface": "monster"
+            },
+            {
+              "surface": "monster",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monster:f64220a781d42f48"
+              ],
+              "owner_sense_ids": [
+                "sense:monster:f64220a781d42f48"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3116.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a monster of a machine; an absolute monster",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -226,6 +291,24 @@
           "applicability": [
             {
               "surface": "monster"
+            },
+            {
+              "surface": "monster",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monster:f64220a781d42f48"
+              ],
+              "owner_sense_ids": [
+                "sense:monster:f64220a781d42f48"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3116.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a monster of a machine; an absolute monster",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -315,11 +398,20 @@
         "merged_into_sense_id": null,
         "source_row": 8677,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      },
+      {
+        "sense_id": "sense:monster:f64220a781d42f48",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3116.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:5f71cbbaa1f907057ba9",
-      "collocation:aaba27ec5e57c9f44a27"
+      "collocation:aaba27ec5e57c9f44a27",
+      "collocation:6c847837e82ce405a18e"
     ],
     "facts": [],
     "collocations": [
@@ -332,6 +424,13 @@
         "id": "collocation:aaba27ec5e57c9f44a27",
         "source_row": 14468,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:6c847837e82ce405a18e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3116.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

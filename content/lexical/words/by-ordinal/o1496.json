@@ -26,6 +26,22 @@
           "sense_ids": [
             "sense:drag:3b7861200930522d"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "令人厌烦的人或事",
+          "label_en": "an annoying or boring person or thing",
+          "sense_ids": [
+            "sense:drag:56884f70a08a5e8e"
+          ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "空气或液体运动阻力",
+          "label_en": "resistance in air or liquid",
+          "sense_ids": [
+            "sense:drag:77622bc7f420cf38"
+          ]
         }
       ],
       "core_meaning_cn": "拖，拉",
@@ -72,7 +88,8 @@
         "sense_id": "sense:drag:fe1e21465af9574e",
         "sense_label_en": "pull something along with effort",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "计算机操作中也可表示拖动屏幕对象，如 drag an icon to a folder；沿用拖动某物的及物配置。"
       },
       {
         "collocations": [
@@ -121,6 +138,44 @@
         "sense_label_en": "something that slows progress",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:drag:56884f70a08a5e8e",
+        "pos": "noun",
+        "definition_cn": "令人厌烦的人或事；麻烦事",
+        "definition_en": "an annoying, unpleasant, or boring person or thing",
+        "sense_label_en": "an annoying, unpleasant, or boring person or thing",
+        "governing_pattern": "be a drag",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drag:f139c0c61e0e30c2",
+            "phrase": "Waiting all afternoon is a drag.",
+            "meaning_cn": "等一下午真烦人。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式说法，表达厌烦；不同于 a drag on progress 的拖累或阻碍。"
+      },
+      {
+        "sense_id": "sense:drag:77622bc7f420cf38",
+        "pos": "noun",
+        "definition_cn": "（空气或液体造成的）阻力",
+        "definition_en": "resistance to movement through air or a liquid",
+        "sense_label_en": "resistance to movement through air or a liquid",
+        "governing_pattern": "air/aerodynamic drag; reduce drag",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drag:3348bea7f7a0c576",
+            "phrase": "reduce air drag",
+            "meaning_cn": "减小空气阻力",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "技术语境指运动阻力；不是令人厌烦或妨碍进展的评价。"
       }
     ],
     "verification_summary": {
@@ -402,13 +457,31 @@
         "merged_into_sense_id": null,
         "source_row": 4155,
         "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      },
+      {
+        "sense_id": "sense:drag:56884f70a08a5e8e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1496.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:drag:77622bc7f420cf38",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1496.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:1e0daad63739afdf2a74",
       "collocation:64be49690b6dfd95f1a1",
       "collocation:9d6c9695d26d1c843b64",
-      "collocation:b4076bb50ff88563b118"
+      "collocation:b4076bb50ff88563b118",
+      "collocation:drag:f139c0c61e0e30c2",
+      "collocation:drag:3348bea7f7a0c576"
     ],
     "facts": [],
     "collocations": [
@@ -431,6 +504,22 @@
         "id": "collocation:b4076bb50ff88563b118",
         "source_row": 15265,
         "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:drag:f139c0c61e0e30c2",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1496.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:drag:3348bea7f7a0c576",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1496.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

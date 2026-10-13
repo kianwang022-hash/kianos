@@ -5,23 +5,23 @@
     "ordinal": 3201,
     "word": "needle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3201.json",
-    "source_fingerprint": "ba60ad71ba7e5ef82595a273c559d14b4c37d3b94593bff1ffad151d589aee92",
+    "source_fingerprint": "a88e9188a7e99fe2a970300c660f8c3ef25b5fc265d01a9b53bdb40cce5a845f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "细长的针状物或刺激、激怒",
-      "decision_cn": "",
+      "summary_cn": "针状工具、仪表指针与针叶；刺激、激怒或用针刺",
+      "decision_cn": "needle按对象识别：needle and thread缝纫，knitting needle编织，compass needle仪表，pine needles植物；needle sb也可说故意刺激对方。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "细长的针状物或刺激、激怒"
+        "target_label": "针状工具、仪表指针与针叶；刺激、激怒或用针刺"
       }
     },
     "senses": [
@@ -56,8 +56,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "缝衣针",
-        "definition_en": "a sharp pointed implement, typically for sewing",
+        "definition_cn": "针；针状工具（如缝纫针、编织针或注射针）",
+        "definition_en": "a thin pointed implement, especially one used for sewing, knitting or injecting",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -68,13 +68,21 @@
             "meaning_cn": "用针缝",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:9cf1e62e2a45c4aebf36",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a knitting needle / a hypodermic needle",
+            "meaning_cn": "编织针／皮下注射针",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:needle:5bc2a8aa98205213",
           "target_locator": "record.senses[1]",
-          "target_label": "缝衣针"
+          "target_label": "针；针状工具（如缝纫针、编织针或注射针）"
         }
       },
       {
@@ -133,6 +141,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "用针刺"
         }
+      },
+      {
+        "id": "sense:needle:dcc8792b4b744cd5",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "pine needles（通常用复数）",
+        "definition_cn": "（松树等的）针叶",
+        "definition_en": "a thin pointed leaf of a pine or similar tree",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fd942b078e4da9166ccc",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "pine needles",
+            "meaning_cn": "松针，松树针叶",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:needle:dcc8792b4b744cd5",
+          "target_locator": "record.senses[4]",
+          "target_label": "（松树等的）针叶"
+        }
       }
     ],
     "pronunciation_support": {
@@ -143,17 +177,65 @@
           "applicability": [
             {
               "surface": "needle"
+            },
+            {
+              "surface": "needle",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:needle:dcc8792b4b744cd5"
+              ],
+              "owner_sense_ids": [
+                "sense:needle:dcc8792b4b744cd5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3201.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "pine needles（通常用复数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:needle:dcc8792b4b744cd5": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:24b9d6269e7b56aa5fa7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a needle in a haystack",
+        "lines": [
+          {
+            "text": "极难找到的人或物",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻寻找范围很大、目标很难发现，如look for a needle in a haystack。",
+            "lang": "cn"
+          },
+          {
+            "text": "something extremely difficult to find among many possibilities",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:24b9d6269e7b56aa5fa7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a needle in a haystack"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -167,23 +249,23 @@
     "ordinal": 3202,
     "word": "negative",
     "source_owner_path": "content/lexical/words/by-ordinal/o3202.json",
-    "source_fingerprint": "612d5d956081091fbbf115079d4211ba1bc419cf6c1d3e1195783db35b196d53",
+    "source_fingerprint": "25ac1d9603faac3b42a1345a27a30a2213e76517ae02896a2e5f16fb0bd653e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "4A",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表示否定或反对；缺乏积极特征",
-      "decision_cn": "",
+      "summary_cn": "负面/否定；不利方面、否定回答、底片与负数；负值/负电或阴性",
+      "decision_cn": "态度和影响可负面；the negatives指不利方面。否定回答、底片、负数、负电和检测阴性各按语境理解，阴性并不等于坏结果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表示否定或反对；缺乏积极特征"
+        "target_label": "负面/否定；不利方面、否定回答、底片与负数；负值/负电或阴性"
       }
     },
     "senses": [
@@ -308,16 +390,7 @@
         "definition_en": "a number less than zero",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:af7ab8649281373b4bc1",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a negative number",
-            "meaning_cn": "负数",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:negative:78be6b7a3ff657fb",
@@ -340,6 +413,14 @@
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "negative charge",
             "meaning_cn": "负电荷",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:af7ab8649281373b4bc1",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "a negative number",
+            "meaning_cn": "负数",
             "kind": "usage_example",
             "repair": null
           }
@@ -376,6 +457,32 @@
           "target_locator": "record.senses[6]",
           "target_label": "（检测/检查结果）阴性的；未检出所测条件或病原"
         }
+      },
+      {
+        "id": "sense:negative:1d99bb5cee130b9c",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "the negatives; focus on the negative",
+        "definition_cn": "不利方面；缺点",
+        "definition_en": "a disadvantage or undesirable aspect of a situation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7f6ea4421cd7283f4f54",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "weigh the positives and negatives",
+            "meaning_cn": "权衡有利和不利方面",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:negative:1d99bb5cee130b9c",
+          "target_locator": "record.senses[7]",
+          "target_label": "不利方面；缺点"
+        }
       }
     ],
     "pronunciation_support": {
@@ -386,6 +493,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -399,6 +524,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -412,6 +555,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -425,14 +586,39 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:negative:1d99bb5cee130b9c": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -449,8 +635,16 @@
     "ordinal": 3203,
     "word": "neglect",
     "source_owner_path": "content/lexical/words/by-ordinal/o3203.json",
-    "source_fingerprint": "f3e7a5f857438b7f5ade39e76fd30e19e1ce7a61b24825da334e7f07e1b81313",
-    "sense_lineage": [],
+    "source_fingerprint": "74fbfe437f1f853b6f34b0718e6732662048898e532e755b4663bbf9e0d9d1e0",
+    "sense_lineage": [
+      {
+        "word_id": "word:neglect",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:208087b0b35786896067",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -563,23 +757,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:208087b0b35786896067",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "neglect to do sth",
-            "meaning_cn": "忘记做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:208087b0b35786896067",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "neglect to do sth"
-            }
-          },
-          {
             "id": "collocation:3149a4eae9c94ce89304",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "neglect to lock the door",
-            "meaning_cn": "忘记锁门",
+            "meaning_cn": "疏忽未锁门",
             "kind": "usage_example",
             "repair": null
           }
@@ -756,7 +937,7 @@
     "ordinal": 3205,
     "word": "negotiate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3205.json",
-    "source_fingerprint": "9d75affcdee03b6595edc011ceb515e263ab7b7e60d45839f14a92b58954c629",
+    "source_fingerprint": "48c8474429f80ed178dd77d6d9cdfdfd3cbac174719a6e544dffda529bae959f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -779,7 +960,7 @@
         "id": "sense:negotiate:3a6d0cd4d06652ed",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "negotiate; negotiate with sb; negotiate for sth; negotiate (with sb) about/on sth; negotiate between A and B",
         "definition_cn": "谈判；协商",
         "definition_en": "to discuss something in order to reach an agreement",
         "note": "",
@@ -1101,7 +1282,7 @@
     "ordinal": 3207,
     "word": "neighborhood",
     "source_owner_path": "content/lexical/words/by-ordinal/o3207.json",
-    "source_fingerprint": "52bbf026c1a4ce3ba20cdbbc8eb51d4e5061a0b9e84d3e8e0aec137a985c84a3",
+    "source_fingerprint": "82851fa4984545968199669404c64f32f0ad9bb1f01f9852c90af19e245d1919",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1110,13 +1291,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "城镇中的区域或社区",
-      "decision_cn": "",
+      "summary_cn": "街区、社区或某地附近的区域",
+      "decision_cn": "城镇中的区域或社区",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "城镇中的区域或社区"
+        "target_label": "街区、社区或某地附近的区域"
       }
     },
     "senses": [
@@ -1125,8 +1306,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "城市或城镇中具有某些特色的区域（尤指形成社区的区域）",
-        "definition_en": "an area within a city or town that has some distinctive features (especially one forming a community)",
+        "definition_cn": "街区；社区；某地附近的区域",
+        "definition_en": "an area of a town or city, especially a local community; also the area near a particular place",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1151,7 +1332,7 @@
           "target_kind": "sense",
           "target_id": "sense:neighborhood:7f1bb25f018052b4",
           "target_locator": "record.senses[0]",
-          "target_label": "城市或城镇中具有某些特色的区域（尤指形成社区的区域）"
+          "target_label": "街区；社区；某地附近的区域"
         }
       },
       {
@@ -1250,7 +1431,7 @@
     "ordinal": 3208,
     "word": "neither",
     "source_owner_path": "content/lexical/words/by-ordinal/o3208.json",
-    "source_fingerprint": "0a40840feaa912cd04372e0c7d92f119742ecd2493b64e12a39405a6dfb16da8",
+    "source_fingerprint": "54e884af215eec11420abdd844395c96c3aab02d3163fbc0515acb0350dc9932",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1279,7 +1460,7 @@
         "governing_pattern": "",
         "definition_cn": "两者都不",
         "definition_en": "not one or the other of two people or things",
-        "note": "",
+        "note": "neither可单独作两者都不的代词；neither of后接复数代词或带限定词的复数名词。正式场合多用单数谓语，非正式也可用复数谓语。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1333,10 +1514,10 @@
         "id": "sense:neither:1a731032264a55ac",
         "source_locator": "record.senses[2]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "neither + singular noun",
         "definition_cn": "（两者）都不的",
         "definition_en": "not either of two",
-        "note": "",
+        "note": "放在单数名词前表示两者中无一，通常用单数谓语：Neither answer is correct。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1359,7 +1540,7 @@
         "id": "sense:neither:b7853187457c5062",
         "source_locator": "record.senses[3]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "neither + auxiliary/be/modal + subject: Neither do I; Neither can she",
         "definition_cn": "也不",
         "definition_en": "used to show that a negative statement is also true of another",
         "note": "",
@@ -1368,7 +1549,7 @@
           {
             "id": "collocation:a5b26b50daa6b83c7b8b",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "I don't like it. Neither do I.",
+            "phrase": "A: \"I don’t like it.\" B: \"Neither do I.\"",
             "meaning_cn": "我不喜欢它。我也不喜欢。",
             "kind": "usage_example",
             "repair": null
@@ -1455,7 +1636,7 @@
     "ordinal": 3209,
     "word": "nephew",
     "source_owner_path": "content/lexical/words/by-ordinal/o3209.json",
-    "source_fingerprint": "f52223d77e15fe9289fc956fff3f4f5db6c05e805e416ffb860be0c666adbe61",
+    "source_fingerprint": "06cd918f1634f96b5b41a94273d02ac96240c65fe2551bf1e4fd691e704b6a04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1464,13 +1645,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "兄弟姐妹的儿子",
-      "decision_cn": "",
+      "summary_cn": "侄子；外甥；本人或配偶兄弟姐妹的儿子",
+      "decision_cn": "本人或配偶兄弟姐妹的儿子；具体中文亲属称谓按家庭关系判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "兄弟姐妹的儿子"
+        "target_label": "侄子；外甥；本人或配偶兄弟姐妹的儿子"
       }
     },
     "senses": [
@@ -1559,7 +1740,7 @@
     "ordinal": 3210,
     "word": "nerve",
     "source_owner_path": "content/lexical/words/by-ordinal/o3210.json",
-    "source_fingerprint": "75a16638e108854fc170c27dc1631b9f44e92366cd0ab7f8d207afaffa54b80c",
+    "source_fingerprint": "8538a08c1639676001a738e17ddcdb8cfc44f3081f7ad2938408aea82d8c5437",
     "sense_lineage": [
       {
         "word_id": "word:nerve",
@@ -1571,18 +1752,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "神经；勇气",
-      "decision_cn": "",
+      "summary_cn": "神经；胆量；紧张感及无礼的胆大",
+      "decision_cn": "a nerve可指身体神经；lose your nerve失去胆量，calm your nerves缓解紧张。What a nerve!常指厚脸皮，须看语气，不能一律当赞扬勇气。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "神经；勇气"
+        "target_label": "神经；胆量；紧张感及无礼的胆大"
       }
     },
     "senses": [
@@ -1619,6 +1800,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "勇气；胆量"
         }
+      },
+      {
+        "id": "sense:nerve:d1357e0914820497",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "nerves; calm/settle/steady sb’s nerves",
+        "definition_cn": "（复数nerves）紧张、焦虑的情绪",
+        "definition_en": "feelings of anxiety, worry or tension",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3cf7bee3d6bdfebc0190",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "calm your nerves",
+            "meaning_cn": "缓解你的紧张情绪",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nerve:d1357e0914820497",
+          "target_locator": "record.senses[2]",
+          "target_label": "（复数nerves）紧张、焦虑的情绪"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1631,6 +1838,24 @@
           "applicability": [
             {
               "surface": "nerve"
+            },
+            {
+              "surface": "nerve",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "owner_sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3210.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nerves; calm/settle/steady sb’s nerves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1644,14 +1869,37 @@
           "applicability": [
             {
               "surface": "nerve"
+            },
+            {
+              "surface": "nerve",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "owner_sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3210.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nerves; calm/settle/steady sb’s nerves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nerve:d1357e0914820497": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -1704,6 +1952,31 @@
           "target_id": "construction:9ba3ad6bc2f1252062bb",
           "target_locator": "record.constructions[2]",
           "target_label": "lose one's nerve"
+        }
+      },
+      {
+        "id": "construction:8473ffccc2a0a6fddbad",
+        "source_locator": "record.constructions[3]",
+        "pattern": "have a nerve / What a nerve!",
+        "lines": [
+          {
+            "text": "竟敢如此；真厚脸皮、真无礼",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式，常表示说话人不满；与单纯赞扬有勇气不同。have the nerve to do也可依语境带不满。",
+            "lang": "cn"
+          },
+          {
+            "text": "criticize behaviour as audacious or rude",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8473ffccc2a0a6fddbad",
+          "target_locator": "record.constructions[3]",
+          "target_label": "have a nerve / What a nerve!"
         }
       }
     ],
@@ -1758,7 +2031,7 @@
     "ordinal": 3211,
     "word": "nervous",
     "source_owner_path": "content/lexical/words/by-ordinal/o3211.json",
-    "source_fingerprint": "e4f884990b5166d04a6d3249b4cc19a63253121d773e4a8fd549a71a4ca2d291",
+    "source_fingerprint": "36f134418564edf9c0046dc8b517aee406042e451a0b44d91320afeee2a029fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1891,7 +2164,7 @@
           "target_word": "nerve",
           "lines": [
             {
-              "text": "nerve 名词/动词；nervous 形容词",
+              "text": "nerve在此词族中指名词神经；nervous作形容词表示神经的或紧张的",
               "lang": "cn"
             }
           ],
@@ -1906,7 +2179,7 @@
     "ordinal": 3212,
     "word": "nest",
     "source_owner_path": "content/lexical/words/by-ordinal/o3212.json",
-    "source_fingerprint": "363802964e52d1b8c8f9ff789afe0fe2f71e343f9774855e3fc8561849ef6290",
+    "source_fingerprint": "b305884e9dd2c641a8083bed28bc990850e7592dd3dca7c4b477698fef543e10",
     "sense_lineage": [
       {
         "word_id": "word:nest",
@@ -1962,8 +2235,8 @@
         "id": "sense:nest:760d1fe8ebeb5ef9",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "筑巢；把……放入巢中",
+        "governing_pattern": "birds nest; nest in/on a place",
+        "definition_cn": "筑巢；在巢中栖居",
         "definition_en": "to build or use a nest",
         "note": "",
         "identity_overlay": null,
@@ -1972,7 +2245,7 @@
           "target_kind": "sense",
           "target_id": "sense:nest:760d1fe8ebeb5ef9",
           "target_locator": "record.senses[1]",
-          "target_label": "筑巢；把……放入巢中"
+          "target_label": "筑巢；在巢中栖居"
         }
       },
       {
@@ -2051,7 +2324,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:94738c671cceaee7347f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "fly the nest",
+        "lines": [
+          {
+            "text": "（孩子）离家独立生活",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；说人时为比喻，并不表示实际飞行。动物语境则可字面指幼鸟离巢。",
+            "lang": "cn"
+          },
+          {
+            "text": "leave the parental home to live independently",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:94738c671cceaee7347f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "fly the nest"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2117,24 +2416,24 @@
     "ordinal": 3213,
     "word": "net",
     "source_owner_path": "content/lexical/words/by-ordinal/o3213.json",
-    "source_fingerprint": "2887ef5f6cd701c730beb2bb172b7c8ce37804dc07944bbbee2e8ca482a0b057",
+    "source_fingerprint": "bb15dde6b2acb8ca22b82cb92412a270fdf7424e69886a14f3c4df7733c893f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
         "1A",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "网；用网捕；净的",
-      "decision_cn": "",
+      "summary_cn": "网与球网；互联网；净的；用网捕获或获得",
+      "decision_cn": "fishing net捕物，the net可指互联网，net profit是扣除相关项后的净额；net a profit/benefit是获得。球门网与网球场中间的网按运动语境区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "网；用网捕；净的"
+        "target_label": "网与球网；互联网；净的；用网捕获或获得"
       }
     },
     "senses": [
@@ -2237,8 +2536,8 @@
           {
             "id": "collocation:44059d9b66f2c28e613f",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "score into the net",
-            "meaning_cn": "射门得分",
+            "phrase": "kick the ball into the net",
+            "meaning_cn": "把球踢进球门网，射门得分",
             "kind": "usage_example",
             "repair": null
           }
@@ -2358,6 +2657,32 @@
           "target_locator": "record.senses[6]",
           "target_label": "净赚；净得；获得/带来"
         }
+      },
+      {
+        "id": "sense:net:98bd07ee4dab2c8a",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "the net; surf the net",
+        "definition_cn": "（非正式，the net）互联网",
+        "definition_en": "the internet, informally called the net",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b0e4ce61014edaae9a11",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "surf the net",
+            "meaning_cn": "上网浏览",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:net:98bd07ee4dab2c8a",
+          "target_locator": "record.senses[7]",
+          "target_label": "（非正式，the net）互联网"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2453,6 +2778,32 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/net/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "net",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:net:98bd07ee4dab2c8a"
+              ],
+              "owner_sense_ids": [
+                "sense:net:98bd07ee4dab2c8a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3213.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the net; surf the net",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -2476,12 +2827,41 @@
         ],
         "sense:net:d8433b7b559ab45b": [
           3
+        ],
+        "sense:net:98bd07ee4dab2c8a": [
+          4
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:93f10a42c1d0c1afa0ab",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cast/spread your net wide",
+        "lines": [
+          {
+            "text": "广泛搜寻、考虑多种可能",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻寻找机会、人选或资料；不一定真在撒渔网。",
+            "lang": "cn"
+          },
+          {
+            "text": "search widely or consider a broad range of possibilities",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:93f10a42c1d0c1afa0ab",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cast/spread your net wide"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2495,7 +2875,7 @@
     "ordinal": 3214,
     "word": "network",
     "source_owner_path": "content/lexical/words/by-ordinal/o3214.json",
-    "source_fingerprint": "880ca48ca744ec4183339512569b7d02d44e9936fd69af4e87cc5faf9422aae5",
+    "source_fingerprint": "afcf126b091baae1d21cffe1311c738ab8cb2fffc511f6f917c87b83b408a77a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2559,8 +2939,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "由一组广播电台组成的传播系统，播放相同节目",
-        "definition_en": "a communication system consisting of a group of broadcasting stations that all transmit the same programs",
+        "definition_cn": "广播网；电视网",
+        "definition_en": "a group of radio or television stations linked to share or broadcast programs",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2577,7 +2957,7 @@
           "target_kind": "sense",
           "target_id": "sense:network:d1b9985674135216",
           "target_locator": "record.senses[1]",
-          "target_label": "由一组广播电台组成的传播系统，播放相同节目"
+          "target_label": "广播网；电视网"
         }
       },
       {
@@ -2610,7 +2990,7 @@
         "id": "sense:network:85f04cc7cc045156",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "network; network with people",
         "definition_cn": "建立人脉；进行社交联络",
         "definition_en": "to meet and communicate with people in order to build useful professional or social relationships",
         "note": "",
@@ -2675,7 +3055,7 @@
     "ordinal": 3215,
     "word": "neutral",
     "source_owner_path": "content/lexical/words/by-ordinal/o3215.json",
-    "source_fingerprint": "e88270b18a0c93382ade13f884566466526954949dcafb07597f31b4dc03d6e0",
+    "source_fingerprint": "8eef118c476f6de0c4145ce353219208fe3daebffbcc02c463ca04ca9cd7b1b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2739,8 +3119,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "中性的，无色的",
-        "definition_en": "having no distinctive quality or characteristics",
+        "definition_cn": "中性的；不显著的；（颜色）素净、不鲜艳的",
+        "definition_en": "not strongly marked or expressive; of a color, subdued and not bright",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2757,7 +3137,7 @@
           "target_kind": "sense",
           "target_id": "sense:neutral:ff1803bfe8dd5100",
           "target_locator": "record.senses[1]",
-          "target_label": "中性的，无色的"
+          "target_label": "中性的；不显著的；（颜色）素净、不鲜艳的"
         }
       },
       {
@@ -2904,8 +3284,23 @@
     "ordinal": 3216,
     "word": "never",
     "source_owner_path": "content/lexical/words/by-ordinal/o3216.json",
-    "source_fingerprint": "1b179155896a18354fb5407de986b986d7f2beb868848d04693207954b3a49c6",
-    "sense_lineage": [],
+    "source_fingerprint": "c5961d249c700dde17307de949736ae1cb8f9f90d3cbf142dcac7e4952f94cea",
+    "sense_lineage": [
+      {
+        "word_id": "word:never",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5d23c242ab7b34d0918c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:never",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:82c44e34de5867399b76",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2ADV"
@@ -2927,26 +3322,12 @@
         "id": "sense:never:ace4c078df8a5fbe",
         "source_locator": "record.senses[0]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "usually before the main verb, after be or first auxiliary: I have never seen it; She is never late",
         "definition_cn": "从不；从未",
         "definition_en": "not at any time; not ever",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:82c44e34de5867399b76",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "never + verb",
-            "meaning_cn": "从不做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:82c44e34de5867399b76",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "never + verb"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:never:ace4c078df8a5fbe",
@@ -2958,26 +3339,12 @@
         "id": "sense:never:b6fdbd41ff1d5c2d",
         "source_locator": "record.senses[1]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "emphatic refusal: I will never agree",
         "definition_cn": "决不；毫不",
         "definition_en": "not at all; certainly not",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5d23c242ab7b34d0918c",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "never + verb",
-            "meaning_cn": "决不…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5d23c242ab7b34d0918c",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "never + verb"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:never:b6fdbd41ff1d5c2d",
@@ -3156,7 +3523,7 @@
     "ordinal": 3218,
     "word": "new",
     "source_owner_path": "content/lexical/words/by-ordinal/o3218.json",
-    "source_fingerprint": "2060c43946a08e1ccb5722c63ba54e85d770ff34ec8a2e677862bc59be8d5dce",
+    "source_fingerprint": "f376ff5c73e359f413312c3e6f990ec66b4e0c5e5e097c47fb9fff0d7256b020",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3258,22 +3625,22 @@
         "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "陌生的；不熟悉的（常见 new to sb）",
-        "definition_en": "unfamiliar or not previously known or experienced by someone",
+        "definition_cn": "对某人而言陌生的；刚接触某活动／刚到某地的",
+        "definition_en": "not previously known or experienced by someone, or having only recently begun an activity or arrived somewhere",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f6f84b01aecfa160400a",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "new to + sb/sth",
-            "meaning_cn": "对某人/某事不熟悉",
+            "phrase": "sth is new to sb / sb is new to sth or somewhere",
+            "meaning_cn": "某事对某人陌生／某人刚接触某事或刚到某地（注意主语方向）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f6f84b01aecfa160400a",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "new to + sb/sth"
+              "target_label": "sth is new to sb / sb is new to sth or somewhere"
             }
           }
         ],
@@ -3281,7 +3648,7 @@
           "target_kind": "sense",
           "target_id": "sense:new:508d24808f345ae7",
           "target_locator": "record.senses[3]",
-          "target_label": "陌生的；不熟悉的（常见 new to sb）"
+          "target_label": "对某人而言陌生的；刚接触某活动／刚到某地的"
         }
       }
     ],
@@ -3327,6 +3694,10 @@
           {
             "text": "刚接触/刚来到，对某事或某地还不熟悉",
             "lang": "cn"
+          },
+          {
+            "text": "Person as subject: new to an activity/place. Contrast a thing new to someone, meaning unfamiliar to that person.",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3350,22 +3721,22 @@
     "ordinal": 3219,
     "word": "news",
     "source_owner_path": "content/lexical/words/by-ordinal/o3219.json",
-    "source_fingerprint": "78030e487f7a7abe1b0db78aff52fc9ea8335e59ecb2d704441624b146e04fd4",
+    "source_fingerprint": "3bfbaa9b802e46924e93041ec74f5e0eac4ab4e75e4f954594400e17c0a79d11",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "关于近期事件的新信息",
-      "decision_cn": "",
+      "summary_cn": "新闻报道、消息与新鲜事；新闻节目",
+      "decision_cn": "news外形以-s结尾但普通用法仍是不可数名词，谓语一般单数；a piece/item of news计一条。watch the news看节目，news to me说此前未知。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "关于近期事件的新信息"
+        "target_label": "新闻报道、消息与新鲜事；新闻节目"
       }
     },
     "senses": [
@@ -3509,6 +3880,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "新鲜事，传闻"
         }
+      },
+      {
+        "id": "sense:news:04c751fd420b6ef6",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the news; watch/listen to the news",
+        "definition_cn": "（the news）电视或广播的新闻节目",
+        "definition_en": "a television or radio programme reporting recent events",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:26b67613482e35750336",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "watch the news",
+            "meaning_cn": "看新闻节目",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:news:04c751fd420b6ef6",
+          "target_locator": "record.senses[3]",
+          "target_label": "（the news）电视或广播的新闻节目"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3521,6 +3918,24 @@
           "applicability": [
             {
               "surface": "news"
+            },
+            {
+              "surface": "news",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "owner_sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3219.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the news; watch/listen to the news",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3534,17 +3949,66 @@
           "applicability": [
             {
               "surface": "news"
+            },
+            {
+              "surface": "news",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "owner_sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3219.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the news; watch/listen to the news",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:news:04c751fd420b6ef6": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ee8ab1d1240e4a6076de",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be news to sb",
+        "lines": [
+          {
+            "text": "对某人来说是此前不知道的消息",
+            "lang": "cn"
+          },
+          {
+            "text": "It’s news to me表示我之前不知道，可带惊讶；不是宣称它一定是媒体报道。",
+            "lang": "cn"
+          },
+          {
+            "text": "be information somebody did not know before",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ee8ab1d1240e4a6076de",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be news to sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3558,7 +4022,7 @@
     "ordinal": 3220,
     "word": "newspaper",
     "source_owner_path": "content/lexical/words/by-ordinal/o3220.json",
-    "source_fingerprint": "6fb66869c4081d402d9680ad83e7f7738fcbde5883afb214bb273eb9823c3a4a",
+    "source_fingerprint": "306d0306f63a9c242356f61404c53fb8918c9efc0d753c489ccf535741523ce8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3582,8 +4046,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "报纸",
-        "definition_en": "a daily or weekly publication on folded sheets containing news, articles, and advertisements",
+        "definition_cn": "报纸；报刊（可为印刷版或网络版）",
+        "definition_en": "a regularly published source of news, articles, and advertisements, in print or online",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3608,7 +4072,7 @@
           "target_kind": "sense",
           "target_id": "sense:newspaper:56401eaafc5f52ee",
           "target_locator": "record.senses[0]",
-          "target_label": "报纸"
+          "target_label": "报纸；报刊（可为印刷版或网络版）"
         }
       },
       {
@@ -3642,8 +4106,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "新闻纸；白报纸",
-        "definition_en": "cheap paper made from wood pulp used for printing newspapers",
+        "definition_cn": "报纸用纸；旧报纸的纸张",
+        "definition_en": "paper used for newspapers, including sheets from old newspapers used as material",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3651,7 +4115,7 @@
           "target_kind": "sense",
           "target_id": "sense:newspaper:c76144ec3151585b",
           "target_locator": "record.senses[2]",
-          "target_label": "新闻纸；白报纸"
+          "target_label": "报纸用纸；旧报纸的纸张"
         }
       }
     ],
@@ -3702,7 +4166,7 @@
     "ordinal": 3221,
     "word": "next",
     "source_owner_path": "content/lexical/words/by-ordinal/o3221.json",
-    "source_fingerprint": "f4f394d172cfb0e9f1e30795b8c11ecc401a68aef13ea68d84692c18f697ee19",
+    "source_fingerprint": "3aff830f812b747b9d61577ae0736485bd4349425c739d36a45c4c1d5187821c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3872,18 +4336,22 @@
       {
         "id": "construction:1c92e4e5c1dfb43e583a",
         "source_locator": "record.constructions[1]",
-        "pattern": "next to + adjective/noun",
+        "pattern": "next to nothing / next to impossible",
         "lines": [
           {
             "text": "几乎；差不多（在惯用语境中）",
             "lang": "cn"
+          },
+          {
+            "text": "Almost, in restricted conventional combinations such as next to nothing/impossible/useless; not a general substitute for almost before every noun or adjective.",
+            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:1c92e4e5c1dfb43e583a",
           "target_locator": "record.constructions[1]",
-          "target_label": "next to + adjective/noun"
+          "target_label": "next to nothing / next to impossible"
         }
       }
     ],
@@ -3900,23 +4368,30 @@
     "ordinal": 3222,
     "word": "nice",
     "source_owner_path": "content/lexical/words/by-ordinal/o3222.json",
-    "source_fingerprint": "6789699400308e6c9c903f0824216ef34ef54dc45efa080ec019f0b4d4b0ebf0",
-    "sense_lineage": [],
+    "source_fingerprint": "36e0d7637dfb6974a341563324c1b77560da75652b09cb504597b87e87c9eb40",
+    "sense_lineage": [
+      {
+        "word_id": "word:nice",
+        "target_kind": "sense",
+        "from_target_id": "sense:nice:8e2ac4d3cc255bcd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
-        "1N"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "美好的；令人愉快的；精细/巧妙的",
-      "decision_cn": "",
+      "summary_cn": "令人愉快的；友善体贴的；精细或巧妙的",
+      "decision_cn": "nice day令人愉快，nice to sb对人友善，nice of sb to do赞其体贴；nice and warm强调暖得舒服。a nice distinction讲精细区别，反语则可能表达不满。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "美好的；令人愉快的；精细/巧妙的"
+        "target_label": "令人愉快的；友善体贴的；精细或巧妙的"
       }
     },
     "senses": [
@@ -3967,8 +4442,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "精细的；巧妙的",
-        "definition_en": "done with delicacy and skill",
+        "definition_cn": "细微的；精确的；巧妙的",
+        "definition_en": "fine or subtle and requiring careful judgment; showing precision or skill",
         "note": "",
         "identity_overlay": {
           "text": "lowercase adjective nice is /naɪs/",
@@ -3993,32 +4468,33 @@
           "target_kind": "sense",
           "target_id": "sense:nice:39d7b0a59f3b5ece",
           "target_locator": "record.senses[1]",
-          "target_label": "精细的；巧妙的"
+          "target_label": "细微的；精确的；巧妙的"
         }
       },
       {
-        "id": "sense:nice:8e2ac4d3cc255bcd",
+        "id": "sense:nice:f847552875735fad",
         "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "尼斯（法国城市）",
-        "definition_en": "a city in southeastern France on the Mediterranean; a leading resort on the French Riviera",
+        "pos": "adjective",
+        "governing_pattern": "be nice to sb; it is nice of sb to do sth",
+        "definition_cn": "友善的；体贴的",
+        "definition_en": "kind, friendly or considerate towards people",
         "note": "",
-        "identity_overlay": {
-          "text": "Nice, the French city, is capitalized and pronounced /niːs/; distinct from adjective nice /naɪs/",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "Nice, the French city, is capitalized and pronounced /niːs/; distinct from adjective nice /naɪs/"
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4d41fbc2e57aaddbe6f2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "It was nice of you to help.",
+            "meaning_cn": "你来帮忙真体贴。",
+            "kind": "usage_example",
+            "repair": null
           }
-        },
-        "usage": [],
+        ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:nice:8e2ac4d3cc255bcd",
+          "target_id": "sense:nice:f847552875735fad",
           "target_locator": "record.senses[2]",
-          "target_label": "尼斯（法国城市）"
+          "target_label": "友善的；体贴的"
         }
       }
     ],
@@ -4045,6 +4521,32 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/naɪs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "nice",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:nice:f847552875735fad"
+              ],
+              "owner_sense_ids": [
+                "sense:nice:f847552875735fad"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3222.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be nice to sb; it is nice of sb to do sth",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -4053,17 +4555,101 @@
         ],
         "sense:nice:39d7b0a59f3b5ece": [
           0
+        ],
+        "sense:nice:f847552875735fad": [
+          1
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8ca223e61b290485e465",
+        "source_locator": "record.constructions[0]",
+        "pattern": "nice and + adjective/adverb",
+        "lines": [
+          {
+            "text": "很……，而且使人感觉舒服、满意",
+            "lang": "cn"
+          },
+          {
+            "text": "如The room is nice and warm，They arrived nice and early。常作表语或修饰动作；名词前不用a nice and warm room，可说a nice warm room。",
+            "lang": "cn"
+          },
+          {
+            "text": "emphasize a pleasant quality or satisfactory degree",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8ca223e61b290485e465",
+          "target_locator": "record.constructions[0]",
+          "target_label": "nice and + adjective/adverb"
+        }
+      },
+      {
+        "id": "construction:7e58530828d82bc1a366",
+        "source_locator": "record.constructions[1]",
+        "pattern": "That’s a nice thing to say!（反语）",
+        "lines": [
+          {
+            "text": "这话说得可真“好”！（实际不满）",
+            "lang": "cn"
+          },
+          {
+            "text": "依语境、语气判断；普通nice仍可真诚赞扬，不能只靠nice一词断定反语。",
+            "lang": "cn"
+          },
+          {
+            "text": "ironically criticize something as unpleasant or unkind",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7e58530828d82bc1a366",
+          "target_locator": "record.constructions[1]",
+          "target_label": "That’s a nice thing to say!（反语）"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "尼斯（法国城市）",
+          "definition_en": "a city in southeastern France on the Mediterranean; a leading resort on the French Riviera",
+          "governing_pattern": "",
+          "level": "L3",
+          "lexical_identity_overlay": {
+            "case_sensitive": true,
+            "identity_type": "proper_place_name",
+            "note": "Nice, the French city, is capitalized and pronounced /niːs/; distinct from adjective nice /naɪs/",
+            "pronunciation": "/niːs/",
+            "recommended_disposition": "SOURCE_ONLY",
+            "surface_lemma": "Nice"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:nice:8e2ac4d3cc255bcd",
+          "sense_label_en": "a city in southeastern France on the Mediterranean; a leading resort on ",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:nice:8e2ac4d3cc255bcd",
+          "status": "reference",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "source_row": 8971,
+          "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+        }
+      ]
     }
   },
   {
@@ -4072,7 +4658,7 @@
     "ordinal": 3223,
     "word": "nickel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3223.json",
-    "source_fingerprint": "12c9940d44717f2dff75f9c88c2a40431c165b626bc81d653e85d9a4a2d75f9b",
+    "source_fingerprint": "290b8571a64d7d8e7ecbc64cae266564ce56a50c9b4e095e8d5fda806d87fc3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4224,7 +4810,7 @@
     "ordinal": 3224,
     "word": "nickname",
     "source_owner_path": "content/lexical/words/by-ordinal/o3224.json",
-    "source_fingerprint": "4c34e80d2f9cc84b51204e54d133f143664f9a973bc41353f36f572157dada79",
+    "source_fingerprint": "632024a48dc39d2fd8a44499ede0ddb7eacca95e23e02ca48ac0c8a322d985c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4279,7 +4865,7 @@
         "id": "sense:nickname:5597a00e1bf7593a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "nickname sb/sth + nickname; be nicknamed + nickname",
         "definition_cn": "给…取绰号",
         "definition_en": "to give a nickname to someone or something",
         "note": "",
@@ -4350,7 +4936,7 @@
     "ordinal": 3225,
     "word": "niece",
     "source_owner_path": "content/lexical/words/by-ordinal/o3225.json",
-    "source_fingerprint": "66a5f1542cbf746d0b9999a764ad68169525bd98748cd27537bd78cb74002115",
+    "source_fingerprint": "13bf26616b4daba3b4c158d9db65f7ecfc970e115a41fdd07662d4e37c242989",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4359,13 +4945,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "侄女；甥女",
-      "decision_cn": "",
+      "summary_cn": "侄女；外甥女；本人或配偶兄弟姐妹的女儿",
+      "decision_cn": "本人或配偶兄弟姐妹的女儿；具体中文亲属称谓按家庭关系判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "侄女；甥女"
+        "target_label": "侄女；外甥女；本人或配偶兄弟姐妹的女儿"
       }
     },
     "senses": [
@@ -4374,8 +4960,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "侄女；甥女",
-        "definition_en": "a daughter of your brother or sister",
+        "definition_cn": "侄女；外甥女（也包括配偶兄弟姐妹的女儿）",
+        "definition_en": "a daughter of your brother or sister, or of your spouse's brother or sister",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4400,7 +4986,7 @@
           "target_kind": "sense",
           "target_id": "sense:niece:5b70b5c5cecd584f",
           "target_locator": "record.senses[0]",
-          "target_label": "侄女；甥女"
+          "target_label": "侄女；外甥女（也包括配偶兄弟姐妹的女儿）"
         }
       }
     ],
@@ -4451,7 +5037,7 @@
     "ordinal": 3226,
     "word": "night",
     "source_owner_path": "content/lexical/words/by-ordinal/o3226.json",
-    "source_fingerprint": "92d3b4c8077283648574f9515b5d741b8be98650d322042f4f2f3893f3eb7696",
+    "source_fingerprint": "1fc0351a97ccf4535109b9fff7d8533802ea9916817c23668cbf2a1c559c39cf",
     "sense_lineage": [
       {
         "word_id": "word:night",
@@ -4479,7 +5065,7 @@
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "夜晚",
@@ -4496,12 +5082,21 @@
         "id": "sense:night:c4dcfd21e6b55cb1",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "at night; in/during the night; on Friday night; last/tomorrow night",
         "definition_cn": "夜晚；夜间",
         "definition_en": "the time after sunset and before sunrise",
-        "note": "",
+        "note": "泛指夜间常说at night；具体某夜可用in/during the night；星期或日期的夜晚用on，如on Friday night。last night、tomorrow night一般不加时间介词。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:4ededd07f73ecff4a32d",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "on Friday night / last night",
+            "meaning_cn": "周五晚上／昨晚",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:night:c4dcfd21e6b55cb1",
@@ -5068,7 +5663,7 @@
     "ordinal": 3231,
     "word": "nitrogen",
     "source_owner_path": "content/lexical/words/by-ordinal/o3231.json",
-    "source_fingerprint": "80f2c385e9942a08cde0cefeb7e79697515af6b28ad5fb16770161b8e44e0ce9",
+    "source_fingerprint": "038e28aee17e40643799ef418c9e304e065acdeb6dff30b59a518b5e56813822",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5196,7 +5791,7 @@
     "ordinal": 3232,
     "word": "no",
     "source_owner_path": "content/lexical/words/by-ordinal/o3232.json",
-    "source_fingerprint": "7e85210ddee5c9e1dab227233920a609507f8ce28e5d216f1fb1e4a7616e7ef6",
+    "source_fingerprint": "32727d58dbc44729e4b6c0ea3b0c3d830537ad7c08900e55c077ab3d1ecb4403",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5389,7 +5984,12 @@
               "excluded_sense_ids": [
                 "sense:no:14d40b43c6c65c0f",
                 "sense:no:c45a68617cd9588d"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5408,7 +6008,12 @@
               "excluded_sense_ids": [
                 "sense:no:af6ac3e00c315e87",
                 "sense:no:c45a68617cd9588d"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5427,7 +6032,12 @@
               "excluded_sense_ids": [
                 "sense:no:af6ac3e00c315e87",
                 "sense:no:c45a68617cd9588d"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5446,7 +6056,12 @@
               "excluded_sense_ids": [
                 "sense:no:af6ac3e00c315e87",
                 "sense:no:c45a68617cd9588d"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5465,7 +6080,12 @@
               "excluded_sense_ids": [
                 "sense:no:14d40b43c6c65c0f",
                 "sense:no:af6ac3e00c315e87"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5484,7 +6104,12 @@
               "excluded_sense_ids": [
                 "sense:no:14d40b43c6c65c0f",
                 "sense:no:af6ac3e00c315e87"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5503,7 +6128,12 @@
               "excluded_sense_ids": [
                 "sense:no:14d40b43c6c65c0f",
                 "sense:no:af6ac3e00c315e87"
-              ]
+              ],
+              "conditions": {
+                "region": "Northumbria; regional English",
+                "source_context": "Pronunciation parent heading on original no entry; raw per-sound qualifiers were empty.",
+                "source_url": "https://en.wiktionary.org/wiki/no#English"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5632,6 +6262,56 @@
           "target_locator": "record.constructions[0]",
           "target_label": "no longer"
         }
+      },
+      {
+        "id": "construction:69f78e78b44d6877cbc6",
+        "source_locator": "record.constructions[1]",
+        "pattern": "no + comparative adjective/adverb",
+        "lines": [
+          {
+            "text": "并不更……；程度上毫无增加",
+            "lang": "cn"
+          },
+          {
+            "text": "She feels no better表示没有好转；no later than Friday表示最迟周五。不是一概指相反方向程度更高。",
+            "lang": "cn"
+          },
+          {
+            "text": "negate an increase expressed by a comparative",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:69f78e78b44d6877cbc6",
+          "target_locator": "record.constructions[1]",
+          "target_label": "no + comparative adjective/adverb"
+        }
+      },
+      {
+        "id": "construction:806df0efb67d13a52352",
+        "source_locator": "record.constructions[2]",
+        "pattern": "No + -ing activity!",
+        "lines": [
+          {
+            "text": "禁止某种活动",
+            "lang": "cn"
+          },
+          {
+            "text": "告示常用No smoking / No parking；-ing词在整体名词性活动表达中，不表示no本身变成普通动词。",
+            "lang": "cn"
+          },
+          {
+            "text": "state that an activity is not permitted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:806df0efb67d13a52352",
+          "target_locator": "record.constructions[2]",
+          "target_label": "No + -ing activity!"
+        }
       }
     ],
     "reference": {
@@ -5647,23 +6327,23 @@
     "ordinal": 3233,
     "word": "noble",
     "source_owner_path": "content/lexical/words/by-ordinal/o3233.json",
-    "source_fingerprint": "f0fd92e4d8e9ea7b396f904d2ef0dd543158b0d313cf05a6900d1dea7bd95f56",
+    "source_fingerprint": "65cd3ebdef4ab048ccb4a0fceae3855099f18fc4e323c7bde1b527237eddfcf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "贵族的或高尚的",
-      "decision_cn": "",
+      "summary_cn": "贵族的、高尚的或宏伟的；贵族",
+      "decision_cn": "noble birth讲贵族出身，noble cause讲崇高事业，noble building讲宏伟；a noble可指贵族，不能只按道德好坏解释。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "贵族的或高尚的"
+        "target_label": "贵族的、高尚的或宏伟的；贵族"
       }
     },
     "senses": [
@@ -5744,6 +6424,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "贵族"
         }
+      },
+      {
+        "id": "sense:noble:19378f67558e0b03",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "a noble building",
+        "definition_cn": "宏伟的；（规模或品质）令人赞叹的",
+        "definition_en": "impressive in size or quality",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f5aafe925c4cf814a4f7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a noble building",
+            "meaning_cn": "一座宏伟的建筑",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:noble:19378f67558e0b03",
+          "target_locator": "record.senses[3]",
+          "target_label": "宏伟的；（规模或品质）令人赞叹的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5756,6 +6462,24 @@
           "applicability": [
             {
               "surface": "noble"
+            },
+            {
+              "surface": "noble",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "owner_sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3233.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a noble building",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5769,14 +6493,37 @@
           "applicability": [
             {
               "surface": "noble"
+            },
+            {
+              "surface": "noble",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "owner_sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3233.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a noble building",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:noble:19378f67558e0b03": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6022,7 +6769,7 @@
     "ordinal": 3235,
     "word": "nod",
     "source_owner_path": "content/lexical/words/by-ordinal/o3235.json",
-    "source_fingerprint": "62e7d26b1a652a429d792efdd5ff7a44ed207fdb5c289574a26a957cfed6c6a0",
+    "source_fingerprint": "535187d40953025f98bc75bdf841ccb852dc6744b8f82953ebf63b3055a9f940",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6046,7 +6793,7 @@
         "id": "sense:nod:800c8a13067e5ab1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to/at",
+        "governing_pattern": "nod; nod to/at sb; nod in agreement",
         "definition_cn": "点头表示同意或问候",
         "definition_en": "to lower and raise the head quickly to show agreement or greeting",
         "note": "",
@@ -6129,7 +6876,7 @@
         "id": "sense:nod:0db039880b0f5ea2",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + off",
+        "governing_pattern": "nod（坐着困倦时头垂下）；nod off（打盹、睡着）",
         "definition_cn": "打盹",
         "definition_en": "to let the head drop forward when sleepy",
         "note": "",
@@ -6216,7 +6963,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:3b53a1c9fc0ae9bb068f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "give sb/sth the nod / get the nod",
+        "lines": [
+          {
+            "text": "给予／获得许可或认可；选中／被选中",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；get the nod可指被选入团队，也可指获准行动，依上下文判断，不一定有实际点头动作。",
+            "lang": "cn"
+          },
+          {
+            "text": "give or receive approval, permission or selection",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3b53a1c9fc0ae9bb068f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "give sb/sth the nod / get the nod"
+        }
+      },
+      {
+        "id": "construction:493532cb3d46d6ac0875",
+        "source_locator": "record.constructions[1]",
+        "pattern": "a (passing) nod to sth",
+        "lines": [
+          {
+            "text": "对某事物的致意、认可或呼应",
+            "lang": "cn"
+          },
+          {
+            "text": "如设计中的a nod to tradition，指体现或致敬某种传统；不是往那个方向点一下头。",
+            "lang": "cn"
+          },
+          {
+            "text": "briefly acknowledge something’s importance or influence",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:493532cb3d46d6ac0875",
+          "target_locator": "record.constructions[1]",
+          "target_label": "a (passing) nod to sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6230,7 +7028,7 @@
     "ordinal": 3236,
     "word": "noise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3236.json",
-    "source_fingerprint": "d381f0cbcc923e474f420ecd6e0ddb210ce8c99e3997ff685cae5107173a9715",
+    "source_fingerprint": "a0d01ebbe1d87fef6e4d51e5fc5281d7bc0155579c3831cd05af8bffc683b6a8",
     "sense_lineage": [
       {
         "word_id": "word:noise",
@@ -6261,13 +7059,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "不受欢迎或令人不快的声音",
-      "decision_cn": "",
+      "summary_cn": "声音（尤指嘈杂声）；信号或数据中的噪声",
+      "decision_cn": "noise通常偏响亮或令人不快，但a noise也可只是一个可听见的声响。noise in a signal/data说干扰或无用信息，不必是耳朵听到的声音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不受欢迎或令人不快的声音"
+        "target_label": "声音（尤指嘈杂声）；信号或数据中的噪声"
       }
     },
     "senses": [
@@ -6276,16 +7074,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "噪音；嘈杂声",
-        "definition_en": "a sound, especially one that is loud, unpleasant, or unwanted",
-        "note": "",
+        "definition_cn": "声音；尤指响亮、嘈杂或令人不快的声音",
+        "definition_en": "a sound, especially one that is loud or unpleasant",
+        "note": "可数时a noise/noises指一个或若干声响；不可数时noise指总体噪声，如too much noise。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:noise:cbf8a37af525596f",
           "target_locator": "record.senses[0]",
-          "target_label": "噪音；嘈杂声"
+          "target_label": "声音；尤指响亮、嘈杂或令人不快的声音"
         }
       },
       {
@@ -6539,7 +7337,7 @@
     "ordinal": 3238,
     "word": "nominal",
     "source_owner_path": "content/lexical/words/by-ordinal/o3238.json",
-    "source_fingerprint": "a608dd471f632d6958fc8c701ad46fed09940ea1c5d1ef0637057634d845b7e3",
+    "source_fingerprint": "c8658a89bb6e31fe6b86caa9e4c30ec165ecd599cc8e5a00196ce581bbbe5261",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6549,13 +7347,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "名义上的；极小的；名词性的",
-      "decision_cn": "",
+      "summary_cn": "名义上的；象征性的小额；未作通胀调整的；语法中指名词性的",
+      "decision_cn": "名义职务未必有实权；nominal fee 是象征性费用；nominal GDP 与通胀调整后的实际值区分",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "名义上的；极小的；名词性的"
+        "target_label": "名义上的；象征性的小额；未作通胀调整的；语法中指名词性的"
       }
     },
     "senses": [
@@ -6715,22 +7513,37 @@
     "ordinal": 3239,
     "word": "nominate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3239.json",
-    "source_fingerprint": "337da9587e7c494176a5b9f4a0b6b0f3ccd53cd538411f674b7b4fb1462d8930",
-    "sense_lineage": [],
+    "source_fingerprint": "447714526ddd4c390c6e28b8dc5e6125ab21bf243c66f5c1cff844a3347b286c",
+    "sense_lineage": [
+      {
+        "word_id": "word:nominate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dfd2a007ca5e2999f8ce",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:nominate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fdaeaa7f34ff7bc80c2c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "提名或任命某人担任职位或获得荣誉",
-      "decision_cn": "",
+      "summary_cn": "提名人或事物；任命某人；选定日期等事项",
+      "decision_cn": "nominate a film for an award提名作品；nominate sb to/as a role是否已任命须看语境，不能只靠介词判断。nominate a date则是选定时间。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "提名或任命某人担任职位或获得荣誉"
+        "target_label": "提名人或事物；任命某人；选定日期等事项"
       }
     },
     "senses": [
@@ -6738,53 +7551,26 @@
         "id": "sense:nominate:9e4562a9c52c5dbc",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb (for/as sth)",
-        "definition_cn": "提名（为候选人）",
-        "definition_en": "propose as a candidate for some honor",
+        "governing_pattern": "nominate sb/sth (for sth); nominate sb/sth (as) sth; nominate sb to do sth",
+        "definition_cn": "提名人或事物（为职位、选举或奖项候选）",
+        "definition_en": "formally propose a person or thing for a role, election or award",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dfd2a007ca5e2999f8ce",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "nominate sb for + sth",
-            "meaning_cn": "提名某人获得某奖项/职位",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dfd2a007ca5e2999f8ce",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "nominate sb for + sth"
-            }
-          },
-          {
-            "id": "collocation:fdaeaa7f34ff7bc80c2c",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "nominate sb as + sth",
-            "meaning_cn": "任命某人为某职",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fdaeaa7f34ff7bc80c2c",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "nominate sb as + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:nominate:9e4562a9c52c5dbc",
           "target_locator": "record.senses[0]",
-          "target_label": "提名（为候选人）"
+          "target_label": "提名人或事物（为职位、选举或奖项候选）"
         }
       },
       {
         "id": "sense:nominate:4617ae19a2d653d0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb (to sth)",
-        "definition_cn": "任命，指定",
-        "definition_en": "put forward; nominate for appointment to an office or for an honor or position",
+        "governing_pattern": "nominate sb to/as a role; nominate sb to do sth（任命义须看语境）",
+        "definition_cn": "任命；指定",
+        "definition_en": "to formally choose or appoint someone to a job, role, or task",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6806,7 +7592,33 @@
           "target_kind": "sense",
           "target_id": "sense:nominate:4617ae19a2d653d0",
           "target_locator": "record.senses[1]",
-          "target_label": "任命，指定"
+          "target_label": "任命；指定"
+        }
+      },
+      {
+        "id": "sense:nominate:f2f69391963dffa1",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "nominate sth (as sth)",
+        "definition_cn": "选定、指定时间、日期或名称",
+        "definition_en": "select a time, date or title for something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:793c8ca516e78b84f34e",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "nominate a date for the meeting",
+            "meaning_cn": "选定会议日期",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nominate:f2f69391963dffa1",
+          "target_locator": "record.senses[2]",
+          "target_label": "选定、指定时间、日期或名称"
         }
       }
     ],
@@ -6820,6 +7632,24 @@
           "applicability": [
             {
               "surface": "nominate"
+            },
+            {
+              "surface": "nominate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nominate:f2f69391963dffa1"
+              ],
+              "owner_sense_ids": [
+                "sense:nominate:f2f69391963dffa1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3239.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nominate sth (as sth)",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6833,14 +7663,37 @@
           "applicability": [
             {
               "surface": "nominate"
+            },
+            {
+              "surface": "nominate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nominate:f2f69391963dffa1"
+              ],
+              "owner_sense_ids": [
+                "sense:nominate:f2f69391963dffa1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3239.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nominate sth (as sth)",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nominate:f2f69391963dffa1": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -6854,15 +7707,15 @@
             "lang": "cn"
           },
           {
-            "text": "提名（为候选人）",
+            "text": "提名候选人；或正式指定／任命",
             "lang": "cn"
           },
           {
-            "text": "nominate sb for/as sth 提名某人",
-            "lang": "cn"
+            "text": "for an award commonly introduces candidacy; as/to can occur with proposing or appointing. Context, not the preposition alone, determines whether the person was appointed.",
+            "lang": "en"
           },
           {
-            "text": "propose as a candidate for some honor",
+            "text": "to propose someone as a candidate, or in another use formally choose someone for a role",
             "lang": "en"
           }
         ],
@@ -6887,7 +7740,7 @@
     "ordinal": 3240,
     "word": "none",
     "source_owner_path": "content/lexical/words/by-ordinal/o3240.json",
-    "source_fingerprint": "6823ddbd12a5fde01abd52e48c1435bbf2e5f503efaf52978c29ec1172d44a34",
+    "source_fingerprint": "25b3e136278aa9682cbb4e201251dd4232683b1eb3de0d81433a0649447810b0",
     "sense_lineage": [
       {
         "word_id": "word:none",
@@ -6905,13 +7758,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "没有；一点也不",
-      "decision_cn": "",
+      "summary_cn": "没有任何一个或数量；丝毫不／不怎么",
+      "decision_cn": "none可指没有任何人、物或数量；none too pleased通常是不太满意，none the wiser是并未更明白。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "没有；一点也不"
+        "target_label": "没有任何一个或数量；丝毫不／不怎么"
       }
     },
     "senses": [
@@ -6919,10 +7772,10 @@
         "id": "sense:none:0639a1ce24b855c3",
         "source_locator": "record.senses[0]",
         "pos": "pronoun",
-        "governing_pattern": "",
-        "definition_cn": "没有任何一个；没有任何东西",
-        "definition_en": "not any of a group",
-        "note": "",
+        "governing_pattern": "none; none of + determiner + noun; none of + pronoun",
+        "definition_cn": "没有任何一个；没有任何东西或数量",
+        "definition_en": "not any person or thing, or no amount of something",
+        "note": "none of后接复数代词，或带限定词的复数可数名词、不可数名词：none of them / none of the books / none of the water。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6943,24 +7796,24 @@
           "target_kind": "sense",
           "target_id": "sense:none:0639a1ce24b855c3",
           "target_locator": "record.senses[0]",
-          "target_label": "没有任何一个；没有任何东西"
+          "target_label": "没有任何一个；没有任何东西或数量"
         }
       },
       {
         "id": "sense:none:8a4db307eca65cab",
         "source_locator": "record.senses[1]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "一点也不；丝毫不",
-        "definition_en": "not at all or in no way",
-        "note": "",
+        "governing_pattern": "none too + adjective/adverb（不怎么、程度不足）；none the + comparative（丝毫不更……）",
+        "definition_cn": "丝毫不；none too中不怎么、程度不足",
+        "definition_en": "not at all; in none too expressions, not very or less than desired",
+        "note": "none too pleased常表示不太满意，不能总解为一点也不满意；none the wiser说并没有更明白。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:none:8a4db307eca65cab",
           "target_locator": "record.senses[1]",
-          "target_label": "一点也不；丝毫不"
+          "target_label": "丝毫不；none too中不怎么、程度不足"
         }
       }
     ],
@@ -7124,14 +7977,14 @@
         "id": "deep:secondary_senses:none:8dcc723ba2782049",
         "source_locator": "record.secondary_senses[0]",
         "pos": "adverb",
-        "definition_cn": "一点也不，毫不",
-        "definition_en": "not at all or in no way",
-        "pattern": "none too + adj 一点也不……",
+        "definition_cn": "丝毫不；none too 中也可表示不怎么、程度不足",
+        "definition_en": "not at all; in none too constructions, also not very or less than desired",
+        "pattern": "none too + adjective/adverb：不怎么／一点也不，常表示程度不足或不满",
         "repair": {
           "target_kind": "secondary_sense",
           "target_id": "deep:secondary_senses:none:8dcc723ba2782049",
           "target_locator": "record.secondary_senses[0]",
-          "target_label": "一点也不，毫不"
+          "target_label": "丝毫不；none too 中也可表示不怎么、程度不足"
         }
       }
     ],
@@ -7543,7 +8396,7 @@
     "ordinal": 3244,
     "word": "noon",
     "source_owner_path": "content/lexical/words/by-ordinal/o3244.json",
-    "source_fingerprint": "3a72107485de52dd2e6569725e4b7f4b7392c33bb0eb2937521af55b38794e1e",
+    "source_fingerprint": "3aec688feae5ca8a6fd2f163c77d0d6f6aa601f7469406b4137e22f0abd085a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7567,8 +8420,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "正午，中午",
-        "definition_en": "the middle of the day",
+        "definition_cn": "正午；中午十二点",
+        "definition_en": "twelve o'clock in the middle of the day",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7598,7 +8451,7 @@
           "target_kind": "sense",
           "target_id": "sense:noon:d2f89901f18856e5",
           "target_locator": "record.senses[0]",
-          "target_label": "正午，中午"
+          "target_label": "正午；中午十二点"
         }
       }
     ],
@@ -7649,7 +8502,7 @@
     "ordinal": 3245,
     "word": "nor",
     "source_owner_path": "content/lexical/words/by-ordinal/o3245.json",
-    "source_fingerprint": "e1c159650847d790501b552b08ef034fbbbb433d39890d19f440cf64136cc9fe",
+    "source_fingerprint": "2fae3189ad969c8fa9b891f89b29a3c6f91a612fb08f5c3a5237a1019048d932",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7672,7 +8525,7 @@
         "id": "sense:nor:c95876bcd7da5172",
         "source_locator": "record.senses[0]",
         "pos": "conjunction",
-        "governing_pattern": "",
+        "governing_pattern": "neither A nor B; after a negative clause, nor + auxiliary/be/modal + subject: He didn't reply, nor did she",
         "definition_cn": "也不（用于否定句后连接并列成分）",
         "definition_en": "used before the second or last of a set of negative possibilities",
         "note": "",
@@ -8016,7 +8869,7 @@
     "ordinal": 3248,
     "word": "normalisation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3248.json",
-    "source_fingerprint": "93c082ddc519057ecf467fd5234836c5cc068330d489b46fed7ea07f56e4ed20",
+    "source_fingerprint": "27bab2e53a50b2d77209d67ac22b68f56d9010344aba830929fe5e2921850c9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8025,13 +8878,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "标准化，规范化",
-      "decision_cn": "",
+      "summary_cn": "正常化；恢复正常；特定语境中的规范化",
+      "decision_cn": "关系等恢复正常；数据或制度语境再判断是否指规范化",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "标准化，规范化"
+        "target_label": "正常化；恢复正常；特定语境中的规范化"
       }
     },
     "senses": [
@@ -8154,24 +9007,24 @@
     "ordinal": 3249,
     "word": "north",
     "source_owner_path": "content/lexical/words/by-ordinal/o3249.json",
-    "source_fingerprint": "7f634cc20685ee497fb8b6fce3093d7b5ad60ea7259724fd027b15bffd15ff96",
+    "source_fingerprint": "1714c43bce65fa87949b022ddc6b45d56e950bc0a5a5a515130f511fb86566cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N",
+        "2N",
         "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "北方",
-      "decision_cn": "",
+      "summary_cn": "北方、北部；经济地理the North较富裕发达国家群；北方的／向北的",
+      "decision_cn": "in the north of在某地北部，to the north of在其更北的位置；经济地理语境的the North指相对较富裕发达的国家群，不等于所有北半球国家，也不能仅凭大写断定此义。a north wind从北方吹来，go north向北行。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "北方"
+        "target_label": "北方、北部；经济地理the North较富裕发达国家群；北方的／向北的"
       }
     },
     "senses": [
@@ -8180,8 +9033,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "北方",
-        "definition_en": "the direction that is opposite south",
+        "definition_cn": "北方；某地的北部",
+        "definition_en": "the direction opposite south, or the northern part of a place",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8216,7 +9069,7 @@
           "target_kind": "sense",
           "target_id": "sense:north:a5b34650f87551ea",
           "target_locator": "record.senses[0]",
-          "target_label": "北方"
+          "target_label": "北方；某地的北部"
         }
       },
       {
@@ -8224,8 +9077,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "北方的",
-        "definition_en": "located in the north",
+        "definition_cn": "北方的；向北的；（风）从北方吹来的",
+        "definition_en": "in or toward the north; of a wind, blowing from the north",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8241,7 +9094,7 @@
             "id": "collocation:259f1b87a09aabe91f98",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "north wind",
-            "meaning_cn": "北风",
+            "meaning_cn": "北风（从北方吹来）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8250,7 +9103,7 @@
           "target_kind": "sense",
           "target_id": "sense:north:5af6c9e0fe645378",
           "target_locator": "record.senses[1]",
-          "target_label": "北方的"
+          "target_label": "北方的；向北的；（风）从北方吹来的"
         }
       },
       {
@@ -8277,6 +9130,40 @@
           "target_id": "sense:north:9fc07c6380e35301",
           "target_locator": "record.senses[2]",
           "target_label": "向北方"
+        }
+      },
+      {
+        "id": "sense:north:c712611feb8e1116",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the North（N大写；经济地理语境）",
+        "definition_cn": "（the North，经济地理）相对较富裕、较发达的国家群",
+        "definition_en": "relatively wealthy and economically developed countries, referred to collectively as the North",
+        "note": "特定经济地理语境中的相对国家群分类，不等于所有北半球国家；the North也可在别的上下文指某地北部，不能仅凭大写断定国家群义。",
+        "identity_overlay": {
+          "text": "Economic-geographical use of the North; not every country in the Northern Hemisphere. Context distinguishes it from a northern region.",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[3].lexical_identity_overlay",
+            "target_label": "Economic-geographical use of the North; not every country in the Northern Hemisphere. Context distinguishes it from a northern region."
+          }
+        },
+        "usage": [
+          {
+            "id": "collocation:e748eee053da6d2c50a0",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "cooperation between the North and developing countries",
+            "meaning_cn": "较富裕发达国家群与发展中国家之间的合作",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:north:c712611feb8e1116",
+          "target_locator": "record.senses[3]",
+          "target_label": "（the North，经济地理）相对较富裕、较发达的国家群"
         }
       }
     ],
@@ -8307,10 +9194,44 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/nɔːθ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "North",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:north:c712611feb8e1116"
+              ],
+              "owner_sense_ids": [
+                "sense:north:c712611feb8e1116"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3249.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the North（N大写；经济地理语境）",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference.",
+              "conditions": {
+                "required_capitalization": "North with capital N in the North",
+                "meaning_context": "economic geography, relatively wealthy/developed country group; not every northern-hemisphere country"
+              }
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:north:c712611feb8e1116": [
+          2
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8327,7 +9248,7 @@
     "ordinal": 3250,
     "word": "northeast",
     "source_owner_path": "content/lexical/words/by-ordinal/o3250.json",
-    "source_fingerprint": "d163a3f57c7fe8b6ea29d842824bb67f1b7548a0a9356c6561b57045c9b555e1",
+    "source_fingerprint": "ed1436a55680f6b204519a8595017b01c47abcd6b29659a78d8c9cf2c319d890",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8379,8 +9300,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "东北的，向东北的",
-        "definition_en": "located in or toward the northeast",
+        "definition_cn": "东北的；向东北的；（风）从东北方吹来的",
+        "definition_en": "in or toward the northeast; of a wind, blowing from the northeast",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8388,7 +9309,7 @@
             "id": "collocation:15c9cead2efe21b75716",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "northeast wind",
-            "meaning_cn": "东北风",
+            "meaning_cn": "东北风（从东北方吹来）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8397,7 +9318,7 @@
           "target_kind": "sense",
           "target_id": "sense:northeast:eb265b3acab1504f",
           "target_locator": "record.senses[1]",
-          "target_label": "东北的，向东北的"
+          "target_label": "东北的；向东北的；（风）从东北方吹来的"
         }
       },
       {
@@ -8560,7 +9481,7 @@
     "ordinal": 3251,
     "word": "northern",
     "source_owner_path": "content/lexical/words/by-ordinal/o3251.json",
-    "source_fingerprint": "ebf1af01f3c63e64224b44c116700eaf35f78298bffe9d119e61c43e6fee7e12",
+    "source_fingerprint": "647a14b9fb8c572d0029f83ef0684004a53cdf9cddf356bf223102521c097b73",
     "sense_lineage": [
       {
         "word_id": "word:northern",
@@ -8592,7 +9513,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "北方的，向北的",
+        "definition_cn": "北方的；位于或来自北方的",
         "definition_en": "situated in or coming from the north",
         "note": "",
         "identity_overlay": null,
@@ -8618,7 +9539,7 @@
           "target_kind": "sense",
           "target_id": "sense:northern:eb17abcb6af65b3f",
           "target_locator": "record.senses[0]",
-          "target_label": "北方的，向北的"
+          "target_label": "北方的；位于或来自北方的"
         }
       }
     ],
@@ -8681,7 +9602,7 @@
     "ordinal": 3252,
     "word": "northwest",
     "source_owner_path": "content/lexical/words/by-ordinal/o3252.json",
-    "source_fingerprint": "59aced9992d7f2e60a61c3ee8b3f0d83758a58c4a000273e650e979349a686e7",
+    "source_fingerprint": "c347e32708a7377384125353424aad4991b415b2133674419da188b4eb9b7db6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8738,8 +9659,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "西北的，在西北的",
-        "definition_en": "lying toward or in the northwest",
+        "definition_cn": "西北的；位于、朝向或来自西北的",
+        "definition_en": "in, toward, or from the northwest; a northwest wind blows from that direction",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8747,7 +9668,7 @@
             "id": "collocation:73857aa82e659d7e8aef",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "northwest wind",
-            "meaning_cn": "西北风",
+            "meaning_cn": "西北风（从西北方向吹来）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8756,7 +9677,7 @@
           "target_kind": "sense",
           "target_id": "sense:northwest:f411e8fa557c5f83",
           "target_locator": "record.senses[1]",
-          "target_label": "西北的，在西北的"
+          "target_label": "西北的；位于、朝向或来自西北的"
         }
       },
       {
@@ -8833,23 +9754,31 @@
     "ordinal": 3253,
     "word": "nose",
     "source_owner_path": "content/lexical/words/by-ordinal/o3253.json",
-    "source_fingerprint": "dc1f6c8222c15bc3bbd24da879aef7b4c13a6cfc08a8985115363f53bf80eabb",
-    "sense_lineage": [],
+    "source_fingerprint": "b9e876ce37f3fa57eb144052eb6d543fdaa3347563e29ec6726b39ea2a90a779",
+    "sense_lineage": [
+      {
+        "word_id": "word:nose",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8dae44003c266726b68f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "鼻子；嗅觉",
-      "decision_cn": "",
+      "summary_cn": "鼻子和前端；嗅觉或察觉能力；嗅探、打听及缓慢探进",
+      "decision_cn": "身体或交通工具语境看鼻子、前端；a nose for说察觉能力。nose around探听，nose a boat into a harbour说缓缓把船驶入港口。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鼻子；嗅觉"
+        "target_label": "鼻子和前端；嗅觉或察觉能力；嗅探、打听及缓慢探进"
       }
     },
     "senses": [
@@ -8971,7 +9900,7 @@
         "id": "sense:nose:8ab5cdff1bed5d79",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "nose into sth; nose around/about (for sth)",
         "definition_cn": "探听；打听",
         "definition_en": "to pry or search for information",
         "note": "",
@@ -8989,6 +9918,14 @@
               "target_locator": "record.senses[4].collocations[0]",
               "target_label": "nose into + sth"
             }
+          },
+          {
+            "id": "collocation:f59826fd8ec28254556c",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "nose around for information",
+            "meaning_cn": "四处探听消息",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9026,13 +9963,8 @@
             "source_locator": "record.senses[5].collocations[1]",
             "phrase": "a nose for trouble/business",
             "meaning_cn": "察觉麻烦/商机的敏锐能力",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8dae44003c266726b68f",
-              "target_locator": "record.senses[5].collocations[1]",
-              "target_label": "a nose for trouble/business"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9040,6 +9972,32 @@
           "target_id": "sense:nose:5af405873df414ad",
           "target_locator": "record.senses[5]",
           "target_label": "嗅觉；察觉/识别某事的能力"
+        }
+      },
+      {
+        "id": "sense:nose:54fea77c07e4511e",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "nose + direction; nose sth + direction; nose one’s way + direction",
+        "definition_cn": "缓慢小心地前进；使缓慢前进",
+        "definition_en": "move, or guide something, slowly and carefully forwards",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c958a5e96612e396e394",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "The boat nosed into the harbour.",
+            "meaning_cn": "船缓缓驶入港口。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nose:54fea77c07e4511e",
+          "target_locator": "record.senses[6]",
+          "target_label": "缓慢小心地前进；使缓慢前进"
         }
       }
     ],
@@ -9053,6 +10011,24 @@
           "applicability": [
             {
               "surface": "nose"
+            },
+            {
+              "surface": "nose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "owner_sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3253.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nose + direction; nose sth + direction; nose one’s way + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9066,17 +10042,116 @@
           "applicability": [
             {
               "surface": "nose"
+            },
+            {
+              "surface": "nose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "owner_sense_ids": [
+                "sense:nose:54fea77c07e4511e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3253.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nose + direction; nose sth + direction; nose one’s way + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nose:54fea77c07e4511e": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:42b2c7991dfbb05b19bb",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pay through the nose (for sth)",
+        "lines": [
+          {
+            "text": "花过高的价钱买某物",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式，比喻花钱过多；for接所购买的东西。",
+            "lang": "cn"
+          },
+          {
+            "text": "pay far more than is reasonable for something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:42b2c7991dfbb05b19bb",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pay through the nose (for sth)"
+        }
+      },
+      {
+        "id": "construction:0c7c844a4275d76173e5",
+        "source_locator": "record.constructions[1]",
+        "pattern": "turn one’s nose up at sth",
+        "lines": [
+          {
+            "text": "嫌某物不够好而拒绝",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；at后接被嫌弃、拒绝的东西，如turn your nose up at the food。",
+            "lang": "cn"
+          },
+          {
+            "text": "reject something because one considers it beneath one’s standards",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0c7c844a4275d76173e5",
+          "target_locator": "record.constructions[1]",
+          "target_label": "turn one’s nose up at sth"
+        }
+      },
+      {
+        "id": "construction:eec0bf94229723fc975a",
+        "source_locator": "record.constructions[2]",
+        "pattern": "under sb’s nose",
+        "lines": [
+          {
+            "text": "近在眼前却未看见；在眼皮底下发生却未察觉",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；信就在眼前却找不到，或某事明摆着发生却没有发现，均可用此表达。",
+            "lang": "cn"
+          },
+          {
+            "text": "be very close yet unnoticed, or happen openly without being noticed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:eec0bf94229723fc975a",
+          "target_locator": "record.constructions[2]",
+          "target_label": "under sb’s nose"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9090,7 +10165,7 @@
     "ordinal": 3254,
     "word": "nostalgic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3254.json",
-    "source_fingerprint": "cab461acba810c2d602994ad8d1260eddff418b3765da0f78e75d55bfe5c617b",
+    "source_fingerprint": "94234440a68d5c6dfbf83adc32854ce1313a91f30e76dc4b201bd7b17aae6825",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9181,7 +10256,7 @@
     "ordinal": 3255,
     "word": "not",
     "source_owner_path": "content/lexical/words/by-ordinal/o3255.json",
-    "source_fingerprint": "4637a5ac9618bcd1815f22b35758cf8cd811a3fe7766f5ece14ee6788e5cb63d",
+    "source_fingerprint": "9157e7923966ec730a753df5a011f58535f71fc9b2b7137d538900f04fbfe574",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9265,7 +10340,108 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:802a99885a6d413976c4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "not all/every…",
+        "lines": [
+          {
+            "text": "并非全部／并非每个……",
+            "lang": "cn"
+          },
+          {
+            "text": "Not everyone agreed表示有人没同意，并不说所有人都反对。判断否定范围，不能直接当none。",
+            "lang": "cn"
+          },
+          {
+            "text": "deny that a statement holds for every member",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:802a99885a6d413976c4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "not all/every…"
+        }
+      },
+      {
+        "id": "construction:b5a9590e32c35dfe7815",
+        "source_locator": "record.constructions[1]",
+        "pattern": "not necessarily",
+        "lines": [
+          {
+            "text": "未必；不一定",
+            "lang": "cn"
+          },
+          {
+            "text": "可作简短回应，也可放在句中；Bigger does not necessarily mean better说大未必更好，未断言大一定不好。",
+            "lang": "cn"
+          },
+          {
+            "text": "say that something is possible but not certain or always true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b5a9590e32c35dfe7815",
+          "target_locator": "record.constructions[1]",
+          "target_label": "not necessarily"
+        }
+      },
+      {
+        "id": "construction:7ee904b9ce07979475c7",
+        "source_locator": "record.constructions[2]",
+        "pattern": "not only… (but) (also)…",
+        "lines": [
+          {
+            "text": "不仅……而且……",
+            "lang": "cn"
+          },
+          {
+            "text": "连接相对应的成分。句首not only修饰整个第一分句时，助动词或系动词与主语倒装，如Not only did she write it, she also illustrated it；主语后She not only wrote…不用此倒装。",
+            "lang": "cn"
+          },
+          {
+            "text": "emphasize that an additional statement is also true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7ee904b9ce07979475c7",
+          "target_locator": "record.constructions[2]",
+          "target_label": "not only… (but) (also)…"
+        }
+      },
+      {
+        "id": "construction:00a243c178d476d47b52",
+        "source_locator": "record.constructions[3]",
+        "pattern": "Not at all.（礼貌回应）",
+        "lines": [
+          {
+            "text": "不用谢；一点也不介意",
+            "lang": "cn"
+          },
+          {
+            "text": "答谢时可说不用谢；回应Do you mind…?时可说不介意。单看not at all不能一律译不用谢，句中也可普通表示一点也不。",
+            "lang": "cn"
+          },
+          {
+            "text": "politely acknowledge thanks or say that one does not mind",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:00a243c178d476d47b52",
+          "target_locator": "record.constructions[3]",
+          "target_label": "Not at all.（礼貌回应）"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -9297,8 +10473,15 @@
     "ordinal": 3256,
     "word": "notable",
     "source_owner_path": "content/lexical/words/by-ordinal/o3256.json",
-    "source_fingerprint": "fed09610e2b4619696ef0fee7c58143fcaa5a98e6be46a8136d879dd24e1e8cb",
+    "source_fingerprint": "3f41e9ffebe6a8ecbf36788d1efa7fc0d0acb3221b693d8fe3990e01ee6b757a",
     "sense_lineage": [
+      {
+        "word_id": "word:notable",
+        "target_kind": "sense",
+        "from_target_id": "sense:notable:22ce5cf9144f5002",
+        "status": "merged",
+        "to_target_id": "sense:notable:49bc9cf733ce5e31"
+      },
       {
         "word_id": "word:notable",
         "target_kind": "sense",
@@ -9309,9 +10492,9 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "值得注意的或著名的",
@@ -9339,23 +10522,6 @@
           "target_id": "sense:notable:49bc9cf733ce5e31",
           "target_locator": "record.senses[0]",
           "target_label": "值得注意的；重要的；著名的"
-        }
-      },
-      {
-        "id": "sense:notable:22ce5cf9144f5002",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "著名的；受人尊敬的",
-        "definition_en": "widely known and esteemed",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:notable:22ce5cf9144f5002",
-          "target_locator": "record.senses[1]",
-          "target_label": "著名的；受人尊敬的"
         }
       }
     ],
@@ -9423,6 +10589,24 @@
           "source_row": 9047,
           "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "著名的；受人尊敬的",
+          "definition_en": "widely known and esteemed",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:notable:22ce5cf9144f5002",
+          "sense_label_en": "widely known and esteemed",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:notable:22ce5cf9144f5002",
+          "status": "merged",
+          "merged_into_sense_id": "sense:notable:49bc9cf733ce5e31",
+          "reference_only": true
         }
       ]
     }
@@ -9433,23 +10617,23 @@
     "ordinal": 3257,
     "word": "note",
     "source_owner_path": "content/lexical/words/by-ordinal/o3257.json",
-    "source_fingerprint": "90d40b62ab20e3123c5c3f067f36e2337964314f54efeeae6ed3ca9123b0d479",
+    "source_fingerprint": "2d8e04e2bc6815abf3525ac838de9c3cdb6dbb687595e71c82cfa1fedd000f8a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "(3+1)V",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "简短的书面记录或短信",
-      "decision_cn": "",
+      "summary_cn": "书面记录、音符/格调或纸币；注意、记下或指出",
+      "decision_cn": "take notes写笔记，take note留意记住。note sth可注意、记录或指出；主语为报告或作者时常是指出。on a positive note可说讲话或事件的积极格调。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "简短的书面记录或短信"
+        "target_label": "书面记录、音符/格调或纸币；注意、记下或指出"
       }
     },
     "senses": [
@@ -9605,9 +10789,9 @@
         "id": "sense:note:ec6404a64e0c5d6e",
         "source_locator": "record.senses[4]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "语气，声调",
-        "definition_en": "a quality in someone's voice that shows a feeling",
+        "governing_pattern": "a note of sth; on a … note",
+        "definition_cn": "语气；声调；言语或场合体现的情绪、格调",
+        "definition_en": "a feeling or quality conveyed by a voice, statement or situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9618,20 +10802,28 @@
             "meaning_cn": "愤怒的语气",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1b35634f56758694157b",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "end on a positive note",
+            "meaning_cn": "以积极的调子结束",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:note:ec6404a64e0c5d6e",
           "target_locator": "record.senses[4]",
-          "target_label": "语气，声调"
+          "target_label": "语气；声调；言语或场合体现的情绪、格调"
         }
       },
       {
         "id": "sense:note:6326388302d35299",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "note sth; note sth down / note down sth; note it down",
         "definition_cn": "记录，记下",
         "definition_en": "to write something down so that you remember it",
         "note": "",
@@ -9640,14 +10832,14 @@
           {
             "id": "collocation:096e9276df97e088d2b8",
             "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "note down + sth",
+            "phrase": "note sth down / note down sth",
             "meaning_cn": "记下某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:096e9276df97e088d2b8",
               "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "note down + sth"
+              "target_label": "note sth down / note down sth"
             }
           },
           {
@@ -9691,6 +10883,32 @@
           "target_locator": "record.senses[6]",
           "target_label": "纸币；钞票（尤英式）"
         }
+      },
+      {
+        "id": "sense:note:5ac7ba5c9def1f02",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "note sth; note that…; note how/where…",
+        "definition_cn": "指出；提及值得注意的事",
+        "definition_en": "mention a fact or point as worth attention",
+        "note": "较正式的报道、论述用语；The report notes that…说报告指出某事实，区别于读者注意到或拿笔记下。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a06498f37f6ed27e1a3f",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "The report notes a rise in sales.",
+            "meaning_cn": "报告指出销量上升。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:note:5ac7ba5c9def1f02",
+          "target_locator": "record.senses[7]",
+          "target_label": "指出；提及值得注意的事"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9703,6 +10921,24 @@
           "applicability": [
             {
               "surface": "note"
+            },
+            {
+              "surface": "note",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "owner_sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3257.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "note sth; note that…; note how/where…",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9716,14 +10952,37 @@
           "applicability": [
             {
               "surface": "note"
+            },
+            {
+              "surface": "note",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "owner_sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3257.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "note sth; note that…; note how/where…",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:note:5ac7ba5c9def1f02": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [
       {
@@ -9732,7 +10991,7 @@
         "pos": "verb",
         "definition_cn": "记录，记下",
         "definition_en": "to write something down so that you remember it",
-        "pattern": "note down sth 记下",
+        "pattern": "note sth down / note down sth；代词置中：note it down",
         "repair": {
           "target_kind": "secondary_sense",
           "target_id": "deep:secondary_senses:note:2c8a3d4a5e85e539",
@@ -9741,7 +11000,58 @@
         }
       }
     ],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ef0cff06b7510337082b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "of note / worthy of note",
+        "lines": [
+          {
+            "text": "重要的／值得注意的",
+            "lang": "cn"
+          },
+          {
+            "text": "如a writer of note知名或重要作家；worthy of note表示值得关注，不是某一页的笔记。",
+            "lang": "cn"
+          },
+          {
+            "text": "be important or worth attention",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ef0cff06b7510337082b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "of note / worthy of note"
+        }
+      },
+      {
+        "id": "construction:40602cc73e813e8c6d7e",
+        "source_locator": "record.constructions[1]",
+        "pattern": "take note (of sth)",
+        "lines": [
+          {
+            "text": "留意并记住某事",
+            "lang": "cn"
+          },
+          {
+            "text": "不要求写下来；take notes指记笔记。of后接要留意的事项，也可单用Take note!。",
+            "lang": "cn"
+          },
+          {
+            "text": "pay attention to something and remember it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:40602cc73e813e8c6d7e",
+          "target_locator": "record.constructions[1]",
+          "target_label": "take note (of sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9874,7 +11184,7 @@
     "ordinal": 3259,
     "word": "nothing",
     "source_owner_path": "content/lexical/words/by-ordinal/o3259.json",
-    "source_fingerprint": "5187db9e2027f111791b148cb215431816a72728d9342930e365e741fcf28b51",
+    "source_fingerprint": "f2334e7ef1e4d61bdb3c060d08d22eb5c5747c154acc3a57b99e46fcc94f483f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9917,8 +11227,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "无关紧要的数量；小事",
-        "definition_en": "a quantity of no importance",
+        "definition_cn": "无足轻重的事物；小事",
+        "definition_en": "something of little or no value, importance, or significance",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9943,7 +11253,7 @@
           "target_kind": "sense",
           "target_id": "sense:nothing:74e25d7c030650b3",
           "target_locator": "record.senses[1]",
-          "target_label": "无关紧要的数量；小事"
+          "target_label": "无足轻重的事物；小事"
         }
       },
       {
@@ -10061,6 +11371,56 @@
           "target_locator": "record.constructions[2]",
           "target_label": "it's nothing to do with sb"
         }
+      },
+      {
+        "id": "construction:876e9baaabe2d04c15fb",
+        "source_locator": "record.constructions[3]",
+        "pattern": "for nothing（免费）",
+        "lines": [
+          {
+            "text": "免费；不收钱",
+            "lang": "cn"
+          },
+          {
+            "text": "get it for nothing说不花钱就得到它；与for nothing白费的语境区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "without payment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:876e9baaabe2d04c15fb",
+          "target_locator": "record.constructions[3]",
+          "target_label": "for nothing（免费）"
+        }
+      },
+      {
+        "id": "construction:7152e35d1bc57389f1ea",
+        "source_locator": "record.constructions[4]",
+        "pattern": "for nothing（白费）",
+        "lines": [
+          {
+            "text": "徒劳；没有成果或回报",
+            "lang": "cn"
+          },
+          {
+            "text": "All the work was for nothing说努力白费，不表示工作免费。依购买或努力结果的上下文判断。",
+            "lang": "cn"
+          },
+          {
+            "text": "without a useful result or reward",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7152e35d1bc57389f1ea",
+          "target_locator": "record.constructions[4]",
+          "target_label": "for nothing（白费）"
+        }
       }
     ],
     "reference": {
@@ -10076,7 +11436,7 @@
     "ordinal": 3260,
     "word": "notice",
     "source_owner_path": "content/lexical/words/by-ordinal/o3260.json",
-    "source_fingerprint": "5125f74ba4e7b87f6db50518b8d2a7a65fd7a36e6c185ea7c473fd5c4fe2de86",
+    "source_fingerprint": "1b7da2faa38e4dda46218b3662f1deff7d06603300116fcd96c416718a7c0b04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10100,7 +11460,7 @@
         "id": "sense:notice:143e2d034e2a573d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "notice (sth); notice that ...; notice sb do sth / doing sth",
         "definition_cn": "注意到；察觉到",
         "definition_en": "to become aware of something by seeing or hearing it",
         "note": "",
@@ -10109,14 +11469,14 @@
           {
             "id": "collocation:abe82a89ac8fd7c85285",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "notice sb doing sth",
-            "meaning_cn": "注意到某人正在做某事",
+            "phrase": "notice sb do sth / doing sth",
+            "meaning_cn": "注意到某人做某事（do 侧重整个动作；doing 侧重当时正在发生）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:abe82a89ac8fd7c85285",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "notice sb doing sth"
+              "target_label": "notice sb do sth / doing sth"
             }
           },
           {
@@ -10232,7 +11592,7 @@
             "id": "collocation:899b9d64e146df3f2b7c",
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "at short notice",
-            "meaning_cn": "在短时间内；临时",
+            "meaning_cn": "临时通知；准备时间很短",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -10296,7 +11656,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:6d61a29f801f15ae47a7",
+        "source_locator": "record.constructions[1]",
+        "pattern": "until further notice",
+        "lines": [
+          {
+            "text": "直到另行通知为止",
+            "lang": "cn"
+          },
+          {
+            "text": "常见于暂时关闭或安排；Closed until further notice没有给出重开日期，不等于永久关闭。",
+            "lang": "cn"
+          },
+          {
+            "text": "continue to apply until a later announcement changes the situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6d61a29f801f15ae47a7",
+          "target_locator": "record.constructions[1]",
+          "target_label": "until further notice"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10310,8 +11696,16 @@
     "ordinal": 3261,
     "word": "notify",
     "source_owner_path": "content/lexical/words/by-ordinal/o3261.json",
-    "source_fingerprint": "fe6ef655609b1017ee798e78b09b06f9d2bfb081ebdc1863d103171d604f165c",
-    "sense_lineage": [],
+    "source_fingerprint": "467d2dbe80e82cf0c44f523c80a7981ed148738a46436bfb9df9b162c0af542c",
+    "sense_lineage": [
+      {
+        "word_id": "word:notify",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e768e5a8726a9e9a71fd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -10333,28 +11727,15 @@
         "id": "sense:notify:4a086e0de7525a5f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb + of + sth / vt. + sb + that-clause",
+        "governing_pattern": "notify sb of sth / notify sb that ...",
         "definition_cn": "通知，告知",
         "definition_en": "to formally tell someone about something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:e768e5a8726a9e9a71fd",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "notify sb of sth",
-            "meaning_cn": "通知某人某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e768e5a8726a9e9a71fd",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "notify sb of sth"
-            }
-          },
-          {
             "id": "collocation:c5df70e4859a01efbee3",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "notify the police",
             "meaning_cn": "通知警方",
             "kind": "usage_example",
@@ -10393,14 +11774,18 @@
       {
         "id": "deep:constructions:notify:da5251fdfa0d3685",
         "source_locator": "record.constructions[0]",
-        "pattern": "vt. + sb + of + sth / vt. + sb + that-clause",
+        "pattern": "notify sb of sth / notify sb that ...",
         "lines": [
+          {
+            "text": "正式通知某人某事；也可用 that 从句说明内容",
+            "lang": "cn"
+          },
           {
             "text": "通知，告知",
             "lang": "cn"
           },
           {
-            "text": "notify sb of sth 通知某人某事",
+            "text": "在这两个常用句式中，直接宾语是被通知者：notify sb of sth / notify sb that ...",
             "lang": "cn"
           },
           {
@@ -10412,7 +11797,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:notify:da5251fdfa0d3685",
           "target_locator": "record.constructions[0]",
-          "target_label": "vt. + sb + of + sth / vt. + sb + that-clause"
+          "target_label": "notify sb of sth / notify sb that ..."
         }
       }
     ],
@@ -10429,7 +11814,7 @@
     "ordinal": 3262,
     "word": "notion",
     "source_owner_path": "content/lexical/words/by-ordinal/o3262.json",
-    "source_fingerprint": "2d6be502c7afd598f2e32de338316047f7d2d2032a4150769e954d1fb74560f8",
+    "source_fingerprint": "d25adb400e164e343299ab37e6f53d4129c0e1b646c926a433c35f0bf01005c0",
     "sense_lineage": [
       {
         "word_id": "word:notion",
@@ -10450,7 +11835,7 @@
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "想法或信念",
@@ -10467,12 +11852,21 @@
         "id": "sense:notion:8ac74d147b9f5b42",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "notion of/about sth; notion that…; (no/vague) notion how/what/why…",
         "definition_cn": "想法；观念；概念；看法",
         "definition_en": "an idea, belief, conception, or general concept",
-        "note": "",
+        "note": "常说观念、信念，也可说对某事的理解：have no notion how…表示不知道怎么……，a vague notion表示大致或模糊的理解。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:df9cefdcaf35046896af",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "a vague notion of what happened",
+            "meaning_cn": "对发生的事情有模糊的了解",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:notion:8ac74d147b9f5b42",
@@ -10673,7 +12067,7 @@
     "ordinal": 3264,
     "word": "notwithstanding",
     "source_owner_path": "content/lexical/words/by-ordinal/o3264.json",
-    "source_fingerprint": "6aa731ba20997223c43ef9846c60a60d658b7fc8cb902f069695b08e683bda8b",
+    "source_fingerprint": "6f08f37e3c0e3aad961047b36feb950e4a6d8d038b4bc0cb2cf5e9b81f746113",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10684,13 +12078,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "尽管",
-      "decision_cn": "",
+      "summary_cn": "尽管；虽然；尽管如此",
+      "decision_cn": "正式语体：notwithstanding sth或sth notwithstanding表尽管；连词引出让步分句，单作副词表尽管如此、仍然。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "尽管"
+        "target_label": "尽管；虽然；尽管如此"
       }
     },
     "senses": [
@@ -10698,10 +12092,10 @@
         "id": "sense:notwithstanding:0a578d6f23b051e9",
         "source_locator": "record.senses[0]",
         "pos": "preposition",
-        "governing_pattern": "",
+        "governing_pattern": "notwithstanding + noun phrase; noun phrase + notwithstanding",
         "definition_cn": "尽管",
         "definition_en": "in spite of",
-        "note": "",
+        "note": "正式语体，可在所指名词短语之前或之后：notwithstanding the delay / the delay notwithstanding。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10716,6 +12110,14 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "notwithstanding + sth"
             }
+          },
+          {
+            "id": "collocation:8a700510e2c6df1707c4",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "The delay notwithstanding, we finished.",
+            "meaning_cn": "尽管有延误，我们还是完成了。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10732,7 +12134,7 @@
         "governing_pattern": "",
         "definition_cn": "虽然",
         "definition_en": "although",
-        "note": "",
+        "note": "Formal usage（正式语体）",
         "identity_overlay": null,
         "usage": [
           {
@@ -10761,9 +12163,9 @@
         "source_locator": "record.senses[2]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "然而，尽管",
+        "definition_cn": "尽管如此；仍然",
         "definition_en": "nevertheless",
-        "note": "",
+        "note": "Formal usage（正式语体）",
         "identity_overlay": null,
         "usage": [
           {
@@ -10779,7 +12181,7 @@
           "target_kind": "sense",
           "target_id": "sense:notwithstanding:9f49d3eb60c15251",
           "target_locator": "record.senses[2]",
-          "target_label": "然而，尽管"
+          "target_label": "尽管如此；仍然"
         }
       }
     ],

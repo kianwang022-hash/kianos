@@ -9,10 +9,36 @@
     "constructions": [],
     "content_hash": "368f9ef1df51724adf893ca5df27864aa67b8aedb2fa64806eac92f99e349956",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使可见或使知晓",
-      "core_meaning_en": "to make something visible or known",
-      "mental_model_cn": "使可见或使知晓",
+      "core_clusters": [
+        {
+          "label_cn": "揭开或揭露",
+          "label_en": "make a surface visible or reveal hidden truth",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:expose:a5e524e0c0ba936d",
+            "sense:expose:1935b1c818b65da6"
+          ]
+        },
+        {
+          "label_cn": "使接触或受影响",
+          "label_en": "bring into contact with an influence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:expose:4ed4d0f8d8f95998"
+          ]
+        },
+        {
+          "label_cn": "摄影曝光",
+          "label_en": "expose photographic material to light",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:expose:812128e4566957a3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "揭开或揭露；使接触；摄影曝光",
+      "core_meaning_en": "uncover or reveal; bring into contact; expose photographic material",
+      "mental_model_cn": "覆盖物除去是露出，隐情被发现是揭露；expose sb/sth to接影响或条件，既可有害也可指新思想。摄影语境指让感光材料接触光。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -53,13 +79,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "使暴露于，使接触",
-        "definition_en": "to make something visible or accessible, especially to something harmful or new",
+        "definition_en": "to bring someone or something into contact with, or subject them to, an influence or condition",
         "governing_pattern": "vt. + object + to + sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:expose:4ed4d0f8d8f95998",
-        "sense_label_en": "to make something visible or accessible, especially to something harmful",
+        "sense_label_en": "subject to or bring into contact with something",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -92,7 +118,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:expose:1935b1c818b65da6",
-        "sense_label_en": "to reveal the truth about someone or something, especially a fraud or cr",
+        "sense_label_en": "reveal a hidden truth or wrongdoing",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -119,6 +145,28 @@
         "sense_label_en": "to allow light to reach photographic film or paper",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:expose:a5e524e0c0ba936d",
+        "pos": "verb",
+        "definition_cn": "揭开；使显露、露出",
+        "definition_en": "to uncover something so that it becomes visible",
+        "sense_label_en": "to uncover something so that it becomes visible",
+        "governing_pattern": "expose sth; expose a surface/body part",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7ea121719409ea396673",
+            "phrase": "The storm exposed the tree roots.",
+            "meaning_cn": "暴风雨使树根露了出来。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -139,7 +187,7 @@
     "word": "expose",
     "word_family": [
       {
-        "boundary": "expose → exposure",
+        "boundary": "expose 是动词；exposure 是名词，表示暴露、接触或曝光的状态/过程，词性不同。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -250,6 +298,23 @@
           "applicability": [
             {
               "surface": "expose"
+            },
+            {
+              "surface": "expose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:expose:a5e524e0c0ba936d"
+              ],
+              "owner_sense_ids": [
+                "sense:expose:a5e524e0c0ba936d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1808.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "expose sth; expose a surface/body part"
+              }
             }
           ],
           "sources": [
@@ -366,6 +431,14 @@
         "merged_into_sense_id": null,
         "source_row": 4949,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:expose:a5e524e0c0ba936d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1808.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -417,6 +490,13 @@
         "id": "collocation:f6b9c7cb611c665090d9",
         "source_row": 20906,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:7ea121719409ea396673",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1808.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

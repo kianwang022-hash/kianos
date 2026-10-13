@@ -22,35 +22,49 @@
         "level": "L1",
         "meaning_cn": "……的数量/总数，通常接单数谓语",
         "pattern": "the number of + plural count noun"
+      },
+      {
+        "construction_id": "construction:d9f3018678e0a36f4c51",
+        "pattern": "sb’s/sth’s days are numbered",
+        "meaning_cn": "某人或某事物剩下的时间不多了",
+        "definition_en": "be unlikely to continue living, existing or succeeding for much longer",
+        "usage_note": "如某人在任时间或某组织存在的时间所剩无几；不必指人即将死亡，也不是已经列好日期表。",
+        "boundary": "如某人在任时间或某组织存在的时间所剩无几；不必指人即将死亡，也不是已经列好日期表。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "986ebffb28855abfc143f1f10ae13cff850e2cc405e7b661bb8bb0cb23e33417",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "数字；数目；数量；总数；号码；编号",
-          "label_en": "a word or symbol representing a quantity; a quantity or amount; a numeral or string of numerals used for identification",
+          "label_cn": "数量、编号或语法的数；歌曲/舞蹈及特定物件",
+          "label_en": "quantities and identifiers; grammatical number; performance or admired items",
           "pos": "noun",
           "sense_ids": [
             "sense:number:f73529592cbe52de",
             "sense:number:87a2d782cc1c51a6",
-            "sense:number:192dfae9b55a5e8d"
+            "sense:number:192dfae9b55a5e8d",
+            "sense:number:65f51eeea29ca1d5",
+            "sense:number:8ce571cc97245e44",
+            "sense:number:f9c656490ad18ec0"
           ]
         },
         {
-          "label_cn": "给…编号；总计；共计",
-          "label_en": "to assign a number to; to total in number",
+          "label_cn": "编号、总计或列入群体",
+          "label_en": "assign numbers, total or include among a group",
           "pos": "verb",
           "sense_ids": [
             "sense:number:589412261c7959b2",
-            "sense:number:70ab1aa28e4a581d"
+            "sense:number:70ab1aa28e4a581d",
+            "sense:number:56a1c2b8871a57cb"
           ]
         }
       ],
-      "core_meaning_cn": "数量或数字",
-      "core_meaning_en": "a quantity or numeral",
-      "mental_model_cn": "数量或数字",
-      "mental_model_en": ""
+      "core_meaning_cn": "数量、号码或语法的数；节目/物件；编号、总计或列入",
+      "core_meaning_en": "quantities, identifiers or singular/plural forms; performance or admired items; label, total or include in a group",
+      "mental_model_cn": "电话号码、总数、语法的单复数按上下文判断。a musical number是节目，a stylish number可说物件；number the pages编号，number 200总计200，number sb among friends列入朋友。",
+      "mental_model_en": "quantities, identifiers or singular/plural forms; performance or admired items; label, total or include in a group."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -61,17 +75,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:250383ef91611c350ad3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:number:f73529592cbe52de:collocation:1"
-            ],
-            "meaning_cn": "电话号码",
-            "phrase": "phone number"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "数字；数目",
         "definition_en": "a word or symbol representing a quantity",
@@ -110,6 +114,15 @@
       },
       {
         "collocations": [
+          {
+            "collocation_id": "collocation:250383ef91611c350ad3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:number:f73529592cbe52de:collocation:1"
+            ],
+            "meaning_cn": "电话号码",
+            "phrase": "phone number"
+          },
           {
             "collocation_id": "collocation:7558fb8a2a79120f8a59",
             "exam_value": "usage_example",
@@ -180,14 +193,126 @@
         "confidence": "medium",
         "definition_cn": "总计；共计",
         "definition_en": "to total in number",
-        "governing_pattern": "",
+        "governing_pattern": "number + total; number in the hundreds/thousands",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:number:70ab1aa28e4a581d",
         "sense_label_en": "to total in number",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "表示总数时number仍可作不及物动词；后面的数量是总计结果，如The crowd numbered 200，不因后接数词而自动当作给某物编号的及物义。"
+      },
+      {
+        "sense_id": "sense:number:65f51eeea29ca1d5",
+        "pos": "noun",
+        "definition_cn": "（演出的）一首歌曲或一段舞蹈节目",
+        "definition_en": "a song or dance presented as a performance item",
+        "sense_label_en": "a song or dance presented as a performance item",
+        "governing_pattern": "a musical/dance number",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:22573eff6ccf39126723",
+            "phrase": "the opening number of the show",
+            "meaning_cn": "演出的开场节目",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:number:903f66c8e15f2544",
+        "pos": "noun",
+        "definition_cn": "（尤英式）杂志、期刊的一期",
+        "definition_en": "an issue of a magazine or periodical, chiefly British English",
+        "sense_label_en": "an issue of a magazine or periodical, chiefly British English",
+        "governing_pattern": "the latest/October number; back numbers",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ec66af61f3794c7c0fe0",
+            "phrase": "the October number of the magazine",
+            "meaning_cn": "杂志的十月号",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:number:8ce571cc97245e44",
+        "pos": "noun",
+        "definition_cn": "（非正式）令人欣赏的衣服、汽车等物件",
+        "definition_en": "an admired item such as a dress or car, usually described by an adjective",
+        "sense_label_en": "an admired item such as a dress or car, usually described by an adjective",
+        "governing_pattern": "a … number",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:441f42e3afcdd10be113",
+            "phrase": "a stylish little number",
+            "meaning_cn": "一件时髦的小衣服（依语境也可指其他物件）",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:number:f9c656490ad18ec0",
+        "pos": "noun",
+        "definition_cn": "（语法）数，单数或复数等词形范畴",
+        "definition_en": "the grammatical category expressing singular or plural reference",
+        "sense_label_en": "the grammatical category expressing singular or plural reference",
+        "governing_pattern": "singular/plural in number; agree in number",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d1d4c209f6b5371838c4",
+            "phrase": "The subject and verb agree in number.",
+            "meaning_cn": "主语和动词的数一致。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:number:56a1c2b8871a57cb",
+        "pos": "verb",
+        "definition_cn": "把……列入某群体；位列其中",
+        "definition_en": "include in a group, or belong to a group",
+        "sense_label_en": "include in a group, or belong to a group",
+        "governing_pattern": "number sb/sth among sth; number among sth",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 9,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7783436f5923f10f110d",
+            "phrase": "We number her among our closest friends.",
+            "meaning_cn": "我们把她算作最亲密的朋友之一。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "正式：I number her among my friends把她算作朋友；She numbers among the best位列佼佼者。与表示总计多少的number + total区分。"
       }
     ],
     "verification_summary": {
@@ -751,6 +876,142 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈnʌmbə(r)/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:65f51eeea29ca1d5"
+              ],
+              "owner_sense_ids": [
+                "sense:number:65f51eeea29ca1d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a musical/dance number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:903f66c8e15f2544"
+              ],
+              "owner_sense_ids": [
+                "sense:number:903f66c8e15f2544"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the latest/October number; back numbers",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:8ce571cc97245e44"
+              ],
+              "owner_sense_ids": [
+                "sense:number:8ce571cc97245e44"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a … number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:f9c656490ad18ec0"
+              ],
+              "owner_sense_ids": [
+                "sense:number:f9c656490ad18ec0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "singular/plural in number; agree in number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/number_1",
+              "entry_context": {
+                "word": "number",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈnʌmbə(r)/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
+        },
+        {
+          "ipa": "/ˈnʌmbə(r)/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "number",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:number:56a1c2b8871a57cb"
+              ],
+              "owner_sense_ids": [
+                "sense:number:56a1c2b8871a57cb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/9",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "number sb/sth among sth; number among sth",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/number_2",
+              "entry_context": {
+                "word": "number",
+                "pos": "verb",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈnʌmbə(r)/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -793,22 +1054,68 @@
         "merged_into_sense_id": null,
         "source_row": 9103,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:number:65f51eeea29ca1d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:number:903f66c8e15f2544",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:number:8ce571cc97245e44",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:number:f9c656490ad18ec0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/8"
+      },
+      {
+        "sense_id": "sense:number:56a1c2b8871a57cb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/9"
       }
     ],
     "active_collocations": [
+      "collocation:b08f912f175a0c3af9c3",
       "collocation:250383ef91611c350ad3",
-      "collocation:2a4f022cc1fb67e4183e",
-      "collocation:2d31ecf077b3de61a73c",
       "collocation:7558fb8a2a79120f8a59",
+      "collocation:2d31ecf077b3de61a73c",
+      "collocation:2a4f022cc1fb67e4183e",
       "collocation:a87214ac3521410d6662",
-      "collocation:b08f912f175a0c3af9c3"
+      "collocation:22573eff6ccf39126723",
+      "collocation:ec66af61f3794c7c0fe0",
+      "collocation:441f42e3afcdd10be113",
+      "collocation:d1d4c209f6b5371838c4",
+      "collocation:7783436f5923f10f110d"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:250383ef91611c350ad3",
         "source_row": 3107,
-        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json",
+        "sense_id": "sense:number:192dfae9b55a5e8d"
       },
       {
         "id": "collocation:2a4f022cc1fb67e4183e",
@@ -844,6 +1151,41 @@
         "id": "collocation:d8e7044559ed023a9cdc",
         "source_row": 18342,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:22573eff6ccf39126723",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:ec66af61f3794c7c0fe0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:441f42e3afcdd10be113",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:d1d4c209f6b5371838c4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/8/collocations/0"
+      },
+      {
+        "id": "collocation:7783436f5923f10f110d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3277.json",
+        "source_pointer": "/record/senses/9/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -22,12 +22,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "敲（门等）；敲打；撞击",
-          "label_en": "to strike a surface with a sharp sound, especially to attract attention; to strike something with a sharp blow",
+          "label_cn": "敲（门等）；敲打；撞击；批评；贬低（常不公允）",
+          "label_en": "to strike a surface with a sharp sound, especially to attract attention; to strike something with a sharp blow; to criticize someone or something, often unfairly",
           "pos": "verb",
           "sense_ids": [
             "sense:knock:171364fb5ab654bc",
-            "sense:knock:6b5c38f52a045ff3"
+            "sense:knock:6b5c38f52a045ff3",
+            "sense:knock:45ba1a4210016249"
           ]
         },
         {
@@ -41,10 +42,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "敲击；敲打",
-      "core_meaning_en": "to strike a surface with a sharp sound; a sharp blow",
-      "mental_model_cn": "knock at/on → 敲门；knock sth → 撞击/敲打；knock sb out → 击昏/淘汰；noun → 敲击或打击。",
-      "mental_model_en": ""
+      "core_meaning_cn": "敲击；撞击；批评或贬低；敲击声与打击",
+      "core_meaning_en": "to knock, hit, or criticize; a knocking sound, criticism, or setback",
+      "mental_model_cn": "knock on/at → 敲；knock sth → 撞击；knock an idea → 批评/贬低。knock sb out → 击昏/淘汰；noun knock → 敲击声、批评或挫折。",
+      "mental_model_en": "to knock, hit, or criticize; a knocking sound, criticism, or setback."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -190,6 +191,29 @@
         "sense_label_en": "a bad experience",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:knock:45ba1a4210016249",
+        "pos": "verb",
+        "definition_cn": "批评；贬低（常不公允）",
+        "definition_en": "to criticize someone or something, often unfairly",
+        "sense_label_en": "to criticize someone or something, often unfairly",
+        "governing_pattern": "knock sb/sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2bf4961702a7b23d21fd",
+            "phrase": "Don't knock the idea before trying it.",
+            "meaning_cn": "试过之前别贬低这个想法。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式，常含贬低或不公允批评的语气；直接接人或事物作宾语。"
       }
     ],
     "verification_summary": {
@@ -230,6 +254,23 @@
           "applicability": [
             {
               "surface": "knock"
+            },
+            {
+              "surface": "knock",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:knock:45ba1a4210016249"
+              ],
+              "owner_sense_ids": [
+                "sense:knock:45ba1a4210016249"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2724.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "knock sb/sth"
             }
           ],
           "sources": [
@@ -423,16 +464,25 @@
         "merged_into_sense_id": null,
         "source_row": 7530,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:knock:45ba1a4210016249",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2724.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:0a5d897731430dc5da7b",
-      "collocation:0e4fd4a45ff47030252e",
       "collocation:8347af802e0a8915dfd3",
-      "collocation:8bf8b44ba8cb774d4062",
-      "collocation:9026c4a67c154e6e7b34",
       "collocation:a300db89694f24438963",
-      "collocation:f85bcb909f62fde826e6"
+      "collocation:0a5d897731430dc5da7b",
+      "collocation:8bf8b44ba8cb774d4062",
+      "collocation:0e4fd4a45ff47030252e",
+      "collocation:9026c4a67c154e6e7b34",
+      "collocation:f85bcb909f62fde826e6",
+      "collocation:2bf4961702a7b23d21fd"
     ],
     "facts": [],
     "collocations": [
@@ -470,6 +520,13 @@
         "id": "collocation:f85bcb909f62fde826e6",
         "source_row": 21040,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:2bf4961702a7b23d21fd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2724.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

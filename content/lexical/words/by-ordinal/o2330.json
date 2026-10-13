@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:67c1ac17946775823a21",
+        "pattern": "highlights (plural noun)",
+        "meaning_cn": "头发上比其他部分更浅的发缕；挑染部分",
+        "definition_en": "lighter areas in the hair, often produced by colouring",
+        "usage_note": "此名词用复数；She has blonde highlights；与一场活动的多个精彩片段不同。",
+        "boundary": "此名词用复数；She has blonde highlights；与一场活动的多个精彩片段不同。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "b4f95566ed6e17d29f79d3eb49a38ece5e1af1c0ddd59f42a450c9c65316493e",
     "core_concept": {
       "core_clusters": [
@@ -19,19 +30,20 @@
           ]
         },
         {
-          "label_cn": "突出，强调；用高光笔使更突出",
-          "label_en": "to make something stand out or emphasize it; to apply a highlighter to make more prominent",
+          "label_cn": "突出，强调；用荧光笔或屏幕颜色突出标记；挑染（头发）使部分发丝颜色变浅",
+          "label_en": "to make something stand out or emphasize it; to mark text with a bright color or select it visually on a screen; to make selected parts of the hair lighter in colour",
           "pos": "verb",
           "sense_ids": [
             "sense:highlight:d8235416db12590a",
-            "sense:highlight:823ae6308cf85e85"
+            "sense:highlight:823ae6308cf85e85",
+            "sense:highlight:c2d1177df4f2bbaf"
           ]
         }
       ],
-      "core_meaning_cn": "最精彩的部分；强调",
-      "core_meaning_en": "the most interesting or prominent part; to emphasize",
-      "mental_model_cn": "最精彩的部分；强调",
-      "mental_model_en": ""
+      "core_meaning_cn": "亮点；突出、标记或挑染头发",
+      "core_meaning_en": "a highlight; emphasize, mark text or lighten parts of hair",
+      "mental_model_cn": "highlight可强调重要内容或用颜色标记文字；头发语境则是挑染，复数highlights指浅色发缕。",
+      "mental_model_en": "a highlight; emphasize, mark text or lighten parts of hair."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -84,15 +96,6 @@
             ],
             "meaning_cn": "强调重要性",
             "phrase": "highlight the importance"
-          },
-          {
-            "collocation_id": "collocation:09727cfd9070a5b5c994",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:highlight:d8235416db12590a:collocation:1"
-            ],
-            "meaning_cn": "高亮文本",
-            "phrase": "highlight the text"
           }
         ],
         "confidence": "medium",
@@ -111,25 +114,56 @@
         "collocations": [
           {
             "collocation_id": "collocation:5b9f79ee9fe7a079ad08",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:highlight:823ae6308cf85e85:collocation:0"
             ],
-            "meaning_cn": "用高光笔突出某物",
+            "meaning_cn": "用荧光笔或屏幕颜色突出标记某物",
             "phrase": "highlight + sth"
+          },
+          {
+            "collocation_id": "collocation:09727cfd9070a5b5c994",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:highlight:d8235416db12590a:collocation:1"
+            ],
+            "meaning_cn": "高亮文本",
+            "phrase": "highlight the text"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "用高光笔使更突出",
-        "definition_en": "to apply a highlighter to make more prominent",
+        "definition_cn": "用荧光笔或屏幕颜色突出标记",
+        "definition_en": "to mark text with a bright color or select it visually on a screen",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:highlight:823ae6308cf85e85",
-        "sense_label_en": "to apply a highlighter to make more prominent",
+        "sense_label_en": "to mark text with a bright color or select it visually on a screen",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:highlight:c2d1177df4f2bbaf",
+        "pos": "verb",
+        "definition_cn": "挑染（头发）使部分发丝颜色变浅",
+        "definition_en": "to make selected parts of the hair lighter in colour",
+        "sense_label_en": "to make selected parts of the hair lighter in colour",
+        "governing_pattern": "highlight somebody’s hair",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a48f8a28ace52b541030",
+            "phrase": "She had her hair highlighted for the summer.",
+            "meaning_cn": "她为夏天把头发做了挑染。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -170,6 +204,23 @@
           "applicability": [
             {
               "surface": "highlight"
+            },
+            {
+              "surface": "highlight",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:highlight:c2d1177df4f2bbaf"
+              ],
+              "owner_sense_ids": [
+                "sense:highlight:c2d1177df4f2bbaf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2330.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "highlight somebody’s hair"
             }
           ],
           "sources": [
@@ -415,21 +466,31 @@
         "merged_into_sense_id": null,
         "source_row": 6506,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:highlight:c2d1177df4f2bbaf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2330.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:09727cfd9070a5b5c994",
-      "collocation:219243a7d10720c9a2c0",
-      "collocation:5b9f79ee9fe7a079ad08",
       "collocation:972d95f58ead537b1639",
-      "collocation:d8ab17b85f3b722a80a0"
+      "collocation:219243a7d10720c9a2c0",
+      "collocation:d8ab17b85f3b722a80a0",
+      "collocation:5b9f79ee9fe7a079ad08",
+      "collocation:09727cfd9070a5b5c994",
+      "collocation:a48f8a28ace52b541030"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:09727cfd9070a5b5c994",
         "source_row": 784,
-        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json",
+        "sense_id": "sense:highlight:823ae6308cf85e85"
       },
       {
         "id": "collocation:219243a7d10720c9a2c0",
@@ -439,7 +500,9 @@
       {
         "id": "collocation:5b9f79ee9fe7a079ad08",
         "source_row": 7714,
-        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:972d95f58ead537b1639",
@@ -450,6 +513,13 @@
         "id": "collocation:d8ab17b85f3b722a80a0",
         "source_row": 18320,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:a48f8a28ace52b541030",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2330.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

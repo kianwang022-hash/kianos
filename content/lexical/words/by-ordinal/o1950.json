@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "片状垂悬物，盖片；飞机襟翼",
-          "label_en": "a flat piece of material attached at one edge; a movable airfoil on an aircraft wing",
+          "label_cn": "片状垂悬物，盖片；飞机襟翼；（非正式）慌乱、激动；忙乱",
+          "label_en": "a flat piece of material attached at one edge; a movable airfoil on an aircraft wing; a state of agitation, worry, or panic",
           "pos": "noun",
           "sense_ids": [
             "sense:flap:47150d15ad8c5541",
-            "sense:flap:83126256763b5bf6"
+            "sense:flap:83126256763b5bf6",
+            "sense:flap:e9f9ad399836d467"
           ]
         }
       ],
-      "core_meaning_cn": "拍打，飘动；片状物",
-      "core_meaning_en": "to move up and down or a flat piece attached at one edge",
-      "mental_model_cn": "拍打，飘动；片状物",
+      "core_meaning_cn": "拍打或飘动；盖片、襟翼；慌乱",
+      "core_meaning_en": "flap or flutter; a loose cover or wing flap; agitation",
+      "mental_model_cn": "动词是拍打/来回摆动；名词片状盖片或飞机襟翼按对象读。in a flap是慌乱/忙乱，不能逐字译在盖片里面。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,7 +47,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:04ae515e752eb12139a9",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:flap:00f2fd661d0a553d:collocation:0"
             ],
@@ -164,6 +165,28 @@
         "sense_label_en": "a movable airfoil on an aircraft wing",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:flap:e9f9ad399836d467",
+        "pos": "noun",
+        "definition_cn": "（非正式）慌乱、激动；忙乱",
+        "definition_en": "a state of agitation, worry, or panic",
+        "sense_label_en": "a state of agitation, worry, or panic",
+        "governing_pattern": "usually singular, informal: be/get in a flap (about/over sth)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f52f50a64abadb7e3826",
+            "phrase": "get in a flap over the delay",
+            "meaning_cn": "因延误而慌乱起来",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -213,6 +236,23 @@
           "applicability": [
             {
               "surface": "flap"
+            },
+            {
+              "surface": "flap",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:flap:e9f9ad399836d467"
+              ],
+              "owner_sense_ids": [
+                "sense:flap:e9f9ad399836d467"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1950.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "usually singular, informal: be/get in a flap (about/over sth)"
+              }
             }
           ],
           "sources": [
@@ -318,10 +358,17 @@
         "merged_into_sense_id": null,
         "source_row": 5393,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:flap:e9f9ad399836d467",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1950.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:04ae515e752eb12139a9",
       "collocation:75158dc79bc67d9ab375",
       "collocation:8f63b4d9633158295134",
       "collocation:974e920670202e804fc6",
@@ -334,7 +381,9 @@
       {
         "id": "collocation:04ae515e752eb12139a9",
         "source_row": 378,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:75158dc79bc67d9ab375",
@@ -365,6 +414,13 @@
         "id": "collocation:f8caf9146007fb88be22",
         "source_row": 21080,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:f52f50a64abadb7e3826",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1950.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

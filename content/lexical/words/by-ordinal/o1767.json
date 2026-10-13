@@ -6,23 +6,49 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:exclusive:1c10e764a76398c3",
+        "pattern": "be mutually exclusive",
+        "meaning_cn": "互不相容；不能同时存在或发生",
+        "definition_en": "be unable to exist or happen together",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:exclusive:f7053a1da8105591"
+      }
+    ],
     "content_hash": "4e043bfde7e51969a443fc51b1ea507d227d7a8ddc4916e81abd548dda0b81d8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "独有的；独占的；排外的；不包括的",
-          "label_en": "not shared with others; only for a particular person or group; excluding others; not including something",
+          "label_cn": "专有、面向少数；高档的",
+          "label_en": "unshared or restricted to a select group",
           "pos": "adjective",
           "sense_ids": [
             "sense:exclusive:8e653fd4163158c6",
+            "sense:exclusive:b1122588500329cc"
+          ]
+        },
+        {
+          "label_cn": "排除；不包括；不相容",
+          "label_en": "excluding or incompatible",
+          "pos": "adjective",
+          "sense_ids": [
             "sense:exclusive:f7053a1da8105591"
+          ]
+        },
+        {
+          "label_cn": "独家报道",
+          "label_en": "exclusive news report",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:exclusive:58331cbeb85c59cf"
           ]
         }
       ],
-      "core_meaning_cn": "独有的；排外的",
-      "core_meaning_en": "limited to a particular person or group",
-      "mental_model_cn": "独有的；排外的",
+      "core_meaning_cn": "专有、限制共享；排除或不包括；高档的；独家报道",
+      "core_meaning_en": "restricted or unshared; excluding; high-status; an exclusive news report",
+      "mental_model_cn": "exclusive to接限定拥有者；exclusive of接未计入的部分；mutually exclusive指不能共存。场所可指高档，名词an exclusive指独家报道。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -60,7 +86,7 @@
         "confidence": "medium",
         "definition_cn": "独有的；独占的",
         "definition_en": "not shared with others; only for a particular person or group",
-        "governing_pattern": "",
+        "governing_pattern": "exclusive to sb/sth; exclusive use/rights (not shared)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -84,7 +110,7 @@
         "confidence": "medium",
         "definition_cn": "排外的；不包括的",
         "definition_en": "excluding others; not including something",
-        "governing_pattern": "",
+        "governing_pattern": "exclusive of sth (not including it); mutually exclusive (cannot coexist)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -116,6 +142,28 @@
         "sense_label_en": "a news story published by only one newspaper or organization",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:exclusive:b1122588500329cc",
+        "pos": "adjective",
+        "definition_cn": "高档的；面向少数富裕或有地位者的",
+        "definition_en": "of a place or service: expensive or restricted to people with high social status",
+        "sense_label_en": "of a place or service: expensive or restricted to people with high social status",
+        "governing_pattern": "an exclusive club/restaurant/resort",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7ad8245ce915f15bb4ee",
+            "phrase": "an exclusive resort",
+            "meaning_cn": "高档度假胜地",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -204,6 +252,23 @@
           "applicability": [
             {
               "surface": "exclusive"
+            },
+            {
+              "surface": "exclusive",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:exclusive:b1122588500329cc"
+              ],
+              "owner_sense_ids": [
+                "sense:exclusive:b1122588500329cc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1767.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "an exclusive club/restaurant/resort"
+              }
             }
           ],
           "sources": [
@@ -403,6 +468,14 @@
         "merged_into_sense_id": null,
         "source_row": 4839,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:exclusive:b1122588500329cc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1767.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -438,6 +511,13 @@
         "id": "collocation:b9b88818297fabb58af6",
         "source_row": 15733,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:7ad8245ce915f15bb4ee",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1767.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -14,6 +14,36 @@
         "level": "L2",
         "meaning_cn": "并驾齐驱；不分上下；在竞赛或比较中非常接近",
         "pattern": "neck and neck"
+      },
+      {
+        "construction_id": "construction:1caa53d45e304aff4349",
+        "pattern": "(your/this) neck of the woods",
+        "meaning_cn": "（你所在的/这片）地区、地方",
+        "definition_en": "a particular area or neighbourhood",
+        "usage_note": "非正式，即使没有树林也可用。",
+        "boundary": "非正式，即使没有树林也可用。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:65102c50338d276bc4a7",
+        "pattern": "be up to your neck in sth",
+        "meaning_cn": "深陷……；有大量……要处理",
+        "definition_en": "have a great deal of something to deal with or be deeply involved in it",
+        "usage_note": "如债务、工作或麻烦，不按身体浸没位置理解。",
+        "boundary": "如债务、工作或麻烦，不按身体浸没位置理解。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:d74906823856124bb70e",
+        "pattern": "stick your neck out",
+        "meaning_cn": "冒风险表态、行动",
+        "definition_en": "say or do something while risking being wrong or criticized",
+        "usage_note": "非正式；重点是承担判断/立场风险，不必是真实生命危险。",
+        "boundary": "非正式；重点是承担判断/立场风险，不必是真实生命危险。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "4cf2f8cf1c244de61e67b31c4644fbaf24bde03f882300bd0e89aee47ee6b0f6",
@@ -21,7 +51,7 @@
       "core_clusters": [
         {
           "label_cn": "脖子；颈；颈状部分；狭窄地带",
-          "label_en": "the body neck; a narrow neck-shaped part",
+          "label_en": "the part of the body that connects the head to the rest of the body; a narrow part of an object or a piece of land that resembles a neck",
           "pos": "noun",
           "sense_ids": [
             "sense:neck:d40988d0efa05ad7",
@@ -29,18 +59,18 @@
           ]
         },
         {
-          "label_cn": "割颈；宰杀（较低层）",
-          "label_en": "to cut the neck of an animal",
-          "pos": "verb",
+          "label_cn": "（衣服的）领口、颈部开口",
+          "label_en": "the part of a garment that fits around the neck",
+          "pos": "noun",
           "sense_ids": [
-            "sense:neck:49b9eb88c28a511a"
+            "sense:neck:82d7813b46e1d268"
           ]
         }
       ],
-      "core_meaning_cn": "脖子/颈；颈状部分；较低层的割颈动词",
-      "core_meaning_en": "the neck; a neck-shaped narrow part; lower-layer verb cut the neck of an animal",
-      "mental_model_cn": "脖子/颈；颈状部分；较低层的割颈动词",
-      "mental_model_en": ""
+      "core_meaning_cn": "脖子；物体/地形狭窄颈部；衣服领口",
+      "core_meaning_en": "the body neck; a narrow neck-shaped part of an object or land; a garment neck opening",
+      "mental_model_cn": "neck of a bottle说狭窄连接处；shirt neck说衣服领口。neck and neck是不分上下，neck of the woods说地方。",
+      "mental_model_en": "the body neck; a narrow neck-shaped part of an object or land; a garment neck opening."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -101,6 +131,28 @@
         "sense_label_en": "to cut the neck of (an animal)",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:neck:82d7813b46e1d268",
+        "pos": "noun",
+        "definition_cn": "（衣服的）领口、颈部开口",
+        "definition_en": "the part of a garment that fits around the neck",
+        "sense_label_en": "the part of a garment that fits around the neck",
+        "governing_pattern": "the neck of a shirt/dress",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d8b45cc904bf45107ca7",
+            "phrase": "a shirt with an open neck",
+            "meaning_cn": "领口敞开的衬衫",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -252,6 +304,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/nek/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "neck",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:neck:82d7813b46e1d268"
+              ],
+              "owner_sense_ids": [
+                "sense:neck:82d7813b46e1d268"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3198.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the neck of a shirt/dress",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/neck_1",
+              "entry_context": {
+                "word": "neck",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/nek/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -313,10 +406,19 @@
         "merged_into_sense_id": null,
         "source_row": 8898,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:neck:82d7813b46e1d268",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3198.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3ef3da1902adc86fb69a"
+      "collocation:3ef3da1902adc86fb69a",
+      "collocation:d8b45cc904bf45107ca7"
     ],
     "facts": [],
     "collocations": [
@@ -334,6 +436,13 @@
         "id": "collocation:fa84941c8c04546fb092",
         "source_row": 21205,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:d8b45cc904bf45107ca7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3198.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

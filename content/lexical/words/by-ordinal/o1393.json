@@ -27,13 +27,22 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:direct:b6068e5d347f503f",
-            "sense:direct:88d03e0c77a65861"
+            "sense:direct:88d03e0c77a65861",
+            "sense:direct:7c6e957407c15947"
+          ]
+        },
+        {
+          "pos": "adverb",
+          "label_cn": "直接地；径直地",
+          "label_en": "straight or without an intermediary",
+          "sense_ids": [
+            "sense:direct:fea0f2ac2d43f1e3"
           ]
         }
       ],
       "core_meaning_cn": "直接：无中间环节，也可指坦率直截了当",
       "core_meaning_en": "direct means without an intermediary or straightforward in manner",
-      "mental_model_cn": "直接：无中间环节，也可指坦率直截了当",
+      "mental_model_cn": "动词direct是指示、管理、导演或把某物指向目标；形容词direct是直接或直率；buy/fly direct里的direct也可作副词。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -145,14 +154,14 @@
         "confidence": "medium",
         "definition_cn": "导演",
         "definition_en": "to guide actors in a play or film",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "direct; direct a film/play",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:direct:52bd6d8f22125aef",
         "sense_label_en": "to guide actors in a play or film",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -183,7 +192,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:direct:b6068e5d347f503f",
-        "sense_label_en": "going straight from one place to another without stopping or changing di",
+        "sense_label_en": "going straight or directly to a destination",
         "sort_order": 4,
         "transitivity": "nonverb"
       },
@@ -207,7 +216,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:direct:88d03e0c77a65861",
-        "sense_label_en": "without anything or anyone in between; frank and honest",
+        "sense_label_en": "without an intermediary or intervening step",
         "sort_order": 5,
         "transitivity": "nonverb"
       },
@@ -264,9 +273,30 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:direct:7c6e957407c15947",
-        "sense_label_en": "without anything or anyone in between; frank and honest",
+        "sense_label_en": "frank and straightforward in speech or manner",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:direct:fea0f2ac2d43f1e3",
+        "pos": "adverb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 7,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "直接地；径直地",
+        "definition_en": "straight to a destination or without an intermediary",
+        "sense_label_en": "straight to a destination or without an intermediary",
+        "governing_pattern": "fly/go direct; buy/deal direct",
+        "collocations": [
+          {
+            "collocation_id": "collocation:707d1fdd75ec31ad0774",
+            "exam_value": "usage_example",
+            "phrase": "buy direct from the producer",
+            "meaning_cn": "直接向生产者购买"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -315,7 +345,7 @@
         "priority": "A",
         "publication_status": "codex_reviewed",
         "shared_definition": null,
-        "source_sense_id": "sense:direct:883ded6cab255ef5",
+        "source_sense_id": "sense:direct:b6068e5d347f503f",
         "target_sense_id": "sense:directly:53012ca40f5055ad",
         "target_word": "directly",
         "task_tags": [
@@ -354,7 +384,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:direct:883ded6cab255ef5",
+        "source_sense_id": "sense:direct:732400c9fe9c5495",
         "target_sense_id": "sense:director:a9a02e231d5558dd",
         "target_word": "director",
         "task_tags": [
@@ -821,6 +851,13 @@
         "merged_into_sense_id": null,
         "source_row": 3871,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      },
+      {
+        "sense_id": "sense:direct:fea0f2ac2d43f1e3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1393.json"
       }
     ],
     "active_collocations": [
@@ -835,7 +872,8 @@
       "collocation:8d77a0ae8fac6d91f0f4",
       "collocation:d4c2c35b2d3313281fd1",
       "collocation:f05c073c081759e8be85",
-      "collocation:fe9040e1b6cedec8750a"
+      "collocation:fe9040e1b6cedec8750a",
+      "collocation:707d1fdd75ec31ad0774"
     ],
     "facts": [
       {
@@ -924,6 +962,11 @@
         "id": "collocation:fe9040e1b6cedec8750a",
         "source_row": 21527,
         "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      },
+      {
+        "id": "collocation:707d1fdd75ec31ad0774",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1393.json"
       }
     ],
     "exam-mappings": [],

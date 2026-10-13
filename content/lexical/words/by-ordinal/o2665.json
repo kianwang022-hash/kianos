@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "dfa4c699ea09dd8e64c201b2cbc57ca7bfcd41c9fb2e5c0040a64235ff600f6f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "嫉妒或猜疑的",
-      "core_meaning_en": "feeling or showing envy or suspicion of a rival",
-      "mental_model_cn": "嫉妒或猜疑的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "嫉妒、吃醋；珍惜并守护",
+          "label_en": "envious or suspicious; protective of something valued",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:jealous:0bcc62e1bcda52c2",
+            "sense:jealous:057775e5fcec5fe1",
+            "sense:jealous:805d11a6be29446b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "嫉妒、吃醋；珍惜并守护",
+      "core_meaning_en": "envious or suspicious; protective of something valued",
+      "mental_model_cn": "someone else’s advantage → 嫉妒；partner → 吃醋；one’s own rights/reputation → 正式用法，珍惜守护。",
+      "mental_model_en": "envious or suspicious; protective of something valued."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -43,7 +54,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:jealous:0bcc62e1bcda52c2",
-        "sense_label_en": "feeling angry or unhappy because someone has something you want or is mo",
+        "sense_label_en": "feeling angry or unhappy because someone has something you want or is more successful",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -70,6 +81,28 @@
         "sense_label_en": "fearful that a partner might be unfaithful",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:jealous:805d11a6be29446b",
+        "pos": "adjective",
+        "definition_cn": "（正式）珍惜并谨慎守护的",
+        "definition_en": "in formal use, protective of something you own or value and unwilling to let others take or damage it",
+        "sense_label_en": "in formal use, protective of something you own or value and unwilling to let others take or damage it",
+        "governing_pattern": "be jealous of one’s rights/reputation",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:59df18798c907cc035e0",
+            "phrase": "jealous of their independence",
+            "meaning_cn": "珍惜并谨慎守护他们的独立自主",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -119,6 +152,23 @@
           "applicability": [
             {
               "surface": "jealous"
+            },
+            {
+              "surface": "jealous",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:jealous:805d11a6be29446b"
+              ],
+              "owner_sense_ids": [
+                "sense:jealous:805d11a6be29446b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2665.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be jealous of one’s rights/reputation"
             }
           ],
           "sources": [
@@ -210,11 +260,20 @@
         "merged_into_sense_id": null,
         "source_row": 7348,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:jealous:805d11a6be29446b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2665.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:8fa15a3eeb8aa69e2cda",
-      "collocation:fa15238e19930fc0a075"
+      "collocation:fa15238e19930fc0a075",
+      "collocation:59df18798c907cc035e0"
     ],
     "facts": [],
     "collocations": [
@@ -227,6 +286,13 @@
         "id": "collocation:fa15238e19930fc0a075",
         "source_row": 21178,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:59df18798c907cc035e0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2665.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

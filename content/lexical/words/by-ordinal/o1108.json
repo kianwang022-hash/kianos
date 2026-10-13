@@ -41,18 +41,19 @@
           ]
         },
         {
-          "label_cn": "花费（金钱）；使失去，使付出代价",
-          "label_en": "to have a price of; to cause someone to lose or suffer something",
+          "label_cn": "花费（金钱）；使失去，使付出代价；核算或估算费用",
+          "label_en": "to have a price of; to cause someone to lose or suffer something; calculate or estimate an expense",
           "pos": "verb",
           "sense_ids": [
             "sense:cost:9209151211cb5e31",
-            "sense:cost:4a4f87be411053ca"
+            "sense:cost:4a4f87be411053ca",
+            "sense:cost:ed0217db27c40df1"
           ]
         }
       ],
-      "core_meaning_cn": "价格或损失",
-      "core_meaning_en": "the price paid or the loss incurred",
-      "mental_model_cn": "价格或损失",
+      "core_meaning_cn": "费用、代价；花费或使失去；核算、估算费用",
+      "core_meaning_en": "expense or sacrifice; have a price or cause a loss; estimate an expense",
+      "mental_model_cn": "cost $10是花费，cost sb a job是使人失去工作；cost a project是核算项目费用，此义过去式/分词用costed，前两义用cost。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,15 +79,6 @@
             ],
             "meaning_cn": "生活费用",
             "phrase": "cost of living"
-          },
-          {
-            "collocation_id": "collocation:42f0c532977b410fa05d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cost:138c53de72415f7d:collocation:1"
-            ],
-            "meaning_cn": "不惜一切代价",
-            "phrase": "at all costs"
           }
         ],
         "confidence": "medium",
@@ -105,12 +97,21 @@
         "collocations": [
           {
             "collocation_id": "collocation:c354ece842fd4be8c96d",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:cost:61f207b91a695c1b:collocation:0"
             ],
             "meaning_cn": "以……为代价",
             "phrase": "at the cost of"
+          },
+          {
+            "collocation_id": "collocation:42f0c532977b410fa05d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cost:138c53de72415f7d:collocation:1"
+            ],
+            "meaning_cn": "不惜一切代价",
+            "phrase": "at all costs"
           }
         ],
         "confidence": "medium",
@@ -140,7 +141,7 @@
         "confidence": "medium",
         "definition_cn": "花费（金钱）",
         "definition_en": "to have a price of",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sth costs (sb) an amount",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -164,7 +165,7 @@
         "confidence": "medium",
         "definition_cn": "使失去，使付出代价",
         "definition_en": "to cause someone to lose or suffer something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sth costs sb sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -172,6 +173,27 @@
         "sense_label_en": "to cause someone to lose or suffer something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:cost:ed0217db27c40df1",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "核算或估算某项目、产品等所需费用",
+        "definition_en": "calculate or estimate the money required for a project, product or activity",
+        "sense_label_en": "calculate or estimate an expense",
+        "governing_pattern": "cost (out) sth; sth is costed at an amount; past/participle: costed",
+        "collocations": [
+          {
+            "collocation_id": "collocation:95089870a58504c55667",
+            "exam_value": "usage_example",
+            "phrase": "The team costed the project before approving it.",
+            "meaning_cn": "团队先核算项目费用，再批准项目。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -389,6 +411,13 @@
         "merged_into_sense_id": null,
         "source_row": 3104,
         "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json"
+      },
+      {
+        "sense_id": "sense:cost:ed0217db27c40df1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1108.json"
       }
     ],
     "active_collocations": [
@@ -396,7 +425,7 @@
       "collocation:628ecefe4a739e4b6f04",
       "collocation:a9b7efc7f7f8ba6908dd",
       "collocation:b021fc59665130b6ab7a",
-      "collocation:c354ece842fd4be8c96d"
+      "collocation:95089870a58504c55667"
     ],
     "facts": [
       {
@@ -429,7 +458,14 @@
       {
         "id": "collocation:c354ece842fd4be8c96d",
         "source_row": 16526,
-        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:95089870a58504c55667",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1108.json"
       }
     ],
     "exam-mappings": [

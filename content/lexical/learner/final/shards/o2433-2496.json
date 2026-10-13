@@ -5,22 +5,22 @@
     "ordinal": 2433,
     "word": "idiom",
     "source_owner_path": "content/lexical/words/by-ordinal/o2433.json",
-    "source_fingerprint": "29cabeea5c1f8787e6a58da0c90c53aba97a174d0d8543206ff9bf1a82d53d25",
+    "source_fingerprint": "08123849f58586c6c0e8e953e255b8349253ed9781c3a0de73dfa7135c6fcd81",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "意义不能从单个词推断的短语",
-      "decision_cn": "",
+      "summary_cn": "习语；特有语言表达方式／艺术风格",
+      "decision_cn": "语言学习中的idiom→习语；群体/年代的idiom→特有语言；艺术评论中的idiom→表达风格，不要都译成成语。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "意义不能从单个词推断的短语"
+        "target_label": "习语；特有语言表达方式／艺术风格"
       }
     },
     "senses": [
@@ -57,6 +57,58 @@
           "target_locator": "record.senses[0]",
           "target_label": "习语；成语"
         }
+      },
+      {
+        "id": "sense:idiom:81e7bdc0d26bdac6",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "the idiom of a group/place (countable or uncountable)",
+        "definition_cn": "（正式）某人群、时代或地区特有的语言表达方式",
+        "definition_en": "the characteristic language and grammar of a group, period or place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:768f162a969624145663",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "The dialogue uses the idiom of the local fishing community.",
+            "meaning_cn": "对白使用了当地渔民群体的语言表达方式。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:idiom:81e7bdc0d26bdac6",
+          "target_locator": "record.senses[1]",
+          "target_label": "（正式）某人群、时代或地区特有的语言表达方式"
+        }
+      },
+      {
+        "id": "sense:idiom:592f3a408907a6a0",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "in a modern/classical idiom (countable or uncountable)",
+        "definition_cn": "（正式）某人、群体或时期特有的艺术表达风格",
+        "definition_en": "a characteristic style of music, art or writing",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b0a3bdea5ef148ad2a94",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The composer writes in a contemporary idiom.",
+            "meaning_cn": "这位作曲家采用当代音乐的表达风格。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:idiom:592f3a408907a6a0",
+          "target_locator": "record.senses[2]",
+          "target_label": "（正式）某人、群体或时期特有的艺术表达风格"
+        }
       }
     ],
     "pronunciation_support": {
@@ -67,6 +119,40 @@
           "applicability": [
             {
               "surface": "idiom"
+            },
+            {
+              "surface": "idiom",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idiom:81e7bdc0d26bdac6"
+              ],
+              "owner_sense_ids": [
+                "sense:idiom:81e7bdc0d26bdac6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2433.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the idiom of a group/place (countable or uncountable)"
+            },
+            {
+              "surface": "idiom",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idiom:592f3a408907a6a0"
+              ],
+              "owner_sense_ids": [
+                "sense:idiom:592f3a408907a6a0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2433.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in a modern/classical idiom (countable or uncountable)"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -112,8 +198,15 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:idiom:592f3a408907a6a0": [
+          0
+        ],
+        "sense:idiom:81e7bdc0d26bdac6": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -225,23 +318,31 @@
     "ordinal": 2435,
     "word": "idle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2435.json",
-    "source_fingerprint": "384269a0c6f40a8735244e4b01720a425e0263a9942696d2806862813bed1cb7",
-    "sense_lineage": [],
+    "source_fingerprint": "4135e579427d777fa7188ff677745a5ef466d41428a0fcdfeca425976a3f4f5e",
+    "sense_lineage": [
+      {
+        "word_id": "word:idle",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e0a2b6a1fd1cc20ef798",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "不活动，空闲；虚度",
-      "decision_cn": "",
+      "summary_cn": "闲置／懒散；无目的或空洞的；闲混；发动机空转",
+      "decision_cn": "idle机器→闲置；idle人→无事或懒惰；idle threat→空洞威胁；idle发动机→空转；idle away仍是虚度时间。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不活动，空闲；虚度"
+        "target_label": "闲置／懒散；无目的或空洞的；闲混；发动机空转"
       }
     },
     "senses": [
@@ -283,26 +384,12 @@
         "id": "sense:idle:c8878fdac1705203",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "idle; idle about/around",
         "definition_cn": "无所事事，闲混",
         "definition_en": "to spend time doing nothing; to be idle",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e0a2b6a1fd1cc20ef798",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "idle away + time",
-            "meaning_cn": "虚度光阴",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e0a2b6a1fd1cc20ef798",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "idle away + time"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:idle:c8878fdac1705203",
@@ -314,9 +401,9 @@
         "id": "sense:idle:ed994425629f5903",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "（发动机）空转",
-        "definition_en": "(of an engine) to run slowly without doing work",
+        "governing_pattern": "an engine idles; idle an engine",
+        "definition_cn": "（使发动机）空转",
+        "definition_en": "for an engine to run while not driving a load, or to make an engine do this",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -333,7 +420,7 @@
           "target_kind": "sense",
           "target_id": "sense:idle:ed994425629f5903",
           "target_locator": "record.senses[2]",
-          "target_label": "（发动机）空转"
+          "target_label": "（使发动机）空转"
         }
       },
       {
@@ -360,6 +447,32 @@
           "target_id": "sense:idle:3ec857cfb52e5097",
           "target_locator": "record.senses[3]",
           "target_label": "懒惰的"
+        }
+      },
+      {
+        "id": "sense:idle:3b4f902ba1b9bb06",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "idle chatter/curiosity/threats; it is idle to do sth",
+        "definition_cn": "无目的或无效果的；空洞的、不认真的",
+        "definition_en": "having no real purpose or effect, or not being serious",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b7db67f8c33f1de5cf73",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "Her warning was not an idle threat.",
+            "meaning_cn": "她的警告并非空洞的威胁。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:idle:3b4f902ba1b9bb06",
+          "target_locator": "record.senses[4]",
+          "target_label": "无目的或无效果的；空洞的、不认真的"
         }
       }
     ],
@@ -412,6 +525,29 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈaɪdl/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "idle",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:idle:3b4f902ba1b9bb06"
+              ],
+              "owner_sense_ids": [
+                "sense:idle:3b4f902ba1b9bb06"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -430,12 +566,41 @@
         "sense:idle:ed994425629f5903": [
           0,
           1
+        ],
+        "sense:idle:3b4f902ba1b9bb06": [
+          2
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:idle:idle-away",
+        "source_locator": "record.constructions[0]",
+        "pattern": "idle away time / idle time away",
+        "lines": [
+          {
+            "text": "虚度时间；把时间闲混过去",
+            "lang": "cn"
+          },
+          {
+            "text": "separable transitive phrasal construction; bare idle may be intransitive",
+            "lang": "en"
+          },
+          {
+            "text": "to spend time doing little or nothing useful",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:idle:idle-away",
+          "target_locator": "record.constructions[0]",
+          "target_label": "idle away time / idle time away"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -449,22 +614,23 @@
     "ordinal": 2436,
     "word": "if",
     "source_owner_path": "content/lexical/words/by-ordinal/o2436.json",
-    "source_fingerprint": "6156759606439d9cc7d4b4bdfca99633eaf7747cd25369a8d4ce5dff163bdb54",
+    "source_fingerprint": "6db6b67b47ec9fe1d1980b10a981f0621dbc7c6b65af32cd00d3d8953a5194d7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2CONJ"
+        "1N",
+        "3CONJ"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "如果；是否",
-      "decision_cn": "",
+      "summary_cn": "如果／是否；让步“虽然”；不确定条件（名词）",
+      "decision_cn": "if从句可表条件或间接疑问；if+adj/adv可作让步；a big if是名词未知条件；only if/if only、even if及if not按整体意义理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "如果；是否"
+        "target_label": "如果／是否；让步“虽然”；不确定条件（名词）"
       }
     },
     "senses": [
@@ -519,6 +685,58 @@
           "target_locator": "record.senses[1]",
           "target_label": "是否"
         }
+      },
+      {
+        "id": "sense:if:24f66c4ded48af5a",
+        "source_locator": "record.senses[2]",
+        "pos": "conjunction",
+        "governing_pattern": "adj/adv, if + adj/adv",
+        "definition_cn": "虽然；尽管（接形容词或副词作让步）",
+        "definition_en": "used before an adjective or adverb to concede a contrasting point",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b2ffed844efe84952e42",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The room is comfortable, if rather small.",
+            "meaning_cn": "这个房间虽然有些小，但很舒适。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:if:24f66c4ded48af5a",
+          "target_locator": "record.senses[2]",
+          "target_label": "虽然；尽管（接形容词或副词作让步）"
+        }
+      },
+      {
+        "id": "sense:if:6b7ad90fa2921484",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a big if; ifs and buts (countable)",
+        "definition_cn": "（非正式）不确定的情况或条件",
+        "definition_en": "an uncertain situation or condition",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:509b21a1bc5e128b967f",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Funding is still a big if.",
+            "meaning_cn": "能否获得资金仍是个很大的未知数。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:if:6b7ad90fa2921484",
+          "target_locator": "record.senses[3]",
+          "target_label": "（非正式）不确定的情况或条件"
+        }
       }
     ],
     "pronunciation_support": {
@@ -529,6 +747,40 @@
           "applicability": [
             {
               "surface": "if"
+            },
+            {
+              "surface": "if",
+              "pos": [
+                "conjunction"
+              ],
+              "sense_ids": [
+                "sense:if:24f66c4ded48af5a"
+              ],
+              "owner_sense_ids": [
+                "sense:if:24f66c4ded48af5a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2436.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "adj/adv, if + adj/adv"
+            },
+            {
+              "surface": "if",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:if:6b7ad90fa2921484"
+              ],
+              "owner_sense_ids": [
+                "sense:if:6b7ad90fa2921484"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2436.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a big if; ifs and buts (countable)"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -559,8 +811,15 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:if:24f66c4ded48af5a": [
+          0
+        ],
+        "sense:if:6b7ad90fa2921484": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -595,7 +854,7 @@
         "pattern": "if only + clause",
         "lines": [
           {
-            "text": "要是…就好了；只要…就好了",
+            "text": "要是……就好了（强烈愿望或遗憾）；不要与 only if“只有……才”混淆",
             "lang": "cn"
           },
           {
@@ -612,6 +871,181 @@
           "target_id": "construction:if:if-only",
           "target_locator": "record.constructions[1]",
           "target_label": "if only + clause"
+        }
+      },
+      {
+        "id": "construction:d061c5534f241701ac49",
+        "source_locator": "record.constructions[2]",
+        "pattern": "only if + clause",
+        "lines": [
+          {
+            "text": "只有……才……",
+            "lang": "cn"
+          },
+          {
+            "text": "only if位于句首并限定后句时，主句常倒装：Only if you ask will they help；区别于愿望if only。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to state the sole condition under which something can happen",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d061c5534f241701ac49",
+          "target_locator": "record.constructions[2]",
+          "target_label": "only if + clause"
+        }
+      },
+      {
+        "id": "construction:9bb9eb66acb0b1d2ac46",
+        "source_locator": "record.constructions[3]",
+        "pattern": "even if + clause",
+        "lines": [
+          {
+            "text": "即使；有时表示尽管已经如此",
+            "lang": "cn"
+          },
+          {
+            "text": "常引未确定或假设的条件；也有让步于既成事实的用法，不能绝对规定永远是假设。",
+            "lang": "cn"
+          },
+          {
+            "text": "despite a possible condition, or in some contexts despite a fact",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9bb9eb66acb0b1d2ac46",
+          "target_locator": "record.constructions[3]",
+          "target_label": "even if + clause"
+        }
+      },
+      {
+        "id": "construction:17ffd18ccca1feb93743",
+        "source_locator": "record.constructions[4]",
+        "pattern": "if anything",
+        "lines": [
+          {
+            "text": "如果说有什么区别，反倒是……",
+            "lang": "cn"
+          },
+          {
+            "text": "常修正前述判断；例如 It is not quieter; if anything, it is noisier。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to qualify a statement by suggesting that the opposite or a small difference is more accurate",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:17ffd18ccca1feb93743",
+          "target_locator": "record.constructions[4]",
+          "target_label": "if anything"
+        }
+      },
+      {
+        "id": "construction:9ac7b23adf037511b27e",
+        "source_locator": "record.constructions[5]",
+        "pattern": "if not",
+        "lines": [
+          {
+            "text": "若不是这样；也可表示即便不算更大/更多",
+            "lang": "cn"
+          },
+          {
+            "text": "If not独立接续可指否定前项；A if not B在递进比较中意为至少A，甚至可能B，不把两者当同一问法。",
+            "lang": "cn"
+          },
+          {
+            "text": "if that is not the case; also used to suggest that a stronger description may apply",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9ac7b23adf037511b27e",
+          "target_locator": "record.constructions[5]",
+          "target_label": "if not"
+        }
+      },
+      {
+        "id": "construction:000a40de03869f8703d1",
+        "source_locator": "record.constructions[6]",
+        "pattern": "if so",
+        "lines": [
+          {
+            "text": "若是这样；如果情况如此",
+            "lang": "cn"
+          },
+          {
+            "text": "so替代前述肯定情况；与if not替代否定情况区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "if that is the case",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:000a40de03869f8703d1",
+          "target_locator": "record.constructions[6]",
+          "target_label": "if so"
+        }
+      },
+      {
+        "id": "construction:d16377d875b933323c6e",
+        "source_locator": "record.constructions[7]",
+        "pattern": "if I were you, I would ...",
+        "lines": [
+          {
+            "text": "要是我是你，我会……（建议）",
+            "lang": "cn"
+          },
+          {
+            "text": "用于设想自己处于对方的位置并提出建议，通常用were。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to give advice by imagining oneself in someone else’s position",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d16377d875b933323c6e",
+          "target_locator": "record.constructions[7]",
+          "target_label": "if I were you, I would ..."
+        }
+      },
+      {
+        "id": "construction:fe31edcdfd8f40a1dd67",
+        "source_locator": "record.constructions[8]",
+        "pattern": "if you will/would ... / if I may/could ...",
+        "lines": [
+          {
+            "text": "礼貌请求对方配合或请求发言许可",
+            "lang": "cn"
+          },
+          {
+            "text": "will/would可表达愿意配合，而非必须禁止出现在if从句；may/could为礼貌许可。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to make a polite request or ask permission to speak",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fe31edcdfd8f40a1dd67",
+          "target_locator": "record.constructions[8]",
+          "target_label": "if you will/would ... / if I may/could ..."
         }
       }
     ],
@@ -748,7 +1182,7 @@
     "ordinal": 2438,
     "word": "ignorance",
     "source_owner_path": "content/lexical/words/by-ordinal/o2438.json",
-    "source_fingerprint": "d6bc3595dba9e015061547ecb2879b3c9c4e5f394179a30d5f362a1795063eb3",
+    "source_fingerprint": "a973385c604aeee0817af26d90129389efbf59a7376b8386d07f8617e8a14a71",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -855,7 +1289,7 @@
           "target_word": "ignore",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "ignorance 是缺乏知识／不了解；ignore 是不理会／忽视，不能把 ignorance 当成 ignore 行为的普通名词替换。",
               "lang": "cn"
             }
           ],
@@ -870,7 +1304,7 @@
     "ordinal": 2439,
     "word": "ignorant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2439.json",
-    "source_fingerprint": "9af0672f80e1a3c2c6a771550632de3841850888e6a1b7cedbf82a49ed330bf5",
+    "source_fingerprint": "34273510d2d5b92fdb87a2d2d31ce3eaa0b6a6fc809ec8def381add6bfcd9ddc",
     "sense_lineage": [
       {
         "word_id": "word:ignorant",
@@ -889,18 +1323,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无知的；不了解的",
-      "decision_cn": "ignorant of/about sth → 对某事不了解/缺乏知识。重复的“因缺乏信息而不知道”分支保留为 Reference。",
+      "summary_cn": "无知／不了解的；（非正式、贬义）粗鲁的",
+      "decision_cn": "ignorant of/about某事→不知道或不了解；评价行为的informal ignorant也可指粗鲁，不能一律读成知识不足。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无知的；不了解的"
+        "target_label": "无知／不了解的；（非正式、贬义）粗鲁的"
       }
     },
     "senses": [
@@ -926,6 +1360,14 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "ignorant of + sth"
             }
+          },
+          {
+            "id": "collocation:b262375f7b2958d54f67",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "ignorant about sth",
+            "meaning_cn": "不了解某事",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -933,6 +1375,32 @@
           "target_id": "sense:ignorant:aba2c0f465375ed4",
           "target_locator": "record.senses[0]",
           "target_label": "无知的；不了解的；缺乏相关知识的"
+        }
+      },
+      {
+        "id": "sense:ignorant:b6cc07809dd0e0f6",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "an ignorant person; ignorant behaviour",
+        "definition_cn": "（非正式、贬义）粗鲁无礼的",
+        "definition_en": "in informal disapproving use, having very bad manners",
+        "note": "此处指礼貌或教养差，不是说不知道某一事实；非正式贬义。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4e0986a30ea6a3ffbe7c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "That was a rude, ignorant remark.",
+            "meaning_cn": "那是句粗鲁无礼的话。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ignorant:b6cc07809dd0e0f6",
+          "target_locator": "record.senses[1]",
+          "target_label": "（非正式、贬义）粗鲁无礼的"
         }
       }
     ],
@@ -944,6 +1412,23 @@
           "applicability": [
             {
               "surface": "ignorant"
+            },
+            {
+              "surface": "ignorant",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:ignorant:b6cc07809dd0e0f6"
+              ],
+              "owner_sense_ids": [
+                "sense:ignorant:b6cc07809dd0e0f6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2439.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an ignorant person; ignorant behaviour"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -961,8 +1446,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:ignorant:b6cc07809dd0e0f6": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1005,8 +1494,16 @@
     "ordinal": 2440,
     "word": "ignore",
     "source_owner_path": "content/lexical/words/by-ordinal/o2440.json",
-    "source_fingerprint": "de0467a5129b49108e0f2bf900a4ca39fdadbae1b3ff84283e777af3688a421a",
-    "sense_lineage": [],
+    "source_fingerprint": "1aab8fb4ccb94e3c486e91660d8e2760aa8bf18865b6ad17ba03e36293b5766a",
+    "sense_lineage": [
+      {
+        "word_id": "word:ignore",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d56b6b453190649bc7db",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -1039,13 +1536,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "ignore + sb/sth",
             "meaning_cn": "忽视某人/某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d56b6b453190649bc7db",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "ignore + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4fa466e2692606f3edb7",
@@ -1107,7 +1599,7 @@
           "target_word": "ignorance",
           "lines": [
             {
-              "text": "同属 AWL 词族；词性与义项不同，不可视为同义替换",
+              "text": "ignore 是不理会／忽视；ignorance 是缺乏知识／不了解，并非简单表示忽视这一行为。",
               "lang": "cn"
             }
           ],
@@ -1122,7 +1614,7 @@
     "ordinal": 2441,
     "word": "ill",
     "source_owner_path": "content/lexical/words/by-ordinal/o2441.json",
-    "source_fingerprint": "99e9b94ac7124a22cd8aac9e57c236631856dd95bd589305d25e84bef0e0c0a1",
+    "source_fingerprint": "f400b696a98413c0d3f9551d1a6ac9bd607a2dc5efbba5f96c8a88b8881db75c",
     "sense_lineage": [
       {
         "word_id": "word:ill",
@@ -1160,13 +1652,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生病；坏；有害",
-      "decision_cn": "adjective → 生病的；formal adjective → 坏的/有害的；speak ill of sb → 说某人坏话。独立名词与副词义保留为 Reference。",
+      "summary_cn": "生病的／不良的；不自在、难以承担或不祥的整体表达",
+      "decision_cn": "ill作表语常指生病；名词前ill effects/omen→有害或不祥；ill at ease与can ill afford按整体表达理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生病；坏；有害"
+        "target_label": "生病的／不良的；不自在、难以承担或不祥的整体表达"
       }
     },
     "senses": [
@@ -1177,7 +1669,7 @@
         "governing_pattern": "",
         "definition_cn": "生病的",
         "definition_en": "sick, not well",
-        "note": "",
+        "note": "身体不适义通常作表语（be/feel/fall ill），尤其常见于英式英语；chronically ill patients等受副词修饰的定语结构也成立。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1203,7 +1695,7 @@
         "governing_pattern": "",
         "definition_cn": "坏的，有害的，不良的",
         "definition_en": "bad, harmful, or unfavorable",
-        "note": "",
+        "note": "坏或有害义通常置于名词前，如ill effects；ill omen指不祥的征兆。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1261,7 +1753,7 @@
         "pattern": "speak/think ill of sb",
         "lines": [
           {
-            "text": "说某人的坏话；贬低某人",
+            "text": "说某人坏话；对某人作负面评价／印象不好",
             "lang": "cn"
           },
           {
@@ -1269,7 +1761,7 @@
             "lang": "en"
           },
           {
-            "text": "to say unkind or negative things about someone",
+            "text": "to say unkind things about someone or think badly of them",
             "lang": "en"
           }
         ],
@@ -1278,6 +1770,81 @@
           "target_id": "construction:ill:speak-ill-of",
           "target_locator": "record.constructions[0]",
           "target_label": "speak/think ill of sb"
+        }
+      },
+      {
+        "id": "construction:1b2400c2499191e01892",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/feel ill at ease",
+        "lines": [
+          {
+            "text": "感到拘束、不安或尴尬",
+            "lang": "cn"
+          },
+          {
+            "text": "社会或心理不自在；不表示患病。",
+            "lang": "cn"
+          },
+          {
+            "text": "to feel uncomfortable or embarrassed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1b2400c2499191e01892",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/feel ill at ease"
+        }
+      },
+      {
+        "id": "construction:d5cb3e0b6d1c064ab65f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "can ill afford sth/to do sth",
+        "lines": [
+          {
+            "text": "很难承担；承受不起",
+            "lang": "cn"
+          },
+          {
+            "text": "正式整体框架；ill不是生病，此处can ill afford接宾语或不定式。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be able to afford something only with great difficulty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d5cb3e0b6d1c064ab65f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "can ill afford sth/to do sth"
+        }
+      },
+      {
+        "id": "construction:0fd042488b530de37b2e",
+        "source_locator": "record.constructions[3]",
+        "pattern": "bode ill for sb/sth",
+        "lines": [
+          {
+            "text": "对……是不祥之兆",
+            "lang": "cn"
+          },
+          {
+            "text": "正式表达；主语是征兆或情况，for后接前景受影响的人或事。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be a bad sign for someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0fd042488b530de37b2e",
+          "target_locator": "record.constructions[3]",
+          "target_label": "bode ill for sb/sth"
         }
       }
     ],
@@ -1445,7 +2012,7 @@
     "ordinal": 2443,
     "word": "illiterate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2443.json",
-    "source_fingerprint": "ab10166fbc152553096fabd6457746b7301e653c82a367796021360f67243885",
+    "source_fingerprint": "647b8725659c94a62044a70ca046424b5ca5e9b313d4b818a968f653869e49b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1939,7 +2506,7 @@
     "ordinal": 2446,
     "word": "illusion",
     "source_owner_path": "content/lexical/words/by-ordinal/o2446.json",
-    "source_fingerprint": "859729e68616e4b7ee6c72de7d229a40ed71c73736272f9e9839cb7388c47692",
+    "source_fingerprint": "b7c1a3c6bb208e64f3af722a4f594d025d20e4a374cc40e8bf702444d9c16c1d",
     "sense_lineage": [
       {
         "word_id": "word:illusion",
@@ -2066,15 +2633,15 @@
         "pattern": "be under the illusion that ... / be under no illusion(s) about sth",
         "lines": [
           {
-            "text": "错误地以为；抱有…的错觉",
+            "text": "under the illusion that：错误地以为；under no illusion(s) about：不抱幻想，清楚实际情况／困难",
             "lang": "cn"
           },
           {
-            "text": "false-belief pattern; distinct from a visual illusion",
+            "text": "positive and negative frames must not be scored as the same meaning",
             "lang": "en"
           },
           {
-            "text": "to wrongly believe that something is true",
+            "text": "under the illusion that means wrongly believing; under no illusions about means being realistic and aware of the truth or difficulties",
             "lang": "en"
           }
         ],
@@ -2126,7 +2693,7 @@
     "ordinal": 2447,
     "word": "illustrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2447.json",
-    "source_fingerprint": "efe28b5f94b683120e09569ea27ed9f66335d2d991c01c7a14b7d6bf14a95355",
+    "source_fingerprint": "35b55a33ae12166fb218cdabc0de6f4166cf3a5a0ffd6a806a4cd4b2071318fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2135,13 +2702,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "举例说明；图解",
-      "decision_cn": "",
+      "summary_cn": "举例说明／显示；配插图",
+      "decision_cn": "illustrate论点/过程→说明；事件或数据illustrate情况→表明；illustrate书刊→配插图。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "举例说明；图解"
+        "target_label": "举例说明／显示；配插图"
       }
     },
     "senses": [
@@ -2149,9 +2716,9 @@
         "id": "sense:illustrate:0b6b50418da8534e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "举例说明；阐明",
-        "definition_en": "to explain or demonstrate something with examples or pictures",
+        "governing_pattern": "illustrate sth (with sth); illustrate how/what ...; illustrate that ...",
+        "definition_cn": "举例说明；图解；显示或表明某情况",
+        "definition_en": "to make something clear with examples or pictures, or show that something is true",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2175,13 +2742,21 @@
             "meaning_cn": "说明这一点",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:814ea85329f5b6fcf39b",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "The error illustrates why careful checks matter.",
+            "meaning_cn": "这个错误表明了仔细核查为何重要。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:illustrate:0b6b50418da8534e",
           "target_locator": "record.senses[0]",
-          "target_label": "举例说明；阐明"
+          "target_label": "举例说明；图解；显示或表明某情况"
         }
       },
       {
@@ -2468,7 +3043,7 @@
     "ordinal": 2449,
     "word": "image",
     "source_owner_path": "content/lexical/words/by-ordinal/o2449.json",
-    "source_fingerprint": "6a18f5117d0f44c68bb3f4a3feb83525ed645bcb871841843a1226d790aa96f0",
+    "source_fingerprint": "eb19b3eb089cfcbfbb570598d7a53a721f9a228958782ca9145e7ac38e44aea7",
     "sense_lineage": [
       {
         "word_id": "word:image",
@@ -2487,18 +3062,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "图像；公众形象、印象",
-      "decision_cn": "",
+      "summary_cn": "图像／塑像／影像；公众或脑中形象；文学意象",
+      "decision_cn": "image可指图像或塑像、公众印象、心中画面；文学中也指比喻意象；be the image of→长得像。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "图像；公众形象、印象"
+        "target_label": "图像／塑像／影像；公众或脑中形象；文学意象"
       }
     },
     "senses": [
@@ -2506,9 +3081,9 @@
         "id": "sense:image:098409cea07a5fbe",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "图像；图片",
-        "definition_en": "a picture or visual representation of something",
+        "governing_pattern": "an image of sb/sth; digital/reflected images",
+        "definition_cn": "影像；图像；描绘人或物的形象、塑像",
+        "definition_en": "a picture or visual representation of someone or something, including a statue",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2516,7 +3091,7 @@
           "target_kind": "sense",
           "target_id": "sense:image:098409cea07a5fbe",
           "target_locator": "record.senses[0]",
-          "target_label": "图像；图片"
+          "target_label": "影像；图像；描绘人或物的形象、塑像"
         }
       },
       {
@@ -2552,6 +3127,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "脑海中的形象；心象；想象中的样子"
         }
+      },
+      {
+        "id": "sense:image:36fea789ec8ac145",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "poetic/literary images",
+        "definition_cn": "（文学）意象；使人联想出鲜明画面的比喻表达",
+        "definition_en": "a figurative word or phrase that evokes a strong mental picture",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:377da3bc6f5f265c9e9f",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The poem uses images of winter to suggest loneliness.",
+            "meaning_cn": "这首诗用冬天的意象暗示孤独。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:image:36fea789ec8ac145",
+          "target_locator": "record.senses[3]",
+          "target_label": "（文学）意象；使人联想出鲜明画面的比喻表达"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2562,6 +3163,23 @@
           "applicability": [
             {
               "surface": "image"
+            },
+            {
+              "surface": "image",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:image:36fea789ec8ac145"
+              ],
+              "owner_sense_ids": [
+                "sense:image:36fea789ec8ac145"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2449.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "poetic/literary images"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2581,11 +3199,66 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:image:36fea789ec8ac145": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:44ebbfac3b8f209ce857",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be the image of sb/sth",
+        "lines": [
+          {
+            "text": "长得很像某人或某物",
+            "lang": "cn"
+          },
+          {
+            "text": "整体相似表达；不是说这个人是照片或画像。",
+            "lang": "cn"
+          },
+          {
+            "text": "to look very like someone or something else",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:44ebbfac3b8f209ce857",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be the image of sb/sth"
+        }
+      },
+      {
+        "id": "construction:8189f2e4677d858979b8",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be created/made in the image of sb/sth",
+        "lines": [
+          {
+            "text": "按照某人或某物的形象、样子创造",
+            "lang": "cn"
+          },
+          {
+            "text": "整体相似或仿照框架；常见宗教语境，也可用于比喻。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be created to resemble or reflect someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8189f2e4677d858979b8",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be created/made in the image of sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2651,8 +3324,16 @@
     "ordinal": 2450,
     "word": "imaginary",
     "source_owner_path": "content/lexical/words/by-ordinal/o2450.json",
-    "source_fingerprint": "09ba0e9b77558b5c1111bd3fd249e45e6ff99b7adeb18f0377ac836739677a0a",
-    "sense_lineage": [],
+    "source_fingerprint": "d258cb97c26210d39410cadef77de6ae33510b4d61d837bc048317f5f2554026",
+    "sense_lineage": [
+      {
+        "word_id": "word:imaginary",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1036b7084df93116b510",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A"
@@ -2687,19 +3368,6 @@
             "meaning_cn": "想象中的朋友",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:1036b7084df93116b510",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "imaginary number",
-            "meaning_cn": "虚数",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1036b7084df93116b510",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "imaginary number"
-            }
           }
         ],
         "repair": {
@@ -2743,7 +3411,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:imaginary:imaginary-number",
+        "source_locator": "record.constructions[0]",
+        "pattern": "imaginary number",
+        "lines": [
+          {
+            "text": "（数学）虚数；此处不表示虚构的数",
+            "lang": "cn"
+          },
+          {
+            "text": "mathematical term, not ordinary imaginary = invented or unreal; retained existing knowledge",
+            "lang": "en"
+          },
+          {
+            "text": "a mathematical number expressed using the square root of a negative number",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:imaginary:imaginary-number",
+          "target_locator": "record.constructions[0]",
+          "target_label": "imaginary number"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -2791,7 +3485,7 @@
     "ordinal": 2451,
     "word": "imagination",
     "source_owner_path": "content/lexical/words/by-ordinal/o2451.json",
-    "source_fingerprint": "6f504f417b7528bf0a4d6bc9ec63e60aeee2445e7994d9ddb776f1ee85556ffd",
+    "source_fingerprint": "22789c9358621a3dcabcf476c856642da40cd781558dda79d4b869ae0dff084c",
     "sense_lineage": [
       {
         "word_id": "word:imagination",
@@ -2803,18 +3497,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "形成不在眼前事物的心理图像或想法的能力",
-      "decision_cn": "",
+      "summary_cn": "头脑生成画面、创意或想象内容",
+      "decision_cn": "能力与产物分开：show imagination是有创意；only in your imagination是非现实的想象。capture强调引起兴趣，否定stretch强调判断绝不成立。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "形成不在眼前事物的心理图像或想法的能力"
+        "target_label": "头脑生成画面、创意或想象内容"
       }
     },
     "senses": [
@@ -2823,9 +3517,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "想象力；想象",
-        "definition_en": "the ability to form pictures or ideas in your mind of things that are not real or present",
-        "note": "",
+        "definition_cn": "想象力；创造新颖想法的能力",
+        "definition_en": "the capacity to picture things in the mind or create original ideas",
+        "note": "创造性方案/写作中强调原创能力；与后文想象出的内容、假象区分。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2849,7 +3543,33 @@
           "target_kind": "sense",
           "target_id": "sense:imagination:cf3f24e5fb995067",
           "target_locator": "record.senses[0]",
-          "target_label": "想象力；想象"
+          "target_label": "想象力；创造新颖想法的能力"
+        }
+      },
+      {
+        "id": "sense:imagination:3f7ed284089faca2",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "imagination rather than reality; in sb’s imagination",
+        "definition_cn": "想象出的内容；想象而非现实的事物",
+        "definition_en": "something conceived in the mind rather than existing in reality",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:046b3239fa61a4d32cc7",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a product of her imagination",
+            "meaning_cn": "她想象出来的东西",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:imagination:3f7ed284089faca2",
+          "target_locator": "record.senses[1]",
+          "target_label": "想象出的内容；想象而非现实的事物"
         }
       }
     ],
@@ -2861,6 +3581,23 @@
           "applicability": [
             {
               "surface": "imagination"
+            },
+            {
+              "surface": "imagination",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:imagination:3f7ed284089faca2"
+              ],
+              "owner_sense_ids": [
+                "sense:imagination:3f7ed284089faca2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2451.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "imagination rather than reality; in sb’s imagination"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2878,11 +3615,91 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:imagination:3f7ed284089faca2": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e83902880c1ceea9c59d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "capture/catch sb’s imagination",
+        "lines": [
+          {
+            "text": "引起某人的兴趣或兴奋",
+            "lang": "cn"
+          },
+          {
+            "text": "主语是故事、计划等；不是控制其想象能力。",
+            "lang": "cn"
+          },
+          {
+            "text": "to interest and excite somebody",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e83902880c1ceea9c59d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "capture/catch sb’s imagination"
+        }
+      },
+      {
+        "id": "construction:19adc5d53a6c51287b90",
+        "source_locator": "record.constructions[1]",
+        "pattern": "not by any stretch of the imagination / by no stretch of the imagination",
+        "lines": [
+          {
+            "text": "无论怎样想都不能说；怎么也不",
+            "lang": "cn"
+          },
+          {
+            "text": "否定范围是所作判断，不是说某人没有创造力。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to emphatically reject a description or claim",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:19adc5d53a6c51287b90",
+          "target_locator": "record.constructions[1]",
+          "target_label": "not by any stretch of the imagination / by no stretch of the imagination"
+        }
+      },
+      {
+        "id": "construction:7544592742d325e12558",
+        "source_locator": "record.constructions[2]",
+        "pattern": "beyond sb’s wildest imagination / never in sb’s wildest imagination",
+        "lines": [
+          {
+            "text": "远超所能想象；做梦也没想到",
+            "lang": "cn"
+          },
+          {
+            "text": "beyond强调超过预期，never in强调从未预料到。",
+            "lang": "cn"
+          },
+          {
+            "text": "far beyond what somebody could imagine; completely unexpected",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7544592742d325e12558",
+          "target_locator": "record.constructions[2]",
+          "target_label": "beyond sb’s wildest imagination / never in sb’s wildest imagination"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3054,22 +3871,22 @@
     "ordinal": 2453,
     "word": "imagine",
     "source_owner_path": "content/lexical/words/by-ordinal/o2453.json",
-    "source_fingerprint": "8f56a6ce0723468583a99f8f8d5693fa5efb68f15a06e8384230413f46d3f094",
+    "source_fingerprint": "491f768b0bacf76037436e33c413f6898deee0f46de6621e650720aefdd90ac3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "想象",
-      "decision_cn": "",
+      "summary_cn": "设想画面、猜测或误信",
+      "decision_cn": "计划假设用第一支，认为大概属实用猜想支；imagine things明确不存在的感知/怀疑，不能误译为创造性构想。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "想象"
+        "target_label": "设想画面、猜测或误信"
       }
     },
     "senses": [
@@ -3077,7 +3894,7 @@
         "id": "sense:imagine:d00547231ef25a23",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "imagine sth; imagine doing sth; imagine that ...",
         "definition_cn": "想象；设想",
         "definition_en": "to form a mental image of something not present",
         "note": "",
@@ -3147,6 +3964,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "猜测；料想"
         }
+      },
+      {
+        "id": "sense:imagine:905c4b61c562acad",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "imagine sth; imagine (that) ...",
+        "definition_cn": "误以为；幻想（不存在的事是真的）",
+        "definition_en": "to believe or perceive something that is not real",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e79eb87b2ad23f206956",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "imagine things",
+            "meaning_cn": "凭空想象；误以为有某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e79eb87b2ad23f206956",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "imagine things"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:imagine:905c4b61c562acad",
+          "target_locator": "record.senses[2]",
+          "target_label": "误以为；幻想（不存在的事是真的）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3157,17 +4005,114 @@
           "applicability": [
             {
               "surface": "imagine"
+            },
+            {
+              "surface": "imagine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:imagine:905c4b61c562acad"
+              ],
+              "owner_sense_ids": [
+                "sense:imagine:905c4b61c562acad"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2453.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "imagine sth; imagine (that) ..."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:imagine:905c4b61c562acad": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:fc30684703da94882d51",
+        "source_locator": "record.constructions[0]",
+        "pattern": "imagine sb/sth doing sth",
+        "lines": [
+          {
+            "text": "想象某人或某物正在做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "动作执行者是sb/sth；imagine自己做事用imagine doing，不用imagine to do。",
+            "lang": "cn"
+          },
+          {
+            "text": "to picture a person or thing performing an action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fc30684703da94882d51",
+          "target_locator": "record.constructions[0]",
+          "target_label": "imagine sb/sth doing sth"
+        }
+      },
+      {
+        "id": "construction:397f99a38b62a2cbd15a",
+        "source_locator": "record.constructions[1]",
+        "pattern": "imagine sb/sth/oneself (as) sth; imagine sb/sth to be sth",
+        "lines": [
+          {
+            "text": "想象或设想某人/物处于某种身份或状态",
+            "lang": "cn"
+          },
+          {
+            "text": "as后是角色名词；to be引入设想状态。",
+            "lang": "cn"
+          },
+          {
+            "text": "to picture somebody or something in a role or state",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:397f99a38b62a2cbd15a",
+          "target_locator": "record.constructions[1]",
+          "target_label": "imagine sb/sth/oneself (as) sth; imagine sb/sth to be sth"
+        }
+      },
+      {
+        "id": "construction:bd7a16c3ab073bf9e966",
+        "source_locator": "record.constructions[2]",
+        "pattern": "I can imagine / I imagine so/not",
+        "lines": [
+          {
+            "text": "我能想象；我猜是/不是",
+            "lang": "cn"
+          },
+          {
+            "text": "前者接对方描述表示能设想到；后者替代猜测的整件事。imagine可在这些回答中不接名词宾语。",
+            "lang": "cn"
+          },
+          {
+            "text": "brief responses expressing empathy or a supposition",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bd7a16c3ab073bf9e966",
+          "target_locator": "record.constructions[2]",
+          "target_label": "I can imagine / I imagine so/not"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3192,8 +4137,16 @@
     "ordinal": 2454,
     "word": "imitate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2454.json",
-    "source_fingerprint": "f4b580d93fd37ebba5b5751e0681b3c27bc263fcad236a44a0b43c18913cd502",
-    "sense_lineage": [],
+    "source_fingerprint": "c701c465ceb814b82fbd62126a527130cd5d301bfc8f84de6df99cdf854a67ae",
+    "sense_lineage": [
+      {
+        "word_id": "word:imitate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:905684367de0e79f1372",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -3226,13 +4179,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "imitate + sb/sth",
             "meaning_cn": "模仿某人或某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:905684367de0e79f1372",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "imitate + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:df3c978cfdc9b15b8781",
@@ -3285,7 +4233,7 @@
           "target_word": "copy",
           "lines": [
             {
-              "text": "imitate 常模仿行为风格；copy 还可复制文本物品",
+              "text": "在模仿行为、风格的义项上，imitate 与 copy 有重叠；copy 表示复制文本、文件或物品时属于另外的复制义，不能用该义给这里的模仿义强分界。",
               "lang": "cn"
             },
             {
@@ -3312,22 +4260,22 @@
     "ordinal": 2455,
     "word": "imitation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2455.json",
-    "source_fingerprint": "aae42bf1a3642de5743a95a3c6f1116c65755599da3c4b48c20c6c5a13df12b4",
+    "source_fingerprint": "95c7bfc5cd3ea961a71cf92f83df5021b97e7813fea648a2ad0e9a7e8021cd40",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "模仿；仿制品",
-      "decision_cn": "",
+      "summary_cn": "仿效行为或做出的仿制品、模仿表演",
+      "decision_cn": "learn by imitation是过程；imitation leather是仿制材料；do an imitation of sb是模仿表演，不是一般印象。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "模仿；仿制品"
+        "target_label": "仿效行为或做出的仿制品、模仿表演"
       }
     },
     "senses": [
@@ -3335,9 +4283,9 @@
         "id": "sense:imitation:8f6de74722ca5ecf",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "模仿",
-        "definition_en": "the act of copying or trying to copy the actions of someone else",
+        "governing_pattern": "imitation of sb/sth; in imitation of sb/sth",
+        "definition_cn": "模仿；仿效",
+        "definition_en": "the act of copying somebody or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3367,7 +4315,7 @@
           "target_kind": "sense",
           "target_id": "sense:imitation:8f6de74722ca5ecf",
           "target_locator": "record.senses[0]",
-          "target_label": "模仿"
+          "target_label": "模仿；仿效"
         }
       },
       {
@@ -3387,6 +4335,19 @@
             "meaning_cn": "名画的仿制品",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:27b1e7f8c218ba782f4f",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "imitation leather",
+            "meaning_cn": "人造仿皮革",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:27b1e7f8c218ba782f4f",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "imitation leather"
+            }
           }
         ],
         "repair": {
@@ -3394,6 +4355,32 @@
           "target_id": "sense:imitation:afd891450db353a0",
           "target_locator": "record.senses[1]",
           "target_label": "仿制品；赝品"
+        }
+      },
+      {
+        "id": "sense:imitation:a2cfb4cfd04af2d3",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "do/give an imitation of sb",
+        "definition_cn": "模仿某人声音、举止的表演（常为逗笑）",
+        "definition_en": "a performance copying a person’s voice or manner, often humorously",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:27a276600655753f3993",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "do an imitation of the presenter",
+            "meaning_cn": "模仿主持人的口吻表演",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:imitation:a2cfb4cfd04af2d3",
+          "target_locator": "record.senses[2]",
+          "target_label": "模仿某人声音、举止的表演（常为逗笑）"
         }
       }
     ],
@@ -3405,6 +4392,23 @@
           "applicability": [
             {
               "surface": "imitation"
+            },
+            {
+              "surface": "imitation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:imitation:a2cfb4cfd04af2d3"
+              ],
+              "owner_sense_ids": [
+                "sense:imitation:a2cfb4cfd04af2d3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2455.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "do/give an imitation of sb"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3424,8 +4428,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:imitation:a2cfb4cfd04af2d3": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -3442,22 +4450,22 @@
     "ordinal": 2456,
     "word": "immediate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2456.json",
-    "source_fingerprint": "f9a5f87e68e6160025ff9eb1eb9017865b1948c0eee82001c6873c3d8224caa7",
+    "source_fingerprint": "6ea9f2f38ac532a5f8a64c9dbd35ce5ca3d2a779b95aa3984bd6bf22b712b839",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "立即的；直接的",
-      "decision_cn": "",
+      "summary_cn": "没有时间或关系上的间隔；眼下急需处理",
+      "decision_cn": "response指立刻反应；concern/need指眼下迫切；vicinity/family/superior/aftermath指空间、关系、等级或时间上紧邻。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "立即的；直接的"
+        "target_label": "没有时间或关系上的间隔；眼下急需处理"
       }
     },
     "senses": [
@@ -3500,8 +4508,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "直接的，最接近的",
-        "definition_en": "nearest in relationship or position",
+        "definition_cn": "直接的；最接近的",
+        "definition_en": "nearest or most direct in relationship, position or cause",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3509,7 +4517,7 @@
             "id": "collocation:51b4e866ed586b050c2d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "immediate family",
-            "meaning_cn": "直系亲属",
+            "meaning_cn": "近亲属；最亲近的家人（可包括兄弟姐妹）",
             "kind": "usage_example",
             "repair": null
           },
@@ -3526,7 +4534,33 @@
           "target_kind": "sense",
           "target_id": "sense:immediate:da3b1309efc7581e",
           "target_locator": "record.senses[1]",
-          "target_label": "直接的，最接近的"
+          "target_label": "直接的；最接近的"
+        }
+      },
+      {
+        "id": "sense:immediate:c524c7137bffa7a5",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "immediate concern/need/threat; usually before noun",
+        "definition_cn": "当前存在、需要马上处理的",
+        "definition_en": "present now and requiring prompt attention",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cdf1fb724b1af5b381cd",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "our immediate concern",
+            "meaning_cn": "我们眼下迫切要处理的问题",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:immediate:c524c7137bffa7a5",
+          "target_locator": "record.senses[2]",
+          "target_label": "当前存在、需要马上处理的"
         }
       }
     ],
@@ -3540,6 +4574,23 @@
           "applicability": [
             {
               "surface": "immediate"
+            },
+            {
+              "surface": "immediate",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:immediate:c524c7137bffa7a5"
+              ],
+              "owner_sense_ids": [
+                "sense:immediate:c524c7137bffa7a5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2456.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "immediate concern/need/threat; usually before noun"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3585,8 +4636,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:immediate:c524c7137bffa7a5": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -3603,7 +4658,7 @@
     "ordinal": 2457,
     "word": "immense",
     "source_owner_path": "content/lexical/words/by-ordinal/o2457.json",
-    "source_fingerprint": "0d18c2f471ba3e45401cdc8af8c021c08ed35a87dffd7122422a520e718ee2cf",
+    "source_fingerprint": "8b1082e726a783944bc5f3e1b906c0a42ac8224e568f2fd8691ef76b25cbf255",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3694,7 +4749,7 @@
     "ordinal": 2458,
     "word": "immerse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2458.json",
-    "source_fingerprint": "ede8e5af181180d872ab9d4d60ef817ac14f15a100080d0d46cf07fe0cd1a9db",
+    "source_fingerprint": "c787569dae7dc36e497fb645ded6f05378b353ac8972cd937d816bb146efc848",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3756,9 +4811,9 @@
         "id": "sense:immerse:dbd73856257f57b2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + in + sth",
-        "definition_cn": "使沉浸于，使专心于",
-        "definition_en": "to involve oneself deeply in an activity or interest",
+        "governing_pattern": "immerse oneself/sb in sth; be immersed in sth",
+        "definition_cn": "使沉浸于；使专心于",
+        "definition_en": "to involve oneself or someone else deeply in an activity or experience",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3788,7 +4843,7 @@
           "target_kind": "sense",
           "target_id": "sense:immerse:dbd73856257f57b2",
           "target_locator": "record.senses[1]",
-          "target_label": "使沉浸于，使专心于"
+          "target_label": "使沉浸于；使专心于"
         }
       }
     ],
@@ -3839,7 +4894,7 @@
     "ordinal": 2459,
     "word": "immigrant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2459.json",
-    "source_fingerprint": "6b1b62d81be8a8b99a1d27ade0c9efe89047625fc2611727deba55a7d90651c4",
+    "source_fingerprint": "383457db91c77e3b55b997474efc4606376dd1d8fcbd46df8647972fbe84c89c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3876,14 +4931,6 @@
             "meaning_cn": "非法移民",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:68970d897771ad07efbf",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "immigrant community",
-            "meaning_cn": "移民社区",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -3908,6 +4955,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "immigrant population",
             "meaning_cn": "移民人口",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:68970d897771ad07efbf",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "immigrant community",
+            "meaning_cn": "移民社区",
             "kind": "usage_example",
             "repair": null
           }
@@ -4056,7 +5111,7 @@
     "ordinal": 2461,
     "word": "immune",
     "source_owner_path": "content/lexical/words/by-ordinal/o2461.json",
-    "source_fingerprint": "b26094d9162faea2e05a281c32359da6571b88037f0dee042dc62fa2495dd0d5",
+    "source_fingerprint": "5ffa8d526a2bd4a1f18566a16d9a28ecd304d17604df120d42f7fbd7c5c3f3c6",
     "sense_lineage": [
       {
         "word_id": "word:immune",
@@ -4080,13 +5135,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "免疫的；不受影响的",
-      "decision_cn": "",
+      "summary_cn": "免受疾病、影响或追究",
+      "decision_cn": "to常标疾病/影响抵抗；from prosecution强调免受起诉；from criticism也可指免遭批评，不宜把to/from当绝对法律/非法律二分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "免疫的；不受影响的"
+        "target_label": "免受疾病、影响或追究"
       }
     },
     "senses": [
@@ -4097,7 +5152,7 @@
         "governing_pattern": "",
         "definition_cn": "免疫的；对疾病有抵抗力的",
         "definition_en": "protected against a particular disease by the body's immune system",
-        "note": "",
+        "note": "对某病免疫通常immune to；此形容词一般不用作名词前定语，免疫系统的immune system是固定术语。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4161,6 +5216,31 @@
           "target_id": "construction:f5b6eb9243661e56b199",
           "target_locator": "record.constructions[0]",
           "target_label": "immune to sth"
+        }
+      },
+      {
+        "id": "construction:db957f3d17cc865a846c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be immune from prosecution/liability/punishment",
+        "lines": [
+          {
+            "text": "免受起诉、法律责任或处罚；享有豁免",
+            "lang": "cn"
+          },
+          {
+            "text": "法律保护可使其免于受到追究；与immune to criticism意指不受批评影响不同。from也可用于免受其他攻击；不是所有from都属于法律。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be protected from being subjected to prosecution, liability or punishment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:db957f3d17cc865a846c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be immune from prosecution/liability/punishment"
         }
       }
     ],
@@ -4229,7 +5309,7 @@
     "ordinal": 2462,
     "word": "impact",
     "source_owner_path": "content/lexical/words/by-ordinal/o2462.json",
-    "source_fingerprint": "1f964d786d2440103b6e8cdfce921aecd29331c0a9f1f3107f85f0a6638e048c",
+    "source_fingerprint": "a748524f351ce70dcce1eb2b6e20c6aa7e59c81f20d037f6d14abd62354379c0",
     "sense_lineage": [
       {
         "word_id": "word:impact",
@@ -4248,19 +5328,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "影响；冲击；影响某事",
-      "decision_cn": "effect → 影响；collision → 冲击/撞击；verb → 对…产生影响。工程/土壤“压紧、挤入”义保留为 Reference。",
+      "summary_cn": "强烈作用：影响或实体撞击",
+      "decision_cn": "对发展/政策是影响；实体碰撞是撞击。撞击verb为正式用法；工程压紧的历史Reference另留。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "影响；冲击；影响某事"
+        "target_label": "强烈作用：影响或实体撞击"
       }
     },
     "senses": [
@@ -4346,7 +5426,7 @@
         "id": "sense:impact:7a4440d447cd56dd",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "impact sb/sth; impact on/upon sb/sth",
         "definition_cn": "对……有影响；影响",
         "definition_en": "have a strong effect on or affect",
         "note": "",
@@ -4357,6 +5437,32 @@
           "target_id": "sense:impact:7a4440d447cd56dd",
           "target_locator": "record.senses[2]",
           "target_label": "对……有影响；影响"
+        }
+      },
+      {
+        "id": "sense:impact:fb21aceb2963eb1b",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "impact sth; impact on/upon/with sth",
+        "definition_cn": "猛烈撞击；冲击（正式）",
+        "definition_en": "to strike something with great force",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:97525e300f08ac3316bc",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The vehicle impacted with the barrier.",
+            "meaning_cn": "车辆猛烈撞上护栏。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:impact:fb21aceb2963eb1b",
+          "target_locator": "record.senses[3]",
+          "target_label": "猛烈撞击；冲击（正式）"
         }
       }
     ],
@@ -4435,6 +5541,29 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪmˈpækt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "impact",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:impact:fb21aceb2963eb1b"
+              ],
+              "owner_sense_ids": [
+                "sense:impact:fb21aceb2963eb1b"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -4446,6 +5575,9 @@
         ],
         "sense:impact:7a4440d447cd56dd": [
           1
+        ],
+        "sense:impact:fb21aceb2963eb1b": [
+          2
         ]
       },
       "has_scope": true
@@ -4491,8 +5623,23 @@
     "ordinal": 2463,
     "word": "impair",
     "source_owner_path": "content/lexical/words/by-ordinal/o2463.json",
-    "source_fingerprint": "b6059ee56f38814b2b1eed011cc11bd7f981c99eead5a0969d968104fc37ccd8",
-    "sense_lineage": [],
+    "source_fingerprint": "1e08065818a91e658759c74a94dfcb11ac2e9fb4fa75e36f3ca25acaa808b89d",
+    "sense_lineage": [
+      {
+        "word_id": "word:impair",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4f3bbb12a8584fbf6745",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:impair",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6cbe8dd7f26e2e58c79b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -4525,26 +5672,16 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "impair + sth",
             "meaning_cn": "损害某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4f3bbb12a8584fbf6745",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "impair + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:6cbe8dd7f26e2e58c79b",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "impair + one's health",
             "meaning_cn": "损害健康",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6cbe8dd7f26e2e58c79b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "impair + one's health"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:810ab92cbc37e6e8410d",
@@ -4610,7 +5747,7 @@
     "ordinal": 2464,
     "word": "impart",
     "source_owner_path": "content/lexical/words/by-ordinal/o2464.json",
-    "source_fingerprint": "e6e008e5617545a94efb89fd2dfcbbe246f88bd1c60775e0e27562a041a81dfe",
+    "source_fingerprint": "0d6e101cf5e13752dc5dd1c42fd8567983e66008c2f0e84e1ccea82fb363b9e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4633,9 +5770,9 @@
         "id": "sense:impart:5c9a7421f3605597",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "传授（知识或技能）",
-        "definition_en": "to give knowledge or skills to someone",
+        "governing_pattern": "impart sth to sb",
+        "definition_cn": "传授；告知（知识、技能或信息）",
+        "definition_en": "to give or communicate knowledge, skills or information to someone",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4665,7 +5802,7 @@
           "target_kind": "sense",
           "target_id": "sense:impart:5c9a7421f3605597",
           "target_locator": "record.senses[0]",
-          "target_label": "传授（知识或技能）"
+          "target_label": "传授；告知（知识、技能或信息）"
         }
       },
       {
@@ -4755,8 +5892,16 @@
     "ordinal": 2465,
     "word": "impatient",
     "source_owner_path": "content/lexical/words/by-ordinal/o2465.json",
-    "source_fingerprint": "22a24ba32d26e7947f40f3a350b51622258af83ba256a893bc8d7780fb58052b",
-    "sense_lineage": [],
+    "source_fingerprint": "554f762cdff7c14fe6bc6165a24fbf9083203496dddcec625c13b7e2738381eb",
+    "sense_lineage": [
+      {
+        "word_id": "word:impatient",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dcc30f0b8d90eefa387d",
+        "status": "merged",
+        "to_target_id": "collocation:9e1c145129f0302c2cf0"
+      }
+    ],
     "recall_map": {
       "parts": [
         "2A"
@@ -4778,7 +5923,7 @@
         "id": "sense:impatient:8f2e9bdec2c55cf0",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "impatient with sb/sth",
         "definition_cn": "不耐烦的，急躁的",
         "definition_en": "restless or short-tempered under delay or opposition",
         "note": "",
@@ -4796,32 +5941,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "be impatient with + sb/sth"
             }
-          },
-          {
-            "id": "collocation:6db72f3296e7ecbaa977",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "be impatient for + sth",
-            "meaning_cn": "急于得到某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6db72f3296e7ecbaa977",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "be impatient for + sth"
-            }
-          },
-          {
-            "id": "collocation:dcc30f0b8d90eefa387d",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "be impatient to do + sth",
-            "meaning_cn": "急于做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dcc30f0b8d90eefa387d",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "be impatient to do + sth"
-            }
           }
         ],
         "repair": {
@@ -4835,9 +5954,9 @@
         "id": "sense:impatient:b4f45263d50258c9",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "急切的，渴望的",
-        "definition_en": "full of eagerness (usually followed by 'to')",
+        "governing_pattern": "impatient for sth; impatient to do sth",
+        "definition_cn": "急切的；渴望的",
+        "definition_en": "eager for something or eager to do something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4853,13 +5972,39 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "be impatient to + do sth"
             }
+          },
+          {
+            "id": "collocation:6db72f3296e7ecbaa977",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "be impatient for + sth",
+            "meaning_cn": "急于得到某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6db72f3296e7ecbaa977",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "be impatient for + sth"
+            }
+          },
+          {
+            "id": "collocation:dcc30f0b8d90eefa387d",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "be impatient to do + sth",
+            "meaning_cn": "急于做某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dcc30f0b8d90eefa387d",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "be impatient to do + sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:impatient:b4f45263d50258c9",
           "target_locator": "record.senses[1]",
-          "target_label": "急切的，渴望的"
+          "target_label": "急切的；渴望的"
         }
       }
     ],
@@ -4895,23 +6040,38 @@
     "ordinal": 2466,
     "word": "imperative",
     "source_owner_path": "content/lexical/words/by-ordinal/o2466.json",
-    "source_fingerprint": "ad1f9dfeec9e36c74e21a938836ea8043d92a3cab36aee6d12dab0d9b8994415",
-    "sense_lineage": [],
+    "source_fingerprint": "555365aa5836f593841435a56c18a6f7d9a68a2138c230d80eae224d767150b9",
+    "sense_lineage": [
+      {
+        "word_id": "word:imperative",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1474275d8d050981885f",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:imperative",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:59587a453f9f7e6ad989",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "必要的、紧急的或命令",
-      "decision_cn": "adjective/noun → 至关重要、必须做的事；it is imperative that… → …是必须的；grammar → 祈使语气。",
+      "summary_cn": "必要的行动或命令权威",
+      "decision_cn": "a moral imperative是必须履行的责任；imperative tone是命令口吻；grammar中imperative mood/sentence是祈使，三者按名词/补语判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "必要的、紧急的或命令"
+        "target_label": "必要的行动或命令权威"
       }
     },
     "senses": [
@@ -4922,25 +6082,12 @@
         "governing_pattern": "",
         "definition_cn": "至关重要的；紧急的",
         "definition_en": "extremely important or urgent",
-        "note": "",
+        "note": "正式语；此重要/迫切义一般作表语，常接that从句或to do。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:59587a453f9f7e6ad989",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "it is imperative that ...",
-            "meaning_cn": "……是至关重要的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:59587a453f9f7e6ad989",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "it is imperative that ..."
-            }
-          },
-          {
             "id": "collocation:7a95c25547493a066e44",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "imperative need",
             "meaning_cn": "迫切的需要",
             "kind": "usage_example",
@@ -4993,15 +6140,10 @@
           {
             "id": "collocation:1474275d8d050981885f",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the imperative mood",
-            "meaning_cn": "祈使语气",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1474275d8d050981885f",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "the imperative mood"
-            }
+            "phrase": "use the imperative",
+            "meaning_cn": "使用祈使语气",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5036,6 +6178,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "祈使语气的"
         }
+      },
+      {
+        "id": "sense:imperative:954d05412c18af16",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "an imperative tone/manner",
+        "definition_cn": "发号施令的；带有命令权威的（正式）",
+        "definition_en": "expressing authority or a command",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:bfc651d1678af81cf0bf",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "an imperative tone",
+            "meaning_cn": "命令式的语气",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:imperative:954d05412c18af16",
+          "target_locator": "record.senses[4]",
+          "target_label": "发号施令的；带有命令权威的（正式）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5049,14 +6217,35 @@
           "applicability": [
             {
               "surface": "imperative"
+            },
+            {
+              "surface": "imperative",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:imperative:954d05412c18af16"
+              ],
+              "owner_sense_ids": [
+                "sense:imperative:954d05412c18af16"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2466.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an imperative tone/manner"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:imperative:954d05412c18af16": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -5084,6 +6273,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "it is imperative that + clause"
         }
+      },
+      {
+        "id": "construction:4ac519e059906021a2de",
+        "source_locator": "record.constructions[1]",
+        "pattern": "it is imperative to do sth",
+        "lines": [
+          {
+            "text": "做某事至关重要、必须马上采取行动",
+            "lang": "cn"
+          },
+          {
+            "text": "与既有that从句构式并用；不是描述句子的语法语气。",
+            "lang": "cn"
+          },
+          {
+            "text": "to say that an action is urgently necessary",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4ac519e059906021a2de",
+          "target_locator": "record.constructions[1]",
+          "target_label": "it is imperative to do sth"
+        }
       }
     ],
     "reference": {
@@ -5099,7 +6313,7 @@
     "ordinal": 2467,
     "word": "imperial",
     "source_owner_path": "content/lexical/words/by-ordinal/o2467.json",
-    "source_fingerprint": "d690148c2d734783ef4369424b70404216e68f832483e721953f2be3baca7929",
+    "source_fingerprint": "398d3212fde291791b8cedba07cf5764f75303a65ced98af840e2ed7e694d4f8",
     "sense_lineage": [
       {
         "word_id": "word:imperial",
@@ -5116,13 +6330,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "帝国的；帝王的",
+      "summary_cn": "帝国／帝王的；英制度量衡的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "帝国的；帝王的"
+        "target_label": "帝国／帝王的；英制度量衡的"
       }
     },
     "senses": [
@@ -5261,7 +6475,7 @@
     "ordinal": 2468,
     "word": "impetus",
     "source_owner_path": "content/lexical/words/by-ordinal/o2468.json",
-    "source_fingerprint": "3180c37ebfdae87f6d6c4243522dd88463f00a2183162db43a90c593f3aa5d4d",
+    "source_fingerprint": "97707fc3201b0d05e7b3f4e2ea251cadcaa36206797ec2cd29d19e45ba8c5b21",
     "sense_lineage": [
       {
         "word_id": "word:impetus",
@@ -5373,19 +6587,19 @@
               "legacy_source_object_ids": [
                 "sense:impetus:500832752c65522b:collocation:0"
               ],
-              "meaning_cn": "球的动量",
+              "meaning_cn": "球的动势／前冲之势",
               "phrase": "the impetus of the ball"
             }
           ],
           "confidence": "medium",
-          "definition_cn": "动量",
-          "definition_en": "the force that moves an object",
+          "definition_cn": "（较旧用法）推动力；动势",
+          "definition_en": "a force or momentum that keeps something moving (older general usage, not a precise modern physics quantity)",
           "governing_pattern": "",
           "level": "L2",
           "needs_human_review": 0,
           "pos": "noun",
           "sense_id": "sense:impetus:500832752c65522b",
-          "sense_label_en": "the force that moves an object",
+          "sense_label_en": "a force or momentum that keeps something moving (older general usage, not a precise modern physics quantity)",
           "sort_order": 1,
           "transitivity": "nonverb"
         }
@@ -5557,7 +6771,7 @@
     "ordinal": 2470,
     "word": "implication",
     "source_owner_path": "content/lexical/words/by-ordinal/o2470.json",
-    "source_fingerprint": "64d3adebf3fa4f67efc3fa576e9e1de52eb81ed998534d193d03e59db67b836a",
+    "source_fingerprint": "77a33cfd82778337ded61edac954606367076d39000f133c39722b113cedaefa",
     "sense_lineage": [
       {
         "word_id": "word:implication",
@@ -5595,7 +6809,7 @@
         "id": "sense:implication:1f99f489f3c25cc5",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "usually plural: implications for sth; implications of sth",
         "definition_cn": "可能的影响；后果",
         "definition_en": "a possible effect or result of an action or decision",
         "note": "",
@@ -5736,7 +6950,7 @@
           "target_word": "significance",
           "lines": [
             {
-              "text": "significance可指意义或重要性；implication强调暗含之意",
+              "text": "此处只比较意义：significance 是表达或传达的意义，implication 是未明说而暗含的意思。significance 的重要性义与 implications for 的后果义属于其他分支，不能混入此对比。",
               "lang": "cn"
             },
             {
@@ -5800,7 +7014,7 @@
     "ordinal": 2471,
     "word": "implicit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2471.json",
-    "source_fingerprint": "8efd0e2c3b15378d5e4b05c65e50a4a06cdbb22ad5d40a1228c08eeb54d771d8",
+    "source_fingerprint": "3ef65a48c36cb0b559fac2c345bbcf59d9f4a63e812d2bee425a547623cf37d0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5809,13 +7023,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "含蓄的",
+      "summary_cn": "隐含不言明；（信任、服从等）完全无保留",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "含蓄的"
+        "target_label": "隐含不言明；（信任、服从等）完全无保留"
       }
     },
     "senses": [
@@ -5841,14 +7055,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "implicit in + sth"
             }
-          },
-          {
-            "id": "collocation:d2f473e4c85554e8e582",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "implicit trust",
-            "meaning_cn": "绝对的信任",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -5873,6 +7079,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "implicit obedience",
             "meaning_cn": "绝对服从",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d2f473e4c85554e8e582",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "implicit trust",
+            "meaning_cn": "绝对的信任",
             "kind": "usage_example",
             "repair": null
           }
@@ -5935,8 +7149,16 @@
     "ordinal": 2472,
     "word": "imply",
     "source_owner_path": "content/lexical/words/by-ordinal/o2472.json",
-    "source_fingerprint": "2280c02d6578aac78955ebc49fb774481e21a26983917fadcf41f005f8a1390e",
-    "sense_lineage": [],
+    "source_fingerprint": "c7b43824daf7dc5c01c00aecfb4e0f19219677814afd25c3d88f19a7086cab67",
+    "sense_lineage": [
+      {
+        "word_id": "word:imply",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ea81250f8567f5326ceb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -5944,13 +7166,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "间接地暗示",
+      "summary_cn": "间接暗示；意味着／必然包含",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "间接地暗示"
+        "target_label": "间接暗示；意味着／必然包含"
       }
     },
     "senses": [
@@ -6000,13 +7222,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "imply + sth",
             "meaning_cn": "意味着某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ea81250f8567f5326ceb",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "imply + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6047,7 +7264,7 @@
           "target_word": "entail",
           "lines": [
             {
-              "text": "entail 表逻辑必然包含；imply 还可表示含蓄暗示",
+              "text": "在逻辑后果用法中 imply 与 entail 都可表示必然包含；imply 另有含蓄暗示的用法。不能把所有 imply 都按较弱确定性理解。",
               "lang": "cn"
             },
             {
@@ -6774,7 +7991,7 @@
     "ordinal": 2475,
     "word": "important",
     "source_owner_path": "content/lexical/words/by-ordinal/o2475.json",
-    "source_fingerprint": "2f0ed3d8d155e2a0578dbf07f538b90921e27e1959fbf1570bba1bb38998d9cf",
+    "source_fingerprint": "6be80e2ce5702d242f0f64860a8bff0e497d58a53635d12ff69f8e746bd7d76d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6892,7 +8109,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:df7eff6af31034498e0d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "it is important (for sb) to do sth / it is important that + clause",
+        "lines": [
+          {
+            "text": "（某人）做某事很重要；某事应当做到",
+            "lang": "cn"
+          },
+          {
+            "text": "for sb指定to-do动作的执行者；that表示必要行动时可用动词原形，英式常见should + 原形。",
+            "lang": "cn"
+          },
+          {
+            "text": "to express the importance of an action or requirement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:df7eff6af31034498e0d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "it is important (for sb) to do sth / it is important that + clause"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6917,8 +8160,16 @@
     "ordinal": 2476,
     "word": "impose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2476.json",
-    "source_fingerprint": "811d803c28846a8651d6a73ff816c141799f83af59cdc26c08b6970b48359226",
-    "sense_lineage": [],
+    "source_fingerprint": "e36d739d3d67023e4480a2b6cd07b8ef0cc2a7a257b3c5a6c6c3dfc41245a9a6",
+    "sense_lineage": [
+      {
+        "word_id": "word:impose",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f55d31be707243650d66",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "(3+1)V"
@@ -6947,28 +8198,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:5ba64383de5186ec145e",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "impose a tax on",
-            "meaning_cn": "对…征税",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5ba64383de5186ec145e",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "impose a tax on"
-            }
-          },
-          {
             "id": "collocation:e19329c6eb663ddac617",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "impose one's will on",
             "meaning_cn": "把意志强加于",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e19329c6eb663ddac617",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "impose one's will on"
             }
           }
@@ -6989,21 +8227,7 @@
         "definition_en": "to take unfair advantage of someone's kindness",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f55d31be707243650d66",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "impose on someone's hospitality",
-            "meaning_cn": "利用某人的好客",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f55d31be707243650d66",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "impose on someone's hospitality"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:impose:152d6f55f59a5f54",
@@ -7015,9 +8239,9 @@
         "id": "sense:impose:7a4c5c60b577590d",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "征收（税等）",
-        "definition_en": "to collect (a tax, fee, etc.)",
+        "governing_pattern": "impose a tax/fine/charge on sb/sth",
+        "definition_cn": "征收（税）；施加（罚款等）",
+        "definition_en": "to introduce or levy a tax, charge or penalty, not necessarily collect the payment",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7028,13 +8252,26 @@
             "meaning_cn": "处以罚款",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:5ba64383de5186ec145e",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "impose a tax on",
+            "meaning_cn": "对…征税",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5ba64383de5186ec145e",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "impose a tax on"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:impose:7a4c5c60b577590d",
           "target_locator": "record.senses[2]",
-          "target_label": "征收（税等）"
+          "target_label": "征收（税）；施加（罚款等）"
         }
       }
     ],
@@ -7148,7 +8385,7 @@
     "ordinal": 2477,
     "word": "impossible",
     "source_owner_path": "content/lexical/words/by-ordinal/o2477.json",
-    "source_fingerprint": "1dd4a65329a7fc7a6b236f7bb462074db1d1499448c40c794c636bb6036b56b7",
+    "source_fingerprint": "2d34873690bddf26865e875c178e17d086f9a7f62a68736b592ef34b6dc16792",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7157,13 +8394,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "不可能的",
+      "summary_cn": "不可能；极难相处或应付",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不可能的"
+        "target_label": "不可能；极难相处或应付"
       }
     },
     "senses": [
@@ -7319,7 +8556,7 @@
     "ordinal": 2478,
     "word": "impress",
     "source_owner_path": "content/lexical/words/by-ordinal/o2478.json",
-    "source_fingerprint": "de1d66a31af0e16e03a06fc0ad242e5d54617a839654be07e922271ece94615c",
+    "source_fingerprint": "1c4942680dfac58feb79f1d9f343f96ffb24766678812abfc003512bfe4dc9a3",
     "sense_lineage": [
       {
         "word_id": "word:impress",
@@ -7368,16 +8605,16 @@
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使钦佩；留下深刻印象",
-      "decision_cn": "",
+      "summary_cn": "给人或头脑留下强烈痕迹",
+      "decision_cn": "impress sb with能力是钦佩；impress the need on sb是强调必要；impress itself on memory是深印记忆。物理压印与历史强征仍可查原Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使钦佩；留下深刻印象"
+        "target_label": "给人或头脑留下强烈痕迹"
       }
     },
     "senses": [
@@ -7437,7 +8674,83 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ff61c9be8bd15653f180",
+        "source_locator": "record.constructions[0]",
+        "pattern": "impress sb with sth / be impressed by/with sth",
+        "lines": [
+          {
+            "text": "以某事使人钦佩；对某事印象深刻",
+            "lang": "cn"
+          },
+          {
+            "text": "sb是被打动的人，with是使其赞赏的特点；此钦佩义也可不带明说宾语，如never fails to impress。",
+            "lang": "cn"
+          },
+          {
+            "text": "to cause admiration through a particular quality or achievement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ff61c9be8bd15653f180",
+          "target_locator": "record.constructions[0]",
+          "target_label": "impress sb with sth / be impressed by/with sth"
+        }
+      },
+      {
+        "id": "construction:8bc99f25217c60ee9fe9",
+        "source_locator": "record.constructions[1]",
+        "pattern": "impress sth on/upon sb",
+        "lines": [
+          {
+            "text": "向某人强调某事的重要性，使其牢记",
+            "lang": "cn"
+          },
+          {
+            "text": "正式语；sth是重要性/责任等，on/upon sb是听者，不能按impress sb with sth的赞赏框架解读。",
+            "lang": "cn"
+          },
+          {
+            "text": "to emphasize a matter so that somebody understands its importance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8bc99f25217c60ee9fe9",
+          "target_locator": "record.constructions[1]",
+          "target_label": "impress sth on/upon sb"
+        }
+      },
+      {
+        "id": "construction:d40f0cfada970ccb7fbf",
+        "source_locator": "record.constructions[2]",
+        "pattern": "impress sth/itself on/upon sb’s mind/memory",
+        "lines": [
+          {
+            "text": "使某事深深印在脑海或记忆中",
+            "lang": "cn"
+          },
+          {
+            "text": "正式语；常用itself，注意on/upon后是心智或记忆，不是给予赞美。",
+            "lang": "cn"
+          },
+          {
+            "text": "to leave a powerful lasting effect on the mind or memory",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d40f0cfada970ccb7fbf",
+          "target_locator": "record.constructions[2]",
+          "target_label": "impress sth/itself on/upon sb’s mind/memory"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7567,7 +8880,7 @@
     "ordinal": 2479,
     "word": "impression",
     "source_owner_path": "content/lexical/words/by-ordinal/o2479.json",
-    "source_fingerprint": "651d86bb564f6c7292f1d023d30a46df9c3355bf1c5a6e3d6602625d6b1d1b66",
+    "source_fingerprint": "4ca179e3418bd08192f00fd4b7579bdc6e0b064d14e6ebb9e123923286acffc7",
     "sense_lineage": [
       {
         "word_id": "word:impression",
@@ -7582,6 +8895,13 @@
         "from_target_id": "sense:impression:f92b03a35e245a23",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:impression",
+        "target_kind": "sense",
+        "from_target_id": "sense:impression:fd8081be960952a6",
+        "status": "merged",
+        "to_target_id": "sense:impression:647c1ffa37be5de8"
       },
       {
         "word_id": "word:impression",
@@ -7600,18 +8920,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "印象；看法；感觉",
-      "decision_cn": "idea/feeling → 印象、看法；effect/appearance → 给人的感觉；under the impression that… → 以为/误以为。印刷“印次”和牙科“印模”保留为 Reference。",
+      "summary_cn": "留下的心理感觉或可见形象、印记",
+      "decision_cn": "have an impression that/of是感觉；artist’s impression是画出的形象；do an impression of sb是表演；软材料中的impression是实体印记。under the impression that是以为某事属实。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "印象；看法；感觉"
+        "target_label": "留下的心理感觉或可见形象、印记"
       }
     },
     "senses": [
@@ -7619,7 +8939,7 @@
         "id": "sense:impression:647c1ffa37be5de8",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "have/get an impression of/that ...; make/leave an impression on sb",
         "definition_cn": "印象，想法；某人留下的感觉",
         "definition_en": "an idea, opinion, or feeling about something, or the effect that someone or something has on you",
         "note": "",
@@ -7633,20 +8953,81 @@
         }
       },
       {
-        "id": "sense:impression:fd8081be960952a6",
+        "id": "sense:impression:939c207788d8c27f",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "外观；印象",
-        "definition_en": "the appearance or effect that someone or something has on you",
+        "governing_pattern": "an artist’s impression of sth",
+        "definition_cn": "（画家的）肖像想象图；未来建筑等效果图",
+        "definition_en": "an artist’s drawing of a person or of a planned place or structure",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:d18c5cd7a3332f6e61f9",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "an artist’s impression of the proposed bridge",
+            "meaning_cn": "拟建桥梁的艺术效果图",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:impression:fd8081be960952a6",
+          "target_id": "sense:impression:939c207788d8c27f",
           "target_locator": "record.senses[1]",
-          "target_label": "外观；印象"
+          "target_label": "（画家的）肖像想象图；未来建筑等效果图"
+        }
+      },
+      {
+        "id": "sense:impression:b59375715ef17d34",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "do an impression of sb",
+        "definition_cn": "对某人声音、举止的模仿表演",
+        "definition_en": "a clever or humorous impersonation of somebody",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c5f6c2d892f8e34579c0",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "do an impression of a film star",
+            "meaning_cn": "模仿电影明星的口吻表演",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:impression:b59375715ef17d34",
+          "target_locator": "record.senses[2]",
+          "target_label": "对某人声音、举止的模仿表演"
+        }
+      },
+      {
+        "id": "sense:impression:d38ed3b83bebf8e5",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "an impression in/on sth; the impression of sth",
+        "definition_cn": "压痕；压印出的印记",
+        "definition_en": "a mark left by pressing an object into a surface",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:51078ec65bd66420eb6b",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "an impression in soft clay",
+            "meaning_cn": "软黏土中的压印痕迹",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:impression:d38ed3b83bebf8e5",
+          "target_locator": "record.senses[3]",
+          "target_label": "压痕；压印出的印记"
         }
       }
     ],
@@ -7658,6 +9039,57 @@
           "applicability": [
             {
               "surface": "impression"
+            },
+            {
+              "surface": "impression",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:impression:939c207788d8c27f"
+              ],
+              "owner_sense_ids": [
+                "sense:impression:939c207788d8c27f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2479.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an artist’s impression of sth"
+            },
+            {
+              "surface": "impression",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:impression:b59375715ef17d34"
+              ],
+              "owner_sense_ids": [
+                "sense:impression:b59375715ef17d34"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2479.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "do an impression of sb"
+            },
+            {
+              "surface": "impression",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:impression:d38ed3b83bebf8e5"
+              ],
+              "owner_sense_ids": [
+                "sense:impression:d38ed3b83bebf8e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2479.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an impression in/on sth; the impression of sth"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7675,8 +9107,18 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:impression:939c207788d8c27f": [
+          0
+        ],
+        "sense:impression:b59375715ef17d34": [
+          0
+        ],
+        "sense:impression:d38ed3b83bebf8e5": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -7759,6 +9201,24 @@
           "sense_label_en": "(dentistry) an imprint of the teeth and gums in wax or plaster",
           "sort_order": 3,
           "transitivity": "nonverb"
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "外观；印象",
+          "definition_en": "the appearance or effect that someone or something has on you",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:impression:fd8081be960952a6",
+          "sense_label_en": "the appearance or effect that someone or something has on you",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:impression:fd8081be960952a6",
+          "status": "merged",
+          "merged_into_sense_id": "sense:impression:647c1ffa37be5de8",
+          "reference_only": true
         }
       ]
     }
@@ -7769,7 +9229,7 @@
     "ordinal": 2480,
     "word": "impressive",
     "source_owner_path": "content/lexical/words/by-ordinal/o2480.json",
-    "source_fingerprint": "158bc093c0416b14de440340611a33719f361c805b91b80678656d2602e530f2",
+    "source_fingerprint": "444bc2df3f935073cb545d95d4135b8748bf5e3bef3e84704f1d5418be579b4d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7869,8 +9329,23 @@
     "ordinal": 2481,
     "word": "improve",
     "source_owner_path": "content/lexical/words/by-ordinal/o2481.json",
-    "source_fingerprint": "4c180e42e7d3708b601c8249412712aa98493a80d70d578160401a4399822897",
-    "sense_lineage": [],
+    "source_fingerprint": "9a6acb5557c6a5da21219773a77bbcb1b8322eff079a34a12dead5a90a7caff0",
+    "sense_lineage": [
+      {
+        "word_id": "word:improve",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:311ee97124a018599180",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:improve",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dfa5d6d3a37051a408f6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -7903,13 +9378,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "improve + sth",
             "meaning_cn": "改善某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:311ee97124a018599180",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "improve + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:de3ee4237ad11b755bae",
@@ -7936,21 +9406,7 @@
         "definition_en": "to become better",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:dfa5d6d3a37051a408f6",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "improve on + sth",
-            "meaning_cn": "对……加以改进",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dfa5d6d3a37051a408f6",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "improve on + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:improve:430a2dc6815550c7",
@@ -7988,7 +9444,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:improve:improve-on",
+        "source_locator": "record.constructions[0]",
+        "pattern": "improve on/upon sth",
+        "lines": [
+          {
+            "text": "做得比……更好；在原有基础上提高",
+            "lang": "cn"
+          },
+          {
+            "text": "not simply become better; compares a result with an existing standard",
+            "lang": "en"
+          },
+          {
+            "text": "to produce or achieve something better than a previous version or result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:improve:improve-on",
+          "target_locator": "record.constructions[0]",
+          "target_label": "improve on/upon sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8002,7 +9484,7 @@
     "ordinal": 2482,
     "word": "impulse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2482.json",
-    "source_fingerprint": "52819767a9d79c89f2a44756eb37427b56fd215eff9ad12c4142cd82289a3a66",
+    "source_fingerprint": "b4973fb56d019a16034cc0ab7bb0be9ef8bd6341523f43303aedd77c7927ecd4",
     "sense_lineage": [
       {
         "word_id": "word:impulse",
@@ -8019,13 +9501,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冲动；推动",
+      "summary_cn": "冲动；推动力；脉冲／神经冲动",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冲动；推动"
+        "target_label": "冲动；推动力；脉冲／神经冲动"
       }
     },
     "senses": [
@@ -8208,7 +9690,7 @@
     "ordinal": 2483,
     "word": "in",
     "source_owner_path": "content/lexical/words/by-ordinal/o2483.json",
-    "source_fingerprint": "842fcc3e6e25b5c26109d1f60b9a627e3a4bf732e8bb2aa0082cd231c2569d58",
+    "source_fingerprint": "43c60c8a168f57f08c2a5fac286176b937df88ff60170d8ce8426064496d68dd",
     "sense_lineage": [
       {
         "word_id": "word:in",
@@ -8227,19 +9709,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1ADV",
-        "1PREP"
+        "5ADV",
+        "7PREP"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在……之内；向内进入",
-      "decision_cn": "",
+      "summary_cn": "处于范围之内；参与、状态、方式或到达",
+      "decision_cn": "in把某物放入一个空间、时段、领域或状态。看后项：时间段可定位将来/完成耗时，衣物是穿着，媒介是方式；副词无宾语时可表示人在家、材料已到或球界内。in that/for/on/with和ins and outs按整体选义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在……之内；向内进入"
+        "target_label": "处于范围之内；参与、状态、方式或到达"
       }
     },
     "senses": [
@@ -8275,6 +9757,266 @@
           "target_id": "sense:in:00db532f4ca65c76",
           "target_locator": "record.senses[1]",
           "target_label": "向内；进入里面"
+        }
+      },
+      {
+        "id": "sense:in:f51567a13e976178",
+        "source_locator": "record.senses[2]",
+        "pos": "preposition",
+        "governing_pattern": "in + duration",
+        "definition_cn": "在某段时间以后；在某段时间内完成",
+        "definition_en": "after a specified interval or within the time taken to complete something",
+        "note": "将来动作in two hours常指两小时以后；完成/学会动作常指花两小时完成。否定句或first/last后的in + 时段可指这段时间内，不机械当将来。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fc6d78480a9cbc9e90f1",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "in three days",
+            "meaning_cn": "三天以后；按完成动作语境也可为用三天时间",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:f51567a13e976178",
+          "target_locator": "record.senses[2]",
+          "target_label": "在某段时间以后；在某段时间内完成"
+        }
+      },
+      {
+        "id": "sense:in:484447d89bf66de1",
+        "source_locator": "record.senses[3]",
+        "pos": "preposition",
+        "governing_pattern": "sb in + clothing/colour",
+        "definition_cn": "穿戴着；身着某衣物或颜色",
+        "definition_en": "wearing a particular garment or colour",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2f94bd0d7d32c0e5983a",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a visitor in uniform",
+            "meaning_cn": "一位穿制服的来访者",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:484447d89bf66de1",
+          "target_locator": "record.senses[3]",
+          "target_label": "穿戴着；身着某衣物或颜色"
+        }
+      },
+      {
+        "id": "sense:in:41dcfbdf23584811",
+        "source_locator": "record.senses[4]",
+        "pos": "preposition",
+        "governing_pattern": "in + language/material/manner/form",
+        "definition_cn": "以某种语言、材料、方式或安排",
+        "definition_en": "using a language, material, manner, form or arrangement",
+        "note": "in cash/English/pencil说明媒介或方式；in rows/parts说明安排/形式。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a164479252035a5c86d2",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "in writing",
+            "meaning_cn": "以书面形式",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:41dcfbdf23584811",
+          "target_locator": "record.senses[4]",
+          "target_label": "以某种语言、材料、方式或安排"
+        }
+      },
+      {
+        "id": "sense:in:e3468a498d9e7fd6",
+        "source_locator": "record.senses[5]",
+        "pos": "preposition",
+        "governing_pattern": "in + state/situation; in doing sth",
+        "definition_cn": "处于某种状态、环境或某活动过程中",
+        "definition_en": "in a state, surrounding situation or ongoing activity",
+        "note": "in trouble/love是状态；in the rain是环境；in doing sth常是做某事过程中，与by doing的手段表达不自动互换。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:45e94d3c1131ef80b902",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "in trying to help",
+            "meaning_cn": "在试图帮忙时",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:e3468a498d9e7fd6",
+          "target_locator": "record.senses[5]",
+          "target_label": "处于某种状态、环境或某活动过程中"
+        }
+      },
+      {
+        "id": "sense:in:ced74ede38a16194",
+        "source_locator": "record.senses[6]",
+        "pos": "preposition",
+        "governing_pattern": "in + field/aspect",
+        "definition_cn": "在某行业、领域或方面；就某方面而言",
+        "definition_en": "in a profession, area of activity, or respect being considered",
+        "note": "work in finance是行业，rich in resources是方面，参与某活动也用in；要结合后接名词与句子语义选择。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:61c3eec75e178e5d023e",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a change in attitude",
+            "meaning_cn": "态度方面的变化",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:ced74ede38a16194",
+          "target_locator": "record.senses[6]",
+          "target_label": "在某行业、领域或方面；就某方面而言"
+        }
+      },
+      {
+        "id": "sense:in:74fd2ab1d2e5ee0d",
+        "source_locator": "record.senses[7]",
+        "pos": "preposition",
+        "governing_pattern": "one/number in number",
+        "definition_cn": "（比例、发生频率）每……中有……",
+        "definition_en": "as a rate or proportion within a stated total",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:81b067bd82473e80906a",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "one in twenty households",
+            "meaning_cn": "每二十户中有一户",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:74fd2ab1d2e5ee0d",
+          "target_locator": "record.senses[7]",
+          "target_label": "（比例、发生频率）每……中有……"
+        }
+      },
+      {
+        "id": "sense:in:696e229f59af83dc",
+        "source_locator": "record.senses[8]",
+        "pos": "adverb",
+        "governing_pattern": "be/stay in; with sth in",
+        "definition_cn": "在里面；在家或工作地点",
+        "definition_en": "inside or present at home or a place of work",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:03fd7e74ceec2cdc7948",
+            "source_locator": "record.senses[8].collocations[0]",
+            "phrase": "Nobody was in.",
+            "meaning_cn": "当时家里/办公室没人。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:696e229f59af83dc",
+          "target_locator": "record.senses[8]",
+          "target_label": "在里面；在家或工作地点"
+        }
+      },
+      {
+        "id": "sense:in:243b031233aa5ec6",
+        "source_locator": "record.senses[9]",
+        "pos": "adverb",
+        "governing_pattern": "be/due in; applications/results be in",
+        "definition_cn": "到达；收到；递交到位",
+        "definition_en": "arrived at a destination or received at the required place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c90339d48c925441bda3",
+            "source_locator": "record.senses[9].collocations[0]",
+            "phrase": "The applications are in.",
+            "meaning_cn": "申请材料已经收齐/交到了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:243b031233aa5ec6",
+          "target_locator": "record.senses[9]",
+          "target_label": "到达；收到；递交到位"
+        }
+      },
+      {
+        "id": "sense:in:b54595c48698eda9",
+        "source_locator": "record.senses[10]",
+        "pos": "adverb",
+        "governing_pattern": "the tide be/come in",
+        "definition_cn": "（潮水）向陆地涨来；处于高水位",
+        "definition_en": "of the tide, moving towards or at its highest reach on land",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a4f8667c79fdcc1967ee",
+            "source_locator": "record.senses[10].collocations[0]",
+            "phrase": "The tide is coming in.",
+            "meaning_cn": "潮水正在涨。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:b54595c48698eda9",
+          "target_locator": "record.senses[10]",
+          "target_label": "（潮水）向陆地涨来；处于高水位"
+        }
+      },
+      {
+        "id": "sense:in:d013583e62649c84",
+        "source_locator": "record.senses[11]",
+        "pos": "adverb",
+        "governing_pattern": "the ball/serve be/land in",
+        "definition_cn": "（球）落在界内",
+        "definition_en": "of a ball, landing inside the playing boundary",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d466535152516eb8c4e5",
+            "source_locator": "record.senses[11].collocations[0]",
+            "phrase": "The serve was in.",
+            "meaning_cn": "发球落在界内。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:in:d013583e62649c84",
+          "target_locator": "record.senses[11]",
+          "target_label": "（球）落在界内"
         }
       }
     ],
@@ -8344,6 +10086,68 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "in",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:in:f51567a13e976178",
+                "sense:in:484447d89bf66de1",
+                "sense:in:41dcfbdf23584811",
+                "sense:in:e3468a498d9e7fd6",
+                "sense:in:ced74ede38a16194",
+                "sense:in:74fd2ab1d2e5ee0d"
+              ],
+              "owner_sense_ids": [
+                "sense:in:f51567a13e976178",
+                "sense:in:484447d89bf66de1",
+                "sense:in:41dcfbdf23584811",
+                "sense:in:e3468a498d9e7fd6",
+                "sense:in:ced74ede38a16194",
+                "sense:in:74fd2ab1d2e5ee0d"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ɪn/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "in",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:in:696e229f59af83dc",
+                "sense:in:243b031233aa5ec6",
+                "sense:in:b54595c48698eda9",
+                "sense:in:d013583e62649c84"
+              ],
+              "owner_sense_ids": [
+                "sense:in:696e229f59af83dc",
+                "sense:in:243b031233aa5ec6",
+                "sense:in:b54595c48698eda9",
+                "sense:in:d013583e62649c84"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -8353,12 +10157,193 @@
         ],
         "sense:in:00db532f4ca65c76": [
           2
+        ],
+        "sense:in:41dcfbdf23584811": [
+          3
+        ],
+        "sense:in:484447d89bf66de1": [
+          3
+        ],
+        "sense:in:74fd2ab1d2e5ee0d": [
+          3
+        ],
+        "sense:in:ced74ede38a16194": [
+          3
+        ],
+        "sense:in:e3468a498d9e7fd6": [
+          3
+        ],
+        "sense:in:f51567a13e976178": [
+          3
+        ],
+        "sense:in:243b031233aa5ec6": [
+          4
+        ],
+        "sense:in:696e229f59af83dc": [
+          4
+        ],
+        "sense:in:b54595c48698eda9": [
+          4
+        ],
+        "sense:in:d013583e62649c84": [
+          4
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:0ab8132cdef480d63d96",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in that + clause",
+        "lines": [
+          {
+            "text": "因为；在于",
+            "lang": "cn"
+          },
+          {
+            "text": "正式连接整个从句给出理由，不当作位置的in + that代词。",
+            "lang": "cn"
+          },
+          {
+            "text": "because; in the respect that",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0ab8132cdef480d63d96",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in that + clause"
+        }
+      },
+      {
+        "id": "construction:6eb7846a1aa01aa410c1",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be in for sth",
+        "lines": [
+          {
+            "text": "将要经历（通常不愉快的）某事",
+            "lang": "cn"
+          },
+          {
+            "text": "informal；常接shock/trouble等，可遇到的经历，不是for目的。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be about to experience something, often unpleasant",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6eb7846a1aa01aa410c1",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be in for sth"
+        }
+      },
+      {
+        "id": "construction:35b7859b7ac342fb01d8",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be/get in on sth",
+        "lines": [
+          {
+            "text": "参与其中；分享或知晓内情",
+            "lang": "cn"
+          },
+          {
+            "text": "informal；plan/secret等，不是空间on。",
+            "lang": "cn"
+          },
+          {
+            "text": "to participate in or become privy to something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:35b7859b7ac342fb01d8",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be/get in on sth"
+        }
+      },
+      {
+        "id": "construction:575b4b07e9806779539f",
+        "source_locator": "record.constructions[3]",
+        "pattern": "be (well) in with sb / have an in with sb",
+        "lines": [
+          {
+            "text": "与某人关系密切而可能受惠；对某人有影响或门路",
+            "lang": "cn"
+          },
+          {
+            "text": "be in with为informal；have an in with尤北美。此处in表达门路或影响。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have a useful close connection or influence with somebody",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:575b4b07e9806779539f",
+          "target_locator": "record.constructions[3]",
+          "target_label": "be (well) in with sb / have an in with sb"
+        }
+      },
+      {
+        "id": "construction:3c7608a2a50789111b55",
+        "source_locator": "record.constructions[4]",
+        "pattern": "the ins and outs of sth",
+        "lines": [
+          {
+            "text": "某事的细节、来龙去脉",
+            "lang": "cn"
+          },
+          {
+            "text": "ins/outs是固定复数形式，整个短语指细节，不是一般方向的进出。",
+            "lang": "cn"
+          },
+          {
+            "text": "all the details of something, especially complicated ones",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3c7608a2a50789111b55",
+          "target_locator": "record.constructions[4]",
+          "target_label": "the ins and outs of sth"
+        }
+      },
+      {
+        "id": "construction:204db5c001116e880f51",
+        "source_locator": "record.constructions[5]",
+        "pattern": "be in / the in thing",
+        "lines": [
+          {
+            "text": "流行；时髦",
+            "lang": "cn"
+          },
+          {
+            "text": "informal；描述风格/做法的受欢迎程度，不是地点里面，按时尚语境理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be fashionable or popular",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:204db5c001116e880f51",
+          "target_locator": "record.constructions[5]",
+          "target_label": "be in / the in thing"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8424,7 +10409,7 @@
     "ordinal": 2484,
     "word": "inaugurate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2484.json",
-    "source_fingerprint": "106922a2ee63e8c59f87c81dbf5fa674fb1252529b9c1eb16f3073d5b40937c3",
+    "source_fingerprint": "2cbbc25fd8b3b54c31885b495588f48a51c34e41a8ac614afce41b0e9e6b2616",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8500,8 +10485,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "预示…的开始",
-        "definition_en": "to be a sign of the beginning of something",
+        "definition_cn": "开创；标志……的开始",
+        "definition_en": "to bring about or mark the beginning of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8518,7 +10503,7 @@
           "target_kind": "sense",
           "target_id": "sense:inaugurate:70c05e7bcf065be9",
           "target_locator": "record.senses[2]",
-          "target_label": "预示…的开始"
+          "target_label": "开创；标志……的开始"
         }
       }
     ],
@@ -8674,8 +10659,16 @@
     "ordinal": 2486,
     "word": "inch",
     "source_owner_path": "content/lexical/words/by-ordinal/o2486.json",
-    "source_fingerprint": "3dd40557914ff5f3ca9f76592c074a5b8b12796bfa32821c581ad762aa1caff8",
-    "sense_lineage": [],
+    "source_fingerprint": "bf4fdf3f12a85605e9b3958f836c47e9dbdf98dfc22e0ea20bf6e484611646da",
+    "sense_lineage": [
+      {
+        "word_id": "word:inch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6f26db0964ad14c16eed",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -8715,19 +10708,6 @@
               "target_id": "collocation:b25364eaff7b946a8aa5",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "an inch of + sth"
-            }
-          },
-          {
-            "id": "collocation:6f26db0964ad14c16eed",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "every inch",
-            "meaning_cn": "完全，彻底",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6f26db0964ad14c16eed",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "every inch"
             }
           }
         ],
@@ -8864,7 +10844,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:inch:every-inch",
+        "source_locator": "record.constructions[0]",
+        "pattern": "every inch (of) sth / every inch a ...",
+        "lines": [
+          {
+            "text": "每一寸；（比喻）完全、十足地",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative totality uses cannot be read as a numerical length",
+            "lang": "en"
+          },
+          {
+            "text": "every part of something; figuratively, completely or in every respect",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:inch:every-inch",
+          "target_locator": "record.constructions[0]",
+          "target_label": "every inch (of) sth / every inch a ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9233,22 +11239,30 @@
     "ordinal": 2489,
     "word": "incidentally",
     "source_owner_path": "content/lexical/words/by-ordinal/o2489.json",
-    "source_fingerprint": "a4701b450b22270b2ffba7e1617bef194b395a11b2b6a8ce95c6a77e7695f23c",
-    "sense_lineage": [],
+    "source_fingerprint": "07e28f59d1513a10b892d01fc372838aab23c296af1ee26db9fd8bb483aeb77b",
+    "sense_lineage": [
+      {
+        "word_id": "word:incidentally",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:edbe52425be06da5a9e8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1ADV"
+        "2ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "顺便说一句；附带地",
-      "decision_cn": "",
+      "summary_cn": "插入补充信息，或作为附带结果发生",
+      "decision_cn": "句首Incidentally引入旁话；discovered incidentally修饰发现方式，表示并非原计划目标，不能译成说话的顺便提一句。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "顺便说一句；附带地"
+        "target_label": "插入补充信息，或作为附带结果发生"
       }
     },
     "senses": [
@@ -9267,13 +11281,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "incidentally, ...",
             "meaning_cn": "顺便说一句，...",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:edbe52425be06da5a9e8",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "incidentally, ..."
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:aec98007a8837b62d0c9",
@@ -9290,6 +11299,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "顺便说一句；附带地"
         }
+      },
+      {
+        "id": "sense:incidentally:833f697000f3ad1a",
+        "source_locator": "record.senses[1]",
+        "pos": "adverb",
+        "governing_pattern": "discover/learn sth incidentally",
+        "definition_cn": "附带地；在处理相关事情时意外地",
+        "definition_en": "as an unplanned or secondary result of another activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d3b71cfd577d17f58032",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "The discrepancy was discovered incidentally.",
+            "meaning_cn": "这一差异是在处理相关事情时意外发现的。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:incidentally:833f697000f3ad1a",
+          "target_locator": "record.senses[1]",
+          "target_label": "附带地；在处理相关事情时意外地"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9302,14 +11337,35 @@
           "applicability": [
             {
               "surface": "incidentally"
+            },
+            {
+              "surface": "incidentally",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:incidentally:833f697000f3ad1a"
+              ],
+              "owner_sense_ids": [
+                "sense:incidentally:833f697000f3ad1a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2489.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "discover/learn sth incidentally"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:incidentally:833f697000f3ad1a": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9326,7 +11382,7 @@
     "ordinal": 2490,
     "word": "incline",
     "source_owner_path": "content/lexical/words/by-ordinal/o2490.json",
-    "source_fingerprint": "61f2f093ae71b8e8ef906211ecbb5347d78b5c9dcc1652b88fe00b9f7032edc3",
+    "source_fingerprint": "641963518d73f0f5826cb1cf36119e9c2868c1f4ac97ab46196e938ffdf409fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9336,13 +11392,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "倾斜或倾向",
-      "decision_cn": "",
+      "summary_cn": "倾斜／倾向；斜坡",
+      "decision_cn": "倾斜或倾向",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "倾斜或倾向"
+        "target_label": "倾斜／倾向；斜坡"
       }
     },
     "senses": [
@@ -9350,7 +11406,7 @@
         "id": "sense:incline:5afaa6b7fc8f5b19",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to/towards",
+        "governing_pattern": "incline to/towards sth; incline to do sth",
         "definition_cn": "倾向于；有意",
         "definition_en": "to tend to do something or be likely to have a particular opinion",
         "note": "",
@@ -9394,7 +11450,7 @@
         "id": "sense:incline:867631dd8f745c82",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "incline sb to/towards sth; incline sb to do sth",
         "definition_cn": "使倾向于",
         "definition_en": "to cause someone to have a particular tendency or opinion",
         "note": "",
@@ -9433,9 +11489,9 @@
         "id": "sense:incline:a59302125f80596f",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + to/towards",
-        "definition_cn": "倾斜；屈身",
-        "definition_en": "to slope or lean in a particular direction",
+        "governing_pattern": "incline toward/to sth; incline one's head",
+        "definition_cn": "倾斜；使倾斜；俯身或低头",
+        "definition_en": "to slope or lean, or make something lean in a direction",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9465,7 +11521,7 @@
           "target_kind": "sense",
           "target_id": "sense:incline:a59302125f80596f",
           "target_locator": "record.senses[2]",
-          "target_label": "倾斜；屈身"
+          "target_label": "倾斜；使倾斜；俯身或低头"
         }
       },
       {
@@ -9639,7 +11695,7 @@
     "ordinal": 2491,
     "word": "include",
     "source_owner_path": "content/lexical/words/by-ordinal/o2491.json",
-    "source_fingerprint": "73f9f9a432d823848f5732fa670c5083781632bddf4b060100e5ba4cb70cea8a",
+    "source_fingerprint": "2b3611de91da287eb3658327953f3c9be3b4e62937217e08041a353b98a1846e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9663,8 +11719,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "包括，包含",
-        "definition_en": "have as a part, be made up out of",
+        "definition_cn": "包括；包含",
+        "definition_en": "to have or contain someone or something as a part",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9694,7 +11750,7 @@
           "target_kind": "sense",
           "target_id": "sense:include:116a6fd09a0f5e1d",
           "target_locator": "record.senses[0]",
-          "target_label": "包括，包含"
+          "target_label": "包括；包含"
         }
       },
       {
@@ -9764,8 +11820,16 @@
     "ordinal": 2492,
     "word": "inclusive",
     "source_owner_path": "content/lexical/words/by-ordinal/o2492.json",
-    "source_fingerprint": "febd37748ea0eb85a989db57c3205f98a2aba6d661b53cb23c88b4d2c7224cea",
-    "sense_lineage": [],
+    "source_fingerprint": "f307b47393af6eff2569ed88fe14b0f84003b0bcbbccb15e4b4de797cd01a8a1",
+    "sense_lineage": [
+      {
+        "word_id": "word:inclusive",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bd2a997f78b804f0494f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2A"
@@ -9773,13 +11837,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "包含的，包括的",
+      "summary_cn": "包括在内（含端点／费用）；包容各类人的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "包含的，包括的"
+        "target_label": "包括在内（含端点／费用）；包容各类人的"
       }
     },
     "senses": [
@@ -9787,7 +11851,7 @@
         "id": "sense:inclusive:0c143187d6675ea7",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "inclusive of sth; from Monday to Friday inclusive",
         "definition_cn": "包含的，包括的",
         "definition_en": "including much or everything; and especially including stated limits",
         "note": "",
@@ -9837,13 +11901,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "an inclusive workplace/education system",
             "meaning_cn": "包容的工作场所/教育体系",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bd2a997f78b804f0494f",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "an inclusive workplace/education system"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9886,7 +11945,7 @@
     "ordinal": 2493,
     "word": "income",
     "source_owner_path": "content/lexical/words/by-ordinal/o2493.json",
-    "source_fingerprint": "dd38ffbf1d76ad6996f97d51b84a2071f0e3e7bd18d995a3607664ed7b73464b",
+    "source_fingerprint": "90c8c49afa4723a87c25aeda6758a23bb200539321df57f4a34147960bccd339",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10283,7 +12342,7 @@
     "ordinal": 2495,
     "word": "increase",
     "source_owner_path": "content/lexical/words/by-ordinal/o2495.json",
-    "source_fingerprint": "70ce4293a7cbaad51ea757a920b774899de9a9a7044e8d0dd9c30fbe61e606c0",
+    "source_fingerprint": "b3ad97a5872c26104796e4f793146cee31b1be038f5b586a5f743d91e1da7ca1",
     "sense_lineage": [
       {
         "word_id": "word:increase",
@@ -10291,6 +12350,13 @@
         "from_target_id": "sense:increase:4a4eebc8d7365ae6",
         "status": "merged",
         "to_target_id": "sense:increase:c9530bcc41bf5510"
+      },
+      {
+        "word_id": "word:increase",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:49d088f335d58cfb2803",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -10315,7 +12381,7 @@
         "id": "sense:increase:c9530bcc41bf5510",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "increase sth; sth increases; increase in size; increase by an amount; increase to a level",
         "definition_cn": "（使）增加；（使）增大",
         "definition_en": "to make or become larger in amount, size, number, or degree",
         "note": "",
@@ -10355,13 +12421,8 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "increase + sth",
             "meaning_cn": "增加某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:49d088f335d58cfb2803",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "increase + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:9ea4fc8951cf0e038041",
@@ -10383,7 +12444,7 @@
         "id": "sense:increase:db50ad9e6c6159e3",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "an increase in sth; an increase of an amount",
         "definition_cn": "增加，增长",
         "definition_en": "a rise in the amount, size, or degree of something",
         "note": "",
@@ -10571,7 +12632,7 @@
     "ordinal": 2496,
     "word": "increasingly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2496.json",
-    "source_fingerprint": "9a5a233d772cdcf383d6493b90f986711166d6a3b4a2b52fb0a1d9bec9e2f13e",
+    "source_fingerprint": "56eae978490bf4572f6842fa76a0e1d1f3762c2a452798e7d23b78a523510dea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10595,8 +12656,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "逐渐地；日益",
-        "definition_en": "advancing in amount or intensity",
+        "definition_cn": "越来越；日益",
+        "definition_en": "more and more; to an increasing degree",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10621,7 +12682,7 @@
           "target_kind": "sense",
           "target_id": "sense:increasingly:4329efda14875a85",
           "target_locator": "record.senses[0]",
-          "target_label": "逐渐地；日益"
+          "target_label": "越来越；日益"
         }
       }
     ],

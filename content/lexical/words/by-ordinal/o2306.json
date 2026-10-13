@@ -9,11 +9,30 @@
     "constructions": [],
     "content_hash": "1afab7f66a129730e2f59504787c20e32bb6e927f7c0fb8828db20446768380b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "问候的表达",
-      "core_meaning_en": "an expression of greeting",
-      "mental_model_cn": "问候的表达",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "问候语，你好；咦！（表示惊讶，英式）；喂！有没有在听？（对愚蠢话语或不专心表示不满）",
+          "label_en": "an expression of greeting; an exclamation showing surprise; an informal exclamation showing disbelief or irritation at inattention",
+          "pos": "interjection",
+          "sense_ids": [
+            "sense:hello:9e10319569515082",
+            "sense:hello:8b1ee61906e25954",
+            "sense:hello:b424cd682bb049e5"
+          ]
+        },
+        {
+          "label_cn": "一声问候；招呼",
+          "label_en": "a greeting expressed by saying hello",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hello:6aadc4786d092550"
+          ]
+        }
+      ],
+      "core_meaning_cn": "问候、招呼；表示惊讶或对不专心的不满",
+      "core_meaning_en": "greet or attract attention; a greeting; surprise or irritated disbelief",
+      "mental_model_cn": "hello可在见面或电话中招呼人；语气和上下文也可使它表示惊讶或提醒对方在听。",
+      "mental_model_en": "greet or attract attention; a greeting; surprise or irritated disbelief."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -54,7 +73,74 @@
         "sense_id": "sense:hello:9e10319569515082",
         "sense_label_en": "an expression of greeting",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "用于见面、邮件或接电话，也可用于引起注意，如Hello, is anyone there?；不总是单纯问候。"
+      },
+      {
+        "sense_id": "sense:hello:6aadc4786d092550",
+        "pos": "noun",
+        "definition_cn": "一声问候；招呼",
+        "definition_en": "a greeting expressed by saying hello",
+        "sense_label_en": "a greeting expressed by saying hello",
+        "governing_pattern": "say/exchange hellos",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a3c79b66c9d6216499bf",
+            "phrase": "They exchanged quick hellos before the meeting.",
+            "meaning_cn": "会前他们匆匆互相打了招呼。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hello:8b1ee61906e25954",
+        "pos": "interjection",
+        "definition_cn": "咦！（表示惊讶，英式）",
+        "definition_en": "an exclamation showing surprise",
+        "sense_label_en": "an exclamation showing surprise",
+        "governing_pattern": "Hello, what is this?",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a9a78d786329a88378f4",
+            "phrase": "Hello, what have we found here?",
+            "meaning_cn": "咦，我们在这里发现什么了？",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hello:b424cd682bb049e5",
+        "pos": "interjection",
+        "definition_cn": "喂！有没有在听？（对愚蠢话语或不专心表示不满）",
+        "definition_en": "an informal exclamation showing disbelief or irritation at inattention",
+        "sense_label_en": "an informal exclamation showing disbelief or irritation at inattention",
+        "governing_pattern": "Hello? Did you listen?",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c8fef1c0fff0d9aaef80",
+            "phrase": "Hello? I just told you the answer.",
+            "meaning_cn": "喂？我刚刚已经告诉你答案了。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -96,6 +182,57 @@
           "applicability": [
             {
               "surface": "hello"
+            },
+            {
+              "surface": "hello",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hello:6aadc4786d092550"
+              ],
+              "owner_sense_ids": [
+                "sense:hello:6aadc4786d092550"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2306.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "say/exchange hellos"
+            },
+            {
+              "surface": "hello",
+              "pos": [
+                "interjection"
+              ],
+              "sense_ids": [
+                "sense:hello:8b1ee61906e25954"
+              ],
+              "owner_sense_ids": [
+                "sense:hello:8b1ee61906e25954"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2306.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "Hello, what is this?"
+            },
+            {
+              "surface": "hello",
+              "pos": [
+                "interjection"
+              ],
+              "sense_ids": [
+                "sense:hello:b424cd682bb049e5"
+              ],
+              "owner_sense_ids": [
+                "sense:hello:b424cd682bb049e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2306.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "Hello? Did you listen?"
             }
           ],
           "sources": [
@@ -675,11 +812,38 @@
         "merged_into_sense_id": null,
         "source_row": 6450,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hello:6aadc4786d092550",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:hello:8b1ee61906e25954",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:hello:b424cd682bb049e5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:4df6962d57381ddc51fd",
-      "collocation:d999dada08ff9c8903c2"
+      "collocation:d999dada08ff9c8903c2",
+      "collocation:a3c79b66c9d6216499bf",
+      "collocation:a9a78d786329a88378f4",
+      "collocation:c8fef1c0fff0d9aaef80"
     ],
     "facts": [],
     "collocations": [
@@ -692,6 +856,27 @@
         "id": "collocation:d999dada08ff9c8903c2",
         "source_row": 18406,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:a3c79b66c9d6216499bf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:a9a78d786329a88378f4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:c8fef1c0fff0d9aaef80",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2306.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -63,6 +63,76 @@
         "level": "L2",
         "meaning_cn": "别打听或干涉别人的私事；管好你自己的事",
         "pattern": "mind your own business"
+      },
+      {
+        "construction_id": "construction:edf8d220b81d28706f0f",
+        "pattern": "be in two minds / be of two minds (about sth/doing sth)",
+        "meaning_cn": "犹豫不决；拿不定主意",
+        "definition_en": "be unsure what to think or whether to do something",
+        "usage_note": "in two minds常见英式，of two minds常见北美；不是指两个人。",
+        "boundary": "in two minds常见英式，of two minds常见北美；不是指两个人。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:10259ddf89e018c74600",
+        "pattern": "be on sb’s mind",
+        "meaning_cn": "让某人一直惦记、担心",
+        "definition_en": "occupy somebody’s thoughts, often because of worry",
+        "usage_note": "on my mind偏持续惦记；have/keep in mind则侧重想到或记住。",
+        "boundary": "on my mind偏持续惦记；have/keep in mind则侧重想到或记住。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0dc5eac21e8b7786aec9",
+        "pattern": "speak your mind",
+        "meaning_cn": "直言自己的真实想法",
+        "definition_en": "say directly what you really think",
+        "usage_note": "不要求语气温和，但也不必然表示辱骂。",
+        "boundary": "不要求语气温和，但也不必然表示辱骂。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:a1e8728d84907b41c7cb",
+        "pattern": "slip sb’s mind",
+        "meaning_cn": "被某人忘记；一时忘了",
+        "definition_en": "be forgotten, often unintentionally",
+        "usage_note": "事情作主语：The appointment slipped my mind。",
+        "boundary": "事情作主语：The appointment slipped my mind。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0924df8a11cf7dad3751",
+        "pattern": "give sb a piece of your mind",
+        "meaning_cn": "生气地训斥、责备某人",
+        "definition_en": "tell somebody angrily that you disapprove of their behaviour",
+        "usage_note": "非正式；piece of your mind不是peace of mind的心安。",
+        "boundary": "非正式；piece of your mind不是peace of mind的心安。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:fc695c1012f58341ae8f",
+        "pattern": "mind you",
+        "meaning_cn": "不过；话说回来（补充限制或转折）",
+        "definition_en": "add a qualification or contrasting point to what was just said",
+        "usage_note": "非正式话语标记；不按普通“照看你”理解。",
+        "boundary": "非正式话语标记；不按普通“照看你”理解。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:8fbec3f122da962a9ec3",
+        "pattern": "Never mind! / never mind (about) sth/doing sth / A, never mind B",
+        "meaning_cn": "别在意；不必管；更不用说",
+        "definition_en": "say something need not worry you or need not be done; also introduce a stronger, less likely case",
+        "usage_note": "安慰或取消关注时是“没关系/别管”；A, never mind B还可表示“连A都…，更别说B”。",
+        "boundary": "安慰或取消关注时是“没关系/别管”；A, never mind B还可表示“连A都…，更别说B”。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "0528a9d74aa906977d2631c9d9dd2b5c7736a38580f0258e47f7cf274f566ba3",
@@ -86,12 +156,20 @@
             "sense:mind:fd6c109bad205587",
             "sense:mind:c4bd411961445b73"
           ]
+        },
+        {
+          "label_cn": "才智出众的人；聪明才俊",
+          "label_en": "a person with outstanding intellectual ability",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mind:6f28326cdeeb0e1a"
+          ]
         }
       ],
-      "core_meaning_cn": "心智；介意",
-      "core_meaning_en": "the faculty of thought and consciousness; also to care or pay attention",
-      "mental_model_cn": "心智；介意",
-      "mental_model_en": ""
+      "core_meaning_cn": "心智、想法与才智；介意、留心、照看",
+      "core_meaning_en": "mental life, thoughts and intellectual ability; object, pay attention or look after",
+      "mental_model_cn": "先看名词还是动词：a great mind可指才俊；mind doing表示介意做某事；mind the gap提醒留心，mind the children是照看。",
+      "mental_model_en": "mental life, thoughts and intellectual ability; object, pay attention or look after."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -114,15 +192,6 @@
             ],
             "meaning_cn": "心态",
             "phrase": "state of mind"
-          },
-          {
-            "collocation_id": "collocation:ceccc7860d1d5e513caf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mind:b371d51027b0562a:collocation:1"
-            ],
-            "meaning_cn": "改变主意",
-            "phrase": "change one's mind"
           }
         ],
         "confidence": "medium",
@@ -156,17 +225,26 @@
             ],
             "meaning_cn": "想到；打算",
             "phrase": "have in mind"
+          },
+          {
+            "collocation_id": "collocation:ceccc7860d1d5e513caf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mind:b371d51027b0562a:collocation:1"
+            ],
+            "meaning_cn": "改变主意",
+            "phrase": "change one's mind"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "注意力；意图",
-        "definition_en": "attention or intention",
+        "definition_cn": "注意力；想法；意图",
+        "definition_en": "attention, opinion, or intention",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mind:0f32f8bcd4dc5f3c",
-        "sense_label_en": "attention or intention",
+        "sense_label_en": "attention, opinion, or intention",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -187,21 +265,22 @@
             "legacy_source_object_ids": [
               "sense:mind:7c0f2cdd8ce453bb:collocation:1"
             ],
-            "meaning_cn": "你介意...吗？",
+            "meaning_cn": "你介意……吗？（礼貌请求；回答 No 表示不介意）",
             "phrase": "Would you mind...?"
           }
         ],
         "confidence": "medium",
         "definition_cn": "介意；反对",
         "definition_en": "to be bothered by; to object to",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "mind sth/doing sth; Would you mind doing…? / Do you mind if…?; I don't mind.",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mind:7c0f2cdd8ce453bb",
         "sense_label_en": "to be bothered by; to object to",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "常用于问句和否定句，通常不用被动；mind doing，不用mind to do。mind sb doing可用普通宾格，正式语体可用所有格。I don’t mind可表示随便、没有偏好；Would you mind doing请求对方做事，Do you mind if I…询问自己可否做事。"
       },
       {
         "collocations": [
@@ -250,6 +329,50 @@
         "sense_label_en": "to take care of temporarily",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:mind:6f28326cdeeb0e1a",
+        "pos": "noun",
+        "definition_cn": "才智出众的人；聪明才俊",
+        "definition_en": "a person with outstanding intellectual ability",
+        "sense_label_en": "a person with outstanding intellectual ability",
+        "governing_pattern": "a great/brilliant mind; the finest minds",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4f151b077bf4c47a66ee",
+            "phrase": "one of the finest minds of her generation",
+            "meaning_cn": "她那一代最有才智的人之一",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mind:7fc4e78c2b18f0bc",
+        "pos": "verb",
+        "definition_cn": "听从；服从（某人的话）",
+        "definition_en": "pay attention to and obey what somebody says",
+        "sense_label_en": "pay attention to and obey what somebody says",
+        "governing_pattern": "mind sb（尤北美和爱尔兰英语）",
+        "transitivity": "vt",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3757cfc1a83840ae2dfe",
+            "phrase": "mind your parents",
+            "meaning_cn": "听父母的话",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -299,6 +422,42 @@
           "applicability": [
             {
               "surface": "mind"
+            },
+            {
+              "surface": "mind",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mind:6f28326cdeeb0e1a"
+              ],
+              "owner_sense_ids": [
+                "sense:mind:6f28326cdeeb0e1a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3058.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a great/brilliant mind; the finest minds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mind",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mind:7fc4e78c2b18f0bc"
+              ],
+              "owner_sense_ids": [
+                "sense:mind:7fc4e78c2b18f0bc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3058.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mind sb（尤北美和爱尔兰英语）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -409,17 +568,35 @@
         "merged_into_sense_id": null,
         "source_row": 8519,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
+        "sense_id": "sense:mind:6f28326cdeeb0e1a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3058.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:mind:7fc4e78c2b18f0bc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3058.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
       "collocation:14ebb6451c39b89203e9",
-      "collocation:5e165ad6aed28dceaa70",
-      "collocation:5e64fb4caa022b681ebb",
-      "collocation:67d9391b0f234d371b3a",
-      "collocation:a58b97d7554fc753e21d",
       "collocation:c5557de25b5330cecc92",
+      "collocation:5e64fb4caa022b681ebb",
+      "collocation:ceccc7860d1d5e513caf",
       "collocation:c7ef619b3d77888a7422",
-      "collocation:ceccc7860d1d5e513caf"
+      "collocation:a58b97d7554fc753e21d",
+      "collocation:5e165ad6aed28dceaa70",
+      "collocation:67d9391b0f234d371b3a",
+      "collocation:4f151b077bf4c47a66ee",
+      "collocation:3757cfc1a83840ae2dfe"
     ],
     "facts": [
       {
@@ -472,7 +649,22 @@
       {
         "id": "collocation:ceccc7860d1d5e513caf",
         "source_row": 17474,
-        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json",
+        "sense_id": "sense:mind:0f32f8bcd4dc5f3c"
+      },
+      {
+        "id": "collocation:4f151b077bf4c47a66ee",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3058.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:3757cfc1a83840ae2dfe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3058.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

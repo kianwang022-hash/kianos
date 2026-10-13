@@ -16,13 +16,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:indicate:10f72093d79d5705",
-            "sense:indicate:2e356eb1da415bf3"
+            "sense:indicate:2e356eb1da415bf3",
+            "sense:indicate:42cb5fd81a78d25a"
           ]
         }
       ],
       "core_meaning_cn": "表明；显示；指出、指示",
-      "core_meaning_en": "to show, suggest, point out, or indicate",
-      "mental_model_cn": "evidence/data → 表明；gesture/choice → 指出/表示；medical “treatment is indicated” 专业义保留为 Reference。",
+      "core_meaning_en": "to show or suggest something through evidence, or point something out",
+      "mental_model_cn": "evidence/data → 表明；gesture/choice → 指出/表示；medical “treatment is indicated” 专业义保留为 Reference。 driving（BrE）indicate → 打灯/手势示意转向，可独立使用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,7 +71,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:indicate:352fadc4e9e45918",
+        "source_sense_id": "sense:indicate:10f72093d79d5705",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -103,6 +104,16 @@
             "meaning_cn": "表明；显示",
             "meaning_en": "to suggest or show something through signs, data, or evidence",
             "phrase": "results indicate that"
+          },
+          {
+            "collocation_id": "collocation:6bfe0e77443a7c8c078c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:indicate:352fadc4e9e45918:collocation:0"
+            ],
+            "meaning_cn": "象征；意味着",
+            "meaning_en": "to be a sign that a condition exists",
+            "phrase": "indicate the presence of"
           }
         ],
         "confidence": "high",
@@ -191,48 +202,27 @@
         ]
       },
       {
+        "sense_id": "sense:indicate:42cb5fd81a78d25a",
+        "pos": "verb",
+        "definition_cn": "（英式）用转向灯或手势示意车辆将改变方向",
+        "definition_en": "signal a change of vehicle direction with lights or an arm",
+        "sense_label_en": "signal a change of vehicle direction with lights or an arm",
+        "governing_pattern": "indicate; indicate left/right; indicate that ...",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
         "collocations": [
           {
-            "collocation_id": "collocation:6bfe0e77443a7c8c078c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:indicate:352fadc4e9e45918:collocation:0"
-            ],
-            "meaning_cn": "象征；意味着",
-            "meaning_en": "to be a sign that a condition exists",
-            "phrase": "indicate the presence of"
+            "collocation_id": "collocation:7d4d54af7cf906597b3b",
+            "phrase": "indicate before changing lanes",
+            "meaning_cn": "变道前先打转向灯",
+            "exam_value": "usage_example"
           }
         ],
-        "confidence": "high",
-        "definition_cn": "象征；意味着",
-        "definition_en": "to be a sign that a condition exists",
-        "depth": "recognition_plus",
-        "domain_tag": "general",
-        "frequency_tag": "exam_core",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:indicate:352fadc4e9e45918",
-        "sense_label_en": "be a sign of",
-        "sort_order": 2,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
+        "usage_note": "British English；无宾语、left/right和that从句均可见；不是仪表显示或数据暗示。"
       }
     ],
     "verification_summary": {
@@ -341,6 +331,23 @@
           "applicability": [
             {
               "surface": "indicate"
+            },
+            {
+              "surface": "indicate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:indicate:42cb5fd81a78d25a"
+              ],
+              "owner_sense_ids": [
+                "sense:indicate:42cb5fd81a78d25a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2503.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "indicate; indicate left/right; indicate that ..."
             }
           ],
           "sources": [
@@ -448,6 +455,54 @@
           "source": "ai_curated_mvp_v1"
         }
       ]
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6bfe0e77443a7c8c078c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:indicate:352fadc4e9e45918:collocation:0"
+          ],
+          "meaning_cn": "象征；意味着",
+          "meaning_en": "to be a sign that a condition exists",
+          "phrase": "indicate the presence of"
+        }
+      ],
+      "confidence": "high",
+      "definition_cn": "象征；意味着",
+      "definition_en": "to be a sign that a condition exists",
+      "depth": "recognition_plus",
+      "domain_tag": "general",
+      "frequency_tag": "exam_core",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:indicate:352fadc4e9e45918",
+      "sense_label_en": "be a sign of",
+      "sort_order": 2,
+      "source_evidence": [
+        {
+          "role": "local_evidence",
+          "source": "kaoyan"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_ecdict"
+        },
+        {
+          "role": "local_evidence",
+          "source": "local_oewn"
+        },
+        {
+          "role": "local_evidence",
+          "source": "ai_curated_mvp_v1"
+        }
+      ],
+      "stable_sense_id": "sense:indicate:352fadc4e9e45918",
+      "status": "merged",
+      "merged_into_sense_id": "sense:indicate:10f72093d79d5705",
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -468,8 +523,8 @@
       },
       {
         "sense_id": "sense:indicate:352fadc4e9e45918",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:indicate:10f72093d79d5705",
         "source_row": 6947,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
       },
@@ -479,14 +534,23 @@
         "merged_into_sense_id": null,
         "source_row": 6948,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:indicate:42cb5fd81a78d25a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2503.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:28a1e4de81acd5452d54",
+      "collocation:e01138620e392092bb7d",
+      "collocation:6bfe0e77443a7c8c078c",
       "collocation:34190ba90ec5c6bde79d",
       "collocation:66f244a6bebdac7d10f1",
-      "collocation:6bfe0e77443a7c8c078c",
-      "collocation:e01138620e392092bb7d"
+      "collocation:7d4d54af7cf906597b3b"
     ],
     "facts": [
       {
@@ -531,12 +595,20 @@
       {
         "id": "collocation:6bfe0e77443a7c8c078c",
         "source_row": 9096,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "sense_id": "sense:indicate:10f72093d79d5705"
       },
       {
         "id": "collocation:e01138620e392092bb7d",
         "source_row": 18954,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:7d4d54af7cf906597b3b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2503.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

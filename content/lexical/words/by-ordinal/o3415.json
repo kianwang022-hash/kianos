@@ -40,7 +40,7 @@
       ],
       "core_meaning_cn": "溢出，泛滥",
       "core_meaning_en": "to flow over the edge or limits",
-      "mental_model_cn": "溢出，泛滥",
+      "mental_model_cn": "容器/河水overflow是太满而溢出；overflow with emotion表示洋溢。an overflow pipe是排溢流的管道；安置overflow of staff说超出容量的人，计算机overflow看数值或数据上限。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -94,15 +94,6 @@
             ],
             "meaning_cn": "水的溢出",
             "phrase": "an overflow of water"
-          },
-          {
-            "collocation_id": "collocation:ed1d0ddf2ca9f986a3f2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:overflow:f6f08f9ff1fd5060:collocation:1"
-            ],
-            "meaning_cn": "溢流管",
-            "phrase": "overflow pipe"
           }
         ],
         "confidence": "medium",
@@ -116,6 +107,62 @@
         "sense_label_en": "the act of overflowing or the excess liquid",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:overflow:871a0b5d7eb7fcaa",
+        "pos": "noun",
+        "definition_cn": "超出容纳量而无处安置的人或物",
+        "definition_en": "people or things exceeding available space",
+        "sense_label_en": "people or things exceeding available space",
+        "governing_pattern": "the overflow of staff; overflow parking",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": []
+      },
+      {
+        "sense_id": "sense:overflow:120bb6c4a84c8df9",
+        "pos": "noun",
+        "definition_cn": "溢流管；满后排走多余液体的管道",
+        "definition_en": "a pipe allowing surplus liquid to escape",
+        "sense_label_en": "a pipe allowing surplus liquid to escape",
+        "governing_pattern": "an overflow; an overflow pipe",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ed1d0ddf2ca9f986a3f2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:overflow:f6f08f9ff1fd5060:collocation:1"
+            ],
+            "meaning_cn": "溢流管",
+            "phrase": "overflow pipe"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:overflow:649b12e358f02cc0",
+        "pos": "noun",
+        "definition_cn": "（计算机）数据或数值超出可表示范围而出现的溢出错误",
+        "definition_en": "an error when a number or data item exceeds representable capacity",
+        "sense_label_en": "an error when a number or data item exceeds representable capacity",
+        "governing_pattern": "numeric/integer overflow",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [],
+        "usage_note": "数值或数据项超出能准确表示的范围；不等同所有存储不足或软件错误，也不是液体外溢。"
       }
     ],
     "verification_summary": {
@@ -267,6 +314,55 @@
               "scope_relation": "Exact container overflow/spill senses in the verb group. Full original IPA retained with unmarked region; no geographic claim is inferred from the diphthong."
             }
           ]
+        },
+        {
+          "ipa": "/ˈəʊvəfləʊ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "overflow",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:overflow:871a0b5d7eb7fcaa",
+                "sense:overflow:120bb6c4a84c8df9",
+                "sense:overflow:649b12e358f02cc0"
+              ],
+              "owner_sense_ids": [
+                "sense:overflow:871a0b5d7eb7fcaa",
+                "sense:overflow:120bb6c4a84c8df9",
+                "sense:overflow:649b12e358f02cc0"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3415.json",
+              "source_pointers": [
+                "/record/senses/2",
+                "/record/senses/3",
+                "/record/senses/4"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/overflow_2",
+              "entry_context": {
+                "word": "overflow",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈəʊvəfləʊ/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "Complete noun head and all three selected non-liquid meanings actually read; previous liquid-only bounded observation unchanged."
+            }
+          ]
         }
       ]
     }
@@ -319,12 +415,36 @@
         "merged_into_sense_id": null,
         "source_row": 9474,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:overflow:871a0b5d7eb7fcaa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3415.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:overflow:120bb6c4a84c8df9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3415.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:overflow:649b12e358f02cc0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3415.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:0b34c88fc279d0aa83fc",
-      "collocation:5c38c8711b265172df87",
       "collocation:bb03fe8cbde2e7b7b043",
+      "collocation:5c38c8711b265172df87",
       "collocation:ed1d0ddf2ca9f986a3f2"
     ],
     "facts": [],
@@ -352,7 +472,9 @@
       {
         "id": "collocation:ed1d0ddf2ca9f986a3f2",
         "source_row": 20094,
-        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json",
+        "current_owner_path": "content/lexical/words/by-ordinal/o3415.json",
+        "current_owner_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

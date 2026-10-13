@@ -5,7 +5,7 @@
     "ordinal": 3265,
     "word": "noun",
     "source_owner_path": "content/lexical/words/by-ordinal/o3265.json",
-    "source_fingerprint": "8e66591f02f24ebf31461a4e543873456139584346b22954730bf590e82ae510",
+    "source_fingerprint": "5875ef91172773351e54a6488c7fd7ff2042dde8156987ea387cb308bc4f79f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -115,8 +115,16 @@
     "ordinal": 3266,
     "word": "nourish",
     "source_owner_path": "content/lexical/words/by-ordinal/o3266.json",
-    "source_fingerprint": "80af863f87b41b487e3ba9b0e821af5c1742ab7e998daf05bd42059a947deee4",
-    "sense_lineage": [],
+    "source_fingerprint": "08e38c12853dca433aa7f95c34fa1631f9619d1d05f989b8fc9eb6e9e5457fbf",
+    "sense_lineage": [
+      {
+        "word_id": "word:nourish",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d2451c54e16abe78ec57",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -124,13 +132,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "提供营养",
-      "decision_cn": "",
+      "summary_cn": "滋养身体；培养或怀有想法/感情",
+      "decision_cn": "从提供营养维持生长，引申为培育想法或感情",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "提供营养"
+        "target_label": "滋养身体；培养或怀有想法/感情"
       }
     },
     "senses": [
@@ -145,21 +153,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d2451c54e16abe78ec57",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "nourish + sb/sth",
-            "meaning_cn": "滋养某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d2451c54e16abe78ec57",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "nourish + sb/sth"
-            }
-          },
-          {
             "id": "collocation:9b93043742199bffcf47",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "nourish the body",
             "meaning_cn": "滋养身体",
             "kind": "usage_example",
@@ -234,7 +229,7 @@
     "ordinal": 3267,
     "word": "novel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3267.json",
-    "source_fingerprint": "2152412b43c18ede62f8fc7f8e20ca769ed37291745917cfa5a084a6f63f0b51",
+    "source_fingerprint": "a6a8644b2bbd6b29e60e1839d6f8d028f197fe1f66c0f6e5fafbb3bb1f538ccf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -341,22 +336,22 @@
     "ordinal": 3268,
     "word": "novelty",
     "source_owner_path": "content/lexical/words/by-ordinal/o3268.json",
-    "source_fingerprint": "cbf88bbafb41d7f12ee36a22dd8c47a08a58d6ba173a2c2aee1e6a8161ace50f",
+    "source_fingerprint": "18e287c09ebe0f4706f2456e428d0704193e39b2bf727fe1b3ad9140ce57b33c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "新奇性",
-      "decision_cn": "",
+      "summary_cn": "新鲜感；新鲜事物或小玩意",
+      "decision_cn": "the novelty wears off是新鲜感消退；an experience is a novelty说此前不常见的体验，不一定是小玩具，也不必证明它原创。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "新奇性"
+        "target_label": "新鲜感；新鲜事物或小玩意"
       }
     },
     "senses": [
@@ -365,8 +360,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "新奇，新颖",
-        "definition_en": "the quality of being new, original, and unusual",
+        "definition_cn": "新奇，新颖；新鲜感",
+        "definition_en": "the quality of being new or unfamiliar and therefore interesting",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -401,7 +396,7 @@
           "target_kind": "sense",
           "target_id": "sense:novelty:f937cfd6e7515acc",
           "target_locator": "record.senses[0]",
-          "target_label": "新奇，新颖"
+          "target_label": "新奇，新颖；新鲜感"
         }
       },
       {
@@ -429,6 +424,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "新奇的小玩意"
         }
+      },
+      {
+        "id": "sense:novelty:24484608def7afd3",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a novelty; be something of a novelty",
+        "definition_cn": "新鲜事物、人物或经历",
+        "definition_en": "a thing, person or experience that attracts interest through being unfamiliar",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0ae693d97b888c977577",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "Working from home was a novelty for me.",
+            "meaning_cn": "居家办公对我来说是新鲜体验。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:novelty:24484608def7afd3",
+          "target_locator": "record.senses[2]",
+          "target_label": "新鲜事物、人物或经历"
+        }
       }
     ],
     "pronunciation_support": {
@@ -441,6 +462,24 @@
           "applicability": [
             {
               "surface": "novelty"
+            },
+            {
+              "surface": "novelty",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "owner_sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3268.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a novelty; be something of a novelty",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -454,14 +493,37 @@
           "applicability": [
             {
               "surface": "novelty"
+            },
+            {
+              "surface": "novelty",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "owner_sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3268.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a novelty; be something of a novelty",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:novelty:24484608def7afd3": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -589,7 +651,7 @@
     "ordinal": 3270,
     "word": "now",
     "source_owner_path": "content/lexical/words/by-ordinal/o3270.json",
-    "source_fingerprint": "b33809c2d2cde4f5939465b1f72244c128f73e8d5e8cdafed273af179c4d73b0",
+    "source_fingerprint": "2ae3413dfa94b8b59238867e6e98ce59bc129fbe097d941a4d855143219f99b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -600,13 +662,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "现在",
-      "decision_cn": "",
+      "summary_cn": "现在、此刻；话语转接；既然",
+      "decision_cn": "now可说当前时间，也可引出话题或指令；now(that)+分句表示既然情况已如此。just now须看时间语境，for now强调暂时，now and then说偶尔。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "现在"
+        "target_label": "现在、此刻；话语转接；既然"
       }
     },
     "senses": [
@@ -617,14 +679,14 @@
         "governing_pattern": "",
         "definition_cn": "现在；目前",
         "definition_en": "at the present time or moment",
-        "note": "",
+        "note": "just now可指眼下，也可指刚才：I am busy just now是此刻忙；I saw her just now是刚才见到。按整句时间语境判断。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:58264608129686587a62",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "right now",
-            "meaning_cn": "立刻；马上",
+            "meaning_cn": "现在此刻；（要求行动时）立刻、马上",
             "kind": "usage_example",
             "repair": null
           },
@@ -632,7 +694,7 @@
             "id": "collocation:026b3b9ab04aa229afd1",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "just now",
-            "meaning_cn": "刚才",
+            "meaning_cn": "此刻／目前，或刚才（按上下文判断）",
             "kind": "usage_example",
             "repair": null
           }
@@ -713,7 +775,7 @@
         "id": "sense:now:0d2123e6ac62585b",
         "source_locator": "record.senses[3]",
         "pos": "conjunction",
-        "governing_pattern": "",
+        "governing_pattern": "now (that) + clause",
         "definition_cn": "既然；由于",
         "definition_en": "since; because",
         "note": "",
@@ -757,7 +819,83 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:1001a7ea446a5c65449b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "(every) now and then/again",
+        "lines": [
+          {
+            "text": "偶尔；时不时",
+            "lang": "cn"
+          },
+          {
+            "text": "说某事不时发生，不是现在再做一次；every可省略。",
+            "lang": "cn"
+          },
+          {
+            "text": "occasionally, at intervals",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1001a7ea446a5c65449b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "(every) now and then/again"
+        }
+      },
+      {
+        "id": "construction:942e1278aa1e196be266",
+        "source_locator": "record.constructions[1]",
+        "pattern": "for now",
+        "lines": [
+          {
+            "text": "暂时；目前先如此",
+            "lang": "cn"
+          },
+          {
+            "text": "That is enough for now表示目前先够了；与from now on从今往后不同。",
+            "lang": "cn"
+          },
+          {
+            "text": "for the present, with possible change later",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:942e1278aa1e196be266",
+          "target_locator": "record.constructions[1]",
+          "target_label": "for now"
+        }
+      },
+      {
+        "id": "construction:f987bbe018f1c48a6ffa",
+        "source_locator": "record.constructions[2]",
+        "pattern": "(it is) now or never",
+        "lines": [
+          {
+            "text": "机不可失；现在是最后机会",
+            "lang": "cn"
+          },
+          {
+            "text": "强调错过眼下机会就不会再有合适机会，不是简单列出现在与永远两个时间点。",
+            "lang": "cn"
+          },
+          {
+            "text": "identify the present as the last opportunity to act",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f987bbe018f1c48a6ffa",
+          "target_locator": "record.constructions[2]",
+          "target_label": "(it is) now or never"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -771,13 +909,21 @@
     "ordinal": 3271,
     "word": "nowadays",
     "source_owner_path": "content/lexical/words/by-ordinal/o3271.json",
-    "source_fingerprint": "d2c1bed7157e3b989f3d9ec7b5330d9d031ff56b388d3bac6ba3895696c834b7",
-    "sense_lineage": [],
+    "source_fingerprint": "7576aab326081a599872c5af2debe49191150d8f150dec113ad6a8f48a662b4a",
+    "sense_lineage": [
+      {
+        "word_id": "word:nowadays",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6c0ed57d4106f85a77f1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "在目前",
@@ -799,21 +945,7 @@
         "definition_en": "at the present time, in contrast with the past",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6c0ed57d4106f85a77f1",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "nowadays",
-            "meaning_cn": "现今；如今",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6c0ed57d4106f85a77f1",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "nowadays"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:nowadays:d3e67c62983d5381",
@@ -1174,7 +1306,7 @@
     "ordinal": 3274,
     "word": "nucleus",
     "source_owner_path": "content/lexical/words/by-ordinal/o3274.json",
-    "source_fingerprint": "a13f32196cb2e4cb58d1628ed176199a335111eb0294fb94a87470d2f440645d",
+    "source_fingerprint": "a354cdcbe938090950ba84465c622825a7557e43c6c5019072c034ec74b40b13",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1199,7 +1331,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "原子核",
-        "definition_en": "the central part of an atom, containing protons and neutrons",
+        "definition_en": "the central part of an atom, containing protons and usually neutrons",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1230,7 +1362,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "细胞核",
-        "definition_en": "the central part of a cell containing DNA and RNA",
+        "definition_en": "a membrane-bound part of a cell that contains its genetic material",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1346,7 +1478,7 @@
     "ordinal": 3275,
     "word": "nuisance",
     "source_owner_path": "content/lexical/words/by-ordinal/o3275.json",
-    "source_fingerprint": "02c311e756fb277d2f09b41e13ba2d4d50091bf8195bd5e63c7cbd6b3d3c73a2",
+    "source_fingerprint": "5d9ee5e1659ec92fe50122a3049858f4f95a871c50dae5c695ba31ef7bdeea04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1501,7 +1633,7 @@
     "ordinal": 3276,
     "word": "numb",
     "source_owner_path": "content/lexical/words/by-ordinal/o3276.json",
-    "source_fingerprint": "6898eab2236db208ca5e3bbaac6e9c381485ae30f7e7b43e5d0ebc967600b4d1",
+    "source_fingerprint": "a88e756ed9f9ed113f13637b9d76507fd7c4523e3e08bb1d6e557179bf4705a7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1681,23 +1813,23 @@
     "ordinal": 3277,
     "word": "number",
     "source_owner_path": "content/lexical/words/by-ordinal/o3277.json",
-    "source_fingerprint": "509bdcb47ccf39095c22c59ce297731d260c9926deefbc9b11a5392795756e2e",
+    "source_fingerprint": "8f1bbf628f18420514ea0980dd5455cd48174d8292491a795bd3864134460ec3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "3V",
+        "7N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "数量或数字",
-      "decision_cn": "",
+      "summary_cn": "数量、号码或语法的数；节目/物件；编号、总计或列入",
+      "decision_cn": "电话号码、总数、语法的单复数按上下文判断。a musical number是节目，a stylish number可说物件；number the pages编号，number 200总计200，number sb among friends列入朋友。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "数量或数字"
+        "target_label": "数量、号码或语法的数；节目/物件；编号、总计或列入"
       }
     },
     "senses": [
@@ -1710,16 +1842,7 @@
         "definition_en": "a word or symbol representing a quantity",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:250383ef91611c350ad3",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "phone number",
-            "meaning_cn": "电话号码",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:number:f73529592cbe52de",
@@ -1764,8 +1887,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7558fb8a2a79120f8a59",
+            "id": "collocation:250383ef91611c350ad3",
             "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "phone number",
+            "meaning_cn": "电话号码",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7558fb8a2a79120f8a59",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "room number",
             "meaning_cn": "房间号",
             "kind": "usage_example",
@@ -1773,7 +1904,7 @@
           },
           {
             "id": "collocation:2d31ecf077b3de61a73c",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[2]",
             "phrase": "serial number",
             "meaning_cn": "序列号",
             "kind": "usage_example",
@@ -1817,10 +1948,10 @@
         "id": "sense:number:70ab1aa28e4a581d",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "number + total; number in the hundreds/thousands",
         "definition_cn": "总计；共计",
         "definition_en": "to total in number",
-        "note": "",
+        "note": "表示总数时number仍可作不及物动词；后面的数量是总计结果，如The crowd numbered 200，不因后接数词而自动当作给某物编号的及物义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1837,6 +1968,136 @@
           "target_id": "sense:number:70ab1aa28e4a581d",
           "target_locator": "record.senses[4]",
           "target_label": "总计；共计"
+        }
+      },
+      {
+        "id": "sense:number:65f51eeea29ca1d5",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a musical/dance number",
+        "definition_cn": "（演出的）一首歌曲或一段舞蹈节目",
+        "definition_en": "a song or dance presented as a performance item",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:22573eff6ccf39126723",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "the opening number of the show",
+            "meaning_cn": "演出的开场节目",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:number:65f51eeea29ca1d5",
+          "target_locator": "record.senses[5]",
+          "target_label": "（演出的）一首歌曲或一段舞蹈节目"
+        }
+      },
+      {
+        "id": "sense:number:903f66c8e15f2544",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "the latest/October number; back numbers",
+        "definition_cn": "（尤英式）杂志、期刊的一期",
+        "definition_en": "an issue of a magazine or periodical, chiefly British English",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ec66af61f3794c7c0fe0",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "the October number of the magazine",
+            "meaning_cn": "杂志的十月号",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:number:903f66c8e15f2544",
+          "target_locator": "record.senses[6]",
+          "target_label": "（尤英式）杂志、期刊的一期"
+        }
+      },
+      {
+        "id": "sense:number:8ce571cc97245e44",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "a … number",
+        "definition_cn": "（非正式）令人欣赏的衣服、汽车等物件",
+        "definition_en": "an admired item such as a dress or car, usually described by an adjective",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:441f42e3afcdd10be113",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "a stylish little number",
+            "meaning_cn": "一件时髦的小衣服（依语境也可指其他物件）",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:number:8ce571cc97245e44",
+          "target_locator": "record.senses[7]",
+          "target_label": "（非正式）令人欣赏的衣服、汽车等物件"
+        }
+      },
+      {
+        "id": "sense:number:f9c656490ad18ec0",
+        "source_locator": "record.senses[8]",
+        "pos": "noun",
+        "governing_pattern": "singular/plural in number; agree in number",
+        "definition_cn": "（语法）数，单数或复数等词形范畴",
+        "definition_en": "the grammatical category expressing singular or plural reference",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d1d4c209f6b5371838c4",
+            "source_locator": "record.senses[8].collocations[0]",
+            "phrase": "The subject and verb agree in number.",
+            "meaning_cn": "主语和动词的数一致。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:number:f9c656490ad18ec0",
+          "target_locator": "record.senses[8]",
+          "target_label": "（语法）数，单数或复数等词形范畴"
+        }
+      },
+      {
+        "id": "sense:number:56a1c2b8871a57cb",
+        "source_locator": "record.senses[9]",
+        "pos": "verb",
+        "governing_pattern": "number sb/sth among sth; number among sth",
+        "definition_cn": "把……列入某群体；位列其中",
+        "definition_en": "include in a group, or belong to a group",
+        "note": "正式：I number her among my friends把她算作朋友；She numbers among the best位列佼佼者。与表示总计多少的number + total区分。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7783436f5923f10f110d",
+            "source_locator": "record.senses[9].collocations[0]",
+            "phrase": "We number her among our closest friends.",
+            "meaning_cn": "我们把她算作最亲密的朋友之一。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:number:56a1c2b8871a57cb",
+          "target_locator": "record.senses[9]",
+          "target_label": "把……列入某群体；位列其中"
         }
       }
     ],
@@ -2054,6 +2315,112 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈnʌmbə(r)/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:65f51eeea29ca1d5"
+              ],
+              "owner_sense_ids": [
+                "sense:number:65f51eeea29ca1d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a musical/dance number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:903f66c8e15f2544"
+              ],
+              "owner_sense_ids": [
+                "sense:number:903f66c8e15f2544"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the latest/October number; back numbers",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:8ce571cc97245e44"
+              ],
+              "owner_sense_ids": [
+                "sense:number:8ce571cc97245e44"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a … number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "number",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:number:f9c656490ad18ec0"
+              ],
+              "owner_sense_ids": [
+                "sense:number:f9c656490ad18ec0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "singular/plural in number; agree in number",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈnʌmbə(r)/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "number",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:number:56a1c2b8871a57cb"
+              ],
+              "owner_sense_ids": [
+                "sense:number:56a1c2b8871a57cb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3277.json",
+              "source_pointer": "/record/senses/9",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "number sb/sth among sth; number among sth",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -2081,6 +2448,21 @@
           1,
           3,
           5
+        ],
+        "sense:number:65f51eeea29ca1d5": [
+          6
+        ],
+        "sense:number:8ce571cc97245e44": [
+          6
+        ],
+        "sense:number:903f66c8e15f2544": [
+          6
+        ],
+        "sense:number:f9c656490ad18ec0": [
+          6
+        ],
+        "sense:number:56a1c2b8871a57cb": [
+          7
         ]
       },
       "has_scope": true
@@ -2127,6 +2509,31 @@
           "target_id": "construction:d4fc70c372ebf00e1be8",
           "target_locator": "record.constructions[1]",
           "target_label": "the number of + plural count noun"
+        }
+      },
+      {
+        "id": "construction:d9f3018678e0a36f4c51",
+        "source_locator": "record.constructions[2]",
+        "pattern": "sb’s/sth’s days are numbered",
+        "lines": [
+          {
+            "text": "某人或某事物剩下的时间不多了",
+            "lang": "cn"
+          },
+          {
+            "text": "如某人在任时间或某组织存在的时间所剩无几；不必指人即将死亡，也不是已经列好日期表。",
+            "lang": "cn"
+          },
+          {
+            "text": "be unlikely to continue living, existing or succeeding for much longer",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d9f3018678e0a36f4c51",
+          "target_locator": "record.constructions[2]",
+          "target_label": "sb’s/sth’s days are numbered"
         }
       }
     ],
@@ -2450,23 +2857,23 @@
     "ordinal": 3280,
     "word": "nurse",
     "source_owner_path": "content/lexical/words/by-ordinal/o3280.json",
-    "source_fingerprint": "13724ee40d98394c03cc6c9ea308d434106e5fb97c79dde18ce28674e3a63a1e",
+    "source_fingerprint": "59031174a8f5d0ffa39423aebe2b0e8775d906d6cb13f9a26875c38374401291",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "5V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "照顾某人或某物",
-      "decision_cn": "",
+      "summary_cn": "护士；护理或悉心照料；怀有感情；哺乳或慢慢喝",
+      "decision_cn": "照料病人、伤病或易出问题的事物可用nurse；nurse a grudge长期怀恨，nurse a baby哺乳，the baby nurses吃奶；nurse a coffee是慢慢喝，按宾语判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "照顾某人或某物"
+        "target_label": "护士；护理或悉心照料；怀有感情；哺乳或慢慢喝"
       }
     },
     "senses": [
@@ -2500,9 +2907,9 @@
         "id": "sense:nurse:7176181044525a49",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "护理，看护",
-        "definition_en": "to care for someone who is sick or injured",
+        "governing_pattern": "nurse sb (back to health); nurse an injury/illness",
+        "definition_cn": "护理病人；照料、调养伤病",
+        "definition_en": "care for a sick or injured person, or tend an injury or illness",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2526,13 +2933,21 @@
             "meaning_cn": "护理病人",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:8c881d061081d55e451b",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "nurse a shoulder injury",
+            "meaning_cn": "养护、调养肩伤",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:nurse:7176181044525a49",
           "target_locator": "record.senses[1]",
-          "target_label": "护理，看护"
+          "target_label": "护理病人；照料、调养伤病"
         }
       },
       {
@@ -2612,6 +3027,58 @@
           "target_locator": "record.senses[3]",
           "target_label": "给婴儿哺乳；（婴儿）吃奶"
         }
+      },
+      {
+        "id": "sense:nurse:3443f5ec5811d68b",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "nurse sth; nurse sth + direction",
+        "definition_cn": "悉心照料；小心维持或操作",
+        "definition_en": "give something careful attention to protect it or keep it working",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:09bff886d3cfae43a9f0",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "nurse an old car up the hill",
+            "meaning_cn": "小心驾驶旧车上坡",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nurse:3443f5ec5811d68b",
+          "target_locator": "record.senses[4]",
+          "target_label": "悉心照料；小心维持或操作"
+        }
+      },
+      {
+        "id": "sense:nurse:4df538f93ed5bde3",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "nurse a drink",
+        "definition_cn": "拿着一杯饮料慢慢喝",
+        "definition_en": "keep a drink for a long time while sipping it slowly",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9c409efc1dc584f06537",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "nurse a cup of coffee",
+            "meaning_cn": "端着一杯咖啡慢慢喝",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nurse:4df538f93ed5bde3",
+          "target_locator": "record.senses[5]",
+          "target_label": "拿着一杯饮料慢慢喝"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2624,6 +3091,42 @@
           "applicability": [
             {
               "surface": "nurse"
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse sth; nurse sth + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse a drink",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2637,14 +3140,59 @@
           "applicability": [
             {
               "surface": "nurse"
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse sth; nurse sth + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse a drink",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nurse:3443f5ec5811d68b": [
+          0,
+          1
+        ],
+        "sense:nurse:4df538f93ed5bde3": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -2661,22 +3209,22 @@
     "ordinal": 3281,
     "word": "nursery",
     "source_owner_path": "content/lexical/words/by-ordinal/o3281.json",
-    "source_fingerprint": "a29636708b53445b7aa0b57fd34d685aedd8444d20ea0b0e3b56b4de35968306",
+    "source_fingerprint": "22e4c7e3223f13a880a779cf992fe8d3bc5697df22299e99c59dda08fd489e99",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "照顾幼儿或培育植物的地方",
-      "decision_cn": "",
+      "summary_cn": "照顾幼儿的机构/房间；苗圃；培育的环境",
+      "decision_cn": "at nursery常说上托儿所；decorate the nursery在家中语境说布置婴儿房；plants from a nursery来自苗圃。比喻nursery of talent等可说培育人才的环境。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "照顾幼儿或培育植物的地方"
+        "target_label": "照顾幼儿的机构/房间；苗圃；培育的环境"
       }
     },
     "senses": [
@@ -2745,7 +3293,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "温床；滋生地",
+        "definition_cn": "培育之地；摇篮；（也可指不良事物的）温床",
         "definition_en": "a place or environment that fosters development",
         "note": "",
         "identity_overlay": null,
@@ -2763,7 +3311,33 @@
           "target_kind": "sense",
           "target_id": "sense:nursery:18d9802fb0a65c9c",
           "target_locator": "record.senses[2]",
-          "target_label": "温床；滋生地"
+          "target_label": "培育之地；摇篮；（也可指不良事物的）温床"
+        }
+      },
+      {
+        "id": "sense:nursery:208a76d0243d0184",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a nursery; decorate the nursery",
+        "definition_cn": "（尤北美）家中的婴儿房；儿童活动室",
+        "definition_en": "a room in a home for a baby or young child",
+        "note": "婴儿房在北美常用；旧式住宅中也可指儿童玩耍的房间。与托儿机构、植物苗圃按所在地点判断。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fa93373c0bebb1dae931",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "decorate the nursery before the baby arrives",
+            "meaning_cn": "在宝宝出生前布置婴儿房",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nursery:208a76d0243d0184",
+          "target_locator": "record.senses[3]",
+          "target_label": "（尤北美）家中的婴儿房；儿童活动室"
         }
       }
     ],
@@ -2777,6 +3351,24 @@
           "applicability": [
             {
               "surface": "nursery"
+            },
+            {
+              "surface": "nursery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "owner_sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3281.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a nursery; decorate the nursery",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2790,6 +3382,24 @@
           "applicability": [
             {
               "surface": "nursery"
+            },
+            {
+              "surface": "nursery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "owner_sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3281.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a nursery; decorate the nursery",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2803,6 +3413,24 @@
           "applicability": [
             {
               "surface": "nursery"
+            },
+            {
+              "surface": "nursery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "owner_sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3281.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a nursery; decorate the nursery",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2816,14 +3444,39 @@
           "applicability": [
             {
               "surface": "nursery"
+            },
+            {
+              "surface": "nursery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "owner_sense_ids": [
+                "sense:nursery:208a76d0243d0184"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3281.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a nursery; decorate the nursery",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nursery:208a76d0243d0184": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -2840,7 +3493,7 @@
     "ordinal": 3282,
     "word": "nurture",
     "source_owner_path": "content/lexical/words/by-ordinal/o3282.json",
-    "source_fingerprint": "896b7541d3fd4204321deb53c23a9c2aa81ab1e9ab84cca742c6fc56c7cdf5f7",
+    "source_fingerprint": "3b36287d88935999e427701e59e688435d8dd74ed050396447d3d8da9a0ce84a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2877,14 +3530,6 @@
             "meaning_cn": "养育孩子",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:59ac06d84af3042050a2",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "nurture talent",
-            "meaning_cn": "培养人才",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -2905,8 +3550,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f604f495919c224a19c3",
+            "id": "collocation:59ac06d84af3042050a2",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "nurture talent",
+            "meaning_cn": "培养人才",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:f604f495919c224a19c3",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "nurture a relationship",
             "meaning_cn": "培养关系",
             "kind": "usage_example",
@@ -2914,7 +3567,7 @@
           },
           {
             "id": "collocation:613cf571fa028264dadd",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[2]",
             "phrase": "nurture creativity",
             "meaning_cn": "培养创造力",
             "kind": "usage_example",
@@ -2933,8 +3586,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "养育，培育",
-        "definition_en": "the process of caring for and encouraging growth",
+        "definition_cn": "养育、培育；（与 nature 相对）后天培养及环境影响",
+        "definition_en": "care and support during growth; in contrast with nature, upbringing and environmental influences",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2956,7 +3609,7 @@
           "target_kind": "sense",
           "target_id": "sense:nurture:8d410afd57e759c4",
           "target_locator": "record.senses[2]",
-          "target_label": "养育，培育"
+          "target_label": "养育、培育；（与 nature 相对）后天培养及环境影响"
         }
       }
     ],
@@ -3003,7 +3656,7 @@
     "ordinal": 3283,
     "word": "nut",
     "source_owner_path": "content/lexical/words/by-ordinal/o3283.json",
-    "source_fingerprint": "81135a1881c9f360fbf66740fed7eed97bbc2b0d1947fe362f81cef9fd664c4a",
+    "source_fingerprint": "bd882bcaf026fa2039cec4a0ce89c3c8f9c81dbfcefb3516b30356b9121d3bf7",
     "sense_lineage": [
       {
         "word_id": "word:nut",
@@ -3022,18 +3675,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "坚果或金属紧固件",
-      "decision_cn": "",
+      "summary_cn": "坚果、螺母；狂热爱好者或冒犯性的人称",
+      "decision_cn": "食物和机械语境分坚果、螺母；a fitness nut说痴迷健身者，call sb a nut可冒犯。nuts and bolts在计划语境指基本实际细节。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "坚果或金属紧固件"
+        "target_label": "坚果、螺母；狂热爱好者或冒犯性的人称"
       }
     },
     "senses": [
@@ -3112,6 +3765,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "痴迷者；狂热爱好者（非正式，有时带贬义）"
         }
+      },
+      {
+        "id": "sense:nut:050171c0bf664ded",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "call sb a nut",
+        "definition_cn": "（非正式，可冒犯）被说成古怪、不理智的人",
+        "definition_en": "an insulting informal label for a person considered strange or irrational",
+        "note": "称人为a nut可带侮辱性，不是医学诊断；fitness/computer nut则常说狂热爱好者，需看修饰语和语气。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:nut:050171c0bf664ded",
+          "target_locator": "record.senses[3]",
+          "target_label": "（非正式，可冒犯）被说成古怪、不理智的人"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3125,17 +3795,90 @@
           "applicability": [
             {
               "surface": "nut"
+            },
+            {
+              "surface": "nut",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nut:050171c0bf664ded"
+              ],
+              "owner_sense_ids": [
+                "sense:nut:050171c0bf664ded"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3283.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "call sb a nut",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:nut:050171c0bf664ded": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:960ffefa7b56baf4df7d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the nuts and bolts (of sth)",
+        "lines": [
+          {
+            "text": "某事物的基本实际细节",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；讲计划、工作如何实际运作，也可字面指螺母和螺栓，按语境判断。",
+            "lang": "cn"
+          },
+          {
+            "text": "the essential practical details of a subject or activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:960ffefa7b56baf4df7d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the nuts and bolts (of sth)"
+        }
+      },
+      {
+        "id": "construction:341d780a99131b34b904",
+        "source_locator": "record.constructions[1]",
+        "pattern": "a hard/tough nut (to crack)",
+        "lines": [
+          {
+            "text": "难题；难以应付或影响的人",
+            "lang": "cn"
+          },
+          {
+            "text": "问题常用a hard nut to crack；a tough nut也可指难对付的人，不能把所有人都当作坚果。",
+            "lang": "cn"
+          },
+          {
+            "text": "a difficult problem or a person hard to deal with",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:341d780a99131b34b904",
+          "target_locator": "record.constructions[1]",
+          "target_label": "a hard/tough nut (to crack)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3201,7 +3944,7 @@
     "ordinal": 3284,
     "word": "nutrition",
     "source_owner_path": "content/lexical/words/by-ordinal/o3284.json",
-    "source_fingerprint": "1e8a9d20fde9efb1bd7027762302de78e3b19632aff5e48d6937861f6c2fbb9d",
+    "source_fingerprint": "8d1e0580a697b68d92a985aacd6f8bfd8a7f2117437d8d52a1d2d0b29effd0b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3259,8 +4002,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "营养学",
-        "definition_en": "the scientific study of food and drink, especially in humans",
+        "definition_cn": "营养学（研究食物、营养素与生长、机能和健康的关系）",
+        "definition_en": "the study of how food and nutrients support growth, functioning, and health",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3285,7 +4028,7 @@
           "target_kind": "sense",
           "target_id": "sense:nutrition:6017520f42365957",
           "target_locator": "record.senses[1]",
-          "target_label": "营养学"
+          "target_label": "营养学（研究食物、营养素与生长、机能和健康的关系）"
         }
       }
     ],
@@ -3595,7 +4338,7 @@
     "ordinal": 3287,
     "word": "oak",
     "source_owner_path": "content/lexical/words/by-ordinal/o3287.json",
-    "source_fingerprint": "2f44a5f8b4a14e8ac29b85c1687726bad208e78c16e2dd20f634a6d1efdb8b14",
+    "source_fingerprint": "3cff2b977d687b40dcc7aaa3d86023fe10f68c2feb0011f84b2cb330012813d6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3621,7 +4364,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "橡树",
-        "definition_en": "a large tree that produces acorns and has lobed leaves",
+        "definition_en": "a tree that produces acorns, often with lobed leaves",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3741,21 +4484,21 @@
     "ordinal": 3288,
     "word": "oar",
     "source_owner_path": "content/lexical/words/by-ordinal/o3288.json",
-    "source_fingerprint": "f798dd45bc700151e3e68afd277d1d151b0c2d9242852ee48530a35754f8b141",
+    "source_fingerprint": "507b004849fcb1603ced7ab815da512366bbcf9664b5a1a0d4c20dc9fc535d30",
     "sense_lineage": [
       {
         "word_id": "word:oar",
         "target_kind": "sense",
         "from_target_id": "sense:oar:0946c1ba74235e91",
-        "status": "merged",
-        "to_target_id": "sense:oar:3e9637a42a7653d5"
+        "status": "reference",
+        "to_target_id": null
       },
       {
         "word_id": "word:oar",
         "target_kind": "sense",
         "from_target_id": "sense:oar:35d7a1b0a689527e",
-        "status": "merged",
-        "to_target_id": "sense:oar:3e9637a42a7653d5"
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -3835,7 +4578,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:da3750359fae1fc1a20d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "put/stick one’s oar in",
+        "lines": [
+          {
+            "text": "未经邀请插嘴、出主意",
+            "lang": "cn"
+          },
+          {
+            "text": "英式、非正式；通常带插手干涉的不满，并不真在把船桨放入水中。",
+            "lang": "cn"
+          },
+          {
+            "text": "offer an opinion or advice when it is probably unwanted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:da3750359fae1fc1a20d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "put/stick one’s oar in"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3844,8 +4613,8 @@
       "senses": [
         {
           "stable_sense_id": "sense:oar:0946c1ba74235e91",
-          "status": "merged",
-          "merged_into_sense_id": "sense:oar:3e9637a42a7653d5",
+          "status": "reference",
+          "merged_into_sense_id": null,
           "pos": "verb",
           "definition_cn": "划动",
           "definition_en": "to propel or steer with oars",
@@ -3869,8 +4638,8 @@
         },
         {
           "stable_sense_id": "sense:oar:35d7a1b0a689527e",
-          "status": "merged",
-          "merged_into_sense_id": "sense:oar:3e9637a42a7653d5",
+          "status": "reference",
+          "merged_into_sense_id": null,
           "pos": "verb",
           "definition_cn": "划桨",
           "definition_en": "to row with oars",
@@ -3901,7 +4670,7 @@
     "ordinal": 3289,
     "word": "oath",
     "source_owner_path": "content/lexical/words/by-ordinal/o3289.json",
-    "source_fingerprint": "ca530961a06dfe042c5f34417e275a165d14c16c0b5f6c919a111c446d7761af",
+    "source_fingerprint": "ba104c3afbd340ff046dcec3a2c0b5e7fd6e0e1a11dcfad1881587d78cd8c483",
     "sense_lineage": [
       {
         "word_id": "word:oath",
@@ -3932,12 +4701,21 @@
         "id": "sense:oath:95016951c6cc5174",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "take/swear an oath; an oath of allegiance; an oath to do sth",
         "definition_cn": "誓言；誓约",
         "definition_en": "a solemn promise, often invoking a divine witness, regarding future acts or behavior",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:195810a644bd184e06b3",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "take/swear an oath",
+            "meaning_cn": "宣誓；郑重发誓",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:oath:95016951c6cc5174",
@@ -3949,12 +4727,21 @@
         "id": "sense:oath:d20625bc3ae15f17",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "take the oath; give evidence on/under oath",
         "definition_cn": "宣誓；正式声明",
         "definition_en": "a formal commitment to tell the truth, especially in court",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:fcd97ede32b60236b7c8",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "give evidence under oath",
+            "meaning_cn": "在宣誓后作证",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:oath:d20625bc3ae15f17",
@@ -4037,7 +4824,7 @@
     "ordinal": 3290,
     "word": "obedience",
     "source_owner_path": "content/lexical/words/by-ordinal/o3290.json",
-    "source_fingerprint": "eee6475392a3fd74aab3ae6f03e1768b7e8332ce1d686960be3bd961fcc803a2",
+    "source_fingerprint": "775aaf0a1cccafa11f259a4238710a86fd134b84f34537ff342a5a6abeb7ae7b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4169,7 +4956,7 @@
     "ordinal": 3291,
     "word": "obedient",
     "source_owner_path": "content/lexical/words/by-ordinal/o3291.json",
-    "source_fingerprint": "3e3ba67d8a54a24d0e76236ef9e993aefa56b9a75056e425ad6735627ab784f1",
+    "source_fingerprint": "5378d21eec6f19f1876528f491f7b9929f4d5f614ca056dc804c025b69998e1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4389,7 +5176,7 @@
     "ordinal": 3293,
     "word": "obey",
     "source_owner_path": "content/lexical/words/by-ordinal/o3293.json",
-    "source_fingerprint": "ad91b4d1e87c95ec87faa27e97fbf3be4ef125400c457556d14360e3377320e0",
+    "source_fingerprint": "4fb7bdaa4e61aa575aa0d33c3b1ccea633ec81949585ac73e54700144e777fda",
     "sense_lineage": [
       {
         "word_id": "word:obey",
@@ -4420,9 +5207,9 @@
         "id": "sense:obey:ffdcf5314b1155bd",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "obey sb/sth; obey without question (no object required)",
         "definition_cn": "服从，遵从，顺从",
-        "definition_en": "to carry out or comply with (a command, instruction, or rule)",
+        "definition_en": "to do what a person, rule, order, or instruction requires",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4545,23 +5332,23 @@
     "ordinal": 3294,
     "word": "object",
     "source_owner_path": "content/lexical/words/by-ordinal/o3294.json",
-    "source_fingerprint": "2c78030ba573a4473e6acd27d757ff3b99f84927d1914cd4a7575338c2b04297",
+    "source_fingerprint": "7a3b58edd17e973c8b75ef3a708d9f91cb5b51f6cef598bf89432f5321a2a3c8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "3N"
+        "2V",
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "物体；目标；反对",
-      "decision_cn": "",
+      "summary_cn": "物品、目的或情感/研究对象；宾语；反对或提出异议",
+      "decision_cn": "名词按语境分清物品、要达成的目的、情感或研究的对象，以及语法宾语。动词object to sth/doing表达反对某事，object that…或直接引语用于提出反对理由。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "物体；目标；反对"
+        "target_label": "物品、目的或情感/研究对象；宾语；反对或提出异议"
       }
     },
     "senses": [
@@ -4638,8 +5425,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "宾语",
-        "definition_en": "in grammar, a noun or phrase acted upon by a verb",
+        "definition_cn": "宾语（可为动词宾语或介词宾语）",
+        "definition_en": "a noun, pronoun, or equivalent phrase functioning as the object of a verb or preposition",
         "note": "",
         "identity_overlay": {
           "text": "noun object has initial stress; verb object has second-syllable stress /əbˈdʒekt/; preserve one Word owner.",
@@ -4669,14 +5456,14 @@
           "target_kind": "sense",
           "target_id": "sense:object:b9d00f09939e59e3",
           "target_locator": "record.senses[2]",
-          "target_label": "宾语"
+          "target_label": "宾语（可为动词宾语或介词宾语）"
         }
       },
       {
         "id": "sense:object:6b584bd2ac9458c4",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "object (to sth / doing sth); to is a preposition",
         "definition_cn": "反对",
         "definition_en": "to say that you disagree with or oppose something",
         "note": "",
@@ -4693,14 +5480,14 @@
           {
             "id": "collocation:cf8a83e8c723ccd2b3ba",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "object to + sth",
-            "meaning_cn": "反对某事",
+            "phrase": "object to sth / doing sth",
+            "meaning_cn": "反对某事或做某事（to 是介词）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cf8a83e8c723ccd2b3ba",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "object to + sth"
+              "target_label": "object to sth / doing sth"
             }
           }
         ],
@@ -4709,6 +5496,58 @@
           "target_id": "sense:object:6b584bd2ac9458c4",
           "target_locator": "record.senses[3]",
           "target_label": "反对"
+        }
+      },
+      {
+        "id": "sense:object:24241f04e7471305",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "the object of affection/attention/study",
+        "definition_cn": "（情感、注意、研究等的）对象",
+        "definition_en": "a person or thing at which attention, emotion or study is directed",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b56e85106ab06d3f33d3",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "the object of intense curiosity",
+            "meaning_cn": "强烈好奇心的对象",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:object:24241f04e7471305",
+          "target_locator": "record.senses[4]",
+          "target_label": "（情感、注意、研究等的）对象"
+        }
+      },
+      {
+        "id": "sense:object:5b51060f0f7a0143",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "object that…; object + direct speech",
+        "definition_cn": "提出反对理由；以从句或话语表示异议",
+        "definition_en": "state a reason or argument in opposition",
+        "note": "较正式；She objected that it was unfair说她提出不公平这一反对理由。此vt主要接that从句或直接引语；普通名词事项仍说object to the plan，不说object the plan。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0b2b0f5a9f484105d04f",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "She objected that the price was too high.",
+            "meaning_cn": "她提出异议，说价格过高。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:object:5b51060f0f7a0143",
+          "target_locator": "record.senses[5]",
+          "target_label": "提出反对理由；以从句或话语表示异议"
         }
       }
     ],
@@ -4879,6 +5718,58 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈɒbdʒɪkt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "object",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:object:24241f04e7471305"
+              ],
+              "owner_sense_ids": [
+                "sense:object:24241f04e7471305"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3294.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the object of affection/attention/study",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
+        },
+        {
+          "ipa": "/əbˈdʒekt/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "object",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:object:5b51060f0f7a0143"
+              ],
+              "owner_sense_ids": [
+                "sense:object:5b51060f0f7a0143"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3294.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "object that…; object + direct speech",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -4896,6 +5787,12 @@
         ],
         "sense:object:6b584bd2ac9458c4": [
           1
+        ],
+        "sense:object:24241f04e7471305": [
+          3
+        ],
+        "sense:object:5b51060f0f7a0143": [
+          4
         ]
       },
       "has_scope": true
@@ -5093,7 +5990,7 @@
     "ordinal": 3296,
     "word": "objective",
     "source_owner_path": "content/lexical/words/by-ordinal/o3296.json",
-    "source_fingerprint": "c4f818761e37fa4b0243a89e0e8e422bf347f17888362be17c2c1204eb9c1726",
+    "source_fingerprint": "c59cf01b7ae74660bb725a01480a2e09ac9d6a7b7ac3edff0fe6f6736bae8072",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5285,7 +6182,7 @@
     "ordinal": 3297,
     "word": "obligation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3297.json",
-    "source_fingerprint": "f36adecf7f2c10b23165923f8a95ab41eaa775e56775ec49a4fb3026bfd5462c",
+    "source_fingerprint": "e132ef878a399f9ff4cf7a5e671083a6f38c9e4644ae75d3eb0754898a6eef70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5308,7 +6205,7 @@
         "id": "sense:obligation:309f249c89d95127",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "be/feel under an/no obligation to do sth; have an/no obligation to do sth; an obligation to/towards sb",
         "definition_cn": "义务；责任",
         "definition_en": "a moral or legal duty to do something",
         "note": "",
@@ -5334,6 +6231,27 @@
             "meaning_cn": "履行义务",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:f3d6ee5b8a63bc92dbf2",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "meet one's obligations",
+            "meaning_cn": "履行义务（财务语境下包括偿付债务）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f3d6ee5b8a63bc92dbf2",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "meet one's obligations"
+            }
+          },
+          {
+            "id": "collocation:102182a6ad49302c7769",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "You are under no obligation to buy.",
+            "meaning_cn": "你没有购买的义务。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5354,21 +6272,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:f3d6ee5b8a63bc92dbf2",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "meet one's obligations",
-            "meaning_cn": "偿还债务",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f3d6ee5b8a63bc92dbf2",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "meet one's obligations"
-            }
-          },
-          {
             "id": "collocation:a43114c28a836c4b6f81",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "financial obligations",
             "meaning_cn": "财务义务",
             "kind": "usage_example",
@@ -5428,7 +6333,7 @@
     "ordinal": 3298,
     "word": "oblige",
     "source_owner_path": "content/lexical/words/by-ordinal/o3298.json",
-    "source_fingerprint": "010cf14e85da047a00233d2001b37d389ff537c319cfd3a294c02f6231f1ec94",
+    "source_fingerprint": "777186147ec80d657e8b6c38987c6357a5dbd486e50ac8cc95cbfdd429d1397a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5437,13 +6342,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "迫使；帮忙",
-      "decision_cn": "",
+      "summary_cn": "使不得不；使感激；应请求帮忙",
+      "decision_cn": "oblige sb to do和be obliged to do常讲义务或不得不；much obliged to sb for sth讲感激；happy to oblige说乐意帮忙。依补足语和语境区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "迫使；帮忙"
+        "target_label": "使不得不；使感激；应请求帮忙"
       }
     },
     "senses": [
@@ -5452,8 +6357,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + sb + to do sth",
-        "definition_cn": "迫使；责成",
-        "definition_en": "to force or compel someone to do something because of a law, rule, or duty",
+        "definition_cn": "迫使；责成；使因责任或情势而不得不",
+        "definition_en": "to make someone do something because of a duty, rule, law, or circumstances",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5488,7 +6393,7 @@
           "target_kind": "sense",
           "target_id": "sense:oblige:5ed647f5ecda535d",
           "target_locator": "record.senses[0]",
-          "target_label": "迫使；责成"
+          "target_label": "迫使；责成；使因责任或情势而不得不"
         }
       },
       {
@@ -5512,7 +6417,7 @@
         "id": "sense:oblige:ec8d1e479dd758b6",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "oblige (sb); oblige sb by doing sth / with sth; be happy to oblige",
         "definition_cn": "帮忙；为某人做某事",
         "definition_en": "to do something helpful for someone as a favor",
         "note": "",
@@ -5598,6 +6503,56 @@
           "target_locator": "record.constructions[0]",
           "target_label": "oblige sb by doing sth"
         }
+      },
+      {
+        "id": "construction:9310b297644e8f501842",
+        "source_locator": "record.constructions[1]",
+        "pattern": "(be) much/very obliged to sb for (doing) sth",
+        "lines": [
+          {
+            "text": "因某事对某人十分感激",
+            "lang": "cn"
+          },
+          {
+            "text": "正式礼貌用语；much obliged可独立致谢。to sb接感谢的人，for接感谢的事；be obliged to do sth则按语境可说有义务、不得不。",
+            "lang": "cn"
+          },
+          {
+            "text": "express gratitude for a person’s help",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9310b297644e8f501842",
+          "target_locator": "record.constructions[1]",
+          "target_label": "(be) much/very obliged to sb for (doing) sth"
+        }
+      },
+      {
+        "id": "construction:ddc63bf3c3b7ea0021e7",
+        "source_locator": "record.constructions[2]",
+        "pattern": "I would be obliged if…",
+        "lines": [
+          {
+            "text": "若能……我将不胜感激",
+            "lang": "cn"
+          },
+          {
+            "text": "正式、礼貌；I would be obliged if you could reply today请求对方今天回复，并非说对方受强制义务。",
+            "lang": "cn"
+          },
+          {
+            "text": "make a polite request while expressing anticipated gratitude",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ddc63bf3c3b7ea0021e7",
+          "target_locator": "record.constructions[2]",
+          "target_label": "I would be obliged if…"
+        }
       }
     ],
     "reference": {
@@ -5608,7 +6563,7 @@
           "target_word": "compel",
           "lines": [
             {
-              "text": "均可表迫使；compel强制性更强，oblige还可因责任使不得不",
+              "text": "两者均可表示迫使；compel 常强调强制，oblige 常见于责任、规则或情势使人不得不；强弱取决于语境，不能绝对排序。此处只比较迫使义，不含 oblige 的帮忙义。",
               "lang": "cn"
             },
             {
@@ -5635,7 +6590,7 @@
     "ordinal": 3299,
     "word": "obscure",
     "source_owner_path": "content/lexical/words/by-ordinal/o3299.json",
-    "source_fingerprint": "a4e4f1413186a08bf883424ab3d8a2c9e689a052c466a83e2e131731fd843181",
+    "source_fingerprint": "e04bf4d92e0d622e068ffb74fcffb870251a1e7e56ef150d9c5d31cf31d93656",
     "sense_lineage": [
       {
         "word_id": "word:obscure",
@@ -5653,13 +6608,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "晦涩/模糊的；鲜为人知的；使变模糊",
-      "decision_cn": "",
+      "summary_cn": "晦涩或模糊的；鲜为人知的；使难以看见或理解",
+      "decision_cn": "内容可晦涩，人物、地点或事实可鲜为人知；obscure the view/truth作动词说遮住视线或使真相难辨。最终依句中用法判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "晦涩/模糊的；鲜为人知的；使变模糊"
+        "target_label": "晦涩或模糊的；鲜为人知的；使难以看见或理解"
       }
     },
     "senses": [
@@ -5789,22 +6744,22 @@
     "ordinal": 3300,
     "word": "observation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3300.json",
-    "source_fingerprint": "99ac4d669cc697978a338ab46689afde6f2d17ca28bce3bcd377301ca6263910",
+    "source_fingerprint": "14c916d101f2e0d2a7f600b8b190df331b6fbefe8e10cf7fc11ac2a67e7c56fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "观察；评论",
-      "decision_cn": "",
+      "summary_cn": "观察、观测及所得记录；评论",
+      "decision_cn": "by observation说观察这一方法；record/compare observations可说所得事实或观测记录；make an observation about sth也可说发表评论，需看实验或论述语境。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "观察；评论"
+        "target_label": "观察、观测及所得记录；评论"
       }
     },
     "senses": [
@@ -5830,6 +6785,14 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "under observation"
             }
+          },
+          {
+            "id": "collocation:9419f787364b1d84ed4b",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "powers of observation",
+            "meaning_cn": "观察力",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5864,6 +6827,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "评论，言论"
         }
+      },
+      {
+        "id": "sense:observation:0331b0bd6da3b9d5",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "record observations; scientific observations",
+        "definition_cn": "观察或测量所得的事实、记录",
+        "definition_en": "a fact, record or description obtained by observing or measuring",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:47d2b29d292840e1aa63",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "compare the observations with the prediction",
+            "meaning_cn": "将观测记录与预测作比较",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:observation:0331b0bd6da3b9d5",
+          "target_locator": "record.senses[2]",
+          "target_label": "观察或测量所得的事实、记录"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5876,6 +6865,24 @@
           "applicability": [
             {
               "surface": "observation"
+            },
+            {
+              "surface": "observation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "owner_sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3300.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "record observations; scientific observations",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5889,14 +6896,37 @@
           "applicability": [
             {
               "surface": "observation"
+            },
+            {
+              "surface": "observation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "owner_sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3300.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "record observations; scientific observations",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:observation:0331b0bd6da3b9d5": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -5924,7 +6954,7 @@
     "ordinal": 3301,
     "word": "observe",
     "source_owner_path": "content/lexical/words/by-ordinal/o3301.json",
-    "source_fingerprint": "8cc39778c16f2fc2bd0649a9f1e61b29391c6a57a3e870e35c5cd373c8c522ff",
+    "source_fingerprint": "4e0c0adec5bb7362cf9f1a450c6be84e12ab22421f765ede62f9df4b71d6c444",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5933,13 +6963,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "观察；注意",
+      "summary_cn": "留意观察；遵守惯例；指出所见",
       "decision_cn": "observe 的共同点是“郑重地留意并按约定方式对待”：看现象→观察/注意到；对规则→遵守；对节日→纪念/庆祝；把观察说出来→指出/评论。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "观察；注意"
+        "target_label": "留意观察；遵守惯例；指出所见"
       }
     },
     "senses": [
@@ -5947,7 +6977,7 @@
         "id": "sense:observe:d2c7ec7021a257b9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "observe (sb/sth); observe carefully",
         "definition_cn": "观察；注视",
         "definition_en": "to watch carefully",
         "note": "",
@@ -5973,7 +7003,7 @@
         "id": "sense:observe:e1620f5d15e35807",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "observe sb/sth; observe sb do / doing sth; observe that ...; passive: be observed to do sth",
         "definition_cn": "注意到；觉察到",
         "definition_en": "to notice or see",
         "note": "",
@@ -6149,7 +7179,7 @@
     "ordinal": 3302,
     "word": "obsession",
     "source_owner_path": "content/lexical/words/by-ordinal/o3302.json",
-    "source_fingerprint": "f2ebe18ce9ff858db8a4d786191d7e5acf9dbbbbc5078c879f3a6fb9fcb93072",
+    "source_fingerprint": "76c92cc6705c07d0acc85f2efdfad549f8e329183c1549e0b4c9fd63fe8a59d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6195,7 +7225,7 @@
             "id": "collocation:1b891933aad7ad81cde3",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "have an obsession",
-            "meaning_cn": "有强迫观念",
+            "meaning_cn": "有某种执念或强烈迷恋",
             "kind": "usage_example",
             "repair": null
           }
@@ -6349,7 +7379,7 @@
     "ordinal": 3304,
     "word": "obstacle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3304.json",
-    "source_fingerprint": "75a97aa4e19fb262dea5412d34e30b6b4ec928a07e1cd17398dc43cba59c8515",
+    "source_fingerprint": "2e084eac476301df51dda2dba75e56e1e34cbe5e9ab022cf3ba2e107a5e8bf4d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6374,7 +7404,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "障碍，阻碍",
-        "definition_en": "something that stands in the way and must be overcome",
+        "definition_en": "something that blocks movement or makes progress or achievement more difficult",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6389,14 +7419,14 @@
           {
             "id": "collocation:4f351ad9466e5f048f28",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "obstacle to + sth",
+            "phrase": "an obstacle to sth / doing sth",
             "meaning_cn": "对某事的障碍",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:4f351ad9466e5f048f28",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "obstacle to + sth"
+              "target_label": "an obstacle to sth / doing sth"
             }
           }
         ],
@@ -6455,8 +7485,16 @@
     "ordinal": 3305,
     "word": "obstruct",
     "source_owner_path": "content/lexical/words/by-ordinal/o3305.json",
-    "source_fingerprint": "702764a7dc8beb8ddaf6d56cb75eeb0d741e4ccc86d1f1e3a35bcffdb1fd1713",
-    "sense_lineage": [],
+    "source_fingerprint": "bfa9f73fae3133dbffbbc4a6c5e53f0e9d04f337597bd51138a2069c7299ea61",
+    "sense_lineage": [
+      {
+        "word_id": "word:obstruct",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6f35f5963620963084c9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -6485,21 +7523,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6f35f5963620963084c9",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "obstruct + sth",
-            "meaning_cn": "阻塞某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6f35f5963620963084c9",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "obstruct + sth"
-            }
-          },
-          {
             "id": "collocation:9d8ee8e2a7a41893d3ba",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "obstruct the traffic",
             "meaning_cn": "阻塞交通",
             "kind": "usage_example",
@@ -6518,8 +7543,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "遮没，挡住",
-        "definition_en": "to hide from view",
+        "definition_cn": "遮挡；挡住（视线）",
+        "definition_en": "to block or interfere with a view",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6536,7 +7561,7 @@
           "target_kind": "sense",
           "target_id": "sense:obstruct:5ad4b12151e951b7",
           "target_locator": "record.senses[1]",
-          "target_label": "遮没，挡住"
+          "target_label": "遮挡；挡住（视线）"
         }
       }
     ],
@@ -6951,8 +7976,16 @@
     "ordinal": 3309,
     "word": "occasion",
     "source_owner_path": "content/lexical/words/by-ordinal/o3309.json",
-    "source_fingerprint": "a6c7537a9cd3f2d97c01005c9ecab059bf128296e0b2c368cdfd292a2464eb8a",
-    "sense_lineage": [],
+    "source_fingerprint": "bfb31dba7889ff395284daf3ebf190318e5d3c7adde0ea4272bce6fa89e1186d",
+    "sense_lineage": [
+      {
+        "word_id": "word:occasion",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:62282b7fabac4d60ecee",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -6961,13 +7994,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "特定时间或事件，或理由/机会",
-      "decision_cn": "",
+      "summary_cn": "某次发生或特别活动；理由或时机；引起",
+      "decision_cn": "on several occasions说发生过几次，a special occasion说特别活动；have occasion to do有理由、机会或需要。动词occasion在正式语体中表示引起某事。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "特定时间或事件，或理由/机会"
+        "target_label": "某次发生或特别活动；理由或时机；引起"
       }
     },
     "senses": [
@@ -6975,9 +8008,9 @@
         "id": "sense:occasion:549b9c0ca1595f3d",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "场合；时刻",
-        "definition_en": "a particular time when something happens",
+        "governing_pattern": "on an occasion; on the occasion of sth; an occasion when…",
+        "definition_cn": "场合；时刻；特别的活动、庆典",
+        "definition_en": "a particular time when something happens, or a notable event or celebration",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6993,13 +8026,21 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "on the occasion of + sth"
             }
+          },
+          {
+            "id": "collocation:8d72fb33c4f8b79e1a75",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a special occasion",
+            "meaning_cn": "一个特别的场合或值得庆祝的活动",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:occasion:549b9c0ca1595f3d",
           "target_locator": "record.senses[0]",
-          "target_label": "场合；时刻"
+          "target_label": "场合；时刻；特别的活动、庆典"
         }
       },
       {
@@ -7057,23 +8098,9 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "引起；惹起",
         "definition_en": "to cause something",
-        "note": "",
+        "note": "Formal usage（正式语体）",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:62282b7fabac4d60ecee",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "occasion + sth",
-            "meaning_cn": "引起某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:62282b7fabac4d60ecee",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "occasion + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:occasion:902f9fe45ec853b2",
@@ -7199,7 +8226,7 @@
     "ordinal": 3310,
     "word": "occasional",
     "source_owner_path": "content/lexical/words/by-ordinal/o3310.json",
-    "source_fingerprint": "e3ec74fa66901ceb67019714749bf91bca5bee333a047af9495c425a1fb50ac4",
+    "source_fingerprint": "67a1943c5779d049a433d5d24fea9a8664a2e1fb8a3660bed75b08a71e808ffe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7223,7 +8250,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "偶尔的；偶然的",
+        "definition_cn": "偶尔的；不经常的",
         "definition_en": "happening sometimes but not often or regularly",
         "note": "",
         "identity_overlay": null,
@@ -7249,7 +8276,7 @@
           "target_kind": "sense",
           "target_id": "sense:occasional:c09b575246b45b7e",
           "target_locator": "record.senses[0]",
-          "target_label": "偶尔的；偶然的"
+          "target_label": "偶尔的；不经常的"
         }
       }
     ],
@@ -7298,22 +8325,22 @@
     "ordinal": 3311,
     "word": "occupation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3311.json",
-    "source_fingerprint": "d46f06f6bd5106b4108b4e1a836ecbc8b46dada5059713e4815454c16e99601c",
+    "source_fingerprint": "1afccd2fdc33c22f39b6fc4b69fbaad60b6c5b47609f237f4d40d0cbfce088f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "职业；占领；占有",
-      "decision_cn": "",
+      "summary_cn": "职业或消遣；军事占领；占用住所",
+      "decision_cn": "表格中的occupation填职业；leisure occupation说闲暇活动。军事语境可指占领状态或期间，occupation of a house则说居住、占用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "职业；占领；占有"
+        "target_label": "职业或消遣；军事占领；占用住所"
       }
     },
     "senses": [
@@ -7361,8 +8388,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "占领；占据",
-        "definition_en": "the act of taking control of a place by military force",
+        "definition_cn": "军事占领；占领期间",
+        "definition_en": "military control of a place, or the act or period of establishing and maintaining it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7392,7 +8419,7 @@
           "target_kind": "sense",
           "target_id": "sense:occupation:1e11dbb61e015d7e",
           "target_locator": "record.senses[1]",
-          "target_label": "占领；占据"
+          "target_label": "军事占领；占领期间"
         }
       },
       {
@@ -7420,6 +8447,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "占有；占用"
         }
+      },
+      {
+        "id": "sense:occupation:7cdf4343306d0f19",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a favourite/leisure occupation",
+        "definition_cn": "消遣；占用时间的活动",
+        "definition_en": "an activity with which somebody spends time, especially outside paid work",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:44eb55391fe0e2f590d2",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Reading is her favourite occupation.",
+            "meaning_cn": "阅读是她最喜欢的消遣活动。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:occupation:7cdf4343306d0f19",
+          "target_locator": "record.senses[3]",
+          "target_label": "消遣；占用时间的活动"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7432,6 +8485,24 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7445,6 +8516,24 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7458,6 +8547,24 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7471,6 +8578,24 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7484,6 +8609,24 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7497,14 +8640,41 @@
           "applicability": [
             {
               "surface": "occupation"
+            },
+            {
+              "surface": "occupation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "owner_sense_ids": [
+                "sense:occupation:7cdf4343306d0f19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3311.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a favourite/leisure occupation",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:occupation:7cdf4343306d0f19": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -7521,8 +8691,23 @@
     "ordinal": 3312,
     "word": "occupy",
     "source_owner_path": "content/lexical/words/by-ordinal/o3312.json",
-    "source_fingerprint": "7e4c8e88212f6f8395c56f32f879d5dc9e3ea8e3c51522a9cc1a0ebd7d65f28d",
-    "sense_lineage": [],
+    "source_fingerprint": "35f35fa84a237f0ae7ad7c3ccd1af0d1437a74ab12d1bd2731ff6b8f909625ea",
+    "sense_lineage": [
+      {
+        "word_id": "word:occupy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:84878083d54e20a58d17",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:occupy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e2f572510ad994db64cb",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -7557,19 +8742,6 @@
             "meaning_cn": "占领一座城市",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:e2f572510ad994db64cb",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "occupy + territory",
-            "meaning_cn": "占领领土",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e2f572510ad994db64cb",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "occupy + territory"
-            }
           }
         ],
         "repair": {
@@ -7596,19 +8768,6 @@
             "meaning_cn": "占用一个房间",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:84878083d54e20a58d17",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "occupy + space",
-            "meaning_cn": "占用空间",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:84878083d54e20a58d17",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "occupy + space"
-            }
           }
         ],
         "repair": {
@@ -7622,7 +8781,7 @@
         "id": "sense:occupy:d569b114c15259e1",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "occupy sb; occupy oneself with sth / in doing sth; be occupied with sth / in doing sth",
         "definition_cn": "使忙于；使全神贯注",
         "definition_en": "to keep someone busy or interested",
         "note": "",
@@ -7653,6 +8812,14 @@
               "target_locator": "record.senses[2].collocations[1]",
               "target_label": "be occupied in + doing sth"
             }
+          },
+          {
+            "id": "collocation:8ff3d99a5ce79c3ed4ee",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "be occupied with the preparations",
+            "meaning_cn": "忙于准备工作",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7736,8 +8903,23 @@
     "ordinal": 3313,
     "word": "occur",
     "source_owner_path": "content/lexical/words/by-ordinal/o3313.json",
-    "source_fingerprint": "cb26c99189e22c465320b258e52a7a115bb6d3122090f166d018f677121e8576",
-    "sense_lineage": [],
+    "source_fingerprint": "53ed5c8d15429e365301eae67cfecfe662582c19907e6d4d2a1c19458cdc579a",
+    "sense_lineage": [
+      {
+        "word_id": "word:occur",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:67de9e39b37ca5e61a61",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:occur",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9f789fe10de8053c9c8e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -7745,13 +8927,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发生",
-      "decision_cn": "",
+      "summary_cn": "事情发生；念头浮现；某处存在",
+      "decision_cn": "事件 occur 是发生；念头 occur to sb 是某人想到；物种或现象 occur in 某地是存在于那里。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发生"
+        "target_label": "事情发生；念头浮现；某处存在"
       }
     },
     "senses": [
@@ -7785,37 +8967,19 @@
         "id": "sense:occur:777a4176a12d550f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "sth occurs to sb; it occurs to sb that…; it occurs to sb to do sth",
         "definition_cn": "被想到，浮现",
         "definition_en": "come to one's mind; suggest itself",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9f789fe10de8053c9c8e",
+            "id": "collocation:497940977d02aee06b93",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "It occurred to me that...",
-            "meaning_cn": "我突然想到...",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9f789fe10de8053c9c8e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "It occurred to me that..."
-            }
-          },
-          {
-            "id": "collocation:67de9e39b37ca5e61a61",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "occur to sb",
-            "meaning_cn": "某人想到",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:67de9e39b37ca5e61a61",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "occur to sb"
-            }
+            "phrase": "It did not occur to me to ask.",
+            "meaning_cn": "我没想到要问。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8074,8 +9238,16 @@
     "ordinal": 3315,
     "word": "ocean",
     "source_owner_path": "content/lexical/words/by-ordinal/o3315.json",
-    "source_fingerprint": "6ac762dc4de5cae829d984015b45a77236fd1e5821bd727bbe5c563d00a60b39",
-    "sense_lineage": [],
+    "source_fingerprint": "eb753b53b0e2cf3d76307075e96fa0b318cc20d89d514f0007fc3010b324d1f6",
+    "sense_lineage": [
+      {
+        "word_id": "word:ocean",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0bdfc678cc529b8bd8ab",
+        "status": "merged",
+        "to_target_id": "collocation:b0d5aeb27490f2b32460"
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -8140,27 +9312,14 @@
           {
             "id": "collocation:b0d5aeb27490f2b32460",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "an ocean of + sth",
+            "phrase": "an ocean of sth / oceans of sth",
             "meaning_cn": "大量的某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b0d5aeb27490f2b32460",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "an ocean of + sth"
-            }
-          },
-          {
-            "id": "collocation:0bdfc678cc529b8bd8ab",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "oceans of + sth",
-            "meaning_cn": "大量的某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0bdfc678cc529b8bd8ab",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "oceans of + sth"
+              "target_label": "an ocean of sth / oceans of sth"
             }
           }
         ],
@@ -8299,17 +9458,17 @@
     "ordinal": 3317,
     "word": "odd",
     "source_owner_path": "content/lexical/words/by-ordinal/o3317.json",
-    "source_fingerprint": "241fc909f1b318eee986bb2085043125592ef5bf652bf73d399d15dd1d664898",
+    "source_fingerprint": "0e32db1efe94f6690d6da6d583db339a7ab5c36eaec9bff10014f50fd7344dac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A"
+        "5A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "奇怪的；奇数的",
-      "decision_cn": "",
+      "decision_cn": "按搭配选义：odd behaviour 是古怪；odd number 是奇数；odd sock 是不成对；数字后 -odd 是略多；the odd mistake/drink 是偶尔出现，不是古怪。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8421,6 +9580,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "大约；多一点的"
         }
+      },
+      {
+        "id": "sense:odd:37141cfee468cde9",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "the odd + noun: the odd mistake = an occasional mistake",
+        "definition_cn": "偶尔的；零星出现的（通常名词前 the odd ...）",
+        "definition_en": "occurring occasionally or in small, scattered instances",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:odd:37141cfee468cde9",
+          "target_locator": "record.senses[4]",
+          "target_label": "偶尔的；零星出现的（通常名词前 the odd ...）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8470,22 +9646,22 @@
     "ordinal": 3318,
     "word": "odds",
     "source_owner_path": "content/lexical/words/by-ordinal/o3318.json",
-    "source_fingerprint": "1c9c7f7539f493c8e0422eaafe6f2e7a554cdcd5c82701d117888bfc90536cd1",
+    "source_fingerprint": "a122e4cb653043c821565ecac50011d5da961b22783e5e5ce77a4ef435456092",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "可能性；几率",
-      "decision_cn": "",
+      "summary_cn": "几率、赔率；不利条件",
+      "decision_cn": "the odds are that…说很可能；betting odds说赔率；overcome overwhelming odds说克服巨大阻力。odds作复数，at odds with仍说意见不合或相矛盾。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "可能性；几率"
+        "target_label": "几率、赔率；不利条件"
       }
     },
     "senses": [
@@ -8493,7 +9669,7 @@
         "id": "sense:odds:b861e51db3b251cc",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "plural: the odds are…; the odds of sth/doing sth; the odds are that…; odds in favour of / against sb/sth",
         "definition_cn": "可能性；几率",
         "definition_en": "the likelihood of a thing occurring rather than not occurring",
         "note": "",
@@ -8558,6 +9734,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "赔率"
         }
+      },
+      {
+        "id": "sense:odds:0b192468bd5a7f6a",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "overcome/beat the odds; face overwhelming odds",
+        "definition_cn": "不利条件；使成功困难的阻力",
+        "definition_en": "conditions or obstacles that make success difficult",
+        "note": "复数名词。overwhelming odds可说巨大阻力，不只是用数值表达几率；against all odds也可按不利形势理解。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fc6db542560bcfe86e01",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "overcome overwhelming odds",
+            "meaning_cn": "克服极为不利的条件",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:odds:0b192468bd5a7f6a",
+          "target_locator": "record.senses[2]",
+          "target_label": "不利条件；使成功困难的阻力"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8570,6 +9772,24 @@
           "applicability": [
             {
               "surface": "odds"
+            },
+            {
+              "surface": "odds",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "owner_sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3318.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "overcome/beat the odds; face overwhelming odds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8583,14 +9803,37 @@
           "applicability": [
             {
               "surface": "odds"
+            },
+            {
+              "surface": "odds",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "owner_sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3318.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "overcome/beat the odds; face overwhelming odds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:odds:0b192468bd5a7f6a": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -8609,6 +9852,31 @@
           "target_id": "construction:0e3d1c2c29486c4ea442",
           "target_locator": "record.constructions[0]",
           "target_label": "be at odds with sb/sth"
+        }
+      },
+      {
+        "id": "construction:d84e2c28ff0a24fdbbd6",
+        "source_locator": "record.constructions[1]",
+        "pattern": "odds and ends",
+        "lines": [
+          {
+            "text": "零碎物品；杂七杂八的小东西或小任务",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式复数整体，强调零散、不同种类；不是某件事发生的赔率。",
+            "lang": "cn"
+          },
+          {
+            "text": "small miscellaneous items or tasks",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d84e2c28ff0a24fdbbd6",
+          "target_locator": "record.constructions[1]",
+          "target_label": "odds and ends"
         }
       }
     ],
@@ -8731,22 +9999,22 @@
     "ordinal": 3320,
     "word": "of",
     "source_owner_path": "content/lexical/words/by-ordinal/o3320.json",
-    "source_fingerprint": "602ed58cb68de37f349bb7c132a590bb520c81ca0ed5c0a5581b9bf2009cac27",
+    "source_fingerprint": "e31b39ba708541d3e20b65ee38f8197e2e557672b9134b106ead151b32d5bfa5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4PREP"
+        "6PREP"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "属于或关于",
-      "decision_cn": "",
+      "summary_cn": "连接所属、来源、内容、部分、主题或性质",
+      "decision_cn": "看of前后名词关系：a cup of water是内容，some of the people是部分，a map of a city是所描绘对象；the arrival of sb与criticism of sb中的sb角色不同。of great value可描述很有价值。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "属于或关于"
+        "target_label": "连接所属、来源、内容、部分、主题或性质"
       }
     },
     "senses": [
@@ -8807,9 +10075,9 @@
         "source_locator": "record.senses[2]",
         "pos": "preposition",
         "governing_pattern": "prep. + noun/pronoun",
-        "definition_cn": "表示材料或构成",
-        "definition_en": "used to show material or composition",
-        "note": "",
+        "definition_cn": "表示材料、内容或某一数量所包含的东西",
+        "definition_en": "used to identify material, contents, or what a stated amount consists of",
+        "note": "a cup of water 是一杯水（内容/数量），不是杯子由水制成。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8825,7 +10093,7 @@
           "target_kind": "sense",
           "target_id": "sense:of:8ea108f08aee5fc4",
           "target_locator": "record.senses[2]",
-          "target_label": "表示材料或构成"
+          "target_label": "表示材料、内容或某一数量所包含的东西"
         }
       },
       {
@@ -8852,6 +10120,58 @@
           "target_id": "sense:of:d5e8a98ce4395e8d",
           "target_locator": "record.senses[3]",
           "target_label": "表示整体中的一部分"
+        }
+      },
+      {
+        "id": "sense:of:80ce1ad05b2bd498",
+        "source_locator": "record.senses[4]",
+        "pos": "preposition",
+        "governing_pattern": "a picture/story of sth; the arrival/criticism of sb",
+        "definition_cn": "表示所涉主题、对象，或名词所述行为由谁实施、针对谁",
+        "definition_en": "link a noun to what it depicts or concerns, or to a participant in the action it names",
+        "note": "of后的名词角色看前面的名词：the arrival of the police是警察到达；criticism of the police通常是警察受到批评。不能一律译属于。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d0f9e967c6fed30b8ca6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a picture of the coast",
+            "meaning_cn": "一幅海岸的图画",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:of:80ce1ad05b2bd498",
+          "target_locator": "record.senses[4]",
+          "target_label": "表示所涉主题、对象，或名词所述行为由谁实施、针对谁"
+        }
+      },
+      {
+        "id": "sense:of:537775888759d7e7",
+        "source_locator": "record.senses[5]",
+        "pos": "preposition",
+        "governing_pattern": "a person of courage; be of value/use/importance",
+        "definition_cn": "表示具有某种性质、特征",
+        "definition_en": "describe a quality or characteristic that somebody or something has",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fa86639ec85eb360fe5c",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a decision of great importance",
+            "meaning_cn": "一项很重要的决定",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:of:537775888759d7e7",
+          "target_locator": "record.senses[5]",
+          "target_label": "表示具有某种性质、特征"
         }
       }
     ],
@@ -8906,6 +10226,56 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ɒv/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "of",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:of:80ce1ad05b2bd498"
+              ],
+              "owner_sense_ids": [
+                "sense:of:80ce1ad05b2bd498"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3320.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a picture/story of sth; the arrival/criticism of sb",
+              "conditions": {
+                "form": "strong form"
+              },
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "of",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:of:537775888759d7e7"
+              ],
+              "owner_sense_ids": [
+                "sense:of:537775888759d7e7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3320.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a person of courage; be of value/use/importance",
+              "conditions": {
+                "form": "strong form"
+              },
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -8924,12 +10294,44 @@
         "sense:of:d5e8a98ce4395e8d": [
           0,
           1
+        ],
+        "sense:of:537775888759d7e7": [
+          2
+        ],
+        "sense:of:80ce1ad05b2bd498": [
+          2
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ad984c02d445f4cdf6e1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be of + abstract noun（use/value/importance等）",
+        "lines": [
+          {
+            "text": "具有某种性质；有用、有价值、重要等",
+            "lang": "cn"
+          },
+          {
+            "text": "如be of great use很有用，be of little value价值不大。不是任意名词都可代替形容词；use/value/importance是常见例。",
+            "lang": "cn"
+          },
+          {
+            "text": "describe a characteristic using an abstract noun",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ad984c02d445f4cdf6e1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be of + abstract noun（use/value/importance等）"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8943,7 +10345,7 @@
     "ordinal": 3321,
     "word": "off",
     "source_owner_path": "content/lexical/words/by-ordinal/o3321.json",
-    "source_fingerprint": "ff268e3aa7232f94793aa2163170713b863a18d6dda9f0f1969393118d0c48a1",
+    "source_fingerprint": "eba4d9e805b76a9f2c35f5f6c086660f2ac33af504d1722b1841b63fbbd647d7",
     "sense_lineage": [
       {
         "word_id": "word:off",
@@ -8963,7 +10365,7 @@
     },
     "word_feel": {
       "summary_cn": "离开；关闭；停止",
-      "decision_cn": "",
+      "decision_cn": "先判断脱离什么：位置/接触、运行、值勤或原定安排；食物 off 指失去新鲜状态，价格 off 指减去。better/worse off 另读作处境好坏。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8976,17 +10378,26 @@
         "id": "sense:off:dae3754b20615e51",
         "source_locator": "record.senses[0]",
         "pos": "preposition",
-        "governing_pattern": "",
-        "definition_cn": "离开；不再附着或处于……上",
-        "definition_en": "away from or no longer on something",
+        "governing_pattern": "off a surface/place; off the coast; distance + off sth",
+        "definition_cn": "离开、脱离某处；在某处附近或离开一定距离",
+        "definition_en": "away from a place or attachment, or at a distance from a place",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:ecdadbe9028e2aa89131",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "an island off the coast",
+            "meaning_cn": "靠近海岸的一座岛",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:off:dae3754b20615e51",
           "target_locator": "record.senses[0]",
-          "target_label": "离开；不再附着或处于……上"
+          "target_label": "离开、脱离某处；在某处附近或离开一定距离"
         }
       },
       {
@@ -9176,6 +10587,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "be better/worse off"
         }
+      },
+      {
+        "id": "construction:5e13c1ef3e8cabc054f5",
+        "source_locator": "record.constructions[1]",
+        "pattern": "on and off / off and on",
+        "lines": [
+          {
+            "text": "时断时续；间歇地",
+            "lang": "cn"
+          },
+          {
+            "text": "如It rained on and off说下雨时断时续，不是电源开关的字面操作。",
+            "lang": "cn"
+          },
+          {
+            "text": "at intervals, with breaks",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5e13c1ef3e8cabc054f5",
+          "target_locator": "record.constructions[1]",
+          "target_label": "on and off / off and on"
+        }
       }
     ],
     "reference": {
@@ -9218,8 +10654,16 @@
     "ordinal": 3322,
     "word": "offend",
     "source_owner_path": "content/lexical/words/by-ordinal/o3322.json",
-    "source_fingerprint": "b829026dfe5546d54899f6c7c75b42961b448ce4653d99ab0c903359212a3d53",
-    "sense_lineage": [],
+    "source_fingerprint": "e0d88669da1d8709d2ef92a6ee690d0c1e487423e6f64efab2fbba50df62ab01",
+    "sense_lineage": [
+      {
+        "word_id": "word:offend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5e55ba275cdad3c3dd6e",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -9241,26 +10685,12 @@
         "id": "sense:offend:da040ead7a4e5289",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "offend (sb); not mean to offend",
         "definition_cn": "冒犯；得罪",
         "definition_en": "to cause someone to feel upset or angry",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5e55ba275cdad3c3dd6e",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "offend someone",
-            "meaning_cn": "冒犯某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5e55ba275cdad3c3dd6e",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "offend someone"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:offend:da040ead7a4e5289",
@@ -9272,7 +10702,7 @@
         "id": "sense:offend:32c6c0bc9116516f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + against + sth",
+        "governing_pattern": "offend (against a law/rule/principle); offend can also stand without against",
         "definition_cn": "违反；违犯（法律、规则、原则等）",
         "definition_en": "to break or violate a law, rule, principle, or standard",
         "note": "",
@@ -9362,23 +10792,23 @@
     "ordinal": 3323,
     "word": "offensive",
     "source_owner_path": "content/lexical/words/by-ordinal/o3323.json",
-    "source_fingerprint": "cac745ead3729ee97005c8a18e7571da00ffc7be8bc804a8c108650473ea94ac",
+    "source_fingerprint": "0e6779fe89b184f9224981f6c6c864c47d076fd4e3738587f1d696cb39c265fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "冒犯的；攻击的",
-      "decision_cn": "",
+      "summary_cn": "冒犯或极不快的；进攻的；军事/非军事攻势",
+      "decision_cn": "offensive language可冒犯听者，offensive smell是气味令人厌恶。offensive weapons讲进攻；a sales/charm offensive讲为目标集中开展的行动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "冒犯的；攻击的"
+        "target_label": "冒犯或极不快的；进攻的；军事/非军事攻势"
       }
     },
     "senses": [
@@ -9387,8 +10817,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "冒犯的；令人不快的",
-        "definition_en": "causing anger or annoyance; insulting",
+        "definition_cn": "冒犯的；令人不快的；（正式）极难闻、令人厌恶的",
+        "definition_en": "insulting or upsetting; also, in formal use, extremely unpleasant",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9412,13 +10842,21 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "offensive to + sb"
             }
+          },
+          {
+            "id": "collocation:19ab33962a9a30678095",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "an offensive smell",
+            "meaning_cn": "令人厌恶的气味",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:offensive:0fda59036eed5142",
           "target_locator": "record.senses[0]",
-          "target_label": "冒犯的；令人不快的"
+          "target_label": "冒犯的；令人不快的；（正式）极难闻、令人厌恶的"
         }
       },
       {
@@ -9493,6 +10931,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "进攻；攻势"
         }
+      },
+      {
+        "id": "sense:offensive:500f1ba89079fea8",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a sales/charm offensive; an offensive against sth",
+        "definition_cn": "（为达到目的开展的）集中行动、攻势",
+        "definition_en": "a sustained campaign aimed at a goal, often intended to attract attention",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3d4865ec65642eaafa46",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a publicity offensive",
+            "meaning_cn": "一场宣传攻势",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:offensive:500f1ba89079fea8",
+          "target_locator": "record.senses[3]",
+          "target_label": "（为达到目的开展的）集中行动、攻势"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9503,17 +10967,65 @@
           "applicability": [
             {
               "surface": "offensive"
+            },
+            {
+              "surface": "offensive",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:offensive:500f1ba89079fea8"
+              ],
+              "owner_sense_ids": [
+                "sense:offensive:500f1ba89079fea8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3323.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a sales/charm offensive; an offensive against sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:offensive:500f1ba89079fea8": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7acbba43aee5cda844fe",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/go on the offensive",
+        "lines": [
+          {
+            "text": "处于／转而采取主动进攻姿态",
+            "lang": "cn"
+          },
+          {
+            "text": "可指军事、比赛，也可指回应批评等主动反击；不只指口出冒犯语言。",
+            "lang": "cn"
+          },
+          {
+            "text": "attack or challenge others rather than wait for them to act",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7acbba43aee5cda844fe",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/go on the offensive"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9527,23 +11039,31 @@
     "ordinal": 3324,
     "word": "offer",
     "source_owner_path": "content/lexical/words/by-ordinal/o3324.json",
-    "source_fingerprint": "bb5378e727493e56e31cd7a33ebab5e4a5289da7ee49155bd59171ca893101a4",
-    "sense_lineage": [],
+    "source_fingerprint": "e3e939194d84bce9122bba6db79087cba3e42f034619967d4390842f4cde3776",
+    "sense_lineage": [
+      {
+        "word_id": "word:offer",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:538b0233f7adf0287e41",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "提供；提议",
-      "decision_cn": "",
+      "summary_cn": "提供或主动提出；提议、出价或促销；献祭",
+      "decision_cn": "offer sb sth/offer sth to sb提供东西，offer to do主动提出，offer £500 for sth出价；special offer促销，on offer可说可供选择，也可指优惠。献祭语境也可用offer。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "提供；提议"
+        "target_label": "提供或主动提出；提议、出价或促销；献祭"
       }
     },
     "senses": [
@@ -9551,28 +11071,15 @@
         "id": "sense:offer:ec31d64f2b1e5829",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "offer sb sth; offer sth to sb",
+        "governing_pattern": "offer (sth); offer sb sth; offer sth to sb; offer an amount for sth",
         "definition_cn": "提供；提出",
         "definition_en": "to present something for someone to accept or reject",
-        "note": "",
+        "note": "可以裸用I should offer anyway，也可双宾语或to结构提供东西。offer an amount for sth用于出价；offer to do仍表示主动提出做某事。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:538b0233f7adf0287e41",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "offer + sth",
-            "meaning_cn": "提供某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:538b0233f7adf0287e41",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "offer + sth"
-            }
-          },
-          {
             "id": "collocation:2f498c7b41a7e1b10bcf",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "offer help",
             "meaning_cn": "提供帮助",
             "kind": "usage_example",
@@ -9682,8 +11189,8 @@
           {
             "id": "collocation:7ceb8a9b4fc1eb1007be",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "offer price",
-            "meaning_cn": "报价",
+            "phrase": "an offer of £500",
+            "meaning_cn": "500英镑的出价",
             "kind": "usage_example",
             "repair": null
           }
@@ -9693,6 +11200,32 @@
           "target_id": "sense:offer:0caedd5442565a55",
           "target_locator": "record.senses[4]",
           "target_label": "出价；报价"
+        }
+      },
+      {
+        "id": "sense:offer:bb0cbc9f80e5fd92",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a special/introductory offer; an offer on sth",
+        "definition_cn": "优惠；促销优惠价或条件",
+        "definition_en": "a temporary reduction in price or other promotional benefit",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b6a7a67aefb18396a02e",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a special offer on books",
+            "meaning_cn": "图书的促销优惠",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:offer:bb0cbc9f80e5fd92",
+          "target_locator": "record.senses[5]",
+          "target_label": "优惠；促销优惠价或条件"
         }
       }
     ],
@@ -9706,14 +11239,36 @@
           "applicability": [
             {
               "surface": "offer"
+            },
+            {
+              "surface": "offer",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:offer:bb0cbc9f80e5fd92"
+              ],
+              "owner_sense_ids": [
+                "sense:offer:bb0cbc9f80e5fd92"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3324.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a special/introductory offer; an offer on sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:offer:bb0cbc9f80e5fd92": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -9735,20 +11290,28 @@
         }
       },
       {
-        "id": "construction:d1c563bac47430aadf7b",
+        "id": "construction:2a3f5907d4c37257a254",
         "source_locator": "record.constructions[2]",
-        "pattern": "offer to do sth",
+        "pattern": "on offer",
         "lines": [
           {
-            "text": "主动提出/表示愿意做某事",
+            "text": "可供购买、使用或选择；（尤英式）在促销",
             "lang": "cn"
+          },
+          {
+            "text": "courses on offer指可选课程，products on special offer可指促销商品。是否优惠看语境，不一律译打折。",
+            "lang": "cn"
+          },
+          {
+            "text": "available to buy or use; in British usage also temporarily discounted",
+            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:d1c563bac47430aadf7b",
+          "target_id": "construction:2a3f5907d4c37257a254",
           "target_locator": "record.constructions[2]",
-          "target_label": "offer to do sth"
+          "target_label": "on offer"
         }
       }
     ],
@@ -9765,7 +11328,7 @@
     "ordinal": 3325,
     "word": "office",
     "source_owner_path": "content/lexical/words/by-ordinal/o3325.json",
-    "source_fingerprint": "3dc54f5925623c0b482069ed60a311eae2ff96d4bcf15810f184698042b8fbe7",
+    "source_fingerprint": "c10962e42656922a75e8cf96dd6bc30f96f8ea0ede11dc2877a7e0c58161a0f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9814,7 +11377,7 @@
         "id": "sense:office:5337ec52ec44566d",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "hold/take/leave office; be/remain in office; be out of office",
         "definition_cn": "公职，官职",
         "definition_en": "a position of authority or service, especially in government",
         "note": "",
@@ -9832,6 +11395,14 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "hold office"
             }
+          },
+          {
+            "id": "collocation:6f82a44fe61785ba79c2",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "take office",
+            "meaning_cn": "就职；上任",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9906,7 +11477,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7471a6626d1fcaf98bbb",
+        "source_locator": "record.constructions[0]",
+        "pattern": "through sb’s good offices",
+        "lines": [
+          {
+            "text": "经某人的帮助、斡旋",
+            "lang": "cn"
+          },
+          {
+            "text": "正式语体；offices常用复数，此处说帮助促成事情，不是若干间设备很好的办公室。",
+            "lang": "cn"
+          },
+          {
+            "text": "with somebody’s help or intervention",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7471a6626d1fcaf98bbb",
+          "target_locator": "record.constructions[0]",
+          "target_label": "through sb’s good offices"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10067,7 +11664,7 @@
     "ordinal": 3327,
     "word": "official",
     "source_owner_path": "content/lexical/words/by-ordinal/o3327.json",
-    "source_fingerprint": "cfca841c69a9c16e0a8023d1f9671cd48a7440a878ec4d1e814ed209bbac37f2",
+    "source_fingerprint": "940fc642755b1bbbf0c8314d31fb269c08c3ccafb3bc39033f106a15bdb93fbe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10118,7 +11715,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "裁判；执法者",
+        "definition_cn": "（体育比赛的）裁判或执法人员",
         "definition_en": "a person who administers the rules of a game or sport",
         "note": "",
         "identity_overlay": null,
@@ -10136,7 +11733,7 @@
           "target_kind": "sense",
           "target_id": "sense:official:27824bec13d65b5f",
           "target_locator": "record.senses[1]",
-          "target_label": "裁判；执法者"
+          "target_label": "（体育比赛的）裁判或执法人员"
         }
       },
       {
@@ -10145,7 +11742,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "官方的；正式的",
-        "definition_en": "having official authority or sanction",
+        "definition_en": "authorized, issued, or recognized by a government or other responsible organization",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10227,7 +11824,7 @@
     "ordinal": 3328,
     "word": "offset",
     "source_owner_path": "content/lexical/words/by-ordinal/o3328.json",
-    "source_fingerprint": "8f1814d0776b678af6e08624f5dd2bf452490637c6006affbd4acb27dd773d60",
+    "source_fingerprint": "52024a0b8d7e0622912ad2bf0d969ac49012dcad72961edb4f79b9e894155a8e",
     "sense_lineage": [
       {
         "word_id": "word:offset",
@@ -10266,12 +11863,21 @@
         "id": "sense:offset:70461a1bf3ae533a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "offset sth; offset sth against sth; be offset by sth",
         "definition_cn": "抵消；补偿",
         "definition_en": "to counterbalance or compensate for something",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:76474ded5e59eff9a3d5",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "The gains offset the losses.",
+            "meaning_cn": "收益抵消了损失。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:offset:70461a1bf3ae533a",

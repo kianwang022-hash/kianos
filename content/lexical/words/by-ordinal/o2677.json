@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "旅行，旅程",
-          "label_en": "the act of traveling from one place to another",
+          "label_cn": "旅行，旅程；（比喻）成长、改变或发现的历程",
+          "label_en": "the act of traveling from one place to another; a process of personal change, development or discovery over time",
           "pos": "noun",
           "sense_ids": [
-            "sense:journey:edc3c3e84b62528f"
+            "sense:journey:edc3c3e84b62528f",
+            "sense:journey:a4abe345187e7a84"
           ]
         },
         {
@@ -27,10 +28,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "旅行，旅程",
-      "core_meaning_en": "travel from one place to another",
-      "mental_model_cn": "旅行，旅程",
-      "mental_model_en": ""
+      "core_meaning_cn": "旅行、旅程；成长或发现的历程",
+      "core_meaning_en": "physical travel; a process of development or discovery",
+      "mental_model_cn": "place to place → 实际旅行；personal change/discovery → 比喻历程；verb → 旅行，常接 to/through/across。",
+      "mental_model_en": "physical travel; a process of development or discovery."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -105,6 +106,28 @@
         "sense_label_en": "to travel somewhere",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:journey:a4abe345187e7a84",
+        "pos": "noun",
+        "definition_cn": "（比喻）成长、改变或发现的历程",
+        "definition_en": "a process of personal change, development or discovery over time",
+        "sense_label_en": "a process of personal change, development or discovery over time",
+        "governing_pattern": "a journey of discovery; a journey from one state to another",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6e1d47251d4e14175d36",
+            "phrase": "a journey of self-discovery",
+            "meaning_cn": "自我发现的历程",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -146,6 +169,23 @@
           "applicability": [
             {
               "surface": "journey"
+            },
+            {
+              "surface": "journey",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:journey:a4abe345187e7a84"
+              ],
+              "owner_sense_ids": [
+                "sense:journey:a4abe345187e7a84"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2677.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a journey of discovery; a journey from one state to another"
             }
           ],
           "sources": [
@@ -381,13 +421,22 @@
         "merged_into_sense_id": null,
         "source_row": 7386,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:journey:a4abe345187e7a84",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2677.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:a7a402fd5ee016e80cc8",
+      "collocation:c952168be23003569212",
       "collocation:32bee578dbe8f530b030",
       "collocation:6dcd83b85ddd8e240e8e",
-      "collocation:a7a402fd5ee016e80cc8",
-      "collocation:c952168be23003569212"
+      "collocation:6e1d47251d4e14175d36"
     ],
     "facts": [],
     "collocations": [
@@ -410,6 +459,13 @@
         "id": "collocation:c952168be23003569212",
         "source_row": 17011,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:6e1d47251d4e14175d36",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2677.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,34 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:821053bcee50c6299bb1",
+        "pattern": "against the grain",
+        "meaning_cn": "违背常情、惯常做法或自己的意愿",
+        "definition_en": "contrary to what is usual or to one’s inclination",
+        "usage_note": "如Helping him went against the grain for her表示帮助他违背她的心意；不是字面木纹。",
+        "boundary": "如Helping him went against the grain for her表示帮助他违背她的心意；不是字面木纹。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:3ec631a3edfdc2323548",
+        "pattern": "take sth with a grain/pinch of salt",
+        "meaning_cn": "对某事持保留或怀疑态度",
+        "definition_en": "to treat information with skepticism",
+        "usage_note": "grain/pinch of salt在这个整体表达中表示保留判断；不要求真的加盐。",
+        "boundary": "grain/pinch of salt在这个整体表达中表示保留判断；不要求真的加盐。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "1b13d3c9bbd58535219bff515826efc20896b9764f7af6964e5977c52ae24528",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "颗粒；谷物；谷粒；纹理",
-          "label_en": "a small particle; cereal seeds used as food; the natural grain or line pattern of wood or leather",
+          "label_cn": "颗粒；一点点、微量（比喻）；谷物；谷粒；纹理",
+          "label_en": "a small particle of a substance, or a very small amount of something; the seeds of cereal crops used as food; the natural pattern of lines on a surface such as wood or leather",
           "pos": "noun",
           "sense_ids": [
             "sense:grain:afdc8a7cf3c65ded",
@@ -21,10 +42,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "颗粒或谷物",
-      "core_meaning_en": "small hard particle or cereal crop",
-      "mental_model_cn": "particle → 颗粒；food/agriculture → 谷物/谷粒；material → 纹理。格令重量单位保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "颗粒或微量、谷物与谷粒、纹理；违逆或保留判断的表达",
+      "core_meaning_en": "particles or tiny amounts, cereal grains, or surface texture; inclination and skepticism expressions",
+      "mental_model_cn": "grain可为小颗粒、谷物或木材等的纹理；a grain of truth为一点真实成分。against the grain和with a grain of salt按各自整体表达理解。",
+      "mental_model_en": "particles or tiny amounts, cereal grains, or surface texture; inclination and skepticism expressions."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,17 +65,23 @@
             ],
             "meaning_cn": "一粒沙子",
             "phrase": "a grain of sand"
+          },
+          {
+            "collocation_id": "collocation:a56ca645f7ff879038d6",
+            "phrase": "a grain of truth",
+            "meaning_cn": "一点真实的成分",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "颗粒",
-        "definition_en": "a small hard particle of a substance",
+        "definition_cn": "颗粒；一点点、微量（比喻）",
+        "definition_en": "a small particle of a substance, or a very small amount of something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:grain:afdc8a7cf3c65ded",
-        "sense_label_en": "a small hard particle of a substance",
+        "sense_label_en": "a small particle of a substance, or a very small amount of something",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -505,14 +532,14 @@
     {
       "collocations": [],
       "confidence": "medium",
-      "definition_cn": "格令（重量单位）",
-      "definition_en": "a unit of weight equal to 50 mg or 1/4 carat",
+      "definition_cn": "（珍珠、宝石计量）公制格令，等于50毫克／四分之一克拉；区别于普通格令约64.8毫克",
+      "definition_en": "a specialist pearl or diamond unit of 50 mg (one quarter of a metric carat), distinct from the ordinary grain of about 64.8 mg",
       "governing_pattern": "",
       "level": "L3",
       "needs_human_review": 0,
       "pos": "noun",
       "sense_id": "sense:grain:155cf8e89c8b533d",
-      "sense_label_en": "a unit of weight equal to 50 mg or 1/4 carat",
+      "sense_label_en": "a specialist pearl or diamond unit of 50 mg (one quarter of a metric carat), distinct from the ordinary grain of about 64.8 mg",
       "sort_order": 3,
       "transitivity": "nonverb"
     }
@@ -576,6 +603,13 @@
         "id": "collocation:5d6b6f42029860e2c5fe",
         "source_row": 7871,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:a56ca645f7ff879038d6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2180.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -10,9 +10,9 @@
     "content_hash": "7de233b8e0ec46c7a372e7748f53b6b00e0da160fcf99526c59f42a425234d61",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "使参与、雇佣或从事",
-      "core_meaning_en": "to involve, hire, or participate",
-      "mental_model_cn": "使参与、雇佣或从事",
+      "core_meaning_cn": "使参与或投入；雇用；另有交战和机械接合",
+      "core_meaning_en": "involve or occupy someone, hire them, participate or fight; also connect a mechanism",
+      "mental_model_cn": "先看框架和宾语：in/with常表从事或互动；人或注意力可被吸引、卷入或聘用；敌军对应交战；齿轮、离合器对应接合。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -117,14 +117,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使忙碌，吸引",
-        "definition_en": "to occupy or attract someone's attention",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "吸引或占用（注意力）；使某人参与",
+        "definition_en": "to hold attention or interest, or involve someone in an activity or conversation",
+        "governing_pattern": "engage sb/their attention; engage sb in sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:engage:152c6a8574b05eb8",
-        "sense_label_en": "to occupy or attract someone's attention",
+        "sense_label_en": "hold attention or interest; involve someone",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -185,14 +185,33 @@
         "confidence": "medium",
         "definition_cn": "交战",
         "definition_en": "to take part in a battle",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "engage (the enemy); engage in battle",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:engage:faf7510d10145210",
         "sense_label_en": "to take part in a battle",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:engage:71ffe6c3c0327bac",
+        "pos": "verb",
+        "definition_cn": "使啮合或接合；（机械部件）啮合或接合",
+        "definition_en": "to move a mechanical part into contact or a working connection, or come into that connection",
+        "sense_label_en": "to move a mechanical part into contact or a working connection, or come into that connection",
+        "governing_pattern": "engage a gear/clutch; the mechanism engages",
+        "transitivity": "I/T",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:engage:bc150534933a3605",
+            "phrase": "engage a gear",
+            "meaning_cn": "挂上挡位",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "机械语境指部件接合或传动进入工作状态；可及物也可不及物，不能按雇人或吸引注意理解。"
       }
     ],
     "verification_summary": {
@@ -261,6 +280,31 @@
           "applicability": [
             {
               "surface": "engage"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "engage",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:engage:71ffe6c3c0327bac"
+              ],
+              "sense_ids": [
+                "sense:engage:71ffe6c3c0327bac"
+              ],
+              "excluded_sense_ids": [
+                "sense:engage:152c6a8574b05eb8",
+                "sense:engage:3f32073bbaa35e95",
+                "sense:engage:9fbe50bc5ccb542b",
+                "sense:engage:c1b283dce3e758aa",
+                "sense:engage:faf7510d10145210"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/engage",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -290,6 +334,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/engage",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "engage",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ɪnˈɡeɪd͡ʒ/",
+              "applies_to_sense_ids": [
+                "sense:engage:71ffe6c3c0327bac"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         },
@@ -441,6 +501,14 @@
         "merged_into_sense_id": null,
         "source_row": 4587,
         "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"
+      },
+      {
+        "sense_id": "sense:engage:71ffe6c3c0327bac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1655.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -453,7 +521,8 @@
       "collocation:8e4cc33d8c7a3c3f66b8",
       "collocation:9de0af28c10e7eab97f0",
       "collocation:bb38886fc4d418f673a4",
-      "collocation:db9b0cff5aba92e3d451"
+      "collocation:db9b0cff5aba92e3d451",
+      "collocation:engage:bc150534933a3605"
     ],
     "facts": [
       {
@@ -517,6 +586,14 @@
         "id": "collocation:db9b0cff5aba92e3d451",
         "source_row": 18581,
         "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:engage:bc150534933a3605",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1655.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

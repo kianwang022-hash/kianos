@@ -11,27 +11,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "折叠；合拢；折叠起来；倒闭",
-          "label_en": "to fold; fold up; or cease business",
+          "label_cn": "折叠；合拢；折叠起来；倒闭；停业；停止运作；（烹饪）轻轻翻拌，使配料混合",
+          "label_en": "to bend something so that one part lies on another; to close or bend into a folded state; to close or cease operating, especially because a business or organization has failed; to mix a food ingredient gently into another mixture by turning it over",
           "pos": "verb",
           "sense_ids": [
             "sense:fold:986c9f3c847650f7",
             "sense:fold:6565f966d8dd54e6",
-            "sense:fold:7a6c7b3b0b5f5144"
+            "sense:fold:7a6c7b3b0b5f5144",
+            "sense:fold:968ca2a912bbb874"
           ]
         },
         {
-          "label_cn": "折痕；褶痕",
-          "label_en": "a fold or crease",
+          "label_cn": "折痕；褶痕；羊栏；具有共同信仰、活动等的团体或群体",
+          "label_en": "a line or crease made by folding; a pen for sheep; a group of people sharing a belief, activity, or affiliation",
           "pos": "noun",
           "sense_ids": [
-            "sense:fold:2680ff1c9eab5dd4"
+            "sense:fold:2680ff1c9eab5dd4",
+            "sense:fold:294a6125cf3859d1",
+            "sense:fold:25eb7a18d1a19f6f"
           ]
         }
       ],
-      "core_meaning_cn": "折叠",
-      "core_meaning_en": "bend or double over",
-      "mental_model_cn": "折叠",
+      "core_meaning_cn": "折叠或褶痕；倒闭；羊栏或团体；轻轻翻拌",
+      "core_meaning_en": "fold or a crease; cease operating; an enclosure or group; mix gently",
+      "mental_model_cn": "fold纸是折叠，企业fold是停止经营；名词可为褶痕、羊栏或有共同信仰/活动的团体。食谱fold in/into是轻柔翻拌，区别用力搅打。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -121,7 +124,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:8adab368609251e5140c",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fold:7a6c7b3b0b5f5144:collocation:retro-o0025-o0224"
             ],
@@ -164,6 +167,50 @@
         "sense_label_en": "a pen for sheep",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fold:968ca2a912bbb874",
+        "pos": "verb",
+        "definition_cn": "（烹饪）轻轻翻拌，使配料混合",
+        "definition_en": "to mix a food ingredient gently into another mixture by turning it over",
+        "sense_label_en": "to mix a food ingredient gently into another mixture by turning it over",
+        "governing_pattern": "fold sth into sth; fold in sth / fold sth in",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6b41fdf19ab7af8af041",
+            "phrase": "fold the egg whites into the mixture",
+            "meaning_cn": "把蛋白轻轻翻拌进混合物中",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fold:25eb7a18d1a19f6f",
+        "pos": "noun",
+        "definition_cn": "具有共同信仰、活动等的团体或群体",
+        "definition_en": "a group of people sharing a belief, activity, or affiliation",
+        "sense_label_en": "a group of people sharing a belief, activity, or affiliation",
+        "governing_pattern": "the fold; return/come back into the fold",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:97a9b4a5748d8ecc6cce",
+            "phrase": "return to the fold",
+            "meaning_cn": "回到原来的团体",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -207,6 +254,40 @@
           "applicability": [
             {
               "surface": "fold"
+            },
+            {
+              "surface": "fold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fold:968ca2a912bbb874"
+              ],
+              "owner_sense_ids": [
+                "sense:fold:968ca2a912bbb874"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1979.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "fold sth into sth; fold in sth / fold sth in"
+              }
+            },
+            {
+              "surface": "fold",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fold:25eb7a18d1a19f6f"
+              ],
+              "owner_sense_ids": [
+                "sense:fold:25eb7a18d1a19f6f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1979.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "the fold; return/come back into the fold"
+              }
             }
           ],
           "sources": [
@@ -594,12 +675,27 @@
         "merged_into_sense_id": null,
         "source_row": 5503,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:fold:968ca2a912bbb874",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1979.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:fold:25eb7a18d1a19f6f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1979.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
       "collocation:32c9b108b24b246bac3c",
       "collocation:441845f62038825662f2",
-      "collocation:8adab368609251e5140c",
       "collocation:a0e00c249fb08a0f90b9",
       "collocation:d84db6f8d38e69c68158"
     ],
@@ -618,7 +714,9 @@
       {
         "id": "collocation:8adab368609251e5140c",
         "source_row": 21575,
-        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:a0e00c249fb08a0f90b9",
@@ -629,6 +727,20 @@
         "id": "collocation:d84db6f8d38e69c68158",
         "source_row": 18289,
         "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+      },
+      {
+        "id": "collocation:6b41fdf19ab7af8af041",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1979.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:97a9b4a5748d8ecc6cce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1979.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,56 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:d20fe63d6111d99ffe20",
+        "pattern": "lock sb/yourself in",
+        "meaning_cn": "把某人/自己锁在里面，不能出去",
+        "definition_en": "prevent someone from leaving by locking the exit",
+        "usage_note": "人作宾语；in 表示人在里面出不去，别与 out 的进不去混淆。",
+        "boundary": "人作宾语；in 表示人在里面出不去，别与 out 的进不去混淆。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:lock:da959cb434565aa4"
+      },
+      {
+        "construction_id": "construction:f7d0cf611c4b4b8f538a",
+        "pattern": "lock sb/yourself out (of sth)",
+        "meaning_cn": "把某人/自己锁在外面，不能进去",
+        "definition_en": "prevent someone from entering by locking the entrance",
+        "usage_note": "out 后可用 of 指明地点；可指忘带钥匙而进不了门。",
+        "boundary": "out 后可用 of 指明地点；可指忘带钥匙而进不了门。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:lock:da959cb434565aa4"
+      },
+      {
+        "construction_id": "construction:827a717f6a8231fd5bb6",
+        "pattern": "be locked in/into sth",
+        "meaning_cn": "被卷入或困在（局面、争执等）中",
+        "definition_en": "be involved in a situation that is hard to leave",
+        "usage_note": "常见 battle/argument/cycle；这里不是把实物门锁上。",
+        "boundary": "常见 battle/argument/cycle；这里不是把实物门锁上。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:90a49e208a2f69d5ec7d",
+        "pattern": "lock horns (with sb) (over sth)",
+        "meaning_cn": "与某人争论或发生冲突",
+        "definition_en": "argue or clash with someone",
+        "usage_note": "with 引出对手，over 引出争论事项；不是一般锁住动作。",
+        "boundary": "with 引出对手，over 引出争论事项；不是一般锁住动作。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "cd09710f789ed692da23bc756e75acaa1cceb5361da4676f0b9eb8c88e1b0452",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "锁；门锁；一缕头发；水闸；船闸",
-          "label_en": "a device that keeps a door, drawer, etc. shut and is opened with a key; a small group of hairs that hang together; a section of a canal with gates at each end, used to raise or lower boats",
+          "label_en": "a fastening device opened with a key, code, or other authorized mechanism; a small group of hairs that hang together; a section of a canal with gates at each end, used to raise or lower boats",
           "pos": "noun",
           "sense_ids": [
             "sense:lock:ad4e4c67a7d85d05",
@@ -21,19 +64,20 @@
           ]
         },
         {
-          "label_cn": "锁上；锁住；卡住",
-          "label_en": "to fasten something with a lock; to become fixed or unable to move",
+          "label_cn": "锁上；（门等）能锁上；（使）卡住；（使）固定而不能移动；锁定（设备、文件等），限制访问或修改",
+          "label_en": "to secure something with a lock or be secured by a lock; to become or make something fixed and unable to move; to restrict access to or changes in a device or file",
           "pos": "verb",
           "sense_ids": [
             "sense:lock:da959cb434565aa4",
-            "sense:lock:60122057c2cb546a"
+            "sense:lock:60122057c2cb546a",
+            "sense:lock:0d92d92ef9c5cfcd"
           ]
         }
       ],
-      "core_meaning_cn": "锁；锁住",
-      "core_meaning_en": "to fasten or become fastened with a lock; a device for fastening",
-      "mental_model_cn": "device → 锁；hair → 一缕；canal → 船闸/水闸；verb → 锁上或卡住。航运专业动词 lock through（过船闸）保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "锁与锁定；头发一缕；船闸",
+      "core_meaning_en": "locks and locking; a strand of hair; a canal lock",
+      "mental_model_cn": "锁闭、机械固定和数字锁定为动词；门锁、一缕头发和水道船闸各有独立名词用法。",
+      "mental_model_en": "locks and locking; a strand of hair; a canal lock."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -51,8 +95,8 @@
             "legacy_source_object_ids": [
               "sense:lock:ad4e4c67a7d85d05:collocation:0"
             ],
-            "meaning_cn": "锁和钥匙；严密保管",
-            "phrase": "lock and key"
+            "meaning_cn": "锁起来；严密保管",
+            "phrase": "under lock and key"
           },
           {
             "collocation_id": "collocation:0d2584c830a65205e1de",
@@ -66,13 +110,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "锁；门锁",
-        "definition_en": "a device that keeps a door, drawer, etc. shut and is opened with a key",
+        "definition_en": "a fastening device opened with a key, code, or other authorized mechanism",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lock:ad4e4c67a7d85d05",
-        "sense_label_en": "a device that keeps a door, drawer, etc. shut and is opened with a key",
+        "sense_label_en": "a fastening device opened with a key, code, or other authorized mechanism",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -98,16 +142,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "锁上；锁住",
-        "definition_en": "to fasten something with a lock",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "锁上；（门等）能锁上",
+        "definition_en": "to secure something with a lock or be secured by a lock",
+        "governing_pattern": "lock sth; a door locks",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lock:da959cb434565aa4",
-        "sense_label_en": "to fasten something with a lock",
+        "sense_label_en": "to secure something with a lock or be secured by a lock",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -146,16 +190,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "卡住；锁住",
-        "definition_en": "to become fixed or unable to move",
-        "governing_pattern": "vi. + up",
+        "definition_cn": "（使）卡住；（使）固定而不能移动",
+        "definition_en": "to become or make something fixed and unable to move",
+        "governing_pattern": "lock (sth) (into/in ...); lock up",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lock:60122057c2cb546a",
-        "sense_label_en": "to become fixed or unable to move",
+        "sense_label_en": "to become or make something fixed and unable to move",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -177,9 +221,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lock:189ecae1c07d5400",
-        "sense_label_en": "a section of a canal with gates at each end, used to raise or lower boat",
+        "sense_label_en": "a section of a canal with gates at each end, used to raise or lower boats",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:lock:0d92d92ef9c5cfcd",
+        "pos": "verb",
+        "definition_cn": "锁定（设备、文件等），限制访问或修改",
+        "definition_en": "to restrict access to or changes in a device or file",
+        "sense_label_en": "to restrict access to or changes in a device or file",
+        "governing_pattern": "lock a screen/file",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cfbcbc48bc8dae690ebd",
+            "phrase": "lock the screen",
+            "meaning_cn": "锁定屏幕",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -223,6 +289,23 @@
           "applicability": [
             {
               "surface": "lock"
+            },
+            {
+              "surface": "lock",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lock:0d92d92ef9c5cfcd"
+              ],
+              "owner_sense_ids": [
+                "sense:lock:0d92d92ef9c5cfcd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2870.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lock a screen/file"
             }
           ],
           "sources": [
@@ -637,16 +720,25 @@
         "merged_into_sense_id": null,
         "source_row": 7990,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:lock:0d92d92ef9c5cfcd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2870.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:04ca7a84cb80d55ba906",
-      "collocation:0c913b95d948fab36639",
+      "collocation:e53fef6bfa33f885bc10",
       "collocation:0d2584c830a65205e1de",
       "collocation:12a476864fd1a4dd296e",
-      "collocation:19b183e97c711b374559",
       "collocation:a282f0e8e2c0291b38c9",
-      "collocation:e53fef6bfa33f885bc10"
+      "collocation:0c913b95d948fab36639",
+      "collocation:19b183e97c711b374559",
+      "collocation:04ca7a84cb80d55ba906",
+      "collocation:cfbcbc48bc8dae690ebd"
     ],
     "facts": [],
     "collocations": [
@@ -691,6 +783,13 @@
         "id": "collocation:e53fef6bfa33f885bc10",
         "source_row": 19416,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:cfbcbc48bc8dae690ebd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2870.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

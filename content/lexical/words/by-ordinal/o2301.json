@@ -6,14 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:6e4d055b7991a4fc3302",
+        "pattern": "reach/rise to new heights",
+        "meaning_cn": "达到更高或前所未有的水平",
+        "definition_en": "to attain a greater level than before",
+        "usage_note": "heights用复数；The team reached new heights this season 表示本赛季表现更上一层。",
+        "boundary": "heights用复数；The team reached new heights this season 表示本赛季表现更上一层。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "35a122c8cda54affff01b68115e47b4cdc276d5d5ed784bd42cfd527a98619d0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "高度",
-      "core_meaning_en": "the measurement from base to top",
-      "mental_model_cn": "高度",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "高度；身高；距地面或海平面的高度；顶点；最高点；高处；高地（常用复数）",
+          "label_en": "the distance from bottom to top, or the distance above ground or sea level; the highest point or degree; a place or position far above the ground",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:height:4a465de9c12659d2",
+            "sense:height:68f611a6865f5e11",
+            "sense:height:6a6554fd002fe013"
+          ]
+        }
+      ],
+      "core_meaning_cn": "高度、身高、高处；程度的顶点",
+      "core_meaning_en": "height, stature or a high place; a peak degree",
+      "mental_model_cn": "height可指测得的高度，也可指高处；heights常见于怕高和达到更高水平。",
+      "mental_model_en": "height, stature or a high place; a peak degree."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -36,14 +58,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "高度；海拔",
-        "definition_en": "the vertical dimension of extension; distance from the base of something to the top",
+        "definition_cn": "高度；身高；距地面或海平面的高度",
+        "definition_en": "the distance from bottom to top, or the distance above ground or sea level",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:height:4a465de9c12659d2",
-        "sense_label_en": "the vertical dimension of extension; distance from the base of something",
+        "sense_label_en": "the distance from bottom to top, or the distance above ground or sea level",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -70,6 +92,28 @@
         "sense_label_en": "the highest point or degree",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:height:6a6554fd002fe013",
+        "pos": "noun",
+        "definition_cn": "高处；高地（常用复数）",
+        "definition_en": "a place or position far above the ground",
+        "sense_label_en": "a place or position far above the ground",
+        "governing_pattern": "from a height; a fear of heights",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9db6afce3719c24ced3d",
+            "phrase": "He watched the valley from a height.",
+            "meaning_cn": "他从高处眺望山谷。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -99,6 +143,23 @@
           "applicability": [
             {
               "surface": "height"
+            },
+            {
+              "surface": "height",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:height:6a6554fd002fe013"
+              ],
+              "owner_sense_ids": [
+                "sense:height:6a6554fd002fe013"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2301.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "from a height; a fear of heights"
             }
           ],
           "sources": [
@@ -332,11 +393,20 @@
         "merged_into_sense_id": null,
         "source_row": 6439,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:height:6a6554fd002fe013",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2301.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:b1373f3bcdc28f72eaa5",
       "collocation:5e5e3025030384ceea96",
-      "collocation:b1373f3bcdc28f72eaa5"
+      "collocation:9db6afce3719c24ced3d"
     ],
     "facts": [],
     "collocations": [
@@ -349,6 +419,13 @@
         "id": "collocation:b1373f3bcdc28f72eaa5",
         "source_row": 15007,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:9db6afce3719c24ced3d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2301.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [

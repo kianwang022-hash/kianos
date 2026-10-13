@@ -17,43 +17,55 @@
         "direction": "R+P",
         "sense_id": "sense:key:1ea0ca8259c137c3",
         "boundary": "computing/data-entry verb; not noun key = button/key or adjective key = important"
+      },
+      {
+        "construction_id": "construction:3c500da717bcb6836d32",
+        "pattern": "the key to sth / doing sth",
+        "meaning_cn": "做成某事或理解某事的关键",
+        "definition_en": "the crucial means of achieving or understanding something",
+        "usage_note": "此处 to 是介词，后接名词或 doing：the key to improving results；不同于动词不定式 to do。",
+        "boundary": "此处 to 是介词，后接名词或 doing：the key to improving results；不同于动词不定式 to do。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:key:c35a123fe1465099"
       }
     ],
     "content_hash": "4ba66ecfc3afbe0ed3679946cd3f4d893dca965b536196d242d36adcb4d9492f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "钥匙；关键；要害；答案；题解；键；琴键；基调；调",
-          "label_en": "a metal instrument for turning a lock; something that is crucial for explaining or achieving something; an answer to a puzzle or test; a button on a keyboard or musical instrument; the pitch of a voice or the tonal framework of a piece of music",
+          "label_cn": "钥匙、键；关键；答案表、图例；调",
+          "label_en": "lock or keyboard key; crucial means; answer set or legend; musical key",
           "pos": "noun",
           "sense_ids": [
             "sense:key:4cb1647c8cdd5354",
             "sense:key:c35a123fe1465099",
             "sense:key:5ae493f43cb75b74",
             "sense:key:dfdcfba17af356da",
-            "sense:key:ecb404d1741a5ffa"
+            "sense:key:ecb404d1741a5ffa",
+            "sense:key:852b3bdc05261921"
           ]
         },
         {
-          "label_cn": "关键的；非常重要的",
-          "label_en": "very important or essential",
+          "label_cn": "关键的",
+          "label_en": "essential",
           "pos": "adjective",
           "sense_ids": [
             "sense:key:25406f861fe9573d"
           ]
         },
         {
-          "label_cn": "键入；输入数据",
-          "label_en": "to enter information into a device using a keyboard or touchscreen",
+          "label_cn": "键入数据",
+          "label_en": "enter data using keys",
           "pos": "verb",
           "sense_ids": [
             "sense:key:1ea0ca8259c137c3"
           ]
         }
       ],
-      "core_meaning_cn": "钥匙/按键；关键；音乐调；动词还可指“键入数据”",
-      "core_meaning_en": "a key for a lock or keyboard; something crucial; a musical key; also to key data into a device",
-      "mental_model_cn": "object → 钥匙/按键；solution/importance → 关键；music → 调；key sth in / into a system → 键入、输入数据。",
+      "core_meaning_cn": "钥匙、按键；关键；答案表、图例；音乐调；关键的；键入",
+      "core_meaning_en": "a lock or keyboard key; a crucial means; an answer set or legend; a musical key; essential; enter data",
+      "mental_model_cn": "object → 钥匙/按键；means → 关键；exercise → 答案表；map → 图例；music → 调；adjective → 极重要；verb → 键入。调音/配钥匙用法见 Reference。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -122,21 +134,22 @@
             "legacy_source_object_ids": [
               "sense:key:5ae493f43cb75b74:collocation:0"
             ],
-            "meaning_cn": "答案；题解",
+            "meaning_cn": "参考答案表；一组答案或题解",
             "phrase": "answer key"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "答案；题解",
-        "definition_en": "an answer to a puzzle or test",
+        "definition_cn": "答案表；一组答案或题解",
+        "definition_en": "a set of answers or solutions to exercises, questions or a test",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:key:5ae493f43cb75b74",
-        "sense_label_en": "an answer to a puzzle or test",
+        "sense_label_en": "a set of answers or solutions to exercises, questions or a test",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "answer key 常指一套参考答案，不是任意一个 answer。"
       },
       {
         "collocations": [
@@ -170,8 +183,8 @@
             "legacy_source_object_ids": [
               "sense:key:ecb404d1741a5ffa:collocation:0"
             ],
-            "meaning_cn": "C大调",
-            "phrase": "in the key of C"
+            "meaning_cn": "以 C 大调",
+            "phrase": "in the key of C major"
           }
         ],
         "confidence": "medium",
@@ -229,6 +242,28 @@
         "sort_order": 6,
         "transitivity": "vt",
         "usage_note": "computing verb: key the data in / key it into the system"
+      },
+      {
+        "sense_id": "sense:key:852b3bdc05261921",
+        "pos": "noun",
+        "definition_cn": "（地图、图表等的）图例；符号说明",
+        "definition_en": "an explanation of symbols, signs or colours used on a map, chart or diagram",
+        "sense_label_en": "an explanation of symbols, signs or colours used on a map, chart or diagram",
+        "governing_pattern": "a key to a map/diagram",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:86fa91eefaf5c3704666",
+            "phrase": "the key to the map",
+            "meaning_cn": "地图的图例",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -274,6 +309,23 @@
           "applicability": [
             {
               "surface": "key"
+            },
+            {
+              "surface": "key",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:key:852b3bdc05261921"
+              ],
+              "owner_sense_ids": [
+                "sense:key:852b3bdc05261921"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2700.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a key to a map/diagram"
             }
           ],
           "sources": [
@@ -828,14 +880,23 @@
         "merged_into_sense_id": null,
         "source_row": 7466,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:key:852b3bdc05261921",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2700.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:0978f1e7f4d8701038ef",
-      "collocation:24565dc5a2515e4f0dc6",
       "collocation:85489f0590f1f1b5cc6c",
       "collocation:9627166524324ae1b0f5",
-      "collocation:c2c2cf244087d952a82f"
+      "collocation:24565dc5a2515e4f0dc6",
+      "collocation:0978f1e7f4d8701038ef",
+      "collocation:c2c2cf244087d952a82f",
+      "collocation:86fa91eefaf5c3704666"
     ],
     "facts": [],
     "collocations": [
@@ -870,6 +931,13 @@
         "id": "collocation:c2c2cf244087d952a82f",
         "source_row": 16470,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:86fa91eefaf5c3704666",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2700.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

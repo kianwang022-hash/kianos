@@ -9,10 +9,29 @@
     "constructions": [],
     "content_hash": "578aafc86634989bdda9eff50b0aae13e095c71a9b4b511f91d76b79552775ff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "表达, 表情, 词语",
-      "core_meaning_en": "the act of expressing, or a word/phrase, or a facial look",
-      "mental_model_cn": "表达, 表情, 词语",
+      "core_clusters": [
+        {
+          "label_cn": "表达、表情",
+          "label_en": "expression of ideas or feelings",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:expression:0d15cc5768525283",
+            "sense:expression:5a30565b3bd35e96"
+          ]
+        },
+        {
+          "label_cn": "词语；数学表达式",
+          "label_en": "a phrase or mathematical expression",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:expression:fbf343aa4c095989",
+            "sense:expression:df840ef48e40f465"
+          ]
+        }
+      ],
+      "core_meaning_cn": "表达或表情；词语；数学表达式",
+      "core_meaning_en": "expression of meaning or feeling; a phrase; a mathematical expression",
+      "mental_model_cn": "思想感受的expression是表达，脸上是表情；an expression可指某个词语，数学符号语境是表达式，不能当作普通措辞。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -73,13 +92,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "表达, 表现",
-        "definition_en": "the communication (in speech or writing) of your beliefs or opinions",
+        "definition_en": "communicating or showing thoughts, feelings or ideas through words, actions or other forms",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:expression:5a30565b3bd35e96",
-        "sense_label_en": "the communication (in speech or writing) of your beliefs or opinions",
+        "sense_label_en": "communication or display of thoughts and feelings",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -130,6 +149,28 @@
         "sense_label_en": "(genetics) the process of expressing a gene",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:expression:df840ef48e40f465",
+        "pos": "noun",
+        "definition_cn": "（数学）表达式",
+        "definition_en": "a combination of mathematical symbols representing a quantity",
+        "sense_label_en": "a combination of mathematical symbols representing a quantity",
+        "governing_pattern": "an algebraic/mathematical expression",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b3fbd4fbf3bbf7613dc8",
+            "phrase": "simplify an algebraic expression",
+            "meaning_cn": "化简代数表达式",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -150,7 +191,7 @@
     "word": "expression",
     "word_family": [
       {
-        "boundary": "expression → express 表达",
+        "boundary": "expression 是名词“表达、表现”；express 是动词“表达”，不是词性可互换的同义词。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -178,7 +219,7 @@
         "priority": "A",
         "publication_status": "codex_reviewed",
         "shared_definition": null,
-        "source_sense_id": "sense:expression:0d15cc5768525283",
+        "source_sense_id": "sense:expression:5a30565b3bd35e96",
         "target_sense_id": "sense:express:a6f6dfa5cb0e5f56",
         "target_word": "express",
         "task_tags": [
@@ -276,6 +317,23 @@
           "applicability": [
             {
               "surface": "expression"
+            },
+            {
+              "surface": "expression",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:expression:df840ef48e40f465"
+              ],
+              "owner_sense_ids": [
+                "sense:expression:df840ef48e40f465"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1811.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an algebraic/mathematical expression"
+              }
             }
           ],
           "sources": [
@@ -342,6 +400,14 @@
         "merged_into_sense_id": null,
         "source_row": 4960,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:expression:df840ef48e40f465",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1811.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -383,6 +449,13 @@
         "id": "collocation:a1c0129ea1fdf186126c",
         "source_row": 13735,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:b3fbd4fbf3bbf7613dc8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1811.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [

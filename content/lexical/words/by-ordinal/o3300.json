@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "d906dc54e110046a8a8990d3c6575998b7b2ece25fdccf376f349dcc47aef2cd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "观察；评论",
-      "core_meaning_en": "the act of watching or noticing something; a comment based on watching",
-      "mental_model_cn": "观察；评论",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "观察过程及所得记录；据观察发表的评论",
+          "label_en": "careful watching and its records; remarks based on what is noticed",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:observation:5f46e0783b465608",
+            "sense:observation:947d229c07cd52a6",
+            "sense:observation:0331b0bd6da3b9d5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "观察、观测及所得记录；评论",
+      "core_meaning_en": "careful watching, its recorded results, or a remark based on what is noticed",
+      "mental_model_cn": "by observation说观察这一方法；record/compare observations可说所得事实或观测记录；make an observation about sth也可说发表评论，需看实验或论述语境。",
+      "mental_model_en": "careful watching, its recorded results, or a remark based on what is noticed."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -36,6 +47,12 @@
             ],
             "meaning_cn": "在观察中",
             "phrase": "under observation"
+          },
+          {
+            "collocation_id": "collocation:9419f787364b1d84ed4b",
+            "phrase": "powers of observation",
+            "meaning_cn": "观察力",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -73,6 +90,28 @@
         "sense_label_en": "a remark or comment based on what one has observed",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:observation:0331b0bd6da3b9d5",
+        "pos": "noun",
+        "definition_cn": "观察或测量所得的事实、记录",
+        "definition_en": "a fact, record or description obtained by observing or measuring",
+        "sense_label_en": "a fact, record or description obtained by observing or measuring",
+        "governing_pattern": "record observations; scientific observations",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:47d2b29d292840e1aa63",
+            "phrase": "compare the observations with the prediction",
+            "meaning_cn": "将观测记录与预测作比较",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -152,6 +191,24 @@
           "applicability": [
             {
               "surface": "observation"
+            },
+            {
+              "surface": "observation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "owner_sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3300.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "record observations; scientific observations",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -205,6 +262,24 @@
           "applicability": [
             {
               "surface": "observation"
+            },
+            {
+              "surface": "observation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "owner_sense_ids": [
+                "sense:observation:0331b0bd6da3b9d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3300.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "record observations; scientific observations",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -261,11 +336,21 @@
         "merged_into_sense_id": null,
         "source_row": 9158,
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      },
+      {
+        "sense_id": "sense:observation:0331b0bd6da3b9d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3300.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:1d0eeda099797562e3ff",
-      "collocation:c253ef35d8e36624a7be"
+      "collocation:9419f787364b1d84ed4b",
+      "collocation:c253ef35d8e36624a7be",
+      "collocation:47d2b29d292840e1aa63"
     ],
     "facts": [
       {
@@ -284,6 +369,20 @@
         "id": "collocation:c253ef35d8e36624a7be",
         "source_row": 16430,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:47d2b29d292840e1aa63",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3300.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:9419f787364b1d84ed4b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3300.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

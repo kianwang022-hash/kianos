@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "超过需要的数量；过量；无节制；过度行为",
-          "label_en": "a quantity much larger than is needed; immoderation as a consequence of going beyond sufficient or permitted limits",
+          "label_cn": "过量、无节制",
+          "label_en": "amount or behaviour beyond a limit",
           "pos": "noun",
           "sense_ids": [
             "sense:excess:3a0bdfd6b4965f90",
@@ -20,17 +20,25 @@
           ]
         },
         {
-          "label_cn": "过量的；额外的",
-          "label_en": "more than is needed, desired, or required",
+          "label_cn": "过量的、额外的",
+          "label_en": "more than needed or allowed",
           "pos": "adjective",
           "sense_ids": [
             "sense:excess:5c151a8c8cbc5c8f"
           ]
+        },
+        {
+          "label_cn": "英式保险自付额",
+          "label_en": "insured person’s contribution to a claim",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:excess:263d78f47924b5c1"
+          ]
         }
       ],
-      "core_meaning_cn": "超出所需或允许的量或程度",
-      "core_meaning_en": "an amount or degree beyond what is needed or allowed",
-      "mental_model_cn": "超出所需或允许的量或程度",
+      "core_meaning_cn": "过量、过度；过量的；英式保险自付额",
+      "core_meaning_en": "an amount or degree over a limit; excessive; British insurance contribution",
+      "mental_model_cn": "数量或行为语境指超出限度，to excess指过度；保险an excess是投保人自付额。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,13 +72,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "超过需要的数量；过量",
-        "definition_en": "a quantity much larger than is needed",
+        "definition_en": "an amount above what is needed, allowed or expected",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:excess:3a0bdfd6b4965f90",
-        "sense_label_en": "a quantity much larger than is needed",
+        "sense_label_en": "an amount above a need or limit",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -117,6 +125,12 @@
             ],
             "meaning_cn": "某事物的过度行为",
             "phrase": "excesses of + sth"
+          },
+          {
+            "collocation_id": "collocation:5bd54a07206d54b845fe",
+            "phrase": "to excess",
+            "meaning_cn": "过度地；无节制地",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
@@ -127,9 +141,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:excess:7e186b9cbd765809",
-        "sense_label_en": "immoderation as a consequence of going beyond sufficient or permitted li",
+        "sense_label_en": "behaviour beyond acceptable limits",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:excess:263d78f47924b5c1",
+        "pos": "noun",
+        "definition_cn": "（英式保险）索赔时投保人的自付额",
+        "definition_en": "British insurance: the part of a claim that the insured person must pay",
+        "sense_label_en": "British insurance: the part of a claim that the insured person must pay",
+        "governing_pattern": "an excess; pay the excess on a claim",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:448dc2218e6e6d71dd8e",
+            "phrase": "pay a £200 excess on the claim",
+            "meaning_cn": "就该项索赔自付200英镑",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -438,6 +474,23 @@
           "applicability": [
             {
               "surface": "excess"
+            },
+            {
+              "surface": "excess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excess:263d78f47924b5c1"
+              ],
+              "owner_sense_ids": [
+                "sense:excess:263d78f47924b5c1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1759.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "an excess; pay the excess on a claim"
+              }
             }
           ],
           "sources": [
@@ -777,6 +830,14 @@
         "merged_into_sense_id": null,
         "source_row": 4822,
         "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json"
+      },
+      {
+        "sense_id": "sense:excess:263d78f47924b5c1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1759.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -812,6 +873,20 @@
         "id": "collocation:cd6b923774bf9ea193ea",
         "source_row": 17378,
         "source_path": "content/lexical/canonical/collocations/shards/o1729-1760.json"
+      },
+      {
+        "id": "collocation:448dc2218e6e6d71dd8e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1759.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:5bd54a07206d54b845fe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1759.json",
+        "source_pointer": "/record/senses/2/collocations/1"
       }
     ],
     "exam-mappings": [],

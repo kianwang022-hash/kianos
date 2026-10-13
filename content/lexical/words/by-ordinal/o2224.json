@@ -20,19 +20,20 @@
           ]
         },
         {
-          "label_cn": "向导；导游；指南；手册",
-          "label_en": "a person who shows the way; a book or manual giving information or instructions",
+          "label_cn": "向导；导游；指南；手册；供判断或了解情况的参考、指标",
+          "label_en": "a person who shows the way, especially to tourists; a book or manual giving information or instructions; something used as a reference for judging or understanding",
           "pos": "noun",
           "sense_ids": [
             "sense:guide:06cd154f625450b3",
-            "sense:guide:b2466b26b4fe590f"
+            "sense:guide:b2466b26b4fe590f",
+            "sense:guide:11a4bd268e88cfe2"
           ]
         }
       ],
-      "core_meaning_cn": "引导；向导",
-      "core_meaning_en": "to lead or direct; a person or thing that shows the way",
-      "mental_model_cn": "person → 向导；book/manual → 指南；verb → 带路或指导。机械/工程导向装置义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "带领指导；向导、指南或判断参考",
+      "core_meaning_en": "lead or advise; a guide, manual or reference",
+      "mental_model_cn": "guide既可为人或说明材料，也可为帮助判断的参考；a rough guide不是一定指粗略导游书。",
+      "mental_model_en": "lead or advise; a guide, manual or reference."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -73,7 +74,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:7d14e9981550a9188294",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:guide:8d5c5600215b595a:collocation:0"
             ],
@@ -140,6 +141,28 @@
         "sense_label_en": "a book or manual giving information or instructions",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:guide:11a4bd268e88cfe2",
+        "pos": "noun",
+        "definition_cn": "供判断或了解情况的参考、指标",
+        "definition_en": "something used as a reference for judging or understanding",
+        "sense_label_en": "something used as a reference for judging or understanding",
+        "governing_pattern": "a rough guide to something",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e7b26116f4a7c3555543",
+            "phrase": "Use this estimate as a rough guide.",
+            "meaning_cn": "把这个估算作为大致参考。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -209,6 +232,23 @@
           "applicability": [
             {
               "surface": "guide"
+            },
+            {
+              "surface": "guide",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:guide:11a4bd268e88cfe2"
+              ],
+              "owner_sense_ids": [
+                "sense:guide:11a4bd268e88cfe2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2224.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a rough guide to something"
+              }
             }
           ],
           "sources": [
@@ -710,13 +750,22 @@
         "merged_into_sense_id": null,
         "source_row": 6214,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:guide:11a4bd268e88cfe2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2224.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:362316bb673f715a3dc7",
       "collocation:7d14e9981550a9188294",
       "collocation:929514b47c73051acee0",
-      "collocation:a1c14eebb14e475c77d8"
+      "collocation:a1c14eebb14e475c77d8",
+      "collocation:e7b26116f4a7c3555543"
     ],
     "facts": [
       {
@@ -734,7 +783,9 @@
       {
         "id": "collocation:7d14e9981550a9188294",
         "source_row": 10564,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:929514b47c73051acee0",
@@ -752,6 +803,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
         "status": "reference",
         "merged_into_id": null
+      },
+      {
+        "id": "collocation:e7b26116f4a7c3555543",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2224.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

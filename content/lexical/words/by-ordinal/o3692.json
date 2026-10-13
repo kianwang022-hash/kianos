@@ -44,7 +44,7 @@
     ],
     "secondary_senses": [
       {
-        "boundary": "宾语为 question/problem 时表示提出",
+        "boundary": "pose a question 表示提出问题；pose a problem 须看语境：提出来供考虑时是“提出”，成为困难或障碍时是“造成问题”。",
         "codex_reviewed": true,
         "definition_cn": "提出",
         "definition_en": "to put forward or present a question or theory",
@@ -78,7 +78,13 @@
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": false
+        "writing_safe": false,
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/pose",
+            "role": "P1 lexical calibration or context-bound structure"
+          }
+        ]
       }
     ],
     "semantic_neighbors": [],
@@ -146,14 +152,21 @@
         "confidence": "medium",
         "definition_cn": "摆姿势",
         "definition_en": "to sit or stand in a particular position for a painting or photograph",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.: pose (for sb/sth)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pose:719f5ae9efd55053",
         "sense_label_en": "to sit or stand in a particular position for a painting or photograph",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "for可引出摄影师、画家或照片等，但不是必需补语；表示摆姿势时也可单用pose。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/pose",
+            "role": "intransitive artistic posture; for phrase is optional"
+          }
+        ]
       },
       {
         "collocations": [
@@ -201,7 +214,47 @@
         "sense_id": "sense:pose:fe2fac5eb9445c7b",
         "sense_label_en": "to put forward or present a question or theory",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "pose a question是提出问题；pose a problem是否表示提出或造成，须看它是供考虑的问题还是形成的困难。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/pose",
+            "role": "question versus caused difficulty selector"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:pose:84fd4062abd62b06",
+        "pos": "noun",
+        "definition_cn": "装出来的态度或姿态",
+        "definition_en": "an attitude or manner deliberately adopted to impress or deceive",
+        "sense_label_en": "an attitude or manner deliberately adopted to impress or deceive",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pose:e3f8e49376d06926",
+            "phrase": "just a pose",
+            "meaning_cn": "只是装出来的姿态",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.merriam-webster.com/dictionary/pose",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "When an attitude is described as just a pose, the point is that it is not genuine; no bodily position is required.",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/pose",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -435,6 +488,12 @@
         "merged_into_sense_id": null,
         "source_row": 10291,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
+      {
+        "sense_id": "sense:pose:84fd4062abd62b06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3692.json"
       }
     ],
     "active_collocations": [
@@ -442,7 +501,8 @@
       "collocation:6ad8f254eedac8e54266",
       "collocation:93ab3a461f879e436010",
       "collocation:cf0cf05a3286e37e3be0",
-      "collocation:d6a9bfb3d9ec45bc36ab"
+      "collocation:d6a9bfb3d9ec45bc36ab",
+      "collocation:pose:e3f8e49376d06926"
     ],
     "facts": [
       {
@@ -476,6 +536,10 @@
         "id": "collocation:d6a9bfb3d9ec45bc36ab",
         "source_row": 18161,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:pose:e3f8e49376d06926",
+        "source_path": "content/lexical/words/by-ordinal/o3692.json"
       }
     ],
     "exam-mappings": [],

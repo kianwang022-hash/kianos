@@ -11,20 +11,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "特许经营权；特许经营企业/加盟店；系列/IP franchise",
-          "label_en": "a franchise right; a franchise business/outlet; a media or IP franchise",
+          "label_cn": "特许经营权；特许经营企业；加盟店；电影、游戏或书籍等相互关联的系列或知识产权；公民权，选举权；（职业体育联盟中的）球队及其经营组织",
+          "label_en": "an authorization to sell a company's goods or services in a particular place; a business or outlet operated under a franchise agreement; a connected series or intellectual property of films, games, books, or similar works; a statutory right or privilege granted to a person or group by a government (especially the rights of citizenship and the right to vote); a professional sports team and its operating organization within a league",
           "pos": "noun",
           "sense_ids": [
             "sense:franchise:ba27bcfbb8165be0",
             "sense:franchise:9059d367cc255984",
-            "sense:franchise:2d740d1ccdb80539"
+            "sense:franchise:2d740d1ccdb80539",
+            "sense:franchise:19e614eba40950c2",
+            "sense:franchise:503f0f3907a48cd2"
+          ]
+        },
+        {
+          "label_cn": "授予特许经营权",
+          "label_en": "grant a franchise to",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:franchise:d9d4da6ced915073"
           ]
         }
       ],
-      "core_meaning_cn": "特许经营权；加盟店；系列/IP franchise",
-      "core_meaning_en": "a franchise right; a franchise business or outlet; a media or IP franchise",
-      "mental_model_cn": "现代高价值主干包括特许经营权、加盟店/特许经营企业，以及电影、游戏、书籍等共享品牌或 IP 的系列；选举权和动词义留在下一层。",
-      "mental_model_en": "High-value modern uses include a franchise right, a franchise business/outlet, and a media/IP series; voting-right and verb uses stay lower."
+      "core_meaning_cn": "特许经营权、店或系列作品；投票权；职业球队；授予特许",
+      "core_meaning_en": "a franchise right, business, series, vote, or sports organization; grant a franchise",
+      "mental_model_cn": "商业语境可为特许经营权或加盟店，影视为系列作品，历史政治语境可为投票权；体育franchise可指职业球队和经营组织。动词为授予特许。",
+      "mental_model_en": "In business, a franchise is a licence or the business operating under it; in media, it is a series of works; in sport, a professional team organization. Political uses include voting rights; the verb means grant a franchise."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -46,15 +56,6 @@
             ],
             "meaning_cn": "特许经营协议",
             "phrase": "franchise agreement"
-          },
-          {
-            "collocation_id": "collocation:76f650bc444e9c91f2a5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:franchise:ba27bcfbb8165be0:collocation:1"
-            ],
-            "meaning_cn": "开设特许经营店",
-            "phrase": "open a franchise"
           }
         ],
         "confidence": "medium",
@@ -65,12 +66,22 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:franchise:ba27bcfbb8165be0",
-        "sense_label_en": "an authorization to sell a company's goods or services in a particular p",
+        "sense_label_en": "an authorization to sell a company's goods or services in a particular place",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:76f650bc444e9c91f2a5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:franchise:ba27bcfbb8165be0:collocation:1"
+            ],
+            "meaning_cn": "开设特许经营店",
+            "phrase": "open a franchise"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "特许经营企业；加盟店",
         "definition_en": "a business or outlet operated under a franchise agreement",
@@ -128,7 +139,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:franchise:19e614eba40950c2",
-        "sense_label_en": "a statutory right or privilege granted to a person or group by a governm",
+        "sense_label_en": "a statutory right or privilege granted to a person or group by a government (especially the rights of citizenship and the right to vote)",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -155,6 +166,28 @@
         "sense_label_en": "grant a franchise to",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:franchise:503f0f3907a48cd2",
+        "pos": "noun",
+        "definition_cn": "（职业体育联盟中的）球队及其经营组织",
+        "definition_en": "a professional sports team and its operating organization within a league",
+        "sense_label_en": "a professional sports team and its operating organization within a league",
+        "governing_pattern": "a basketball/football franchise",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:63db0b5ce18518b99858",
+            "phrase": "a basketball franchise",
+            "meaning_cn": "职业篮球球队及其经营组织",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +217,23 @@
           "applicability": [
             {
               "surface": "franchise"
+            },
+            {
+              "surface": "franchise",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:franchise:503f0f3907a48cd2"
+              ],
+              "owner_sense_ids": [
+                "sense:franchise:503f0f3907a48cd2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2038.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a basketball/football franchise"
+              }
             }
           ],
           "sources": [
@@ -350,6 +400,14 @@
         "merged_into_sense_id": null,
         "source_row": 5702,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:franchise:503f0f3907a48cd2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2038.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -368,7 +426,8 @@
       {
         "id": "collocation:76f650bc444e9c91f2a5",
         "source_row": 10042,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "sense_id": "sense:franchise:9059d367cc255984"
       },
       {
         "id": "collocation:9802bade48e99613e167",
@@ -379,6 +438,13 @@
         "id": "collocation:eb59aef7c652c452618b",
         "source_row": 19939,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:63db0b5ce18518b99858",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2038.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

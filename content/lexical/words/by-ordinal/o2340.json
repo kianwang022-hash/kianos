@@ -15,7 +15,18 @@
         "definition_en": "to suggest something indirectly in a clause",
         "pattern": "hint that + clause",
         "source_sense_id": "sense:hint:c2c993e375c25aa6",
-        "boundary": "clausal complement"
+        "boundary": "clausal complement",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:3d9aa8ccecbe335a4773",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hint:c2c993e375c25aa6:collocation:1"
+            ],
+            "meaning_cn": "暗示…",
+            "phrase": "hint that + clause"
+          }
+        ]
       },
       {
         "construction_id": "construction:6f05623f606c582c56a0",
@@ -25,19 +36,51 @@
         "definition_en": "to refer to or suggest something indirectly",
         "pattern": "hint at sth",
         "source_sense_id": "sense:hint:c2c993e375c25aa6",
-        "boundary": "intransitive/prepositional pattern"
+        "boundary": "intransitive/prepositional pattern",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:438e59dea2f91893da1f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hint:c2c993e375c25aa6:collocation:0"
+            ],
+            "meaning_cn": "暗示某事",
+            "phrase": "hint at + sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:5e31c6f51aed6c22006d",
+        "pattern": "a hint of something",
+        "meaning_cn": "少许；一点（味道、颜色或情绪等）",
+        "definition_en": "a small amount or trace of something",
+        "usage_note": "a hint of lemon in the sauce；不要求有意向别人暗示。",
+        "boundary": "a hint of lemon in the sauce；不要求有意向别人暗示。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:27a7a9309677af88dd20",
+        "pattern": "take a/the hint",
+        "meaning_cn": "听懂或领会含蓄的意思",
+        "definition_en": "to understand an indirectly expressed request",
+        "usage_note": "They took the hint and left；常表示领会别人要自己做什么。",
+        "boundary": "They took the hint and left；常表示领会别人要自己做什么。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "7d84e3630bcab50ddcfc71cced8e15113ccc5e94ff6c96e3c8304e70ece1746c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "暗示，提示；细微的迹象",
-          "label_en": "an indirect suggestion; a slight indication",
+          "label_cn": "暗示，提示；细微的迹象；实用小建议；小窍门（常用复数）",
+          "label_en": "an indirect suggestion; a slight indication; a brief piece of practical advice",
           "pos": "noun",
           "sense_ids": [
             "sense:hint:5969b98197d65630",
-            "sense:hint:cc428b1b11145184"
+            "sense:hint:cc428b1b11145184",
+            "sense:hint:f14471a0c1972557"
           ]
         },
         {
@@ -49,10 +92,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "暗示",
-      "core_meaning_en": "a slight or indirect indication or suggestion",
-      "mental_model_cn": "暗示",
-      "mental_model_en": ""
+      "core_meaning_cn": "暗示或迹象；少许；实用小建议",
+      "core_meaning_en": "a hint or sign; a trace; a practical tip",
+      "mental_model_cn": "hint既可让人领会没明说的话，也可指一点成分或直接有用的小建议。",
+      "mental_model_en": "a hint or sign; a trace; a practical tip."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -70,15 +113,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:21cd93b5d91bf68d7155",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hint:5969b98197d65630:collocation:0"
-            ],
-            "meaning_cn": "一丝…的迹象",
-            "phrase": "a hint of + sth"
-          },
           {
             "collocation_id": "collocation:0a680a99e92ac6231347",
             "exam_value": "fixed_pattern",
@@ -110,7 +144,16 @@
               "sense:hint:cc428b1b11145184:collocation:0"
             ],
             "meaning_cn": "一丝微笑",
-            "phrase": "a hint of smile"
+            "phrase": "a hint of a smile"
+          },
+          {
+            "collocation_id": "collocation:21cd93b5d91bf68d7155",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hint:5969b98197d65630:collocation:0"
+            ],
+            "meaning_cn": "一丝…的迹象",
+            "phrase": "a hint of + sth"
           }
         ],
         "confidence": "medium",
@@ -126,26 +169,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:438e59dea2f91893da1f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hint:c2c993e375c25aa6:collocation:0"
-            ],
-            "meaning_cn": "暗示某事",
-            "phrase": "hint at + sth"
-          },
-          {
-            "collocation_id": "collocation:3d9aa8ccecbe335a4773",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hint:c2c993e375c25aa6:collocation:1"
-            ],
-            "meaning_cn": "暗示…",
-            "phrase": "hint that + clause"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "暗示，示意",
         "definition_en": "drop a hint; intimate by a hint",
@@ -157,6 +181,28 @@
         "sense_label_en": "drop a hint; intimate by a hint",
         "sort_order": 2,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:hint:f14471a0c1972557",
+        "pos": "noun",
+        "definition_cn": "实用小建议；小窍门（常用复数）",
+        "definition_en": "a brief piece of practical advice",
+        "sense_label_en": "a brief piece of practical advice",
+        "governing_pattern": "hints on doing something",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:48bf4c987ced5a0aa95c",
+            "phrase": "Here are some hints on organizing your notes.",
+            "meaning_cn": "这里有一些整理笔记的小窍门。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -186,6 +232,23 @@
           "applicability": [
             {
               "surface": "hint"
+            },
+            {
+              "surface": "hint",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hint:f14471a0c1972557"
+              ],
+              "owner_sense_ids": [
+                "sense:hint:f14471a0c1972557"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2340.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hints on doing something"
             }
           ],
           "sources": [
@@ -676,14 +739,21 @@
         "merged_into_sense_id": null,
         "source_row": 6529,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:hint:f14471a0c1972557",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2340.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:0a680a99e92ac6231347",
+      "collocation:71ba78dc5df6261527d8",
       "collocation:21cd93b5d91bf68d7155",
-      "collocation:3d9aa8ccecbe335a4773",
-      "collocation:438e59dea2f91893da1f",
-      "collocation:71ba78dc5df6261527d8"
+      "collocation:48bf4c987ced5a0aa95c"
     ],
     "facts": [
       {
@@ -706,22 +776,34 @@
       {
         "id": "collocation:21cd93b5d91bf68d7155",
         "source_row": 2810,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "sense_id": "sense:hint:cc428b1b11145184"
       },
       {
         "id": "collocation:3d9aa8ccecbe335a4773",
         "source_row": 5207,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:438e59dea2f91893da1f",
         "source_row": 5720,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:71ba78dc5df6261527d8",
         "source_row": 9609,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:48bf4c987ced5a0aa95c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2340.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

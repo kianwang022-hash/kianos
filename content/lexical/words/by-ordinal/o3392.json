@@ -6,10 +6,68 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8c3ad0f4b6fd8f345992",
+        "pattern": "be out of + supply/resource",
+        "meaning_cn": "用完；没有某种供应或资源",
+        "definition_en": "have none of a supply or resource left",
+        "usage_note": "out of milk说没有牛奶，out of luck说没有好运。out of work还可说失业，不一律理解为从房间走出。",
+        "boundary": "out of milk说没有牛奶，out of luck说没有好运。out of work还可说失业，不一律理解为从房间走出。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:680aa2483c9ed9f28377",
+        "pattern": "out of + state/condition",
+        "meaning_cn": "不再处于某种状态；超出某种范围",
+        "definition_en": "not or no longer within a stated condition or range",
+        "usage_note": "out of sight看不见，out of trouble脱离麻烦；out of the room说从房间里面出去。",
+        "boundary": "out of sight看不见，out of trouble脱离麻烦；out of the room说从房间里面出去。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:da8e215b1923ccc1e7d2",
+        "pattern": "out of + motive（curiosity/fear等）",
+        "meaning_cn": "出于某种动机、情绪",
+        "definition_en": "because of a motive or feeling",
+        "usage_note": "act out of curiosity出于好奇行事，out of fear出于恐惧。",
+        "boundary": "act out of curiosity出于好奇行事，out of fear出于恐惧。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:cd49402b6394f5d81284",
+        "pattern": "number + out of + total/set",
+        "meaning_cn": "总数中的若干；得分为满分中的若干",
+        "definition_en": "the specified number within a total or set",
+        "usage_note": "six out of ten可说十人中六人或十分中六分，看语境；不默认是比赛淘汰。",
+        "boundary": "six out of ten可说十人中六人或十分中六分，看语境；不默认是比赛淘汰。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      }
+    ],
     "content_hash": "770cd90300e8d364730884f9bdd52354cf834a06fbaf12fa46213ddaf935a6aa",
     "core_concept": {
       "core_clusters": [
+        {
+          "label_cn": "外出不在；灯火熄灭/不工作",
+          "label_en": "absent or unavailable; no longer lit or operating",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:out:393375c5efa8147b",
+            "sense:out:05b6c134974ed853"
+          ]
+        },
         {
           "label_cn": "向外；在外",
           "label_en": "away from the inside or normal position",
@@ -28,7 +86,7 @@
         },
         {
           "label_cn": "出局的",
-          "label_en": "not allowed to continue batting or running in baseball",
+          "label_en": "eliminated or no longer allowed to continue in a game or competition, including baseball and cricket",
           "pos": "adjective",
           "sense_ids": [
             "sense:out:fa7a1c0ba9655dba"
@@ -49,12 +107,20 @@
           "sense_ids": [
             "sense:out:f63e2a89633e5471"
           ]
+        },
+        {
+          "label_cn": "已发布或为人所知",
+          "label_en": "publicly available or known",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:out:4e8068995de76b73"
+          ]
         }
       ],
-      "core_meaning_cn": "向外；出局；揭露",
-      "core_meaning_en": "away from the inside or normal state",
-      "mental_model_cn": "向外；出局；揭露",
-      "mental_model_en": ""
+      "core_meaning_cn": "向外/在外；不在、熄灭或出局；发布/公开；退路",
+      "core_meaning_en": "outside or away; absent, extinguished or eliminated; publicly available; an escape route",
+      "mental_model_cn": "go out走出去，be out可以说人不在或比赛出局，lights out说熄灭；a report is out说已发布。out of milk没有牛奶，out of curiosity出于好奇；an out可说退路。out sb是动词，说揭露某人的身份。",
+      "mental_model_en": "outside or away; absent, extinguished or eliminated; publicly available; an escape route."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -159,13 +225,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "出局的",
-        "definition_en": "not allowed to continue batting or running in baseball",
+        "definition_en": "eliminated or no longer allowed to continue in a game or competition, including baseball and cricket",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:out:fa7a1c0ba9655dba",
-        "sense_label_en": "not allowed to continue batting or running in baseball",
+        "sense_label_en": "eliminated or no longer allowed to continue in a game or competition, including baseball and cricket",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -178,7 +244,7 @@
               "sense:out:f63e2a89633e5471:collocation:0"
             ],
             "meaning_cn": "出局",
-            "phrase": "get out"
+            "phrase": "record an out"
           }
         ],
         "confidence": "medium",
@@ -192,6 +258,120 @@
         "sense_label_en": "a failure by a batter or runner to reach a base safely in baseball",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:out:393375c5efa8147b",
+        "pos": "adjective",
+        "definition_cn": "不在场的；外出的；暂时无法提供的",
+        "definition_en": "not at home, not present, or temporarily unavailable",
+        "sense_label_en": "not at home, not present, or temporarily unavailable",
+        "transitivity": "nonverb",
+        "governing_pattern": "be out",
+        "level": "L1",
+        "sort_order": 5,
+        "collocations": [],
+        "source_evidence_objects": [
+          {
+            "stable_sense_id": "sense:out:393375c5efa8147b",
+            "status": "active",
+            "merged_into_sense_id": null,
+            "pos": "adjective",
+            "definition_cn": "不在场的；外出的；暂时无法提供的",
+            "definition_en": "not at home, not present, or temporarily unavailable",
+            "semantic_key": "c2523d918ae5e3f030fd075c17cc28aa5e70beb76cca83f9ada543b76306886a",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-15T10:35:00Z",
+            "source_row": 9416,
+            "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+            "reference_only": true
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:out:05b6c134974ed853",
+        "pos": "adjective",
+        "definition_cn": "熄灭的；停止工作的",
+        "definition_en": "no longer burning, lit, or operating",
+        "sense_label_en": "no longer burning, lit, or operating",
+        "transitivity": "nonverb",
+        "governing_pattern": "be out",
+        "level": "L1",
+        "sort_order": 6,
+        "collocations": [],
+        "source_evidence_objects": [
+          {
+            "stable_sense_id": "sense:out:05b6c134974ed853",
+            "status": "active",
+            "merged_into_sense_id": null,
+            "pos": "adjective",
+            "definition_cn": "熄灭的；停止工作的",
+            "definition_en": "no longer burning, lit, or operating",
+            "semantic_key": "9d0d22928a4d8efea2a6ca983be428ace1b0f6dbeab2ad6edd05d41802d0c2bb",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-15T10:35:00Z",
+            "source_row": 9417,
+            "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+            "reference_only": true
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:out:4e8068995de76b73",
+        "pos": "adverb",
+        "definition_cn": "发布、上市或公开；为人所知",
+        "definition_en": "available to the public or known to people",
+        "sense_label_en": "available to the public or known to people",
+        "governing_pattern": "be/come out (of a book/report); word gets out",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f17ac338325b0d6d0cb1",
+            "phrase": "The report is out now.",
+            "meaning_cn": "报告现在已经发布了。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:out:d4bba214eb09436d",
+        "pos": "noun",
+        "definition_cn": "避免义务或困境的办法；退路",
+        "definition_en": "a way to avoid an obligation or escape a difficulty",
+        "sense_label_en": "a way to avoid an obligation or escape a difficulty",
+        "governing_pattern": "look for/give sb an out",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f804f34d59ac0d81f001",
+            "phrase": "The delay gave us an out.",
+            "meaning_cn": "这次延误给了我们一个脱身的机会。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -236,6 +416,42 @@
           "applicability": [
             {
               "surface": "out"
+            },
+            {
+              "surface": "out",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:out:4e8068995de76b73"
+              ],
+              "owner_sense_ids": [
+                "sense:out:4e8068995de76b73"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3392.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be/come out (of a book/report); word gets out",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "out",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:out:d4bba214eb09436d"
+              ],
+              "owner_sense_ids": [
+                "sense:out:d4bba214eb09436d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3392.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "look for/give sb an out",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -449,6 +665,42 @@
           "applicability": [
             {
               "surface": "out"
+            },
+            {
+              "surface": "out",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:out:4e8068995de76b73"
+              ],
+              "owner_sense_ids": [
+                "sense:out:4e8068995de76b73"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3392.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be/come out (of a book/report); word gets out",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "out",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:out:d4bba214eb09436d"
+              ],
+              "owner_sense_ids": [
+                "sense:out:d4bba214eb09436d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3392.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "look for/give sb an out",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -644,40 +896,7 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:out:393375c5efa8147b",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "不在场的；外出的；暂时无法提供的",
-      "definition_en": "not at home, not present, or temporarily unavailable",
-      "semantic_key": "c2523d918ae5e3f030fd075c17cc28aa5e70beb76cca83f9ada543b76306886a",
-      "semantic_key_history": [],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-15T10:35:00Z",
-      "source_row": 9416,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:out:05b6c134974ed853",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "熄灭的；停止工作的",
-      "definition_en": "no longer burning, lit, or operating",
-      "semantic_key": "9d0d22928a4d8efea2a6ca983be428ace1b0f6dbeab2ad6edd05d41802d0c2bb",
-      "semantic_key_history": [],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-15T10:35:00Z",
-      "source_row": 9417,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -728,15 +947,33 @@
         "merged_into_sense_id": null,
         "source_row": 9417,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:out:4e8068995de76b73",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3392.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:out:d4bba214eb09436d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3392.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
-      "collocation:2b7a4040eabbfad9fdb6",
+      "collocation:c709836aeae1ed6fab2a",
       "collocation:590c42e86e48910e62dc",
-      "collocation:6020202627809d534948",
       "collocation:7b89ec8ff657835ae9ac",
       "collocation:aa8f89dbd5923d78ebd6",
-      "collocation:c709836aeae1ed6fab2a"
+      "collocation:2b7a4040eabbfad9fdb6",
+      "collocation:6020202627809d534948",
+      "collocation:f17ac338325b0d6d0cb1",
+      "collocation:f804f34d59ac0d81f001"
     ],
     "facts": [],
     "collocations": [
@@ -784,6 +1021,20 @@
         "id": "collocation:143db678761dac0cd0dd",
         "source_row": 21287,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:f17ac338325b0d6d0cb1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3392.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:f804f34d59ac0d81f001",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3392.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

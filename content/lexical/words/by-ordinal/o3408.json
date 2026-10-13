@@ -35,10 +35,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "向外的/外部的；向外；表面的",
-      "core_meaning_en": "outward/external, toward the outside, or apparent",
-      "mental_model_cn": "向外的/外部的；向外；表面的",
-      "mental_model_en": ""
+      "core_meaning_cn": "向外或外部的；可见的外在表现",
+      "core_meaning_en": "directed away from a centre or referring to externally visible appearances",
+      "mental_model_cn": "outward movement是向外运动，outward journey是去程；outward calm说看得到的外在平静。outwardly calm用派生副词说表面上平静，别用它代替方向副词outward。",
+      "mental_model_en": "directed away from a centre or referring to externally visible appearances."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,21 +70,22 @@
             "legacy_source_object_ids": [
               "sense:outward:e6c0dbacab675dd3:collocation:forward-o3375-o3624"
             ],
-            "meaning_cn": "向外运动/旅程/流动",
+            "meaning_cn": "outward movement/flow：向外运动/流动；outward journey：去程",
             "phrase": "outward movement/journey/flow"
           }
         ],
         "confidence": "medium",
         "definition_cn": "向外的；朝外的；外部的",
         "definition_en": "directed toward, situated on, or relating to the outside; external rather than inward",
-        "governing_pattern": "",
+        "governing_pattern": "outward + noun",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:outward:e6c0dbacab675dd3",
         "sense_label_en": "directed toward, situated on, or relating to the outside; external rather than inward",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "通常在名词前；outward movement/flow是向外，往返行程的outward journey是去程。"
       },
       {
         "collocations": [
@@ -125,14 +126,15 @@
         "confidence": "medium",
         "definition_cn": "表面的",
         "definition_en": "apparent or superficial",
-        "governing_pattern": "",
+        "governing_pattern": "outward + noun",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:outward:466b0bf137d95132",
         "sense_label_en": "apparent or superficial",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "说外部看得到的表现，可能与内心/实际不同；不必一律解作虚假。outward calm等表现词与向外移动的方向用法区分。"
       }
     ],
     "verification_summary": {
@@ -151,7 +153,25 @@
       "runtime_model_calls": false
     },
     "word": "outward",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:outward:86f1a0d73f70f2f71917",
+        "module": "word_family",
+        "target_word": "outwardly",
+        "source_sense_id": "sense:outward:466b0bf137d95132",
+        "direction": "R+P",
+        "level": "L2",
+        "boundary": "outwardly (adv.)用于可见表现，如outwardly calm，意为表面上；方向动作的向外用outward(s)，不把outwardly当方向副词的通用替代。",
+        "evidence": [
+          {
+            "source_type": "authoritative_learner_dictionary",
+            "source_name": "Oxford Learners Dictionaries",
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/definition/english/outwardly",
+            "evidence_status": "actual_selected_body_read"
+          }
+        ]
+      }
+    ],
     "word_id": "word:outward",
     "form_identity": {
       "headword_pronunciations": [
@@ -500,8 +520,8 @@
     ],
     "active_collocations": [
       "collocation:2df7b4de147aca121cd4",
-      "collocation:7bff16a21791d89f12f0",
       "collocation:d98360ff497b1842677e",
+      "collocation:7bff16a21791d89f12f0",
       "collocation:e4a3e8e4df7d9bf82597"
     ],
     "facts": [],

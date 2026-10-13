@@ -10,9 +10,9 @@
     "content_hash": "8c214fff469da1701f028128a0fc3101a949768d7591b26686da9d318bc46fdf",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "识别或标记为不同",
-      "core_meaning_en": "to recognize or mark as different",
-      "mental_model_cn": "识别或标记为不同",
+      "core_meaning_cn": "区分；使具有特色；辨认出",
+      "core_meaning_en": "tell apart; mark as distinctive; make out",
+      "mental_model_cn": "distinguish A from B区分两者；distinguish oneself表现出众；distinguish a shape也可以是在模糊条件下辨认出形状。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -50,15 +50,15 @@
         ],
         "confidence": "medium",
         "definition_cn": "区分，辨别",
-        "definition_en": "mark as different",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to recognize or show differences between things",
+        "governing_pattern": "distinguish A from B; distinguish between A and B",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:distinguish:bd419021a2fb5997",
-        "sense_label_en": "mark as different",
+        "sense_label_en": "to recognize or show differences between things",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -89,9 +89,30 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:distinguish:d24b4422e48658b6",
-        "sense_label_en": "be a distinctive feature, attribute, or trait; sometimes in a very posit",
+        "sense_label_en": "make distinctive or outstanding",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:distinguish:c9e539f23bd273a9",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "看清、听出、辨认出（不易察觉的事物）",
+        "definition_en": "to make out something that is difficult to see, hear, or otherwise detect",
+        "sense_label_en": "to make out something that is difficult to see, hear, or otherwise detect",
+        "governing_pattern": "distinguish sth",
+        "collocations": [
+          {
+            "collocation_id": "collocation:2268bf054ad089612309",
+            "exam_value": "usage_example",
+            "phrase": "I could barely distinguish the sign in the fog.",
+            "meaning_cn": "雾中我几乎辨认不出那块标牌。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -397,13 +418,21 @@
         "merged_into_sense_id": null,
         "source_row": 4005,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:distinguish:c9e539f23bd273a9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1445.json"
       }
     ],
     "active_collocations": [
       "collocation:4c9154899d71aea0ec24",
       "collocation:a5d63e55937a55572b23",
       "collocation:d2538da9e7d31aff7e2c",
-      "collocation:e2cd8c50abf84baf60f5"
+      "collocation:e2cd8c50abf84baf60f5",
+      "collocation:2268bf054ad089612309"
     ],
     "facts": [
       {
@@ -432,6 +461,11 @@
         "id": "collocation:e2cd8c50abf84baf60f5",
         "source_row": 19188,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:2268bf054ad089612309",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1445.json"
       }
     ],
     "exam-mappings": [],

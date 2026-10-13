@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "处方；治疗/用药授权指令；规定/建议",
-          "label_en": "an authorized healthcare instruction for medicine/treatment; a prescribed rule or recommendation",
+          "label_cn": "处方及所配给的药；针对问题的建议或规定",
+          "label_en": "a healthcare order or the medicine supplied; an authoritative recommendation or rule",
           "pos": "noun",
           "sense_ids": [
             "sense:prescription:cddd10feee635cc2",
-            "sense:prescription:7f31661e2d2b5383"
+            "sense:prescription:7f31661e2d2b5383",
+            "sense:prescription:be5c1dbc99b8f1c4"
           ]
         },
         {
@@ -28,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "处方；治疗/用药授权",
-      "core_meaning_en": "an authorized prescription for medicine or treatment",
-      "mental_model_cn": "处方；治疗/用药授权",
+      "core_meaning_cn": "授权的治疗用药指令，或按此配给的药；也可指解决问题的方案",
+      "core_meaning_en": "an authorized treatment order or the medicine supplied; also an authoritative remedy or plan",
+      "mental_model_cn": "write a prescription 指开处方；领取或服用时可指配给的药。prescription for + recovery/success 等抽象目标，指推荐的办法；prescription drug 表须凭处方取得的药。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -87,16 +88,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "指示；规定；命令",
-        "definition_en": "a direction or rule prescribed beforehand; an authoritative recommendation",
+        "definition_cn": "（较正式）针对问题提出的方案、建议或规定",
+        "definition_en": "an authoritative proposal, direction, or rule for achieving an outcome or improving a situation",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:prescription:7f31661e2d2b5383",
-        "sense_label_en": "a direction or rule prescribed beforehand; an authoritative recommendati",
+        "sense_label_en": "an authoritative proposal, direction, or rule for achieving an outcome or improving a situation",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "prescription for + 抽象问题或目标可指应对方案，不必是命令；如经济复苏的政策建议。"
       },
       {
         "collocations": [
@@ -121,6 +123,28 @@
         "sense_label_en": "available legally only on an authorized prescription from a qualified healthcare professional",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:prescription:be5c1dbc99b8f1c4",
+        "pos": "noun",
+        "definition_cn": "按处方配给的药；所开药品",
+        "definition_en": "medicine supplied or ordered under a prescription",
+        "sense_label_en": "medicine supplied or ordered under a prescription",
+        "governing_pattern": "",
+        "level": "L2",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:07b42b16a66a12188e6f",
+            "exam_value": "usage_example",
+            "phrase": "collect a prescription from the pharmacy",
+            "meaning_cn": "从药房领取处方药"
+          }
+        ],
+        "usage_note": "领取、配制或服用的语境可指药品本身；write a prescription 则指开出用药指令。"
       }
     ],
     "verification_summary": {
@@ -369,13 +393,21 @@
         "merged_into_sense_id": null,
         "source_row": 10439,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      },
+      {
+        "sense_id": "sense:prescription:be5c1dbc99b8f1c4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3750.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; distinct useful current meaning"
       }
     ],
     "active_collocations": [
       "collocation:2207e0d25afd2aa5e1fe",
       "collocation:336f79d4e9d4200be8d4",
       "collocation:3b406784174377f1ade4",
-      "collocation:3e46d9fbe13077e74bf7"
+      "collocation:3e46d9fbe13077e74bf7",
+      "collocation:07b42b16a66a12188e6f"
     ],
     "facts": [],
     "collocations": [
@@ -398,6 +430,13 @@
         "id": "collocation:3e46d9fbe13077e74bf7",
         "source_row": 5274,
         "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:07b42b16a66a12188e6f",
+        "status": "active",
+        "sense_id": "sense:prescription:be5c1dbc99b8f1c4",
+        "source_path": "content/lexical/words/by-ordinal/o3750.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; new phrase identity"
       }
     ],
     "exam-mappings": [],

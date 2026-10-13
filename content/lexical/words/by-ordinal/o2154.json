@@ -11,16 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "胶，胶水",
-          "label_en": "cement consisting of a sticky substance that is used as an adhesive",
+          "label_cn": "胶；胶水；凝聚力；维系关系的纽带",
+          "label_en": "a sticky substance used to fasten things together; a factor that holds a group or relationship together",
           "pos": "noun",
           "sense_ids": [
-            "sense:glue:9238d872dbf653e9"
+            "sense:glue:9238d872dbf653e9",
+            "sense:glue:976dd8862630bbec"
           ]
         },
         {
-          "label_cn": "粘合，胶合；粘住，紧贴",
-          "label_en": "join or attach with or as if with glue; be fixed as if by glue",
+          "label_cn": "粘合，胶合；紧贴；目不转睛地看；全神贯注于",
+          "label_en": "join or attach with or as if with glue; to remain very close to something or give it all one's attention, as if attached",
           "pos": "verb",
           "sense_ids": [
             "sense:glue:aa9512cef34d5dce",
@@ -28,10 +29,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "胶水或粘合",
-      "core_meaning_en": "a sticky substance or the act of sticking with it",
-      "mental_model_cn": "胶水或粘合",
-      "mental_model_en": ""
+      "core_meaning_cn": "胶水、粘合或凝聚纽带；注意力牢牢固定",
+      "core_meaning_en": "an adhesive, joining with glue, or a unifying bond; fixed attention",
+      "mental_model_cn": "glue物品为粘合；the glue that holds a group together可比喻维系团体的纽带。be glued to sth表示注意力牢牢固定。",
+      "mental_model_en": "an adhesive, joining with glue, or a unifying bond; fixed attention."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -54,14 +55,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "胶，胶水",
-        "definition_en": "cement consisting of a sticky substance that is used as an adhesive",
+        "definition_cn": "胶；胶水",
+        "definition_en": "a sticky substance used to fasten things together",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:glue:9238d872dbf653e9",
-        "sense_label_en": "cement consisting of a sticky substance that is used as an adhesive",
+        "sense_label_en": "a sticky substance used to fasten things together",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -101,16 +102,38 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "粘住，紧贴",
-        "definition_en": "be fixed as if by glue",
-        "governing_pattern": "",
+        "definition_cn": "紧贴；目不转睛地看；全神贯注于",
+        "definition_en": "to remain very close to something or give it all one's attention, as if attached",
+        "governing_pattern": "usually passive: be glued to sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:glue:f4eeb2985e825184",
-        "sense_label_en": "be fixed as if by glue",
+        "sense_label_en": "to remain very close to something or give it all one's attention, as if attached",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:glue:976dd8862630bbec",
+        "pos": "noun",
+        "definition_cn": "凝聚力；维系关系的纽带",
+        "definition_en": "a factor that holds a group or relationship together",
+        "sense_label_en": "a factor that holds a group or relationship together",
+        "governing_pattern": "the glue that holds a group together",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5efa5921278c54cae1e5",
+            "phrase": "Music was the glue that held the group together.",
+            "meaning_cn": "音乐是维系这个团体的纽带。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -151,6 +174,23 @@
           "applicability": [
             {
               "surface": "glue"
+            },
+            {
+              "surface": "glue",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glue:976dd8862630bbec"
+              ],
+              "owner_sense_ids": [
+                "sense:glue:976dd8862630bbec"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2154.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "the glue that holds a group together"
+              }
             }
           ],
           "sources": [
@@ -330,6 +370,14 @@
         "merged_into_sense_id": null,
         "source_row": 6001,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:glue:976dd8862630bbec",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2154.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -353,6 +401,13 @@
         "id": "collocation:723d89fded2d35b74545",
         "source_row": 9651,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:5efa5921278c54cae1e5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2154.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

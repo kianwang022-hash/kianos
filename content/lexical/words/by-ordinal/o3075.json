@@ -6,14 +6,42 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:6d123fbf6d9b62753fea",
+        "pattern": "put sb out of their misery",
+        "meaning_cn": "给出对方急于知道的答案，让其不再焦急",
+        "definition_en": "end somebody’s anxious uncertainty by giving them the answer",
+        "usage_note": "口语比喻；另put an animal out of its misery可指结束其不可治愈的痛苦而将其杀死，不能据此把对人的答案表达译为杀人。",
+        "boundary": "口语比喻；另put an animal out of its misery可指结束其不可治愈的痛苦而将其杀死，不能据此把对人的答案表达译为杀人。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "a5670b88f94ed70330ef18a1548e8bf89f510d0c9a73d640602b0c343e5210da",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "痛苦；悲惨",
-      "core_meaning_en": "great suffering or unhappiness",
-      "mental_model_cn": "痛苦；悲惨",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "痛苦；悲惨",
+          "label_en": "a state of great suffering or unhappiness",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:misery:b8f37a9ed8265c73"
+          ]
+        },
+        {
+          "label_cn": "极其贫困、恶劣的生活境况",
+          "label_en": "extremely poor living conditions",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:misery:abac110677dd9a1b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "深重痛苦、悲惨与困苦生活境况",
+      "core_meaning_en": "severe suffering, unhappiness or extremely poor living conditions",
+      "mental_model_cn": "misery主要不可数，谈身心痛苦或困苦生活；an old misery在英式口语可数，指总抱怨的人。",
+      "mental_model_en": "severe suffering, unhappiness or extremely poor living conditions."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,6 +74,50 @@
         "sense_label_en": "a state of great suffering or unhappiness",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:misery:abac110677dd9a1b",
+        "pos": "noun",
+        "definition_cn": "极其贫困、恶劣的生活境况",
+        "definition_en": "extremely poor living conditions",
+        "sense_label_en": "extremely poor living conditions",
+        "governing_pattern": "live in utter misery（不可数）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d368e633c727d2ee23ce",
+            "phrase": "families living in utter misery",
+            "meaning_cn": "生活极为困苦的家庭",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:misery:50a9702e5b480083",
+        "pos": "noun",
+        "definition_cn": "总是不高兴、爱抱怨的人",
+        "definition_en": "a person who is always unhappy and complaining",
+        "sense_label_en": "a person who is always unhappy and complaining",
+        "governing_pattern": "an old misery（英式非正式，可数）",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c3c1f27aa053fe517082",
+            "phrase": "Don’t be such a misery.",
+            "meaning_cn": "别总是愁眉苦脸地抱怨。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -86,6 +158,70 @@
           "applicability": [
             {
               "surface": "misery",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "surface": "misery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:misery:abac110677dd9a1b"
+              ],
+              "owner_sense_ids": [
+                "sense:misery:abac110677dd9a1b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3075.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "live in utter misery（不可数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "Received-Pronunciation"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "surface": "misery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:misery:50a9702e5b480083"
+              ],
+              "owner_sense_ids": [
+                "sense:misery:50a9702e5b480083"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3075.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an old misery（英式非正式，可数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
               "conditions": [
                 {
                   "kind": "original_optional_notation",
@@ -154,6 +290,70 @@
           "applicability": [
             {
               "surface": "misery",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "surface": "misery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:misery:abac110677dd9a1b"
+              ],
+              "owner_sense_ids": [
+                "sense:misery:abac110677dd9a1b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3075.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "live in utter misery（不可数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                },
+                {
+                  "kind": "original_source_sound_qualifiers",
+                  "raw": {
+                    "tags": [
+                      "General-American"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "surface": "misery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:misery:50a9702e5b480083"
+              ],
+              "owner_sense_ids": [
+                "sense:misery:50a9702e5b480083"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3075.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an old misery（英式非正式，可数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
               "conditions": [
                 {
                   "kind": "original_optional_notation",
@@ -250,10 +450,28 @@
         "merged_into_sense_id": null,
         "source_row": 8569,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:misery:abac110677dd9a1b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3075.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:misery:50a9702e5b480083",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3075.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:9f790c96b4519d7ae6e3"
+      "collocation:9f790c96b4519d7ae6e3",
+      "collocation:d368e633c727d2ee23ce",
+      "collocation:c3c1f27aa053fe517082"
     ],
     "facts": [],
     "collocations": [
@@ -266,6 +484,20 @@
         "id": "collocation:f911648490410ac75dd3",
         "source_row": 21100,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:d368e633c727d2ee23ce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3075.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:c3c1f27aa053fe517082",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3075.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [

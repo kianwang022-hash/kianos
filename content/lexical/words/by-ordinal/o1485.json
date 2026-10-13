@@ -19,12 +19,20 @@
           ]
         },
         {
-          "label_cn": "打点于，点缀；打点",
+          "label_cn": "给…打点；打点",
           "label_en": "to mark with a dot or dots; to make a dot",
           "pos": "verb",
           "sense_ids": [
             "sense:dot:88b5eca709ed5233",
             "sense:dot:cbfc89059bd85c70"
+          ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "事物散布于某地",
+          "label_en": "things scattered over a place",
+          "sense_ids": [
+            "sense:dot:3649959578e165c0"
           ]
         }
       ],
@@ -78,7 +86,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "打点于，点缀",
+        "definition_cn": "给…打点；以点作标记",
         "definition_en": "to mark with a dot or dots",
         "governing_pattern": "vt. + object",
         "level": "L2",
@@ -102,6 +110,31 @@
         "sense_label_en": "to make a dot",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:dot:3649959578e165c0",
+        "pos": "verb",
+        "definition_cn": "散布于；星罗棋布于",
+        "definition_en": "of things: to be scattered over a place",
+        "sense_label_en": "of things: to be scattered over a place",
+        "governing_pattern": "things dot a place; a place is dotted with things",
+        "transitivity": "vt",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dot:f04b23e01de77a13",
+            "phrase": "Small houses dot the valley.",
+            "meaning_cn": "小房子散布在山谷中。",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:dot:8480e619a4cc3b37",
+            "phrase": "The valley is dotted with small houses.",
+            "meaning_cn": "山谷中散布着小房子。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "主动句主语是散布的事物，宾语是地点；被动句地点作主语，with 后接事物。区别于人为在表面打点。"
       }
     ],
     "verification_summary": {
@@ -217,11 +250,21 @@
         "merged_into_sense_id": null,
         "source_row": 4113,
         "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      },
+      {
+        "sense_id": "sense:dot:3649959578e165c0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1485.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:32d398523d08863c37ab",
-      "collocation:de5e5217986b03931d0e"
+      "collocation:de5e5217986b03931d0e",
+      "collocation:dot:f04b23e01de77a13",
+      "collocation:dot:8480e619a4cc3b37"
     ],
     "facts": [],
     "collocations": [
@@ -234,6 +277,22 @@
         "id": "collocation:de5e5217986b03931d0e",
         "source_row": 18826,
         "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:dot:f04b23e01de77a13",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1485.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:dot:8480e619a4cc3b37",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1485.json",
+        "source_pointer": "/record/senses/3/collocations/1"
       }
     ],
     "exam-mappings": [],

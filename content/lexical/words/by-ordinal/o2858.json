@@ -6,42 +6,87 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:5d1a581fe3683e73a829",
+        "pattern": "live up to sth",
+        "meaning_cn": "达到（期望、标准）；与（名声等）相符",
+        "definition_en": "meet expectations or match a reputation",
+        "usage_note": "后接期望、标准、名称或名声；不是住到某个地点。",
+        "boundary": "后接期望、标准、名称或名声；不是住到某个地点。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:3fb0be4177ba163b5d66",
+        "pattern": "live with sth",
+        "meaning_cn": "接受并忍受（不愉快的事）",
+        "definition_en": "accept an unpleasant situation",
+        "usage_note": "此构式对象为疼痛、问题等；live with sb 则表示居住同处。",
+        "boundary": "此构式对象为疼痛、问题等；live with sb 则表示居住同处。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:dcddc0890b426479b14f",
+        "pattern": "live on/off sth; live off sb",
+        "meaning_cn": "靠（收入、食物或他人）生活",
+        "definition_en": "support life with particular food, income or another person’s resources",
+        "usage_note": "on 可指可用于生活的收入或主食；off 依赖他人/福利时常带不赞成意味。无宾语 live on 继续存在与此不同。",
+        "boundary": "on 可指可用于生活的收入或主食；off 依赖他人/福利时常带不赞成意味。无宾语 live on 继续存在与此不同。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:a20b6572a08baed0f2de",
+        "pattern": "live through sth",
+        "meaning_cn": "经历（灾难、艰难时期）并存活下来",
+        "definition_en": "experience and survive a difficult event",
+        "usage_note": "through 后接艰难事件或时期；不是单纯时间延续。",
+        "boundary": "through 后接艰难事件或时期；不是单纯时间延续。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:live:c97984b358375f5e"
+      }
+    ],
     "content_hash": "ec2aab8d594b29122a681cd9a7632e444b726e257c9997c2748950439afcafea",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "活；生存；居住；过着（某种生活）",
-          "label_en": "to have life; to be alive; to make one's home in a particular place; to lead a particular kind of life",
+          "label_cn": "活；生存；居住；过着（某种生活）；继续存在；留在人们的记忆中",
+          "label_en": "to have life; to be alive; to make one's home in a particular place; to spend life in a particular way; to remain in existence or in people’s memory",
           "pos": "verb",
           "sense_ids": [
             "sense:live:c97984b358375f5e",
             "sense:live:5cb5346ef13c5773",
-            "sense:live:c16866022b4151ca"
+            "sense:live:c16866022b4151ca",
+            "sense:live:93dbdcb0fbb4621c"
           ]
         },
         {
-          "label_cn": "实况的；现场的；活的",
-          "label_en": "broadcast or performed at the time of occurrence; not dead; alive",
+          "label_cn": "实况的；现场的；活的；带电的；通电的；实弹的；装有真实炸药/弹药的",
+          "label_en": "broadcast or performed at the time of occurrence; not dead; alive; carrying electric current or connected to a source of electricity; containing real explosive ammunition or capable of exploding",
           "pos": "adjective",
           "sense_ids": [
             "sense:live:90e7291527b95c4b",
-            "sense:live:1ebf5617095e517a"
+            "sense:live:1ebf5617095e517a",
+            "sense:live:de57ff1e05a60222",
+            "sense:live:fba91ad746c31098"
           ]
         },
         {
           "label_cn": "实况地",
-          "label_en": "in a live manner",
+          "label_en": "as an event or performance happens, rather than from a recording",
           "pos": "adverb",
           "sense_ids": [
             "sense:live:e5badd82cbe55d60"
           ]
         }
       ],
-      "core_meaning_cn": "活着或居住；实况的；活的",
-      "core_meaning_en": "to be alive or reside; happening in real time; not dead",
-      "mental_model_cn": "活着或居住；实况的；活的",
-      "mental_model_en": ""
+      "core_meaning_cn": "活着、居住、过生活或继续存在；活的、实况的；带电或实弹的",
+      "core_meaning_en": "be alive, reside, spend life or continue existing; alive or happening now; electrically live or explosive",
+      "mental_model_cn": "动词读 /lɪv/；实况、活的、带电和实弹形容词以及实况副词读 /laɪv/，各义不混。",
+      "mental_model_en": "be alive, reside, spend life or continue existing; alive or happening now; electrically live or explosive."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -154,8 +199,8 @@
         ],
         "confidence": "medium",
         "definition_cn": "过着（某种生活）",
-        "definition_en": "to lead a particular kind of life",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to spend life in a particular way",
+        "governing_pattern": "live + adv./prep.; live a ... life",
         "level": "L2",
         "lexical_identity_overlay": {
           "identity_type": "pronunciation_by_part_of_speech",
@@ -165,9 +210,9 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:live:c16866022b4151ca",
-        "sense_label_en": "to lead a particular kind of life",
+        "sense_label_en": "to spend life in a particular way",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -212,7 +257,7 @@
         ],
         "confidence": "medium",
         "definition_cn": "实况地",
-        "definition_en": "in a live manner",
+        "definition_en": "as an event or performance happens, rather than from a recording",
         "governing_pattern": "",
         "level": "L3",
         "lexical_identity_overlay": {
@@ -223,7 +268,7 @@
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:live:e5badd82cbe55d60",
-        "sense_label_en": "in a live manner",
+        "sense_label_en": "as an event or performance happens, rather than from a recording",
         "sort_order": 5,
         "transitivity": "nonverb"
       },
@@ -284,6 +329,28 @@
         "sense_label_en": "containing real explosive ammunition or capable of exploding",
         "sort_order": 7,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:live:93dbdcb0fbb4621c",
+        "pos": "verb",
+        "definition_cn": "继续存在；留在人们的记忆中",
+        "definition_en": "to remain in existence or in people’s memory",
+        "sense_label_en": "to remain in existence or in people’s memory",
+        "governing_pattern": "live in memory; words/ideas live",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:448cb4ceb0aa6796baff",
+            "phrase": "her words live in my memory",
+            "meaning_cn": "她的话一直留在我的记忆中",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -304,7 +371,7 @@
     "word": "live",
     "word_family": [
       {
-        "boundary": "lively",
+        "boundary": "live 作动词为活着/生活；lively 是形容词，指充满活力、活泼或热闹，不是 live 的普通副词。",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -858,6 +925,47 @@
               "scope_relation": "Source explicitly covers broadcasting as it happens and in-person performance. Source adjectival /laɪv/ lexical group is independent of verb /lɪv/; only the target broadcast/performance sense is bound."
             }
           ]
+        },
+        {
+          "ipa": "/lɪv/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "live",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:live:93dbdcb0fbb4621c"
+              ],
+              "owner_sense_ids": [
+                "sense:live:93dbdcb0fbb4621c"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/live1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "live",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  5
+                ]
+              },
+              "original_ipa": "/lɪv/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -921,17 +1029,26 @@
         "merged_into_sense_id": null,
         "source_row": 8022,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:live:93dbdcb0fbb4621c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2858.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
+      "collocation:7da42e56b2c8b89def6c",
+      "collocation:c6bf7fb3b014754dbe18",
       "collocation:05e07777f66ecf01c287",
-      "collocation:18dc38cec0c149db60cd",
-      "collocation:2190f9a194113e4e4728",
       "collocation:414ed2db9147ed4e3d6f",
       "collocation:519f39749c4f5f921fd9",
+      "collocation:2190f9a194113e4e4728",
+      "collocation:18dc38cec0c149db60cd",
       "collocation:7cd6a6410e0e58b56f93",
-      "collocation:7da42e56b2c8b89def6c",
-      "collocation:c6bf7fb3b014754dbe18"
+      "collocation:448cb4ceb0aa6796baff"
     ],
     "facts": [
       {
@@ -980,6 +1097,13 @@
         "id": "collocation:7cd6a6410e0e58b56f93",
         "source_row": 21505,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:448cb4ceb0aa6796baff",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2858.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

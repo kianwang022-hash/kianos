@@ -9,11 +9,31 @@
     "constructions": [],
     "content_hash": "43410cfeb04dbc4dced8921acb82b658d8b1affe956897c070ee3bfb359781e5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "打开的动作或缝隙；也指开始",
-      "core_meaning_en": "the act of opening or a gap; also the beginning",
-      "mental_model_cn": "打开的动作或缝隙；也指开始",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "开口、打开过程；开场或机会",
+          "label_en": "a gap or act of opening; a beginning or opportunity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:opening:1629e872bb50549d",
+            "sense:opening:358affc160675de7",
+            "sense:opening:52cda23d9368532d",
+            "sense:opening:f65a1faf0f185047"
+          ]
+        },
+        {
+          "label_cn": "起始的（名词前）",
+          "label_en": "initial, before a noun",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:opening:0bd044a6fe902743"
+          ]
+        }
+      ],
+      "core_meaning_cn": "开口或打开过程；开场、开幕；机会/职位；起始的",
+      "core_meaning_en": "a gap or the act of opening; a beginning or vacancy; initial",
+      "mental_model_cn": "an opening in the wall是洞口，the opening of a door是打开动作，job opening是职位空缺；opening remarks作名词前形容词说开场讲话。",
+      "mental_model_en": "a gap or the act of opening; a beginning or vacancy; initial."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -59,14 +79,14 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "开幕；开始；首场演出",
-        "definition_en": "the beginning or first event or performance of something",
+        "definition_cn": "开始；开幕/启用仪式；首场演出",
+        "definition_en": "the beginning, inaugural event or ceremony, or first performance of something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:opening:358affc160675de7",
-        "sense_label_en": "the beginning or first event or performance of something",
+        "sense_label_en": "the beginning, inaugural event or ceremony, or first performance of something",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -83,6 +103,68 @@
         "sense_label_en": "an opportunity or vacancy",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:opening:f65a1faf0f185047",
+        "pos": "noun",
+        "definition_cn": "打开、开启的动作或过程",
+        "definition_en": "the act or process of making or becoming open",
+        "sense_label_en": "the act or process of making or becoming open",
+        "governing_pattern": "the opening of sth (the action/process, not a physical gap)",
+        "transitivity": "nonverb",
+        "level": "L1",
+        "sort_order": 3,
+        "collocations": [],
+        "source_evidence_objects": [
+          {
+            "stable_sense_id": "sense:opening:f65a1faf0f185047",
+            "status": "merged",
+            "merged_into_sense_id": "sense:opening:1629e872bb50549d",
+            "pos": "noun",
+            "definition_cn": "打开或使打开的过程",
+            "definition_en": "becoming open or being made open",
+            "semantic_key": "e53df8dc33ba3c67af08babe27b61cea615d304083caef658ac304047e431669",
+            "semantic_key_history": [
+              "5ee4e9cd5b57fa222b27ce34d19e8a5ee586858413ef3274ea65b2d2461dcd56"
+            ],
+            "legacy_aliases": [
+              "opening:l2:4"
+            ],
+            "legacy_alias_history": [
+              {
+                "legacy_sense_id": "opening:l2:4",
+                "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+              }
+            ],
+            "updated_at": "2026-09-09T00:00:00Z",
+            "source_row": 9292,
+            "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json",
+            "reference_only": true
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:opening:0bd044a6fe902743",
+        "pos": "adjective",
+        "definition_cn": "开始的；起始的（名词前）",
+        "definition_en": "first or at the beginning of an event or work",
+        "sense_label_en": "first or at the beginning of an event or work",
+        "governing_pattern": "opening + noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5ca61a6bf2c3f69a06b6",
+            "phrase": "opening remarks",
+            "meaning_cn": "开场讲话",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常在名词前：opening remarks开场讲话、opening chapter开篇章节。不是所有opening都表示一个物理开口。"
       }
     ],
     "verification_summary": {
@@ -124,6 +206,24 @@
           "applicability": [
             {
               "surface": "opening"
+            },
+            {
+              "surface": "opening",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:opening:0bd044a6fe902743"
+              ],
+              "owner_sense_ids": [
+                "sense:opening:0bd044a6fe902743"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3344.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "opening + noun",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -241,6 +341,24 @@
           "applicability": [
             {
               "surface": "opening"
+            },
+            {
+              "surface": "opening",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:opening:0bd044a6fe902743"
+              ],
+              "owner_sense_ids": [
+                "sense:opening:0bd044a6fe902743"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3344.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "opening + noun",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -347,7 +465,7 @@
     {
       "stable_sense_id": "sense:opening:541173bb5f655aeb",
       "status": "merged",
-      "merged_into_sense_id": "sense:opening:1629e872bb50549d",
+      "merged_into_sense_id": "sense:opening:358affc160675de7",
       "pos": "noun",
       "definition_cn": "伴随某项事业开始的仪式",
       "definition_en": "a ceremony accompanying the start of some enterprise",
@@ -366,31 +484,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 9291,
-      "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:opening:f65a1faf0f185047",
-      "status": "merged",
-      "merged_into_sense_id": "sense:opening:1629e872bb50549d",
-      "pos": "noun",
-      "definition_cn": "打开或使打开的过程",
-      "definition_en": "becoming open or being made open",
-      "semantic_key": "e53df8dc33ba3c67af08babe27b61cea615d304083caef658ac304047e431669",
-      "semantic_key_history": [
-        "5ee4e9cd5b57fa222b27ce34d19e8a5ee586858413ef3274ea65b2d2461dcd56"
-      ],
-      "legacy_aliases": [
-        "opening:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "opening:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9292,
       "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json",
       "reference_only": true
     }
@@ -421,21 +514,30 @@
       {
         "sense_id": "sense:opening:541173bb5f655aeb",
         "status": "merged",
-        "merged_into_sense_id": "sense:opening:1629e872bb50549d",
+        "merged_into_sense_id": "sense:opening:358affc160675de7",
         "source_row": 9291,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
       },
       {
         "sense_id": "sense:opening:f65a1faf0f185047",
-        "status": "merged",
-        "merged_into_sense_id": "sense:opening:1629e872bb50549d",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9292,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:opening:0bd044a6fe902743",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3344.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:bc0377882beae18a3d82",
-      "collocation:c1eeb949577e20049823"
+      "collocation:c1eeb949577e20049823",
+      "collocation:5ca61a6bf2c3f69a06b6"
     ],
     "facts": [],
     "collocations": [
@@ -483,6 +585,13 @@
         "id": "collocation:fb0fa0d1b6f0d5299b23",
         "source_row": 21244,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:5ca61a6bf2c3f69a06b6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3344.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:quality:4f1b1c97f11f584b"
           ]
+        },
+        {
+          "label_cn": "优质的",
+          "label_en": "of high quality",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:quality:60ba9d4e4e4557db"
+          ]
         }
       ],
       "core_meaning_cn": "质量；品质；特性",
@@ -89,6 +97,59 @@
         "sense_label_en": "a characteristic or feature of someone or something",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:quality:60ba9d4e4e4557db",
+        "pos": "adjective",
+        "definition_cn": "优质的",
+        "definition_en": "of high quality",
+        "sense_label_en": "of high quality",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "quality + noun",
+        "transitivity": "nonverb",
+        "usage_note": "Before a noun, especially in promotional language; describes high standard rather than merely any characteristic.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:quality:f2711ff314de7e3c",
+            "phrase": "quality products",
+            "meaning_cn": "优质产品",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/quality_2",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/quality_2",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ],
+        "stable_sense_id": "sense:quality:60ba9d4e4e4557db",
+        "merged_into_sense_id": null,
+        "semantic_key": "d14471735bb22bcb84478a51684fad5fadc2bbf1256243c2ce2db8da4aecd214",
+        "semantic_key_history": [
+          "b27094ae6c9005fff8336ae71cb720e153fddf172b5022ebec5786f0b1f72d33"
+        ],
+        "legacy_aliases": [
+          "quality:l2:4"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "quality:l2:4",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 10828,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
+        "status": "active",
+        "reference_only": false
       }
     ],
     "verification_summary": {
@@ -223,31 +284,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:quality:60ba9d4e4e4557db",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "优质的",
-      "definition_en": "of high quality",
-      "semantic_key": "d14471735bb22bcb84478a51684fad5fadc2bbf1256243c2ce2db8da4aecd214",
-      "semantic_key_history": [
-        "b27094ae6c9005fff8336ae71cb720e153fddf172b5022ebec5786f0b1f72d33"
-      ],
-      "legacy_aliases": [
-        "quality:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "quality:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10828,
-      "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:quality:d5f33a05f3e4599c",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -291,7 +327,7 @@
       },
       {
         "sense_id": "sense:quality:60ba9d4e4e4557db",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10828,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
@@ -306,7 +342,8 @@
     ],
     "active_collocations": [
       "collocation:0ad1d586a448fc4f845f",
-      "collocation:f6eddb3fe486d51a77c6"
+      "collocation:f6eddb3fe486d51a77c6",
+      "collocation:quality:f2711ff314de7e3c"
     ],
     "facts": [],
     "collocations": [
@@ -339,6 +376,10 @@
         "id": "collocation:fee56681e9e09acc5ff1",
         "source_row": 21550,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:quality:f2711ff314de7e3c",
+        "source_path": "content/lexical/words/by-ordinal/o3891.json"
       }
     ],
     "exam-mappings": [],

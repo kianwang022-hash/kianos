@@ -11,26 +11,28 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "骨折，断裂",
-          "label_en": "a break or crack in a hard object or bone",
+          "label_cn": "骨折，断裂；（组织、社会或关系中的）分裂；裂痕",
+          "label_en": "a break or crack in a hard object or bone; a split or breach within a group, society, or relationship",
           "pos": "noun",
           "sense_ids": [
-            "sense:fracture:58c6868793495f1b"
+            "sense:fracture:58c6868793495f1b",
+            "sense:fracture:db9f214e52231f0b"
           ]
         },
         {
-          "label_cn": "使断裂，使骨折；断裂，破裂",
-          "label_en": "to break or crack something; to break or crack",
+          "label_cn": "使断裂，使骨折；断裂，破裂；（使组织、社会或关系）分裂、破裂",
+          "label_en": "to break or crack something; to break or crack; to split or disrupt a group, society, or relationship",
           "pos": "verb",
           "sense_ids": [
             "sense:fracture:a690ab9dfac95a2a",
-            "sense:fracture:8c351f6daea65ef8"
+            "sense:fracture:8c351f6daea65ef8",
+            "sense:fracture:f214dd9fa09ead92"
           ]
         }
       ],
-      "core_meaning_cn": "断裂或破裂",
-      "core_meaning_en": "to break or crack",
-      "mental_model_cn": "断裂或破裂",
+      "core_meaning_cn": "骨折或断裂；（使）断裂；分裂或关系裂痕",
+      "core_meaning_en": "a fracture; crack or break; a split in groups or relationships",
+      "mental_model_cn": "实体或骨骼fracture为断裂、骨折；组织或关系fracture是分裂破裂。He fractured his leg未说明如何受伤。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,7 +80,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:8d3acef44e3ce6dc9221",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fracture:a690ab9dfac95a2a:collocation:0"
             ],
@@ -91,8 +93,9 @@
             "legacy_source_object_ids": [
               "sense:fracture:a690ab9dfac95a2a:collocation:1"
             ],
-            "meaning_cn": "他摔断了腿。",
-            "phrase": "He fractured his leg."
+            "meaning_cn": "他腿骨折了。",
+            "phrase": "He fractured his leg.",
+            "usage_note": "原句没有说明致伤原因，不能补成摔倒。"
           }
         ],
         "confidence": "medium",
@@ -130,6 +133,50 @@
         "sense_label_en": "to break or crack",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:fracture:db9f214e52231f0b",
+        "pos": "noun",
+        "definition_cn": "（组织、社会或关系中的）分裂；裂痕",
+        "definition_en": "a split or breach within a group, society, or relationship",
+        "sense_label_en": "a split or breach within a group, society, or relationship",
+        "governing_pattern": "a fracture in/between groups",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f447670053ba2d95ae77",
+            "phrase": "a fracture in the coalition",
+            "meaning_cn": "联盟内部的裂痕",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fracture:f214dd9fa09ead92",
+        "pos": "verb",
+        "definition_cn": "（使组织、社会或关系）分裂、破裂",
+        "definition_en": "to split or disrupt a group, society, or relationship",
+        "sense_label_en": "to split or disrupt a group, society, or relationship",
+        "governing_pattern": "fracture a coalition/relationship; a group fractures",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:66efedbade947ef77b9f",
+            "phrase": "The dispute fractured their friendship.",
+            "meaning_cn": "争执使他们的友谊破裂。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -170,6 +217,40 @@
           "applicability": [
             {
               "surface": "fracture"
+            },
+            {
+              "surface": "fracture",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fracture:db9f214e52231f0b"
+              ],
+              "owner_sense_ids": [
+                "sense:fracture:db9f214e52231f0b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2032.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "a fracture in/between groups"
+              }
+            },
+            {
+              "surface": "fracture",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fracture:f214dd9fa09ead92"
+              ],
+              "owner_sense_ids": [
+                "sense:fracture:f214dd9fa09ead92"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2032.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "fracture a coalition/relationship; a group fractures"
+              }
             }
           ],
           "sources": [
@@ -353,11 +434,26 @@
         "merged_into_sense_id": null,
         "source_row": 5652,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:fracture:db9f214e52231f0b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2032.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:fracture:f214dd9fa09ead92",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2032.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:0e3508620566aa8bde8e",
-      "collocation:8d3acef44e3ce6dc9221",
       "collocation:9f4bb17191791876fb20",
       "collocation:da621c0dae19e0b825bf",
       "collocation:f0f8803253e44552c374"
@@ -372,7 +468,9 @@
       {
         "id": "collocation:8d3acef44e3ce6dc9221",
         "source_row": 11979,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9f4bb17191791876fb20",
@@ -388,6 +486,20 @@
         "id": "collocation:f0f8803253e44552c374",
         "source_row": 20410,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:f447670053ba2d95ae77",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2032.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:66efedbade947ef77b9f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2032.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

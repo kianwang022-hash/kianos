@@ -10,9 +10,9 @@
     "content_hash": "be5aa7fc5692d8c36b315979c87315373c136bb51b05a1c1de5b20158be215d0",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "有薪工作的状态",
-      "core_meaning_en": "the state of having a paid job",
-      "mental_model_cn": "有薪工作的状态",
+      "core_meaning_cn": "就业与雇用；正式语境中的使用或运用",
+      "core_meaning_en": "paid work and employment opportunities, the act of hiring, or the formal use of something",
+      "mental_model_cn": "涉及人、有薪工作或就业市场时，指受雇状态、就业机会或雇用行为；of后接方法、工具或资源时，通常是正式的使用、运用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,19 +45,26 @@
             ],
             "meaning_cn": "就业机会",
             "phrase": "employment opportunity"
+          },
+          {
+            "collocation_id": "collocation:employment:0d5c14af855d3fc6",
+            "phrase": "full employment",
+            "meaning_cn": "充分就业",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "就业；受雇",
-        "definition_en": "the state of having a paid job",
+        "definition_cn": "就业；受雇；就业状况或可获得的工作",
+        "definition_en": "the state of having paid work, or the availability and level of paid work in an area",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:employment:b7ba031aca9c55b2",
-        "sense_label_en": "the state of having a paid job",
+        "sense_label_en": "having paid work; collective availability or level of paid work",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "个体语境指受雇状态；地区/经济语境可谈就业机会或就业水平，如full employment，不是某一份特定工作。"
       },
       {
         "collocations": [
@@ -82,6 +89,25 @@
         "sense_label_en": "the act of giving someone a job",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:employment:64afafe7cd6c8fe9",
+        "pos": "noun",
+        "definition_cn": "（正式）使用；运用",
+        "definition_en": "the act of using something for a purpose",
+        "sense_label_en": "the act of using something for a purpose",
+        "governing_pattern": "the employment of a method/tool/resource",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:employment:b2fb41ae8686b2d3",
+            "phrase": "the employment of a method",
+            "meaning_cn": "一种方法的运用",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "正式或学术语境；of后可接方法、工具或资源，不是在雇用这些无生命事物。"
       }
     ],
     "verification_summary": {
@@ -352,6 +378,28 @@
           "applicability": [
             {
               "surface": "employment"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "employment",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:employment:64afafe7cd6c8fe9"
+              ],
+              "sense_ids": [
+                "sense:employment:64afafe7cd6c8fe9"
+              ],
+              "excluded_sense_ids": [
+                "sense:employment:b7ba031aca9c55b2",
+                "sense:employment:d36b423e991e5615"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.merriam-webster.com/dictionary/employment",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -428,6 +476,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Merriam-Webster",
+              "url": "https://www.merriam-webster.com/dictionary/employment",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "employment",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪmˈplɔɪmənt/",
+              "applies_to_sense_ids": [
+                "sense:employment:64afafe7cd6c8fe9"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         },
@@ -566,12 +630,22 @@
         "merged_into_sense_id": null,
         "source_row": 4537,
         "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"
+      },
+      {
+        "sense_id": "sense:employment:64afafe7cd6c8fe9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1636.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:03e34c4f325046d576bf",
       "collocation:0c9e0ab3b39cb74fbaf4",
-      "collocation:b2e2a0db71626993854c"
+      "collocation:b2e2a0db71626993854c",
+      "collocation:employment:0d5c14af855d3fc6",
+      "collocation:employment:b2fb41ae8686b2d3"
     ],
     "facts": [
       {
@@ -595,6 +669,22 @@
         "id": "collocation:b2e2a0db71626993854c",
         "source_row": 15159,
         "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:employment:0d5c14af855d3fc6",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1636.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:employment:b2fb41ae8686b2d3",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1636.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

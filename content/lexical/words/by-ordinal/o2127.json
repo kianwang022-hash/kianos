@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "0ee8bc186fd0831efcecadca15920db783627e67ee155379013e64b12a364f92",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "几何学",
-      "core_meaning_en": "the branch of mathematics dealing with points, lines, shapes, and space",
-      "mental_model_cn": "几何学",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "几何学；几何形状；空间结构或布局",
+          "label_en": "the branch of mathematics that deals with points, lines, shapes, and space; the geometric shape or spatial arrangement of something or its parts",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:geometry:0f0df5a989a55ff7",
+            "sense:geometry:ba5bf6cac2f86456"
+          ]
+        }
+      ],
+      "core_meaning_cn": "几何学；几何形状或空间布局",
+      "core_meaning_en": "the mathematical study of geometry; geometric shape or layout",
+      "mental_model_cn": "学科geometry研究形状与空间关系；the geometry of a building指其几何形状或空间安排。",
+      "mental_model_en": "the mathematical study of geometry; geometric shape or layout."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -52,9 +62,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:geometry:0f0df5a989a55ff7",
-        "sense_label_en": "the branch of mathematics that deals with points, lines, shapes, and spa",
+        "sense_label_en": "the branch of mathematics that deals with points, lines, shapes, and space",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:geometry:ba5bf6cac2f86456",
+        "pos": "noun",
+        "definition_cn": "几何形状；空间结构或布局",
+        "definition_en": "the geometric shape or spatial arrangement of something or its parts",
+        "sense_label_en": "the geometric shape or spatial arrangement of something or its parts",
+        "governing_pattern": "the geometry of a shape/building",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a55f5f91a501886b07b8",
+            "phrase": "the geometry of the building",
+            "meaning_cn": "这座建筑的几何形状与布局",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -94,6 +126,23 @@
           "applicability": [
             {
               "surface": "geometry"
+            },
+            {
+              "surface": "geometry",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:geometry:ba5bf6cac2f86456"
+              ],
+              "owner_sense_ids": [
+                "sense:geometry:ba5bf6cac2f86456"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2127.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "the geometry of a shape/building"
+              }
             }
           ],
           "sources": [
@@ -249,6 +298,14 @@
         "merged_into_sense_id": null,
         "source_row": 5923,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      },
+      {
+        "sense_id": "sense:geometry:ba5bf6cac2f86456",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2127.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -266,6 +323,13 @@
         "id": "collocation:4b0e1b40a7a96218b24d",
         "source_row": 6319,
         "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:a55f5f91a501886b07b8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2127.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

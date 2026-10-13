@@ -32,18 +32,19 @@
           ]
         },
         {
-          "label_cn": "把…归功于；相信",
-          "label_en": "to attribute an achievement or quality to someone or something; to believe something, especially something surprising or unlikely",
+          "label_cn": "把…归功于；相信；把款项记入账户",
+          "label_en": "to attribute an achievement or quality to someone or something; to believe something, especially something surprising or unlikely; record money in an account",
           "pos": "verb",
           "sense_ids": [
             "sense:credit:e42be33d14c35ad7",
-            "sense:credit:af69a637a98e50b5"
+            "sense:credit:af69a637a98e50b5",
+            "sense:credit:abe7136ccb4590df"
           ]
         }
       ],
-      "core_meaning_cn": "被认可或允许先取得某物的“信任额度”：可落到信用赊购、荣誉归功、学分，以及把功劳归给某人",
-      "core_meaning_en": "to believe or acknowledge; money or recognition given",
-      "mental_model_cn": "on credit → 赊购；give/take credit → 认可/居功；earn credits → 学分；credit sb with sth / credit sth to sb → 归功于。学分义只保留一份正式 Sense。",
+      "core_meaning_cn": "赊购、信用；赞扬、归功；学分；相信；把款项记入账户",
+      "core_meaning_en": "credit purchasing; recognition; study credits; belief; record money in an account",
+      "mental_model_cn": "on credit是赊购；give/take credit是认可或居功；earn credits是获得学分；credit sb with sth可表归功，credit money to an account则是入账。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -153,7 +154,7 @@
         "confidence": "medium",
         "definition_cn": "把…归功于",
         "definition_en": "to attribute an achievement or quality to someone or something",
-        "governing_pattern": "vt. + object + to/with",
+        "governing_pattern": "credit sb with sth; credit sth to sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -185,6 +186,27 @@
         "sense_label_en": "to believe something, especially something surprising or unlikely",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:credit:abe7136ccb4590df",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 5,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "把款项记入某人账户；给账户入账",
+        "definition_en": "record money as added to an account",
+        "sense_label_en": "add money to an account",
+        "governing_pattern": "credit an amount to an account; credit an account with an amount",
+        "collocations": [
+          {
+            "collocation_id": "collocation:3d24459c9e66292369ec",
+            "exam_value": "usage_example",
+            "phrase": "The refund was credited to her account.",
+            "meaning_cn": "退款已记入她的账户。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -585,6 +607,13 @@
         "merged_into_sense_id": null,
         "source_row": 3232,
         "source_path": "content/lexical/canonical/senses/shards/o1121-1152.json"
+      },
+      {
+        "sense_id": "sense:credit:abe7136ccb4590df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1149.json"
       }
     ],
     "active_collocations": [
@@ -593,7 +622,8 @@
       "collocation:88cf0677e291c38a13ca",
       "collocation:b6659d33fee01c768dbd",
       "collocation:ba25b0ece6d36a579fbd",
-      "collocation:e15c208b92603241c637"
+      "collocation:e15c208b92603241c637",
+      "collocation:3d24459c9e66292369ec"
     ],
     "facts": [
       {
@@ -647,6 +677,11 @@
         "id": "collocation:e15c208b92603241c637",
         "source_row": 19057,
         "source_path": "content/lexical/canonical/collocations/shards/o1121-1152.json"
+      },
+      {
+        "id": "collocation:3d24459c9e66292369ec",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1149.json"
       }
     ],
     "exam-mappings": [],

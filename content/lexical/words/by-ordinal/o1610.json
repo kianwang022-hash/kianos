@@ -10,9 +10,9 @@
     "content_hash": "f554aaafa7f46be8e21a4197db2df2152240920cabdde4eb8b3b59d238e90cd3",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "雄辩的",
-      "core_meaning_en": "fluent and persuasive in speaking or writing",
-      "mental_model_cn": "雄辩的",
+      "core_meaning_cn": "言语雄辩、有说服力；非言语传神表意",
+      "core_meaning_en": "persuasive in speech or writing; vividly expressive without words",
+      "mental_model_cn": "话语可雄辩；眼神、动作或沉默也可清楚而有力地传达意思。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,16 +45,35 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "雄辩的；有口才的",
-        "definition_en": "expressing yourself readily, clearly, and effectively",
+        "definition_cn": "雄辩的；有口才的；（言语或文章）表达有力而有说服力的",
+        "definition_en": "expressing ideas fluently, clearly, and persuasively in speech or writing",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:eloquent:8442be03b2da59c5",
-        "sense_label_en": "expressing yourself readily, clearly, and effectively",
+        "sense_label_en": "fluent and persuasive in speech or writing",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:eloquent:cca7d84a15cf961c",
+        "pos": "adjective",
+        "definition_cn": "（表情、动作等）传神的；有力表意的",
+        "definition_en": "vividly expressing a feeling or message without needing words",
+        "sense_label_en": "vividly expressing a feeling or message without needing words",
+        "governing_pattern": "an eloquent look/gesture/silence",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:eloquent:e47ca491c23acecf",
+            "phrase": "an eloquent gesture",
+            "meaning_cn": "有力表意的动作",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可描述不说话的眼神、动作或沉默；不是说这些对象具有口才。"
       }
     ],
     "verification_summary": {
@@ -95,6 +114,27 @@
           "applicability": [
             {
               "surface": "eloquent"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "eloquent",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:eloquent:cca7d84a15cf961c"
+              ],
+              "sense_ids": [
+                "sense:eloquent:cca7d84a15cf961c"
+              ],
+              "excluded_sense_ids": [
+                "sense:eloquent:8442be03b2da59c5"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/eloquent",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -159,6 +199,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/eloquent",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "eloquent",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛl.əˌkwənt/",
+              "applies_to_sense_ids": [
+                "sense:eloquent:cca7d84a15cf961c"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -175,11 +231,20 @@
         "merged_into_sense_id": null,
         "source_row": 4491,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      },
+      {
+        "sense_id": "sense:eloquent:cca7d84a15cf961c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1610.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:277553479c1be9ef5d22",
-      "collocation:860b5728252ee89f45f2"
+      "collocation:860b5728252ee89f45f2",
+      "collocation:eloquent:e47ca491c23acecf"
     ],
     "facts": [],
     "collocations": [
@@ -192,6 +257,14 @@
         "id": "collocation:860b5728252ee89f45f2",
         "source_row": 11381,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:eloquent:e47ca491c23acecf",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1610.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

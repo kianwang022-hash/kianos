@@ -6,32 +6,52 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:824973fde893c9e2e204",
+        "pattern": "free up sth / free sth up",
+        "meaning_cn": "腾出、释放（时间、资金、空间等供使用）",
+        "definition_en": "to make time, money, space, or another resource available for use",
+        "usage_note": "up是这个资源用法的重要部分；代词通常置中，如free it up。",
+        "boundary": "up是这个资源用法的重要部分；代词通常置中，如free it up。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "0891a4196abbf14a857a25647208635028d5390b8c4a0a071fc76c46f1c79539",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "自由的；免费的；空闲的",
-          "label_en": "free/unrestricted; free of charge; available",
+          "label_cn": "自由的，不受约束的；免费的；空闲的，有空的；不含有……的；免于……的",
+          "label_en": "not under the control of another; able to act as one wishes; given or available without charge; not occupied or in use; available; without something, especially something unwanted or burdensome",
           "pos": "adjective",
           "sense_ids": [
             "sense:free:71f335d6a5a858b5",
             "sense:free:b20ae9fa060b52e1",
-            "sense:free:9f31022dd7255454"
+            "sense:free:9f31022dd7255454",
+            "sense:free:7003d042d8414ab7"
           ]
         },
         {
-          "label_cn": "释放；使自由",
-          "label_en": "to free or release",
+          "label_cn": "释放，使自由",
+          "label_en": "release from confinement or obligation",
           "pos": "verb",
           "sense_ids": [
             "sense:free:8982bae68f945426"
           ]
+        },
+        {
+          "label_cn": "免费地",
+          "label_en": "without cost or payment",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:free:9287e28adaa65532"
+          ]
         }
       ],
-      "core_meaning_cn": "不受约束；无代价",
-      "core_meaning_en": "not under constraint; without cost",
-      "mental_model_cn": "不受约束；无代价",
+      "core_meaning_cn": "自由或免费的；有空或可用的；不含某物；释放或腾出",
+      "core_meaning_en": "free in liberty or cost; available; without something; release or make available",
+      "mental_model_cn": "be free to do表示可自由去做，free of errors为没有错误；时间或座位free为有空可用。free人为释放；free up时间/资金为腾出使用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -52,12 +72,18 @@
             ],
             "meaning_cn": "言论自由",
             "phrase": "free speech"
+          },
+          {
+            "collocation_id": "collocation:888517f00a27e7fd902f",
+            "phrase": "be free to choose",
+            "meaning_cn": "可以自由选择",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
         "definition_cn": "自由的，不受约束的",
         "definition_en": "not under the control of another; able to act as one wishes",
-        "governing_pattern": "",
+        "governing_pattern": "be free; be free to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -161,6 +187,28 @@
         "sense_label_en": "without cost or payment",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:free:7003d042d8414ab7",
+        "pos": "adjective",
+        "definition_cn": "不含有……的；免于……的",
+        "definition_en": "without something, especially something unwanted or burdensome",
+        "sense_label_en": "without something, especially something unwanted or burdensome",
+        "governing_pattern": "free of/from sth; error-free",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:649367f67d2d7de10ed9",
+            "phrase": "free of errors",
+            "meaning_cn": "没有错误的",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -204,6 +252,23 @@
           "applicability": [
             {
               "surface": "free"
+            },
+            {
+              "surface": "free",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:free:7003d042d8414ab7"
+              ],
+              "owner_sense_ids": [
+                "sense:free:7003d042d8414ab7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2041.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "free of/from sth; error-free"
+              }
             }
           ],
           "sources": [
@@ -586,6 +651,14 @@
         "merged_into_sense_id": null,
         "source_row": 5678,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:free:7003d042d8414ab7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2041.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -621,6 +694,20 @@
         "id": "collocation:f063778c49416292c51a",
         "source_row": 20369,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:888517f00a27e7fd902f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2041.json",
+        "source_pointer": "/record/senses/0/collocations/1"
+      },
+      {
+        "id": "collocation:649367f67d2d7de10ed9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2041.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

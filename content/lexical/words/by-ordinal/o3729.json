@@ -10,9 +10,9 @@
     "content_hash": "3ba179dcc865b4b7ceed16e65eae9ba3b5de45efd8d3e229cfff1316ecb273a2",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "精确的",
-      "core_meaning_en": "exact and accurate",
-      "mental_model_cn": "精确的",
+      "core_meaning_cn": "准确到具体细节；也可强调恰好那一个",
+      "core_meaning_en": "exact in detail or identification; also meticulous",
+      "mental_model_cn": "测量、说明等看准确程度；the/that precise moment 等锁定恰好那一刻；修饰人或动作时强调细致严谨。to be precise 用来补充更精确的信息。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,6 +33,12 @@
             ],
             "meaning_cn": "精确测量",
             "phrase": "precise measurement"
+          },
+          {
+            "collocation_id": "collocation:b1d2f9a95c2b47369177",
+            "exam_value": "fixed_pattern",
+            "phrase": "to be (more) precise",
+            "meaning_cn": "确切地说；说得更准确些"
           }
         ],
         "confidence": "medium",
@@ -70,6 +76,28 @@
         "sense_label_en": "very careful and exact in behavior or style",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:precise:cd8757e5cb3571d9",
+        "pos": "adjective",
+        "definition_cn": "（名词前）恰好那个的；确切的，强调特定时间、地点或事物",
+        "definition_en": "used before a noun to identify the very time, place, or thing intended",
+        "sense_label_en": "used before a noun to identify the very time, place, or thing intended",
+        "governing_pattern": "the/that precise + noun",
+        "level": "L2",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:54b7d7bc9f9462470fe2",
+            "exam_value": "usage_example",
+            "phrase": "at that precise moment",
+            "meaning_cn": "就在那个时刻"
+          }
+        ],
+        "usage_note": "at that precise moment 表示“就在那个时刻”；这里强调是哪一个，并非说时刻本身做得精确。"
       }
     ],
     "verification_summary": {
@@ -383,11 +411,20 @@
         "merged_into_sense_id": null,
         "source_row": 10391,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      },
+      {
+        "sense_id": "sense:precise:cd8757e5cb3571d9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3729.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; distinct useful current meaning"
       }
     ],
     "active_collocations": [
       "collocation:26bf5fc1ad08f77bc38c",
-      "collocation:8adeee18e8bad49589ca"
+      "collocation:8adeee18e8bad49589ca",
+      "collocation:54b7d7bc9f9462470fe2",
+      "collocation:b1d2f9a95c2b47369177"
     ],
     "facts": [],
     "collocations": [
@@ -400,6 +437,20 @@
         "id": "collocation:8adeee18e8bad49589ca",
         "source_row": 11778,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:54b7d7bc9f9462470fe2",
+        "status": "active",
+        "sense_id": "sense:precise:cd8757e5cb3571d9",
+        "source_path": "content/lexical/words/by-ordinal/o3729.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; new phrase identity"
+      },
+      {
+        "id": "collocation:b1d2f9a95c2b47369177",
+        "status": "active",
+        "sense_id": "sense:precise:663287dc207b54cb",
+        "source_path": "content/lexical/words/by-ordinal/o3729.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; new phrase identity"
       }
     ],
     "exam-mappings": [],

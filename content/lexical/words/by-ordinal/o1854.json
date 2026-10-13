@@ -30,19 +30,8 @@
         "level": null,
         "meaning_cn": "对……熟悉；熟知",
         "module": "constructions",
-        "pattern": "familiar with + sth",
+        "pattern": "be familiar with sth",
         "pos": "adjective",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:9e9cfaee5d4a7682cbda",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:523f8eaff64a9260acbe"
-        },
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
@@ -59,10 +48,27 @@
     ],
     "content_hash": "a13d18ae6769e4d8404dd3aa3052878f77a2557c82c2ed5b4b6a3593b446808d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "熟悉或容易识别",
-      "core_meaning_en": "well known or easily recognized",
-      "mental_model_cn": "熟悉或容易识别",
+      "core_clusters": [
+        {
+          "label_cn": "熟悉",
+          "label_en": "known or understood well",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:familiar:82cd3c7a38d278de"
+          ]
+        },
+        {
+          "label_cn": "举止过分随便",
+          "label_en": "overly informal in behaviour",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:familiar:d0459612c57703cd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "熟悉的；举止过分随便的",
+      "core_meaning_en": "well known or understood; overly informal in behaviour",
+      "mental_model_cn": "familiar with指人熟悉某事，familiar to指某事为某人熟知；too familiar with某人也可能批评举止过分亲昵，要看关系语境。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -81,7 +87,7 @@
         "confidence": "medium",
         "definition_cn": "熟悉的、常见的",
         "definition_en": "well known or acquainted with something",
-        "governing_pattern": "",
+        "governing_pattern": "sb is familiar with sth; sth is familiar to sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -89,6 +95,29 @@
         "sense_label_en": "well known or acquainted with something",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:familiar:d0459612c57703cd",
+        "pos": "adjective",
+        "definition_cn": "（举止）过分随便、亲昵的；不拘礼的",
+        "definition_en": "behaving too informally towards someone, sometimes in an unwelcome way",
+        "sense_label_en": "behaving too informally towards someone, sometimes in an unwelcome way",
+        "governing_pattern": "be too familiar with sb; a familiar manner",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e9da3128e5de2b56848e",
+            "phrase": "be too familiar with a stranger",
+            "meaning_cn": "对陌生人过分随便",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "此义描述举止和关系分寸，常带不赞同；familiar to/with表示熟悉的原义仍保留。"
       }
     ],
     "verification_summary": {
@@ -129,6 +158,23 @@
           "applicability": [
             {
               "surface": "familiar"
+            },
+            {
+              "surface": "familiar",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:familiar:d0459612c57703cd"
+              ],
+              "owner_sense_ids": [
+                "sense:familiar:d0459612c57703cd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1854.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "be too familiar with sb; a familiar manner"
+              }
             }
           ],
           "sources": [
@@ -476,6 +522,14 @@
         "merged_into_sense_id": null,
         "source_row": 5091,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:familiar:d0459612c57703cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1854.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [],
@@ -506,6 +560,13 @@
         "id": "collocation:b0a005995810f7a6515f",
         "source_row": 14956,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:e9da3128e5de2b56848e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1854.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

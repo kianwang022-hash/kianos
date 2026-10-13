@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "349203bc46b447b2ca7299b15c94ee02a61bc0e682396dedafa1d0f9b2e84442",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "明确的；清楚的",
-      "core_meaning_en": "stated clearly and in detail, leaving no room for confusion or doubt",
-      "mental_model_cn": "明确的；清楚的",
+      "core_clusters": [
+        {
+          "label_cn": "明确表述",
+          "label_en": "clearly stated or shown",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:explicit:146263a35c205e65"
+          ]
+        },
+        {
+          "label_cn": "内容露骨",
+          "label_en": "graphic depiction",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:explicit:135fec64b1c5bbc4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "明确表述；内容露骨",
+      "core_meaning_en": "clearly expressed; graphic in content",
+      "mental_model_cn": "指要求或说明时是不留暗示的明确表述；指电影、图片等内容时可指露骨详细描写性或暴力。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,9 +71,31 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:explicit:146263a35c205e65",
-        "sense_label_en": "precisely and clearly expressed or readily observable; leaving nothing t",
+        "sense_label_en": "clearly stated, not merely implied",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:explicit:135fec64b1c5bbc4",
+        "pos": "adjective",
+        "definition_cn": "（性、裸体或暴力等内容）露骨详细的",
+        "definition_en": "showing sexual activity, nudity, or violence openly and in realistic detail",
+        "sense_label_en": "showing sexual activity, nudity, or violence openly and in realistic detail",
+        "governing_pattern": "explicit content/scenes; sexually explicit material",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a7d9afa71b7799ac53a9",
+            "phrase": "sexually explicit content",
+            "meaning_cn": "露骨描写性的内容",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -86,6 +125,23 @@
           "applicability": [
             {
               "surface": "explicit"
+            },
+            {
+              "surface": "explicit",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:explicit:135fec64b1c5bbc4"
+              ],
+              "owner_sense_ids": [
+                "sense:explicit:135fec64b1c5bbc4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1801.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "explicit content/scenes; sexually explicit material"
+              }
             }
           ],
           "sources": [
@@ -165,6 +221,14 @@
         "merged_into_sense_id": null,
         "source_row": 4926,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:explicit:135fec64b1c5bbc4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1801.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -182,6 +246,13 @@
         "id": "collocation:df4268453a7c3d620a85",
         "source_row": 18895,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:a7d9afa71b7799ac53a9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1801.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

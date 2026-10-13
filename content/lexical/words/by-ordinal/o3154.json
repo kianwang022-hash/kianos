@@ -21,8 +21,8 @@
           ]
         },
         {
-          "label_cn": "低语声；怨言",
-          "label_en": "a low, continuous sound or a quiet complaint",
+          "label_cn": "低语声；低沉连续声；小声表达、怨言",
+          "label_en": "a softly spoken utterance, low continuous sound, or quiet expression of feeling including complaint",
           "pos": "noun",
           "sense_ids": [
             "sense:murmur:0875cd2e2e465bc5"
@@ -54,15 +54,6 @@
             "phrase": "murmur to + sb"
           },
           {
-            "collocation_id": "collocation:2975bd28c73509d98ce3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:murmur:72e5a27e447651a9:collocation:1"
-            ],
-            "meaning_cn": "对某事低声抱怨",
-            "phrase": "murmur at + sth"
-          },
-          {
             "collocation_id": "collocation:521aa0197ca4f6d88522",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -84,7 +75,7 @@
         "confidence": "medium",
         "definition_cn": "低语；咕哝",
         "definition_en": "to speak softly or indistinctly",
-        "governing_pattern": "vi. + to/at",
+        "governing_pattern": "vi.: murmur; murmur to sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -163,12 +154,21 @@
             ],
             "meaning_cn": "低声抱怨延误",
             "phrase": "murmur about the delay"
+          },
+          {
+            "collocation_id": "collocation:2975bd28c73509d98ce3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:murmur:72e5a27e447651a9:collocation:1"
+            ],
+            "meaning_cn": "对某事低声抱怨",
+            "phrase": "murmur at + sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "低声抱怨",
         "definition_en": "to complain quietly or indirectly",
-        "governing_pattern": "vi. + about/against",
+        "governing_pattern": "vi.: murmur about/against/at sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -196,19 +196,47 @@
             ],
             "meaning_cn": "毫无怨言",
             "phrase": "without a murmur"
+          },
+          {
+            "collocation_id": "collocation:5798f451dd73b6ec306e",
+            "phrase": "a murmur of approval",
+            "meaning_cn": "低声表示赞同",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "低语声；怨言",
-        "definition_en": "a low, continuous sound or a quiet complaint",
+        "definition_cn": "低语声；低沉连续声；小声表达、怨言",
+        "definition_en": "a softly spoken utterance, low continuous sound, or quiet expression of feeling including complaint",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:murmur:0875cd2e2e465bc5",
-        "sense_label_en": "a low, continuous sound or a quiet complaint",
+        "sense_label_en": "a softly spoken utterance, low continuous sound, or quiet expression of feeling including complaint",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:murmur:c5cd4c6783e27448",
+        "pos": "noun",
+        "definition_cn": "（医学用语）心脏杂音",
+        "definition_en": "a soft extra sound heard when listening to the heart",
+        "sense_label_en": "a soft extra sound heard when listening to the heart",
+        "governing_pattern": "a heart murmur",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:007f50668ef0ad7f246c",
+            "phrase": "a heart murmur",
+            "meaning_cn": "心脏杂音",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -249,6 +277,24 @@
           "applicability": [
             {
               "surface": "murmur"
+            },
+            {
+              "surface": "murmur",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:murmur:c5cd4c6783e27448"
+              ],
+              "owner_sense_ids": [
+                "sense:murmur:c5cd4c6783e27448"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3154.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a heart murmur",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -334,6 +380,24 @@
           "applicability": [
             {
               "surface": "murmur"
+            },
+            {
+              "surface": "murmur",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:murmur:c5cd4c6783e27448"
+              ],
+              "owner_sense_ids": [
+                "sense:murmur:c5cd4c6783e27448"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3154.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a heart murmur",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -435,21 +499,31 @@
         "merged_into_sense_id": null,
         "source_row": 8785,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:murmur:c5cd4c6783e27448",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3154.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
+      "collocation:6a9cdc1c5f3e98dfd662",
+      "collocation:521aa0197ca4f6d88522",
+      "collocation:f31260b4589436187364",
       "collocation:0543edc3dc0fe114df75",
       "collocation:1432e6747483592f7ea6",
-      "collocation:1e15761d8556543c134f",
-      "collocation:2975bd28c73509d98ce3",
       "collocation:2ccb5bbc01d5e1d1ad94",
-      "collocation:337e1b16c33b1db883bc",
-      "collocation:4a394105b2a17a18bb49",
-      "collocation:521aa0197ca4f6d88522",
-      "collocation:6a9cdc1c5f3e98dfd662",
+      "collocation:1e15761d8556543c134f",
+      "collocation:f7e90fc6e6c2fced331b",
       "collocation:d5665d4915aba7a52390",
-      "collocation:f31260b4589436187364",
-      "collocation:f7e90fc6e6c2fced331b"
+      "collocation:2975bd28c73509d98ce3",
+      "collocation:4a394105b2a17a18bb49",
+      "collocation:337e1b16c33b1db883bc",
+      "collocation:5798f451dd73b6ec306e",
+      "collocation:007f50668ef0ad7f246c"
     ],
     "facts": [],
     "collocations": [
@@ -471,7 +545,8 @@
       {
         "id": "collocation:2975bd28c73509d98ce3",
         "source_row": 3507,
-        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json",
+        "sense_id": "sense:murmur:6be4e0e5ad425645"
       },
       {
         "id": "collocation:2ccb5bbc01d5e1d1ad94",
@@ -512,6 +587,20 @@
         "id": "collocation:f7e90fc6e6c2fced331b",
         "source_row": 20991,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:5798f451dd73b6ec306e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3154.json",
+        "source_pointer": "/record/senses/3/collocations/2"
+      },
+      {
+        "id": "collocation:007f50668ef0ad7f246c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3154.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

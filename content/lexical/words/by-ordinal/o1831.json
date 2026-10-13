@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "e8e14edf62744b627a28fe9485a3faa6a5ce7c99e5d0370d7d612c095cf1d800",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "制造；伪造",
-      "core_meaning_en": "to make or invent something, especially with the intention to deceive",
-      "mental_model_cn": "制造；伪造",
+      "core_clusters": [
+        {
+          "label_cn": "捏造",
+          "label_en": "invent with deceptive intent",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:fabricate:870661ea80445d29"
+          ]
+        },
+        {
+          "label_cn": "制造",
+          "label_en": "make or build physical objects",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:fabricate:8779c716a3cd57c7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "编造虚假内容；制造实物",
+      "core_meaning_en": "invent false material; manufacture physical objects",
+      "mental_model_cn": "接故事、借口或证据常是为欺骗而捏造；接工厂部件等实物则是制造，不自动含欺骗。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -27,7 +44,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:039e0770c413a2bc12c3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fabricate:870661ea80445d29:collocation:0"
             ],
@@ -52,7 +69,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:fabricate:870661ea80445d29",
-        "sense_label_en": "to invent or make up something, especially a story or excuse, in order t",
+        "sense_label_en": "invent a story or evidence to deceive",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -60,7 +77,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:deeea0355d115d11ae7e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fabricate:8779c716a3cd57c7:collocation:0"
             ],
@@ -280,17 +297,17 @@
       }
     ],
     "active_collocations": [
-      "collocation:039e0770c413a2bc12c3",
       "collocation:0feea0e5c6082480d1ec",
-      "collocation:25bfc9f492f5f87e3aae",
-      "collocation:deeea0355d115d11ae7e"
+      "collocation:25bfc9f492f5f87e3aae"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:039e0770c413a2bc12c3",
         "source_row": 297,
-        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:0feea0e5c6082480d1ec",
@@ -305,7 +322,9 @@
       {
         "id": "collocation:deeea0355d115d11ae7e",
         "source_row": 18871,
-        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

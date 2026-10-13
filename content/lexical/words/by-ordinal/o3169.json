@@ -9,11 +9,36 @@
     "constructions": [],
     "content_hash": "9c33fe664c6c067bd1037818d2e8bb879491ed720fd19cb3cbccd6abc5014457",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "神秘的事物",
-      "core_meaning_en": "something that is difficult or impossible to understand",
-      "mental_model_cn": "神秘的事物",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "神秘的事物；奥秘",
+          "label_en": "something that is difficult or impossible to understand or explain",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mystery:79b15608afcd5e70"
+          ]
+        },
+        {
+          "label_cn": "悬疑作品；推理作品",
+          "label_en": "a story, play or film whose crimes or puzzling events are explained only as the plot is resolved",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mystery:4c2934c4e58951c6"
+          ]
+        },
+        {
+          "label_cn": "神秘感；难以理解、解释的性质",
+          "label_en": "the quality of being unexplained or little known, often making something intriguing",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mystery:5e1f413c6b00e54d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "谜团、神秘人物/事物；神秘感；悬疑作品",
+      "core_meaning_en": "a puzzle or little-known person or thing; mystery as a quality; a mystery story",
+      "mental_model_cn": "a mystery可指待解问题；an air of mystery指神秘感；murder mystery须有待揭开的谜情，不是所有犯罪题材作品都叫mystery。",
+      "mental_model_en": "a puzzle or little-known person or thing; mystery as a quality; a mystery story."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -57,7 +82,8 @@
         "sense_id": "sense:mystery:79b15608afcd5e70",
         "sense_label_en": "something that is difficult or impossible to understand or explain",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "也可说不了解其身份、动机的人或物：a mystery guest；mystery在这里仍是名词作修饰语。"
       },
       {
         "collocations": [
@@ -73,15 +99,37 @@
         ],
         "confidence": "medium",
         "definition_cn": "悬疑作品；推理作品",
-        "definition_en": "a story, play, or movie about a crime",
+        "definition_en": "a story, play or film whose crimes or puzzling events are explained only as the plot is resolved",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mystery:4c2934c4e58951c6",
-        "sense_label_en": "a story, play, or movie about a crime",
+        "sense_label_en": "a story, play or film whose crimes or puzzling events are explained only as the plot is resolved",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mystery:5e1f413c6b00e54d",
+        "pos": "noun",
+        "definition_cn": "神秘感；难以理解、解释的性质",
+        "definition_en": "the quality of being unexplained or little known, often making something intriguing",
+        "sense_label_en": "the quality of being unexplained or little known, often making something intriguing",
+        "governing_pattern": "an air of mystery; be shrouded in mystery",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2188caea17e49a8f37e0",
+            "phrase": "an air of mystery",
+            "meaning_cn": "一种神秘感",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -158,6 +206,30 @@
                   "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
                 }
               ]
+            },
+            {
+              "surface": "mystery",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mystery:5e1f413c6b00e54d"
+              ],
+              "owner_sense_ids": [
+                "sense:mystery:5e1f413c6b00e54d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3169.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an air of mystery; be shrouded in mystery",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
             }
           ],
           "sources": [
@@ -210,12 +282,21 @@
         "merged_into_sense_id": null,
         "source_row": 8821,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:mystery:5e1f413c6b00e54d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3169.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:46c291fbfcb93bb31aa3",
       "collocation:b1aac9d2828cc8089637",
-      "collocation:b66e609d57d4c23be170"
+      "collocation:b66e609d57d4c23be170",
+      "collocation:2188caea17e49a8f37e0"
     ],
     "facts": [
       {
@@ -239,6 +320,13 @@
         "id": "collocation:b66e609d57d4c23be170",
         "source_row": 15469,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:2188caea17e49a8f37e0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3169.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

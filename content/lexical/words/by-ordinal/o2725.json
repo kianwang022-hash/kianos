@@ -11,14 +11,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "绳结；一小群；密集的一簇；木节；肿块；纠结",
-          "label_en": "a fastening made by looping and tying a rope or cord; a tight cluster of people or things; a hard cross-grained piece of wood in a board where a branch emerged; something twisted and tight and swollen",
+          "label_cn": "绳结；一小群；密集的一簇；木节；肿块；纠结；节（船舶、飞机等的速度单位）",
+          "label_en": "a fastening made by looping and tying a rope or cord; a tight cluster of people or things; a hard cross-grained piece of wood in a board where a branch emerged; something twisted and tight and swollen; a unit of speed used for boats and aircraft, equal to one nautical mile per hour",
           "pos": "noun",
           "sense_ids": [
             "sense:knot:1f53cdcf54985bd7",
             "sense:knot:ce1dd62e70fa5f05",
             "sense:knot:fb37af9af3e85e2c",
-            "sense:knot:952e0426eea3505d"
+            "sense:knot:952e0426eea3505d",
+            "sense:knot:c10fb6de84a81234"
           ]
         },
         {
@@ -31,10 +32,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "打结或缠结形成的结；紧密的一群；硬块",
-      "core_meaning_en": "a fastening made by tying; a tight cluster; a hard lump",
-      "mental_model_cn": "打结或缠结形成的结；紧密的一群；硬块",
-      "mental_model_en": ""
+      "core_meaning_cn": "绳结、紧簇或硬块；打结；节（速度单位）",
+      "core_meaning_en": "a knot, cluster, or lump; to tie or tangle; a nautical speed unit",
+      "mental_model_cn": "绳索 → 结；人群/材料 → 紧簇或硬块；动作 → 打结；船速20 knots → 20节，即每小时20海里。",
+      "mental_model_en": "a knot, cluster, or lump; to tie or tangle; a nautical speed unit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -187,6 +188,28 @@
         "sense_label_en": "something twisted and tight and swollen",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:knot:c10fb6de84a81234",
+        "pos": "noun",
+        "definition_cn": "节（船舶、飞机等的速度单位）",
+        "definition_en": "a unit of speed used for boats and aircraft, equal to one nautical mile per hour",
+        "sense_label_en": "a unit of speed used for boats and aircraft, equal to one nautical mile per hour",
+        "governing_pattern": "a speed of ... knots",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2a66b78dd0dbe82882d8",
+            "phrase": "travel at 20 knots",
+            "meaning_cn": "以20节的速度行进",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -228,6 +251,23 @@
           "applicability": [
             {
               "surface": "knot"
+            },
+            {
+              "surface": "knot",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:knot:c10fb6de84a81234"
+              ],
+              "owner_sense_ids": [
+                "sense:knot:c10fb6de84a81234"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2725.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a speed of ... knots"
             }
           ],
           "sources": [
@@ -498,15 +538,24 @@
         "merged_into_sense_id": null,
         "source_row": 7536,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:knot:c10fb6de84a81234",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2725.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:1231cae7374bc5136720",
-      "collocation:20c5802bab0c980fe31e",
+      "collocation:ccd74fc5eca69bf0caf9",
       "collocation:aad5009ec84ea92c6e58",
+      "collocation:1231cae7374bc5136720",
       "collocation:ab38d06f1a05dce5c2b2",
       "collocation:b4e649662a9039f23893",
-      "collocation:ccd74fc5eca69bf0caf9"
+      "collocation:20c5802bab0c980fe31e",
+      "collocation:2a66b78dd0dbe82882d8"
     ],
     "facts": [
       {
@@ -545,6 +594,13 @@
         "id": "collocation:ccd74fc5eca69bf0caf9",
         "source_row": 17326,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:2a66b78dd0dbe82882d8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2725.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -1,0 +1,76 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:elder-older:49d61c3b050245823057",
+  "canonical_record": null,
+  "fact_record": {
+    "record_type": "deep_vocabulary_fact",
+    "fact_id": "construction:49d61c3b050245823057",
+    "module": "semantic_contrast",
+    "word": "elder",
+    "word_id": "word:elder",
+    "source_sense_id": "sense:elder:423261ec25395a41",
+    "target_word": "old",
+    "target_word_id": "word:old",
+    "target_expression": "older",
+    "target_sense_id": "sense:old:d2962df8a7f556c9",
+    "additional_target_sense_ids": [
+      "sense:old:a45de9ac3067589f"
+    ],
+    "target_sense_scope": "age and long existence only; excludes former/replaced branch of the second Sense",
+    "target_form_identity": {
+      "surface": "older",
+      "morphological_relation": "comparative",
+      "owner_word_id": "word:old",
+      "registered_variant_id": null,
+      "basis": "publisher word-form entry; current old Form has no registered older variant, so no Form ID is invented"
+    },
+    "boundary": "elder 多用于亲属或人之间的年长关系，通常在名词前；older 使用更广，可用于人或物，也用于 older than。",
+    "selection_rule_cn": "表示亲属等人的年长关系、置于名词前时可用 elder；一般年龄或新旧比较、物的比较以及 ordinary older than 结构用 older。只关联 old 的年龄/较久存在分支，不关联“从前的/原来的”用法。",
+    "direction": "R+P",
+    "level": "L2",
+    "evidence": [
+      {
+        "source_id": "elder",
+        "source_path": "https://www.collinsdictionary.com/dictionary/english/elder",
+        "evidence_status": "source_checked"
+      },
+      {
+        "source_id": "older",
+        "source_path": "https://www.collinsdictionary.com/dictionary/english/older",
+        "evidence_status": "source_checked"
+      },
+      {
+        "source_id": "old",
+        "source_path": "https://www.collinsdictionary.com/dictionary/english/old",
+        "evidence_status": "source_checked"
+      }
+    ],
+    "publication_status": "candidate",
+    "verification_status": "prepared_initial_reviewed_parent_P3_pending"
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:elder",
+      "source_ordinal": 1591,
+      "field": "constructions",
+      "index": 0,
+      "payload": {
+        "construction_id": "construction:49d61c3b050245823057",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "elder 多用于亲属或人之间的年长关系，通常在名词前；older 使用更广，可用于人或物，也用于 older than。",
+        "pattern": "elder vs older"
+      }
+    }
+  ],
+  "provenance": {
+    "authorization": "parent P2 specifically authorized elder Relation ownership repair",
+    "original_owner_path": "content/lexical/words/by-ordinal/o1591.json",
+    "original_source_pointer": "/record/constructions/0",
+    "original_object_id": "construction:49d61c3b050245823057",
+    "stable_object_id_retained": true,
+    "presentation_view": "existing constructions view; original payload unchanged",
+    "old_owner_modified": false,
+    "parent_P3": "pending"
+  }
+}

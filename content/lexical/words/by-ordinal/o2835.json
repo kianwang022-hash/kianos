@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "91bf4b61bfbc52c2ae8d8b7af6bf14ccc6403bb0b15bfcb73dfac6d66a340a89",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "限制，局限",
-      "core_meaning_en": "a restricting condition or limit",
-      "mental_model_cn": "限制，局限",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "限制、约束；局限或不足；（法律）时效限制",
+          "label_en": "limiting or restrictions; weaknesses or shortcomings; a legal time limit",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:limitation:90811a674e165276",
+            "sense:limitation:2aac9c1ac34e554c",
+            "sense:limitation:5d32d2a3a78a5cf4",
+            "sense:limitation:dee3514d3a5f6459"
+          ]
+        }
+      ],
+      "core_meaning_cn": "限制、约束；局限或不足；（法律）时效限制",
+      "core_meaning_en": "limiting or restrictions; weaknesses or shortcomings; a legal time limit",
+      "mental_model_cn": "限制过程/条件与能力或方法的不足分开；后者常用复数 limitations，原时效专门义保留。",
+      "mental_model_en": "limiting or restrictions; weaknesses or shortcomings; a legal time limit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -56,18 +68,18 @@
               "sense:limitation:2aac9c1ac34e554c:collocation:0"
             ],
             "meaning_cn": "对……施加限制",
-            "phrase": "impose limitations on"
+            "phrase": "impose limitations on sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "限制行为，约束",
-        "definition_en": "an act of limiting or restricting",
+        "definition_cn": "限制行为；施加的限制、约束",
+        "definition_en": "the act of limiting, or a restriction imposed on something",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:limitation:2aac9c1ac34e554c",
-        "sense_label_en": "an act of limiting or restricting",
+        "sense_label_en": "the act of limiting, or a restriction imposed on something",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -94,6 +106,29 @@
         "sense_label_en": "(law) a time period after which suits cannot be brought",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:limitation:dee3514d3a5f6459",
+        "pos": "noun",
+        "definition_cn": "（能力、方法等的）局限；不足",
+        "definition_en": "weaknesses that restrict someone’s abilities or the effectiveness of something",
+        "sense_label_en": "weaknesses that restrict someone’s abilities or the effectiveness of something",
+        "governing_pattern": "limitations of sth; know your limitations",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b55fcdec532d527b4e3",
+            "phrase": "the limitations of this method",
+            "meaning_cn": "这种方法的局限",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "可数，常用复数；指能力或方法的不足，不只指外加规则。"
       }
     ],
     "verification_summary": {
@@ -123,6 +158,23 @@
           "applicability": [
             {
               "surface": "limitation"
+            },
+            {
+              "surface": "limitation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:limitation:dee3514d3a5f6459"
+              ],
+              "owner_sense_ids": [
+                "sense:limitation:dee3514d3a5f6459"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2835.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "limitations of sth; know your limitations"
             }
           ],
           "sources": [
@@ -209,12 +261,21 @@
         "merged_into_sense_id": null,
         "source_row": 7876,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
+      },
+      {
+        "sense_id": "sense:limitation:dee3514d3a5f6459",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2835.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:fff26adee0685bf1c72c",
       "collocation:6b315a7697bd7300d2bb",
       "collocation:954cad3b0ce2fda6a290",
-      "collocation:fff26adee0685bf1c72c"
+      "collocation:1b55fcdec532d527b4e3"
     ],
     "facts": [],
     "collocations": [
@@ -232,6 +293,13 @@
         "id": "collocation:fff26adee0685bf1c72c",
         "source_row": 21624,
         "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+      },
+      {
+        "id": "collocation:1b55fcdec532d527b4e3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2835.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

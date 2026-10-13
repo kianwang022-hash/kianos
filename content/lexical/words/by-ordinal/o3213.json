@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:93f10a42c1d0c1afa0ab",
+        "pattern": "cast/spread your net wide",
+        "meaning_cn": "广泛搜寻、考虑多种可能",
+        "definition_en": "search widely or consider a broad range of possibilities",
+        "usage_note": "比喻寻找机会、人选或资料；不一定真在撒渔网。",
+        "boundary": "比喻寻找机会、人选或资料；不一定真在撒渔网。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "836fe4611a0f81d39ffb622f6a9a9647674b5c12b4991142d0f9b2ddc66c7dd1",
     "core_concept": {
       "core_clusters": [
@@ -37,12 +48,20 @@
             "sense:net:b385bf6324c052a6",
             "sense:net:d8433b7b559ab45b"
           ]
+        },
+        {
+          "label_cn": "（非正式，the net）互联网",
+          "label_en": "the internet, informally called the net",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:net:98bd07ee4dab2c8a"
+          ]
         }
       ],
-      "core_meaning_cn": "网；用网捕；净的",
-      "core_meaning_en": "a mesh or network; to catch with a net; remaining after deductions",
-      "mental_model_cn": "网；用网捕；净的",
-      "mental_model_en": ""
+      "core_meaning_cn": "网与球网；互联网；净的；用网捕获或获得",
+      "core_meaning_en": "nets and sports nets; the internet; net amounts; catch with a net or gain",
+      "mental_model_cn": "fishing net捕物，the net可指互联网，net profit是扣除相关项后的净额；net a profit/benefit是获得。球门网与网球场中间的网按运动语境区分。",
+      "mental_model_en": "nets and sports nets; the internet; net amounts; catch with a net or gain."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -72,7 +91,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:net:80e92e0c68315513",
-        "sense_label_en": "an open fabric of string or rope or wire woven together at regular inter",
+        "sense_label_en": "an open fabric of string or rope or wire woven together at regular intervals",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -141,8 +160,8 @@
             "legacy_source_object_ids": [
               "sense:net:7cb70081c8975d4c:collocation:0"
             ],
-            "meaning_cn": "射门得分",
-            "phrase": "score into the net"
+            "meaning_cn": "把球踢进球门网，射门得分",
+            "phrase": "kick the ball into the net"
           }
         ],
         "confidence": "medium",
@@ -201,7 +220,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:net:17e0393b64f658e7",
-        "sense_label_en": "game equipment consisting of a strip of netting dividing the playing are",
+        "sense_label_en": "game equipment consisting of a strip of netting dividing the playing area in tennis or badminton",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -246,6 +265,28 @@
         "sense_label_en": "to earn, obtain, or yield an amount after deductions, or to gain a result",
         "sort_order": 6,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:net:98bd07ee4dab2c8a",
+        "pos": "noun",
+        "definition_cn": "（非正式，the net）互联网",
+        "definition_en": "the internet, informally called the net",
+        "sense_label_en": "the internet, informally called the net",
+        "governing_pattern": "the net; surf the net",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b0e4ce61014edaae9a11",
+            "phrase": "surf the net",
+            "meaning_cn": "上网浏览",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -526,6 +567,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/net/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "net",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:net:98bd07ee4dab2c8a"
+              ],
+              "owner_sense_ids": [
+                "sense:net:98bd07ee4dab2c8a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3213.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the net; surf the net",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/net_1",
+              "entry_context": {
+                "word": "net",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/net/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -582,19 +664,28 @@
         "merged_into_sense_id": null,
         "source_row": 8995,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:net:98bd07ee4dab2c8a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3213.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:264811170a7f5aceefde",
-      "collocation:3efb897f13e194c78826",
-      "collocation:44059d9b66f2c28e613f",
-      "collocation:4715ce44c404eb3916a0",
-      "collocation:50445b36f9b8a5696bab",
-      "collocation:57fadba25aaf5a1713b4",
-      "collocation:7795b401c6a8ddcf63e7",
       "collocation:8090362696f744393acc",
+      "collocation:50445b36f9b8a5696bab",
+      "collocation:d4f2be4c241ad6ba29ed",
+      "collocation:264811170a7f5aceefde",
+      "collocation:44059d9b66f2c28e613f",
+      "collocation:57fadba25aaf5a1713b4",
+      "collocation:3efb897f13e194c78826",
+      "collocation:7795b401c6a8ddcf63e7",
       "collocation:971d6010d4eb2415ed96",
-      "collocation:d4f2be4c241ad6ba29ed"
+      "collocation:4715ce44c404eb3916a0",
+      "collocation:b0e4ce61014edaae9a11"
     ],
     "facts": [],
     "collocations": [
@@ -647,6 +738,13 @@
         "id": "collocation:971d6010d4eb2415ed96",
         "source_row": 21422,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:b0e4ce61014edaae9a11",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3213.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

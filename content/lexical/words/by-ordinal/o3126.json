@@ -11,27 +11,35 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "生物，凡人",
-          "label_en": "a living being that is subject to death",
+          "label_cn": "凡人；普通人",
+          "label_en": "a human being who is subject to death; an ordinary person",
           "pos": "noun",
           "sense_ids": [
             "sense:mortal:1740f5913bbe582f"
           ]
         },
         {
-          "label_cn": "不免一死的；致命的",
-          "label_en": "subject to death; not immortal; causing death; deadly",
+          "label_cn": "不免一死的；致命的；危及生命的；极严重的",
+          "label_en": "subject to death; not immortal; causing or threatening death, or gravely serious",
           "pos": "adjective",
           "sense_ids": [
             "sense:mortal:731dd08b16315a94",
             "sense:mortal:b04b2587042b5dbc"
           ]
+        },
+        {
+          "label_cn": "（正式）极度的（尤指恐惧）",
+          "label_en": "extreme in intensity, especially when describing fear",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mortal:b6364168864af439"
+          ]
         }
       ],
-      "core_meaning_cn": "不免一死的；致命的",
-      "core_meaning_en": "subject to death; deadly",
-      "mental_model_cn": "不免一死的；致命的",
-      "mental_model_en": ""
+      "core_meaning_cn": "会死的、致命或极严重的；凡人；极度恐惧",
+      "core_meaning_en": "subject to death, deadly or grave; a mortal person; extreme fear",
+      "mental_model_cn": "mortal life与不死相对；mortal wound谈危险伤势，mortal terror谈极度恐惧；凡人和终身敌对的语境分开。",
+      "mental_model_en": "subject to death, deadly or grave; a mortal person; extreme fear."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -54,14 +62,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "生物，凡人",
-        "definition_en": "a living being that is subject to death",
+        "definition_cn": "凡人；普通人",
+        "definition_en": "a human being who is subject to death; an ordinary person",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mortal:1740f5913bbe582f",
-        "sense_label_en": "a living being that is subject to death",
+        "sense_label_en": "a human being who is subject to death; an ordinary person",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -102,16 +110,61 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "致命的",
-        "definition_en": "causing death; deadly",
+        "definition_cn": "致命的；危及生命的；极严重的",
+        "definition_en": "causing or threatening death, or gravely serious",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:mortal:b04b2587042b5dbc",
-        "sense_label_en": "causing death; deadly",
+        "sense_label_en": "causing or threatening death, or gravely serious",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "较书面；mortal wound是致命或危及生命的伤，mortal blow也可比喻声誉等受到毁灭性打击。"
+      },
+      {
+        "sense_id": "sense:mortal:b6364168864af439",
+        "pos": "adjective",
+        "definition_cn": "（正式）极度的（尤指恐惧）",
+        "definition_en": "extreme in intensity, especially when describing fear",
+        "sense_label_en": "extreme in intensity, especially when describing fear",
+        "governing_pattern": "mortal fear/dread/terror（名词前）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5150ebe5b4bd08c0967b",
+            "phrase": "in mortal terror",
+            "meaning_cn": "处于极度恐惧中",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mortal:d858da165efcd3ab",
+        "pos": "adjective",
+        "definition_cn": "（正式）不共戴天的；誓死的",
+        "definition_en": "lasting until death, especially in hostility or combat",
+        "sense_label_en": "lasting until death, especially in hostility or combat",
+        "governing_pattern": "mortal enemies/combat（名词前）",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4b33ab3a9116374049cb",
+            "phrase": "mortal enemies",
+            "meaning_cn": "不共戴天的敌人",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -153,6 +206,42 @@
           "applicability": [
             {
               "surface": "mortal"
+            },
+            {
+              "surface": "mortal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mortal:b6364168864af439"
+              ],
+              "owner_sense_ids": [
+                "sense:mortal:b6364168864af439"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3126.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mortal fear/dread/terror（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mortal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mortal:d858da165efcd3ab"
+              ],
+              "owner_sense_ids": [
+                "sense:mortal:d858da165efcd3ab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3126.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mortal enemies/combat（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -270,6 +359,42 @@
           "applicability": [
             {
               "surface": "mortal"
+            },
+            {
+              "surface": "mortal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mortal:b6364168864af439"
+              ],
+              "owner_sense_ids": [
+                "sense:mortal:b6364168864af439"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3126.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mortal fear/dread/terror（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mortal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mortal:d858da165efcd3ab"
+              ],
+              "owner_sense_ids": [
+                "sense:mortal:d858da165efcd3ab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3126.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mortal enemies/combat（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -395,12 +520,30 @@
         "merged_into_sense_id": null,
         "source_row": 8700,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      },
+      {
+        "sense_id": "sense:mortal:b6364168864af439",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3126.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:mortal:d858da165efcd3ab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3126.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:22e7479035ac7bc68b49",
       "collocation:4ef6006cf7883155934c",
-      "collocation:ee8e952e7313fb051d85"
+      "collocation:ee8e952e7313fb051d85",
+      "collocation:5150ebe5b4bd08c0967b",
+      "collocation:4b33ab3a9116374049cb"
     ],
     "facts": [],
     "collocations": [
@@ -418,6 +561,20 @@
         "id": "collocation:ee8e952e7313fb051d85",
         "source_row": 20212,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:5150ebe5b4bd08c0967b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3126.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:4b33ab3a9116374049cb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3126.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

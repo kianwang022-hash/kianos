@@ -11,29 +11,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "擦伤（皮肤）；（牛、羊等）吃草；轻擦；掠过",
-          "label_en": "to scrape the skin lightly, causing a superficial wound; to feed on growing grass; to touch or scrape lightly in passing",
+          "label_cn": "擦伤（皮肤）；（动物）吃草；放牧（牲畜）；轻擦；掠过；（非正式）经常少量进食；吃零食",
+          "label_en": "to scrape the skin lightly, causing a superficial wound; for animals to eat growing grass, or for someone to let animals feed on grass; to touch or scrape lightly in passing; to eat small amounts of food frequently rather than regular meals",
           "pos": "verb",
           "sense_ids": [
             "sense:graze:abba8e481820515b",
             "sense:graze:52a30db7c9af56ae",
-            "sense:graze:9cd1e447e490562f"
+            "sense:graze:9cd1e447e490562f",
+            "sense:graze:55a7c1d5abdb3eb7"
           ]
         },
         {
-          "label_cn": "擦伤；放牧；吃草",
-          "label_en": "a superficial abrasion; the act of grazing",
+          "label_cn": "擦伤",
+          "label_en": "a superficial abrasion",
           "pos": "noun",
           "sense_ids": [
-            "sense:graze:c9142569acfe5c5b",
-            "sense:graze:c58c16aa63f556fa"
+            "sense:graze:c9142569acfe5c5b"
           ]
         }
       ],
-      "core_meaning_cn": "轻擦；吃草",
-      "core_meaning_en": "to scrape or touch lightly; to feed on growing grass",
-      "mental_model_cn": "轻擦；吃草",
-      "mental_model_en": ""
+      "core_meaning_cn": "擦伤或擦碰、放牧或吃草；擦伤处；经常少量进食（非正式）",
+      "core_meaning_en": "scrape or brush, graze animals or eat grass; an abrasion; snack frequently",
+      "mental_model_cn": "graze皮肤为擦伤，graze物体为经过时轻擦；动物graze为吃草，人graze on snacks可为不断少量吃零食。名词a graze为擦伤处。",
+      "mental_model_en": "scrape or brush, graze animals or eat grass; an abrasion; snack frequently."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -47,12 +47,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:f4bfc81966ed6b467d95",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:graze:abba8e481820515b:collocation:0"
             ],
-            "meaning_cn": "擦伤某物（如膝盖）",
-            "phrase": "graze + sth (e.g., one's knee)"
+            "meaning_cn": "擦伤膝盖",
+            "phrase": "graze one's knee"
           }
         ],
         "confidence": "medium",
@@ -80,16 +80,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（牛、羊等）吃草",
-        "definition_en": "to feed on growing grass",
-        "governing_pattern": "vi. + on",
+        "definition_cn": "（动物）吃草；放牧（牲畜）",
+        "definition_en": "for animals to eat growing grass, or for someone to let animals feed on grass",
+        "governing_pattern": "animals graze (on grass); graze cattle on land",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:graze:52a30db7c9af56ae",
-        "sense_label_en": "to feed on growing grass",
+        "sense_label_en": "for animals to eat growing grass, or for someone to let animals feed on grass",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -140,28 +140,26 @@
         "transitivity": "nonverb"
       },
       {
+        "sense_id": "sense:graze:55a7c1d5abdb3eb7",
+        "pos": "verb",
+        "definition_cn": "（非正式）经常少量进食；吃零食",
+        "definition_en": "to eat small amounts of food frequently rather than regular meals",
+        "sense_label_en": "to eat small amounts of food frequently rather than regular meals",
+        "governing_pattern": "graze on snacks/food",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
         "collocations": [
           {
-            "collocation_id": "collocation:9918ea985edc9efccafd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:graze:c58c16aa63f556fa:collocation:0"
-            ],
-            "meaning_cn": "牛群的放牧",
-            "phrase": "the graze of cattle"
+            "collocation_id": "collocation:3f7a807d04d562223620",
+            "phrase": "graze on snacks all afternoon",
+            "meaning_cn": "整个下午不断少量吃零食",
+            "exam_value": "usage_example"
           }
-        ],
-        "confidence": "medium",
-        "definition_cn": "放牧；吃草",
-        "definition_en": "the act of grazing",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:graze:c58c16aa63f556fa",
-        "sense_label_en": "the act of grazing",
-        "sort_order": 4,
-        "transitivity": "nonverb"
+        ]
       }
     ],
     "verification_summary": {
@@ -191,6 +189,23 @@
           "applicability": [
             {
               "surface": "graze"
+            },
+            {
+              "surface": "graze",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:graze:55a7c1d5abdb3eb7"
+              ],
+              "owner_sense_ids": [
+                "sense:graze:55a7c1d5abdb3eb7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2195.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "graze on snacks/food"
+              }
             }
           ],
           "sources": [
@@ -478,7 +493,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:9918ea985edc9efccafd",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:graze:c58c16aa63f556fa:collocation:0"
+          ],
+          "meaning_cn": "轻擦表面的动作",
+          "phrase": "a graze against the surface"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "轻擦；擦过的动作",
+      "definition_en": "an act of touching or scraping lightly",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:graze:c58c16aa63f556fa",
+      "sense_label_en": "an act of touching or scraping lightly",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -504,7 +547,7 @@
       },
       {
         "sense_id": "sense:graze:c58c16aa63f556fa",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6121,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -515,13 +558,19 @@
         "merged_into_sense_id": null,
         "source_row": 6122,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:graze:55a7c1d5abdb3eb7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2195.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:85b1a40d603bd6f08755",
       "collocation:8c67f42d506e921ec403",
-      "collocation:9918ea985edc9efccafd",
-      "collocation:f4bfc81966ed6b467d95",
       "collocation:f56a35e738914d94385e"
     ],
     "facts": [],
@@ -539,17 +588,28 @@
       {
         "id": "collocation:9918ea985edc9efccafd",
         "source_row": 13038,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f4bfc81966ed6b467d95",
         "source_row": 20724,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f56a35e738914d94385e",
         "source_row": 20787,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:3f7a807d04d562223620",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2195.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "淹没，使泛滥；涌进，涌入",
-          "label_en": "to cover a place with water; to arrive in large numbers",
+          "label_cn": "淹没；泛滥；被水淹；涌进，涌入；大量充满；使某处或某人收到过多的某物",
+          "label_en": "to cover land or a place with water, or become covered in this way; to arrive in large numbers; to fill or supply a place or person with an excessive or overwhelming amount",
           "pos": "verb",
           "sense_ids": [
             "sense:flood:f9267ffe50df5cd0",
-            "sense:flood:9536eddb61315768"
+            "sense:flood:9536eddb61315768",
+            "sense:flood:ff20225c9193f88c"
           ]
         }
       ],
-      "core_meaning_cn": "洪水",
-      "core_meaning_en": "a large amount of water covering land that is usually dry",
-      "mental_model_cn": "洪水",
+      "core_meaning_cn": "洪水、淹没；大量涌入或充满",
+      "core_meaning_en": "a flood or inundation; arrive in large numbers or fill excessively",
+      "mental_model_cn": "水flood地方是淹没；人或信件flood in是大量涌入；flood the market/某人with消息是大量充满或供应过多。a flood of complaints为大量投诉。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -50,7 +51,7 @@
             "legacy_source_object_ids": [
               "sense:flood:aa42691972315e0e:collocation:0"
             ],
-            "meaning_cn": "山洪暴发",
+            "meaning_cn": "突发洪水；暴洪（不限山区）",
             "phrase": "flash flood"
           },
           {
@@ -88,16 +89,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "淹没，使泛滥",
-        "definition_en": "to cover a place with water",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "淹没；泛滥；被水淹",
+        "definition_en": "to cover land or a place with water, or become covered in this way",
+        "governing_pattern": "flood a place; a river/area floods",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:flood:f9267ffe50df5cd0",
-        "sense_label_en": "to cover a place with water",
+        "sense_label_en": "to cover land or a place with water, or become covered in this way",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -155,6 +156,28 @@
         "sense_label_en": "to arrive in large numbers",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:flood:ff20225c9193f88c",
+        "pos": "verb",
+        "definition_cn": "大量充满；使某处或某人收到过多的某物",
+        "definition_en": "to fill or supply a place or person with an excessive or overwhelming amount",
+        "sense_label_en": "to fill or supply a place or person with an excessive or overwhelming amount",
+        "governing_pattern": "flood sth (with sth); flood sb with messages/calls",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:860aef2c1ba5d9c40953",
+            "phrase": "flood sb with messages",
+            "meaning_cn": "向某人发送大量信息",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +207,23 @@
           "applicability": [
             {
               "surface": "flood"
+            },
+            {
+              "surface": "flood",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:flood:ff20225c9193f88c"
+              ],
+              "owner_sense_ids": [
+                "sense:flood:ff20225c9193f88c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1965.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "flood sth (with sth); flood sb with messages/calls"
+              }
             }
           ],
           "sources": [
@@ -599,6 +639,14 @@
         "merged_into_sense_id": null,
         "source_row": 5446,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:flood:ff20225c9193f88c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1965.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -640,6 +688,13 @@
         "id": "collocation:d8e052ebefa28dd7655d",
         "source_row": 18338,
         "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+      },
+      {
+        "id": "collocation:860aef2c1ba5d9c40953",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1965.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

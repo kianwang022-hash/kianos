@@ -13,40 +13,48 @@
         "level": "L2",
         "meaning_cn": "非常喜欢；着迷（非正式，尤英式）",
         "pattern": "be mad about sb/sth"
+      },
+      {
+        "construction_id": "construction:420cbb6fd5e90e7fe772",
+        "pattern": "like mad",
+        "meaning_cn": "拼命地；极快、极猛地",
+        "definition_en": "with extreme speed, effort or intensity",
+        "usage_note": "非正式；修饰动作，如run/work like mad，不是在诊断精神状态。",
+        "boundary": "非正式；修饰动作，如run/work like mad，不是在诊断精神状态。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:5e796a9762b8d1132606",
+        "pattern": "drive sb mad",
+        "meaning_cn": "让人气急、烦透；使人失控",
+        "definition_en": "to make someone intensely annoyed or lose calm control",
+        "usage_note": "日常口语常表达强烈烦恼；具体语境也可涉及失去理智，不一律按疾病解释。",
+        "boundary": "日常口语常表达强烈烦恼；具体语境也可涉及失去理智，不一律按疾病解释。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mad:0580d1745cb15eb1"
       }
     ],
     "content_hash": "3d5907e1dd1ce95d2a77494ea016a9c1893c411deee24abae69cc60dc50c3a1b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "生气的",
-          "label_en": "angry (informal, especially AmE)",
+          "label_cn": "生气；不明智；精神失常；狂热失控",
+          "label_en": "angry, foolish, mentally disturbed, or wildly excited",
           "pos": "adjective",
           "sense_ids": [
-            "sense:mad:0580d1745cb15eb1"
-          ]
-        },
-        {
-          "label_cn": "愚蠢的；疯狂的",
-          "label_en": "foolish or crazy",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:mad:ad6efbeea26c59c7"
-          ]
-        },
-        {
-          "label_cn": "精神失常的（旧式/可能冒犯）",
-          "label_en": "mentally ill (old-fashioned/offensive of a person)",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:mad:379787419721525f"
+            "sense:mad:0580d1745cb15eb1",
+            "sense:mad:ad6efbeea26c59c7",
+            "sense:mad:379787419721525f",
+            "sense:mad:52de177de9a6cc38"
           ]
         }
       ],
-      "core_meaning_cn": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的",
-      "core_meaning_en": "angry; foolish/crazy; old-fashioned/offensive mental-illness use",
-      "mental_model_cn": "生气的；愚蠢/疯狂的；（旧式且可能冒犯）精神失常的",
-      "mental_model_en": ""
+      "core_meaning_cn": "生气；不明智；精神失常；狂热失控",
+      "core_meaning_en": "angry, foolish, mentally disturbed, or wildly excited",
+      "mental_model_cn": "mad at/with sb 是生气；a mad idea 是不明智；a mad rush/go mad with joy 是慌乱或狂热。精神失常用法须结合语境和语气理解。",
+      "mental_model_en": "angry, foolish, mentally disturbed, or wildly excited."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -111,6 +119,28 @@
         "sort_order": 2,
         "transitivity": "nonverb",
         "usage_note": "Use cautiously when interpreting older/informal source context."
+      },
+      {
+        "sense_id": "sense:mad:52de177de9a6cc38",
+        "pos": "adjective",
+        "definition_cn": "狂热的；失去控制的；慌乱而仓促的",
+        "definition_en": "wildly excited or acting without calm thought or control",
+        "sense_label_en": "wildly excited or acting without calm thought or control",
+        "governing_pattern": "a mad rush/dash; go mad with joy",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:035bcf2f647368829271",
+            "phrase": "a mad dash",
+            "meaning_cn": "一阵慌乱急奔",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -140,6 +170,23 @@
           "applicability": [
             {
               "surface": "mad"
+            },
+            {
+              "surface": "mad",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mad:52de177de9a6cc38"
+              ],
+              "owner_sense_ids": [
+                "sense:mad:52de177de9a6cc38"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2916.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a mad rush/dash; go mad with joy"
             }
           ],
           "sources": [
@@ -565,10 +612,19 @@
         "merged_into_sense_id": null,
         "source_row": 8121,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:mad:52de177de9a6cc38",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2916.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:65a89b2f1fbfa360ab46"
+      "collocation:65a89b2f1fbfa360ab46",
+      "collocation:035bcf2f647368829271"
     ],
     "facts": [],
     "collocations": [
@@ -596,6 +652,13 @@
         "id": "collocation:f7093d77028595108f82",
         "source_row": 20922,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:035bcf2f647368829271",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2916.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

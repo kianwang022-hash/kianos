@@ -5,7 +5,7 @@
     "ordinal": 2689,
     "word": "junior",
     "source_owner_path": "content/lexical/words/by-ordinal/o2689.json",
-    "source_fingerprint": "a1b45b21f14231550a278bd97d68ddab5f2ad4158324161b1437c871db2687e6",
+    "source_fingerprint": "e902eba631ce37a21a0bf1e0a41f8016475350b1eb2db98005f3d8c22717bf45",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -86,8 +86,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大学三年级学生",
-        "definition_en": "a third-year undergraduate",
+        "definition_cn": "（北美）高中或大学倒数第二学年的学生，通常为三年级",
+        "definition_en": "in North American use, a student in the year before the final year of high school or college",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -104,7 +104,7 @@
           "target_kind": "sense",
           "target_id": "sense:junior:3ba596fda9915683",
           "target_locator": "record.senses[2]",
-          "target_label": "大学三年级学生"
+          "target_label": "（北美）高中或大学倒数第二学年的学生，通常为三年级"
         }
       },
       {
@@ -112,8 +112,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "同名父子中的儿子",
-        "definition_en": "a son with the same first name as his father",
+        "definition_cn": "同名父子中的儿子（尤见于姓名后的 Junior/Jr）",
+        "definition_en": "the younger man with the same name as his father, distinguished with Junior or Jr",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -121,7 +121,7 @@
           "target_kind": "sense",
           "target_id": "sense:junior:a8036160c0b15bd8",
           "target_locator": "record.senses[3]",
-          "target_label": "同名父子中的儿子"
+          "target_label": "同名父子中的儿子（尤见于姓名后的 Junior/Jr）"
         }
       }
     ],
@@ -172,7 +172,7 @@
     "ordinal": 2690,
     "word": "junk",
     "source_owner_path": "content/lexical/words/by-ordinal/o2690.json",
-    "source_fingerprint": "5dce49ea1c88db1484b41b4c2b82e9c6f83f779cce4f790c2c9301ed66626a37",
+    "source_fingerprint": "ae3ba16f9514ae9b2b835c54eae97847d0eda65490c62ddfbaf94247221e58ef",
     "sense_lineage": [
       {
         "word_id": "word:junk",
@@ -191,18 +191,19 @@
     ],
     "recall_map": {
       "parts": [
+        "1V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "垃圾；废旧杂物",
-      "decision_cn": "modern default → 垃圾/废旧杂物；junk food → 垃圾食品。历史航海语境的“中国式帆船”义保留为 Reference。",
+      "summary_cn": "废旧杂物；扔掉、抛弃",
+      "decision_cn": "noun → 废旧杂物；verb junk sth → 非正式扔掉或放弃。中国式帆船的用法见 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "垃圾；废旧杂物"
+        "target_label": "废旧杂物；扔掉、抛弃"
       }
     },
     "senses": [
@@ -231,6 +232,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "垃圾；废旧杂物"
         }
+      },
+      {
+        "id": "sense:junk:f4c7ff7af5dc66ce",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "junk sth; junk an old item/proposal",
+        "definition_cn": "（非正式）扔掉、抛弃（无用或不需要的东西、想法等）",
+        "definition_en": "in informal use, to discard something unwanted or no longer useful, including an idea or plan",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:548bae9e47336e73b40e",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "junk the old proposal",
+            "meaning_cn": "放弃原来的提案",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:junk:f4c7ff7af5dc66ce",
+          "target_locator": "record.senses[1]",
+          "target_label": "（非正式）扔掉、抛弃（无用或不需要的东西、想法等）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -244,6 +271,23 @@
           "applicability": [
             {
               "surface": "junk"
+            },
+            {
+              "surface": "junk",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:junk:f4c7ff7af5dc66ce"
+              ],
+              "owner_sense_ids": [
+                "sense:junk:f4c7ff7af5dc66ce"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2690.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "junk sth; junk an old item/proposal"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -261,8 +305,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:junk:f4c7ff7af5dc66ce": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -323,7 +371,7 @@
     "ordinal": 2691,
     "word": "jurisdiction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2691.json",
-    "source_fingerprint": "b04a8287062e34b9dab491124c115b98a48917b822ec4070bcaf96353db1403e",
+    "source_fingerprint": "cdd13a49d0683bbd1680d821871a151585e1d8337d205004d69d1bfd04530372",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -332,13 +380,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "司法管辖权",
-      "decision_cn": "",
+      "summary_cn": "管辖权及其范围；管辖区域",
+      "decision_cn": "司法管辖权",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "司法管辖权"
+        "target_label": "管辖权及其范围；管辖区域"
       }
     },
     "senses": [
@@ -347,8 +395,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "司法权；审判权；管辖权",
-        "definition_en": "the official power to make legal decisions and judgments",
+        "definition_cn": "管辖权；司法权；法定权限或权限范围",
+        "definition_en": "the legal authority or power to make decisions, including the matters within that authority",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -385,13 +433,34 @@
             "meaning_cn": "法院对此案有管辖权。",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:64cf80a7f46e42100b0a",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "fall within the jurisdiction of + sth",
+            "meaning_cn": "属于……的管辖范围",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:64cf80a7f46e42100b0a",
+              "target_locator": "record.senses[0].collocations[3]",
+              "target_label": "fall within the jurisdiction of + sth"
+            }
+          },
+          {
+            "id": "collocation:259ff323773b59735ddb",
+            "source_locator": "record.senses[0].collocations[4]",
+            "phrase": "The matter falls within the jurisdiction of the local court.",
+            "meaning_cn": "此事属于地方法院的管辖范围。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jurisdiction:bb471fd902fe5e65",
           "target_locator": "record.senses[0]",
-          "target_label": "司法权；审判权；管辖权"
+          "target_label": "管辖权；司法权；法定权限或权限范围"
         }
       },
       {
@@ -403,29 +472,7 @@
         "definition_en": "the area or territory within which such power can be exercised",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:64cf80a7f46e42100b0a",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "fall within the jurisdiction of + sth",
-            "meaning_cn": "属于……的管辖范围",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:64cf80a7f46e42100b0a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "fall within the jurisdiction of + sth"
-            }
-          },
-          {
-            "id": "collocation:259ff323773b59735ddb",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "The matter falls within the jurisdiction of the local court.",
-            "meaning_cn": "此事属于地方法院的管辖范围。",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:jurisdiction:e66ad2b3a2245b24",
@@ -507,7 +554,7 @@
     "ordinal": 2692,
     "word": "jury",
     "source_owner_path": "content/lexical/words/by-ordinal/o2692.json",
-    "source_fingerprint": "a8082f352c040302b09f79ae03efa4ec092d8a7ed528c2f2ad264212ce1aacbc",
+    "source_fingerprint": "e9fb8815eb6c2b6c4e7f9eaf0213648583d42c389fa48ade781445bcce5c15e9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -647,23 +694,23 @@
     "ordinal": 2693,
     "word": "just",
     "source_owner_path": "content/lexical/words/by-ordinal/o2693.json",
-    "source_fingerprint": "40d70cba4ab9630561717df2299ca35602f5e2ccdf6581ea8ec01cfe98e8f051",
+    "source_fingerprint": "54a7e75ee687a5511c360a0fa337a21eaf066de2f3af68024b6ca441c0266e02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "4ADV"
+        "5ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "正好；仅仅；公正的",
-      "decision_cn": "",
+      "summary_cn": "恰好、仅仅、刚刚、勉强；强调“真是”；公正的",
+      "decision_cn": "recent → 刚刚；only → 仅仅；exact → 恰好；small margin → 勉强/只差一点；emphasis → 真是；adjective → 公正。just about / about to / as well 按独立构式选择。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "正好；仅仅；公正的"
+        "target_label": "恰好、仅仅、刚刚、勉强；强调“真是”；公正的"
       }
     },
     "senses": [
@@ -814,7 +861,7 @@
             "id": "collocation:a6dd6edcf10bc4006102",
             "source_locator": "record.senses[4].collocations[1]",
             "phrase": "just missed",
-            "meaning_cn": "差一点错过",
+            "meaning_cn": "仅差一点而未赶上／未击中（确实错过了，不是险些错过）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -842,6 +889,32 @@
           "target_id": "sense:just:244d635a495c3e60",
           "target_locator": "record.senses[4]",
           "target_label": "勉强；刚刚；只差一点"
+        }
+      },
+      {
+        "id": "sense:just:a279758376eca679",
+        "source_locator": "record.senses[5]",
+        "pos": "adverb",
+        "governing_pattern": "just + adjective/description; just + statement",
+        "definition_cn": "（强调）真是；实在；简直",
+        "definition_en": "used to emphasize a description or statement as really or completely so",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b09a828d1a0b04856365",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "That view is just amazing.",
+            "meaning_cn": "那景色真是惊人。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:just:a279758376eca679",
+          "target_locator": "record.senses[5]",
+          "target_label": "（强调）真是；实在；简直"
         }
       }
     ],
@@ -944,6 +1017,29 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/dʒʌst/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "just",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:just:a279758376eca679"
+              ],
+              "owner_sense_ids": [
+                "sense:just:a279758376eca679"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
       "sense_readings": {
@@ -961,12 +1057,91 @@
         ],
         "sense:just:4f8987723c865c41": [
           2
+        ],
+        "sense:just:a279758376eca679": [
+          3
         ]
       },
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:387d89a28423480db4c2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "just about",
+        "lines": [
+          {
+            "text": "几乎；差不多；大约",
+            "lang": "cn"
+          },
+          {
+            "text": "just about finished = 几乎完成；just about now = 大约现在；具体是否勉强达到须看语境，不能一律机械替换 barely。",
+            "lang": "cn"
+          },
+          {
+            "text": "almost or nearly; approximately",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:387d89a28423480db4c2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "just about"
+        }
+      },
+      {
+        "id": "construction:99ff6e9127af2b94b527",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be just about to do sth",
+        "lines": [
+          {
+            "text": "正要、马上就要做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "about to do 给出即将发生，just 加强临近；与刚刚做过（recent past）的 just 区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "be on the point of doing something very soon",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:99ff6e9127af2b94b527",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be just about to do sth"
+        }
+      },
+      {
+        "id": "construction:e59a8ccf48b141065b36",
+        "source_locator": "record.constructions[2]",
+        "pattern": "it is just as well (that ...)",
+        "lines": [
+          {
+            "text": "幸好；某种情况是件好事",
+            "lang": "cn"
+          },
+          {
+            "text": "It is just as well that we checked：幸好我们检查过。不是一般 as ... as 同级比较。",
+            "lang": "cn"
+          },
+          {
+            "text": "it is fortunate that something is so",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e59a8ccf48b141065b36",
+          "target_locator": "record.constructions[2]",
+          "target_label": "it is just as well (that ...)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -980,7 +1155,7 @@
     "ordinal": 2694,
     "word": "justice",
     "source_owner_path": "content/lexical/words/by-ordinal/o2694.json",
-    "source_fingerprint": "e37f5b64848023c4ac295209d0b9ea52fa2dd67e3a2cf27263b9154e4ea66ad6",
+    "source_fingerprint": "01f352430b957896a2236791e97deab82331e8712cce745aecd0390517fb6c54",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1130,7 +1305,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f3a787b809828ccc5be9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "do justice to sb/sth / do sb/sth justice",
+        "lines": [
+          {
+            "text": "公允或充分地表现、评价；恰当地处理",
+            "lang": "cn"
+          },
+          {
+            "text": "照片或文字不能 do justice to 景色：未充分展现；讨论不能 do justice to 主题：未充分处理。不同于司法审判。",
+            "lang": "cn"
+          },
+          {
+            "text": "represent, assess or deal with someone or something as well as they deserve",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f3a787b809828ccc5be9",
+          "target_locator": "record.constructions[0]",
+          "target_label": "do justice to sb/sth / do sb/sth justice"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1144,7 +1345,7 @@
     "ordinal": 2695,
     "word": "justify",
     "source_owner_path": "content/lexical/words/by-ordinal/o2695.json",
-    "source_fingerprint": "9cc53f5b05b1a2443ef1490da3f1edfe38578cea483a89927524e30678f340db",
+    "source_fingerprint": "e74ee8794b12a497f7c61fa3f63cacddd340e1be6d229c59afb446c5c577b5e3",
     "sense_lineage": [
       {
         "word_id": "word:justify",
@@ -1189,7 +1390,7 @@
         "id": "sense:justify:0a15fbd9e2eb59eb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "justify sth / justify doing sth",
         "definition_cn": "证明……有理；为……辩护",
         "definition_en": "to show to be reasonable or provide adequate ground for",
         "note": "",
@@ -1264,8 +1465,8 @@
           "target_word": "just",
           "lines": [
             {
-              "text": "justify = just + ify",
-              "lang": "en"
+              "text": "justify 与 just（公正、正当的）相关；不是 just（刚刚、仅仅）的副词义。",
+              "lang": "cn"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -1330,7 +1531,7 @@
     "ordinal": 2696,
     "word": "juvenile",
     "source_owner_path": "content/lexical/words/by-ordinal/o2696.json",
-    "source_fingerprint": "08ac592dcfe6fcd924e81212c9cf39cbc698d6132ef4e531328ee20e6c0e43e9",
+    "source_fingerprint": "90a12e6da6b0ffb262e3933ece97b3905fd6e84783a0a38ee72588a2c53c11f4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1359,29 +1560,7 @@
         "definition_en": "a young person who is not yet an adult",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2657a947e064d0d453cc",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "juvenile delinquent",
-            "meaning_cn": "少年犯",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2657a947e064d0d453cc",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "juvenile delinquent"
-            }
-          },
-          {
-            "id": "collocation:ec078d672e74b786656a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a juvenile court",
-            "meaning_cn": "少年法庭",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:juvenile:919231351d575ab0",
@@ -1404,6 +1583,27 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "juvenile literature",
             "meaning_cn": "少年文学",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:2657a947e064d0d453cc",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "juvenile delinquent",
+            "meaning_cn": "少年犯",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2657a947e064d0d453cc",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "juvenile delinquent"
+            }
+          },
+          {
+            "id": "collocation:ec078d672e74b786656a",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a juvenile court",
+            "meaning_cn": "少年法庭",
             "kind": "usage_example",
             "repair": null
           }
@@ -1489,7 +1689,7 @@
     "ordinal": 2697,
     "word": "keen",
     "source_owner_path": "content/lexical/words/by-ordinal/o2697.json",
-    "source_fingerprint": "06240dfbee405c2d1cdbeb8b985238c022ef7b688a9d9a040b5fd43f72e814bb",
+    "source_fingerprint": "91f688a1f60b86e8f843092eaf2f7cb7e9bd45f2e36437f6f66fa1a6d1df71f1",
     "sense_lineage": [
       {
         "word_id": "word:keen",
@@ -1535,8 +1735,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "锋利的；敏锐的",
-        "definition_en": "having a sharp edge or point; also mentally acute",
+        "definition_cn": "锋利的；（感官、思维）敏锐的",
+        "definition_en": "sharp-edged, or quick and sensitive in perception or thought",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1561,14 +1761,14 @@
           "target_kind": "sense",
           "target_id": "sense:keen:c6d416c91db250d7",
           "target_locator": "record.senses[0]",
-          "target_label": "锋利的；敏锐的"
+          "target_label": "锋利的；（感官、思维）敏锐的"
         }
       },
       {
         "id": "sense:keen:1255f367a1ab5652",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "a. + on",
+        "governing_pattern": "keen on sth/doing sth; keen to do sth",
         "definition_cn": "热心的；渴望的",
         "definition_en": "very interested, eager, or enthusiastic",
         "note": "",
@@ -1741,7 +1941,7 @@
     "ordinal": 2698,
     "word": "keep",
     "source_owner_path": "content/lexical/words/by-ordinal/o2698.json",
-    "source_fingerprint": "ffad3c22b261e0f5df17f6583efd7d56c15b431b593dcc1daaa3dcd2bc07145d",
+    "source_fingerprint": "a181f4888c659ab906c109fac9a710e5933237d452c378b6ec8f5f8290ab9315",
     "sense_lineage": [
       {
         "word_id": "word:keep",
@@ -1760,18 +1960,18 @@
     ],
     "recall_map": {
       "parts": [
-        "6V"
+        "9V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "保持",
-      "decision_cn": "state → 保持；possession → 保留；rules/promises → 遵守；activity → 继续；records → 记录维护；keep in mind → 记住/考虑；earn one’s keep → 挣钱养活自己。低频名词 keep 保留为 Reference。",
+      "summary_cn": "保留、保持、继续；照料、供养；遵守、记录；耽搁；食物耐存放",
+      "decision_cn": "state → 保持；possession → 保留；rules → 遵守；records → 记录；sb → 供养/耽搁，据语境选择；food keeps → 不变质。名词 keep 的生计/食宿用法见 earn one’s keep 及 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "保持"
+        "target_label": "保留、保持、继续；照料、供养；遵守、记录；耽搁；食物耐存放"
       }
     },
     "senses": [
@@ -1779,9 +1979,9 @@
         "id": "sense:keep:f892f797890753c2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + complement",
+        "governing_pattern": "keep + adjective; keep sb/sth + adjective",
         "definition_cn": "保持；使保持",
-        "definition_en": "cause to remain in a certain state or condition",
+        "definition_en": "to remain in a state, or cause someone or something to remain in it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1904,7 +2104,7 @@
         "id": "sense:keep:81ac184e68255ebc",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "keep (on) doing sth",
         "definition_cn": "继续；持续做某事",
         "definition_en": "continue doing something",
         "note": "",
@@ -1913,14 +2113,14 @@
           {
             "id": "collocation:0a26173b36e49e8ac045",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "keep on doing + sth",
+            "phrase": "keep on doing sth",
             "meaning_cn": "继续做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:0a26173b36e49e8ac045",
               "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "keep on doing + sth"
+              "target_label": "keep on doing sth"
             }
           }
         ],
@@ -1995,6 +2195,84 @@
           "target_locator": "record.senses[5]",
           "target_label": "记录；持续维护（日记、记录、账目等）"
         }
+      },
+      {
+        "id": "sense:keep:403bb50d49ca0797",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "keep sb; keep oneself",
+        "definition_cn": "供养；养活",
+        "definition_en": "to provide the money or necessities someone needs to live",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:597697c2c164caa49737",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "keep herself and her children",
+            "meaning_cn": "养活她自己和孩子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:keep:403bb50d49ca0797",
+          "target_locator": "record.senses[6]",
+          "target_label": "供养；养活"
+        }
+      },
+      {
+        "id": "sense:keep:59c57ad03d8c6da9",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "keep sb; what kept sb?",
+        "definition_cn": "耽搁；使等待",
+        "definition_en": "to delay someone or make them wait",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e947bb07d2621330f924",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "What kept you?",
+            "meaning_cn": "什么事把你耽搁了？",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:keep:59c57ad03d8c6da9",
+          "target_locator": "record.senses[7]",
+          "target_label": "耽搁；使等待"
+        }
+      },
+      {
+        "id": "sense:keep:0067ca508c94067d",
+        "source_locator": "record.senses[8]",
+        "pos": "verb",
+        "governing_pattern": "food keeps; keep for a period",
+        "definition_cn": "（食物）保持不变质；耐存放",
+        "definition_en": "of food, to remain usable without spoiling",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4c3d6d9bb2894e247d04",
+            "source_locator": "record.senses[8].collocations[0]",
+            "phrase": "The soup will keep for two days.",
+            "meaning_cn": "这汤可以存放两天而不变质。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:keep:0067ca508c94067d",
+          "target_locator": "record.senses[8]",
+          "target_label": "（食物）保持不变质；耐存放"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2005,14 +2283,75 @@
           "applicability": [
             {
               "surface": "keep"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:403bb50d49ca0797"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:403bb50d49ca0797"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "keep sb; keep oneself"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:59c57ad03d8c6da9"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:59c57ad03d8c6da9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "keep sb; what kept sb?"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:0067ca508c94067d"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:0067ca508c94067d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "food keeps; keep for a period"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:keep:0067ca508c94067d": [
+          0
+        ],
+        "sense:keep:403bb50d49ca0797": [
+          0
+        ],
+        "sense:keep:59c57ad03d8c6da9": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -2099,6 +2438,106 @@
           "target_locator": "record.constructions[3]",
           "target_label": "keep sth in mind / keep in mind that ..."
         }
+      },
+      {
+        "id": "construction:3c71b2c84c45b3df2923",
+        "source_locator": "record.constructions[4]",
+        "pattern": "keep sb/sth doing sth",
+        "lines": [
+          {
+            "text": "使某人/某物持续做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "sb/sth 是 doing 的动作承担者；keep sb waiting 可带耽搁意味。keep doing 则主语本人继续做。",
+            "lang": "cn"
+          },
+          {
+            "text": "cause someone or something to continue an activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3c71b2c84c45b3df2923",
+          "target_locator": "record.constructions[4]",
+          "target_label": "keep sb/sth doing sth"
+        }
+      },
+      {
+        "id": "construction:dd8323e13e74ab8fcb3a",
+        "source_locator": "record.constructions[5]",
+        "pattern": "keep sth from sb",
+        "lines": [
+          {
+            "text": "瞒着某人；不把某事告诉某人",
+            "lang": "cn"
+          },
+          {
+            "text": "sth 是消息/事实，sb 是未被告知的人；与 keep sb from doing（阻止动作）宾语角色不同。",
+            "lang": "cn"
+          },
+          {
+            "text": "withhold information from someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dd8323e13e74ab8fcb3a",
+          "target_locator": "record.constructions[5]",
+          "target_label": "keep sth from sb"
+        }
+      },
+      {
+        "id": "construction:cb60f3775cd58c3a2e32",
+        "source_locator": "record.constructions[6]",
+        "pattern": "keep up (with sb/sth)",
+        "lines": [
+          {
+            "text": "跟上某人/某事的速度、进度或变化",
+            "lang": "cn"
+          },
+          {
+            "text": "with 标所跟上的人、进度或变化；不带 with 时 keep up 也可表示跟上。",
+            "lang": "cn"
+          },
+          {
+            "text": "move or progress at the same rate as someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cb60f3775cd58c3a2e32",
+          "target_locator": "record.constructions[6]",
+          "target_label": "keep up (with sb/sth)"
+        }
+      },
+      {
+        "id": "construction:3750140d530315b217ae",
+        "source_locator": "record.constructions[7]",
+        "pattern": "keep up with news/events/developments",
+        "lines": [
+          {
+            "text": "持续了解消息、时事或发展",
+            "lang": "cn"
+          },
+          {
+            "text": "对象是消息、时事等；这里强调持续了解，不要求实际移动。",
+            "lang": "cn"
+          },
+          {
+            "text": "stay informed about news or developments",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3750140d530315b217ae",
+          "target_locator": "record.constructions[7]",
+          "target_label": "keep up with news/events/developments"
+        }
       }
     ],
     "reference": {
@@ -2140,7 +2579,7 @@
     "ordinal": 2699,
     "word": "kettle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2699.json",
-    "source_fingerprint": "42bebba3c4af6e5d431f023dca301521fe4331a73298e963eaa3aa9da54f6b65",
+    "source_fingerprint": "caa087eea2e0f72174f49a8a06a6489b3f261a8f21ea369db13c2e24b46f6f8d",
     "sense_lineage": [
       {
         "word_id": "word:kettle",
@@ -2193,8 +2632,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "水壶；锅",
-        "definition_en": "a metal pot with a lid, used for boiling water or cooking",
+        "definition_cn": "烧水壶；（某些用法中）壶或锅",
+        "definition_en": "a container or appliance used to boil water, usually with a handle and spout; also a pot in some uses",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2216,7 +2655,7 @@
           "target_kind": "sense",
           "target_id": "sense:kettle:297dcc70f14b5bc3",
           "target_locator": "record.senses[0]",
-          "target_label": "水壶；锅"
+          "target_label": "烧水壶；（某些用法中）壶或锅"
         }
       }
     ],
@@ -2326,7 +2765,7 @@
     "ordinal": 2700,
     "word": "key",
     "source_owner_path": "content/lexical/words/by-ordinal/o2700.json",
-    "source_fingerprint": "dfa15c4629a2b9f158ff12a028c0b4aa55047b2888b30371d665f51d34415a45",
+    "source_fingerprint": "3948e313837f26f92ff045947c2ce96c94421925420c7d96d466cb16c1cf8c51",
     "sense_lineage": [
       {
         "word_id": "word:key",
@@ -2347,18 +2786,18 @@
       "parts": [
         "1V",
         "1A",
-        "5N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "钥匙/按键；关键；音乐调；动词还可指“键入数据”",
-      "decision_cn": "object → 钥匙/按键；solution/importance → 关键；music → 调；key sth in / into a system → 键入、输入数据。",
+      "summary_cn": "钥匙、按键；关键；答案表、图例；音乐调；关键的；键入",
+      "decision_cn": "object → 钥匙/按键；means → 关键；exercise → 答案表；map → 图例；music → 调；adjective → 极重要；verb → 键入。调音/配钥匙用法见 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "钥匙/按键；关键；音乐调；动词还可指“键入数据”"
+        "target_label": "钥匙、按键；关键；答案表、图例；音乐调；关键的；键入"
       }
     },
     "senses": [
@@ -2419,16 +2858,16 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "答案；题解",
-        "definition_en": "an answer to a puzzle or test",
-        "note": "",
+        "definition_cn": "答案表；一组答案或题解",
+        "definition_en": "a set of answers or solutions to exercises, questions or a test",
+        "note": "answer key 常指一套参考答案，不是任意一个 answer。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:24565dc5a2515e4f0dc6",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "answer key",
-            "meaning_cn": "答案；题解",
+            "meaning_cn": "参考答案表；一组答案或题解",
             "kind": "usage_example",
             "repair": null
           }
@@ -2437,7 +2876,7 @@
           "target_kind": "sense",
           "target_id": "sense:key:5ae493f43cb75b74",
           "target_locator": "record.senses[2]",
-          "target_label": "答案；题解"
+          "target_label": "答案表；一组答案或题解"
         }
       },
       {
@@ -2479,8 +2918,8 @@
           {
             "id": "collocation:c2c2cf244087d952a82f",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "in the key of C",
-            "meaning_cn": "C大调",
+            "phrase": "in the key of C major",
+            "meaning_cn": "以 C 大调",
             "kind": "usage_example",
             "repair": null
           }
@@ -2525,6 +2964,32 @@
           "target_locator": "record.senses[6]",
           "target_label": "键入；输入（数据、号码等）"
         }
+      },
+      {
+        "id": "sense:key:852b3bdc05261921",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "a key to a map/diagram",
+        "definition_cn": "（地图、图表等的）图例；符号说明",
+        "definition_en": "an explanation of symbols, signs or colours used on a map, chart or diagram",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:86fa91eefaf5c3704666",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "the key to the map",
+            "meaning_cn": "地图的图例",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:key:852b3bdc05261921",
+          "target_locator": "record.senses[7]",
+          "target_label": "（地图、图表等的）图例；符号说明"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2537,6 +3002,23 @@
           "applicability": [
             {
               "surface": "key"
+            },
+            {
+              "surface": "key",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:key:852b3bdc05261921"
+              ],
+              "owner_sense_ids": [
+                "sense:key:852b3bdc05261921"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2700.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a key to a map/diagram"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2556,8 +3038,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:key:852b3bdc05261921": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -2585,6 +3071,31 @@
           "target_id": "construction:key:key-in-data",
           "target_locator": "record.constructions[0]",
           "target_label": "key sth in / key sth into sth"
+        }
+      },
+      {
+        "id": "construction:3c500da717bcb6836d32",
+        "source_locator": "record.constructions[1]",
+        "pattern": "the key to sth / doing sth",
+        "lines": [
+          {
+            "text": "做成某事或理解某事的关键",
+            "lang": "cn"
+          },
+          {
+            "text": "此处 to 是介词，后接名词或 doing：the key to improving results；不同于动词不定式 to do。",
+            "lang": "cn"
+          },
+          {
+            "text": "the crucial means of achieving or understanding something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3c500da717bcb6836d32",
+          "target_locator": "record.constructions[1]",
+          "target_label": "the key to sth / doing sth"
         }
       }
     ],
@@ -2715,23 +3226,31 @@
     "ordinal": 2702,
     "word": "kick",
     "source_owner_path": "content/lexical/words/by-ordinal/o2702.json",
-    "source_fingerprint": "564e43c8b09eeec59c4c3f41b1a6760869de0eca850d715b35af756027d26ff4",
-    "sense_lineage": [],
+    "source_fingerprint": "93ca9bbd15e3f809a4972894d26ee70eab415cf7bf4340ea57987538985563eb",
+    "sense_lineage": [
+      {
+        "word_id": "word:kick",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3a2991f6d27a7acdb712",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用脚踢",
-      "decision_cn": "literal → 踢/一脚；kick off → 开始；get a kick out of → 从…得到乐趣。",
+      "summary_cn": "踢；踢击；刺激或乐趣；戒掉坏习惯",
+      "decision_cn": "physical → 踢；noun → 踢击或刺激；kick a habit → 戒除；kick yourself → 自责懊恼。kick off → 开始；get a kick out of → 从中获得乐趣。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用脚踢"
+        "target_label": "踢；踢击；刺激或乐趣；戒掉坏习惯"
       }
     },
     "senses": [
@@ -2739,7 +3258,7 @@
         "id": "sense:kick:e9630310ee0253c4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "kick; kick sb/sth; kick at sth",
         "definition_cn": "踢；用脚踢",
         "definition_en": "to hit or propel something with your foot",
         "note": "",
@@ -2796,26 +3315,43 @@
         "definition_en": "a sudden feeling of pleasure or excitement",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3a2991f6d27a7acdb712",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "get a kick out of",
-            "meaning_cn": "从……中得到乐趣",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3a2991f6d27a7acdb712",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "get a kick out of"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kick:24506491f408592d",
           "target_locator": "record.senses[2]",
           "target_label": "快感；兴奋"
+        }
+      },
+      {
+        "id": "sense:kick:c4112f4ce64b120d",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "kick a habit/drugs",
+        "definition_cn": "戒掉；停止（长期的坏习惯）",
+        "definition_en": "to give up a harmful habit or repeated harmful activity",
+        "note": "非正式。宾语是习惯或长期活动，不是用脚踢的物体。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:13f502256dec05b180ed",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "kick the habit",
+            "meaning_cn": "戒掉坏习惯",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:13f502256dec05b180ed",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "kick the habit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:kick:c4112f4ce64b120d",
+          "target_locator": "record.senses[3]",
+          "target_label": "戒掉；停止（长期的坏习惯）"
         }
       }
     ],
@@ -2827,6 +3363,23 @@
           "applicability": [
             {
               "surface": "kick"
+            },
+            {
+              "surface": "kick",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:kick:c4112f4ce64b120d"
+              ],
+              "owner_sense_ids": [
+                "sense:kick:c4112f4ce64b120d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2702.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "kick a habit/drugs"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2870,8 +3423,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:kick:c4112f4ce64b120d": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -2924,6 +3481,31 @@
           "target_locator": "record.constructions[1]",
           "target_label": "get a kick out of sth/doing sth"
         }
+      },
+      {
+        "id": "construction:d1e80e323ac58328d94f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "kick yourself (for doing sth)",
+        "lines": [
+          {
+            "text": "因自己的失误或错失机会而懊恼",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式。I could kick myself for missing the deadline. = 我错过截止日期，真懊恼；这里不是身体动作。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be annoyed at yourself over a mistake or missed opportunity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d1e80e323ac58328d94f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "kick yourself (for doing sth)"
+        }
       }
     ],
     "reference": {
@@ -2939,12 +3521,19 @@
     "ordinal": 2703,
     "word": "kid",
     "source_owner_path": "content/lexical/words/by-ordinal/o2703.json",
-    "source_fingerprint": "1e74cb7d74f4de0c674d2e6fb9505ffc384b8cf64e4fdfa6be0c680e9ce417c3",
+    "source_fingerprint": "f8124f9b70700a82cc00629436ecb76bcb88b5ebac163996091bae81621f84c4",
     "sense_lineage": [
       {
         "word_id": "word:kid",
         "target_kind": "sense",
         "from_target_id": "sense:kid:e6d457697cac50a5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kid",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5a921dd679a5ac63cb61",
         "status": "reference",
         "to_target_id": null
       },
@@ -3017,16 +3606,7 @@
         "definition_en": "a young goat",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:5a921dd679a5ac63cb61",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "kid gloves",
-            "meaning_cn": "小山羊皮手套",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:kid:124eeb75550b5c51",
@@ -3038,7 +3618,7 @@
         "id": "sense:kid:b807a128912b5ad9",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "kid; kid sb; be kidding",
         "definition_cn": "开玩笑；戏弄",
         "definition_en": "to tease or joke playfully",
         "note": "",
@@ -3055,9 +3635,9 @@
         "id": "sense:kid:33d61a8f5b555ccb",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "哄骗；欺骗",
-        "definition_en": "to deceive or trick someone in a playful way",
+        "governing_pattern": "kid sb/oneself (that ...); kid sb into doing sth",
+        "definition_cn": "哄骗；欺骗；自欺",
+        "definition_en": "to make someone or oneself believe something untrue",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3065,7 +3645,7 @@
           "target_kind": "sense",
           "target_id": "sense:kid:33d61a8f5b555ccb",
           "target_locator": "record.senses[3]",
-          "target_label": "哄骗；欺骗"
+          "target_label": "哄骗；欺骗；自欺"
         }
       }
     ],
@@ -3143,7 +3723,7 @@
             "lang": "cn"
           },
           {
-            "text": "to deceive or trick someone in a playful way",
+            "text": "to make someone or oneself believe something untrue",
             "lang": "en"
           }
         ],
@@ -3196,6 +3776,15 @@
               ],
               "meaning_cn": "小山羊皮革",
               "phrase": "kid leather"
+            },
+            {
+              "collocation_id": "collocation:5a921dd679a5ac63cb61",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:kid:124eeb75550b5c51:collocation:0"
+              ],
+              "meaning_cn": "小山羊皮手套",
+              "phrase": "kid gloves"
             }
           ],
           "confidence": "medium",
@@ -3462,23 +4051,31 @@
     "ordinal": 2706,
     "word": "kill",
     "source_owner_path": "content/lexical/words/by-ordinal/o2706.json",
-    "source_fingerprint": "01ad69df032e7799ed774f32096b6d43b8bd5d2b9bf2e3c898fc0887fc4c83ab",
-    "sense_lineage": [],
+    "source_fingerprint": "6ef425c379653ff0fd0dd774d88ffe36d89d8d33e5cd8ce7674c9570990c3381",
+    "sense_lineage": [
+      {
+        "word_id": "word:kill",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bc01a157f5631b44aace",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使死亡或终止",
-      "decision_cn": "",
+      "summary_cn": "杀死；使终止或消除；杀害或猎物；使疼痛难忍",
+      "decision_cn": "生命 → 杀死；活动/感觉 → 使结束；My feet are killing me → 疼得要命。kill time → 消磨时间。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使死亡或终止"
+        "target_label": "杀死；使终止或消除；杀害或猎物；使疼痛难忍"
       }
     },
     "senses": [
@@ -3497,13 +4094,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "kill + sb/sth",
             "meaning_cn": "杀死某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bc01a157f5631b44aace",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "kill + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3561,7 +4153,7 @@
             "id": "collocation:c767d4b04c6f0f9a6ee5",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "make a kill",
-            "meaning_cn": "猎获；成功",
+            "meaning_cn": "猎杀；捕获猎物",
             "kind": "usage_example",
             "repair": null
           }
@@ -3571,6 +4163,32 @@
           "target_id": "sense:kill:df6cc0e957a558ff",
           "target_locator": "record.senses[2]",
           "target_label": "杀，杀戮；猎物"
+        }
+      },
+      {
+        "id": "sense:kill:de7671e4b94af6f7",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "sth is killing sb; it kills sb to do sth",
+        "definition_cn": "使疼痛难忍；使非常难受",
+        "definition_en": "to cause someone intense pain or discomfort",
+        "note": "非正式；疼痛义通常用进行时，不用被动式。不能将 My feet are killing me 理解为脚在杀人。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e59e67babd7d83c011d3",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "My feet are killing me.",
+            "meaning_cn": "我的脚疼得要命。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:kill:de7671e4b94af6f7",
+          "target_locator": "record.senses[3]",
+          "target_label": "使疼痛难忍；使非常难受"
         }
       }
     ],
@@ -3584,14 +4202,35 @@
           "applicability": [
             {
               "surface": "kill"
+            },
+            {
+              "surface": "kill",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:kill:de7671e4b94af6f7"
+              ],
+              "owner_sense_ids": [
+                "sense:kill:de7671e4b94af6f7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2706.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sth is killing sb; it kills sb to do sth"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:kill:de7671e4b94af6f7": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -3630,8 +4269,16 @@
     "ordinal": 2707,
     "word": "kilogram",
     "source_owner_path": "content/lexical/words/by-ordinal/o2707.json",
-    "source_fingerprint": "60e71d30a5cc777818dc86da984a57b900c3c4e9038a931d836ab72b3c6eacbb",
-    "sense_lineage": [],
+    "source_fingerprint": "cb8069079649de3ae56ed97bea58ec805723f4d9f0900004fc5d6d8948b1bbee",
+    "sense_lineage": [
+      {
+        "word_id": "word:kilogram",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:968d9647e8b94982849b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -3662,15 +4309,10 @@
           {
             "id": "collocation:968d9647e8b94982849b",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "kilogram of + sth",
-            "meaning_cn": "一公斤某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:968d9647e8b94982849b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "kilogram of + sth"
-            }
+            "phrase": "a kilogram of rice",
+            "meaning_cn": "一千克大米",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3882,7 +4524,7 @@
     "ordinal": 2709,
     "word": "kin",
     "source_owner_path": "content/lexical/words/by-ordinal/o2709.json",
-    "source_fingerprint": "29c674517957044487b31f0e05acc2901bbc7f69e4ef1e4e972d12516e7ac6f4",
+    "source_fingerprint": "fd03325a59dc1061766a35b95c43dbe10f52c5e3a7b256316c45dab348bb4515",
     "sense_lineage": [
       {
         "word_id": "word:kin",
@@ -3895,6 +4537,13 @@
         "word_id": "word:kin",
         "target_kind": "collocation",
         "from_target_id": "collocation:80448f67a8973e38ed9d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:kin",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9b19a3c6d665ff57fa9b",
         "status": "reference",
         "to_target_id": null
       }
@@ -3927,28 +4576,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9b19a3c6d665ff57fa9b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "next of kin",
-            "meaning_cn": "近亲",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9b19a3c6d665ff57fa9b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "next of kin"
-            }
-          },
-          {
             "id": "collocation:83e283fbafd805f1b5c9",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "kith and kin",
             "meaning_cn": "亲朋好友",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:83e283fbafd805f1b5c9",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "kith and kin"
             }
           }
@@ -4058,7 +4694,7 @@
     "ordinal": 2710,
     "word": "kind",
     "source_owner_path": "content/lexical/words/by-ordinal/o2710.json",
-    "source_fingerprint": "6e378bb330ce8a7e971a1457d7435fc9beb59f022c242652d6825335b92982eb",
+    "source_fingerprint": "e826e670323d842465a1671d9edd89bc55d8c868c5700246400b78098f11a859",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4220,7 +4856,7 @@
           "target_word": "sort",
           "lines": [
             {
-              "text": "kind与sort均指类别，但sort侧重分类整理",
+              "text": "kind 与 sort 在这里都是“种类、类型”的名词，通常可近义替换；不要把 sort 动词“分类整理”的含义当作这两个名词的必然区别。",
               "lang": "cn"
             },
             {
@@ -4258,7 +4894,7 @@
     "ordinal": 2711,
     "word": "kindergarten",
     "source_owner_path": "content/lexical/words/by-ordinal/o2711.json",
-    "source_fingerprint": "0fd29e1f966a627a5b6980e3609f85ffc12cc2abdee64b17d054a7821e005435",
+    "source_fingerprint": "3195dd555a4212d155a37dbd5f5a32ba2ed6fc8a708f15afc1efd4da570a69b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4267,13 +4903,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "幼儿园",
-      "decision_cn": "",
+      "summary_cn": "幼儿园或入学初期班级（因地区而异）",
+      "decision_cn": "地区有别：美国常指约五岁儿童的入学年级；英国可指幼儿园/学前班。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "幼儿园"
+        "target_label": "幼儿园或入学初期班级（因地区而异）"
       }
     },
     "senses": [
@@ -4576,7 +5212,7 @@
     "ordinal": 2713,
     "word": "king",
     "source_owner_path": "content/lexical/words/by-ordinal/o2713.json",
-    "source_fingerprint": "4218944ad0d45f834003b6690f8ae794ad2520850cc6ffbdc1ce11cdb8628664",
+    "source_fingerprint": "84a518bf8189047419c0a61ea5f7cad18d3f693267855a534119e99b416b6766",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4585,13 +5221,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "国王；君主",
-      "decision_cn": "",
+      "summary_cn": "国王；某领域的巨头或最突出者",
+      "decision_cn": "国王；君主",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "国王；君主"
+        "target_label": "国王；某领域的巨头或最突出者"
       }
     },
     "senses": [
@@ -4687,7 +5323,14 @@
           ],
           "applicability": [
             {
-              "surface": "king"
+              "surface": "king",
+              "conditions": [
+                {
+                  "kind": "regional_pronunciation_scope",
+                  "text": "UK varieties without ng-coalescence; not a general British English default.",
+                  "source_url": "https://en.wiktionary.org/wiki/king#Pronunciation"
+                }
+              ]
             }
           ],
           "evidence_basis": "source_ipa",
@@ -4721,7 +5364,7 @@
         }
       ],
       "sense_readings": {},
-      "has_scope": false
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -4738,7 +5381,7 @@
     "ordinal": 2714,
     "word": "kingdom",
     "source_owner_path": "content/lexical/words/by-ordinal/o2714.json",
-    "source_fingerprint": "3c87512828393f4f08bbaaaae5bc4e796bb1708ca8fe4bb2c5e4658f99247f53",
+    "source_fingerprint": "3f297d376939d5220ad6d2ec0ebd6c246e76f980caf1e2b9d68ecb5f3ed2746e",
     "sense_lineage": [
       {
         "word_id": "word:kingdom",
@@ -4755,13 +5398,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "王国或领域",
-      "decision_cn": "",
+      "summary_cn": "王国；领域；生物分类的界",
+      "decision_cn": "王国或领域",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "王国或领域"
+        "target_label": "王国；领域；生物分类的界"
       }
     },
     "senses": [
@@ -4770,8 +5413,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "王国；国家",
-        "definition_en": "a country with a king as head of state",
+        "definition_cn": "王国；君主国",
+        "definition_en": "a country with a king or queen as monarch",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4788,7 +5431,7 @@
           "target_kind": "sense",
           "target_id": "sense:kingdom:58b7190c1b0b5781",
           "target_locator": "record.senses[0]",
-          "target_label": "王国；国家"
+          "target_label": "王国；君主国"
         }
       },
       {
@@ -4851,18 +5494,22 @@
       {
         "id": "construction:ca79f9bfd9fcee619da4",
         "source_locator": "record.constructions[0]",
-        "pattern": "the kingdom/realm of sth",
+        "pattern": "the kingdom of sth",
         "lines": [
           {
             "text": "……的领域或王国",
             "lang": "cn"
+          },
+          {
+            "text": "Word-local kingdom pattern; realm comparison belongs to the existing Relation.",
+            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:ca79f9bfd9fcee619da4",
           "target_locator": "record.constructions[0]",
-          "target_label": "the kingdom/realm of sth"
+          "target_label": "the kingdom of sth"
         }
       }
     ],
@@ -4874,7 +5521,7 @@
           "target_word": "realm",
           "lines": [
             {
-              "text": "kingdom与realm均指王国，但realm更抽象",
+              "text": "本关系比较“王国、君主统治的领土”：kingdom 是通常说法，realm 在这一义较正式或文学化。realm 的抽象“领域”属于另一义，不能据此把本关系一端说成抽象概念。",
               "lang": "cn"
             },
             {
@@ -4928,7 +5575,7 @@
     "ordinal": 2715,
     "word": "kiss",
     "source_owner_path": "content/lexical/words/by-ordinal/o2715.json",
-    "source_fingerprint": "d7fecdd2cd861bc15570b8875f8caedf92ce3345c62729f1fbe2e7c1c93bb7ad",
+    "source_fingerprint": "c143008c47e3300dd0657d118c5196f294a62ef42e8e6374f753f5ac991ef2db",
     "sense_lineage": [
       {
         "word_id": "word:kiss",
@@ -4947,6 +5594,13 @@
       {
         "word_id": "word:kiss",
         "target_kind": "sense",
+        "from_target_id": "sense:kiss:81a775e0db68557c",
+        "status": "merged",
+        "to_target_id": "sense:kiss:6e3b41e81548574d"
+      },
+      {
+        "word_id": "word:kiss",
+        "target_kind": "sense",
         "from_target_id": "sense:kiss:db7e0666473450ca",
         "status": "deprecated",
         "to_target_id": null
@@ -4954,7 +5608,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -4991,9 +5645,9 @@
         "id": "sense:kiss:6e3b41e81548574d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "亲吻；吻",
-        "definition_en": "to touch with the lips as a sign of love or affection",
+        "governing_pattern": "kiss sb; kiss",
+        "definition_cn": "亲吻；接吻",
+        "definition_en": "to touch someone or something with your lips as a sign of affection, greeting, respect, or desire",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5001,24 +5655,7 @@
           "target_kind": "sense",
           "target_id": "sense:kiss:6e3b41e81548574d",
           "target_locator": "record.senses[1]",
-          "target_label": "亲吻；吻"
-        }
-      },
-      {
-        "id": "sense:kiss:81a775e0db68557c",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "接吻",
-        "definition_en": "to touch lips with another person",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:kiss:81a775e0db68557c",
-          "target_locator": "record.senses[2]",
-          "target_label": "接吻"
+          "target_label": "亲吻；接吻"
         }
       }
     ],
@@ -5134,6 +5771,24 @@
           "source_row": 7501,
           "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "接吻",
+          "definition_en": "to touch lips with another person",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:kiss:81a775e0db68557c",
+          "sense_label_en": "to touch lips with another person",
+          "sort_order": 2,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:kiss:81a775e0db68557c",
+          "status": "merged",
+          "merged_into_sense_id": "sense:kiss:6e3b41e81548574d",
+          "reference_only": true
         }
       ]
     }
@@ -5144,7 +5799,7 @@
     "ordinal": 2716,
     "word": "kit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2716.json",
-    "source_fingerprint": "181193b6f7a8e56483b0e6a3a38fe86b4eb3b67f4b8f3939720d5098322d9d5a",
+    "source_fingerprint": "5c98623d5142f379bfa9067ebb39236f72127f39d0389faec8e8cc5d3eb74f69",
     "sense_lineage": [
       {
         "word_id": "word:kit",
@@ -5163,18 +5818,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "成套工具或装备",
-      "decision_cn": "first-aid kit / tool kit → 一套专门用途的用品或装备。可透明推断的容器义及动物幼崽专门义保留为 Reference。",
+      "summary_cn": "成套工具；组装套件；活动服装与装备",
+      "decision_cn": "工具 → first-aid kit；零件 → 用套件组装；BrE football kit → 足球服及装备。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "成套工具或装备"
+        "target_label": "成套工具；组装套件；活动服装与装备"
       }
     },
     "senses": [
@@ -5224,6 +5879,58 @@
           "target_locator": "record.senses[0]",
           "target_label": "成套工具，装备"
         }
+      },
+      {
+        "id": "sense:kit:056dd7022a96780c",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a kit for sth; build sth from a kit",
+        "definition_cn": "成套的组装零件；组装套件",
+        "definition_en": "a set of prepared parts for assembling a particular object",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fd75394fee1516756c83",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "build a model from a kit",
+            "meaning_cn": "用套件组装模型",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:kit:056dd7022a96780c",
+          "target_locator": "record.senses[1]",
+          "target_label": "成套的组装零件；组装套件"
+        }
+      },
+      {
+        "id": "sense:kit:769c4248a70a977d",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "sports/football kit; wear your kit",
+        "definition_cn": "（某项活动用的）服装及装备；运动服",
+        "definition_en": "clothes and equipment used for a particular activity",
+        "note": "英国英语，通常不可数；football kit 可指球衣等整套服装，不只是工具。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c80a0900d8f63a23ceea",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "football kit",
+            "meaning_cn": "足球服及装备",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:kit:769c4248a70a977d",
+          "target_locator": "record.senses[2]",
+          "target_label": "（某项活动用的）服装及装备；运动服"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5234,6 +5941,40 @@
           "applicability": [
             {
               "surface": "kit"
+            },
+            {
+              "surface": "kit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:kit:056dd7022a96780c"
+              ],
+              "owner_sense_ids": [
+                "sense:kit:056dd7022a96780c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2716.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a kit for sth; build sth from a kit"
+            },
+            {
+              "surface": "kit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:kit:769c4248a70a977d"
+              ],
+              "owner_sense_ids": [
+                "sense:kit:769c4248a70a977d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2716.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sports/football kit; wear your kit"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5277,8 +6018,15 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:kit:056dd7022a96780c": [
+          0
+        ],
+        "sense:kit:769c4248a70a977d": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -5438,7 +6186,7 @@
     "ordinal": 2718,
     "word": "kite",
     "source_owner_path": "content/lexical/words/by-ordinal/o2718.json",
-    "source_fingerprint": "ea9385a63429f863115f1b3fb0aeb0d95a05c00924faf03e4cf85df1a4a0e4ed",
+    "source_fingerprint": "3ab9b4bd03de65c1f3ee6ee4f358a6a71def9df1e3ea4e4ac01d6d7f1794ee0f",
     "sense_lineage": [
       {
         "word_id": "word:kite",
@@ -5934,7 +6682,7 @@
     "ordinal": 2721,
     "word": "knife",
     "source_owner_path": "content/lexical/words/by-ordinal/o2721.json",
-    "source_fingerprint": "6f7234a5be53ae3de80f303c0cadcbd587238d428b504aa53e6d16e702d4fa77",
+    "source_fingerprint": "5948b4266f1423a0f396257506ec35d65a7d2e19accfa1900d380ecf6590f50d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5960,7 +6708,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "刀；小刀；匕首",
-        "definition_en": "a cutting instrument with a pointed blade and handle",
+        "definition_en": "a tool with a blade and handle, used for cutting or stabbing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5997,7 +6745,7 @@
         "id": "sense:knife:10348a2188905dbd",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "knife sb/sth",
         "definition_cn": "用刀切；刺伤",
         "definition_en": "cut or stab with a knife",
         "note": "",
@@ -6007,7 +6755,7 @@
             "id": "collocation:f6abbc6bcfcca916eac6",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "knife sb in the back",
-            "meaning_cn": "背后捅刀子；暗算某人",
+            "meaning_cn": "字面：从背后刺伤某人；比喻：背叛或暗算某人",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6019,8 +6767,8 @@
           {
             "id": "collocation:e6923cf3380c8b0e8407",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "knife through the meat",
-            "meaning_cn": "用刀切肉",
+            "phrase": "knife an attacker",
+            "meaning_cn": "用刀刺伤袭击者",
             "kind": "usage_example",
             "repair": null
           }
@@ -6068,23 +6816,23 @@
     "ordinal": 2722,
     "word": "knit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2722.json",
-    "source_fingerprint": "0834d9fd6eeebf85342fff447e2d7d27a6abe60b190f67f3bfb3264cc897d424",
+    "source_fingerprint": "5aadd3e7b98d79c3e9dee66fb49062dbf2c766db6feac65679992dae26461a52",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "编织",
-      "decision_cn": "",
+      "summary_cn": "针织；紧密结合；（使断骨）愈合；针织物",
+      "decision_cn": "线圈 → 针织；人/事 → 紧密结合；断骨 → knit (together) 愈合；knit your brows → 皱眉。noun knit → 针织物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "编织"
+        "target_label": "针织；紧密结合；（使断骨）愈合；针织物"
       }
     },
     "senses": [
@@ -6092,9 +6840,9 @@
         "id": "sense:knit:b94b69c656565ed4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "编织（衣物等）",
-        "definition_en": "to make a piece of clothing or fabric by interlocking loops of yarn with needles",
+        "governing_pattern": "knit; knit sth",
+        "definition_cn": "针织；编织衣物或织物",
+        "definition_en": "to make fabric or clothing by interlocking loops of yarn using needles or a machine",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6105,33 +6853,20 @@
             "meaning_cn": "织毛衣",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:15d70b7e5860f92a54b9",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "knit sth together",
-            "meaning_cn": "把…编织在一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:15d70b7e5860f92a54b9",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "knit sth together"
-            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:knit:b94b69c656565ed4",
           "target_locator": "record.senses[0]",
-          "target_label": "编织（衣物等）"
+          "target_label": "针织；编织衣物或织物"
         }
       },
       {
         "id": "sense:knit:99b8b79324ea5bf0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + together",
+        "governing_pattern": "knit (sb/sth) together; things knit together",
         "definition_cn": "紧密结合",
         "definition_en": "to join closely or become united",
         "note": "",
@@ -6148,6 +6883,19 @@
               "target_id": "collocation:c5837672a9ebefb85ea6",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "knit together"
+            }
+          },
+          {
+            "id": "collocation:15d70b7e5860f92a54b9",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "knit sth together",
+            "meaning_cn": "把人或事物紧密结合在一起",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:15d70b7e5860f92a54b9",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "knit sth together"
             }
           }
         ],
@@ -6174,6 +6922,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "编织物"
         }
+      },
+      {
+        "id": "sense:knit:07441aacc963115b",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "bones knit (together); knit a broken bone",
+        "definition_cn": "（使断骨）重新愈合",
+        "definition_en": "for broken bones to grow back together, or to make them do so",
+        "note": "骨骼语境；此义过去式和过去分词通常用 knit。针织衣物时常用 knitted，不机械套用同一个过去式偏好。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:43c7ba4b08980c574507",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The bones have knit together.",
+            "meaning_cn": "断骨已重新愈合。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:knit:07441aacc963115b",
+          "target_locator": "record.senses[3]",
+          "target_label": "（使断骨）重新愈合"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6187,17 +6961,64 @@
           "applicability": [
             {
               "surface": "knit"
+            },
+            {
+              "surface": "knit",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:knit:07441aacc963115b"
+              ],
+              "owner_sense_ids": [
+                "sense:knit:07441aacc963115b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2722.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "bones knit (together); knit a broken bone"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:knit:07441aacc963115b": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a8433be0a74db9ae69b5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "knit your brow(s)",
+        "lines": [
+          {
+            "text": "皱眉（表示专注、愤怒等）",
+            "lang": "cn"
+          },
+          {
+            "text": "brow/brows 是宾语；She knitted her brows in thought. = 她思索着皱起眉。不是织毛衣，也不是断骨愈合。",
+            "lang": "cn"
+          },
+          {
+            "text": "to draw your eyebrows together when concentrating, feeling angry, or similar",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a8433be0a74db9ae69b5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "knit your brow(s)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6361,23 +7182,23 @@
     "ordinal": 2724,
     "word": "knock",
     "source_owner_path": "content/lexical/words/by-ordinal/o2724.json",
-    "source_fingerprint": "6230b30d4b4148022bd68c3f7033d5bf82c0b04b9270c71d3ae7b7790a2d3073",
+    "source_fingerprint": "f5133ea82fef9cc5577475ff8193d5f5d5c8ec6ed2ea36ea44d3a212bab8125e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "敲击；敲打",
-      "decision_cn": "knock at/on → 敲门；knock sth → 撞击/敲打；knock sb out → 击昏/淘汰；noun → 敲击或打击。",
+      "summary_cn": "敲击；撞击；批评或贬低；敲击声与打击",
+      "decision_cn": "knock on/at → 敲；knock sth → 撞击；knock an idea → 批评/贬低。knock sb out → 击昏/淘汰；noun knock → 敲击声、批评或挫折。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "敲击；敲打"
+        "target_label": "敲击；撞击；批评或贬低；敲击声与打击"
       }
     },
     "senses": [
@@ -6530,6 +7351,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "挫折；不幸"
         }
+      },
+      {
+        "id": "sense:knock:45ba1a4210016249",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "knock sb/sth",
+        "definition_cn": "批评；贬低（常不公允）",
+        "definition_en": "to criticize someone or something, often unfairly",
+        "note": "非正式，常含贬低或不公允批评的语气；直接接人或事物作宾语。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2bf4961702a7b23d21fd",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "Don't knock the idea before trying it.",
+            "meaning_cn": "试过之前别贬低这个想法。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:knock:45ba1a4210016249",
+          "target_locator": "record.senses[5]",
+          "target_label": "批评；贬低（常不公允）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6542,6 +7389,23 @@
           "applicability": [
             {
               "surface": "knock"
+            },
+            {
+              "surface": "knock",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:knock:45ba1a4210016249"
+              ],
+              "owner_sense_ids": [
+                "sense:knock:45ba1a4210016249"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2724.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "knock sb/sth"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6561,8 +7425,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:knock:45ba1a4210016249": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -6605,23 +7473,23 @@
     "ordinal": 2725,
     "word": "knot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2725.json",
-    "source_fingerprint": "e325ebec5cec0c8ccba3590c786e0ee4ffc7c66974d73150f983a26b3b7c5122",
+    "source_fingerprint": "eaa5e0e57ff306edafe7ae0124db2f77487368353199562fb06b7c7eaea37070",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "打结或缠结形成的结；紧密的一群；硬块",
-      "decision_cn": "",
+      "summary_cn": "绳结、紧簇或硬块；打结；节（速度单位）",
+      "decision_cn": "绳索 → 结；人群/材料 → 紧簇或硬块；动作 → 打结；船速20 knots → 20节，即每小时20海里。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "打结或缠结形成的结；紧密的一群；硬块"
+        "target_label": "绳结、紧簇或硬块；打结；节（速度单位）"
       }
     },
     "senses": [
@@ -6793,6 +7661,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "肿块；纠结"
         }
+      },
+      {
+        "id": "sense:knot:c10fb6de84a81234",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "a speed of ... knots",
+        "definition_cn": "节（船舶、飞机等的速度单位）",
+        "definition_en": "a unit of speed used for boats and aircraft, equal to one nautical mile per hour",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2a66b78dd0dbe82882d8",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "travel at 20 knots",
+            "meaning_cn": "以20节的速度行进",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:knot:c10fb6de84a81234",
+          "target_locator": "record.senses[6]",
+          "target_label": "节（船舶、飞机等的速度单位）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6805,6 +7699,23 @@
           "applicability": [
             {
               "surface": "knot"
+            },
+            {
+              "surface": "knot",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:knot:c10fb6de84a81234"
+              ],
+              "owner_sense_ids": [
+                "sense:knot:c10fb6de84a81234"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2725.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a speed of ... knots"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6824,8 +7735,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:knot:c10fb6de84a81234": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6860,7 +7775,7 @@
     "ordinal": 2726,
     "word": "know",
     "source_owner_path": "content/lexical/words/by-ordinal/o2726.json",
-    "source_fingerprint": "7e8ee7cdee7e8db2ac654fe2b4b513950001592d9a9d2151d2de89c1fe4611ad",
+    "source_fingerprint": "50797bfd31f69d0ad8848756cdbf1e0ff4ee6e3b3c21a9f1687a497862f11a77",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6883,7 +7798,7 @@
         "id": "sense:know:6ed1f98d85565b7d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "know sth/that/what ...; know about sth; know",
         "definition_cn": "知道；了解",
         "definition_en": "to have information or be aware of something",
         "note": "",
@@ -6953,9 +7868,9 @@
         "id": "sense:know:c0072cfd2bdf5b48",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + how to do sth",
-        "definition_cn": "会；掌握",
-        "definition_en": "to have learned or memorized something",
+        "governing_pattern": "know sth; know how to do sth",
+        "definition_cn": "学会、熟知或记住某事；知道怎样做某事",
+        "definition_en": "to have learned something or learned how to do something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6972,7 +7887,7 @@
           "target_kind": "sense",
           "target_id": "sense:know:c0072cfd2bdf5b48",
           "target_locator": "record.senses[2]",
-          "target_label": "会；掌握"
+          "target_label": "学会、熟知或记住某事；知道怎样做某事"
         }
       },
       {
@@ -7075,7 +7990,7 @@
     "ordinal": 2727,
     "word": "knowledge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2727.json",
-    "source_fingerprint": "bb2f0cbcf6dd477722a2e855b51b831cb2e14533d900d7e2b5e011b08d80e547",
+    "source_fingerprint": "1563c3328380f9089ebb2458136c8605bb45e3e0018df63f9408a72d9a227bc2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7084,13 +7999,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "知识；认识",
-      "decision_cn": "",
+      "summary_cn": "知识、理解或技能；对事实或情况的知晓",
+      "decision_cn": "knowledge of a subject → 学科知识；without sb’s knowledge → 某人不知情；in the knowledge that → 知道后面的事实。to my knowledge → 据我所知；know 是“知道”的动词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "知识；认识"
+        "target_label": "知识、理解或技能；对事实或情况的知晓"
       }
     },
     "senses": [
@@ -7099,8 +8014,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "知识；学问",
-        "definition_en": "the psychological result of perception, learning, and reasoning",
+        "definition_cn": "知识；学问；所掌握的理解或技能",
+        "definition_en": "information, understanding or skill acquired through learning or experience",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7130,7 +8045,7 @@
           "target_kind": "sense",
           "target_id": "sense:knowledge:74a828b9b45d5622",
           "target_locator": "record.senses[0]",
-          "target_label": "知识；学问"
+          "target_label": "知识；学问；所掌握的理解或技能"
         }
       },
       {
@@ -7138,9 +8053,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "认识；了解",
-        "definition_en": "awareness or familiarity gained by experience",
-        "note": "",
+        "definition_cn": "认识；了解；对某个事实或情况的知晓",
+        "definition_en": "awareness or familiarity, including knowing about a particular fact or situation",
+        "note": "知晓不必来自亲身经历；with/without sb’s knowledge 表示该人知情/不知情，不自动表示同意。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7161,7 +8076,7 @@
           "target_kind": "sense",
           "target_id": "sense:knowledge:f711704be9315464",
           "target_locator": "record.senses[1]",
-          "target_label": "认识；了解"
+          "target_label": "认识；了解；对某个事实或情况的知晓"
         }
       }
     ],
@@ -7198,7 +8113,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a60eb9bcdf971dc468a6",
+        "source_locator": "record.constructions[0]",
+        "pattern": "with/without sb's knowledge",
+        "lines": [
+          {
+            "text": "在某人知情／不知情的情况下",
+            "lang": "cn"
+          },
+          {
+            "text": "without her knowledge = 她不知情；knowledge 不自动包含 consent/approval（同意）。",
+            "lang": "cn"
+          },
+          {
+            "text": "with or without the person being aware of it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a60eb9bcdf971dc468a6",
+          "target_locator": "record.constructions[0]",
+          "target_label": "with/without sb's knowledge"
+        }
+      },
+      {
+        "id": "construction:f6640e7f6d35cf44bc70",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in the knowledge that ...",
+        "lines": [
+          {
+            "text": "知道……；在明知……的情况下",
+            "lang": "cn"
+          },
+          {
+            "text": "They left in the knowledge that the work was finished. = 他们知道工作已经完成，便离开了。后接 that 从句，区别于 to my knowledge（据我所知）。",
+            "lang": "cn"
+          },
+          {
+            "text": "while knowing that the following fact or situation is true",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f6640e7f6d35cf44bc70",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in the knowledge that ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7223,7 +8189,7 @@
     "ordinal": 2728,
     "word": "label",
     "source_owner_path": "content/lexical/words/by-ordinal/o2728.json",
-    "source_fingerprint": "b771a127ad25bba782e472c18398ff060dff057e0b2667d77ead2b0d2b4e01b6",
+    "source_fingerprint": "6e40f3dc28d5f032545e310c3a44eb53ee3f79eb02a3b03e8b0a1eda5b8eadae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7356,7 +8322,7 @@
         "id": "sense:label:fdfde1eb26125b41",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + as + complement",
+        "governing_pattern": "label sb/sth (as) + noun/adjective",
         "definition_cn": "把……称为；把……归类为",
         "definition_en": "to describe someone or something in a particular way",
         "note": "",
@@ -7365,14 +8331,14 @@
           {
             "id": "collocation:a9bf84ff198b6cd7dc1e",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "label + sb/sth + as + sth",
+            "phrase": "label sb/sth (as) sth",
             "meaning_cn": "把……称为……",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a9bf84ff198b6cd7dc1e",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "label + sb/sth + as + sth"
+              "target_label": "label sb/sth (as) sth"
             }
           },
           {
@@ -7467,7 +8433,7 @@
     "ordinal": 2729,
     "word": "labor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2729.json",
-    "source_fingerprint": "d4fd7a2fa0e96239f3c9227dbc8036ffe63a09530c3dd62165765679b6edca51",
+    "source_fingerprint": "11ca4dd820334337caa4435133d3d47acca4ff66f8acf58cee88732b49dcca99",
     "sense_lineage": [
       {
         "word_id": "word:labor",
@@ -7501,8 +8467,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "劳动，工作",
-        "definition_en": "productive work, especially physical work done for wages",
-        "note": "",
+        "definition_en": "work involving effort, especially physical effort",
+        "note": "通常不可数；不限定有工资的工作，也可指无报酬的辛劳。美式拼写 labor；此处不涉及大写政党身份。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7510,14 +8476,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "manual labor",
             "meaning_cn": "体力劳动",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:c0f8c9b8a1a8596e267b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "labor force",
-            "meaning_cn": "劳动力",
             "kind": "usage_example",
             "repair": null
           }
@@ -7578,8 +8536,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "劳工，工人阶级",
-        "definition_en": "a social class comprising those who do manual labor or work for wages",
+        "definition_cn": "劳动力；劳工、工人（统称）",
+        "definition_en": "workers considered collectively, or the workforce available for work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7590,13 +8548,21 @@
             "meaning_cn": "熟练工人",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:c0f8c9b8a1a8596e267b",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "labor force",
+            "meaning_cn": "劳动力",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:labor:52542f8979ba5bec",
           "target_locator": "record.senses[2]",
-          "target_label": "劳工，工人阶级"
+          "target_label": "劳动力；劳工、工人（统称）"
         }
       },
       {
@@ -8417,7 +9383,7 @@
     "ordinal": 2735,
     "word": "lady",
     "source_owner_path": "content/lexical/words/by-ordinal/o2735.json",
-    "source_fingerprint": "9f6ca9b28ebf6268fcfe124c1e42997e87fd244568e47fc64bc16e5e104a3ef4",
+    "source_fingerprint": "1b8313c72ff520ac617cbb2239a8c093329daca25b846bb334df3831a09b1cc9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8476,7 +9442,7 @@
             "id": "collocation:5626836818f3ec51882e",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "Lady Diana",
-            "meaning_cn": "戴安娜王妃（贵族头衔）",
+            "meaning_cn": "戴安娜女士（Lady 为英国贵族头衔，不等于王妃）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8524,7 +9490,7 @@
     "ordinal": 2736,
     "word": "lag",
     "source_owner_path": "content/lexical/words/by-ordinal/o2736.json",
-    "source_fingerprint": "0239a07438017f8c2eb66c56432c4ff110c88beab18d5bd3268972380a4380c1",
+    "source_fingerprint": "c226f3acb18b4d45caa8364ef28544a3bd3dd7cbc1db591125360b7f0029cecb",
     "sense_lineage": [
       {
         "word_id": "word:lag",
@@ -8793,7 +9759,7 @@
     "ordinal": 2738,
     "word": "lamb",
     "source_owner_path": "content/lexical/words/by-ordinal/o2738.json",
-    "source_fingerprint": "2a05b63179cd89cfded62fa3248c842ed020b76faae7af89a3cc5d90e92e9337",
+    "source_fingerprint": "4c1d2960ec4a0fe08e70e6285a6e9eae78e1c9f42fb7e1e0560135c9479afaec",
     "sense_lineage": [
       {
         "word_id": "word:lamb",
@@ -8940,7 +9906,7 @@
     "ordinal": 2739,
     "word": "lame",
     "source_owner_path": "content/lexical/words/by-ordinal/o2739.json",
-    "source_fingerprint": "8cec4213da5ec7338a92b182cd2fad280d6e86a652deb1cb41f7434b79c7688f",
+    "source_fingerprint": "bec85417f75d9aeace51af75bac4d6a31b6c920ac439183eca060db2b763a8c7",
     "sense_lineage": [
       {
         "word_id": "word:lame",
@@ -9071,7 +10037,7 @@
         {
           "collocations": [],
           "confidence": "medium",
-          "definition_cn": "金属薄板（织物）",
+          "definition_cn": "金属丝织物；金银线织物（lamé）",
           "definition_en": "a fabric interwoven with threads of metal",
           "governing_pattern": "",
           "level": "L3",
@@ -9234,7 +10200,7 @@
     "ordinal": 2741,
     "word": "land",
     "source_owner_path": "content/lexical/words/by-ordinal/o2741.json",
-    "source_fingerprint": "54660a96d8d363d40acfc16165be325e38ebc6a4875da16fb921cec844a8b6cd",
+    "source_fingerprint": "f735ee6c4fa16accefb70785d1899caaa7124367fe02b5768172620b39f1d1bb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9244,13 +10210,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "陆地或着陆",
-      "decision_cn": "",
+      "summary_cn": "陆地、土地或国土；（使）着陆；成功获得",
+      "decision_cn": "陆地或着陆",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "陆地或着陆"
+        "target_label": "陆地、土地或国土；（使）着陆；成功获得"
       }
     },
     "senses": [
@@ -9303,8 +10269,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "土地；土壤",
-        "definition_en": "material in the top layer of the surface of the earth in which plants can grow (especially with reference to its quality or use)",
+        "definition_cn": "土地；地面（就用途或土质而言）",
+        "definition_en": "ground considered in terms of its use, quality or suitability for growing things",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9329,7 +10295,7 @@
           "target_kind": "sense",
           "target_id": "sense:land:7efda8a0f39d53f6",
           "target_locator": "record.senses[1]",
-          "target_label": "土地；土壤"
+          "target_label": "土地；地面（就用途或土质而言）"
         }
       },
       {
@@ -9337,8 +10303,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "地产；地皮",
-        "definition_en": "the land on which real estate is located",
+        "definition_cn": "土地；地产；地皮",
+        "definition_en": "an area of ground owned or used as property",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9363,7 +10329,7 @@
           "target_kind": "sense",
           "target_id": "sense:land:e82d7f6d48ff5af7",
           "target_locator": "record.senses[2]",
-          "target_label": "地产；地皮"
+          "target_label": "土地；地产；地皮"
         }
       },
       {
@@ -9627,7 +10593,7 @@
     "ordinal": 2743,
     "word": "landscape",
     "source_owner_path": "content/lexical/words/by-ordinal/o2743.json",
-    "source_fingerprint": "b4fcd524bc57e024907674f9570de703d563c74fd58117ffe7ffe4740735f3ac",
+    "source_fingerprint": "8bcebb9c677788e95173814c45203000367e23bd4f94dd07a9b05c46f7c843e5",
     "sense_lineage": [
       {
         "word_id": "word:landscape",
@@ -9635,6 +10601,13 @@
         "from_target_id": "sense:landscape:4e082902c5645316",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:landscape",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:564653dd44580c8760e5",
+        "status": "merged",
+        "to_target_id": "collocation:377560be312c6c5472e4"
       }
     ],
     "recall_map": {
@@ -9645,13 +10618,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "风景；景观",
+      "summary_cn": "风景；风景画；领域格局；美化景观",
       "decision_cn": "scenery → 风景；art → 风景画；figurative → 领域/局面（political landscape）；verb landscape a garden → 美化景观。少见不及物职业动词保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "风景；景观"
+        "target_label": "风景；风景画；领域格局；美化景观"
       }
     },
     "senses": [
@@ -9672,14 +10645,6 @@
             "meaning_cn": "自然景观",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:564653dd44580c8760e5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "landscape painting",
-            "meaning_cn": "风景画",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -9694,8 +10659,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "风景画；山水画",
-        "definition_en": "a genre of art dealing with the depiction of natural scenery",
+        "definition_cn": "风景画；山水画；风景画艺术",
+        "definition_en": "a picture of scenery, or the art of depicting scenery",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9706,13 +10671,21 @@
             "meaning_cn": "风景画",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:564653dd44580c8760e5",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "landscape painting",
+            "meaning_cn": "风景画",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:landscape:80cf2b316641535f",
           "target_locator": "record.senses[1]",
-          "target_label": "风景画；山水画"
+          "target_label": "风景画；山水画；风景画艺术"
         }
       },
       {
@@ -9809,22 +10782,22 @@
     "ordinal": 2744,
     "word": "lane",
     "source_owner_path": "content/lexical/words/by-ordinal/o2744.json",
-    "source_fingerprint": "2b27276bbfe267255e50abc9cda79814c264cb2ed9c79e80e36666e5004c1536",
+    "source_fingerprint": "bdf2faa92baadd9ede70462e11c3d9e3df2fe6af1b0fede25330323b4020dcd1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "狭窄的道路或标出的交通路径",
-      "decision_cn": "",
+      "summary_cn": "小路或巷；车道；跑道或泳道",
+      "decision_cn": "道路 → 小路/巷；车辆 → 车道；田径/游泳 → 独立跑道/泳道。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "狭窄的道路或标出的交通路径"
+        "target_label": "小路或巷；车道；跑道或泳道"
       }
     },
     "senses": [
@@ -9887,6 +10860,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "车道"
         }
+      },
+      {
+        "id": "sense:lane:29fc393516c687d2",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "in lane ...; a swimming lane",
+        "definition_cn": "跑道；泳道（划给单个运动员的通道）",
+        "definition_en": "a marked strip of a track or pool assigned to an individual athlete",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:45255a5ae1c2849f6b50",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "swim in lane four",
+            "meaning_cn": "在第四泳道游泳",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lane:29fc393516c687d2",
+          "target_locator": "record.senses[2]",
+          "target_label": "跑道；泳道（划给单个运动员的通道）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9900,6 +10899,23 @@
           "applicability": [
             {
               "surface": "lane"
+            },
+            {
+              "surface": "lane",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:lane:29fc393516c687d2"
+              ],
+              "owner_sense_ids": [
+                "sense:lane:29fc393516c687d2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2744.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in lane ...; a swimming lane"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9917,8 +10933,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:lane:29fc393516c687d2": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9935,22 +10955,22 @@
     "ordinal": 2745,
     "word": "language",
     "source_owner_path": "content/lexical/words/by-ordinal/o2745.json",
-    "source_fingerprint": "63e5c6de1e615c58a26ef5631a8db7964855bf1bb422306cc3ce99bd2f768967",
+    "source_fingerprint": "66ab55adeff3a696cbb35fde5d16fe4777614dedc22e463d78f400249c2d591b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "语言",
-      "decision_cn": "",
+      "summary_cn": "语言与交流系统；语言能力；措辞或语言风格",
+      "decision_cn": "foreign/body language → 语言或交流方式；language acquisition → 语言能力习得；plain/strong language → 措辞，不按语言能力强弱理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "语言"
+        "target_label": "语言与交流系统；语言能力；措辞或语言风格"
       }
     },
     "senses": [
@@ -9994,7 +11014,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "语言能力",
-        "definition_en": "the mental faculty or power of vocal communication",
+        "definition_en": "the capacity to acquire and use language, including spoken or signed language",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10013,6 +11033,45 @@
           "target_locator": "record.senses[1]",
           "target_label": "语言能力"
         }
+      },
+      {
+        "id": "sense:language:54318abfeab11993",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "in plain/formal language; use ... language",
+        "definition_cn": "措辞；表达方式；语言风格",
+        "definition_en": "the words or style used when speaking or writing",
+        "note": "通常不可数。plain language 是通俗措辞；strong/foul language 是粗俗或可能冒犯的用语，不是语言能力强或另一种语言。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0e370e6e4baaf274ec7c",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "in plain language",
+            "meaning_cn": "用通俗易懂的措辞",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0e370e6e4baaf274ec7c",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "in plain language"
+            }
+          },
+          {
+            "id": "collocation:462a41877012b9efaa17",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "strong language",
+            "meaning_cn": "粗俗或可能冒犯的用语",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:language:54318abfeab11993",
+          "target_locator": "record.senses[2]",
+          "target_label": "措辞；表达方式；语言风格"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10025,14 +11084,35 @@
           "applicability": [
             {
               "surface": "language"
+            },
+            {
+              "surface": "language",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:language:54318abfeab11993"
+              ],
+              "owner_sense_ids": [
+                "sense:language:54318abfeab11993"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2745.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in plain/formal language; use ... language"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:language:54318abfeab11993": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -10182,23 +11262,23 @@
     "ordinal": 2747,
     "word": "lap",
     "source_owner_path": "content/lexical/words/by-ordinal/o2747.json",
-    "source_fingerprint": "0eb0cf2415f7ddd6e97d4d4a87f290a8861729cb26b824139181343c3c42f54e",
+    "source_fingerprint": "7899a6c26887cad52601e7fdb14a1d8bbad8659315e797927728a05fa3c4467b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大腿部；舔",
-      "decision_cn": "",
+      "summary_cn": "坐着时的膝上；赛道一圈；舔食；水轻拍；套圈",
+      "decision_cn": "膝上 → hold on your lap；跑道 → 一圈；动物 → 舔食；水 → 轻拍；lap another runner → 超过一圈，非舔人。lap sth up → 热切享受、接受或相信。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大腿部；舔"
+        "target_label": "坐着时的膝上；赛道一圈；舔食；水轻拍；套圈"
       }
     },
     "senses": [
@@ -10309,6 +11389,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "（水）轻拍，冲刷"
         }
+      },
+      {
+        "id": "sense:lap:798d6e48ef7c091f",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "lap another runner/competitor",
+        "definition_cn": "在比赛中超过某人一整圈或更多圈；套圈",
+        "definition_en": "to pass a competitor who is at least one full circuit behind",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:078febb1a58abe7f0a86",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "lap the slower runners",
+            "meaning_cn": "对较慢的跑者套圈",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lap:798d6e48ef7c091f",
+          "target_locator": "record.senses[4]",
+          "target_label": "在比赛中超过某人一整圈或更多圈；套圈"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10321,14 +11427,35 @@
           "applicability": [
             {
               "surface": "lap"
+            },
+            {
+              "surface": "lap",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lap:798d6e48ef7c091f"
+              ],
+              "owner_sense_ids": [
+                "sense:lap:798d6e48ef7c091f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2747.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lap another runner/competitor"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:lap:798d6e48ef7c091f": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -10363,7 +11490,7 @@
     "ordinal": 2748,
     "word": "lapse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2748.json",
-    "source_fingerprint": "3906c2915e3e494e5b679cc81439e9baa2750df965b5872bb3ae068fa083e240",
+    "source_fingerprint": "204c39d1b62b03de4724f5d63f5a9ac7fc3dc76034fb5ff6831cd7f05406854d",
     "sense_lineage": [
       {
         "word_id": "word:lapse",
@@ -10376,6 +11503,13 @@
         "word_id": "word:lapse",
         "target_kind": "collocation",
         "from_target_id": "collocation:3f6272bd9a5626b7b828",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:lapse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9025bd2678b8a97eb27a",
         "status": "reference",
         "to_target_id": null
       }
@@ -10481,27 +11615,14 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + into",
-        "definition_cn": "陷入；倒退到（不良状态）",
-        "definition_en": "to fall back into a previous state or condition, often a bad one",
+        "definition_cn": "陷入某种状态；逐渐转入（常为不良状态）",
+        "definition_en": "to pass or fall into a state, often a less active or undesirable one",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9025bd2678b8a97eb27a",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "lapse into + sth",
-            "meaning_cn": "陷入某种状态",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9025bd2678b8a97eb27a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "lapse into + sth"
-            }
-          },
-          {
             "id": "collocation:3d63bfd91d655e85ebec",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "lapse into silence",
             "meaning_cn": "陷入沉默",
             "kind": "usage_example",
@@ -10512,7 +11633,7 @@
           "target_kind": "sense",
           "target_id": "sense:lapse:42ca1c6ff40a5f35",
           "target_locator": "record.senses[2]",
-          "target_label": "陷入；倒退到（不良状态）"
+          "target_label": "陷入某种状态；逐渐转入（常为不良状态）"
         }
       },
       {
@@ -10761,7 +11882,7 @@
     "ordinal": 2750,
     "word": "large",
     "source_owner_path": "content/lexical/words/by-ordinal/o2750.json",
-    "source_fingerprint": "7e76a7b31359a8da3f3456d8bd8e3548886d662a63f52eba325b5fb0bfc10e8a",
+    "source_fingerprint": "ad951fc2121de91fd4024a864da3a8757cd84639f567510c788c346538c05d75",
     "sense_lineage": [
       {
         "word_id": "word:large",
@@ -10923,6 +12044,31 @@
           "target_locator": "record.constructions[1]",
           "target_label": "person/criminal + at large"
         }
+      },
+      {
+        "id": "construction:5df2acf6eb0af7c69c2d",
+        "source_locator": "record.constructions[2]",
+        "pattern": "by and large",
+        "lines": [
+          {
+            "text": "总体而言；大体上",
+            "lang": "cn"
+          },
+          {
+            "text": "句子评述结构：By and large, the plan worked. = 总体而言，方案奏效；允许例外，不能拆成 by + 大。",
+            "lang": "cn"
+          },
+          {
+            "text": "generally, although not completely in every respect",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5df2acf6eb0af7c69c2d",
+          "target_locator": "record.constructions[2]",
+          "target_label": "by and large"
+        }
       }
     ],
     "reference": {
@@ -10934,7 +12080,7 @@
           "target_word": "largely",
           "lines": [
             {
-              "text": "large 形容词，largely 副词，词性转换",
+              "text": "large 是形容词“大、数量多”；largely 是副词“主要地、在很大程度上”，不能按 large 的大小义机械理解为“大大地”。",
               "lang": "cn"
             }
           ],

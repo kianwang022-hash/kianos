@@ -11,26 +11,28 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "耗尽，用尽；使精疲力尽",
-          "label_en": "use up completely; wear out completely",
+          "label_cn": "耗尽资源或精力；穷尽话题",
+          "label_en": "leave no resources, energy, or topic to cover",
           "pos": "verb",
           "sense_ids": [
             "sense:exhaust:eaaec6d24bab5517",
-            "sense:exhaust:23a4804d9ab55061"
+            "sense:exhaust:23a4804d9ab55061",
+            "sense:exhaust:0035085962c38d49"
           ]
         },
         {
-          "label_cn": "废气",
-          "label_en": "gases ejected from an engine as waste products",
+          "label_cn": "废气或排气系统",
+          "label_en": "engine waste gases or exhaust system",
           "pos": "noun",
           "sense_ids": [
-            "sense:exhaust:db596e6713975ab7"
+            "sense:exhaust:db596e6713975ab7",
+            "sense:exhaust:4e7cbb5cebeb54f9"
           ]
         }
       ],
-      "core_meaning_cn": "耗尽；使精疲力尽；废气",
-      "core_meaning_en": "to use up completely or exhaust someone; engine waste gases",
-      "mental_model_cn": "耗尽或废气",
+      "core_meaning_cn": "耗尽；使精疲力尽；穷尽话题；废气或排气系统",
+      "core_meaning_en": "use up or tire out; cover a topic completely; engine exhaust or exhaust system",
+      "mental_model_cn": "资源作宾语指耗尽，人作宾语指使精疲力尽；话题作宾语指谈透。名词排放语境指废气，车辆部件语境可指排气系统。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -145,6 +147,28 @@
         "sense_label_en": "the system through which burned gases are discharged",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:exhaust:0035085962c38d49",
+        "pos": "verb",
+        "definition_cn": "充分讨论、研究（以至无更多可补充）",
+        "definition_en": "to discuss or investigate a subject so fully that nothing more remains to be covered",
+        "sense_label_en": "to discuss or investigate a subject so fully that nothing more remains to be covered",
+        "governing_pattern": "exhaust a subject/topic",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9197e90202f037bcc392",
+            "phrase": "We had exhausted the subject.",
+            "meaning_cn": "这个话题已经谈得无话可补。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -185,6 +209,23 @@
           "applicability": [
             {
               "surface": "exhaust"
+            },
+            {
+              "surface": "exhaust",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:exhaust:0035085962c38d49"
+              ],
+              "owner_sense_ids": [
+                "sense:exhaust:0035085962c38d49"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1776.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "exhaust a subject/topic"
+              }
             }
           ],
           "sources": [
@@ -286,6 +327,14 @@
         "merged_into_sense_id": null,
         "source_row": 4866,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:exhaust:0035085962c38d49",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1776.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -321,6 +370,13 @@
         "id": "collocation:e2e1a13ab9ad6bceea68",
         "source_row": 19199,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:9197e90202f037bcc392",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1776.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

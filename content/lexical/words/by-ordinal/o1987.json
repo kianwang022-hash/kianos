@@ -13,33 +13,58 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "买单；支付费用",
-        "pattern": "foot the bill"
+        "pattern": "foot the bill",
+        "source_sense_id": "sense:foot:19fcb0eca9d95c0b",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:ea789a0823394251467e"
+        }
+      },
+      {
+        "construction_id": "construction:ed95d940415d70f122cf",
+        "pattern": "put one’s foot down",
+        "meaning_cn": "坚持立场；坚决制止或拒绝",
+        "definition_en": "to take a firm stand",
+        "usage_note": "此整体表示态度坚定，不只描述把脚放下；具体字面动作仍按上下文理解。",
+        "boundary": "此整体表示态度坚定，不只描述把脚放下；具体字面动作仍按上下文理解。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:bf26bab7a2cfa7048829",
+        "pattern": "get/have cold feet",
+        "meaning_cn": "因害怕或犹疑而不敢做原计划的事",
+        "definition_en": "to become apprehensive or doubtful about carrying out a plan",
+        "usage_note": "整体表示临阵胆怯或犹豫，不只脚冷；不能推断每次已彻底取消计划。",
+        "boundary": "整体表示临阵胆怯或犹豫，不只脚冷；不能推断每次已彻底取消计划。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "edd01459741c439fd868351deadfc5a2084b846105d1ee9a7deac43103e8f615",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "脚，足；英尺",
-          "label_en": "lower part of the leg; unit of length equal to 12 inches",
+          "label_cn": "脚，足；英尺；底部、下端；（山等的）脚下",
+          "label_en": "lower part of the leg; unit of length equal to 12 inches; the bottom or lower end of something",
           "pos": "noun",
           "sense_ids": [
             "sense:foot:62669744c7035cdf",
-            "sense:foot:b7fca292c1c05d8b"
+            "sense:foot:b7fca292c1c05d8b",
+            "sense:foot:9a81b357a5634675"
           ]
         },
         {
-          "label_cn": "支付（账单）",
-          "label_en": "pay (a bill)",
+          "label_cn": "支付（账单、费用；尤见 foot the bill）",
+          "label_en": "to pay a bill or cost, especially in the phrase foot the bill",
           "pos": "verb",
           "sense_ids": [
             "sense:foot:19fcb0eca9d95c0b"
           ]
         }
       ],
-      "core_meaning_cn": "脚；英尺",
-      "core_meaning_en": "body part or unit of length",
-      "mental_model_cn": "脚；英尺",
+      "core_meaning_cn": "脚、英尺或底部；支付费用；坚定立场或胆怯的表达",
+      "core_meaning_en": "a foot, length unit, or bottom; pay a bill; idiomatic firmness or apprehension",
+      "mental_model_cn": "脚与英尺看对象；foot of山/床/页为底部或下端。foot the bill为支付费用，put one’s foot down为坚持立场，get cold feet为临阵胆怯。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,15 +87,6 @@
             ],
             "meaning_cn": "步行",
             "phrase": "on foot"
-          },
-          {
-            "collocation_id": "collocation:b3359e70879540379bd9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:foot:62669744c7035cdf:collocation:1"
-            ],
-            "meaning_cn": "付账",
-            "phrase": "foot the bill"
           }
         ],
         "confidence": "medium",
@@ -119,6 +135,15 @@
             ],
             "meaning_cn": "付账",
             "phrase": "foot the bill"
+          },
+          {
+            "collocation_id": "collocation:b3359e70879540379bd9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:foot:62669744c7035cdf:collocation:1"
+            ],
+            "meaning_cn": "付账",
+            "phrase": "foot the bill"
           }
         ],
         "confidence": "medium",
@@ -132,6 +157,28 @@
         "sense_label_en": "pay (a bill)",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:foot:9a81b357a5634675",
+        "pos": "noun",
+        "definition_cn": "底部、下端；（山等的）脚下",
+        "definition_en": "the bottom or lower end of something",
+        "sense_label_en": "the bottom or lower end of something",
+        "governing_pattern": "the foot of a hill/bed/page/stairs",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c3f70406e91e96bafbc9",
+            "phrase": "at the foot of the hill",
+            "meaning_cn": "在山脚下",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +231,23 @@
           "applicability": [
             {
               "surface": "foot"
+            },
+            {
+              "surface": "foot",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:foot:9a81b357a5634675"
+              ],
+              "owner_sense_ids": [
+                "sense:foot:9a81b357a5634675"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1987.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "the foot of a hill/bed/page/stairs"
+              }
             }
           ],
           "sources": [
@@ -324,6 +388,14 @@
         "merged_into_sense_id": null,
         "source_row": 5527,
         "source_path": "content/lexical/canonical/senses/shards/o1985-2016.json"
+      },
+      {
+        "sense_id": "sense:foot:9a81b357a5634675",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1987.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -332,7 +404,14 @@
       "collocation:b3359e70879540379bd9",
       "collocation:ea789a0823394251467e"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:49dcc5c066f22644da50",
+        "target_kind": "construction",
+        "status": "deprecated",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:8f3b73548817649d8184",
@@ -347,12 +426,20 @@
       {
         "id": "collocation:b3359e70879540379bd9",
         "source_row": 15190,
-        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json",
+        "sense_id": "sense:foot:19fcb0eca9d95c0b"
       },
       {
         "id": "collocation:ea789a0823394251467e",
         "source_row": 19858,
         "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json"
+      },
+      {
+        "id": "collocation:c3f70406e91e96bafbc9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1987.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

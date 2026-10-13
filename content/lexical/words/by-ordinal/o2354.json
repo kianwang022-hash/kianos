@@ -11,28 +11,32 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "孔，洞，开口；（故意挖的）洞，坑；高尔夫球的一洞",
-          "label_en": "an opening into/through something; a deliberately made hole; one hole or playing period on a golf course",
+          "label_cn": "孔，洞，开口；（故意挖的）洞，坑；高尔夫球洞；从发球处至果岭的一洞球道；空位，空隙；（计划、论证等的）漏洞；缺陷；（非正式、贬义）糟糕的地方",
+          "label_en": "an opening into or through something; an opening deliberately made in or through something; a cup on a golf green, or the section of the course played from a tee to that cup; an unoccupied space; a weakness in a plan or account; an unpleasant place to live or stay",
           "pos": "noun",
           "sense_ids": [
             "sense:hole:d15ca24c1d475824",
             "sense:hole:6c46a24035ce5051",
-            "sense:hole:f26661a60cdb57ea"
+            "sense:hole:f26661a60cdb57ea",
+            "sense:hole:b528fb12c34a50dd",
+            "sense:hole:9984a3b103ec681b",
+            "sense:hole:108fc6f9ece91b0f"
           ]
         },
         {
-          "label_cn": "挖洞；在…上打洞",
-          "label_en": "to make a hole or holes in something",
+          "label_cn": "在……上打洞／造成孔洞；（高尔夫）把球打入洞中；完成一洞",
+          "label_en": "to make a hole or holes in something; to hit a golf ball into the hole",
           "pos": "verb",
           "sense_ids": [
-            "sense:hole:c3d0c19a772f5dae"
+            "sense:hole:c3d0c19a772f5dae",
+            "sense:hole:9cc2bbe648cc5e8a"
           ]
         }
       ],
-      "core_meaning_cn": "孔、洞或凹陷空间",
-      "core_meaning_en": "an opening or hollow space",
-      "mental_model_cn": "孔、洞或凹陷空间",
-      "mental_model_en": ""
+      "core_meaning_cn": "孔洞、坑、空隙或空位；高尔夫球洞；论证漏洞或糟糕地方；打洞或把球打入洞",
+      "core_meaning_en": "an opening, hollow or gap; a golf hole; a weakness or unpleasant place; to make a hole or hole a golf ball",
+      "mental_model_cn": "留出空间或缺失部分；论证中的缺失成为漏洞，高尔夫球洞和入洞动作由运动语境识别。",
+      "mental_model_en": "an opening, hollow or gap; a golf hole; a weakness or unpleasant place; to make a hole or hole a golf ball."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,31 +116,21 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "高尔夫球洞；一洞的击球区",
-        "definition_en": "one playing period (from tee to green) on a golf course",
+        "definition_cn": "高尔夫球洞；从发球处至果岭的一洞球道",
+        "definition_en": "a cup on a golf green, or the section of the course played from a tee to that cup",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hole:f26661a60cdb57ea",
-        "sense_label_en": "one playing period (from tee to green) on a golf course",
+        "sense_label_en": "a cup on a golf green, or the section of the course played from a tee to that cup",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:46732bbacc1369ed078c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hole:c3d0c19a772f5dae:collocation:0"
-            ],
-            "meaning_cn": "把球打入洞中",
-            "phrase": "hole the ball"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "挖洞，掘坑；在…上打洞",
+        "definition_cn": "在……上打洞／造成孔洞",
         "definition_en": "to make a hole or holes in something",
         "governing_pattern": "vt. + object",
         "level": "L2",
@@ -162,18 +156,73 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:46732bbacc1369ed078c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hole:c3d0c19a772f5dae:collocation:0"
+            ],
+            "meaning_cn": "把球打入洞中",
+            "phrase": "hole the ball"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "进洞，凿洞",
-        "definition_en": "to go into a hole (as in golf)",
-        "governing_pattern": "",
+        "definition_cn": "（高尔夫）把球打入洞中；完成一洞",
+        "definition_en": "to hit a golf ball into the hole",
+        "governing_pattern": "hole a ball/putt; hole out",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hole:9cc2bbe648cc5e8a",
-        "sense_label_en": "to go into a hole (as in golf)",
+        "sense_label_en": "to hit a golf ball into the hole",
         "sort_order": 5,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
+      },
+      {
+        "sense_id": "sense:hole:9984a3b103ec681b",
+        "pos": "noun",
+        "definition_cn": "（计划、论证等的）漏洞；缺陷",
+        "definition_en": "a weakness in a plan or account",
+        "sense_label_en": "a weakness in a plan or account",
+        "governing_pattern": "holes in sth; be full of holes",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6c5a29efd3a40d29401b",
+            "phrase": "His explanation is full of holes.",
+            "meaning_cn": "他的解释漏洞百出。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hole:108fc6f9ece91b0f",
+        "pos": "noun",
+        "definition_cn": "（非正式、贬义）糟糕的地方",
+        "definition_en": "an unpleasant place to live or stay",
+        "sense_label_en": "an unpleasant place to live or stay",
+        "governing_pattern": "this hole; live in a hole",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c0f54fece821114208bd",
+            "phrase": "I cannot stay in this hole.",
+            "meaning_cn": "我不能待在这个破地方。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式、贬义；不表示实际孔洞。"
       }
     ],
     "verification_summary": {
@@ -215,6 +264,40 @@
           "applicability": [
             {
               "surface": "hole"
+            },
+            {
+              "surface": "hole",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hole:9984a3b103ec681b"
+              ],
+              "owner_sense_ids": [
+                "sense:hole:9984a3b103ec681b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2354.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "holes in sth; be full of holes"
+            },
+            {
+              "surface": "hole",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hole:108fc6f9ece91b0f"
+              ],
+              "owner_sense_ids": [
+                "sense:hole:108fc6f9ece91b0f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2354.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "this hole; live in a hole"
             }
           ],
           "sources": [
@@ -485,14 +568,32 @@
         "merged_into_sense_id": null,
         "source_row": 6572,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:hole:9984a3b103ec681b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2354.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:hole:108fc6f9ece91b0f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2354.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
+      "collocation:9c0157d8be5db39dd5a5",
+      "collocation:9083b569a32c5d0c18f4",
+      "collocation:6759abfc3624133eb77e",
       "collocation:2b48c1f1d000bcd0d284",
       "collocation:46732bbacc1369ed078c",
-      "collocation:6759abfc3624133eb77e",
-      "collocation:9083b569a32c5d0c18f4",
-      "collocation:9c0157d8be5db39dd5a5"
+      "collocation:6c5a29efd3a40d29401b",
+      "collocation:c0f54fece821114208bd"
     ],
     "facts": [],
     "collocations": [
@@ -504,7 +605,8 @@
       {
         "id": "collocation:46732bbacc1369ed078c",
         "source_row": 5944,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "sense_id": "sense:hole:9cc2bbe648cc5e8a"
       },
       {
         "id": "collocation:6759abfc3624133eb77e",
@@ -520,6 +622,20 @@
         "id": "collocation:9c0157d8be5db39dd5a5",
         "source_row": 13281,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:6c5a29efd3a40d29401b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2354.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:c0f54fece821114208bd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2354.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

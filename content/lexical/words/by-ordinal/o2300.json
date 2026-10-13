@@ -26,25 +26,56 @@
         "pattern": "hot on sb's heels",
         "source_sense_id": "sense:heel:df90a5ed966853e0",
         "boundary": "close-pursuit idiom; not the low-value standalone heel verb"
+      },
+      {
+        "construction_id": "construction:4d9fdd4d08b0cbec9b84",
+        "pattern": "dig your heels in",
+        "meaning_cn": "固执坚持、拒绝改变主意",
+        "definition_en": "to refuse to change your decision or position",
+        "usage_note": "不是字面挖鞋跟；They dug their heels in。",
+        "boundary": "不是字面挖鞋跟；They dug their heels in。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:835eff64acdf681c576f",
+        "pattern": "cool your heels",
+        "meaning_cn": "被迫等候",
+        "definition_en": "to have to wait",
+        "usage_note": "非正式；不表示给脚后跟降温。",
+        "boundary": "非正式；不表示给脚后跟降温。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:69c53c3af81f0220e443",
+        "pattern": "take to your heels",
+        "meaning_cn": "逃跑",
+        "definition_en": "to run away",
+        "usage_note": "整体表达；They took to their heels。",
+        "boundary": "整体表达；They took to their heels。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "083c77587dc0a9bac210c5468ef02118c26918e794f4751415da460f963b1b21",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "脚后跟；鞋跟",
-          "label_en": "the back part of the foot; the heel of a shoe or boot",
+          "label_cn": "脚后跟；足跟；鞋跟；掌根；手掌与手腕相接的隆起部分",
+          "label_en": "the back part of the human foot; the back part underneath a shoe or boot, often raised; the raised part of the palm near the wrist",
           "pos": "noun",
           "sense_ids": [
             "sense:heel:df90a5ed966853e0",
-            "sense:heel:4a17b42f0ac15ca6"
+            "sense:heel:4a17b42f0ac15ca6",
+            "sense:heel:da8402dd4eb1da3c"
           ]
         }
       ],
-      "core_meaning_cn": "脚后跟；鞋跟",
-      "core_meaning_en": "the back part of the foot or the raised back part of a shoe",
-      "mental_model_cn": "body/shoe → 脚后跟、鞋跟；on the heels of → 紧接着；hot on sb's heels → 紧追不舍。面包头、桅杆下端及低价值动词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "脚后跟、鞋跟或掌根",
+      "core_meaning_en": "the heel of a foot or shoe, or the base of the palm",
+      "mental_model_cn": "on the heels of表示紧接其后，hot on heels可表示紧追；heel of hand为掌根，固执、等待和逃跑均有整体表达。",
+      "mental_model_en": "the heel of a foot or shoe, or the base of the palm."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -82,15 +113,37 @@
         ],
         "confidence": "medium",
         "definition_cn": "鞋跟",
-        "definition_en": "the part of a shoe or boot that touches the ground and provides elevation",
+        "definition_en": "the back part underneath a shoe or boot, often raised",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:heel:4a17b42f0ac15ca6",
-        "sense_label_en": "the part of a shoe or boot that touches the ground and provides elevatio",
+        "sense_label_en": "the back part underneath a shoe or boot, often raised",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:heel:da8402dd4eb1da3c",
+        "pos": "noun",
+        "definition_cn": "掌根；手掌与手腕相接的隆起部分",
+        "definition_en": "the raised part of the palm near the wrist",
+        "sense_label_en": "the raised part of the palm near the wrist",
+        "governing_pattern": "the heel of your hand/palm",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:afa858ea87725dcd1df9",
+            "phrase": "the heel of your hand",
+            "meaning_cn": "掌根",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -134,6 +187,23 @@
           "applicability": [
             {
               "surface": "heel"
+            },
+            {
+              "surface": "heel",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:heel:da8402dd4eb1da3c"
+              ],
+              "owner_sense_ids": [
+                "sense:heel:da8402dd4eb1da3c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2300.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the heel of your hand/palm"
             }
           ],
           "sources": [
@@ -673,10 +743,19 @@
         "merged_into_sense_id": null,
         "source_row": 6437,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:heel:da8402dd4eb1da3c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2300.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:d5be8e04cb6ac9e20480"
+      "collocation:d5be8e04cb6ac9e20480",
+      "collocation:afa858ea87725dcd1df9"
     ],
     "facts": [],
     "collocations": [
@@ -708,6 +787,13 @@
         "id": "collocation:d5be8e04cb6ac9e20480",
         "source_row": 18081,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:afa858ea87725dcd1df9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2300.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

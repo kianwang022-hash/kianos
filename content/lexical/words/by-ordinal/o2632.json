@@ -11,27 +11,28 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "存货清单，详细目录；存货价值",
-          "label_en": "a detailed list of all the items in stock; the value of a firm's current assets including raw materials, work in progress, and finished goods",
+          "label_cn": "详细清单；存货、库存及其账面价值；清点",
+          "label_en": "an itemized list; stock or its accounting value; to make a list",
           "pos": "noun",
           "sense_ids": [
             "sense:inventory:cc8e9add626f5135",
-            "sense:inventory:cf2dad40663f562c"
+            "sense:inventory:cf2dad40663f562c",
+            "sense:inventory:a5db0b99f2696588"
           ]
         },
         {
-          "label_cn": "列入清单，清点",
-          "label_en": "make or include in an itemized record or report",
+          "label_cn": "详细清单；存货、库存及其账面价值；清点",
+          "label_en": "an itemized list; stock or its accounting value; to make a list",
           "pos": "verb",
           "sense_ids": [
             "sense:inventory:04ca375b536156ba"
           ]
         }
       ],
-      "core_meaning_cn": "存货/库存；存货清单/盘点",
-      "core_meaning_en": "goods held in stock; a detailed list or count of stock",
-      "mental_model_cn": "存货/库存；存货清单/盘点",
-      "mental_model_en": ""
+      "core_meaning_cn": "详细清单；存货、库存及其账面价值；清点",
+      "core_meaning_en": "an itemized list; stock or its accounting value; to make a list",
+      "mental_model_cn": "list → 详细物品清单，不限存货；stock → 库存；accounting → 存货价值；verb → 清点列单。",
+      "mental_model_en": "an itemized list; stock or its accounting value; to make a list."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -51,19 +52,26 @@
             ],
             "meaning_cn": "盘点存货",
             "phrase": "take inventory"
+          },
+          {
+            "collocation_id": "collocation:a80edb21616f1bb7306c",
+            "phrase": "an inventory of the museum’s contents",
+            "meaning_cn": "博物馆藏品的详细清单",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "存货清单，详细目录",
-        "definition_en": "a detailed list of all the items in stock",
+        "definition_cn": "详细清单；存货清单",
+        "definition_en": "an itemized list of possessions or items, including objects in a place or goods held in stock",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:inventory:cc8e9add626f5135",
-        "sense_label_en": "a detailed list of all the items in stock",
+        "sense_label_en": "an itemized list of possessions or items, including objects in a place or goods held in stock",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可列建筑、机构或个人的物品，不限销售库存；清单与库存本身、账面价值分支分开。"
       },
       {
         "collocations": [
@@ -540,8 +548,9 @@
     ],
     "active_collocations": [
       "collocation:1e93b3e5166ac3e9f8f2",
-      "collocation:7d31160aba16502a331b",
+      "collocation:a80edb21616f1bb7306c",
       "collocation:b445661491861d5ca3a7",
+      "collocation:7d31160aba16502a331b",
       "collocation:d952aead218f62d56dcf"
     ],
     "facts": [],
@@ -565,6 +574,13 @@
         "id": "collocation:d952aead218f62d56dcf",
         "source_row": 21390,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:a80edb21616f1bb7306c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2632.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

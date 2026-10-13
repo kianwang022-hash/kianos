@@ -10,9 +10,9 @@
     "content_hash": "ed6d50331e036968ec55f1e0e537de8136e5f58d7724c7732f6b896b0d5dafee",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "日记本",
-      "core_meaning_en": "a book with a daily record of personal experiences",
-      "mental_model_cn": "日记本",
+      "core_meaning_cn": "日记；日程簿",
+      "core_meaning_en": "a personal record or an appointment organizer",
+      "mental_model_cn": "keep a diary常指写日记；check my diary在安排会面时是查看日程，不是翻看私人感想。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,15 +46,36 @@
         ],
         "confidence": "medium",
         "definition_cn": "日记，日记簿",
-        "definition_en": "a book in which you write about your daily experiences and feelings",
+        "definition_en": "a written record of personal experiences, or a book or electronic tool for keeping it",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:diary:f3e3df1f85c65df3",
-        "sense_label_en": "a book in which you write about your daily experiences and feelings",
+        "sense_label_en": "a personal daily record or the medium used to keep it",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:diary:15aef44572579396",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 1,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "日程簿；约会记事簿",
+        "definition_en": "a dated book or electronic organizer for appointments and plans",
+        "sense_label_en": "a dated book or electronic organizer for appointments and plans",
+        "governing_pattern": "put an appointment in one’s diary",
+        "collocations": [
+          {
+            "collocation_id": "collocation:b981f7dc47a968accfd2",
+            "exam_value": "usage_example",
+            "phrase": "check my diary",
+            "meaning_cn": "查看我的日程安排"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -423,11 +444,19 @@
         "merged_into_sense_id": null,
         "source_row": 3789,
         "source_path": "content/lexical/canonical/senses/shards/o1345-1376.json"
+      },
+      {
+        "sense_id": "sense:diary:15aef44572579396",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1363.json"
       }
     ],
     "active_collocations": [
       "collocation:455ee29ef98cb34d4209",
-      "collocation:720428094945ff272d5e"
+      "collocation:720428094945ff272d5e",
+      "collocation:b981f7dc47a968accfd2"
     ],
     "facts": [],
     "collocations": [
@@ -440,6 +469,11 @@
         "id": "collocation:720428094945ff272d5e",
         "source_row": 9636,
         "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      },
+      {
+        "id": "collocation:b981f7dc47a968accfd2",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1363.json"
       }
     ],
     "exam-mappings": [],

@@ -20,19 +20,27 @@
           ]
         },
         {
-          "label_cn": "绕…运行；环绕…轨道而行；进入轨道；盘旋",
+          "label_cn": "绕……运行；沿轨道运行",
           "label_en": "to move around a planet, star, etc. in a curved path; to move in an orbit around something",
           "pos": "verb",
           "sense_ids": [
             "sense:orbit:d6209a2bfe7e5fdc",
             "sense:orbit:e063f158bd6f5b5d"
           ]
+        },
+        {
+          "label_cn": "影响或活动范围",
+          "label_en": "a sphere of activity or influence",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:orbit:4b0fdab52484df83"
+          ]
         }
       ],
-      "core_meaning_cn": "天体或物体绕另一物体运行的路径",
-      "core_meaning_en": "the curved path of an object around another in space",
-      "mental_model_cn": "天体或物体绕另一物体运行的路径",
-      "mental_model_en": ""
+      "core_meaning_cn": "轨道；绕行；影响或活动范围",
+      "core_meaning_en": "a curved path or movement around a body; a sphere of activity or influence",
+      "mental_model_cn": "satellite in orbit说卫星轨道；orbit the Earth是及物绕行，orbit around sth是不及物结构。within sb’s orbit也可说活动或影响范围。",
+      "mental_model_en": "a curved path or movement around a body; a sphere of activity or influence."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -64,14 +72,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "天体绕恒星、行星或月球运行的轨道",
-        "definition_en": "the curved path of a celestial object around a star, planet, or moon",
+        "definition_cn": "天体、卫星等绕另一空间物体运行的轨道",
+        "definition_en": "the curved path followed by a planet, moon, satellite, or other object around another body in space",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:orbit:2e4918f82cd15c1f",
-        "sense_label_en": "the curved path of a celestial object around a star, planet, or moon",
+        "sense_label_en": "the curved path followed by a planet, moon, satellite, or other object around another body in space",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -136,9 +144,9 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "进入轨道；盘旋",
+        "definition_cn": "沿轨道运行；环绕",
         "definition_en": "to move in an orbit around something",
-        "governing_pattern": "vi. + around",
+        "governing_pattern": "orbit (around sth)",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
@@ -146,6 +154,33 @@
         "sense_label_en": "to move in an orbit around something",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:orbit:4b0fdab52484df83",
+        "pos": "noun",
+        "definition_cn": "影响范围；活动或涉及的领域",
+        "definition_en": "the sphere in which a person or organization acts or has influence",
+        "sense_label_en": "the sphere in which a person or organization acts or has influence",
+        "governing_pattern": "within sb’s orbit; come/fall within sb’s orbit",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5f500f51acac3302e7a1",
+            "phrase": "within the organization’s orbit",
+            "meaning_cn": "在该组织的活动或影响范围内",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -186,6 +221,24 @@
           "applicability": [
             {
               "surface": "orbit"
+            },
+            {
+              "surface": "orbit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:orbit:4b0fdab52484df83"
+              ],
+              "owner_sense_ids": [
+                "sense:orbit:4b0fdab52484df83"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3365.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "within sb’s orbit; come/fall within sb’s orbit",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -271,6 +324,24 @@
           "applicability": [
             {
               "surface": "orbit"
+            },
+            {
+              "surface": "orbit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:orbit:4b0fdab52484df83"
+              ],
+              "owner_sense_ids": [
+                "sense:orbit:4b0fdab52484df83"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3365.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "within sb’s orbit; come/fall within sb’s orbit",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -372,14 +443,23 @@
         "merged_into_sense_id": null,
         "source_row": 9342,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:orbit:4b0fdab52484df83",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3365.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
+      "collocation:af68e897c90dbbf87777",
       "collocation:2523c29919b8fa20e938",
       "collocation:92c3d5e88b14fe5923f7",
+      "collocation:c4edc43b31235abfd99d",
       "collocation:95434b60f022d48460a1",
-      "collocation:af68e897c90dbbf87777",
-      "collocation:c4edc43b31235abfd99d"
+      "collocation:5f500f51acac3302e7a1"
     ],
     "facts": [],
     "collocations": [
@@ -407,6 +487,13 @@
         "id": "collocation:c4edc43b31235abfd99d",
         "source_row": 16674,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:5f500f51acac3302e7a1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3365.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "压倒，使不知所措",
       "core_meaning_en": "to overpower or affect deeply",
-      "mental_model_cn": "压倒，使不知所措",
+      "mental_model_cn": "emotion/beauty语境是强烈冲击，requests/tasks让人或系统承受不了；比赛/力量语境可指压倒性击败。overwhelming majority/evidence用派生形容词表示压倒性的数量或力度。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -40,8 +40,8 @@
             "legacy_source_object_ids": [
               "sense:overwhelm:e78891090cc75af4:collocation:1"
             ],
-            "meaning_cn": "用…使不知所措",
-            "phrase": "overwhelm with + sth"
+            "meaning_cn": "以大量或强烈的事物使某人/某物难以承受",
+            "phrase": "overwhelm sb/sth with sth"
           }
         ],
         "confidence": "medium",
@@ -54,7 +54,8 @@
         "sense_id": "sense:overwhelm:e78891090cc75af4",
         "sense_label_en": "to overcome with emotion or force",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "情绪/美景可令人难以招架；对手、军队等的力量语境也可指彻底击败，不只“感动”。"
       },
       {
         "collocations": [
@@ -65,18 +66,18 @@
               "sense:overwhelm:4b13ac5c62a85e87:collocation:0"
             ],
             "meaning_cn": "用任务压垮",
-            "phrase": "overwhelm with tasks"
+            "phrase": "overwhelm sb with tasks"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使负担过重，压垮",
-        "definition_en": "to give too much of something to someone",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "使某人或系统负担过重、难以承受",
+        "definition_en": "to burden a person or system with more than they or it can handle",
+        "governing_pattern": "overwhelm sb/sth (with sth)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:overwhelm:4b13ac5c62a85e87",
-        "sense_label_en": "to give too much of something to someone",
+        "sense_label_en": "to burden a person or system with more than they or it can handle",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -97,7 +98,25 @@
       "runtime_model_calls": false
     },
     "word": "overwhelm",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:overwhelm:8e53895bb64d0701f5f0",
+        "module": "word_family",
+        "target_word": "overwhelming",
+        "source_sense_id": "sense:overwhelm:e78891090cc75af4",
+        "source_word_id": "word:overwhelm",
+        "level": "L2",
+        "direction": "R+P",
+        "boundary": "overwhelming (adj.)不只是“使人情绪激动”：overwhelming majority/support表示压倒性的多数/支持，overwhelming evidence表示极强证据；与表人状态的overwhelmed区分。",
+        "evidence": [
+          {
+            "source_type": "authoritative_learner_dictionary",
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/definition/english/overwhelming",
+            "evidence_status": "actual_selected_body_read"
+          }
+        ]
+      }
+    ],
     "word_id": "word:overwhelm",
     "form_identity": {
       "headword_pronunciations": [
@@ -230,9 +249,9 @@
       }
     ],
     "active_collocations": [
-      "collocation:7a6b7244f359f2d09963",
+      "collocation:fce6a92d2f45e42221de",
       "collocation:b8148fec6161087f23ab",
-      "collocation:fce6a92d2f45e42221de"
+      "collocation:7a6b7244f359f2d09963"
     ],
     "facts": [],
     "collocations": [

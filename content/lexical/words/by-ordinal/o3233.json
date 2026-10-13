@@ -26,12 +26,20 @@
           "sense_ids": [
             "sense:noble:bede1efc270e5cd5"
           ]
+        },
+        {
+          "label_cn": "宏伟的；（规模或品质）令人赞叹的",
+          "label_en": "impressive in size or quality",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:noble:19378f67558e0b03"
+          ]
         }
       ],
-      "core_meaning_cn": "贵族的或高尚的",
-      "core_meaning_en": "belonging to the aristocracy or showing high moral qualities",
-      "mental_model_cn": "贵族的或高尚的",
-      "mental_model_en": ""
+      "core_meaning_cn": "贵族的、高尚的或宏伟的；贵族",
+      "core_meaning_en": "aristocratic, morally admirable or splendid; a noble person",
+      "mental_model_cn": "noble birth讲贵族出身，noble cause讲崇高事业，noble building讲宏伟；a noble可指贵族，不能只按道德好坏解释。",
+      "mental_model_en": "aristocratic, morally admirable or splendid; a noble person."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,6 +120,28 @@
         "sense_label_en": "a person of noble rank",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:noble:19378f67558e0b03",
+        "pos": "adjective",
+        "definition_cn": "宏伟的；（规模或品质）令人赞叹的",
+        "definition_en": "impressive in size or quality",
+        "sense_label_en": "impressive in size or quality",
+        "governing_pattern": "a noble building",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f5aafe925c4cf814a4f7",
+            "phrase": "a noble building",
+            "meaning_cn": "一座宏伟的建筑",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -152,6 +182,24 @@
           "applicability": [
             {
               "surface": "noble"
+            },
+            {
+              "surface": "noble",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "owner_sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3233.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a noble building",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -237,6 +285,24 @@
           "applicability": [
             {
               "surface": "noble"
+            },
+            {
+              "surface": "noble",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "owner_sense_ids": [
+                "sense:noble:19378f67558e0b03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3233.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a noble building",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -331,12 +397,21 @@
         "merged_into_sense_id": null,
         "source_row": 8993,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
+      },
+      {
+        "sense_id": "sense:noble:19378f67558e0b03",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3233.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:54f4cd0579d0836f23d0",
+      "collocation:d10cc6a22e736fa7c7c9",
       "collocation:808bb75a9131ff00ff44",
-      "collocation:d10cc6a22e736fa7c7c9"
+      "collocation:f5aafe925c4cf814a4f7"
     ],
     "facts": [],
     "collocations": [
@@ -354,6 +429,13 @@
         "id": "collocation:d10cc6a22e736fa7c7c9",
         "source_row": 17664,
         "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:f5aafe925c4cf814a4f7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3233.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

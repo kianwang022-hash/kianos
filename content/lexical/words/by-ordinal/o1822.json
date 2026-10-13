@@ -11,14 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "取出；提取；榨取；提炼；求根",
+          "label_cn": "取出；获取；榨取；提炼",
           "label_en": "to remove, obtain, separate, or derive something",
           "pos": "verb",
           "sense_ids": [
             "sense:extract:3add00a853355c69",
             "sense:extract:95eb712ca3c25cec",
-            "sense:extract:31fdf8b17dab5f1b",
-            "sense:extract:a1989954d6e355a6"
+            "sense:extract:31fdf8b17dab5f1b"
           ]
         },
         {
@@ -132,30 +131,6 @@
         "sense_id": "sense:extract:31fdf8b17dab5f1b",
         "sense_label_en": "separate (a metal) from an ore",
         "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:207015b59d4813c3737b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:extract:a1989954d6e355a6:collocation:0"
-            ],
-            "meaning_cn": "求平方根",
-            "phrase": "extract the square root"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "求（数的）根",
-        "definition_en": "calculate the root of a number",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:extract:a1989954d6e355a6",
-        "sense_label_en": "calculate the root of a number",
-        "sort_order": 3,
         "transitivity": "vt"
       },
       {
@@ -422,6 +397,33 @@
       "source_row": 4990,
       "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:207015b59d4813c3737b",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:extract:a1989954d6e355a6:collocation:0"
+          ],
+          "meaning_cn": "求平方根",
+          "phrase": "extract the square root"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "求（数的）根",
+      "definition_en": "calculate the root of a number",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:extract:a1989954d6e355a6",
+      "sense_label_en": "calculate the root of a number",
+      "sort_order": 3,
+      "transitivity": "vt",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
     }
   ],
   "identity_refs": {
@@ -463,7 +465,7 @@
       },
       {
         "sense_id": "sense:extract:a1989954d6e355a6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4992,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
@@ -477,7 +479,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:207015b59d4813c3737b",
       "collocation:252dc71b8b01f5d3ecbc",
       "collocation:7bfe640d23309df14744",
       "collocation:ce513881ff4a50c51e4e",
@@ -495,7 +496,9 @@
       {
         "id": "collocation:207015b59d4813c3737b",
         "source_row": 2673,
-        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:252dc71b8b01f5d3ecbc",

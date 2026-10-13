@@ -16,15 +16,26 @@
         "pos": "verb",
         "direction": "R+P",
         "sense_id": "sense:lodge:69b9e12960a1561c",
-        "boundary": "official/formal submission; distinct from lodge = stay temporarily or put/store something somewhere"
+        "boundary": "official/formal submission; distinct from lodge = stay temporarily or put/store something somewhere",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:81f35d9620ab0ec4de33",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:lodge:69b9e12960a1561c:collocation:0"
+            ],
+            "meaning_cn": "提出投诉",
+            "phrase": "lodge a complaint"
+          }
+        ]
       }
     ],
     "content_hash": "5aa880ae28fec396590365e5f0f345985648510cea7069a49f37dcf6f0d0d57a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "门房；庄园入口的小屋；小木屋；临时住所；分会；支部",
-          "label_en": "a small house at the entrance to a country estate, often for a gatekeeper; a small rustic house used as a temporary shelter; a local branch of a society or organization",
+          "label_cn": "门房；庄园入口的小屋；（乡间用于度假或户外活动的）小屋；临时住所；分会；支部",
+          "label_en": "a small house at the entrance to a country estate, often for a gatekeeper; a small house used as temporary accommodation, often for holidays or outdoor activities; a local branch of a society or organization",
           "pos": "noun",
           "sense_ids": [
             "sense:lodge:59ec4a2a15c45f38",
@@ -33,20 +44,22 @@
           ]
         },
         {
-          "label_cn": "寄宿；暂住；存放；放置；提出（投诉等）",
-          "label_en": "to stay in a place temporarily, especially paying rent; to put something in a safe place; to store; to formally make a complaint or statement",
+          "label_cn": "寄宿；暂住；存放；放置；正式提出、提交（投诉、索赔、抗议、上诉、异议等）；卡住；嵌入；（使想法等）留在心中；为某人提供住宿",
+          "label_en": "to stay in a place temporarily, especially paying rent; to put something in a safe place; to store; to formally submit a claim, complaint, protest, appeal, objection, or similar official document or statement; to become or make something stuck or fixed in a place or mind; to provide someone with a place to stay",
           "pos": "verb",
           "sense_ids": [
             "sense:lodge:0b91be0780755971",
             "sense:lodge:2b6f0a4a79e05459",
-            "sense:lodge:69b9e12960a1561c"
+            "sense:lodge:69b9e12960a1561c",
+            "sense:lodge:617d52b9b09a5b97",
+            "sense:lodge:6bddf20a545d1e46"
           ]
         }
       ],
-      "core_meaning_cn": "小屋/临时住所；寄宿；正式提出投诉、索赔、上诉等",
-      "core_meaning_en": "a small lodge or temporary accommodation; to stay temporarily; or to formally submit a complaint, claim, appeal, etc.",
-      "mental_model_cn": "place → lodge 小屋/住所；stay → 寄宿；lodge sth with/in → 存放；official/legal object → lodge a complaint/claim/appeal = 正式提出、提交。",
-      "mental_model_en": ""
+      "core_meaning_cn": "小屋或分会；寄宿、提供住宿；存放、卡住或正式提交",
+      "core_meaning_en": "small house or local society; stay or accommodate; deposit, become stuck or formally submit",
+      "mental_model_cn": "寄宿是住客住宿，提供住宿以人为宾语；卡住不同于安全存放，正式提出保留提交对象。",
+      "mental_model_en": "small house or local society; stay or accommodate; deposit, become stuck or formally submit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -79,7 +92,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lodge:59ec4a2a15c45f38",
-        "sense_label_en": "a small house at the entrance to a country estate, often for a gatekeepe",
+        "sense_label_en": "a small house at the entrance to a country estate, often for a gatekeeper",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -96,14 +109,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "小木屋；临时住所",
-        "definition_en": "a small rustic house used as a temporary shelter",
+        "definition_cn": "（乡间用于度假或户外活动的）小屋；临时住所",
+        "definition_en": "a small house used as temporary accommodation, often for holidays or outdoor activities",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:lodge:b7b1fd3a2df95da6",
-        "sense_label_en": "a small rustic house used as a temporary shelter",
+        "sense_label_en": "a small house used as temporary accommodation, often for holidays or outdoor activities",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -131,7 +144,7 @@
         "confidence": "medium",
         "definition_cn": "寄宿；暂住",
         "definition_en": "to stay in a place temporarily, especially paying rent",
-        "governing_pattern": "vi. + at/in",
+        "governing_pattern": "lodge at/in a place; lodge with sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -189,17 +202,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:81f35d9620ab0ec4de33",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lodge:69b9e12960a1561c:collocation:0"
-            ],
-            "meaning_cn": "提出投诉",
-            "phrase": "lodge a complaint"
-          }
-        ],
+        "collocations": [],
         "confidence": "high",
         "definition_cn": "正式提出、提交（投诉、索赔、抗议、上诉、异议等）",
         "definition_en": "to formally submit a claim, complaint, protest, appeal, objection, or similar official document or statement",
@@ -211,6 +214,50 @@
         "sense_label_en": "to formally submit a claim, complaint, protest, appeal, or objection",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:lodge:617d52b9b09a5b97",
+        "pos": "verb",
+        "definition_cn": "卡住；嵌入；（使想法等）留在心中",
+        "definition_en": "to become or make something stuck or fixed in a place or mind",
+        "sense_label_en": "to become or make something stuck or fixed in a place or mind",
+        "governing_pattern": "lodge (sth) in ...",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:bad6bbfdd277a2b7ddfc",
+            "phrase": "a bullet lodged in the wall",
+            "meaning_cn": "一颗子弹嵌在墙里",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:lodge:6bddf20a545d1e46",
+        "pos": "verb",
+        "definition_cn": "为某人提供住宿",
+        "definition_en": "to provide someone with a place to stay",
+        "sense_label_en": "to provide someone with a place to stay",
+        "governing_pattern": "lodge sb (in/at ...)",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:87c6eb326694b94ec0e8",
+            "phrase": "lodge the visitors in a hotel",
+            "meaning_cn": "安排访客住在旅馆里",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -251,6 +298,40 @@
           "applicability": [
             {
               "surface": "lodge"
+            },
+            {
+              "surface": "lodge",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lodge:617d52b9b09a5b97"
+              ],
+              "owner_sense_ids": [
+                "sense:lodge:617d52b9b09a5b97"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2873.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lodge (sth) in ..."
+            },
+            {
+              "surface": "lodge",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lodge:6bddf20a545d1e46"
+              ],
+              "owner_sense_ids": [
+                "sense:lodge:6bddf20a545d1e46"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2873.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lodge sb (in/at ...)"
             }
           ],
           "sources": [
@@ -451,16 +532,33 @@
         "merged_into_sense_id": null,
         "source_row": 7999,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:lodge:617d52b9b09a5b97",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2873.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:lodge:6bddf20a545d1e46",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2873.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:23f4dc7cc7fbe309913f",
-      "collocation:805ecffbd3cbef0e96c7",
-      "collocation:81f35d9620ab0ec4de33",
       "collocation:873aac9706e35525045d",
+      "collocation:805ecffbd3cbef0e96c7",
       "collocation:b489cec8e096bbc012f4",
+      "collocation:23f4dc7cc7fbe309913f",
+      "collocation:df068f9ecb8d365ee29d",
       "collocation:bf7aa2d55c81ac9697f6",
-      "collocation:df068f9ecb8d365ee29d"
+      "collocation:bad6bbfdd277a2b7ddfc",
+      "collocation:87c6eb326694b94ec0e8"
     ],
     "facts": [
       {
@@ -483,7 +581,9 @@
       {
         "id": "collocation:81f35d9620ab0ec4de33",
         "source_row": 11008,
-        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:873aac9706e35525045d",
@@ -504,6 +604,20 @@
         "id": "collocation:df068f9ecb8d365ee29d",
         "source_row": 18877,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:bad6bbfdd277a2b7ddfc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2873.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:87c6eb326694b94ec0e8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2873.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -9,10 +9,21 @@
     "constructions": [],
     "content_hash": "8bc21b90d0ab2a28ba796a7ad60c7c210799fe246bb6fbcd55763bfb74f2fde6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "发生频率",
-      "core_meaning_en": "rate of occurrence",
-      "mental_model_cn": "发生频率",
+      "core_clusters": [
+        {
+          "label_cn": "频率；发生次数；频数；出现次数；（声波、电波等的）频率；单位时间内周期重复次数",
+          "label_en": "the number of times something happens within a particular period; the number of times a value occurs in a set of data; the rate at which a periodic process repeats, such as a sound or radio wave",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:frequency:336adc692d045fbb",
+            "sense:frequency:5d22d7e6462050c0",
+            "sense:frequency:28173670f0f3d053"
+          ]
+        }
+      ],
+      "core_meaning_cn": "发生频率；统计频数；波或周期过程的频率",
+      "core_meaning_en": "occurrence rate, statistical frequency, or rate of a periodic process",
+      "mental_model_cn": "日常frequency为发生频率，数据集中的frequency为某数值出现次数；声波或无线电frequency为单位时间内重复的周期数，常用赫兹计。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,6 +90,28 @@
         "sense_label_en": "the number of times a value occurs in a set of data",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:frequency:28173670f0f3d053",
+        "pos": "noun",
+        "definition_cn": "（声波、电波等的）频率；单位时间内周期重复次数",
+        "definition_en": "the rate at which a periodic process repeats, such as a sound or radio wave",
+        "sense_label_en": "the rate at which a periodic process repeats, such as a sound or radio wave",
+        "governing_pattern": "the frequency of a wave; radio frequency",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b627bbe25f16e0fabd6",
+            "phrase": "radio frequency",
+            "meaning_cn": "无线电频率",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +141,23 @@
           "applicability": [
             {
               "surface": "frequency"
+            },
+            {
+              "surface": "frequency",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:frequency:28173670f0f3d053"
+              ],
+              "owner_sense_ids": [
+                "sense:frequency:28173670f0f3d053"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2046.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "the frequency of a wave; radio frequency"
+              }
             }
           ],
           "sources": [
@@ -199,6 +249,14 @@
         "merged_into_sense_id": null,
         "source_row": 5693,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:frequency:28173670f0f3d053",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2046.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -222,6 +280,13 @@
         "id": "collocation:d49805ab84ed36137232",
         "source_row": 17960,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:1b627bbe25f16e0fabd6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2046.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

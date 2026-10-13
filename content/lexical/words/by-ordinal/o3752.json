@@ -33,6 +33,21 @@
         "meaning_cn": "把某物赠予/授予某人",
         "pattern": "present sth to sb",
         "source_sense_id": "sense:present:fd9aa1c9d2865256"
+      },
+      {
+        "construction_id": "construction:present:4851efa0af3fbcce",
+        "pattern": "an opportunity presents itself (to sb)",
+        "meaning_cn": "（某人）出现一个机会",
+        "definition_en": "an opportunity becomes available",
+        "boundary": "机会、可能性等作主语；itself随主语变形，不是人做自我介绍。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_3",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "content_hash": "8e7b7a0fbe0bf273bcd8c8a35e3f2d0eaec9debd1a9dc94140af8311508998c8",
@@ -67,7 +82,7 @@
       ],
       "core_meaning_cn": "现在的；呈现；赠送",
       "core_meaning_en": "existing or happening now; to show or give something",
-      "mental_model_cn": "现在的；呈现；赠送",
+      "mental_model_cn": "名词present指礼物或现在；形容词看名词前的当前与名词后的在场；动词随report/gift、challenge或症状分别选择呈交赠予、带来问题、临床表现。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -271,7 +286,14 @@
         "sense_id": "sense:present:7c210a11937e5226",
         "sense_label_en": "existing or happening now",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "表示当前的通常放在名词前：the present situation；表示出席的常放在所修饰名词后或作表语。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -400,6 +422,72 @@
         "sense_label_en": "being in a particular place",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:present:9b487fad35bf14df",
+        "pos": "verb",
+        "definition_cn": "造成；带来（困难、机会等）",
+        "definition_en": "to cause a situation or offer a difficulty or opportunity",
+        "sense_label_en": "to cause a situation or offer a difficulty or opportunity",
+        "transitivity": "vt",
+        "governing_pattern": "vt.: present a problem/challenge/risk",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:present:668a6e36394be441",
+            "phrase": "The delay presents a serious risk.",
+            "meaning_cn": "延误带来严重风险。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_3",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "challenge/problem/risk作宾语时是带来某种情况，不是展示物品。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_3",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:present:cf72564c92421eb6",
+        "pos": "verb",
+        "definition_cn": "（病人）就诊时表现出（症状）",
+        "definition_en": "to show particular symptoms when assessed medically, or to manifest in a particular way",
+        "sense_label_en": "to show particular symptoms when assessed medically, or to manifest in a particular way",
+        "transitivity": "vi",
+        "governing_pattern": "vi.: present with symptoms; a condition presents as sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:present:0e87927dfc07e0c3",
+            "phrase": "The patient presented with a persistent cough.",
+            "meaning_cn": "患者就诊时表现为持续咳嗽。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_3",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "临床语境，主语常是病人；present with接症状，疾病present as接其表现。不推广到普通赠送义。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/present_3",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -498,6 +586,18 @@
         "merged_into_sense_id": null,
         "source_row": 10445,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      },
+      {
+        "sense_id": "sense:present:9b487fad35bf14df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3752.json"
+      },
+      {
+        "sense_id": "sense:present:cf72564c92421eb6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3752.json"
       }
     ],
     "active_collocations": [
@@ -505,7 +605,9 @@
       "collocation:7dbcd0d25226af4c9dd4",
       "collocation:8a758edb0636802c1507",
       "collocation:e455c9a147689c6d4005",
-      "collocation:fe85923a17fe09588ff7"
+      "collocation:fe85923a17fe09588ff7",
+      "collocation:present:668a6e36394be441",
+      "collocation:present:0e87927dfc07e0c3"
     ],
     "facts": [
       {
@@ -539,6 +641,14 @@
         "id": "collocation:fe85923a17fe09588ff7",
         "source_row": 21519,
         "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:present:668a6e36394be441",
+        "source_path": "content/lexical/words/by-ordinal/o3752.json"
+      },
+      {
+        "id": "collocation:present:0e87927dfc07e0c3",
+        "source_path": "content/lexical/words/by-ordinal/o3752.json"
       }
     ],
     "exam-mappings": [],

@@ -20,7 +20,7 @@
         },
         {
           "label_cn": "学校校长；本金（计算利息的原始金额）；主犯；主要参与者",
-          "label_en": "the educator who has executive authority for a school; the original amount of a debt on which interest is calculated; (criminal law) any person involved in a criminal offense, regardless of whether the person profits from such involvement",
+          "label_en": "the educator who has executive authority for a school; the original amount of a debt on which interest is calculated; in criminal-law terminology, a direct perpetrator, or in some systems a person present and assisting in the offence",
           "pos": "noun",
           "sense_ids": [
             "sense:principal:bcd236d98de55d81",
@@ -31,7 +31,7 @@
       ],
       "core_meaning_cn": "主要的；首要的；学校负责人；本金",
       "core_meaning_en": "main; primary; the head of a school; the original sum of money",
-      "mental_model_cn": "主要的；首要的；学校负责人；本金",
+      "mental_model_cn": "修饰名词是主要的；学校语境是校长，interest对举是本金，agent对举是委托人；刑法文本中的principal需看特定角色定义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -168,16 +168,56 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "主犯；主要参与者",
-        "definition_en": "(criminal law) any person involved in a criminal offense, regardless of whether the person profits from such involvement",
+        "definition_cn": "（刑法术语）直接实施犯罪者；某些制度下也包括在场协助者",
+        "definition_en": "in criminal-law terminology, a direct perpetrator, or in some systems a person present and assisting in the offence",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:principal:5e9aff8576ee5e9b",
-        "sense_label_en": "(criminal law) any person involved in a criminal offense, regardless of ",
+        "sense_label_en": "in criminal-law terminology, a direct perpetrator, or in some systems a person present and assisting in the offence",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "不是任何与案件有关的人；与accessory等术语的具体界线依适用法律而定，此处只作阅读辨义。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.dictionary.com/browse/principal",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:principal:907885f7ffed7724",
+        "pos": "noun",
+        "definition_cn": "委托人；被代理人",
+        "definition_en": "a person or organization for whom an agent acts",
+        "sense_label_en": "a person or organization for whom an agent acts",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:principal:cd1e602a87e08d7e",
+            "phrase": "The agent acted on behalf of the principal.",
+            "meaning_cn": "代理人代表委托人行事。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/principal_2",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "合同/代理语境，与agent相对；不是学校校长，也不是抽象原则principle。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/principal_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -447,13 +487,20 @@
         "merged_into_sense_id": null,
         "source_row": 10520,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:principal:907885f7ffed7724",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3778.json"
       }
     ],
     "active_collocations": [
       "collocation:6ea768e6f1f7b6773f51",
       "collocation:70c0e50793a33ba1dfbe",
       "collocation:9fe81a2dc04224f3e595",
-      "collocation:d32762f1003236a408ed"
+      "collocation:d32762f1003236a408ed",
+      "collocation:principal:cd1e602a87e08d7e"
     ],
     "facts": [
       {
@@ -487,6 +534,10 @@
         "id": "collocation:d32762f1003236a408ed",
         "source_row": 17844,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:principal:cd1e602a87e08d7e",
+        "source_path": "content/lexical/words/by-ordinal/o3778.json"
       }
     ],
     "exam-mappings": [],

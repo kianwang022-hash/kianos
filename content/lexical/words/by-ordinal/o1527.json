@@ -12,7 +12,7 @@
       "core_clusters": [
         {
           "label_cn": "钝的，不锋利的；无趣的，枯燥的；阴暗的，不明亮的；呆滞的，不活跃的",
-          "label_en": "not sharp or pointed; blunt; not interesting or exciting; boring; not bright or shiny; dim; not active or sluggish",
+          "label_en": "not sharp or pointed; blunt; not interesting or exciting; boring; not bright or shiny; dim; inactive or sluggish",
           "pos": "adjective",
           "sense_ids": [
             "sense:dull:e97990c0e0c053cb",
@@ -28,6 +28,14 @@
           "sense_ids": [
             "sense:dull:df1ca886eccc5a7f",
             "sense:dull:f9226d9117fe562a"
+          ]
+        },
+        {
+          "pos": "adjective",
+          "label_cn": "（疼痛）隐隐的；不尖锐的",
+          "label_en": "of pain: not sharp or acute",
+          "sense_ids": [
+            "sense:dull:5ae009ed34a92dfa"
           ]
         }
       ],
@@ -114,16 +122,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使变钝；使变暗；使迟钝",
-        "definition_en": "make something less sharp, bright, or lively",
+        "definition_cn": "使变钝、变暗或迟钝；减弱（感觉、疼痛等）",
+        "definition_en": "to make something less sharp, bright, active, or intense",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dull:df1ca886eccc5a7f",
-        "sense_label_en": "make something less sharp, bright, or lively",
+        "sense_label_en": "to make something less sharp, bright, active, or intense",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "dull the pain 是减弱疼痛或感觉，不是把疼痛变成一件枯燥的事。"
       },
       {
         "collocations": [
@@ -163,13 +172,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "呆滞的，不活跃的",
-        "definition_en": "not active or sluggish",
+        "definition_en": "inactive or sluggish",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:dull:25dc3bef5da05464",
-        "sense_label_en": "not active or sluggish",
+        "sense_label_en": "inactive or sluggish",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -196,6 +205,24 @@
         "sense_label_en": "become dull or less sharp, bright, or lively",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:dull:5ae009ed34a92dfa",
+        "pos": "adjective",
+        "definition_cn": "（疼痛）隐隐的；不尖锐的",
+        "definition_en": "of pain: not sharp or acute",
+        "sense_label_en": "of pain: not sharp or acute",
+        "governing_pattern": "a dull pain/ache",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dull:5ae009ed34a92dfa",
+            "phrase": "a dull ache",
+            "meaning_cn": "隐隐的疼痛",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -245,6 +272,31 @@
           "applicability": [
             {
               "surface": "dull"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dull",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dull:5ae009ed34a92dfa"
+              ],
+              "sense_ids": [
+                "sense:dull:5ae009ed34a92dfa"
+              ],
+              "excluded_sense_ids": [
+                "sense:dull:25dc3bef5da05464",
+                "sense:dull:6260ab4e194d5e89",
+                "sense:dull:991afc9761865990",
+                "sense:dull:df1ca886eccc5a7f",
+                "sense:dull:e97990c0e0c053cb",
+                "sense:dull:f9226d9117fe562a"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dull",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -311,6 +363,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dull",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "dull",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/dʌl/",
+              "applies_to_sense_ids": [
+                "sense:dull:5ae009ed34a92dfa"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         }
@@ -362,6 +430,14 @@
         "merged_into_sense_id": null,
         "source_row": 4275,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:dull:5ae009ed34a92dfa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1527.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -371,7 +447,8 @@
       "collocation:78584c9e85da81369f3a",
       "collocation:7d56e4911d4d4f6ab087",
       "collocation:e14783d226fa9880441a",
-      "collocation:e2342e041e81178b087e"
+      "collocation:e2342e041e81178b087e",
+      "collocation:dull:5ae009ed34a92dfa"
     ],
     "facts": [],
     "collocations": [
@@ -409,6 +486,14 @@
         "id": "collocation:e2342e041e81178b087e",
         "source_row": 19137,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:dull:5ae009ed34a92dfa",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1527.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

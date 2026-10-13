@@ -5,7 +5,7 @@
     "ordinal": 3713,
     "word": "poverty",
     "source_owner_path": "content/lexical/words/by-ordinal/o3713.json",
-    "source_fingerprint": "b0174f24cb456f891680844814068ea033013b57c44409a9de94660366965366",
+    "source_fingerprint": "57f626bab267c89addc0fa1d04f76a3b5cddcfb03565d868cc29a922f92c2e22",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -15,7 +15,7 @@
     },
     "word_feel": {
       "summary_cn": "贫穷的状态",
-      "decision_cn": "",
+      "decision_cn": "钱和生活条件语境指贫困；poverty of ideas等抽象名词语境指内容或资源匮乏。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -137,7 +137,7 @@
     "ordinal": 3714,
     "word": "powder",
     "source_owner_path": "content/lexical/words/by-ordinal/o3714.json",
-    "source_fingerprint": "b2dfca22372b0c7ded4ba4313de62f04004127836e6e8fb6919c0c1282b7b75b",
+    "source_fingerprint": "f36e8f3123c03c03a3b1a211bbc71c15055525731f2478380871dcf98d617a4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -168,10 +168,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7308261ef1111cd5862e",
+            "id": "collocation:powder:52b1020a7f1afdff",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "powder keg",
-            "meaning_cn": "火药桶",
+            "phrase": "cocoa powder",
+            "meaning_cn": "可可粉",
             "kind": "usage_example",
             "repair": null
           }
@@ -198,6 +198,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "gunpowder",
             "meaning_cn": "火药",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7308261ef1111cd5862e",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "powder keg",
+            "meaning_cn": "火药桶",
             "kind": "usage_example",
             "repair": null
           }
@@ -278,7 +286,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:powder:88947887d368f9f2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a powder keg",
+        "lines": [
+          {
+            "text": "随时可能爆发冲突的局势或地区",
+            "lang": "cn"
+          },
+          {
+            "text": "局势、地区作语境时是比喻；字面义a powder keg则是一桶火药。",
+            "lang": "cn"
+          },
+          {
+            "text": "a situation or place with a high risk of violent conflict",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:powder:88947887d368f9f2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a powder keg"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -292,7 +326,7 @@
     "ordinal": 3715,
     "word": "power",
     "source_owner_path": "content/lexical/words/by-ordinal/o3715.json",
-    "source_fingerprint": "40e303b974d34b2dd9fdd56795f5e79f6e112e90c96ae053cc1971cb0000abe1",
+    "source_fingerprint": "8e3608c787d4a88c3d25e25b3f9bbb89403b0c2cab79fd4d606c93bf0b5c3f1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -358,22 +392,14 @@
         "governing_pattern": "",
         "definition_cn": "功率",
         "definition_en": "in physics, the rate at which work is done or energy is transferred",
-        "note": "",
+        "note": "物理量功率是做功或传能速率，常以watts计；不等于所供电能的总量。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9f682f9cc4a173cc04ba",
+            "id": "collocation:power:ad5f4fb85f3a0f38",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "electric power",
-            "meaning_cn": "电力",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:039a587c0328352a7345",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "power plant",
-            "meaning_cn": "发电厂",
+            "phrase": "The motor has a power output of 500 watts.",
+            "meaning_cn": "这台电动机的输出功率为500瓦。",
             "kind": "usage_example",
             "repair": null
           }
@@ -392,9 +418,26 @@
         "governing_pattern": "",
         "definition_cn": "电力；能源供应",
         "definition_en": "electricity or other energy supplied for use",
-        "note": "",
+        "note": "power plant、停电、供电语境指电力供应；electric power也能在瓦特或传能速率语境指电功率，须按上下文区分。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:9f682f9cc4a173cc04ba",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "electric power",
+            "meaning_cn": "电力",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:039a587c0328352a7345",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "power plant",
+            "meaning_cn": "发电厂",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:power:946fb7d4598f5058",
@@ -729,17 +772,18 @@
     "ordinal": 3717,
     "word": "practical",
     "source_owner_path": "content/lexical/words/by-ordinal/o3717.json",
-    "source_fingerprint": "cc583a23430c9107c70cc43e62542cc2a9225e792323b385981655ca2f7b03f5",
+    "source_fingerprint": "bb44a915821eccb64638efd5325b2ea6cc05f47f31b589f4d8a2e9a7aacd4af3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3A"
+        "5A",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "实际的；实用的；现实可行/明智的",
-      "decision_cn": "",
+      "decision_cn": "看实际用途、现实经验或可行性；形容人会修造东西时是动手能力强。practical certainty近乎确定；英式a practical可指实验课或实作考试。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -841,6 +885,84 @@
           "target_locator": "record.senses[2]",
           "target_label": "实际可行的；现实而明智的"
         }
+      },
+      {
+        "id": "sense:practical:f5ab558ef32ee35c",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（人）动手能力强的",
+        "definition_en": "skilled at making or repairing things",
+        "note": "主语是人且上下文谈制作修理时，不只是理性务实。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:practical:24386c719d51f06e",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "She is very practical and repairs her own furniture.",
+            "meaning_cn": "她动手能力很强，家具都自己修。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:practical:f5ab558ef32ee35c",
+          "target_locator": "record.senses[3]",
+          "target_label": "（人）动手能力强的"
+        }
+      },
+      {
+        "id": "sense:practical:5033fcb3a3b3f42f",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "几乎完全的；实际上等同于……的",
+        "definition_en": "almost complete or effectively equivalent",
+        "note": "仅用于名词前，如practical certainty，不能解作实用的确定性。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:practical:328d5e94a06b2774",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "Their victory is a practical certainty.",
+            "meaning_cn": "他们的胜利几乎已成定局。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:practical:5033fcb3a3b3f42f",
+          "target_locator": "record.senses[4]",
+          "target_label": "几乎完全的；实际上等同于……的"
+        }
+      },
+      {
+        "id": "sense:practical:6de1ed947451f0eb",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "实验课；实作考试",
+        "definition_en": "a lesson or examination based on doing practical work",
+        "note": "英式英语，可数名词；a practical/practicals指课程或考试，不是形容词缺名词。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:practical:fa80eeffca91eb8c",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The course includes two laboratory practicals.",
+            "meaning_cn": "这门课包括两次实验课。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:practical:6de1ed947451f0eb",
+          "target_locator": "record.senses[5]",
+          "target_label": "实验课；实作考试"
+        }
       }
     ],
     "pronunciation_support": {
@@ -864,7 +986,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:practical:8c77bad162e5a6dc",
+        "source_locator": "record.constructions[0]",
+        "pattern": "for (all) practical purposes",
+        "lines": [
+          {
+            "text": "从实际效果来看；实际上",
+            "lang": "cn"
+          },
+          {
+            "text": "用于现实结果判断，不一定说所有理论细节都相同。",
+            "lang": "cn"
+          },
+          {
+            "text": "as far as the real effect of a situation is concerned",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:practical:8c77bad162e5a6dc",
+          "target_locator": "record.constructions[0]",
+          "target_label": "for (all) practical purposes"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -896,7 +1044,7 @@
     "ordinal": 3718,
     "word": "practise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3718.json",
-    "source_fingerprint": "c4f75880fd79cf0e3207143091bc97f71261ca5648486484d36ab55c33241d00",
+    "source_fingerprint": "640feda345e98e1a2c8768fc2bb67b1c054ef76f7d562f3124c252d50b94cb81",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -919,7 +1067,7 @@
         "id": "sense:practise:cbcaec17dc4a53d9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "I/T: practise sth; practise regularly; practise law/medicine; practise as + profession",
+        "governing_pattern": "I/T: practise (sth); practise doing sth; practise for sth",
         "definition_cn": "练习；训练",
         "definition_en": "to do something repeatedly to improve one's skill",
         "note": "BrE verb spelling: practise. AmE normally spells the verb practice; the noun is practice in both varieties.",
@@ -966,10 +1114,10 @@
         "id": "sense:practise:acdba0b73d935045",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "I/T: practise sth; practise regularly; practise law/medicine; practise as + profession",
+        "governing_pattern": "I/T: practise law/medicine; practise as a doctor/lawyer; practise a belief/custom",
         "definition_cn": "从事（职业）；实践",
-        "definition_en": "to carry out or perform (a job, profession, etc.)",
-        "note": "BrE verb spelling: practise (e.g. practise medicine/law). AmE normally uses practice as the verb spelling.",
+        "definition_en": "to work in a profession, or regularly follow a belief, custom or way of behaving",
+        "note": "BrE verb spelling: practise (e.g. practise medicine/law). AmE normally uses practice as the verb spelling. Medicine/law selects professional work, not training; a belief/custom selects putting it into practice.",
         "identity_overlay": {
           "text": "BrE normally uses practice as the noun and practise as the verb; AmE normally uses practice for both noun and verb",
           "repair": {
@@ -993,6 +1141,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "practise law",
             "meaning_cn": "当律师",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:practise:30d809983d9bb74a",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "They are free to practise their religion.",
+            "meaning_cn": "他们可以自由践行自己的宗教信仰。",
             "kind": "usage_example",
             "repair": null
           }
@@ -1047,7 +1203,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:practise:e189a7246e044c10",
+        "sense_id": "sense:practise:cbcaec17dc4a53d9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "practise doing sth",
+        "lines": [
+          {
+            "text": "练习做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "练习的动作接doing，不用practise to do表示同一补语；职业行医/执业不是该练习义。",
+            "lang": "cn"
+          },
+          {
+            "text": "to repeat an activity in order to improve at it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:practise:e189a7246e044c10",
+          "target_locator": "record.constructions[0]",
+          "target_label": "practise doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1061,17 +1244,17 @@
     "ordinal": 3719,
     "word": "practitioner",
     "source_owner_path": "content/lexical/words/by-ordinal/o3719.json",
-    "source_fingerprint": "344bbb1c84585175696eb0584fe1069ca15f5e7f7bfd4331ad23deea8ee528bc",
+    "source_fingerprint": "35d54079ea85a990a89119da8126e97349906ce99eb94c76bba948895c102c39",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "从事某职业的人",
-      "decision_cn": "",
+      "decision_cn": "职业语境常指执业者，尤其医师；practitioner of a method/art也可指该方法或技艺的实践者。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1122,6 +1305,32 @@
           "target_id": "sense:practitioner:a2585271e4475153",
           "target_locator": "record.senses[0]",
           "target_label": "从业者；执业者"
+        }
+      },
+      {
+        "id": "sense:practitioner:1bffcc2aedd381d3",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（某种活动或技艺的）实践者，行家",
+        "definition_en": "a person who regularly carries out a skilled activity",
+        "note": "practitioner of an art/method可指艺术家或方法实践者，并不必然有医疗或法律执照。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:practitioner:e466c291cf7a1e05",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "She is an experienced practitioner of this teaching method.",
+            "meaning_cn": "她是这种教学法的资深实践者。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:practitioner:1bffcc2aedd381d3",
+          "target_locator": "record.senses[1]",
+          "target_label": "（某种活动或技艺的）实践者，行家"
         }
       }
     ],
@@ -1363,17 +1572,17 @@
     "ordinal": 3721,
     "word": "pray",
     "source_owner_path": "content/lexical/words/by-ordinal/o3721.json",
-    "source_fingerprint": "bfe44d4c16c944fe7c0f49d4e520d4e3a2277e9233d399cac4b314c4c011e1a7",
+    "source_fingerprint": "512a460a1d2527d5c33adc21744d7cd0437b57a61d1ba199e81dcce22f86f3aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "向神说话或请求",
-      "decision_cn": "",
+      "decision_cn": "pray to神灵通常指祈祷；pray for/that也可只是强烈盼望；旧式正式恳求需由语域辨认。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1386,7 +1595,7 @@
         "id": "sense:pray:e93685aefcf05f53",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "I/T: pray; pray to God/a deity; pray for sb/sth; pray that ...",
         "definition_cn": "祈祷；祷告",
         "definition_en": "to speak to God or a deity, often to give thanks or ask for help",
         "note": "",
@@ -1456,6 +1665,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "恳求；请求"
         }
+      },
+      {
+        "id": "sense:pray:d41101ad5dbf6230",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "pray for sth; pray that ...",
+        "definition_cn": "热切盼望；但愿",
+        "definition_en": "to hope very strongly for something to happen",
+        "note": "pray for/that也可表达强烈希望，并不必然报告宗教祈祷；语境决定。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pray:39d8be653d2d339e",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "We are praying that the weather improves.",
+            "meaning_cn": "我们热切盼望天气好转。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pray:d41101ad5dbf6230",
+          "target_locator": "record.senses[2]",
+          "target_label": "热切盼望；但愿"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1502,7 +1737,7 @@
     "ordinal": 3722,
     "word": "prayer",
     "source_owner_path": "content/lexical/words/by-ordinal/o3722.json",
-    "source_fingerprint": "c768ce03fbd7cc03cb664bb41c2fbec0a7d927814ef2049ef5c3ebeabc169573",
+    "source_fingerprint": "441eb6e3b8b95087ffc81f3a2bdc9a0299ce1788000976b1c990ce67d00e7e8a",
     "sense_lineage": [
       {
         "word_id": "word:prayer",
@@ -1641,7 +1876,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:prayer:150c1d14c85133d7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "not have a prayer (of doing sth)",
+        "lines": [
+          {
+            "text": "（做某事）几乎没有成功希望",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式，常见于否定；of后接doing，谈成败机会而非没有祈祷词。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have virtually no chance of succeeding",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:prayer:150c1d14c85133d7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "not have a prayer (of doing sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1693,17 +1954,17 @@
     "ordinal": 3723,
     "word": "preach",
     "source_owner_path": "content/lexical/words/by-ordinal/o3723.json",
-    "source_fingerprint": "49b7ca6e81641f219a66a53bda267f556ffcf0b0f39e722937e369e23397225f",
+    "source_fingerprint": "83c49087565c6cd06f8b1b8e0d4fd60df3f1c6a5d61e3a76298077a76cf20d4e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "布道或宣扬",
-      "decision_cn": "",
+      "decision_cn": "宗教语境是布道，倡导观念是宣扬；preach at someone或抱怨说教时常含贬义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1716,7 +1977,7 @@
         "id": "sense:preach:dcd5b8818865574b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "I/T: preach (to sb) (about sth); preach a sermon",
         "definition_cn": "讲道，布道",
         "definition_en": "to give a religious speech",
         "note": "",
@@ -1747,7 +2008,7 @@
         "id": "sense:preach:d2211346965b5527",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: preach sth; preach about sth",
         "definition_cn": "鼓吹，宣扬",
         "definition_en": "to recommend or advocate an idea",
         "note": "",
@@ -1772,6 +2033,32 @@
           "target_id": "sense:preach:d2211346965b5527",
           "target_locator": "record.senses[1]",
           "target_label": "鼓吹，宣扬"
+        }
+      },
+      {
+        "id": "sense:preach:865b6dc8e0d58de2",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vi.: preach (at sb)",
+        "definition_cn": "（令人厌烦地）说教",
+        "definition_en": "to give unwanted moral advice in an annoying way",
+        "note": "常含贬义；preach at sb或Don't preach不必涉及宗教。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:preach:a446da0bddedd7bb",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "Please stop preaching at me.",
+            "meaning_cn": "请别再对我说教了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:preach:865b6dc8e0d58de2",
+          "target_locator": "record.senses[2]",
+          "target_label": "（令人厌烦地）说教"
         }
       }
     ],
@@ -1843,6 +2130,31 @@
           "target_id": "construction:06bdf2c800a3ae10e2b8",
           "target_locator": "record.constructions[0]",
           "target_label": "practice what you preach"
+        }
+      },
+      {
+        "id": "construction:preach:e185f31a0236ae72",
+        "source_locator": "record.constructions[1]",
+        "pattern": "preach to the converted/choir",
+        "lines": [
+          {
+            "text": "向本来就赞同的人宣讲",
+            "lang": "cn"
+          },
+          {
+            "text": "强调无需再说服的听众；choir尤其见于北美表达，不局限教会。",
+            "lang": "cn"
+          },
+          {
+            "text": "to argue for a view to people who already agree",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:preach:e185f31a0236ae72",
+          "target_locator": "record.constructions[1]",
+          "target_label": "preach to the converted/choir"
         }
       }
     ],
@@ -1970,7 +2282,7 @@
     "ordinal": 3725,
     "word": "precede",
     "source_owner_path": "content/lexical/words/by-ordinal/o3725.json",
-    "source_fingerprint": "fbcf4e8053e299ea7be8c3b73489c23ed604174b45e9b4134e0a5b54a1bf4795",
+    "source_fingerprint": "80afb9bc123031ad8b065660c2363b3d1dc440a3af1aa0b7e4155fd0b3313a6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2032,7 +2344,7 @@
         "id": "sense:precede:85eb0546ebec5138",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "I/T: precede sb + direction; precede in a procession",
         "definition_cn": "在前面；领先",
         "definition_en": "to go or come before in position or time",
         "note": "",
@@ -2166,7 +2478,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:precede:9352a0f793151fb3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "precede A with B; A is preceded by B",
+        "lines": [
+          {
+            "text": "在A之前先安排或说B；B先于A",
+            "lang": "cn"
+          },
+          {
+            "text": "with后是先发生的B；主动与被动次序不能颠倒。precede A本身则是主语先于A。",
+            "lang": "cn"
+          },
+          {
+            "text": "to put B before A as an introduction",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:precede:9352a0f793151fb3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "precede A with B; A is preceded by B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -2198,7 +2536,7 @@
     "ordinal": 3726,
     "word": "precedent",
     "source_owner_path": "content/lexical/words/by-ordinal/o3726.json",
-    "source_fingerprint": "b1bf72c91c40c9d385c51048c53f5179357bd6a9f31ba86ba3af696d2d932183",
+    "source_fingerprint": "ff17942b644e02f43730b2f5fd4539244d02bb887d17639f33480a905e9ec0a4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2208,13 +2546,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "先例或时间上在先的",
-      "decision_cn": "",
+      "summary_cn": "可供参照的既往先例；形容词指在先的",
+      "decision_cn": "名词常把过去同类事件当作参照：set/follow a precedent 关乎后续做法，without precedent 只说此前没有同类情形；形容词直接表示时间或顺序在先。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "先例或时间上在先的"
+        "target_label": "可供参照的既往先例；形容词指在先的"
       }
     },
     "senses": [
@@ -2223,8 +2561,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "先例，前例",
-        "definition_en": "an earlier event or action that is regarded as an example or guide for later occurrences",
+        "definition_cn": "先例，前例；过去可供参照的同类事件、决定或做法",
+        "definition_en": "an earlier comparable event, decision, or practice, often serving as a guide for later cases",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2235,13 +2573,39 @@
             "meaning_cn": "遵循先例",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a2dafbd95d4d99515ea8",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "without precedent",
+            "meaning_cn": "没有先例；前所未有",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a2dafbd95d4d99515ea8",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "without precedent"
+            }
+          },
+          {
+            "id": "collocation:171eee5a34ee4256ce1c",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "break with precedent",
+            "meaning_cn": "打破先例或惯例",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:171eee5a34ee4256ce1c",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "break with precedent"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:precedent:e252fbe6ba045ff8",
           "target_locator": "record.senses[0]",
-          "target_label": "先例，前例"
+          "target_label": "先例，前例；过去可供参照的同类事件、决定或做法"
         }
       },
       {
@@ -2520,7 +2884,7 @@
     "ordinal": 3728,
     "word": "precious",
     "source_owner_path": "content/lexical/words/by-ordinal/o3728.json",
-    "source_fingerprint": "fc8d584b7ffec2d71bddbf30af0397e24b08759e373fa96a23445e99f85b6e6c",
+    "source_fingerprint": "3b4207cba8ed1950230e1e3b5011ef3c2daff70b31c6de340c047e60aa31af15",
     "sense_lineage": [
       {
         "word_id": "word:precious",
@@ -2538,7 +2902,7 @@
     },
     "word_feel": {
       "summary_cn": "珍贵的；宝贵的；也可指矫揉造作的",
-      "decision_cn": "",
+      "decision_cn": "价值既可以是金钱或稀缺性，也可以是亲情、回忆等情感价值；评价风格或举止时，precious 还可贬指刻意精致、矫揉造作。precious little/few 则加强“少”，表示少得可怜。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2552,8 +2916,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "宝贵的，珍贵的",
-        "definition_en": "of high worth or cost",
+        "definition_cn": "珍贵的；宝贵的；深受珍爱的",
+        "definition_en": "having great value, or deeply loved and treasured",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2572,13 +2936,21 @@
             "meaning_cn": "宝贵的时间",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:113b045196090f54b8a7",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "precious memories",
+            "meaning_cn": "珍贵的回忆",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:precious:eb6672ccca955482",
           "target_locator": "record.senses[0]",
-          "target_label": "宝贵的，珍贵的"
+          "target_label": "珍贵的；宝贵的；深受珍爱的"
         }
       },
       {
@@ -2588,7 +2960,7 @@
         "governing_pattern": "",
         "definition_cn": "过于精致的，矫揉造作的",
         "definition_en": "overly refined or affected",
-        "note": "",
+        "note": "用于风格、语言或举止时通常带批评意味，指过分讲究而显得不自然，不是在称赞珍贵。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2715,22 +3087,22 @@
     "ordinal": 3729,
     "word": "precise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3729.json",
-    "source_fingerprint": "0fe6fc51fb12d90c3d2e246a9a0c48d004d8467f60e77de48b522c4c6e4c336c",
+    "source_fingerprint": "c171d58b2ba00b2c4ea228c8c3bad006efd220aa2f94bcd8b119fe4860a3032d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "精确的",
-      "decision_cn": "",
+      "summary_cn": "准确到具体细节；也可强调恰好那一个",
+      "decision_cn": "测量、说明等看准确程度；the/that precise moment 等锁定恰好那一刻；修饰人或动作时强调细致严谨。to be precise 用来补充更精确的信息。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "精确的"
+        "target_label": "准确到具体细节；也可强调恰好那一个"
       }
     },
     "senses": [
@@ -2751,6 +3123,19 @@
             "meaning_cn": "精确测量",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:b1d2f9a95c2b47369177",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "to be (more) precise",
+            "meaning_cn": "确切地说；说得更准确些",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b1d2f9a95c2b47369177",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "to be (more) precise"
+            }
           }
         ],
         "repair": {
@@ -2784,6 +3169,32 @@
           "target_id": "sense:precise:d4169fa462c35603",
           "target_locator": "record.senses[1]",
           "target_label": "严谨的，细致的"
+        }
+      },
+      {
+        "id": "sense:precise:cd8757e5cb3571d9",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "the/that precise + noun",
+        "definition_cn": "（名词前）恰好那个的；确切的，强调特定时间、地点或事物",
+        "definition_en": "used before a noun to identify the very time, place, or thing intended",
+        "note": "at that precise moment 表示“就在那个时刻”；这里强调是哪一个，并非说时刻本身做得精确。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:54b7d7bc9f9462470fe2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "at that precise moment",
+            "meaning_cn": "就在那个时刻",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:precise:cd8757e5cb3571d9",
+          "target_locator": "record.senses[2]",
+          "target_label": "（名词前）恰好那个的；确切的，强调特定时间、地点或事物"
         }
       }
     ],
@@ -3030,7 +3441,7 @@
     "ordinal": 3731,
     "word": "preclude",
     "source_owner_path": "content/lexical/words/by-ordinal/o3731.json",
-    "source_fingerprint": "91020678d88b10a55076a1218c8297f372a7ea5a9a193350cd415136749497a5",
+    "source_fingerprint": "5477ea6189a1917debf89b979cf8eeac4523f179ce5496dc5983bbf176791a49",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3039,13 +3450,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "预先排除或阻止",
-      "decision_cn": "",
+      "summary_cn": "排除某种可能；使事情或行动无法实现",
+      "decision_cn": "关键是某条件把可能性排除，并不要求有人事先采取行动。后接事情或 doing；阻止某人做事可用 preclude sb from doing sth。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "预先排除或阻止"
+        "target_label": "排除某种可能；使事情或行动无法实现"
       }
     },
     "senses": [
@@ -3053,10 +3464,10 @@
         "id": "sense:preclude:f33805b489d85be6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "预先排除；阻止；妨碍",
-        "definition_en": "to make something impossible, especially beforehand",
-        "note": "",
+        "governing_pattern": "preclude sth/doing sth; preclude sb from doing sth",
+        "definition_cn": "使不可能；排除；阻止",
+        "definition_en": "to rule out an event or possibility, or prevent an action",
+        "note": "较正式；强调使某事无法发生或不再可能，比仅造成不便的“妨碍”更强。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3098,7 +3509,7 @@
           "target_kind": "sense",
           "target_id": "sense:preclude:f33805b489d85be6",
           "target_locator": "record.senses[0]",
-          "target_label": "预先排除；阻止；妨碍"
+          "target_label": "使不可能；排除；阻止"
         }
       }
     ],
@@ -3310,7 +3721,7 @@
     "ordinal": 3733,
     "word": "predecessor",
     "source_owner_path": "content/lexical/words/by-ordinal/o3733.json",
-    "source_fingerprint": "be42d7fb0fb6837e96dfc524cec3511b977aeb5016ed3731a66448010dcb1fda",
+    "source_fingerprint": "0c6684680138edbb3560fdaf03c78c8b5b350e712b19b8ab8a9ff1727adfe94d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3320,7 +3731,7 @@
     },
     "word_feel": {
       "summary_cn": "前任或前身",
-      "decision_cn": "",
+      "decision_cn": "人的 predecessor 是同一职位上的前任；产品、制度等的 predecessor 是被后来的对应事物接续或替代的前身，不是任意较早出现的东西。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3373,8 +3784,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "前身，原有事物",
-        "definition_en": "a thing that comes before another in time or order",
+        "definition_cn": "前身；被后来的同类事物接续或替代的事物",
+        "definition_en": "an earlier counterpart that a later thing follows or replaces",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3391,7 +3802,7 @@
           "target_kind": "sense",
           "target_id": "sense:predecessor:b542960e7b9a540d",
           "target_locator": "record.senses[1]",
-          "target_label": "前身，原有事物"
+          "target_label": "前身；被后来的同类事物接续或替代的事物"
         }
       }
     ],
@@ -3455,7 +3866,7 @@
     "ordinal": 3734,
     "word": "predict",
     "source_owner_path": "content/lexical/words/by-ordinal/o3734.json",
-    "source_fingerprint": "ce883ef403f86d55b6492ad68f3bd666acf3c0140916dbe0d3c4c0de0eed4b9c",
+    "source_fingerprint": "e1ed11d63bfab8a49c00d413848a84d90b086491c793051424befcd589dbba9e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3478,7 +3889,7 @@
         "id": "sense:predict:56bc26f2fdf65605",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object / that-clause",
+        "governing_pattern": "predict sth; predict (that) + clause; predict what/whether/how + clause",
         "definition_cn": "预言，预测",
         "definition_en": "make a prediction about; tell in advance",
         "note": "",
@@ -3556,7 +3967,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:3e379e2b856430b573b2",
+        "sense_id": "sense:predict:56bc26f2fdf65605",
+        "source_locator": "record.constructions[0]",
+        "pattern": "sb/sth is predicted to do sth",
+        "lines": [
+          {
+            "text": "某人或某事被预计会……",
+            "lang": "cn"
+          },
+          {
+            "text": "主语是被预测的对象；to 后用动词原形，预测者可不出现。",
+            "lang": "cn"
+          },
+          {
+            "text": "a forecast states that the subject will do or undergo something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3e379e2b856430b573b2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "sb/sth is predicted to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3570,7 +4008,7 @@
     "ordinal": 3735,
     "word": "predominant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3735.json",
-    "source_fingerprint": "13b1e6e59250635915aeb8e611173b9ebbac6581affd8fb74ae6ad8a5d1b6c6b",
+    "source_fingerprint": "70387756840b1439a6bcda01bb3f3d3dd4dd6d381268ce4db3c254c70e375b53",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3580,7 +4018,7 @@
     },
     "word_feel": {
       "summary_cn": "占主导地位的；主要的",
-      "decision_cn": "",
+      "decision_cn": "语言、颜色等的分布语境常比较数量或常见程度；feature、role、influence 等语境常看显著性、重要性或支配力。“占主导”不自动等于数量超过一半。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3600,10 +4038,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:ee921584684190862490",
+            "id": "collocation:ec32df126344d9822d6d",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "the predominant feature",
-            "meaning_cn": "主要特征",
+            "phrase": "the predominant language in the region",
+            "meaning_cn": "当地使用最普遍的语言",
             "kind": "usage_example",
             "repair": null
           }
@@ -3620,8 +4058,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "占主导地位的；最重要的；最有影响力的",
-        "definition_en": "main, most important, dominant, or having superior power and influence",
+        "definition_cn": "最显著的；占主导地位的；最重要或最有影响力的",
+        "definition_en": "most prominent, important, or influential",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3632,13 +4070,21 @@
             "meaning_cn": "主导影响/主要作用",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:ee921584684190862490",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "the predominant feature",
+            "meaning_cn": "主要特征",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:predominant:09a78806d81c5797",
           "target_locator": "record.senses[1]",
-          "target_label": "占主导地位的；最重要的；最有影响力的"
+          "target_label": "最显著的；占主导地位的；最重要或最有影响力的"
         }
       }
     ],
@@ -3676,8 +4122,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "predominant ↔ dominant/prevalent ↔ predominant",
-          "target_word": "dominant/prevalent ↔ predominant",
+          "title": "predominant ↔ dominant/prevalent",
+          "target_word": "dominant/prevalent",
           "lines": [
             {
               "text": "prevalent = widespread/common; dominant = exercising the greatest influence/power or being most noticeable; predominant can mean most common or having greatest influence. Preserve the two predominant senses rather than a simple synonym triangle.",
@@ -3689,7 +4135,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:18633ab5a96e5d2c81ac",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "predominant ↔ dominant/prevalent ↔ predominant"
+            "target_label": "predominant ↔ dominant/prevalent"
           }
         }
       ],
@@ -3877,7 +4323,7 @@
     "ordinal": 3737,
     "word": "prefer",
     "source_owner_path": "content/lexical/words/by-ordinal/o3737.json",
-    "source_fingerprint": "bf5099df380b2091a1683774c911e4fddfe886da8072dcffe25cb6ac88dd0ebe",
+    "source_fingerprint": "8e99ec881f5fa81b2beabcb99495186baf120a49dffa34eae5d23cccdbb51eab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4044,6 +4490,57 @@
           "target_locator": "record.constructions[2]",
           "target_label": "would prefer to do sth"
         }
+      },
+      {
+        "id": "construction:1ca3bf76f1229460ba7f",
+        "sense_id": "sense:prefer:f5bc1b1b4076562f",
+        "source_locator": "record.constructions[3]",
+        "pattern": "(would) prefer sb to do sth",
+        "lines": [
+          {
+            "text": "（更）希望某人做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "sb 是后面动作的执行者；不要把此处 to 当作 prefer A to B 中的比较介词。",
+            "lang": "cn"
+          },
+          {
+            "text": "want someone to do something rather than an alternative",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1ca3bf76f1229460ba7f",
+          "target_locator": "record.constructions[3]",
+          "target_label": "(would) prefer sb to do sth"
+        }
+      },
+      {
+        "id": "construction:c4e0df88da65baa57815",
+        "source_locator": "record.constructions[4]",
+        "pattern": "prefer charges against sb",
+        "lines": [
+          {
+            "text": "正式对某人提出刑事指控",
+            "lang": "cn"
+          },
+          {
+            "text": "法律用语；这里不是“更喜欢指控”，也不是对某人优先考虑。",
+            "lang": "cn"
+          },
+          {
+            "text": "formally bring criminal charges against someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c4e0df88da65baa57815",
+          "target_locator": "record.constructions[4]",
+          "target_label": "prefer charges against sb"
+        }
       }
     ],
     "reference": {
@@ -4070,7 +4567,7 @@
     "ordinal": 3738,
     "word": "preferable",
     "source_owner_path": "content/lexical/words/by-ordinal/o3738.json",
-    "source_fingerprint": "9624a2cb3b1c6102e6f86e4a058698f4268f21ebb06957adb87410d43fafd3f1",
+    "source_fingerprint": "cc3e9636b9f9dae1509eae2ae41c0d93ccbd26f25f8bbf4486492927270c0d7d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4237,6 +4734,32 @@
           "target_locator": "record.constructions[0]",
           "target_label": "be preferable to sth/doing sth"
         }
+      },
+      {
+        "id": "construction:ceea97171cab9e129453",
+        "sense_id": "sense:preferable:3e8afabbb4d25137",
+        "source_locator": "record.constructions[1]",
+        "pattern": "it is preferable to do sth",
+        "lines": [
+          {
+            "text": "做某事更可取",
+            "lang": "cn"
+          },
+          {
+            "text": "这里 to do 引出被评价的行动；A is preferable to B 中的 to 是比较介词，可接名词或 doing。",
+            "lang": "cn"
+          },
+          {
+            "text": "doing this is the better or more suitable option",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ceea97171cab9e129453",
+          "target_locator": "record.constructions[1]",
+          "target_label": "it is preferable to do sth"
+        }
       }
     ],
     "reference": {
@@ -4252,7 +4775,7 @@
     "ordinal": 3739,
     "word": "preference",
     "source_owner_path": "content/lexical/words/by-ordinal/o3739.json",
-    "source_fingerprint": "81ffcffaf63c3f9810357e3aac75a3d670d5142c3729f18f40d5c8cfcd858433",
+    "source_fingerprint": "266661173353ec98d7229db1705b92f2815566d77ddc5be4452c21aadcc1264c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4261,13 +4784,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "对某一选择比对另一选择更喜欢",
-      "decision_cn": "",
+      "summary_cn": "在选项之间有所偏向：偏好，或给予优先待遇",
+      "decision_cn": "have/show a preference for 表个人选择；give preference to 表待遇或次序上的优先；trade preference 指贸易优惠。in preference to 指选择前者而不是后者。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "对某一选择比对另一选择更喜欢"
+        "target_label": "在选项之间有所偏向：偏好，或给予优先待遇"
       }
     },
     "senses": [
@@ -4276,9 +4799,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "偏爱；喜爱",
-        "definition_en": "a strong liking",
-        "note": "",
+        "definition_cn": "偏好；更愿选择的人、事或方案",
+        "definition_en": "liking or choosing one option more than another, or the option preferred",
+        "note": "不一定表示强烈喜爱；preferences 可指各人的偏好或选择。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4307,7 +4830,7 @@
           "target_kind": "sense",
           "target_id": "sense:preference:80cc8c75bcbc5ae8",
           "target_locator": "record.senses[0]",
-          "target_label": "偏爱；喜爱"
+          "target_label": "偏好；更愿选择的人、事或方案"
         }
       },
       {
@@ -4409,7 +4932,34 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:93598f11e30d0352c063",
+        "sense_id": "sense:preference:80cc8c75bcbc5ae8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "choose/use A in preference to B",
+        "lines": [
+          {
+            "text": "优先选用 A，而不选 B",
+            "lang": "cn"
+          },
+          {
+            "text": "in preference to 后接未被选择的 B。",
+            "lang": "cn"
+          },
+          {
+            "text": "choose or use A rather than B",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:93598f11e30d0352c063",
+          "target_locator": "record.constructions[0]",
+          "target_label": "choose/use A in preference to B"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4434,7 +4984,7 @@
     "ordinal": 3740,
     "word": "pregnant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3740.json",
-    "source_fingerprint": "d0b647f1834558faf66ae1c7201d0baafae04787158d5c7127e7e890adf491cb",
+    "source_fingerprint": "afbd444d1295487b71fdf3b84fed291d259ecd39147fa93c83dbf5a1944f330e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4443,13 +4993,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "怀孕的",
-      "decision_cn": "",
+      "summary_cn": "怀有胎儿；也可蕴含浓厚的意味或情感",
+      "decision_cn": "人或动物的身体语境是怀孕；pregnant with + meaning/possibility 等抽象词或 pregnant pause/silence 是含而未说的意味、情绪或期待。with + child/twins 仍是字面怀孕。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "怀孕的"
+        "target_label": "怀有胎儿；也可蕴含浓厚的意味或情感"
       }
     },
     "senses": [
@@ -4496,10 +5046,10 @@
         "id": "sense:pregnant:b37b4383bfe75918",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "充满的；意味深长的",
-        "definition_en": "full of meaning or significance",
-        "note": "",
+        "governing_pattern": "pregnant with + abstract noun",
+        "definition_cn": "蕴含浓厚意味、情感或可能性的",
+        "definition_en": "rich in an unexpressed meaning, feeling, or possibility",
+        "note": "比喻用法较正式或文学化；pause/silence 可指含有未说出口的情绪、意味或期待的停顿或沉默。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4514,13 +5064,26 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "pregnant with meaning"
             }
+          },
+          {
+            "id": "collocation:d1fd240bc08cdccce14f",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a pregnant pause/silence",
+            "meaning_cn": "意味深长的停顿或沉默",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d1fd240bc08cdccce14f",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "a pregnant pause/silence"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pregnant:b37b4383bfe75918",
           "target_locator": "record.senses[1]",
-          "target_label": "充满的；意味深长的"
+          "target_label": "蕴含浓厚意味、情感或可能性的"
         }
       }
     ],
@@ -4580,7 +5143,7 @@
     "ordinal": 3741,
     "word": "prejudice",
     "source_owner_path": "content/lexical/words/by-ordinal/o3741.json",
-    "source_fingerprint": "85ed47bcb57357fbd6abbd096f6aae7c89cc2914bc4ba00f15587a43fb3c9799",
+    "source_fingerprint": "f076f05d77aae5db88f0a8e97ca5a31f6a1af0843ac94d56bca9d2397fb186b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4590,13 +5153,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "偏见；使有偏见",
-      "decision_cn": "",
+      "summary_cn": "偏见；使判断带偏，或使权益、机会受损",
+      "decision_cn": "prejudice sb against… 使某人的判断对某对象带偏；prejudice rights/chances/a case 等直接接权益、机会或案件时，指使之受损，不要求有人心存偏见。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "偏见；使有偏见"
+        "target_label": "偏见；使判断带偏，或使权益、机会受损"
       }
     },
     "senses": [
@@ -4643,10 +5206,10 @@
         "id": "sense:prejudice:26d2437a0dbd5d75",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "prejudice sb (against sb/sth); prejudice sth",
         "definition_cn": "使存偏见；侵害",
         "definition_en": "to influence someone's opinion in advance; to cause harm to someone's rights or interests",
-        "note": "",
+        "note": "against 引出偏见针对的对象；直接接 rights、interests、chances、outcome 等则常为正式的“损害、使不利”。两种用法不要都译为“使有偏见”。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4784,7 +5347,7 @@
     "ordinal": 3742,
     "word": "preliminary",
     "source_owner_path": "content/lexical/words/by-ordinal/o3742.json",
-    "source_fingerprint": "4f89c59536de392f454c79f49735be9a68e6ca804a69d7a3ca67dd487668993c",
+    "source_fingerprint": "0e16fd21f53917501ff7f97a7c9812986229af17009f5cdf6a087d04fb70dd3f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4843,9 +5406,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "主要赛事之前的次要比赛",
-        "definition_en": "a minor match preceding the main event",
-        "note": "",
+        "definition_cn": "预赛、初赛；主要赛事或阶段之前的比赛",
+        "definition_en": "an early or qualifying contest, or a contest held before the main event",
+        "note": "常用复数 preliminaries 指赛事的初步或资格赛阶段；不一定表示比赛不重要。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4861,17 +5424,17 @@
           "target_kind": "sense",
           "target_id": "sense:preliminary:d11d7d1830f953aa",
           "target_locator": "record.senses[1]",
-          "target_label": "主要赛事之前的次要比赛"
+          "target_label": "预赛、初赛；主要赛事或阶段之前的比赛"
         }
       },
       {
         "id": "sense:preliminary:f525ec2bdffb5cbf",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "a preliminary to sth/doing sth",
         "definition_cn": "作为先前事件或引入后续内容的事物",
         "definition_en": "something that serves as a preceding event or introduces what follows",
-        "note": "",
+        "note": "常用复数 preliminaries 表正式进入主题前的准备、手续或开场；a preliminary to 中的 to 接名词或 doing。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4924,7 +5487,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:aeb0de06b00af4f74cf7",
+        "sense_id": "sense:preliminary:f525ec2bdffb5cbf",
+        "source_locator": "record.constructions[0]",
+        "pattern": "as a preliminary to sth/doing sth",
+        "lines": [
+          {
+            "text": "作为……之前的准备步骤",
+            "lang": "cn"
+          },
+          {
+            "text": "to 是介词；后接名词或 doing，不接动词原形。",
+            "lang": "cn"
+          },
+          {
+            "text": "as a preparatory step before the main action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:aeb0de06b00af4f74cf7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "as a preliminary to sth/doing sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4938,7 +5528,7 @@
     "ordinal": 3743,
     "word": "premier",
     "source_owner_path": "content/lexical/words/by-ordinal/o3743.json",
-    "source_fingerprint": "674f83a1d6a85ab438d64d2087a420c974a07d0b6a14cd8f0ad641c82aa908f6",
+    "source_fingerprint": "b2c767c3d1e1ce2b6ca7156aaab5040989918e61e94816a47223c7da60fd57a7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4949,7 +5539,7 @@
     },
     "word_feel": {
       "summary_cn": "首要的；总理",
-      "decision_cn": "",
+      "decision_cn": "单独作职称名词时看政府层级，可能是国家总理，也可能是省、州或地区首长；置于 chef、attraction、league 等名词前时，表示顶尖或首要。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4963,9 +5553,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "总理；首相",
-        "definition_en": "the head of a government, especially in some countries",
-        "note": "",
+        "definition_cn": "总理、首相；某些国家的省、州或地区政府首脑",
+        "definition_en": "a prime minister, or the head of certain provincial, state, or territorial governments",
+        "note": "报刊中常指总理；在加拿大可指省或地区首长，在澳大利亚也可指州政府首脑，须看所辖地区。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4981,14 +5571,14 @@
           "target_kind": "sense",
           "target_id": "sense:premier:10c212e71b575f10",
           "target_locator": "record.senses[0]",
-          "target_label": "总理；首相"
+          "target_label": "总理、首相；某些国家的省、州或地区政府首脑"
         }
       },
       {
         "id": "sense:premier:a4e1f2b4eab95358",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "premier + noun (usually attributive)",
         "definition_cn": "首要的；最优秀的",
         "definition_en": "best or most important",
         "note": "",
@@ -5094,23 +5684,23 @@
     "ordinal": 3744,
     "word": "premise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3744.json",
-    "source_fingerprint": "d85a881501e6739de04a1446e1efda72c2395ad398663b7a8abfb42736c5c85b",
+    "source_fingerprint": "d79f1dd81988822e86f3e5fa95059dd4e256b54b44d59e07fd80423889a968df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "前提；premises=场所",
-      "decision_cn": "",
+      "summary_cn": "论证或故事的出发点；场所义通常用 premises",
+      "decision_cn": "argument/reasoning 中 premise/premises 是一个或多个前提；film/story 中是情节设定；on the premises、business premises 中指场所。不能仅凭词尾 -s 判断成房屋。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "前提；premises=场所"
+        "target_label": "论证或故事的出发点；场所义通常用 premises"
       }
     },
     "senses": [
@@ -5240,6 +5830,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "以…为前提；假定"
         }
+      },
+      {
+        "id": "sense:premise:054f83637cfb9226",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the premise of + story/film/show",
+        "definition_cn": "（故事、电影等的）基本设定；情节出发点",
+        "definition_en": "the basic situation or idea from which a story develops",
+        "note": "作品语境看叙事从什么设定出发，不是在说房屋，也不必是用来证明结论的逻辑前提。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c9bbc0cc23e550f26a16",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "the premise of the film",
+            "meaning_cn": "这部电影的基本设定",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:premise:054f83637cfb9226",
+          "target_locator": "record.senses[3]",
+          "target_label": "（故事、电影等的）基本设定；情节出发点"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5320,7 +5936,7 @@
     "ordinal": 3745,
     "word": "premium",
     "source_owner_path": "content/lexical/words/by-ordinal/o3745.json",
-    "source_fingerprint": "7666935d5d335575740916ecb6ba86039b63a71e48687ffa2bf25f6788bb0b5a",
+    "source_fingerprint": "878896d88bec3883adfecbf77c9f2d7524cb1a6f75d658cb24ceb1fe35e07f96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5330,13 +5946,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "额外费用或优质",
-      "decision_cn": "",
+      "summary_cn": "保险费；超出通常水平的价额或奖励；优质高档的",
+      "decision_cn": "insurance/monthly premium 是购买保险保障的费用，不是必然加收的钱；pay/sell at a premium 关乎额外价额；space/time is at a premium 表稀缺宝贵；premium + 商品常表高档。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "额外费用或优质"
+        "target_label": "保险费；超出通常水平的价额或奖励；优质高档的"
       }
     },
     "senses": [
@@ -5395,6 +6011,19 @@
               "target_id": "collocation:050f24a340d3f234997b",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "pay a premium for + sth"
+            }
+          },
+          {
+            "id": "collocation:19fa83a908653ed503ac",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "sell at a premium",
+            "meaning_cn": "以高于通常价格出售",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:19fa83a908653ed503ac",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "sell at a premium"
             }
           }
         ],
@@ -5545,7 +6174,7 @@
     "ordinal": 3746,
     "word": "preparation",
     "source_owner_path": "content/lexical/words/by-ordinal/o3746.json",
-    "source_fingerprint": "78db86e3c2d83e7d744f2225c2721b12a28c3e4b61bac3eb3a738a814179d8b6",
+    "source_fingerprint": "685f1c6ea3b1f251d9ae8ffc022562b5984cbac09273fa8ac4f7f831d0acf459",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5554,13 +6183,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "准备的行为",
-      "decision_cn": "",
+      "summary_cn": "为使用或行动作准备；也指配制好的制剂",
+      "decision_cn": "preparation 表准备过程常不可数；make preparations 表具体准备工作，常用复数；a preparation 在药物、护肤等语境可指制剂或配制品。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "准备的行为"
+        "target_label": "为使用或行动作准备；也指配制好的制剂"
       }
     },
     "senses": [
@@ -5569,9 +6198,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "准备；预备",
-        "definition_en": "the activity of getting something ready",
-        "note": "",
+        "definition_cn": "准备；预备；为此所作的安排或工作",
+        "definition_en": "the process of getting ready, or the arrangements made for it",
+        "note": "过程义通常不可数；具体准备事项通常用复数 preparations。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5592,7 +6221,7 @@
           "target_kind": "sense",
           "target_id": "sense:preparation:1d1e25ccd84b5a76",
           "target_locator": "record.senses[0]",
-          "target_label": "准备；预备"
+          "target_label": "准备；预备；为此所作的安排或工作"
         }
       },
       {
@@ -5640,7 +6269,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:1e4f2e612c5fa4dfb2e0",
+        "sense_id": "sense:preparation:1d1e25ccd84b5a76",
+        "source_locator": "record.constructions[0]",
+        "pattern": "make preparations for sth / to do sth",
+        "lines": [
+          {
+            "text": "为某事或为做某事安排准备工作",
+            "lang": "cn"
+          },
+          {
+            "text": "具体准备工作常用复数；for 后接名词，to 后接动词原形。",
+            "lang": "cn"
+          },
+          {
+            "text": "make the practical arrangements needed for an event or action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1e4f2e612c5fa4dfb2e0",
+          "target_locator": "record.constructions[0]",
+          "target_label": "make preparations for sth / to do sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5665,7 +6321,7 @@
     "ordinal": 3747,
     "word": "prepare",
     "source_owner_path": "content/lexical/words/by-ordinal/o3747.json",
-    "source_fingerprint": "ac1c24235d6450efdf5e3cbe82884aceddf83e76b0b9c91b5805ebdbcf516cba",
+    "source_fingerprint": "4d503985493b5233c1084da4a9795b01ff78553d6029f8300c1ea856fcdaa61b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5709,6 +6365,19 @@
             "meaning_cn": "准备报告",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:92b5266c53df52fa6894",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "prepare the ground for sth",
+            "meaning_cn": "为某事铺路；创造条件",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:92b5266c53df52fa6894",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "prepare the ground for sth"
+            }
           }
         ],
         "repair": {
@@ -5761,7 +6430,7 @@
         "id": "sense:prepare:0bebb9d5b3595c55",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "prepare for sth; prepare to do sth; prepare oneself for sth/to do sth",
         "definition_cn": "做准备；预备",
         "definition_en": "make oneself ready",
         "note": "",
@@ -5876,6 +6545,32 @@
           "target_locator": "record.constructions[1]",
           "target_label": "prepare to do sth"
         }
+      },
+      {
+        "id": "construction:916be691fd6d26cf1231",
+        "sense_id": "sense:prepare:b52f4fd3591f503d",
+        "source_locator": "record.constructions[2]",
+        "pattern": "prepare sb to do sth",
+        "lines": [
+          {
+            "text": "使某人具备做某事的准备或能力",
+            "lang": "cn"
+          },
+          {
+            "text": "sb 执行后面的动作；prepare to do sth 则由主语自己准备行动。",
+            "lang": "cn"
+          },
+          {
+            "text": "make someone ready or able to perform an action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:916be691fd6d26cf1231",
+          "target_locator": "record.constructions[2]",
+          "target_label": "prepare sb to do sth"
+        }
       }
     ],
     "reference": {
@@ -5886,7 +6581,7 @@
           "target_word": "ready",
           "lines": [
             {
-              "text": "ready describes being prepared; prepare is the action of making someone or something ready.",
+              "text": "Both ready and prepare can be verbs meaning to make someone or something ready. The verb ready is formal; prepare is the usual general choice. Here ready means making something ready, rather than the adjective meaning already prepared.",
               "lang": "en"
             },
             {
@@ -6044,7 +6739,7 @@
     "ordinal": 3749,
     "word": "prescribe",
     "source_owner_path": "content/lexical/words/by-ordinal/o3749.json",
-    "source_fingerprint": "4414cc1b51416d569fa7ffbf16dba7f480a29ad27d1a80547917cc2f54a2a4ff",
+    "source_fingerprint": "2e4a9697781e48e0ad9350c33bfff75533aae9520ccdb4e087d986f7dbda0c6a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6054,7 +6749,7 @@
     },
     "word_feel": {
       "summary_cn": "规定；开处方",
-      "decision_cn": "",
+      "decision_cn": "共同点是权威地指定应采用什么：医疗语境指定药物或治疗；法律、规则和程序语境规定做法。先看指定的对象，再判断是否是开药。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6067,10 +6762,10 @@
         "id": "sense:prescribe:1a68cb909f895340",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "prescribe sth (for sb/a condition); prescribe for sb",
         "definition_cn": "开（药方），为…开药",
         "definition_en": "to order or recommend a medicine or treatment",
-        "note": "",
+        "note": "药物或治疗作直接宾语；for 可引出患者或所针对的病症。prescribe for sb 也可不出现药物宾语。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6106,10 +6801,10 @@
         "id": "sense:prescribe:aa24bb79709353a0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "prescribe sth; prescribe that + clause",
         "definition_cn": "规定，指定",
         "definition_en": "to state officially what should be done in a particular situation",
-        "note": "",
+        "note": "正式语境中表示权威规定应做什么；规则、法律或程序可作主语，不限于医嘱。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6209,23 +6904,23 @@
     "ordinal": 3750,
     "word": "prescription",
     "source_owner_path": "content/lexical/words/by-ordinal/o3750.json",
-    "source_fingerprint": "26e30629003a9e2551b6f692ae7da1bf8bf932f1932d85922c0f574a3d3d6aad",
+    "source_fingerprint": "ae909aed87e48f51942cc39afd7dd3a5dc688808e8e152b4d40266a4f382faf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "处方；治疗/用药授权",
-      "decision_cn": "",
+      "summary_cn": "授权的治疗用药指令，或按此配给的药；也可指解决问题的方案",
+      "decision_cn": "write a prescription 指开处方；领取或服用时可指配给的药。prescription for + recovery/success 等抽象目标，指推荐的办法；prescription drug 表须凭处方取得的药。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "处方；治疗/用药授权"
+        "target_label": "授权的治疗用药指令，或按此配给的药；也可指解决问题的方案"
       }
     },
     "senses": [
@@ -6268,9 +6963,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "指示；规定；命令",
-        "definition_en": "a direction or rule prescribed beforehand; an authoritative recommendation",
-        "note": "",
+        "definition_cn": "（较正式）针对问题提出的方案、建议或规定",
+        "definition_en": "an authoritative proposal, direction, or rule for achieving an outcome or improving a situation",
+        "note": "prescription for + 抽象问题或目标可指应对方案，不必是命令；如经济复苏的政策建议。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6291,7 +6986,7 @@
           "target_kind": "sense",
           "target_id": "sense:prescription:7f31661e2d2b5383",
           "target_locator": "record.senses[1]",
-          "target_label": "指示；规定；命令"
+          "target_label": "（较正式）针对问题提出的方案、建议或规定"
         }
       },
       {
@@ -6318,6 +7013,32 @@
           "target_id": "sense:prescription:c7d7a91c215b52d1",
           "target_locator": "record.senses[2]",
           "target_label": "凭处方授权方可获得的"
+        }
+      },
+      {
+        "id": "sense:prescription:be5c1dbc99b8f1c4",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "按处方配给的药；所开药品",
+        "definition_en": "medicine supplied or ordered under a prescription",
+        "note": "领取、配制或服用的语境可指药品本身；write a prescription 则指开出用药指令。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:07b42b16a66a12188e6f",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "collect a prescription from the pharmacy",
+            "meaning_cn": "从药房领取处方药",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:prescription:be5c1dbc99b8f1c4",
+          "target_locator": "record.senses[3]",
+          "target_label": "按处方配给的药；所开药品"
         }
       }
     ],
@@ -6377,17 +7098,17 @@
     "ordinal": 3751,
     "word": "presence",
     "source_owner_path": "content/lexical/words/by-ordinal/o3751.json",
-    "source_fingerprint": "8443c5fd3f93d61323317cf7d50de4dbf5e5c169d865ff5ec8d86ee2fa951f3b",
+    "source_fingerprint": "ade70a352ad759193aee20265df2f56a9934782357c16bb28e21cb4578c91788",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "存在，出席",
-      "decision_cn": "",
+      "decision_cn": "in the presence of谈在场；stage presence谈舞台感染力；presence of mind是临危不乱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6425,6 +7146,32 @@
           "target_id": "sense:presence:f1d6df4b11ee539d",
           "target_locator": "record.senses[0]",
           "target_label": "出席，存在"
+        }
+      },
+      {
+        "id": "sense:presence:7c82fabcf48fe7a7",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（令人印象深刻的）气质；风度",
+        "definition_en": "a personal quality that makes someone noticeable and impressive",
+        "note": "stage presence指舞台感染力；有无presence可评价气场，不只是人在场。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:presence:fae798f111cb07c1",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "The young actor has remarkable stage presence.",
+            "meaning_cn": "这位年轻演员很有舞台感染力。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:presence:7c82fabcf48fe7a7",
+          "target_locator": "record.senses[1]",
+          "target_label": "（令人印象深刻的）气质；风度"
         }
       }
     ],
@@ -6489,11 +7236,11 @@
     "ordinal": 3752,
     "word": "present",
     "source_owner_path": "content/lexical/words/by-ordinal/o3752.json",
-    "source_fingerprint": "3c1fa64b131c2a9581399bb92bd3220d6724ef96390496cbb3ffb8d2e254137b",
+    "source_fingerprint": "bee25c022f17ef5a8b4860823e2142ca685087129b5d3b3fcdd7f6b4140d14e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "3V",
         "2A",
         "2N"
       ],
@@ -6501,7 +7248,7 @@
     },
     "word_feel": {
       "summary_cn": "现在的；呈现；赠送",
-      "decision_cn": "",
+      "decision_cn": "名词present指礼物或现在；形容词看名词前的当前与名词后的在场；动词随report/gift、challenge或症状分别选择呈交赠予、带来问题、临床表现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6517,7 +7264,7 @@
         "governing_pattern": "",
         "definition_cn": "现在的；当前的",
         "definition_en": "existing or happening now",
-        "note": "",
+        "note": "表示当前的通常放在名词前：the present situation；表示出席的常放在所修饰名词后或作表语。",
         "identity_overlay": {
           "text": "noun/adjective present has initial stress; the verb present has final stress",
           "repair": {
@@ -6684,6 +7431,58 @@
           "target_locator": "record.senses[4]",
           "target_label": "出席的；在场的"
         }
+      },
+      {
+        "id": "sense:present:9b487fad35bf14df",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vt.: present a problem/challenge/risk",
+        "definition_cn": "造成；带来（困难、机会等）",
+        "definition_en": "to cause a situation or offer a difficulty or opportunity",
+        "note": "challenge/problem/risk作宾语时是带来某种情况，不是展示物品。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:present:668a6e36394be441",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The delay presents a serious risk.",
+            "meaning_cn": "延误带来严重风险。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:present:9b487fad35bf14df",
+          "target_locator": "record.senses[5]",
+          "target_label": "造成；带来（困难、机会等）"
+        }
+      },
+      {
+        "id": "sense:present:cf72564c92421eb6",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vi.: present with symptoms; a condition presents as sth",
+        "definition_cn": "（病人）就诊时表现出（症状）",
+        "definition_en": "to show particular symptoms when assessed medically, or to manifest in a particular way",
+        "note": "临床语境，主语常是病人；present with接症状，疾病present as接其表现。不推广到普通赠送义。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:present:0e87927dfc07e0c3",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "The patient presented with a persistent cough.",
+            "meaning_cn": "患者就诊时表现为持续咳嗽。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:present:cf72564c92421eb6",
+          "target_locator": "record.senses[6]",
+          "target_label": "（病人）就诊时表现出（症状）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6817,6 +7616,31 @@
           "target_id": "construction:1570da9d4e189d7c9028",
           "target_locator": "record.constructions[2]",
           "target_label": "present sth to sb"
+        }
+      },
+      {
+        "id": "construction:present:4851efa0af3fbcce",
+        "source_locator": "record.constructions[3]",
+        "pattern": "an opportunity presents itself (to sb)",
+        "lines": [
+          {
+            "text": "（某人）出现一个机会",
+            "lang": "cn"
+          },
+          {
+            "text": "机会、可能性等作主语；itself随主语变形，不是人做自我介绍。",
+            "lang": "cn"
+          },
+          {
+            "text": "an opportunity becomes available",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:present:4851efa0af3fbcce",
+          "target_locator": "record.constructions[3]",
+          "target_label": "an opportunity presents itself (to sb)"
         }
       }
     ],
@@ -6989,18 +7813,18 @@
     "ordinal": 3754,
     "word": "preserve",
     "source_owner_path": "content/lexical/words/by-ordinal/o3754.json",
-    "source_fingerprint": "db86cdc7283f591cfa231cff75ffa533c671503a80eab1b16ec1b296453371b8",
+    "source_fingerprint": "b55dcc8987e17fdfc621899919c740c9df44fed2c920b3839f7132e9512d9882",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "保护；保存",
-      "decision_cn": "",
+      "decision_cn": "动词看保护对象、食物防腐或状态维持；名词看保护区、果酱或the preserve of某群体的专属领域。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7150,6 +7974,32 @@
           "target_id": "sense:preserve:63b8e86506cd5485",
           "target_locator": "record.senses[4]",
           "target_label": "蜜饯；果酱"
+        }
+      },
+      {
+        "id": "sense:preserve:51f7ff89cdab349c",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "专属领域；专有活动",
+        "definition_en": "an area of activity regarded as belonging to a particular group",
+        "note": "常见the (exclusive) preserve of sb，不是自然保护区或果酱。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:preserve:753f9a356677ed3d",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "This sport is no longer the exclusive preserve of the wealthy.",
+            "meaning_cn": "这项运动不再是富人的专属领域。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:preserve:51f7ff89cdab349c",
+          "target_locator": "record.senses[5]",
+          "target_label": "专属领域；专有活动"
         }
       }
     ],
@@ -7504,7 +8354,7 @@
     "ordinal": 3757,
     "word": "press",
     "source_owner_path": "content/lexical/words/by-ordinal/o3757.json",
-    "source_fingerprint": "1573406c1ce781605cbfd8e9bc380b2a4d9264cc4585c6f5600c15c3a7612208",
+    "source_fingerprint": "2beaef7c962fe31e4d95995af190e79f2c7559ee1b62ac09f6b92db984f8c515",
     "sense_lineage": [
       {
         "word_id": "word:press",
@@ -7523,14 +8373,14 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "3V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "按压；新闻界/印刷",
-      "decision_cn": "",
+      "decision_cn": "the press指新闻界，printing press是机器，机构名的Press指出版社；动词看按钮、被催促的人或衣服，分别是按压、催促、熨烫。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7681,6 +8531,58 @@
           "target_locator": "record.senses[3]",
           "target_label": "逼迫；催促"
         }
+      },
+      {
+        "id": "sense:press:a17c53c9332975da",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "出版社；出版机构",
+        "definition_en": "a publishing business",
+        "note": "大学名后的Press常是出版机构，不是新闻记者集体或印刷机器。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:press:ef675dbf9eaf2320",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a university press",
+            "meaning_cn": "大学出版社",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:press:a17c53c9332975da",
+          "target_locator": "record.senses[4]",
+          "target_label": "出版社；出版机构"
+        }
+      },
+      {
+        "id": "sense:press:59291974f04bd335",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vt.: press clothes",
+        "definition_cn": "熨平；熨烫",
+        "definition_en": "to smooth clothing or cloth with heat and pressure",
+        "note": "衣服/布料作宾语时可指熨烫。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:press:5fcffef4ad126d55",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "Please press this shirt before the interview.",
+            "meaning_cn": "面试前请把这件衬衫熨平。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:press:59291974f04bd335",
+          "target_locator": "record.senses[5]",
+          "target_label": "熨平；熨烫"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7723,6 +8625,31 @@
           "target_id": "construction:3417327b2623bdeb336e",
           "target_locator": "record.constructions[0]",
           "target_label": "press on/ahead"
+        }
+      },
+      {
+        "id": "construction:press:e9b617468ccfd713",
+        "source_locator": "record.constructions[1]",
+        "pattern": "press charges (against sb)",
+        "lines": [
+          {
+            "text": "（对某人）提出刑事指控",
+            "lang": "cn"
+          },
+          {
+            "text": "词义层面识别固定搭配；不是催促收费，不说明具体司法程序或权限。",
+            "lang": "cn"
+          },
+          {
+            "text": "to formally accuse someone of a crime through the legal process",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:press:e9b617468ccfd713",
+          "target_locator": "record.constructions[1]",
+          "target_label": "press charges (against sb)"
         }
       }
     ],
@@ -7789,18 +8716,18 @@
     "ordinal": 3758,
     "word": "pressure",
     "source_owner_path": "content/lexical/words/by-ordinal/o3758.json",
-    "source_fingerprint": "5fe6cb060a634a899ec085ed8e90c26e42a44669bb8a512caeb769cca0387204",
+    "source_fingerprint": "dcfcd67bb4348b2bc64dc36441548fbfd0d97f8064593a66eae7861fb20a878c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "压力；施加压力",
-      "decision_cn": "",
+      "decision_cn": "血压/加压储存是物理压力；put pressure on谈对人施压；工作负担带来的焦虑是精神压力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7828,17 +8755,12 @@
             "repair": null
           },
           {
-            "id": "collocation:ce5f17e334bdfadbee04",
+            "id": "collocation:pressure:77aa9d21c074497f",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "under pressure",
-            "meaning_cn": "在压力下；被迫",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ce5f17e334bdfadbee04",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "under pressure"
-            }
+            "phrase": "The gas is stored under pressure.",
+            "meaning_cn": "气体以加压状态储存。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7883,6 +8805,19 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "put pressure on + sb"
             }
+          },
+          {
+            "id": "collocation:ce5f17e334bdfadbee04",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "under pressure",
+            "meaning_cn": "在压力下；被迫",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ce5f17e334bdfadbee04",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "under pressure"
+            }
           }
         ],
         "repair": {
@@ -7921,6 +8856,32 @@
           "target_id": "sense:pressure:e0e2ca90bbcc5f01",
           "target_locator": "record.senses[2]",
           "target_label": "迫使；施压"
+        }
+      },
+      {
+        "id": "sense:pressure:d5ab6b8e900898be",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（工作或处境带来的）精神压力",
+        "definition_en": "worry or strain caused by demanding circumstances",
+        "note": "work pressure、cope with pressure可谈焦虑负担，不一定有人强迫；under pressure也可因此表示承压。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pressure:e4a9a8530cc775ad",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "She finds it hard to cope with the pressure at work.",
+            "meaning_cn": "她觉得难以应付工作压力。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pressure:d5ab6b8e900898be",
+          "target_locator": "record.senses[3]",
+          "target_label": "（工作或处境带来的）精神压力"
         }
       }
     ],
@@ -8214,17 +9175,17 @@
     "ordinal": 3761,
     "word": "presume",
     "source_owner_path": "content/lexical/words/by-ordinal/o3761.json",
-    "source_fingerprint": "f0873d2445df989d480f4ba1ba2fc4282a44c8af9147e41e37814f2ab2dfdefe",
+    "source_fingerprint": "7a549d3580ab71af297b8f91088deea706f29393d5c61a0ba0d25dc9d2881d3b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "假定；擅自",
-      "decision_cn": "",
+      "decision_cn": "that/to be引出推测；presume on或presume to do谈冒昧；论证或计划可预设前提，证据也可足以推定事实。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8281,10 +9242,10 @@
         "id": "sense:presume:02602c5f8ae65ba8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/upon",
+        "governing_pattern": "presume on/upon sth; presume to do sth",
         "definition_cn": "擅自行动；利用",
         "definition_en": "take liberties or act with too much confidence",
-        "note": "",
+        "note": "presume on/upon指冒昧利用某人的好意；presume to do常指无资格或未经允许竟敢做。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8337,6 +9298,32 @@
           "target_id": "sense:presume:0b679c534306520d",
           "target_locator": "record.senses[2]",
           "target_label": "意味着；足以推定"
+        }
+      },
+      {
+        "id": "sense:presume:5697ded17f9166d7",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vt.: presume sth",
+        "definition_cn": "以……为前提；预先要求",
+        "definition_en": "to depend on something being accepted or in place beforehand",
+        "note": "计划、解释、论证作主语时指前提；不同于原另一义constitute reasonable evidence for，后者是从证据推断事实。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:presume:e77e93615abef964",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The plan presumes sufficient funding.",
+            "meaning_cn": "这个计划以有足够资金为前提。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:presume:5697ded17f9166d7",
+          "target_locator": "record.senses[3]",
+          "target_label": "以……为前提；预先要求"
         }
       }
     ],
@@ -8431,17 +9418,18 @@
     "ordinal": 3762,
     "word": "pretend",
     "source_owner_path": "content/lexical/words/by-ordinal/o3762.json",
-    "source_fingerprint": "575fb582de78969ce32e383854c763b040933565066f563dd42e95e86184c3eb",
+    "source_fingerprint": "6f582cb08874559e53cc16fac9fe5b8673239a24b6fcda73297590f0556c3d31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "2V",
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "假装",
-      "decision_cn": "",
+      "decision_cn": "谓语pretend常接to do/that表示假装或自称；名词前pretend money等表示游戏中想象的物品。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8523,6 +9511,32 @@
           "target_id": "sense:pretend:bea9f7d3eaba546b",
           "target_locator": "record.senses[1]",
           "target_label": "自称，自命"
+        }
+      },
+      {
+        "id": "sense:pretend:fe5bbec7a29dac35",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "假装的；玩耍时想象的",
+        "definition_en": "imaginary and used in play",
+        "note": "非正式，名词前，如pretend money；不是谓语动词pretend缺补语。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pretend:538e4ecbc2dd03f0",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The children paid with pretend money.",
+            "meaning_cn": "孩子们用假钞票玩付款游戏。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pretend:fe5bbec7a29dac35",
+          "target_locator": "record.senses[2]",
+          "target_label": "假装的；玩耍时想象的"
         }
       }
     ],
@@ -8740,7 +9754,7 @@
     "ordinal": 3764,
     "word": "pretty",
     "source_owner_path": "content/lexical/words/by-ordinal/o3764.json",
-    "source_fingerprint": "b898481fb62b4f5e5a13f74802dae5c7ad64930addf3365e1351fc3d588e3195",
+    "source_fingerprint": "507188e637d4eca2300033ed7227fd727542a34083987a9dd244ffed95bb3dd2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8751,7 +9765,7 @@
     },
     "word_feel": {
       "summary_cn": "漂亮的；相当",
-      "decision_cn": "",
+      "decision_cn": "描述外观是漂亮；修饰程度是非正式的相当/很；pretty much或pretty well整体表示几乎。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8800,8 +9814,8 @@
         "pos": "adverb",
         "governing_pattern": "",
         "definition_cn": "相当；颇",
-        "definition_en": "to a moderately high degree; fairly",
-        "note": "",
+        "definition_en": "fairly or very, depending on context",
+        "note": "非正式程度副词；pretty good可从还不错到相当好，不能一律固定为中等程度。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8850,7 +9864,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pretty:96652f553cee7fad",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pretty much / pretty well",
+        "lines": [
+          {
+            "text": "几乎；差不多",
+            "lang": "cn"
+          },
+          {
+            "text": "整个短语表示接近完全，不把much/well逐词解作漂亮。",
+            "lang": "cn"
+          },
+          {
+            "text": "almost or nearly completely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pretty:96652f553cee7fad",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pretty much / pretty well"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8864,7 +9904,7 @@
     "ordinal": 3765,
     "word": "prevail",
     "source_owner_path": "content/lexical/words/by-ordinal/o3765.json",
-    "source_fingerprint": "aa5f8bd19f34c2c6749ce083cea5183408b9f2a0459eb943d10f8c7694154f2c",
+    "source_fingerprint": "5447bd86616fca2ebe810bd14b8ed1d6dfe051e50c9549b880b9e4558e63542b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8887,10 +9927,10 @@
         "id": "sense:prevail:2b22b07adbf95243",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + over",
+        "governing_pattern": "vi.: prevail (over/against sb/sth)",
         "definition_cn": "获胜；占优势",
         "definition_en": "prove superior",
-        "note": "",
+        "note": "较正式；介词按意义选择。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8926,10 +9966,10 @@
         "id": "sense:prevail:ee441da2cfe35d2f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + among/in",
+        "governing_pattern": "vi.: prevail (in/among sth)",
         "definition_cn": "流行；盛行",
         "definition_en": "continue to exist; be widespread",
-        "note": "",
+        "note": "较正式；介词按意义选择。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8978,10 +10018,10 @@
         "id": "sense:prevail:df0109869ecd5bf8",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/upon",
+        "governing_pattern": "vi.: prevail on/upon sb to do sth",
         "definition_cn": "说服；劝说",
         "definition_en": "use persuasion successfully",
-        "note": "",
+        "note": "较正式；说服对象在on/upon后，要做的动作接to do。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9712,7 +10752,7 @@
     "ordinal": 3770,
     "word": "price",
     "source_owner_path": "content/lexical/words/by-ordinal/o3770.json",
-    "source_fingerprint": "653735b0312fc677b694bf5f64e5485102a072b6a42ed4ae60006c0741b4d791",
+    "source_fingerprint": "3e45dad84dcef7d5c79eea264590890b901bf83bba55b03cbf89cd2501db6a6a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9824,8 +10864,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "悬赏金",
-        "definition_en": "a monetary reward offered for capturing a criminal",
-        "note": "",
+        "definition_en": "money offered as a reward for capturing or killing a person",
+        "note": "a price on someone's head是悬赏，不预设该人一定是已定罪罪犯。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9942,18 +10982,18 @@
     "ordinal": 3771,
     "word": "pride",
     "source_owner_path": "content/lexical/words/by-ordinal/o3771.json",
-    "source_fingerprint": "594fccefbd9b910445d7ba237d5241951004e5417250926d940b1337a2c02a76",
+    "source_fingerprint": "b0ae5460f96758ba3b32875e89cc84f81edcbdd3822221dfb9047facc8d1b966",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "自豪；骄傲；狮群",
-      "decision_cn": "",
+      "decision_cn": "take pride in常是积极自豪，hurt pride谈自尊；阻碍认错等语境可含自负；a pride of lions是狮群，pride oneself on是反身动词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10087,6 +11127,32 @@
           "target_id": "sense:pride:58d357bdceed5ab4",
           "target_locator": "record.senses[3]",
           "target_label": "以…自豪"
+        }
+      },
+      {
+        "id": "sense:pride:0f3f10a9805389a2",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "傲慢；自负",
+        "definition_en": "an excessive belief in one’s own importance or superiority",
+        "note": "带贬义的pride不是所有自豪或自尊；批评语气和过度优越感决定读法。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pride:45ee47964a52da16",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "His pride prevented him from admitting the mistake.",
+            "meaning_cn": "他的自负使他不肯承认错误。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pride:0f3f10a9805389a2",
+          "target_locator": "record.senses[4]",
+          "target_label": "傲慢；自负"
         }
       }
     ],
@@ -10258,18 +11324,18 @@
     "ordinal": 3773,
     "word": "primary",
     "source_owner_path": "content/lexical/words/by-ordinal/o3773.json",
-    "source_fingerprint": "4bf0a7e18662c0d41bc6516270d69f58fd4dabe6923b158fef4db2986d349ce2",
+    "source_fingerprint": "a0522645e9f696ec6ebe3d921c8d78edbcdf1ca03908c5f27799c902acbe4f61",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "首要的；初级的",
-      "decision_cn": "",
+      "decision_cn": "primary goal是主要目标，primary school是小学阶段；a primary可指初选，飞羽或主星由专业语境选择。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10289,16 +11355,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:12afd7a61666246ccaf6",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "primary school",
-            "meaning_cn": "小学",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:29debc227ed261c088c7",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "primary goal",
             "meaning_cn": "主要目标",
             "kind": "usage_example",
@@ -10370,6 +11428,32 @@
           "target_id": "sense:primary:b624d264443154d4",
           "target_locator": "record.senses[3]",
           "target_label": "主星（天文）"
+        }
+      },
+      {
+        "id": "sense:primary:67f26b22c2f9798a",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "小学教育的；初等教育的",
+        "definition_en": "relating to the first stage of formal schooling",
+        "note": "primary school/education表示小学阶段，不是最重要的学校。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:12afd7a61666246ccaf6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "primary school",
+            "meaning_cn": "小学",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:primary:67f26b22c2f9798a",
+          "target_locator": "record.senses[4]",
+          "target_label": "小学教育的；初等教育的"
         }
       }
     ],
@@ -10455,19 +11539,19 @@
     "ordinal": 3774,
     "word": "prime",
     "source_owner_path": "content/lexical/words/by-ordinal/o3774.json",
-    "source_fingerprint": "81e0497e9aa1ad728a3d305d3d32a477acd2e8531c6bacecb3e33bfa2264aeb4",
+    "source_fingerprint": "f0cf1c5cd0cb6be3a59a88e55adaeab1a1782d344a28f36f61d10c1c56231405",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2A",
+        "4A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "首要的；全盛期",
-      "decision_cn": "",
+      "decision_cn": "prime suspect是主要嫌疑人，prime land强调优质，prime example强调典型；in one’s prime谈鼎盛期，prime a pump是准备，数论名词prime是质数。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10607,7 +11691,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "质数，素数",
-        "definition_en": "a number that has no factors other than itself and 1",
+        "definition_en": "a positive integer greater than 1 whose only positive divisors are 1 and itself",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10625,6 +11709,58 @@
           "target_id": "sense:prime:3d013536365b56ad",
           "target_locator": "record.senses[4]",
           "target_label": "质数，素数"
+        }
+      },
+      {
+        "id": "sense:prime:2a40c4b2abb26a0b",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "最优质的；上等的",
+        "definition_en": "of especially high quality",
+        "note": "prime beef/location强调优质，不只是主次排名。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:prime:423e0705108c76ae",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "prime agricultural land",
+            "meaning_cn": "优质农地",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:prime:2a40c4b2abb26a0b",
+          "target_locator": "record.senses[5]",
+          "target_label": "最优质的；上等的"
+        }
+      },
+      {
+        "id": "sense:prime:f8420729722dbfc2",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "典型的；极有代表性的",
+        "definition_en": "especially clear or typical",
+        "note": "常在名词前，如prime example，不必称赞对象。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:prime:0729d06a6cf749db",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "This is a prime example of poor planning.",
+            "meaning_cn": "这正是规划不周的典型例子。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:prime:f8420729722dbfc2",
+          "target_locator": "record.senses[6]",
+          "target_label": "典型的；极有代表性的"
         }
       }
     ],
@@ -10722,18 +11858,18 @@
     "ordinal": 3775,
     "word": "primitive",
     "source_owner_path": "content/lexical/words/by-ordinal/o3775.json",
-    "source_fingerprint": "2683341140151c821098b426185485dc1830a40b50025014fe46b608ac710d10",
+    "source_fingerprint": "5a3333b9ffc3687be6cc297593fffa361b60bd220468e524739b0697b3e7d543",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "原始的；早期/简单基本的；技术上也可指基元",
-      "decision_cn": "",
+      "decision_cn": "历史发展语境是早期的；当代设施primitive可指简陋；计算机/数学名词是基元。用作人称的历史名词可能冒犯。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10826,6 +11962,32 @@
           "target_id": "sense:primitive:4cfd381955f450ef",
           "target_locator": "record.senses[2]",
           "target_label": "基元；原语；图元"
+        }
+      },
+      {
+        "id": "sense:primitive:7faf138dce244864",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "简陋的；发展水平低的",
+        "definition_en": "basic and lacking developed equipment or methods",
+        "note": "可评价当代设施或技术简陋，不一定年代古老；描述人群须注意冒犯风险，该历史人称用法不宜作中性现代称呼。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:primitive:2940da82f30e406a",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The camp had only primitive washing facilities.",
+            "meaning_cn": "营地只有简陋的洗漱设施。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:primitive:7faf138dce244864",
+          "target_locator": "record.senses[3]",
+          "target_label": "简陋的；发展水平低的"
         }
       }
     ],

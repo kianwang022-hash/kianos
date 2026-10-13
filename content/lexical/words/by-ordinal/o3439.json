@@ -6,7 +6,44 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:3a5c8ac93e83b608a1f2",
+        "pattern": "pack a (powerful) punch",
+        "meaning_cn": "力量强；产生强烈效果",
+        "definition_en": "having a strong force or effect",
+        "boundary": "可形容拳击能力，也可比喻论述、活动、味道等效果，不能按包拳头理解。",
+        "usage_note": "可形容拳击能力，也可比喻论述、活动、味道等效果，不能按包拳头理解。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:4e29536c464a51720ab1",
+        "pattern": "pack up（机器作主语）",
+        "meaning_cn": "（尤英式口语）停止工作；出故障",
+        "definition_en": "stopping working",
+        "boundary": "机器语境区别于原收拾打包；不把所有pack up都译成故障。",
+        "usage_note": "机器语境区别于原收拾打包；不把所有pack up都译成故障。",
+        "level": "L2",
+        "direction": "R",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:679d3b749f875b6855f1",
+        "pattern": "pack it in",
+        "meaning_cn": "（非正式）停止；放弃所做之事",
+        "definition_en": "quitting or stopping an activity",
+        "boundary": "it为固定骨架的一部分；不是把物品放进容器。",
+        "usage_note": "it为固定骨架的一部分；不是把物品放进容器。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      }
+    ],
     "content_hash": "8497e5f97006dfbc804d77a436abd8e56a39c495f7218d1e935e689e851443b8",
     "core_concept": {
       "core_clusters": [
@@ -20,19 +57,18 @@
           ]
         },
         {
-          "label_cn": "（野兽等的）一群；一包；一盒；一副；面膜；护肤霜",
-          "label_en": "a group of animals that hunt together; a set of things that are sold together or a container for them; a cream or lotion applied to the skin for cleansing or treatment",
+          "label_cn": "一群；一包/一组；便于携带的包",
+          "label_en": "a group; a set, bundle or carrying container",
           "pos": "noun",
           "sense_ids": [
             "sense:pack:0a0f0d4411895774",
-            "sense:pack:889321eeca375fef",
-            "sense:pack:4ec84cc1e39d5dc0"
+            "sense:pack:889321eeca375fef"
           ]
         }
       ],
       "core_meaning_cn": "打包；塞满；成群",
       "core_meaning_en": "to put things into a container or to form a group or bundle",
-      "mental_model_cn": "打包；塞满；成群",
+      "mental_model_cn": "pack bags是打包，pack a room是挤满；pack soil down是压实，pack a jury是操纵人员组成。the pack可指动物群或竞赛人群，a pack可指整组物品/背包。pack a punch说力量或效果强，机器pack up说故障，pack it in说停止做事。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,14 +103,14 @@
         "confidence": "medium",
         "definition_cn": "打包；收拾（行李）",
         "definition_en": "to put things into a container or suitcase",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "pack (a bag/sth); pack for a trip; pack sth into a container",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pack:fc3375a9e31d5d41",
         "sense_label_en": "to put things into a container or suitcase",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -99,13 +135,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "塞满；挤满",
-        "definition_en": "to fill something tightly with things",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to fill a space tightly with people or things, or crowd together into a place",
+        "governing_pattern": "I/T: pack a place with people/things; people pack into a place",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pack:b196d154ae505566",
-        "sense_label_en": "to fill something tightly with things",
+        "sense_label_en": "to fill a space tightly with people or things, or crowd together into a place",
         "sort_order": 1,
         "transitivity": "I/T"
       },
@@ -122,16 +158,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（野兽等的）一群",
-        "definition_en": "a group of animals that hunt together",
+        "definition_cn": "成群行动的动物；聚集的人群（如竞赛主群）",
+        "definition_en": "a group of animals moving or hunting together, or people massed together",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pack:0a0f0d4411895774",
-        "sense_label_en": "a group of animals that hunt together",
+        "sense_label_en": "a group of animals or people massed together",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "动物群常含捕猎，race中的the pack指主群；人的语境可带贬义，要按对象与场景判断。"
       },
       {
         "collocations": [
@@ -155,16 +192,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一包；一盒；一副",
-        "definition_en": "a set of things that are sold together or a container for them",
+        "definition_cn": "一包、一组或一副物品；便于携带的包/背包",
+        "definition_en": "a set or bundle of things supplied or carried together, or the container for them",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pack:889321eeca375fef",
-        "sense_label_en": "a set of things that are sold together or a container for them",
+        "sense_label_en": "a set or bundle of things, or their container",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可说信息包、整副牌或背着的包，不只商品外包装。"
       },
       {
         "collocations": [
@@ -189,6 +227,37 @@
         "sense_label_en": "a cream or lotion applied to the skin for cleansing or treatment",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:pack:a955d3185ed17eba",
+        "pos": "verb",
+        "definition_cn": "压实；压紧（泥土、雪等）",
+        "definition_en": "to press material into a dense firm mass",
+        "sense_label_en": "to press material into a dense firm mass",
+        "governing_pattern": "pack snow/soil (down)",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": []
+      },
+      {
+        "sense_id": "sense:pack:1860ad2e8364e777",
+        "pos": "verb",
+        "definition_cn": "为使结果偏向己方而安排（陪审团等）成员",
+        "definition_en": "to arrange a group’s membership to favour a result",
+        "sense_label_en": "to arrange a group’s membership to favour a result",
+        "governing_pattern": "pack a jury/court/committee",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [],
+        "usage_note": "政治/法律等语境含人为操纵组成的批评；不只是把房间挤满人。"
       }
     ],
     "verification_summary": {
@@ -218,6 +287,40 @@
           "applicability": [
             {
               "surface": "pack"
+            },
+            {
+              "surface": "pack",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:pack:a955d3185ed17eba"
+              ],
+              "owner_sense_ids": [
+                "sense:pack:a955d3185ed17eba"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3439.json",
+              "source_pointer": "/record/senses/5",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
+            },
+            {
+              "surface": "pack",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:pack:1860ad2e8364e777"
+              ],
+              "owner_sense_ids": [
+                "sense:pack:1860ad2e8364e777"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3439.json",
+              "source_pointer": "/record/senses/6",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -458,6 +561,40 @@
           "applicability": [
             {
               "surface": "pack"
+            },
+            {
+              "surface": "pack",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:pack:a955d3185ed17eba"
+              ],
+              "owner_sense_ids": [
+                "sense:pack:a955d3185ed17eba"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3439.json",
+              "source_pointer": "/record/senses/5",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
+            },
+            {
+              "surface": "pack",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:pack:1860ad2e8364e777"
+              ],
+              "owner_sense_ids": [
+                "sense:pack:1860ad2e8364e777"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3439.json",
+              "source_pointer": "/record/senses/6",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -663,17 +800,33 @@
         "merged_into_sense_id": null,
         "source_row": 9532,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:pack:a955d3185ed17eba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3439.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:pack:1860ad2e8364e777",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3439.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:3090235f908eb082da83",
-      "collocation:3bebd5a42c3c7b98b186",
-      "collocation:596f4d535cfedc150f23",
       "collocation:94c7077fe36442056059",
-      "collocation:a77298a0af8c79f27362",
+      "collocation:596f4d535cfedc150f23",
+      "collocation:f081d411244623015c92",
       "collocation:c8eb67322850ac501603",
-      "collocation:dce2ba4a24a291df87da",
-      "collocation:f081d411244623015c92"
+      "collocation:3090235f908eb082da83",
+      "collocation:a77298a0af8c79f27362",
+      "collocation:3bebd5a42c3c7b98b186",
+      "collocation:dce2ba4a24a291df87da"
     ],
     "facts": [],
     "collocations": [

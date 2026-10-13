@@ -11,27 +11,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "面具；口罩/防护面罩",
-          "label_en": "a face covering used to hide, decorate, or protect",
+          "label_cn": "面具、防护面罩、面膜、掩饰情感的外表",
+          "label_en": "a disguise, protection, skin treatment or concealing expression",
           "pos": "noun",
           "sense_ids": [
             "sense:mask:bf25b733e12e5180",
-            "sense:mask:26a3dea47b185fb9"
+            "sense:mask:26a3dea47b185fb9",
+            "sense:mask:dfd45839d34e9351",
+            "sense:mask:080e55c658c20cb3"
           ]
         },
         {
-          "label_cn": "掩盖；遮蔽；使不易察觉",
-          "label_en": "to conceal or prevent something from being seen or noticed",
+          "label_cn": "掩盖；遮蔽",
+          "label_en": "to conceal or prevent something from being noticed",
           "pos": "verb",
           "sense_ids": [
             "sense:mask:9bb60421fb805d20"
           ]
         }
       ],
-      "core_meaning_cn": "面具/防护面罩；掩盖、遮蔽",
-      "core_meaning_en": "a face covering; or to conceal/prevent something from being noticed",
-      "mental_model_cn": "face covering → 面具/口罩；mask a smell/problem/effect → 掩盖、遮蔽；“给某物戴上/覆盖面具”的物理动词留在 Expansion。",
-      "mental_model_en": ""
+      "core_meaning_cn": "面具、防护面罩、面膜、掩饰情感的外表；掩盖",
+      "core_meaning_en": "a face covering, skin treatment or concealing expression; to hide",
+      "mental_model_cn": "surgical mask是防护口罩；facial mask可指面膜；a mask of indifference是冷漠外表；mask a problem是掩盖。",
+      "mental_model_en": "A face covering or outward layer can protect, treat or conceal; the verb can mean hide."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -49,7 +51,7 @@
             "legacy_source_object_ids": [
               "sense:mask:bf25b733e12e5180:collocation:0"
             ],
-            "meaning_cn": "戴口罩/面具",
+            "meaning_cn": "戴面具（掩面、伪装；防护口罩见防护义）",
             "phrase": "wear a mask"
           }
         ],
@@ -136,6 +138,50 @@
         "sort_order": 3,
         "transitivity": "vt",
         "usage_note": "common figurative verb: mask a smell/problem/effect; distinct from physically putting a mask on something"
+      },
+      {
+        "sense_id": "sense:mask:dfd45839d34e9351",
+        "pos": "noun",
+        "definition_cn": "面膜；敷在脸部的护肤膏",
+        "definition_en": "a cream or preparation applied to the face for skin care",
+        "sense_label_en": "a cream or preparation applied to the face for skin care",
+        "governing_pattern": "a face/facial mask",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1fb1ea4299e4a0594df3",
+            "phrase": "apply a facial mask",
+            "meaning_cn": "敷面膜",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mask:080e55c658c20cb3",
+        "pos": "noun",
+        "definition_cn": "掩饰真实性格或情绪的表情、姿态",
+        "definition_en": "an expression or outward manner that hides true feelings or character",
+        "sense_label_en": "an expression or outward manner that hides true feelings or character",
+        "governing_pattern": "a mask of indifference; the mask slips",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e2c8f6e78300ebc9357b",
+            "phrase": "a mask of indifference",
+            "meaning_cn": "掩饰真实情感的冷漠姿态",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -180,6 +226,40 @@
           "applicability": [
             {
               "surface": "mask"
+            },
+            {
+              "surface": "mask",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mask:dfd45839d34e9351"
+              ],
+              "owner_sense_ids": [
+                "sense:mask:dfd45839d34e9351"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2970.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a face/facial mask"
+            },
+            {
+              "surface": "mask",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mask:080e55c658c20cb3"
+              ],
+              "owner_sense_ids": [
+                "sense:mask:080e55c658c20cb3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2970.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a mask of indifference; the mask slips"
             }
           ],
           "sources": [
@@ -855,13 +935,31 @@
         "merged_into_sense_id": null,
         "source_row": 8275,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:mask:dfd45839d34e9351",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2970.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:mask:080e55c658c20cb3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2970.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:38f026e0e32a41d377ba",
       "collocation:c32783c6d7d8bb3dbcb2",
       "collocation:d9dc4243559f7463d81c",
-      "collocation:eca2b256411a4b31d0d8"
+      "collocation:eca2b256411a4b31d0d8",
+      "collocation:38f026e0e32a41d377ba",
+      "collocation:1fb1ea4299e4a0594df3",
+      "collocation:e2c8f6e78300ebc9357b"
     ],
     "facts": [],
     "collocations": [
@@ -899,6 +997,20 @@
         "id": "collocation:622129450134d5b00970",
         "source_row": 21480,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:1fb1ea4299e4a0594df3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2970.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:e2c8f6e78300ebc9357b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2970.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

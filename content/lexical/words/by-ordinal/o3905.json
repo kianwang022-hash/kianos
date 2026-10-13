@@ -35,9 +35,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "队列；排队；计算中的队列",
+      "core_meaning_cn": "按顺序等待处理的队列；排队",
       "core_meaning_en": "a queue/line; to queue; also a computing queue",
-      "mental_model_cn": "队列；排队；计算中的队列",
+      "mental_model_cn": "人和车辆排队等候，计算机任务也可以排队等待执行；辫子是独立较低层名词义，不用计算机比喻解释。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -154,6 +154,39 @@
         "sense_label_en": "to wait or form a line of people or vehicles",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:queue:91e33f55062cc9e7",
+        "pos": "noun",
+        "definition_cn": "（计算机任务或数据的）等待处理队列",
+        "definition_en": "an ordered list of tasks or data waiting to be processed",
+        "sense_label_en": "an ordered list of tasks or data waiting to be processed",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "usage_note": "计算语境中的 print queue / task queue 不是现场排队的人群。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:queue:c2df8626849c0738",
+            "phrase": "a print queue",
+            "meaning_cn": "打印任务队列",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/queue",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/queue",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -387,6 +420,12 @@
         "merged_into_sense_id": null,
         "source_row": 10864,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
+      },
+      {
+        "sense_id": "sense:queue:91e33f55062cc9e7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3905.json"
       }
     ],
     "active_collocations": [
@@ -394,7 +433,8 @@
       "collocation:833145a59cd939b1af2f",
       "collocation:96f71564cff2b01c49b7",
       "collocation:ec5deee06f0096918135",
-      "collocation:f0ac5a14e3049695c89a"
+      "collocation:f0ac5a14e3049695c89a",
+      "collocation:queue:c2df8626849c0738"
     ],
     "facts": [],
     "collocations": [
@@ -432,6 +472,10 @@
         "id": "collocation:f0ac5a14e3049695c89a",
         "source_row": 21511,
         "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      },
+      {
+        "id": "collocation:queue:c2df8626849c0738",
+        "source_path": "content/lexical/words/by-ordinal/o3905.json"
       }
     ],
     "exam-mappings": [],

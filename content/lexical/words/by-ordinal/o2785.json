@@ -14,34 +14,47 @@
         "level": "L2",
         "meaning_cn": "倾向于；偏向于",
         "pattern": "lean toward(s) sth / doing sth"
+      },
+      {
+        "construction_id": "construction:a32482faf1ea992644fd",
+        "pattern": "lean on sb (to do sth)",
+        "meaning_cn": "向某人施压（让其做某事）",
+        "definition_en": "to put pressure on someone to act as you want, sometimes by threatening them",
+        "usage_note": "非正式；They leaned on him to change his statement = 他们向他施压要他改口。lean on sb亦可表示依靠支持，须看语境，如lean on friends for support表示依靠朋友支持。",
+        "boundary": "非正式；They leaned on him to change his statement = 他们向他施压要他改口。lean on sb亦可表示依靠支持，须看语境，如lean on friends for support表示依靠朋友支持。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "1e068bfc746fddee1fdd0ca3bca317a150ecbe4ced4d7e207533f33ff415f056",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "倾斜；弯曲；依赖；依靠",
-          "label_en": "to bend or incline from a vertical position; to rely on for support",
+          "label_cn": "倾斜；弯曲；斜靠；依赖；依靠；倾向于；偏向于某种观点、选择或做法；使（物体）斜靠在某处",
+          "label_en": "to bend or move away from an upright position, or rest in a sloping position; to rely on for support; to tend or be inclined toward an opinion, choice, or preference; to put an object in a sloping position resting against something",
           "pos": "verb",
           "sense_ids": [
             "sense:lean:1de7c7298bbb5b8d",
-            "sense:lean:cf7c3fe6089b5165"
+            "sense:lean:cf7c3fe6089b5165",
+            "sense:lean:de3ae3bde49e5296",
+            "sense:lean:eca9a5a2dfebc0cc"
           ]
         },
         {
-          "label_cn": "瘦的；精瘦的；贫乏的；歉收的",
-          "label_en": "thin and healthy; not productive; meager",
+          "label_cn": "瘦而结实的；脂肪少的（肉）；贫乏的；不景气的；资源或收入不足的；（机构或运作）精简高效的",
+          "label_en": "thin and fit with little excess fat; of meat, containing little fat; providing little money, food, or other resources; economically difficult; of an organization or process, efficient and avoiding unnecessary use of resources",
           "pos": "adjective",
           "sense_ids": [
             "sense:lean:0bdf13b93daf5489",
-            "sense:lean:558a1524946c5179"
+            "sense:lean:558a1524946c5179",
+            "sense:lean:18463c1acde43cb5"
           ]
         }
       ],
-      "core_meaning_cn": "倾斜；倚靠",
-      "core_meaning_en": "to incline or depend on",
-      "mental_model_cn": "倾斜；倚靠",
-      "mental_model_en": ""
+      "core_meaning_cn": "倾斜／斜靠；使物体斜靠；依赖；倾向；瘦而结实／脂肪少；资源不足；精简高效",
+      "core_meaning_en": "bend or rest at a slope; place at a slope; rely or tend toward; muscular or low-fat, resource-poor, or efficiently organized",
+      "mental_model_cn": "人lean forward是倾身；lean a ladder against是使梯子斜靠；lean on可依靠或施压，须看语境；lean meat脂肪少，lean years资源少，lean organization精简高效。",
+      "mental_model_en": "bend or rest at a slope; place at a slope; rely or tend toward; muscular or low-fat, resource-poor, or efficiently organized."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -75,14 +88,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "倾斜；弯曲",
-        "definition_en": "to bend or incline from a vertical position",
-        "governing_pattern": "vi. + on/against",
+        "definition_cn": "倾斜；弯曲；斜靠",
+        "definition_en": "to bend or move away from an upright position, or rest in a sloping position",
+        "governing_pattern": "lean forward/back/over; lean on/against sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lean:1de7c7298bbb5b8d",
-        "sense_label_en": "to bend or incline from a vertical position",
+        "sense_label_en": "to bend or move away from an upright position, or rest in a sloping position",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -127,8 +140,8 @@
             "legacy_source_object_ids": [
               "sense:lean:0bdf13b93daf5489:collocation:0"
             ],
-            "meaning_cn": "瘦肉",
-            "phrase": "lean meat"
+            "meaning_cn": "瘦肉；瘦牛肉",
+            "phrase": "lean meat / lean beef"
           },
           {
             "collocation_id": "collocation:482ac46621fb7a832f61",
@@ -146,7 +159,10 @@
               "sense:lean:0bdf13b93daf5489:collocation:streaming-c-o2751-o2850"
             ],
             "meaning_cn": "瘦肉/瘦牛肉",
-            "phrase": "lean meat/beef"
+            "phrase": "lean meat/beef",
+            "presentation_merge": {
+              "surviving_object_id": "collocation:6516c035069b6a0fcf97"
+            }
           }
         ],
         "confidence": "medium",
@@ -169,19 +185,19 @@
             "legacy_source_object_ids": [
               "sense:lean:558a1524946c5179:collocation:0"
             ],
-            "meaning_cn": "歉收年",
+            "meaning_cn": "经济困难或资源匮乏的年份（不只指歉收）",
             "phrase": "lean years"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "贫乏的；歉收的",
-        "definition_en": "not productive; meager",
+        "definition_cn": "贫乏的；不景气的；资源或收入不足的",
+        "definition_en": "providing little money, food, or other resources; economically difficult",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:lean:558a1524946c5179",
-        "sense_label_en": "not productive; meager",
+        "sense_label_en": "providing little money, food, or other resources; economically difficult",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -197,7 +213,51 @@
         "sense_id": "sense:lean:de3ae3bde49e5296",
         "sense_label_en": "to tend or be inclined toward an opinion, choice, or preference",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:lean:eca9a5a2dfebc0cc",
+        "pos": "verb",
+        "definition_cn": "使（物体）斜靠在某处",
+        "definition_en": "to put an object in a sloping position resting against something",
+        "sense_label_en": "to put an object in a sloping position resting against something",
+        "governing_pattern": "lean sth against/on sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3b6974fc8e18ad9f1fea",
+            "phrase": "Lean the ladder against the wall.",
+            "meaning_cn": "把梯子斜靠在墙上。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:lean:18463c1acde43cb5",
+        "pos": "adjective",
+        "definition_cn": "（机构或运作）精简高效的",
+        "definition_en": "of an organization or process, efficient and avoiding unnecessary use of resources",
+        "sense_label_en": "of an organization or process, efficient and avoiding unnecessary use of resources",
+        "governing_pattern": "a lean organization; lean operations",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:56d1457d369d2bc8c69a",
+            "phrase": "a lean organization",
+            "meaning_cn": "精简高效的机构",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -227,6 +287,40 @@
           "applicability": [
             {
               "surface": "lean"
+            },
+            {
+              "surface": "lean",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lean:eca9a5a2dfebc0cc"
+              ],
+              "owner_sense_ids": [
+                "sense:lean:eca9a5a2dfebc0cc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2785.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lean sth against/on sth"
+            },
+            {
+              "surface": "lean",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:lean:18463c1acde43cb5"
+              ],
+              "owner_sense_ids": [
+                "sense:lean:18463c1acde43cb5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2785.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a lean organization; lean operations"
             }
           ],
           "sources": [
@@ -501,17 +595,35 @@
         "merged_into_sense_id": null,
         "source_row": 7817,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
+      },
+      {
+        "sense_id": "sense:lean:eca9a5a2dfebc0cc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2785.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:lean:18463c1acde43cb5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2785.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:2df1dfdea02ec934d3fd",
-      "collocation:482ac46621fb7a832f61",
-      "collocation:6516c035069b6a0fcf97",
-      "collocation:b2f61bb9e9a7b6df204e",
-      "collocation:cc917c580f10bbe5a78b",
       "collocation:dc7102d91e0097af6e91",
+      "collocation:f32ae77e7332638ca919",
       "collocation:ec6374c1a1667a153da0",
-      "collocation:f32ae77e7332638ca919"
+      "collocation:2df1dfdea02ec934d3fd",
+      "collocation:6516c035069b6a0fcf97",
+      "collocation:482ac46621fb7a832f61",
+      "collocation:cc917c580f10bbe5a78b",
+      "collocation:b2f61bb9e9a7b6df204e",
+      "collocation:3b6974fc8e18ad9f1fea",
+      "collocation:56d1457d369d2bc8c69a"
     ],
     "facts": [],
     "collocations": [
@@ -558,7 +670,23 @@
       {
         "id": "collocation:cc917c580f10bbe5a78b",
         "source_row": 21526,
-        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json",
+        "status": "merged",
+        "merged_into_id": "collocation:6516c035069b6a0fcf97"
+      },
+      {
+        "id": "collocation:3b6974fc8e18ad9f1fea",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2785.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:56d1457d369d2bc8c69a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2785.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

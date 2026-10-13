@@ -6,32 +6,66 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:1e56caff63459990b70c",
+        "pattern": "jump the gun",
+        "meaning_cn": "过早行动；抢先做",
+        "definition_en": "to act before the right time",
+        "usage_note": "可用于任何过早开始，不仅限赛跑抢跑。",
+        "boundary": "可用于任何过早开始，不仅限赛跑抢跑。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:33ec311becd3e28f8913",
+        "pattern": "stick to your guns",
+        "meaning_cn": "坚持立场",
+        "definition_en": "to refuse to change an opinion under pressure",
+        "usage_note": "非正式整体表达；不表示实际拿着枪。",
+        "boundary": "非正式整体表达；不表示实际拿着枪。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:9ad0d8f0cdc3860c8291",
+        "pattern": "under the gun",
+        "meaning_cn": "处于很大压力下",
+        "definition_en": "under strong pressure",
+        "usage_note": "北美非正式；I am under the gun today。",
+        "boundary": "北美非正式；I am under the gun today。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "de13533f698240821dbe2f27c72ab4b77f0e1c42328a3b99d8f0f15313a89525",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "枪；炮；枪声信号；鸣枪礼",
-          "label_en": "a weapon that discharges a missile at high velocity; the discharge of a firearm as a signal or salute",
+          "label_cn": "枪；炮；枪声信号；鸣枪礼；用压力喷出物质或射出物件的枪形工具",
+          "label_en": "a weapon that discharges a missile at high velocity; the discharge of a firearm as a signal or salute; a pressure-operated tool that ejects a substance or object",
           "pos": "noun",
           "sense_ids": [
             "sense:gun:3d4dc87cc14d5d3c",
-            "sense:gun:18a13fe2954558f7"
+            "sense:gun:18a13fe2954558f7",
+            "sense:gun:66fe910d4c2a8868"
           ]
         },
         {
-          "label_cn": "用枪射击",
-          "label_en": "shoot with a gun",
+          "label_cn": "用枪射击；（发动机）高速运转（北美英语）；突然加速驾驶（车辆）（北美英语）",
+          "label_en": "shoot with a gun; for an engine to run very fast; to begin driving a vehicle very fast",
           "pos": "verb",
           "sense_ids": [
-            "sense:gun:c20d38b642da5485"
+            "sense:gun:c20d38b642da5485",
+            "sense:gun:753d83db9a9e9043",
+            "sense:gun:d9f0e40bf586d0d5"
           ]
         }
       ],
-      "core_meaning_cn": "枪；枪声信号",
-      "core_meaning_en": "a weapon that fires projectiles",
-      "mental_model_cn": "枪；枪声信号",
-      "mental_model_en": ""
+      "core_meaning_cn": "枪、发令信号或枪形工具；射击、发动机高速运转或加速驾驶车辆",
+      "core_meaning_en": "a firearm, starting signal or pressure tool; shoot, an engine runs fast, or drive a vehicle suddenly fast",
+      "mental_model_cn": "gun除武器与发令信号，还可为spray gun等工具；发动机作主语表示高速运转vi，车辆作宾语表示突然加速驾驶vt。",
+      "mental_model_en": "a firearm, starting signal or pressure tool; shoot, an engine runs fast, or drive a vehicle suddenly fast."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -60,6 +94,15 @@
             ],
             "meaning_cn": "枪支管制",
             "phrase": "gun control"
+          },
+          {
+            "collocation_id": "collocation:40ed2671fc673f3e29be",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:gun:18a13fe2954558f7:collocation:0"
+            ],
+            "meaning_cn": "礼炮",
+            "phrase": "a salute gun"
           }
         ],
         "confidence": "medium",
@@ -75,17 +118,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:40ed2671fc673f3e29be",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gun:18a13fe2954558f7:collocation:0"
-            ],
-            "meaning_cn": "礼炮",
-            "phrase": "a salute gun"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "枪声信号；鸣枪礼",
         "definition_en": "the discharge of a firearm as a signal or salute",
@@ -121,6 +154,74 @@
         "sense_label_en": "shoot with a gun",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:gun:66fe910d4c2a8868",
+        "pos": "noun",
+        "definition_cn": "用压力喷出物质或射出物件的枪形工具",
+        "definition_en": "a pressure-operated tool that ejects a substance or object",
+        "sense_label_en": "a pressure-operated tool that ejects a substance or object",
+        "governing_pattern": "a spray/staple gun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:16665480bc784465f797",
+            "phrase": "a spray gun",
+            "meaning_cn": "喷枪",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:gun:753d83db9a9e9043",
+        "pos": "verb",
+        "definition_cn": "（发动机）高速运转（北美英语）",
+        "definition_en": "for an engine to run very fast",
+        "sense_label_en": "for an engine to run very fast",
+        "governing_pattern": "an engine guns",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e42af7ad2316160afc3",
+            "phrase": "The engine was gunning.",
+            "meaning_cn": "发动机在高速运转。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "北美英语，主语为发动机；如The engine was gunning。区别于射击vt。"
+      },
+      {
+        "sense_id": "sense:gun:d9f0e40bf586d0d5",
+        "pos": "verb",
+        "definition_cn": "突然加速驾驶（车辆）（北美英语）",
+        "definition_en": "to begin driving a vehicle very fast",
+        "sense_label_en": "to begin driving a vehicle very fast",
+        "governing_pattern": "gun a vehicle + adverb/preposition",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4c68274973903a90c004",
+            "phrase": "She gunned the car up the hill.",
+            "meaning_cn": "她开车突然加速冲上山坡。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "北美英语；车辆作宾语，后接表示方向或位置的副词、介词短语。区别于发动机作主语的vi和射击vt。"
       }
     ],
     "verification_summary": {
@@ -258,6 +359,91 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ɡʌn/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "gun",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:gun:66fe910d4c2a8868"
+              ],
+              "owner_sense_ids": [
+                "sense:gun:66fe910d4c2a8868"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/gun_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "gun",
+                "pos": "noun",
+                "sense_indices_1based": [
+                  2
+                ]
+              },
+              "original_ipa": "/ɡʌn/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
+        },
+        {
+          "ipa": "/ɡʌn/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "gun",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:gun:753d83db9a9e9043",
+                "sense:gun:d9f0e40bf586d0d5"
+              ],
+              "owner_sense_ids": [
+                "sense:gun:753d83db9a9e9043",
+                "sense:gun:d9f0e40bf586d0d5"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/gun_2",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "gun",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  1,
+                  2
+                ]
+              },
+              "original_ipa": "/ɡʌn/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -286,13 +472,40 @@
         "merged_into_sense_id": null,
         "source_row": 6232,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:gun:66fe910d4c2a8868",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:gun:753d83db9a9e9043",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:gun:d9f0e40bf586d0d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:96831657776ecb573056",
       "collocation:20034ed56ddb26c40ce9",
       "collocation:40ed2671fc673f3e29be",
-      "collocation:96831657776ecb573056",
-      "collocation:bb0e52aca5f3c8247fb6"
+      "collocation:bb0e52aca5f3c8247fb6",
+      "collocation:16665480bc784465f797",
+      "collocation:1e42af7ad2316160afc3",
+      "collocation:4c68274973903a90c004"
     ],
     "facts": [],
     "collocations": [
@@ -304,7 +517,8 @@
       {
         "id": "collocation:40ed2671fc673f3e29be",
         "source_row": 5499,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "sense_id": "sense:gun:3d4dc87cc14d5d3c"
       },
       {
         "id": "collocation:96831657776ecb573056",
@@ -315,6 +529,27 @@
         "id": "collocation:bb0e52aca5f3c8247fb6",
         "source_row": 15852,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:16665480bc784465f797",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:1e42af7ad2316160afc3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:4c68274973903a90c004",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2232.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

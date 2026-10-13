@@ -23,7 +23,7 @@
       "core_clusters": [
         {
           "label_cn": "圆木，原木；日志，记录",
-          "label_en": "a piece of cut tree trunk; a written or electronic record",
+          "label_en": "a segment of the trunk of a tree when stripped of branches; a written record of events or messages",
           "pos": "noun",
           "sense_ids": [
             "sense:log:25d30f446b6f5012",
@@ -31,19 +31,20 @@
           ]
         },
         {
-          "label_cn": "伐木；记录",
-          "label_en": "to cut trees for timber; to enter information in a record or log",
+          "label_cn": "伐木；记录；累计行驶（里程）或工作（时数）",
+          "label_en": "to cut down trees and prepare them as logs; to enter in a record or log; to travel a particular distance or accumulate working hours",
           "pos": "verb",
           "sense_ids": [
             "sense:log:f9f8253c097559ec",
-            "sense:log:ee7ffa977f83560a"
+            "sense:log:ee7ffa977f83560a",
+            "sense:log:eca32647ff5accc6"
           ]
         }
       ],
-      "core_meaning_cn": "圆木；日志/记录；记录数据",
-      "core_meaning_en": "a cut piece of tree trunk; a record/log; or to record information",
-      "mental_model_cn": "wood → 原木；record → 日志/记录；verb log data/events → 记录；log in/out → 登录/登出。航海测速计的旧/专业义保留在 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "原木；日志；记录或累计里程时数；伐木",
+      "core_meaning_en": "timber; a record; record or accumulate distance and hours; fell trees",
+      "mental_model_cn": "日志记录之外，车辆或飞行员可以累计里程/时数；伐木义不并入记录。",
+      "mental_model_en": "timber; a record; record or accumulate distance and hours; fell trees."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -160,6 +161,28 @@
         "sense_label_en": "to enter in a record or log",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:log:eca32647ff5accc6",
+        "pos": "verb",
+        "definition_cn": "累计行驶（里程）或工作（时数）",
+        "definition_en": "to travel a particular distance or accumulate working hours",
+        "sense_label_en": "to travel a particular distance or accumulate working hours",
+        "governing_pattern": "log miles/kilometres/hours",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e1cce0628e5715e60c5",
+            "phrase": "log 200 flight hours",
+            "meaning_cn": "累计飞行200小时",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -205,6 +228,23 @@
           "applicability": [
             {
               "surface": "log"
+            },
+            {
+              "surface": "log",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:log:eca32647ff5accc6"
+              ],
+              "owner_sense_ids": [
+                "sense:log:eca32647ff5accc6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2875.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "log miles/kilometres/hours"
             }
           ],
           "sources": [
@@ -728,14 +768,23 @@
         "merged_into_sense_id": null,
         "source_row": 8007,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:log:eca32647ff5accc6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2875.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:08a793bf73a860c15162",
-      "collocation:1592bc6b52cbf5dde6a7",
-      "collocation:52293fb023228e9fc88c",
       "collocation:b85dc31d09c5770a719e",
-      "collocation:b9c03754566b7284d338"
+      "collocation:52293fb023228e9fc88c",
+      "collocation:08a793bf73a860c15162",
+      "collocation:b9c03754566b7284d338",
+      "collocation:1592bc6b52cbf5dde6a7",
+      "collocation:1e1cce0628e5715e60c5"
     ],
     "facts": [],
     "collocations": [
@@ -763,6 +812,13 @@
         "id": "collocation:b9c03754566b7284d338",
         "source_row": 15736,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:1e1cce0628e5715e60c5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2875.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

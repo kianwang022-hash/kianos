@@ -17,14 +17,24 @@
         "direction": "R+P",
         "semantic_attachment": "construction_only",
         "boundary": "honesty phrasal verb; distinct from be level with sth = be at the same height/equal"
+      },
+      {
+        "construction_id": "construction:2efb199f217736b3d348",
+        "pattern": "level charges/criticism at/against sb",
+        "meaning_cn": "公开对某人提出指控或批评",
+        "definition_en": "to direct accusations or criticism publicly at someone",
+        "usage_note": "此构式表示指责，不是把枪口对准某人。",
+        "boundary": "此构式表示指责，不是把枪口对准某人。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "e763942fb158d380ff33caf08aabbd60aca724267f92df3e2ef1c573de7f40af",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "高度，水平；水平，层次",
-          "label_en": "height above ground; an abstract place usually conceived as having depth",
+          "label_cn": "高度，水平；程度；数量水平；标准；层次、等级或阶段",
+          "label_en": "a height or position relative to another surface or reference point; a degree, amount, standard, rank, or stage",
           "pos": "noun",
           "sense_ids": [
             "sense:level:a81a94de63c95a35",
@@ -32,28 +42,30 @@
           ]
         },
         {
-          "label_cn": "平坦的，水平的",
-          "label_en": "having a flat, even surface",
+          "label_cn": "平坦的，水平的；高度、位置或数值相同的；（比分）持平的",
+          "label_en": "having a flat, even surface; at the same height, position, value, or score",
           "pos": "adjective",
           "sense_ids": [
-            "sense:level:c1cc314b407c5fb3"
+            "sense:level:c1cc314b407c5fb3",
+            "sense:level:6f320b5b3b5318d7"
           ]
         },
         {
-          "label_cn": "弄平，夷平；瞄准，对准；变平，拉平",
-          "label_en": "make flat or even; aim at; become level or even",
+          "label_cn": "弄平，夷平；瞄准，对准；变平；（数值或发展）趋于稳定；使持平；追平（尤其比分）",
+          "label_en": "make flat or even; aim at; to become level or even, or stop rising or falling and become steady; to bring something to an equal level, or become equal, especially in score",
           "pos": "verb",
           "sense_ids": [
             "sense:level:55c1025e6c335b2b",
             "sense:level:f4e861c3893c5ad4",
-            "sense:level:cd43da86b03c5748"
+            "sense:level:cd43da86b03c5748",
+            "sense:level:4a93436d06a28000"
           ]
         }
       ],
-      "core_meaning_cn": "水平，高度；平坦",
-      "core_meaning_en": "a position or height; flat",
-      "mental_model_cn": "height/amount → 水平、层次；surface → 平坦；level sth → 弄平/夷平；level with sb（口语）→ 对某人说实话。",
-      "mental_model_en": ""
+      "core_meaning_cn": "高度或程度；平坦或持平；弄平、瞄准、趋稳或追平",
+      "core_meaning_en": "height or degree; flat or equal; to flatten, aim, stabilize, or equalize",
+      "mental_model_cn": "名词表示高度/程度；形容词区分平坦与持平；level off/out 为趋稳，level charges at 为指责。",
+      "mental_model_en": "height or degree; flat or equal; to flatten, aim, stabilize, or equalize."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -86,13 +98,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "高度，水平",
-        "definition_en": "height above ground",
+        "definition_en": "a height or position relative to another surface or reference point",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:level:a81a94de63c95a35",
-        "sense_label_en": "height above ground",
+        "sense_label_en": "a height or position relative to another surface or reference point",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -109,14 +121,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "水平，层次",
-        "definition_en": "an abstract place usually conceived as having depth",
+        "definition_cn": "程度；数量水平；标准；层次、等级或阶段",
+        "definition_en": "a degree, amount, standard, rank, or stage",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:level:4f71f63a51f75f4c",
-        "sense_label_en": "an abstract place usually conceived as having depth",
+        "sense_label_en": "a degree, amount, standard, rank, or stage",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -205,16 +217,61 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "变平，拉平",
-        "definition_en": "become level or even",
-        "governing_pattern": "vi. + out",
+        "definition_cn": "变平；（数值或发展）趋于稳定",
+        "definition_en": "to become level or even, or stop rising or falling and become steady",
+        "governing_pattern": "level off/out",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:level:cd43da86b03c5748",
-        "sense_label_en": "become level or even",
+        "sense_label_en": "to become level or even, or stop rising or falling and become steady",
         "sort_order": 5,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "数值、销量或发展作主语时，level off/out 表示变动后趋于稳定；此义不直接带宾语。"
+      },
+      {
+        "sense_id": "sense:level:6f320b5b3b5318d7",
+        "pos": "adjective",
+        "definition_cn": "高度、位置或数值相同的；（比分）持平的",
+        "definition_en": "at the same height, position, value, or score",
+        "sense_label_en": "at the same height, position, value, or score",
+        "governing_pattern": "be/draw level (with sb/sth)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b5a77a98f808687ce7fc",
+            "phrase": "draw level with the leader",
+            "meaning_cn": "追平领先者",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:level:4a93436d06a28000",
+        "pos": "verb",
+        "definition_cn": "使持平；追平（尤其比分）",
+        "definition_en": "to bring something to an equal level, or become equal, especially in score",
+        "sense_label_en": "to bring something to an equal level, or become equal, especially in score",
+        "governing_pattern": "level (the score/game)",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fb88a5efd196124025d9",
+            "phrase": "level the score",
+            "meaning_cn": "扳平比分",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -244,6 +301,40 @@
           "applicability": [
             {
               "surface": "level"
+            },
+            {
+              "surface": "level",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:level:6f320b5b3b5318d7"
+              ],
+              "owner_sense_ids": [
+                "sense:level:6f320b5b3b5318d7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2810.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be/draw level (with sb/sth)"
+            },
+            {
+              "surface": "level",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:level:4a93436d06a28000"
+              ],
+              "owner_sense_ids": [
+                "sense:level:4a93436d06a28000"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2810.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "level (the score/game)"
             }
           ],
           "sources": [
@@ -597,16 +688,34 @@
         "merged_into_sense_id": null,
         "source_row": 7799,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
+      },
+      {
+        "sense_id": "sense:level:6f320b5b3b5318d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2810.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:level:4a93436d06a28000",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2810.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:1732e0234da715a2cd55",
-      "collocation:ac442f00559833a6de0a",
-      "collocation:c798e50a7e703a2eed0b",
       "collocation:ed2f580de59ed3105294",
+      "collocation:f82ee16923967095fd89",
       "collocation:f26ed69949eafd5b64d0",
+      "collocation:c798e50a7e703a2eed0b",
+      "collocation:1732e0234da715a2cd55",
       "collocation:f2975cc23676961cfb88",
-      "collocation:f82ee16923967095fd89"
+      "collocation:ac442f00559833a6de0a",
+      "collocation:b5a77a98f808687ce7fc",
+      "collocation:fb88a5efd196124025d9"
     ],
     "facts": [],
     "collocations": [
@@ -644,6 +753,20 @@
         "id": "collocation:f82ee16923967095fd89",
         "source_row": 21020,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+      },
+      {
+        "id": "collocation:b5a77a98f808687ce7fc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2810.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:fb88a5efd196124025d9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2810.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

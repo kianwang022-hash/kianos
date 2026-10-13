@@ -15,7 +15,18 @@
         "definition_en": "to reach or produce an agreement or solution after detailed discussion or argument",
         "pattern": "hammer out sth / hammer sth out",
         "source_sense_id": "sense:hammer:b17f5e54326b59b6",
-        "boundary": "figurative agreement/solution phrasal verb; distinct from literal hammering"
+        "boundary": "figurative agreement/solution phrasal verb; distinct from literal hammering",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:617c9bd9b4ea63e73113",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hammer:b17f5e54326b59b6:collocation:1"
+            ],
+            "meaning_cn": "敲定协议",
+            "phrase": "hammer out a deal"
+          }
+        ]
       }
     ],
     "content_hash": "c87d23097fe7e8351a71a6709bf33d3b04db292e8ce51f85373c26081167757f",
@@ -30,19 +41,21 @@
           ]
         },
         {
-          "label_cn": "锤打；敲打；连续锤打",
-          "label_en": "to hit with a hammer; to strike repeatedly",
+          "label_cn": "锤打；敲打；连续锤打；轻易击败（非正式）；公开严厉批评（非正式）",
+          "label_en": "to hit with a hammer; to strike repeatedly; to defeat an opponent decisively; to criticize somebody harshly in public",
           "pos": "verb",
           "sense_ids": [
             "sense:hammer:b17f5e54326b59b6",
-            "sense:hammer:5fe2840761b45810"
+            "sense:hammer:5fe2840761b45810",
+            "sense:hammer:fae2fde61b479b79",
+            "sense:hammer:c6da1efd9fdcb6fa"
           ]
         }
       ],
-      "core_meaning_cn": "敲击工具",
-      "core_meaning_en": "tool for striking",
-      "mental_model_cn": "tool → 锤子；literal verb → 锤打/反复敲击；hammer out an agreement/solution → 经过讨论敲定。",
-      "mental_model_en": ""
+      "core_meaning_cn": "锤子；锤击、反复猛击、轻易击败或严厉批评",
+      "core_meaning_en": "a hammer; hit with a hammer, strike repeatedly, defeat or criticize harshly",
+      "mental_model_cn": "hammer既可为锤子和反复猛击，也可非正式表示轻易击败或公开严厉批评；hammer out常指经过充分讨论达成协议。",
+      "mental_model_en": "a hammer; hit with a hammer, strike repeatedly, defeat or criticize harshly."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -95,15 +108,6 @@
             ],
             "meaning_cn": "把钉子敲进墙里",
             "phrase": "hammer a nail into the wall"
-          },
-          {
-            "collocation_id": "collocation:617c9bd9b4ea63e73113",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hammer:b17f5e54326b59b6:collocation:1"
-            ],
-            "meaning_cn": "敲定协议",
-            "phrase": "hammer out a deal"
           }
         ],
         "confidence": "medium",
@@ -141,6 +145,52 @@
         "sense_label_en": "to strike repeatedly",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:hammer:fae2fde61b479b79",
+        "pos": "verb",
+        "definition_cn": "轻易击败（非正式）",
+        "definition_en": "to defeat an opponent decisively",
+        "sense_label_en": "to defeat an opponent decisively",
+        "governing_pattern": "hammer an opponent",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1a8c4933e99b4b293313",
+            "phrase": "They were hammered in the final.",
+            "meaning_cn": "他们在决赛中惨败。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式及物表达，宾语为受到击败或批评的对象。"
+      },
+      {
+        "sense_id": "sense:hammer:c6da1efd9fdcb6fa",
+        "pos": "verb",
+        "definition_cn": "公开严厉批评（非正式）",
+        "definition_en": "to criticize somebody harshly in public",
+        "sense_label_en": "to criticize somebody harshly in public",
+        "governing_pattern": "hammer somebody",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b21ccc118dc0f8c6d35",
+            "phrase": "The officials were hammered by critics.",
+            "meaning_cn": "官员们受到评论者的严厉批评。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式及物表达，宾语为受到击败或批评的对象。"
       }
     ],
     "verification_summary": {
@@ -181,6 +231,40 @@
           "applicability": [
             {
               "surface": "hammer"
+            },
+            {
+              "surface": "hammer",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hammer:fae2fde61b479b79"
+              ],
+              "owner_sense_ids": [
+                "sense:hammer:fae2fde61b479b79"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2245.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "hammer an opponent"
+              }
+            },
+            {
+              "surface": "hammer",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hammer:c6da1efd9fdcb6fa"
+              ],
+              "owner_sense_ids": [
+                "sense:hammer:c6da1efd9fdcb6fa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2245.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "hammer somebody"
+              }
             }
           ],
           "sources": [
@@ -275,21 +359,40 @@
         "merged_into_sense_id": null,
         "source_row": 6272,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:hammer:fae2fde61b479b79",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2245.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:hammer:c6da1efd9fdcb6fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2245.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:617c9bd9b4ea63e73113",
-      "collocation:6bf0dae75a6e23acbe3f",
       "collocation:870a6654e164a061befa",
+      "collocation:a75515446b160404891d",
+      "collocation:6bf0dae75a6e23acbe3f",
       "collocation:a684ec50ba7f1f69545c",
-      "collocation:a75515446b160404891d"
+      "collocation:1a8c4933e99b4b293313",
+      "collocation:1b21ccc118dc0f8c6d35"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:617c9bd9b4ea63e73113",
         "source_row": 8208,
-        "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6bf0dae75a6e23acbe3f",
@@ -310,6 +413,20 @@
         "id": "collocation:a75515446b160404891d",
         "source_row": 14201,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:1a8c4933e99b4b293313",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2245.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:1b21ccc118dc0f8c6d35",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2245.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

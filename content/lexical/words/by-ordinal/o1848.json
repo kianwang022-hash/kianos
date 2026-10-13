@@ -17,10 +17,29 @@
     ],
     "content_hash": "c5581a7c31b2f322e46a81a33b2d1d878a6b18bc7f0cc0eba257eddecaca6c0e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "信任；信仰",
-      "core_meaning_en": "strong belief or trust in someone or something",
-      "mental_model_cn": "信任；信仰",
+      "core_clusters": [
+        {
+          "label_cn": "信任；忠诚",
+          "label_en": "trust or loyalty",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:faith:1c3db8e0f6f0543e",
+            "sense:faith:5396277350255160"
+          ]
+        },
+        {
+          "label_cn": "宗教信仰或宗教体系",
+          "label_en": "religious belief or a religion",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:faith:97a325fa34e05313",
+            "sense:faith:5680f0d9f2a5312d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "信任；宗教信仰或信仰体系；忠诚",
+      "core_meaning_en": "trust; religious belief or a particular religion; loyalty",
+      "mental_model_cn": "faith in指对人或事物有信心；religious faith是信仰，a faith/faiths可数时是某一宗教体系。keep faith with指保持忠诚或守信用，in good faith指真诚或善意。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -104,6 +123,28 @@
         "sense_label_en": "loyalty or allegiance to a cause or person",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:faith:5680f0d9f2a5312d",
+        "pos": "noun",
+        "definition_cn": "（特定的）宗教；宗教信仰体系",
+        "definition_en": "a particular religion or system of religious beliefs",
+        "sense_label_en": "a particular religion or system of religious beliefs",
+        "governing_pattern": "countable: a faith; different faiths; the Christian/Jewish faith",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fc5fbd375c4ab3a44d04",
+            "phrase": "people of different faiths",
+            "meaning_cn": "信仰不同宗教的人",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -133,6 +174,23 @@
           "applicability": [
             {
               "surface": "faith"
+            },
+            {
+              "surface": "faith",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:faith:5680f0d9f2a5312d"
+              ],
+              "owner_sense_ids": [
+                "sense:faith:5680f0d9f2a5312d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1848.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "countable: a faith; different faiths; the Christian/Jewish faith"
+              }
             }
           ],
           "sources": [
@@ -373,6 +431,14 @@
         "merged_into_sense_id": null,
         "source_row": 5059,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:faith:5680f0d9f2a5312d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1848.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -396,6 +462,13 @@
         "id": "collocation:847daf5d72eb7aaaa7a8",
         "source_row": 11236,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:fc5fbd375c4ab3a44d04",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1848.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,29 +6,70 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:16fcb88a86a23ca73aef",
+        "pattern": "a near thing",
+        "meaning_cn": "险些失败、差点出事但最终成功的情况",
+        "definition_en": "a success or safe outcome that could easily have gone wrong",
+        "usage_note": "表示已成功脱险；与so near and yet so far最终失败不同。",
+        "boundary": "表示已成功脱险；与so near and yet so far最终失败不同。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:cd8dfcfa4402e96bc9a3",
+        "pattern": "your nearest and dearest",
+        "meaning_cn": "你的至亲好友",
+        "definition_en": "your close family and friends",
+        "usage_note": "非正式固定集合表达，不按地理最近的一群人理解。",
+        "boundary": "非正式固定集合表达，不按地理最近的一群人理解。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:32eb86e07358deebcdbc",
+        "pattern": "to the nearest + unit/amount",
+        "meaning_cn": "按最接近的单位、数额取整",
+        "definition_en": "round a count or measurement to the closest specified unit or amount",
+        "usage_note": "to the nearest 50 dollars以50美元为取整间隔；不是去最近的一张50元钞票。",
+        "boundary": "to the nearest 50 dollars以50美元为取整间隔；不是去最近的一张50元钞票。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:64dd1f3dabe0b23f32ed",
+        "pattern": "nowhere near / not anywhere near",
+        "meaning_cn": "远远没有；根本谈不上",
+        "definition_en": "far from an amount, level, condition or place",
+        "usage_note": "nowhere near as good、not anywhere near enough都可用；既可说空间距离，也可说程度。",
+        "boundary": "nowhere near as good、not anywhere near enough都可用；既可说空间距离，也可说程度。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "ac0b0654c8ecb0ecb75712a8f05b389fba4c2139aabf87296efc7e6e89b0bb2f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "近的；接近的",
-          "label_en": "not far in distance, time, or degree",
+          "label_cn": "近的、相近的；接近某状态的；（亲属）关系近的",
+          "label_en": "close in distance, time or degree, nearly reaching a state, or closely related in a family",
           "pos": "adjective",
           "sense_ids": [
             "sense:near:02b20ef223845d54"
           ]
         },
         {
-          "label_cn": "在…附近；靠近",
-          "label_en": "at a short distance from",
+          "label_cn": "在……附近；接近某时间、数量、性质或状态",
+          "label_en": "close to somebody or something in distance, time, amount, similarity or state",
           "pos": "preposition",
           "sense_ids": [
             "sense:near:5e3cfa243b05505c"
           ]
         },
         {
-          "label_cn": "在附近；接近",
-          "label_en": "at or to a short distance",
+          "label_cn": "在附近；时间将近；（尤复合表达中）几乎",
+          "label_en": "at a short distance, soon in time, or almost",
           "pos": "adverb",
           "sense_ids": [
             "sense:near:a1a8e9f5c0bc5bb3"
@@ -43,10 +84,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "接近",
-      "core_meaning_en": "close in distance, time, or relationship",
-      "mental_model_cn": "接近",
-      "mental_model_en": ""
+      "core_meaning_cn": "距离、时间、数量、程度或亲属关系近；几乎；接近",
+      "core_meaning_en": "closeness in distance, time, amount, degree or family; almost; to approach",
+      "mental_model_cn": "near可作介词直接接宾语，也可adj/adv；near-perfect说几乎完美。The project nears completion中的nears是动词；is near completion中的near接名词表示接近某状态。亲密朋友通常用close，near relatives说近亲。",
+      "mental_model_en": "closeness in distance, time, amount, degree or family; almost; to approach."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -78,16 +119,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "近的；接近的",
-        "definition_en": "not far in distance, time, or degree",
+        "definition_cn": "近的、相近的；接近某状态的；（亲属）关系近的",
+        "definition_en": "close in distance, time or degree, nearly reaching a state, or closely related in a family",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:near:02b20ef223845d54",
-        "sense_label_en": "not far in distance, time, or degree",
+        "sense_label_en": "close in distance, time or degree, nearly reaching a state, or closely related in a family",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "near future、near miss是常见固定组合；普通距离near/nearer通常不放名词前，nearest可。亲属可说near relatives；亲密朋友通常close friends。"
       },
       {
         "collocations": [
@@ -102,16 +144,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在…附近；靠近",
-        "definition_en": "at a short distance from",
-        "governing_pattern": "",
+        "definition_cn": "在……附近；接近某时间、数量、性质或状态",
+        "definition_en": "close to somebody or something in distance, time, amount, similarity or state",
+        "governing_pattern": "near sth; nearer/nearest (to) sth; near (to) doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:near:5e3cfa243b05505c",
-        "sense_label_en": "at a short distance from",
+        "sense_label_en": "close to somebody or something in distance, time, amount, similarity or state",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "near可直接接宾语；near to也可见，但通常不用于人名、地名、节日名称前；near death/tears可说接近某状态。"
       },
       {
         "collocations": [
@@ -126,14 +169,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在附近；接近",
-        "definition_en": "at or to a short distance",
-        "governing_pattern": "",
+        "definition_cn": "在附近；时间将近；（尤复合表达中）几乎",
+        "definition_en": "at a short distance, soon in time, or almost",
+        "governing_pattern": "draw near; a near-perfect result; as near certain as possible",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:near:a1a8e9f5c0bc5bb3",
-        "sense_label_en": "at or to a short distance",
+        "sense_label_en": "at a short distance, soon in time, or almost",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -152,14 +195,14 @@
         "confidence": "medium",
         "definition_cn": "接近；靠近",
         "definition_en": "come close to in distance or time",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "near sth; a deadline/event nears（较正式）",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:near:2f3c238b461953f0",
         "sense_label_en": "come close to in distance or time",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -651,11 +694,11 @@
       }
     ],
     "active_collocations": [
+      "collocation:f5b5b2c9f0c92e2c66f0",
+      "collocation:5033cf1955a917e1deec",
       "collocation:4be8a8b418a2abb6f59f",
       "collocation:5024d9fc025119fb1075",
-      "collocation:5033cf1955a917e1deec",
-      "collocation:6155dbc186b007c7543c",
-      "collocation:f5b5b2c9f0c92e2c66f0"
+      "collocation:6155dbc186b007c7543c"
     ],
     "facts": [],
     "collocations": [

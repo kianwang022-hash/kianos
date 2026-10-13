@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "e2b99c1198eb415a5c2e62a06a216209c1a708db33100cf63dce8e46d20e2265",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "一种夹有碎牛肉饼的三明治",
-      "core_meaning_en": "a sandwich with a ground beef patty",
-      "mental_model_cn": "一种夹有碎牛肉饼的三明治",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "汉堡肉饼；常夹在圆面包中的汉堡；牛肉末；碎牛肉（北美英语，不可数）",
+          "label_en": "a cooked flat round portion of minced beef, often served in a bread roll; finely minced beef used as a food ingredient",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hamburger:59f8f893406955d7",
+            "sense:hamburger:bc4b632d93cecbff"
+          ]
+        }
+      ],
+      "core_meaning_cn": "汉堡肉饼或汉堡；北美也指牛肉末",
+      "core_meaning_en": "a beef patty or hamburger; also minced beef in North American English",
+      "mental_model_cn": "可数hamburger常为肉饼或汉堡；北美不可数hamburger为牛肉末，如a pound of hamburger。",
+      "mental_model_en": "a beef patty or hamburger; also minced beef in North American English."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,16 +55,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "汉堡包",
-        "definition_en": "a sandwich consisting of a cooked patty of ground beef, usually served on a bun",
+        "definition_cn": "汉堡肉饼；常夹在圆面包中的汉堡",
+        "definition_en": "a cooked flat round portion of minced beef, often served in a bread roll",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hamburger:59f8f893406955d7",
-        "sense_label_en": "a sandwich consisting of a cooked patty of ground beef, usually served o",
+        "sense_label_en": "a cooked flat round portion of minced beef, often served in a bread roll",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hamburger:bc4b632d93cecbff",
+        "pos": "noun",
+        "definition_cn": "牛肉末；碎牛肉（北美英语，不可数）",
+        "definition_en": "finely minced beef used as a food ingredient",
+        "sense_label_en": "finely minced beef used as a food ingredient",
+        "governing_pattern": "a pound of hamburger",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e280afb49bddb71006ab",
+            "phrase": "We bought a pound of hamburger.",
+            "meaning_cn": "我们买了一磅牛肉末。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "北美英语不可数食材义，英式常说mince；与可数肉饼或汉堡区别。"
       }
     ],
     "verification_summary": {
@@ -95,6 +128,23 @@
           "applicability": [
             {
               "surface": "hamburger"
+            },
+            {
+              "surface": "hamburger",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hamburger:bc4b632d93cecbff"
+              ],
+              "owner_sense_ids": [
+                "sense:hamburger:bc4b632d93cecbff"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2244.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a pound of hamburger"
+              }
             }
           ],
           "sources": [
@@ -430,11 +480,20 @@
         "merged_into_sense_id": null,
         "source_row": 6269,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:hamburger:bc4b632d93cecbff",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2244.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:9b4c940b6ff492ac831d",
-      "collocation:f3dc6fd2ff176a7bb48d"
+      "collocation:f3dc6fd2ff176a7bb48d",
+      "collocation:e280afb49bddb71006ab"
     ],
     "facts": [],
     "collocations": [
@@ -447,6 +506,13 @@
         "id": "collocation:f3dc6fd2ff176a7bb48d",
         "source_row": 20654,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:e280afb49bddb71006ab",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2244.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

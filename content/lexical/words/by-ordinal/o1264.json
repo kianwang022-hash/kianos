@@ -11,8 +11,9 @@
         "construction_id": "construction:1e738db7cf66407ecfd5",
         "direction": "R+P",
         "level": "L2",
-        "meaning_cn": "在预设情况下",
-        "pattern": "by default"
+        "meaning_cn": "未作其他选择时自然采用或形成；比赛中也可指因对手缺席等而获胜",
+        "pattern": "by default",
+        "boundary": "by default can describe an automatic outcome without an alternative choice, or a win because the opponent fails to appear or meet requirements; it need not mean deliberately preset."
       }
     ],
     "content_hash": "7d5523f6dc05e8cc3a8955cc96724ea10dfca7dde84f1711c2ac0ddd4766af91",
@@ -20,25 +21,27 @@
       "core_clusters": [
         {
           "label_cn": "违约；拖欠；默认值；缺席",
-          "label_en": "act of failing to meet a financial obligation; a preset option in a computer program; loss due to not showing up",
+          "label_en": "failure to meet an obligation; a preset option; loss through nonattendance",
           "pos": "noun",
           "sense_ids": [
             "sense:default:bd26cea7a14d5e2c",
-            "sense:default:12097297392a5782"
+            "sense:default:12097297392a5782",
+            "sense:default:836aee9f2d66537d"
           ]
         },
         {
-          "label_cn": "违约；拖欠",
-          "label_en": "fail to pay up",
+          "label_cn": "违约、拖欠；默认采用",
+          "label_en": "fail to fulfil an obligation; use an option automatically",
           "pos": "verb",
           "sense_ids": [
-            "sense:default:431f16107ea85e14"
+            "sense:default:431f16107ea85e14",
+            "sense:default:884c5e2b61324bc2"
           ]
         }
       ],
       "core_meaning_cn": "未履行义务或预设选项",
       "core_meaning_en": "failure to fulfill an obligation or the preset option",
-      "mental_model_cn": "未履行义务或预设选项",
+      "mental_model_cn": "default on是未履行义务；default to是默认采用；by default表示未另作选择或因对方缺席形成的结果。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -53,12 +56,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:74cd2aa761f06940548b",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:default:bd26cea7a14d5e2c:collocation:0"
             ],
-            "meaning_cn": "在...上违约",
-            "phrase": "default on + sth"
+            "meaning_cn": "贷款违约",
+            "phrase": "a default on a loan"
           },
           {
             "collocation_id": "collocation:2d68b659893964109a04",
@@ -71,14 +74,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "违约；拖欠",
-        "definition_en": "act of failing to meet a financial obligation",
+        "definition_cn": "未履行义务；尤指违约、拖欠款项",
+        "definition_en": "failure to fulfil an obligation, especially a payment obligation",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:default:bd26cea7a14d5e2c",
-        "sense_label_en": "act of failing to meet a financial obligation",
+        "sense_label_en": "failure to meet an obligation",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -95,21 +98,21 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "违约；拖欠",
-        "definition_en": "fail to pay up",
+        "definition_cn": "未履行义务；违约、拖欠",
+        "definition_en": "fail to fulfil an obligation, especially to pay",
         "governing_pattern": "vi. + on",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:default:431f16107ea85e14",
-        "sense_label_en": "fail to pay up",
+        "sense_label_en": "fail to meet an obligation",
         "sort_order": 1,
         "transitivity": "vi"
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "缺席",
+        "definition_cn": "因未到场或未履行要求而被判失利",
         "definition_en": "loss due to not showing up",
         "governing_pattern": "",
         "level": "L2",
@@ -133,6 +136,27 @@
         "sense_label_en": "a preset option or setting in a computer program",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:default:884c5e2b61324bc2",
+        "pos": "verb",
+        "transitivity": "vi",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "默认采用；未另作选择时自动采用",
+        "definition_en": "use or choose something automatically unless another choice is made",
+        "sense_label_en": "use or choose something automatically unless another choice is made",
+        "governing_pattern": "default to sth",
+        "collocations": [
+          {
+            "collocation_id": "collocation:900d06dbb5fbb633dbe6",
+            "exam_value": "usage_example",
+            "phrase": "default to the simplest option",
+            "meaning_cn": "默认采用最简单的选项"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -1029,12 +1053,19 @@
         "merged_into_sense_id": null,
         "source_row": 3552,
         "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
+      },
+      {
+        "sense_id": "sense:default:884c5e2b61324bc2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1264.json"
       }
     ],
     "active_collocations": [
       "collocation:2d68b659893964109a04",
-      "collocation:74cd2aa761f06940548b",
-      "collocation:b9bb44d27b6f9cc06583"
+      "collocation:b9bb44d27b6f9cc06583",
+      "collocation:900d06dbb5fbb633dbe6"
     ],
     "facts": [],
     "collocations": [
@@ -1051,7 +1082,9 @@
       {
         "id": "collocation:74cd2aa761f06940548b",
         "source_row": 9846,
-        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b9bb44d27b6f9cc06583",
@@ -1062,6 +1095,11 @@
         "id": "collocation:c6cee02d2848049b31c0",
         "source_row": 16814,
         "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+      },
+      {
+        "id": "collocation:900d06dbb5fbb633dbe6",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1264.json"
       }
     ],
     "exam-mappings": [],

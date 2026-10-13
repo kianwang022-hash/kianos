@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "302de43b78258605854b63d0844b684049015eca54033bba320ed8f556cd0ea4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "在家完成的学校作业",
-      "core_meaning_en": "schoolwork done at home",
-      "mental_model_cn": "在家完成的学校作业",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "家庭作业；（非正式）事先的调查研究；准备工作",
+          "label_en": "schoolwork that teachers give students to do at home; research or preparation before an activity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:homework:8c6823fa17155c6c",
+            "sense:homework:ad810112a35da201"
+          ]
+        }
+      ],
+      "core_meaning_cn": "家庭作业；事先调查和准备",
+      "core_meaning_en": "schoolwork; advance research or preparation",
+      "mental_model_cn": "从课后准备延伸到行动前先做研究；两义均为不可数。",
+      "mental_model_en": "schoolwork; advance research or preparation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,29 @@
         "sense_label_en": "schoolwork that teachers give students to do at home",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:homework:ad810112a35da201",
+        "pos": "noun",
+        "definition_cn": "（非正式）事先的调查研究；准备工作",
+        "definition_en": "research or preparation before an activity",
+        "sense_label_en": "research or preparation before an activity",
+        "governing_pattern": "do your homework (on sth)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fa73c837d33102da50bf",
+            "phrase": "She had done her homework before the interview.",
+            "meaning_cn": "她在面试前做足了调查准备。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不可数；此处不必与学校有关，不能按可数作业说 a homework。"
       }
     ],
     "verification_summary": {
@@ -94,6 +127,23 @@
           "applicability": [
             {
               "surface": "homework"
+            },
+            {
+              "surface": "homework",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:homework:ad810112a35da201"
+              ],
+              "owner_sense_ids": [
+                "sense:homework:ad810112a35da201"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2359.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "do your homework (on sth)"
             }
           ],
           "sources": [
@@ -196,11 +246,20 @@
         "merged_into_sense_id": null,
         "source_row": 6587,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:homework:ad810112a35da201",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2359.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:4bc375f7ac50105fb243",
       "collocation:4a7eaaf272c7eb9c841f",
-      "collocation:4bc375f7ac50105fb243"
+      "collocation:fa73c837d33102da50bf"
     ],
     "facts": [],
     "collocations": [
@@ -213,6 +272,13 @@
         "id": "collocation:4bc375f7ac50105fb243",
         "source_row": 6385,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:fa73c837d33102da50bf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2359.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

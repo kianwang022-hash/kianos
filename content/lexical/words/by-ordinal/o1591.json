@@ -6,15 +6,7 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [
-      {
-        "construction_id": "construction:49d61c3b050245823057",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "elder/older usage boundary",
-        "pattern": "elder vs older"
-      }
-    ],
+    "constructions": [],
     "content_hash": "74f2ee70ee79e6fabea289854f56b3ba3cbbade43c55a0b4ec622123b906f239",
     "core_concept": {
       "core_clusters": [
@@ -150,7 +142,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:elder:e06cc553909a5ab7",
-        "sense_label_en": "any of numerous shrubs or small trees of temperate and subtropical north",
+        "sense_label_en": "an elder shrub or tree, bearing clusters of flowers and berries",
         "sort_order": 3,
         "transitivity": "nonverb"
       }
@@ -540,7 +532,14 @@
       ]
     }
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:elder-older:49d61c3b050245823057",
+      "owner_path": "content/lexical/relations/by-id/94/948a13fa957ea2f87acd422c3449ea19f82757c6a7049bc768c8096c51e6f683.json",
+      "field": "constructions",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -580,7 +579,19 @@
       "collocation:ddf914173894dbbbb78a",
       "collocation:eaf863763bd206292442"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:49d61c3b050245823057",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/relations/by-id/94/948a13fa957ea2f87acd422c3449ea19f82757c6a7049bc768c8096c51e6f683.json",
+        "source_pointer": "/fact_record",
+        "historical_source_locator": {
+          "source_path": "content/lexical/words/by-ordinal/o1591.json",
+          "source_pointer": "/record/constructions/0"
+        }
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:20741caac8203877729d",

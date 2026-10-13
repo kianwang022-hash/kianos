@@ -10,9 +10,9 @@
     "content_hash": "e306a4e2db95e25b648231bc09167e554ea33d1a51e9fd917c83e1a44cb451b6",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "范例，范式",
-      "core_meaning_en": "a typical example or model",
-      "mental_model_cn": "范例，范式",
+      "core_meaning_cn": "典范/范例；理解问题的范式/框架",
+      "core_meaning_en": "an exemplar or a framework for understanding a subject",
+      "mental_model_cn": "paradigm of：典型范例；paradigm shift：解释框架的转变。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -27,15 +27,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:22c7ae578b6d0a013767",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:paradigm:126f3b184f84581d:collocation:0"
-            ],
-            "meaning_cn": "范式转变",
-            "phrase": "a paradigm shift"
-          },
           {
             "collocation_id": "collocation:24d443e9a155e0170eff",
             "exam_value": "fixed_pattern",
@@ -61,29 +52,15 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:464a231d0911a7ebbf68",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:22c7ae578b6d0a013767",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:paradigm:d7b009bdad025f1e:collocation:0"
+              "sense:paradigm:126f3b184f84581d:collocation:0"
             ],
-            "meaning_cn": "动词词形变化表",
-            "phrase": "verb paradigm"
+            "meaning_cn": "范式转变",
+            "phrase": "a paradigm shift"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "词形变化表",
-        "definition_en": "a set of all forms of a word in grammar",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:paradigm:d7b009bdad025f1e",
-        "sense_label_en": "a set of all forms of a word in grammar",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
         "confidence": "medium",
         "definition_cn": "范式；理解某领域的一套主导框架/理论体系",
         "definition_en": "a generally accepted framework, model, or set of theories for understanding a subject at a particular time",
@@ -328,7 +305,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:464a231d0911a7ebbf68",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:paradigm:d7b009bdad025f1e:collocation:0"
+          ],
+          "meaning_cn": "动词词形变化表",
+          "phrase": "verb paradigm"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "词形变化表",
+      "definition_en": "a set of all forms of a word in grammar",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:paradigm:d7b009bdad025f1e",
+      "sense_label_en": "a set of all forms of a word in grammar",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:paradigm:d7b009bdad025f1e",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "A specialist inflection-table sense is retained for consultation; ordinary paradigm-of and paradigm-shift reading is served by the existing exemplar/framework senses."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -347,7 +353,7 @@
       },
       {
         "sense_id": "sense:paradigm:d7b009bdad025f1e",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9627,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
@@ -355,15 +361,15 @@
     ],
     "active_collocations": [
       "collocation:22c7ae578b6d0a013767",
-      "collocation:24d443e9a155e0170eff",
-      "collocation:464a231d0911a7ebbf68"
+      "collocation:24d443e9a155e0170eff"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:22c7ae578b6d0a013767",
         "source_row": 2904,
-        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json",
+        "sense_id": "sense:paradigm:00df1e0de1ae51e0"
       },
       {
         "id": "collocation:24d443e9a155e0170eff",
@@ -373,7 +379,9 @@
       {
         "id": "collocation:464a231d0911a7ebbf68",
         "source_row": 5931,
-        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

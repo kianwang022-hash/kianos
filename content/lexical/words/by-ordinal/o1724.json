@@ -9,10 +9,28 @@
     "constructions": [],
     "content_hash": "a456aca7289f28bcc7af9439647f7f99be032be0020ef0d9c89ca3b8aebc343d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "疏散，撤离",
-      "core_meaning_en": "to move people from a dangerous place to safety",
-      "mental_model_cn": "疏散，撤离",
+      "core_clusters": [
+        {
+          "label_cn": "撤离、疏散",
+          "label_en": "leave danger or move people to safety",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:evacuate:64440bd9b29350d5"
+          ]
+        },
+        {
+          "label_cn": "腾空；实验容器抽真空",
+          "label_en": "empty a space or evacuate a vessel",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:evacuate:f62f00cc4fd95084",
+            "sense:evacuate:5fd76fbf020055bb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "撤离、疏散；腾空；抽真空",
+      "core_meaning_en": "leave or clear a dangerous place; empty a space; remove air to create a vacuum",
+      "mental_model_cn": "人员、建筑或区域语境中是撤离/疏散；容器或房间语境中可指腾空；实验容器语境中指抽出气体形成真空。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,8 +49,8 @@
             "legacy_source_object_ids": [
               "sense:evacuate:64440bd9b29350d5:collocation:0"
             ],
-            "meaning_cn": "把某人/某物从某地疏散",
-            "phrase": "evacuate + sb/sth from + place"
+            "meaning_cn": "把人员撤离某地；疏散建筑或区域内的人员",
+            "phrase": "evacuate people from a place; evacuate a building/area"
           },
           {
             "collocation_id": "collocation:61a0b94b89edbfd2fb63",
@@ -45,16 +63,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "疏散，撤离",
-        "definition_en": "to move people from a place of danger to a safer place",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "撤离；疏散（人员或某地的人员）",
+        "definition_en": "to leave a dangerous place, or move people from it to safety",
+        "governing_pattern": "evacuate; evacuate people from a place; evacuate a building/area",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:evacuate:64440bd9b29350d5",
         "sense_label_en": "to move people from a place of danger to a safer place",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [

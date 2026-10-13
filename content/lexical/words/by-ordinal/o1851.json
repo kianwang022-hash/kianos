@@ -19,8 +19,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "落下；跌落；下降；进入某种状态",
-          "label_en": "to fall, decrease, or pass into a state",
+          "label_cn": "落下、下降；进入状态",
+          "label_en": "move down, decrease, or enter a state",
           "pos": "verb",
           "sense_ids": [
             "sense:fall:efd1e6db5e105f9c",
@@ -29,18 +29,38 @@
           ]
         },
         {
-          "label_cn": "秋天；下降、减少或下跌",
-          "label_en": "autumn; a decrease in amount, level, rate, or value",
+          "label_cn": "失势、失守；适逢某日",
+          "label_en": "lose power/control or occur on a date",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:fall:c087ed03b8a858fb",
+            "sense:fall:1837d93d1d8e14eb"
+          ]
+        },
+        {
+          "label_cn": "摔倒、下降、垮台",
+          "label_en": "a fall, decrease, or downfall",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fall:64dfe8c42ffc264e",
+            "sense:fall:767b11d717cc59bf",
+            "sense:fall:befe0e94304a97ea"
+          ]
+        },
+        {
+          "label_cn": "秋天；堕落；瀑布",
+          "label_en": "autumn, moral fall, or waterfall",
           "pos": "noun",
           "sense_ids": [
             "sense:fall:bd8d82b92efb5e1d",
-            "sense:fall:767b11d717cc59bf"
+            "sense:fall:6d7b26f632ac542a",
+            "sense:fall:f31e62b4801c5c4e"
           ]
         }
       ],
-      "core_meaning_cn": "落下；下降；秋天",
-      "core_meaning_en": "to drop down or decline; the season of autumn",
-      "mental_model_cn": "落下；下降；秋天",
+      "core_meaning_cn": "落下或下降；进入状态；摔倒、垮台；秋天",
+      "core_meaning_en": "fall or decrease; enter a state; a fall or downfall; autumn",
+      "mental_model_cn": "物体fall是落下，数字fall是下降；fall asleep/ill是进入状态。have a fall是摔倒，政府fall或the fall of政府是垮台；节日fall on接日期。名词秋天、瀑布及原深度义项保留。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -227,7 +247,7 @@
         "confidence": "medium",
         "definition_cn": "变成，进入某种状态",
         "definition_en": "to pass into a particular state or condition",
-        "governing_pattern": "linking verb + adj/n",
+        "governing_pattern": "fall + adjective (asleep/ill/silent); fall into + state; fall in love",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -283,6 +303,94 @@
         "sense_label_en": "a waterfall",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fall:64dfe8c42ffc264e",
+        "pos": "noun",
+        "definition_cn": "摔倒；跌落",
+        "definition_en": "an instance of falling down or dropping from a height",
+        "sense_label_en": "an instance of falling down or dropping from a height",
+        "governing_pattern": "countable: have a fall; a fall from sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9396aa74071fc76bc693",
+            "phrase": "have a bad fall",
+            "meaning_cn": "重重摔了一跤",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fall:c087ed03b8a858fb",
+        "pos": "verb",
+        "definition_cn": "失去权力或地位；（城池等）失守",
+        "definition_en": "to lose power or position, or come under an opponent’s control",
+        "sense_label_en": "to lose power or position, or come under an opponent’s control",
+        "governing_pattern": "fall from power; a city falls to an enemy",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:246d86499e8abb8c1595",
+            "phrase": "The government fell.",
+            "meaning_cn": "政府倒台了。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fall:befe0e94304a97ea",
+        "pos": "noun",
+        "definition_cn": "失势；垮台；（城池等的）陷落",
+        "definition_en": "the loss of power or position, or the capture of a place",
+        "sense_label_en": "the loss of power or position, or the capture of a place",
+        "governing_pattern": "usually singular: the fall of a government/city",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 9,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9285fb5e919af995309e",
+            "phrase": "the fall of the government",
+            "meaning_cn": "政府的垮台",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fall:1837d93d1d8e14eb",
+        "pos": "verb",
+        "definition_cn": "（节日、活动等）适逢；在某日发生",
+        "definition_en": "of an event or celebration: to occur on a particular day or date",
+        "sense_label_en": "of an event or celebration: to occur on a particular day or date",
+        "governing_pattern": "fall on + day/date",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 10,
+        "collocations": [
+          {
+            "collocation_id": "collocation:89476f4e87befa1d1e91",
+            "phrase": "The holiday falls on a Monday.",
+            "meaning_cn": "这个节日恰逢星期一。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -348,6 +456,74 @@
           "applicability": [
             {
               "surface": "fall"
+            },
+            {
+              "surface": "fall",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fall:64dfe8c42ffc264e"
+              ],
+              "owner_sense_ids": [
+                "sense:fall:64dfe8c42ffc264e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1851.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "countable: have a fall; a fall from sth"
+              }
+            },
+            {
+              "surface": "fall",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fall:c087ed03b8a858fb"
+              ],
+              "owner_sense_ids": [
+                "sense:fall:c087ed03b8a858fb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1851.json",
+              "source_pointer": "/record/senses/8",
+              "conditions": {
+                "current_owner_usage": "fall from power; a city falls to an enemy"
+              }
+            },
+            {
+              "surface": "fall",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fall:befe0e94304a97ea"
+              ],
+              "owner_sense_ids": [
+                "sense:fall:befe0e94304a97ea"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1851.json",
+              "source_pointer": "/record/senses/9",
+              "conditions": {
+                "current_owner_usage": "usually singular: the fall of a government/city"
+              }
+            },
+            {
+              "surface": "fall",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fall:1837d93d1d8e14eb"
+              ],
+              "owner_sense_ids": [
+                "sense:fall:1837d93d1d8e14eb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1851.json",
+              "source_pointer": "/record/senses/10",
+              "conditions": {
+                "current_owner_usage": "fall on + day/date"
+              }
             }
           ],
           "sources": [
@@ -532,6 +708,38 @@
         "merged_into_sense_id": null,
         "source_row": 5073,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:fall:64dfe8c42ffc264e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:fall:c087ed03b8a858fb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/8"
+      },
+      {
+        "sense_id": "sense:fall:befe0e94304a97ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/9"
+      },
+      {
+        "sense_id": "sense:fall:1837d93d1d8e14eb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/10"
       }
     ],
     "active_collocations": [
@@ -615,6 +823,34 @@
         "id": "collocation:fc2471107e9652f2f85f",
         "source_row": 21333,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:9396aa74071fc76bc693",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:246d86499e8abb8c1595",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/8/collocations/0"
+      },
+      {
+        "id": "collocation:9285fb5e919af995309e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/9/collocations/0"
+      },
+      {
+        "id": "collocation:89476f4e87befa1d1e91",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1851.json",
+        "source_pointer": "/record/senses/10/collocations/0"
       }
     ],
     "exam-mappings": [],

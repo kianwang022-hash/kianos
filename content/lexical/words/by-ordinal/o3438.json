@@ -6,7 +6,31 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cd8807f76001a18af1ea",
+        "pattern": "put sb/sth through their/its paces",
+        "meaning_cn": "考查能力；测试性能",
+        "definition_en": "testing capabilities with a series of tasks",
+        "boundary": "固定复数paces及宾语/物主一致，不按步数理解。",
+        "usage_note": "固定复数paces及宾语/物主一致，不按步数理解。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:1ad0b61eb1f640ea0b59",
+        "pattern": "set the pace",
+        "meaning_cn": "领跑；树立别人跟随的速度或标准",
+        "definition_en": "setting a speed or standard others follow",
+        "boundary": "用于竞赛或行业先行标准；不重复已有keep pace with搭配。",
+        "usage_note": "用于竞赛或行业先行标准；不重复已有keep pace with搭配。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_sense_id": "sense:pace:392be1f379355ea6"
+      }
+    ],
     "content_hash": "65d898abc7afc44df198eb8ae4a1e4acd15ed9f236b78bdad8918f186d0df0b7",
     "core_concept": {
       "core_clusters": [
@@ -31,7 +55,7 @@
       ],
       "core_meaning_cn": "速度，步伐",
       "core_meaning_en": "speed or step",
-      "mental_model_cn": "速度，步伐",
+      "mental_model_cn": "名词看速度或步幅；动词 pace the room 是踱步，pace out 是步测，pace oneself 是控制节奏和用力，别过快耗尽。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -150,7 +174,7 @@
         "confidence": "medium",
         "definition_cn": "用步测",
         "definition_en": "to measure a distance by walking it with regular steps",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "pace sth; pace sth off/out（步测）",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -158,6 +182,53 @@
         "sense_label_en": "to measure a distance by walking it with regular steps",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:pace:397b6f0a4ad2ebad",
+        "pos": "verb",
+        "definition_cn": "调整/控制速度或用力程度",
+        "definition_en": "to regulate the speed, rate, or effort of oneself or an activity",
+        "sense_label_en": "to regulate the speed, rate, or effort of oneself or an activity",
+        "transitivity": "vt",
+        "governing_pattern": "pace sth; pace yourself",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [],
+        "source_evidence_objects": [
+          {
+            "stable_sense_id": "sense:pace:397b6f0a4ad2ebad",
+            "status": "active",
+            "merged_into_sense_id": null,
+            "pos": "verb",
+            "definition_cn": "调整/控制速度或用力程度",
+            "definition_en": "to regulate the speed, rate, or effort of oneself or an activity",
+            "semantic_key": "79b9b0956b25c48d7c163843dec93e56ce983a898076c500c5a0f09887f9fa0a",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-15T10:50:00Z",
+            "source_row": 9592,
+            "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
+            "reference_only": true
+          }
+        ],
+        "usage_note": "pace yourself表示分配节奏/精力以坚持完成，不是来回踱步。"
+      },
+      {
+        "sense_id": "sense:pace:b9c77336c7337a9c",
+        "pos": "preposition",
+        "definition_cn": "（拉丁来源，正式）恕不同意某人的意见",
+        "definition_en": "politely disagreeing with the person named",
+        "sense_label_en": "politely disagreeing with the person named",
+        "governing_pattern": "pace + person/name",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [],
+        "usage_note": "出现在姓名前作礼貌反驳，常用斜体；与普通速度/步子名词及踱步动词不是同一个来源。"
       }
     ],
     "verification_summary": {
@@ -369,29 +440,215 @@
               "scope_relation": "Exact walk-back-and-forth verb. Excludes separate Latin preposition pace /pɑːtʃe/; both US and UK are explicitly tagged on this sound."
             }
           ]
+        },
+        {
+          "ipa": "/peɪs/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "pace",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:pace:c96b67f7d4175bf9",
+                "sense:pace:397b6f0a4ad2ebad"
+              ],
+              "owner_sense_ids": [
+                "sense:pace:c96b67f7d4175bf9",
+                "sense:pace:397b6f0a4ad2ebad"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3438.json",
+              "source_pointers": [
+                "/record/senses/3",
+                "/record/senses/4"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/pace1_2",
+              "entry_context": {
+                "word": "pace",
+                "pos": "verb",
+                "etymology_number": null
+              },
+              "original_ipa": "/peɪs/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "Whole verb pronunciation independently read. Regulation from this entry; measure scope independently checked in pace out and Merriam-Webster pace."
+            },
+            {
+              "type": "authoritative_dictionary_semantics",
+              "role": "semantic_scope",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/pace-out",
+              "actual_selected_body_read": true
+            },
+            {
+              "type": "authoritative_dictionary_semantics",
+              "role": "semantic_scope",
+              "page": "https://www.merriam-webster.com/dictionary/pace",
+              "actual_selected_body_read": true
+            }
+          ]
+        },
+        {
+          "ipa": "/ˈpɑːkeɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "pace",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "owner_sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3438.json",
+              "source_pointers": [
+                "/record/senses/5"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/pace2",
+              "entry_context": {
+                "word": "pace",
+                "pos": "preposition",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈpɑːkeɪ/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "All three complete alternatives shown by the actual formal Latin preposition head are preserved separately; locale not inferred, none attaches to the ordinary noun/verb."
+            }
+          ]
+        },
+        {
+          "ipa": "/ˈpɑːtʃeɪ/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "pace",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "owner_sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3438.json",
+              "source_pointers": [
+                "/record/senses/5"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/pace2",
+              "entry_context": {
+                "word": "pace",
+                "pos": "preposition",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈpɑːtʃeɪ/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "All three complete alternatives shown by the actual formal Latin preposition head are preserved separately; locale not inferred, none attaches to the ordinary noun/verb."
+            }
+          ]
+        },
+        {
+          "ipa": "/ˈpeɪsi/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "pace",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "owner_sense_ids": [
+                "sense:pace:b9c77336c7337a9c"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3438.json",
+              "source_pointers": [
+                "/record/senses/5"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/pace2",
+              "entry_context": {
+                "word": "pace",
+                "pos": "preposition",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈpeɪsi/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "All three complete alternatives shown by the actual formal Latin preposition head are preserved separately; locale not inferred, none attaches to the ordinary noun/verb."
+            }
+          ]
+        }
+      ],
+      "identity_contrasts": [
+        {
+          "kind": "heteronym_pos_etymology",
+          "sense_id": "sense:pace:b9c77336c7337a9c",
+          "contrasts_with_sense_ids": [
+            "sense:pace:392be1f379355ea6",
+            "sense:pace:8f04a9e33ee15626",
+            "sense:pace:c6013b45b4be543f",
+            "sense:pace:c96b67f7d4175bf9",
+            "sense:pace:397b6f0a4ad2ebad"
+          ],
+          "source": "https://www.oxfordlearnersdictionaries.com/definition/english/pace2",
+          "canonical_background_support": true,
+          "purpose_cn": "正式拉丁介词在姓名前表示不同意，不能套普通速度/踱步的/peɪs/整观察；只记录这项词形身份风险，不创建三张读音卡。"
         }
       ]
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:pace:397b6f0a4ad2ebad",
-      "status": "active",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "调整/控制速度或用力程度",
-      "definition_en": "to regulate the speed, rate, or effort of oneself or an activity",
-      "semantic_key": "79b9b0956b25c48d7c163843dec93e56ce983a898076c500c5a0f09887f9fa0a",
-      "semantic_key_history": [],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-15T10:50:00Z",
-      "source_row": 9592,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -428,14 +685,22 @@
         "merged_into_sense_id": null,
         "source_row": 9592,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:pace:b9c77336c7337a9c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3438.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:93a09dc1b23103a55a2a",
+      "collocation:6ddce2f62b5d9e57f9f8",
+      "collocation:9da9393c844772143504",
       "collocation:2603bbff64adb3895552",
       "collocation:3c4e89319d3f0d83a9e2",
-      "collocation:6ddce2f62b5d9e57f9f8",
-      "collocation:93a09dc1b23103a55a2a",
-      "collocation:9da9393c844772143504",
       "collocation:d68b92209557c6b11a6d"
     ],
     "facts": [

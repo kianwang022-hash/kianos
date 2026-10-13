@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:80831c6d7885fbe9d914",
+        "pattern": "groan under the weight of something",
+        "meaning_cn": "被大量东西压得满满当当",
+        "definition_en": "to be heavily loaded with an abundance of something",
+        "usage_note": "常用于桌子等装满东西的物体，语体偏正式；The table groaned under the weight of dishes. 可形容满桌饭菜。",
+        "boundary": "常用于桌子等装满东西的物体，语体偏正式；The table groaned under the weight of dishes. 可形容满桌饭菜。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "b98110e10eb096664418f6b402f6074084c5df7e0fdaaee9298d8742b5f4dc7f",
     "core_concept": {
       "core_clusters": [
@@ -19,19 +30,20 @@
           ]
         },
         {
-          "label_cn": "呻吟，抱怨；呻吟地说",
-          "label_en": "indicate pain, discomfort, or displeasure; utter with a groan",
+          "label_cn": "呻吟，抱怨；呻吟地说；（物体）低沉作响；嘎吱作响",
+          "label_en": "indicate pain, discomfort, or displeasure; utter with a groan; to make a low strained sound like a groan",
           "pos": "verb",
           "sense_ids": [
             "sense:groan:709da8d393625b86",
-            "sense:groan:df0bc7bea7615ada"
+            "sense:groan:df0bc7bea7615ada",
+            "sense:groan:083abf8335ce3345"
           ]
         }
       ],
-      "core_meaning_cn": "呻吟或抱怨",
-      "core_meaning_en": "a low sound of pain or displeasure, or to make such a sound",
-      "mental_model_cn": "呻吟或抱怨",
-      "mental_model_en": ""
+      "core_meaning_cn": "呻吟抱怨、呻吟地说或物体低沉作响",
+      "core_meaning_en": "groan or complain, utter words with a groan, or creak",
+      "mental_model_cn": "人可因疼痛或不满而groan；旧门也可groan作响。及物表达限说出的词句。",
+      "mental_model_en": "groan or complain, utter words with a groan, or creak."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -129,7 +141,30 @@
         "sense_id": "sense:groan:df0bc7bea7615ada",
         "sense_label_en": "utter with a groan",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "groan作及物表达时，宾语是呻吟着说出的词句或引语，如groan a reply；不表示把某个人呻吟。"
+      },
+      {
+        "sense_id": "sense:groan:083abf8335ce3345",
+        "pos": "verb",
+        "definition_cn": "（物体）低沉作响；嘎吱作响",
+        "definition_en": "to make a low strained sound like a groan",
+        "sense_label_en": "to make a low strained sound like a groan",
+        "governing_pattern": "a tree/door groans",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:59bd3e294f365040eb94",
+            "phrase": "The old door groaned in the wind.",
+            "meaning_cn": "旧门在风中嘎吱作响。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -170,6 +205,23 @@
           "applicability": [
             {
               "surface": "groan"
+            },
+            {
+              "surface": "groan",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:groan:083abf8335ce3345"
+              ],
+              "owner_sense_ids": [
+                "sense:groan:083abf8335ce3345"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2210.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "a tree/door groans"
+              }
             }
           ],
           "sources": [
@@ -523,14 +575,23 @@
         "merged_into_sense_id": null,
         "source_row": 6169,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:groan:083abf8335ce3345",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2210.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:0055672387742c057fff",
-      "collocation:abcee5c3d881f6b60d68",
       "collocation:bc907e57b895169ae6cf",
+      "collocation:dba37060f0877f8960ac",
+      "collocation:0055672387742c057fff",
       "collocation:c286250b38bbeb927be8",
-      "collocation:dba37060f0877f8960ac"
+      "collocation:abcee5c3d881f6b60d68",
+      "collocation:59bd3e294f365040eb94"
     ],
     "facts": [],
     "collocations": [
@@ -558,6 +619,13 @@
         "id": "collocation:dba37060f0877f8960ac",
         "source_row": 18588,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:59bd3e294f365040eb94",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2210.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

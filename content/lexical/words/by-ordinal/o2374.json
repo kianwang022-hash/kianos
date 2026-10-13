@@ -6,14 +6,37 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:67542ea20222c03dee89",
+        "pattern": "have a horror of sth/doing sth",
+        "meaning_cn": "极害怕或极讨厌某事",
+        "definition_en": "to strongly fear or dislike something",
+        "usage_note": "of 后接名词或 doing；与一次受惊的 in horror 分开。",
+        "boundary": "of 后接名词或 doing；与一次受惊的 in horror 分开。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:horror:60ca880d504a5091"
+      }
+    ],
     "content_hash": "a94659c523d73ddda6d9961181f3c69e98f9f3807f504c7e76097bd5f6c14f18",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "强烈的恐惧或引起恐惧的事物",
-      "core_meaning_en": "intense fear or something causing it",
-      "mental_model_cn": "强烈的恐惧或引起恐惧的事物",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "极度的恐惧或震惊；引起恐惧或厌恶的事物；（书籍、电影等的）恐怖类型",
+          "label_en": "a feeling of intense fear or shock; something that causes fear or disgust; a genre intended to frighten",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:horror:60ca880d504a5091",
+            "sense:horror:4647318d382652b5",
+            "sense:horror:20f81dc4fda67b27"
+          ]
+        }
+      ],
+      "core_meaning_cn": "极度恐惧或震惊；令人恐惧厌恶的事物；恐怖作品类型",
+      "core_meaning_en": "intense fear or shock; a dreadful thing; the horror genre",
+      "mental_model_cn": "感受、引发感受的事物以及创作类型分看语境。",
+      "mental_model_en": "intense fear or shock; a dreadful thing; the horror genre."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -82,6 +105,29 @@
         "sense_label_en": "something that causes fear or disgust",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:horror:20f81dc4fda67b27",
+        "pos": "noun",
+        "definition_cn": "（书籍、电影等的）恐怖类型",
+        "definition_en": "a genre intended to frighten",
+        "sense_label_en": "a genre intended to frighten",
+        "governing_pattern": "horror; horror fiction; the horror genre",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:09336ba0d720dbd14ae1",
+            "phrase": "She reads horror and science fiction.",
+            "meaning_cn": "她读恐怖作品和科幻作品。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "类型义不可数；区别于可数的恐怖事物，也不是正在经历恐惧的感受。"
       }
     ],
     "verification_summary": {
@@ -161,6 +207,23 @@
           "applicability": [
             {
               "surface": "horror"
+            },
+            {
+              "surface": "horror",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:horror:20f81dc4fda67b27"
+              ],
+              "owner_sense_ids": [
+                "sense:horror:20f81dc4fda67b27"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2374.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "horror; horror fiction; the horror genre"
             }
           ],
           "sources": [
@@ -302,12 +365,21 @@
         "merged_into_sense_id": null,
         "source_row": 6629,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:horror:20f81dc4fda67b27",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2374.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:9d719b6b5f85fb9d021e",
+      "collocation:f23855ebfc2ab8d03212",
       "collocation:ab21916912abcb847726",
-      "collocation:f23855ebfc2ab8d03212"
+      "collocation:9d719b6b5f85fb9d021e",
+      "collocation:09336ba0d720dbd14ae1"
     ],
     "facts": [
       {
@@ -331,6 +403,13 @@
         "id": "collocation:f23855ebfc2ab8d03212",
         "source_row": 20520,
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:09336ba0d720dbd14ae1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2374.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

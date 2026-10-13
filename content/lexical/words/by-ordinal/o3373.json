@@ -11,28 +11,21 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "有机的；生物的；有机的（化学）；器官的；器质性的",
-          "label_en": "relating to or derived from living organisms; relating to chemical compounds containing carbon; involving or affecting physiology or bodily organs",
+          "label_cn": "生物来源的；有机化学的；器质性的；有机农业/食品的",
+          "label_en": "relating to living matter, organic chemistry or bodily structure; produced under organic farming standards",
           "pos": "adjective",
           "sense_ids": [
             "sense:organic:c6a7396a0e6857e0",
             "sense:organic:5bdee51c45025d9d",
-            "sense:organic:0ab532cf103b53fa"
-          ]
-        },
-        {
-          "label_cn": "有机肥料",
-          "label_en": "a fertilizer derived from animal or vegetable matter",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:organic:3bc599af5294585a"
+            "sense:organic:0ab532cf103b53fa",
+            "sense:organic:237db2990c004106"
           ]
         }
       ],
-      "core_meaning_cn": "有机的",
-      "core_meaning_en": "relating to living organisms or carbon-based compounds",
-      "mental_model_cn": "有机的",
-      "mental_model_en": ""
+      "core_meaning_cn": "生物来源、化学、农业或器官语境；也可说整体相联、自然渐进",
+      "core_meaning_en": "living matter, carbon chemistry, farming or body organs; an interconnected whole or gradual development",
+      "mental_model_cn": "organic matter看生物来源，organic chemistry看化学类别，organic food看生产标准；organic whole说各部分相联，organic growth可说逐步自然发展。器质性疾病另按身体结构语境理解。",
+      "mental_model_en": "living matter, carbon chemistry, farming or body organs; an interconnected whole or gradual development."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -126,30 +119,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:ade5de5984fde046b6d6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:organic:3bc599af5294585a:collocation:0"
-            ],
-            "meaning_cn": "在花园里使用有机肥料",
-            "phrase": "use organic in the garden"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "有机肥料",
-        "definition_en": "a fertilizer derived from animal or vegetable matter",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:organic:3bc599af5294585a",
-        "sense_label_en": "a fertilizer derived from animal or vegetable matter",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:baf975348283397d50fb",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -170,6 +139,62 @@
         "sense_label_en": "produced according to organic farming standards with restricted synthetic inputs",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:organic:2ed93667a0369756",
+        "pos": "adjective",
+        "definition_cn": "（正式）各部分相互关联、构成整体的",
+        "definition_en": "made up of connected parts that function together",
+        "sense_label_en": "made up of connected parts that function together",
+        "governing_pattern": "an organic whole",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b62ed4e5e836dddc6503",
+            "phrase": "a society seen as an organic whole",
+            "meaning_cn": "被视为各部分相互关联的整体的社会",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ],
+        "usage_note": "正式语体，可用于社会、作品等相互联系的整体，不必涉及生物或有机食品。"
+      },
+      {
+        "sense_id": "sense:organic:4a63d4769012cccc",
+        "pos": "adjective",
+        "definition_cn": "（正式）自然渐进的；逐步发展的",
+        "definition_en": "developing gradually and naturally",
+        "sense_label_en": "developing gradually and naturally",
+        "governing_pattern": "organic growth/development",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:83a63e84a1e72020723f",
+            "phrase": "the organic growth of a community",
+            "meaning_cn": "一个社群自然、逐步的发展",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ],
+        "usage_note": "正式语体，强调逐步发展；不是凡用organic就表示符合有机农业标准。"
       }
     ],
     "verification_summary": {
@@ -210,6 +235,42 @@
           "applicability": [
             {
               "surface": "organic"
+            },
+            {
+              "surface": "organic",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:organic:2ed93667a0369756"
+              ],
+              "owner_sense_ids": [
+                "sense:organic:2ed93667a0369756"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3373.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an organic whole",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "organic",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:organic:4a63d4769012cccc"
+              ],
+              "owner_sense_ids": [
+                "sense:organic:4a63d4769012cccc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3373.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "organic growth/development",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -297,6 +358,42 @@
           "applicability": [
             {
               "surface": "organic"
+            },
+            {
+              "surface": "organic",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:organic:2ed93667a0369756"
+              ],
+              "owner_sense_ids": [
+                "sense:organic:2ed93667a0369756"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3373.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an organic whole",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "organic",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:organic:4a63d4769012cccc"
+              ],
+              "owner_sense_ids": [
+                "sense:organic:4a63d4769012cccc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3373.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "organic growth/development",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -368,7 +465,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ade5de5984fde046b6d6",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:organic:3bc599af5294585a:collocation:0"
+          ],
+          "meaning_cn": "在花园里使用有机肥料",
+          "phrase": "use organic in the garden"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "有机肥料",
+      "definition_en": "a fertilizer derived from animal or vegetable matter",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:organic:3bc599af5294585a",
+      "sense_label_en": "a fertilizer derived from animal or vegetable matter",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:organic:3bc599af5294585a",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -380,7 +506,7 @@
       },
       {
         "sense_id": "sense:organic:3bc599af5294585a",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9362,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
@@ -405,15 +531,32 @@
         "merged_into_sense_id": null,
         "source_row": 9415,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
+      },
+      {
+        "sense_id": "sense:organic:2ed93667a0369756",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3373.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:organic:4a63d4769012cccc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3373.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:75be06b0647c25c9f23b",
-      "collocation:ade5de5984fde046b6d6",
-      "collocation:b58fa7d6dc5fdb995cba",
       "collocation:b8e92c0894a0ce53492d",
+      "collocation:75be06b0647c25c9f23b",
+      "collocation:dba776f3d943c53a6bed",
+      "collocation:b58fa7d6dc5fdb995cba",
       "collocation:baf975348283397d50fb",
-      "collocation:dba776f3d943c53a6bed"
+      "collocation:b62ed4e5e836dddc6503",
+      "collocation:83a63e84a1e72020723f"
     ],
     "facts": [],
     "collocations": [
@@ -425,7 +568,9 @@
       {
         "id": "collocation:ade5de5984fde046b6d6",
         "source_row": 14722,
-        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b58fa7d6dc5fdb995cba",
@@ -446,6 +591,20 @@
         "id": "collocation:dba776f3d943c53a6bed",
         "source_row": 18589,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:b62ed4e5e836dddc6503",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3373.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:83a63e84a1e72020723f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3373.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -22,12 +22,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "杀死，使死亡；使终止，否决，扼杀",
-          "label_en": "to cause someone or something to die; to stop or defeat something, such as a proposal or feeling",
+          "label_cn": "杀死，使死亡；使终止，否决，扼杀；使疼痛难忍；使非常难受",
+          "label_en": "to cause someone or something to die; to stop or defeat something, such as a proposal or feeling; to cause someone intense pain or discomfort",
           "pos": "verb",
           "sense_ids": [
             "sense:kill:d64134aecdaa5a9a",
-            "sense:kill:71a9d9d0bad35593"
+            "sense:kill:71a9d9d0bad35593",
+            "sense:kill:de7671e4b94af6f7"
           ]
         },
         {
@@ -39,10 +40,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "使死亡或终止",
-      "core_meaning_en": "to cause death or end something",
-      "mental_model_cn": "使死亡或终止",
-      "mental_model_en": ""
+      "core_meaning_cn": "杀死；使终止或消除；杀害或猎物；使疼痛难忍",
+      "core_meaning_en": "to cause death, end something, or cause intense pain; an act of killing or a killed animal",
+      "mental_model_cn": "生命 → 杀死；活动/感觉 → 使结束；My feet are killing me → 疼得要命。kill time → 消磨时间。",
+      "mental_model_en": "to cause death, end something, or cause intense pain; an act of killing or a killed animal."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -58,7 +59,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:bc01a157f5631b44aace",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:kill:d64134aecdaa5a9a:collocation:0"
             ],
@@ -119,7 +120,7 @@
             "legacy_source_object_ids": [
               "sense:kill:df6cc0e957a558ff:collocation:0"
             ],
-            "meaning_cn": "猎获；成功",
+            "meaning_cn": "猎杀；捕获猎物",
             "phrase": "make a kill"
           }
         ],
@@ -134,6 +135,29 @@
         "sense_label_en": "the act of killing, or an animal killed",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:kill:de7671e4b94af6f7",
+        "pos": "verb",
+        "definition_cn": "使疼痛难忍；使非常难受",
+        "definition_en": "to cause someone intense pain or discomfort",
+        "sense_label_en": "to cause someone intense pain or discomfort",
+        "governing_pattern": "sth is killing sb; it kills sb to do sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e59e67babd7d83c011d3",
+            "phrase": "My feet are killing me.",
+            "meaning_cn": "我的脚疼得要命。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式；疼痛义通常用进行时，不用被动式。不能将 My feet are killing me 理解为脚在杀人。"
       }
     ],
     "verification_summary": {
@@ -175,6 +199,23 @@
           "applicability": [
             {
               "surface": "kill"
+            },
+            {
+              "surface": "kill",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:kill:de7671e4b94af6f7"
+              ],
+              "owner_sense_ids": [
+                "sense:kill:de7671e4b94af6f7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2706.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sth is killing sb; it kills sb to do sth"
             }
           ],
           "sources": [
@@ -303,13 +344,22 @@
         "merged_into_sense_id": null,
         "source_row": 7481,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:kill:de7671e4b94af6f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2706.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:a053c1ac14a949475b2e",
       "collocation:bc01a157f5631b44aace",
+      "collocation:a053c1ac14a949475b2e",
+      "collocation:fc230c5feac110a52bb6",
       "collocation:c767d4b04c6f0f9a6ee5",
-      "collocation:fc230c5feac110a52bb6"
+      "collocation:e59e67babd7d83c011d3"
     ],
     "facts": [],
     "collocations": [
@@ -326,7 +376,9 @@
       {
         "id": "collocation:bc01a157f5631b44aace",
         "source_row": 15923,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c767d4b04c6f0f9a6ee5",
@@ -337,6 +389,13 @@
         "id": "collocation:fc230c5feac110a52bb6",
         "source_row": 21330,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:e59e67babd7d83c011d3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2706.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

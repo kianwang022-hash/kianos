@@ -26,12 +26,20 @@
           "sense_ids": [
             "sense:musical:cc2480d703f25dfa"
           ]
+        },
+        {
+          "label_cn": "（声音）悦耳的；像音乐的",
+          "label_en": "pleasant and melodic in sound",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:musical:8955634f9ee88d50"
+          ]
         }
       ],
-      "core_meaning_cn": "与音乐相关的，或包含歌舞的戏剧/电影",
-      "core_meaning_en": "related to music, or a play/film with singing and dancing",
-      "mental_model_cn": "与音乐相关的，或包含歌舞的戏剧/电影",
-      "mental_model_en": ""
+      "core_meaning_cn": "音乐的；有音乐天赋/兴趣的；声音悦耳的；音乐剧",
+      "core_meaning_en": "relating to music; musical talent or interest; melodic sound; a musical show",
+      "mental_model_cn": "musical instrument谈音乐，musical child谈天赋/爱好，musical voice谈悦耳，a musical是有歌舞的戏剧或电影。",
+      "mental_model_en": "relating to music; musical talent or interest; melodic sound; a musical show."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,6 +120,28 @@
         "sense_label_en": "talented in or devoted to music",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:musical:8955634f9ee88d50",
+        "pos": "adjective",
+        "definition_cn": "（声音）悦耳的；像音乐的",
+        "definition_en": "pleasant and melodic in sound",
+        "sense_label_en": "pleasant and melodic in sound",
+        "governing_pattern": "a musical voice",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:26022aa31e94f4bcfeb5",
+            "phrase": "a musical voice",
+            "meaning_cn": "悦耳的嗓音",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -141,6 +171,24 @@
           "applicability": [
             {
               "surface": "musical"
+            },
+            {
+              "surface": "musical",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:musical:8955634f9ee88d50"
+              ],
+              "owner_sense_ids": [
+                "sense:musical:8955634f9ee88d50"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3160.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a musical voice",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -437,6 +485,24 @@
           "applicability": [
             {
               "surface": "musical"
+            },
+            {
+              "surface": "musical",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:musical:8955634f9ee88d50"
+              ],
+              "owner_sense_ids": [
+                "sense:musical:8955634f9ee88d50"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3160.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a musical voice",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -597,12 +663,21 @@
         "merged_into_sense_id": null,
         "source_row": 8801,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:musical:8955634f9ee88d50",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3160.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:27f2efe23c1b36eda6c7",
       "collocation:c30905fc2ffd455d820d",
-      "collocation:d768a0736601e4d48ca8"
+      "collocation:27f2efe23c1b36eda6c7",
+      "collocation:d768a0736601e4d48ca8",
+      "collocation:26022aa31e94f4bcfeb5"
     ],
     "facts": [],
     "collocations": [
@@ -620,6 +695,13 @@
         "id": "collocation:d768a0736601e4d48ca8",
         "source_row": 18224,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:26022aa31e94f4bcfeb5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3160.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "3a9b14e74a7e47120b3b5357c76e4ced214f0cf0896787f6416212340c60e3d0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "经理；管理者；负责人",
-      "core_meaning_en": "a person responsible for managing or organizing an organization, department, project, activity, or similar operation",
-      "mental_model_cn": "business/department/project/store → manager = 负责组织、管理的人；sports manager 和 software manager 是领域化分支。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "经理负责人；艺人经纪人；体育领队；软件管理器",
+          "label_en": "a person in charge; a performer’s business representative; a sports team leader; software managing resources",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:manager:20c387c8d94e5e7a",
+            "sense:manager:373da6294ba85dfb",
+            "sense:manager:21a3b6513c105b17",
+            "sense:manager:25fdfe1b00535ec7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "经理负责人；艺人经纪人；体育领队；软件管理器",
+      "core_meaning_en": "a person in charge; a performer’s business representative; a sports team leader; software managing resources",
+      "mental_model_cn": "经理组织业务；艺人的manager可处理商业事务；体育领队和软件管理器原分支保留。",
+      "mental_model_en": "a person in charge; a performer’s business representative; a sports team leader; software managing resources."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -115,6 +127,28 @@
         "sense_label_en": "a software component that manages resources (computing)",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:manager:25fdfe1b00535ec7",
+        "pos": "noun",
+        "definition_cn": "（艺人等的）经纪人",
+        "definition_en": "a person who handles the professional business affairs of a performer",
+        "sense_label_en": "a person who handles the professional business affairs of a performer",
+        "governing_pattern": "an actor’s / band’s manager",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6036316606c900e4de15",
+            "phrase": "the band’s manager",
+            "meaning_cn": "乐队经纪人",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -135,7 +169,7 @@
     "word": "manager",
     "word_family": [
       {
-        "boundary": "manager 名词变 manage 动词",
+        "boundary": "manage 是管理的动词；manager 是与其对应的 -er 人称名词，指管理者。",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -194,6 +228,23 @@
           "applicability": [
             {
               "surface": "manager"
+            },
+            {
+              "surface": "manager",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:manager:25fdfe1b00535ec7"
+              ],
+              "owner_sense_ids": [
+                "sense:manager:25fdfe1b00535ec7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2943.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an actor’s / band’s manager"
             }
           ],
           "sources": [
@@ -310,14 +361,23 @@
         "merged_into_sense_id": null,
         "source_row": 8192,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:manager:25fdfe1b00535ec7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2943.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:e4a80c36ef340870d7d8",
       "collocation:25e3498ff9dfdb8fa8d4",
-      "collocation:ba98335aec74e9d95f4d",
       "collocation:d01cf1f586302d474155",
+      "collocation:ba98335aec74e9d95f4d",
       "collocation:de6d5666c5a9e2085c37",
-      "collocation:e4a80c36ef340870d7d8"
+      "collocation:6036316606c900e4de15"
     ],
     "facts": [
       {
@@ -351,6 +411,13 @@
         "id": "collocation:e4a80c36ef340870d7d8",
         "source_row": 19361,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:6036316606c900e4de15",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2943.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

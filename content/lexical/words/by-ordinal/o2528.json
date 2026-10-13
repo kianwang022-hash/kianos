@@ -6,7 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:01d954829c569bc6206f",
+        "pattern": "have/use/exert influence with sb",
+        "meaning_cn": "在某人那里有或运用影响力，使其考虑某事",
+        "definition_en": "have or use persuasive standing with a person",
+        "usage_note": "with表示有影响力可说服的对象；on/over侧重对谁或什么产生影响，with侧重你在谁那里有说服力。",
+        "boundary": "with表示有影响力可说服的对象；on/over侧重对谁或什么产生影响，with侧重你在谁那里有说服力。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:influence:098da0c9fb275e4a"
+      },
+      {
+        "construction_id": "construction:a5863af2fde1edb7d829",
+        "pattern": "be/drive under the influence",
+        "meaning_cn": "酒醉状态；酒后驾车",
+        "definition_en": "be intoxicated by alcohol or drive while intoxicated",
+        "usage_note": "此整体惯用表达常省略of alcohol；不能仅按一般“受某物影响”理解。",
+        "boundary": "此整体惯用表达常省略of alcohol；不能仅按一般“受某物影响”理解。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "d76b97468167490a661245e96df394a835a5738b92041520195f51c35589dfe9",
     "core_concept": {
       "core_clusters": [
@@ -16,7 +38,8 @@
           "pos": "noun",
           "sense_ids": [
             "sense:influence:098da0c9fb275e4a",
-            "sense:influence:17f07ca8d2ac5818"
+            "sense:influence:17f07ca8d2ac5818",
+            "sense:influence:f594b41b7ec0d23a"
           ]
         },
         {
@@ -30,7 +53,7 @@
       ],
       "core_meaning_cn": "影响；影响力",
       "core_meaning_en": "the power to affect or change someone or something",
-      "mental_model_cn": "影响；影响力",
+      "mental_model_cn": "power看左右他人的能力；effect看产生的影响；a good/bad influence可指影响来源或人；独立under the influence常指酒醉。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,7 +93,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:influence:098da0c9fb275e4a",
-        "sense_label_en": "the power to affect people or events, especially based on prestige or po",
+        "sense_label_en": "the power to affect people or events, especially based on prestige or position",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -103,7 +126,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:influence:506da888e6d65a63",
-        "sense_label_en": "to have an effect on the way someone or something develops, behaves, or ",
+        "sense_label_en": "to have an effect on the way someone or something develops, behaves, or thinks",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -130,6 +153,29 @@
         "sense_label_en": "the effect that one thing or person has on another",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:influence:f594b41b7ec0d23a",
+        "pos": "noun",
+        "definition_cn": "产生影响的人或事物；影响来源",
+        "definition_en": "a person or thing that shapes another person’s thinking or behaviour",
+        "sense_label_en": "a person or thing that shapes another person’s thinking or behaviour",
+        "governing_pattern": "be a good/bad influence on sb; formative influences",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4223a1956917865dd545",
+            "phrase": "a bad influence on sb",
+            "meaning_cn": "对某人产生坏影响的人/事物",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "countable；a bad influence可指某个人；their influences可指艺术家、文化等影响来源，不只抽象影响强度。"
       }
     ],
     "verification_summary": {
@@ -179,6 +225,23 @@
           "applicability": [
             {
               "surface": "influence"
+            },
+            {
+              "surface": "influence",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:influence:f594b41b7ec0d23a"
+              ],
+              "owner_sense_ids": [
+                "sense:influence:f594b41b7ec0d23a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2528.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be a good/bad influence on sb; formative influences"
             }
           ],
           "sources": [
@@ -277,14 +340,23 @@
         "merged_into_sense_id": null,
         "source_row": 7004,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:influence:f594b41b7ec0d23a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2528.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:85364b8f15d393ad8bf4",
       "collocation:aa28cfd9bf196a918224",
       "collocation:bee3415ac7d1c355bd0a",
+      "collocation:85364b8f15d393ad8bf4",
       "collocation:dbbbe76ef350641969a7",
-      "collocation:f6448e34e6eae46323f8"
+      "collocation:f6448e34e6eae46323f8",
+      "collocation:4223a1956917865dd545"
     ],
     "facts": [],
     "collocations": [
@@ -312,6 +384,13 @@
         "id": "collocation:f6448e34e6eae46323f8",
         "source_row": 20870,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:4223a1956917865dd545",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2528.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [

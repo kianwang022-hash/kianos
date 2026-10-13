@@ -11,19 +11,20 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "用力投掷；猛掷；大声说出；愤慨地说",
-          "label_en": "to throw something with great force; to shout or utter something forcefully",
+          "label_cn": "用力投掷；猛掷；大声说出；愤慨地说；（北美俚语）呕吐",
+          "label_en": "to throw someone or something with great force in a particular direction; to shout or utter something forcefully; in North American slang, to vomit",
           "pos": "verb",
           "sense_ids": [
             "sense:hurl:03707be99b3653da",
-            "sense:hurl:7b3d04c2e71b5ba8"
+            "sense:hurl:7b3d04c2e71b5ba8",
+            "sense:hurl:8d9990724c6c8f04"
           ]
         }
       ],
-      "core_meaning_cn": "猛掷；大声说出",
-      "core_meaning_en": "to throw or utter something forcefully",
-      "mental_model_cn": "verb → 猛掷；figurative speech → hurl abuse/accusations 等激烈地说出。低价值“用力投掷”名词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "猛掷；大声斥责；（北美俚语）呕吐",
+      "core_meaning_en": "throw forcefully; shout insults or accusations; in North American slang, vomit",
+      "mental_model_cn": "hurl 石头/自己→有力地投掷或猛冲；hurl insults at sb→大声辱骂；俚语hurl无宾语→呕吐。",
+      "mental_model_en": "throw forcefully; shout insults or accusations; in North American slang, vomit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,24 +46,21 @@
             "phrase": "hurl a spear"
           },
           {
-            "collocation_id": "collocation:10a5a6fd5b97b41a5743",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hurl:03707be99b3653da:collocation:1"
-            ],
-            "meaning_cn": "对某人大声辱骂",
-            "phrase": "hurl insults at sb"
+            "collocation_id": "collocation:843f27bb549513b56454",
+            "phrase": "He hurled himself into the water.",
+            "meaning_cn": "他猛地纵身跳进水里。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
         "definition_cn": "用力投掷；猛掷",
-        "definition_en": "to throw something with great force",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to throw someone or something with great force in a particular direction",
+        "governing_pattern": "hurl sb/sth at/into/through ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hurl:03707be99b3653da",
-        "sense_label_en": "to throw something with great force",
+        "sense_label_en": "to throw someone or something with great force in a particular direction",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -76,6 +74,15 @@
             ],
             "meaning_cn": "对某人大声辱骂",
             "phrase": "hurl abuse at sb"
+          },
+          {
+            "collocation_id": "collocation:10a5a6fd5b97b41a5743",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hurl:03707be99b3653da:collocation:1"
+            ],
+            "meaning_cn": "对某人大声辱骂",
+            "phrase": "hurl insults at sb"
           }
         ],
         "confidence": "medium",
@@ -89,6 +96,29 @@
         "sense_label_en": "to shout or utter something forcefully",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:hurl:8d9990724c6c8f04",
+        "pos": "verb",
+        "definition_cn": "（北美俚语）呕吐",
+        "definition_en": "in North American slang, to vomit",
+        "sense_label_en": "in North American slang, to vomit",
+        "governing_pattern": "hurl (no object)",
+        "transitivity": "vi",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a27dde01cbd84d8f5ebd",
+            "phrase": "The smell made him feel as if he might hurl.",
+            "meaning_cn": "那气味让他觉得自己可能要吐了。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "北美俚语；普通或正式表达通常用vomit。"
       }
     ],
     "verification_summary": {
@@ -129,6 +159,23 @@
           "applicability": [
             {
               "surface": "hurl"
+            },
+            {
+              "surface": "hurl",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hurl:8d9990724c6c8f04"
+              ],
+              "owner_sense_ids": [
+                "sense:hurl:8d9990724c6c8f04"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2411.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hurl (no object)"
             }
           ],
           "sources": [
@@ -240,19 +287,30 @@
         "merged_into_sense_id": null,
         "source_row": 6723,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hurl:8d9990724c6c8f04",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2411.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:10a5a6fd5b97b41a5743",
       "collocation:1c3a3e4023b2de91e98a",
-      "collocation:3f0748ccd39d9964b141"
+      "collocation:843f27bb549513b56454",
+      "collocation:3f0748ccd39d9964b141",
+      "collocation:10a5a6fd5b97b41a5743",
+      "collocation:a27dde01cbd84d8f5ebd"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:10a5a6fd5b97b41a5743",
         "source_row": 1376,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "sense_id": "sense:hurl:7b3d04c2e71b5ba8"
       },
       {
         "id": "collocation:1c3a3e4023b2de91e98a",
@@ -263,6 +321,20 @@
         "id": "collocation:3f0748ccd39d9964b141",
         "source_row": 5338,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:a27dde01cbd84d8f5ebd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2411.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:843f27bb549513b56454",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2411.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

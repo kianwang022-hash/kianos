@@ -6,24 +6,57 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:47a02a8dcf123b7bd515",
+        "pattern": "heavy with something",
+        "meaning_cn": "满载或充满某物",
+        "definition_en": "full of or loaded with something",
+        "usage_note": "文学表达；branches heavy with fruit；也可The air was heavy with perfume。",
+        "boundary": "文学表达；branches heavy with fruit；也可The air was heavy with perfume。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:385580f08bcfe8fab40a",
+        "pattern": "heavy on something",
+        "meaning_cn": "消耗某物很多；用量很大",
+        "definition_en": "using a large amount of something",
+        "usage_note": "非正式；This old car is heavy on fuel；不同于对人严厉的heavy on。",
+        "boundary": "非正式；This old car is heavy on fuel；不同于对人严厉的heavy on。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:962d1f604c97bfd7957e",
+        "pattern": "be heavy on somebody",
+        "meaning_cn": "对某人严厉苛刻",
+        "definition_en": "to treat somebody very strictly",
+        "usage_note": "Don’t be too heavy on her；主体对人的态度，不是油耗。",
+        "boundary": "Don’t be too heavy on her；主体对人的态度，不是油耗。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "0c96327f3de3b73836c48cd5f8a508ecb9f2093560c01b750c2f00c1b8edfcee",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "重的；沉重的；大量的；过度的",
-          "label_en": "of comparatively great physical weight or density; unusually great in degree or quantity or number",
+          "label_cn": "重的；沉重的；大量的；过度的；（人）某活动做得很多或很深的；（作品、讨论）严肃难懂、沉闷的",
+          "label_en": "of comparatively great physical weight or density; unusually great in degree or quantity or number; doing an activity much or deeply; serious and difficult to understand or enjoy",
           "pos": "adjective",
           "sense_ids": [
             "sense:heavy:9ed01c09958b5e1e",
-            "sense:heavy:69d7673a9ced5856"
+            "sense:heavy:69d7673a9ced5856",
+            "sense:heavy:8ab703cf18c11887",
+            "sense:heavy:f15e385f3bfcf3bb"
           ]
         }
       ],
-      "core_meaning_cn": "重量大或密度大",
-      "core_meaning_en": "having great weight or density",
-      "mental_model_cn": "重量大或密度大",
-      "mental_model_en": ""
+      "core_meaning_cn": "沉重、量大负担重；活动多或深；作品严肃难懂",
+      "core_meaning_en": "heavy in weight, quantity or burden; a heavy habit; serious and difficult material",
+      "mental_model_cn": "heavy可说明重量或数量程度；heavy sleeper为睡得很沉，heavy book可为难懂沉闷；heavy with/on有各自框架。",
+      "mental_model_en": "heavy in weight, quantity or burden; a heavy habit; serious and difficult material."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -34,26 +67,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a835dfab2a0c26ccd345",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:heavy:9ed01c09958b5e1e:collocation:0"
-            ],
-            "meaning_cn": "大雨",
-            "phrase": "heavy rain"
-          },
-          {
-            "collocation_id": "collocation:d952885fe7b4f3c620e9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:heavy:9ed01c09958b5e1e:collocation:1"
-            ],
-            "meaning_cn": "拥挤的交通",
-            "phrase": "heavy traffic"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "重的；沉重的",
         "definition_en": "of comparatively great physical weight or density",
@@ -76,6 +90,24 @@
             ],
             "meaning_cn": "繁重的工作量",
             "phrase": "heavy workload"
+          },
+          {
+            "collocation_id": "collocation:a835dfab2a0c26ccd345",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:heavy:9ed01c09958b5e1e:collocation:0"
+            ],
+            "meaning_cn": "大雨",
+            "phrase": "heavy rain"
+          },
+          {
+            "collocation_id": "collocation:d952885fe7b4f3c620e9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:heavy:9ed01c09958b5e1e:collocation:1"
+            ],
+            "meaning_cn": "拥挤的交通",
+            "phrase": "heavy traffic"
           }
         ],
         "confidence": "medium",
@@ -89,6 +121,52 @@
         "sense_label_en": "unusually great in degree or quantity or number",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:heavy:8ab703cf18c11887",
+        "pos": "adjective",
+        "definition_cn": "（人）某活动做得很多或很深的",
+        "definition_en": "doing an activity much or deeply",
+        "sense_label_en": "doing an activity much or deeply",
+        "governing_pattern": "a heavy smoker/drinker/sleeper",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:075840fe693b1a2d9bd6",
+            "phrase": "a heavy sleeper",
+            "meaning_cn": "睡得很沉的人",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "只置名词前；a heavy sleeper是睡得很沉的人，不表示睡眠重量。"
+      },
+      {
+        "sense_id": "sense:heavy:f15e385f3bfcf3bb",
+        "pos": "adjective",
+        "definition_cn": "（作品、讨论）严肃难懂、沉闷的",
+        "definition_en": "serious and difficult to understand or enjoy",
+        "sense_label_en": "serious and difficult to understand or enjoy",
+        "governing_pattern": "a heavy book/discussion",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9ff91f08c77b8f7c428b",
+            "phrase": "The discussion became too heavy.",
+            "meaning_cn": "讨论变得过于沉闷难懂。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常带不赞成意味；heavy reading是难读或沉闷的读物，区别于重量。"
       }
     ],
     "verification_summary": {
@@ -203,6 +281,50 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈhevi/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "heavy",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:heavy:8ab703cf18c11887",
+                "sense:heavy:f15e385f3bfcf3bb"
+              ],
+              "owner_sense_ids": [
+                "sense:heavy:8ab703cf18c11887",
+                "sense:heavy:f15e385f3bfcf3bb"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/heavy_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "heavy",
+                "pos": "adjective",
+                "sense_indices_1based": [
+                  3,
+                  15
+                ]
+              },
+              "original_ipa": "/ˈhevi/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -257,12 +379,30 @@
         "merged_into_sense_id": null,
         "source_row": 6425,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:heavy:8ab703cf18c11887",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2298.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:heavy:f15e385f3bfcf3bb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2298.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:6243740ecc2e0afde620",
       "collocation:a835dfab2a0c26ccd345",
-      "collocation:d952885fe7b4f3c620e9"
+      "collocation:d952885fe7b4f3c620e9",
+      "collocation:075840fe693b1a2d9bd6",
+      "collocation:9ff91f08c77b8f7c428b"
     ],
     "facts": [],
     "collocations": [
@@ -274,12 +414,28 @@
       {
         "id": "collocation:a835dfab2a0c26ccd345",
         "source_row": 14269,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "sense_id": "sense:heavy:69d7673a9ced5856"
       },
       {
         "id": "collocation:d952885fe7b4f3c620e9",
         "source_row": 18379,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "sense_id": "sense:heavy:69d7673a9ced5856"
+      },
+      {
+        "id": "collocation:075840fe693b1a2d9bd6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2298.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:9ff91f08c77b8f7c428b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2298.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

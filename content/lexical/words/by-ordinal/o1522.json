@@ -26,6 +26,30 @@
             "sense:dry:12e9356b77415c84",
             "sense:dry:916461d952d654c3"
           ]
+        },
+        {
+          "pos": "adjective",
+          "label_cn": "（幽默）冷面的；不动声色而机智的",
+          "label_en": "of humour: subtly amusing and expressed in a serious manner",
+          "sense_ids": [
+            "sense:dry:98d8ffe22ed61f97"
+          ]
+        },
+        {
+          "pos": "adjective",
+          "label_cn": "（葡萄酒等）不甜的；干型的",
+          "label_en": "of wine: not sweet",
+          "sense_ids": [
+            "sense:dry:d97f435dfc56a53f"
+          ]
+        },
+        {
+          "pos": "adjective",
+          "label_cn": "（书、报告、讲座等）枯燥的；乏味的",
+          "label_en": "of a book, report, lecture, or similar material: dull and uninteresting",
+          "sense_ids": [
+            "sense:dry:b0649452604db4f4"
+          ]
         }
       ],
       "core_meaning_cn": "干燥；弄干",
@@ -120,6 +144,63 @@
         "sense_label_en": "become dry or drier",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:dry:98d8ffe22ed61f97",
+        "pos": "adjective",
+        "definition_cn": "（幽默）冷面的；不动声色而机智的",
+        "definition_en": "of humour: subtly amusing and expressed in a serious manner",
+        "sense_label_en": "of humour: subtly amusing and expressed in a serious manner",
+        "governing_pattern": "dry humour; a dry sense of humour",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dry:98d8ffe22ed61f97",
+            "phrase": "a dry sense of humour",
+            "meaning_cn": "不动声色的幽默感",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "dry humour 是幽默风格，不是说笑话无聊或缺水。"
+      },
+      {
+        "sense_id": "sense:dry:d97f435dfc56a53f",
+        "pos": "adjective",
+        "definition_cn": "（葡萄酒等）不甜的；干型的",
+        "definition_en": "of wine: not sweet",
+        "sense_label_en": "of wine: not sweet",
+        "governing_pattern": "dry wine",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dry:d97f435dfc56a53f",
+            "phrase": "dry white wine",
+            "meaning_cn": "干白葡萄酒",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "干型指甜度，不表示酒里没有液体。"
+      },
+      {
+        "sense_id": "sense:dry:b0649452604db4f4",
+        "pos": "adjective",
+        "definition_cn": "（书、报告、讲座等）枯燥的；乏味的",
+        "definition_en": "of a book, report, lecture, or similar material: dull and uninteresting",
+        "sense_label_en": "of a book, report, lecture, or similar material: dull and uninteresting",
+        "governing_pattern": "a dry book/report/lecture",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dry:b0649452604db4f4",
+            "phrase": "The report is accurate but dry.",
+            "meaning_cn": "这份报告准确，但读起来很枯燥。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "这里是内容乏味；dry humour 的冷面幽默是另一已有身份，不等于笑话无趣。"
       }
     ],
     "verification_summary": {
@@ -171,6 +252,54 @@
           "applicability": [
             {
               "surface": "dry"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dry",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "sense_ids": [
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "excluded_sense_ids": [
+                "sense:dry:12e9356b77415c84",
+                "sense:dry:5a48b5915a3e5db4",
+                "sense:dry:916461d952d654c3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dry",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dry:b0649452604db4f4"
+              ],
+              "sense_ids": [
+                "sense:dry:b0649452604db4f4"
+              ],
+              "excluded_sense_ids": [
+                "sense:dry:12e9356b77415c84",
+                "sense:dry:5a48b5915a3e5db4",
+                "sense:dry:916461d952d654c3",
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "parent P2 bounded identity support; existing headword observation retained",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -362,6 +491,39 @@
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               },
               "scope_relation": "Original source occurrence only; this qualifier is not transferred to the separately selected regional IPA."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "dry",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/ˈdɹaɪ̯/",
+              "applies_to_sense_ids": [
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "dry",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/ˈdɹaɪ̯/",
+              "applies_to_sense_ids": [
+                "sense:dry:b0649452604db4f4"
+              ],
+              "evidence_note": "Publisher same headword includes this meaning; original IPA, locales and all previous sources/scopes retained. No new variant or default."
             }
           ]
         }
@@ -457,13 +619,40 @@
         "merged_into_sense_id": null,
         "source_row": 4256,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:dry:98d8ffe22ed61f97",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:dry:d97f435dfc56a53f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:dry:b0649452604db4f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
       "collocation:0b6eace9f445f6d8bf2c",
       "collocation:9fafeea3cd939451bfdc",
       "collocation:bdc26b6686a3d085e28d",
-      "collocation:e582a837b71b3090b73e"
+      "collocation:e582a837b71b3090b73e",
+      "collocation:dry:98d8ffe22ed61f97",
+      "collocation:dry:d97f435dfc56a53f",
+      "collocation:dry:b0649452604db4f4"
     ],
     "facts": [],
     "collocations": [
@@ -501,6 +690,30 @@
         "id": "collocation:e582a837b71b3090b73e",
         "source_row": 19439,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:dry:98d8ffe22ed61f97",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:dry:d97f435dfc56a53f",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:dry:b0649452604db4f4",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1522.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

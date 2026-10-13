@@ -11,13 +11,16 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "结冰；冻结；使结冰；使冻结；愣住；呆住",
-          "label_en": "to become ice or solid due to cold; to cause something to become ice or solid; to stop moving suddenly, especially from fear or surprise",
+          "label_cn": "结冰；冻结；使结冰；使冻结；愣住；呆住；冻结价格、工资、账户或资产；感到极冷；冻得难受；（电脑、应用等）停止工作；卡住无响应",
+          "label_en": "to become ice or solid due to cold; to cause something to become ice or solid; to stop moving suddenly, especially from fear or surprise; to hold prices, wages, accounts, or assets fixed or temporarily block access or activity; to feel extremely cold; of a computer or application: to stop working or responding",
           "pos": "verb",
           "sense_ids": [
             "sense:freeze:498bc787918456af",
             "sense:freeze:b5b1a1d1d46c5c9f",
-            "sense:freeze:ac01f669ce5c506b"
+            "sense:freeze:ac01f669ce5c506b",
+            "sense:freeze:9fe6106e61acf851",
+            "sense:freeze:a6a6f24a97aa04cd",
+            "sense:freeze:9491c80e58cf3076"
           ]
         },
         {
@@ -29,9 +32,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "冻结；愣住",
-      "core_meaning_en": "to become solid due to cold; to stop suddenly",
-      "mental_model_cn": "冻结；愣住",
+      "core_meaning_cn": "结冰、冻结；感到极冷或僵住；程序卡住；寒冻或暂停",
+      "core_meaning_en": "freeze or hold unchanged; feel very cold or become motionless; stop responding; a freeze",
+      "mental_model_cn": "水freeze为结冰，I’m freezing为冷极了；人因恐惧freeze为僵住，程序freeze为无响应。freeze价格或账户为冻结，名词可指寒冻或暂停。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -149,7 +152,7 @@
             "legacy_source_object_ids": [
               "sense:freeze:08004f38898153ad:collocation:1"
             ],
-            "meaning_cn": "严冬",
+            "meaning_cn": "严重冰冻；严寒天气",
             "phrase": "a hard freeze"
           }
         ],
@@ -188,6 +191,50 @@
         "sense_label_en": "to hold prices, wages, accounts, or assets fixed or temporarily block access or activity",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:freeze:a6a6f24a97aa04cd",
+        "pos": "verb",
+        "definition_cn": "感到极冷；冻得难受",
+        "definition_en": "to feel extremely cold",
+        "sense_label_en": "to feel extremely cold",
+        "governing_pattern": "be freezing; freeze in the cold",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6b69ba0575e661df44ab",
+            "phrase": "I’m freezing.",
+            "meaning_cn": "我冷极了。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:freeze:9491c80e58cf3076",
+        "pos": "verb",
+        "definition_cn": "（电脑、应用等）停止工作；卡住无响应",
+        "definition_en": "of a computer or application: to stop working or responding",
+        "sense_label_en": "of a computer or application: to stop working or responding",
+        "governing_pattern": "a computer/app freezes",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9a6ddc35053d22990dad",
+            "phrase": "The app froze again.",
+            "meaning_cn": "应用又卡住了。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -240,6 +287,40 @@
           "applicability": [
             {
               "surface": "freeze"
+            },
+            {
+              "surface": "freeze",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:freeze:a6a6f24a97aa04cd"
+              ],
+              "owner_sense_ids": [
+                "sense:freeze:a6a6f24a97aa04cd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2044.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "be freezing; freeze in the cold"
+              }
+            },
+            {
+              "surface": "freeze",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:freeze:9491c80e58cf3076"
+              ],
+              "owner_sense_ids": [
+                "sense:freeze:9491c80e58cf3076"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2044.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "a computer/app freezes"
+              }
             }
           ],
           "sources": [
@@ -406,6 +487,22 @@
         "merged_into_sense_id": null,
         "source_row": 5703,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:freeze:a6a6f24a97aa04cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:freeze:9491c80e58cf3076",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -459,6 +556,20 @@
         "id": "collocation:31b8cff265d22c0ede86",
         "source_row": 21544,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:6b69ba0575e661df44ab",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:9a6ddc35053d22990dad",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

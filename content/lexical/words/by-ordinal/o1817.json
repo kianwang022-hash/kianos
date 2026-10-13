@@ -11,25 +11,26 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "外部，表面",
-          "label_en": "the outside or outer part of something",
+          "label_cn": "物体外部；人的外在表现",
+          "label_en": "outer surface or outward manner",
           "pos": "noun",
           "sense_ids": [
-            "sense:exterior:397bb4e6759651b2"
+            "sense:exterior:397bb4e6759651b2",
+            "sense:exterior:6ed878d8ecb3e28e"
           ]
         },
         {
-          "label_cn": "外部的，外在的",
-          "label_en": "situated on or relating to the outside",
+          "label_cn": "外部的",
+          "label_en": "relating to the outside",
           "pos": "adjective",
           "sense_ids": [
             "sense:exterior:533031e977095dbd"
           ]
         }
       ],
-      "core_meaning_cn": "外部",
-      "core_meaning_en": "the outside or outer part of something",
-      "mental_model_cn": "外部",
+      "core_meaning_cn": "外部表面；人的外在表现；外部的",
+      "core_meaning_en": "an outer surface; outward manner; relating to the outside",
+      "mental_model_cn": "物体的exterior是外表面；人的tough/calm exterior指显露在外的行为或样子，常与内在性格相对；形容词修饰外墙等外部部分。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -105,6 +106,28 @@
         "sense_label_en": "situated on or relating to the outside",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:exterior:6ed878d8ecb3e28e",
+        "pos": "noun",
+        "definition_cn": "（人的）外在表现、外表",
+        "definition_en": "a person’s outward appearance or behaviour, often concealing their real character",
+        "sense_label_en": "a person’s outward appearance or behaviour, often concealing their real character",
+        "governing_pattern": "usually singular: a tough/calm exterior; beneath/behind sb’s exterior",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4378eebcf6e96ce951a7",
+            "phrase": "Behind his stern exterior, he was kind.",
+            "meaning_cn": "他严厉的外表下有一颗善良的心。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -315,6 +338,23 @@
           "applicability": [
             {
               "surface": "exterior"
+            },
+            {
+              "surface": "exterior",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exterior:6ed878d8ecb3e28e"
+              ],
+              "owner_sense_ids": [
+                "sense:exterior:6ed878d8ecb3e28e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1817.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "usually singular: a tough/calm exterior; beneath/behind sb’s exterior"
+              }
             }
           ],
           "sources": [
@@ -657,6 +697,14 @@
         "merged_into_sense_id": null,
         "source_row": 4976,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:exterior:6ed878d8ecb3e28e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1817.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -686,6 +734,13 @@
         "id": "collocation:fb6bb16b5dab4b7bed94",
         "source_row": 21269,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:4378eebcf6e96ce951a7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1817.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:rag:f70ddb135be5f4bd",
+        "pattern": "(from) rags to riches",
+        "meaning_cn": "从赤贫到富有",
+        "definition_en": "from poverty to wealth",
+        "boundary": "rags 在此指破旧衣物所代表的贫穷；用于人生经历。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rag_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
+      }
+    ],
     "content_hash": "0e10f3165fa756289f59c83b0db3c237468f1198b1e360857bef34be6e2f5be0",
     "core_concept": {
       "core_clusters": [
@@ -21,7 +37,7 @@
         },
         {
           "label_cn": "戏弄；责骂",
-          "label_en": "tease or scold someone playfully",
+          "label_en": "to tease, criticize, scold or nag someone",
           "pos": "verb",
           "sense_ids": [
             "sense:rag:c43c72fada76533e"
@@ -57,15 +73,16 @@
         ],
         "confidence": "medium",
         "definition_cn": "戏弄；责骂",
-        "definition_en": "tease or scold someone playfully",
+        "definition_en": "to tease, criticize, scold or nag someone",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:rag:c43c72fada76533e",
-        "sense_label_en": "tease or scold someone playfully",
+        "sense_label_en": "to tease, criticize, scold or nag someone",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "可指戏弄、批评、责骂或唠叨，不一律是友善的玩笑。"
       },
       {
         "collocations": [
@@ -80,30 +97,63 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（英国大学的）慈善募捐周",
-        "definition_en": "a week at British universities with events to raise money for charity",
+        "definition_cn": "（英国大学生组织的）慈善募捐活动",
+        "definition_en": "a student event or series of events held to raise money for charity",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:rag:5a098efc9ad95bdf",
-        "sense_label_en": "a week at British universities with events to raise money for charity",
+        "sense_label_en": "a student event or series of events held to raise money for charity",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "rag week 是募捐周；rag 本身并不限定活动必须持续一周。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rag_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       },
       {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "碎布；破布",
-        "definition_en": "a small piece of cloth or paper",
+        "definition_en": "a piece of old or torn cloth, especially one used for cleaning",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:rag:42cd8522646a56a5",
-        "sense_label_en": "a small piece of cloth or paper",
+        "sense_label_en": "a piece of old or torn cloth, especially one used for cleaning",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rag_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:rag:c0139b12fc7f9d1a",
+        "pos": "noun",
+        "definition_cn": "（贬称）低劣报纸",
+        "definition_en": "a newspaper referred to dismissively as poor-quality",
+        "sense_label_en": "a newspaper referred to dismissively as poor-quality",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "usage_note": "口语贬称；the local rag 是对当地报纸的轻蔑叫法，不是抹布。",
+        "collocations": [],
+        "sort_order": 3,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rag_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -670,6 +720,12 @@
         "merged_into_sense_id": null,
         "source_row": 10940,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
+      },
+      {
+        "sense_id": "sense:rag:c0139b12fc7f9d1a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3927.json"
       }
     ],
     "active_collocations": [

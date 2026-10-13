@@ -6,21 +6,35 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:9f163092b4374f6ba60b",
+        "pattern": "ring hollow",
+        "meaning_cn": "听起来不真诚或不可信",
+        "definition_en": "to sound insincere or unconvincing",
+        "usage_note": "ring 为系动词，hollow 为形容词；The promise rang hollow.",
+        "boundary": "ring 为系动词，hollow 为形容词；The promise rang hollow.",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:hollow:843f71debada506b"
+      }
+    ],
     "content_hash": "57929afd2f8e5c88f59e2b56752d51c2e308bc1591fe726b2cf9cc0bc06ec8ee",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "中空的，空心的；虚伪的，空洞的",
-          "label_en": "having an empty space inside; not solid; not sincere; without real meaning or value",
+          "label_cn": "中空的，空心的；虚伪的，空洞的；（脸颊、眼睛等）凹陷的；（声音）低沉空洞的",
+          "label_en": "having an empty space inside; not solid; not sincere; without real meaning or value; sunken in the face; low and resonant like an empty object",
           "pos": "adjective",
           "sense_ids": [
             "sense:hollow:53ebda230a4d588c",
-            "sense:hollow:843f71debada506b"
+            "sense:hollow:843f71debada506b",
+            "sense:hollow:10e794f246ac44ac",
+            "sense:hollow:2113eb602954b864"
           ]
         },
         {
-          "label_cn": "洞；坑；凹陷处",
+          "label_cn": "洞，坑，凹陷处",
           "label_en": "a hole or empty space in something",
           "pos": "noun",
           "sense_ids": [
@@ -36,10 +50,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "中空或空洞",
-      "core_meaning_en": "empty inside or a cavity",
-      "mental_model_cn": "inside empty → 中空；depression → 凹陷/洞；figurative → 空洞、不真诚；hollow out → 挖空。地形“小山谷/洼地”义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "空心的；面部凹陷的；声音空洞的；虚伪或无价值的；凹陷处或挖空",
+      "core_meaning_en": "empty inside, sunken, hollow-sounding, insincere or without real value; a hollow place or to hollow out",
+      "mental_model_cn": "从内部空处理解外形和共鸣；承诺缺乏实质时，hollow 是比喻用法。",
+      "mental_model_en": "empty inside, sunken, hollow-sounding, insincere or without real value; a hollow place or to hollow out."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -144,6 +158,51 @@
         "sense_label_en": "not sincere; without real meaning or value",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hollow:10e794f246ac44ac",
+        "pos": "adjective",
+        "definition_cn": "（脸颊、眼睛等）凹陷的",
+        "definition_en": "sunken in the face",
+        "sense_label_en": "sunken in the face",
+        "governing_pattern": "hollow cheeks/eyes",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:18638268cc455455e539",
+            "phrase": "His cheeks looked hollow.",
+            "meaning_cn": "他的脸颊显得凹陷。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hollow:2113eb602954b864",
+        "pos": "adjective",
+        "definition_cn": "（声音）低沉空洞的",
+        "definition_en": "low and resonant like an empty object",
+        "sense_label_en": "low and resonant like an empty object",
+        "governing_pattern": "a hollow sound/groan",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:32cb1efca9e2c03fa0ff",
+            "phrase": "A hollow groan came from the room.",
+            "meaning_cn": "房内传来低沉空洞的呻吟声。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "多放名词前；与承诺不真诚、胜利无实质价值分开。"
       }
     ],
     "verification_summary": {
@@ -188,6 +247,40 @@
           "applicability": [
             {
               "surface": "hollow"
+            },
+            {
+              "surface": "hollow",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:hollow:10e794f246ac44ac"
+              ],
+              "owner_sense_ids": [
+                "sense:hollow:10e794f246ac44ac"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2356.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hollow cheeks/eyes"
+            },
+            {
+              "surface": "hollow",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:hollow:2113eb602954b864"
+              ],
+              "owner_sense_ids": [
+                "sense:hollow:2113eb602954b864"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2356.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a hollow sound/groan"
             }
           ],
           "sources": [
@@ -658,13 +751,31 @@
         "merged_into_sense_id": null,
         "source_row": 6579,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:hollow:10e794f246ac44ac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2356.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:hollow:2113eb602954b864",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2356.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:d5940a799aa655180773",
+      "collocation:46207a27266176cdae41",
       "collocation:1d2ada78d963d52e7707",
       "collocation:209cc71a623d478d40ce",
-      "collocation:46207a27266176cdae41",
-      "collocation:d5940a799aa655180773"
+      "collocation:18638268cc455455e539",
+      "collocation:32cb1efca9e2c03fa0ff"
     ],
     "facts": [],
     "collocations": [
@@ -694,6 +805,20 @@
         "id": "collocation:d5940a799aa655180773",
         "source_row": 18064,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:18638268cc455455e539",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2356.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:32cb1efca9e2c03fa0ff",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2356.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

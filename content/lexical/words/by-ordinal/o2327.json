@@ -6,39 +6,44 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cc76e6010fcfffac1b64",
+        "pattern": "hide/be hidden in plain sight",
+        "meaning_cn": "藏在本来显眼却未被注意的地方",
+        "definition_en": "to escape notice in a place that should be easy to see",
+        "usage_note": "The key was hidden in plain sight on the shelf；不是地点本身看不见。",
+        "boundary": "The key was hidden in plain sight on the shelf；不是地点本身看不见。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "f329aa649c5b15b454220494f76c79b1154ebdb3d3bd9cda5c8a8049ddb47d06",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "隐藏；使看不见",
-          "label_en": "prevent something from being seen or discovered",
+          "label_cn": "藏住；遮住；隐瞒（事实或情绪）；躲藏；躲开视线",
+          "label_en": "to keep someone or something from being seen, found or known; be or go into hiding; keep out of sight, as for protection and safety",
           "pos": "verb",
           "sense_ids": [
-            "sense:hide:93921df921f05251"
-          ]
-        },
-        {
-          "label_cn": "躲藏；隐藏起来",
-          "label_en": "be or go into hiding; keep out of sight",
-          "pos": "verb",
-          "sense_ids": [
+            "sense:hide:93921df921f05251",
             "sense:hide:dfbdc2f08afb50dd"
           ]
         },
         {
-          "label_cn": "兽皮；动物皮",
-          "label_en": "the dressed skin of an animal",
+          "label_cn": "兽皮；动物皮；观察野生动物或鸟类而不被发现的隐蔽处（英式）",
+          "label_en": "the skin of an animal, especially a large animal, whether untreated or prepared for use; a concealed place for watching wildlife",
           "pos": "noun",
           "sense_ids": [
-            "sense:hide:92e1af38d1fe545e"
+            "sense:hide:92e1af38d1fe545e",
+            "sense:hide:14ba8ed605a5a9a2"
           ]
         }
       ],
-      "core_meaning_cn": "隐藏、躲藏；兽皮",
-      "core_meaning_en": "to conceal, to hide oneself, or an animal hide",
-      "mental_model_cn": "隐藏、躲藏；兽皮",
-      "mental_model_en": ""
+      "core_meaning_cn": "藏匿、躲藏或隐瞒；兽皮和隐蔽观察处",
+      "core_meaning_en": "conceal, stay out of sight, or keep secret; animal skin and a wildlife hide",
+      "mental_model_cn": "hide可藏住人或物，也可隐瞒情绪和事实；名词另有兽皮与英式观鸟隐蔽处。",
+      "mental_model_en": "conceal, stay out of sight, or keep secret; animal skin and a wildlife hide."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -72,14 +77,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "防止被看见或发现",
-        "definition_en": "prevent from being seen or discovered",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "藏住；遮住；隐瞒（事实或情绪）",
+        "definition_en": "to keep someone or something from being seen, found or known",
+        "governing_pattern": "hide somebody/something; hide facts/feelings; hide something from somebody",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hide:93921df921f05251",
-        "sense_label_en": "prevent from being seen or discovered",
+        "sense_label_en": "to keep someone or something from being seen, found or known",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -87,13 +92,13 @@
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "兽皮；动物皮",
-        "definition_en": "the dressed skin of an animal, especially a large animal",
+        "definition_en": "the skin of an animal, especially a large animal, whether untreated or prepared for use",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hide:92e1af38d1fe545e",
-        "sense_label_en": "the dressed skin of an animal, especially a large animal",
+        "sense_label_en": "the skin of an animal, especially a large animal, whether untreated or prepared for use",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -110,6 +115,28 @@
         "sense_label_en": "be or go into hiding; keep out of sight, as for protection and safety",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:hide:14ba8ed605a5a9a2",
+        "pos": "noun",
+        "definition_cn": "观察野生动物或鸟类而不被发现的隐蔽处（英式）",
+        "definition_en": "a concealed place for watching wildlife",
+        "sense_label_en": "a concealed place for watching wildlife",
+        "governing_pattern": "a birdwatching hide",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7d1d6321a4d866b95065",
+            "phrase": "We waited in the hide to watch the birds.",
+            "meaning_cn": "我们在隐蔽观察处等着看鸟。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -162,6 +189,23 @@
           "applicability": [
             {
               "surface": "hide"
+            },
+            {
+              "surface": "hide",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hide:14ba8ed605a5a9a2"
+              ],
+              "owner_sense_ids": [
+                "sense:hide:14ba8ed605a5a9a2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2327.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a birdwatching hide"
             }
           ],
           "sources": [
@@ -703,7 +747,7 @@
     {
       "stable_sense_id": "sense:hide:7900ef5d68bb5508",
       "status": "merged",
-      "merged_into_sense_id": "sense:hide:93921df921f05251",
+      "merged_into_sense_id": "sense:hide:92e1af38d1fe545e",
       "pos": "noun",
       "definition_cn": "活体动物的身体覆盖物",
       "definition_en": "body covering of a living animal",
@@ -731,7 +775,7 @@
       {
         "sense_id": "sense:hide:7900ef5d68bb5508",
         "status": "merged",
-        "merged_into_sense_id": "sense:hide:93921df921f05251",
+        "merged_into_sense_id": "sense:hide:92e1af38d1fe545e",
         "source_row": 6492,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
       },
@@ -755,11 +799,20 @@
         "merged_into_sense_id": null,
         "source_row": 6495,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hide:14ba8ed605a5a9a2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2327.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:bcd7e81f047b42771495",
       "collocation:618b27f0fd1946be44e0",
-      "collocation:bcd7e81f047b42771495"
+      "collocation:7d1d6321a4d866b95065"
     ],
     "facts": [],
     "collocations": [
@@ -787,6 +840,13 @@
         "id": "collocation:bcd7e81f047b42771495",
         "source_row": 15991,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:7d1d6321a4d866b95065",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2327.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

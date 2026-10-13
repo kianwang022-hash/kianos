@@ -37,25 +37,17 @@
           ]
         },
         {
-          "label_cn": "栅栏；界线；范围",
-          "label_en": "a wooden stake used in fences; a boundary or limit",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:pale:e7071b7d1a1c51ad"
-          ]
-        },
-        {
-          "label_cn": "相形见绌；相比逊色",
-          "label_en": "seem less impressive by comparison",
+          "label_cn": "相形见绌；相比之下显得逊色",
+          "label_en": "to seem less impressive, important, or serious when compared with something else",
           "pos": "verb",
           "sense_ids": [
             "sense:pale:def8cc603c9d3ae3"
           ]
         }
       ],
-      "core_meaning_cn": "苍白的；变苍白",
-      "core_meaning_en": "light in color; lacking intensity; to become pale",
-      "mental_model_cn": "苍白的；变苍白",
+      "core_meaning_cn": "苍白/浅淡；变苍白；相比逊色",
+      "core_meaning_en": "pale in color; become pale; seem less impressive by comparison",
+      "mental_model_cn": "苍白/浅淡；变苍白；相比逊色",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -128,15 +120,6 @@
             "phrase": "pale at + sth"
           },
           {
-            "collocation_id": "collocation:3477bbeeb1d9e34473d3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pale:ead111131cb45179:collocation:1"
-            ],
-            "meaning_cn": "在...面前失色",
-            "phrase": "pale before + sth"
-          },
-          {
             "collocation_id": "collocation:84015cfb18155b3538b5",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -149,7 +132,7 @@
         "confidence": "medium",
         "definition_cn": "变苍白，失色",
         "definition_en": "to become pale, especially from fear or shock",
-        "governing_pattern": "vi. + at / before",
+        "governing_pattern": "vi.; pale with fear / at a shock",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -157,20 +140,6 @@
         "sense_label_en": "to become pale, especially from fear or shock",
         "sort_order": 2,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "栅栏；界线；范围",
-        "definition_en": "a wooden stake used in fences; a boundary or limit",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:pale:e7071b7d1a1c51ad",
-        "sense_label_en": "a wooden stake used in fences; a boundary or limit",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -191,6 +160,15 @@
             ],
             "meaning_cn": "在某事面前显得逊色",
             "phrase": "pale beside sth"
+          },
+          {
+            "collocation_id": "collocation:3477bbeeb1d9e34473d3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pale:ead111131cb45179:collocation:1"
+            ],
+            "meaning_cn": "在...面前失色",
+            "phrase": "pale before + sth"
           }
         ],
         "confidence": "medium",
@@ -203,7 +181,8 @@
         "sense_id": "sense:pale:def8cc603c9d3ae3",
         "sense_label_en": "to seem less impressive, important, or serious when compared with something else",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "pale before / beside / in comparison with：因比较而显得逊色；不是脸色变白。"
       }
     ],
     "verification_summary": {
@@ -394,7 +373,26 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "栅栏；界线；范围",
+      "definition_en": "a wooden stake used in fences; a boundary or limit",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:pale:e7071b7d1a1c51ad",
+      "sense_label_en": "a wooden stake used in fences; a boundary or limit",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:pale:e7071b7d1a1c51ad",
+      "status": "reference",
+      "reference_only": true,
+      "reference_reason": "Standalone fence-stake or boundary noun is lookup background; the already active beyond the pale construction carries its useful idiomatic reading independently."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -413,7 +411,7 @@
       },
       {
         "sense_id": "sense:pale:e7071b7d1a1c51ad",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9581,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -457,7 +455,8 @@
       {
         "id": "collocation:3477bbeeb1d9e34473d3",
         "source_row": 4443,
-        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json",
+        "sense_id": "sense:pale:def8cc603c9d3ae3"
       },
       {
         "id": "collocation:84015cfb18155b3538b5",

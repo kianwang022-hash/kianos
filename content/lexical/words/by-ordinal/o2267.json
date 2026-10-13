@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "2ea38be8728d4ad6310392c5602e3f4a3476002b4e35215d3fab763d03f11c52",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "和谐，协调",
-      "core_meaning_en": "agreement or pleasing combination",
-      "mental_model_cn": "和谐，协调",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "和谐，一致；和声；（形状、颜色等的）协调优美的搭配",
+          "label_en": "compatibility in opinion and action; the structure of music with respect to the composition and progression of chords; a pleasing combination of related elements",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:harmony:35c942cea88b53da",
+            "sense:harmony:71b75ee1926a5fd2",
+            "sense:harmony:8439e46644ac6ec5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "和睦一致、音乐和声或美感上的协调搭配",
+      "core_meaning_en": "peaceful agreement, musical harmony, or a pleasing visual combination",
+      "mental_model_cn": "人与群体的和睦、同时音符的和声及颜色形状的协调分别有范围。",
+      "mental_model_en": "peaceful agreement, musical harmony, or a pleasing visual combination."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -67,9 +78,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:harmony:71b75ee1926a5fd2",
-        "sense_label_en": "the structure of music with respect to the composition and progression o",
+        "sense_label_en": "the structure of music with respect to the composition and progression of chords",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:harmony:8439e46644ac6ec5",
+        "pos": "noun",
+        "definition_cn": "（形状、颜色等的）协调优美的搭配",
+        "definition_en": "a pleasing combination of related elements",
+        "sense_label_en": "a pleasing combination of related elements",
+        "governing_pattern": "harmony of colours/shapes",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:853f1cd22317c13803a9",
+            "phrase": "a harmony of colour and shape",
+            "meaning_cn": "色彩与形状的协调搭配",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -109,6 +142,23 @@
           "applicability": [
             {
               "surface": "harmony"
+            },
+            {
+              "surface": "harmony",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:harmony:8439e46644ac6ec5"
+              ],
+              "owner_sense_ids": [
+                "sense:harmony:8439e46644ac6ec5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2267.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "harmony of colours/shapes"
             }
           ],
           "sources": [
@@ -218,11 +268,20 @@
         "merged_into_sense_id": null,
         "source_row": 6329,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:harmony:8439e46644ac6ec5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2267.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:47281c04fc4e15f1197f",
       "collocation:2c7cec31818e8824860d",
-      "collocation:47281c04fc4e15f1197f"
+      "collocation:853f1cd22317c13803a9"
     ],
     "facts": [],
     "collocations": [
@@ -235,6 +294,13 @@
         "id": "collocation:47281c04fc4e15f1197f",
         "source_row": 5999,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:853f1cd22317c13803a9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2267.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -33,30 +33,12 @@
             ],
             "meaning_cn": "对……不耐烦",
             "phrase": "be impatient with + sb/sth"
-          },
-          {
-            "collocation_id": "collocation:6db72f3296e7ecbaa977",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:impatient:8f2e9bdec2c55cf0:collocation:1"
-            ],
-            "meaning_cn": "急于得到某物",
-            "phrase": "be impatient for + sth"
-          },
-          {
-            "collocation_id": "collocation:dcc30f0b8d90eefa387d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:impatient:8f2e9bdec2c55cf0:collocation:2"
-            ],
-            "meaning_cn": "急于做某事",
-            "phrase": "be impatient to do + sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "不耐烦的，急躁的",
         "definition_en": "restless or short-tempered under delay or opposition",
-        "governing_pattern": "",
+        "governing_pattern": "impatient with sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -75,17 +57,38 @@
             ],
             "meaning_cn": "急于做某事",
             "phrase": "be impatient to + do sth"
+          },
+          {
+            "collocation_id": "collocation:6db72f3296e7ecbaa977",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:impatient:8f2e9bdec2c55cf0:collocation:1"
+            ],
+            "meaning_cn": "急于得到某物",
+            "phrase": "be impatient for + sth"
+          },
+          {
+            "collocation_id": "collocation:dcc30f0b8d90eefa387d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:impatient:8f2e9bdec2c55cf0:collocation:2"
+            ],
+            "meaning_cn": "急于做某事",
+            "phrase": "be impatient to do + sth",
+            "presentation_merge": {
+              "surviving_object_id": "collocation:9e1c145129f0302c2cf0"
+            }
           }
         ],
         "confidence": "medium",
-        "definition_cn": "急切的，渴望的",
-        "definition_en": "full of eagerness (usually followed by 'to')",
-        "governing_pattern": "",
+        "definition_cn": "急切的；渴望的",
+        "definition_en": "eager for something or eager to do something",
+        "governing_pattern": "impatient for sth; impatient to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:impatient:b4f45263d50258c9",
-        "sense_label_en": "full of eagerness (usually followed by 'to')",
+        "sense_label_en": "eager for something or eager to do something",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -201,8 +204,7 @@
     "active_collocations": [
       "collocation:1f0a5cd46efaca7c2318",
       "collocation:6db72f3296e7ecbaa977",
-      "collocation:9e1c145129f0302c2cf0",
-      "collocation:dcc30f0b8d90eefa387d"
+      "collocation:9e1c145129f0302c2cf0"
     ],
     "facts": [],
     "collocations": [
@@ -214,7 +216,8 @@
       {
         "id": "collocation:6db72f3296e7ecbaa977",
         "source_row": 9246,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "sense_id": "sense:impatient:b4f45263d50258c9"
       },
       {
         "id": "collocation:9e1c145129f0302c2cf0",
@@ -224,7 +227,10 @@
       {
         "id": "collocation:dcc30f0b8d90eefa387d",
         "source_row": 18683,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "sense_id": "sense:impatient:b4f45263d50258c9",
+        "status": "merged",
+        "merged_into_id": "collocation:9e1c145129f0302c2cf0"
       }
     ],
     "exam-mappings": [],

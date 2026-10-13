@@ -6,25 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:80d112ccff2d99bd96db",
+        "pattern": "gas up (a vehicle)",
+        "meaning_cn": "给车辆加油",
+        "definition_en": "to put gasoline into a vehicle’s fuel tank",
+        "usage_note": "主要北美用法；可说gas up the car或先省略车辆。",
+        "boundary": "主要北美用法；可说gas up the car或先省略车辆。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "92d428df1cb11adf296d2178f725e9b67a9eac3e1cab8af1553482c95691ff26",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "气体；燃气；汽油（北美）",
-          "label_en": "gas as a state of matter; fuel gas; AmE gasoline",
+          "label_cn": "没有固定形状和体积、能膨胀充满容器的物质；用作燃料的可燃气体，尤指用于烹饪或取暖；汽油，尤指北美用法；有毒或有害气体（如毒气、催泪瓦斯）；肠胃气体；胀气",
+          "label_en": "a substance in a state that has no fixed shape or volume and expands to fill any container; a flammable gas used as fuel, especially for cooking or heating; gasoline, especially in North America; poisonous or harmful gas, including gas used to attack, incapacitate or disperse people; gas in the digestive system, or the discomfort caused by it",
           "pos": "noun",
           "sense_ids": [
             "sense:gas:36b28236da195a52",
             "sense:gas:4fd7517bf48e5ba5",
-            "sense:gas:c4fa598c6aec5e24"
+            "sense:gas:c4fa598c6aec5e24",
+            "sense:gas:d7fb3861648d5726",
+            "sense:gas:89fa7240301231a5"
+          ]
+        },
+        {
+          "label_cn": "用毒气攻击或杀害，或使暴露于毒气中",
+          "label_en": "to attack or kill with gas, or to expose to gas fumes",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:gas:ec566046fcca55f6"
           ]
         }
       ],
-      "core_meaning_cn": "可自由膨胀的物质状态，或气态燃料",
-      "core_meaning_en": "a state of matter that expands freely, or fuel in gaseous form",
-      "mental_model_cn": "可自由膨胀的物质状态，或气态燃料",
-      "mental_model_en": ""
+      "core_meaning_cn": "气体、燃气、汽油、毒气或肠胃气体；用毒气伤害；加油的表达",
+      "core_meaning_en": "gas, gaseous fuel, gasoline, poison gas, or intestinal gas; poison with gas; refuel",
+      "mental_model_cn": "gas可为气体或燃气，北美汽车语境为汽油；gas attack涉及毒气。have gas为胀气，gas up为给车辆加汽油。",
+      "mental_model_en": "gas, gaseous fuel, gasoline, poison gas, or intestinal gas; poison with gas; refuel."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,7 +84,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:gas:36b28236da195a52",
-        "sense_label_en": "a substance in a state that has no fixed shape or volume and expands to ",
+        "sense_label_en": "a substance in a state that has no fixed shape or volume and expands to fill any container",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -146,14 +167,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "战争中使用的毒气",
-        "definition_en": "a poisonous gas used in warfare",
+        "definition_cn": "有毒或有害气体（如毒气、催泪瓦斯）",
+        "definition_en": "poisonous or harmful gas, including gas used to attack, incapacitate or disperse people",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:gas:d7fb3861648d5726",
-        "sense_label_en": "a poisonous gas used in warfare",
+        "sense_label_en": "poisonous or harmful gas, including gas used to attack, incapacitate or disperse people",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -180,6 +201,28 @@
         "sense_label_en": "to attack or kill with gas, or to expose to gas fumes",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:gas:89fa7240301231a5",
+        "pos": "noun",
+        "definition_cn": "肠胃气体；胀气",
+        "definition_en": "gas in the digestive system, or the discomfort caused by it",
+        "sense_label_en": "gas in the digestive system, or the discomfort caused by it",
+        "governing_pattern": "have gas",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7b82dde6c9fcdc8423a1",
+            "phrase": "The beans gave me gas.",
+            "meaning_cn": "吃了这些豆子，我胀气了。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -237,6 +280,23 @@
           "applicability": [
             {
               "surface": "gas"
+            },
+            {
+              "surface": "gas",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:gas:89fa7240301231a5"
+              ],
+              "owner_sense_ids": [
+                "sense:gas:89fa7240301231a5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2102.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "have gas"
+              }
             }
           ],
           "sources": [
@@ -475,6 +535,14 @@
         "merged_into_sense_id": null,
         "source_row": 5858,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
+      },
+      {
+        "sense_id": "sense:gas:89fa7240301231a5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2102.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -528,6 +596,13 @@
         "id": "collocation:ee9e6a78e85db3c215d2",
         "source_row": 20219,
         "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:7b82dde6c9fcdc8423a1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2102.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

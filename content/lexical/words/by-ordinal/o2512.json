@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "劝诱某人做某事",
+        "boundary": "formal；induce sb to do sth：劝诱或促使某人做某事。",
         "codex_reviewed": false,
         "definition_cn": "劝诱，诱导",
         "definition_en": "to persuade or influence someone to do something",
@@ -17,7 +17,7 @@
           "collocation": "induce sb to leave",
           "core_meaning": "劝诱；诱导",
           "exam_trap": "固定搭配",
-          "register": "中性",
+          "register": "正式",
           "semantic_prosody": "中性",
           "strength": "强",
           "syntax": "induce sb to do sth",
@@ -42,17 +42,6 @@
         "module": "constructions",
         "pattern": "induce sb to do sth",
         "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:315eed41d180848ac274",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:c477792296a03b86256c"
-        },
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
@@ -76,13 +65,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:induce:761085b78b3c54d9",
-            "sense:induce:7a5743bdcb7e52bd"
+            "sense:induce:7a5743bdcb7e52bd",
+            "sense:induce:126f47eb154179ed"
           ]
         }
       ],
       "core_meaning_cn": "导致；促使",
       "core_meaning_en": "to cause or persuade",
-      "mental_model_cn": "导致；促使",
+      "mental_model_cn": "使某事开始发生；状态宾语看引起，sb to-do看劝诱；产科labour/孕妇/胎儿宾语看催产。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -101,28 +91,53 @@
         "confidence": "medium",
         "definition_cn": "导致；引起",
         "definition_en": "to cause something to happen or exist",
-        "governing_pattern": "",
+        "governing_pattern": "induce sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:induce:761085b78b3c54d9",
         "sense_label_en": "to cause something to happen or exist",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "formal；引起状态，或induce sb to-do劝诱某人；产科使开始分娩见独立分支。"
       },
       {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "劝说；促使某人做某事",
         "definition_en": "to persuade or influence someone to do something",
-        "governing_pattern": "",
+        "governing_pattern": "induce sb to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:induce:7a5743bdcb7e52bd",
         "sense_label_en": "to persuade or influence someone to do something",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "formal；引起状态，或induce sb to-do劝诱某人；产科使开始分娩见独立分支。"
+      },
+      {
+        "sense_id": "sense:induce:126f47eb154179ed",
+        "pos": "verb",
+        "definition_cn": "（医学）催产；使孕妇开始分娩",
+        "definition_en": "medically cause labour to begin or a baby to start being born",
+        "sense_label_en": "medically cause labour to begin or a baby to start being born",
+        "governing_pattern": "induce labour; induce a woman/the baby; be induced",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8d845ac8ea11a10c74f3",
+            "phrase": "induce labour",
+            "meaning_cn": "进行催产",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "medical；宾语可为labour、孕妇或胎儿。induce her在产科并非“劝说她”。"
       }
     ],
     "verification_summary": {
@@ -162,6 +177,23 @@
           "applicability": [
             {
               "surface": "induce"
+            },
+            {
+              "surface": "induce",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:induce:126f47eb154179ed"
+              ],
+              "owner_sense_ids": [
+                "sense:induce:126f47eb154179ed"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2512.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "induce labour; induce a woman/the baby; be induced"
             }
           ],
           "sources": [
@@ -336,9 +368,19 @@
         "merged_into_sense_id": null,
         "source_row": 6967,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:induce:126f47eb154179ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2512.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:8d845ac8ea11a10c74f3"
+    ],
     "facts": [
       {
         "id": "deep:constructions:induce:bcf947523555f0eb",
@@ -376,6 +418,13 @@
         "id": "collocation:fcff9e9bebb89ce546a4",
         "source_row": 21398,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:8d845ac8ea11a10c74f3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2512.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

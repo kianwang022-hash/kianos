@@ -25,11 +25,35 @@
           "sense_ids": [
             "sense:pump:5d10b6eece8f5349"
           ]
+        },
+        {
+          "label_cn": "倾注；大量提供",
+          "label_en": "to deliver or pour forth in large amounts",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pump:3aa6881515ad5d03"
+          ]
+        },
+        {
+          "label_cn": "上下往复运动",
+          "label_en": "to move up and down like a handle or pedal",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pump:85734efec1ae55e7"
+          ]
+        },
+        {
+          "label_cn": "无带低帮鞋；浅口便鞋",
+          "label_en": "a low-cut shoe without fastenings",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pump:f9e0910eba3d57da"
+          ]
         }
       ],
-      "core_meaning_cn": "泵；泵送/打气",
+      "core_meaning_cn": "泵式输送或往复用力；盘问信息；pumps 也可指鞋",
       "core_meaning_en": "a pump and to pump fluid/gas",
-      "mental_model_cn": "泵；泵送/打气",
+      "mental_model_cn": "流体对应抽送，money into 对应注资，肢体/把手对应往复运动；鞋类是独立名词义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,6 +138,165 @@
         "sense_label_en": "to question someone persistently in order to obtain information or details",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:pump:3aa6881515ad5d03",
+        "pos": "verb",
+        "definition_cn": "倾注；大量提供",
+        "definition_en": "to deliver or pour forth in large amounts",
+        "sense_label_en": "to deliver or pour forth in large amounts",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "pump money/resources into sth",
+        "transitivity": "vt",
+        "usage_note": "Large financial/resource input is an ordinary figurative extension, not literal fluid pumping.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:pump:5a195faf667816ca",
+            "phrase": "pump money into a project",
+            "meaning_cn": "向项目大量注资",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump-in",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 1000,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump-in",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ],
+        "stable_sense_id": "sense:pump:3aa6881515ad5d03",
+        "merged_into_sense_id": null,
+        "semantic_key": "1227f445c5b8966551587f3f4ccd3f310cf12345048556959670c395aa537c8d",
+        "semantic_key_history": [
+          "00021ea53d6a724b6771232079936df4d6e15a4681cd2dbeecaa939b083a2e38"
+        ],
+        "legacy_aliases": [
+          "pump:l2:5"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "pump:l2:5",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 10760,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
+        "status": "active",
+        "reference_only": false
+      },
+      {
+        "sense_id": "sense:pump:85734efec1ae55e7",
+        "pos": "verb",
+        "definition_cn": "上下往复运动",
+        "definition_en": "to move up and down like a handle or pedal",
+        "sense_label_en": "to move up and down like a handle or pedal",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "pump sth; limbs/handle pump",
+        "transitivity": "I/T",
+        "usage_note": "Quick repeated up-and-down or in-and-out motion.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:pump:10bb0ca97292dac6",
+            "phrase": "arms pumping",
+            "meaning_cn": "双臂快速摆动",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump_1",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 1001,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ],
+        "stable_sense_id": "sense:pump:85734efec1ae55e7",
+        "merged_into_sense_id": null,
+        "semantic_key": "135920968250844329bf7d911a77b5208ea60e8ce10a72e5b4a9aa88a74e152c",
+        "semantic_key_history": [
+          "af14310c41fc7f48a216968ced92aa0ede9cfef15d56f1345fd5692c5fb9fa74"
+        ],
+        "legacy_aliases": [
+          "pump:l2:4"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "pump:l2:4",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 10764,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
+        "status": "active",
+        "reference_only": false
+      },
+      {
+        "sense_id": "sense:pump:f9e0910eba3d57da",
+        "pos": "noun",
+        "definition_cn": "无带低帮鞋；浅口便鞋",
+        "definition_en": "a low-cut shoe without fastenings",
+        "sense_label_en": "a low-cut shoe without fastenings",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "usage_note": "Especially AmE: a low-cut formal shoe; British uses include flat ballet shoes and light canvas sports shoes. Read the clothing context.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:pump:817628abe584e3f1",
+            "phrase": "a pair of pumps",
+            "meaning_cn": "一双浅口鞋",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump_2",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 1002,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pump_2",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ],
+        "stable_sense_id": "sense:pump:f9e0910eba3d57da",
+        "merged_into_sense_id": null,
+        "semantic_key": "82ddb8a320a730c706bd1c7bf48ffe90ee8603280dea5eb4d9b8b9c539078e48",
+        "semantic_key_history": [
+          "c5adddabc8de4adc2d61900d3494d3d89eead7251466fcf36838d549009c93fb"
+        ],
+        "legacy_aliases": [
+          "pump:l2:2"
+        ],
+        "legacy_alias_history": [
+          {
+            "legacy_sense_id": "pump:l2:2",
+            "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+          }
+        ],
+        "updated_at": "2026-09-09T00:00:00Z",
+        "source_row": 10765,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
+        "status": "active",
+        "reference_only": false
       }
     ],
     "verification_summary": {
@@ -610,88 +793,12 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:pump:3aa6881515ad5d03",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "倾注；大量提供",
-      "definition_en": "to deliver or pour forth in large amounts",
-      "semantic_key": "1227f445c5b8966551587f3f4ccd3f310cf12345048556959670c395aa537c8d",
-      "semantic_key_history": [
-        "00021ea53d6a724b6771232079936df4d6e15a4681cd2dbeecaa939b083a2e38"
-      ],
-      "legacy_aliases": [
-        "pump:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pump:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10760,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pump:85734efec1ae55e7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "上下往复运动",
-      "definition_en": "to move up and down like a handle or pedal",
-      "semantic_key": "135920968250844329bf7d911a77b5208ea60e8ce10a72e5b4a9aa88a74e152c",
-      "semantic_key_history": [
-        "af14310c41fc7f48a216968ced92aa0ede9cfef15d56f1345fd5692c5fb9fa74"
-      ],
-      "legacy_aliases": [
-        "pump:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pump:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10764,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pump:f9e0910eba3d57da",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "无带低帮鞋；浅口便鞋",
-      "definition_en": "a low-cut shoe without fastenings",
-      "semantic_key": "82ddb8a320a730c706bd1c7bf48ffe90ee8603280dea5eb4d9b8b9c539078e48",
-      "semantic_key_history": [
-        "c5adddabc8de4adc2d61900d3494d3d89eead7251466fcf36838d549009c93fb"
-      ],
-      "legacy_aliases": [
-        "pump:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pump:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10765,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:pump:3aa6881515ad5d03",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10760,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
@@ -719,14 +826,14 @@
       },
       {
         "sense_id": "sense:pump:85734efec1ae55e7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10764,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       },
       {
         "sense_id": "sense:pump:f9e0910eba3d57da",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10765,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
@@ -735,7 +842,10 @@
     "active_collocations": [
       "collocation:61441ef9a0b45f219dad",
       "collocation:6963a200fe65705c6175",
-      "collocation:b3a3978e7055012e3704"
+      "collocation:b3a3978e7055012e3704",
+      "collocation:pump:5a195faf667816ca",
+      "collocation:pump:10bb0ca97292dac6",
+      "collocation:pump:817628abe584e3f1"
     ],
     "facts": [],
     "collocations": [
@@ -793,6 +903,18 @@
         "id": "collocation:6963a200fe65705c6175",
         "source_row": 21617,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:pump:5a195faf667816ca",
+        "source_path": "content/lexical/words/by-ordinal/o3870.json"
+      },
+      {
+        "id": "collocation:pump:10bb0ca97292dac6",
+        "source_path": "content/lexical/words/by-ordinal/o3870.json"
+      },
+      {
+        "id": "collocation:pump:817628abe584e3f1",
+        "source_path": "content/lexical/words/by-ordinal/o3870.json"
       }
     ],
     "exam-mappings": [],

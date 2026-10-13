@@ -11,25 +11,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "执行；实施",
-          "label_en": "to carry out or perform an action, order, or plan",
+          "label_cn": "执行、完成；文件手续",
+          "label_en": "carry out, perform, or complete formal execution",
           "pos": "verb",
           "sense_ids": [
             "sense:execute:0f800f9693f55d36"
           ]
         },
         {
-          "label_cn": "依法处死；执行死刑",
-          "label_en": "to put a person to death as legal punishment",
+          "label_cn": "处死",
+          "label_en": "deliberately put someone to death",
           "pos": "verb",
           "sense_ids": [
             "sense:execute:f27a42102a105d16"
           ]
         }
       ],
-      "core_meaning_cn": "执行、实施；依法处死",
-      "core_meaning_en": "to carry out/perform; or legally put a person to death",
-      "mental_model_cn": "执行、实施；依法处死",
+      "core_meaning_cn": "执行、完成；依法签署文件；处死",
+      "core_meaning_en": "carry out or perform; execute a legal document; put someone to death",
+      "mental_model_cn": "计划、命令或动作作宾语指执行/完成；文件可指完成签署等生效手续，执行条款则是履行；人作宾语可指处死。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -61,31 +61,38 @@
             ],
             "meaning_cn": "执行命令",
             "phrase": "execute an order"
+          },
+          {
+            "collocation_id": "collocation:e3b61594c11bb9408975",
+            "phrase": "execute a deed",
+            "meaning_cn": "完成契据生效所需的法定手续",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
         "definition_cn": "执行、实施",
         "definition_en": "to carry out or perform an action",
-        "governing_pattern": "",
+        "governing_pattern": "execute a plan/order/action; execute a work of art; execute a deed/will (legal formalities)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:execute:0f800f9693f55d36",
         "sense_label_en": "to carry out or perform an action",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "The object selects the sense: a plan/order is carried out; an action or movement is performed; a work of art is produced. With a deed or will, legal execution can mean completing the required formalities, such as signing; executing its terms means carrying them out."
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "依法处死；执行死刑",
-        "definition_en": "to put a person to death as a legal punishment",
+        "definition_cn": "处死；执行死刑（常作为刑罚，但这个词本身不保证合法）",
+        "definition_en": "to deliberately put someone to death, especially as a punishment",
         "governing_pattern": "vt. + person",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:execute:f27a42102a105d16",
-        "sense_label_en": "to put a person to death as a legal punishment",
+        "sense_label_en": "put a person to death, especially as punishment",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -355,6 +362,13 @@
         "id": "collocation:f84f22a210aa1a86944c",
         "source_row": 21033,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:e3b61594c11bb9408975",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1770.json",
+        "source_pointer": "/record/senses/0/collocations/2"
       }
     ],
     "exam-mappings": [],

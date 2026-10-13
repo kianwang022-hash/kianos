@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "贷款，借款",
-          "label_en": "an amount of money lent, usually with interest",
+          "label_cn": "贷款，借款；借用；暂时借出（物品、人员等）的安排或状态",
+          "label_en": "an amount of money lent, usually with interest; temporary lending or the state of being lent",
           "pos": "noun",
           "sense_ids": [
-            "sense:loan:886627dbdae459c9"
+            "sense:loan:886627dbdae459c9",
+            "sense:loan:33714a305e08d613"
           ]
         },
         {
@@ -27,10 +28,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "贷款；借出",
-      "core_meaning_en": "money or item lent, often with interest",
-      "mental_model_cn": "贷款；借出",
-      "mental_model_en": ""
+      "core_meaning_cn": "贷款；暂时借用或借出",
+      "core_meaning_en": "money lent; temporary lending; lend something",
+      "mental_model_cn": "返还安排可涉及钱或其他借用物；名词非金钱借用独立于贷款金额。",
+      "mental_model_en": "money lent; temporary lending; lend something."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -154,6 +155,29 @@
         "sense_label_en": "to lend something, especially money",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:loan:33714a305e08d613",
+        "pos": "noun",
+        "definition_cn": "借用；暂时借出（物品、人员等）的安排或状态",
+        "definition_en": "temporary lending or the state of being lent",
+        "sense_label_en": "temporary lending or the state of being lent",
+        "governing_pattern": "on loan (from/to ...); the loan of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a558a5039dcd31904e97",
+            "phrase": "on loan from a museum",
+            "meaning_cn": "由某博物馆暂时借出的",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不限于钱：可指暂借展品、车辆或球员；贷款名词指借来的金额，动词loan表示借出。"
       }
     ],
     "verification_summary": {
@@ -197,6 +221,23 @@
           "applicability": [
             {
               "surface": "loan"
+            },
+            {
+              "surface": "loan",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:loan:33714a305e08d613"
+              ],
+              "owner_sense_ids": [
+                "sense:loan:33714a305e08d613"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2864.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "on loan (from/to ...); the loan of sth"
             }
           ],
           "sources": [
@@ -558,14 +599,23 @@
         "merged_into_sense_id": null,
         "source_row": 7970,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:loan:33714a305e08d613",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2864.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:07886c14b99913ce5132",
+      "collocation:f64804d5802dd8be2e4e",
       "collocation:13e112231f14cce99455",
       "collocation:30877db58a12137d85d0",
       "collocation:b85f19b5572cd9771f1b",
-      "collocation:f64804d5802dd8be2e4e"
+      "collocation:a558a5039dcd31904e97"
     ],
     "facts": [
       {
@@ -599,6 +649,13 @@
         "id": "collocation:f64804d5802dd8be2e4e",
         "source_row": 20872,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:a558a5039dcd31904e97",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2864.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

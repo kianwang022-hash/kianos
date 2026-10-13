@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "8baf751e5193320ffc3649a58512fc418e5399efe24d6c0567c9a34047dad4a1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "语言",
-      "core_meaning_en": "system of communication",
-      "mental_model_cn": "语言",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "语言与交流系统；语言能力；措辞或语言风格",
+          "label_en": "a system of communication, language ability, or a style of expression",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:language:656849a494195f76",
+            "sense:language:b4c94c711e835865",
+            "sense:language:54318abfeab11993"
+          ]
+        }
+      ],
+      "core_meaning_cn": "语言与交流系统；语言能力；措辞或语言风格",
+      "core_meaning_en": "a system of communication, language ability, or a style of expression",
+      "mental_model_cn": "foreign/body language → 语言或交流方式；language acquisition → 语言能力习得；plain/strong language → 措辞，不按语言能力强弱理解。",
+      "mental_model_en": "a system of communication, language ability, or a style of expression."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,15 +81,44 @@
         ],
         "confidence": "medium",
         "definition_cn": "语言能力",
-        "definition_en": "the mental faculty or power of vocal communication",
+        "definition_en": "the capacity to acquire and use language, including spoken or signed language",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:language:b4c94c711e835865",
-        "sense_label_en": "the mental faculty or power of vocal communication",
+        "sense_label_en": "the capacity to acquire and use language, including spoken or signed language",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:language:54318abfeab11993",
+        "pos": "noun",
+        "definition_cn": "措辞；表达方式；语言风格",
+        "definition_en": "the words or style used when speaking or writing",
+        "sense_label_en": "the words or style used when speaking or writing",
+        "governing_pattern": "in plain/formal language; use ... language",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0e370e6e4baaf274ec7c",
+            "phrase": "in plain language",
+            "meaning_cn": "用通俗易懂的措辞",
+            "exam_value": "fixed_pattern"
+          },
+          {
+            "collocation_id": "collocation:462a41877012b9efaa17",
+            "phrase": "strong language",
+            "meaning_cn": "粗俗或可能冒犯的用语",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常不可数。plain language 是通俗措辞；strong/foul language 是粗俗或可能冒犯的用语，不是语言能力强或另一种语言。"
       }
     ],
     "verification_summary": {
@@ -121,6 +161,23 @@
           "applicability": [
             {
               "surface": "language"
+            },
+            {
+              "surface": "language",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:language:54318abfeab11993"
+              ],
+              "owner_sense_ids": [
+                "sense:language:54318abfeab11993"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2745.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in plain/formal language; use ... language"
             }
           ],
           "sources": [
@@ -650,12 +707,22 @@
         "merged_into_sense_id": null,
         "source_row": 7594,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:language:54318abfeab11993",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2745.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:144371b315cd1d9a71ac",
       "collocation:796b1f8c79077d95bb04",
-      "collocation:810681477cb49ee07fc6"
+      "collocation:810681477cb49ee07fc6",
+      "collocation:0e370e6e4baaf274ec7c",
+      "collocation:462a41877012b9efaa17"
     ],
     "facts": [],
     "collocations": [
@@ -673,6 +740,20 @@
         "id": "collocation:810681477cb49ee07fc6",
         "source_row": 10929,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:0e370e6e4baaf274ec7c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2745.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:462a41877012b9efaa17",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2745.json",
+        "source_pointer": "/record/senses/2/collocations/1"
       }
     ],
     "exam-mappings": [],

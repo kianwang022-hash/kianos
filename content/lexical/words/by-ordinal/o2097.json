@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a14fc768bb04186abcff",
+        "pattern": "garage sale",
+        "meaning_cn": "（在自家场地举行的）旧物出售",
+        "definition_en": "a sale of used household or personal belongings at the seller’s home",
+        "usage_note": "通常出售家具、衣物等个人旧物，地点可在自家院子或其他场地，不必在车库内。",
+        "boundary": "通常出售家具、衣物等个人旧物，地点可在自家院子或其他场地，不必在车库内。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "1665040372d88411dec0c1b6f62cea899971d6552104e2ca115d35de8a2f9cd9",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "车库；汽车修理厂",
-          "label_en": "a building or part of a building for housing automobiles; a repair shop for cars and trucks",
+          "label_cn": "车库；汽车修理厂；汽车服务站（英式也可出售燃油）",
+          "label_en": "a building or part of a building for housing automobiles; a business that repairs or services cars; in Britain, it may also sell fuel or cars",
           "pos": "noun",
           "sense_ids": [
             "sense:garage:554d95b98948533d",
@@ -20,7 +31,7 @@
           ]
         },
         {
-          "label_cn": "把（车）送入车库或修车厂",
+          "label_cn": "把（车辆）停放或存放在车库",
           "label_en": "to put or store a vehicle in a garage",
           "pos": "verb",
           "sense_ids": [
@@ -28,10 +39,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "车库；修车厂",
-      "core_meaning_en": "a place for storing or repairing vehicles",
-      "mental_model_cn": "车库；修车厂",
-      "mental_model_en": ""
+      "core_meaning_cn": "车库、修理厂或汽车服务站；存放车辆；家庭旧物出售的表达",
+      "core_meaning_en": "a garage or vehicle-service business; store a vehicle; a garage sale",
+      "mental_model_cn": "garage可指私人车库或汽车修理服务商，英式语境也可在该商家加油；动词为把车存放在车库。garage sale为在自家场地出售旧物。",
+      "mental_model_en": "a garage or vehicle-service business; store a vehicle; a garage sale."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -75,19 +86,26 @@
             ],
             "meaning_cn": "把车送到修理厂",
             "phrase": "take the car to the garage"
+          },
+          {
+            "collocation_id": "collocation:fb841653fcf10a0846e7",
+            "phrase": "stop at a garage for petrol",
+            "meaning_cn": "在汽车服务站停下加油",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "汽车修理厂",
-        "definition_en": "a repair shop for cars and trucks",
+        "definition_cn": "汽车修理厂；汽车服务站（英式也可出售燃油）",
+        "definition_en": "a business that repairs or services cars; in Britain, it may also sell fuel or cars",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:garage:bd9054dfbc76528f",
-        "sense_label_en": "a repair shop for cars and trucks",
+        "sense_label_en": "a business that repairs or services cars; in Britain, it may also sell fuel or cars",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "英式语境可用于提供汽车燃油或其他汽车服务的商家；不是每个私人车库都出售燃油。"
       },
       {
         "collocations": [
@@ -102,7 +120,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "把（车）送入车库或修车厂",
+        "definition_cn": "把（车辆）停放或存放在车库",
         "definition_en": "to put or store a vehicle in a garage",
         "governing_pattern": "vt. + object",
         "level": "L2",
@@ -439,6 +457,13 @@
         "id": "collocation:e2b51ca8d49ca5ac3469",
         "source_row": 19180,
         "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:fb841653fcf10a0846e7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2097.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

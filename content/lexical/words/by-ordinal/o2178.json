@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "4431dbf481f8d6d1778e72b4d28794c3c3af7e7305243948031a4de91742643b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "逐渐的",
-      "core_meaning_en": "happening slowly over a long period",
-      "mental_model_cn": "逐渐的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "逐渐的；渐进的；（坡度）平缓的",
+          "label_en": "happening or changing slowly over a long period; rising or falling with a gentle slope",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:gradual:65f2920365645335",
+            "sense:gradual:4fe27d17c0256d02"
+          ]
+        }
+      ],
+      "core_meaning_cn": "逐渐的；坡度平缓的",
+      "core_meaning_en": "happening by degrees; gently sloping",
+      "mental_model_cn": "变化gradual为逐渐发生；坡度gradual为倾斜平缓，重点是空间坡度。",
+      "mental_model_en": "happening by degrees; gently sloping."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -36,6 +46,28 @@
         "sense_label_en": "happening or changing slowly over a long period",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:gradual:4fe27d17c0256d02",
+        "pos": "adjective",
+        "definition_cn": "（坡度）平缓的",
+        "definition_en": "rising or falling with a gentle slope",
+        "sense_label_en": "rising or falling with a gentle slope",
+        "governing_pattern": "a gradual slope/incline",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9dd8d9cc6edc50d89246",
+            "phrase": "a gradual slope down to the beach",
+            "meaning_cn": "缓缓向海滩下降的坡地",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -76,6 +108,23 @@
           "applicability": [
             {
               "surface": "gradual"
+            },
+            {
+              "surface": "gradual",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:gradual:4fe27d17c0256d02"
+              ],
+              "owner_sense_ids": [
+                "sense:gradual:4fe27d17c0256d02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2178.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a gradual slope/incline"
+              }
             }
           ],
           "sources": [
@@ -274,6 +323,14 @@
         "merged_into_sense_id": null,
         "source_row": 6072,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:gradual:4fe27d17c0256d02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2178.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [],
@@ -288,6 +345,13 @@
         "id": "collocation:b5317c6e7724e181877a",
         "source_row": 15356,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:9dd8d9cc6edc50d89246",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2178.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

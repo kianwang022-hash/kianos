@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "fc2aeb5861ad5f3e0a2706c52d8d99c882e456dc4c376a5375a9c3b7fa7c9a1d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "无知的；不了解的",
-      "core_meaning_en": "lacking knowledge or awareness",
-      "mental_model_cn": "ignorant of/about sth → 对某事不了解/缺乏知识。重复的“因缺乏信息而不知道”分支保留为 Reference。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "无知的；不了解的；缺乏相关知识的；（非正式、贬义）粗鲁无礼的",
+          "label_en": "lacking knowledge, information, or awareness about something; in informal disapproving use, having very bad manners",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:ignorant:aba2c0f465375ed4",
+            "sense:ignorant:b6cc07809dd0e0f6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "无知／不了解的；（非正式、贬义）粗鲁的",
+      "core_meaning_en": "lacking knowledge or awareness; informally, rude",
+      "mental_model_cn": "ignorant of/about某事→不知道或不了解；评价行为的informal ignorant也可指粗鲁，不能一律读成知识不足。",
+      "mental_model_en": "lacking knowledge or awareness; informally, rude."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -33,6 +43,12 @@
             ],
             "meaning_cn": "对某事无知",
             "phrase": "ignorant of + sth"
+          },
+          {
+            "collocation_id": "collocation:b262375f7b2958d54f67",
+            "phrase": "ignorant about sth",
+            "meaning_cn": "不了解某事",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -46,6 +62,29 @@
         "sense_label_en": "lacking knowledge, information, or awareness about something",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:ignorant:b6cc07809dd0e0f6",
+        "pos": "adjective",
+        "definition_cn": "（非正式、贬义）粗鲁无礼的",
+        "definition_en": "in informal disapproving use, having very bad manners",
+        "sense_label_en": "in informal disapproving use, having very bad manners",
+        "governing_pattern": "an ignorant person; ignorant behaviour",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4e0986a30ea6a3ffbe7c",
+            "phrase": "That was a rude, ignorant remark.",
+            "meaning_cn": "那是句粗鲁无礼的话。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此处指礼貌或教养差，不是说不知道某一事实；非正式贬义。"
       }
     ],
     "verification_summary": {
@@ -75,6 +114,23 @@
           "applicability": [
             {
               "surface": "ignorant"
+            },
+            {
+              "surface": "ignorant",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:ignorant:b6cc07809dd0e0f6"
+              ],
+              "owner_sense_ids": [
+                "sense:ignorant:b6cc07809dd0e0f6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2439.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an ignorant person; ignorant behaviour"
             }
           ],
           "sources": [
@@ -218,10 +274,20 @@
         "merged_into_sense_id": null,
         "source_row": 6790,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:ignorant:b6cc07809dd0e0f6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2439.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
-      "collocation:5559822ca5aa84359c10"
+      "collocation:5559822ca5aa84359c10",
+      "collocation:b262375f7b2958d54f67",
+      "collocation:4e0986a30ea6a3ffbe7c"
     ],
     "facts": [],
     "collocations": [
@@ -236,6 +302,20 @@
         "id": "collocation:5559822ca5aa84359c10",
         "source_row": 7197,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:4e0986a30ea6a3ffbe7c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2439.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:b262375f7b2958d54f67",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2439.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

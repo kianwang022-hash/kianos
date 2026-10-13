@@ -6,32 +6,44 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:4f41003d648dc22edb06",
+        "pattern": "launch into sth / launch yourself into sth",
+        "meaning_cn": "热情地开始／投入某事（尤指较长的讲话或活动）",
+        "definition_en": "to start something eagerly, especially an activity or account that takes time",
+        "usage_note": "launch into a long explanation = 开始一番长篇解释；不机械译成把东西发射进去。",
+        "boundary": "launch into a long explanation = 开始一番长篇解释；不机械译成把东西发射进去。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "390e7f288bfae95c1a72f189aae1481a2606192f1cdb84d9003d659f2a2ffb4a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "发射；发起；推出",
-          "label_en": "send (a rocket, missile, etc.) into the air or space; start or set in motion (an enterprise, campaign, etc.)",
+          "label_cn": "发射；发起；推出；启动（电脑程序）；（程序）启动",
+          "label_en": "send (a rocket, missile, etc.) into the air or space; to start an activity or introduce a product to the public; of a product, to become publicly available; to start a computer program, or for a program to start",
           "pos": "verb",
           "sense_ids": [
             "sense:launch:3eab8560a2b15d3a",
-            "sense:launch:b4f67c19f6385bf6"
+            "sense:launch:b4f67c19f6385bf6",
+            "sense:launch:f50a017bffa2c6e1"
           ]
         },
         {
           "label_cn": "发射；发起",
-          "label_en": "the act of launching a rocket, product, or campaign",
+          "label_en": "the act of launching",
           "pos": "noun",
           "sense_ids": [
             "sense:launch:2877a4153c26502f"
           ]
         }
       ],
-      "core_meaning_cn": "发射；发起",
-      "core_meaning_en": "to start or send off with force",
-      "mental_model_cn": "rocket/satellite → 发射；product/campaign → 推出、发起；noun → 发射/发布会。特定汽艇义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "发射；发起／推出；启动程序；发射／发布行为",
+      "core_meaning_en": "send a rocket off; initiate or introduce; start a program; an act of launching",
+      "mental_model_cn": "rocket 是发射；campaign 是发起；product 是推出；app 是启动。The service launches 以产品／服务作主语，允许不及物。",
+      "mental_model_en": "send a rocket off; initiate or introduce; start a program; an act of launching."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -115,19 +127,25 @@
             ],
             "meaning_cn": "发起一场运动",
             "phrase": "launch a campaign"
+          },
+          {
+            "collocation_id": "collocation:6d698d69c381098cd2af",
+            "phrase": "The new service launches next month.",
+            "meaning_cn": "这项新服务下个月推出。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
         "definition_cn": "发起；推出",
-        "definition_en": "start or set in motion (an enterprise, campaign, etc.)",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to start an activity or introduce a product to the public; of a product, to become publicly available",
+        "governing_pattern": "launch an activity/product; a product launches (at/on a time)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:launch:b4f67c19f6385bf6",
-        "sense_label_en": "start or set in motion (an enterprise, campaign, etc.)",
+        "sense_label_en": "to start an activity or introduce a product to the public; of a product, to become publicly available",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -152,6 +170,28 @@
         "sense_label_en": "the act of launching",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:launch:f50a017bffa2c6e1",
+        "pos": "verb",
+        "definition_cn": "启动（电脑程序）；（程序）启动",
+        "definition_en": "to start a computer program, or for a program to start",
+        "sense_label_en": "to start a computer program, or for a program to start",
+        "governing_pattern": "launch a program/app; a program/app launches",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4bce13a9358cb11cbe7c",
+            "phrase": "Launch the app to view your files.",
+            "meaning_cn": "启动应用以查看文件。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -193,6 +233,23 @@
           "applicability": [
             {
               "surface": "launch"
+            },
+            {
+              "surface": "launch",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:launch:f50a017bffa2c6e1"
+              ],
+              "owner_sense_ids": [
+                "sense:launch:f50a017bffa2c6e1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2765.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "launch a program/app; a program/app launches"
             }
           ],
           "sources": [
@@ -340,12 +397,22 @@
         "merged_into_sense_id": null,
         "source_row": 7657,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      },
+      {
+        "sense_id": "sense:launch:f50a017bffa2c6e1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2765.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:71ebaaa6c0c759a6799f",
       "collocation:efdb891ff9a7d5a6f56c",
-      "collocation:fdc419def076e91c9c57"
+      "collocation:6d698d69c381098cd2af",
+      "collocation:fdc419def076e91c9c57",
+      "collocation:4bce13a9358cb11cbe7c"
     ],
     "facts": [
       {
@@ -369,6 +436,20 @@
         "id": "collocation:fdc419def076e91c9c57",
         "source_row": 21465,
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      },
+      {
+        "id": "collocation:6d698d69c381098cd2af",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2765.json",
+        "source_pointer": "/record/senses/1/collocations/1"
+      },
+      {
+        "id": "collocation:4bce13a9358cb11cbe7c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2765.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -14,16 +14,72 @@
         "level": "L1",
         "meaning_cn": "输给某人/某队；被该对手击败",
         "pattern": "lose to sb/team",
-        "source_sense_id": "sense:lose:5996741d16b7551a"
+        "source_sense_id": "sense:lose:5996741d16b7551a",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:3da8c2b784a84ceaceef",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:lose:5996741d16b7551a:collocation:1"
+            ],
+            "meaning_cn": "输给",
+            "phrase": "lose to"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:c51ed81d02058b50e776",
+        "pattern": "lose out (on sth)",
+        "meaning_cn": "吃亏；未得到想要或应得的机会、好处",
+        "definition_en": "miss a benefit or opportunity you wanted",
+        "usage_note": "非正式；on 接错失的机会/利益；与输掉比赛语境分开。",
+        "boundary": "非正式；on 接错失的机会/利益；与输掉比赛语境分开。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:401b5a26acde57589710",
+        "pattern": "lose yourself in sth",
+        "meaning_cn": "沉浸于；全神贯注于",
+        "definition_en": "become completely absorbed in something",
+        "usage_note": "反身代词随主语变化；in 接投入的活动/内容，不是迷路。",
+        "boundary": "反身代词随主语变化；in 接投入的活动/内容，不是迷路。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:481c98d460bae6c78e39",
+        "pattern": "lose it",
+        "meaning_cn": "情绪或行为失控",
+        "definition_en": "lose control of emotions or behaviour",
+        "usage_note": "非正式固定 it；不是把某件物品弄丢。",
+        "boundary": "非正式固定 it；不是把某件物品弄丢。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "2f164b574bab47724c0610acb8ec5cb5bacace35c626a5f297c776d89d6d572a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "失去；输",
-      "core_meaning_en": "to cease to have or fail to win",
-      "mental_model_cn": "失去；输",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "丢失或失去；输/受损；错失浪费；钟表走慢",
+          "label_en": "lose possession or a person; fail to win or suffer loss; waste a chance; a clock runs slow",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:lose:104b3cfde5ae5c1d",
+            "sense:lose:5996741d16b7551a",
+            "sense:lose:2795de84cbf65e8f",
+            "sense:lose:c4716a846d8252e9",
+            "sense:lose:ba8ae5696537583a",
+            "sense:lose:f051d2427a5255d7",
+            "sense:lose:04d0762b044bf73d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "丢失或失去；输/受损；错失浪费；钟表走慢",
+      "core_meaning_en": "lose possession or a person; fail to win or suffer loss; waste a chance; a clock runs slow",
+      "mental_model_cn": "丢失物品与失去亲人分开理解；钟表时间落后不同于人浪费时间，短语沉浸和失控独立。",
+      "mental_model_en": "lose possession or a person; fail to win or suffer loss; waste a chance; a clock runs slow."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -43,7 +99,7 @@
             "legacy_source_object_ids": [
               "sense:lose:104b3cfde5ae5c1d:collocation:0"
             ],
-            "meaning_cn": "减肥",
+            "meaning_cn": "体重减轻（不一定有意减肥）",
             "phrase": "lose weight"
           },
           {
@@ -78,28 +134,19 @@
             ],
             "meaning_cn": "输掉比赛",
             "phrase": "lose a game"
-          },
-          {
-            "collocation_id": "collocation:3da8c2b784a84ceaceef",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:lose:5996741d16b7551a:collocation:1"
-            ],
-            "meaning_cn": "输给",
-            "phrase": "lose to"
           }
         ],
         "confidence": "medium",
         "definition_cn": "输掉",
         "definition_en": "fail to win",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "lose a game/match; lose; lose to sb/team",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:lose:5996741d16b7551a",
         "sense_label_en": "fail to win",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -214,6 +261,28 @@
         "sense_label_en": "suffer loss or defeat",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:lose:04d0762b044bf73d",
+        "pos": "verb",
+        "definition_cn": "（钟表）走慢；落后于正确时间",
+        "definition_en": "for a clock to run slow or fall behind the correct time",
+        "sense_label_en": "for a clock to run slow or fall behind the correct time",
+        "governing_pattern": "a clock loses (time); lose two minutes a day",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f5ff0a8c7946cec31d95",
+            "phrase": "the clock loses two minutes a day",
+            "meaning_cn": "这只钟每天慢两分钟",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -254,6 +323,23 @@
           "applicability": [
             {
               "surface": "lose"
+            },
+            {
+              "surface": "lose",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lose:04d0762b044bf73d"
+              ],
+              "owner_sense_ids": [
+                "sense:lose:04d0762b044bf73d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2888.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a clock loses (time); lose two minutes a day"
             }
           ],
           "sources": [
@@ -463,19 +549,27 @@
         "merged_into_sense_id": null,
         "source_row": 8047,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
+      },
+      {
+        "sense_id": "sense:lose:04d0762b044bf73d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2888.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:27d7f62c995e47fe0ad7",
-      "collocation:331bf412aa8e96988df4",
-      "collocation:3da8c2b784a84ceaceef",
-      "collocation:6bc6e54e1411c156dece",
-      "collocation:82a23b755f21f052aca7",
       "collocation:b016504186f6ab3211f4",
-      "collocation:bc428ef1c3e3b5caa223",
-      "collocation:c1cb6daa6a77be7be2ac",
+      "collocation:27d7f62c995e47fe0ad7",
       "collocation:db4ffd00df0eaeac3cbe",
-      "collocation:f873ae14846532069f0c"
+      "collocation:c1cb6daa6a77be7be2ac",
+      "collocation:bc428ef1c3e3b5caa223",
+      "collocation:6bc6e54e1411c156dece",
+      "collocation:331bf412aa8e96988df4",
+      "collocation:f873ae14846532069f0c",
+      "collocation:82a23b755f21f052aca7",
+      "collocation:f5ff0a8c7946cec31d95"
     ],
     "facts": [
       {
@@ -498,7 +592,9 @@
       {
         "id": "collocation:3da8c2b784a84ceaceef",
         "source_row": 5213,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:6bc6e54e1411c156dece",
@@ -534,6 +630,13 @@
         "id": "collocation:f873ae14846532069f0c",
         "source_row": 21048,
         "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+      },
+      {
+        "id": "collocation:f5ff0a8c7946cec31d95",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2888.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

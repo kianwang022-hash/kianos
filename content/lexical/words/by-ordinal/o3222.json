@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8ca223e61b290485e465",
+        "pattern": "nice and + adjective/adverb",
+        "meaning_cn": "很……，而且使人感觉舒服、满意",
+        "definition_en": "emphasize a pleasant quality or satisfactory degree",
+        "usage_note": "如The room is nice and warm，They arrived nice and early。常作表语或修饰动作；名词前不用a nice and warm room，可说a nice warm room。",
+        "boundary": "如The room is nice and warm，They arrived nice and early。常作表语或修饰动作；名词前不用a nice and warm room，可说a nice warm room。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:7e58530828d82bc1a366",
+        "pattern": "That’s a nice thing to say!（反语）",
+        "meaning_cn": "这话说得可真“好”！（实际不满）",
+        "definition_en": "ironically criticize something as unpleasant or unkind",
+        "usage_note": "依语境、语气判断；普通nice仍可真诚赞扬，不能只靠nice一词断定反语。",
+        "boundary": "依语境、语气判断；普通nice仍可真诚赞扬，不能只靠nice一词断定反语。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "80d013617ecdf9d0c02dd048bf55c5312f5ebb29039d2865901495cd2505d4cd",
     "core_concept": {
       "core_clusters": [
@@ -18,12 +39,20 @@
             "sense:nice:19f7ba665e91580f",
             "sense:nice:39d7b0a59f3b5ece"
           ]
+        },
+        {
+          "label_cn": "友善的；体贴的",
+          "label_en": "kind, friendly or considerate towards people",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:nice:f847552875735fad"
+          ]
         }
       ],
-      "core_meaning_cn": "美好的；令人愉快的；精细/巧妙的",
-      "core_meaning_en": "pleasant or agreeable; also fine/subtle in distinction or skill",
-      "mental_model_cn": "美好的；令人愉快的；精细/巧妙的",
-      "mental_model_en": ""
+      "core_meaning_cn": "令人愉快的；友善体贴的；精细或巧妙的",
+      "core_meaning_en": "pleasant or attractive; kind or considerate; fine, precise or skilful",
+      "mental_model_cn": "nice day令人愉快，nice to sb对人友善，nice of sb to do赞其体贴；nice and warm强调暖得舒服。a nice distinction讲精细区别，反语则可能表达不满。",
+      "mental_model_en": "pleasant or attractive; kind or considerate; fine, precise or skilful."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -85,8 +114,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "精细的；巧妙的",
-        "definition_en": "done with delicacy and skill",
+        "definition_cn": "细微的；精确的；巧妙的",
+        "definition_en": "fine or subtle and requiring careful judgment; showing precision or skill",
         "governing_pattern": "",
         "level": "L2",
         "lexical_identity_overlay": {
@@ -98,31 +127,31 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:nice:39d7b0a59f3b5ece",
-        "sense_label_en": "done with delicacy and skill",
+        "sense_label_en": "fine or subtle and requiring careful judgment; showing precision or skill",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "尼斯（法国城市）",
-        "definition_en": "a city in southeastern France on the Mediterranean; a leading resort on the French Riviera",
-        "governing_pattern": "",
-        "level": "L3",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "proper_place_name",
-          "note": "Nice, the French city, is capitalized and pronounced /niːs/; distinct from adjective nice /naɪs/",
-          "pronunciation": "/niːs/",
-          "recommended_disposition": "SOURCE_ONLY",
-          "surface_lemma": "Nice"
-        },
+        "sense_id": "sense:nice:f847552875735fad",
+        "pos": "adjective",
+        "definition_cn": "友善的；体贴的",
+        "definition_en": "kind, friendly or considerate towards people",
+        "sense_label_en": "kind, friendly or considerate towards people",
+        "governing_pattern": "be nice to sb; it is nice of sb to do sth",
+        "transitivity": "nonverb",
+        "level": "L1",
+        "direction": "R+P",
+        "confidence": "high",
         "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:nice:8e2ac4d3cc255bcd",
-        "sense_label_en": "a city in southeastern France on the Mediterranean; a leading resort on ",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "collocations": [
+          {
+            "collocation_id": "collocation:4d41fbc2e57aaddbe6f2",
+            "phrase": "It was nice of you to help.",
+            "meaning_cn": "你来帮忙真体贴。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -350,12 +379,82 @@
               }
             }
           ]
+        },
+        {
+          "ipa": "/naɪs/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "nice",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:nice:f847552875735fad"
+              ],
+              "owner_sense_ids": [
+                "sense:nice:f847552875735fad"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3222.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be nice to sb; it is nice of sb to do sth",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/nice",
+              "entry_context": {
+                "word": "nice",
+                "pos": "adj",
+                "etymology_number": null
+              },
+              "original_ipa": "/naɪs/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "尼斯（法国城市）",
+      "definition_en": "a city in southeastern France on the Mediterranean; a leading resort on the French Riviera",
+      "governing_pattern": "",
+      "level": "L3",
+      "lexical_identity_overlay": {
+        "case_sensitive": true,
+        "identity_type": "proper_place_name",
+        "note": "Nice, the French city, is capitalized and pronounced /niːs/; distinct from adjective nice /naɪs/",
+        "pronunciation": "/niːs/",
+        "recommended_disposition": "SOURCE_ONLY",
+        "surface_lemma": "Nice"
+      },
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:nice:8e2ac4d3cc255bcd",
+      "sense_label_en": "a city in southeastern France on the Mediterranean; a leading resort on ",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:nice:8e2ac4d3cc255bcd",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true,
+      "source_row": 8971,
+      "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -374,16 +473,25 @@
       },
       {
         "sense_id": "sense:nice:8e2ac4d3cc255bcd",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 8971,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:nice:f847552875735fad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3222.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:1c68ef8dba7b06431e55",
+      "collocation:a9b48a2a2cbab2c75e1f",
       "collocation:82420dca51fea934d84d",
-      "collocation:a9b48a2a2cbab2c75e1f"
+      "collocation:4d41fbc2e57aaddbe6f2"
     ],
     "facts": [],
     "collocations": [
@@ -401,6 +509,13 @@
         "id": "collocation:a9b48a2a2cbab2c75e1f",
         "source_row": 14376,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:4d41fbc2e57aaddbe6f2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3222.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "收割成熟庄稼；努力的成果",
-          "label_en": "the gathering of a ripened crop; the consequence of an effort or activity",
+          "label_cn": "收割；收获季节；收成；努力的成果",
+          "label_en": "the gathering of crops, the season when this happens, or the crop gathered; the consequence of an effort or activity",
           "pos": "noun",
           "sense_ids": [
             "sense:harvest:d7a5dce656fd529e",
@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "收割庄稼",
-          "label_en": "to gather a crop from the fields",
+          "label_cn": "收割庄稼；收集有用资源供以后使用",
+          "label_en": "to gather a crop from the fields; to collect a valuable resource for later use",
           "pos": "verb",
           "sense_ids": [
-            "sense:harvest:1dae343217315969"
+            "sense:harvest:1dae343217315969",
+            "sense:harvest:f327d96313f1f2c2"
           ]
         }
       ],
-      "core_meaning_cn": "收割庄稼或收获成果",
-      "core_meaning_en": "the act or season of gathering crops, or the crops gathered; also, to gather a crop",
-      "mental_model_cn": "crop → 收割/收获；figurative result → 努力的成果。移植医学中的细胞/组织采集保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "收获、收获季节或成果；收割或收集有用资源",
+      "core_meaning_en": "a harvest, season or yield; gather crops or collect useful resources",
+      "mental_model_cn": "harvest可收割庄稼，或获取可利用的能源等资源。",
+      "mental_model_en": "a harvest, season or yield; gather crops or collect useful resources."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,14 +64,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "收割成熟庄稼",
-        "definition_en": "the gathering of a ripened crop",
+        "definition_cn": "收割；收获季节；收成",
+        "definition_en": "the gathering of crops, the season when this happens, or the crop gathered",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:harvest:d7a5dce656fd529e",
-        "sense_label_en": "the gathering of a ripened crop",
+        "sense_label_en": "the gathering of crops, the season when this happens, or the crop gathered",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -130,6 +131,29 @@
         "sense_label_en": "the consequence of an effort or activity",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:harvest:f327d96313f1f2c2",
+        "pos": "verb",
+        "definition_cn": "收集有用资源供以后使用",
+        "definition_en": "to collect a valuable resource for later use",
+        "sense_label_en": "to collect a valuable resource for later use",
+        "governing_pattern": "harvest something (from something)",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c61f23d3a47a425a3237",
+            "phrase": "harvest energy from sunlight",
+            "meaning_cn": "从阳光中获取能源",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此一般资源义可用于能量等资源的获取，以供以后使用。"
       }
     ],
     "verification_summary": {
@@ -170,6 +194,23 @@
           "applicability": [
             {
               "surface": "harvest"
+            },
+            {
+              "surface": "harvest",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:harvest:f327d96313f1f2c2"
+              ],
+              "owner_sense_ids": [
+                "sense:harvest:f327d96313f1f2c2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2270.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "harvest something (from something)"
             }
           ],
           "sources": [
@@ -551,14 +592,23 @@
         "merged_into_sense_id": null,
         "source_row": 6339,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:harvest:f327d96313f1f2c2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2270.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:8eaedde741ba8b56e7f3",
-      "collocation:9fe9f1fb1123dfc8c362",
       "collocation:ce472f5e6d669f96aebb",
+      "collocation:9fe9f1fb1123dfc8c362",
       "collocation:e3a05dafe2c25534c3b6",
-      "collocation:fac1acc282569f0a0f4f"
+      "collocation:8eaedde741ba8b56e7f3",
+      "collocation:fac1acc282569f0a0f4f",
+      "collocation:c61f23d3a47a425a3237"
     ],
     "facts": [],
     "collocations": [
@@ -593,6 +643,13 @@
         "id": "collocation:fac1acc282569f0a0f4f",
         "source_row": 21222,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:c61f23d3a47a425a3237",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2270.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

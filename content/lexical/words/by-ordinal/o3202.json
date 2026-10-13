@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "以否定、拒绝、反对或抵抗为特征的；没有积极特征的；表示否定、拒绝或否认的",
-          "label_en": "characterized by or displaying negation or denial or opposition or resistance; having no positive features; expressing or consisting of a negation or refusal or denial",
+          "label_cn": "负面的；消极的；表示否定的",
+          "label_en": "unfavorable or pessimistic; expressing denial or refusal",
           "pos": "adjective",
           "sense_ids": [
             "sense:negative:9448815252b35770",
@@ -44,12 +44,20 @@
           "sense_ids": [
             "sense:negative:cc441018154e0fe2"
           ]
+        },
+        {
+          "label_cn": "不利方面；缺点",
+          "label_en": "a disadvantage or undesirable aspect of a situation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:negative:1d99bb5cee130b9c"
+          ]
         }
       ],
-      "core_meaning_cn": "表示否定或反对；缺乏积极特征",
-      "core_meaning_en": "expressing denial or opposition; lacking positive features",
-      "mental_model_cn": "表示否定或反对；缺乏积极特征",
-      "mental_model_en": ""
+      "core_meaning_cn": "负面/否定；不利方面、否定回答、底片与负数；负值/负电或阴性",
+      "core_meaning_en": "negative attitudes or denial; drawbacks, negative answers, photographic negatives and negative numbers; negative values or charge and negative tests",
+      "mental_model_cn": "态度和影响可负面；the negatives指不利方面。否定回答、底片、负数、负电和检测阴性各按语境理解，阴性并不等于坏结果。",
+      "mental_model_en": "negative attitudes or denial; drawbacks, negative answers, photographic negatives and negative numbers; negative values or charge and negative tests."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -88,7 +96,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:negative:9448815252b35770",
-        "sense_label_en": "characterized by or displaying negation or denial or opposition or resis",
+        "sense_label_en": "bad, harmful, unfavorable, or pessimistic rather than positive",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -160,22 +168,12 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:negative:f3a7a9b93e0a5f7f",
-        "sense_label_en": "a piece of photographic film showing an image with light and shade or co",
+        "sense_label_en": "a piece of photographic film showing an image with light and shade or colors reversed",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:af7ab8649281373b4bc1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:negative:78be6b7a3ff657fb:collocation:0"
-            ],
-            "meaning_cn": "负数",
-            "phrase": "a negative number"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "负数",
         "definition_en": "a number less than zero",
@@ -198,6 +196,15 @@
             ],
             "meaning_cn": "负电荷",
             "phrase": "negative charge"
+          },
+          {
+            "collocation_id": "collocation:af7ab8649281373b4bc1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:negative:78be6b7a3ff657fb:collocation:0"
+            ],
+            "meaning_cn": "负数",
+            "phrase": "a negative number"
           }
         ],
         "confidence": "medium",
@@ -235,6 +242,28 @@
         "sense_label_en": "of a test or result: showing that the tested condition or agent was not detected or shown to be present",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:negative:1d99bb5cee130b9c",
+        "pos": "noun",
+        "definition_cn": "不利方面；缺点",
+        "definition_en": "a disadvantage or undesirable aspect of a situation",
+        "sense_label_en": "a disadvantage or undesirable aspect of a situation",
+        "governing_pattern": "the negatives; focus on the negative",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7f6ea4421cd7283f4f54",
+            "phrase": "weigh the positives and negatives",
+            "meaning_cn": "权衡有利和不利方面",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -264,6 +293,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -395,6 +442,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -637,6 +702,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -871,6 +954,24 @@
           "applicability": [
             {
               "surface": "negative"
+            },
+            {
+              "surface": "negative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "owner_sense_ids": [
+                "sense:negative:1d99bb5cee130b9c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3202.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the negatives; focus on the negative",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -1013,17 +1114,26 @@
         "merged_into_sense_id": null,
         "source_row": 8992,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:negative:1d99bb5cee130b9c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3202.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
       "collocation:28d8e5474df3933858eb",
-      "collocation:4c410951460785001b7b",
+      "collocation:e3a3bcae13fd98527aa6",
       "collocation:5c9f6cb6dfb16a836d03",
+      "collocation:4c410951460785001b7b",
       "collocation:9035d4595a57bb8955fb",
+      "collocation:f29fb5ece6d9087134ae",
       "collocation:af7ab8649281373b4bc1",
       "collocation:db88535c414fbf1b3d34",
-      "collocation:e3a3bcae13fd98527aa6",
-      "collocation:f29fb5ece6d9087134ae"
+      "collocation:7f6ea4421cd7283f4f54"
     ],
     "facts": [],
     "collocations": [
@@ -1050,7 +1160,8 @@
       {
         "id": "collocation:af7ab8649281373b4bc1",
         "source_row": 14876,
-        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json",
+        "sense_id": "sense:negative:5cc6dbd81d0fd7bc"
       },
       {
         "id": "collocation:e3a3bcae13fd98527aa6",
@@ -1066,6 +1177,13 @@
         "id": "collocation:f29fb5ece6d9087134ae",
         "source_row": 21414,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:7f6ea4421cd7283f4f54",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3202.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

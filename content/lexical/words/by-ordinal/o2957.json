@@ -6,32 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cf0a7a4fc199ff1baf9e",
+        "pattern": "steal a march on sb",
+        "meaning_cn": "抢先行动而占优势",
+        "definition_en": "to gain an advantage by acting before someone else",
+        "usage_note": "通常不用被动；并非偷走一次行军或三月。",
+        "boundary": "通常不用被动；并非偷走一次行军或三月。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "8bba67ca9e049a5a75fe015d86cb3d9373c5d66675bbc1ec137d9dd347f8c8fb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "三月；行军，行进；稳步前进",
-          "label_en": "the third month of the year; the act of marching; a steady advance",
+          "label_cn": "三月；行军、游行；行进；稳步发展；进行曲",
+          "label_en": "the third month of the year; an organized group walk or a journey made in regular steps; also steady development or advance; a piece of music composed for marching",
           "pos": "noun",
           "sense_ids": [
             "sense:march:6e90504485f052cf",
-            "sense:march:130eecbcd8b859c5"
+            "sense:march:130eecbcd8b859c5",
+            "sense:march:75c90bfd0b56e2a5"
           ]
         },
         {
-          "label_cn": "行军，前进",
-          "label_en": "to walk with regular steps, especially as a group",
+          "label_cn": "行军，前进；快步、坚定地走向某处；强行带某人走；押送",
+          "label_en": "to walk with regular steps, especially as a group; to walk somewhere briskly and with determination; to force someone to walk somewhere with you",
           "pos": "verb",
           "sense_ids": [
-            "sense:march:4844b2169fc75b8c"
+            "sense:march:4844b2169fc75b8c",
+            "sense:march:225a16a2db8a72ed",
+            "sense:march:b067baac5b7b085d"
           ]
         }
       ],
-      "core_meaning_cn": "行军；三月",
-      "core_meaning_en": "to walk with regular steps, or the month of March",
-      "mental_model_cn": "行军；三月",
-      "mental_model_en": ""
+      "core_meaning_cn": "三月；行军游行、快步走与押送；稳步发展；进行曲",
+      "core_meaning_en": "March as a month; marching, determined walking or escorting; steady progress; march music",
+      "mental_model_cn": "March指月份且大写；march可指列队或抗议行进；march sb away是押送；play a march是演奏进行曲。",
+      "mental_model_en": "March as a month; marching, determined walking or escorting; steady progress; march music."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -103,7 +117,7 @@
         "confidence": "medium",
         "definition_cn": "行军，前进",
         "definition_en": "to walk with regular steps, especially as a group",
-        "governing_pattern": "vi. + forward/on",
+        "governing_pattern": "march (+ adv./prep.); march for/against sth",
         "level": "L1",
         "lexical_identity_overlay": {
           "canonical_surface": "march",
@@ -115,7 +129,8 @@
         "sense_id": "sense:march:4844b2169fc75b8c",
         "sense_label_en": "to walk with regular steps, especially as a group",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "常指列队行进，也可指参加抗议游行：march for/against sth；快步坚定走向某处及押送另见各分支。"
       },
       {
         "collocations": [
@@ -139,8 +154,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "行军，行进；稳步前进",
-        "definition_en": "the act of marching; a steady advance",
+        "definition_cn": "行军、游行；行进；稳步发展",
+        "definition_en": "an organized group walk or a journey made in regular steps; also steady development or advance",
         "governing_pattern": "",
         "level": "L2",
         "lexical_identity_overlay": {
@@ -151,9 +166,75 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:march:130eecbcd8b859c5",
-        "sense_label_en": "the act of marching; a steady advance",
+        "sense_label_en": "an organized group walk or a journey made in regular steps; also steady development or advance",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:march:225a16a2db8a72ed",
+        "pos": "verb",
+        "definition_cn": "快步、坚定地走向某处",
+        "definition_en": "to walk somewhere briskly and with determination",
+        "sense_label_en": "to walk somewhere briskly and with determination",
+        "governing_pattern": "march + adv./prep.",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:332b389b9b826519d6f8",
+            "phrase": "march straight past sb",
+            "meaning_cn": "径直快步走过某人身旁",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:march:b067baac5b7b085d",
+        "pos": "verb",
+        "definition_cn": "强行带某人走；押送",
+        "definition_en": "to force someone to walk somewhere with you",
+        "sense_label_en": "to force someone to walk somewhere with you",
+        "governing_pattern": "march sb + adv./prep.",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:db456be1764d34acf994",
+            "phrase": "march the prisoner away",
+            "meaning_cn": "押着囚犯离开",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:march:75c90bfd0b56e2a5",
+        "pos": "noun",
+        "definition_cn": "进行曲",
+        "definition_en": "a piece of music composed for marching",
+        "sense_label_en": "a piece of music composed for marching",
+        "governing_pattern": "a military/funeral/wedding march",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:aebd53dd598a1a6bb28f",
+            "phrase": "a funeral march",
+            "meaning_cn": "葬礼进行曲",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -508,6 +589,91 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/mɑːtʃ/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "march",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:march:225a16a2db8a72ed",
+                "sense:march:b067baac5b7b085d"
+              ],
+              "owner_sense_ids": [
+                "sense:march:225a16a2db8a72ed",
+                "sense:march:b067baac5b7b085d"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/march_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "march",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  2,
+                  4
+                ]
+              },
+              "original_ipa": "/mɑːtʃ/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
+        },
+        {
+          "ipa": "/mɑːtʃ/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "march",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:march:75c90bfd0b56e2a5"
+              ],
+              "owner_sense_ids": [
+                "sense:march:75c90bfd0b56e2a5"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/march_2",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "march",
+                "pos": "noun",
+                "sense_indices_1based": [
+                  4
+                ]
+              },
+              "original_ipa": "/mɑːtʃ/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -536,15 +702,42 @@
         "merged_into_sense_id": null,
         "source_row": 8237,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:march:225a16a2db8a72ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:march:b067baac5b7b085d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:march:75c90bfd0b56e2a5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:3003ad5fac96a7415ed3",
-      "collocation:545d4fdcdfeb9e2af23e",
-      "collocation:7a40cf5a522448efbd91",
-      "collocation:c051cbacbf0f337a1182",
       "collocation:cb7cdc98bd261fa05542",
-      "collocation:e8b83155259e79d93f0d"
+      "collocation:545d4fdcdfeb9e2af23e",
+      "collocation:c051cbacbf0f337a1182",
+      "collocation:7a40cf5a522448efbd91",
+      "collocation:e8b83155259e79d93f0d",
+      "collocation:3003ad5fac96a7415ed3",
+      "collocation:332b389b9b826519d6f8",
+      "collocation:db456be1764d34acf994",
+      "collocation:aebd53dd598a1a6bb28f"
     ],
     "facts": [],
     "collocations": [
@@ -577,6 +770,27 @@
         "id": "collocation:e8b83155259e79d93f0d",
         "source_row": 19716,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:332b389b9b826519d6f8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:db456be1764d34acf994",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:aebd53dd598a1a6bb28f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2957.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "影响；效果；冲击；撞击",
-          "label_en": "a strong effect; the striking of one body against another",
+          "label_cn": "强烈作用：影响或实体撞击",
+          "label_en": "a strong effect or collision; to affect or strike forcefully",
           "pos": "noun",
           "sense_ids": [
             "sense:impact:937a06263da35d50",
@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "影响；对……有强烈作用",
-          "label_en": "to have a strong effect on or affect",
+          "label_cn": "强烈作用：影响或实体撞击",
+          "label_en": "a strong effect or collision; to affect or strike forcefully",
           "pos": "verb",
           "sense_ids": [
-            "sense:impact:7a4440d447cd56dd"
+            "sense:impact:7a4440d447cd56dd",
+            "sense:impact:fb21aceb2963eb1b"
           ]
         }
       ],
-      "core_meaning_cn": "影响；冲击；影响某事",
-      "core_meaning_en": "a strong effect or collision; to affect strongly",
-      "mental_model_cn": "effect → 影响；collision → 冲击/撞击；verb → 对…产生影响。工程/土壤“压紧、挤入”义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "强烈作用：影响或实体撞击",
+      "core_meaning_en": "a strong effect or collision; to affect or strike forcefully",
+      "mental_model_cn": "对发展/政策是影响；实体碰撞是撞击。撞击verb为正式用法；工程压紧的历史Reference另留。",
+      "mental_model_en": "a strong effect or collision; to affect or strike forcefully."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,14 +113,36 @@
         "confidence": "medium",
         "definition_cn": "对……有影响；影响",
         "definition_en": "have a strong effect on or affect",
-        "governing_pattern": "",
+        "governing_pattern": "impact sb/sth; impact on/upon sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:impact:7a4440d447cd56dd",
         "sense_label_en": "have a strong effect on or affect",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
+      },
+      {
+        "sense_id": "sense:impact:fb21aceb2963eb1b",
+        "pos": "verb",
+        "definition_cn": "猛烈撞击；冲击（正式）",
+        "definition_en": "to strike something with great force",
+        "sense_label_en": "to strike something with great force",
+        "governing_pattern": "impact sth; impact on/upon/with sth",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:97525e300f08ac3316bc",
+            "phrase": "The vehicle impacted with the barrier.",
+            "meaning_cn": "车辆猛烈撞上护栏。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -309,6 +332,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ɪmˈpækt/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "impact",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:impact:fb21aceb2963eb1b"
+              ],
+              "owner_sense_ids": [
+                "sense:impact:fb21aceb2963eb1b"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/impact_2",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "impact",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  2
+                ]
+              },
+              "original_ipa": "/ɪmˈpækt/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -369,13 +433,22 @@
         "merged_into_sense_id": null,
         "source_row": 6840,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:impact:fb21aceb2963eb1b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2462.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:67abe7cc2139d730cce3",
-      "collocation:78cf10f1ad6a37cb6554",
       "collocation:983e1c6988ca2bf35200",
-      "collocation:db195991d97380989451"
+      "collocation:78cf10f1ad6a37cb6554",
+      "collocation:db195991d97380989451",
+      "collocation:67abe7cc2139d730cce3",
+      "collocation:97525e300f08ac3316bc"
     ],
     "facts": [],
     "collocations": [
@@ -410,6 +483,13 @@
         "id": "collocation:db195991d97380989451",
         "source_row": 18543,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:97525e300f08ac3316bc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2462.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

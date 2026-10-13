@@ -17,11 +17,19 @@
           "sense_ids": [
             "sense:medal:c5c0d945b75554bb"
           ]
+        },
+        {
+          "label_cn": "比赛中获奖牌",
+          "label_en": "win a medal in competition",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:medal:2d32d3f81f4ef797"
+          ]
         }
       ],
-      "core_meaning_cn": "奖牌",
-      "core_meaning_en": "an award for achievement",
-      "mental_model_cn": "奖牌",
+      "core_meaning_cn": "奖牌、勋章；比赛中获奖牌",
+      "core_meaning_en": "a medal; to win one in competition",
+      "mental_model_cn": "win a medal和medal at a competition都可说比赛中获得奖牌；此处medal是不及物动词。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +72,28 @@
         "sense_label_en": "a flat piece of metal given as an award",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:medal:2d32d3f81f4ef797",
+        "pos": "verb",
+        "definition_cn": "（比赛中）获得奖牌",
+        "definition_en": "to win a medal in a competition",
+        "sense_label_en": "to win a medal in a competition",
+        "governing_pattern": "medal at/in a competition",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:12fb63fd91e1097c9550",
+            "phrase": "medal at an international championship",
+            "meaning_cn": "在国际锦标赛上获得奖牌",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -93,6 +123,24 @@
           "applicability": [
             {
               "surface": "medal"
+            },
+            {
+              "surface": "medal",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:medal:2d32d3f81f4ef797"
+              ],
+              "owner_sense_ids": [
+                "sense:medal:2d32d3f81f4ef797"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3001.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "medal at/in a competition",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -225,11 +273,20 @@
         "merged_into_sense_id": null,
         "source_row": 8372,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:medal:2d32d3f81f4ef797",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3001.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:51f40fa43df33c0959bf",
       "collocation:31cd633d3571bd7725c5",
-      "collocation:51f40fa43df33c0959bf"
+      "collocation:12fb63fd91e1097c9550"
     ],
     "facts": [],
     "collocations": [
@@ -247,6 +304,13 @@
         "id": "collocation:fba9fa8765565b21e8cc",
         "source_row": 21289,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:12fb63fd91e1097c9550",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3001.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

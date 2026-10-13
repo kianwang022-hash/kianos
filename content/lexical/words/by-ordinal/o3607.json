@@ -52,6 +52,22 @@
           "sense_ids": [
             "sense:pinch:58be636ca3965700"
           ]
+        },
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pinch:3033c9fdbbd4b09f"
+          ],
+          "label_cn": "（鞋等）太紧而夹痛",
+          "label_en": "to hurt through being too tight"
+        },
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pinch:7f2a95fbf8307193"
+          ],
+          "label_cn": "偷走（尤指小物件）",
+          "label_en": "to steal something, especially a small item"
         }
       ],
       "core_meaning_cn": "捏/掐；一撮/少量",
@@ -164,6 +180,72 @@
         "sense_label_en": "a small amount of something, especially a powder, salt, or spice that can be held between finger and thumb",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:pinch:3033c9fdbbd4b09f",
+        "pos": "verb",
+        "definition_cn": "（鞋等）太紧而夹痛",
+        "definition_en": "to hurt through being too tight",
+        "sense_label_en": "to hurt through being too tight",
+        "transitivity": "I/T",
+        "governing_pattern": "I/T: shoes pinch; pinch sb/sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pinch:b36de637e4346431",
+            "phrase": "The new boots pinch my toes.",
+            "meaning_cn": "这双新靴子夹脚趾。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pinch_1",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "主语为鞋、衣物等时，pinch指夹脚或勒痛，可不带宾语；不是鞋在用手指捏。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pinch_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:pinch:7f2a95fbf8307193",
+        "pos": "verb",
+        "definition_cn": "偷走（尤指小物件）",
+        "definition_en": "to steal something, especially a small item",
+        "sense_label_en": "to steal something, especially a small item",
+        "transitivity": "vt",
+        "governing_pattern": "vt.: pinch sth (from sb/sth)",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pinch:234fcb84f5042695",
+            "phrase": "Someone pinched my umbrella.",
+            "meaning_cn": "有人顺走了我的伞。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pinch_1",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "英式非正式用法；pinch a pen等语境要区分偷走与用手捏。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pinch_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -703,13 +785,27 @@
         "merged_into_sense_id": null,
         "source_row": 10013,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
+      {
+        "sense_id": "sense:pinch:3033c9fdbbd4b09f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3607.json"
+      },
+      {
+        "sense_id": "sense:pinch:7f2a95fbf8307193",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3607.json"
       }
     ],
     "active_collocations": [
       "collocation:15379dc390ef17483e3b",
       "collocation:631daa69e6f64f5df521",
       "collocation:b8e44578c2a67c3a3833",
-      "collocation:d4b5b781d496cf51d920"
+      "collocation:d4b5b781d496cf51d920",
+      "collocation:pinch:b36de637e4346431",
+      "collocation:pinch:234fcb84f5042695"
     ],
     "facts": [],
     "collocations": [
@@ -742,6 +838,14 @@
         "id": "collocation:15379dc390ef17483e3b",
         "source_row": 21407,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:pinch:b36de637e4346431",
+        "source_path": "content/lexical/words/by-ordinal/o3607.json"
+      },
+      {
+        "id": "collocation:pinch:234fcb84f5042695",
+        "source_path": "content/lexical/words/by-ordinal/o3607.json"
       }
     ],
     "exam-mappings": [],

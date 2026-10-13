@@ -11,26 +11,28 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "展现；显示；陈列；展览",
-          "label_en": "to show or display a quality, skill, or object",
+          "label_cn": "展出、显露",
+          "label_en": "display publicly or show a quality",
           "pos": "verb",
           "sense_ids": [
-            "sense:exhibit:6502ded7c3505efa"
+            "sense:exhibit:6502ded7c3505efa",
+            "sense:exhibit:8cc067ba4a2a55cd"
           ]
         },
         {
-          "label_cn": "展览品；陈列品；物证",
-          "label_en": "an object displayed publicly or produced as evidence",
+          "label_cn": "展品、证物或美式展览",
+          "label_en": "displayed object, court evidence, or American exhibition",
           "pos": "noun",
           "sense_ids": [
             "sense:exhibit:3da169c99cb855c8",
-            "sense:exhibit:e466ff1ec5cd5fe4"
+            "sense:exhibit:e466ff1ec5cd5fe4",
+            "sense:exhibit:2dc48c18300b4436"
           ]
         }
       ],
-      "core_meaning_cn": "展示；展览品",
-      "core_meaning_en": "to show or display, or an object displayed",
-      "mental_model_cn": "展示；展览品",
+      "core_meaning_cn": "展出、显露；展品或证物；美式展览",
+      "core_meaning_en": "show or display; an object on display or in court; American exhibition",
+      "mental_model_cn": "动词展出物品或显露特征；名词通常指展品，法庭指证物，美式可指整场展览。艺术家作主语可不接宾语，表示展出其作品。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -144,16 +146,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "举办展览，参展",
-        "definition_en": "to put on an exhibition",
+        "definition_cn": "展出自己的作品；参展",
+        "definition_en": "to show one’s work publicly",
         "governing_pattern": "vi. + at",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:exhibit:8cc067ba4a2a55cd",
-        "sense_label_en": "to put on an exhibition",
+        "sense_label_en": "to show one’s work publicly",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:exhibit:2dc48c18300b4436",
+        "pos": "noun",
+        "definition_cn": "（美式）展览；公开陈列的一组展品",
+        "definition_en": "American: a public exhibition of art or other objects",
+        "sense_label_en": "American: a public exhibition of art or other objects",
+        "governing_pattern": "an exhibit at/in a museum; an art exhibit",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5c34e70c9dca19e53761",
+            "phrase": "a new exhibit at the museum",
+            "meaning_cn": "博物馆的一场新展览",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -203,6 +227,23 @@
           "applicability": [
             {
               "surface": "exhibit"
+            },
+            {
+              "surface": "exhibit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exhibit:2dc48c18300b4436"
+              ],
+              "owner_sense_ids": [
+                "sense:exhibit:2dc48c18300b4436"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1777.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exhibit at/in a museum; an art exhibit"
+              }
             }
           ],
           "sources": [
@@ -366,6 +407,14 @@
         "merged_into_sense_id": null,
         "source_row": 4870,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:exhibit:2dc48c18300b4436",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1777.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -407,6 +456,13 @@
         "id": "collocation:a4c8a1007ee2d92f8fbc",
         "source_row": 13989,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:5c34e70c9dca19e53761",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1777.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

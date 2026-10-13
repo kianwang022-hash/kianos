@@ -26,32 +26,64 @@
         "pattern": "help yourself (to sth)",
         "source_sense_id": "sense:help:8bb4bbb1c1655d9c",
         "boundary": "self-service idiom; distinct from ordinary help = assist"
+      },
+      {
+        "construction_id": "construction:a2ac6a066e43c2008854",
+        "pattern": "help somebody + adverb/preposition",
+        "meaning_cn": "扶助某人移动到某处或摆出某姿势",
+        "definition_en": "to support somebody in moving or getting into a position",
+        "usage_note": "help her to her feet / help him into the car；人作直接宾语。",
+        "boundary": "help her to her feet / help him into the car；人作直接宾语。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:b01d269eaa659de2c3e1",
+        "pattern": "cannot/can’t help but + base verb",
+        "meaning_cn": "忍不住；无法避免做某事",
+        "definition_en": "to be unable to avoid doing something",
+        "usage_note": "可说I can’t help but smile；but后用原形，对应既有can’t help doing。",
+        "boundary": "可说I can’t help but smile；but后用原形，对应既有can’t help doing。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:912b68b1f5e7d5b4757e",
+        "pattern": "help yourself to something",
+        "meaning_cn": "擅自拿取；偷拿",
+        "definition_en": "to take something without permission",
+        "usage_note": "非正式且含不赞成；He helped himself to the cash；与主人请你取食物不同。",
+        "boundary": "非正式且含不赞成；He helped himself to the cash；与主人请你取食物不同。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "2b9c6e267ef892609086ba11e4cda494eb49d7567a9dd27964c79783826dc4eb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "帮助；援助",
-          "label_en": "give help or assistance",
+          "label_cn": "帮助；有助于；改善或缓解",
+          "label_en": "to assist someone, be useful, or improve a situation",
           "pos": "verb",
           "sense_ids": [
             "sense:help:8bb4bbb1c1655d9c"
           ]
         },
         {
-          "label_cn": "帮助；援助",
-          "label_en": "the act of helping or assistance",
+          "label_cn": "帮助；援助；有帮助的人或事物（单数）；电脑或手机上说明如何使用的帮助功能",
+          "label_en": "the act of helping or assistance; a person or thing that makes a situation easier; information provided by a device or application about how to use it",
           "pos": "noun",
           "sense_ids": [
-            "sense:help:091fe7f60b1d5115"
+            "sense:help:091fe7f60b1d5115",
+            "sense:help:8a02eeb621289b5e",
+            "sense:help:cf177f8afe52e1d5"
           ]
         }
       ],
-      "core_meaning_cn": "帮助；援助",
-      "core_meaning_en": "to give assistance; assistance itself",
-      "mental_model_cn": "help sb → 帮助某人；need help → 需要帮助；can't help doing → 忍不住；help yourself (to sth) → 请自便/自行取用。",
-      "mental_model_en": ""
+      "core_meaning_cn": "帮助、改善或扶助；援助、有用的人物和帮助功能",
+      "core_meaning_en": "assist, improve or support movement; assistance, a helpful person or thing, and help information",
+      "mental_model_cn": "动词help可接人及(to) do；help作名词既可为援助，也可为a great help或设备说明功能；help yourself须看是否有许可。",
+      "mental_model_en": "assist, improve or support movement; assistance, a helpful person or thing, and help information."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -86,16 +118,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "帮助，援助",
-        "definition_en": "give help or assistance; be of service",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "帮助；有助于；改善或缓解",
+        "definition_en": "to assist someone, be useful, or improve a situation",
+        "governing_pattern": "help (sb) (to) do sth; help sb with sth; help with sth; it helps",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:help:8bb4bbb1c1655d9c",
-        "sense_label_en": "give help or assistance; be of service",
+        "sense_label_en": "to assist someone, be useful, or improve a situation",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [],
@@ -110,6 +142,50 @@
         "sense_label_en": "the act of helping or assistance",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:help:8a02eeb621289b5e",
+        "pos": "noun",
+        "definition_cn": "有帮助的人或事物（单数）",
+        "definition_en": "a person or thing that makes a situation easier",
+        "sense_label_en": "a person or thing that makes a situation easier",
+        "governing_pattern": "a great/big help (to somebody)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:016699cbc0114baa14b1",
+            "phrase": "This checklist is a great help to us.",
+            "meaning_cn": "这份清单对我们很有帮助。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:help:cf177f8afe52e1d5",
+        "pos": "noun",
+        "definition_cn": "电脑或手机上说明如何使用的帮助功能",
+        "definition_en": "information provided by a device or application about how to use it",
+        "sense_label_en": "information provided by a device or application about how to use it",
+        "governing_pattern": "online help; a help menu/file",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:086e1bbefe49ca1c5289",
+            "phrase": "Open the help menu for instructions.",
+            "meaning_cn": "打开帮助菜单查看说明。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -161,6 +237,40 @@
           "applicability": [
             {
               "surface": "help"
+            },
+            {
+              "surface": "help",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:help:8a02eeb621289b5e"
+              ],
+              "owner_sense_ids": [
+                "sense:help:8a02eeb621289b5e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2308.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a great/big help (to somebody)"
+            },
+            {
+              "surface": "help",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:help:cf177f8afe52e1d5"
+              ],
+              "owner_sense_ids": [
+                "sense:help:cf177f8afe52e1d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2308.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "online help; a help menu/file"
             }
           ],
           "sources": [
@@ -379,11 +489,29 @@
         "merged_into_sense_id": "sense:help:8bb4bbb1c1655d9c",
         "source_row": 6457,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:help:8a02eeb621289b5e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2308.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:help:cf177f8afe52e1d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2308.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:b9786445e25f648b6f17",
-      "collocation:bafa492b2c031feeca26"
+      "collocation:bafa492b2c031feeca26",
+      "collocation:016699cbc0114baa14b1",
+      "collocation:086e1bbefe49ca1c5289"
     ],
     "facts": [],
     "collocations": [
@@ -426,6 +554,20 @@
         "id": "collocation:f38f1a2bc77589db789d",
         "source_row": 20626,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:016699cbc0114baa14b1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2308.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:086e1bbefe49ca1c5289",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2308.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

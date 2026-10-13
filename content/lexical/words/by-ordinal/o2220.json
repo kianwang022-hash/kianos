@@ -6,32 +6,65 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:95ed788ec91945ed3c74",
+        "pattern": "be on your guard",
+        "meaning_cn": "保持警惕",
+        "definition_en": "to be alert to possible danger",
+        "usage_note": "可接against sth；不是正在担任警卫的唯一意思。",
+        "boundary": "可接against sth；不是正在担任警卫的唯一意思。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:ac827dc14f51f4e97d4a",
+        "pattern": "drop your guard",
+        "meaning_cn": "放松警惕",
+        "definition_en": "to stop being watchful",
+        "usage_note": "用于对潜在问题不再保持警觉；区别于实体防护装置。",
+        "boundary": "用于对潜在问题不再保持警觉；区别于实体防护装置。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:8576a38de1f2de29ae4e",
+        "pattern": "catch somebody off (their) guard",
+        "meaning_cn": "趁某人不备；使猝不及防",
+        "definition_en": "to surprise somebody who is unprepared",
+        "usage_note": "their可省；The question caught me off guard。",
+        "boundary": "their可省；The question caught me off guard。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "d7f6bcd8d699683d21cb020a056c4c5e2cbca213d77dfbcb0ec46466f86fc3ff",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "保卫；守护",
-          "label_en": "to protect someone or something from danger",
+          "label_cn": "保卫；守护；防范；警惕",
+          "label_en": "to protect someone or something from danger; to take precautions",
           "pos": "verb",
           "sense_ids": [
-            "sense:guard:33bcbdfc1c725771"
+            "sense:guard:33bcbdfc1c725771",
+            "sense:guard:0ad10b153e425a73"
           ]
         },
         {
-          "label_cn": "警卫；守卫；防护装置",
-          "label_en": "a person who protects or watches over; a device that prevents injury or damage",
+          "label_cn": "警卫；守卫；防护装置；守卫职责或保护、看守",
+          "label_en": "a person who protects or watches over; a device that prevents injury or damage; the duty or activity of watching and protecting",
           "pos": "noun",
           "sense_ids": [
             "sense:guard:1072fed54c305780",
-            "sense:guard:2e5f1361c4ce5b49"
+            "sense:guard:2e5f1361c4ce5b49",
+            "sense:guard:916d2942b9320dca"
           ]
         }
       ],
-      "core_meaning_cn": "保卫；看守",
-      "core_meaning_en": "to protect or watch over",
-      "mental_model_cn": "保卫；看守",
-      "mental_model_en": ""
+      "core_meaning_cn": "守卫保护、警卫、看守职责或防护装置；防范",
+      "core_meaning_en": "protect, a guard, guarding duty or protective device; be watchful",
+      "mental_model_cn": "guard可为看守行为，也可为警卫或防护装置；on your guard、off guard分别指警觉与未防备。",
+      "mental_model_en": "protect, a guard, guarding duty or protective device; be watchful."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -144,6 +177,28 @@
         "sense_label_en": "to take precautions",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:guard:916d2942b9320dca",
+        "pos": "noun",
+        "definition_cn": "守卫职责或保护、看守",
+        "definition_en": "the duty or activity of watching and protecting",
+        "sense_label_en": "the duty or activity of watching and protecting",
+        "governing_pattern": "on guard duty; under guard",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:22a767f61fb89c9a7f9b",
+            "phrase": "under police guard",
+            "meaning_cn": "在警方看守下",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +239,23 @@
           "applicability": [
             {
               "surface": "guard"
+            },
+            {
+              "surface": "guard",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:guard:916d2942b9320dca"
+              ],
+              "owner_sense_ids": [
+                "sense:guard:916d2942b9320dca"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2220.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "on guard duty; under guard"
+              }
             }
           ],
           "sources": [
@@ -370,14 +442,23 @@
         "merged_into_sense_id": null,
         "source_row": 6203,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:guard:916d2942b9320dca",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2220.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:001106ab12a7ddd73f50",
+      "collocation:d97bedcc67d0b4e15950",
       "collocation:64a52f8932e28253bc4e",
       "collocation:7e920491f89e6fac94de",
       "collocation:9604e6bd3553ffe5fb24",
-      "collocation:d97bedcc67d0b4e15950"
+      "collocation:22a767f61fb89c9a7f9b"
     ],
     "facts": [],
     "collocations": [
@@ -405,6 +486,13 @@
         "id": "collocation:d97bedcc67d0b4e15950",
         "source_row": 18396,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:22a767f61fb89c9a7f9b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2220.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [

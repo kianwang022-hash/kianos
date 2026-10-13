@@ -14,17 +14,49 @@
         "meaning_cn": "完全不知道；毫无头绪",
         "definition_en": "to not know something at all",
         "pattern": "have no idea (about/of sth) / have no idea + wh-clause",
-        "source_sense_id": "sense:idea:6165e8c8f0555a2d",
-        "boundary": "fixed lack-of-knowledge pattern; distinct from idea = suggestion/plan"
+        "boundary": "fixed lack-of-knowledge idiom with its own phrase meaning; not a suggestion or plan"
+      },
+      {
+        "construction_id": "construction:35eec0155d43d1ae7be4",
+        "pattern": "you have no idea how/what ...",
+        "meaning_cn": "你难以想象……；强调程度或情况",
+        "definition_en": "used to emphasize how hard something is for another person to imagine",
+        "usage_note": "强调框架，区别于单纯have no idea“不知道答案”；例如 you have no idea how relieved I felt。",
+        "boundary": "强调框架，区别于单纯have no idea“不知道答案”；例如 you have no idea how relieved I felt。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:1b3157096a907930f095",
+        "pattern": "that’s the idea!",
+        "meaning_cn": "对，就是这样！",
+        "definition_en": "used to encourage someone by saying they are doing something correctly",
+        "usage_note": "鼓励反馈；that’s an idea常是赞同一项建议，不能机械互换。",
+        "boundary": "鼓励反馈；that’s an idea常是赞同一项建议，不能机械互换。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "20e099e82f5f6e957d3d3442249ccab085f72708181b040074d2fb2c81684450",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "头脑中形成的想法或概念",
-      "core_meaning_en": "a thought or concept formed in the mind",
-      "mental_model_cn": "idea → 主意/想法/计划；have no idea → 完全不知道、毫无头绪。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "主意；想法；计划；意见；看法；印象；对某人或某事的大致了解或想象；猜想；对某事可能属实的感觉；（the idea）目的；意图",
+          "label_en": "a thought, plan, or suggestion about what to do; a personal opinion or belief; a mental impression of what someone or something is like; a feeling that something may be true or possible; the purpose of doing something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:idea:6165e8c8f0555a2d",
+            "sense:idea:94f818b67cf750e9",
+            "sense:idea:d9949a880e94b3e5",
+            "sense:idea:d78e301715050bcb",
+            "sense:idea:6251e39da0f35cee"
+          ]
+        }
+      ],
+      "core_meaning_cn": "主意／意见；印象或大致了解；猜想；目的",
+      "core_meaning_en": "a suggestion or opinion; an impression or rough understanding; a feeling; a purpose",
+      "mental_model_cn": "idea 可以是主意、观点、印象、猜想或目的；have no idea既有不知道的用法，you have no idea how ... 还可强调难以想象的程度。",
+      "mental_model_en": "a suggestion or opinion; an impression or rough understanding; a feeling; a purpose."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -90,6 +122,78 @@
         "sense_label_en": "a personal opinion or belief",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:idea:d9949a880e94b3e5",
+        "pos": "noun",
+        "definition_cn": "印象；对某人或某事的大致了解或想象",
+        "definition_en": "a mental impression of what someone or something is like",
+        "sense_label_en": "a mental impression of what someone or something is like",
+        "governing_pattern": "an idea of sth/what/how ...",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0301aac21ce759e7c1fe",
+            "phrase": "The photos give us an idea of the room’s size.",
+            "meaning_cn": "这些照片让我们大致了解房间的大小。",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:6438b40a572025fd1a7f",
+            "phrase": "get the wrong idea",
+            "meaning_cn": "产生错误印象",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:idea:d78e301715050bcb",
+        "pos": "noun",
+        "definition_cn": "猜想；对某事可能属实的感觉",
+        "definition_en": "a feeling that something may be true or possible",
+        "sense_label_en": "a feeling that something may be true or possible",
+        "governing_pattern": "an idea that ...; an idea where/who ... (singular)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:51bd7ebdd70d71a77b6e",
+            "phrase": "I have an idea who sent the message.",
+            "meaning_cn": "我大致猜到是谁发了这条消息。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:idea:6251e39da0f35cee",
+        "pos": "noun",
+        "definition_cn": "（the idea）目的；意图",
+        "definition_en": "the purpose of doing something",
+        "sense_label_en": "the purpose of doing something",
+        "governing_pattern": "the idea of/behind sth; with the idea of doing sth (singular)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:95ddaffdbfdec5d2b5e8",
+            "phrase": "The idea is to make the instructions easier to follow.",
+            "meaning_cn": "目的是让说明更容易理解。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -129,6 +233,57 @@
           "applicability": [
             {
               "surface": "idea"
+            },
+            {
+              "surface": "idea",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idea:d9949a880e94b3e5"
+              ],
+              "owner_sense_ids": [
+                "sense:idea:d9949a880e94b3e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2426.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an idea of sth/what/how ..."
+            },
+            {
+              "surface": "idea",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idea:d78e301715050bcb"
+              ],
+              "owner_sense_ids": [
+                "sense:idea:d78e301715050bcb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2426.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an idea that ...; an idea where/who ... (singular)"
+            },
+            {
+              "surface": "idea",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idea:6251e39da0f35cee"
+              ],
+              "owner_sense_ids": [
+                "sense:idea:6251e39da0f35cee"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2426.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the idea of/behind sth; with the idea of doing sth (singular)"
             }
           ],
           "sources": [
@@ -291,12 +446,40 @@
         "merged_into_sense_id": null,
         "source_row": 6759,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:idea:d9949a880e94b3e5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:idea:d78e301715050bcb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:idea:6251e39da0f35cee",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
+      "collocation:ff877a8409a237e03271",
       "collocation:5832ad801f8484e318a6",
       "collocation:c472bd3e31441003f6ea",
-      "collocation:ff877a8409a237e03271"
+      "collocation:0301aac21ce759e7c1fe",
+      "collocation:6438b40a572025fd1a7f",
+      "collocation:51bd7ebdd70d71a77b6e",
+      "collocation:95ddaffdbfdec5d2b5e8"
     ],
     "facts": [],
     "collocations": [
@@ -314,6 +497,34 @@
         "id": "collocation:ff877a8409a237e03271",
         "source_row": 21594,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:0301aac21ce759e7c1fe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:6438b40a572025fd1a7f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/2/collocations/1"
+      },
+      {
+        "id": "collocation:51bd7ebdd70d71a77b6e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:95ddaffdbfdec5d2b5e8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2426.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

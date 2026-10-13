@@ -11,28 +11,31 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "田地，田野；领域，界；实地，野外；场（物理）；行业，商业领域",
-          "label_en": "an area of land used for growing crops or keeping animals; a particular subject or area of activity or interest; a place where practical work is done or data is collected, away from the office or laboratory; a region in which a force such as electricity or magnetism has an effect; a particular kind of commercial enterprise",
+          "label_cn": "田地，田野；领域，界；实地，野外；场（物理）；运动场；比赛场地；（表单或数据记录中的）字段、信息项",
+          "label_en": "an area of land used for growing crops or keeping animals; a particular subject or area of activity or interest; a place where practical work is done or data is collected, away from the office or laboratory; a region in which a force such as electricity or magnetism has an effect; an area used for playing an outdoor sport; a space for entering or storing one item of information in a form or data record",
           "pos": "noun",
           "sense_ids": [
             "sense:field:5d4a9f321d955fc6",
             "sense:field:924ecede2ba856aa",
             "sense:field:66f374d975e75695",
-            "sense:field:233f65d94fa85ab9"
+            "sense:field:233f65d94fa85ab9",
+            "sense:field:95ff4edd890691a3",
+            "sense:field:f91f0dbda8991aee"
           ]
         },
         {
-          "label_cn": "接（球）；处理，应付",
-          "label_en": "to catch or deal with a ball in sports; to handle or answer questions",
+          "label_cn": "接（球）；处理，应付；派出（参赛队员、队伍）；推出（候选人）",
+          "label_en": "to catch or deal with a ball in sports; to handle or answer questions; to put forward players, a team, or candidates to take part",
           "pos": "verb",
           "sense_ids": [
-            "sense:field:034372e675c05395"
+            "sense:field:034372e675c05395",
+            "sense:field:92bc4a65c5cbf228"
           ]
         }
       ],
-      "core_meaning_cn": "田地或领域",
-      "core_meaning_en": "an area of land or a domain of activity",
-      "mental_model_cn": "田地或领域",
+      "core_meaning_cn": "田地、场地或领域；字段；处理或派出",
+      "core_meaning_en": "land, a playing field or domain; a data field; handle or put forward",
+      "mental_model_cn": "土地/运动场与研究领域、实地、物理场按语境读；表单field是字段。field questions是应对问题，field a team/candidate是派出参赛/参选人选。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,15 +48,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:c522794849b7aab3e671",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:field:5d4a9f321d955fc6:collocation:0"
-            ],
-            "meaning_cn": "在田野里；在野外",
-            "phrase": "in the field"
-          },
           {
             "collocation_id": "collocation:70dda7c3f2f91b2332cd",
             "exam_value": "usage_example",
@@ -137,6 +131,15 @@
             ],
             "meaning_cn": "实地研究",
             "phrase": "field research"
+          },
+          {
+            "collocation_id": "collocation:c522794849b7aab3e671",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:field:5d4a9f321d955fc6:collocation:0"
+            ],
+            "meaning_cn": "在实地／实际工作环境中（相对于办公室或实验室）",
+            "phrase": "in the field"
           }
         ],
         "confidence": "medium",
@@ -147,7 +150,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:field:66f374d975e75695",
-        "sense_label_en": "a place where practical work is done or data is collected, away from the",
+        "sense_label_en": "a place where practical work is done or data is collected, away from the office or laboratory",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -216,6 +219,72 @@
         "sense_label_en": "to catch or deal with a ball in sports; to handle or answer questions",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:field:95ff4edd890691a3",
+        "pos": "noun",
+        "definition_cn": "运动场；比赛场地",
+        "definition_en": "an area used for playing an outdoor sport",
+        "sense_label_en": "an area used for playing an outdoor sport",
+        "governing_pattern": "countable: a football/baseball field",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1c6f105f089cc6ec4666",
+            "phrase": "a football field",
+            "meaning_cn": "足球场",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:field:f91f0dbda8991aee",
+        "pos": "noun",
+        "definition_cn": "（表单或数据记录中的）字段、信息项",
+        "definition_en": "a space for entering or storing one item of information in a form or data record",
+        "sense_label_en": "a space for entering or storing one item of information in a form or data record",
+        "governing_pattern": "countable: a search/name/address field",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8f6136db03978ccf49bf",
+            "phrase": "a required field",
+            "meaning_cn": "必填字段",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:field:92bc4a65c5cbf228",
+        "pos": "verb",
+        "definition_cn": "派出（参赛队员、队伍）；推出（候选人）",
+        "definition_en": "to put forward players, a team, or candidates to take part",
+        "sense_label_en": "to put forward players, a team, or candidates to take part",
+        "governing_pattern": "field a team/player/candidate",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1587dd9e4d47da960ed3",
+            "phrase": "field a strong team",
+            "meaning_cn": "派出一支强队",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -256,6 +325,57 @@
           "applicability": [
             {
               "surface": "field"
+            },
+            {
+              "surface": "field",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:field:95ff4edd890691a3"
+              ],
+              "owner_sense_ids": [
+                "sense:field:95ff4edd890691a3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1915.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "countable: a football/baseball field"
+              }
+            },
+            {
+              "surface": "field",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:field:f91f0dbda8991aee"
+              ],
+              "owner_sense_ids": [
+                "sense:field:f91f0dbda8991aee"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1915.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "countable: a search/name/address field"
+              }
+            },
+            {
+              "surface": "field",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:field:92bc4a65c5cbf228"
+              ],
+              "owner_sense_ids": [
+                "sense:field:92bc4a65c5cbf228"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1915.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "field a team/player/candidate"
+              }
             }
           ],
           "sources": [
@@ -480,6 +600,30 @@
         "merged_into_sense_id": null,
         "source_row": 5266,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      },
+      {
+        "sense_id": "sense:field:95ff4edd890691a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:field:f91f0dbda8991aee",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:field:92bc4a65c5cbf228",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
@@ -540,7 +684,8 @@
       {
         "id": "collocation:c522794849b7aab3e671",
         "source_row": 16694,
-        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json",
+        "sense_id": "sense:field:66f374d975e75695"
       },
       {
         "id": "collocation:da91266f116c288bda23",
@@ -551,6 +696,27 @@
         "id": "collocation:f095c392066bcf578b18",
         "source_row": 20382,
         "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:1c6f105f089cc6ec4666",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:8f6136db03978ccf49bf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:1587dd9e4d47da960ed3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1915.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

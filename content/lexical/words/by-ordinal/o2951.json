@@ -44,15 +44,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:e7ae727eaba914088238",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:manufacture:b89f7048cccc5117:collocation:0"
-            ],
-            "meaning_cn": "制造某物",
-            "phrase": "manufacture + sth"
-          },
-          {
             "collocation_id": "collocation:a25b1141a2d5f03aa7d4",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -72,7 +63,18 @@
         "sense_id": "sense:manufacture:b89f7048cccc5117",
         "sense_label_en": "to make or produce goods in large quantities, especially by machine",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:e7ae727eaba914088238",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:manufacture:b89f7048cccc5117:collocation:0"
+            ],
+            "meaning_cn": "制造某物",
+            "phrase": "manufacture + sth"
+          }
+        ]
       },
       {
         "collocations": [
@@ -823,8 +825,7 @@
       "collocation:63fca7990249b1af5f76",
       "collocation:71b60be4b202dd5a9cc0",
       "collocation:a25b1141a2d5f03aa7d4",
-      "collocation:d0ef432e45f66bb3c7f8",
-      "collocation:e7ae727eaba914088238"
+      "collocation:d0ef432e45f66bb3c7f8"
     ],
     "facts": [],
     "collocations": [
@@ -851,7 +852,9 @@
       {
         "id": "collocation:e7ae727eaba914088238",
         "source_row": 19637,
-        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "f4f8ee1d1177766e7026f250bbae20bdb1b126cca16a0ddda78950ea9ad10f7a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "期待",
-      "core_meaning_en": "belief about the future",
-      "mental_model_cn": "期待",
+      "core_clusters": [
+        {
+          "label_cn": "未来预期、期待",
+          "label_en": "beliefs or hopes about future events",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:expectation:745f62f19d0c5fbd"
+          ]
+        },
+        {
+          "label_cn": "行为或表现要求",
+          "label_en": "standards considered proper",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:expectation:a0ea45555a67b80b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "预期、期待；应达到的要求",
+      "core_meaning_en": "beliefs about what will happen; standards considered proper",
+      "mental_model_cn": "对未来的判断是预期；对人应如何表现的expectations是要求达到的标准，常与meet/live up to连用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +72,28 @@
         "sense_label_en": "a strong belief that something will happen",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:expectation:a0ea45555a67b80b",
+        "pos": "noun",
+        "definition_cn": "对行为或表现应达到的要求、期望",
+        "definition_en": "a belief about how someone should behave or what standard should be met",
+        "sense_label_en": "a belief about how someone should behave or what standard should be met",
+        "governing_pattern": "usually plural: expectations of sb; meet/live up to expectations",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:afd33ee4d6f1dc6c2719",
+            "phrase": "live up to their expectations",
+            "meaning_cn": "达到他们的期望",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -102,6 +141,23 @@
           "applicability": [
             {
               "surface": "expectation"
+            },
+            {
+              "surface": "expectation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:expectation:a0ea45555a67b80b"
+              ],
+              "owner_sense_ids": [
+                "sense:expectation:a0ea45555a67b80b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1787.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "usually plural: expectations of sb; meet/live up to expectations"
+              }
             }
           ],
           "sources": [
@@ -186,6 +242,14 @@
         "merged_into_sense_id": null,
         "source_row": 4895,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:expectation:a0ea45555a67b80b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1787.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -208,6 +272,13 @@
         "id": "collocation:6aed1104c2d5ad06ec3c",
         "source_row": 9002,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:afd33ee4d6f1dc6c2719",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1787.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

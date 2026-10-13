@@ -6,17 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a8433be0a74db9ae69b5",
+        "pattern": "knit your brow(s)",
+        "meaning_cn": "皱眉（表示专注、愤怒等）",
+        "definition_en": "to draw your eyebrows together when concentrating, feeling angry, or similar",
+        "usage_note": "brow/brows 是宾语；She knitted her brows in thought. = 她思索着皱起眉。不是织毛衣，也不是断骨愈合。",
+        "boundary": "brow/brows 是宾语；She knitted her brows in thought. = 她思索着皱起眉。不是织毛衣，也不是断骨愈合。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "3e4e53a7efef1e69cd8e9f00e490d3b65153b9f3965f5ceb0b903f7c9e92a311",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "编织（衣物等）；紧密结合",
-          "label_en": "to make a piece of clothing or fabric by interlocking loops of yarn with needles; to join closely or become united",
+          "label_cn": "针织；编织衣物或织物；紧密结合；（使断骨）重新愈合",
+          "label_en": "to make fabric or clothing by interlocking loops of yarn using needles or a machine; to join closely or become united; for broken bones to grow back together, or to make them do so",
           "pos": "verb",
           "sense_ids": [
             "sense:knit:b94b69c656565ed4",
-            "sense:knit:99b8b79324ea5bf0"
+            "sense:knit:99b8b79324ea5bf0",
+            "sense:knit:07441aacc963115b"
           ]
         },
         {
@@ -28,10 +40,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "编织",
-      "core_meaning_en": "to make something by interlocking loops of yarn",
-      "mental_model_cn": "编织",
-      "mental_model_en": ""
+      "core_meaning_cn": "针织；紧密结合；（使断骨）愈合；针织物",
+      "core_meaning_en": "to knit fabric, join closely, or mend broken bones; knitted material",
+      "mental_model_cn": "线圈 → 针织；人/事 → 紧密结合；断骨 → knit (together) 愈合；knit your brows → 皱眉。noun knit → 针织物。",
+      "mental_model_en": "to knit fabric, join closely, or mend broken bones; knitted material."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -51,28 +63,19 @@
             ],
             "meaning_cn": "织毛衣",
             "phrase": "knit a sweater"
-          },
-          {
-            "collocation_id": "collocation:15d70b7e5860f92a54b9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:knit:b94b69c656565ed4:collocation:1"
-            ],
-            "meaning_cn": "把…编织在一起",
-            "phrase": "knit sth together"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "编织（衣物等）",
-        "definition_en": "to make a piece of clothing or fabric by interlocking loops of yarn with needles",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "针织；编织衣物或织物",
+        "definition_en": "to make fabric or clothing by interlocking loops of yarn using needles or a machine",
+        "governing_pattern": "knit; knit sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:knit:b94b69c656565ed4",
-        "sense_label_en": "to make a piece of clothing or fabric by interlocking loops of yarn with",
+        "sense_label_en": "to make fabric or clothing by interlocking loops of yarn using needles or a machine",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -84,19 +87,28 @@
             ],
             "meaning_cn": "紧密结合",
             "phrase": "knit together"
+          },
+          {
+            "collocation_id": "collocation:15d70b7e5860f92a54b9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:knit:b94b69c656565ed4:collocation:1"
+            ],
+            "meaning_cn": "把人或事物紧密结合在一起",
+            "phrase": "knit sth together"
           }
         ],
         "confidence": "medium",
         "definition_cn": "紧密结合",
         "definition_en": "to join closely or become united",
-        "governing_pattern": "vi. + together",
+        "governing_pattern": "knit (sb/sth) together; things knit together",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:knit:99b8b79324ea5bf0",
         "sense_label_en": "to join closely or become united",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [],
@@ -111,6 +123,29 @@
         "sense_label_en": "a fabric or garment made by knitting",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:knit:07441aacc963115b",
+        "pos": "verb",
+        "definition_cn": "（使断骨）重新愈合",
+        "definition_en": "for broken bones to grow back together, or to make them do so",
+        "sense_label_en": "for broken bones to grow back together, or to make them do so",
+        "governing_pattern": "bones knit (together); knit a broken bone",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:43c7ba4b08980c574507",
+            "phrase": "The bones have knit together.",
+            "meaning_cn": "断骨已重新愈合。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "骨骼语境；此义过去式和过去分词通常用 knit。针织衣物时常用 knitted，不机械套用同一个过去式偏好。"
       }
     ],
     "verification_summary": {
@@ -160,6 +195,23 @@
           "applicability": [
             {
               "surface": "knit"
+            },
+            {
+              "surface": "knit",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:knit:07441aacc963115b"
+              ],
+              "owner_sense_ids": [
+                "sense:knit:07441aacc963115b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2722.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "bones knit (together); knit a broken bone"
             }
           ],
           "sources": [
@@ -256,19 +308,29 @@
         "merged_into_sense_id": null,
         "source_row": 7521,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:knit:07441aacc963115b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2722.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:15d70b7e5860f92a54b9",
       "collocation:4862ac14aeaa337c002a",
-      "collocation:c5837672a9ebefb85ea6"
+      "collocation:c5837672a9ebefb85ea6",
+      "collocation:15d70b7e5860f92a54b9",
+      "collocation:43c7ba4b08980c574507"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:15d70b7e5860f92a54b9",
         "source_row": 1806,
-        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json",
+        "sense_id": "sense:knit:99b8b79324ea5bf0"
       },
       {
         "id": "collocation:4862ac14aeaa337c002a",
@@ -279,6 +341,13 @@
         "id": "collocation:c5837672a9ebefb85ea6",
         "source_row": 16720,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:43c7ba4b08980c574507",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2722.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

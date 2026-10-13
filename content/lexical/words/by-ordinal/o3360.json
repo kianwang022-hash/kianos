@@ -16,6 +16,30 @@
         "meaning_cn": "别无选择，只能做某事",
         "pattern": "have no option but to do sth",
         "source_sense_id": "sense:option:d759cdd5124b5c2d"
+      },
+      {
+        "construction_id": "construction:f205ef90cf66cecb929c",
+        "pattern": "keep/leave one’s options open",
+        "meaning_cn": "保留选择余地；暂不作最后决定",
+        "definition_en": "avoid deciding yet so that later choices remain possible",
+        "usage_note": "暂不定案，以保留以后选择其他方案的机会。",
+        "boundary": "暂不定案，以保留以后选择其他方案的机会。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:90c53d1af2cf88abeb78",
+        "pattern": "the easy/soft option",
+        "meaning_cn": "较省力、容易的选择（常含不赞成）",
+        "definition_en": "a choice requiring less effort or difficulty",
+        "usage_note": "常暗示避难就易；是否不赞成由上下文决定。",
+        "boundary": "常暗示避难就易；是否不赞成由上下文决定。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
       }
     ],
     "content_hash": "c751caab28cc6a7ef60b90b9216ed2babec80f0fbdfc327ff07230308d63472d",
@@ -44,12 +68,20 @@
           "sense_ids": [
             "sense:option:427e072a62075197"
           ]
+        },
+        {
+          "label_cn": "选修科目",
+          "label_en": "a subject chosen by a student",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:option:a2047fb7b407f88f"
+          ]
         }
       ],
-      "core_meaning_cn": "选择；选项；选择权；期权",
-      "core_meaning_en": "a choice or alternative; the right to choose; a financial option",
-      "mental_model_cn": "选择；选项；选择权；期权",
-      "mental_model_en": ""
+      "core_meaning_cn": "选项或选择权；选修科目；购买/出售期权",
+      "core_meaning_en": "a choice or freedom to choose; an optional subject; a contractual buying or selling right",
+      "mental_model_cn": "have the option to do/of doing有选择余地，course options是选修科目；金融或合同语境的option说购买、出售的权利。keep options open说暂不定案。",
+      "mental_model_en": "a choice or freedom to choose; an optional subject; a contractual buying or selling right."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -76,13 +108,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "选项；选择",
-        "definition_en": "one of a number of things from which only one can be chosen",
+        "definition_en": "a possible choice or course of action",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:option:d759cdd5124b5c2d",
-        "sense_label_en": "one of a number of things from which only one can be chosen",
+        "sense_label_en": "a possible choice or course of action",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -142,6 +174,33 @@
         "sense_label_en": "the right or ability to choose between alternatives",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:option:a2047fb7b407f88f",
+        "pos": "noun",
+        "definition_cn": "选修科目；选修课",
+        "definition_en": "a subject that a student may choose to study",
+        "sense_label_en": "a subject that a student may choose to study",
+        "governing_pattern": "an option in a subject; course options",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:36ddbe382011890b3e4b",
+            "phrase": "an option in design",
+            "meaning_cn": "设计方面的选修科目",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -222,6 +281,24 @@
           "applicability": [
             {
               "surface": "option"
+            },
+            {
+              "surface": "option",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:option:a2047fb7b407f88f"
+              ],
+              "owner_sense_ids": [
+                "sense:option:a2047fb7b407f88f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3360.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an option in a subject; course options",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -307,6 +384,24 @@
           "applicability": [
             {
               "surface": "option"
+            },
+            {
+              "surface": "option",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:option:a2047fb7b407f88f"
+              ],
+              "owner_sense_ids": [
+                "sense:option:a2047fb7b407f88f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3360.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an option in a subject; course options",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -401,13 +496,22 @@
         "merged_into_sense_id": null,
         "source_row": 9333,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:option:a2047fb7b407f88f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3360.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:22b3c9e093d0f00b3ee4",
-      "collocation:6c801f2fad9b75b2baad",
       "collocation:c562b2a6d26cb040ee9d",
-      "collocation:fd4def42b271b146a261"
+      "collocation:6c801f2fad9b75b2baad",
+      "collocation:fd4def42b271b146a261",
+      "collocation:22b3c9e093d0f00b3ee4",
+      "collocation:36ddbe382011890b3e4b"
     ],
     "facts": [
       {
@@ -441,6 +545,13 @@
         "id": "collocation:22b3c9e093d0f00b3ee4",
         "source_row": 21471,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:36ddbe382011890b3e4b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3360.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

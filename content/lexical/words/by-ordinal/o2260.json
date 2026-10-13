@@ -12,26 +12,27 @@
       "core_clusters": [
         {
           "label_cn": "港口；港湾",
-          "label_en": "a place on the coast where ships may moor in shelter",
+          "label_en": "a sheltered area of water where boats or ships can stay safely",
           "pos": "noun",
           "sense_ids": [
             "sense:harbor:959beded1bd55258"
           ]
         },
         {
-          "label_cn": "庇护；藏匿；怀有（想法或感情）",
-          "label_en": "to give shelter to; to protect secretly; to maintain or entertain (a thought or feeling) secretly",
+          "label_cn": "庇护；藏匿；怀有（想法或感情，往往未公开）；容纳（生物等）并让其生存或发展",
+          "label_en": "to give shelter to; to protect secretly; to keep a thought or feeling, often privately; to contain something and allow it to live or develop",
           "pos": "verb",
           "sense_ids": [
             "sense:harbor:d2eb9e2943795bdc",
-            "sense:harbor:fac77f5b993c5007"
+            "sense:harbor:fac77f5b993c5007",
+            "sense:harbor:d81dad3c7740eb99"
           ]
         }
       ],
-      "core_meaning_cn": "港口；庇护；怀有",
-      "core_meaning_en": "a place of shelter for ships; to shelter or hold secretly",
-      "mental_model_cn": "港口；庇护；怀有",
-      "mental_model_en": ""
+      "core_meaning_cn": "港口；庇护藏匿、心怀或容纳生物",
+      "core_meaning_en": "a sheltered port; shelter, retain thoughts, or contain organisms",
+      "mental_model_cn": "harbor可藏匿人或心怀想法，也可容纳生物；harbour为同词英式拼写。",
+      "mental_model_en": "a sheltered port; shelter, retain thoughts, or contain organisms."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -58,7 +59,7 @@
         ],
         "confidence": "medium",
         "definition_cn": "港口；港湾",
-        "definition_en": "a place on the coast where ships may moor in shelter",
+        "definition_en": "a sheltered area of water where boats or ships can stay safely",
         "governing_pattern": "",
         "level": "L1",
         "lexical_identity_overlay": {
@@ -71,7 +72,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:harbor:959beded1bd55258",
-        "sense_label_en": "a place on the coast where ships may moor in shelter",
+        "sense_label_en": "a sheltered area of water where boats or ships can stay safely",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -112,16 +113,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "怀有（想法或感情）",
-        "definition_en": "to maintain or entertain (a thought or feeling) secretly",
+        "definition_cn": "怀有（想法或感情，往往未公开）",
+        "definition_en": "to keep a thought or feeling, often privately",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:harbor:fac77f5b993c5007",
-        "sense_label_en": "to maintain or entertain (a thought or feeling) secretly",
+        "sense_label_en": "to keep a thought or feeling, often privately",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:harbor:d81dad3c7740eb99",
+        "pos": "verb",
+        "definition_cn": "容纳（生物等）并让其生存或发展",
+        "definition_en": "to contain something and allow it to live or develop",
+        "sense_label_en": "to contain something and allow it to live or develop",
+        "governing_pattern": "harbor organisms",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:324ccc6fe223aef3e72e",
+            "phrase": "The woodland harbors rare insects.",
+            "meaning_cn": "这片林地有罕见昆虫生存。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -180,6 +203,23 @@
           "applicability": [
             {
               "surface": "harbor"
+            },
+            {
+              "surface": "harbor",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:harbor:d81dad3c7740eb99"
+              ],
+              "owner_sense_ids": [
+                "sense:harbor:d81dad3c7740eb99"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2260.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "harbor organisms"
             }
           ],
           "sources": [
@@ -361,12 +401,21 @@
         "merged_into_sense_id": null,
         "source_row": 6311,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:harbor:d81dad3c7740eb99",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2260.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:e5fa539d781b1c9c28cf",
       "collocation:04ddad9ad98eae78fb4f",
       "collocation:7d2382457da3b9ec2c53",
-      "collocation:e5fa539d781b1c9c28cf"
+      "collocation:324ccc6fe223aef3e72e"
     ],
     "facts": [],
     "collocations": [
@@ -384,6 +433,13 @@
         "id": "collocation:e5fa539d781b1c9c28cf",
         "source_row": 19479,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:324ccc6fe223aef3e72e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2260.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

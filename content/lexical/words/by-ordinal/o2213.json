@@ -22,35 +22,36 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "总收入；总额（未扣除前）",
-          "label_en": "the total income or amount before deductions",
+          "label_cn": "总收入，总额（未扣除前的）",
+          "label_en": "the entire amount of income before any deductions are made",
           "pos": "noun",
           "sense_ids": [
             "sense:gross:6101087d70ce5ac1"
           ]
         },
         {
-          "label_cn": "总的，毛的（未扣除的）；粗野的，恶劣的",
-          "label_en": "before any deductions; very rude or offensive; coarse",
+          "label_cn": "总的，毛的（未扣除的）；粗俗的；令人恶心的；恶劣的；严重而明显不可接受的（置名词前）",
+          "label_en": "before any deductions; very rude, offensive, unpleasant, or disgusting; flagrant and seriously unacceptable",
           "pos": "adjective",
           "sense_ids": [
             "sense:gross:4ffb9673e9245642",
-            "sense:gross:edac74577c725c5b"
+            "sense:gross:edac74577c725c5b",
+            "sense:gross:be88d0a07ab1cbb0"
           ]
         },
         {
-          "label_cn": "总共收入，毛利为",
-          "label_en": "to earn an amount of money before taxes or costs are taken away",
+          "label_cn": "总共收入；取得……毛收入",
+          "label_en": "to earn or take in an amount before relevant taxes or expenses are deducted",
           "pos": "verb",
           "sense_ids": [
             "sense:gross:816e14f311f9573b"
           ]
         }
       ],
-      "core_meaning_cn": "总额/毛额；总的；粗俗或恶心的",
-      "core_meaning_en": "total amount before deductions; coarse or vulgar",
-      "mental_model_cn": "finance → 未扣除前的总额/毛额；informal evaluation → 粗俗、恶心；gross sb out → 使人恶心。计数单位“一罗=144”保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "未扣除的总额或总收入；粗俗恶心；严重明显的不当",
+      "core_meaning_en": "total before deductions or gross income; disgusting or coarse; flagrantly unacceptable",
+      "mental_model_cn": "gross可为未扣除的总计，也可为粗俗恶心评价；gross misconduct为严重而明显的不当行为。",
+      "mental_model_en": "total before deductions or gross income; disgusting or coarse; flagrantly unacceptable."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -61,26 +62,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3fad2ec1a98a43168ecc",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gross:6101087d70ce5ac1:collocation:0"
-            ],
-            "meaning_cn": "总收入",
-            "phrase": "gross income"
-          },
-          {
-            "collocation_id": "collocation:df2a506c57f231525c52",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:gross:6101087d70ce5ac1:collocation:1"
-            ],
-            "meaning_cn": "毛利",
-            "phrase": "gross profit"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "总收入，总额（未扣除前的）",
         "definition_en": "the entire amount of income before any deductions are made",
@@ -112,6 +94,24 @@
             ],
             "meaning_cn": "国内生产总值",
             "phrase": "gross domestic product"
+          },
+          {
+            "collocation_id": "collocation:3fad2ec1a98a43168ecc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:gross:6101087d70ce5ac1:collocation:0"
+            ],
+            "meaning_cn": "总收入",
+            "phrase": "gross income"
+          },
+          {
+            "collocation_id": "collocation:df2a506c57f231525c52",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:gross:6101087d70ce5ac1:collocation:1"
+            ],
+            "meaning_cn": "毛利",
+            "phrase": "gross profit"
           }
         ],
         "confidence": "medium",
@@ -163,16 +163,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "总共收入，毛利为",
-        "definition_en": "to earn an amount of money before taxes or costs are taken away",
+        "definition_cn": "总共收入；取得……毛收入",
+        "definition_en": "to earn or take in an amount before relevant taxes or expenses are deducted",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:gross:816e14f311f9573b",
-        "sense_label_en": "to earn an amount of money before taxes or costs are taken away",
+        "sense_label_en": "to earn or take in an amount before relevant taxes or expenses are deducted",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:gross:be88d0a07ab1cbb0",
+        "pos": "adjective",
+        "definition_cn": "严重而明显不可接受的（置名词前）",
+        "definition_en": "flagrant and seriously unacceptable",
+        "sense_label_en": "flagrant and seriously unacceptable",
+        "governing_pattern": "gross negligence/misconduct",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8f76139abb26f9e9665f",
+            "phrase": "gross misconduct",
+            "meaning_cn": "严重不当行为",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "仅置名词前；gross negligence为严重疏忽，gross misconduct为严重不当行为。不是总额gross，也不是恶心的口语评价。"
       }
     ],
     "verification_summary": {
@@ -214,6 +237,23 @@
           "applicability": [
             {
               "surface": "gross"
+            },
+            {
+              "surface": "gross",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:gross:be88d0a07ab1cbb0"
+              ],
+              "owner_sense_ids": [
+                "sense:gross:be88d0a07ab1cbb0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2213.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "gross negligence/misconduct"
+              }
             }
           ],
           "sources": [
@@ -495,15 +535,24 @@
         "merged_into_sense_id": null,
         "source_row": 6178,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:gross:be88d0a07ab1cbb0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2213.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:3fad2ec1a98a43168ecc",
-      "collocation:5cd88773940d191f46c8",
-      "collocation:6a719eed1752bfaba5b0",
       "collocation:a1384413eb00a07024df",
       "collocation:ac4fc444cb486eb29f2c",
-      "collocation:df2a506c57f231525c52"
+      "collocation:3fad2ec1a98a43168ecc",
+      "collocation:df2a506c57f231525c52",
+      "collocation:6a719eed1752bfaba5b0",
+      "collocation:5cd88773940d191f46c8",
+      "collocation:8f76139abb26f9e9665f"
     ],
     "facts": [],
     "collocations": [
@@ -517,7 +566,8 @@
       {
         "id": "collocation:3fad2ec1a98a43168ecc",
         "source_row": 5395,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "sense_id": "sense:gross:4ffb9673e9245642"
       },
       {
         "id": "collocation:5cd88773940d191f46c8",
@@ -542,7 +592,15 @@
       {
         "id": "collocation:df2a506c57f231525c52",
         "source_row": 18887,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "sense_id": "sense:gross:4ffb9673e9245642"
+      },
+      {
+        "id": "collocation:8f76139abb26f9e9665f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2213.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

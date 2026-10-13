@@ -27,6 +27,14 @@
             "sense:pirate:5aaaa62c49455154",
             "sense:pirate:1645da9c4f39550b"
           ]
+        },
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pirate:2fec5111fd277eb7"
+          ],
+          "label_cn": "盗版者；非法复制他人作品的人",
+          "label_en": "a person who unlawfully copies another person's work"
         }
       ],
       "core_meaning_cn": "海上抢劫者或非法复制者",
@@ -74,8 +82,14 @@
             "legacy_source_object_ids": [
               "sense:pirate:5aaaa62c49455154:collocation:0"
             ],
-            "meaning_cn": "盗版软件",
-            "phrase": "pirate software"
+            "meaning_cn": "非法复制软件",
+            "phrase": "pirate software",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/pirate",
+                "role": "transitive verb requires an action translation"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -98,8 +112,14 @@
             "legacy_source_object_ids": [
               "sense:pirate:af110834cfd05f23:collocation:0"
             ],
-            "meaning_cn": "海盗袭击了商船",
-            "phrase": "the pirates attacked the merchant vessel"
+            "meaning_cn": "那艘海盗船在风暴中沉没了。",
+            "phrase": "The pirate sank in the storm.",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/pirate",
+                "role": "vessel sense; example authored, not quoted"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -112,7 +132,8 @@
         "sense_id": "sense:pirate:af110834cfd05f23",
         "sense_label_en": "a ship that is manned by pirates",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "本例按pirate的海盗船义理解；sank本身不足以排除指人的读法，仍需船只上下文。另有指人的海盗义，不能混为同一例示。"
       },
       {
         "collocations": [
@@ -137,6 +158,39 @@
         "sense_label_en": "act as a pirate; engage in piracy",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:pirate:2fec5111fd277eb7",
+        "pos": "noun",
+        "definition_cn": "盗版者；非法复制他人作品的人",
+        "definition_en": "a person who unlawfully copies another person's work",
+        "sense_label_en": "a person who unlawfully copies another person's work",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pirate:698dc412e70350ce",
+            "phrase": "publishers fighting software pirates",
+            "meaning_cn": "打击软件盗版者的出版商",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pirate_1",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "software/books语境下的pirates可以指盗版者，与海上抢劫者不同。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pirate_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -530,13 +584,20 @@
         "merged_into_sense_id": null,
         "source_row": 10036,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
+      {
+        "sense_id": "sense:pirate:2fec5111fd277eb7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3613.json"
       }
     ],
     "active_collocations": [
       "collocation:2024c4670e668d8d9358",
       "collocation:25e95b244ffb9053305c",
       "collocation:34a1d47d6435c23094f7",
-      "collocation:b79338cce0150254b246"
+      "collocation:b79338cce0150254b246",
+      "collocation:pirate:698dc412e70350ce"
     ],
     "facts": [],
     "collocations": [
@@ -559,6 +620,10 @@
         "id": "collocation:b79338cce0150254b246",
         "source_row": 15569,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:pirate:698dc412e70350ce",
+        "source_path": "content/lexical/words/by-ordinal/o3613.json"
       }
     ],
     "exam-mappings": [],

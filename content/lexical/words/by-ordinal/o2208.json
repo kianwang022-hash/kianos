@@ -22,34 +22,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "磨碎；碾碎",
-          "label_en": "reduce to small pieces or particles by grinding",
+          "label_cn": "磨碎；碾碎；苦干；刻苦用功；缓慢艰难地继续；磨利；磨平、磨光；使硬物相互摩擦；摩擦作响",
+          "label_en": "reduce to small pieces or particles by pounding or abrading; to work or study laboriously, or continue slowly and with difficulty; to sharpen or smooth something by abrasion; to rub hard surfaces together, often with a harsh sound",
           "pos": "verb",
           "sense_ids": [
-            "sense:grind:aa741aa2955150e2"
+            "sense:grind:aa741aa2955150e2",
+            "sense:grind:e85ad2cf0edf5477",
+            "sense:grind:ef4519deb94d2f02",
+            "sense:grind:ededa80269c31b3d"
           ]
         },
         {
-          "label_cn": "苦干；刻苦用功；缓慢艰难地继续",
-          "label_en": "work or study hard; continue slowly and laboriously",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:grind:e85ad2cf0edf5477"
-          ]
-        },
-        {
-          "label_cn": "研磨程度；细度",
-          "label_en": "the degree of fineness produced by grinding",
+          "label_cn": "研磨程度；细度；单调繁重的工作；日常苦差事",
+          "label_en": "the grade of particle fineness to which a substance is ground; a tiring repetitive activity or routine",
           "pos": "noun",
           "sense_ids": [
-            "sense:grind:188274e620fa5dff"
+            "sense:grind:188274e620fa5dff",
+            "sense:grind:97efb51774ea4c33"
           ]
         }
       ],
-      "core_meaning_cn": "磨碎、研磨；苦干或缓慢艰难地继续",
-      "core_meaning_en": "to grind into particles; to work/continue laboriously; degree of grind",
-      "mental_model_cn": "material → 磨碎/研磨；work/study → 苦干；process → grind on 缓慢推进；noun → 研磨粗细。低杠杆舞蹈义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "研磨、磨利、摩擦作响；苦干或单调繁重工作；颗粒粗细",
+      "core_meaning_en": "grind into particles, sharpen, rub noisily; toil or tedious work; particle fineness",
+      "mental_model_cn": "grind把物体磨碎或磨利，也可指牙齿、齿轮摩擦；the daily grind为繁重日常工作，a fine grind为研磨颗粒的细度。",
+      "mental_model_en": "grind into particles, sharpen, rub noisily; toil or tedious work; particle fineness."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -117,14 +113,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "苦干；刻苦用功",
-        "definition_en": "to work hard or study laboriously",
+        "definition_cn": "苦干；刻苦用功；缓慢艰难地继续",
+        "definition_en": "to work or study laboriously, or continue slowly and with difficulty",
         "governing_pattern": "vi. + on/away",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:grind:e85ad2cf0edf5477",
-        "sense_label_en": "to work hard or study laboriously",
+        "sense_label_en": "to work or study laboriously, or continue slowly and with difficulty",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -151,6 +147,78 @@
         "sense_label_en": "the grade of particle fineness to which a substance is ground",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:grind:ef4519deb94d2f02",
+        "pos": "verb",
+        "definition_cn": "磨利；磨平、磨光",
+        "definition_en": "to sharpen or smooth something by abrasion",
+        "sense_label_en": "to sharpen or smooth something by abrasion",
+        "governing_pattern": "grind a blade/surface",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1dca4c4e68b8e17495e2",
+            "phrase": "grind a blade",
+            "meaning_cn": "磨利刀刃",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:grind:ededa80269c31b3d",
+        "pos": "verb",
+        "definition_cn": "使硬物相互摩擦；摩擦作响",
+        "definition_en": "to rub hard surfaces together, often with a harsh sound",
+        "sense_label_en": "to rub hard surfaces together, often with a harsh sound",
+        "governing_pattern": "grind your teeth; gears grind",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2944759292e0d90c5330",
+            "phrase": "The gears were grinding.",
+            "meaning_cn": "齿轮在摩擦作响。",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:e6ca3047974840d3f7b5",
+            "phrase": "grind your teeth",
+            "meaning_cn": "磨牙",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:grind:97efb51774ea4c33",
+        "pos": "noun",
+        "definition_cn": "单调繁重的工作；日常苦差事",
+        "definition_en": "a tiring repetitive activity or routine",
+        "sense_label_en": "a tiring repetitive activity or routine",
+        "governing_pattern": "the daily grind",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:42bae29c06279b95c72e",
+            "phrase": "the daily grind",
+            "meaning_cn": "日复一日的繁重琐事",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -451,6 +519,91 @@
               "scope_relation": "Exact work/study-hard verb sense; source sense slang/intransitive register retained in evidence. Base grind is selected, never past ground or the separate /ɡɹɪnd/ whale-hunt noun."
             }
           ]
+        },
+        {
+          "ipa": "/ɡraɪnd/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "grind",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:grind:ef4519deb94d2f02",
+                "sense:grind:ededa80269c31b3d"
+              ],
+              "owner_sense_ids": [
+                "sense:grind:ef4519deb94d2f02",
+                "sense:grind:ededa80269c31b3d"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/grind_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "grind",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  4,
+                  6
+                ]
+              },
+              "original_ipa": "/ɡraɪnd/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
+        },
+        {
+          "ipa": "/ɡraɪnd/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "grind",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:grind:97efb51774ea4c33"
+              ],
+              "owner_sense_ids": [
+                "sense:grind:97efb51774ea4c33"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/grind_2",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "grind",
+                "pos": "noun",
+                "sense_indices_1based": [
+                  1
+                ]
+              },
+              "original_ipa": "/ɡraɪnd/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -543,14 +696,42 @@
         "merged_into_sense_id": null,
         "source_row": 6160,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:grind:ef4519deb94d2f02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:grind:ededa80269c31b3d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:grind:97efb51774ea4c33",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:ae3f0da01c19b996ea93",
       "collocation:ccc7a43dd3b14f72cc2f",
-      "collocation:e86e43f8c2fa461be59d",
+      "collocation:feb0aed9d954730a0bcc",
       "collocation:ee0406d6aba995627059",
-      "collocation:feb0aed9d954730a0bcc"
+      "collocation:e86e43f8c2fa461be59d",
+      "collocation:ae3f0da01c19b996ea93",
+      "collocation:1dca4c4e68b8e17495e2",
+      "collocation:2944759292e0d90c5330",
+      "collocation:e6ca3047974840d3f7b5",
+      "collocation:42bae29c06279b95c72e"
     ],
     "facts": [],
     "collocations": [
@@ -590,6 +771,34 @@
         "id": "collocation:feb0aed9d954730a0bcc",
         "source_row": 21535,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:1dca4c4e68b8e17495e2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:2944759292e0d90c5330",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:e6ca3047974840d3f7b5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/4/collocations/1"
+      },
+      {
+        "id": "collocation:42bae29c06279b95c72e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2208.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

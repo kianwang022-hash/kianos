@@ -9,10 +9,21 @@
     "constructions": [],
     "content_hash": "22b88ca5bbf58c0de61cb1ade5ebae41f404f47b27fdeccb76d2bfe80f4c6e22",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "固定物",
-      "core_meaning_en": "something firmly fixed in place",
-      "mental_model_cn": "固定物",
+      "core_clusters": [
+        {
+          "label_cn": "固定物；固定装置；固定存在的人或事物；常客；固定节目/特点；（主要英式）预定举行的体育比赛；赛程中的比赛",
+          "label_en": "an object that is fixed firmly in place, especially in a building; a person or thing that has become a regular, established, or permanent feature of a place, group, activity, or situation; a sports match arranged to take place on a particular date",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fixture:c169c4ed802d5da4",
+            "sense:fixture:3142344821b85cf6",
+            "sense:fixture:ffb3090cf85e5ea2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "固定装置；固定存在的人或事物；预定赛事",
+      "core_meaning_en": "a fixed installation, an established feature, or a scheduled match",
+      "mental_model_cn": "建筑里的fixture是固定装置；become a fixture in某处是成为固定存在/常客。主要英式体育用法a fixture是预定赛事，不是体育器具。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,6 +99,28 @@
             "verification_status": "semantic_auditor_verified"
           }
         ]
+      },
+      {
+        "sense_id": "sense:fixture:ffb3090cf85e5ea2",
+        "pos": "noun",
+        "definition_cn": "（主要英式）预定举行的体育比赛；赛程中的比赛",
+        "definition_en": "a sports match arranged to take place on a particular date",
+        "sense_label_en": "a sports match arranged to take place on a particular date",
+        "governing_pattern": "countable, chiefly British: a league fixture; next season’s fixtures",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2efe2fc11997cf2399eb",
+            "phrase": "a league fixture",
+            "meaning_cn": "一场联赛比赛",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -128,6 +161,23 @@
           "applicability": [
             {
               "surface": "fixture"
+            },
+            {
+              "surface": "fixture",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fixture:ffb3090cf85e5ea2"
+              ],
+              "owner_sense_ids": [
+                "sense:fixture:ffb3090cf85e5ea2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1947.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "countable, chiefly British: a league fixture; next season’s fixtures"
+              }
             }
           ],
           "sources": [
@@ -302,6 +352,14 @@
         "merged_into_sense_id": null,
         "source_row": 5380,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:fixture:ffb3090cf85e5ea2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1947.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -319,6 +377,13 @@
         "id": "collocation:5b6f2fe5a34c086a4062",
         "source_row": 7698,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:2efe2fc11997cf2399eb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1947.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

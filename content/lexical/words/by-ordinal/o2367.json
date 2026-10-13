@@ -15,7 +15,18 @@
         "definition_en": "to want something in a clause to happen or be true",
         "pattern": "hope that + clause",
         "source_sense_id": "sense:hope:685d139ac992559b",
-        "boundary": "that-clause complement"
+        "boundary": "that-clause complement",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:4241bc424106434c460e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hope:685d139ac992559b:collocation:2"
+            ],
+            "meaning_cn": "希望…",
+            "phrase": "hope that + clause"
+          }
+        ]
       },
       {
         "construction_id": "construction:abc036514849f66e9db7",
@@ -25,18 +36,61 @@
         "definition_en": "to want or expect to do something",
         "pattern": "hope to do sth",
         "source_sense_id": "sense:hope:685d139ac992559b",
-        "boundary": "to-infinitive complement"
+        "boundary": "to-infinitive complement",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:401ab93f5ca98da2b635",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hope:685d139ac992559b:collocation:1"
+            ],
+            "meaning_cn": "希望做某事",
+            "phrase": "hope to do sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:fd9491aba28f58b63220",
+        "pattern": "not have a hope (in hell) of doing sth",
+        "meaning_cn": "完全没有机会",
+        "definition_en": "to have no chance of succeeding",
+        "usage_note": "非正式；of 后用 doing，in hell 加强语气。",
+        "boundary": "非正式；of 后用 doing，in hell 加强语气。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:dff362502c33dfb288dc",
+        "pattern": "pin (all) your hopes on sb/sth",
+        "meaning_cn": "把成功或获助的希望寄托于",
+        "definition_en": "to rely on someone or something for success",
+        "usage_note": "on 后接人、事或 doing；不是实际钉住。",
+        "boundary": "on 后接人、事或 doing；不是实际钉住。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0ff2593c2801132298ad",
+        "pattern": "dash sb’s hopes",
+        "meaning_cn": "使某人的希望破灭",
+        "definition_en": "to destroy someone’s hopes",
+        "usage_note": "关注原本期待的结果无法实现。",
+        "boundary": "关注原本期待的结果无法实现。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "4c05276ddb17c73c7fbaa593e9aeedd3df5338282efca7ec64d0eb4e53036735",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "希望，期望",
-          "label_en": "a feeling of expectation and desire for a particular thing to happen",
+          "label_cn": "希望，期望；希望实现的可能；成功的指望；寄予希望的人、事物或办法",
+          "label_en": "a feeling of expectation and desire for a particular thing to happen; a prospect of success; a person or thing relied on for success",
           "pos": "noun",
           "sense_ids": [
-            "sense:hope:129693bc61885a8d"
+            "sense:hope:129693bc61885a8d",
+            "sense:hope:a155598ae196b4b0",
+            "sense:hope:19735dc03ca3e6d4"
           ]
         },
         {
@@ -48,10 +102,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "对某事发生的期待和愿望",
-      "core_meaning_en": "a feeling of expectation and desire for a particular thing to happen",
-      "mental_model_cn": "对某事发生的期待和愿望",
-      "mental_model_en": ""
+      "core_meaning_cn": "希望的感受、实现的可能或所寄望的人事物；希望某事发生",
+      "core_meaning_en": "a feeling, prospect or source of hope; to hope for an outcome",
+      "mental_model_cn": "希望既是心情，也可指客观指望和最后可依靠的办法。",
+      "mental_model_en": "a feeling, prospect or source of hope; to hope for an outcome."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -119,24 +173,6 @@
             ],
             "meaning_cn": "希望得到某物",
             "phrase": "hope for + sth"
-          },
-          {
-            "collocation_id": "collocation:401ab93f5ca98da2b635",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hope:685d139ac992559b:collocation:1"
-            ],
-            "meaning_cn": "希望做某事",
-            "phrase": "hope to do sth"
-          },
-          {
-            "collocation_id": "collocation:4241bc424106434c460e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:hope:685d139ac992559b:collocation:2"
-            ],
-            "meaning_cn": "希望…",
-            "phrase": "hope that + clause"
           }
         ],
         "confidence": "medium",
@@ -149,7 +185,52 @@
         "sense_id": "sense:hope:685d139ac992559b",
         "sense_label_en": "to want something to happen or be true",
         "sort_order": 1,
-        "transitivity": "I/T"
+        "transitivity": "I/T",
+        "usage_note": "hope to do 表主语自己希望做；希望别人做通常用 hope (that) sb will do，不按 want 的普通框架写 hope sb to do。被动希望某物用 be hoped for；it is hoped that ... 是另一框架。"
+      },
+      {
+        "sense_id": "sense:hope:a155598ae196b4b0",
+        "pos": "noun",
+        "definition_cn": "希望实现的可能；成功的指望",
+        "definition_en": "a prospect of success",
+        "sense_label_en": "a prospect of success",
+        "governing_pattern": "hope of doing sth; hope that",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:919d7a2e245819e2815a",
+            "phrase": "There is little hope of finishing today.",
+            "meaning_cn": "今天完成的可能很小。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hope:19735dc03ca3e6d4",
+        "pos": "noun",
+        "definition_cn": "寄予希望的人、事物或办法",
+        "definition_en": "a person or thing relied on for success",
+        "sense_label_en": "a person or thing relied on for success",
+        "governing_pattern": "sb’s last/only/best hope; hope for/of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8955dfa3442549f1e750",
+            "phrase": "This treatment is her only hope.",
+            "meaning_cn": "这种治疗是她唯一的指望。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -192,6 +273,40 @@
           "applicability": [
             {
               "surface": "hope"
+            },
+            {
+              "surface": "hope",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hope:a155598ae196b4b0"
+              ],
+              "owner_sense_ids": [
+                "sense:hope:a155598ae196b4b0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2367.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hope of doing sth; hope that"
+            },
+            {
+              "surface": "hope",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hope:19735dc03ca3e6d4"
+              ],
+              "owner_sense_ids": [
+                "sense:hope:19735dc03ca3e6d4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2367.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb’s last/only/best hope; hope for/of sth"
             }
           ],
           "sources": [
@@ -490,15 +605,31 @@
         "merged_into_sense_id": null,
         "source_row": 6612,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:hope:a155598ae196b4b0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2367.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:hope:19735dc03ca3e6d4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2367.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:397cf7464990f49198c2",
-      "collocation:401ab93f5ca98da2b635",
-      "collocation:4241bc424106434c460e",
-      "collocation:471cf6984845eec1434f",
+      "collocation:ca048a653518437126b0",
       "collocation:8c97dffbb03fe0e90995",
-      "collocation:ca048a653518437126b0"
+      "collocation:397cf7464990f49198c2",
+      "collocation:471cf6984845eec1434f",
+      "collocation:919d7a2e245819e2815a",
+      "collocation:8955dfa3442549f1e750"
     ],
     "facts": [
       {
@@ -521,12 +652,16 @@
       {
         "id": "collocation:401ab93f5ca98da2b635",
         "source_row": 5427,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4241bc424106434c460e",
         "source_row": 5610,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:471cf6984845eec1434f",
@@ -542,6 +677,20 @@
         "id": "collocation:ca048a653518437126b0",
         "source_row": 17066,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:919d7a2e245819e2815a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2367.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:8955dfa3442549f1e750",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2367.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -17,9 +17,9 @@
     "content_hash": "d7ff378a17a74605b90d03ddbeef33615b36125704066cc80044ba0ff966c193",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "递送，交付",
-      "core_meaning_en": "to bring or hand over something",
-      "mental_model_cn": "递送，交付",
+      "core_meaning_cn": "递送、交付；发表；接生或分娩；deliver on 兑现承诺",
+      "core_meaning_en": "deliver goods or a speech; deliver a baby; deliver on a commitment",
+      "mental_model_cn": "deliver a package是递送，deliver a speech是发表，deliver results是取得成果，deliver on a promise是兑现承诺；deliver a baby依主语可指接生或分娩。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -54,14 +54,14 @@
         "confidence": "medium",
         "definition_cn": "递送，投递",
         "definition_en": "to bring goods or letters to a destination",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "deliver (sth) (to sb/a place)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:deliver:5179c2cbd3695d00",
         "sense_label_en": "to bring goods or letters to a destination",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -109,14 +109,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "拯救，解救",
-        "definition_en": "to save someone from sin or evil",
+        "definition_cn": "解救、拯救（旧式用法）",
+        "definition_en": "(old use) to rescue or set somebody free from danger, suffering, or evil",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:deliver:1d90bdc5340854e9",
-        "sense_label_en": "to save someone from sin or evil",
+        "sense_label_en": "rescue or set free (old use)",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -133,6 +133,27 @@
         "sense_label_en": "to assist with or give birth to a baby",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:deliver:d3750dc1b5b16199",
+        "pos": "verb",
+        "transitivity": "I/T",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "实现、提供预期或承诺的成果",
+        "definition_en": "produce an expected or promised result",
+        "sense_label_en": "produce an expected or promised result",
+        "governing_pattern": "deliver (results); deliver on a promise",
+        "collocations": [
+          {
+            "collocation_id": "collocation:769606cd06c292c01e09",
+            "exam_value": "usage_example",
+            "phrase": "deliver results",
+            "meaning_cn": "取得预期成果"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -276,6 +297,13 @@
         "merged_into_sense_id": null,
         "source_row": 3670,
         "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
+      },
+      {
+        "sense_id": "sense:deliver:d3750dc1b5b16199",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1285.json"
       }
     ],
     "active_collocations": [
@@ -284,7 +312,8 @@
       "collocation:4aa9ca79f94c1b741b54",
       "collocation:e650ce9a6fe836b437ff",
       "collocation:e6dca2a6dd26599cc14f",
-      "collocation:f2182421d671b8dc8f32"
+      "collocation:f2182421d671b8dc8f32",
+      "collocation:769606cd06c292c01e09"
     ],
     "facts": [],
     "collocations": [
@@ -317,6 +346,11 @@
         "id": "collocation:4aa9ca79f94c1b741b54",
         "source_row": 21497,
         "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
+      },
+      {
+        "id": "collocation:769606cd06c292c01e09",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1285.json"
       }
     ],
     "exam-mappings": [],

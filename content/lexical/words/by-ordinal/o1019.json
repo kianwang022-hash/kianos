@@ -10,9 +10,9 @@
     "content_hash": "012cfbc42500b74f993fd656c1451a6af9ade75653b4ce4724bb69f887f79668",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "结果；后果",
-      "core_meaning_en": "a result or effect of an action or condition",
-      "mental_model_cn": "结果；后果",
+      "core_meaning_cn": "结果、后果；（of consequence）重要性",
+      "core_meaning_en": "a result or effect; importance, as in of consequence",
+      "mental_model_cn": "多数语境追“某事带来的结果”；of consequence / of little or no consequence看重要性。后者不能逐字译成有后果或没有后果。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,22 +42,7 @@
             ],
             "meaning_cn": "承担后果",
             "phrase": "face the consequences"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "结果；后果",
-        "definition_en": "a phenomenon that follows and is caused by some previous phenomenon",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:consequence:919a192512645a1d",
-        "sense_label_en": "a phenomenon that follows and is caused by some previous phenomenon",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:a867e7766388297fc1a1",
             "exam_value": "usage_example",
@@ -78,15 +63,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（对个人的）影响；后果",
-        "definition_en": "the outcome of an event especially as relative to an individual",
+        "definition_cn": "结果；后果",
+        "definition_en": "a result or effect of an event or action, often an unwelcome one",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:consequence:95734d82b8e657c6",
-        "sense_label_en": "the outcome of an event especially as relative to an individual",
-        "sort_order": 1,
+        "sense_id": "sense:consequence:919a192512645a1d",
+        "sense_label_en": "result or effect",
+        "sort_order": 0,
         "transitivity": "nonverb"
       },
       {
@@ -112,13 +97,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "重要性",
-        "definition_en": "having important effects or influence",
+        "definition_en": "importance or significance",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:consequence:21680be72e4f589a",
-        "sense_label_en": "having important effects or influence",
+        "sense_label_en": "importance or significance",
         "sort_order": 2,
         "transitivity": "nonverb"
       }
@@ -232,7 +217,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:a867e7766388297fc1a1",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:consequence:95734d82b8e657c6:collocation:0"
+          ],
+          "meaning_cn": "严重后果",
+          "phrase": "serious consequences"
+        },
+        {
+          "collocation_id": "collocation:357a463e5e6f30cdf561",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:consequence:95734d82b8e657c6:collocation:1"
+          ],
+          "meaning_cn": "承受后果",
+          "phrase": "suffer the consequences"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（对个人的）影响；后果",
+      "definition_en": "the outcome of an event especially as relative to an individual",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:consequence:95734d82b8e657c6",
+      "sense_label_en": "the outcome of an event especially as relative to an individual",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "status": "merged",
+      "merged_into_sense_id": "sense:consequence:919a192512645a1d",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -251,8 +273,8 @@
       },
       {
         "sense_id": "sense:consequence:95734d82b8e657c6",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:consequence:919a192512645a1d",
         "source_row": 2874,
         "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json"
       }

@@ -11,19 +11,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "地板；楼层；底价或最低限度",
-          "label_en": "a floor; a storey/level; a lower limit",
+          "label_cn": "地板；楼层；底价；最低限度；（会议、议会中的）发言权",
+          "label_en": "the inside lower horizontal surface of a room; a level of a building; a lower limit; the right to address a meeting or assembly",
           "pos": "noun",
           "sense_ids": [
             "sense:floor:2d0b32a00cdf585d",
             "sense:floor:9dc3c1329c7f50b8",
-            "sense:floor:cdae41132cdc5c55"
+            "sense:floor:cdae41132cdc5c55",
+            "sense:floor:f747bed8f6df93eb"
+          ]
+        },
+        {
+          "label_cn": "铺地板；打倒；使震惊；使不知如何回答或应对",
+          "label_en": "provide with a floor; knock down; to astonish or bewilder someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:floor:c189eddd043954ca",
+            "sense:floor:343896e147f35c2b",
+            "sense:floor:4d6f9e07684416ea"
           ]
         }
       ],
-      "core_meaning_cn": "房间的底面或建筑的层",
-      "core_meaning_en": "the lower surface of a room or a level of a building",
-      "mental_model_cn": "房间的底面或建筑的层",
+      "core_meaning_cn": "地板、楼层或最低限；发言权；铺地板、击倒或震住",
+      "core_meaning_en": "a floor, storey, lower limit, or right to speak; floor, knock down, or bewilder",
+      "mental_model_cn": "实体floor是地板/楼层，price floor是最低价；have the floor是有发言权。floor an opponent是击倒，消息或问题floor人可使其惊愕或难以应答。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -153,6 +164,50 @@
         "sense_label_en": "knock down",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:floor:f747bed8f6df93eb",
+        "pos": "noun",
+        "definition_cn": "（会议、议会中的）发言权",
+        "definition_en": "the right to address a meeting or assembly",
+        "sense_label_en": "the right to address a meeting or assembly",
+        "governing_pattern": "have/hold/take the floor",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee60db33c43789c55667",
+            "phrase": "have the floor",
+            "meaning_cn": "有发言权；正在发言",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:floor:4d6f9e07684416ea",
+        "pos": "verb",
+        "definition_cn": "使震惊；使不知如何回答或应对",
+        "definition_en": "to astonish or bewilder someone",
+        "sense_label_en": "to astonish or bewilder someone",
+        "governing_pattern": "floor sb; be floored by sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0075081a65715adef909",
+            "phrase": "The news floored her.",
+            "meaning_cn": "那消息使她惊愕。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -193,6 +248,40 @@
           "applicability": [
             {
               "surface": "floor"
+            },
+            {
+              "surface": "floor",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:floor:f747bed8f6df93eb"
+              ],
+              "owner_sense_ids": [
+                "sense:floor:f747bed8f6df93eb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1966.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "have/hold/take the floor"
+              }
+            },
+            {
+              "surface": "floor",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:floor:4d6f9e07684416ea"
+              ],
+              "owner_sense_ids": [
+                "sense:floor:4d6f9e07684416ea"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1966.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "floor sb; be floored by sth"
+              }
             }
           ],
           "sources": [
@@ -388,6 +477,22 @@
         "merged_into_sense_id": null,
         "source_row": 5451,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:floor:f747bed8f6df93eb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1966.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:floor:4d6f9e07684416ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1966.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -423,6 +528,20 @@
         "id": "collocation:b43f9d664c9ed4a488ce",
         "source_row": 15277,
         "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+      },
+      {
+        "id": "collocation:ee60db33c43789c55667",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1966.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:0075081a65715adef909",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1966.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

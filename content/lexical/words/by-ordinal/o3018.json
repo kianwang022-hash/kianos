@@ -6,7 +6,74 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:memory:in-memory-of",
+        "pattern": "in memory of + sb/sth",
+        "meaning_cn": "为纪念……（通常为已故者，也可为往事）",
+        "definition_en": "to commemorate a person, usually someone who has died, or a past event",
+        "boundary": "Commemorative fixed phrase; not a countable memory meaning one remembered experience.",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only",
+        "direction": "R+P",
+        "level": "L1",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:b976f19aeca352c9ec31",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:memory:f542f5b48473511e:collocation:1"
+            ],
+            "meaning_cn": "为了纪念…",
+            "phrase": "in memory of + sb/sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:f025c7126911ae9b25a6",
+        "pattern": "from memory",
+        "meaning_cn": "凭记忆（不看原文等）",
+        "definition_en": "using what you remember",
+        "usage_note": "如凭记忆复述、画图；不是“来自一段回忆”的泛指。",
+        "boundary": "如凭记忆复述、画图；不是“来自一段回忆”的泛指。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:memory:b27c1ebef4015194"
+      },
+      {
+        "construction_id": "construction:8de0606be5f5d4bfe43a",
+        "pattern": "commit sth to memory",
+        "meaning_cn": "把某事记住、记牢",
+        "definition_en": "learn something so that you remember it",
+        "usage_note": "sth是记住的内容。",
+        "boundary": "sth是记住的内容。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:memory:b27c1ebef4015194"
+      },
+      {
+        "construction_id": "construction:4437a99b60b1540ea551",
+        "pattern": "if (my) memory serves (me correctly/well)",
+        "meaning_cn": "如果我没记错",
+        "definition_en": "if I remember correctly",
+        "usage_note": "常用于对回忆准确性留余地，不是电脑内存提供服务。",
+        "boundary": "常用于对回忆准确性留余地，不是电脑内存提供服务。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:memory:b27c1ebef4015194"
+      },
+      {
+        "construction_id": "construction:0f80eb9a4f1d22d85c54",
+        "pattern": "jog sb’s memory",
+        "meaning_cn": "唤起某人的记忆",
+        "definition_en": "prompt someone to remember something",
+        "usage_note": "通过提示使人记起，不是去慢跑。",
+        "boundary": "通过提示使人记起，不是去慢跑。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:memory:b27c1ebef4015194"
+      }
+    ],
     "content_hash": "4d4bb8f844b4970f3b8eaff3cc399a4b6b550b3f771cb23ada92dae9bf949127",
     "core_concept": {
       "core_clusters": [],
@@ -40,7 +107,7 @@
             "legacy_source_object_ids": [
               "sense:memory:b27c1ebef4015194:collocation:1"
             ],
-            "meaning_cn": "对…的记忆",
+            "meaning_cn": "记住某类信息的能力（常说 a good/bad memory for…）",
             "phrase": "memory for + sth"
           }
         ],
@@ -66,15 +133,6 @@
             ],
             "meaning_cn": "童年回忆",
             "phrase": "childhood memories"
-          },
-          {
-            "collocation_id": "collocation:b976f19aeca352c9ec31",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:memory:f542f5b48473511e:collocation:1"
-            ],
-            "meaning_cn": "为了纪念…",
-            "phrase": "in memory of + sb/sth"
           }
         ],
         "confidence": "medium",
@@ -112,15 +170,61 @@
         ],
         "confidence": "medium",
         "definition_cn": "存储器，内存",
-        "definition_en": "the part of a computer that stores information",
+        "definition_en": "computer storage, or the amount of space available for storing information",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:memory:35b57f505b515de5",
-        "sense_label_en": "the part of a computer that stores information",
+        "sense_label_en": "computer storage, or the amount of space available for storing information",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可指电脑存储信息的部分，也可指其存储空间/容量，如memory capacity。"
+      },
+      {
+        "sense_id": "sense:memory:78d2601fcabf47e5",
+        "pos": "noun",
+        "definition_cn": "（个人或群体）记得的时间范围",
+        "definition_en": "the span of time whose events people can remember",
+        "sense_label_en": "the span of time whose events people can remember",
+        "governing_pattern": "in/within recent/living memory",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9ddccc630a5ff0f1eaac",
+            "phrase": "within living memory",
+            "meaning_cn": "在仍有人能记得的年代范围内",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:memory:99b9353a2e80eacd",
+        "pos": "noun",
+        "definition_cn": "（对已故者的）记忆、怀念",
+        "definition_en": "what people remember about someone after their death",
+        "sense_label_en": "what people remember about someone after their death",
+        "governing_pattern": "honour sb’s memory; sb’s memory lives on",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5cf8a65184022010cb10",
+            "phrase": "honour her memory",
+            "meaning_cn": "尊重并纪念她",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常不可数，正式语境；honour her memory表示尊重并纪念她。"
       }
     ],
     "verification_summary": {
@@ -168,6 +272,42 @@
           "applicability": [
             {
               "surface": "memory"
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in/within recent/living memory",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "honour sb’s memory; sb’s memory lives on",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -230,6 +370,42 @@
           "applicability": [
             {
               "surface": "memory"
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in/within recent/living memory",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "honour sb’s memory; sb’s memory lives on",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -294,15 +470,32 @@
         "merged_into_sense_id": null,
         "source_row": 8417,
         "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      },
+      {
+        "sense_id": "sense:memory:78d2601fcabf47e5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3018.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:memory:99b9353a2e80eacd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3018.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:29de0209629e9d940d1b",
       "collocation:5879d56b57fff726a61f",
-      "collocation:781f19c5dace056a79df",
-      "collocation:b976f19aeca352c9ec31",
+      "collocation:fa53428ff48573a5b539",
       "collocation:eace21e22c709e55d0b0",
-      "collocation:fa53428ff48573a5b539"
+      "collocation:29de0209629e9d940d1b",
+      "collocation:781f19c5dace056a79df",
+      "collocation:9ddccc630a5ff0f1eaac",
+      "collocation:5cf8a65184022010cb10"
     ],
     "facts": [],
     "collocations": [
@@ -324,7 +517,9 @@
       {
         "id": "collocation:b976f19aeca352c9ec31",
         "source_row": 15717,
-        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:eace21e22c709e55d0b0",
@@ -335,6 +530,20 @@
         "id": "collocation:fa53428ff48573a5b539",
         "source_row": 21192,
         "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      },
+      {
+        "id": "collocation:9ddccc630a5ff0f1eaac",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3018.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:5cf8a65184022010cb10",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3018.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

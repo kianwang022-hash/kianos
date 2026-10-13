@@ -6,47 +6,44 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8677c8c5df5063ec40e8",
+        "pattern": "leak out",
+        "meaning_cn": "（秘密信息）泄露出去；被公众知晓",
+        "definition_en": "of confidential information, to become known outside its intended circle",
+        "usage_note": "The news leaked out = 消息泄露了；信息作主语，不及物；区别leak information to sb中泄密者作主语的及物用法。",
+        "boundary": "The news leaked out = 消息泄露了；信息作主语，不及物；区别leak information to sb中泄密者作主语的及物用法。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "81356fc629aa78e9dfced7b98387d58914a1eb80382533cf571189dc3fc8c429",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "漏洞；泄漏处",
-          "label_en": "an accidental hole/opening that allows escape",
+          "label_cn": "漏洞；漏处；泄密；泄露",
+          "label_en": "an accidental hole that allows something to enter or escape; unauthorized disclosure of confidential information",
           "pos": "noun",
           "sense_ids": [
-            "sense:leak:106c41cdd8e75803"
-          ]
-        },
-        {
-          "label_cn": "漏出；泄漏",
-          "label_en": "escape through a hole/crack",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:leak:a2d2d3acc4ed5959"
-          ]
-        },
-        {
-          "label_cn": "使泄漏；泄露信息",
-          "label_en": "allow/cause a substance or information to escape",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:leak:f0412aa1ea56538e"
-          ]
-        },
-        {
-          "label_cn": "泄密；泄露事件",
-          "label_en": "unauthorized disclosure of confidential information",
-          "pos": "noun",
-          "sense_ids": [
+            "sense:leak:106c41cdd8e75803",
             "sense:leak:3ca99b28a2a352b8"
+          ]
+        },
+        {
+          "label_cn": "漏；泄漏；使渗漏；泄露（液体或信息）",
+          "label_en": "of a substance, to escape or enter through a small opening; of a container or roof, to allow this to happen; to allow or deliberately cause a substance or information to escape or become known",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:leak:a2d2d3acc4ed5959",
+            "sense:leak:f0412aa1ea56538e"
           ]
         }
       ],
-      "core_meaning_cn": "泄漏；漏洞；泄露信息",
-      "core_meaning_en": "a leak, to leak, or to cause information/substance to leak",
-      "mental_model_cn": "liquid/gas → 漏；confidential information → 泄密；noun → 漏处/泄露。非正式“take a leak = 小便”保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "漏处；泄漏；泄密／泄露事件",
+      "core_meaning_en": "an opening allowing escape; escape or allow escape; disclose confidential information",
+      "mental_model_cn": "水／气体leak可为漏出的物质，也可说管道／屋顶leaks；leak a report是泄露报告；the report leaks out是报告内容传了出去。",
+      "mental_model_en": "an opening allowing escape; escape or allow escape; disclose confidential information."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -101,17 +98,23 @@
             ],
             "meaning_cn": "煤气从管道漏出",
             "phrase": "gas leaking from the pipe"
+          },
+          {
+            "collocation_id": "collocation:5fe68b3097a8b7998d31",
+            "phrase": "The roof is leaking.",
+            "meaning_cn": "屋顶漏水了。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
         "definition_cn": "漏；泄漏",
-        "definition_en": "to escape through a hole or crack",
-        "governing_pattern": "vi. + from/out of",
+        "definition_en": "of a substance, to escape or enter through a small opening; of a container or roof, to allow this to happen",
+        "governing_pattern": "leak; leak from/out of/into sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:leak:a2d2d3acc4ed5959",
-        "sense_label_en": "to escape through a hole or crack",
+        "sense_label_en": "of a substance, to escape or enter through a small opening; of a container or roof, to allow this to happen",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -123,7 +126,7 @@
             "legacy_source_object_ids": [
               "sense:leak:3ca99b28a2a352b8:collocation:0"
             ],
-            "meaning_cn": "安全漏洞",
+            "meaning_cn": "安全信息泄露；泄密",
             "phrase": "a security leak"
           }
         ],
@@ -405,11 +408,12 @@
       }
     ],
     "active_collocations": [
-      "collocation:07b08f4a1d77b508b3e9",
       "collocation:331a26e45f87fb4e0e4e",
-      "collocation:85027958254aaef82257",
       "collocation:97e2a7d53776ac574da3",
-      "collocation:f0b1a478c814789c98c0"
+      "collocation:85027958254aaef82257",
+      "collocation:5fe68b3097a8b7998d31",
+      "collocation:f0b1a478c814789c98c0",
+      "collocation:07b08f4a1d77b508b3e9"
     ],
     "facts": [],
     "collocations": [
@@ -454,6 +458,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json",
         "status": "reference",
         "merged_into_id": null
+      },
+      {
+        "id": "collocation:5fe68b3097a8b7998d31",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2784.json",
+        "source_pointer": "/record/senses/1/collocations/2"
       }
     ],
     "exam-mappings": [],

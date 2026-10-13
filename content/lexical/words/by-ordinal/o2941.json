@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "4ec953c3ce7c6fdc801fb5ca14bf91d402acde63231142d9f10bfc80730d13dd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "管理；设法做到",
-      "core_meaning_en": "to be in charge of or to succeed in doing something",
-      "mental_model_cn": "管理；设法做到",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "管理；设法做成；应付与维持生活",
+          "label_en": "to run something, succeed in doing it, or cope with limited resources",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:manage:3cc1d82eae445e97",
+            "sense:manage:052b6bc31e1b5221",
+            "sense:manage:7100393504545717",
+            "sense:manage:598472275ef52d83"
+          ]
+        }
+      ],
+      "core_meaning_cn": "管理；设法做成；应付与维持生活",
+      "core_meaning_en": "to run something, succeed in doing it, or cope with limited resources",
+      "mental_model_cn": "manage a team指管理；manage to finish/managed it指做成；manage on a small income指靠有限收入生活。",
+      "mental_model_en": "to run something, succeed in doing it, or cope with limited resources."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -43,14 +55,14 @@
         "confidence": "medium",
         "definition_cn": "管理；经营",
         "definition_en": "to be in charge of a business, organization, etc.",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "manage (a business/team/organization)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:manage:3cc1d82eae445e97",
         "sense_label_en": "to be in charge of a business, organization, etc.",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -67,14 +79,15 @@
         "confidence": "medium",
         "definition_cn": "设法做到",
         "definition_en": "to succeed in doing something difficult",
-        "governing_pattern": "vi. + to do",
+        "governing_pattern": "manage to do sth; manage sth; manage without sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:manage:052b6bc31e1b5221",
         "sense_label_en": "to succeed in doing something difficult",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi",
+        "usage_note": "manage to do通常指某次困难行动实际做成；manage it可直接接宾语。"
       },
       {
         "collocations": [
@@ -99,6 +112,34 @@
         "sense_label_en": "to control or handle something",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:manage:598472275ef52d83",
+        "pos": "verb",
+        "definition_cn": "应付得来；维持生活；将就过活",
+        "definition_en": "to cope with difficulties or get by on limited support or resources",
+        "sense_label_en": "to cope with difficulties or get by on limited support or resources",
+        "governing_pattern": "manage on sth; manage with/without sb/sth; manage on your own",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1ab6e25ac4f6ae706390",
+            "phrase": "manage on a small income",
+            "meaning_cn": "靠微薄收入维持生活",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:1158c3676466d894f480",
+            "phrase": "manage on your own",
+            "meaning_cn": "独自应付得来",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -179,6 +220,23 @@
           "applicability": [
             {
               "surface": "manage"
+            },
+            {
+              "surface": "manage",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:manage:598472275ef52d83"
+              ],
+              "owner_sense_ids": [
+                "sense:manage:598472275ef52d83"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2941.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "manage on sth; manage with/without sb/sth; manage on your own"
             }
           ],
           "sources": [
@@ -333,12 +391,22 @@
         "merged_into_sense_id": null,
         "source_row": 8187,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:manage:598472275ef52d83",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2941.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:e788a04ea65602452908",
       "collocation:1d8d3556829de34430e5",
       "collocation:e6977c3ba5bdcbf7a0ea",
-      "collocation:e788a04ea65602452908"
+      "collocation:1ab6e25ac4f6ae706390",
+      "collocation:1158c3676466d894f480"
     ],
     "facts": [
       {
@@ -367,6 +435,20 @@
         "id": "collocation:e788a04ea65602452908",
         "source_row": 19624,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:1ab6e25ac4f6ae706390",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2941.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:1158c3676466d894f480",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2941.json",
+        "source_pointer": "/record/senses/3/collocations/1"
       }
     ],
     "exam-mappings": [],

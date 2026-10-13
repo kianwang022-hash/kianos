@@ -26,11 +26,43 @@
           "sense_ids": [
             "sense:dive:84fa707f90675e17"
           ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "潜水；下潜",
+          "label_en": "go underwater",
+          "sense_ids": [
+            "sense:dive:90ca3e7a240189f4"
+          ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "投入研究或工作",
+          "label_en": "become deeply involved in a subject or activity",
+          "sense_ids": [
+            "sense:dive:c53457a905833dc1"
+          ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "数值骤降",
+          "label_en": "fall sharply in value",
+          "sense_ids": [
+            "sense:dive:748045228d3a233a"
+          ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "数值骤降",
+          "label_en": "a sudden sharp fall in value",
+          "sense_ids": [
+            "sense:dive:b3f72440b35f59b7"
+          ]
         }
       ],
-      "core_meaning_cn": "跳水，俯冲",
-      "core_meaning_en": "to plunge downward or into water",
-      "mental_model_cn": "跳水，俯冲",
+      "core_meaning_cn": "跳水、潜水或俯冲；投入研究；数值骤降",
+      "core_meaning_en": "to enter water or descend; to become deeply involved; to fall sharply in value",
+      "mental_model_cn": "水和飞机语境是身体向下运动；dive into a subject/work 是投入活动；价格或数值作主语时是骤降。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -98,8 +130,8 @@
             "legacy_source_object_ids": [
               "sense:dive:84fa707f90675e17:collocation:0"
             ],
-            "meaning_cn": "跳水；突然下降",
-            "phrase": "take a dive"
+            "meaning_cn": "跳入水中（本义项的身体运动）",
+            "phrase": "take a dive into water"
           }
         ],
         "confidence": "medium",
@@ -122,21 +154,75 @@
             "legacy_source_object_ids": [
               "sense:dive:c53457a905833dc1:collocation:handoff-o1375-o1624"
             ],
-            "meaning_cn": "深入研究；价格暴跌",
-            "phrase": "dive into a topic/work; prices dive"
+            "meaning_cn": "深入研究某主题；投入工作",
+            "phrase": "dive into a topic/work"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "深入投入某主题或工作；暴跌",
-        "definition_en": "to engage deeply in a topic or work, or fall sharply in amount or price",
-        "governing_pattern": "vi. + into + topic/work / vi. (prices etc.)",
+        "definition_cn": "深入投入某主题或工作",
+        "definition_en": "to become deeply involved in a subject or activity",
+        "governing_pattern": "dive into a subject/task/work",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dive:c53457a905833dc1",
-        "sense_label_en": "to engage deeply in a topic or work, or fall sharply in amount or price",
+        "sense_label_en": "to become deeply involved in a subject or activity",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:dive:748045228d3a233a",
+        "pos": "verb",
+        "definition_cn": "（价格、数值等）骤降；暴跌",
+        "definition_en": "to fall suddenly and sharply in value or amount",
+        "sense_label_en": "to fall suddenly and sharply in value or amount",
+        "governing_pattern": "prices/figures dive",
+        "transitivity": "vi",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dive:8a503f83fcca48ba",
+            "phrase": "prices dive",
+            "meaning_cn": "价格暴跌",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:dive:90ca3e7a240189f4",
+        "pos": "verb",
+        "definition_cn": "潜水；下潜",
+        "definition_en": "to go below the surface of water, especially to swim or explore underwater",
+        "sense_label_en": "to go below the surface of water, especially to swim or explore underwater",
+        "governing_pattern": "dive; dive below the surface",
+        "transitivity": "vi",
+        "level": "L1",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dive:224ad017a71c85a6",
+            "phrase": "dive below the surface",
+            "meaning_cn": "潜到水面以下",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:dive:b3f72440b35f59b7",
+        "pos": "noun",
+        "definition_cn": "骤降；暴跌",
+        "definition_en": "a sudden sharp fall in value or amount",
+        "sense_label_en": "a sudden sharp fall in value or amount",
+        "governing_pattern": "take a dive",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dive:0251e426fb2bc149",
+            "phrase": "take a dive",
+            "meaning_cn": "（价格或数值）骤降",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -209,6 +295,33 @@
               "excluded_sense_ids": [
                 "sense:dive:84fa707f90675e17"
               ]
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:748045228d3a233a",
+                "sense:dive:90ca3e7a240189f4"
+              ],
+              "sense_ids": [
+                "sense:dive:748045228d3a233a",
+                "sense:dive:90ca3e7a240189f4"
+              ],
+              "excluded_sense_ids": [
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:84fa707f90675e17",
+                "sense:dive:b3f72440b35f59b7",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "pos": "verb",
+              "surface": "dive",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": true,
+              "binding_basis": "20261011 bounded identity continuation with publisher pronunciation corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -259,6 +372,23 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "pronunciation_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "accessed_at": "2026-10-11",
+              "original_ipa": "/daɪv/",
+              "entry_context": {
+                "word": "dive",
+                "pos": "verb"
+              },
+              "applies_to_sense_ids": [
+                "sense:dive:748045228d3a233a",
+                "sense:dive:90ca3e7a240189f4"
+              ],
+              "evidence_note": "Publisher British entry gives this headword IPA across verb/noun meanings. Existing exact IPA and inflection boundaries are preserved; the additions bind only these new headword identities, never dove past-tense or noun owner."
             }
           ]
         },
@@ -287,6 +417,32 @@
                 "sense:dive:25327a42fcfb536c",
                 "sense:dive:c53457a905833dc1"
               ]
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:b3f72440b35f59b7"
+              ],
+              "sense_ids": [
+                "sense:dive:b3f72440b35f59b7"
+              ],
+              "excluded_sense_ids": [
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:748045228d3a233a",
+                "sense:dive:84fa707f90675e17",
+                "sense:dive:90ca3e7a240189f4",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "pos": "noun",
+              "surface": "dive",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": true,
+              "binding_basis": "20261011 bounded identity continuation with publisher pronunciation corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -324,6 +480,22 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "pronunciation_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "accessed_at": "2026-10-11",
+              "original_ipa": "/daɪv/",
+              "entry_context": {
+                "word": "dive",
+                "pos": "noun"
+              },
+              "applies_to_sense_ids": [
+                "sense:dive:b3f72440b35f59b7"
+              ],
+              "evidence_note": "Publisher British entry gives this headword IPA across verb/noun meanings. Existing exact IPA and inflection boundaries are preserved; the additions bind only these new headword identities, never dove past-tense or noun owner."
             }
           ]
         }
@@ -361,13 +533,40 @@
         "merged_into_sense_id": null,
         "source_row": 4086,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:dive:748045228d3a233a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:dive:90ca3e7a240189f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:dive:b3f72440b35f59b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
       "collocation:38e6c1c53a81c4b10aad",
       "collocation:670879d6825b45750181",
       "collocation:875625952e7334db7bae",
-      "collocation:d2e044b73bdebc756157"
+      "collocation:d2e044b73bdebc756157",
+      "collocation:dive:8a503f83fcca48ba",
+      "collocation:dive:224ad017a71c85a6",
+      "collocation:dive:0251e426fb2bc149"
     ],
     "facts": [],
     "collocations": [
@@ -390,6 +589,30 @@
         "id": "collocation:d2e044b73bdebc756157",
         "source_row": 17820,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:dive:8a503f83fcca48ba",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:dive:224ad017a71c85a6",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:dive:0251e426fb2bc149",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1454.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

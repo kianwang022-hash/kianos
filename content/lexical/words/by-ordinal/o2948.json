@@ -15,15 +15,48 @@
         "definition_en": "all kinds/types of something",
         "boundary": "manner = kind/type in this fixed quantifying phrase",
         "source_sense_id": "sense:manner:56b33d13c1cf5865"
+      },
+      {
+        "construction_id": "construction:72b6a2daff3c5582b77f",
+        "pattern": "in the manner of sb/sth",
+        "meaning_cn": "以某人或某事物典型的风格",
+        "definition_en": "in a style characteristic of someone or something",
+        "usage_note": "较正式；可描述艺术风格，不仅是具体办事的方法。",
+        "boundary": "较正式；可描述艺术风格，不仅是具体办事的方法。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:manner:94bafd7477ab5b6c"
+      },
+      {
+        "construction_id": "construction:8c24e4eec09e9928aff4",
+        "pattern": "in a manner of speaking",
+        "meaning_cn": "从某种意义上说；可以这么说",
+        "definition_en": "true in a particular or limited sense",
+        "usage_note": "用于限定说法的适用范围，不是在描述说话礼貌。",
+        "boundary": "用于限定说法的适用范围，不是在描述说话礼貌。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "40810e9a0886d080d7a0a7f08cfc23f9b7ca408df26a51e0c77ba6acd1940658",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "方式，样子",
-      "core_meaning_en": "the way something is done or happens",
-      "mental_model_cn": "方式，样子",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "方式；举止与礼貌；种类；复数社会风俗",
+          "label_en": "a way; demeanour and etiquette; a kind; plural social customs",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:manner:94bafd7477ab5b6c",
+            "sense:manner:b1aa85d6963857fa",
+            "sense:manner:56b33d13c1cf5865",
+            "sense:manner:7e596f4a18b7a1fe"
+          ]
+        }
+      ],
+      "core_meaning_cn": "方式；举止与礼貌；种类；复数社会风俗",
+      "core_meaning_en": "a way; demeanour and etiquette; a kind; plural social customs",
+      "mental_model_cn": "in a ... manner指方式；a friendly manner是态度；good manners是礼貌；历史叙述的manners可指群体风俗。",
+      "mental_model_en": "a way; demeanour and etiquette; a kind; plural social customs."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -47,7 +80,7 @@
               "sense:manner:94bafd7477ab5b6c:collocation:0"
             ],
             "meaning_cn": "以…方式",
-            "phrase": "in a manner"
+            "phrase": "in a ... manner"
           },
           {
             "collocation_id": "collocation:2ee451fe9a667d42740c",
@@ -93,14 +126,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "举止，态度",
-        "definition_en": "a way of acting or behaving",
-        "governing_pattern": "",
+        "definition_cn": "举止、态度；复数 manners 指礼貌、礼仪",
+        "definition_en": "a person's way of behaving; in the plural, socially accepted polite behaviour or etiquette",
+        "governing_pattern": "a ... manner; good/bad/table manners",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:manner:b1aa85d6963857fa",
-        "sense_label_en": "a way of acting or behaving",
+        "sense_label_en": "a person's way of behaving; in the plural, socially accepted polite behaviour or etiquette",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -117,6 +150,29 @@
         "sense_label_en": "a kind",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:manner:7e596f4a18b7a1fe",
+        "pos": "noun",
+        "definition_cn": "（复数manners，正式）社会风俗、习惯",
+        "definition_en": "the customs and habitual behaviour of a social group",
+        "sense_label_en": "the customs and habitual behaviour of a social group",
+        "governing_pattern": "manners of a period/society",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a64818f47ddcd89221f2",
+            "phrase": "the manners of the period",
+            "meaning_cn": "那个时期的社会风俗",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常用复数manners；比good/table manners的礼貌规范范围更广，常见于社会历史叙述。"
       }
     ],
     "verification_summary": {
@@ -158,6 +214,23 @@
           "applicability": [
             {
               "surface": "manner"
+            },
+            {
+              "surface": "manner",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:manner:7e596f4a18b7a1fe"
+              ],
+              "owner_sense_ids": [
+                "sense:manner:7e596f4a18b7a1fe"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2948.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "manners of a period/society"
             }
           ],
           "sources": [
@@ -407,13 +480,22 @@
         "merged_into_sense_id": null,
         "source_row": 8208,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:manner:7e596f4a18b7a1fe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2948.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:613158c5d5c05dbe588b",
       "collocation:2ee451fe9a667d42740c",
       "collocation:422c53d76bf238fd07d5",
-      "collocation:613158c5d5c05dbe588b",
-      "collocation:98ad7de965abf54a1e3c"
+      "collocation:98ad7de965abf54a1e3c",
+      "collocation:a64818f47ddcd89221f2"
     ],
     "facts": [
       {
@@ -447,6 +529,13 @@
         "id": "collocation:98ad7de965abf54a1e3c",
         "source_row": 12998,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:a64818f47ddcd89221f2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2948.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

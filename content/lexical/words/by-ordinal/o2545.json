@@ -6,23 +6,44 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:5f9648ea51f5118ceaa0",
+        "pattern": "on sb’s own initiative; on the initiative of sb",
+        "meaning_cn": "自行主动采取行动；在某人的倡议下",
+        "definition_en": "without being told to act; following someone’s proposal to act",
+        "usage_note": "own强调未奉他人指令；of sb指倡议发起者。take the initiative强调率先行动。",
+        "boundary": "own强调未奉他人指令；of sb指倡议发起者。take the initiative强调率先行动。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:initiative:839a6d4bace65872"
+      }
+    ],
     "content_hash": "f70f53015719e6264753f0ddd3f5343af550c05bcbd00d7bb9af74cafb440135",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "主动性；首创精神；倡议；新方案",
-          "label_en": "the ability to act independently; a new plan or action to solve a problem",
+          "label_cn": "主动与主动权",
+          "label_en": "acting first",
           "pos": "noun",
           "sense_ids": [
             "sense:initiative:839a6d4bace65872",
-            "sense:initiative:5ee9dbd564c3574e"
+            "sense:initiative:e7e08b639154034c"
+          ]
+        },
+        {
+          "label_cn": "倡议与创制",
+          "label_en": "proposals",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:initiative:5ee9dbd564c3574e",
+            "sense:initiative:158ac59c42fa5199"
           ]
         }
       ],
-      "core_meaning_cn": "主动性；倡议、新方案",
-      "core_meaning_en": "initiative or a new plan/action",
-      "mental_model_cn": "主动性；倡议、新方案",
+      "core_meaning_cn": "率先采取行动：主动性、主动权或新方案",
+      "core_meaning_en": "acting first through initiative, advantage, or a new proposal",
+      "mental_model_cn": "show/use看主动性；the initiative搭seize/hold/regain看主动权；a/new initiative看行动方案；US ballot/petition看公民立法创制。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -89,6 +110,52 @@
         "sense_label_en": "a new plan or action to solve a problem",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:initiative:e7e08b639154034c",
+        "pos": "noun",
+        "definition_cn": "主动权；先行动并取得优势的机会或能力",
+        "definition_en": "the power or opportunity to act first and gain an advantage",
+        "sense_label_en": "the power or opportunity to act first and gain an advantage",
+        "governing_pattern": "the initiative; seize/hold/regain the initiative",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7752541fee5687dd22db",
+            "phrase": "regain the initiative",
+            "meaning_cn": "重新取得主动权",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "通常the initiative、单数；比赛、谈判等看哪一方掌握主动权，不只性格主动或一项新方案。"
+      },
+      {
+        "sense_id": "sense:initiative:158ac59c42fa5199",
+        "pos": "noun",
+        "definition_cn": "（美国部分州）公民联署提出法律并推动投票的创制程序或提案",
+        "definition_en": "a citizen petition process for proposing a law, or the proposal put to voters",
+        "sense_label_en": "a citizen petition process for proposing a law, or the proposal put to voters",
+        "governing_pattern": "a ballot initiative; the right of initiative",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e9d7baa3fae8cb0ffc15",
+            "phrase": "a ballot initiative",
+            "meaning_cn": "公民提出并交付选民表决的提案",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "US部分州；可数指提案，不可数指程序。并非任意政府倡议，也不等于已经通过的法律。"
       }
     ],
     "verification_summary": {
@@ -118,6 +185,40 @@
           "applicability": [
             {
               "surface": "initiative"
+            },
+            {
+              "surface": "initiative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:initiative:e7e08b639154034c"
+              ],
+              "owner_sense_ids": [
+                "sense:initiative:e7e08b639154034c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2545.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the initiative; seize/hold/regain the initiative"
+            },
+            {
+              "surface": "initiative",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:initiative:158ac59c42fa5199"
+              ],
+              "owner_sense_ids": [
+                "sense:initiative:158ac59c42fa5199"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2545.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a ballot initiative; the right of initiative"
             }
           ],
           "sources": [
@@ -197,12 +298,30 @@
         "merged_into_sense_id": null,
         "source_row": 7039,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:initiative:e7e08b639154034c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2545.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:initiative:158ac59c42fa5199",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2545.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3ce4762093f627836d42",
       "collocation:4e2e8736b0a05cd68485",
-      "collocation:cc46434c3307c4308bba"
+      "collocation:cc46434c3307c4308bba",
+      "collocation:3ce4762093f627836d42",
+      "collocation:7752541fee5687dd22db",
+      "collocation:e9d7baa3fae8cb0ffc15"
     ],
     "facts": [],
     "collocations": [
@@ -220,6 +339,20 @@
         "id": "collocation:cc46434c3307c4308bba",
         "source_row": 17261,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:7752541fee5687dd22db",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2545.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:e9d7baa3fae8cb0ffc15",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2545.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

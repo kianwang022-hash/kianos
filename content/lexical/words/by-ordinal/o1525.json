@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:duck:5a0b9ce333f57447"
           ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "逃避；回避（责任、问题等）",
+          "label_en": "to avoid a duty, question, or other unwelcome matter",
+          "sense_ids": [
+            "sense:duck:44a8d42658bf22c4"
+          ]
         }
       ],
       "core_meaning_cn": "鸭子；低头躲避",
@@ -78,14 +86,15 @@
         "confidence": "medium",
         "definition_cn": "迅速低头或弯身躲避",
         "definition_en": "to lower the head or body quickly to avoid being seen or hit",
-        "governing_pattern": "vi. / duck down/behind/under",
+        "governing_pattern": "duck (down/behind/under sth); duck one's head; duck a blow",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:duck:5a0b9ce333f57447",
         "sense_label_en": "to lower the head or body quickly to avoid being seen or hit",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "duck a blow 的宾语是要闪避的打击，不是被压低的头；两者都涉及身体躲闪。"
       },
       {
         "collocations": [
@@ -112,52 +121,23 @@
         "transitivity": "vt"
       },
       {
+        "sense_id": "sense:duck:44a8d42658bf22c4",
+        "pos": "verb",
+        "definition_cn": "逃避；回避（责任、问题等）",
+        "definition_en": "to avoid a duty, question, or other unwelcome matter",
+        "sense_label_en": "to avoid a duty, question, or other unwelcome matter",
+        "governing_pattern": "duck a question/issue/responsibility; duck out of doing sth",
+        "transitivity": "I/T",
+        "level": "L2",
         "collocations": [
           {
-            "collocation_id": "collocation:e27d31c4335e8fd2dc22",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:duck:e4da9a8e062d5a93:collocation:0"
-            ],
-            "meaning_cn": "得零分出局",
-            "phrase": "out for a duck"
+            "collocation_id": "collocation:duck:44a8d42658bf22c4",
+            "phrase": "duck the question",
+            "meaning_cn": "回避这个问题",
+            "exam_value": "fixed_pattern"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "（板球）零分",
-        "definition_en": "a score of zero by a batsman in cricket",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:duck:e4da9a8e062d5a93",
-        "sense_label_en": "a score of zero by a batsman in cricket",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6eae11dd4baa3d9fb32c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:duck:f195bb13a8a15db4:collocation:0"
-            ],
-            "meaning_cn": "帆布",
-            "phrase": "duck canvas"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "粗帆布",
-        "definition_en": "a heavy cotton fabric used for clothing and tents",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:duck:f195bb13a8a15db4",
-        "sense_label_en": "a heavy cotton fabric used for clothing and tents",
-        "sort_order": 4,
-        "transitivity": "nonverb"
+        "usage_note": "非正式说法，常带对逃避的批评；这里不需要实际低头。"
       }
     ],
     "verification_summary": {
@@ -187,6 +167,28 @@
           "applicability": [
             {
               "surface": "duck"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "duck",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:duck:44a8d42658bf22c4"
+              ],
+              "sense_ids": [
+                "sense:duck:44a8d42658bf22c4"
+              ],
+              "excluded_sense_ids": [
+                "sense:duck:5a0b9ce333f57447",
+                "sense:duck:baaed94c34e45aad",
+                "sense:duck:c58d928bf0cf55ef"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/duck",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -405,6 +407,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/duck",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "duck",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/dʌk/",
+              "applies_to_sense_ids": [
+                "sense:duck:44a8d42658bf22c4"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -909,6 +927,60 @@
       "source_row": 4263,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6eae11dd4baa3d9fb32c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:duck:f195bb13a8a15db4:collocation:0"
+          ],
+          "meaning_cn": "帆布",
+          "phrase": "duck canvas"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "粗帆布",
+      "definition_en": "a heavy cotton fabric used for clothing and tents",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:duck:f195bb13a8a15db4",
+      "sense_label_en": "a heavy cotton fabric used for clothing and tents",
+      "sort_order": 4,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e27d31c4335e8fd2dc22",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:duck:e4da9a8e062d5a93:collocation:0"
+          ],
+          "meaning_cn": "得零分出局",
+          "phrase": "out for a duck"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（板球）零分",
+      "definition_en": "a score of zero by a batsman in cricket",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:duck:e4da9a8e062d5a93",
+      "sense_label_en": "a score of zero by a batsman in cricket",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "deprecated",
+      "merged_into_sense_id": null
     }
   ],
   "identity_refs": {
@@ -936,14 +1008,14 @@
       },
       {
         "sense_id": "sense:duck:e4da9a8e062d5a93",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4264,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:duck:f195bb13a8a15db4",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4265,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -954,14 +1026,21 @@
         "merged_into_sense_id": null,
         "source_row": 4304,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:duck:44a8d42658bf22c4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1525.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:26c6aeb238f967c0c9ef",
       "collocation:2e3027e25baaf1076a56",
       "collocation:3fca5564d3b7eb793438",
-      "collocation:6eae11dd4baa3d9fb32c",
-      "collocation:e27d31c4335e8fd2dc22"
+      "collocation:duck:44a8d42658bf22c4"
     ],
     "facts": [],
     "collocations": [
@@ -988,7 +1067,9 @@
       {
         "id": "collocation:6eae11dd4baa3d9fb32c",
         "source_row": 9343,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:baa21d3c69b42e657cf4",
@@ -998,7 +1079,17 @@
       {
         "id": "collocation:e27d31c4335e8fd2dc22",
         "source_row": 19160,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:duck:44a8d42658bf22c4",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1525.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

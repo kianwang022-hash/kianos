@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "d72bf33ce73b7c810d457ec69261fd7f684420c1ad9db86f05769e20d941ad7d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "语法规则",
-      "core_meaning_en": "the rules of a language",
-      "mental_model_cn": "语法规则",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "语法；语法学；语法书",
+          "label_en": "the rules of a language and the study of those rules; a book describing the grammar of a language",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:grammar:8097006e8f0a5bdb",
+            "sense:grammar:fa0fb9919da4f343"
+          ]
+        }
+      ],
+      "core_meaning_cn": "语法、语法学；语法书",
+      "core_meaning_en": "language rules and their study; a grammar book",
+      "mental_model_cn": "grammar为语言组织规则或研究这些规则的学问；a grammar of a language可指一本该语言的语法书。",
+      "mental_model_en": "language rules and their study; a grammar book."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,15 +56,37 @@
         ],
         "confidence": "medium",
         "definition_cn": "语法；语法学",
-        "definition_en": "the rules for forming words and sentences in a language",
+        "definition_en": "the rules of a language and the study of those rules",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:grammar:8097006e8f0a5bdb",
-        "sense_label_en": "the rules for forming words and sentences in a language",
+        "sense_label_en": "the rules of a language and the study of those rules",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:grammar:fa0fb9919da4f343",
+        "pos": "noun",
+        "definition_cn": "语法书",
+        "definition_en": "a book describing the grammar of a language",
+        "sense_label_en": "a book describing the grammar of a language",
+        "governing_pattern": "a grammar of a language",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:95195e4ddede02adfa91",
+            "phrase": "a grammar of modern English",
+            "meaning_cn": "一本现代英语语法书",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -94,6 +126,23 @@
           "applicability": [
             {
               "surface": "grammar"
+            },
+            {
+              "surface": "grammar",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:grammar:fa0fb9919da4f343"
+              ],
+              "owner_sense_ids": [
+                "sense:grammar:fa0fb9919da4f343"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2182.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a grammar of a language"
+              }
             }
           ],
           "sources": [
@@ -144,6 +193,14 @@
         "merged_into_sense_id": null,
         "source_row": 6086,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:grammar:fa0fb9919da4f343",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2182.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -161,6 +218,13 @@
         "id": "collocation:b33a61154d6761868a83",
         "source_row": 15192,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:95195e4ddede02adfa91",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2182.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

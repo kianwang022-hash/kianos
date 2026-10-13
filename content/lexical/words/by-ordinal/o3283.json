@@ -6,23 +6,47 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:960ffefa7b56baf4df7d",
+        "pattern": "the nuts and bolts (of sth)",
+        "meaning_cn": "某事物的基本实际细节",
+        "definition_en": "the essential practical details of a subject or activity",
+        "usage_note": "非正式；讲计划、工作如何实际运作，也可字面指螺母和螺栓，按语境判断。",
+        "boundary": "非正式；讲计划、工作如何实际运作，也可字面指螺母和螺栓，按语境判断。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:341d780a99131b34b904",
+        "pattern": "a hard/tough nut (to crack)",
+        "meaning_cn": "难题；难以应付或影响的人",
+        "definition_en": "a difficult problem or a person hard to deal with",
+        "usage_note": "问题常用a hard nut to crack；a tough nut也可指难对付的人，不能把所有人都当作坚果。",
+        "boundary": "问题常用a hard nut to crack；a tough nut也可指难对付的人，不能把所有人都当作坚果。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "0527585c22319042396d9e879aa57eebe91c6032cf990e39be8ce1745dace2ad",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "坚果；螺母；狂热爱好者",
-          "label_en": "a nut; a metal nut; an informal enthusiast",
+          "label_cn": "坚果、螺母；爱好者或带冒犯意味的人称",
+          "label_en": "nuts or fasteners; enthusiasts or insulting personal labels",
           "pos": "noun",
           "sense_ids": [
-            "sense:nut:5ed76728b27b65ee"
+            "sense:nut:714a7247c4be53cc",
+            "sense:nut:87a6121fb9775270",
+            "sense:nut:5ed76728b27b65ee",
+            "sense:nut:050171c0bf664ded"
           ]
         }
       ],
-      "core_meaning_cn": "坚果或金属紧固件",
-      "core_meaning_en": "a hard-shelled fruit or a metal fastener",
-      "mental_model_cn": "坚果或金属紧固件",
-      "mental_model_en": ""
+      "core_meaning_cn": "坚果、螺母；狂热爱好者或冒犯性的人称",
+      "core_meaning_en": "an edible nut or fastener; an enthusiast or insulting label",
+      "mental_model_cn": "食物和机械语境分坚果、螺母；a fitness nut说痴迷健身者，call sb a nut可冒犯。nuts and bolts在计划语境指基本实际细节。",
+      "mental_model_en": "an edible nut or fastener; an enthusiast or insulting label."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -101,6 +125,22 @@
         "sense_label_en": "a person extremely enthusiastic or obsessed with a particular thing, informal",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:nut:050171c0bf664ded",
+        "pos": "noun",
+        "definition_cn": "（非正式，可冒犯）被说成古怪、不理智的人",
+        "definition_en": "an insulting informal label for a person considered strange or irrational",
+        "sense_label_en": "an insulting informal label for a person considered strange or irrational",
+        "governing_pattern": "call sb a nut",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [],
+        "usage_note": "称人为a nut可带侮辱性，不是医学诊断；fitness/computer nut则常说狂热爱好者，需看修饰语和语气。"
       }
     ],
     "verification_summary": {
@@ -154,6 +194,24 @@
           "applicability": [
             {
               "surface": "nut"
+            },
+            {
+              "surface": "nut",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nut:050171c0bf664ded"
+              ],
+              "owner_sense_ids": [
+                "sense:nut:050171c0bf664ded"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3283.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "call sb a nut",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -379,11 +437,19 @@
         "merged_into_sense_id": null,
         "source_row": 9148,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:nut:050171c0bf664ded",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3283.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:095d7eb99e05272fc6ac",
       "collocation:15a4c046d3237532d7f6",
+      "collocation:095d7eb99e05272fc6ac",
       "collocation:ce45e882abac5cda0b75"
     ],
     "facts": [],

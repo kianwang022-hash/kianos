@@ -11,7 +11,7 @@
         "construction_id": "construction:90cb14e77113e21836b3",
         "direction": "R+P",
         "level": "L2",
-        "meaning_cn": "encourage or provoke someone to act",
+        "meaning_cn": "怂恿、煽动某人去做某事",
         "pattern": "egg sb on (to do sth)"
       }
     ],
@@ -20,17 +20,25 @@
       "core_clusters": [
         {
           "label_cn": "蛋，卵；鸡蛋（食物）",
-          "label_en": "a round object laid by a bird, usually with a shell, which contains a baby bird; the egg of a hen used as food",
+          "label_en": "an egg laid by a bird or other animal; a hen's egg as food",
           "pos": "noun",
           "sense_ids": [
             "sense:egg:fd98e4259eb65c6a",
             "sense:egg:a273e1ee8a635cc9"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "卵细胞；雌性生殖细胞",
+          "label_en": "a female reproductive cell in an animal or plant",
+          "sense_ids": [
+            "sense:egg:452c301901fd8ee2"
+          ]
         }
       ],
-      "core_meaning_cn": "蛋；卵",
-      "core_meaning_en": "a reproductive body laid by birds or the food item",
-      "mental_model_cn": "蛋；卵",
+      "core_meaning_cn": "蛋；卵；卵细胞",
+      "core_meaning_en": "a laid egg, an egg used as food, or a female reproductive cell",
+      "mental_model_cn": "食物、产出的卵与生殖细胞按语境区分；人类egg不要求像鸟蛋那样产到体外。egg on仍是原独立构式。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -51,7 +59,22 @@
             ],
             "meaning_cn": "下蛋",
             "phrase": "lay an egg"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "蛋，卵",
+        "definition_en": "an oval or rounded reproductive structure produced by a bird or other egg-laying animal, from which a young animal may develop",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:egg:fd98e4259eb65c6a",
+        "sense_label_en": "a reproductive structure laid by a bird or other animal",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:e8140859a1fab6666c72",
             "exam_value": "usage_example",
@@ -60,22 +83,7 @@
             ],
             "meaning_cn": "煮鸡蛋",
             "phrase": "boiled egg"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "蛋，卵",
-        "definition_en": "a round object laid by a bird, usually with a shell, which contains a baby bird",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:egg:fd98e4259eb65c6a",
-        "sense_label_en": "a round object laid by a bird, usually with a shell, which contains a ba",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:6f8e76f010e668626daa",
             "exam_value": "usage_example",
@@ -106,6 +114,25 @@
         "sense_label_en": "the egg of a hen used as food",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:egg:452c301901fd8ee2",
+        "pos": "noun",
+        "definition_cn": "卵细胞；雌性生殖细胞",
+        "definition_en": "a female reproductive cell in an animal or plant",
+        "sense_label_en": "a female reproductive cell in an animal or plant",
+        "governing_pattern": "an egg cell; a fertilized egg",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:egg:452c301901fd8ee2",
+            "phrase": "egg cell",
+            "meaning_cn": "卵细胞",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可指人及其他动物、植物的雌性生殖细胞；不要求已经产到体外，也不是食用鸡蛋。"
       }
     ],
     "verification_summary": {
@@ -135,6 +162,28 @@
           "applicability": [
             {
               "surface": "egg"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "egg",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:egg:452c301901fd8ee2"
+              ],
+              "sense_ids": [
+                "sense:egg:452c301901fd8ee2"
+              ],
+              "excluded_sense_ids": [
+                "sense:egg:a273e1ee8a635cc9",
+                "sense:egg:fd98e4259eb65c6a"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/egg",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -272,6 +321,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/egg",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "egg",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɛɡ/",
+              "applies_to_sense_ids": [
+                "sense:egg:452c301901fd8ee2"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -663,13 +728,22 @@
         "merged_into_sense_id": null,
         "source_row": 4425,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+      },
+      {
+        "sense_id": "sense:egg:452c301901fd8ee2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1580.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:55c6c0196fd64f4038cf",
       "collocation:6e7a4f33ab8d90a9339d",
       "collocation:6f8e76f010e668626daa",
-      "collocation:e8140859a1fab6666c72"
+      "collocation:e8140859a1fab6666c72",
+      "collocation:egg:452c301901fd8ee2"
     ],
     "facts": [],
     "collocations": [
@@ -701,7 +775,16 @@
       {
         "id": "collocation:e8140859a1fab6666c72",
         "source_row": 19666,
-        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json",
+        "sense_id": "sense:egg:a273e1ee8a635cc9"
+      },
+      {
+        "id": "collocation:egg:452c301901fd8ee2",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1580.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

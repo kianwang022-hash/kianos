@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "8922de26e0798a8ff9ea4cbd000dd7684085e0fdb5281c446f149f540045740d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "英雄；主角",
-      "core_meaning_en": "a brave person or main character",
-      "mental_model_cn": "英雄；主角",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "英雄；故事主角（尤男主角）；因某种才能或品质而受崇拜的人；偶像",
+          "label_en": "a person admired for courage or noble qualities; the main character in a story, especially a male character; a person admired for a particular talent or quality",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hero:3375fcc8506c5521",
+            "sense:hero:82a344f9c32e549f",
+            "sense:hero:116f31a9975327cd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "英雄、故事主角；因才能或品质受崇拜的人",
+      "core_meaning_en": "a hero or leading character; an admired role model",
+      "mental_model_cn": "hero既可因勇敢善行受敬佩，也可指故事主角或因音乐等才能受崇拜的偶像。",
+      "mental_model_en": "a hero or leading character; an admired role model."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -60,16 +71,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "男主角",
-        "definition_en": "the principal male character in a story",
+        "definition_cn": "故事主角（尤男主角）",
+        "definition_en": "the main character in a story, especially a male character",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hero:82a344f9c32e549f",
-        "sense_label_en": "the principal male character in a story",
+        "sense_label_en": "the main character in a story, especially a male character",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hero:116f31a9975327cd",
+        "pos": "noun",
+        "definition_cn": "因某种才能或品质而受崇拜的人；偶像",
+        "definition_en": "a person admired for a particular talent or quality",
+        "sense_label_en": "a person admired for a particular talent or quality",
+        "governing_pattern": "somebody’s hero; a hero to somebody",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:df805d51e87b010176b9",
+            "phrase": "That musician was my childhood hero.",
+            "meaning_cn": "那位音乐家是我儿时的偶像。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -110,6 +143,23 @@
           "applicability": [
             {
               "surface": "hero"
+            },
+            {
+              "surface": "hero",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hero:116f31a9975327cd"
+              ],
+              "owner_sense_ids": [
+                "sense:hero:116f31a9975327cd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2320.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "somebody’s hero; a hero to somebody"
             }
           ],
           "sources": [
@@ -371,11 +421,20 @@
         "merged_into_sense_id": null,
         "source_row": 6481,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hero:116f31a9975327cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2320.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:0c0451b075d92cdebc46",
-      "collocation:626032b67c5e9fcf1833"
+      "collocation:626032b67c5e9fcf1833",
+      "collocation:df805d51e87b010176b9"
     ],
     "facts": [],
     "collocations": [
@@ -388,6 +447,13 @@
         "id": "collocation:626032b67c5e9fcf1833",
         "source_row": 8290,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:df805d51e87b010176b9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2320.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

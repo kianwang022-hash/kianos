@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "39bde04d266e8d82d5ada285299729068c9ed79e31fcbba547d9f0a85a039b8a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "模仿；仿制品",
-      "core_meaning_en": "copying or a copy",
-      "mental_model_cn": "模仿；仿制品",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "仿效行为或做出的仿制品、模仿表演",
+          "label_en": "copying, a replica, or an impersonation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:imitation:8f6de74722ca5ecf",
+            "sense:imitation:afd891450db353a0",
+            "sense:imitation:a2cfb4cfd04af2d3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "仿效行为或做出的仿制品、模仿表演",
+      "core_meaning_en": "copying, a replica, or an impersonation",
+      "mental_model_cn": "learn by imitation是过程；imitation leather是仿制材料；do an imitation of sb是模仿表演，不是一般印象。",
+      "mental_model_en": "copying, a replica, or an impersonation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,14 +56,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "模仿",
-        "definition_en": "the act of copying or trying to copy the actions of someone else",
-        "governing_pattern": "",
+        "definition_cn": "模仿；仿效",
+        "definition_en": "the act of copying somebody or something",
+        "governing_pattern": "imitation of sb/sth; in imitation of sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:imitation:8f6de74722ca5ecf",
-        "sense_label_en": "the act of copying or trying to copy the actions of someone else",
+        "sense_label_en": "the act of copying somebody or something",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -66,6 +77,12 @@
             ],
             "meaning_cn": "名画的仿制品",
             "phrase": "an imitation of a famous painting"
+          },
+          {
+            "collocation_id": "collocation:27b1e7f8c218ba782f4f",
+            "phrase": "imitation leather",
+            "meaning_cn": "人造仿皮革",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
@@ -79,6 +96,28 @@
         "sense_label_en": "something copied or derived from an original",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:imitation:a2cfb4cfd04af2d3",
+        "pos": "noun",
+        "definition_cn": "模仿某人声音、举止的表演（常为逗笑）",
+        "definition_en": "a performance copying a person’s voice or manner, often humorously",
+        "sense_label_en": "a performance copying a person’s voice or manner, often humorously",
+        "governing_pattern": "do/give an imitation of sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:27a276600655753f3993",
+            "phrase": "do an imitation of the presenter",
+            "meaning_cn": "模仿主持人的口吻表演",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +147,23 @@
           "applicability": [
             {
               "surface": "imitation"
+            },
+            {
+              "surface": "imitation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:imitation:a2cfb4cfd04af2d3"
+              ],
+              "owner_sense_ids": [
+                "sense:imitation:a2cfb4cfd04af2d3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2455.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "do/give an imitation of sb"
             }
           ],
           "sources": [
@@ -213,12 +269,22 @@
         "merged_into_sense_id": null,
         "source_row": 6824,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:imitation:a2cfb4cfd04af2d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2455.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:896dbda2f399a61d3a44",
       "collocation:8edd13287e131480cbb5",
-      "collocation:d1883cbfafe8802437b1"
+      "collocation:d1883cbfafe8802437b1",
+      "collocation:896dbda2f399a61d3a44",
+      "collocation:27b1e7f8c218ba782f4f",
+      "collocation:27a276600655753f3993"
     ],
     "facts": [],
     "collocations": [
@@ -236,6 +302,20 @@
         "id": "collocation:d1883cbfafe8802437b1",
         "source_row": 17710,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:27a276600655753f3993",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2455.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:27b1e7f8c218ba782f4f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2455.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -9,10 +9,36 @@
     "constructions": [],
     "content_hash": "97a8904e3a9c5eabff86c811cad559d76783352ef7b805f8f4d69383ef254266",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "地产或财产",
-      "core_meaning_en": "land or property owned by someone",
-      "mental_model_cn": "地产或财产",
+      "core_clusters": [
+        {
+          "label_cn": "庄园；财产/遗产",
+          "label_en": "landed property; possessions or inherited estate",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:estate:eb599f8a773d5ec7",
+            "sense:estate:c0b100ffb9a55018"
+          ]
+        },
+        {
+          "label_cn": "英式住宅区/工业园",
+          "label_en": "British housing or industrial development",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:estate:685e49cf8fd2df6c"
+          ]
+        },
+        {
+          "label_cn": "英式旅行车",
+          "label_en": "British estate car",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:estate:6743b2418063f59d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "庄园、财产或遗产；英式住宅区/工业园、旅行车",
+      "core_meaning_en": "landed property or an estate of possessions; British developed area or estate car",
+      "mental_model_cn": "土地语境指庄园；所有权、去世或遗嘱语境指财产/遗产。英式居住或工厂语境可指住宅区/工业园，汽车语境可指旅行车。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,6 +105,56 @@
         "sense_label_en": "all the money and property that someone owns, especially when they die",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:estate:685e49cf8fd2df6c",
+        "pos": "noun",
+        "definition_cn": "（主要英式）住宅区、工业园等开发区域",
+        "definition_en": "chiefly British: an area developed as a group of homes or industrial premises",
+        "sense_label_en": "chiefly British: an area developed as a group of homes or industrial premises",
+        "governing_pattern": "housing estate; industrial estate; on an estate",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9215fd48de19a9b6c854",
+            "phrase": "housing estate",
+            "meaning_cn": "住宅区",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:8c61e3c83a5cf25821ad",
+            "phrase": "industrial estate",
+            "meaning_cn": "工业园区",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:estate:6743b2418063f59d",
+        "pos": "noun",
+        "definition_cn": "（英式）旅行车；estate car的简称",
+        "definition_en": "British: a car with a long rear body and cargo space behind the rear seats",
+        "sense_label_en": "British: a car with a long rear body and cargo space behind the rear seats",
+        "governing_pattern": "an estate; an estate car",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0e673b85974bf5f227b8",
+            "phrase": "an estate car",
+            "meaning_cn": "旅行车",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -128,6 +204,30 @@
           "applicability": [
             {
               "surface": "estate"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "estate",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:estate:6743b2418063f59d",
+                "sense:estate:685e49cf8fd2df6c"
+              ],
+              "sense_ids": [
+                "sense:estate:6743b2418063f59d",
+                "sense:estate:685e49cf8fd2df6c"
+              ],
+              "excluded_sense_ids": [
+                "sense:estate:c0b100ffb9a55018",
+                "sense:estate:eb599f8a773d5ec7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/estate",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -194,6 +294,23 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/estate",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "estate",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈsteɪt/",
+              "applies_to_sense_ids": [
+                "sense:estate:6743b2418063f59d",
+                "sense:estate:685e49cf8fd2df6c"
+              ],
+              "evidence_note": "Same headword meaning checked; original observed IPA, regional/source conditions retained; bounded identity support only, no new IPA/default locale."
             }
           ]
         }
@@ -217,6 +334,22 @@
         "merged_into_sense_id": null,
         "source_row": 4729,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
+      },
+      {
+        "sense_id": "sense:estate:685e49cf8fd2df6c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1717.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:estate:6743b2418063f59d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1717.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -240,6 +373,27 @@
         "id": "collocation:c49a75d2b4b356105733",
         "source_row": 16648,
         "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+      },
+      {
+        "id": "collocation:9215fd48de19a9b6c854",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1717.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:8c61e3c83a5cf25821ad",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1717.json",
+        "source_pointer": "/record/senses/2/collocations/1"
+      },
+      {
+        "id": "collocation:0e673b85974bf5f227b8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1717.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

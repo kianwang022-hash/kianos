@@ -9,7 +9,16 @@
     "constructions": [],
     "content_hash": "50f34b40a91f40027fa14b6e160e768fc93a01bb93488a0863201d3d2ba4944a",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "首都以外的地方；外省",
+          "label_en": "the parts of a country outside its capital",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:province:05dccd6022e8005c"
+          ]
+        }
+      ],
       "core_meaning_cn": "省；领域",
       "core_meaning_en": "an administrative division; a sphere of activity",
       "mental_model_cn": "省；领域",
@@ -70,6 +79,39 @@
         "sense_label_en": "the proper sphere or extent of your activities",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:province:05dccd6022e8005c",
+        "pos": "noun",
+        "definition_cn": "首都以外的地方；外省",
+        "definition_en": "the parts of a country outside its capital",
+        "sense_label_en": "the parts of a country outside its capital",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the provinces (plural)",
+        "transitivity": "nonverb",
+        "usage_note": "The definite plural can contrast with the capital, without referring to official province boundaries.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:province:4307111e08b80d6e",
+            "phrase": "tour the provinces",
+            "meaning_cn": "到首都以外各地巡演",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/province",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/province",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -218,11 +260,18 @@
         "merged_into_sense_id": null,
         "source_row": 10722,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      },
+      {
+        "sense_id": "sense:province:05dccd6022e8005c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3855.json"
       }
     ],
     "active_collocations": [
       "collocation:22ab21338700d5a39f82",
-      "collocation:ad9c09613e7b017f8555"
+      "collocation:ad9c09613e7b017f8555",
+      "collocation:province:4307111e08b80d6e"
     ],
     "facts": [],
     "collocations": [
@@ -235,6 +284,10 @@
         "id": "collocation:ad9c09613e7b017f8555",
         "source_row": 14702,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:province:4307111e08b80d6e",
+        "source_path": "content/lexical/words/by-ordinal/o3855.json"
       }
     ],
     "exam-mappings": [],

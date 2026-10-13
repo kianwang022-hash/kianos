@@ -31,18 +31,51 @@
         "definition_en": "almost; nearly",
         "pattern": "as good as + adjective/past participle",
         "boundary": "fixed near-completion idiom, e.g. as good as finished"
+      },
+      {
+        "construction_id": "construction:2e3568252801eb4d1996",
+        "pattern": "be good with sb/sth",
+        "meaning_cn": "擅长应对某人或使用某物",
+        "definition_en": "to handle people or things skilfully",
+        "usage_note": "如good with children表示善于和孩子相处，good with tools表示善于使用工具；good at通常后接活动或技能。",
+        "boundary": "如good with children表示善于和孩子相处，good with tools表示善于使用工具；good at通常后接活动或技能。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:d14a21acac0e6fa68f5f",
+        "pattern": "a good + 数量或时长",
+        "meaning_cn": "足足；整整（强调数量或时长）",
+        "definition_en": "to emphasize a full or considerable amount or duration",
+        "usage_note": "如a good hour为足足一小时；这里good强调数量，不是评价这一小时质量好。",
+        "boundary": "如a good hour为足足一小时；这里good强调数量，不是评价这一小时质量好。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:f43ed5f07daf124f3aad",
+        "pattern": "a good many + 复数名词",
+        "meaning_cn": "很多；相当多",
+        "definition_en": "a considerable number of people or things",
+        "usage_note": "many后接可数复数，如a good many visitors；good为强调数量。",
+        "boundary": "many后接可数复数，如a good many visitors；good为强调数量。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "a3558ec2d4eb0c4e9323e43dc93beb1a27b2a3d2d081d72aad48de2f963a98c9",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "好的；优良的；有益的；有好处的",
-          "label_en": "having desirable or positive qualities; beneficial or advantageous",
+          "label_cn": "好的；优良的；有益的；有好处的；健康的；身体状况良好的；有效的；可使用的；品行好的；善良的；乖的",
+          "label_en": "having desirable or positive qualities; beneficial or advantageous; healthy or in a sound physical condition; valid or effective for its stated purpose or period; morally good, kind, or well behaved",
           "pos": "adjective",
           "sense_ids": [
             "sense:good:c81e7306bf8a53fb",
-            "sense:good:c90a95606fb758b9"
+            "sense:good:c90a95606fb758b9",
+            "sense:good:8f85f167276ad287",
+            "sense:good:3d51e1f0193b7a01",
+            "sense:good:f4212b0066f70a0d"
           ]
         },
         {
@@ -54,10 +87,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "好的；有益的",
-      "core_meaning_en": "having positive qualities; beneficial",
-      "mental_model_cn": "quality → 好；benefit → 有益；noun good → 好处/善；for good → 永久地；as good as → 几乎、基本等于。",
-      "mental_model_en": ""
+      "core_meaning_cn": "优良、有益、健康、有效、善良或守规矩；善和利益；技能及数量表达",
+      "core_meaning_en": "good quality, benefit, health, validity, morality, or proper behaviour; good and benefit; skill and quantity expressions",
+      "mental_model_cn": "good评价事物为优良，good for为有益，feel good可为身体或心情好，票good until某日为在该期限内有效。good to sb为善待某人，good with sth为擅长应对；a good hour强调足足的时长。名词good可为善或利益。",
+      "mental_model_en": "good quality, benefit, health, validity, morality, or proper behaviour; good and benefit; skill and quantity expressions."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -141,7 +174,7 @@
             "legacy_source_object_ids": [
               "sense:good:56dade36c486500c:collocation:0"
             ],
-            "meaning_cn": "做好事",
+            "meaning_cn": "行善；产生益处",
             "phrase": "do good"
           },
           {
@@ -165,6 +198,79 @@
         "sense_label_en": "that which is morally right or beneficial",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:good:8f85f167276ad287",
+        "pos": "adjective",
+        "definition_cn": "健康的；身体状况良好的",
+        "definition_en": "healthy or in a sound physical condition",
+        "sense_label_en": "healthy or in a sound physical condition",
+        "governing_pattern": "feel good; in good health",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb1efd6cb042727e82fe",
+            "phrase": "I feel good this morning.",
+            "meaning_cn": "今天早上我感觉身体状态很好。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "feel good也可指心情好，具体含义看上下文；feel是连系动词，后接形容词。"
+      },
+      {
+        "sense_id": "sense:good:3d51e1f0193b7a01",
+        "pos": "adjective",
+        "definition_cn": "有效的；可使用的",
+        "definition_en": "valid or effective for its stated purpose or period",
+        "sense_label_en": "valid or effective for its stated purpose or period",
+        "governing_pattern": "a ticket/offer is good until a date",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6c5a7db377a10eb39a89",
+            "phrase": "The ticket is good until Friday.",
+            "meaning_cn": "这张票有效至周五。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:good:f4212b0066f70a0d",
+        "pos": "adjective",
+        "definition_cn": "品行好的；善良的；乖的",
+        "definition_en": "morally good, kind, or well behaved",
+        "sense_label_en": "morally good, kind, or well behaved",
+        "governing_pattern": "a good person; be good to sb; good of sb to do",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d430eadf9b3efe20518",
+            "phrase": "be good to someone",
+            "meaning_cn": "善待某人",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:38eac47be0e729917221",
+            "phrase": "It was good of you to help.",
+            "meaning_cn": "你愿意帮忙，真是好心。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -247,6 +353,57 @@
           "applicability": [
             {
               "surface": "good"
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:8f85f167276ad287"
+              ],
+              "owner_sense_ids": [
+                "sense:good:8f85f167276ad287"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "feel good; in good health"
+              }
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:3d51e1f0193b7a01"
+              ],
+              "owner_sense_ids": [
+                "sense:good:3d51e1f0193b7a01"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a ticket/offer is good until a date"
+              }
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:f4212b0066f70a0d"
+              ],
+              "owner_sense_ids": [
+                "sense:good:f4212b0066f70a0d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a good person; be good to sb; good of sb to do"
+              }
             }
           ],
           "sources": [
@@ -517,6 +674,30 @@
         "merged_into_sense_id": null,
         "source_row": 6027,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:good:8f85f167276ad287",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:good:3d51e1f0193b7a01",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:good:f4212b0066f70a0d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -558,6 +739,34 @@
         "id": "collocation:c14fbe77aeddfd68d1bb",
         "source_row": 16342,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:cb1efd6cb042727e82fe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:6c5a7db377a10eb39a89",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:1d430eadf9b3efe20518",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:38eac47be0e729917221",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2162.json",
+        "source_pointer": "/record/senses/5/collocations/1"
       }
     ],
     "exam-mappings": [

@@ -12,7 +12,7 @@
       "core_clusters": [
         {
           "label_cn": "个人，个体",
-          "label_en": "a single human being",
+          "label_en": "a person or individual member of a class or species",
           "pos": "noun",
           "sense_ids": [
             "sense:individual:24f92f4ed9975a57"
@@ -45,7 +45,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:d88f72a88f9a362091f1",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:individual:24f92f4ed9975a57:collocation:0"
             ],
@@ -60,19 +60,26 @@
             ],
             "meaning_cn": "个人权利",
             "phrase": "rights of the individual"
+          },
+          {
+            "collocation_id": "collocation:3f7816fead75cb39b218",
+            "phrase": "individuals of a species",
+            "meaning_cn": "某物种的个体",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "个人，个体",
-        "definition_en": "a single human being",
+        "definition_cn": "个人；作为群体一员单独考虑的个体",
+        "definition_en": "one person considered separately, or one member of a class or species",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:individual:24f92f4ed9975a57",
-        "sense_label_en": "a single human being",
+        "sense_label_en": "one person considered separately, or one member of a class or species",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "people语境指个人；species/group等语境也可指单个非人类成员。quite an individual可强调一个人独特的个性；原独特adj保持。"
       },
       {
         "collocations": [
@@ -248,11 +255,12 @@
       }
     ],
     "active_collocations": [
+      "collocation:d88f72a88f9a362091f1",
+      "collocation:f1c806e84c82fff75976",
+      "collocation:3f7816fead75cb39b218",
       "collocation:523aaa846547d36423a4",
       "collocation:648ae7524f13216c4c7f",
-      "collocation:b454efe49e9a61e4fc0e",
-      "collocation:d88f72a88f9a362091f1",
-      "collocation:f1c806e84c82fff75976"
+      "collocation:b454efe49e9a61e4fc0e"
     ],
     "facts": [],
     "collocations": [
@@ -274,12 +282,21 @@
       {
         "id": "collocation:d88f72a88f9a362091f1",
         "source_row": 18308,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f1c806e84c82fff75976",
         "source_row": 20487,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:3f7816fead75cb39b218",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2510.json",
+        "source_pointer": "/record/senses/0/collocations/2"
       }
     ],
     "exam-mappings": [],

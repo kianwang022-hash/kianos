@@ -16,6 +16,21 @@
         "pattern": "practice what you preach",
         "boundary": "idiom tied to the advocacy/preaching branch",
         "source_sense_id": "sense:preach:d2211346965b5527"
+      },
+      {
+        "construction_id": "construction:preach:e185f31a0236ae72",
+        "pattern": "preach to the converted/choir",
+        "meaning_cn": "向本来就赞同的人宣讲",
+        "definition_en": "to argue for a view to people who already agree",
+        "boundary": "强调无需再说服的听众；choir尤其见于北美表达，不局限教会。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/preach",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "content_hash": "bca39ec07c544feff082189970dde197987d2a705a91006fba3d622ed0a1c488",
@@ -23,7 +38,7 @@
       "core_clusters": [],
       "core_meaning_cn": "布道或宣扬",
       "core_meaning_en": "deliver a sermon or advocate",
-      "mental_model_cn": "布道或宣扬",
+      "mental_model_cn": "宗教语境是布道，倡导观念是宣扬；preach at someone或抱怨说教时常含贬义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -51,14 +66,20 @@
         "confidence": "medium",
         "definition_cn": "讲道，布道",
         "definition_en": "to give a religious speech",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "I/T: preach (to sb) (about sth); preach a sermon",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:preach:dcd5b8818865574b",
         "sense_label_en": "to give a religious speech",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/preach",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -75,14 +96,53 @@
         "confidence": "medium",
         "definition_cn": "鼓吹，宣扬",
         "definition_en": "to recommend or advocate an idea",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: preach sth; preach about sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:preach:d2211346965b5527",
         "sense_label_en": "to recommend or advocate an idea",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/preach",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:preach:865b6dc8e0d58de2",
+        "pos": "verb",
+        "definition_cn": "（令人厌烦地）说教",
+        "definition_en": "to give unwanted moral advice in an annoying way",
+        "sense_label_en": "to give unwanted moral advice in an annoying way",
+        "transitivity": "vi",
+        "governing_pattern": "vi.: preach (at sb)",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:preach:a446da0bddedd7bb",
+            "phrase": "Please stop preaching at me.",
+            "meaning_cn": "请别再对我说教了。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/preach",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "常含贬义；preach at sb或Don't preach不必涉及宗教。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/preach",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -334,11 +394,18 @@
         "merged_into_sense_id": null,
         "source_row": 10379,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      },
+      {
+        "sense_id": "sense:preach:865b6dc8e0d58de2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3723.json"
       }
     ],
     "active_collocations": [
       "collocation:381ea808a1bfc74c540f",
-      "collocation:7510fc9065f5bd7b9bbd"
+      "collocation:7510fc9065f5bd7b9bbd",
+      "collocation:preach:a446da0bddedd7bb"
     ],
     "facts": [],
     "collocations": [
@@ -351,6 +418,10 @@
         "id": "collocation:7510fc9065f5bd7b9bbd",
         "source_row": 9874,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:preach:a446da0bddedd7bb",
+        "source_path": "content/lexical/words/by-ordinal/o3723.json"
       }
     ],
     "exam-mappings": [],

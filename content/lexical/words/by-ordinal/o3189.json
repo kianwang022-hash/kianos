@@ -9,11 +9,36 @@
     "constructions": [],
     "content_hash": "58c0cae898f1d7f602efb372aceb368f75e2979099cdddd246feb2aa94a64f9b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "导航，航行",
-      "core_meaning_en": "the act or science of directing a route",
-      "mental_model_cn": "导航，航行",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "导航，领航",
+          "label_en": "the process or activity of accurately ascertaining one's position and planning and following a route",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:navigation:5c6ef4b34c5d539b"
+          ]
+        },
+        {
+          "label_cn": "航行；船舶或飞机的通行",
+          "label_en": "the movement or passage of ships or aircraft",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:navigation:603e8e22bffc52b1"
+          ]
+        },
+        {
+          "label_cn": "（网页、文档等的）浏览、导航",
+          "label_en": "moving between parts of a website or document to find information",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:navigation:76fe8cd39aa0e1b5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "规划路线并领航；船舶/飞机航行；网页或文档导航",
+      "core_meaning_en": "route planning and guidance; passage of ships or aircraft; website or document navigation",
+      "mental_model_cn": "navigation system帮助找路线；freedom of navigation谈通行；网站navigation bar帮助浏览各处内容，不只是海上导航。",
+      "mental_model_en": "route planning and guidance; passage of ships or aircraft; website or document navigation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -52,7 +77,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:navigation:5c6ef4b34c5d539b",
-        "sense_label_en": "the process or activity of accurately ascertaining one's position and pl",
+        "sense_label_en": "the process or activity of accurately ascertaining one's position and planning and following a route",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -69,16 +94,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "船舶交通，航运",
-        "definition_en": "the traffic of ships",
+        "definition_cn": "航行；船舶或飞机的通行",
+        "definition_en": "the movement or passage of ships or aircraft",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:navigation:603e8e22bffc52b1",
-        "sense_label_en": "the traffic of ships",
+        "sense_label_en": "the movement or passage of ships or aircraft",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:navigation:76fe8cd39aa0e1b5",
+        "pos": "noun",
+        "definition_cn": "（网页、文档等的）浏览、导航",
+        "definition_en": "moving between parts of a website or document to find information",
+        "sense_label_en": "moving between parts of a website or document to find information",
+        "governing_pattern": "website/document navigation; navigation bar",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:769607cb8eda6956c67b",
+            "phrase": "website navigation",
+            "meaning_cn": "网站导航、浏览方式",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +155,24 @@
           "applicability": [
             {
               "surface": "navigation"
+            },
+            {
+              "surface": "navigation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:navigation:76fe8cd39aa0e1b5"
+              ],
+              "owner_sense_ids": [
+                "sense:navigation:76fe8cd39aa0e1b5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3189.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "website/document navigation; navigation bar",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -187,12 +252,21 @@
         "merged_into_sense_id": null,
         "source_row": 8875,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:navigation:76fe8cd39aa0e1b5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3189.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:3ca0d1058078d6876273",
       "collocation:6792590ff8ff2ddbbc9f",
-      "collocation:7d7649595922f8cf8bd2"
+      "collocation:7d7649595922f8cf8bd2",
+      "collocation:3ca0d1058078d6876273",
+      "collocation:769607cb8eda6956c67b"
     ],
     "facts": [],
     "collocations": [
@@ -210,6 +284,13 @@
         "id": "collocation:7d7649595922f8cf8bd2",
         "source_row": 10603,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:769607cb8eda6956c67b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3189.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

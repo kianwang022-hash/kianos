@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "邀请，请求；引起，招致",
-          "label_en": "ask someone in a friendly way to do something or come somewhere; increase the likelihood of something happening",
+          "label_cn": "邀请、征求；招致",
+          "label_en": "to request attendance or contributions; bring on a result",
           "pos": "verb",
           "sense_ids": [
             "sense:invite:2b2aa3f4d5045010",
@@ -21,16 +21,16 @@
         },
         {
           "label_cn": "邀请（口语）",
-          "label_en": "a colloquial expression for invitation",
+          "label_en": "an informal invitation",
           "pos": "noun",
           "sense_ids": [
             "sense:invite:587f01af4fd75012"
           ]
         }
       ],
-      "core_meaning_cn": "邀请",
-      "core_meaning_en": "ask someone to do something or come somewhere",
-      "mental_model_cn": "邀请",
+      "core_meaning_cn": "邀请、请求；招致；口语中的邀请或请柬",
+      "core_meaning_en": "to invite attendance or contributions, or bring on a result; informally an invitation",
+      "mental_model_cn": "people → 邀请参加；questions/tenders → 正式征求；trouble → 招致；noun → 口语邀请。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,19 +72,26 @@
             ],
             "meaning_cn": "邀请他参加聚会",
             "phrase": "invite him to the party"
+          },
+          {
+            "collocation_id": "collocation:1ed4739ea348a5a3bbdc",
+            "phrase": "invite questions from the audience",
+            "meaning_cn": "请听众提问",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "邀请，请求",
-        "definition_en": "ask someone in a friendly way to do something or come somewhere",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "邀请；请求；征求",
+        "definition_en": "to ask someone to attend or participate, or formally request a contribution such as questions or applications",
+        "governing_pattern": "invite sb to sth/to do sth; invite sth (from sb)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:invite:2b2aa3f4d5045010",
-        "sense_label_en": "ask someone in a friendly way to do something or come somewhere",
+        "sense_label_en": "to ask someone to attend or participate, or formally request a contribution such as questions or applications",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "社交邀请和正式征求都可用；invite questions/tenders 中直接宾语是所征求的内容，不等于招致麻烦。"
       },
       {
         "collocations": [
@@ -329,12 +336,13 @@
       }
     ],
     "active_collocations": [
-      "collocation:1a91f8148e00905796d7",
       "collocation:3184a9e051472b787f3f",
-      "collocation:4a2dcc51802344e34ed8",
       "collocation:74dcd4d08feaad579ba2",
-      "collocation:adf463c5a00b2327eee6",
-      "collocation:cce6041a48631305cb50"
+      "collocation:cce6041a48631305cb50",
+      "collocation:1ed4739ea348a5a3bbdc",
+      "collocation:4a2dcc51802344e34ed8",
+      "collocation:1a91f8148e00905796d7",
+      "collocation:adf463c5a00b2327eee6"
     ],
     "facts": [
       {
@@ -373,6 +381,13 @@
         "id": "collocation:cce6041a48631305cb50",
         "source_row": 17336,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:1ed4739ea348a5a3bbdc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2640.json",
+        "source_pointer": "/record/senses/0/collocations/3"
       }
     ],
     "exam-mappings": [],

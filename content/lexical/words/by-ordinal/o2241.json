@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "9acf206e5010e8cb0f000d2646088eea529777613789c9fe57a08b8edf9cc85b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "大厅；门厅；走廊",
-      "core_meaning_en": "a large room or building used for public gatherings, or a passageway in a building",
-      "mental_model_cn": "大厅；门厅；走廊",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "会堂，礼堂，大厅；门厅；走廊；大学或学院学生宿舍楼",
+          "label_en": "a large room or building used for meetings, concerts, or public events; the space inside an entrance, or a passage connecting rooms in a building; a building where university or college students live",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hall:52d320e59cbc538a",
+            "sense:hall:967fbad1568751e6",
+            "sense:hall:af03fcd3d6d2c574"
+          ]
+        }
+      ],
+      "core_meaning_cn": "大厅、入口通道或学生宿舍楼",
+      "core_meaning_en": "a public hall, entrance or corridor, or student residence",
+      "mental_model_cn": "hall可为大厅或入口通道，也可为大学学生宿舍楼；live in halls属于居住语境。",
+      "mental_model_en": "a public hall, entrance or corridor, or student residence."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -69,16 +80,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "门厅，走廊",
-        "definition_en": "the area just inside the main entrance of a house or building that leads to other rooms",
+        "definition_cn": "门厅；走廊",
+        "definition_en": "the space inside an entrance, or a passage connecting rooms in a building",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hall:967fbad1568751e6",
-        "sense_label_en": "the area just inside the main entrance of a house or building that leads",
+        "sense_label_en": "the space inside an entrance, or a passage connecting rooms in a building",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hall:af03fcd3d6d2c574",
+        "pos": "noun",
+        "definition_cn": "大学或学院学生宿舍楼",
+        "definition_en": "a building where university or college students live",
+        "sense_label_en": "a building where university or college students live",
+        "governing_pattern": "a hall of residence; live in hall(s)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c60c6e45700b27dbdfad",
+            "phrase": "live in halls",
+            "meaning_cn": "住在大学宿舍",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -118,6 +151,23 @@
           "applicability": [
             {
               "surface": "hall"
+            },
+            {
+              "surface": "hall",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hall:af03fcd3d6d2c574"
+              ],
+              "owner_sense_ids": [
+                "sense:hall:af03fcd3d6d2c574"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2241.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a hall of residence; live in hall(s)"
+              }
             }
           ],
           "sources": [
@@ -174,12 +224,21 @@
         "merged_into_sense_id": null,
         "source_row": 6259,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:hall:af03fcd3d6d2c574",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2241.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:0a4392399f17d366af79",
+      "collocation:b4aea82e5467b6adf20f",
       "collocation:23875226d06f64ed062b",
-      "collocation:b4aea82e5467b6adf20f"
+      "collocation:0a4392399f17d366af79",
+      "collocation:c60c6e45700b27dbdfad"
     ],
     "facts": [],
     "collocations": [
@@ -197,6 +256,13 @@
         "id": "collocation:b4aea82e5467b6adf20f",
         "source_row": 15312,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:c60c6e45700b27dbdfad",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2241.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

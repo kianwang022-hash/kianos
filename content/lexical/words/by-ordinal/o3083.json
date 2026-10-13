@@ -26,12 +26,36 @@
             "sense:mist:89fab6fc3e5b56ac",
             "sense:mist:545476cb3ab5563c"
           ]
+        },
+        {
+          "label_cn": "细密的液滴喷雾",
+          "label_en": "a fine cloud or spray of liquid droplets",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mist:7a9d47a1e9ce212d"
+          ]
+        },
+        {
+          "label_cn": "（眼睛）蒙上泪水；使眼睛泪汪汪",
+          "label_en": "fill with tears or cause somebody’s eyes to fill with tears",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mist:0e5f5bf01292010c"
+          ]
+        },
+        {
+          "label_cn": "给……喷上细雾",
+          "label_en": "spray something with very small drops of liquid",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mist:e7cae43134af9ad5"
+          ]
         }
       ],
-      "core_meaning_cn": "薄雾或模糊",
-      "core_meaning_en": "thin fog or a blurring layer",
-      "mental_model_cn": "薄雾或模糊",
-      "mental_model_en": ""
+      "core_meaning_cn": "薄雾与细喷雾；起雾、眼含泪或喷细雾",
+      "core_meaning_en": "light fog or fine spray; become fogged, fill with tears or spray finely",
+      "mental_model_cn": "名词区分天气薄雾与喷出的细液滴；玻璃mist up是起雾，眼睛mist over是含泪，mist the plants是给植物喷雾。",
+      "mental_model_en": "light fog or fine spray; become fogged, fill with tears or spray finely."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -113,14 +137,81 @@
         "confidence": "medium",
         "definition_cn": "变模糊；蒙上雾",
         "definition_en": "become covered with mist",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "mist (up/over)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mist:545476cb3ab5563c",
         "sense_label_en": "become covered with mist",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "玻璃等起雾时up/over可省略；不必把粒子up误当成必选补语。"
+      },
+      {
+        "sense_id": "sense:mist:7a9d47a1e9ce212d",
+        "pos": "noun",
+        "definition_cn": "细密的液滴喷雾",
+        "definition_en": "a fine cloud or spray of liquid droplets",
+        "sense_label_en": "a fine cloud or spray of liquid droplets",
+        "governing_pattern": "a fine mist from a spray",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe81b2ae6d9c72ff01c3",
+            "phrase": "a fine mist of water",
+            "meaning_cn": "细密的水雾",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mist:0e5f5bf01292010c",
+        "pos": "verb",
+        "definition_cn": "（眼睛）蒙上泪水；使眼睛泪汪汪",
+        "definition_en": "fill with tears or cause somebody’s eyes to fill with tears",
+        "sense_label_en": "fill with tears or cause somebody’s eyes to fill with tears",
+        "governing_pattern": "eyes mist (over/up); tears mist sb’s eyes",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c8685283b181a42f90b1",
+            "phrase": "Her eyes misted over.",
+            "meaning_cn": "她眼里蒙上了泪水。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mist:e7cae43134af9ad5",
+        "pos": "verb",
+        "definition_cn": "给……喷上细雾",
+        "definition_en": "spray something with very small drops of liquid",
+        "sense_label_en": "spray something with very small drops of liquid",
+        "governing_pattern": "mist plants/leaves",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2cf67d1f92fef3967061",
+            "phrase": "mist the leaves",
+            "meaning_cn": "给叶片喷上细水雾",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -150,6 +241,60 @@
           "applicability": [
             {
               "surface": "mist"
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mist:7a9d47a1e9ce212d"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:7a9d47a1e9ce212d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a fine mist from a spray",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mist:0e5f5bf01292010c"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:0e5f5bf01292010c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "eyes mist (over/up); tears mist sb’s eyes",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mist:e7cae43134af9ad5"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:e7cae43134af9ad5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mist plants/leaves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -288,6 +433,60 @@
           "applicability": [
             {
               "surface": "mist"
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mist:7a9d47a1e9ce212d"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:7a9d47a1e9ce212d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a fine mist from a spray",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mist:0e5f5bf01292010c"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:0e5f5bf01292010c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "eyes mist (over/up); tears mist sb’s eyes",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mist",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mist:e7cae43134af9ad5"
+              ],
+              "owner_sense_ids": [
+                "sense:mist:e7cae43134af9ad5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3083.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mist plants/leaves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -394,13 +593,40 @@
         "merged_into_sense_id": null,
         "source_row": 8590,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mist:7a9d47a1e9ce212d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:mist:0e5f5bf01292010c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:mist:e7cae43134af9ad5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:56a55049fed17068d944",
       "collocation:7e2d656428eadc7bbac1",
       "collocation:a64b0a634fe1468f5769",
-      "collocation:aa8dbabd661fee903036"
+      "collocation:56a55049fed17068d944",
+      "collocation:aa8dbabd661fee903036",
+      "collocation:fe81b2ae6d9c72ff01c3",
+      "collocation:c8685283b181a42f90b1",
+      "collocation:2cf67d1f92fef3967061"
     ],
     "facts": [],
     "collocations": [
@@ -423,6 +649,27 @@
         "id": "collocation:aa8dbabd661fee903036",
         "source_row": 14451,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:fe81b2ae6d9c72ff01c3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:c8685283b181a42f90b1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:2cf67d1f92fef3967061",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3083.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

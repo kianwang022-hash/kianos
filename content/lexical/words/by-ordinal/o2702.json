@@ -25,18 +25,40 @@
         "definition_en": "to enjoy something very much or find it exciting",
         "pattern": "get a kick out of sth/doing sth",
         "source_sense_id": "sense:kick:24506491f408592d",
-        "boundary": "informal pleasure/excitement idiom, not physical kicking"
+        "boundary": "informal pleasure/excitement idiom, not physical kicking",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:3a2991f6d27a7acdb712",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:kick:24506491f408592d:collocation:0"
+            ],
+            "meaning_cn": "从……中得到乐趣",
+            "phrase": "get a kick out of"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:d1e80e323ac58328d94f",
+        "pattern": "kick yourself (for doing sth)",
+        "meaning_cn": "因自己的失误或错失机会而懊恼",
+        "definition_en": "to be annoyed at yourself over a mistake or missed opportunity",
+        "usage_note": "非正式。I could kick myself for missing the deadline. = 我错过截止日期，真懊恼；这里不是身体动作。",
+        "boundary": "非正式。I could kick myself for missing the deadline. = 我错过截止日期，真懊恼；这里不是身体动作。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "c778ee933071f71f0d2bd01fcd5a2d2a3ed8d80caab11e9d1e52c6e54cb4f46a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "踢；用脚踢",
-          "label_en": "to hit or propel something with your foot",
+          "label_cn": "踢；用脚踢；戒掉；停止（长期的坏习惯）",
+          "label_en": "to hit or propel something with your foot; to give up a harmful habit or repeated harmful activity",
           "pos": "verb",
           "sense_ids": [
-            "sense:kick:e9630310ee0253c4"
+            "sense:kick:e9630310ee0253c4",
+            "sense:kick:c4112f4ce64b120d"
           ]
         },
         {
@@ -49,10 +71,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "用脚踢",
-      "core_meaning_en": "to strike or propel with the foot",
-      "mental_model_cn": "literal → 踢/一脚；kick off → 开始；get a kick out of → 从…得到乐趣。",
-      "mental_model_en": ""
+      "core_meaning_cn": "踢；踢击；刺激或乐趣；戒掉坏习惯",
+      "core_meaning_en": "to kick; a kick or thrill; to give up a harmful habit",
+      "mental_model_cn": "physical → 踢；noun → 踢击或刺激；kick a habit → 戒除；kick yourself → 自责懊恼。kick off → 开始；get a kick out of → 从中获得乐趣。",
+      "mental_model_en": "to kick; a kick or thrill; to give up a harmful habit."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -79,14 +101,14 @@
         "confidence": "medium",
         "definition_cn": "踢；用脚踢",
         "definition_en": "to hit or propel something with your foot",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "kick; kick sb/sth; kick at sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:kick:e9630310ee0253c4",
         "sense_label_en": "to hit or propel something with your foot",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -113,17 +135,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3a2991f6d27a7acdb712",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:kick:24506491f408592d:collocation:0"
-            ],
-            "meaning_cn": "从……中得到乐趣",
-            "phrase": "get a kick out of"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "快感；兴奋",
         "definition_en": "a sudden feeling of pleasure or excitement",
@@ -135,6 +147,29 @@
         "sense_label_en": "a sudden feeling of pleasure or excitement",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:kick:c4112f4ce64b120d",
+        "pos": "verb",
+        "definition_cn": "戒掉；停止（长期的坏习惯）",
+        "definition_en": "to give up a harmful habit or repeated harmful activity",
+        "sense_label_en": "to give up a harmful habit or repeated harmful activity",
+        "governing_pattern": "kick a habit/drugs",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:13f502256dec05b180ed",
+            "phrase": "kick the habit",
+            "meaning_cn": "戒掉坏习惯",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "非正式。宾语是习惯或长期活动，不是用脚踢的物体。"
       }
     ],
     "verification_summary": {
@@ -164,6 +199,23 @@
           "applicability": [
             {
               "surface": "kick"
+            },
+            {
+              "surface": "kick",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:kick:c4112f4ce64b120d"
+              ],
+              "owner_sense_ids": [
+                "sense:kick:c4112f4ce64b120d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2702.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "kick a habit/drugs"
             }
           ],
           "sources": [
@@ -780,19 +832,29 @@
         "merged_into_sense_id": null,
         "source_row": 7470,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:kick:c4112f4ce64b120d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2702.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3a2991f6d27a7acdb712",
+      "collocation:e6b9fb726263ccbf7751",
       "collocation:c33af67a7c4fcb8a74da",
-      "collocation:e6b9fb726263ccbf7751"
+      "collocation:13f502256dec05b180ed"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:3a2991f6d27a7acdb712",
         "source_row": 4929,
-        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:c33af67a7c4fcb8a74da",
@@ -803,6 +865,13 @@
         "id": "collocation:e6b9fb726263ccbf7751",
         "source_row": 19550,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:13f502256dec05b180ed",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2702.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

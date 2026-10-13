@@ -9,11 +9,20 @@
     "constructions": [],
     "content_hash": "87ee28b2d748a4b306fb92a9538bb43121d43d813b911bd436804a313fea175b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "概括；归纳",
-      "core_meaning_en": "to make general or derive a general principle",
-      "mental_model_cn": "概括；归纳",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "概括；归纳；推广为一般结论或适用规律",
+          "label_en": "to draw a general conclusion from particular cases or extend a finding or rule to a wider range of cases",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:generalise:a40c5cc55256501d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "概括、归纳或推广结论的适用范围",
+      "core_meaning_en": "draw a general conclusion or extend its applicability",
+      "mental_model_cn": "generalise from具体实例为归纳一般结论，generalise findings to其他群体为扩大适用范围；不能仅凭个别例子保证结论普遍成立。",
+      "mental_model_en": "draw a general conclusion or extend its applicability."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -24,18 +33,31 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ffcf68d9ffdad887860a",
+            "phrase": "generalise from a few examples",
+            "meaning_cn": "从少数例子归纳出一般结论",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:d95404377891e30975fd",
+            "phrase": "generalise the findings to other groups",
+            "meaning_cn": "将研究结果推广到其他群体",
+            "exam_value": "usage_example"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "概括；归纳",
-        "definition_en": "to draw a general conclusion from specific cases",
-        "governing_pattern": "",
+        "definition_cn": "概括；归纳；推广为一般结论或适用规律",
+        "definition_en": "to draw a general conclusion from particular cases or extend a finding or rule to a wider range of cases",
+        "governing_pattern": "generalise about sth; generalise from examples; generalise findings to other cases",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:generalise:a40c5cc55256501d",
-        "sense_label_en": "to draw a general conclusion from specific cases",
+        "sense_label_en": "to draw a general conclusion from particular cases or extend a finding or rule to a wider range of cases",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {
@@ -304,6 +326,20 @@
         "id": "collocation:6357e89485b1a21a4922",
         "source_row": 8368,
         "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:ffcf68d9ffdad887860a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2113.json",
+        "source_pointer": "/record/senses/0/collocations/0"
+      },
+      {
+        "id": "collocation:d95404377891e30975fd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2113.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

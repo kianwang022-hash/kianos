@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "向神说话或请求",
       "core_meaning_en": "to speak to a deity or make a request",
-      "mental_model_cn": "向神说话或请求",
+      "mental_model_cn": "pray to神灵通常指祈祷；pray for/that也可只是强烈盼望；旧式正式恳求需由语域辨认。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -47,14 +47,20 @@
         "confidence": "medium",
         "definition_cn": "祈祷；祷告",
         "definition_en": "to speak to God or a deity, often to give thanks or ask for help",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "I/T: pray; pray to God/a deity; pray for sb/sth; pray that ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:pray:e93685aefcf05f53",
         "sense_label_en": "to speak to God or a deity, often to give thanks or ask for help",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/pray",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -81,6 +87,39 @@
         "sort_order": 1,
         "transitivity": "vt",
         "usage_note": "Not a neutral everyday production pattern; current everyday requests normally use ask/beg. Fixed older/formal uses include pray tell and I pray you ..."
+      },
+      {
+        "sense_id": "sense:pray:d41101ad5dbf6230",
+        "pos": "verb",
+        "definition_cn": "热切盼望；但愿",
+        "definition_en": "to hope very strongly for something to happen",
+        "sense_label_en": "to hope very strongly for something to happen",
+        "transitivity": "I/T",
+        "governing_pattern": "pray for sth; pray that ...",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pray:39d8be653d2d339e",
+            "phrase": "We are praying that the weather improves.",
+            "meaning_cn": "我们热切盼望天气好转。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/pray",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "pray for/that也可表达强烈希望，并不必然报告宗教祈祷；语境决定。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/pray",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -182,12 +221,19 @@
         "merged_into_sense_id": null,
         "source_row": 10374,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      },
+      {
+        "sense_id": "sense:pray:d41101ad5dbf6230",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3721.json"
       }
     ],
     "active_collocations": [
       "collocation:62590d278b0f65fa724e",
       "collocation:e2b7506c36b020665957",
-      "collocation:e9ca7d0d1e290841be52"
+      "collocation:e9ca7d0d1e290841be52",
+      "collocation:pray:39d8be653d2d339e"
     ],
     "facts": [],
     "collocations": [
@@ -205,6 +251,10 @@
         "id": "collocation:e9ca7d0d1e290841be52",
         "source_row": 19808,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:pray:39d8be653d2d339e",
+        "source_path": "content/lexical/words/by-ordinal/o3721.json"
       }
     ],
     "exam-mappings": [],

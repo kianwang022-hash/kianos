@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "ffca670e70b99386915b851afd6820ed177d5d2dfd4b7a9f59b60630e121bdc1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "已婚的",
-      "core_meaning_en": "having a spouse; joined in matrimony",
-      "mental_model_cn": "已婚的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "已婚的；婚姻生活的；全心投入的",
+          "label_en": "having a spouse; relating to married life; deeply absorbed in something",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:married:42b156f6a7fe5b15",
+            "sense:married:074a94f89141cdb5",
+            "sense:married:e0254bcd589108c4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "已婚的；婚姻生活的；全心投入的",
+      "core_meaning_en": "having a spouse; relating to married life; deeply absorbed in something",
+      "mental_model_cn": "married to sb是配偶关系；married life指夫妻生活；married to the job是过度投入的比喻。",
+      "mental_model_en": "having a spouse; relating to married life; deeply absorbed in something."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -30,14 +41,60 @@
         "confidence": "medium",
         "definition_cn": "已婚的；结婚的",
         "definition_en": "having a spouse; joined in marriage",
-        "governing_pattern": "",
+        "governing_pattern": "be married to sb; get married; married with children",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:married:42b156f6a7fe5b15",
         "sense_label_en": "having a spouse; joined in marriage",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "be married描述已婚状态，get married强调结婚事件；married with children表示已婚且有孩子，with不是配偶的介词。"
+      },
+      {
+        "sense_id": "sense:married:074a94f89141cdb5",
+        "pos": "adjective",
+        "definition_cn": "婚姻的；夫妻生活的",
+        "definition_en": "relating to marriage or married life",
+        "sense_label_en": "relating to marriage or married life",
+        "governing_pattern": "married life/name/quarters",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:39895f5fe48c0197cfb7",
+            "phrase": "married life",
+            "meaning_cn": "婚姻生活",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "只置于名词前；married life是婚姻生活，不是“生活已婚”。"
+      },
+      {
+        "sense_id": "sense:married:e0254bcd589108c4",
+        "pos": "adjective",
+        "definition_cn": "（married to sth）全心投入、无暇顾及其他事的",
+        "definition_en": "so absorbed in an activity that little time is left for anything else",
+        "sense_label_en": "so absorbed in an activity that little time is left for anything else",
+        "governing_pattern": "be married to your job/work",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5218e1810035c7833749",
+            "phrase": "be married to your job",
+            "meaning_cn": "全身心扑在工作上",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -125,6 +182,40 @@
           "applicability": [
             {
               "surface": "married"
+            },
+            {
+              "surface": "married",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:married:074a94f89141cdb5"
+              ],
+              "owner_sense_ids": [
+                "sense:married:074a94f89141cdb5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2965.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "married life/name/quarters"
+            },
+            {
+              "surface": "married",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:married:e0254bcd589108c4"
+              ],
+              "owner_sense_ids": [
+                "sense:married:e0254bcd589108c4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2965.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be married to your job/work"
             }
           ],
           "sources": [
@@ -269,9 +360,28 @@
         "merged_into_sense_id": null,
         "source_row": 8261,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:married:074a94f89141cdb5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2965.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:married:e0254bcd589108c4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2965.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:39895f5fe48c0197cfb7",
+      "collocation:5218e1810035c7833749"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -288,6 +398,20 @@
         "id": "collocation:cb9d23b92230a63b80b5",
         "source_row": 17195,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:39895f5fe48c0197cfb7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2965.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:5218e1810035c7833749",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2965.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:64b2c798c56245fe1793",
+        "pattern": "grasp at straws",
+        "meaning_cn": "在绝望中抓住任何希望；病急乱投医",
+        "definition_en": "to try any possible means out of desperation",
+        "usage_note": "表示处境绝望时连很渺茫的办法也尝试；不是一般抓住机会。",
+        "boundary": "表示处境绝望时连很渺茫的办法也尝试；不是一般抓住机会。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "15ff6d6a7dcb01cde830a14c395d2971fa799ffbfba81c3f924fadb4e0afe680",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "抓住，紧握；领会，理解",
-          "label_en": "to take and hold something firmly; to understand something completely",
+          "label_cn": "抓牢；抓住（机会等）；领会，理解",
+          "label_en": "to seize and hold firmly, or to seize an opportunity eagerly; to understand something completely",
           "pos": "verb",
           "sense_ids": [
             "sense:grasp:0baeb7afc52f565c",
@@ -20,19 +31,20 @@
           ]
         },
         {
-          "label_cn": "紧握，把握；理解，控制",
-          "label_en": "a firm hold or grip; understanding or control",
+          "label_cn": "紧握，把握；理解，控制；（手或能力）可及的范围",
+          "label_en": "a firm hold or grip; understanding or control; the range of physical reach or ability to attain something",
           "pos": "noun",
           "sense_ids": [
             "sense:grasp:cd5787114a105577",
-            "sense:grasp:a6eae64907ce5d0f"
+            "sense:grasp:a6eae64907ce5d0f",
+            "sense:grasp:97a95cb82f2d84bf"
           ]
         }
       ],
-      "core_meaning_cn": "抓住；理解",
-      "core_meaning_en": "to hold something firmly; to understand something",
-      "mental_model_cn": "抓住；理解",
-      "mental_model_en": ""
+      "core_meaning_cn": "抓牢或抓住机会、理解；抓握、理解与控制或可及范围；绝望尝试",
+      "core_meaning_en": "seize or understand; a hold, understanding or control, or attainable reach; desperate attempts",
+      "mental_model_cn": "grasp物体为抓牢，grasp an idea为理解，grasp an opportunity为抓住机会。名词a grasp of为理解，beyond one’s grasp可指够不到或能力不及；grasp at straws表示绝望中尝试任何办法。",
+      "mental_model_en": "seize or understand; a hold, understanding or control, or attainable reach; desperate attempts."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,23 +58,29 @@
         "collocations": [
           {
             "collocation_id": "collocation:60e5f65d22a145646e10",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:grasp:0baeb7afc52f565c:collocation:0"
             ],
-            "meaning_cn": "抓住某物",
-            "phrase": "grasp + sth"
+            "meaning_cn": "抓紧绳子",
+            "phrase": "grasp the rope"
+          },
+          {
+            "collocation_id": "collocation:4f6f2ebea99f47bc83ce",
+            "phrase": "grasp the opportunity",
+            "meaning_cn": "抓住机会",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "抓住，紧握",
-        "definition_en": "to take and hold something firmly",
+        "definition_cn": "抓牢；抓住（机会等）",
+        "definition_en": "to seize and hold firmly, or to seize an opportunity eagerly",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:grasp:0baeb7afc52f565c",
-        "sense_label_en": "to take and hold something firmly",
+        "sense_label_en": "to seize and hold firmly, or to seize an opportunity eagerly",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -137,6 +155,28 @@
         "sense_label_en": "understanding or control",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:grasp:97a95cb82f2d84bf",
+        "pos": "noun",
+        "definition_cn": "（手或能力）可及的范围",
+        "definition_en": "the range of physical reach or ability to attain something",
+        "sense_label_en": "the range of physical reach or ability to attain something",
+        "governing_pattern": "within/beyond one’s grasp",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:05c32b54f4a005c4424f",
+            "phrase": "The prize was just beyond her grasp.",
+            "meaning_cn": "那个奖项就在她的能力可及范围之外。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -186,6 +226,23 @@
           "applicability": [
             {
               "surface": "grasp"
+            },
+            {
+              "surface": "grasp",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:grasp:97a95cb82f2d84bf"
+              ],
+              "owner_sense_ids": [
+                "sense:grasp:97a95cb82f2d84bf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2189.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "within/beyond one’s grasp"
+              }
             }
           ],
           "sources": [
@@ -434,12 +491,19 @@
         "merged_into_sense_id": null,
         "source_row": 6105,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:grasp:97a95cb82f2d84bf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2189.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:2d2b2496663128447a5f",
       "collocation:3703b57560e1d9e03e77",
-      "collocation:60e5f65d22a145646e10",
       "collocation:8bb62b45ed4fb845fa00"
     ],
     "facts": [],
@@ -457,12 +521,28 @@
       {
         "id": "collocation:60e5f65d22a145646e10",
         "source_row": 8152,
-        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8bb62b45ed4fb845fa00",
         "source_row": 11846,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:4f6f2ebea99f47bc83ce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2189.json",
+        "source_pointer": "/record/senses/0/collocations/1"
+      },
+      {
+        "id": "collocation:05c32b54f4a005c4424f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2189.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

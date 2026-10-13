@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "ef7a868ece635b9ae06f39c2fdef1bee2921866d156d03819e26601dcf47360d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "奢侈的；浪费的",
-      "core_meaning_en": "spending or costing too much; wasteful",
-      "mental_model_cn": "奢侈的；浪费的",
+      "core_clusters": [
+        {
+          "label_cn": "用度过量",
+          "label_en": "spending or using too much",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:extravagant:d00365dbcecc5086"
+          ]
+        },
+        {
+          "label_cn": "表达或声称过头",
+          "label_en": "exaggerated expression or unrealistic claims",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:extravagant:890ab5d287ddda19"
+          ]
+        }
+      ],
+      "core_meaning_cn": "用度过量；言行或声称过头",
+      "core_meaning_en": "excessive use of resources; excessive expression or claims",
+      "mental_model_cn": "钱或资源语境指挥霍浪费；praise、claims、ideas等语境指过度夸张或不切实际，未必涉及花钱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +72,28 @@
         "sense_label_en": "spending or using money or resources excessively; wasteful",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:extravagant:890ab5d287ddda19",
+        "pos": "adjective",
+        "definition_cn": "过头的、夸大的；（声称或想法）不切实际的",
+        "definition_en": "excessive or exaggerated in expression, or unrealistic in claims or ideas",
+        "sense_label_en": "excessive or exaggerated in expression, or unrealistic in claims or ideas",
+        "governing_pattern": "extravagant praise/claims/ideas",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b474884ec762666d0c0f",
+            "phrase": "extravagant claims about the product",
+            "meaning_cn": "对产品不切实际的夸大宣称",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +123,23 @@
           "applicability": [
             {
               "surface": "extravagant"
+            },
+            {
+              "surface": "extravagant",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:extravagant:890ab5d287ddda19"
+              ],
+              "owner_sense_ids": [
+                "sense:extravagant:890ab5d287ddda19"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1824.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "extravagant praise/claims/ideas"
+              }
             }
           ],
           "sources": [
@@ -129,6 +185,14 @@
         "merged_into_sense_id": null,
         "source_row": 4995,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:extravagant:890ab5d287ddda19",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1824.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -146,6 +210,13 @@
         "id": "collocation:622dcbdef9dfeac7a264",
         "source_row": 8273,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:b474884ec762666d0c0f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1824.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

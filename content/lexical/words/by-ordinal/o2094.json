@@ -11,19 +11,27 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "帮派；犯罪团伙；一队或一组人",
-          "label_en": "a gang/criminal group; a work group",
+          "label_cn": "帮派；犯罪团伙；一群伙伴；班组；共同活动或工作的一群人",
+          "label_en": "an organized group of criminals; a group of people who spend time together or work together",
           "pos": "noun",
           "sense_ids": [
             "sense:gang:0e800e45234c5711",
             "sense:gang:687c1a0de33b5ae7"
           ]
+        },
+        {
+          "label_cn": "成群结队；结成一伙",
+          "label_en": "to act together as a group",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:gang:ed0be5d369da555a"
+          ]
         }
       ],
-      "core_meaning_cn": "帮派；一群",
-      "core_meaning_en": "a group of people, often with a common purpose",
-      "mental_model_cn": "帮派；一群",
-      "mental_model_en": ""
+      "core_meaning_cn": "犯罪团伙、伙伴群体或工作班组；结成一伙",
+      "core_meaning_en": "a criminal gang, group of friends, or work team; act as a group",
+      "mental_model_cn": "gang可为犯罪团伙，也可为熟识伙伴或工作班组；the whole gang不一定是罪犯。gang up on为联合起来对付某人。",
+      "mental_model_en": "a criminal gang, group of friends, or work team; act as a group."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -85,17 +93,23 @@
             ],
             "meaning_cn": "一群工人",
             "phrase": "a gang of workers"
+          },
+          {
+            "collocation_id": "collocation:0cd1d2feeee557718de4",
+            "phrase": "the whole gang",
+            "meaning_cn": "所有伙伴；一帮人",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一队；一组",
-        "definition_en": "a group of people working together",
+        "definition_cn": "一群伙伴；班组；共同活动或工作的一群人",
+        "definition_en": "a group of people who spend time together or work together",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:gang:687c1a0de33b5ae7",
-        "sense_label_en": "a group of people working together",
+        "sense_label_en": "a group of people who spend time together or work together",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -123,7 +137,7 @@
         "confidence": "medium",
         "definition_cn": "成群结队；结成一伙",
         "definition_en": "to act together as a group",
-        "governing_pattern": "vi. + together",
+        "governing_pattern": "gang together; gang up on sb",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
@@ -905,6 +919,13 @@
         "id": "collocation:f4c770f2bed909b46988",
         "source_row": 20725,
         "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:0cd1d2feeee557718de4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2094.json",
+        "source_pointer": "/record/senses/1/collocations/2"
       }
     ],
     "exam-mappings": [],

@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "5100c03cbde4d6e848458017d2ec700cea72d9458da3e3201f30939cdf2ef98b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "保险；保险业",
-      "core_meaning_en": "insurance protection or the insurance business",
-      "mental_model_cn": "保险；保险业",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "保险安排、行业、钱款；防备保障",
+          "label_en": "insurance cover, business, payments, or a safeguard",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:insurance:43f1d5ad96be5be5",
+            "sense:insurance:3bef98ed18465597",
+            "sense:insurance:771a4ce5c72747d0",
+            "sense:insurance:02c92894f7370f60"
+          ]
+        }
+      ],
+      "core_meaning_cn": "保险安排、行业、钱款；防备保障",
+      "core_meaning_en": "insurance cover, business, payments, or a safeguard",
+      "mental_model_cn": "buy cover看安排；work in insurance看行业；pay/receive看钱款方向；insurance against failure看预防措施。",
+      "mental_model_en": "insurance cover, business, payments, or a safeguard."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -30,13 +42,13 @@
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "保险；保险安排",
-        "definition_en": "an arrangement with a company in which you pay them money and they pay you if something bad happens",
+        "definition_en": "an arrangement providing financial protection for specified losses or events in return for payments",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:insurance:43f1d5ad96be5be5",
-        "sense_label_en": "an arrangement with a company in which you pay them money and they pay you if something bad happens",
+        "sense_label_en": "an arrangement providing financial protection for specified losses or events in return for payments",
         "sort_order": 999,
         "transitivity": "nonverb"
       },
@@ -63,6 +75,51 @@
         "sense_label_en": "the business or industry of providing insurance",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:insurance:771a4ce5c72747d0",
+        "pos": "noun",
+        "definition_cn": "支付给保险公司或由保险公司赔付的钱",
+        "definition_en": "money paid to an insurer or received as an insurance payment",
+        "sense_label_en": "money paid to an insurer or received as an insurance payment",
+        "governing_pattern": "pay/receive/claim insurance",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b70a8720a6043f3fe4e3",
+            "phrase": "receive insurance money",
+            "meaning_cn": "获得保险赔付款",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不可数；pay看保费，receive/claim看赔付。"
+      },
+      {
+        "sense_id": "sense:insurance:02c92894f7370f60",
+        "pos": "noun",
+        "definition_cn": "预防不测的保障措施",
+        "definition_en": "a precaution or safeguard against a future problem",
+        "sense_label_en": "a precaution or safeguard against a future problem",
+        "governing_pattern": "insurance against sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:528b8074224c5b3d207f",
+            "phrase": "insurance against failure",
+            "meaning_cn": "防止失败的保障",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -141,6 +198,40 @@
           "applicability": [
             {
               "surface": "insurance"
+            },
+            {
+              "surface": "insurance",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:insurance:771a4ce5c72747d0"
+              ],
+              "owner_sense_ids": [
+                "sense:insurance:771a4ce5c72747d0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2581.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "pay/receive/claim insurance"
+            },
+            {
+              "surface": "insurance",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:insurance:02c92894f7370f60"
+              ],
+              "owner_sense_ids": [
+                "sense:insurance:02c92894f7370f60"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2581.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "insurance against sth"
             }
           ],
           "sources": [
@@ -283,10 +374,28 @@
         "merged_into_sense_id": null,
         "source_row": 7132,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
+      },
+      {
+        "sense_id": "sense:insurance:771a4ce5c72747d0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2581.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:insurance:02c92894f7370f60",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2581.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:59d42670afa698ea6dc0"
+      "collocation:59d42670afa698ea6dc0",
+      "collocation:b70a8720a6043f3fe4e3",
+      "collocation:528b8074224c5b3d207f"
     ],
     "facts": [
       {
@@ -320,6 +429,20 @@
         "id": "collocation:59d42670afa698ea6dc0",
         "source_row": 21596,
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
+      {
+        "id": "collocation:b70a8720a6043f3fe4e3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2581.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:528b8074224c5b3d207f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2581.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

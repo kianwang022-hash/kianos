@@ -5,7 +5,7 @@
     "ordinal": 1729,
     "word": "even",
     "source_owner_path": "content/lexical/words/by-ordinal/o1729.json",
-    "source_fingerprint": "97452fe49ffdb5ae53f94450aeddf833c5d0173958fa402fc2319e388fe7c3ae",
+    "source_fingerprint": "4c4e2151d9b7869285455ac7079420f1f5f2b57f2b50a22c33c7c68a48a0247c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -83,7 +83,7 @@
             "id": "collocation:419005ad51a89cbdc0bb",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "even more",
-            "meaning_cn": "",
+            "meaning_cn": "更多；更加",
             "kind": "usage_example",
             "repair": null
           },
@@ -91,7 +91,7 @@
             "id": "collocation:cf3522c12b0cb4b2a7bd",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "even better",
-            "meaning_cn": "",
+            "meaning_cn": "更好",
             "kind": "usage_example",
             "repair": null
           },
@@ -99,7 +99,7 @@
             "id": "collocation:021428edfd1ac9d13e8c",
             "source_locator": "record.senses[1].collocations[2]",
             "phrase": "even less",
-            "meaning_cn": "",
+            "meaning_cn": "更少",
             "kind": "usage_example",
             "repair": null
           }
@@ -203,7 +203,7 @@
             "id": "collocation:71b658ff7aaf63c1cfe8",
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "an even rate",
-            "meaning_cn": "",
+            "meaning_cn": "均匀、稳定的速率",
             "kind": "usage_example",
             "repair": null
           },
@@ -211,7 +211,7 @@
             "id": "collocation:7c954f5fad058f077669",
             "source_locator": "record.senses[5].collocations[1]",
             "phrase": "even breathing",
-            "meaning_cn": "",
+            "meaning_cn": "平稳的呼吸",
             "kind": "usage_example",
             "repair": null
           },
@@ -219,7 +219,7 @@
             "id": "collocation:38caee3365ccab383949",
             "source_locator": "record.senses[5].collocations[2]",
             "phrase": "an even pace",
-            "meaning_cn": "",
+            "meaning_cn": "稳定的步速",
             "kind": "usage_example",
             "repair": null
           }
@@ -307,7 +307,7 @@
     "ordinal": 1730,
     "word": "evening",
     "source_owner_path": "content/lexical/words/by-ordinal/o1730.json",
-    "source_fingerprint": "dde9e30b3a40f03ddb0fe26fffca34d978d0a9e8146ba3765066b0a607e682a9",
+    "source_fingerprint": "796f6c9c9b3aa1136b18ec77ce13b6be2d0e57f69ab972bc68c88cd76bd16832",
     "sense_lineage": [
       {
         "word_id": "word:evening",
@@ -320,15 +320,15 @@
         "word_id": "word:evening",
         "target_kind": "sense",
         "from_target_id": "sense:evening:2a14ff2d6ad955b1",
-        "status": "deprecated",
-        "to_target_id": null
+        "status": "merged",
+        "to_target_id": "sense:evening:ef9883df04bb6a50"
       },
       {
         "word_id": "word:evening",
         "target_kind": "sense",
         "from_target_id": "sense:evening:cc9591c34c045aa2",
         "status": "merged",
-        "to_target_id": "sense:evening:2a14ff2d6ad955b1"
+        "to_target_id": "sense:evening:ef9883df04bb6a50"
       }
     ],
     "recall_map": {
@@ -354,7 +354,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "傍晚、晚上",
-        "definition_en": "the later part of the day before night",
+        "definition_en": "the later part of the day, from late afternoon into the early part of the night",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -456,8 +456,8 @@
         },
         {
           "stable_sense_id": "sense:evening:2a14ff2d6ad955b1",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
+          "status": "merged",
+          "merged_into_sense_id": "sense:evening:ef9883df04bb6a50",
           "pos": "noun",
           "definition_cn": "傍晚；黄昏",
           "definition_en": "the latter part of the day (from late afternoon until nightfall)",
@@ -482,7 +482,7 @@
         {
           "stable_sense_id": "sense:evening:cc9591c34c045aa2",
           "status": "merged",
-          "merged_into_sense_id": "sense:evening:2a14ff2d6ad955b1",
+          "merged_into_sense_id": "sense:evening:ef9883df04bb6a50",
           "pos": "noun",
           "definition_cn": "晚上（指晚餐后至就寝前）",
           "definition_en": "the early part of night (from dinner until bedtime) spent in a special way",
@@ -511,7 +511,7 @@
     "ordinal": 1731,
     "word": "event",
     "source_owner_path": "content/lexical/words/by-ordinal/o1731.json",
-    "source_fingerprint": "5da1b6e79b52c64300a3c9f47a8eb4417ebbe8a70e72f764f26564f275d3baae",
+    "source_fingerprint": "e56be25f24e24c1c859f71c3861a937cce9aea141b426453c4c5136882d97dc3",
     "sense_lineage": [
       {
         "word_id": "word:event",
@@ -528,13 +528,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发生的事情",
-      "decision_cn": "",
+      "summary_cn": "发生的事；有组织的活动或赛事",
+      "decision_cn": "泛指发生的事情；会议、社交或体育语境常指有组织的活动/赛事。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发生的事情"
+        "target_label": "发生的事；有组织的活动或赛事"
       }
     },
     "senses": [
@@ -674,8 +674,16 @@
     "ordinal": 1732,
     "word": "eventually",
     "source_owner_path": "content/lexical/words/by-ordinal/o1732.json",
-    "source_fingerprint": "ed745fa1b977ba1ac03654a5fa8093bdc1b4e453b5c395fbe2f4384ebc07d1f1",
-    "sense_lineage": [],
+    "source_fingerprint": "a39c285da3b0eb142d4b4fbae267d61e42dc11292a7dc59c313511a856835d34",
+    "sense_lineage": [
+      {
+        "word_id": "word:eventually",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:447c33e9b7e84c82f7a6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV"
@@ -708,13 +716,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "eventually + clause",
             "meaning_cn": "最终…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:447c33e9b7e84c82f7a6",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "eventually + clause"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:3f6ca6896762fe0b969a",
@@ -853,7 +856,7 @@
           "target_word": "finally",
           "lines": [
             {
-              "text": "finally可标最后一步；eventually强调经过一段时间后的结果",
+              "text": "此处均可表示经过一段时间后终于发生；finally 另可引出最后一点或步骤，该用法不能换成 eventually。",
               "lang": "cn"
             },
             {
@@ -880,22 +883,22 @@
     "ordinal": 1733,
     "word": "ever",
     "source_owner_path": "content/lexical/words/by-ordinal/o1733.json",
-    "source_fingerprint": "209606906be12400985c8744a32bd12d38b520805fdcf1f1c25e0466903e1bba",
+    "source_fingerprint": "7beb4d89cc08205a8bbe5c705f34d7efa74d684619b2417321b0c87d46409af0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2ADV"
+        "3ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在任何时候",
-      "decision_cn": "",
+      "summary_cn": "任何时候、曾经；始终、持续；强调程度",
+      "decision_cn": "疑问、否定、条件和最高级语境中指任何时候；书面ever vigilant表示始终警觉；ever more/less表示持续变化；ever so + 形容词/副词强调程度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在任何时候"
+        "target_label": "任何时候、曾经；始终、持续；强调程度"
       }
     },
     "senses": [
@@ -903,10 +906,10 @@
         "id": "sense:ever:c580654484a75eb1",
         "source_locator": "record.senses[0]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "ever in questions, negatives, conditionals, and comparisons/superlatives; ever since + time/clause",
         "definition_cn": "曾经；在任何时候",
         "definition_en": "at any time",
-        "note": "",
+        "note": "In ever since, the meaning runs continuously from that time until now; in better than ever or the best ever, it compares with any previous time.",
         "identity_overlay": null,
         "usage": [
           {
@@ -973,6 +976,40 @@
           "target_locator": "record.senses[1]",
           "target_label": "用于加强形容词语气"
         }
+      },
+      {
+        "id": "sense:ever:9dfb45a607902733",
+        "source_locator": "record.senses[2]",
+        "pos": "adverb",
+        "governing_pattern": "ever + adjective/adverb; ever + comparative; ever the + noun (e.g. ever the optimist)",
+        "definition_cn": "总是、始终；持续地",
+        "definition_en": "always or continually, especially in written usage",
+        "note": "Often written in the sense always; before a comparative, it can indicate continuing increase or change.",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d210b45e213e3067ae75",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "ever vigilant",
+            "meaning_cn": "始终警觉",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:103a7cfc6d3ca89f6a5a",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "ever more complex",
+            "meaning_cn": "越来越复杂",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ever:9dfb45a607902733",
+          "target_locator": "record.senses[2]",
+          "target_label": "总是、始终；持续地"
+        }
       }
     ],
     "pronunciation_support": {
@@ -985,6 +1022,28 @@
           "applicability": [
             {
               "surface": "ever"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "ever",
+              "pos": "adverb",
+              "owner_sense_ids": [
+                "sense:ever:9dfb45a607902733"
+              ],
+              "sense_ids": [
+                "sense:ever:9dfb45a607902733"
+              ],
+              "excluded_sense_ids": [
+                "sense:ever:c580654484a75eb1",
+                "sense:ever:daefcb18a2df5f9b"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/ever",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1004,8 +1063,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:ever:9dfb45a607902733": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1022,7 +1085,7 @@
     "ordinal": 1734,
     "word": "every",
     "source_owner_path": "content/lexical/words/by-ordinal/o1734.json",
-    "source_fingerprint": "036554382448a8ad1129c6efa17e490c70492ad3309b6f4565eb460e9e2a6d96",
+    "source_fingerprint": "9af336c71776582d1bfd061bc65370ac0f7c6667d132db9bcbd71365a2bb23c5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1045,7 +1108,7 @@
         "id": "sense:every:9c16129227745677",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "every + singular count noun; every + number + plural unit (every two days)",
         "definition_cn": "每一；所有的",
         "definition_en": "each and all of the members of a group considered singly and without exception",
         "note": "",
@@ -1682,22 +1745,23 @@
     "ordinal": 1740,
     "word": "evidence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1740.json",
-    "source_fingerprint": "eb74b7e189a17b4f815137b28554ce60a5358e98dbd306c7cdd7fb46c4a67f2f",
+    "source_fingerprint": "bfcaba8fb9f98304ae3d63c963a2c76fe5bc478c51ce0d10a2157671c4791cd0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "支持信念或结论的信息或迹象",
-      "decision_cn": "",
+      "summary_cn": "支持判断的证据或迹象；动词表明、显示",
+      "decision_cn": "名词通常不可数，指判断或法庭证据，按evidence of/for/that等框架使用；正式动词接宾语表示表明，be evidenced by接显示该结论的依据。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "支持信念或结论的信息或迹象"
+        "target_label": "支持判断的证据或迹象；动词表明、显示"
       }
     },
     "senses": [
@@ -1705,9 +1769,9 @@
         "id": "sense:evidence:06f1286c8cb65e19",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "证明某事为真的事实或迹象",
-        "definition_en": "facts or signs that show something is true",
+        "governing_pattern": "uncountable: evidence of/for sth; evidence that…; a piece of evidence",
+        "definition_cn": "支持判断的事实、信息或迹象",
+        "definition_en": "facts, information, or signs that support a conclusion or belief",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1731,41 +1795,41 @@
             "meaning_cn": "提供证据",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:8b1ec08d82fdca7b3c1b",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "in evidence",
+            "meaning_cn": "明显可见；法律语境 admit/submit sth in evidence 指把某物作为证据提交或接纳",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8b1ec08d82fdca7b3c1b",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "in evidence"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:evidence:06f1286c8cb65e19",
           "target_locator": "record.senses[0]",
-          "target_label": "证明某事为真的事实或迹象"
+          "target_label": "支持判断的事实、信息或迹象"
         }
       },
       {
         "id": "sense:evidence:9e96c285d5c45ce7",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "法庭上用于证明案件的资料",
-        "definition_en": "information used in a court of law to prove a case",
+        "governing_pattern": "normally uncountable: give evidence; admit/submit sth in evidence",
+        "definition_cn": "法庭上用于支持或反驳事实判断的资料",
+        "definition_en": "information presented in court to help establish or dispute facts",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:8b1ec08d82fdca7b3c1b",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "in evidence",
-            "meaning_cn": "明显可见；作为证据",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8b1ec08d82fdca7b3c1b",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "in evidence"
-            }
-          },
-          {
             "id": "collocation:2844c330e3cfead4eb24",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "give evidence",
             "meaning_cn": "作证",
             "kind": "usage_example",
@@ -1776,7 +1840,46 @@
           "target_kind": "sense",
           "target_id": "sense:evidence:9e96c285d5c45ce7",
           "target_locator": "record.senses[1]",
-          "target_label": "法庭上用于证明案件的资料"
+          "target_label": "法庭上用于支持或反驳事实判断的资料"
+        }
+      },
+      {
+        "id": "sense:evidence:2bad488419c13812",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "evidence sth; be evidenced by sth",
+        "definition_cn": "（正式）表明、显示；提供证据支持",
+        "definition_en": "formal: to show something or provide evidence for it",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b4264bc8aea2fbf7db16",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "as evidenced by the results",
+            "meaning_cn": "正如结果所显示的",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b4264bc8aea2fbf7db16",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "as evidenced by the results"
+            }
+          },
+          {
+            "id": "collocation:2b29d56e663c9a934a2f",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "Her notes evidenced careful preparation.",
+            "meaning_cn": "她的笔记表明她做了仔细准备。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:evidence:2bad488419c13812",
+          "target_locator": "record.senses[2]",
+          "target_label": "（正式）表明、显示；提供证据支持"
         }
       }
     ],
@@ -1791,6 +1894,28 @@
           "applicability": [
             {
               "surface": "evidence"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "evidence",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:evidence:2bad488419c13812"
+              ],
+              "sense_ids": [
+                "sense:evidence:2bad488419c13812"
+              ],
+              "excluded_sense_ids": [
+                "sense:evidence:06f1286c8cb65e19",
+                "sense:evidence:9e96c285d5c45ce7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/evidence",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1822,8 +1947,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:evidence:2bad488419c13812": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1975,7 +2104,7 @@
     "ordinal": 1742,
     "word": "evil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1742.json",
-    "source_fingerprint": "592e01cb2cda18154e4dd5c57876e44e00b126546e41ee791293d139d0e49887",
+    "source_fingerprint": "1bba96284e30d582d4acb12d740bbf904be0a182f9ab931cba5a8d8a2b71059a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2008,8 +2137,8 @@
           {
             "id": "collocation:499c5d55ccb71c485686",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "evil deeds",
-            "meaning_cn": "恶行",
+            "phrase": "good and evil",
+            "meaning_cn": "善与恶",
             "kind": "usage_example",
             "repair": null
           }
@@ -2117,13 +2246,27 @@
     "ordinal": 1743,
     "word": "evoke",
     "source_owner_path": "content/lexical/words/by-ordinal/o1743.json",
-    "source_fingerprint": "bb3c751d9fe0a64793864e7c4b3eeedcbc80f278591d5913585aec34b698596a",
+    "source_fingerprint": "8d6578902adbe2dff88c5bec5a10045c6e5784950616567deadeae799676e754",
     "sense_lineage": [
       {
         "word_id": "word:evoke",
         "target_kind": "sense",
         "from_target_id": "sense:evoke:7b12ce39c808573f",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:evoke",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b8305aeeb518a6242674",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:evoke",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c9b7a2655e48b1f531cb",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -2134,13 +2277,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "唤起，引起",
-      "decision_cn": "",
+      "summary_cn": "唤起情感、记忆或反应；召唤、使出现",
+      "decision_cn": "歌曲、气味等作主语常唤起感受、记忆或反应；仪式等语境可指召唤或使某物出现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "唤起，引起"
+        "target_label": "唤起情感、记忆或反应；召唤、使出现"
       }
     },
     "senses": [
@@ -2159,13 +2302,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "evoke + sth",
             "meaning_cn": "唤起某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c9b7a2655e48b1f531cb",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "evoke + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:f038e58a766e233c439f",
@@ -2198,13 +2336,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "evoke + sth",
             "meaning_cn": "召唤某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b8305aeeb518a6242674",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "evoke + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:241f452367ee5259dbd4",
@@ -2297,7 +2430,7 @@
     "ordinal": 1744,
     "word": "evolution",
     "source_owner_path": "content/lexical/words/by-ordinal/o1744.json",
-    "source_fingerprint": "32b15486b4ac7ed6207006843a40e0661b680987b681503b39c2843224237710",
+    "source_fingerprint": "c91673cc87abe857b17715b4ead8d6c256ef31e04dbd009b33d0d801773a9269",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2306,13 +2439,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逐渐发展的过程",
-      "decision_cn": "",
+      "summary_cn": "生物进化；逐渐发展或演变",
+      "decision_cn": "生物语境指种群特征跨世代变化；制度、观念等语境指逐渐演变。按当前具体语境判断，不要求每次变化都更复杂。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逐渐发展的过程"
+        "target_label": "生物进化；逐渐发展或演变"
       }
     },
     "senses": [
@@ -2321,8 +2454,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "进化，演化",
-        "definition_en": "the process by which species develop over time",
+        "definition_cn": "生物种群的特征跨世代发生变化的过程；进化",
+        "definition_en": "change in the characteristics of biological populations over successive generations",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2352,7 +2485,7 @@
           "target_kind": "sense",
           "target_id": "sense:evolution:2da95d9fec125e10",
           "target_locator": "record.senses[0]",
-          "target_label": "进化，演化"
+          "target_label": "生物种群的特征跨世代发生变化的过程；进化"
         }
       },
       {
@@ -2536,7 +2669,7 @@
     "ordinal": 1745,
     "word": "evolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1745.json",
-    "source_fingerprint": "cc93ef4497a9343540233654015d10320b56fe2fe73e40e5833061938e668bb9",
+    "source_fingerprint": "296100d0e5e1180b56632640fa45d8a6a327cfa035d18a05f27fe3f00dc129f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2545,13 +2678,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逐渐发展",
-      "decision_cn": "",
+      "summary_cn": "逐渐演变或进化；逐步形成、制定",
+      "decision_cn": "主语自己变化时是不及物evolve，可接from说明起点、into说明结果；直接接策略、计划等宾语时，是逐步发展出或制定它。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逐渐发展"
+        "target_label": "逐渐演变或进化；逐步形成、制定"
       }
     },
     "senses": [
@@ -2559,9 +2692,9 @@
         "id": "sense:evolve:6b6aad2973df5009",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + into/from",
+        "governing_pattern": "evolve; evolve from sth; evolve into sth",
         "definition_cn": "进化；发展",
-        "definition_en": "to develop gradually, especially from a simple to a more complex form",
+        "definition_en": "to change and develop gradually; of biological forms, to change through evolution",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2604,7 +2737,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使发展；使进化；使推断出",
+        "definition_cn": "逐渐发展出；逐步形成或制定",
         "definition_en": "to develop or work out something gradually",
         "note": "",
         "identity_overlay": null,
@@ -2622,7 +2755,7 @@
           "target_kind": "sense",
           "target_id": "sense:evolve:5ff45823a9aa52bc",
           "target_locator": "record.senses[1]",
-          "target_label": "使发展；使进化；使推断出"
+          "target_label": "逐渐发展出；逐步形成或制定"
         }
       }
     ],
@@ -2673,7 +2806,7 @@
     "ordinal": 1746,
     "word": "exact",
     "source_owner_path": "content/lexical/words/by-ordinal/o1746.json",
-    "source_fingerprint": "748fcca810f25f43d280f02a843b9605630e447eb0986b14f750582fd26c9702",
+    "source_fingerprint": "b3ef724b8ae5c8fce4c140deb1e7a128b7949d668fae9138b7107033583de1d6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2731,9 +2864,9 @@
         "id": "sense:exact:f31ecd8895fb5010",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth from sb",
-        "definition_cn": "通过武力或权威要求并获得某物",
-        "definition_en": "to demand and obtain something by force or authority",
+        "governing_pattern": "exact sth from sb; exact revenge; exact a price/toll",
+        "definition_cn": "（正式）强求、索取；使承受（报复、代价或损失）",
+        "definition_en": "to demand and obtain something, or cause someone to suffer a cost or harm",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2755,7 +2888,7 @@
           "target_kind": "sense",
           "target_id": "sense:exact:f31ecd8895fb5010",
           "target_locator": "record.senses[1]",
-          "target_label": "通过武力或权威要求并获得某物"
+          "target_label": "（正式）强求、索取；使承受（报复、代价或损失）"
         }
       }
     ],
@@ -2794,14 +2927,14 @@
       {
         "id": "construction:991f34e3df0fb9f43316",
         "source_locator": "record.constructions[0]",
-        "pattern": "exact sth/revenge/payment/a price/a toll from/on sb/sth",
+        "pattern": "exact payment/a promise from sb; exact revenge on sb; exact a toll on sb/sth; exact a high price from sb",
         "lines": [
           {
-            "text": "强行索取某物；报复；索取付款/代价；造成损失",
+            "text": "索取付款或承诺；向某人报复；使某人或某事物遭受损失；使某人付出高昂代价（各搭配的介词不可任意互换）",
             "lang": "cn"
           },
           {
-            "text": "to demand or obtain something, or impose revenge, payment, a price, or a toll, often from or on someone/something",
+            "text": "demand payment or a promise; inflict revenge or impose a cost, with the complement chosen by the noun phrase",
             "lang": "en"
           }
         ],
@@ -2809,7 +2942,7 @@
           "target_kind": "construction",
           "target_id": "construction:991f34e3df0fb9f43316",
           "target_locator": "record.constructions[0]",
-          "target_label": "exact sth/revenge/payment/a price/a toll from/on sb/sth"
+          "target_label": "exact payment/a promise from sb; exact revenge on sb; exact a toll on sb/sth; exact a high price from sb"
         }
       }
     ],
@@ -2826,7 +2959,7 @@
     "ordinal": 1747,
     "word": "exaggerate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1747.json",
-    "source_fingerprint": "e750cacd84e0115135de0daeec976c0b61c3ec02339ed1cb3cf2bda0b3f678f7",
+    "source_fingerprint": "edc20c594e6f66dbdfe555b158654fc32f80e2fe910a268764aa90a9cff21087",
     "sense_lineage": [
       {
         "word_id": "word:exaggerate",
@@ -2834,6 +2967,13 @@
         "from_target_id": "sense:exaggerate:1a025bb8a7db5c80",
         "status": "merged",
         "to_target_id": "sense:exaggerate:6a98809118ff5575"
+      },
+      {
+        "word_id": "word:exaggerate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6c26d8ae740a23c031a5",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2857,7 +2997,7 @@
         "id": "sense:exaggerate:6a98809118ff5575",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "exaggerate; exaggerate sth",
         "definition_cn": "夸大，夸张（描述或表示某事比实际更大、更重要或更极端）",
         "definition_en": "to describe or represent something as larger, greater, or more extreme than it actually is",
         "note": "",
@@ -2868,13 +3008,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "exaggerate + sth",
             "meaning_cn": "夸大某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6c26d8ae740a23c031a5",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "exaggerate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:b22a8869f562faca4057",
@@ -2979,7 +3114,7 @@
     "ordinal": 1748,
     "word": "examination",
     "source_owner_path": "content/lexical/words/by-ordinal/o1748.json",
-    "source_fingerprint": "5da0cab1b67d3509e557fd2ffef2a62bbd18571e27ac0cbfa4154879d0a02459",
+    "source_fingerprint": "37d885aa401abdcfcf3f5471e66b3a7dffdd0b20aac17de6787fe50c28e422d7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3038,7 +3173,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "检查；审查",
-        "definition_en": "the act of looking at something carefully in order to find problems or mistakes",
+        "definition_en": "careful inspection or investigation to learn about something or assess its condition",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3130,8 +3265,16 @@
     "ordinal": 1749,
     "word": "examine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1749.json",
-    "source_fingerprint": "a84d3ee7a5e2dbb65f9e8740af90bfc863695619189c272a7778689fd850722d",
-    "sense_lineage": [],
+    "source_fingerprint": "0c44bfa94efb0827bde7036e3a2924543d889d47c3c993ff6322140f68783b7e",
+    "sense_lineage": [
+      {
+        "word_id": "word:examine",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6e873a35e254a57f0587",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -3164,13 +3307,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "examine + sth",
             "meaning_cn": "检查某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6e873a35e254a57f0587",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "examine + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4893a7f56b57eb080037",
@@ -3273,7 +3411,7 @@
     "ordinal": 1750,
     "word": "example",
     "source_owner_path": "content/lexical/words/by-ordinal/o1750.json",
-    "source_fingerprint": "c874e425b85a210825197417ce4fd9407958c6a52f753a597b0c6de70007c7d8",
+    "source_fingerprint": "8d745f30214c5afe4b01a5356d43c7c402f3cb8500fec784e27d8534336fcbe3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3282,13 +3420,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "代表性实例或榜样",
-      "decision_cn": "",
+      "summary_cn": "例子；可仿效的榜样或警示",
+      "decision_cn": "说明某类事物时指例子；set an example提供可仿效的榜样，make an example of sb表示惩罚以警示他人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "代表性实例或榜样"
+        "target_label": "例子；可仿效的榜样或警示"
       }
     },
     "senses": [
@@ -3876,7 +4014,7 @@
     "ordinal": 1755,
     "word": "except",
     "source_owner_path": "content/lexical/words/by-ordinal/o1755.json",
-    "source_fingerprint": "cedbb5edc7d727241917f371fc540d0dae9c0a2bfacd97ffcf204fbc002f5f0f",
+    "source_fingerprint": "e92498359798aa157978d6400f7bf074d27db0f43ba710dcd75127de2e0f2d94",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4073,7 +4211,7 @@
     "ordinal": 1756,
     "word": "exception",
     "source_owner_path": "content/lexical/words/by-ordinal/o1756.json",
-    "source_fingerprint": "372033dae3eca00e0be1e522bb16525f31739d1ad9bd6addb5a0cc317517afd8",
+    "source_fingerprint": "9513d13147470211b5f77e3448478b35a05fb4cc229ee3e0d4c4f36775e20e58",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4082,13 +4220,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "例外",
-      "decision_cn": "",
+      "summary_cn": "例外、排除；异议",
+      "decision_cn": "规则语境指例外或有意排除；take exception to表示不满或异议。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "例外"
+        "target_label": "例外、排除；异议"
       }
     },
     "senses": [
@@ -4249,7 +4387,7 @@
     "ordinal": 1757,
     "word": "exceptional",
     "source_owner_path": "content/lexical/words/by-ordinal/o1757.json",
-    "source_fingerprint": "75a274b30cadc0bcc8c2f3f81c81dcd48e44359713ac3f3a6fca54a343711fae",
+    "source_fingerprint": "d70b1e4c2bc410f30639ca2d88ecd3687824ee41d75f293e86462d2bc4344383",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4258,13 +4396,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "异常的；特别的",
-      "decision_cn": "",
+      "summary_cn": "不寻常的；特别优秀、杰出的",
+      "decision_cn": "先分异常情况与优秀表现：exceptional circumstances 是特殊情况，exceptional talent 是非凡才能。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "异常的；特别的"
+        "target_label": "不寻常的；特别优秀、杰出的"
       }
     },
     "senses": [
@@ -4353,7 +4491,7 @@
     "ordinal": 1758,
     "word": "excerpt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1758.json",
-    "source_fingerprint": "b41e5453bb81beb049d7c5325f969b3dad6c421be0739979313f903480ae4008",
+    "source_fingerprint": "5082a866c88c4b290a9a95db319c2ae802fb2e1269cc798ce909e63476f97a4b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4410,7 +4548,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "摘录；引用",
-        "definition_en": "to take out a passage from a literary work",
+        "definition_en": "to select and reproduce a short part of a larger work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4811,23 +4949,23 @@
     "ordinal": 1759,
     "word": "excess",
     "source_owner_path": "content/lexical/words/by-ordinal/o1759.json",
-    "source_fingerprint": "d3ab97b81c5100575fc54a7a395b6dca70258ff88e91f1fcab8c6e768f09ae06",
+    "source_fingerprint": "5ade4544a8e8e7ebb9fed891d7e55cd298347730d40e8d98a4cf266d827b6171",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "超出所需或允许的量或程度",
-      "decision_cn": "",
+      "summary_cn": "过量、过度；过量的；英式保险自付额",
+      "decision_cn": "数量或行为语境指超出限度，to excess指过度；保险an excess是投保人自付额。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "超出所需或允许的量或程度"
+        "target_label": "过量、过度；过量的；英式保险自付额"
       }
     },
     "senses": [
@@ -4837,7 +4975,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "超过需要的数量；过量",
-        "definition_en": "a quantity much larger than is needed",
+        "definition_en": "an amount above what is needed, allowed or expected",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4931,6 +5069,19 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "excesses of + sth"
             }
+          },
+          {
+            "id": "collocation:5bd54a07206d54b845fe",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "to excess",
+            "meaning_cn": "过度地；无节制地",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5bd54a07206d54b845fe",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "to excess"
+            }
           }
         ],
         "repair": {
@@ -4938,6 +5089,32 @@
           "target_id": "sense:excess:7e186b9cbd765809",
           "target_locator": "record.senses[2]",
           "target_label": "无节制；过度行为"
+        }
+      },
+      {
+        "id": "sense:excess:263d78f47924b5c1",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "an excess; pay the excess on a claim",
+        "definition_cn": "（英式保险）索赔时投保人的自付额",
+        "definition_en": "British insurance: the part of a claim that the insured person must pay",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:448dc2218e6e6d71dd8e",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "pay a £200 excess on the claim",
+            "meaning_cn": "就该项索赔自付200英镑",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:excess:263d78f47924b5c1",
+          "target_locator": "record.senses[3]",
+          "target_label": "（英式保险）索赔时投保人的自付额"
         }
       }
     ],
@@ -4982,6 +5159,23 @@
           "applicability": [
             {
               "surface": "excess"
+            },
+            {
+              "surface": "excess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excess:263d78f47924b5c1"
+              ],
+              "owner_sense_ids": [
+                "sense:excess:263d78f47924b5c1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1759.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "an excess; pay the excess on a claim"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5001,8 +5195,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:excess:263d78f47924b5c1": [
+          3
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -5200,23 +5398,23 @@
     "ordinal": 1761,
     "word": "exchange",
     "source_owner_path": "content/lexical/words/by-ordinal/o1761.json",
-    "source_fingerprint": "6657dc859c437962f8a763e0d0b8f0e1f4ef22e600859f7e4fdd081467b64460",
+    "source_fingerprint": "f885b9acab633447f63049ef6a9356be55a12d88284cd4da98660b31af2840e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "交换",
-      "decision_cn": "",
+      "summary_cn": "交换、互换；交流或争论、互访；兑换、交易所",
+      "decision_cn": "动词with接互换对象，for接换得的物品；a heated exchange指一番争论，student exchange指互访，金融语境指兑换或交易所。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "交换"
+        "target_label": "交换、互换；交流或争论、互访；兑换、交易所"
       }
     },
     "senses": [
@@ -5224,7 +5422,7 @@
         "id": "sense:exchange:0717ab7d10445590",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth + for + sth",
+        "governing_pattern": "exchange sth; exchange sth with sb (mutual giving); exchange sth for sth (replacement)",
         "definition_cn": "交换，互换",
         "definition_en": "to give something to someone and receive something in return",
         "note": "",
@@ -5250,6 +5448,19 @@
             "meaning_cn": "交流思想",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:f06e8f8a2d48343fba1e",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "exchange ideas with colleagues",
+            "meaning_cn": "与同事交流想法",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f06e8f8a2d48343fba1e",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "exchange ideas with colleagues"
+            }
           }
         ],
         "repair": {
@@ -5349,6 +5560,58 @@
           "target_locator": "record.senses[3]",
           "target_label": "交易所"
         }
+      },
+      {
+        "id": "sense:exchange:12f0e1272cf0363e",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "an exchange with/between people; a heated/bitter exchange",
+        "definition_cn": "一番交谈；（常指）争论",
+        "definition_en": "a brief conversation, often an argument",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:91c6dd0441b1ba3a6265",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a heated exchange between the speakers",
+            "meaning_cn": "发言者之间一番激烈的争论",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exchange:12f0e1272cf0363e",
+          "target_locator": "record.senses[4]",
+          "target_label": "一番交谈；（常指）争论"
+        }
+      },
+      {
+        "id": "sense:exchange:7b28f30ec7e73b39",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a student/cultural exchange; go on an exchange",
+        "definition_cn": "（学校、文化等的）交流互访",
+        "definition_en": "an arrangement for reciprocal visits between people or institutions, often in different countries",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b9be73518bdaab160439",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a student exchange programme",
+            "meaning_cn": "学生交流项目",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exchange:7b28f30ec7e73b39",
+          "target_locator": "record.senses[5]",
+          "target_label": "（学校、文化等的）交流互访"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5359,6 +5622,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5370,6 +5667,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5381,6 +5712,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5394,14 +5759,61 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:exchange:12f0e1272cf0363e": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "sense:exchange:7b28f30ec7e73b39": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -5786,7 +6198,7 @@
     "ordinal": 1765,
     "word": "exclaim",
     "source_owner_path": "content/lexical/words/by-ordinal/o1765.json",
-    "source_fingerprint": "a909f52586f50890be5c6542c136c12eb01d43382d6f0dd6f9f451ba2a787592",
+    "source_fingerprint": "93e047c49c81257fa69f140f0d139c69820463b84184e58ceaccdaf1829de891",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5809,7 +6221,7 @@
         "id": "sense:exclaim:20e228f62b8558eb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + that-clause / vi. + at",
+        "governing_pattern": "exclaim; exclaim at/over sth; exclaim that…; exclaim + direct speech",
         "definition_cn": "惊叫；呼喊",
         "definition_en": "to say something suddenly and loudly, especially because of strong emotion",
         "note": "",
@@ -6053,23 +6465,23 @@
     "ordinal": 1767,
     "word": "exclusive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1767.json",
-    "source_fingerprint": "350c8951980eaacc99cb257d82303018319fe4f5862e750dd70317e36479f789",
+    "source_fingerprint": "0ca0154ab2fa40e5a462200987f28ac8a4153d892b5b0cf46f4cc544b38fea1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "独有的；排外的",
-      "decision_cn": "",
+      "summary_cn": "专有、限制共享；排除或不包括；高档的；独家报道",
+      "decision_cn": "exclusive to接限定拥有者；exclusive of接未计入的部分；mutually exclusive指不能共存。场所可指高档，名词an exclusive指独家报道。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "独有的；排外的"
+        "target_label": "专有、限制共享；排除或不包括；高档的；独家报道"
       }
     },
     "senses": [
@@ -6077,7 +6489,7 @@
         "id": "sense:exclusive:8e653fd4163158c6",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "exclusive to sb/sth; exclusive use/rights (not shared)",
         "definition_cn": "独有的；独占的",
         "definition_en": "not shared with others; only for a particular person or group",
         "note": "",
@@ -6111,7 +6523,7 @@
         "id": "sense:exclusive:f7053a1da8105591",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "exclusive of sth (not including it); mutually exclusive (cannot coexist)",
         "definition_cn": "排外的；不包括的",
         "definition_en": "excluding others; not including something",
         "note": "",
@@ -6163,6 +6575,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "独家新闻"
         }
+      },
+      {
+        "id": "sense:exclusive:b1122588500329cc",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "an exclusive club/restaurant/resort",
+        "definition_cn": "高档的；面向少数富裕或有地位者的",
+        "definition_en": "of a place or service: expensive or restricted to people with high social status",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7ad8245ce915f15bb4ee",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "an exclusive resort",
+            "meaning_cn": "高档度假胜地",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exclusive:b1122588500329cc",
+          "target_locator": "record.senses[3]",
+          "target_label": "高档的；面向少数富裕或有地位者的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6176,6 +6614,23 @@
           "applicability": [
             {
               "surface": "exclusive"
+            },
+            {
+              "surface": "exclusive",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:exclusive:b1122588500329cc"
+              ],
+              "owner_sense_ids": [
+                "sense:exclusive:b1122588500329cc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1767.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "an exclusive club/restaurant/resort"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6196,11 +6651,37 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:exclusive:b1122588500329cc": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:exclusive:1c10e764a76398c3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be mutually exclusive",
+        "lines": [
+          {
+            "text": "互不相容；不能同时存在或发生",
+            "lang": "cn"
+          },
+          {
+            "text": "be unable to exist or happen together",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:exclusive:1c10e764a76398c3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be mutually exclusive"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -6243,22 +6724,22 @@
     "ordinal": 1768,
     "word": "excursion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1768.json",
-    "source_fingerprint": "dc66d862111ce8bbcd5e2841134a0e9ca8e16d5957bf6cc6136473094e7969af",
+    "source_fingerprint": "9235ded476135d507386627ce52a108a1a839e8302a8a31c68ca33c1dbf71f32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "短途旅行",
-      "decision_cn": "",
+      "summary_cn": "短途出游；涉足、探索",
+      "decision_cn": "去某地时指短途出游；excursion into + 学科/活动可比喻涉足或探索。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "短途旅行"
+        "target_label": "短途出游；涉足、探索"
       }
     },
     "senses": [
@@ -6292,6 +6773,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "远足，短途旅行"
         }
+      },
+      {
+        "id": "sense:excursion:c3dc48c1ba31a8aa",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "an excursion into + subject/activity",
+        "definition_cn": "（比喻）涉足、尝试或探索新领域",
+        "definition_en": "an attempt to explore or develop an unfamiliar subject or activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:94d39c108a6026ddf1d0",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "an excursion into political history",
+            "meaning_cn": "对政治史的一番探索",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:excursion:c3dc48c1ba31a8aa",
+          "target_locator": "record.senses[1]",
+          "target_label": "（比喻）涉足、尝试或探索新领域"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6304,6 +6811,23 @@
           "applicability": [
             {
               "surface": "excursion"
+            },
+            {
+              "surface": "excursion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "owner_sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1768.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "an excursion into + subject/activity"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6317,14 +6841,36 @@
           "applicability": [
             {
               "surface": "excursion"
+            },
+            {
+              "surface": "excursion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "owner_sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1768.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "an excursion into + subject/activity"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:excursion:c3dc48c1ba31a8aa": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6341,7 +6887,7 @@
     "ordinal": 1769,
     "word": "excuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1769.json",
-    "source_fingerprint": "e6429de7a541511ab4a11a226705e9c79f39c1708f43de7ad154ab0308835ab6",
+    "source_fingerprint": "ba2d98a790280666e1d6961a71946a939c73f0ae0c45b83100a72ea2e6322f04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6389,6 +6935,14 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "excuse my ignorance",
             "meaning_cn": "请原谅我的无知",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:03c34472b7fc139223a7",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "excuse me",
+            "meaning_cn": "对不起；打扰一下",
             "kind": "usage_example",
             "repair": null
           }
@@ -6487,14 +7041,6 @@
               "target_locator": "record.senses[3].collocations[0]",
               "target_label": "excuse sb from duty"
             }
-          },
-          {
-            "id": "collocation:03c34472b7fc139223a7",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "excuse me",
-            "meaning_cn": "对不起；打扰一下",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -6860,7 +7406,7 @@
     "ordinal": 1770,
     "word": "execute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1770.json",
-    "source_fingerprint": "3f57d6f099cca2061253ddad73daffa274aab10ee82a1c16d212e1217315f8c4",
+    "source_fingerprint": "334264747b09fb7c2705b9e2dea4e4e6590164abc500a5531f082e2da385382e",
     "sense_lineage": [
       {
         "word_id": "word:execute",
@@ -6891,13 +7437,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "执行、实施；依法处死",
-      "decision_cn": "",
+      "summary_cn": "执行、完成；依法签署文件；处死",
+      "decision_cn": "计划、命令或动作作宾语指执行/完成；文件可指完成签署等生效手续，执行条款则是履行；人作宾语可指处死。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "执行、实施；依法处死"
+        "target_label": "执行、完成；依法签署文件；处死"
       }
     },
     "senses": [
@@ -6905,10 +7451,10 @@
         "id": "sense:execute:0f800f9693f55d36",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "execute a plan/order/action; execute a work of art; execute a deed/will (legal formalities)",
         "definition_cn": "执行、实施",
         "definition_en": "to carry out or perform an action",
-        "note": "",
+        "note": "The object selects the sense: a plan/order is carried out; an action or movement is performed; a work of art is produced. With a deed or will, legal execution can mean completing the required formalities, such as signing; executing its terms means carrying them out.",
         "identity_overlay": null,
         "usage": [
           {
@@ -6926,6 +7472,19 @@
             "meaning_cn": "执行命令",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:e3b61594c11bb9408975",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "execute a deed",
+            "meaning_cn": "完成契据生效所需的法定手续",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e3b61594c11bb9408975",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "execute a deed"
+            }
           }
         ],
         "repair": {
@@ -6940,8 +7499,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + person",
-        "definition_cn": "依法处死；执行死刑",
-        "definition_en": "to put a person to death as a legal punishment",
+        "definition_cn": "处死；执行死刑（常作为刑罚，但这个词本身不保证合法）",
+        "definition_en": "to deliberately put someone to death, especially as a punishment",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6949,7 +7508,7 @@
           "target_kind": "sense",
           "target_id": "sense:execute:f27a42102a105d16",
           "target_locator": "record.senses[1]",
-          "target_label": "依法处死；执行死刑"
+          "target_label": "处死；执行死刑（常作为刑罚，但这个词本身不保证合法）"
         }
       }
     ],
@@ -7064,7 +7623,7 @@
     "ordinal": 1771,
     "word": "executive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1771.json",
-    "source_fingerprint": "6c1a7e211480aca5667c242fa401293230b08eeec0192e44eb5c094f8385cb8d",
+    "source_fingerprint": "051093b7696e4b74555be19e9fa1e130b5ffa082803ee2bfe83526870b2b12f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7235,8 +7794,12 @@
           "target_word": "execute",
           "lines": [
             {
-              "text": "executive vs execute: 行政的 vs 执行",
+              "text": "executive 可作名词“主管、管理人员”，也作形容词“行政的”；execute 是动词“执行、实施”，词性与指称不同。",
               "lang": "cn"
+            },
+            {
+              "text": "executive names a manager or describes an administrative role; execute is the verb for carrying out an action.",
+              "lang": "en"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -7250,8 +7813,23 @@
     "ordinal": 1772,
     "word": "exemplify",
     "source_owner_path": "content/lexical/words/by-ordinal/o1772.json",
-    "source_fingerprint": "44583ac2b3e342eafc9a5d76dc823e660e7472f450695ee23d9c517955d27a8d",
-    "sense_lineage": [],
+    "source_fingerprint": "74647cc781414c62a1b781b245d1acd8f723ab39a43a76f034e3998dcc08728a",
+    "sense_lineage": [
+      {
+        "word_id": "word:exemplify",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5ee64eac83db75185688",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:exemplify",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5f6b2f9677ed269d9785",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -7284,13 +7862,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "exemplify + sth",
             "meaning_cn": "举例说明某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5f6b2f9677ed269d9785",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "exemplify + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:f1e38e93f8cfc5bdfd07",
@@ -7323,13 +7896,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "exemplify + sth",
             "meaning_cn": "作为...的例证",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5ee64eac83db75185688",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "exemplify + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:1c6f3b6cf80c8f57fa37",
@@ -7391,7 +7959,7 @@
     "ordinal": 1773,
     "word": "exempt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1773.json",
-    "source_fingerprint": "bed36b3a785e548e8d4f2b9576824a09891ceb8d6aad87327ef95f42783f2fa4",
+    "source_fingerprint": "cabefa7e57aab79509811505ca3ec87359fbf7b3cef7cf4f4dacd96a56717ec8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7420,7 +7988,16 @@
         "definition_en": "freed from or not subject to an obligation or liability (as taxes) to which others are subject",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:f60649e5da1ff4d748d0",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "be exempt from taxation",
+            "meaning_cn": "免税",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:exempt:c7e30412b19652e5",
@@ -7437,16 +8014,7 @@
         "definition_en": "grant relief or an exemption from a rule or requirement to",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f60649e5da1ff4d748d0",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "exempt from taxation",
-            "meaning_cn": "免税",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:exempt:477a6239669f5766",
@@ -7553,7 +8121,7 @@
     "ordinal": 1774,
     "word": "exercise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1774.json",
-    "source_fingerprint": "ee0e90de87f5d063761732d2976506a95a1f5f207eae1227a136901c9b3ac726",
+    "source_fingerprint": "aaf484914434c806611205c283881bbc3f5892603de0799573f91f385d3969e3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7577,7 +8145,7 @@
         "id": "sense:exercise:6039fc96569f588a",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "uncountable when referring to physical activity",
         "definition_cn": "运动，锻炼",
         "definition_en": "physical activity done to stay healthy or become stronger",
         "note": "",
@@ -7611,7 +8179,7 @@
         "id": "sense:exercise:9150c8e970755b8c",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "countable: an exercise; exercises",
         "definition_cn": "练习，习题",
         "definition_en": "a task or activity done to practice a skill",
         "note": "",
@@ -7645,9 +8213,9 @@
         "id": "sense:exercise:896db89eeaa05be0",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "exercise; exercise a body part/an animal",
         "definition_cn": "锻炼，运动",
-        "definition_en": "to do physical activity",
+        "definition_en": "to do physical activity, or give a body part or animal physical activity",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7775,7 +8343,7 @@
     "ordinal": 1775,
     "word": "exert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1775.json",
-    "source_fingerprint": "077be23fa489e34c36ec4e922c5b297ec80ca7f684cf82a3a4f1f99a9032b5fe",
+    "source_fingerprint": "29f55a4d868192a8c83c9c35cdd1d105ba5ff4e987a2a5801b7eb7cb30d47b03",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7784,13 +8352,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "施加，运用",
-      "decision_cn": "",
+      "summary_cn": "施加力量或影响；努力",
+      "decision_cn": "接force、pressure、influence指施加；exert oneself (to do)指努力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "施加，运用"
+        "target_label": "施加力量或影响；努力"
       }
     },
     "senses": [
@@ -7863,7 +8431,7 @@
         "id": "sense:exert:615f4c4345b2523a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "exert oneself (to do sth)",
         "definition_cn": "努力，尽力",
         "definition_en": "to make a strenuous effort",
         "note": "",
@@ -7938,23 +8506,23 @@
     "ordinal": 1776,
     "word": "exhaust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1776.json",
-    "source_fingerprint": "5d1f427f7688b2aedffbd9e77f61046651c5002572f5c5772eed984b3a42fefa",
+    "source_fingerprint": "d2e1ad083891de50d501f634f217ad93f186de06fabf2af72ad69fdf8a29746b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "耗尽；使精疲力尽；废气",
-      "decision_cn": "耗尽或废气",
+      "summary_cn": "耗尽；使精疲力尽；穷尽话题；废气或排气系统",
+      "decision_cn": "资源作宾语指耗尽，人作宾语指使精疲力尽；话题作宾语指谈透。名词排放语境指废气，车辆部件语境可指排气系统。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "耗尽；使精疲力尽；废气"
+        "target_label": "耗尽；使精疲力尽；穷尽话题；废气或排气系统"
       }
     },
     "senses": [
@@ -8074,6 +8642,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "排气装置"
         }
+      },
+      {
+        "id": "sense:exhaust:0035085962c38d49",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "exhaust a subject/topic",
+        "definition_cn": "充分讨论、研究（以至无更多可补充）",
+        "definition_en": "to discuss or investigate a subject so fully that nothing more remains to be covered",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9197e90202f037bcc392",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "We had exhausted the subject.",
+            "meaning_cn": "这个话题已经谈得无话可补。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exhaust:0035085962c38d49",
+          "target_locator": "record.senses[4]",
+          "target_label": "充分讨论、研究（以至无更多可补充）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8086,14 +8680,35 @@
           "applicability": [
             {
               "surface": "exhaust"
+            },
+            {
+              "surface": "exhaust",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:exhaust:0035085962c38d49"
+              ],
+              "owner_sense_ids": [
+                "sense:exhaust:0035085962c38d49"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1776.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "exhaust a subject/topic"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:exhaust:0035085962c38d49": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8110,23 +8725,23 @@
     "ordinal": 1777,
     "word": "exhibit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1777.json",
-    "source_fingerprint": "8d233cf6248fdcf281ef59b8eae51ca5c96d23e430b1ce11882da902e91209a9",
+    "source_fingerprint": "54403e03366949bf7bd9ca8c30d3ca1aca6ebc73229a303058bf53245d2c2923",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "展示；展览品",
-      "decision_cn": "",
+      "summary_cn": "展出、显露；展品或证物；美式展览",
+      "decision_cn": "动词展出物品或显露特征；名词通常指展品，法庭指证物，美式可指整场展览。艺术家作主语可不接宾语，表示展出其作品。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "展示；展览品"
+        "target_label": "展出、显露；展品或证物；美式展览"
       }
     },
     "senses": [
@@ -8221,8 +8836,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + at",
-        "definition_cn": "举办展览，参展",
-        "definition_en": "to put on an exhibition",
+        "definition_cn": "展出自己的作品；参展",
+        "definition_en": "to show one’s work publicly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8252,7 +8867,33 @@
           "target_kind": "sense",
           "target_id": "sense:exhibit:8cc067ba4a2a55cd",
           "target_locator": "record.senses[3]",
-          "target_label": "举办展览，参展"
+          "target_label": "展出自己的作品；参展"
+        }
+      },
+      {
+        "id": "sense:exhibit:2dc48c18300b4436",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "an exhibit at/in a museum; an art exhibit",
+        "definition_cn": "（美式）展览；公开陈列的一组展品",
+        "definition_en": "American: a public exhibition of art or other objects",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5c34e70c9dca19e53761",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a new exhibit at the museum",
+            "meaning_cn": "博物馆的一场新展览",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exhibit:2dc48c18300b4436",
+          "target_locator": "record.senses[4]",
+          "target_label": "（美式）展览；公开陈列的一组展品"
         }
       }
     ],
@@ -8267,14 +8908,35 @@
           "applicability": [
             {
               "surface": "exhibit"
+            },
+            {
+              "surface": "exhibit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exhibit:2dc48c18300b4436"
+              ],
+              "owner_sense_ids": [
+                "sense:exhibit:2dc48c18300b4436"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1777.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exhibit at/in a museum; an art exhibit"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:exhibit:2dc48c18300b4436": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8291,7 +8953,7 @@
     "ordinal": 1778,
     "word": "exhibition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1778.json",
-    "source_fingerprint": "3364dd8bb25b99bdb18a01adc6cbc3a2f21379bc473e9a9bc6e57da191743ec9",
+    "source_fingerprint": "14d29f8fe8268d60a46d581b65f9049730dbd13c0600010a5c6d8e22bed1d0bd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8315,8 +8977,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "为公开展示而收集的物品（商品或艺术品等）",
-        "definition_en": "a collection of things (goods or works of art etc.) for public display",
+        "definition_cn": "展览；展览会；公开展出的作品或物品",
+        "definition_en": "a public display of objects or works, or an event where they are displayed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8341,7 +9003,7 @@
           "target_kind": "sense",
           "target_id": "sense:exhibition:60518fd331645ae5",
           "target_locator": "record.senses[0]",
-          "target_label": "为公开展示而收集的物品（商品或艺术品等）"
+          "target_label": "展览；展览会；公开展出的作品或物品"
         }
       },
       {
@@ -8408,7 +9070,7 @@
     "ordinal": 1779,
     "word": "exile",
     "source_owner_path": "content/lexical/words/by-ordinal/o1779.json",
-    "source_fingerprint": "81c2085e388fcf79aacfa4a5541aa6c867e8a3426fac9422786af6df35a753c3",
+    "source_fingerprint": "d14f64ac8de30d66dd50334cb12fa1f7fe608296db9f858cfeb076b59319609a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8418,13 +9080,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "迫使某人离开祖国，或被强迫离开的状态",
-      "decision_cn": "",
+      "summary_cn": "流放、流亡；流亡者；放逐某人",
+      "decision_cn": "常见于政治性离乡：既有被迫流放，也有 self-imposed exile；动词强调使人离开。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "迫使某人离开祖国，或被强迫离开的状态"
+        "target_label": "流放、流亡；流亡者；放逐某人"
       }
     },
     "senses": [
@@ -8433,8 +9095,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "流放，放逐",
-        "definition_en": "the state of being barred from one's native country",
+        "definition_cn": "流放；流亡；离乡生活（常出于政治原因，也可自愿选择）",
+        "definition_en": "living away from one's home or country, often for political reasons, whether forced or self-imposed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8451,7 +9113,7 @@
           "target_kind": "sense",
           "target_id": "sense:exile:e3dfff7b6dfc5f5c",
           "target_locator": "record.senses[0]",
-          "target_label": "流放，放逐"
+          "target_label": "流放；流亡；离乡生活（常出于政治原因，也可自愿选择）"
         }
       },
       {
@@ -8460,7 +9122,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "被流放者，流亡者",
-        "definition_en": "a person who has been forced to leave their country",
+        "definition_en": "a person living away from home or country in exile",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8486,7 +9148,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "流放，放逐",
-        "definition_en": "to force someone to leave their country, especially for political reasons",
+        "definition_en": "to send or keep someone away from their home or country, especially for political reasons",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8569,7 +9231,7 @@
     "ordinal": 1780,
     "word": "exist",
     "source_owner_path": "content/lexical/words/by-ordinal/o1780.json",
-    "source_fingerprint": "87c33ee766be601e161500734151332caf2c1bd7b8ae4b4b5c178d87b8027f67",
+    "source_fingerprint": "0f3abd0d710192992afd67fe9ad606e8024f5f8b55bdae86477138728d0d1f32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8578,13 +9240,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "存在",
-      "decision_cn": "",
+      "summary_cn": "存在；维持生存",
+      "decision_cn": "实际存在是be real/present；exist on + 收入/食物表示靠有限资源维持生存。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "存在"
+        "target_label": "存在；维持生存"
       }
     },
     "senses": [
@@ -8645,14 +9307,14 @@
           {
             "id": "collocation:cc106f494aafef4caa69",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "exist on + food",
-            "meaning_cn": "靠……生存",
+            "phrase": "exist on + food/income/resources",
+            "meaning_cn": "靠某种食物、收入或资源勉强维持生活",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cc106f494aafef4caa69",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "exist on + food"
+              "target_label": "exist on + food/income/resources"
             }
           }
         ],
@@ -8727,22 +9389,22 @@
     "ordinal": 1781,
     "word": "existence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1781.json",
-    "source_fingerprint": "dd0bbef27e762dc9bd7ba8222d3e387ae65b05a3dc9835c512b80c59bb560b5c",
+    "source_fingerprint": "e677676bede388622fefc402dda1cdb2a55630515535df96bbe5bfc5520fc83c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "存在；生存",
-      "decision_cn": "",
+      "summary_cn": "存在、生存；生活状况",
+      "decision_cn": "the existence of强调存在事实；生存语境指生命维持。a miserable/quiet existence指具体生活状况。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "存在；生存"
+        "target_label": "存在、生存；生活状况"
       }
     },
     "senses": [
@@ -8750,9 +9412,9 @@
         "id": "sense:existence:f3247a02f1c35712",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "usually uncountable: the existence of sth; come into existence; a struggle for existence",
         "definition_cn": "存在；生存",
-        "definition_en": "the state of being real or present",
+        "definition_en": "the state of being real or present, or of continuing to live",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8784,6 +9446,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "存在；生存"
         }
+      },
+      {
+        "id": "sense:existence:edace6cd46862005",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "countable: a miserable/precarious/quiet existence; lead an existence",
+        "definition_cn": "生活方式或生存状况（常指困难条件）",
+        "definition_en": "a person’s manner or conditions of living, often difficult",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6237d55bb3e3dc79c2bd",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "lead a precarious existence",
+            "meaning_cn": "过着朝不保夕的生活",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:existence:edace6cd46862005",
+          "target_locator": "record.senses[1]",
+          "target_label": "生活方式或生存状况（常指困难条件）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8796,6 +9484,23 @@
           "applicability": [
             {
               "surface": "existence"
+            },
+            {
+              "surface": "existence",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "owner_sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1781.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "countable: a miserable/precarious/quiet existence; lead an existence"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8809,6 +9514,23 @@
           "applicability": [
             {
               "surface": "existence"
+            },
+            {
+              "surface": "existence",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "owner_sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1781.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "countable: a miserable/precarious/quiet existence; lead an existence"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8828,8 +9550,13 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:existence:edace6cd46862005": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8846,7 +9573,7 @@
     "ordinal": 1782,
     "word": "exit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1782.json",
-    "source_fingerprint": "04ce6ba5ecab4b8bfd6e7015aaa9e679fc042799e3dc12f7627732185227fd16",
+    "source_fingerprint": "ecf109bb232b3182e47bda34dc4d4fd04bf908e9502fd8af42a89a3cc4c97238",
     "sense_lineage": [
       {
         "word_id": "word:exit",
@@ -8859,18 +9586,18 @@
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "出口；离开、退出",
-      "decision_cn": "noun → 出口/通道；verb → 离开、退出。桥牌中的专业 exit 动词义保留为 Reference。",
+      "summary_cn": "出口；离开、退出；退场",
+      "decision_cn": "门或道路的exit是出口；动词exit (from)是离开；名词make an exit指离开行为，也可指退出活动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "出口；离开、退出"
+        "target_label": "出口；离开、退出；退场"
       }
     },
     "senses": [
@@ -8895,14 +9622,14 @@
           {
             "id": "collocation:ed423ddb65cbbd449b59",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "exit from + sth",
-            "meaning_cn": "从某处退出",
+            "phrase": "an exit from + place",
+            "meaning_cn": "从某处出去的出口",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ed423ddb65cbbd449b59",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "exit from + sth"
+              "target_label": "an exit from + place"
             }
           }
         ],
@@ -8917,7 +9644,7 @@
         "id": "sense:exit:5aaa3328072f5d6f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "exit; exit a place; exit from a place",
         "definition_cn": "退出；离开",
         "definition_en": "move out of or depart from",
         "note": "",
@@ -8928,6 +9655,37 @@
           "target_id": "sense:exit:5aaa3328072f5d6f",
           "target_locator": "record.senses[1]",
           "target_label": "退出；离开"
+        }
+      },
+      {
+        "id": "sense:exit:146a7cf8f58c34bb",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "make an exit; an exit from a place/competition",
+        "definition_cn": "离开、退场或退出某活动",
+        "definition_en": "an act or manner of leaving a place, situation, or activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:42c3389853282baa7630",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "make a hasty exit",
+            "meaning_cn": "匆忙离开",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:42c3389853282baa7630",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "make a hasty exit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:exit:146a7cf8f58c34bb",
+          "target_locator": "record.senses[2]",
+          "target_label": "离开、退场或退出某活动"
         }
       }
     ],
@@ -8967,6 +9725,23 @@
           "applicability": [
             {
               "surface": "exit"
+            },
+            {
+              "surface": "exit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exit:146a7cf8f58c34bb"
+              ],
+              "owner_sense_ids": [
+                "sense:exit:146a7cf8f58c34bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1782.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "make an exit; an exit from a place/competition"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8980,6 +9755,23 @@
           "applicability": [
             {
               "surface": "exit"
+            },
+            {
+              "surface": "exit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exit:146a7cf8f58c34bb"
+              ],
+              "owner_sense_ids": [
+                "sense:exit:146a7cf8f58c34bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1782.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "make an exit; an exit from a place/competition"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8997,8 +9789,13 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:exit:146a7cf8f58c34bb": [
+          2,
+          3
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9049,7 +9846,7 @@
     "ordinal": 1783,
     "word": "exotic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1783.json",
-    "source_fingerprint": "16c0639ac80c72806470c859ad9753946535fdcb169b1c47b97357784b54e6f2",
+    "source_fingerprint": "4f1c2bf1852b1eac3535b24da687049b9c7475425920ef1b42cac1be860d9cdb",
     "sense_lineage": [
       {
         "word_id": "word:exotic",
@@ -9073,13 +9870,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "异国的，外来的",
-      "decision_cn": "",
+      "summary_cn": "异国的；奇异而有吸引力的",
+      "decision_cn": "异国的，外来的",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "异国的，外来的"
+        "target_label": "异国的；奇异而有吸引力的"
       }
     },
     "senses": [
@@ -9187,7 +9984,7 @@
     "ordinal": 1784,
     "word": "expand",
     "source_owner_path": "content/lexical/words/by-ordinal/o1784.json",
-    "source_fingerprint": "5343daa3f7bf0c75a62d416ede24951fb80fa525c35ebc9f5f021c279aad76f9",
+    "source_fingerprint": "4c06b4fef874421e80d2fa81955db460421d8ccc31b2b373b4593ffb102bc036",
     "sense_lineage": [
       {
         "word_id": "word:expand",
@@ -9204,13 +10001,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "扩大",
-      "decision_cn": "",
+      "summary_cn": "扩大、展开；详细阐述",
+      "decision_cn": "尺寸、数量或范围变大是扩大；expand on/upon + 话题表示详细说明。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "扩大"
+        "target_label": "扩大、展开；详细阐述"
       }
     },
     "senses": [
@@ -9219,8 +10016,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vi. / vt. + object",
-        "definition_cn": "扩大；膨胀",
-        "definition_en": "to become larger in size, volume, or quantity",
+        "definition_cn": "（使）扩大、扩展或膨胀",
+        "definition_en": "to become larger, or make something larger, in size, volume, quantity or scope",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9271,7 +10068,7 @@
           "target_kind": "sense",
           "target_id": "sense:expand:b4b24ebc6c5c5530",
           "target_locator": "record.senses[0]",
-          "target_label": "扩大；膨胀"
+          "target_label": "（使）扩大、扩展或膨胀"
         }
       },
       {
@@ -9395,7 +10192,7 @@
     "ordinal": 1785,
     "word": "expansion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1785.json",
-    "source_fingerprint": "853d060a9e587bbbd7f7419eb53e1c236ae832c0f01efadc39509ff101d3ad77",
+    "source_fingerprint": "21c32cf698f5315eb05fd6680a2ae919012441fea476dcf8332ad1cf9d61057d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9404,13 +10201,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "扩张，膨胀",
-      "decision_cn": "",
+      "summary_cn": "扩张、增长；数学展开式；进一步阐述",
+      "decision_cn": "经济、体积或范围语境指增长扩张；数学指展开式；文本讨论可指进一步阐述。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "扩张，膨胀"
+        "target_label": "扩张、增长；数学展开式；进一步阐述"
       }
     },
     "senses": [
@@ -9551,8 +10348,16 @@
     "ordinal": 1786,
     "word": "expect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1786.json",
-    "source_fingerprint": "822b67a63a92798f328d1c27fb93a4f85c97f70372d8675cd490432fadfde811",
-    "sense_lineage": [],
+    "source_fingerprint": "84e987d94d042e1b8b979e085854aaf884fcd31fd09d877892c8b48086d702e3",
+    "sense_lineage": [
+      {
+        "word_id": "word:expect",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ebafec8da663b8c604ce",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -9560,13 +10365,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "预期，期待",
-      "decision_cn": "",
+      "summary_cn": "预期、等待；要求、认为应得；怀孕",
+      "decision_cn": "expect that/to是预期；expect sb to do可预测，也可要求。expecting a guest是等候来客；be expecting (a baby)是怀孕。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "预期，期待"
+        "target_label": "预期、等待；要求、认为应得；怀孕"
       }
     },
     "senses": [
@@ -9597,7 +10402,7 @@
             "id": "collocation:96fb468fca84decac792",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "expect to do sth",
-            "meaning_cn": "期待做某事",
+            "meaning_cn": "预料自己会做某事（不一定是盼望）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9619,8 +10424,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "盼望，期待",
-        "definition_en": "look forward to the probable occurrence of",
+        "definition_cn": "预计（某人会来或某物会到）；等待",
+        "definition_en": "to believe someone or something is going to arrive and be waiting for them",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9628,21 +10433,16 @@
             "id": "collocation:ebafec8da663b8c604ce",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "expect + sb/sth",
-            "meaning_cn": "期待某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ebafec8da663b8c604ce",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "expect + sb/sth"
-            }
+            "meaning_cn": "预计某人或某物将到来；等待",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:expect:1ef2a3f0c4eb576c",
           "target_locator": "record.senses[1]",
-          "target_label": "盼望，期待"
+          "target_label": "预计（某人会来或某物会到）；等待"
         }
       },
       {
@@ -9680,9 +10480,9 @@
         "id": "sense:expect:fccaca5b19255fa9",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "be expecting (a baby/child)",
         "definition_cn": "怀孕，待产",
-        "definition_en": "look forward to the birth of a child",
+        "definition_en": "to be pregnant or awaiting the birth of a child",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9757,7 +10557,7 @@
         "pattern": "expect sb to do sth",
         "lines": [
           {
-            "text": "预期某人做某事",
+            "text": "预料某人做某事；也可表示要求、认为某人理应这样做（由语境决定）",
             "lang": "cn"
           }
         ],
@@ -9778,8 +10578,8 @@
           "target_word": "expectation",
           "lines": [
             {
-              "text": "expectation",
-              "lang": "en"
+              "text": "expect 是动词“预料、期待”；expectation 是名词“预期、期待”，词性不同。",
+              "lang": "cn"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -9793,7 +10593,7 @@
     "ordinal": 1787,
     "word": "expectation",
     "source_owner_path": "content/lexical/words/by-ordinal/o1787.json",
-    "source_fingerprint": "223a61738e37b4a53ab6d9bf0207ff1edd7952e2c292746053bdd352be7c2d53",
+    "source_fingerprint": "1ccccead6fa42f96fda0ad535603959f6231b1a9a3e9965cc8c8617f7cf02208",
     "sense_lineage": [
       {
         "word_id": "word:expectation",
@@ -9805,18 +10605,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "期待",
-      "decision_cn": "",
+      "summary_cn": "预期、期待；应达到的要求",
+      "decision_cn": "对未来的判断是预期；对人应如何表现的expectations是要求达到的标准，常与meet/live up to连用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "期待"
+        "target_label": "预期、期待；应达到的要求"
       }
     },
     "senses": [
@@ -9858,6 +10658,37 @@
           "target_locator": "record.senses[0]",
           "target_label": "期待；预期"
         }
+      },
+      {
+        "id": "sense:expectation:a0ea45555a67b80b",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "usually plural: expectations of sb; meet/live up to expectations",
+        "definition_cn": "对行为或表现应达到的要求、期望",
+        "definition_en": "a belief about how someone should behave or what standard should be met",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:afd33ee4d6f1dc6c2719",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "live up to their expectations",
+            "meaning_cn": "达到他们的期望",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:afd33ee4d6f1dc6c2719",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "live up to their expectations"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:expectation:a0ea45555a67b80b",
+          "target_locator": "record.senses[1]",
+          "target_label": "对行为或表现应达到的要求、期望"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9871,14 +10702,35 @@
           "applicability": [
             {
               "surface": "expectation"
+            },
+            {
+              "surface": "expectation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:expectation:a0ea45555a67b80b"
+              ],
+              "owner_sense_ids": [
+                "sense:expectation:a0ea45555a67b80b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1787.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "usually plural: expectations of sb; meet/live up to expectations"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:expectation:a0ea45555a67b80b": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9922,7 +10774,7 @@
     "ordinal": 1788,
     "word": "expedition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1788.json",
-    "source_fingerprint": "2d91eff151cf5cf534a31a2a526d43f3eabea3ffa84d1289f82d1305c2b8837c",
+    "source_fingerprint": "0db578e83aa51830e6bdfa753442db90625110e42c6687448c6cb12b66720ede",
     "sense_lineage": [
       {
         "word_id": "word:expedition",
@@ -9939,13 +10791,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "为特定目的（常为探险或军事）而进行的旅行或有组织的行程",
-      "decision_cn": "",
+      "summary_cn": "有目的的远征、考察；远征队",
+      "decision_cn": "旅程语境指有目的的远征、考察或军事行动；人或装备配置语境可指参加远征的一行人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "为特定目的（常为探险或军事）而进行的旅行或有组织的行程"
+        "target_label": "有目的的远征、考察；远征队"
       }
     },
     "senses": [
@@ -10225,7 +11077,7 @@
     "ordinal": 1790,
     "word": "expend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1790.json",
-    "source_fingerprint": "35ff77f9530653c1d27c27843a45642d0c93ac3aa3c6279cdc8d8655c8c087e3",
+    "source_fingerprint": "1500316781073f17d25713b5defbace01693c1621844215990b2f415723b862c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10249,8 +11101,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "消耗，用光",
-        "definition_en": "to use up or consume fully",
+        "definition_cn": "（正式）花费、消耗（时间、精力或资源），不一定全部用尽",
+        "definition_en": "(formal) to use or spend time, effort or resources",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10280,7 +11132,7 @@
           "target_kind": "sense",
           "target_id": "sense:expend:0823fe7d8edd5dc5",
           "target_locator": "record.senses[0]",
-          "target_label": "消耗，用光"
+          "target_label": "（正式）花费、消耗（时间、精力或资源），不一定全部用尽"
         }
       },
       {
@@ -10515,7 +11367,7 @@
     "ordinal": 1792,
     "word": "expense",
     "source_owner_path": "content/lexical/words/by-ordinal/o1792.json",
-    "source_fingerprint": "2638e8648703c8518add156830f86618f352b6bf40bc3febaafcd24ca621dfc8",
+    "source_fingerprint": "29a4893df332bb612038aef61a8924f37d73a9852ea70f68a1d7e0fd4b6ec06b",
     "sense_lineage": [
       {
         "word_id": "word:expense",
@@ -10609,7 +11461,7 @@
       {
         "id": "deep:constructions:expense:fbee5b4d864f085f",
         "source_locator": "record.constructions[0]",
-        "pattern": "at the expense of + sth",
+        "pattern": "at the expense of sb/sth",
         "lines": [
           {
             "text": "以……为代价；以损害……为代价",
@@ -10628,7 +11480,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:expense:fbee5b4d864f085f",
           "target_locator": "record.constructions[0]",
-          "target_label": "at the expense of + sth"
+          "target_label": "at the expense of sb/sth"
         }
       }
     ],

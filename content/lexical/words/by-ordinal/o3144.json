@@ -9,11 +9,44 @@
     "constructions": [],
     "content_hash": "c0d599123d21277ab77db590d168f699e21d98d3569ebcbf5554d4045894273d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "移动；运动；活动；乐章；机械装置",
-      "core_meaning_en": "act or instance of moving; a group with a common purpose; a part of a musical work",
-      "mental_model_cn": "移动；运动；活动；乐章；机械装置",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "移动；运动",
+          "label_en": "a change of position or location",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movement:9d0bf35e074a51e5"
+          ]
+        },
+        {
+          "label_cn": "运动；共同推动某目标或理念的人群",
+          "label_en": "a group of people working toward shared aims or ideas",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movement:407dcaabd4ee5ce9"
+          ]
+        },
+        {
+          "label_cn": "（较长音乐作品的）乐章",
+          "label_en": "one of the principal sections of a long musical composition",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movement:ab0ea50367855d8c"
+          ]
+        },
+        {
+          "label_cn": "（观念、行为、数量等的）变动、趋势；进展",
+          "label_en": "an abstract change or development, such as a social trend, a change in amount, or progress in a task",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movement:a5537e276ce9215c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "身体或位置的移动；群体运动；变化、进展；乐章及机件",
+      "core_meaning_en": "physical movement; an organized movement; change or progress; a musical section or moving mechanism",
+      "mental_model_cn": "civil rights movement说参与共同目标的人群；movement in prices说价格变化。音乐的movement是较长作品的一部分，钟表机芯是另一用途。",
+      "mental_model_en": "physical movement; an organized movement; change or progress; a musical section or moving mechanism."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,7 +78,8 @@
         "sense_id": "sense:movement:9d0bf35e074a51e5",
         "sense_label_en": "a change of position or location",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可指身体动作或人、物移动；复数movements也常指一段时间中的行踪、活动。"
       },
       {
         "collocations": [
@@ -60,14 +94,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "运动；群众运动",
-        "definition_en": "a group of people with a common ideology working together",
+        "definition_cn": "运动；共同推动某目标或理念的人群",
+        "definition_en": "a group of people working toward shared aims or ideas",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:movement:407dcaabd4ee5ce9",
-        "sense_label_en": "a group of people with a common ideology working together",
+        "sense_label_en": "a group of people working toward shared aims or ideas",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -84,14 +118,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "乐章",
-        "definition_en": "a major division of a symphony or sonata",
+        "definition_cn": "（较长音乐作品的）乐章",
+        "definition_en": "one of the principal sections of a long musical composition",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:movement:ab0ea50367855d8c",
-        "sense_label_en": "a major division of a symphony or sonata",
+        "sense_label_en": "one of the principal sections of a long musical composition",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -118,6 +152,28 @@
         "sense_label_en": "the moving parts of a mechanism, as in a watch",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:movement:a5537e276ce9215c",
+        "pos": "noun",
+        "definition_cn": "（观念、行为、数量等的）变动、趋势；进展",
+        "definition_en": "an abstract change or development, such as a social trend, a change in amount, or progress in a task",
+        "sense_label_en": "an abstract change or development, such as a social trend, a change in amount, or progress in a task",
+        "governing_pattern": "movement towards/away from sth; movement in prices/talks",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9c13d4dd32eb38651338",
+            "phrase": "movement in prices",
+            "meaning_cn": "价格变动",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -147,6 +203,24 @@
           "applicability": [
             {
               "surface": "movement"
+            },
+            {
+              "surface": "movement",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:movement:a5537e276ce9215c"
+              ],
+              "owner_sense_ids": [
+                "sense:movement:a5537e276ce9215c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3144.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "movement towards/away from sth; movement in prices/talks",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -196,6 +270,24 @@
           "applicability": [
             {
               "surface": "movement"
+            },
+            {
+              "surface": "movement",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:movement:a5537e276ce9215c"
+              ],
+              "owner_sense_ids": [
+                "sense:movement:a5537e276ce9215c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3144.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "movement towards/away from sth; movement in prices/talks",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -266,13 +358,22 @@
         "merged_into_sense_id": null,
         "source_row": 8759,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:movement:a5537e276ce9215c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3144.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:47d9c150b364b107ea81",
       "collocation:79a146fc3f9dbb7318f2",
+      "collocation:b21711471218135e777f",
       "collocation:7f22ee552ef0cb939a12",
-      "collocation:b21711471218135e777f"
+      "collocation:47d9c150b364b107ea81",
+      "collocation:9c13d4dd32eb38651338"
     ],
     "facts": [],
     "collocations": [
@@ -295,6 +396,13 @@
         "id": "collocation:b21711471218135e777f",
         "source_row": 15090,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:9c13d4dd32eb38651338",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3144.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

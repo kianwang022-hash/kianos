@@ -6,30 +6,53 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:infant:infant-school",
+        "pattern": "infant school",
+        "meaning_cn": "（英国）幼儿小学／小学低年级学校，通常面向约4至7岁儿童",
+        "definition_en": "a school in England and Wales for children roughly aged four to seven",
+        "source_sense_id": null,
+        "direction": "R",
+        "level": "L2",
+        "boundary": "British education term; not a nursery for babies",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:5355033b896a60c1f89b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:infant:b7aff71797df51b6:collocation:1"
+            ],
+            "meaning_cn": "（英国）幼儿小学／小学低年级学校，通常面向约4至7岁儿童",
+            "phrase": "infant school"
+          }
+        ]
+      }
+    ],
     "content_hash": "1bdf2c9295ae4dcee5c20ea91fdd695446ce0f020153ecc2fc294df7c4f211c0",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "婴儿，幼儿",
-          "label_en": "a very young child (birth to 1 year) who has not yet begun to walk or talk",
+          "label_en": "a baby or very young child; the exact age range depends on context",
           "pos": "noun",
           "sense_ids": [
             "sense:infant:b7aff71797df51b6"
           ]
         },
         {
-          "label_cn": "婴儿的，幼稚的",
-          "label_en": "relating to or typical of infants",
+          "label_cn": "婴幼儿相关与发展初期",
+          "label_en": "relating to infants or early development",
           "pos": "adjective",
           "sense_ids": [
-            "sense:infant:bd03f9e2efdd5f8b"
+            "sense:infant:bd03f9e2efdd5f8b",
+            "sense:infant:bcd1f2b5ee1857f8"
           ]
         }
       ],
-      "core_meaning_cn": "婴儿",
-      "core_meaning_en": "a very young child",
-      "mental_model_cn": "婴儿",
+      "core_meaning_cn": "婴幼儿；处于生命或发展的初期",
+      "core_meaning_en": "a very young child; relating to infants or an early stage of development",
+      "mental_model_cn": "noun指婴幼儿（年龄依语境）；adj在名词前，formula看婴儿用品，industry等看发展尚幼。infant school是英式低年级学校。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -50,26 +73,17 @@
             ],
             "meaning_cn": "婴儿死亡率",
             "phrase": "infant mortality"
-          },
-          {
-            "collocation_id": "collocation:5355033b896a60c1f89b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:infant:b7aff71797df51b6:collocation:1"
-            ],
-            "meaning_cn": "幼儿园",
-            "phrase": "infant school"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "婴儿，幼儿",
-        "definition_en": "a very young child (birth to 1 year) who has not yet begun to walk or talk",
+        "definition_cn": "婴儿；幼儿",
+        "definition_en": "a baby or very young child; the exact age range depends on context",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:infant:b7aff71797df51b6",
-        "sense_label_en": "a very young child (birth to 1 year) who has not yet begun to walk or ta",
+        "sense_label_en": "a baby or very young child; the exact age range depends on context",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -86,16 +100,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "婴儿的，幼稚的",
-        "definition_en": "relating to or typical of infants",
-        "governing_pattern": "",
+        "definition_cn": "婴儿的；幼儿的",
+        "definition_en": "relating to babies or very young children",
+        "governing_pattern": "before a noun: infant formula/care",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:infant:bd03f9e2efdd5f8b",
-        "sense_label_en": "relating to or typical of infants",
+        "sense_label_en": "relating to babies or very young children",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:infant:bcd1f2b5ee1857f8",
+        "pos": "adjective",
+        "definition_cn": "新生的；处于初期、尚未成熟的",
+        "definition_en": "newly established and still undeveloped",
+        "sense_label_en": "newly established and still undeveloped",
+        "governing_pattern": "before a noun: an infant industry/organization",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8eacfa5385c8f77257db",
+            "phrase": "infant industries",
+            "meaning_cn": "新兴产业",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -125,6 +161,23 @@
           "applicability": [
             {
               "surface": "infant"
+            },
+            {
+              "surface": "infant",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:infant:bcd1f2b5ee1857f8"
+              ],
+              "owner_sense_ids": [
+                "sense:infant:bcd1f2b5ee1857f8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2519.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "before a noun: an infant industry/organization"
             }
           ],
           "sources": [
@@ -374,12 +427,20 @@
         "merged_into_sense_id": null,
         "source_row": 6982,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:infant:bcd1f2b5ee1857f8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2519.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:2f9e803bbcffa03da32e",
-      "collocation:5355033b896a60c1f89b",
-      "collocation:aab040770f8095e27908"
+      "collocation:aab040770f8095e27908",
+      "collocation:8eacfa5385c8f77257db"
     ],
     "facts": [],
     "collocations": [
@@ -391,12 +452,21 @@
       {
         "id": "collocation:5355033b896a60c1f89b",
         "source_row": 7022,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:aab040770f8095e27908",
         "source_row": 14464,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:8eacfa5385c8f77257db",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2519.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

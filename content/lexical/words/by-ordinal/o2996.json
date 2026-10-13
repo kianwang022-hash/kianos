@@ -45,34 +45,101 @@
         "verification_status": "verified",
         "writing_safe": true,
         "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:53d6fe3908824304f577",
+        "pattern": "measure sth out",
+        "meaning_cn": "量出、取出所需的一份",
+        "definition_en": "to take a required amount from a larger quantity",
+        "usage_note": "可分离：measure it out；常见烹饪取料。",
+        "boundary": "可分离：measure it out；常见烹饪取料。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:measure:6efdb02e5eaa5fad"
+      },
+      {
+        "construction_id": "construction:4868b2585ad9549966e7",
+        "pattern": "beyond measure",
+        "meaning_cn": "极其；非常",
+        "definition_en": "to an extreme degree",
+        "usage_note": "正式程度状语，不是无法用尺子量的物体。",
+        "boundary": "正式程度状语，不是无法用尺子量的物体。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:measure:6e874bf891f85800"
+      },
+      {
+        "construction_id": "construction:ecb9149ee9c6361e5f51",
+        "pattern": "for good measure",
+        "meaning_cn": "作为额外补充；再加上一点",
+        "definition_en": "as an extra addition to what has already been given or done",
+        "usage_note": "可用于话语补充；不是为了得到准确测量值。",
+        "boundary": "可用于话语补充；不是为了得到准确测量值。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0951b0d5bb52d17d9b93",
+        "pattern": "in large/equal/no small measure",
+        "meaning_cn": "在很大程度上／同等程度上",
+        "definition_en": "to a large or equal extent",
+        "usage_note": "no small measure意为程度很大；equal measure指两者程度相同。",
+        "boundary": "no small measure意为程度很大；equal measure指两者程度相同。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:measure:6e874bf891f85800"
+      },
+      {
+        "construction_id": "construction:f515806dcdcfa40fb3ef",
+        "pattern": "made to measure",
+        "meaning_cn": "按个人尺寸定做的",
+        "definition_en": "made for a person’s particular measurements",
+        "usage_note": "尤英式，连字符made-to-measure可在名词前；不表示某物制作出来用于测量。",
+        "boundary": "尤英式，连字符made-to-measure可在名词前；不表示某物制作出来用于测量。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0d89be3b862e607a4a89",
+        "pattern": "get/take/have the measure of sb/sth",
+        "meaning_cn": "摸清、看透某人的能力或某事的特点",
+        "definition_en": "to form a judgement allowing one to deal with someone or something",
+        "usage_note": "正式比喻，与给人量身定做的measure sb for不同。",
+        "boundary": "正式比喻，与给人量身定做的measure sb for不同。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "63d7cd8f4a5cae3c274d6c12c79daf7fd4fd31f88b0980d9cc1e707c4b376783",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "测量，计量；有…长（或宽、高等）",
-          "label_en": "determine the size, amount, or degree of something; have a specified measurement",
+          "label_cn": "测量、评估；有某尺寸",
+          "label_en": "measure or assess; have a particular size",
           "pos": "verb",
           "sense_ids": [
             "sense:measure:6efdb02e5eaa5fad",
-            "sense:measure:5ebe962b38ca5665"
+            "sense:measure:5ebe962b38ca5665",
+            "sense:measure:e7f5acc21184b9da"
           ]
         },
         {
-          "label_cn": "措施，方法；程度，限度",
-          "label_en": "a course of action taken to achieve a purpose; an amount or degree of something",
+          "label_cn": "措施、程度；单位、指标、量具",
+          "label_en": "an action or degree; a unit, indicator or measuring instrument",
           "pos": "noun",
           "sense_ids": [
             "sense:measure:f32c7477bb31578e",
-            "sense:measure:6e874bf891f85800"
+            "sense:measure:6e874bf891f85800",
+            "sense:measure:8d2a3268a5209642",
+            "sense:measure:a5cbc841195ac0d9",
+            "sense:measure:4c97ec06b37e5205"
           ]
         }
       ],
-      "core_meaning_cn": "确定大小或数量；为达到目的而采取的步骤",
-      "core_meaning_en": "determine size or amount; a step taken to achieve a goal",
-      "mental_model_cn": "确定大小或数量；为达到目的而采取的步骤",
-      "mental_model_en": ""
+      "core_meaning_cn": "测量或评估；有某尺寸；措施、程度、单位、指标、量具",
+      "core_meaning_en": "to measure or assess; a size, action, degree, unit, indicator or instrument",
+      "mental_model_cn": "measure effectiveness是评估；the room measures ...是尺寸；take measures采取措施；a measure of ability是指标；tape measure是量具。",
+      "mental_model_en": "Measurement provides sizes and indicators; measure also names an action, degree, unit or instrument."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -140,7 +207,7 @@
         "confidence": "medium",
         "definition_cn": "测量，计量",
         "definition_en": "determine the size, amount, or degree of something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "measure sth/sb; measure how much/how long ...; measure sb for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -202,14 +269,148 @@
         "confidence": "medium",
         "definition_cn": "有…长（或宽、高等）",
         "definition_en": "have a specified measurement",
-        "governing_pattern": "",
+        "governing_pattern": "sth measures + size/length/amount",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:measure:5ebe962b38ca5665",
         "sense_label_en": "have a specified measurement",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "系动词式数量补语，通常不用进行时：The room measures 4 by 5 metres。"
+      },
+      {
+        "sense_id": "sense:measure:e7f5acc21184b9da",
+        "pos": "verb",
+        "definition_cn": "评估；衡量（重要性、价值、效果）",
+        "definition_en": "to assess the importance, value or effect of something",
+        "sense_label_en": "to assess the importance, value or effect of something",
+        "governing_pattern": "measure success/progress/effectiveness",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c0a44758f57484933d34",
+            "phrase": "measure the effectiveness",
+            "meaning_cn": "评估效果",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:measure:8d2a3268a5209642",
+        "pos": "noun",
+        "definition_cn": "计量单位、尺度或计量体系；标准的一份量",
+        "definition_en": "a unit, scale or system of measurement; also a standard serving",
+        "sense_label_en": "a unit, scale or system of measurement; also a standard serving",
+        "governing_pattern": "weights and measures; a measure of whisky",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:827b017007d0ab5bbba5",
+            "phrase": "weights and measures",
+            "meaning_cn": "度量衡",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:measure:a5cbc841195ac0d9",
+        "pos": "noun",
+        "definition_cn": "衡量标准；指标、表现程度的标志",
+        "definition_en": "a criterion or indicator used to judge something",
+        "sense_label_en": "a criterion or indicator used to judge something",
+        "governing_pattern": "a measure of ability/commitment",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8ca989512ac09a615a5c",
+            "phrase": "a measure of ability",
+            "meaning_cn": "衡量能力的标准",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:measure:4c97ec06b37e5205",
+        "pos": "noun",
+        "definition_cn": "量具；有标准刻度的测量工具",
+        "definition_en": "an instrument marked with standard units for measuring",
+        "sense_label_en": "an instrument marked with standard units for measuring",
+        "governing_pattern": "a tape measure",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:46cd4874998ad711f8f8",
+            "phrase": "a tape measure",
+            "meaning_cn": "卷尺",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:measure:665821577bdb5f04",
+        "pos": "noun",
+        "definition_cn": "（北美）议案；拟议的法律措施",
+        "definition_en": "a written proposal, especially for a new law",
+        "sense_label_en": "a written proposal, especially for a new law",
+        "governing_pattern": "a ballot measure; pass/veto a measure",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3e1f74df6cda5d6d6399",
+            "phrase": "a ballot measure",
+            "meaning_cn": "交由投票决定的法律提案",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:measure:4d95ddd01ed5b943",
+        "pos": "noun",
+        "definition_cn": "（音乐，尤美式）小节",
+        "definition_en": "a section of music into which the rhythm is divided",
+        "sense_label_en": "a section of music into which the rhythm is divided",
+        "governing_pattern": "the opening measures",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 9,
+        "collocations": [
+          {
+            "collocation_id": "collocation:89422fd8423bc2fff5a3",
+            "phrase": "the opening measures",
+            "meaning_cn": "开头的几个小节",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "英式通常用bar；不是每个小节都固定四拍。"
       }
     ],
     "verification_summary": {
@@ -250,6 +451,108 @@
           "applicability": [
             {
               "surface": "measure"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:measure:e7f5acc21184b9da"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:e7f5acc21184b9da"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "measure success/progress/effectiveness"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:measure:8d2a3268a5209642"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:8d2a3268a5209642"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "weights and measures; a measure of whisky"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:measure:a5cbc841195ac0d9"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:a5cbc841195ac0d9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a measure of ability/commitment"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:measure:4c97ec06b37e5205"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:4c97ec06b37e5205"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a tape measure"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:measure:665821577bdb5f04"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:665821577bdb5f04"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a ballot measure; pass/veto a measure"
+            },
+            {
+              "surface": "measure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:measure:4d95ddd01ed5b943"
+              ],
+              "owner_sense_ids": [
+                "sense:measure:4d95ddd01ed5b943"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2996.json",
+              "source_pointer": "/record/senses/9",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the opening measures"
             }
           ],
           "sources": [
@@ -438,12 +741,66 @@
         "merged_into_sense_id": null,
         "source_row": 8361,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:measure:e7f5acc21184b9da",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:measure:8d2a3268a5209642",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:measure:a5cbc841195ac0d9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:measure:4c97ec06b37e5205",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:measure:665821577bdb5f04",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/8"
+      },
+      {
+        "sense_id": "sense:measure:4d95ddd01ed5b943",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/9"
       }
     ],
     "active_collocations": [
+      "collocation:d4b2d7fc938b07dbb12f",
       "collocation:c8393bd348f3d473177a",
       "collocation:c92e975d20fb8e48e623",
-      "collocation:d4b2d7fc938b07dbb12f"
+      "collocation:c0a44758f57484933d34",
+      "collocation:827b017007d0ab5bbba5",
+      "collocation:8ca989512ac09a615a5c",
+      "collocation:46cd4874998ad711f8f8",
+      "collocation:3e1f74df6cda5d6d6399",
+      "collocation:89422fd8423bc2fff5a3"
     ],
     "facts": [
       {
@@ -472,6 +829,48 @@
         "id": "collocation:d4b2d7fc938b07dbb12f",
         "source_row": 17968,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:c0a44758f57484933d34",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:827b017007d0ab5bbba5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:8ca989512ac09a615a5c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:46cd4874998ad711f8f8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:3e1f74df6cda5d6d6399",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/8/collocations/0"
+      },
+      {
+        "id": "collocation:89422fd8423bc2fff5a3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2996.json",
+        "source_pointer": "/record/senses/9/collocations/0"
       }
     ],
     "exam-mappings": [],

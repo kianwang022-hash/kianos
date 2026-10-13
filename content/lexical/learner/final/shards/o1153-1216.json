@@ -5,7 +5,7 @@
     "ordinal": 1153,
     "word": "crime",
     "source_owner_path": "content/lexical/words/by-ordinal/o1153.json",
-    "source_fingerprint": "9a061477adc1d2ba8575a4fb46ed27c63eb81f3395f0600b26f52476410ebb17",
+    "source_fingerprint": "f913a3ddd3ed3fbdf0cf0543ae802bd4c9dc01e22a1946e6580cc5aea5c5b90f",
     "sense_lineage": [
       {
         "word_id": "word:crime",
@@ -22,13 +22,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "违法行为或罪恶行为",
-      "decision_cn": "",
+      "summary_cn": "犯罪；也可比喻极不应该的行为",
+      "decision_cn": "commit a crime是犯罪；说It is a crime to waste this opportunity可是在批评浪费机会，不是在作法律认定。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "违法行为或罪恶行为"
+        "target_label": "犯罪；也可比喻极不应该的行为"
       }
     },
     "senses": [
@@ -37,8 +37,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "应受法律惩罚的行为；通常被视为邪恶的行为",
-        "definition_en": "an act punishable by law; usually considered an evil act",
+        "definition_cn": "犯罪、刑事犯罪行为；也可比喻极不应该的行为或严重错误，不一定违法",
+        "definition_en": "criminal activity or a punishable criminal act; figuratively, something judged seriously wrong or regrettable",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -63,7 +63,7 @@
           "target_kind": "sense",
           "target_id": "sense:crime:7b771fd7cef252ef",
           "target_locator": "record.senses[0]",
-          "target_label": "应受法律惩罚的行为；通常被视为邪恶的行为"
+          "target_label": "犯罪、刑事犯罪行为；也可比喻极不应该的行为或严重错误，不一定违法"
         }
       }
     ],
@@ -140,14 +140,14 @@
     "ordinal": 1154,
     "word": "criminal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1154.json",
-    "source_fingerprint": "47b6fb4434a35fb9264f7178d42c11197a80157d194f3a1fcfa2a00b40647014",
+    "source_fingerprint": "c65854eb7ea4107dbc07895293f854d35432016207b99ff51535ccc8dbb5895c",
     "sense_lineage": [
       {
         "word_id": "word:criminal",
         "target_kind": "sense",
         "from_target_id": "sense:criminal:992a50fc87d0514a",
         "status": "merged",
-        "to_target_id": "sense:criminal:f09cb0cbb8155dee"
+        "to_target_id": "sense:criminal:2c37b23184be5d61"
       }
     ],
     "recall_map": {
@@ -273,7 +273,7 @@
         {
           "stable_sense_id": "sense:criminal:992a50fc87d0514a",
           "status": "merged",
-          "merged_into_sense_id": "sense:criminal:f09cb0cbb8155dee",
+          "merged_into_sense_id": "sense:criminal:2c37b23184be5d61",
           "pos": "adjective",
           "definition_cn": "有罪的；违法的",
           "definition_en": "guilty of or involving crime",
@@ -304,13 +304,20 @@
     "ordinal": 1155,
     "word": "cripple",
     "source_owner_path": "content/lexical/words/by-ordinal/o1155.json",
-    "source_fingerprint": "cafb99ffdafa0e22812c46838f097d05920020adf91a2bfa5c64514b2ea48d7f",
+    "source_fingerprint": "9abb3de4f46240e05bf444029812bbc644c880dd459001c8b43312f57485196a",
     "sense_lineage": [
       {
         "word_id": "word:cripple",
         "target_kind": "sense",
         "from_target_id": "sense:cripple:e6a23158a4985d7a",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cripple",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f97989349571a21465fe",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -336,7 +343,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使跛，使残废",
+        "definition_cn": "使身体致残、行动受限",
         "definition_en": "to make someone unable to walk or move normally due to injury or illness",
         "note": "",
         "identity_overlay": null,
@@ -345,14 +352,9 @@
             "id": "collocation:f97989349571a21465fe",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "cripple sb",
-            "meaning_cn": "使某人残废",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f97989349571a21465fe",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "cripple sb"
-            }
+            "meaning_cn": "使某人身体致残、行动受限",
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:af4a289dd7dc098e7a28",
@@ -367,7 +369,7 @@
           "target_kind": "sense",
           "target_id": "sense:cripple:4239db4beb9f5bc8",
           "target_locator": "record.senses[0]",
-          "target_label": "使跛，使残废"
+          "target_label": "使身体致残、行动受限"
         }
       },
       {
@@ -436,7 +438,8 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 3248,
           "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json",
-          "reference_only": true
+          "reference_only": true,
+          "usage_note": "用于指称残疾人时属冒犯性用语；保留为查阅识别，不建议主动称呼他人。"
         }
       ]
     }
@@ -631,8 +634,16 @@
     "ordinal": 1157,
     "word": "crisp",
     "source_owner_path": "content/lexical/words/by-ordinal/o1157.json",
-    "source_fingerprint": "fa18ed15272e8db257dbb59157695f815b3ae2d2b3156c038a9f5324a45500e3",
-    "sense_lineage": [],
+    "source_fingerprint": "e847d3820faf03961d4de043e724c7de0e1812c053d8ca5ebe18a45416fc297b",
+    "sense_lineage": [
+      {
+        "word_id": "word:crisp",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1308218222bcdea3b462",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -642,13 +653,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "脆的；使脆",
-      "decision_cn": "",
+      "summary_cn": "脆、新鲜清爽；清晰简洁；（使）变脆",
+      "decision_cn": "crisp apple是爽脆，crisp air是清凉清爽；crisp image是清晰，crisp answer是简洁利落；crisp up是变脆。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "脆的；使脆"
+        "target_label": "脆、新鲜清爽；清晰简洁；（使）变脆"
       }
     },
     "senses": [
@@ -690,7 +701,7 @@
         "id": "sense:crisp:885ce84051f3549f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "crisp (sth) / crisp up",
         "definition_cn": "(使)烘脆",
         "definition_en": "to make or become crisp, especially by baking or frying",
         "note": "",
@@ -753,13 +764,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "crisp image/answer/style",
             "meaning_cn": "清晰的图像、明确简洁的回答/风格",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1308218222bcdea3b462",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "crisp image/answer/style"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1097,7 +1103,7 @@
     "ordinal": 1160,
     "word": "critical",
     "source_owner_path": "content/lexical/words/by-ordinal/o1160.json",
-    "source_fingerprint": "63648942e9a215e1cc68c4d9ed363badea19459af00c6127a4c4e7836d2631cd",
+    "source_fingerprint": "aabc0b79ae787407ae5eee53575488bb6cdb7cefa4c0005386a7ed30e16f19a9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1107,7 +1113,7 @@
     },
     "word_feel": {
       "summary_cn": "批评/挑剔；批判性评估；关键；危急",
-      "decision_cn": "",
+      "decision_cn": "critical of是批评；critical to是至关重要；critical condition是危急状态；critical thinking是审慎分析而非一味挑错；critical temperature是临界温度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1602,7 +1608,7 @@
     "ordinal": 1163,
     "word": "crop",
     "source_owner_path": "content/lexical/words/by-ordinal/o1163.json",
-    "source_fingerprint": "57c56c0dc7b55bdf192c554ea215d54dfe480dd4332590265d49ffd15d917b2a",
+    "source_fingerprint": "8669dec74ed71f40e0ebec1e4b4f3c9e312a2413d3a584080e1eb652f4c9cac4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1613,7 +1619,7 @@
     },
     "word_feel": {
       "summary_cn": "农作物/收成；修剪；crop up 突然出现或发生",
-      "decision_cn": "名词围绕“长出来的一批东西”；动词常见高价值结构 crop up = 问题、情况突然出现。",
+      "decision_cn": "crop可指农作物或收成；a crop of是同时出现的一批；crop hair剪短头发，crop a photograph裁剪照片；crop up是突然出现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1654,7 +1660,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "农作物；庄稼",
-        "definition_en": "a cultivated plant grown commercially on a large scale",
+        "definition_en": "a plant cultivated for food or another useful product",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1705,8 +1711,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "修剪；剪短",
-        "definition_en": "cut or trim (hair, etc.) short",
+        "definition_cn": "修剪、剪短；裁去图片不需要的部分",
+        "definition_en": "cut short or trim; remove unwanted outer parts of an image",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1722,13 +1728,21 @@
               "target_locator": "record.senses[3].collocations[0]",
               "target_label": "crop one's hair"
             }
+          },
+          {
+            "id": "collocation:37ca0bf02ee321d863ff",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "crop a photograph",
+            "meaning_cn": "裁剪照片",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:crop:eb39fa51100b5a3f",
           "target_locator": "record.senses[3]",
-          "target_label": "修剪；剪短"
+          "target_label": "修剪、剪短；裁去图片不需要的部分"
         }
       },
       {
@@ -1814,7 +1828,7 @@
     "ordinal": 1164,
     "word": "cross",
     "source_owner_path": "content/lexical/words/by-ordinal/o1164.json",
-    "source_fingerprint": "ce7deefd0ba0c1afcdb8851a6e7398ef4ffe197e373756a48604b708733a93c1",
+    "source_fingerprint": "8d70ff83686d95a50e7c0246fdaf1714eedc37ff8484aca4d9b86b35591a2ccd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1826,7 +1840,7 @@
     },
     "word_feel": {
       "summary_cn": "横过；交叉",
-      "decision_cn": "",
+      "decision_cn": "cross the road是穿过，cross one’s legs是交叉；be cross with sb是生气；a cross between A and B是混合体；cross A with B是杂交；cross sth off是从清单划掉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1839,7 +1853,7 @@
         "id": "sense:cross:761831ef41a65b7f",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "cross (sth) / cross over",
         "definition_cn": "横过；越过",
         "definition_en": "to go across something",
         "note": "",
@@ -1865,7 +1879,7 @@
         "id": "sense:cross:6f3975cf8d2c5a0f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "cross (sth); lines/roads cross",
         "definition_cn": "交叉",
         "definition_en": "to place or lie across each other",
         "note": "",
@@ -1898,7 +1912,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "十字架",
-        "definition_en": "a wooden structure consisting of an upright post with a transverse piece",
+        "definition_en": "a structure or symbol with one upright part and another crossing it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2098,7 +2112,7 @@
     "ordinal": 1165,
     "word": "crow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1165.json",
-    "source_fingerprint": "2d9dc498d9e5b2a2f2634716799362e8974b34fb23ea2f72e65348f3d9c19717",
+    "source_fingerprint": "c4df0ca6d940c4cdb303a0c0df06bf1a913691fc931d3c43c26e5fa627b1422e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2108,13 +2122,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "乌鸦或鸡鸣；啼叫",
-      "decision_cn": "",
+      "summary_cn": "乌鸦；公鸡的啼鸣；得意夸耀",
+      "decision_cn": "乌鸦或鸡鸣；啼叫",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "乌鸦或鸡鸣；啼叫"
+        "target_label": "乌鸦；公鸡的啼鸣；得意夸耀"
       }
     },
     "senses": [
@@ -2200,7 +2214,7 @@
         "id": "sense:crow:f32fa87cbe22617b",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "crow about/over sth",
+        "governing_pattern": "crow (about/over sth); crow that…",
         "definition_cn": "夸耀或幸灾乐祸地得意",
         "definition_en": "to boast or gloat triumphantly",
         "note": "",
@@ -2262,7 +2276,7 @@
     "ordinal": 1166,
     "word": "crowd",
     "source_owner_path": "content/lexical/words/by-ordinal/o1166.json",
-    "source_fingerprint": "09575fdd31ec9ad4ca423aa3759f8f7db89d6cce6d3259b347cf143cb2d291df",
+    "source_fingerprint": "e3316bd56472a241f7bd6d6a1c8707f41bf3fa58fd7e08196b0ee8114b1ce524",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2372,7 +2386,7 @@
         "id": "sense:crowd:79c197ca75fa52b8",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + together",
+        "governing_pattern": "crowd together/around/into a place",
         "definition_cn": "聚集；群集",
         "definition_en": "to gather together in large numbers",
         "note": "",
@@ -2448,7 +2462,7 @@
     "ordinal": 1167,
     "word": "crown",
     "source_owner_path": "content/lexical/words/by-ordinal/o1167.json",
-    "source_fingerprint": "15cd099d844628b8efc553525f03934498a8dce61ae20249df4beb6c1e8f37fe",
+    "source_fingerprint": "1f3b7999c8199f6c3fbe46ebaad594ad7c791adf5476b4881896856dbbd7f46c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2642,7 +2656,7 @@
     "ordinal": 1168,
     "word": "crucial",
     "source_owner_path": "content/lexical/words/by-ordinal/o1168.json",
-    "source_fingerprint": "80bccc0971202f6a1c13d19e398e6e7669cce1f75658c5c49f3de7a20b2c6832",
+    "source_fingerprint": "4b88fbf37c5ed8de6e11e20c6d8f2d4f721a4cc5b237302908342623f3688fe9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2739,7 +2753,7 @@
           "target_word": "important",
           "lines": [
             {
-              "text": "crucial强调决定性影响，important仅表重要",
+              "text": "crucial通常突出对结果起关键作用；important是更一般的重要，不表示重要程度一定低。",
               "lang": "cn"
             },
             {
@@ -2798,7 +2812,7 @@
     "ordinal": 1169,
     "word": "crude",
     "source_owner_path": "content/lexical/words/by-ordinal/o1169.json",
-    "source_fingerprint": "7db412349690747d0c11eb16f228b8bee15df78b0d39fd2d9713b6d33616d7b7",
+    "source_fingerprint": "0e25020eb16de276d43a4f470a5462ca11663f39a3dff0d82cd857203fdf7d37",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2809,7 +2823,7 @@
     },
     "word_feel": {
       "summary_cn": "未加工的或粗糙的",
-      "decision_cn": "",
+      "decision_cn": "crude oil是未经精炼的原油；crude tools是简陋工具；crude estimate是粗略估计；crude joke是粗俗笑话。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2857,8 +2871,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "粗糙的；简陋的",
-        "definition_en": "not carefully or expertly made",
+        "definition_cn": "粗糙的、简陋的；（估算、方法等）粗略、不精细的",
+        "definition_en": "roughly or simply made; approximate rather than precise or detailed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2869,13 +2883,21 @@
             "meaning_cn": "简陋的工具",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:bb4da05d33334259284f",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a crude estimate",
+            "meaning_cn": "粗略估计",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:crude:9433764c104150a4",
           "target_locator": "record.senses[1]",
-          "target_label": "粗糙的；简陋的"
+          "target_label": "粗糙的、简陋的；（估算、方法等）粗略、不精细的"
         }
       },
       {
@@ -2917,8 +2939,8 @@
           {
             "id": "collocation:ff070abe5f2fe3fac84e",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "crude oil",
-            "meaning_cn": "原油",
+            "phrase": "the price of crude",
+            "meaning_cn": "原油价格",
             "kind": "usage_example",
             "repair": null
           }
@@ -2974,7 +2996,7 @@
     "ordinal": 1170,
     "word": "cruel",
     "source_owner_path": "content/lexical/words/by-ordinal/o1170.json",
-    "source_fingerprint": "43ea02d0185c3b772712777e1430b025dc5cbfbed02bf139c7d34e9ca548e738",
+    "source_fingerprint": "8af4faad1e5825747ce204a253facdbd89ab38321a6b2f87559c744f178fd4fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3089,7 +3111,7 @@
     "ordinal": 1171,
     "word": "cruise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1171.json",
-    "source_fingerprint": "565596dc242a507446007141bcfecb098bc369f807ac6a7d477fdd216b603875",
+    "source_fingerprint": "99fc363c9326005a34eab343981551df9769081af1a53e5ba073f3598390f6fc",
     "sense_lineage": [
       {
         "word_id": "word:cruise",
@@ -3108,7 +3130,7 @@
     },
     "word_feel": {
       "summary_cn": "乘船游览；平稳巡航或行驶",
-      "decision_cn": "ship/travel → 乘船休闲旅行；vehicle/speed → 平稳巡航。成人社交语义保留为 Reference。",
+      "decision_cn": "ship/travel → 乘船游览；vehicle/speed → 平稳行驶、巡航。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3181,7 +3203,7 @@
         "id": "sense:cruise:f2885ba1f86f5f82",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "go on a cruise / cruise around",
+        "governing_pattern": "cruise around/in/down a place; cruise a sea or region",
         "definition_cn": "乘船休闲旅行",
         "definition_en": "to travel by ship for pleasure",
         "note": "",
@@ -3258,8 +3280,23 @@
     "ordinal": 1172,
     "word": "crush",
     "source_owner_path": "content/lexical/words/by-ordinal/o1172.json",
-    "source_fingerprint": "a282db4d3634bad8f90fcfd574e081697bfa244cbce4a7a4317fc61576e439c0",
-    "sense_lineage": [],
+    "source_fingerprint": "a925223583a8bdce13d966c4e37381de3b174be447d2cf09ade1104659be3009",
+    "sense_lineage": [
+      {
+        "word_id": "word:crush",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4309e3380c66f8b3d95c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:crush",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:da34772755b8a92b0993",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -3293,13 +3330,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "crush + sth",
             "meaning_cn": "压碎某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4309e3380c66f8b3d95c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "crush + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e398fdce8820f68d7fce",
@@ -3340,13 +3372,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "crush one's hopes",
             "meaning_cn": "粉碎某人的希望",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:da34772755b8a92b0993",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "crush one's hopes"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3633,7 +3660,7 @@
     "ordinal": 1174,
     "word": "cry",
     "source_owner_path": "content/lexical/words/by-ordinal/o1174.json",
-    "source_fingerprint": "ceda43b2e2206f20291932d60c73c4e533b01ab87df202fd33fedf7f2ccb3610",
+    "source_fingerprint": "eba26ca14b18a09c15b20a6562bc3b91d1e77f139069649c758af3d65ec41d33",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3722,7 +3749,7 @@
         "id": "sense:cry:79e9e71a48725d61",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "cry (out); cry for help; cry (out) words",
         "definition_cn": "叫喊；大声说",
         "definition_en": "to shout or say something loudly",
         "note": "",
@@ -3731,14 +3758,14 @@
           {
             "id": "collocation:ef76f31d2cfa3b2be0fd",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "cry out + sth",
-            "meaning_cn": "大声说出某事",
+            "phrase": "cry (out) / cry (out) words",
+            "meaning_cn": "喊叫；大声说出话语",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ef76f31d2cfa3b2be0fd",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "cry out + sth"
+              "target_label": "cry (out) / cry (out) words"
             }
           },
           {
@@ -3879,7 +3906,7 @@
     "ordinal": 1175,
     "word": "crystal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1175.json",
-    "source_fingerprint": "fe330e23ae08571ced9180feff5f488e354c127bab9f7c604a98d918cb8a9114",
+    "source_fingerprint": "4275447e838b5c810c69994f732dadd2636de905185b0dc9e78e88e725510812",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3905,7 +3932,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "晶体，结晶",
-        "definition_en": "a solid substance with a regular shape, formed naturally or by chemical processes",
+        "definition_en": "a solid whose particles have a regular internal arrangement, often producing a regular external shape",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4054,7 +4081,7 @@
     "ordinal": 1176,
     "word": "cube",
     "source_owner_path": "content/lexical/words/by-ordinal/o1176.json",
-    "source_fingerprint": "97a4818d621ea843ac1c2fbfe8d67a93a6be0ed85e266008e08a8ecdd8e1bb11",
+    "source_fingerprint": "22e30883348b8e054c6500ff789de725538a67e24af175a9ebbef6f889fcabac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4759,7 +4786,7 @@
     "ordinal": 1180,
     "word": "culprit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1180.json",
-    "source_fingerprint": "2d8ea763b911e6cf36f3a2dbe10836310f793796e202b20e624fefd1c9249682",
+    "source_fingerprint": "bc6cb966ef798c0f60e9618db5a1ce0d3cddefaf509d0c31e7887731ef09c5f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4768,13 +4795,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "罪犯；肇事者",
-      "decision_cn": "",
+      "summary_cn": "肇事者；造成坏结果的罪魁祸首或因素",
+      "decision_cn": "culprit可指应负责的人，也可指造成坏结果的因素；the main culprit不一定是犯罪者。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "罪犯；肇事者"
+        "target_label": "肇事者；造成坏结果的罪魁祸首或因素"
       }
     },
     "senses": [
@@ -4792,7 +4819,7 @@
             "id": "collocation:d9d002d429c06a5254bf",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "the main culprit",
-            "meaning_cn": "主犯",
+            "meaning_cn": "主要责任者或罪魁祸首；也可指主要原因",
             "kind": "usage_example",
             "repair": null
           },
@@ -4863,7 +4890,7 @@
     "ordinal": 1181,
     "word": "cultivate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1181.json",
-    "source_fingerprint": "b74d149e7a88cca13856fea470c04d6a79df6d63355db5ad95431e9796e2507d",
+    "source_fingerprint": "329749170bd68164d05112961f71889296ced4c567fae0388f5820fc35127f1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4872,13 +4899,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "促进生长或为作物准备土地",
-      "decision_cn": "",
+      "summary_cn": "培养、培育；耕地、种植",
+      "decision_cn": "促进生长或为作物准备土地",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "促进生长或为作物准备土地"
+        "target_label": "培养、培育；耕地、种植"
       }
     },
     "senses": [
@@ -4914,7 +4941,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "耕作；种植",
-        "definition_en": "prepare for crops",
+        "definition_en": "to prepare land for growing crops, or grow crops and plants",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4970,7 +4997,7 @@
     "ordinal": 1182,
     "word": "culture",
     "source_owner_path": "content/lexical/words/by-ordinal/o1182.json",
-    "source_fingerprint": "943aa116ee0cac8d8c60f02cf640bcb49fae3b7ad7baba5984298d4073ccdfc7",
+    "source_fingerprint": "9d9c77b448152468a4f55fbae2373de92c52be4f6e8583da7114a043831be36d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4981,7 +5008,7 @@
     },
     "word_feel": {
       "summary_cn": "文化；培养",
-      "decision_cn": "",
+      "decision_cn": "社会或组织语境是文化；a person of culture指有修养；实验语境的culture是培养或培养物，不限细菌。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4996,7 +5023,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "文化；文明",
-        "definition_en": "the attitudes and behavior that are characteristic of a particular social group or organization",
+        "definition_en": "the shared customs, beliefs, arts and ways of behaving of a society or group",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5055,8 +5082,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "培养（微生物）",
-        "definition_en": "(biology) the growing of microorganisms in a nutrient medium",
+        "definition_cn": "（生物学）细胞、组织或微生物的培养；也指培养所得的细胞群或培养物",
+        "definition_en": "the controlled growing of cells, tissue or microorganisms, or material grown in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5073,7 +5100,7 @@
           "target_kind": "sense",
           "target_id": "sense:culture:8087f52808b65764",
           "target_locator": "record.senses[2]",
-          "target_label": "培养（微生物）"
+          "target_label": "（生物学）细胞、组织或微生物的培养；也指培养所得的细胞群或培养物"
         }
       },
       {
@@ -5081,8 +5108,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "耕种；培养",
-        "definition_en": "grow or cultivate (plants or microorganisms)",
+        "definition_cn": "栽培；（实验等）培养细胞、组织或微生物",
+        "definition_en": "cultivate plants, or grow cells, tissue or microorganisms under controlled conditions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5099,7 +5126,7 @@
           "target_kind": "sense",
           "target_id": "sense:culture:bc09185121cd580c",
           "target_locator": "record.senses[3]",
-          "target_label": "耕种；培养"
+          "target_label": "栽培；（实验等）培养细胞、组织或微生物"
         }
       }
     ],
@@ -5137,7 +5164,7 @@
     "ordinal": 1183,
     "word": "cumulative",
     "source_owner_path": "content/lexical/words/by-ordinal/o1183.json",
-    "source_fingerprint": "c463ea1f21c49db082cc545bbbd559dfa6d08ada82c310d06382250fd039879a",
+    "source_fingerprint": "3de92e49d439272025fd1b66a48d7448bb5af0c65cc20d03a118518799627853",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5214,17 +5241,6 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
-        },
-        {
-          "ipa": "/cuɱ̩ul̩ɑtɪʌ/",
-          "locales": [],
-          "applicability": [
-            {
-              "surface": "cumulative"
-            }
-          ],
-          "evidence_basis": "source_ipa",
-          "spelling_binding": null
         }
       ],
       "sense_readings": {},
@@ -5245,13 +5261,20 @@
     "ordinal": 1184,
     "word": "cunning",
     "source_owner_path": "content/lexical/words/by-ordinal/o1184.json",
-    "source_fingerprint": "f2a254326750d6208eb99396a15aa7744bb0696d585800d42ec8b60acd5b34b0",
+    "source_fingerprint": "0e445f568b0ce080534b2d6cec38ee34e03af707f2d3811e4ade8cf74acf953f",
     "sense_lineage": [
       {
         "word_id": "word:cunning",
         "target_kind": "sense",
         "from_target_id": "sense:cunning:bd8b17fa0e0a587e",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cunning",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c04635d04bfb27aff497",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -5264,7 +5287,7 @@
     },
     "word_feel": {
       "summary_cn": "狡猾的；以欺骗或计谋达成目的",
-      "decision_cn": "核心是“用机巧、计谋达到目的”，默认不把低价值的地区性“可爱”义塞进主学习层。",
+      "decision_cn": "用机巧、计谋或欺骗达到目的；通常含不赞许意味。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5327,13 +5350,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "use cunning to achieve one's goals",
             "meaning_cn": "用狡诈达到目的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c04635d04bfb27aff497",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "use cunning to achieve one's goals"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5416,7 +5434,7 @@
     "ordinal": 1185,
     "word": "cup",
     "source_owner_path": "content/lexical/words/by-ordinal/o1185.json",
-    "source_fingerprint": "93174147d787f358df3f7bd43867031cf960ed47692c019ccd2a93881b688fc6",
+    "source_fingerprint": "90223a79cd3c6c6ba6f9c267bd552934f473774548be40a079fc701ba7962f75",
     "sense_lineage": [
       {
         "word_id": "word:cup",
@@ -5442,7 +5460,7 @@
     },
     "word_feel": {
       "summary_cn": "杯子；一杯的量或杯状物",
-      "decision_cn": "cup → 杯子/一杯量/杯状结构；cup one's hands → 把手拢成杯状。拔火罐义保留为 Reference。",
+      "decision_cn": "cup → 杯子、一杯量或杯状结构；cup one's hands → 把手拢成杯状。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5639,7 +5657,7 @@
     "ordinal": 1186,
     "word": "cupboard",
     "source_owner_path": "content/lexical/words/by-ordinal/o1186.json",
-    "source_fingerprint": "803e066d1873f021819d851a6d4170256e3c28181b1922fb80fa53f531ccd9dc",
+    "source_fingerprint": "2c35137a9972a2c72d1d14da2617eaa5e402874337c1fcd77bd2f6d5462d8f47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5810,7 +5828,7 @@
     "ordinal": 1187,
     "word": "curb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1187.json",
-    "source_fingerprint": "864a8c199fee9963bfc4f9908a116fbd597f577cfcbdaf0742cdc4a683cf36c6",
+    "source_fingerprint": "6881b3a55db0b75010e6f5170a2f87ac2bf3e3f02ce46b318e0f447e4b549423",
     "sense_lineage": [
       {
         "word_id": "word:curb",
@@ -5829,7 +5847,7 @@
     },
     "word_feel": {
       "summary_cn": "抑制；路边石",
-      "decision_cn": "verb → 抑制/控制；street → 路缘。马具义保留为 Reference。",
+      "decision_cn": "verb → 抑制、控制；street → 路缘（美式curb，英式通常kerb）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5877,7 +5895,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "路缘；街道或人行道的 raised edge",
+        "definition_cn": "路缘、路缘石；道路与人行道之间凸起的边缘",
         "definition_en": "the raised edge of a street or sidewalk",
         "note": "",
         "identity_overlay": {
@@ -5894,7 +5912,7 @@
           "target_kind": "sense",
           "target_id": "sense:curb:5de5882cd945508f",
           "target_locator": "record.senses[1]",
-          "target_label": "路缘；街道或人行道的 raised edge"
+          "target_label": "路缘、路缘石；道路与人行道之间凸起的边缘"
         }
       }
     ],
@@ -6000,8 +6018,16 @@
     "ordinal": 1188,
     "word": "cure",
     "source_owner_path": "content/lexical/words/by-ordinal/o1188.json",
-    "source_fingerprint": "bca2fcbcfb5427544758eb374cd5a60327e2d64e1dd17599c420dfbba8b75d79",
-    "sense_lineage": [],
+    "source_fingerprint": "5d9a6f86c4a6b6970185390d63300fb7b780d0824f8a080b98c21ae7916ffd2b",
+    "sense_lineage": [
+      {
+        "word_id": "word:cure",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6fcf3ceaa91f994210c1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -6011,7 +6037,7 @@
     },
     "word_feel": {
       "summary_cn": "治愈；疗法",
-      "decision_cn": "",
+      "decision_cn": "cure sb of a disease是治愈，a cure for是治愈方法；cure a bad habit是纠正习惯；cure meat是腌制或干燥保存。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6026,7 +6052,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "治愈；治好",
-        "definition_en": "to make a person or animal healthy again",
+        "definition_en": "remove a disease or restore someone to health",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6048,13 +6074,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "cure + disease",
             "meaning_cn": "治愈疾病",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6fcf3ceaa91f994210c1",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "cure + disease"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6069,7 +6090,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "疗法；治疗",
+        "definition_cn": "治愈疾病的药物或疗法",
         "definition_en": "a medicine or treatment that makes someone healthy again",
         "note": "",
         "identity_overlay": null,
@@ -6078,7 +6099,7 @@
             "id": "collocation:a332fa7f3ff76698f766",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "cure for + sth",
-            "meaning_cn": "……的疗法",
+            "meaning_cn": "治愈……的方法",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6091,7 +6112,7 @@
             "id": "collocation:8545ad6937ee4728e4e1",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "find a cure",
-            "meaning_cn": "找到治疗方法",
+            "meaning_cn": "找到治愈方法",
             "kind": "usage_example",
             "repair": null
           }
@@ -6100,7 +6121,7 @@
           "target_kind": "sense",
           "target_id": "sense:cure:d6b0baafd4955f42",
           "target_locator": "record.senses[1]",
-          "target_label": "疗法；治疗"
+          "target_label": "治愈疾病的药物或疗法"
         }
       },
       {
@@ -6203,11 +6224,11 @@
           "target_word": "treat",
           "lines": [
             {
-              "text": "treat 强调给予治疗、处理病情；cure 强调把疾病治好、使病因/疾病消失。接受 treatment 不等于已经 cured。",
+              "text": "treat 强调给予治疗、处理病情；cure 强调治愈疾病、恢复健康。接受 treatment 不等于已经 cured。",
               "lang": "cn"
             },
             {
-              "text": "treat = give medical care or manage a condition; cure = remove the disease/cause or restore health. Successful treatment does not necessarily mean a cure.",
+              "text": "treat means providing medical care or managing a condition; cure emphasizes recovery from the disease. Receiving treatment does not necessarily mean being cured.",
               "lang": "en"
             },
             {
@@ -6234,7 +6255,7 @@
     "ordinal": 1189,
     "word": "curiosity",
     "source_owner_path": "content/lexical/words/by-ordinal/o1189.json",
-    "source_fingerprint": "08cee2bd6d7c34a5b3bc43fd448bccaafbb63eaa1265954270fc86725eb15a34",
+    "source_fingerprint": "5cb88c32b450aad38cd375a0343b61b41beafb432e6b2d4f0006ca100fdbfce3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6243,13 +6264,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "好奇心",
-      "decision_cn": "",
+      "summary_cn": "好奇心；新奇有趣的事物或珍品",
+      "decision_cn": "好奇心",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "好奇心"
+        "target_label": "好奇心；新奇有趣的事物或珍品"
       }
     },
     "senses": [
@@ -6588,12 +6609,19 @@
     "ordinal": 1191,
     "word": "curl",
     "source_owner_path": "content/lexical/words/by-ordinal/o1191.json",
-    "source_fingerprint": "67179d05b63832866d165fc551fade6b8d99438ad101aa2e1897a5e34f545b5a",
+    "source_fingerprint": "6e008577525eff960bcf31564e48a8ac81a9bb6b4ba750f8c6cea2a649105819",
     "sense_lineage": [
       {
         "word_id": "word:curl",
         "target_kind": "sense",
         "from_target_id": "sense:curl:87330fb0b6da58b0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:curl",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:82b7d68ed6b299301ec3",
         "status": "reference",
         "to_target_id": null
       }
@@ -6607,7 +6635,7 @@
     },
     "word_feel": {
       "summary_cn": "卷曲",
-      "decision_cn": "hair/smoke/body → 卷曲、弯曲。冰壶运动动词义保留为 Reference。",
+      "decision_cn": "hair/smoke/body → 卷曲、弯曲；a curl 可指一绺卷发。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6631,13 +6659,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "curl + sth",
             "meaning_cn": "把某物卷曲",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:82b7d68ed6b299301ec3",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "curl + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6750,7 +6773,7 @@
     "ordinal": 1192,
     "word": "currency",
     "source_owner_path": "content/lexical/words/by-ordinal/o1192.json",
-    "source_fingerprint": "9d08d2152dbb86eac458eb4afbc7ee272b6a7ea2ccb0a76030b6ab3fbdf48a72",
+    "source_fingerprint": "cd7862d4bdcda3d267846abe6fb4f96b418b62268eaec13b4f4621f1ec6ef55a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6760,7 +6783,7 @@
     },
     "word_feel": {
       "summary_cn": "货币；流通；通用",
-      "decision_cn": "",
+      "decision_cn": "foreign currency是外币；观点或说法gain currency是获得广泛传播或接受，不涉及货币。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7079,7 +7102,7 @@
     "ordinal": 1194,
     "word": "curriculum",
     "source_owner_path": "content/lexical/words/by-ordinal/o1194.json",
-    "source_fingerprint": "a9a15aeaaf36bdb0083c5eeddf73b2f046cce089844177c571ce0f9b74e60aa6",
+    "source_fingerprint": "ed9887207a5adf33fc522d495b03da5c142db6f6c73a01538c2bda0e43a218ba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7089,7 +7112,7 @@
     },
     "word_feel": {
       "summary_cn": "课程",
-      "decision_cn": "",
+      "decision_cn": "学校、专业或学科的整体课程安排；不是单独一节课。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7236,7 +7259,7 @@
     "ordinal": 1195,
     "word": "curse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1195.json",
-    "source_fingerprint": "cfc6fe98f63406517a93af387b3840dccb960ec4996a535a98c89fbe33c11318",
+    "source_fingerprint": "92423eaa415eaef4cffb70fbee4d26c0361f3af508988780f4f2f8eb52ffbad7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7317,9 +7340,9 @@
         "id": "sense:curse:d129e0ea0c585bdc",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "curse / curse sb (for sth)",
         "definition_cn": "咒骂；辱骂",
-        "definition_en": "to say rude or offensive words to someone",
+        "definition_en": "to swear or use offensive words, sometimes directed at someone",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7449,7 +7472,7 @@
     "ordinal": 1196,
     "word": "curtain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1196.json",
-    "source_fingerprint": "1fdbd70d206313cdc85be16c48eeca7ec792d4889e8cfb8942409041ba710d2d",
+    "source_fingerprint": "c68750e10d1e12c9d86cec6d8d5fa6aa32884b64a3c1309f4f3d5b2c9264f16e",
     "sense_lineage": [
       {
         "word_id": "word:curtain",
@@ -7474,7 +7497,7 @@
     },
     "word_feel": {
       "summary_cn": "窗帘；帘幕；屏障",
-      "decision_cn": "window/stage → 窗帘、幕；figurative barrier → 屏障。低价值的装帘动词义保留为 Reference。",
+      "decision_cn": "window/stage → 窗帘、舞台帷幕；比喻遮挡视线或交流的屏障。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7606,7 +7629,7 @@
     "ordinal": 1197,
     "word": "curve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1197.json",
-    "source_fingerprint": "b1f5c4a4d79a2adefc311eb82c33c9e6d95e2c38a7a2cd285f19658a184a61af",
+    "source_fingerprint": "9a6521b851b533020c1fb111f8d0357e1ff5a09ee8a5411d3594354efdd1a9f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7617,7 +7640,7 @@
     },
     "word_feel": {
       "summary_cn": "弯曲的线或形状",
-      "decision_cn": "",
+      "decision_cn": "普通形状语境指弯曲；图表语境指表示数据或关系的线，不用“必须没有直线部分”去判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7632,7 +7655,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "曲线；弯曲的线",
-        "definition_en": "a line that bends continuously and has no straight parts",
+        "definition_en": "in ordinary shape descriptions, a line that bends rather than running straight",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7711,7 +7734,7 @@
         "governing_pattern": "",
         "definition_cn": "图表中表示数据的曲线",
         "definition_en": "a line on a graph representing data",
-        "note": "",
+        "note": "图表或数学语境中的curve不保证每一部分都弯曲；例如线性需求曲线可画成直线。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7804,7 +7827,7 @@
     "ordinal": 1198,
     "word": "cushion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1198.json",
-    "source_fingerprint": "a581fde08f77278abaf65c60e41afd2a6d1147d9173c4e1ae2e7b7321d70e326",
+    "source_fingerprint": "feb90173265d6177e7cc9a9c0f04602c7b7fb962a90288041181d271230d634e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7815,7 +7838,7 @@
     },
     "word_feel": {
       "summary_cn": "软垫或缓冲物",
-      "decision_cn": "",
+      "decision_cn": "坐垫提供物理缓冲；cushion the blow也可减轻坏消息或经济损失的打击；保障或储备也可作a cushion。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7855,8 +7878,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "缓冲层；气垫",
-        "definition_en": "a layer of air or other material that supports or protects",
+        "definition_cn": "缓冲层；气垫；也指减轻困难或损失的保障",
+        "definition_en": "a supporting or protective layer, or something that lessens hardship or loss",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7878,7 +7901,7 @@
           "target_kind": "sense",
           "target_id": "sense:cushion:0c6420773ec3526e",
           "target_locator": "record.senses[1]",
-          "target_label": "缓冲层；气垫"
+          "target_label": "缓冲层；气垫；也指减轻困难或损失的保障"
         }
       },
       {
@@ -7887,7 +7910,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "缓冲；减轻冲击",
-        "definition_en": "to protect from impact or reduce the force of a blow",
+        "definition_en": "protect against physical impact or lessen the harmful effect of an event",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7895,7 +7918,7 @@
             "id": "collocation:33a913167a936c2cfb0a",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "cushion the blow",
-            "meaning_cn": "缓冲打击；减轻冲击",
+            "meaning_cn": "缓冲实际撞击，或减轻坏消息等造成的打击",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7956,7 +7979,7 @@
     "ordinal": 1199,
     "word": "custody",
     "source_owner_path": "content/lexical/words/by-ordinal/o1199.json",
-    "source_fingerprint": "3cf7e668d2df38714169f8ea3442d192cf1a4d893dff2385cc450b04a7effc3c",
+    "source_fingerprint": "f0d7c2db1194c64e04ddb88371ed17a0e195e65f62401de4dd01acbd53153706",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7965,13 +7988,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "被监护或拘留的状态",
-      "decision_cn": "",
+      "summary_cn": "监护权；拘留；保管、照顾",
+      "decision_cn": "孩子语境看监护权，police/in custody看拘留，财物in the custody of看由谁保管。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "被监护或拘留的状态"
+        "target_label": "监护权；拘留；保管、照顾"
       }
     },
     "senses": [
@@ -8025,7 +8048,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "拘留；监禁",
-        "definition_en": "the state of being kept in prison by the police",
+        "definition_en": "the state of being detained by the police or other authorities",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8127,8 +8150,16 @@
     "ordinal": 1200,
     "word": "custom",
     "source_owner_path": "content/lexical/words/by-ordinal/o1200.json",
-    "source_fingerprint": "54ce1ba8aae39dc3bf947aa8a3a2ba044ec3198b1f634521c014575032104284",
-    "sense_lineage": [],
+    "source_fingerprint": "eeb32cb1b365db8700c4a1636dd239140784d5ccba9eafc9c06c2f014db28788",
+    "sense_lineage": [
+      {
+        "word_id": "word:custom",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8307d8a2e48ab9c021de",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -8137,13 +8168,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "传统习俗或定制的事物",
-      "decision_cn": "",
+      "summary_cn": "风俗习惯；海关（customs）；定制的；顾客惠顾",
+      "decision_cn": "传统习俗或定制的事物",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "传统习俗或定制的事物"
+        "target_label": "风俗习惯；海关（customs）；定制的；顾客惠顾"
       }
     },
     "senses": [
@@ -8277,13 +8308,8 @@
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "most of our custom comes from ...",
             "meaning_cn": "我们的大部分生意/客源来自……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8307d8a2e48ab9c021de",
-              "target_locator": "record.senses[3].collocations[1]",
-              "target_label": "most of our custom comes from ..."
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8485,7 +8511,7 @@
     "ordinal": 1202,
     "word": "cut",
     "source_owner_path": "content/lexical/words/by-ordinal/o1202.json",
-    "source_fingerprint": "31e833262e262d9204f71c9aaf3754963b9b577e1aa78e49268ebd72f7961b43",
+    "source_fingerprint": "87d3732fae9cdbe92e2aace196f9ab2396bd5159d42c7dcaaccdba264b2ccfb9",
     "sense_lineage": [
       {
         "word_id": "word:cut",
@@ -8500,6 +8526,20 @@
         "from_target_id": "sense:cut:96837e201ebd561a",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:cut",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cd626920c4749948dd7d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cut",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dbe91dd823ec25f3aa81",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -8511,7 +8551,7 @@
     },
     "word_feel": {
       "summary_cn": "切割；削减；切伤形成的伤口",
-      "decision_cn": "核心动作是“切开/切掉”：物理上可形成伤口，抽象上可表示削减成本、税收或数量。极低频的 scale-step 名词义保留为 Reference。",
+      "decision_cn": "核心动作是切开或切掉：可形成伤口，也可表示削减；名词还可指分得的份额。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8535,13 +8575,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "cut + sth",
             "meaning_cn": "切某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dbe91dd823ec25f3aa81",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "cut + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:ef1f0bb3d0e02cdc4664",
@@ -8582,13 +8617,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "cut + sth",
             "meaning_cn": "削减某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cd626920c4749948dd7d",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "cut + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:5808b680b183da621b13",
@@ -8735,8 +8765,8 @@
         "pattern": "cut down on sth / cut back on sth",
         "lines": [
           {
-            "text": "reduce use, spending, or amount",
-            "lang": "en"
+            "text": "减少某物的使用、消耗或支出",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -8801,7 +8831,7 @@
     "ordinal": 1203,
     "word": "cyberspace",
     "source_owner_path": "content/lexical/words/by-ordinal/o1203.json",
-    "source_fingerprint": "7d213759f32077e36a36b9e5643e696a924bce78922dfd8c894ef77d9ce3cee9",
+    "source_fingerprint": "af38d91e2f2df7b9d530849e515754cde3ec2f3c6b3e7c8f8c2fdd10fee800f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9119,7 +9149,7 @@
     "ordinal": 1205,
     "word": "cylinder",
     "source_owner_path": "content/lexical/words/by-ordinal/o1205.json",
-    "source_fingerprint": "656e346dd771c2c5d709e62996807f0b62e4d6615e38442a43ac02ea711f71f8",
+    "source_fingerprint": "584b239f61774a9ea903da8b29925609f3c32a99bd19af50ca9c07fb2eedb323",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9128,13 +9158,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "圆柱体；圆筒",
+      "summary_cn": "圆柱体；圆筒容器；发动机汽缸",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "圆柱体；圆筒"
+        "target_label": "圆柱体；圆筒容器；发动机汽缸"
       }
     },
     "senses": [
@@ -9178,7 +9208,7 @@
             "id": "collocation:eb6a55c556c1ce924ef4",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a gas cylinder",
-            "meaning_cn": "煤气罐",
+            "meaning_cn": "气瓶；储气罐",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9440,23 +9470,31 @@
     "ordinal": 1207,
     "word": "dairy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1207.json",
-    "source_fingerprint": "e72370cedb45c0d51f7b9ce9380248fc9f114b0653f84cf9c1bd428488b2b0c9",
-    "sense_lineage": [],
+    "source_fingerprint": "6b890b93056a6ba314f5430f950797cd540fe194cc3eea52c6b762b1b031dcf5",
+    "sense_lineage": [
+      {
+        "word_id": "word:dairy",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5c60743a1b4625369eb0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "乳品生产或销售场所",
-      "decision_cn": "",
+      "summary_cn": "奶牛场或乳品企业；牛奶及乳制品；乳品相关的",
+      "decision_cn": "a dairy是奶牛场或乳品企业；eat/avoid dairy中的dairy是牛奶及乳制品；dairy products是乳制品。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "乳品生产或销售场所"
+        "target_label": "奶牛场或乳品企业；牛奶及乳制品；乳品相关的"
       }
     },
     "senses": [
@@ -9465,8 +9503,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "乳牛场；牛奶公司",
-        "definition_en": "a farm or business that produces milk and milk products",
+        "definition_cn": "奶牛场、乳品企业或商店；也指储奶、加工乳品的场所",
+        "definition_en": "a farm, business, shop or facility that produces, stores, processes or sells milk and milk products",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9477,21 +9515,13 @@
             "meaning_cn": "奶牛场",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:9db17b6b5deb24f3ed90",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "dairy products",
-            "meaning_cn": "乳制品",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dairy:e65ab101d0895a80",
           "target_locator": "record.senses[0]",
-          "target_label": "乳牛场；牛奶公司"
+          "target_label": "奶牛场、乳品企业或商店；也指储奶、加工乳品的场所"
         }
       },
       {
@@ -9509,13 +9539,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "dairy products/industry",
             "meaning_cn": "乳制品/乳业",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5c60743a1b4625369eb0",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dairy products/industry"
-            }
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:9db17b6b5deb24f3ed90",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "dairy products",
+            "meaning_cn": "乳制品",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9523,6 +9556,32 @@
           "target_id": "sense:dairy:6f6a1e14a1aac2bf",
           "target_locator": "record.senses[1]",
           "target_label": "乳制品的；与牛奶和奶制品有关的"
+        }
+      },
+      {
+        "id": "sense:dairy:c1a4a2bf97d7a7ed",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "牛奶和乳制品的统称",
+        "definition_en": "milk and foods made from milk, treated as a food category",
+        "note": "食品类别义通常不可数。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3fa18af31c388b3b7db0",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "avoid dairy",
+            "meaning_cn": "避免食用牛奶和乳制品",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dairy:c1a4a2bf97d7a7ed",
+          "target_locator": "record.senses[2]",
+          "target_label": "牛奶和乳制品的统称"
         }
       }
     ],
@@ -9728,7 +9787,7 @@
     "ordinal": 1209,
     "word": "damage",
     "source_owner_path": "content/lexical/words/by-ordinal/o1209.json",
-    "source_fingerprint": "9c2b4324ace2422014277dc155954e2305b6c1419568e7f26a84426cb4bd97a9",
+    "source_fingerprint": "442889f4eac1d5c8169a498d36e52159abd678e72ead93e7a6190613b87670c3",
     "sense_lineage": [
       {
         "word_id": "word:damage",
@@ -9736,23 +9795,30 @@
         "from_target_id": "sense:damage:ac7acbd3107c5455",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:damage",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3f6b2c1e8e215e66ca49",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "损害或损伤",
-      "decision_cn": "",
+      "summary_cn": "损害或损伤；damages可指赔偿金",
+      "decision_cn": "damage sth是动词直接带宾语，damage to sth是名词损害；法律语境claim/pay damages指赔偿金。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "损害或损伤"
+        "target_label": "损害或损伤；damages可指赔偿金"
       }
     },
     "senses": [
@@ -9761,9 +9827,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "变坏的情况；降低价值或用途的损害",
-        "definition_en": "the occurrence of a change for the worse; harm that reduces value or usefulness",
-        "note": "",
+        "definition_cn": "损害；损伤；使价值或功能降低的破坏",
+        "definition_en": "harm or injury that reduces value, usefulness or sound condition",
+        "note": "损害义通常不可数；do/cause damage to sth，动词则直接damage sth。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9792,7 +9858,7 @@
           "target_kind": "sense",
           "target_id": "sense:damage:6142c2adb46a55cc",
           "target_locator": "record.senses[0]",
-          "target_label": "变坏的情况；降低价值或用途的损害"
+          "target_label": "损害；损伤；使价值或功能降低的破坏"
         }
       },
       {
@@ -9810,13 +9876,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "damage + sth",
             "meaning_cn": "损害某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3f6b2c1e8e215e66ca49",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "damage + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:9d30c15a167219c03116",
@@ -9832,6 +9893,32 @@
           "target_id": "sense:damage:fa0565a4d08b5410",
           "target_locator": "record.senses[1]",
           "target_label": "损害；损伤"
+        }
+      },
+      {
+        "id": "sense:damage:2abf53bc5a4194ab",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（damages，复数）损害赔偿金",
+        "definition_en": "money paid as compensation for harm or loss",
+        "note": "赔偿金义用复数damages；不要误当成一般损害义的普通复数。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7b4e42ac1766dcfbbe1f",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "claim damages",
+            "meaning_cn": "要求损害赔偿",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:damage:2abf53bc5a4194ab",
+          "target_locator": "record.senses[2]",
+          "target_label": "（damages，复数）损害赔偿金"
         }
       }
     ],
@@ -9929,7 +10016,7 @@
     "ordinal": 1210,
     "word": "damn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1210.json",
-    "source_fingerprint": "dea5d88ddc7fa19f5436ce2db2d3e06a19435df0d22567bc54725e078fa6e5d0",
+    "source_fingerprint": "8aef8cad874ea3be2135e3d96333b02b180c09959ecc2a55faff64422851d8e2",
     "sense_lineage": [
       {
         "word_id": "word:damn",
@@ -9942,8 +10029,15 @@
         "word_id": "word:damn",
         "target_kind": "sense",
         "from_target_id": "sense:damn:dea1d3673ce95c50",
-        "status": "merged",
-        "to_target_id": "sense:damn:8a1b5199d3b25bcc"
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:damn",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d5ad23251f6125344cf9",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -9979,13 +10073,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "damn sb/sth",
             "meaning_cn": "诅咒某人/某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d5ad23251f6125344cf9",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "damn sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10000,7 +10089,7 @@
         "source_locator": "record.senses[1]",
         "pos": "interjection",
         "governing_pattern": "",
-        "definition_cn": "该死；讨厌",
+        "definition_cn": "该死；讨厌（表示恼怒的非正式咒骂语，可能冒犯）",
         "definition_en": "used to express anger or frustration",
         "note": "",
         "identity_overlay": null,
@@ -10018,7 +10107,7 @@
           "target_kind": "sense",
           "target_id": "sense:damn:63961229f23759e5",
           "target_locator": "record.senses[1]",
-          "target_label": "该死；讨厌"
+          "target_label": "该死；讨厌（表示恼怒的非正式咒骂语，可能冒犯）"
         }
       }
     ],
@@ -10102,8 +10191,8 @@
         },
         {
           "stable_sense_id": "sense:damn:dea1d3673ce95c50",
-          "status": "merged",
-          "merged_into_sense_id": "sense:damn:8a1b5199d3b25bcc",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "noun",
           "definition_cn": "一点；丝毫",
           "definition_en": "a very small amount; something of little value",
@@ -10123,7 +10212,8 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 3412,
           "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json",
-          "reference_only": true
+          "reference_only": true,
+          "usage_note": "名词义保留查阅，不应并入动词。not worth a damn可表示一文不值；非正式、可能冒犯，不建议用于正式表达。"
         }
       ]
     }
@@ -10320,7 +10410,7 @@
     "ordinal": 1212,
     "word": "dance",
     "source_owner_path": "content/lexical/words/by-ordinal/o1212.json",
-    "source_fingerprint": "0569795f5db2d233faa6dc8ebd22d051594337ff11f3c9a96bcd5eb6c171be9c",
+    "source_fingerprint": "7a691c7a25408f621d788c5655ce839d9c1beef1adf025333e455cc3921e9f80",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10396,9 +10486,9 @@
         "id": "sense:dance:74af2fe38d3f58b0",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi.",
+        "governing_pattern": "dance; dance to music; dance a waltz/the tango",
         "definition_cn": "跳舞",
-        "definition_en": "move in a graceful and rhythmical way",
+        "definition_en": "to move the body rhythmically, usually to music; to perform a particular dance",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10768,7 +10858,7 @@
     "ordinal": 1215,
     "word": "dare",
     "source_owner_path": "content/lexical/words/by-ordinal/o1215.json",
-    "source_fingerprint": "d4a878604414ab88890343577d89f5668dbbc39e8a95695a2a63f8a535483ade",
+    "source_fingerprint": "abff4f769136a092cb7c368004f6a4b08b1249ad8395f23b2d43dcb4a1b7d748",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10779,7 +10869,7 @@
     },
     "word_feel": {
       "summary_cn": "敢于；挑战",
-      "decision_cn": "",
+      "decision_cn": "dare (to) do是敢做，dare sb to do是激将；How dare you后接不带to的动词；I dare say表示“我想、想必”，不是字面上的敢说。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10792,7 +10882,7 @@
         "id": "sense:dare:ed7237693bfa552b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + to do sth",
+        "governing_pattern": "dare (to) do sth; dare not do sth; How dare you do sth?",
         "definition_cn": "敢，胆敢（做某事）",
         "definition_en": "to be brave enough to do something",
         "note": "",
@@ -10919,15 +11009,19 @@
       {
         "id": "deep:constructions:dare:cc7dfd2c89945260",
         "source_locator": "record.constructions[0]",
-        "pattern": "vt. + to do sth",
+        "pattern": "dare (to) do sth",
         "lines": [
+          {
+            "text": "敢于或胆敢做某事",
+            "lang": "cn"
+          },
           {
             "text": "敢，胆敢（做某事）",
             "lang": "cn"
           },
           {
-            "text": "dare to do sth",
-            "lang": "en"
+            "text": "普通动词 dare 可接带 to 或不带 to 的不定式；How dare you 后不用 to。",
+            "lang": "cn"
           },
           {
             "text": "to be brave enough to do something",
@@ -10938,7 +11032,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:dare:cc7dfd2c89945260",
           "target_locator": "record.constructions[0]",
-          "target_label": "vt. + to do sth"
+          "target_label": "dare (to) do sth"
         }
       },
       {
@@ -10947,8 +11041,8 @@
         "pattern": "dare not / How dare you / dare to do sth / dare sb to do sth",
         "lines": [
           {
-            "text": "modal or semi-modal and ordinary verb patterns",
-            "lang": "en"
+            "text": "区分敢做某事、情态式否定/质问，以及激将某人做某事",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -10972,7 +11066,7 @@
     "ordinal": 1216,
     "word": "dark",
     "source_owner_path": "content/lexical/words/by-ordinal/o1216.json",
-    "source_fingerprint": "b5258e3776ac5c8c35e3c58f53b666916ef0f0d69b442bc4aa85f5cf11231dcd",
+    "source_fingerprint": "76544003e77b98ef88e20c563486e63b1cd955b8b0627632011727a5d591f01b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [

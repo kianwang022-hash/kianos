@@ -19,17 +19,18 @@
           ]
         },
         {
-          "label_cn": "进步，进展",
-          "label_en": "develop in a positive way",
+          "label_cn": "向前发展；时间/事件继续推进",
+          "label_en": "develop or continue as time passes",
           "pos": "verb",
           "sense_ids": [
-            "sense:progress:2132360f46425bd2"
+            "sense:progress:2132360f46425bd2",
+            "sense:progress:e2b62f4dbf56b151"
           ]
         }
       ],
-      "core_meaning_cn": "前进，发展",
-      "core_meaning_en": "forward movement or development",
-      "mental_model_cn": "前进，发展",
+      "core_meaning_cn": "向前发展或继续推进",
+      "core_meaning_en": "forward development or continuation",
+      "mental_model_cn": "make progress→取得进展；in progress→正在进行；time/event progresses→随时间推进，不保证改善。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -243,7 +244,7 @@
         "confidence": "medium",
         "definition_cn": "进步，进展",
         "definition_en": "develop in a positive way",
-        "governing_pattern": "vi. + in/with",
+        "governing_pattern": "vi.: progress; progress in/with sth; progress from sth to sth",
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -258,7 +259,46 @@
         "sense_id": "sense:progress:2132360f46425bd2",
         "sense_label_en": "develop in a positive way",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/progress_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:progress:e2b62f4dbf56b151",
+        "pos": "verb",
+        "definition_cn": "（时间或事件）推移；继续进行",
+        "definition_en": "to continue or move ahead as time passes",
+        "sense_label_en": "to continue or move ahead as time passes",
+        "transitivity": "vi",
+        "governing_pattern": "vi.: time/an event progresses",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:progress:0a36434d2c52c2bd",
+            "phrase": "The room grew quieter as the evening progressed.",
+            "meaning_cn": "随着夜晚推移，屋内渐渐安静下来。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/progress_2",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "as the evening progressed指晚间时间推移，不承诺情况改善。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/progress_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -328,6 +368,12 @@
         "merged_into_sense_id": null,
         "source_row": 10615,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:progress:e2b62f4dbf56b151",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3813.json"
       }
     ],
     "active_collocations": [
@@ -335,7 +381,8 @@
       "collocation:324d580bb9cde0c232b7",
       "collocation:5690f6a238ed0c6642dd",
       "collocation:b936d7bba3d9e95f568e",
-      "collocation:f63092b51a52841d5561"
+      "collocation:f63092b51a52841d5561",
+      "collocation:progress:0a36434d2c52c2bd"
     ],
     "facts": [],
     "collocations": [
@@ -363,6 +410,10 @@
         "id": "collocation:f63092b51a52841d5561",
         "source_row": 20858,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:progress:0a36434d2c52c2bd",
+        "source_path": "content/lexical/words/by-ordinal/o3813.json"
       }
     ],
     "exam-mappings": [],

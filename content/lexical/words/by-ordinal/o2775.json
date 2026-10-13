@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "17fbd0de39df8fa68a6436b432db9670d018920cd16b547dab2b3e9127e61354",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "解雇员工的行为",
-      "core_meaning_en": "the act of dismissing employees",
-      "mental_model_cn": "解雇员工的行为",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "裁员；暂停惯常活动的一段时期",
+          "label_en": "dismissal because work is unavailable; a break from regular activity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:layoff:749f827732b85b1e",
+            "sense:layoff:1a8151701e587c21"
+          ]
+        }
+      ],
+      "core_meaning_cn": "裁员；暂停惯常活动的一段时期",
+      "core_meaning_en": "dismissal because work is unavailable; a break from regular activity",
+      "mental_model_cn": "公司裁员是就业义；运动员伤后layoff是暂停训练或比赛，不等于被解雇。",
+      "mental_model_en": "dismissal because work is unavailable; a break from regular activity."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,6 +56,28 @@
         "sense_label_en": "the act of laying off an employee or a work force",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:layoff:1a8151701e587c21",
+        "pos": "noun",
+        "definition_cn": "暂停工作或惯常活动的一段时期",
+        "definition_en": "a period away from work or a regularly performed activity",
+        "sense_label_en": "a period away from work or a regularly performed activity",
+        "governing_pattern": "a layoff from work/sport; return after a layoff",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9cf48262b19bda3c07e5",
+            "phrase": "She returned to training after a six-week layoff.",
+            "meaning_cn": "她暂停训练六周后恢复了训练。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -75,6 +107,23 @@
           "applicability": [
             {
               "surface": "layoff"
+            },
+            {
+              "surface": "layoff",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:layoff:1a8151701e587c21"
+              ],
+              "owner_sense_ids": [
+                "sense:layoff:1a8151701e587c21"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2775.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a layoff from work/sport; return after a layoff"
             }
           ],
           "sources": [
@@ -120,10 +169,19 @@
         "merged_into_sense_id": null,
         "source_row": 7678,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      },
+      {
+        "sense_id": "sense:layoff:1a8151701e587c21",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2775.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
-      "collocation:ba24c3ba3a3df18fc564"
+      "collocation:ba24c3ba3a3df18fc564",
+      "collocation:9cf48262b19bda3c07e5"
     ],
     "facts": [],
     "collocations": [
@@ -131,6 +189,13 @@
         "id": "collocation:ba24c3ba3a3df18fc564",
         "source_row": 15765,
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      },
+      {
+        "id": "collocation:9cf48262b19bda3c07e5",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2775.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

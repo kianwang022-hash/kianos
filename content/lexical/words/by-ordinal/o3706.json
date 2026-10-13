@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:pot:5074469e5ee20216",
+        "pattern": "go to pot",
+        "meaning_cn": "因疏于照管而衰败、变糟",
+        "definition_en": "to deteriorate through lack of care or effort",
+        "boundary": "非正式；地点、技能或生活状态可作主语，不按进锅字面解释。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      }
+    ],
     "content_hash": "424f797d2030150794cd4f958b5b4b67320e959a6c7316be44beb039e846cf30",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "锅，罐；一罐（壶、锅）的量；花盆；赌注总额",
-          "label_en": "metal or earthenware cooking vessel that is usually round and deep; often has a handle and lid; the quantity contained in a pot; a container in which plants are cultivated; the cumulative amount involved in a game (such as poker)",
+          "label_en": "a usually round, deep container used for cooking or for holding food and other things; the quantity contained in a pot; a container in which plants are cultivated; the cumulative amount involved in a game (such as poker)",
           "pos": "noun",
           "sense_ids": [
             "sense:pot:4b44dd2aa34254bf",
@@ -32,7 +48,7 @@
       ],
       "core_meaning_cn": "罐，壶，盆",
       "core_meaning_en": "a container, typically round and deep",
-      "mental_model_cn": "罐，壶，盆",
+      "mental_model_cn": "锅罐容器可延伸为一罐的量；the pot也可指共同资金或牌局赌注；非正式药物语境可指大麻。盆栽动词看植物作宾语。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,15 +73,21 @@
         ],
         "confidence": "medium",
         "definition_cn": "锅，罐",
-        "definition_en": "metal or earthenware cooking vessel that is usually round and deep; often has a handle and lid",
+        "definition_en": "a usually round, deep container used for cooking or for holding food and other things",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pot:4b44dd2aa34254bf",
-        "sense_label_en": "metal or earthenware cooking vessel that is usually round and deep; ofte",
+        "sense_label_en": "a usually round, deep container used for cooking or for holding food and other things",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -162,6 +184,72 @@
         "sense_label_en": "to put into a pot",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:pot:70673f8c836a7aa9",
+        "pos": "noun",
+        "definition_cn": "（为某目的汇集的）一笔资金",
+        "definition_en": "a pool of money collected or available for a shared purpose",
+        "sense_label_en": "a pool of money collected or available for a shared purpose",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pot:efd5485b9dfa944a",
+            "phrase": "They all paid into a common pot for the trip.",
+            "meaning_cn": "他们为这次旅行共同凑了一笔钱。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "pension pot、共同开销语境不一定涉及赌博；牌局中的the pot则指汇集的赌注。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:pot:e2ad50b94b653135",
+        "pos": "noun",
+        "definition_cn": "大麻（非正式用语）",
+        "definition_en": "cannabis, in informal language",
+        "sense_label_en": "cannabis, in informal language",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pot:47816044addd8673",
+            "phrase": "The article discusses attitudes toward pot.",
+            "meaning_cn": "文章讨论人们对大麻的态度。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "谈吸食或相关社会议题时可指大麻，不是锅盆。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pot_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -651,6 +739,18 @@
         "merged_into_sense_id": null,
         "source_row": 10334,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
+      {
+        "sense_id": "sense:pot:70673f8c836a7aa9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3706.json"
+      },
+      {
+        "sense_id": "sense:pot:e2ad50b94b653135",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3706.json"
       }
     ],
     "active_collocations": [
@@ -658,7 +758,9 @@
       "collocation:ab4f5b6b65db34244cf5",
       "collocation:b274232e6d870b62f2a7",
       "collocation:f2ec26d8ac21357bc89f",
-      "collocation:fc477530b8df31c06651"
+      "collocation:fc477530b8df31c06651",
+      "collocation:pot:efd5485b9dfa944a",
+      "collocation:pot:47816044addd8673"
     ],
     "facts": [],
     "collocations": [
@@ -686,6 +788,14 @@
         "id": "collocation:fc477530b8df31c06651",
         "source_row": 21344,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:pot:efd5485b9dfa944a",
+        "source_path": "content/lexical/words/by-ordinal/o3706.json"
+      },
+      {
+        "id": "collocation:pot:47816044addd8673",
+        "source_path": "content/lexical/words/by-ordinal/o3706.json"
       }
     ],
     "exam-mappings": [],

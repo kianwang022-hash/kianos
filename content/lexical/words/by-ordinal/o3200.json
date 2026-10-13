@@ -31,6 +31,38 @@
         "meaning_cn": "不必；没有必要做某事",
         "pattern": "need not / needn't + base verb",
         "source_sense_id": "sense:need:bc81e25cfae65772"
+      },
+      {
+        "construction_id": "construction:06fe81abfa6f03534c2f",
+        "pattern": "needn’t have + past participle",
+        "meaning_cn": "本来不必做（但实际做了）",
+        "definition_en": "say that an action occurred although it was unnecessary",
+        "usage_note": "You needn’t have bought it通常说明已经买了；didn’t need to只说明当时无必要，实际是否做了还需上下文。",
+        "boundary": "You needn’t have bought it通常说明已经买了；didn’t need to只说明当时无必要，实际是否做了还需上下文。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:need:bc81e25cfae65772"
+      },
+      {
+        "construction_id": "construction:aedca79d3b97c7ef2657",
+        "pattern": "if need be",
+        "meaning_cn": "如有必要",
+        "definition_en": "if necessary",
+        "usage_note": "need在此是名词；be用原形，这是固定条件表达。",
+        "boundary": "need在此是名词；be用原形，这是固定条件表达。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:71aaca9b388eb88838e8",
+        "pattern": "there is no need (for sb) to do sth",
+        "meaning_cn": "没有必要（让某人）做某事",
+        "definition_en": "the stated action is unnecessary",
+        "usage_note": "for接动作承担者；to后接原形，不表示禁止。",
+        "boundary": "for接动作承担者；to后接原形，不表示禁止。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:need:cc55770995a55a61"
       }
     ],
     "content_hash": "e4e5d44fa5ad660a2cf2dbee55d7f49185d2e774dee7184b35682fcc47efef5e",
@@ -60,12 +92,28 @@
           "sense_ids": [
             "sense:need:bc81e25cfae65772"
           ]
+        },
+        {
+          "label_cn": "（情感、心理上的）需求、强烈需要",
+          "label_en": "a strong feeling of wanting or requiring somebody or something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:need:a0377f7eab939c03"
+          ]
+        },
+        {
+          "label_cn": "（常用复数needs）生活或目标所需事物、条件",
+          "label_en": "things or conditions somebody requires to live comfortably or achieve a goal",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:need:3288d36c0903a8d3"
+          ]
         }
       ],
-      "core_meaning_cn": "需要",
-      "core_meaning_en": "to require something; a requirement",
-      "mental_model_cn": "需要",
-      "mental_model_en": ""
+      "core_meaning_cn": "需要、需求、心理需要和所需条件；不必与贫困困难",
+      "core_meaning_en": "require something; necessity, emotional needs and requirements; modal necessity and hardship",
+      "mental_model_cn": "实义need有needs/needed和do问句：主动做事用need to do，事情需被处理也可说sth needs doing/to be done。情态needn’t接原形，needn’t have done表示做了但不必。basic needs说所需事物，in need谈匮乏/困难。",
+      "mental_model_en": "require something; necessity, emotional needs and requirements; modal necessity and hardship."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -99,7 +147,7 @@
         "confidence": "medium",
         "definition_cn": "需要，必需",
         "definition_en": "to require something because it is essential or important",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "need sb/sth; need to do sth; need sb to do sth; sth needs doing/to be done",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -110,15 +158,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:34f849a7312fb6ecc491",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:need:cc55770995a55a61:collocation:0"
-            ],
-            "meaning_cn": "在困难中，需要帮助",
-            "phrase": "in need"
-          },
           {
             "collocation_id": "collocation:87277f8a0de1f3344a79",
             "exam_value": "fixed_pattern",
@@ -132,7 +171,7 @@
         "confidence": "medium",
         "definition_cn": "需要，需求",
         "definition_en": "a situation in which something is necessary",
-        "governing_pattern": "",
+        "governing_pattern": "a need for sth; a need (for sb) to do sth; in need of sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -165,14 +204,15 @@
         "confidence": "medium",
         "definition_cn": "必须，需要（情态动词）",
         "definition_en": "used to express necessity or obligation",
-        "governing_pattern": "",
+        "governing_pattern": "chiefly questions/negatives: Need I…?; need not/needn’t + base verb; formal need only/hardly + base verb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "auxiliary",
         "sense_id": "sense:need:bc81e25cfae65772",
         "sense_label_en": "used to express necessity or obligation",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "情态need不加-s、后接不带to的原形。也有较正式肯定的need only/hardly等；日常肯定和疑问常用实义动词need to。"
       },
       {
         "collocations": [
@@ -184,6 +224,15 @@
             ],
             "meaning_cn": "极度贫困",
             "phrase": "in dire need"
+          },
+          {
+            "collocation_id": "collocation:34f849a7312fb6ecc491",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:need:cc55770995a55a61:collocation:0"
+            ],
+            "meaning_cn": "在困难中，需要帮助",
+            "phrase": "in need"
           }
         ],
         "confidence": "medium",
@@ -197,6 +246,50 @@
         "sense_label_en": "poverty or hardship",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:need:a0377f7eab939c03",
+        "pos": "noun",
+        "definition_cn": "（情感、心理上的）需求、强烈需要",
+        "definition_en": "a strong feeling of wanting or requiring somebody or something",
+        "sense_label_en": "a strong feeling of wanting or requiring somebody or something",
+        "governing_pattern": "an emotional need; feel a need to do sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2827866f99b5ce33055d",
+            "phrase": "an emotional need",
+            "meaning_cn": "情感需求",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:need:3288d36c0903a8d3",
+        "pos": "noun",
+        "definition_cn": "（常用复数needs）生活或目标所需事物、条件",
+        "definition_en": "things or conditions somebody requires to live comfortably or achieve a goal",
+        "sense_label_en": "things or conditions somebody requires to live comfortably or achieve a goal",
+        "governing_pattern": "basic/individual/educational needs（常复数）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3d8077ae9ee52c26bad1",
+            "phrase": "meet individual needs",
+            "meaning_cn": "满足个人需要",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -237,6 +330,42 @@
           "applicability": [
             {
               "surface": "need"
+            },
+            {
+              "surface": "need",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:need:a0377f7eab939c03"
+              ],
+              "owner_sense_ids": [
+                "sense:need:a0377f7eab939c03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3200.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an emotional need; feel a need to do sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "need",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:need:3288d36c0903a8d3"
+              ],
+              "owner_sense_ids": [
+                "sense:need:3288d36c0903a8d3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3200.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "basic/individual/educational needs（常复数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -324,6 +453,42 @@
           "applicability": [
             {
               "surface": "need"
+            },
+            {
+              "surface": "need",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:need:a0377f7eab939c03"
+              ],
+              "owner_sense_ids": [
+                "sense:need:a0377f7eab939c03"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3200.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an emotional need; feel a need to do sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "need",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:need:3288d36c0903a8d3"
+              ],
+              "owner_sense_ids": [
+                "sense:need:3288d36c0903a8d3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3200.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "basic/individual/educational needs（常复数）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -432,23 +597,42 @@
         "merged_into_sense_id": null,
         "source_row": 8903,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:need:a0377f7eab939c03",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3200.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:need:3288d36c0903a8d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3200.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:34f849a7312fb6ecc491",
-      "collocation:422fc42a052ca1b8b952",
-      "collocation:7575109922194778f8c1",
-      "collocation:87277f8a0de1f3344a79",
-      "collocation:9d2163530bfbab30e91f",
+      "collocation:dd1fe5e79f133689ede5",
       "collocation:a68be7b637b2c5e5c3a0",
-      "collocation:dd1fe5e79f133689ede5"
+      "collocation:87277f8a0de1f3344a79",
+      "collocation:7575109922194778f8c1",
+      "collocation:422fc42a052ca1b8b952",
+      "collocation:9d2163530bfbab30e91f",
+      "collocation:34f849a7312fb6ecc491",
+      "collocation:2827866f99b5ce33055d",
+      "collocation:3d8077ae9ee52c26bad1"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:34f849a7312fb6ecc491",
         "source_row": 4486,
-        "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json",
+        "sense_id": "sense:need:721042e2b09c5ac8"
       },
       {
         "id": "collocation:422fc42a052ca1b8b952",
@@ -479,6 +663,20 @@
         "id": "collocation:dd1fe5e79f133689ede5",
         "source_row": 18718,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:2827866f99b5ce33055d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3200.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:3d8077ae9ee52c26bad1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3200.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

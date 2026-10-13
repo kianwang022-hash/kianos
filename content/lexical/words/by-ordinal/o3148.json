@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a670c0a949ff6e37d4d0",
+        "pattern": "a mug’s game",
+        "meaning_cn": "徒劳、无利可图的傻事",
+        "definition_en": "an activity unlikely to succeed or provide worthwhile benefit",
+        "usage_note": "尤其英式，含不赞同；不是大杯子的游戏。",
+        "boundary": "尤其英式，含不赞同；不是大杯子的游戏。",
+        "direction": "R",
+        "level": "L3"
+      }
+    ],
     "content_hash": "f8ee646238834b9744fdfdc338f70d7b2522232f32c0c165181b40c1c8fa1ce5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "有柄大杯；脸，面孔",
-          "label_en": "a large cup with a handle, used for hot drinks; a person's face (informal)",
+          "label_cn": "（通常有柄的）大杯；一大杯的量；脸，面孔",
+          "label_en": "a large drinking cup, usually with a handle, or the quantity it holds; a person's face (informal)",
           "pos": "noun",
           "sense_ids": [
             "sense:mug:dd2589f7e8665938",
@@ -20,19 +31,27 @@
           ]
         },
         {
-          "label_cn": "抢劫，行凶抢劫；苦读，用功",
-          "label_en": "to rob someone violently in a public place; to study hard (British informal)",
+          "label_cn": "行凶抢劫；袭击某人以抢取财物；（英式非正式）突击学习；用功复习",
+          "label_en": "rob somebody violently, especially in a public place; BrE informal: to study or revise intensively, especially in the phrasal uses mug sth up or mug up on sth",
           "pos": "verb",
           "sense_ids": [
             "sense:mug:8ed26ff65f59556e",
             "sense:mug:fb9cda48640e577a"
           ]
+        },
+        {
+          "label_cn": "（尤英式非正式）容易受骗的傻瓜",
+          "label_en": "a gullible or foolish person",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mug:1514ff3079d77325"
+          ]
         }
       ],
-      "core_meaning_cn": "大杯或抢劫",
-      "core_meaning_en": "a large cup or to rob violently",
-      "mental_model_cn": "大杯或抢劫",
-      "mental_model_en": ""
+      "core_meaning_cn": "大杯或一杯的量；脸、易受骗的人；抢劫、突击学习或夸张表情",
+      "core_meaning_en": "a cup or cupful; a face or gullible person; rob, cram or make exaggerated faces",
+      "mental_model_cn": "咖啡、啤酒等都可装mug；He’s no mug表示不易被骗。抢劫vt、镜头前夸张表情vi和英式mug up突击学习按语境区分。",
+      "mental_model_en": "a cup or cupful; a face or gullible person; rob, cram or make exaggerated faces."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,16 +74,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "有柄大杯",
-        "definition_en": "a large cup with a handle, used for hot drinks",
+        "definition_cn": "（通常有柄的）大杯；一大杯的量",
+        "definition_en": "a large drinking cup, usually with a handle, or the quantity it holds",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mug:dd2589f7e8665938",
-        "sense_label_en": "a large cup with a handle, used for hot drinks",
+        "sense_label_en": "a large drinking cup, usually with a handle, or the quantity it holds",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可装热饮也可装啤酒、果汁等，不把hot drinks作为必要条件。"
       },
       {
         "collocations": [
@@ -88,14 +108,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "抢劫，行凶抢劫",
-        "definition_en": "to rob someone violently in a public place",
+        "definition_cn": "行凶抢劫；袭击某人以抢取财物",
+        "definition_en": "rob somebody violently, especially in a public place",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mug:8ed26ff65f59556e",
-        "sense_label_en": "to rob someone violently in a public place",
+        "sense_label_en": "rob somebody violently, especially in a public place",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -154,8 +174,52 @@
         "sense_id": "sense:mug:fb9cda48640e577a",
         "sense_label_en": "BrE informal: to study or revise intensively, especially in the phrasal uses mug sth up or mug up on sth",
         "sort_order": 3,
-        "transitivity": "vi",
+        "transitivity": "I/T",
         "usage_note": "Teach this study meaning through BrE informal phrasal usage, not bare neutral mug."
+      },
+      {
+        "sense_id": "sense:mug:1514ff3079d77325",
+        "pos": "noun",
+        "definition_cn": "（尤英式非正式）容易受骗的傻瓜",
+        "definition_en": "a gullible or foolish person",
+        "sense_label_en": "a gullible or foolish person",
+        "governing_pattern": "a complete mug; no mug",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9cc06e5d5cf584411597",
+            "phrase": "He’s no mug.",
+            "meaning_cn": "他可不是容易上当的傻瓜。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mug:c1a858fdef1b220f",
+        "pos": "verb",
+        "definition_cn": "（非正式）做夸张表情、动作",
+        "definition_en": "make exaggerated or silly facial expressions or gestures for an audience",
+        "sense_label_en": "make exaggerated or silly facial expressions or gestures for an audience",
+        "governing_pattern": "mug (for the cameras)",
+        "transitivity": "vi",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8a84de60f75ff4559856",
+            "phrase": "mug for the cameras",
+            "meaning_cn": "对着镜头做夸张表情",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -209,6 +273,42 @@
           "applicability": [
             {
               "surface": "mug"
+            },
+            {
+              "surface": "mug",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mug:1514ff3079d77325"
+              ],
+              "owner_sense_ids": [
+                "sense:mug:1514ff3079d77325"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3148.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a complete mug; no mug",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mug",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mug:c1a858fdef1b220f"
+              ],
+              "owner_sense_ids": [
+                "sense:mug:c1a858fdef1b220f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3148.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mug (for the cameras)",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -380,15 +480,33 @@
         "merged_into_sense_id": null,
         "source_row": 8770,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:mug:1514ff3079d77325",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3148.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:mug:c1a858fdef1b220f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3148.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1086d7347d29d837b362",
-      "collocation:14b0500c2aa31ccb608e",
-      "collocation:24a7b24fb4921e582e9f",
-      "collocation:4d896eff9318a3d45cc6",
       "collocation:cf00b3a15a80df197e03",
-      "collocation:d4dd8d2bedb4d262c3b8"
+      "collocation:d4dd8d2bedb4d262c3b8",
+      "collocation:4d896eff9318a3d45cc6",
+      "collocation:1086d7347d29d837b362",
+      "collocation:24a7b24fb4921e582e9f",
+      "collocation:14b0500c2aa31ccb608e",
+      "collocation:9cc06e5d5cf584411597",
+      "collocation:8a84de60f75ff4559856"
     ],
     "facts": [],
     "collocations": [
@@ -421,6 +539,20 @@
         "id": "collocation:24a7b24fb4921e582e9f",
         "source_row": 21550,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:9cc06e5d5cf584411597",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3148.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:8a84de60f75ff4559856",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3148.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

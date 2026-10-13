@@ -6,14 +6,58 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:fc30684703da94882d51",
+        "pattern": "imagine sb/sth doing sth",
+        "meaning_cn": "想象某人或某物正在做某事",
+        "definition_en": "to picture a person or thing performing an action",
+        "usage_note": "动作执行者是sb/sth；imagine自己做事用imagine doing，不用imagine to do。",
+        "boundary": "动作执行者是sb/sth；imagine自己做事用imagine doing，不用imagine to do。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:imagine:d00547231ef25a23"
+      },
+      {
+        "construction_id": "construction:397f99a38b62a2cbd15a",
+        "pattern": "imagine sb/sth/oneself (as) sth; imagine sb/sth to be sth",
+        "meaning_cn": "想象或设想某人/物处于某种身份或状态",
+        "definition_en": "to picture somebody or something in a role or state",
+        "usage_note": "as后是角色名词；to be引入设想状态。",
+        "boundary": "as后是角色名词；to be引入设想状态。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:imagine:d00547231ef25a23"
+      },
+      {
+        "construction_id": "construction:bd7a16c3ab073bf9e966",
+        "pattern": "I can imagine / I imagine so/not",
+        "meaning_cn": "我能想象；我猜是/不是",
+        "definition_en": "brief responses expressing empathy or a supposition",
+        "usage_note": "前者接对方描述表示能设想到；后者替代猜测的整件事。imagine可在这些回答中不接名词宾语。",
+        "boundary": "前者接对方描述表示能设想到；后者替代猜测的整件事。imagine可在这些回答中不接名词宾语。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "5c10a5707e03b28e3055d5cfb2acbe67768915cd87062d95b4ad34b9562921f9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "想象",
-      "core_meaning_en": "form a mental image",
-      "mental_model_cn": "想象",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "设想画面、猜测或误信",
+          "label_en": "to picture mentally, suppose, or mistakenly believe",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:imagine:d00547231ef25a23",
+            "sense:imagine:5fd30d3fadb35209",
+            "sense:imagine:905c4b61c562acad"
+          ]
+        }
+      ],
+      "core_meaning_cn": "设想画面、猜测或误信",
+      "core_meaning_en": "to picture mentally, suppose, or mistakenly believe",
+      "mental_model_cn": "计划假设用第一支，认为大概属实用猜想支；imagine things明确不存在的感知/怀疑，不能误译为创造性构想。",
+      "mental_model_en": "to picture mentally, suppose, or mistakenly believe."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -52,7 +96,7 @@
         "confidence": "medium",
         "definition_cn": "想象；设想",
         "definition_en": "to form a mental image of something not present",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "imagine sth; imagine doing sth; imagine that ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -84,6 +128,28 @@
         "sense_label_en": "to suppose or guess",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:imagine:905c4b61c562acad",
+        "pos": "verb",
+        "definition_cn": "误以为；幻想（不存在的事是真的）",
+        "definition_en": "to believe or perceive something that is not real",
+        "sense_label_en": "to believe or perceive something that is not real",
+        "governing_pattern": "imagine sth; imagine (that) ...",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e79eb87b2ad23f206956",
+            "phrase": "imagine things",
+            "meaning_cn": "凭空想象；误以为有某事",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -152,6 +218,23 @@
           "applicability": [
             {
               "surface": "imagine"
+            },
+            {
+              "surface": "imagine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:imagine:905c4b61c562acad"
+              ],
+              "owner_sense_ids": [
+                "sense:imagine:905c4b61c562acad"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2453.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "imagine sth; imagine (that) ..."
             }
           ],
           "sources": [
@@ -264,12 +347,21 @@
         "merged_into_sense_id": null,
         "source_row": 6821,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:imagine:905c4b61c562acad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2453.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:d70c4106af19378076b3",
       "collocation:77f3b6fdd61ab645a9dc",
       "collocation:8eea13aa1bd8dab06f8c",
-      "collocation:d70c4106af19378076b3"
+      "collocation:e79eb87b2ad23f206956"
     ],
     "facts": [
       {
@@ -298,6 +390,13 @@
         "id": "collocation:d70c4106af19378076b3",
         "source_row": 18191,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:e79eb87b2ad23f206956",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2453.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

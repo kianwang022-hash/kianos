@@ -9,10 +9,23 @@
     "constructions": [],
     "content_hash": "a57cefd8a66deb84660bb2a89788a4f29a0186c438aa877f6ce3e688c0a26118",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "基础",
-      "core_meaning_en": "base or underlying support",
-      "mental_model_cn": "基础",
+      "core_clusters": [
+        {
+          "label_cn": "基础；根据；地基；基金会；基础训练；基本原理；粉底；用于底妆的化妆品",
+          "label_en": "the basis on which something is grounded; underlying principle; lowest load-bearing part of a building or structure; an institution established by an endowment to support a cause; education or instruction in the fundamentals of a field; a skin-coloured cosmetic used as a base for other makeup",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:foundation:8c6044501eea59cb",
+            "sense:foundation:f419b4c9128d5109",
+            "sense:foundation:2a44d21c49375e73",
+            "sense:foundation:066efbe33a01595f",
+            "sense:foundation:d9ccbb0e45fe9ebd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "基础、地基、基金会或基础训练；粉底",
+      "core_meaning_en": "a basis, building foundation, foundation organization, or fundamentals; makeup foundation",
+      "mental_model_cn": "foundation可指论据基础、建筑地基、基金会或基础训练；化妆语境apply foundation是涂粉底。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -136,6 +149,28 @@
         "sense_label_en": "education or instruction in the fundamentals of a field",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:foundation:d9ccbb0e45fe9ebd",
+        "pos": "noun",
+        "definition_cn": "粉底；用于底妆的化妆品",
+        "definition_en": "a skin-coloured cosmetic used as a base for other makeup",
+        "sense_label_en": "a skin-coloured cosmetic used as a base for other makeup",
+        "governing_pattern": "apply/wear foundation",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:47a06e96082367169029",
+            "phrase": "apply foundation",
+            "meaning_cn": "涂粉底",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -183,6 +218,23 @@
           "applicability": [
             {
               "surface": "foundation"
+            },
+            {
+              "surface": "foundation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:foundation:d9ccbb0e45fe9ebd"
+              ],
+              "owner_sense_ids": [
+                "sense:foundation:d9ccbb0e45fe9ebd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2026.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "apply/wear foundation"
+              }
             }
           ],
           "sources": [
@@ -254,6 +306,14 @@
         "merged_into_sense_id": null,
         "source_row": 5637,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:foundation:d9ccbb0e45fe9ebd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2026.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -295,6 +355,13 @@
         "id": "collocation:dfec7ec7377ae8dfec6a",
         "source_row": 18945,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:47a06e96082367169029",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2026.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

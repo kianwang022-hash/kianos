@@ -26,7 +26,7 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "阅读；读懂/解读；显示/标明",
+          "label_cn": "阅读；读懂；朗读/解读；显示/标明",
           "label_en": "read/understand text; interpret; show or state information",
           "pos": "verb",
           "sense_ids": [
@@ -408,9 +408,9 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "阅读；读懂",
-        "definition_en": "look at and understand written words",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "阅读；读懂；朗读",
+        "definition_en": "to understand written words or symbols, or say written words aloud",
+        "governing_pattern": "I/T: read (sth); read sth to sb; read sb sth",
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -422,9 +422,15 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:read:cb13f22a2dae588e",
-        "sense_label_en": "look at and understand written words",
+        "sense_label_en": "to understand written words or symbols, or say written words aloud",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/read_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       },
       {
         "collocations": [
@@ -436,6 +442,18 @@
             ],
             "meaning_cn": "解读形势",
             "phrase": "read the situation"
+          },
+          {
+            "collocation_id": "collocation:read:1ddeac914d795f90",
+            "phrase": "read someone's mind",
+            "meaning_cn": "看出某人在想什么",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/read_1",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -501,6 +519,59 @@
         "sense_label_en": "to show, state, or indicate information, as on a sign, display, or instrument",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:read:13d14830faec3fb1",
+        "pos": "verb",
+        "definition_cn": "读起来给人某种印象",
+        "definition_en": "to produce a particular impression through its wording",
+        "sense_label_en": "to produce a particular impression through its wording",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "read + adverb; read like sth",
+        "transitivity": "vi",
+        "usage_note": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:read:50960b8aea82d05c",
+            "phrase": "The report reads well.",
+            "meaning_cn": "这篇报告读起来很顺畅。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/read_1",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/read_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:read:39021f00a61f5259",
+        "pos": "verb",
+        "definition_cn": "（英式正式或旧用法）攻读（学科、学位）",
+        "definition_en": "to study an academic subject at university",
+        "sense_label_en": "to study an academic subject at university",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "read sth; read for a degree",
+        "transitivity": "vt/vi",
+        "usage_note": "英国正式或较旧的大学语境；不等于随便读一本书。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/read_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -553,12 +624,26 @@
         "merged_into_sense_id": null,
         "source_row": 11083,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:read:13d14830faec3fb1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3956.json"
+      },
+      {
+        "sense_id": "sense:read:39021f00a61f5259",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3956.json"
       }
     ],
     "active_collocations": [
       "collocation:0c97141db76a9af9b871",
       "collocation:0cd70d36459048a44648",
-      "collocation:91abb1904365042de145"
+      "collocation:91abb1904365042de145",
+      "collocation:read:1ddeac914d795f90",
+      "collocation:read:50960b8aea82d05c"
     ],
     "facts": [],
     "collocations": [
@@ -576,6 +661,14 @@
         "id": "collocation:0c97141db76a9af9b871",
         "source_row": 21600,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:read:1ddeac914d795f90",
+        "source_path": "content/lexical/words/by-ordinal/o3956.json"
+      },
+      {
+        "id": "collocation:read:50960b8aea82d05c",
+        "source_path": "content/lexical/words/by-ordinal/o3956.json"
       }
     ],
     "exam-mappings": [],

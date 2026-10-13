@@ -11,35 +11,37 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "喜爱；渴望；想象力；幻想",
-          "label_en": "a feeling of liking or wanting something; the faculty of imagination, especially when whimsical",
+          "label_cn": "想象；想要；觉得有吸引力",
+          "label_en": "imagine, want, or find attractive",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:fancy:213d7ecba83b5927",
+            "sense:fancy:8faf1f2187145324",
+            "sense:fancy:33651673400f1e8e"
+          ]
+        },
+        {
+          "label_cn": "花哨；高档",
+          "label_en": "elaborate or expensive/high-quality",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fancy:acf5774f0c195fd7",
+            "sense:fancy:3035c02515a89d15"
+          ]
+        },
+        {
+          "label_cn": "喜好；幻想",
+          "label_en": "a liking or imaginative idea",
           "pos": "noun",
           "sense_ids": [
             "sense:fancy:0a25a40c5cdb5cf0",
             "sense:fancy:a11225bca41e50c6"
           ]
-        },
-        {
-          "label_cn": "花哨的；精致的",
-          "label_en": "elaborate in design or decoration; not plain",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:fancy:acf5774f0c195fd7"
-          ]
-        },
-        {
-          "label_cn": "想象；设想；喜欢；想要",
-          "label_en": "to imagine or suppose something; to like or want something",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:fancy:213d7ecba83b5927",
-            "sense:fancy:8faf1f2187145324"
-          ]
         }
       ],
-      "core_meaning_cn": "想象；喜爱；花哨",
-      "core_meaning_en": "imagination, liking, or elaborate decoration",
-      "mental_model_cn": "想象；喜爱；花哨",
+      "core_meaning_cn": "喜欢、想要或想象；花哨、高档；喜好或幻想",
+      "core_meaning_en": "want, be attracted, or imagine; elaborate or expensive; a liking or fancy",
+      "mental_model_cn": "fancy doing想做，fancy sb在吸引力语境是喜欢某人；fancy that/oneself是想象。物品可花哨，酒店等可高档昂贵；名词指喜好或幻想。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -126,21 +128,12 @@
             ],
             "meaning_cn": "想象…",
             "phrase": "fancy (that) ..."
-          },
-          {
-            "collocation_id": "collocation:7e0595bf0077a7847012",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fancy:213d7ecba83b5927:collocation:1"
-            ],
-            "meaning_cn": "想象做…",
-            "phrase": "fancy doing + sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "想象；设想",
         "definition_en": "to imagine or suppose something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "fancy (that)…; fancy oneself as…; Fancy meeting you here!",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -168,12 +161,21 @@
             ],
             "meaning_cn": "想喝一杯吗？",
             "phrase": "fancy a drink?"
+          },
+          {
+            "collocation_id": "collocation:7e0595bf0077a7847012",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:fancy:213d7ecba83b5927:collocation:1"
+            ],
+            "meaning_cn": "（英式非正式）想做某事；Fancy meeting you here! 等感叹语则是“真没想到”",
+            "phrase": "fancy doing + sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "喜欢；想要",
         "definition_en": "to like or want something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "fancy sth; fancy doing sth (British informal)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -205,6 +207,50 @@
         "sense_label_en": "the faculty of imagination, especially when whimsical",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fancy:3035c02515a89d15",
+        "pos": "adjective",
+        "definition_cn": "高档的；昂贵的",
+        "definition_en": "expensive or of high quality, sometimes said critically",
+        "sense_label_en": "expensive or of high quality, sometimes said critically",
+        "governing_pattern": "informal, usually before a noun: a fancy hotel/restaurant",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5c1535cc97b243ac4727",
+            "phrase": "a fancy hotel",
+            "meaning_cn": "一家高档酒店",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fancy:33651673400f1e8e",
+        "pos": "verb",
+        "definition_cn": "（非正式）觉得某人有吸引力；喜欢上某人",
+        "definition_en": "to find someone romantically or sexually attractive",
+        "sense_label_en": "to find someone romantically or sexually attractive",
+        "governing_pattern": "informal, especially British: fancy sb",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe5b0428390804c4ee3e",
+            "phrase": "She fancies him.",
+            "meaning_cn": "她觉得他有吸引力。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -234,6 +280,40 @@
           "applicability": [
             {
               "surface": "fancy"
+            },
+            {
+              "surface": "fancy",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:fancy:3035c02515a89d15"
+              ],
+              "owner_sense_ids": [
+                "sense:fancy:3035c02515a89d15"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1859.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "informal, usually before a noun: a fancy hotel/restaurant"
+              }
+            },
+            {
+              "surface": "fancy",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fancy:33651673400f1e8e"
+              ],
+              "owner_sense_ids": [
+                "sense:fancy:33651673400f1e8e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1859.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "informal, especially British: fancy sb"
+              }
             }
           ],
           "sources": [
@@ -505,6 +585,22 @@
         "merged_into_sense_id": null,
         "source_row": 5098,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
+      },
+      {
+        "sense_id": "sense:fancy:3035c02515a89d15",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1859.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:fancy:33651673400f1e8e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1859.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -528,7 +624,8 @@
       {
         "id": "collocation:7e0595bf0077a7847012",
         "source_row": 10653,
-        "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json",
+        "sense_id": "sense:fancy:8faf1f2187145324"
       },
       {
         "id": "collocation:8c1af7eb8dae02f6ea00",
@@ -564,6 +661,20 @@
         "id": "collocation:ff3d3d41b48510608028",
         "source_row": 21577,
         "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+      },
+      {
+        "id": "collocation:5c1535cc97b243ac4727",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1859.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:fe5b0428390804c4ee3e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1859.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

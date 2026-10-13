@@ -29,15 +29,50 @@
         "meaning_cn": "失去勇气或信心；临阵退缩",
         "pattern": "lose one's nerve",
         "source_sense_id": "sense:nerve:b803629c0862597e"
+      },
+      {
+        "construction_id": "construction:8473ffccc2a0a6fddbad",
+        "pattern": "have a nerve / What a nerve!",
+        "meaning_cn": "竟敢如此；真厚脸皮、真无礼",
+        "definition_en": "criticize behaviour as audacious or rude",
+        "usage_note": "非正式，常表示说话人不满；与单纯赞扬有勇气不同。have the nerve to do也可依语境带不满。",
+        "boundary": "非正式，常表示说话人不满；与单纯赞扬有勇气不同。have the nerve to do也可依语境带不满。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "b5bcf8191a8f24dfe33d1620c56660475c2aa417f67f463be523db62d29d01b2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "神经；勇气",
-      "core_meaning_en": "a bundle of fibers transmitting impulses, or courage",
-      "mental_model_cn": "神经；勇气",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "神经",
+          "label_en": "a bundle of nerve fibers running to organs and tissues",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nerve:eb0b766437ca5e19"
+          ]
+        },
+        {
+          "label_cn": "勇气；胆量",
+          "label_en": "boldness or courage",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nerve:b803629c0862597e"
+          ]
+        },
+        {
+          "label_cn": "（复数nerves）紧张、焦虑的情绪",
+          "label_en": "feelings of anxiety, worry or tension",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:nerve:d1357e0914820497"
+          ]
+        }
+      ],
+      "core_meaning_cn": "神经；胆量；紧张感及无礼的胆大",
+      "core_meaning_en": "physical nerves; courage; anxious feelings and audacity",
+      "mental_model_cn": "a nerve可指身体神经；lose your nerve失去胆量，calm your nerves缓解紧张。What a nerve!常指厚脸皮，须看语气，不能一律当赞扬勇气。",
+      "mental_model_en": "physical nerves; courage; anxious feelings and audacity."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -78,6 +113,28 @@
         "sense_label_en": "boldness or courage",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:nerve:d1357e0914820497",
+        "pos": "noun",
+        "definition_cn": "（复数nerves）紧张、焦虑的情绪",
+        "definition_en": "feelings of anxiety, worry or tension",
+        "sense_label_en": "feelings of anxiety, worry or tension",
+        "governing_pattern": "nerves; calm/settle/steady sb’s nerves",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3cf7bee3d6bdfebc0190",
+            "phrase": "calm your nerves",
+            "meaning_cn": "缓解你的紧张情绪",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -158,6 +215,24 @@
           "applicability": [
             {
               "surface": "nerve"
+            },
+            {
+              "surface": "nerve",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "owner_sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3210.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nerves; calm/settle/steady sb’s nerves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -243,6 +318,24 @@
           "applicability": [
             {
               "surface": "nerve"
+            },
+            {
+              "surface": "nerve",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "owner_sense_ids": [
+                "sense:nerve:d1357e0914820497"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3210.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nerves; calm/settle/steady sb’s nerves",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -365,9 +458,19 @@
         "merged_into_sense_id": null,
         "source_row": 8932,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:nerve:d1357e0914820497",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3210.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:3cf7bee3d6bdfebc0190"
+    ],
     "facts": [
       {
         "id": "deep:word_family:nerve:935ecb2eb46c5f14",
@@ -400,6 +503,13 @@
         "id": "collocation:c8baf19897dc917bd2d8",
         "source_row": 16962,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:3cf7bee3d6bdfebc0190",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3210.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

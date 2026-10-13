@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "fdc1017f5af37d4134f7666addcf000a6690c1eabdf3564d943e2ed4f355302e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "分离，隔离",
-      "core_meaning_en": "to separate something from others",
-      "mental_model_cn": "people/things → 隔离、孤立；science → 从混合物中分离/提取。心理治疗语境“把经历与情感分离”专门义保留为 Reference。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "隔离、孤立；分离提取；确定并分离研究对象",
+          "label_en": "to set apart, extract, or identify a component for study",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:isolate:9fc30532ba6d5756",
+            "sense:isolate:0f841e1811ea54a0",
+            "sense:isolate:60a5f9e8a5a9fc72"
+          ]
+        }
+      ],
+      "core_meaning_cn": "隔离、孤立；分离提取；确定并分离研究对象",
+      "core_meaning_en": "to set apart, extract, or identify a component for study",
+      "mental_model_cn": "people/things → 隔离、孤立；substance → 分离提取；problem/factor → 确定并分离研究；心理治疗专门义仍在 Reference。",
+      "mental_model_en": "to set apart, extract, or identify a component for study."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -88,6 +99,28 @@
         "sense_label_en": "to obtain a substance in pure form",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:isolate:60a5f9e8a5a9fc72",
+        "pos": "verb",
+        "definition_cn": "确定、分离出（问题、因素等以便研究）",
+        "definition_en": "to identify and separate a component, issue or factor for closer study",
+        "sense_label_en": "to identify and separate a component, issue or factor for closer study",
+        "governing_pattern": "isolate a problem/factor/variable",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:de52dc63c94495afe231",
+            "phrase": "isolate the main cause",
+            "meaning_cn": "确定并分离出主要原因",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -172,6 +205,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈaɪsəleɪt/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "isolate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:isolate:60a5f9e8a5a9fc72"
+              ],
+              "owner_sense_ids": [
+                "sense:isolate:60a5f9e8a5a9fc72"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/isolate",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "isolate",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  3
+                ]
+              },
+              "original_ipa": "/ˈaɪsəleɪt/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -234,13 +308,22 @@
         "merged_into_sense_id": null,
         "source_row": 7308,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
+      {
+        "sense_id": "sense:isolate:60a5f9e8a5a9fc72",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2651.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:2406e32c5aa9e1ed7ef9",
-      "collocation:291f831b4eba9274fb49",
       "collocation:2db77ccc85fdf4da2b2e",
-      "collocation:de19de3853f6401b5e82"
+      "collocation:de19de3853f6401b5e82",
+      "collocation:291f831b4eba9274fb49",
+      "collocation:de52dc63c94495afe231"
     ],
     "facts": [],
     "collocations": [
@@ -277,6 +360,13 @@
         "id": "collocation:de19de3853f6401b5e82",
         "source_row": 18800,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:de52dc63c94495afe231",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2651.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

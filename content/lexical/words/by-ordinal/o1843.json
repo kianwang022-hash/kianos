@@ -9,10 +9,29 @@
     "constructions": [],
     "content_hash": "9ab2fd130a4d1a147dbd606e11540702a67ccbc494f6652d2561779c538bc447",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "失败或失败的人/事",
-      "core_meaning_en": "lack of success or the person/thing that fails",
-      "mental_model_cn": "失败或失败的人/事",
+      "core_clusters": [
+        {
+          "label_cn": "未成功或未做到",
+          "label_en": "unsuccessful result or omission",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:failure:ade6e5311f035881",
+            "sense:failure:001cba38921d52f8",
+            "sense:failure:50e411601e585679"
+          ]
+        },
+        {
+          "label_cn": "功能失效",
+          "label_en": "loss of normal function",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:failure:ebb9b7b7f8273df2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "未达到目标或未做到；功能失效",
+      "core_meaning_en": "lack of success or required action; loss of function",
+      "mental_model_cn": "任务语境是失败，a failure可指失败的人或事；failure to do按语境指未做到或未履行；engine/power/organ failure指功能停止正常发挥。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,6 +122,28 @@
         "sense_label_en": "the fact of not doing something that should be done",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:failure:ebb9b7b7f8273df2",
+        "pos": "noun",
+        "definition_cn": "失灵；故障；（器官等）功能衰竭",
+        "definition_en": "a loss of normal function in a machine, system, or body part",
+        "sense_label_en": "a loss of normal function in a machine, system, or body part",
+        "governing_pattern": "engine/power/organ failure; failure of a system",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b84b03c277ba1207bbed",
+            "phrase": "engine failure",
+            "meaning_cn": "发动机故障",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -142,6 +183,23 @@
           "applicability": [
             {
               "surface": "failure"
+            },
+            {
+              "surface": "failure",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:failure:ebb9b7b7f8273df2"
+              ],
+              "owner_sense_ids": [
+                "sense:failure:ebb9b7b7f8273df2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1843.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "engine/power/organ failure; failure of a system"
+              }
             }
           ],
           "sources": [
@@ -259,6 +317,14 @@
         "merged_into_sense_id": null,
         "source_row": 5044,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:failure:ebb9b7b7f8273df2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1843.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -288,6 +354,13 @@
         "id": "collocation:c9211552520fddb9e870",
         "source_row": 16992,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:b84b03c277ba1207bbed",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1843.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

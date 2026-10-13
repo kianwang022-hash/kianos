@@ -11,27 +11,32 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "单脚跳；跳跃",
-          "label_en": "to jump lightly, especially on one foot",
+          "label_cn": "单脚跳；跳跃；跃过；跳上；（非正式）迅速或突然地去某处；（北美）登上（飞机、车等）；（在活动、话题等之间）不断转换",
+          "label_en": "to jump lightly, especially on one foot; to jump over or onto something; to move somewhere quickly; to board a plane or vehicle; to switch between activities or subjects",
           "pos": "verb",
           "sense_ids": [
-            "sense:hop:f2afd4557f785591"
+            "sense:hop:f2afd4557f785591",
+            "sense:hop:63f71a7c2e1c512b",
+            "sense:hop:7c7b491c99a88398",
+            "sense:hop:3832a25c2fd43167",
+            "sense:hop:3ba135b43a6ca04c"
           ]
         },
         {
-          "label_cn": "单脚跳；跳跃；蛇麻子（啤酒花）",
-          "label_en": "a short jump, especially on one foot; hops used in brewing",
+          "label_cn": "单脚跳；跳跃；蛇麻；（复数 hops）酿酒用啤酒花；短途旅行；短程飞行",
+          "label_en": "a short jump, especially on one foot; a climbing plant, or its dried flowers used in brewing (usually plural hops); a short journey, especially by air",
           "pos": "noun",
           "sense_ids": [
             "sense:hop:afca4eb111175adb",
-            "sense:hop:9ad84e6e2e175a88"
+            "sense:hop:9ad84e6e2e175a88",
+            "sense:hop:db77e221b6c46305"
           ]
         }
       ],
-      "core_meaning_cn": "轻跳，单脚跳",
-      "core_meaning_en": "to jump lightly on one foot or with both feet together",
-      "mental_model_cn": "movement → 轻跳/单脚跳；hop over/on → 跳过/跳上；brewing → hops 啤酒花。旧式“舞会”名词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "轻跳、单脚跳或跃过；迅速移动、登上交通工具或转换活动；一次跳跃、短途行程或啤酒花",
+      "core_meaning_en": "hop or jump over; move quickly, board or switch; a jump, short trip or hop plant",
+      "mental_model_cn": "从短促跳跃联想到快速移动；hop plant 与酿酒用的 hops 由植物语境识别。",
+      "mental_model_en": "hop or jump over; move quickly, board or switch; a jump, short trip or hop plant."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -111,14 +116,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "蛇麻子（啤酒花）",
-        "definition_en": "a twining plant whose dried flowers are used in brewing",
-        "governing_pattern": "",
+        "definition_cn": "蛇麻；（复数 hops）酿酒用啤酒花",
+        "definition_en": "a climbing plant, or its dried flowers used in brewing (usually plural hops)",
+        "governing_pattern": "a hop plant; hops used in brewing",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hop:9ad84e6e2e175a88",
-        "sense_label_en": "a twining plant whose dried flowers are used in brewing",
+        "sense_label_en": "a climbing plant, or its dried flowers used in brewing (usually plural hops)",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -136,15 +141,105 @@
         ],
         "confidence": "medium",
         "definition_cn": "跃过；跳上",
-        "definition_en": "to jump over something",
+        "definition_en": "to jump over or onto something",
         "governing_pattern": "vt. + object",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hop:63f71a7c2e1c512b",
-        "sense_label_en": "to jump over something",
+        "sense_label_en": "to jump over or onto something",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:hop:7c7b491c99a88398",
+        "pos": "verb",
+        "definition_cn": "（非正式）迅速或突然地去某处",
+        "definition_en": "to move somewhere quickly",
+        "sense_label_en": "to move somewhere quickly",
+        "governing_pattern": "hop in/out; hop on/off; hop over to",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e65e6b2cd33e472626f2",
+            "phrase": "Hop in and I will drive you home.",
+            "meaning_cn": "快上车，我送你回家。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "这里不要求单脚跳；hop on a train 与及物 hop a train 分别看框架。"
+      },
+      {
+        "sense_id": "sense:hop:3832a25c2fd43167",
+        "pos": "verb",
+        "definition_cn": "（北美）登上（飞机、车等）",
+        "definition_en": "to board a plane or vehicle",
+        "sense_label_en": "to board a plane or vehicle",
+        "governing_pattern": "hop a plane/bus/train",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:07d91607d3df827b32eb",
+            "phrase": "She hopped a train to Boston.",
+            "meaning_cn": "她搭上了一班去波士顿的火车。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "北美登乘交通工具用法；hop a fence 则表示跃过障碍。"
+      },
+      {
+        "sense_id": "sense:hop:3ba135b43a6ca04c",
+        "pos": "verb",
+        "definition_cn": "（在活动、话题等之间）不断转换",
+        "definition_en": "to switch between activities or subjects",
+        "sense_label_en": "to switch between activities or subjects",
+        "governing_pattern": "hop from sth to sth",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2dfc10feb11a3f3b8bfd",
+            "phrase": "He hops from one project to another.",
+            "meaning_cn": "他从一个项目转到另一个项目。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hop:db77e221b6c46305",
+        "pos": "noun",
+        "definition_cn": "短途旅行；短程飞行",
+        "definition_en": "a short journey, especially by air",
+        "sense_label_en": "a short journey, especially by air",
+        "governing_pattern": "a short hop to/from sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:11833e23efb34b159766",
+            "phrase": "It is a short hop to the island.",
+            "meaning_cn": "到那个岛只是一次短途行程。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -190,6 +285,74 @@
           "applicability": [
             {
               "surface": "hop"
+            },
+            {
+              "surface": "hop",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hop:7c7b491c99a88398"
+              ],
+              "owner_sense_ids": [
+                "sense:hop:7c7b491c99a88398"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2366.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hop in/out; hop on/off; hop over to"
+            },
+            {
+              "surface": "hop",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hop:3832a25c2fd43167"
+              ],
+              "owner_sense_ids": [
+                "sense:hop:3832a25c2fd43167"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2366.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hop a plane/bus/train"
+            },
+            {
+              "surface": "hop",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hop:3ba135b43a6ca04c"
+              ],
+              "owner_sense_ids": [
+                "sense:hop:3ba135b43a6ca04c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2366.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hop from sth to sth"
+            },
+            {
+              "surface": "hop",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hop:db77e221b6c46305"
+              ],
+              "owner_sense_ids": [
+                "sense:hop:db77e221b6c46305"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2366.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a short hop to/from sth"
             }
           ],
           "sources": [
@@ -728,14 +891,50 @@
         "merged_into_sense_id": null,
         "source_row": 6610,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:hop:7c7b491c99a88398",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:hop:3832a25c2fd43167",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:hop:3ba135b43a6ca04c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:hop:db77e221b6c46305",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
       "collocation:2ad5a1abe4297f2e179e",
-      "collocation:89d9593f609313656ea0",
-      "collocation:a5112105a09d6bee31ad",
+      "collocation:eddbc2dfaaf2b1518422",
       "collocation:bb1134bc25c1ee57b9d9",
-      "collocation:eddbc2dfaaf2b1518422"
+      "collocation:a5112105a09d6bee31ad",
+      "collocation:89d9593f609313656ea0",
+      "collocation:e65e6b2cd33e472626f2",
+      "collocation:07d91607d3df827b32eb",
+      "collocation:2dfc10feb11a3f3b8bfd",
+      "collocation:11833e23efb34b159766"
     ],
     "facts": [],
     "collocations": [
@@ -770,6 +969,34 @@
         "id": "collocation:eddbc2dfaaf2b1518422",
         "source_row": 20158,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:e65e6b2cd33e472626f2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:07d91607d3df827b32eb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:2dfc10feb11a3f3b8bfd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:11833e23efb34b159766",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2366.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

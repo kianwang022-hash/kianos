@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "变坏的情况；降低价值或用途的损害；军事装备的损失",
-          "label_en": "the occurrence of a change for the worse; harm that reduces value or usefulness; loss of military equipment",
+          "label_cn": "损害；损伤；（damages）损害赔偿金",
+          "label_en": "harm or injury; damages as monetary compensation",
           "pos": "noun",
           "sense_ids": [
-            "sense:damage:6142c2adb46a55cc"
+            "sense:damage:6142c2adb46a55cc",
+            "sense:damage:2abf53bc5a4194ab"
           ]
         },
         {
@@ -27,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "损害或损伤",
-      "core_meaning_en": "harm or injury that impairs value or function",
-      "mental_model_cn": "损害或损伤",
+      "core_meaning_cn": "损害或损伤；damages可指赔偿金",
+      "core_meaning_en": "harm or injury; damages can mean compensation",
+      "mental_model_cn": "damage sth是动词直接带宾语，damage to sth是名词损害；法律语境claim/pay damages指赔偿金。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,22 +66,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "变坏的情况；降低价值或用途的损害",
-        "definition_en": "the occurrence of a change for the worse; harm that reduces value or usefulness",
+        "definition_cn": "损害；损伤；使价值或功能降低的破坏",
+        "definition_en": "harm or injury that reduces value, usefulness or sound condition",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:damage:6142c2adb46a55cc",
-        "sense_label_en": "the occurrence of a change for the worse; harm that reduces value or use",
+        "sense_label_en": "harm that reduces value or usefulness",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "损害义通常不可数；do/cause damage to sth，动词则直接damage sth。"
       },
       {
         "collocations": [
           {
             "collocation_id": "collocation:3f6b2c1e8e215e66ca49",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:damage:fa0565a4d08b5410:collocation:0"
             ],
@@ -108,6 +110,28 @@
         "sense_label_en": "inflict damage upon; harm or impair",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:damage:2abf53bc5a4194ab",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "（damages，复数）损害赔偿金",
+        "definition_en": "money paid as compensation for harm or loss",
+        "sense_label_en": "money paid as compensation for harm or loss",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:7b4e42ac1766dcfbbe1f",
+            "exam_value": "usage_example",
+            "phrase": "claim damages",
+            "meaning_cn": "要求损害赔偿"
+          }
+        ],
+        "usage_note": "赔偿金义用复数damages；不要误当成一般损害义的普通复数。"
       }
     ],
     "verification_summary": {
@@ -341,13 +365,20 @@
         "merged_into_sense_id": null,
         "source_row": 3408,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
+      },
+      {
+        "sense_id": "sense:damage:2abf53bc5a4194ab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1209.json"
       }
     ],
     "active_collocations": [
-      "collocation:3f6b2c1e8e215e66ca49",
       "collocation:4ead61a207e7350411f8",
       "collocation:6416f025c291758c1f7c",
-      "collocation:9d30c15a167219c03116"
+      "collocation:9d30c15a167219c03116",
+      "collocation:7b4e42ac1766dcfbbe1f"
     ],
     "facts": [
       {
@@ -360,7 +391,9 @@
       {
         "id": "collocation:3f6b2c1e8e215e66ca49",
         "source_row": 5374,
-        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4ead61a207e7350411f8",
@@ -381,6 +414,11 @@
         "id": "collocation:b50758977b710d5e131e",
         "source_row": 15341,
         "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:7b4e42ac1766dcfbbe1f",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1209.json"
       }
     ],
     "exam-mappings": [],

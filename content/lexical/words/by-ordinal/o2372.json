@@ -6,32 +6,57 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:76ab3b5642b77d4c3468",
+        "pattern": "lock horns with sb over sth",
+        "meaning_cn": "与某人就某事激烈争论",
+        "definition_en": "to clash in argument",
+        "usage_note": "不是实际长出角；with 接对手，over 接争论事项。",
+        "boundary": "不是实际长出角；with 接对手，over 接争论事项。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:fa34698ce6ec8c55c618",
+        "pattern": "on the horns of a dilemma",
+        "meaning_cn": "进退两难；面对两个不利选择",
+        "definition_en": "facing two unpleasant alternatives",
+        "usage_note": "强调两种选择都不好，不只是泛指任何难题。",
+        "boundary": "强调两种选择都不好，不只是泛指任何难题。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:fa18068213b833284073",
+        "pattern": "blow/toot your own horn",
+        "meaning_cn": "自吹自擂；自夸",
+        "definition_en": "to praise your own achievements",
+        "usage_note": "北美、非正式；英式常用 blow your own trumpet。",
+        "boundary": "北美、非正式；英式常用 blow your own trumpet。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "c86e8181d2010bc0be0755508d1a5e2cf2939fafc4dca0b34289a30aea8bcb86",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "角；喇叭、警报器；马鞍鞍头",
-          "label_en": "an animal horn; a warning/signal horn; a saddle horn",
+          "label_cn": "（动物头上的）角；喇叭；警报器；号；圆号等管乐器；（动物角的）角质材料",
+          "label_en": "a hard pointed growth on the head of some animals; a device that makes a loud noise, used as a warning or signal; a wind musical instrument played by blowing, especially a curved metal instrument such as the French horn; the hard material of animal horns",
           "pos": "noun",
           "sense_ids": [
             "sense:horn:e8bf14671a2e5ada",
-            "sense:horn:f798fdad42545feb"
-          ]
-        },
-        {
-          "label_cn": "号；圆号等管乐器",
-          "label_en": "a wind musical instrument such as the French horn",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:horn:8bdf3151e6fb0e0a"
+            "sense:horn:f798fdad42545feb",
+            "sense:horn:8bdf3151e6fb0e0a",
+            "sense:horn:9b32d14b72a76170"
           ]
         }
       ],
-      "core_meaning_cn": "动物的角；警报/车喇叭；还可指号、圆号等管乐器",
-      "core_meaning_en": "an animal horn; a warning horn; also a wind musical instrument",
-      "mental_model_cn": "animal → 角；vehicle/signal → 喇叭/警报器；music → horn = 号、圆号等吹奏乐器。",
-      "mental_model_en": ""
+      "core_meaning_cn": "动物角或角质；鸣笛装置；号和圆号等管乐器",
+      "core_meaning_en": "an animal horn or horn material; a signal horn or wind instrument",
+      "mental_model_cn": "动物角可作材料；鸣笛装置和号类乐器由发声用途识别。",
+      "mental_model_en": "an animal horn or horn material; a signal horn or wind instrument."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -54,14 +79,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "角",
-        "definition_en": "one of the bony outgrowths on the heads of certain ungulates",
+        "definition_cn": "（动物头上的）角",
+        "definition_en": "a hard pointed growth on the head of some animals",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:horn:e8bf14671a2e5ada",
-        "sense_label_en": "one of the bony outgrowths on the heads of certain ungulates",
+        "sense_label_en": "a hard pointed growth on the head of some animals",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -89,10 +114,33 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:horn:8bdf3151e6fb0e0a",
-        "sense_label_en": "a wind musical instrument played by blowing",
+        "sense_label_en": "a wind musical instrument played by blowing, especially a curved metal instrument such as the French horn",
         "sort_order": 2,
         "transitivity": "nonverb",
         "usage_note": "music sense; distinct from a vehicle warning horn and an animal horn"
+      },
+      {
+        "sense_id": "sense:horn:9b32d14b72a76170",
+        "pos": "noun",
+        "definition_cn": "（动物角的）角质材料",
+        "definition_en": "the hard material of animal horns",
+        "sense_label_en": "the hard material of animal horns",
+        "governing_pattern": "made of horn",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:46254f617722477ae870",
+            "phrase": "The old comb was made of horn.",
+            "meaning_cn": "那把旧梳子用角质材料制成。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "材料义不可数；动物头上的一只角可数。"
       }
     ],
     "verification_summary": {
@@ -133,6 +181,23 @@
           "applicability": [
             {
               "surface": "horn"
+            },
+            {
+              "surface": "horn",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:horn:9b32d14b72a76170"
+              ],
+              "owner_sense_ids": [
+                "sense:horn:9b32d14b72a76170"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2372.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "made of horn"
             }
           ],
           "sources": [
@@ -375,10 +440,19 @@
         "merged_into_sense_id": null,
         "source_row": 6625,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:horn:9b32d14b72a76170",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2372.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:83fb2247589448b4604d"
+      "collocation:83fb2247589448b4604d",
+      "collocation:46254f617722477ae870"
     ],
     "facts": [],
     "collocations": [
@@ -410,6 +484,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json",
         "status": "reference",
         "merged_into_id": null
+      },
+      {
+        "id": "collocation:46254f617722477ae870",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2372.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -11,25 +11,27 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "财政；金融",
-          "label_en": "the management of money, credit, banking, and investments",
+          "label_cn": "财政，金融；资金；（常用复数）财务资源或状况",
+          "label_en": "the management of money, credit, banking, and investments; money available for a purpose, or the resources and financial position of a person or organization",
           "pos": "noun",
           "sense_ids": [
-            "sense:finance:8ca93dd81d5656e2"
+            "sense:finance:8ca93dd81d5656e2",
+            "sense:finance:d7786cb013dcb49c"
           ]
         },
         {
-          "label_cn": "为……提供资金",
-          "label_en": "to provide money for something",
+          "label_cn": "为……提供资金；为……筹集资金",
+          "label_en": "to provide money for something; to raise money for something",
           "pos": "verb",
           "sense_ids": [
-            "sense:finance:3a1981408a2053e8"
+            "sense:finance:3a1981408a2053e8",
+            "sense:finance:70052fa5c48e597f"
           ]
         }
       ],
-      "core_meaning_cn": "财政，金融；资助",
-      "core_meaning_en": "money management or providing money",
-      "mental_model_cn": "财政，金融；资助",
+      "core_meaning_cn": "财政、金融管理或资金；提供、筹集资金",
+      "core_meaning_en": "money management or funds; provide or raise money",
+      "mental_model_cn": "finance可为管理钱的活动，也可为项目资金；one’s finances是财务资源/状况。动词finance项目是提供或筹集资金。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,6 +102,34 @@
         "sense_label_en": "to raise money for something",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:finance:d7786cb013dcb49c",
+        "pos": "noun",
+        "definition_cn": "资金；（常用复数）财务资源或状况",
+        "definition_en": "money available for a purpose, or the resources and financial position of a person or organization",
+        "sense_label_en": "money available for a purpose, or the resources and financial position of a person or organization",
+        "governing_pattern": "uncountable finance for a project; plural finances",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:35e712dec05a7e9af544",
+            "phrase": "seek finance for a project",
+            "meaning_cn": "为项目寻求资金",
+            "exam_value": "fixed_pattern"
+          },
+          {
+            "collocation_id": "collocation:5273e570592188f2b8af",
+            "phrase": "put one’s finances in order",
+            "meaning_cn": "整理好自己的财务",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -140,6 +170,23 @@
           "applicability": [
             {
               "surface": "finance"
+            },
+            {
+              "surface": "finance",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:finance:d7786cb013dcb49c"
+              ],
+              "owner_sense_ids": [
+                "sense:finance:d7786cb013dcb49c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1927.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "uncountable finance for a project; plural finances"
+              }
             }
           ],
           "sources": [
@@ -408,6 +455,14 @@
         "merged_into_sense_id": null,
         "source_row": 5308,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:finance:d7786cb013dcb49c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1927.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -435,6 +490,20 @@
         "id": "collocation:ff102356809e91229d05",
         "source_row": 21567,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:35e712dec05a7e9af544",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1927.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:5273e570592188f2b8af",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1927.json",
+        "source_pointer": "/record/senses/3/collocations/1"
       }
     ],
     "exam-mappings": [],

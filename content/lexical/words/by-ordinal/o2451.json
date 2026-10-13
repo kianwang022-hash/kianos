@@ -6,14 +6,55 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e83902880c1ceea9c59d",
+        "pattern": "capture/catch sb’s imagination",
+        "meaning_cn": "引起某人的兴趣或兴奋",
+        "definition_en": "to interest and excite somebody",
+        "usage_note": "主语是故事、计划等；不是控制其想象能力。",
+        "boundary": "主语是故事、计划等；不是控制其想象能力。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:19adc5d53a6c51287b90",
+        "pattern": "not by any stretch of the imagination / by no stretch of the imagination",
+        "meaning_cn": "无论怎样想都不能说；怎么也不",
+        "definition_en": "used to emphatically reject a description or claim",
+        "usage_note": "否定范围是所作判断，不是说某人没有创造力。",
+        "boundary": "否定范围是所作判断，不是说某人没有创造力。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:7544592742d325e12558",
+        "pattern": "beyond sb’s wildest imagination / never in sb’s wildest imagination",
+        "meaning_cn": "远超所能想象；做梦也没想到",
+        "definition_en": "far beyond what somebody could imagine; completely unexpected",
+        "usage_note": "beyond强调超过预期，never in强调从未预料到。",
+        "boundary": "beyond强调超过预期，never in强调从未预料到。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "9d35b9ad38afce2e07261e427e52d61870da200b59dbfbabf8b1e989b96a49d3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "形成不在眼前事物的心理图像或想法的能力",
-      "core_meaning_en": "the ability to form mental images or ideas of things not present",
-      "mental_model_cn": "形成不在眼前事物的心理图像或想法的能力",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "头脑生成画面、创意或想象内容",
+          "label_en": "mental image-making, creativity, or imagined content",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:imagination:cf3f24e5fb995067",
+            "sense:imagination:3f7ed284089faca2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "头脑生成画面、创意或想象内容",
+      "core_meaning_en": "mental image-making, creativity, or imagined content",
+      "mental_model_cn": "能力与产物分开：show imagination是有创意；only in your imagination是非现实的想象。capture强调引起兴趣，否定stretch强调判断绝不成立。",
+      "mental_model_en": "mental image-making, creativity, or imagined content."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,16 +86,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "想象力；想象",
-        "definition_en": "the ability to form pictures or ideas in your mind of things that are not real or present",
+        "definition_cn": "想象力；创造新颖想法的能力",
+        "definition_en": "the capacity to picture things in the mind or create original ideas",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:imagination:cf3f24e5fb995067",
-        "sense_label_en": "the ability to form pictures or ideas in your mind of things that are no",
+        "sense_label_en": "the capacity to picture things in the mind or create original ideas",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "创造性方案/写作中强调原创能力；与后文想象出的内容、假象区分。"
+      },
+      {
+        "sense_id": "sense:imagination:3f7ed284089faca2",
+        "pos": "noun",
+        "definition_cn": "想象出的内容；想象而非现实的事物",
+        "definition_en": "something conceived in the mind rather than existing in reality",
+        "sense_label_en": "something conceived in the mind rather than existing in reality",
+        "governing_pattern": "imagination rather than reality; in sb’s imagination",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:046b3239fa61a4d32cc7",
+            "phrase": "a product of her imagination",
+            "meaning_cn": "她想象出来的东西",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +148,23 @@
           "applicability": [
             {
               "surface": "imagination"
+            },
+            {
+              "surface": "imagination",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:imagination:3f7ed284089faca2"
+              ],
+              "owner_sense_ids": [
+                "sense:imagination:3f7ed284089faca2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2451.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "imagination rather than reality; in sb’s imagination"
             }
           ],
           "sources": [
@@ -201,11 +282,20 @@
         "merged_into_sense_id": "sense:imagination:cf3f24e5fb995067",
         "source_row": 6818,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:imagination:3f7ed284089faca2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2451.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:2262f8ce56a5f9ede6fe",
-      "collocation:bdb38424a3215884ecb2"
+      "collocation:bdb38424a3215884ecb2",
+      "collocation:046b3239fa61a4d32cc7"
     ],
     "facts": [],
     "collocations": [
@@ -228,6 +318,13 @@
         "id": "collocation:bdb38424a3215884ecb2",
         "source_row": 16058,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:046b3239fa61a4d32cc7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2451.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

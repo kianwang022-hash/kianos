@@ -9,11 +9,30 @@
     "constructions": [],
     "content_hash": "e10a462151a8a73e2ad916df6b1efb55301c809bc83c93224a55781a0cdc038c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "朋友",
-      "core_meaning_en": "a person you like and trust",
-      "mental_model_cn": "ordinary friend → 朋友。宗教名称 Friend（贵格会教徒）保留为 Reference。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "朋友；支持者；赞助者；（社交媒体上的）好友；联系人",
+          "label_en": "a person you know well and like; a person who supports a cause, organization, or activity; a person connected to you as a contact on social media",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:friend:4c7be4fe3f9c5403",
+            "sense:friend:0f6eabc811de7f05",
+            "sense:friend:aaee6935ca578ecf"
+          ]
+        },
+        {
+          "label_cn": "（在社交媒体上）加为好友",
+          "label_en": "to add someone to your social-media contacts",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:friend:4a43636cf7b1dbab"
+          ]
+        }
+      ],
+      "core_meaning_cn": "朋友、支持者或网上好友；加为好友",
+      "core_meaning_en": "a friend, supporter, or online contact; add an online friend",
+      "mental_model_cn": "熟人friend指朋友，机构的friend可指支持者；社交媒体friend为好友联系人，不一定在现实中熟识。动词friend为加某人为好友。",
+      "mental_model_en": "a friend, supporter, or online contact; add an online friend."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -58,6 +77,72 @@
         "sense_label_en": "a person you know well and like",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:friend:0f6eabc811de7f05",
+        "pos": "noun",
+        "definition_cn": "支持者；赞助者",
+        "definition_en": "a person who supports a cause, organization, or activity",
+        "sense_label_en": "a person who supports a cause, organization, or activity",
+        "governing_pattern": "a friend of an organization/cause",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4aa573b4c880c4dc2767",
+            "phrase": "a friend of the museum",
+            "meaning_cn": "博物馆的支持者",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:friend:aaee6935ca578ecf",
+        "pos": "noun",
+        "definition_cn": "（社交媒体上的）好友；联系人",
+        "definition_en": "a person connected to you as a contact on social media",
+        "sense_label_en": "a person connected to you as a contact on social media",
+        "governing_pattern": "an online/social-media friend",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:166fedf17ba01e604c4f",
+            "phrase": "an online friend",
+            "meaning_cn": "网上好友",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:friend:4a43636cf7b1dbab",
+        "pos": "verb",
+        "definition_cn": "（在社交媒体上）加为好友",
+        "definition_en": "to add someone to your social-media contacts",
+        "sense_label_en": "to add someone to your social-media contacts",
+        "governing_pattern": "friend sb on social media",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7b50b4805653234667b6",
+            "phrase": "She friended me online.",
+            "meaning_cn": "她在网上加我为好友。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -147,6 +232,57 @@
           "applicability": [
             {
               "surface": "friend"
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friend:0f6eabc811de7f05"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:0f6eabc811de7f05"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a friend of an organization/cause"
+              }
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friend:aaee6935ca578ecf"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:aaee6935ca578ecf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "an online/social-media friend"
+              }
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:friend:4a43636cf7b1dbab"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:4a43636cf7b1dbab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "friend sb on social media"
+              }
             }
           ],
           "sources": [
@@ -251,6 +387,30 @@
         "merged_into_sense_id": null,
         "source_row": 5707,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:friend:0f6eabc811de7f05",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:friend:aaee6935ca578ecf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:friend:4a43636cf7b1dbab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -274,6 +434,27 @@
         "id": "collocation:5db3a5471956cbfcac71",
         "source_row": 7886,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:4aa573b4c880c4dc2767",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:166fedf17ba01e604c4f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:7b50b4805653234667b6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2051.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

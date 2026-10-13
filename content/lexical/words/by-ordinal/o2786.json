@@ -27,7 +27,7 @@
       "core_clusters": [
         {
           "label_cn": "跳跃；跃起；剧增；急变；突然转变",
-          "label_en": "a jump or leap; a sudden increase or change",
+          "label_en": "a light, self-propelled movement upwards or forwards; a sudden large increase, change or advance",
           "pos": "noun",
           "sense_ids": [
             "sense:leap:af8fbee078be5eae",
@@ -35,8 +35,8 @@
           ]
         },
         {
-          "label_cn": "跳跃；突然移动；突然转变；急变；跃过；使跃过",
-          "label_en": "to jump or move suddenly; pass abruptly from one state or topic to another; to jump over or across something",
+          "label_cn": "跳跃；突然移动；剧增；突然转变；急变；跃过；使跃过",
+          "label_en": "to jump or move suddenly; to increase suddenly by a large amount, or pass abruptly from one state or topic to another; to jump over something, or make an animal jump over it",
           "pos": "verb",
           "sense_ids": [
             "sense:leap:30c7039e53f75935",
@@ -45,10 +45,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "跳跃；突然移动",
-      "core_meaning_en": "to jump or move suddenly",
-      "mental_model_cn": "literal → 跳跃；figurative → leap in prices = 激增；a leap of faith → 冒险相信。透明、低价值的“跃过距离”名词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "跳跃／跃过；突然移动；剧增／飞跃；急变",
+      "core_meaning_en": "jump or clear an obstacle; move suddenly; increase sharply or change abruptly",
+      "mental_model_cn": "literal leap是跳跃；prices/profits leap是猛涨；a leap forward是飞跃；leap a fence是跃过；leap a horse over使马跃过；a leap of faith是没有充分证据时的相信；leap to conclusions是过早下结论。",
+      "mental_model_en": "jump or clear an obstacle; move suddenly; increase sharply or change abruptly."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -138,13 +138,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "剧增；急变；突然转变",
-        "definition_en": "an abrupt transition",
-        "governing_pattern": "",
+        "definition_en": "a sudden large increase, change or advance",
+        "governing_pattern": "a leap in sth; a leap from ... to ...; a leap forward",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:leap:1cc56224198b5ff7",
-        "sense_label_en": "an abrupt transition",
+        "sense_label_en": "a sudden large increase, change or advance",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -158,17 +158,23 @@
             ],
             "meaning_cn": "从……突然变为……",
             "phrase": "leap from ... to ..."
+          },
+          {
+            "collocation_id": "collocation:28dab1509ab1e5d7bc8e",
+            "phrase": "Profits leapt to two million dollars.",
+            "meaning_cn": "利润猛增至两百万美元。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "突然转变；急变",
-        "definition_en": "pass abruptly from one state or topic to another",
-        "governing_pattern": "vi. + from/to",
+        "definition_cn": "剧增；突然转变；急变",
+        "definition_en": "to increase suddenly by a large amount, or pass abruptly from one state or topic to another",
+        "governing_pattern": "leap in value; leap from ... to ...; leap to an amount",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:leap:c7f7ffb8643e5d6e",
-        "sense_label_en": "pass abruptly from one state or topic to another",
+        "sense_label_en": "to increase suddenly by a large amount, or pass abruptly from one state or topic to another",
         "sort_order": 4,
         "transitivity": "vi"
       },
@@ -195,13 +201,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "跃过；使跃过",
-        "definition_en": "to jump over or across something",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to jump over something, or make an animal jump over it",
+        "governing_pattern": "leap an obstacle; leap a horse over an obstacle",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:leap:dcf3dc25e1945bf3",
-        "sense_label_en": "to jump over or across something",
+        "sense_label_en": "to jump over something, or make an animal jump over it",
         "sort_order": 5,
         "transitivity": "vt"
       }
@@ -489,12 +495,13 @@
     ],
     "active_collocations": [
       "collocation:5f20a6a6d2f56ae7cf98",
-      "collocation:631c3a075eb752129da7",
-      "collocation:a7da7e13aee47bae549b",
-      "collocation:aa3ed20a07477962e4cc",
       "collocation:af61dd6669beabf771c1",
-      "collocation:c07be273e24b26883ad6",
       "collocation:ed0af5d31953b97463c6",
+      "collocation:aa3ed20a07477962e4cc",
+      "collocation:a7da7e13aee47bae549b",
+      "collocation:631c3a075eb752129da7",
+      "collocation:28dab1509ab1e5d7bc8e",
+      "collocation:c07be273e24b26883ad6",
       "collocation:fb30273c16887b202178"
     ],
     "facts": [],
@@ -555,6 +562,13 @@
         "id": "collocation:fb30273c16887b202178",
         "source_row": 21254,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+      },
+      {
+        "id": "collocation:28dab1509ab1e5d7bc8e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2786.json",
+        "source_pointer": "/record/senses/3/collocations/1"
       }
     ],
     "exam-mappings": [],

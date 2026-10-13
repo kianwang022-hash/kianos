@@ -13,7 +13,8 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "由于；因为",
-        "pattern": "due to sth"
+        "pattern": "due to sth",
+        "boundary": "due to + noun phrase gives a cause; be due to + base verb gives an expected or planned event."
       }
     ],
     "content_hash": "3c06e586738992cfdcbcba636407a52b576e356d2923a4ec7437053ff3f8e11d",
@@ -21,7 +22,7 @@
       "core_clusters": [
         {
           "label_cn": "到期的；应付的；预定到达的；应得的",
-          "label_en": "owed and payable immediately or on demand; scheduled to arrive; that which is deserved or owed",
+          "label_en": "owed and payable at an agreed time; expected to happen; deserved",
           "pos": "adjective",
           "sense_ids": [
             "sense:due:8308e7dcc5035590",
@@ -30,11 +31,19 @@
           ]
         },
         {
-          "label_cn": "应付款；会费",
-          "label_en": "a payment that is due (e.g., as the price of membership)",
+          "label_cn": "应得之物；应付款；会费",
+          "label_en": "what is deserved or owed; membership payments",
           "pos": "noun",
           "sense_ids": [
             "sense:due:c091f353d7065601"
+          ]
+        },
+        {
+          "pos": "adverb",
+          "label_cn": "正；朝正方向",
+          "label_en": "exactly or directly in the named compass direction",
+          "sense_ids": [
+            "sense:due:0d61b2597f0419ab"
           ]
         }
       ],
@@ -67,13 +76,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "到期的；应付的",
-        "definition_en": "owed and payable immediately or on demand",
+        "definition_en": "owed and required to be paid at an agreed time",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:due:8308e7dcc5035590",
-        "sense_label_en": "owed and payable immediately or on demand",
+        "sense_label_en": "owed and required to be paid at an agreed time",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -90,15 +99,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "预定到达的",
-        "definition_en": "scheduled to arrive",
-        "governing_pattern": "",
+        "definition_cn": "预计或安排在某时发生、到达的",
+        "definition_en": "expected or scheduled to happen or arrive at a particular time",
+        "governing_pattern": "be due (at/on/in a time); be due to + base verb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:due:960b2f786f09578e",
-        "sense_label_en": "scheduled to arrive",
+        "sense_label_en": "expected or scheduled to happen or arrive at a particular time",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "应得的",
+        "definition_en": "deserved or owed to someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:due:5c06130dd0d65945",
+        "sense_label_en": "deserved or owed to someone",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -111,43 +134,47 @@
             ],
             "meaning_cn": "给某人应有的评价",
             "phrase": "give sb their due"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "应得的",
-        "definition_en": "that which is deserved or owed",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:due:5c06130dd0d65945",
-        "sense_label_en": "that which is deserved or owed",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:dc1efca635f571d5d867",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:due:c091f353d7065601:collocation:0"
             ],
-            "meaning_cn": "缴纳会费；经历磨难",
+            "meaning_cn": "缴纳会费；也指通过艰苦工作、积累经验赢得资格、成功或尊重",
             "phrase": "pay one's dues"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "应付款；会费",
-        "definition_en": "a payment that is due (e.g., as the price of membership)",
-        "governing_pattern": "",
+        "definition_cn": "应得之物或评价；应付款；（复数 dues）会费",
+        "definition_en": "something deserved or owed; in the plural, payments owed for membership",
+        "governing_pattern": "one's due; dues (plural, membership fees)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:due:c091f353d7065601",
-        "sense_label_en": "a payment that is due (e.g., as the price of membership)",
+        "sense_label_en": "something deserved or owed; in the plural, payments owed for membership",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:due:0d61b2597f0419ab",
+        "pos": "adverb",
+        "definition_cn": "正；朝正方向",
+        "definition_en": "exactly or directly in the named compass direction",
+        "sense_label_en": "exactly or directly in the named compass direction",
+        "governing_pattern": "due north/south/east/west",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:due:0d61b2597f0419ab",
+            "phrase": "The village lies due west of the station.",
+            "meaning_cn": "村子在车站的正西方。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "方向词前的副词；不指到期，也不是due to + 名词所表达的原因。"
       }
     ],
     "verification_summary": {
@@ -528,6 +555,29 @@
           "applicability": [
             {
               "surface": "due"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "due",
+              "pos": "adverb",
+              "owner_sense_ids": [
+                "sense:due:0d61b2597f0419ab"
+              ],
+              "sense_ids": [
+                "sense:due:0d61b2597f0419ab"
+              ],
+              "excluded_sense_ids": [
+                "sense:due:5c06130dd0d65945",
+                "sense:due:8308e7dcc5035590",
+                "sense:due:960b2f786f09578e",
+                "sense:due:c091f353d7065601"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "parent P2 bounded identity support; existing headword observation retained",
+              "source_url": "https://dictionary.cambridge.org/dictionary/english/due?topic=connecting-words-which-introduce-a-cause-or-reason",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -744,6 +794,22 @@
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               },
               "scope_relation": "Original source occurrence only; not transferred to an independent reading."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Cambridge University Press",
+              "url": "https://dictionary.cambridge.org/dictionary/english/due?topic=connecting-words-which-introduce-a-cause-or-reason",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "due",
+                "pos": "adverb"
+              },
+              "existing_observed_ipa_unchanged": "/djuː/",
+              "applies_to_sense_ids": [
+                "sense:due:0d61b2597f0419ab"
+              ],
+              "evidence_note": "Publisher same headword includes this meaning; original IPA, locales and all previous sources/scopes retained. No new variant or default."
             }
           ]
         }
@@ -781,13 +847,22 @@
         "merged_into_sense_id": null,
         "source_row": 4269,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:due:0d61b2597f0419ab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1526.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:45c54fefc2f693e7acbb",
       "collocation:816fc98e786807bf3301",
       "collocation:d987d15a792c24839ecf",
-      "collocation:dc1efca635f571d5d867"
+      "collocation:dc1efca635f571d5d867",
+      "collocation:due:0d61b2597f0419ab"
     ],
     "facts": [],
     "collocations": [
@@ -799,7 +874,8 @@
       {
         "id": "collocation:45c54fefc2f693e7acbb",
         "source_row": 5892,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "sense_id": "sense:due:c091f353d7065601"
       },
       {
         "id": "collocation:816fc98e786807bf3301",
@@ -815,6 +891,14 @@
         "id": "collocation:dc1efca635f571d5d867",
         "source_row": 18625,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:due:0d61b2597f0419ab",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1526.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

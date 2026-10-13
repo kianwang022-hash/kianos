@@ -6,13 +6,44 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:d50a2c57ed02f046c7fa",
+        "pattern": "fountain pen",
+        "meaning_cn": "钢笔（储墨后由笔尖出墨）",
+        "definition_en": "a pen whose stored ink flows to a nib",
+        "level": "L2",
+        "direction": "R",
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:82c1a4081d7d98330adc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:fountain:40123492df1f547e:collocation:1"
+            ],
+            "meaning_cn": "钢笔",
+            "phrase": "fountain pen"
+          }
+        ]
+      }
+    ],
     "content_hash": "7abb48b59cdfe95c7000384b8d2ca883777c36ec83c87096788b39d5e50b6d39",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "喷泉；喷出的水",
-      "core_meaning_en": "a structure or jet/flow of water",
-      "mental_model_cn": "structure/place → 喷泉；jet/flow → 喷出的水。比喻“源泉、根源”保留为 Reference。",
+      "core_clusters": [
+        {
+          "label_cn": "喷泉；喷出的水；喷流",
+          "label_en": "a structure from which an artificially produced jet of water arises; an artificially produced flow of water",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fountain:40123492df1f547e",
+            "sense:fountain:d6c91dc438fa5d50"
+          ]
+        }
+      ],
+      "core_meaning_cn": "喷泉装置或喷出的水；饮水台、钢笔的表达",
+      "core_meaning_en": "a fountain or its jet of water; a drinking fountain or fountain pen",
+      "mental_model_cn": "名词可指喷水装置或喷出的水；drinking fountain是饮水台，fountain pen整体为钢笔。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -31,17 +62,9 @@
             "legacy_source_object_ids": [
               "sense:fountain:40123492df1f547e:collocation:0"
             ],
-            "meaning_cn": "饮水喷泉",
-            "phrase": "drinking fountain"
-          },
-          {
-            "collocation_id": "collocation:82c1a4081d7d98330adc",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:fountain:40123492df1f547e:collocation:1"
-            ],
-            "meaning_cn": "钢笔",
-            "phrase": "fountain pen"
+            "meaning_cn": "饮水台；直饮水装置",
+            "phrase": "drinking fountain",
+            "usage_note": "供人直接饮用喷流的装置，区别装饰性喷泉。"
           }
         ],
         "confidence": "medium",
@@ -69,7 +92,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "泉水，喷出的水",
+        "definition_cn": "喷出的水；喷流",
         "definition_en": "an artificially produced flow of water",
         "governing_pattern": "",
         "level": "L2",
@@ -308,7 +331,6 @@
     ],
     "active_collocations": [
       "collocation:019a9428676f9f88364f",
-      "collocation:82c1a4081d7d98330adc",
       "collocation:e65d6305d4ada93a7aa2"
     ],
     "facts": [],
@@ -321,7 +343,9 @@
       {
         "id": "collocation:82c1a4081d7d98330adc",
         "source_row": 11079,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:d96cd1b31957e4edb73d",

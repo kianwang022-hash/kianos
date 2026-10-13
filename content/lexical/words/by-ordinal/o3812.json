@@ -11,13 +11,14 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "计算机程序；计划，方案；节目",
-          "label_en": "a set of instructions for a computer; a plan or system of activities; a show on television or radio",
+          "label_cn": "计算机指令；计划活动/节目/课程项目",
+          "label_en": "computer instructions or an organized activity, show, or course",
           "pos": "noun",
           "sense_ids": [
             "sense:program:91e632c798d95630",
             "sense:program:1d4e3fa16f675a10",
-            "sense:program:a0408b8b24e85b8a"
+            "sense:program:a0408b8b24e85b8a",
+            "sense:program:a09948ea390e1f4c"
           ]
         },
         {
@@ -30,9 +31,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "程序；计划",
-      "core_meaning_en": "a plan or set of instructions",
-      "mental_model_cn": "程序；计划",
+      "core_meaning_cn": "为活动或机器安排的一套内容/指令",
+      "core_meaning_en": "planned content, activities, study, or instructions; to arrange or code",
+      "mental_model_cn": "computer→程序；reform/training→方案；TV/radio→节目；degree/master’s→课程项目；作动词可指编程或安排。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -150,14 +151,20 @@
         "confidence": "medium",
         "definition_cn": "为……编程",
         "definition_en": "to give a computer instructions to do something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: program; program a computer; program sth to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:program:577ac3ec590b54c2",
         "sense_label_en": "to give a computer instructions to do something",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/program_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -182,6 +189,39 @@
         "sense_label_en": "to plan or arrange something",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:program:a09948ea390e1f4c",
+        "pos": "noun",
+        "definition_cn": "（学校的）课程；培养项目",
+        "definition_en": "a course of study at a school, college, or university",
+        "sense_label_en": "a course of study at a school, college, or university",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:program:8d2e818e8fc5bf05",
+            "phrase": "a master’s program",
+            "meaning_cn": "硕士培养项目",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/program_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "尤其美式；degree/master’s program表示学习项目。英式一般用programme，计算机用program。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/program_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -364,6 +404,12 @@
         "merged_into_sense_id": null,
         "source_row": 10612,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:program:a09948ea390e1f4c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3812.json"
       }
     ],
     "active_collocations": [
@@ -373,7 +419,8 @@
       "collocation:8ceffd341b35fd9db65d",
       "collocation:8e1ff5adc01b09140c7d",
       "collocation:8fa37fb3d24bece712f1",
-      "collocation:ffe15f59c8fa33c96b8a"
+      "collocation:ffe15f59c8fa33c96b8a",
+      "collocation:program:8d2e818e8fc5bf05"
     ],
     "facts": [],
     "collocations": [
@@ -411,6 +458,10 @@
         "id": "collocation:ffe15f59c8fa33c96b8a",
         "source_row": 21616,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:program:8d2e818e8fc5bf05",
+        "source_path": "content/lexical/words/by-ordinal/o3812.json"
       }
     ],
     "exam-mappings": [],
