@@ -35,14 +35,14 @@ assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 're
 assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-inbox');
 assert(bridge.includes('XIZONG_MEMORY_STORAGE_KEY') && bridge.includes('setRepairTasks'), 'bridge-does-not-merge-current-memory-repair');
 assert(bridge.includes("origin = blockChat ? 'BLOCK_CHAT_RETURN'"), 'bridge-import-origin-missing');
-assert(bridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'bridge-import-promoted-beyond-repair');
+assert(bridge.includes('...preserved, ...setRepairTasks(memory, replacements).repairTasks'), 'bridge-import-promoted-beyond-repair');
 assert(bridge.includes('sourceQuestionIds,'), 'bridge-import-loses-question-provenance');
 assert(bridge.includes('if (!kpId || !allowed.has(kpId)) return null;'), 'bridge-does-not-scope-plan-to-current-block');
 assert(bridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-inbox');
 assert(bridge.includes("window.dispatchEvent(new CustomEvent('kianos:xizong-repair-inbox-migrated'"), 'bridge-does-not-announce-migrated-state');
-assert(bridge.includes('const incomingIds = new Set(incoming.map((task) => task.id));'), 'bridge-import-not-idempotent-by-task-id');
+assert(bridge.includes('const incomingIds = new Set(replacements.map((task) => task.id));'), 'bridge-import-not-idempotent-by-task-id');
 
-const writeIndex = bridge.indexOf("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');");
+const writeIndex = bridge.indexOf("if (replacements.length && !writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');");
 const clearIndex = bridge.lastIndexOf('localStorage.removeItem(inboxKey)');
 assert(writeIndex >= 0 && clearIndex > writeIndex, 'bridge-clears-inbox-before-evidence-write');
 
@@ -53,6 +53,7 @@ assert(!systemGuard.includes('localStorage.removeItem('), 'system-artifact-guard
 assert(bridge.includes('readXizongMemoryStorage(localStorage)'), 'repair-import-must-preserve-corrupt-memory');
 assert(systemWuReturn.includes('assertCurrentWuBinding(row, currentWu.get(row.question_id) || null)'), 'repair-current-wu-binding-missing');
 await import('./test-xizong-source-revision-transitive.mjs');
+await import('./test-xizong-repair-inbox-preservation.mjs');
 
 console.log([
   'Xizong repair inbox contract PASS',
